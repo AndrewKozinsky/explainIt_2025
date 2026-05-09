@@ -66,7 +66,10 @@ export const ModelName = {
   SubtitleSentenceInit: 'SubtitleSentenceInit',
   UniversalPhrase: 'UniversalPhrase',
   UniversalTranscription: 'UniversalTranscription',
-  UniversalAudioPronunciation: 'UniversalAudioPronunciation'
+  UniversalAudioPronunciation: 'UniversalAudioPronunciation',
+  SentenceChatThread: 'SentenceChatThread',
+  SentenceChatMessage: 'SentenceChatMessage',
+  Flashcard: 'Flashcard'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -183,6 +186,10 @@ export const VideoPrivateScalarFieldEnum = {
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
+  subtitles_generation_status: 'subtitles_generation_status',
+  subtitles_generation_error: 'subtitles_generation_error',
+  subtitles_generation_started_at: 'subtitles_generation_started_at',
+  subtitles_generation_job_id: 'subtitles_generation_job_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -300,11 +307,57 @@ export const UniversalAudioPronunciationScalarFieldEnum = {
   id: 'id',
   universal_phrase_id: 'universal_phrase_id',
   s3_key: 's3_key',
-  duration_ms: 'duration_ms',
   created_at: 'created_at'
 } as const
 
 export type UniversalAudioPronunciationScalarFieldEnum = (typeof UniversalAudioPronunciationScalarFieldEnum)[keyof typeof UniversalAudioPronunciationScalarFieldEnum]
+
+
+export const SentenceChatThreadScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  sentence_id: 'sentence_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentenceChatThreadScalarFieldEnum = (typeof SentenceChatThreadScalarFieldEnum)[keyof typeof SentenceChatThreadScalarFieldEnum]
+
+
+export const SentenceChatMessageScalarFieldEnum = {
+  id: 'id',
+  thread_id: 'thread_id',
+  role: 'role',
+  content: 'content',
+  status: 'status',
+  error_message: 'error_message',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
+
+
+export const FlashcardScalarFieldEnum = {
+  id: 'id',
+  user_id: 'user_id',
+  language_code: 'language_code',
+  sentence_text: 'sentence_text',
+  sentence_translation: 'sentence_translation',
+  phrase: 'phrase',
+  phrase_start_offset: 'phrase_start_offset',
+  phrase_end_offset: 'phrase_end_offset',
+  phrase_translation: 'phrase_translation',
+  examples: 'examples',
+  book_private_id: 'book_private_id',
+  book_public_id: 'book_public_id',
+  video_private_id: 'video_private_id',
+  video_public_id: 'video_public_id',
+  sentence_phrase_translation_id: 'sentence_phrase_translation_id',
+  created_at: 'created_at'
+} as const
+
+export type FlashcardScalarFieldEnum = (typeof FlashcardScalarFieldEnum)[keyof typeof FlashcardScalarFieldEnum]
 
 
 export const SortOrder = {

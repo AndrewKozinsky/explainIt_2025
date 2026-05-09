@@ -1,125 +1,119 @@
 export const chapter_25 = {
 	name: 'Chapter XXV',
 	header: 'Wherein this history reverts to Mr. Fagin and company',
-	text: `While all this was happening in the country workhouse, Mr. Fagin sat in his old den—the same place from which Oliver had once been taken away by the girl. He was sitting by a dull, smoky fire, holding a pair of bellows on his knee, as if he had been trying to make the fire burn brighter. But he had fallen into deep thought. With his arms resting on the bellows and his chin on his thumbs, he stared absently at the rusty bars of the grate.
+	text: `While events unfolded in the country workhouse, Mr. Fagin sat in his old den—the same one from which the girl had taken Oliver—staring into a dull, smoky fire. He held a pair of bellows on his knee, which he had been using to liven up the fire, but he had fallen deep into thought. With his arms folded and his chin on his thumbs, he stared blankly at the rusty bars of the fireplace.
 
-At a table behind him sat the Artful Dodger, Charley Bates, and Tom Chitling. They were playing cards, completely focused on the game. The Dodger was playing especially carefully, watching both the cards and Mr. Chitling’s hand with great attention. From time to time, he glanced at his partner’s cards and adjusted his own play accordingly.
+At a table behind him, the Artful Dodger, Master Charles Bates, and Mr. Chitling were all focused on a game of whist. The Dodger was playing against Master Bates and Mr. Chitling. The Dodger, always looking intelligent, seemed even more so as he watched the game closely and studied Mr. Chitling’s hand. From time to time, he would glance at his neighbor's cards, wisely adjusting his own play based on what he saw. It was a cold night, so the Dodger wore his hat indoors, as he often did. He also had a clay pipe between his teeth, which he only removed to take a sip from a large pot of gin and water on the table, ready for everyone to share.
 
-Because it was a cold night, the Dodger wore his hat indoors, as he often did. He also had a pipe between his teeth, which he only removed when he paused to drink from a large mug of gin and water on the table.
+Master Bates was also paying attention to the game, but being more excitable than his skilled friend, he drank more gin and water and made many jokes and unrelated comments, which were not suitable for a serious game. In fact, the Dodger, feeling their close friendship allowed it, sometimes seriously scolded his companion for this improper behavior. Master Bates took these criticisms well, simply telling his friend to get lost or making some other clever remark that Mr. Chitling found very amusing. It was strange that Mr. Chitling and his partner always lost, and instead of getting angry, Master Bates found it very funny. He would laugh loudly at the end of every round and declare it was the most enjoyable game he had ever played.
 
-Charley Bates was also paying attention to the game, but he was more lively and excitable. He drank more often and kept making jokes and silly comments, which were not very appropriate for a serious game. The Dodger, feeling free to criticize his close friend, more than once spoke seriously to him about his behavior. Charley took all this very lightly, replying with jokes, telling his friend to mind his own business, or making clever remarks that amused Mr. Chitling greatly.
+"That's another loss," said Mr. Chitling with a long face, taking half a crown from his pocket. "I've never seen anyone like you, Jack; you win everything. Even when Charley and I have good cards, we can't do anything with them."
 
-It was noticeable that Mr. Chitling and his partner always lost. But instead of getting angry, Charley seemed to enjoy it even more. At the end of every round, he burst out laughing and declared that he had never seen such a funny game in his life.
+This sad remark made Charley Bates laugh so loudly that it woke the Jew from his thoughts, who then asked what was going on.
 
-“That’s another loss,” said Mr. Chitling sadly, taking some money from his pocket. “I’ve never seen anyone like you, Jack—you win everything. Even when Charley and I have good cards, we can’t do anything with them.”
+"What's going on, Fagin!" cried Charley. "I wish you had seen the game. Tommy Chitling didn't score a single point, and I was his partner against the Artful."
 
-Whether it was what he said or the way he said it, Charley found it so funny that he burst into loud laughter. The noise woke Fagin from his thoughts, and he turned to ask what was going on.
+"Ah, yes," said the Jew with a grin that showed he understood why. "Try again, Tom; try again."
 
-“What’s going on, Fagin?” cried Charley. “You should have watched the game! Poor Tommy hasn’t won a single point—and I was his partner against the Dodger!”
+"No more for me, thank you, Fagin," replied Mr. Chitling. "I've had enough. That Dodger is so lucky, there's no beating him."
 
-“Yes, yes,” said Fagin with a grin, clearly understanding why. “Try again, Tom—try again.”
+"Ha! ha! my dear," replied the Jew, "you have to be very clever to win against the Dodger."
 
-“No more for me, thank you,” said Mr. Chitling. “That Dodger has such luck there’s no beating him.”
+"Clever!" said Charley Bates. "You'd need to be more than clever; you'd need spyglasses and more to outsmart him."
 
-“Ha! ha! my dear,” said Fagin, “you’d have to get up very early in the morning to beat the Dodger.”
+Mr. Dawkins accepted these compliments calmly and offered to bet a shilling on the next card. No one took the offer, and since his pipe was finished, he started drawing a map of Newgate prison on the table with a piece of chalk, whistling sharply as he did.
 
-“Morning!” said Charley. “You’d need to be ready the night before—and have eyes everywhere—if you want to outsmart him!”
+"You're very quiet, Tommy!" said the Dodger after a long silence, speaking to Mr. Chitling. "What do you think he's thinking about, Fagin?"
 
-Mr. Dawkins (the Dodger) accepted these compliments calmly and offered to play anyone for money. But no one accepted. His pipe now finished, he began to entertain himself by drawing a rough map of Newgate prison on the table with a piece of chalk, while whistling loudly.
+"How should I know, my dear?" replied the Jew, looking around as he worked the bellows. "Maybe about his losses, or the little trip to the countryside he just came back from, eh? Ha! ha! Is that it, my dear?"
 
-“How quiet you are, Tommy!” said the Dodger after a long silence. “What do you think he’s thinking about, Fagin?”
+"Not at all," said the Dodger, cutting off Mr. Chitling before he could answer. "What do you think, Charley?"
 
-“How should I know, my dear?” said Fagin, still working the bellows. “Maybe about his losses—or about the quiet country life he just left, eh?”
+"I'd say," replied Master Bates with a grin, "that he's fallen for Betsy. Look how he's blushing! Oh, my! What a surprise! Tommy Chitling's in love! Oh, Fagin, Fagin! What fun!"
 
-“Not at all,” said the Dodger quickly, stopping Mr. Chitling from answering. “What do you say, Charley?”
+Overwhelmed by the idea of Mr. Chitling being in love, Master Bates leaned back in his chair so hard that he fell over onto the floor. Still laughing, he lay there until he was done, then got back up and started laughing again.
 
-“I’d say,” said Charley with a grin, “that he’s in love with Betsy! Look at him blushing! Oh, this is rich! Tommy Chitling in love!”
+"Never mind him, my dear," said the Jew, winking at Mr. Dawkins and tapping Master Bates with the bellows. "Betsy's a fine girl. Go for her, Tom. Go for her."
 
-This idea amused Charley so much that he threw himself back in his chair laughing so hard that he fell onto the floor. Even lying there, he continued laughing until he finally got up—only to start laughing again.
+"What I mean to say, Fagin," replied Mr. Chitling, his face very red, "is that this is no one's business here."
 
-“Never mind him, my dear,” said Fagin, winking at the Dodger and lightly tapping Charley with the bellows. “Betsy’s a fine girl. Stick with her, Tom—stick with her.”
+"You're right," replied the Jew. "Charley just likes to talk. Don't mind him, my dear. Betsy's a fine girl. Do what she says, Tom, and you'll be successful."
 
-“What I mean, Fagin,” said Mr. Chitling, his face turning very red, “is that it’s nobody’s business here.”
+"I do what she tells me," replied Mr. Chitling. "I wouldn't have been in trouble if it weren't for her advice. But it worked out well for you, didn't it, Fagin! And what's six weeks of trouble? It has to happen sometime, so why not in the winter when you don't want to go for walks anyway, right, Fagin?"
 
-“That’s true,” replied the Jew. “Charley just talks too much. Don’t pay attention to him, my dear. Don’t listen to him. Betsy is a fine girl. Do as she tells you, Tom, and you’ll make your fortune.”
+"Ah, of course, my dear," replied the Jew.
 
-“And I do what she tells me,” said Mr. Chitling. “I wouldn’t have got into trouble if it hadn’t been for her advice. But it worked out well for you, didn’t it, Fagin? And what are six weeks? It had to happen sooner or later. Why not in winter, when you don’t feel like going out much anyway, eh, Fagin?”
+"You wouldn't mind doing it again, Tom, would you," asked the Dodger, winking at Charley and the Jew, "if Bet was safe?"
 
-“Ah, of course, my dear,” replied the Jew.
+"I mean to say that I wouldn't," replied Tom, angrily. "There, now. Ah! Who else would say that, I'd like to know, eh, Fagin?"
 
-“You wouldn’t mind doing it again, Tom, would you,” asked the Dodger, winking at Charley and the Jew, “if Bet was safe?”
+"Nobody, my dear," replied the Jew. "Not a single person, Tom. I don't know anyone else who would do that for you, not one, my dear."
 
-“I mean that I wouldn’t,” replied Tom angrily. “There! Now then—who else would say that, I’d like to know? Eh, Fagin?”
+"I could have gotten away if I had told on her, couldn't I, Fagin?" the poor, foolish man continued angrily. "Just one word from me would have done it, wouldn't it, Fagin?"
 
-“No one, my dear,” replied the Jew. “Not a single one, Tom. I don’t know anyone else who would do it—no one at all, my dear.”
+"Of course it would have, my dear," replied the Jew.
 
-“I could have gotten away, if I had told on her; couldn’t I, Fagin?” Tom went on angrily. “Just one word from me would have done it, right, Fagin?”
+"But I didn't say anything, did I, Fagin?" demanded Tom, asking questions one after another very quickly.
 
-“Yes, of course it would, my dear,” replied the Jew.
+"No, no, of course not," replied the Jew. "You were too brave for that. Much too brave, my dear!"
 
-“But I didn’t say anything, did I, Fagin?” demanded Tom, asking questions one after another very quickly.
+"Maybe I was," said Tom, looking around. "And if I was, what's so funny about that, eh, Fagin?"
 
-“No, no, of course not,” replied the Jew. “You were too brave for that. Much too brave, my dear!”
+The Jew, seeing that Mr. Chitling was very upset, quickly assured him that nobody was laughing. To prove how serious everyone was, he turned to Master Bates, who had started it all. But unfortunately, when Charley opened his mouth to say he had never been more serious, a loud laugh escaped. The offended Mr. Chitling, without warning, rushed across the room and threw a punch at him. The boy, good at dodging, ducked, and the punch landed on the old man's chest, making him stumble back against the wall, where he stood gasping for breath while Mr. Chitling watched in shock.
 
-“Maybe I was,” said Tom, looking around. “And if I was, what’s so funny about that, eh, Fagin?”
+"Listen!" cried the Dodger at that moment. "I heard the bell." He picked up the light and crept softly upstairs.
 
-The Jew saw that Mr. Chitling was getting angry, and quickly assured him that nobody was laughing. To prove it, he turned to Charley Bates, who had been the main cause of the trouble. But unfortunately, when Charley opened his mouth to say he had never been more serious in his life, he burst out laughing so loudly that Mr. Chitling, without any warning, rushed across the room and tried to hit him. Charley, who was quick and used to avoiding blows, ducked just in time. The hit landed instead on the chest of the old gentleman, who staggered back against the wall, gasping for breath, while Mr. Chitling stood there in shock.
+The bell was rung again, more impatiently, while the group was in darkness. After a short pause, the Dodger returned and whispered something mysterious to Fagin.
 
-“Listen!” cried the Dodger suddenly. “I heard the bell.” Grabbing the candle, he quietly crept upstairs.
+"What!" cried the Jew, "alone?"
 
-The bell rang again, more impatiently this time, while the others waited in the dark. After a short pause, the Dodger came back and whispered something mysteriously to Fagin.
+The Dodger nodded yes and, covering the candle flame with his hand, silently warned Charley Bates not to be funny right then. After doing this, he looked at the Jew's face and waited for instructions.
 
-“What!” cried the Jew. “Alone?”
+The old man bit his yellow fingers and thought for a few seconds, his face full of worry, as if he was afraid of what was to come. Finally, he looked up.
 
-The Dodger nodded. Covering the candle flame with his hand, he gave Charley Bates a silent sign that he should behave himself and not joke around. Then he looked at the Jew and waited for instructions.
+"Where is he?" he asked.
 
-The old man bit his yellow fingers and thought for a few seconds. His face showed his worry, as if he was afraid of what he might find out. At last, he поднял голову.
+The Dodger pointed upstairs and motioned as if to leave the room.
 
-“Where is he?” he asked.
+"Yes," said the Jew, answering the silent question. "Bring him down. Hush! Quiet, Charley! Gently, Tom! Not a sound!"
 
-The Dodger pointed upstairs and made a sign as if he should leave the room.
+This short order to Charley Bates and his opponent was followed quietly and immediately. There was no sound of them as the Dodger came down the stairs with the light, followed by a man in a rough shirt. The man quickly looked around the room, pulled off a large scarf that covered the lower part of his face, and revealed the exhausted, unwashed, and unshaven face of the famous Toby Crackit.
 
-“Yes,” said the Jew, answering the silent question. “Bring him down. Quiet! Easy, Charley! Careful, Tom!”
+"How are you, Faguey?" said the man, nodding to the Jew. "Put that shawl in my hat, Dodger, so I know where to find it when I leave. That's how it's done! You'll be a great thief before you know it."
 
-Charley Bates and Tom obeyed at once, moving softly. There was no sound from them when the Dodger came back down the stairs with a candle in his hand. Behind him came a man in a rough smock. He quickly looked around the room, then pulled away the cloth that had covered the lower part of his face, showing his tired, dirty, unshaven features—it was Toby Crackit.
+With these words, he pulled up his shirt, wrapped it around his waist, pulled a chair to the fire, and put his feet up.
 
-“How are you, Fagin?” said Toby, nodding to the Jew. “Put that shawl in my hat, Dodger, so I know where to find it later. That’s right! You’re growing into a fine young thief now.”
+"Look there, Faguey," he said, pointing sadly to his boots. "Not a bit of polish since you know when. Not a drop of shoe-black, I swear! But don't look at me like that, man. It will all be fine. I can't talk about business until I've eaten and had a drink, so bring out the food and let me have a proper meal for the first time in three days!"
 
-As he spoke, he took off his smock, wrapped it around his waist, pulled a chair close to the fire, and put his feet up.
+The Jew signaled to the Dodger to put whatever food they had on the table. He then sat down across from the thief and waited.
 
-“Look at this, Fagin,” he said sadly, pointing at his boots. “Not a bit of polish on them for days—not a shine left! But don’t look at me like that. There’ll be time for everything. I can’t talk business until I’ve had something to eat and drink. So bring the food, and let me have a proper meal—for the first time in three days!”
+It seemed Toby was in no rush to start talking. At first, the Jew just watched his face patiently, hoping to get a hint of the news he brought, but it was no use.
 
-The Jew signaled to the Dodger to put what food they had on the table. Then he sat opposite Toby and waited.
+He looked tired and worn out, but his face had the same calm expression it always had. Through the dirt, beard, and whiskers, the self-satisfied smile of the famous Toby Crackit was still visible. Then, the Jew, extremely impatient, watched every bite he took, pacing back and forth in the room with uncontrollable excitement. It was useless. Toby continued to eat with complete indifference until he couldn't eat anymore. Then, he ordered the Dodger out, closed the door, mixed a glass of gin and water, and got ready to talk.
 
-But Toby was in no hurry to talk. At first, the Jew watched his face carefully, trying to guess what news he had brought—but it was useless.
+"First of all, Faguey," said Toby.
 
-Toby looked tired and worn, but his face still had the same calm, satisfied expression as always. Even through the dirt and beard, you could still see his usual self-satisfied smile. Meanwhile, the Jew, full of impatience, watched every bite Toby took, walking up and down the room in excitement.
+"Yes, yes!" interrupted the Jew, pulling his chair closer.
 
-It was no use. Toby kept eating slowly and calmly until he was full. Then he told the Dodger to leave the room, closed the door, mixed himself a drink, and finally got ready to talk.
+Mr. Crackit paused to take a drink of gin and water and to say that the gin was excellent. Then, putting his feet up on the low mantelpiece so his boots were at eye level, he calmly continued.
 
-“First of all, Fagin,” said Toby.
+"First of all, Faguey," said the thief, "how's Bill?"
 
-“Yes, yes!” said the Jew quickly, pulling his chair closer.
+"What!" screamed the Jew, jumping up from his seat.
 
-Toby stopped to take a drink and say how good the gin was. Then he leaned back, lifting his boots up to eye level, and went on calmly.
+"Why, you don't mean to say—" began Toby, turning pale.
 
-“First of all, Fagin,” he said, “how’s Bill?”
+"Mean!" cried the Jew, stamping his foot furiously on the ground. "Where are they? Sikes and the boy! Where are they? Where have they been? Where are they hiding? Why haven't they come here?"
 
-“What!” cried the Jew, jumping up.
+"The job failed," said Toby weakly.
 
-“You don’t mean—” Toby began, turning pale.
+"I know," replied the Jew, pulling a newspaper from his pocket and pointing to it. "What else?"
 
-“Mean!” shouted the Jew, stamping his foot angrily. “Where are they? Sikes and the boy! Where are they? Where have they been? Where are they hiding? Why haven’t they come here?”
+"They shot and hit the boy. We ran across the fields behind the house, carrying him between us—straight as a bird flies—through bushes and ditches. They chased us. Damn it! The whole countryside was awake, and the dogs were after us."
 
-“The job failed,” said Toby weakly.
+"The boy!"
 
-“I know that,” replied the Jew, pulling a newspaper from his pocket and pointing at it. “What else?”
+"Bill carried him on his back and ran like the wind. We stopped to carry him between us; his head was hanging down, and he was cold. They were right behind us; it was every man for himself to escape the gallows! We split up and left the boy in a ditch. Alive or dead, that's all I know about him."
 
-“They fired a shot and hit the boy. We ran across the fields behind the house, carrying him between us—straight across, over hedges and ditches. They chased us. Damn it, the whole countryside was awake, and dogs were after us.”
-
-“The boy!”
-
-“Bill carried him on his back and ran like the wind. Then we stopped and tried to carry him together—but his head was hanging down, and he was cold. They were right behind us. Everyone for himself—we had to save our own lives. We split up and left the boy lying in a ditch. Whether he was alive or dead—I don’t know.”
-
-The Jew did not wait to hear more. With a loud cry, clutching his hair, he rushed out of the room and out of the house.`,
+The Jew didn't wait to hear any more. He let out a loud yell, grabbed his hair, and rushed out of the room and out of the house.`,
 }

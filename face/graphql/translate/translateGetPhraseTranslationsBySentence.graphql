@@ -14,5 +14,6 @@ query Translate_get_phrase_translations_by_sentence($input: GetPhraseTranslation
 		errorMessage
 		createdAt
 		updatedAt
+		flashcardId
 	}
 }

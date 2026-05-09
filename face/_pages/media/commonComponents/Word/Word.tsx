@@ -9,15 +9,15 @@ type WordProps = {
 	wordId: number
 	text: string
 	selectedSentenceId: null | number
-	selectedWordIds: number[]
+	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 
 function Word(props: WordProps) {
-	const { sentenceId, wordId, text, selectedSentenceId, selectedWordIds, selectWord } = props
+	const { sentenceId, wordId, text, selectedSentenceId, selectedWordId, selectWord } = props
 	const deviceType = useSystemStore((state) => state.deviceType)
 
-	const wordType = getWordPrimaryType({ selectedSentenceId, selectedWordIds, sentenceId, wordId })
+	const wordType = getWordPrimaryType({ selectedSentenceId, selectedWordId, sentenceId, wordId })
 
 	const { onClick, onTouchStart, onTouchMove, onTouchEnd, onTouchCancel } = useWordSelectHandlers({
 		deviceType,

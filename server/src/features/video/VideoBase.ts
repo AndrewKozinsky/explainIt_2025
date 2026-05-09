@@ -1,6 +1,7 @@
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
+import { Language } from 'utils/languages'
 import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -239,6 +240,7 @@ export class VideoBase {
 		videoType: 'private' | 'public'
 		videoId: number
 		preparedContent: string
+		languageCode: Language
 		subtitles: Array<{
 			startTimeMs: number
 			endTimeMs: number
@@ -255,6 +257,7 @@ export class VideoBase {
 		const sentences = await divideTextIntoSentences({
 			mainConfigService: this.mainConfig,
 			text: dto.preparedContent,
+			languageCode: dto.languageCode,
 		})
 
 		const sentenceRanges: SentenceRange[] = []

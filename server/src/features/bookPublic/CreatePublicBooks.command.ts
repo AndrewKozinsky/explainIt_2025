@@ -4,6 +4,10 @@ import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
+	theCountOfMonteCristoBookData,
+	theCountOfMonteCristoChapters,
+} from 'features/bookPublic/french/theCountOfMonteCristo/theCountOfMonteCristoBook'
+import {
 	theLittlePrinceBookData,
 	theLittlePrinceChapters,
 } from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
@@ -93,6 +97,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: theLittlePrinceBookData(coversFolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
+			},
+			{
+				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
+				chapters: theCountOfMonteCristoChapters,
 			},
 		]
 	}

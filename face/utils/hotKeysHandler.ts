@@ -5,8 +5,17 @@ type KeydownHandler = {
 	handler: (e: KeyboardEvent) => void
 }
 
+function isEditableTarget(target: EventTarget | null) {
+	if (!(target instanceof HTMLElement)) return false
+
+	const tag = target.tagName
+	return tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || target.isContentEditable
+}
+
 function getKeyDown(keydownHandler: KeydownHandler) {
 	return function (e: KeyboardEvent) {
+		if (isEditableTarget(e.target)) return
+
 		if (e.key === keydownHandler.key) {
 			keydownHandler.handler(e)
 		}

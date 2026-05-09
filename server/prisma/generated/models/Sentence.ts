@@ -262,6 +262,7 @@ export type SentenceWhereInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
   SentenceTranslation?: Prisma.SentenceTranslationListRelationFilter
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationListRelationFilter
+  SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
 }
 
 export type SentenceOrderByWithRelationInput = {
@@ -278,6 +279,7 @@ export type SentenceOrderByWithRelationInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitOrderByRelationAggregateInput
   SentenceTranslation?: Prisma.SentenceTranslationOrderByRelationAggregateInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationOrderByRelationAggregateInput
+  SentenceChatThread?: Prisma.SentenceChatThreadOrderByRelationAggregateInput
 }
 
 export type SentenceWhereUniqueInput = Prisma.AtLeast<{
@@ -297,6 +299,7 @@ export type SentenceWhereUniqueInput = Prisma.AtLeast<{
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
   SentenceTranslation?: Prisma.SentenceTranslationListRelationFilter
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationListRelationFilter
+  SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
 }, "id">
 
 export type SentenceOrderByWithAggregationInput = {
@@ -337,6 +340,7 @@ export type SentenceCreateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateInput = {
@@ -350,6 +354,7 @@ export type SentenceUncheckedCreateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUpdateInput = {
@@ -362,6 +367,7 @@ export type SentenceUpdateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateInput = {
@@ -375,6 +381,7 @@ export type SentenceUncheckedUpdateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceCreateManyInput = {
@@ -636,6 +643,20 @@ export type SentenceUpdateOneRequiredWithoutSubtitleSentenceInitNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SentenceUpdateToOneWithWhereWithoutSubtitleSentenceInitInput, Prisma.SentenceUpdateWithoutSubtitleSentenceInitInput>, Prisma.SentenceUncheckedUpdateWithoutSubtitleSentenceInitInput>
 }
 
+export type SentenceCreateNestedOneWithoutSentenceChatThreadInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutSentenceChatThreadInput, Prisma.SentenceUncheckedCreateWithoutSentenceChatThreadInput>
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutSentenceChatThreadInput
+  connect?: Prisma.SentenceWhereUniqueInput
+}
+
+export type SentenceUpdateOneRequiredWithoutSentenceChatThreadNestedInput = {
+  create?: Prisma.XOR<Prisma.SentenceCreateWithoutSentenceChatThreadInput, Prisma.SentenceUncheckedCreateWithoutSentenceChatThreadInput>
+  connectOrCreate?: Prisma.SentenceCreateOrConnectWithoutSentenceChatThreadInput
+  upsert?: Prisma.SentenceUpsertWithoutSentenceChatThreadInput
+  connect?: Prisma.SentenceWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.SentenceUpdateToOneWithWhereWithoutSentenceChatThreadInput, Prisma.SentenceUpdateWithoutSentenceChatThreadInput>, Prisma.SentenceUncheckedUpdateWithoutSentenceChatThreadInput>
+}
+
 export type SentenceCreateWithoutBookChapterInput = {
   start_offset: number
   length: number
@@ -645,6 +666,7 @@ export type SentenceCreateWithoutBookChapterInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateWithoutBookChapterInput = {
@@ -657,6 +679,7 @@ export type SentenceUncheckedCreateWithoutBookChapterInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceCreateOrConnectWithoutBookChapterInput = {
@@ -707,6 +730,7 @@ export type SentenceCreateWithoutVideoPrivateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateWithoutVideoPrivateInput = {
@@ -719,6 +743,7 @@ export type SentenceUncheckedCreateWithoutVideoPrivateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceCreateOrConnectWithoutVideoPrivateInput = {
@@ -756,6 +781,7 @@ export type SentenceCreateWithoutVideoPublicInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateWithoutVideoPublicInput = {
@@ -768,6 +794,7 @@ export type SentenceUncheckedCreateWithoutVideoPublicInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceCreateOrConnectWithoutVideoPublicInput = {
@@ -805,6 +832,7 @@ export type SentenceCreateWithoutSentenceTranslationInput = {
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateWithoutSentenceTranslationInput = {
@@ -817,6 +845,7 @@ export type SentenceUncheckedCreateWithoutSentenceTranslationInput = {
   order_index: number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceCreateOrConnectWithoutSentenceTranslationInput = {
@@ -844,6 +873,7 @@ export type SentenceUpdateWithoutSentenceTranslationInput = {
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateWithoutSentenceTranslationInput = {
@@ -856,6 +886,7 @@ export type SentenceUncheckedUpdateWithoutSentenceTranslationInput = {
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceCreateWithoutSentencePhraseTranslationInput = {
@@ -867,6 +898,7 @@ export type SentenceCreateWithoutSentencePhraseTranslationInput = {
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateWithoutSentencePhraseTranslationInput = {
@@ -879,6 +911,7 @@ export type SentenceUncheckedCreateWithoutSentencePhraseTranslationInput = {
   order_index: number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceCreateOrConnectWithoutSentencePhraseTranslationInput = {
@@ -906,6 +939,7 @@ export type SentenceUpdateWithoutSentencePhraseTranslationInput = {
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateWithoutSentencePhraseTranslationInput = {
@@ -918,6 +952,7 @@ export type SentenceUncheckedUpdateWithoutSentencePhraseTranslationInput = {
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceCreateWithoutSubtitleSentenceInitInput = {
@@ -929,6 +964,7 @@ export type SentenceCreateWithoutSubtitleSentenceInitInput = {
   videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
   SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceUncheckedCreateWithoutSubtitleSentenceInitInput = {
@@ -941,6 +977,7 @@ export type SentenceUncheckedCreateWithoutSubtitleSentenceInitInput = {
   order_index: number
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutSentenceInput
 }
 
 export type SentenceCreateOrConnectWithoutSubtitleSentenceInitInput = {
@@ -968,6 +1005,7 @@ export type SentenceUpdateWithoutSubtitleSentenceInitInput = {
   videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateWithoutSubtitleSentenceInitInput = {
@@ -978,6 +1016,73 @@ export type SentenceUncheckedUpdateWithoutSubtitleSentenceInitInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
+  SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
+}
+
+export type SentenceCreateWithoutSentenceChatThreadInput = {
+  start_offset: number
+  length: number
+  order_index: number
+  bookChapter?: Prisma.BookChapterCreateNestedOneWithoutSentenceInput
+  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSentenceInput
+  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSentenceInput
+  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSentenceInput
+  SentenceTranslation?: Prisma.SentenceTranslationCreateNestedManyWithoutSentenceInput
+  SentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedManyWithoutSentenceInput
+}
+
+export type SentenceUncheckedCreateWithoutSentenceChatThreadInput = {
+  id?: number
+  book_chapter_id?: number | null
+  video_private_id?: number | null
+  video_public_id?: number | null
+  start_offset: number
+  length: number
+  order_index: number
+  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSentenceInput
+  SentenceTranslation?: Prisma.SentenceTranslationUncheckedCreateNestedManyWithoutSentenceInput
+  SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedCreateNestedManyWithoutSentenceInput
+}
+
+export type SentenceCreateOrConnectWithoutSentenceChatThreadInput = {
+  where: Prisma.SentenceWhereUniqueInput
+  create: Prisma.XOR<Prisma.SentenceCreateWithoutSentenceChatThreadInput, Prisma.SentenceUncheckedCreateWithoutSentenceChatThreadInput>
+}
+
+export type SentenceUpsertWithoutSentenceChatThreadInput = {
+  update: Prisma.XOR<Prisma.SentenceUpdateWithoutSentenceChatThreadInput, Prisma.SentenceUncheckedUpdateWithoutSentenceChatThreadInput>
+  create: Prisma.XOR<Prisma.SentenceCreateWithoutSentenceChatThreadInput, Prisma.SentenceUncheckedCreateWithoutSentenceChatThreadInput>
+  where?: Prisma.SentenceWhereInput
+}
+
+export type SentenceUpdateToOneWithWhereWithoutSentenceChatThreadInput = {
+  where?: Prisma.SentenceWhereInput
+  data: Prisma.XOR<Prisma.SentenceUpdateWithoutSentenceChatThreadInput, Prisma.SentenceUncheckedUpdateWithoutSentenceChatThreadInput>
+}
+
+export type SentenceUpdateWithoutSentenceChatThreadInput = {
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
+  order_index?: Prisma.IntFieldUpdateOperationsInput | number
+  bookChapter?: Prisma.BookChapterUpdateOneWithoutSentenceNestedInput
+  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSentenceNestedInput
+  videoPublic?: Prisma.VideoPublicUpdateOneWithoutSentenceNestedInput
+  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
+  SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
+  SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+}
+
+export type SentenceUncheckedUpdateWithoutSentenceChatThreadInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  book_chapter_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
+  length?: Prisma.IntFieldUpdateOperationsInput | number
+  order_index?: Prisma.IntFieldUpdateOperationsInput | number
+  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
 }
@@ -1000,6 +1105,7 @@ export type SentenceUpdateWithoutBookChapterInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateWithoutBookChapterInput = {
@@ -1012,6 +1118,7 @@ export type SentenceUncheckedUpdateWithoutBookChapterInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateManyWithoutBookChapterInput = {
@@ -1041,6 +1148,7 @@ export type SentenceUpdateWithoutVideoPrivateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateWithoutVideoPrivateInput = {
@@ -1053,6 +1161,7 @@ export type SentenceUncheckedUpdateWithoutVideoPrivateInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateManyWithoutVideoPrivateInput = {
@@ -1082,6 +1191,7 @@ export type SentenceUpdateWithoutVideoPublicInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateWithoutVideoPublicInput = {
@@ -1094,6 +1204,7 @@ export type SentenceUncheckedUpdateWithoutVideoPublicInput = {
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSentenceNestedInput
   SentenceTranslation?: Prisma.SentenceTranslationUncheckedUpdateManyWithoutSentenceNestedInput
   SentencePhraseTranslation?: Prisma.SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutSentenceNestedInput
 }
 
 export type SentenceUncheckedUpdateManyWithoutVideoPublicInput = {
@@ -1114,12 +1225,14 @@ export type SentenceCountOutputType = {
   SubtitleSentenceInit: number
   SentenceTranslation: number
   SentencePhraseTranslation: number
+  SentenceChatThread: number
 }
 
 export type SentenceCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   SubtitleSentenceInit?: boolean | SentenceCountOutputTypeCountSubtitleSentenceInitArgs
   SentenceTranslation?: boolean | SentenceCountOutputTypeCountSentenceTranslationArgs
   SentencePhraseTranslation?: boolean | SentenceCountOutputTypeCountSentencePhraseTranslationArgs
+  SentenceChatThread?: boolean | SentenceCountOutputTypeCountSentenceChatThreadArgs
 }
 
 /**
@@ -1153,6 +1266,13 @@ export type SentenceCountOutputTypeCountSentencePhraseTranslationArgs<ExtArgs ex
   where?: Prisma.SentencePhraseTranslationWhereInput
 }
 
+/**
+ * SentenceCountOutputType without action
+ */
+export type SentenceCountOutputTypeCountSentenceChatThreadArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.SentenceChatThreadWhereInput
+}
+
 
 export type SentenceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1168,6 +1288,7 @@ export type SentenceSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   SubtitleSentenceInit?: boolean | Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs>
   SentenceTranslation?: boolean | Prisma.Sentence$SentenceTranslationArgs<ExtArgs>
   SentencePhraseTranslation?: boolean | Prisma.Sentence$SentencePhraseTranslationArgs<ExtArgs>
+  SentenceChatThread?: boolean | Prisma.Sentence$SentenceChatThreadArgs<ExtArgs>
   _count?: boolean | Prisma.SentenceCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["sentence"]>
 
@@ -1215,6 +1336,7 @@ export type SentenceInclude<ExtArgs extends runtime.Types.Extensions.InternalArg
   SubtitleSentenceInit?: boolean | Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs>
   SentenceTranslation?: boolean | Prisma.Sentence$SentenceTranslationArgs<ExtArgs>
   SentencePhraseTranslation?: boolean | Prisma.Sentence$SentencePhraseTranslationArgs<ExtArgs>
+  SentenceChatThread?: boolean | Prisma.Sentence$SentenceChatThreadArgs<ExtArgs>
   _count?: boolean | Prisma.SentenceCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SentenceIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1237,6 +1359,7 @@ export type $SentencePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     SubtitleSentenceInit: Prisma.$SubtitleSentenceInitPayload<ExtArgs>[]
     SentenceTranslation: Prisma.$SentenceTranslationPayload<ExtArgs>[]
     SentencePhraseTranslation: Prisma.$SentencePhraseTranslationPayload<ExtArgs>[]
+    SentenceChatThread: Prisma.$SentenceChatThreadPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1646,6 +1769,7 @@ export interface Prisma__SentenceClient<T, Null = never, ExtArgs extends runtime
   SubtitleSentenceInit<T extends Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$SubtitleSentenceInitArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitleSentenceInitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SentenceTranslation<T extends Prisma.Sentence$SentenceTranslationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$SentenceTranslationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentenceTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SentencePhraseTranslation<T extends Prisma.Sentence$SentencePhraseTranslationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$SentencePhraseTranslationArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentencePhraseTranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  SentenceChatThread<T extends Prisma.Sentence$SentenceChatThreadArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Sentence$SentenceChatThreadArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentenceChatThreadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2209,6 +2333,30 @@ export type Sentence$SentencePhraseTranslationArgs<ExtArgs extends runtime.Types
   take?: number
   skip?: number
   distinct?: Prisma.SentencePhraseTranslationScalarFieldEnum | Prisma.SentencePhraseTranslationScalarFieldEnum[]
+}
+
+/**
+ * Sentence.SentenceChatThread
+ */
+export type Sentence$SentenceChatThreadArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the SentenceChatThread
+   */
+  select?: Prisma.SentenceChatThreadSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the SentenceChatThread
+   */
+  omit?: Prisma.SentenceChatThreadOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.SentenceChatThreadInclude<ExtArgs> | null
+  where?: Prisma.SentenceChatThreadWhereInput
+  orderBy?: Prisma.SentenceChatThreadOrderByWithRelationInput | Prisma.SentenceChatThreadOrderByWithRelationInput[]
+  cursor?: Prisma.SentenceChatThreadWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.SentenceChatThreadScalarFieldEnum | Prisma.SentenceChatThreadScalarFieldEnum[]
 }
 
 /**

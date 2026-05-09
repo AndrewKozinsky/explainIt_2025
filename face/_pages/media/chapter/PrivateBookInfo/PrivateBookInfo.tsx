@@ -1,5 +1,6 @@
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 import EditChapterForm from '_pages/media/chapter/editChapter/EditChapterForm/EditChapterForm'
+import AddChapterButton from '_pages/media/commonComponents/AddChapterButton/AddChapterButton'
 import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
 import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
@@ -13,11 +14,15 @@ export default function PrivateChapterInfo() {
 		return null
 	}
 
+	const bookId = privateBook.data.id
+	const bookIdInUrl = createMediaIdUrl(bookId, 'private')
+
 	return (
 		<MenuAndContentContainer
 			leftMenu={
 				<SectionWithHeader title='Главы'>
 					<PrivateBookChapters />
+					<AddChapterButton bookId={bookId} bookIdInUrl={bookIdInUrl} />
 				</SectionWithHeader>
 			}
 		>

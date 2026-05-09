@@ -1,3 +1,8 @@
+input AddFlashcardInput {
+  """SentencePhraseTranslation id"""
+  sentencePhraseTranslationId: Int!
+}
+
 type BookChapterLiteOutModel {
   bookId: Int!
   header: String
@@ -79,7 +84,7 @@ input CreatePrivateBookInput {
   author: String
 
   """Language code"""
-  languageCode: String
+  languageCode: String!
 
   """Name"""
   name: String
@@ -93,13 +98,26 @@ input CreatePrivateVideoInput {
   fileSizeMb: Int
 
   """Language code"""
-  languageCode: String
+  languageCode: String!
 
   """Name"""
   name: String
 
   """Text"""
   originalContent: String
+}
+
+input CreateSentenceChatThreadInput {
+  """Sentence id"""
+  sentenceId: Int!
+}
+
+input CreateSentenceChatUserMessageInput {
+  """User question in markdown-free plain text"""
+  question: String!
+
+  """Sentence chat thread id"""
+  threadId: Int!
 }
 
 input CreateUniversalAudioPronunciationInput {
@@ -150,6 +168,25 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
+type FlashcardOutModel {
+  bookPrivateId: Int
+  bookPublicId: Int
+  createdAt: String!
+  examples: [SentencePhraseTranslationExampleOutModel!]!
+  id: Int!
+  languageCode: String!
+  phrase: String!
+  phraseEndOffset: Int!
+  phraseStartOffset: Int!
+  phraseTranscription: String
+  phraseTranslation: String
+  sentencePhraseTranslationId: Int
+  sentenceText: String!
+  sentenceTranslation: String
+  videoPrivateId: Int
+  videoPublicId: Int
+}
+
 input GetBookChapterInput {
   """Book type: public or private"""
   bookType: String!
@@ -161,6 +198,11 @@ input GetBookChapterInput {
 input GetBookPublicInput {
   """Book id"""
   id: Int!
+}
+
+input GetMyFlashcardsInput {
+  """Optional language filter"""
+  languageCode: String
 }
 
 input GetPhraseTranslationInput {
@@ -192,6 +234,11 @@ input GetPrivateVideoInput {
 input GetPublicVideoInput {
   """Video id"""
   id: Int!
+}
+
+input GetSentenceChatThreadInput {
+  """Sentence id"""
+  sentenceId: Int!
 }
 
 input GetSentenceTranslationInput {
@@ -279,8 +326,26 @@ type Mutation {
   """Create transcription for a word using DeepSeek"""
   create_transcription(input: CreateUniversalTranscriptionInput!): TranscriptionOutModel!
 
+  """
+  Добавить фразу из разбора предложения в коллекцию карточек пользователя.
+  """
+  flashcard_add(input: AddFlashcardInput!): FlashcardOutModel!
+
+  """Удалить карточку пользователя."""
+  flashcard_remove(input: RemoveFlashcardInput!): Boolean!
+
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
+
+  """
+  Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку.
+  """
+  sentence_chat_create_thread(input: CreateSentenceChatThreadInput!): SentenceChatThreadOutModel!
+
+  """
+  Добавить пользовательское сообщение (вопрос) в существующий тред. После этого клиент подключается к SSE-стриму /sentence-chat/threads/:threadId/assistant-stream, чтобы сервер сгенерировал и постримил ответ ассистента.
+  """
+  sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput!): SentenceChatMessageOutModel!
 
   """Translate phrase in sentence by selected offsets"""
   translate_translate_phrase(input: TranslatePhraseInput!): SentencePhraseTranslationOutModel!
@@ -320,8 +385,16 @@ type Query {
   """Get user books"""
   book_user_books: [BookPrivateOutModel!]!
 
+  """Получить список карточек пользователя. Опционально фильтрует по языку."""
+  flashcard_get_my(input: GetMyFlashcardsInput!): [FlashcardOutModel!]!
+
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
+
+  """
+  Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null.
+  """
+  sentence_chat_get_thread(input: GetSentenceChatThreadInput!): SentenceChatThreadOutModel
 
   """Get existing phrase translation by sentence and offsets"""
   translate_get_phrase_translation(input: GetPhraseTranslationInput!): SentencePhraseTranslationOutModel
@@ -356,9 +429,33 @@ input RegisterUserInput {
   password: String!
 }
 
+input RemoveFlashcardInput {
+  """Flashcard id"""
+  flashcardId: Int!
+}
+
 input ResendConfirmationEmailInput {
   """User email"""
   email: String!
+}
+
+type SentenceChatMessageOutModel {
+  content: String!
+  createdAt: String!
+  errorMessage: String
+  id: Int!
+  role: String!
+  status: String!
+  threadId: Int!
+  updatedAt: String!
+}
+
+type SentenceChatThreadOutModel {
+  createdAt: String!
+  id: Int!
+  messages: [SentenceChatMessageOutModel!]!
+  sentenceId: Int!
+  updatedAt: String!
 }
 
 type SentenceOutModel {
@@ -376,6 +473,7 @@ type SentencePhraseTranslationOutModel {
   createdAt: String!
   errorMessage: String
   examples: [SentencePhraseTranslationExampleOutModel!]!
+  flashcardId: Int
   id: Int!
   phrase: String!
   phraseEndOffset: Int!
@@ -472,7 +570,6 @@ type TranslateSentenceResultOutModel {
 
 type UniversalAudioPronunciationOutModel {
   audioUrl: String!
-  durationMs: Int!
   id: Int!
   universalPhraseId: Int!
 }

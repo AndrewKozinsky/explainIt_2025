@@ -14,8 +14,10 @@ import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
 import { BookModule } from 'routes/bookPrivate/book.module'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { DbModule } from 'routes/db/db.module'
+import { FlashcardModule } from 'routes/flashcard/flashcard.module'
 import { LanguageModule } from 'routes/language/language.module'
 import { PaymentModule } from 'routes/payment/payment.module'
+import { SentenceChatModule } from 'routes/sentenceChat/sentenceChat.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { UniversalPhraseModule } from 'routes/universalPhrase/universalPhrase.module'
 import { UniversalTranscriptionModule } from 'routes/universalTranscription/universalTranscription.module'
@@ -23,6 +25,7 @@ import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
+import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { EmailAdapterModule } from 'infrastructure/emailAdapter/email-adapter.module'
 import { GlobalExceptionFilter } from 'infrastructure/exceptions/global-exception.filter'
@@ -34,6 +37,7 @@ import { winstonUseFactory } from 'infrastructure/logger/winstonUseFactory'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
+import { QueuesModule } from 'infrastructure/queues/queues.module'
 import { RedisModule } from 'infrastructure/redis/redis.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { TelegramModule } from 'infrastructure/telegram/telegram.module'
@@ -82,6 +86,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		GigaChatModule,
 		OpenAIModule,
 		DeepSeekModule,
+		DeepgramSttModule,
 		GoogleGeminiModule,
 		GoogleTtsModule,
 		CloudRuS3Module,
@@ -90,6 +95,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		YandexTranslateModule,
 		DbModule,
 		RedisModule,
+		QueuesModule,
 		PaymentModule,
 		YooKassaModule,
 		WebhookModule,
@@ -99,10 +105,12 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		VideoPrivateModule,
 		VideoPublicModule,
 		TranslateRouteModule,
+		SentenceChatModule,
 		UniversalPhraseModule,
 		UniversalTranscriptionModule,
 		AudioPronunciationModule,
 		LanguageModule,
+		FlashcardModule,
 	],
 	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })

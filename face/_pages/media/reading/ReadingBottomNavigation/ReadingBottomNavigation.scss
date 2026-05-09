@@ -18,7 +18,6 @@
 	@include mix.container-width(460px) {
 		flex-direction: row;
 		justify-content: space-between;
-		margin-top: 4rem;
 
 		& > *:nth-child(2) {
 			margin-left: auto;

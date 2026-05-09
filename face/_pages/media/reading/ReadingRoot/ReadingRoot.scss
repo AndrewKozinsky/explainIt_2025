@@ -13,30 +13,6 @@
 	}
 }
 
-.reading-root__top {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-
-	@include mix.page-width(650px) {
-		gap: 2.8rem;
-	}
-
-	@include mix.page-width(950px) {
-		gap: 3.2rem;
-	}
-}
-
-.reading-root__header-row {
-	display: flex;
-	flex-direction: column;
-	gap: .4rem;
-
-	@include mix.page-width(700px) {
-		gap: .6rem;
-	}
-}
-
 .reading-root__content {
 	@include mix.page-width(700px) {
 		display: grid;
@@ -44,10 +20,6 @@
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
 	}
-}
-
-.reading-root__text {
-
 }
 
 .reading-root__analysis {

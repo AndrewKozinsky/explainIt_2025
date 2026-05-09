@@ -16,9 +16,7 @@ export class DeepSeekTokenUsageBalanceChargeCommand implements ICommand {
 }
 
 @CommandHandler(DeepSeekTokenUsageBalanceChargeCommand)
-export class DeepSeekTokenUsageBalanceChargeHandler
-	implements ICommandHandler<DeepSeekTokenUsageBalanceChargeCommand>
-{
+export class DeepSeekTokenUsageBalanceChargeHandler implements ICommandHandler<DeepSeekTokenUsageBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
 		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
@@ -44,8 +42,8 @@ export class DeepSeekTokenUsageBalanceChargeHandler
 		const prices = this.mainConfig.get().deepSeek.priceInRub
 
 		const totalPriceInRub = input.inputTokens * prices.input + input.outputTokens * prices.output
-		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
+		const markupMultiplier = this.mainConfig.get().billing.translationMarkupMultiplier
 
-		return Math.ceil(totalPriceInRub * 100) + markupInKopecks
+		return Math.ceil(totalPriceInRub * 100) * markupMultiplier
 	}
 }

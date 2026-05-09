@@ -29,20 +29,17 @@ export type AggregateUniversalAudioPronunciation = {
 export type UniversalAudioPronunciationAvgAggregateOutputType = {
   id: number | null
   universal_phrase_id: number | null
-  duration_ms: number | null
 }
 
 export type UniversalAudioPronunciationSumAggregateOutputType = {
   id: number | null
   universal_phrase_id: number | null
-  duration_ms: number | null
 }
 
 export type UniversalAudioPronunciationMinAggregateOutputType = {
   id: number | null
   universal_phrase_id: number | null
   s3_key: string | null
-  duration_ms: number | null
   created_at: Date | null
 }
 
@@ -50,7 +47,6 @@ export type UniversalAudioPronunciationMaxAggregateOutputType = {
   id: number | null
   universal_phrase_id: number | null
   s3_key: string | null
-  duration_ms: number | null
   created_at: Date | null
 }
 
@@ -58,7 +54,6 @@ export type UniversalAudioPronunciationCountAggregateOutputType = {
   id: number
   universal_phrase_id: number
   s3_key: number
-  duration_ms: number
   created_at: number
   _all: number
 }
@@ -67,20 +62,17 @@ export type UniversalAudioPronunciationCountAggregateOutputType = {
 export type UniversalAudioPronunciationAvgAggregateInputType = {
   id?: true
   universal_phrase_id?: true
-  duration_ms?: true
 }
 
 export type UniversalAudioPronunciationSumAggregateInputType = {
   id?: true
   universal_phrase_id?: true
-  duration_ms?: true
 }
 
 export type UniversalAudioPronunciationMinAggregateInputType = {
   id?: true
   universal_phrase_id?: true
   s3_key?: true
-  duration_ms?: true
   created_at?: true
 }
 
@@ -88,7 +80,6 @@ export type UniversalAudioPronunciationMaxAggregateInputType = {
   id?: true
   universal_phrase_id?: true
   s3_key?: true
-  duration_ms?: true
   created_at?: true
 }
 
@@ -96,7 +87,6 @@ export type UniversalAudioPronunciationCountAggregateInputType = {
   id?: true
   universal_phrase_id?: true
   s3_key?: true
-  duration_ms?: true
   created_at?: true
   _all?: true
 }
@@ -191,7 +181,6 @@ export type UniversalAudioPronunciationGroupByOutputType = {
   id: number
   universal_phrase_id: number
   s3_key: string
-  duration_ms: number
   created_at: Date
   _count: UniversalAudioPronunciationCountAggregateOutputType | null
   _avg: UniversalAudioPronunciationAvgAggregateOutputType | null
@@ -222,7 +211,6 @@ export type UniversalAudioPronunciationWhereInput = {
   id?: Prisma.IntFilter<"UniversalAudioPronunciation"> | number
   universal_phrase_id?: Prisma.IntFilter<"UniversalAudioPronunciation"> | number
   s3_key?: Prisma.StringFilter<"UniversalAudioPronunciation"> | string
-  duration_ms?: Prisma.IntFilter<"UniversalAudioPronunciation"> | number
   created_at?: Prisma.DateTimeFilter<"UniversalAudioPronunciation"> | Date | string
   universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
 }
@@ -231,7 +219,6 @@ export type UniversalAudioPronunciationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
   s3_key?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   universal_phrase?: Prisma.UniversalPhraseOrderByWithRelationInput
 }
@@ -243,7 +230,6 @@ export type UniversalAudioPronunciationWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UniversalAudioPronunciationWhereInput[]
   NOT?: Prisma.UniversalAudioPronunciationWhereInput | Prisma.UniversalAudioPronunciationWhereInput[]
   s3_key?: Prisma.StringFilter<"UniversalAudioPronunciation"> | string
-  duration_ms?: Prisma.IntFilter<"UniversalAudioPronunciation"> | number
   created_at?: Prisma.DateTimeFilter<"UniversalAudioPronunciation"> | Date | string
   universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
 }, "id" | "universal_phrase_id">
@@ -252,7 +238,6 @@ export type UniversalAudioPronunciationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
   s3_key?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UniversalAudioPronunciationCountOrderByAggregateInput
   _avg?: Prisma.UniversalAudioPronunciationAvgOrderByAggregateInput
@@ -268,13 +253,11 @@ export type UniversalAudioPronunciationScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"UniversalAudioPronunciation"> | number
   universal_phrase_id?: Prisma.IntWithAggregatesFilter<"UniversalAudioPronunciation"> | number
   s3_key?: Prisma.StringWithAggregatesFilter<"UniversalAudioPronunciation"> | string
-  duration_ms?: Prisma.IntWithAggregatesFilter<"UniversalAudioPronunciation"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"UniversalAudioPronunciation"> | Date | string
 }
 
 export type UniversalAudioPronunciationCreateInput = {
   s3_key: string
-  duration_ms?: number
   created_at?: Date | string
   universal_phrase: Prisma.UniversalPhraseCreateNestedOneWithoutUniversalAudioPronunciationInput
 }
@@ -283,13 +266,11 @@ export type UniversalAudioPronunciationUncheckedCreateInput = {
   id?: number
   universal_phrase_id: number
   s3_key: string
-  duration_ms?: number
   created_at?: Date | string
 }
 
 export type UniversalAudioPronunciationUpdateInput = {
   s3_key?: Prisma.StringFieldUpdateOperationsInput | string
-  duration_ms?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   universal_phrase?: Prisma.UniversalPhraseUpdateOneRequiredWithoutUniversalAudioPronunciationNestedInput
 }
@@ -298,7 +279,6 @@ export type UniversalAudioPronunciationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   universal_phrase_id?: Prisma.IntFieldUpdateOperationsInput | number
   s3_key?: Prisma.StringFieldUpdateOperationsInput | string
-  duration_ms?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -306,13 +286,11 @@ export type UniversalAudioPronunciationCreateManyInput = {
   id?: number
   universal_phrase_id: number
   s3_key: string
-  duration_ms?: number
   created_at?: Date | string
 }
 
 export type UniversalAudioPronunciationUpdateManyMutationInput = {
   s3_key?: Prisma.StringFieldUpdateOperationsInput | string
-  duration_ms?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -320,7 +298,6 @@ export type UniversalAudioPronunciationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   universal_phrase_id?: Prisma.IntFieldUpdateOperationsInput | number
   s3_key?: Prisma.StringFieldUpdateOperationsInput | string
-  duration_ms?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -333,21 +310,18 @@ export type UniversalAudioPronunciationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
   s3_key?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UniversalAudioPronunciationAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
 }
 
 export type UniversalAudioPronunciationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
   s3_key?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -355,14 +329,12 @@ export type UniversalAudioPronunciationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
   s3_key?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type UniversalAudioPronunciationSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   universal_phrase_id?: Prisma.SortOrder
-  duration_ms?: Prisma.SortOrder
 }
 
 export type UniversalAudioPronunciationCreateNestedOneWithoutUniversal_phraseInput = {
@@ -399,14 +371,12 @@ export type UniversalAudioPronunciationUncheckedUpdateOneWithoutUniversal_phrase
 
 export type UniversalAudioPronunciationCreateWithoutUniversal_phraseInput = {
   s3_key: string
-  duration_ms?: number
   created_at?: Date | string
 }
 
 export type UniversalAudioPronunciationUncheckedCreateWithoutUniversal_phraseInput = {
   id?: number
   s3_key: string
-  duration_ms?: number
   created_at?: Date | string
 }
 
@@ -428,14 +398,12 @@ export type UniversalAudioPronunciationUpdateToOneWithWhereWithoutUniversal_phra
 
 export type UniversalAudioPronunciationUpdateWithoutUniversal_phraseInput = {
   s3_key?: Prisma.StringFieldUpdateOperationsInput | string
-  duration_ms?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UniversalAudioPronunciationUncheckedUpdateWithoutUniversal_phraseInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   s3_key?: Prisma.StringFieldUpdateOperationsInput | string
-  duration_ms?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -445,7 +413,6 @@ export type UniversalAudioPronunciationSelect<ExtArgs extends runtime.Types.Exte
   id?: boolean
   universal_phrase_id?: boolean
   s3_key?: boolean
-  duration_ms?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["universalAudioPronunciation"]>
@@ -454,7 +421,6 @@ export type UniversalAudioPronunciationSelectCreateManyAndReturn<ExtArgs extends
   id?: boolean
   universal_phrase_id?: boolean
   s3_key?: boolean
-  duration_ms?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["universalAudioPronunciation"]>
@@ -463,7 +429,6 @@ export type UniversalAudioPronunciationSelectUpdateManyAndReturn<ExtArgs extends
   id?: boolean
   universal_phrase_id?: boolean
   s3_key?: boolean
-  duration_ms?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["universalAudioPronunciation"]>
@@ -472,11 +437,10 @@ export type UniversalAudioPronunciationSelectScalar = {
   id?: boolean
   universal_phrase_id?: boolean
   s3_key?: boolean
-  duration_ms?: boolean
   created_at?: boolean
 }
 
-export type UniversalAudioPronunciationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "s3_key" | "duration_ms" | "created_at", ExtArgs["result"]["universalAudioPronunciation"]>
+export type UniversalAudioPronunciationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "s3_key" | "created_at", ExtArgs["result"]["universalAudioPronunciation"]>
 export type UniversalAudioPronunciationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }
@@ -496,7 +460,6 @@ export type $UniversalAudioPronunciationPayload<ExtArgs extends runtime.Types.Ex
     id: number
     universal_phrase_id: number
     s3_key: string
-    duration_ms: number
     created_at: Date
   }, ExtArgs["result"]["universalAudioPronunciation"]>
   composites: {}
@@ -925,7 +888,6 @@ export interface UniversalAudioPronunciationFieldRefs {
   readonly id: Prisma.FieldRef<"UniversalAudioPronunciation", 'Int'>
   readonly universal_phrase_id: Prisma.FieldRef<"UniversalAudioPronunciation", 'Int'>
   readonly s3_key: Prisma.FieldRef<"UniversalAudioPronunciation", 'String'>
-  readonly duration_ms: Prisma.FieldRef<"UniversalAudioPronunciation", 'Int'>
   readonly created_at: Prisma.FieldRef<"UniversalAudioPronunciation", 'DateTime'>
 }
     

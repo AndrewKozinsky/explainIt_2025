@@ -4,7 +4,7 @@ import { PrismaService } from 'db/prisma.service'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { VideoPrivateServiceModel } from 'models/videoPrivate/videoPrivate.service.model'
-import { VideoPrivate, S3ProviderName } from 'prisma/generated/client'
+import { VideoPrivate, S3ProviderName, SubtitlesGenerationStatus } from 'prisma/generated/client'
 
 @Injectable()
 export class VideoPrivateRepository {
@@ -17,7 +17,7 @@ export class VideoPrivateRepository {
 	async createVideo(dto: {
 		userId: number
 		name?: null | string
-		languageCode?: null | Language
+		languageCode: Language
 		originalContent?: null | string
 		processedContent?: null | string
 		contentType?: 'text' | 'subtitles'
@@ -130,6 +130,75 @@ export class VideoPrivateRepository {
 		return videos
 			.filter((video) => Boolean(video.file_s3_key))
 			.map((video) => ({ id: video.id, fileS3Key: video.file_s3_key! }))
+	}
+
+	/**
+	 * Atomically transition the video from an idle/done/failed state to PENDING
+	 * and clear any previous error. Returns true if the transition happened.
+	 * Returns false if the video is already pending/processing (someone else is
+	 * generating subtitles right now) or if the video doesn't belong to the user.
+	 */
+	@CatchDbError()
+	async tryStartSubtitlesGeneration(videoId: number, userId: number): Promise<boolean> {
+		const res = await this.prisma.videoPrivate.updateMany({
+			where: {
+				id: videoId,
+				user_id: userId,
+				subtitles_generation_status: {
+					notIn: [SubtitlesGenerationStatus.pending, SubtitlesGenerationStatus.processing],
+				},
+			},
+			data: {
+				subtitles_generation_status: SubtitlesGenerationStatus.pending,
+				subtitles_generation_error: null,
+				subtitles_generation_started_at: new Date(),
+			},
+		})
+		return res.count === 1
+	}
+
+	@CatchDbError()
+	async setSubtitlesGenerationStatus(
+		videoId: number,
+		status: SubtitlesGenerationStatus,
+		opts: { error?: null | string; jobId?: null | string } = {},
+	): Promise<void> {
+		await this.prisma.videoPrivate.update({
+			where: { id: videoId },
+			data: {
+				subtitles_generation_status: status,
+				...(opts.error !== undefined ? { subtitles_generation_error: opts.error } : {}),
+				...(opts.jobId !== undefined ? { subtitles_generation_job_id: opts.jobId } : {}),
+			},
+		})
+	}
+
+	@CatchDbError()
+	async getSubtitlesGenerationState(videoId: number) {
+		const video = await this.prisma.videoPrivate.findUnique({
+			where: { id: videoId },
+			select: {
+				user_id: true,
+				language_code: true,
+				is_file_uploaded: true,
+				file_s3_key: true,
+				subtitles_generation_status: true,
+				subtitles_generation_error: true,
+				subtitles_generation_started_at: true,
+				subtitles_generation_job_id: true,
+			},
+		})
+		if (!video) return null
+		return {
+			userId: video.user_id,
+			languageCode: video.language_code,
+			isFileUploaded: video.is_file_uploaded,
+			fileS3Key: video.file_s3_key,
+			status: video.subtitles_generation_status,
+			error: video.subtitles_generation_error,
+			startedAt: video.subtitles_generation_started_at,
+			jobId: video.subtitles_generation_job_id,
+		}
 	}
 
 	@CatchDbError()

@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-import { useUserStore } from 'stores/userStore'
 import * as yup from 'yup'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import FormError from '@/ui/formRelated/FormError/FormError'
@@ -18,7 +16,6 @@ import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
 import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
-import { pageUrls } from 'сonsts/pageUrls'
 
 export default function EditPrivateVideoForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')

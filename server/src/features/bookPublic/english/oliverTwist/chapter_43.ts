@@ -1,219 +1,207 @@
 export const chapter_43 = {
 	name: 'Chapter XLIII',
 	header: 'Wherein is shown how the artful Dodger got into trouble',
-	text: `“So you were your own ‘friend,’ were you?” said Mr. Claypole—now calling himself Bolter—when he moved into Fagin’s house the next day. “I thought so last night!”
+	text: `“So, you were your own friend, were you?” asked Mr. Claypole, also known as Bolter. The next day, as agreed, he had moved to Fagin’s house. “I thought so last night!”
 
-“Every man is his own best friend, my dear,” said Fagin, with a smooth, sly smile. “No one is better to him than himself.”
+“Every man is his own friend, my dear,” replied Fagin with his most charming grin. “He has no better friend than himself anywhere.”
 
-“Sometimes not,” said Morris Bolter, trying to sound experienced. “Some people are their own worst enemies, you know.”
+“Except sometimes,” replied Morris Bolter, acting like a man of the world. “Some people are their own worst enemies, you know.”
 
-“Don’t believe that,” said Fagin. “If a man harms himself, it’s only because he cares too much about himself—not because he cares about others. Nonsense! That doesn’t exist.”
+“I don’t believe that,” said Fagin. “When a man is his own enemy, it’s only because he’s too much his own friend, not because he cares for everyone but himself. Nonsense! There’s no such thing in nature.”
 
-“Well, it shouldn’t exist,” said Mr. Bolter.
+“There shouldn’t be, if there is,” replied Mr. Bolter.
 
-“Exactly. Some people say the number three is magical, and some say seven. But they are wrong. The real number is one.”
+“That makes sense. Some magicians say three is the magic number, and some say seven. It’s neither, my friend. It’s number one.”
 
-“Ha! ha!” cried Mr. Bolter. “Number one forever!”
+“Ha! ha!” cried Mr. Bolter. “Number one forever.”
 
-“In a small group like ours,” said Fagin, softening his words a little, “we all share one ‘number one.’ That includes me—and all the others too.”
+“In a small group like ours, my dear,” said Fagin, feeling the need to clarify, “we have a general number one, not even counting me and the other young people.”
 
-“Oh, come on!” said Mr. Bolter.
+“Oh, the devil!” exclaimed Mr. Bolter.
 
-“You see,” Fagin continued, ignoring him, “we are all connected. Our interests are the same. For example, your goal is to take care of number one—that means yourself.”
+“You see,” continued Fagin, ignoring the interruption, “we are so mixed up together, and our interests are so connected, that it must be this way. For instance, your goal is to take care of number one—meaning yourself.”
 
-“Of course,” said Mr. Bolter. “You’re right there.”
+“Of course,” replied Mr. Bolter. “You’re about right there.”
 
-“Well then! You can’t take care of yourself without taking care of me too.”
+“Well! You can’t take care of yourself, number one, without taking care of me, number one.”
 
-“You mean number two,” said Mr. Bolter, who was very selfish.
+“Number two, you mean,” said Mr. Bolter, who was very selfish.
 
-“No, I don’t!” said Fagin quickly. “I’m just as important to you as you are to yourself.”
+“No, I don’t!” retorted Fagin. “I’m as important to you as you are to yourself.”
 
-“Listen,” said Mr. Bolter, interrupting him, “you’re a nice man, and I like you—but we’re not that close.”
+“I say,” interrupted Mr. Bolter, “you’re a very nice man, and I’m very fond of you; but we aren’t quite as close as all that.”
 
-“Just think,” said Fagin, raising his shoulders and spreading his hands. “Think about it. You’ve done something clever—something I admire. But it’s also something that could put a rope around your neck. A rope that is easy to tie, but very hard to remove. In simple words—a noose.”
+“Just think,” said Fagin, shrugging and stretching out his hands. “Just consider. You’ve done something very clever, which I love you for, but it could also get you hanged. The noose is very easy to tie and very difficult to untie—in plain English, the gallows!”
 
-Mr. Bolter touched his neckcloth, as if it felt too tight, and quietly agreed.
+Mr. Bolter touched his neckerchief, as if it felt too tight, and mumbled his agreement.
 
-“The gallows,” said Fagin, “the gallows, my dear, is a very ugly sign. It shows a sharp turn in life—a turn that has ended many bold men’s careers. So your main goal is to stay on the easy road and keep far away from it.”
+“The gallows, my dear,” continued Fagin, “is an ugly signpost. It points to a very short, sharp turn that has ended many a bold fellow’s career. Staying on the easy road and keeping away from the gallows is your number one goal.”
 
-“Of course it is,” said Mr. Bolter. “Why are you talking about such things?”
+“Of course it is,” replied Mr. Bolter. “Why do you talk about such things?”
 
-“Only to make my meaning clear,” said Fagin, raising his eyebrows. “To stay safe, you depend on me. And to keep my little business safe, I depend on you. Your safety is your number one. My safety is my number one. The more you care about yourself, the more careful you must be with me. That’s why I told you before: caring about ‘number one’ keeps us all together. Without that, we would all fall apart.”
+“Only to make my meaning clear,” said the Jew, raising his eyebrows. “To do that, you depend on me. To keep my little business safe, I depend on you. The first is your number one, the second is my number one. The more you value your number one, the more careful you must be of mine. So we finally agree on what I told you at first—that looking out for number one holds us all together. It must, unless we all want to fall apart together.”
 
-“That’s true,” said Mr. Bolter thoughtfully. “You’re a clever old fellow!”
+“That’s true,” replied Mr. Bolter, thoughtfully. “Oh, you’re a cunning old rascal!”
 
-Fagin was very pleased. He saw that this was not just a polite remark. Mr. Bolter was truly impressed by him, and that was exactly what Fagin wanted at the start of their relationship. To make this feeling stronger, he began to describe his business in detail. He mixed truth with lies, choosing what helped him most. He spoke so skillfully that Mr. Bolter’s respect grew—and with it, a healthy sense of fear, which Fagin also wanted.
+Mr. Fagin was delighted to see that this compliment was genuine. He had truly impressed his new recruit with his cleverness, which was very important at the beginning of their acquaintance. To strengthen this good impression, he went on to describe the size and scope of his operations. He mixed truth and fiction as it suited him, and did it so skillfully that Mr. Bolter’s respect grew, mixed with a healthy dose of fear.
 
-“It’s this trust between us that helps me bear my losses,” said Fagin. “Yesterday morning, I lost my best man.”
+“It’s this mutual trust that comforts me during heavy losses,” said Fagin. “My best man was taken from me yesterday morning.”
 
 “You don’t mean he died?” cried Mr. Bolter.
 
-“No, no,” said Fagin. “Not that bad. Not quite.”
+“No, no,” replied Fagin, “not as bad as that. Not quite so bad.”
 
-“What, then? I suppose he was—”
+“What, I suppose he was—”
 
-“Wanted,” Fagin interrupted. “Yes, the police were looking for him.”
+“Wanted,” interrupted Fagin. “Yes, he was wanted.”
 
-“Something serious?” asked Mr. Bolter.
+“For something serious?” inquired Mr. Bolter.
 
-“No, not very,” said Fagin. “He was accused of trying to pick a pocket. And they found a silver snuffbox on him—his own, my dear, his own. He used snuff and liked it very much. They kept him until today because they thought they knew the owner. Ah! he was worth fifty men like that. I would pay a great deal to have him back. You should have known the Dodger—you really should have.”
+“No,” replied Fagin, “not very. He was charged with trying to pick a pocket, and they found a silver snuff-box on him—his own, my dear, his own, for he used snuff himself and was very fond of it. They held him until today because they thought they knew the owner. Ah! He was worth fifty boxes, and I’d give the price of that many to have him back. You should have known the Dodger, my dear; you should have known the Dodger.”
 
-“Well, maybe I still will,” said Mr. Bolter. “Don’t you think so?”
+“Well, I hope I’ll get to know him, don’t you think so?” said Mr. Bolter.
 
-“I’m not sure,” said Fagin with a sigh. “If they don’t find new evidence, he’ll just get a quick sentence, and we’ll have him back in six weeks or so. But if they do, he’ll be sent away for a long time. They know how clever he is. He could be locked up for life. They’ll make the Artful Dodger a lifer.”
+“I’m doubtful about it,” replied Fagin with a sigh. “If they don’t get any new evidence, it will just be a quick conviction, and we’ll have him back in six weeks or so. But if they do, he’ll be transported. They know what a clever lad he is; he’ll get a life sentence. They’ll give the Artful nothing less than a life sentence.”
 
-“What do you mean by ‘sent away’ and ‘a lifer’?” asked Mr. Bolter. “Why don’t you speak so I can understand you?”
+“What do you mean by transported and a lifer?” demanded Mr. Bolter. “What’s the good of talking to me that way? Why don’t you speak so I can understand you?”
 
-Fagin was about to explain these strange words in simple language. He was going to say that they meant “transportation for life” (being sent away forever). But he was interrupted. Charley Bates came in, with his hands in his pockets and a half-sad, half-funny expression on his face.
+Fagin was about to explain these mysterious phrases, which meant “transportation for life,” when Master Bates entered. His hands were in his pockets, and his face had a look of mock sadness.
 
-“It’s all over, Fagin,” said Charley, after he was introduced to the new man.
+“It’s all over, Fagin,” said Charley, after he and his new companion had been introduced.
 
-“What do you mean?” asked Fagin.
+“What do you mean?”
 
-“They’ve found the man who owns the box. More people are coming to identify him. The Artful is going to be sent away,” said Charley. “I need a full mourning suit, Fagin, and a black band for my hat, to visit him before he leaves. Just think—Jack Dawkins, the Dodger, the Artful Dodger—sent away for a cheap little snuffbox! I never thought he’d do it for so little. At least a gold watch and chain! Oh, why didn’t he rob some rich old gentleman properly, and go away like a gentleman, not like a common thief without honour or glory!”
+“They’ve found the gentleman who owns the box. Two or three more are coming to identify him, and the Artful is booked for a trip abroad,” replied Master Bates. “I must have a full suit of mourning, Fagin, and a hatband, to visit him in before he leaves. To think of Jack Dawkins—lummy Jack—the Dodger—the Artful Dodger—going away for a cheap little snuff-box! I never thought he’d get caught for less than a gold watch, chain, and seals. Oh, why didn’t he rob some rich old gentleman of all his valuables and go out like a gentleman, not like a common thief with no honor or glory!”
 
-After this speech about his unlucky friend, Charley sat down heavily, looking upset and disappointed.
+With this expression of sympathy for his unfortunate friend, Master Bates sat down on the nearest chair, looking sad and dejected.
 
-“What do you mean—no honour or glory?” said Fagin angrily, looking at him. “Wasn’t he always the best of you all? Is there anyone who could match him? Eh?”
+“What are you talking about, him having no honor or glory?” exclaimed Fagin, giving his pupil an angry look. “Wasn’t he always the best among you all? Is there any of you who could come close to him in skill?”
 
-“No one,” said Charley sadly. “No one.”
+“Not one,” replied Master Bates, his voice hoarse with regret, “not one.”
 
-“Then why are you crying?” said Fagin sharply.
+“Then what are you talking about?” replied Fagin angrily. “What are you crying for?”
 
-“Because it won’t be written down!” said Charley, now speaking more boldly. “It won’t appear in the charges. Nobody will ever know how clever he really was. How will he be remembered? Maybe not at all! Oh, what a terrible thing!”
+“Because it isn’t on the record, is it?” said Charley, now defiant. “Because it won’t be in the indictment. Because nobody will ever know how great he was. How will he be remembered in the Newgate Calendar? He might not be there at all. Oh, what a blow it is!”
 
-“Ha! ha!” laughed Fagin, turning to Mr. Bolter and shaking with laughter. “See how proud they are of their trade, my dear. Isn’t it beautiful?”
+“Ha! ha!” cried Fagin, turning to Mr. Bolter with a chuckle that shook him. “See what pride they take in their profession, my dear. Isn’t it beautiful?”
 
-Mr. Bolter nodded.
+Mr. Bolter nodded, and Fagin, after watching Charley Bates’s grief with satisfaction, walked over and patted him on the shoulder.
 
-Fagin watched Charley’s grief for a moment with clear satisfaction. Then he walked over and patted him on the shoulder.
+“Never mind, Charley,” said Fagin soothingly. “It’ll come out, it’ll be sure to come out. They’ll all know what a clever fellow he was. He’ll show it himself and not disgrace his old friends and teachers. And think how young he is! What an honor, Charley, to be transported at his age!”
 
-“Never mind, Charley,” said Fagin gently. “It will be known. Everyone will see how clever he is. He will show it himself, and he won’t disgrace his old friends. And think how young he is! What an achievement—to be sent away at his age!”
+“Well, it is an honor, that is!” said Charley, a little comforted.
 
-“Well… it is something, I suppose,” said Charley, feeling a little better.
+“He shall have everything he wants,” continued the Jew. “He shall be kept in the Stone Jug, Charley, like a gentleman. Like a gentleman! With his beer every day, and money in his pocket to gamble with.”
 
-“He’ll have everything he needs,” continued Fagin. “He’ll be kept in prison like a gentleman. Like a gentleman! He’ll have beer every day, and money in his pocket to play with, if he can’t spend it.”
+“No, will he really?” cried Charley Bates.
 
-“Really?” said Charley.
+“Yes, he shall,” replied Fagin, “and we’ll get a great lawyer, Charley, one with the gift of the gab, to defend him. And he shall make a speech for himself too, if he likes. We’ll read all about it in the papers—‘Artful Dodger—shrieks of laughter—the court was convulsed’—eh, Charley, eh?”
 
-“Yes, really,” said Fagin. “And we’ll get him a great lawyer—one who talks very well—to defend him. He can make a speech too, if he wants. And it will all be in the newspapers—‘Artful Dodger—bursts of laughter—the whole court amused’—eh, Charley?”
+“Ha! ha!” laughed Master Bates, “what a laugh that would be, wouldn’t it, Fagin? I say, the Artful would really confuse them, wouldn’t he?”
 
-“Ha! ha!” laughed Charley. “That would be fun, wouldn’t it? The Dodger would confuse them all!”
+“Would!” cried Fagin. “He shall—he will!”
 
-“He would!” said Fagin. “He shall—he will!”
+“Ah, to be sure, so he will,” repeated Charley, rubbing his hands.
 
-“Yes, of course he will,” said Charley, rubbing his hands.
+“I think I see him now,” cried the Jew, looking at his pupil.
 
-“I can almost see him now,” cried Fagin, looking closely at his young friend.
+“So do I,” cried Charley Bates. “Ha! ha! ha! So do I. I see it all before me, upon my soul I do, Fagin. What a show! What a regular show! All the important people trying to look serious, and Jack Dawkins talking to them as friendly as if he were the judge’s own son making a speech after dinner—ha! ha! ha!”
 
-“So can I!” cried Charley Bates. “Ha! ha! ha! I see it clearly, Fagin, I swear I do. What a scene! What a perfect show! All the important men trying to look serious, and Jack Dawkins talking to them like he’s completely at ease—like the judge’s own son giving a speech after dinner! Ha! ha! ha!”
+In fact, Mr. Fagin had played on his young friend’s strange nature so well that Master Bates, who had at first seen the imprisoned Dodger as a victim, now saw him as the star of an unusually funny scene. He was impatient for the time when his old companion would have such a great opportunity to show off his talents.
 
-Fagin had encouraged Charley’s strange sense of humor so well that, at first, Charley had felt sorry for the Dodger. But now he saw him as the star of a very funny scene. He was even impatient, waiting for the moment when his old friend could show his talents.
-
-“We must find out how he does today,” said Fagin. “Let me think.”
+“We must find out how he gets on today, somehow,” said Fagin. “Let me think.”
 
 “Shall I go?” asked Charley.
 
-“Absolutely not!” said Fagin. “Are you crazy, my dear? Would you walk right into the very place where—no, Charley, no. One loss at a time is enough.”
+“Not for the world,” replied Fagin. “Are you mad, my dear, completely mad, that you’d walk into the very place where—No, Charley, no. One is enough to lose at a time.”
 
-“You’re not going yourself, I suppose?” said Charley with a sly smile.
+“You don’t mean to go yourself, I suppose?” said Charley with a sly look.
 
-“That wouldn’t be wise,” said Fagin, shaking his head.
+“That wouldn’t do,” replied Fagin, shaking his head.
 
-“Then why not send this new fellow?” said Charley, putting his hand on Noah’s arm. “Nobody knows him.”
+“Then why don’t you send this new fellow?” asked Master Bates, putting his hand on Noah’s arm. “Nobody knows him.”
 
-“Well, if he doesn’t mind—” said Fagin.
+“Why, if he didn’t mind—” said Fagin.
 
-“Mind?” interrupted Charley. “What does he have to worry about?”
+“Mind!” interrupted Charley. “What would he have to mind?”
 
-“Really nothing, my dear,” said Fagin, turning to Mr. Bolter. “Nothing at all.”
+“Really nothing, my dear,” said Fagin, turning to Mr. Bolter, “really nothing.”
 
-“I’m not so sure about that,” said Noah, stepping back toward the door and shaking his head nervously. “No, no—not for me. That’s not my kind of work.”
+“Oh, I don’t know about that,” said Noah, backing toward the door and shaking his head with alarm. “No, no—none of that. That’s not my job.”
 
-“What kind of work does he do, Fagin?” asked Charley, looking at Noah’s thin figure with clear dislike. “Running away when there’s trouble, and eating all the food when things are fine—is that his job?”
+“What job has he got, Fagin?” asked Master Bates, looking at Noah’s lanky body with disgust. “Running away when there’s trouble and eating all the food when everything’s fine; is that his specialty?”
 
-“Never mind,” said Mr. Bolter. “And don’t get too familiar with your betters, little boy, or you’ll regret it.”
+“Never mind,” retorted Mr. Bolter, “and don’t take liberties with your superiors, little boy, or you’ll find yourself in trouble.”
 
-Charley Bates laughed so loudly at this grand threat that Fagin had to wait before he could speak. At last, he explained to Mr. Bolter that visiting the police office was not dangerous. No one had reported the small crime he was involved in. No description of him had been sent to London. So he was probably not suspected at all. And if he wore a disguise, the police office would be one of the safest places for him—because no one would expect him to go there willingly.
+Master Bates laughed so hard at this threat that it was some time before Fagin could step in and explain to Mr. Bolter that he was in no danger visiting the police office. Since no report of his own little crime or description of him had been sent to the city, it was likely no one suspected he was hiding there. If he were disguised, it would be as safe a place for him to visit as any in London, since it was the last place he would be expected to go willingly.
 
-Partly convinced by this, but mostly afraid of Fagin, Mr. Bolter finally agreed—though unwillingly—to go.
+Partly persuaded by this reasoning, but mostly by his fear of Fagin, Mr. Bolter finally agreed, though reluctantly, to go. Following Fagin’s directions, he changed into a wagoner’s coat, velvet breeches, and leather leggings, all of which the Jew had on hand. He was also given a felt hat decorated with toll tickets and a carter’s whip. Dressed this way, he was to wander into the office, like a country fellow from Covent Garden market, out of curiosity. Since he was an awkward, clumsy, and bony fellow, Mr. Fagin was sure he would look the part perfectly.
 
-Following Fagin’s instructions, he quickly changed his clothes. He put on a rough worker’s coat, thick trousers, and leather leggings. Fagin had everything ready. He also gave him a felt hat covered with road tickets and a driver’s whip. Dressed like this, he was to walk into the office like a simple country man from the market, just looking around out of curiosity. Since Noah was naturally awkward and clumsy, Fagin was sure he would look the part perfectly.
+With these arrangements complete, he was told the signs to recognize the Artful Dodger and was led by Master Bates through dark, winding streets to a short distance from Bow Street. After describing the exact location of the office and giving detailed instructions to walk straight up the passage, and to take off his hat when he entered the room, Charley Bates told him to hurry on alone and promised to wait for his return at the spot where they parted.
 
-When everything was ready, Fagin explained how to recognize the Artful Dodger. Then Charley Bates led Noah through dark, twisting streets to a place near Bow Street. Charley showed him exactly where to go and gave him clear directions: walk straight down the passage, enter the room, and take off his hat. Then Charley left him there and promised to wait for him nearby.
+Noah Claypole, or Morris Bolter, as the reader prefers, followed the directions he had received. Since Master Bates knew the area well, the directions were so precise that he was able to reach the magistrate’s court without asking any questions or being stopped along the way.
 
-Noah followed the directions carefully. They were so clear that he reached the courtroom without asking anyone for help.
+He found himself pushed among a crowd of people, mostly women, in a dirty, stuffy room. At the far end was a raised platform, with a dock for prisoners on the left, a witness box in the middle, and a desk for the magistrates on the right. The last area was screened off, hiding the bench from public view and leaving the common people to imagine the full majesty of justice.
 
-Inside, he found himself pushed into a crowd of people—mostly women—packed into a dirty, uncomfortable room. At the far end was a raised platform. On the left was a space for prisoners. In the middle stood a place for witnesses. On the right was a desk for the magistrates, hidden behind a screen so people could not see them clearly.
+There were only a couple of women in the dock, who were nodding to their friends, while the clerk read some statements to a couple of policemen and a man in plain clothes. A jailer leaned against the dock rail, tapping his nose with a large key, except when he called for silence to stop the chatter among the idlers, or looked up sternly to tell a woman to “Take that baby out,” when the sound of a baby’s cries disturbed the court. The room smelled close and unhealthy; the walls were stained with dirt, and the ceiling was blackened. There was an old, smoky bust over the mantel-shelf, and a dusty clock above the dock—the only thing that seemed to be working as it should. Depravity, poverty, or both had left a stain on all the living things, almost as unpleasant as the thick, greasy film on every inanimate object.
 
-Only two women stood in the prisoners’ area. They smiled and nodded to their friends while a clerk read papers to some policemen and another man. A jailer leaned against the rail, tapping his nose with a large key. Sometimes he shouted for silence. Sometimes he told a woman to take her crying baby outside.
+Noah looked around eagerly for the Dodger. But although there were several women who could have been the famous character’s mother or sister, and more than one man who resembled his father, no one matching Mr. Dawkins’s description was to be seen. He waited in suspense until the women were sent for trial and left, and then was relieved to see another prisoner who he knew at once must be the person he was looking for.
 
-The room smelled bad. The walls were stained with dirt, and the ceiling was black. There was an old, smoky statue above the fireplace and a dusty clock above the prisoners’ area. The clock was the only thing that seemed to work properly. Everything else—people and objects—looked dirty and unpleasant.
+It was indeed Mr. Dawkins. He shuffled into the office with his big coat sleeves tucked up as usual, his left hand in his pocket, and his hat in his right hand. He walked ahead of the jailer with an indescribable rolling walk, took his place in the dock, and asked in a loud voice why he was in this disgraceful situation.
 
-Noah looked around for the Dodger. He saw several women who might have been his mother or sister, and a few men who might have been his father—but no one matched the description he had been given. He waited nervously.
+“Hold your tongue, will you?” said the jailer.
 
-At last, the women were taken away, and another prisoner entered. At once, Noah knew this must be the one he was looking for.
+“I’m an Englishman, aren’t I?” replied the Dodger. “Where are my rights?”
 
-It was indeed Mr. Dawkins—the Artful Dodger. He walked in with his usual careless style. His sleeves were rolled up, one hand in his pocket, and his hat in the other. He stepped into the prisoners’ place and spoke loudly:
+“You’ll get your rights soon enough,” retorted the jailer, “and punishment with them.”
 
-“What am I doing in this disgraceful situation?”
+“We’ll see what the Secretary of State for the Home Affairs has to say if I don’t,” replied Mr. Dawkins. “Now then! What is this business? I’d thank the magistrates to deal with this little affair and not keep me while they read the paper. I have an appointment with a gentleman in the City, and since I’m a man of my word and very punctual, he’ll leave if I’m not there on time. And then there might be a lawsuit for damages against those who kept me away. Oh no, certainly not!”
 
-“Be quiet!” said the jailer.
+At this point, the Dodger, pretending to be very concerned with future legal action, asked the jailer to tell him “the names of the two men on the bench.” This made the spectators laugh almost as heartily as Master Bates would have if he had heard it.
 
-“I’m an Englishman, aren’t I?” said the Dodger. “Where are my rights?”
+“Silence there!” cried the jailer.
 
-“You’ll get your rights soon enough,” said the jailer, “and trouble with them.”
+“What is this?” asked one of the magistrates.
 
-“We’ll see what the Home Secretary says about this!” replied the Dodger. “Now then—what’s the charge? I ask the magistrates to deal with this quickly. Don’t keep me waiting while you read the newspaper. I have an appointment in the City. I am a man of my word, and very punctual. If I’m late, I might lose business—and then perhaps I’ll take legal action against those who kept me here. Oh yes, I certainly will!”
+“A pick-pocketing case, your worship.”
 
-Then, pretending to be very serious, the Dodger asked the jailer to tell him the names of the magistrates. This made the crowd laugh loudly.
+“Has the boy ever been here before?”
 
-“Silence!” shouted the jailer.
+“He should have been, many times,” replied the jailer. “He has been pretty much everywhere else. I know him well, your worship.”
 
-“What is this case?” asked one of the magistrates.
+“Oh! you know me, do you?” cried the Artful, making a note of the statement. “Very good. That’s a case of slander, anyway.”
 
-“A pickpocketing case, your worship.”
-
-“Has the boy been here before?”
-
-“He should have been here many times already,” said the jailer. “He’s been almost everywhere else. I know him well, your worship.”
-
-“Oh! You know me, do you?” cried the Artful Dodger, pretending to take note of this. “Very good. That sounds like damage to my reputation!”
-
-There was more laughter, followed by another call for silence.
+Here there was another laugh, and another cry of silence.
 
 “Now then, where are the witnesses?” said the clerk.
 
-“Yes, that’s right,” added the Dodger. “Where are they? I’d like to see them.”
+“Ah! that’s right,” added the Dodger. “Where are they? I’d like to see them.”
 
-At once, a policeman stepped forward. He said he had seen the boy try to pick a gentleman’s pocket in a crowd. He even saw him take a handkerchief. But it was old and useless, so the boy looked at it and calmly put it back. For this reason, the officer arrested him as soon as he could get close.
+His wish was immediately granted. A policeman stepped forward who had seen the prisoner try to pick the pocket of an unknown gentleman in a crowd and take a handkerchief from it. Since it was a very old one, he had deliberately put it back after wiping his own face with it. For this reason, he arrested the Dodger as soon as he could get near him. When the Dodger was searched, a silver snuff-box with the owner’s name on the lid was found on him. This gentleman was found through the Court Guide and was now present. He swore that the snuff-box was his and that he had missed it the day before, right after he had left the crowd. He had also noticed a young gentleman in the crowd who was particularly active, and that young gentleman was the prisoner before him.
 
-When they searched the Dodger, they found a silver snuffbox with the owner’s name on it. The owner was identified and brought to court. He confirmed that the box was his. He had lost it the day before, just after leaving the same crowd. He also remembered a boy moving quickly through the people—and that boy was the prisoner.
+“Have you anything to ask this witness, boy?” said the magistrate.
 
-“Do you want to ask the witness anything?” said the magistrate.
+“I wouldn’t lower myself by talking to him,” replied the Dodger.
 
-“I wouldn’t lower myself by speaking to him,” replied the Dodger.
+“Have you anything to say at all?”
 
-“Do you have anything to say at all?”
+“Do you hear his worship asking if you have anything to say?” asked the jailer, nudging the silent Dodger with his elbow.
 
-“Did you hear the question?” said the jailer, pushing him slightly.
+“I beg your pardon,” said the Dodger, looking up as if lost in thought. “Were you speaking to me, my man?”
 
-“I beg your pardon,” said the Dodger, looking up as if distracted. “Were you speaking to me, sir?”
+“I’ve never seen such a complete young rascal, your worship,” said the officer with a grin. “Do you mean to say anything, you young scamp?”
 
-“I’ve never seen such a bold young criminal,” said the officer with a grin. “Are you going to say anything?”
+“No,” replied the Dodger, “not here, for this isn’t the place for justice. Besides, my lawyer is having breakfast this morning with the Vice President of the House of Commons. But I’ll have something to say elsewhere, and so will he, and so will a very large and respectable circle of friends who will make those magistrates wish they’d never been born, or that they’d had their footmen hang them on their own hat-pegs before they came out this morning to try me. I’ll—”
 
-“No,” said the Dodger, “not here. This is not a place for justice. Besides, my lawyer is having breakfast this morning with the Vice President of the House of Commons. But I’ll speak somewhere else—and so will he—and so will many very respectable people. They’ll make these magistrates wish they had never been born, or had stayed at home today instead of trying to judge me. I will—”
+“There! He’s fully committed!” interrupted the clerk. “Take him away.”
 
-“That’s enough! He is committed for trial,” said the clerk. “Take him away.”
+“Come on,” said the jailer.
 
-“Come along,” said the jailer.
+“Oh ah! I’ll come on,” replied the Dodger, brushing his hat with his hand. “Ah! (to the Bench) it’s no use you looking frightened; I won’t show you any mercy, not a bit of it. You’ll pay for this, my fine fellows. I wouldn’t be you for anything! I wouldn’t go free now, if you were to fall down on your knees and ask me. Here, carry me off to prison! Take me away!”
 
-“Oh, I’ll come,” said the Dodger, brushing his hat. “Don’t look so worried,” he added, looking at the magistrates. “I won’t show you any mercy—not even a little. You’ll pay for this! I wouldn’t want to be you. I wouldn’t go free now, even if you begged me! Come on—take me to prison!”
+With these last words, the Dodger allowed himself to be led off by the collar. He threatened to make it a parliamentary issue until he was in the yard, and then grinned in the officer’s face with great glee and self-approval.
 
-With these words, he allowed himself to be led away. He kept making threats until they reached the yard. Then he suddenly grinned at the officer, clearly pleased with himself.
+After seeing him locked up by himself in a little cell, Noah made his way back to where he had left Master Bates. After waiting for some time, he was joined by that young gentleman, who had wisely stayed hidden until he had checked carefully from a safe spot and made sure his new friend wasn’t followed.
 
-After seeing him locked alone in a small cell, Noah hurried back to the place where he had left Charley Bates. After waiting for a while, Charley joined him. He had wisely stayed hidden, watching carefully to make sure no one had followed Noah.
-
-Then the two of them hurried back to Fagin. They brought him the exciting news that the Dodger was behaving exactly as he had been taught—and building a brilliant reputation for himself.`,
+The two hurried back together to bring Mr. Fagin the exciting news that the Dodger was living up to his upbringing and making a glorious reputation for himself.`,
 }

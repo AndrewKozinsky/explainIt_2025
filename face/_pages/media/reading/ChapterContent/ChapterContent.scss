@@ -8,26 +8,12 @@
 }
 
 .chapter-content__sentence {
-	display: grid;
-}
-.chapter-content__sentence--with-translation {
-	margin-bottom: 1.2rem;
+
 }
 
 .chapter-content__details {
-	max-height: 0;
-	opacity: 0;
-	overflow: hidden;
-	transition:
-		max-height 0.25s ease,
-		opacity 0.25s ease,
-		padding-top 0.25s ease,
-		padding-bottom 0.25s ease;
-}
-
-.chapter-content__details--visible {
-	max-height: 100rem;
-	opacity: 1;
+	margin-top: .2rem;
+	margin-bottom: 1.6rem;
 }
 
 .chapter-content__separator {
@@ -40,26 +26,11 @@
 	margin-top: .9rem;
 }
 
-.chapter-content__sentence-translation {
-	font-size: 1.8rem;
-	line-height: 2.8rem;
-	background: vars.$grayColor-1;
-	padding: .6rem 1.2rem;
-	margin-top: .6rem;
-	border-radius: vars.$radius-2;
-}
-
-.chapter-content__word-loading {
+.chapter-content__sentence-loading {
 	display: flex;
 	gap: .6rem;
 	font-size: 1.6rem;
 	line-height: 2.2rem;
 	color: vars.$grayColor-6;
-	margin-top: .9rem;
-}
-
-.chapter-content__word-not-found {
-	font-size: 1.6rem;
-	line-height: 2.2rem;
 	margin-top: .9rem;
 }

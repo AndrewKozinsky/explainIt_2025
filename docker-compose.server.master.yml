@@ -52,6 +52,22 @@ services:
       PORT: 3001
     env_file:
       - .env.servermaster
+  explainserverworkerservermaster:
+    build:
+      context: server/
+      dockerfile: Dockerfile.worker.server
+    restart: unless-stopped
+    command: npm run start:worker:prod
+    container_name: explainserverworkerservermaster
+    depends_on:
+      - explainpostgresservermaster
+      - explainredisservermaster
+      - explainnlpservermaster
+    environment:
+      MODE: servermaster
+      PORT: 3001
+    env_file:
+      - .env.servermaster
   explainfaceservermaster:
     build:
       context: face/

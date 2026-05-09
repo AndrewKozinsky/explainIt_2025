@@ -17,6 +17,11 @@ export type Scalars = {
   Float: { input: number; output: number; }
 };
 
+export type AddFlashcardInput = {
+  /** SentencePhraseTranslation id */
+  sentencePhraseTranslationId: Scalars['Int']['input'];
+};
+
 export type BookChapterLiteOutModel = {
   __typename?: 'BookChapterLiteOutModel';
   bookId: Scalars['Int']['output'];
@@ -97,7 +102,7 @@ export type CreatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
   /** Language code */
-  languageCode?: InputMaybe<Scalars['String']['input']>;
+  languageCode: Scalars['String']['input'];
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Note */
@@ -108,11 +113,23 @@ export type CreatePrivateVideoInput = {
   /** File size in MB */
   fileSizeMb?: InputMaybe<Scalars['Int']['input']>;
   /** Language code */
-  languageCode?: InputMaybe<Scalars['String']['input']>;
+  languageCode: Scalars['String']['input'];
   /** Name */
   name?: InputMaybe<Scalars['String']['input']>;
   /** Text */
   originalContent?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type CreateSentenceChatThreadInput = {
+  /** Sentence id */
+  sentenceId: Scalars['Int']['input'];
+};
+
+export type CreateSentenceChatUserMessageInput = {
+  /** User question in markdown-free plain text */
+  question: Scalars['String']['input'];
+  /** Sentence chat thread id */
+  threadId: Scalars['Int']['input'];
 };
 
 export type CreateUniversalAudioPronunciationInput = {
@@ -164,6 +181,26 @@ export type DeletePrivateVideoInput = {
   id: Scalars['Int']['input'];
 };
 
+export type FlashcardOutModel = {
+  __typename?: 'FlashcardOutModel';
+  bookPrivateId?: Maybe<Scalars['Int']['output']>;
+  bookPublicId?: Maybe<Scalars['Int']['output']>;
+  createdAt: Scalars['String']['output'];
+  examples: Array<SentencePhraseTranslationExampleOutModel>;
+  id: Scalars['Int']['output'];
+  languageCode: Scalars['String']['output'];
+  phrase: Scalars['String']['output'];
+  phraseEndOffset: Scalars['Int']['output'];
+  phraseStartOffset: Scalars['Int']['output'];
+  phraseTranscription?: Maybe<Scalars['String']['output']>;
+  phraseTranslation?: Maybe<Scalars['String']['output']>;
+  sentencePhraseTranslationId?: Maybe<Scalars['Int']['output']>;
+  sentenceText: Scalars['String']['output'];
+  sentenceTranslation?: Maybe<Scalars['String']['output']>;
+  videoPrivateId?: Maybe<Scalars['Int']['output']>;
+  videoPublicId?: Maybe<Scalars['Int']['output']>;
+};
+
 export type GetBookChapterInput = {
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
@@ -174,6 +211,11 @@ export type GetBookChapterInput = {
 export type GetBookPublicInput = {
   /** Book id */
   id: Scalars['Int']['input'];
+};
+
+export type GetMyFlashcardsInput = {
+  /** Optional language filter */
+  languageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetPhraseTranslationInput = {
@@ -203,6 +245,11 @@ export type GetPrivateVideoInput = {
 export type GetPublicVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
+};
+
+export type GetSentenceChatThreadInput = {
+  /** Sentence id */
+  sentenceId: Scalars['Int']['input'];
 };
 
 export type GetSentenceTranslationInput = {
@@ -273,8 +320,16 @@ export type Mutation = {
   create_audio_pronunciation: UniversalAudioPronunciationOutModel;
   /** Create transcription for a word using DeepSeek */
   create_transcription: TranscriptionOutModel;
+  /** Добавить фразу из разбора предложения в коллекцию карточек пользователя. */
+  flashcard_add: FlashcardOutModel;
+  /** Удалить карточку пользователя. */
+  flashcard_remove: Scalars['Boolean']['output'];
   /** Top up balance with YooKassa */
   payment_yookassa_top_up_balance: CreateYooKassaPaymentOutModel;
+  /** Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку. */
+  sentence_chat_create_thread: SentenceChatThreadOutModel;
+  /** Добавить пользовательское сообщение (вопрос) в существующий тред. После этого клиент подключается к SSE-стриму /sentence-chat/threads/:threadId/assistant-stream, чтобы сервер сгенерировал и постримил ответ ассистента. */
+  sentence_chat_create_user_message: SentenceChatMessageOutModel;
   /** Translate phrase in sentence by selected offsets */
   translate_translate_phrase: SentencePhraseTranslationOutModel;
   /** Translate sentence */
@@ -355,8 +410,28 @@ export type MutationCreate_TranscriptionArgs = {
 };
 
 
+export type MutationFlashcard_AddArgs = {
+  input: AddFlashcardInput;
+};
+
+
+export type MutationFlashcard_RemoveArgs = {
+  input: RemoveFlashcardInput;
+};
+
+
 export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
   input: TopUpBalanceWithYooKassaInput;
+};
+
+
+export type MutationSentence_Chat_Create_ThreadArgs = {
+  input: CreateSentenceChatThreadInput;
+};
+
+
+export type MutationSentence_Chat_Create_User_MessageArgs = {
+  input: CreateSentenceChatUserMessageInput;
 };
 
 
@@ -403,8 +478,12 @@ export type Query = {
   book_public_get_books: Array<BookPublicOutModel>;
   /** Get user books */
   book_user_books: Array<BookPrivateOutModel>;
+  /** Получить список карточек пользователя. Опционально фильтрует по языку. */
+  flashcard_get_my: Array<FlashcardOutModel>;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
+  /** Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null. */
+  sentence_chat_get_thread?: Maybe<SentenceChatThreadOutModel>;
   /** Get existing phrase translation by sentence and offsets */
   translate_get_phrase_translation?: Maybe<SentencePhraseTranslationOutModel>;
   /** Get all existing phrase translations by sentence id */
@@ -436,6 +515,16 @@ export type QueryBook_GetArgs = {
 
 export type QueryBook_Public_Get_BookArgs = {
   input: GetBookPublicInput;
+};
+
+
+export type QueryFlashcard_Get_MyArgs = {
+  input: GetMyFlashcardsInput;
+};
+
+
+export type QuerySentence_Chat_Get_ThreadArgs = {
+  input: GetSentenceChatThreadInput;
 };
 
 
@@ -475,9 +564,35 @@ export type RegisterUserInput = {
   password: Scalars['String']['input'];
 };
 
+export type RemoveFlashcardInput = {
+  /** Flashcard id */
+  flashcardId: Scalars['Int']['input'];
+};
+
 export type ResendConfirmationEmailInput = {
   /** User email */
   email: Scalars['String']['input'];
+};
+
+export type SentenceChatMessageOutModel = {
+  __typename?: 'SentenceChatMessageOutModel';
+  content: Scalars['String']['output'];
+  createdAt: Scalars['String']['output'];
+  errorMessage?: Maybe<Scalars['String']['output']>;
+  id: Scalars['Int']['output'];
+  role: Scalars['String']['output'];
+  status: Scalars['String']['output'];
+  threadId: Scalars['Int']['output'];
+  updatedAt: Scalars['String']['output'];
+};
+
+export type SentenceChatThreadOutModel = {
+  __typename?: 'SentenceChatThreadOutModel';
+  createdAt: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  messages: Array<SentenceChatMessageOutModel>;
+  sentenceId: Scalars['Int']['output'];
+  updatedAt: Scalars['String']['output'];
 };
 
 export type SentenceOutModel = {
@@ -498,6 +613,7 @@ export type SentencePhraseTranslationOutModel = {
   createdAt: Scalars['String']['output'];
   errorMessage?: Maybe<Scalars['String']['output']>;
   examples: Array<SentencePhraseTranslationExampleOutModel>;
+  flashcardId?: Maybe<Scalars['Int']['output']>;
   id: Scalars['Int']['output'];
   phrase: Scalars['String']['output'];
   phraseEndOffset: Scalars['Int']['output'];
@@ -585,7 +701,6 @@ export type TranslateSentenceResultOutModel = {
 export type UniversalAudioPronunciationOutModel = {
   __typename?: 'UniversalAudioPronunciationOutModel';
   audioUrl: Scalars['String']['output'];
-  durationMs: Scalars['Int']['output'];
   id: Scalars['Int']['output'];
   universalPhraseId: Scalars['Int']['output'];
 };
@@ -786,7 +901,7 @@ export type AudioPronunciation_CreateVariables = Exact<{
 }>;
 
 
-export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } };
+export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } };
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -899,6 +1014,27 @@ export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
+export type Flashcard_AddVariables = Exact<{
+  input: AddFlashcardInput;
+}>;
+
+
+export type Flashcard_Add = { __typename?: 'Mutation', flashcard_add: { __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, sentencePhraseTranslationId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
+
+export type Flashcard_Get_MyVariables = Exact<{
+  input: GetMyFlashcardsInput;
+}>;
+
+
+export type Flashcard_Get_My = { __typename?: 'Query', flashcard_get_my: Array<{ __typename?: 'FlashcardOutModel', id: number, languageCode: string, sentenceText: string, sentenceTranslation?: string | null, phrase: string, phraseStartOffset: number, phraseEndOffset: number, phraseTranslation?: string | null, phraseTranscription?: string | null, bookPrivateId?: number | null, bookPublicId?: number | null, videoPrivateId?: number | null, videoPublicId?: number | null, sentencePhraseTranslationId?: number | null, createdAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
+
+export type Flashcard_RemoveVariables = Exact<{
+  input: RemoveFlashcardInput;
+}>;
+
+
+export type Flashcard_Remove = { __typename?: 'Mutation', flashcard_remove: boolean };
+
 export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -910,6 +1046,27 @@ export type Payment_YookassaTopUpBalanceVariables = Exact<{
 
 
 export type Payment_YookassaTopUpBalance = { __typename?: 'Mutation', payment_yookassa_top_up_balance: { __typename?: 'CreateYooKassaPaymentOutModel', confirmationUrl: string } };
+
+export type Sentence_Chat_Create_ThreadVariables = Exact<{
+  input: CreateSentenceChatThreadInput;
+}>;
+
+
+export type Sentence_Chat_Create_Thread = { __typename?: 'Mutation', sentence_chat_create_thread: { __typename?: 'SentenceChatThreadOutModel', id: number, sentenceId: number, createdAt: string, updatedAt: string, messages: Array<{ __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string }> } };
+
+export type Sentence_Chat_Create_User_MessageVariables = Exact<{
+  input: CreateSentenceChatUserMessageInput;
+}>;
+
+
+export type Sentence_Chat_Create_User_Message = { __typename?: 'Mutation', sentence_chat_create_user_message: { __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string } };
+
+export type Sentence_Chat_Get_ThreadVariables = Exact<{
+  input: GetSentenceChatThreadInput;
+}>;
+
+
+export type Sentence_Chat_Get_Thread = { __typename?: 'Query', sentence_chat_get_thread?: { __typename?: 'SentenceChatThreadOutModel', id: number, sentenceId: number, createdAt: string, updatedAt: string, messages: Array<{ __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string }> } | null };
 
 export type Transcription_CreateVariables = Exact<{
   input: CreateUniversalTranscriptionInput;
@@ -923,14 +1080,14 @@ export type Translate_Get_Phrase_TranslationVariables = Exact<{
 }>;
 
 
-export type Translate_Get_Phrase_Translation = { __typename?: 'Query', translate_get_phrase_translation?: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } | null };
+export type Translate_Get_Phrase_Translation = { __typename?: 'Query', translate_get_phrase_translation?: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } | null };
 
 export type Translate_Get_Phrase_Translations_By_SentenceVariables = Exact<{
   input: GetPhraseTranslationsBySentenceInput;
 }>;
 
 
-export type Translate_Get_Phrase_Translations_By_Sentence = { __typename?: 'Query', translate_get_phrase_translations_by_sentence: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
+export type Translate_Get_Phrase_Translations_By_Sentence = { __typename?: 'Query', translate_get_phrase_translations_by_sentence: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> };
 
 export type Translate_Get_Sentence_TranslationVariables = Exact<{
   input: GetSentenceTranslationInput;
@@ -944,7 +1101,7 @@ export type Translate_Translate_PhraseVariables = Exact<{
 }>;
 
 
-export type Translate_Translate_Phrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
+export type Translate_Translate_Phrase = { __typename?: 'Mutation', translate_translate_phrase: { __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> } };
 
 export type Translate_Translate_SentenceVariables = Exact<{
   input: TranslateSentenceInput;
@@ -958,14 +1115,14 @@ export type UniversalPhrase_CreateVariables = Exact<{
 }>;
 
 
-export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } | null } };
+export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type UniversalPhrase_GetVariables = Exact<{
   input: GetUniversalPhraseInput;
 }>;
 
 
-export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string, durationMs: number } | null } };
+export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1019,7 +1176,6 @@ export const AudioPronunciation_CreateDocument = gql`
     id
     universalPhraseId
     audioUrl
-    durationMs
   }
 }
     `;
@@ -1790,6 +1946,149 @@ export type Book_GetBooksPublicHookResult = ReturnType<typeof useBook_GetBooksPu
 export type Book_GetBooksPublicLazyQueryHookResult = ReturnType<typeof useBook_GetBooksPublicLazyQuery>;
 export type Book_GetBooksPublicSuspenseQueryHookResult = ReturnType<typeof useBook_GetBooksPublicSuspenseQuery>;
 export type Book_GetBooksPublicQueryResult = Apollo.QueryResult<Book_GetBooksPublic, Book_GetBooksPublicVariables>;
+export const Flashcard_AddDocument = gql`
+    mutation Flashcard_add($input: AddFlashcardInput!) {
+  flashcard_add(input: $input) {
+    id
+    languageCode
+    sentenceText
+    sentenceTranslation
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    phraseTranslation
+    phraseTranscription
+    examples {
+      text
+      translate
+    }
+    bookPrivateId
+    bookPublicId
+    videoPrivateId
+    videoPublicId
+    sentencePhraseTranslationId
+    createdAt
+  }
+}
+    `;
+export type Flashcard_AddMutationFn = Apollo.MutationFunction<Flashcard_Add, Flashcard_AddVariables>;
+
+/**
+ * __useFlashcard_Add__
+ *
+ * To run a mutation, you first call `useFlashcard_Add` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useFlashcard_Add` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [flashcardAdd, { data, loading, error }] = useFlashcard_Add({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFlashcard_Add(baseOptions?: Apollo.MutationHookOptions<Flashcard_Add, Flashcard_AddVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Flashcard_Add, Flashcard_AddVariables>(Flashcard_AddDocument, options);
+      }
+export type Flashcard_AddHookResult = ReturnType<typeof useFlashcard_Add>;
+export type Flashcard_AddMutationResult = Apollo.MutationResult<Flashcard_Add>;
+export type Flashcard_AddMutationOptions = Apollo.BaseMutationOptions<Flashcard_Add, Flashcard_AddVariables>;
+export const Flashcard_Get_MyDocument = gql`
+    query Flashcard_get_my($input: GetMyFlashcardsInput!) {
+  flashcard_get_my(input: $input) {
+    id
+    languageCode
+    sentenceText
+    sentenceTranslation
+    phrase
+    phraseStartOffset
+    phraseEndOffset
+    phraseTranslation
+    phraseTranscription
+    examples {
+      text
+      translate
+    }
+    bookPrivateId
+    bookPublicId
+    videoPrivateId
+    videoPublicId
+    sentencePhraseTranslationId
+    createdAt
+  }
+}
+    `;
+
+/**
+ * __useFlashcard_Get_My__
+ *
+ * To run a query within a React component, call `useFlashcard_Get_My` and pass it any options that fit your needs.
+ * When your component renders, `useFlashcard_Get_My` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useFlashcard_Get_My({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFlashcard_Get_My(baseOptions: Apollo.QueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables> & ({ variables: Flashcard_Get_MyVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Flashcard_Get_My, Flashcard_Get_MyVariables>(Flashcard_Get_MyDocument, options);
+      }
+export function useFlashcard_Get_MyLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Flashcard_Get_My, Flashcard_Get_MyVariables>(Flashcard_Get_MyDocument, options);
+        }
+// @ts-ignore
+export function useFlashcard_Get_MySuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>): Apollo.UseSuspenseQueryResult<Flashcard_Get_My, Flashcard_Get_MyVariables>;
+export function useFlashcard_Get_MySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>): Apollo.UseSuspenseQueryResult<Flashcard_Get_My | undefined, Flashcard_Get_MyVariables>;
+export function useFlashcard_Get_MySuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Flashcard_Get_My, Flashcard_Get_MyVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Flashcard_Get_My, Flashcard_Get_MyVariables>(Flashcard_Get_MyDocument, options);
+        }
+export type Flashcard_Get_MyHookResult = ReturnType<typeof useFlashcard_Get_My>;
+export type Flashcard_Get_MyLazyQueryHookResult = ReturnType<typeof useFlashcard_Get_MyLazyQuery>;
+export type Flashcard_Get_MySuspenseQueryHookResult = ReturnType<typeof useFlashcard_Get_MySuspenseQuery>;
+export type Flashcard_Get_MyQueryResult = Apollo.QueryResult<Flashcard_Get_My, Flashcard_Get_MyVariables>;
+export const Flashcard_RemoveDocument = gql`
+    mutation Flashcard_remove($input: RemoveFlashcardInput!) {
+  flashcard_remove(input: $input)
+}
+    `;
+export type Flashcard_RemoveMutationFn = Apollo.MutationFunction<Flashcard_Remove, Flashcard_RemoveVariables>;
+
+/**
+ * __useFlashcard_Remove__
+ *
+ * To run a mutation, you first call `useFlashcard_Remove` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useFlashcard_Remove` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [flashcardRemove, { data, loading, error }] = useFlashcard_Remove({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useFlashcard_Remove(baseOptions?: Apollo.MutationHookOptions<Flashcard_Remove, Flashcard_RemoveVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Flashcard_Remove, Flashcard_RemoveVariables>(Flashcard_RemoveDocument, options);
+      }
+export type Flashcard_RemoveHookResult = ReturnType<typeof useFlashcard_Remove>;
+export type Flashcard_RemoveMutationResult = Apollo.MutationResult<Flashcard_Remove>;
+export type Flashcard_RemoveMutationOptions = Apollo.BaseMutationOptions<Flashcard_Remove, Flashcard_RemoveVariables>;
 export const Language_Get_LanguagesDocument = gql`
     query Language_get_languages {
   language_get_languages {
@@ -1867,6 +2166,148 @@ export function usePayment_YookassaTopUpBalance(baseOptions?: Apollo.MutationHoo
 export type Payment_YookassaTopUpBalanceHookResult = ReturnType<typeof usePayment_YookassaTopUpBalance>;
 export type Payment_YookassaTopUpBalanceMutationResult = Apollo.MutationResult<Payment_YookassaTopUpBalance>;
 export type Payment_YookassaTopUpBalanceMutationOptions = Apollo.BaseMutationOptions<Payment_YookassaTopUpBalance, Payment_YookassaTopUpBalanceVariables>;
+export const Sentence_Chat_Create_ThreadDocument = gql`
+    mutation Sentence_chat_create_thread($input: CreateSentenceChatThreadInput!) {
+  sentence_chat_create_thread(input: $input) {
+    id
+    sentenceId
+    messages {
+      id
+      threadId
+      role
+      content
+      status
+      errorMessage
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+    `;
+export type Sentence_Chat_Create_ThreadMutationFn = Apollo.MutationFunction<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>;
+
+/**
+ * __useSentence_Chat_Create_Thread__
+ *
+ * To run a mutation, you first call `useSentence_Chat_Create_Thread` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSentence_Chat_Create_Thread` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [sentenceChatCreateThread, { data, loading, error }] = useSentence_Chat_Create_Thread({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentence_Chat_Create_Thread(baseOptions?: Apollo.MutationHookOptions<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>(Sentence_Chat_Create_ThreadDocument, options);
+      }
+export type Sentence_Chat_Create_ThreadHookResult = ReturnType<typeof useSentence_Chat_Create_Thread>;
+export type Sentence_Chat_Create_ThreadMutationResult = Apollo.MutationResult<Sentence_Chat_Create_Thread>;
+export type Sentence_Chat_Create_ThreadMutationOptions = Apollo.BaseMutationOptions<Sentence_Chat_Create_Thread, Sentence_Chat_Create_ThreadVariables>;
+export const Sentence_Chat_Create_User_MessageDocument = gql`
+    mutation Sentence_chat_create_user_message($input: CreateSentenceChatUserMessageInput!) {
+  sentence_chat_create_user_message(input: $input) {
+    id
+    threadId
+    role
+    content
+    status
+    errorMessage
+    createdAt
+    updatedAt
+  }
+}
+    `;
+export type Sentence_Chat_Create_User_MessageMutationFn = Apollo.MutationFunction<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>;
+
+/**
+ * __useSentence_Chat_Create_User_Message__
+ *
+ * To run a mutation, you first call `useSentence_Chat_Create_User_Message` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useSentence_Chat_Create_User_Message` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [sentenceChatCreateUserMessage, { data, loading, error }] = useSentence_Chat_Create_User_Message({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentence_Chat_Create_User_Message(baseOptions?: Apollo.MutationHookOptions<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>(Sentence_Chat_Create_User_MessageDocument, options);
+      }
+export type Sentence_Chat_Create_User_MessageHookResult = ReturnType<typeof useSentence_Chat_Create_User_Message>;
+export type Sentence_Chat_Create_User_MessageMutationResult = Apollo.MutationResult<Sentence_Chat_Create_User_Message>;
+export type Sentence_Chat_Create_User_MessageMutationOptions = Apollo.BaseMutationOptions<Sentence_Chat_Create_User_Message, Sentence_Chat_Create_User_MessageVariables>;
+export const Sentence_Chat_Get_ThreadDocument = gql`
+    query Sentence_chat_get_thread($input: GetSentenceChatThreadInput!) {
+  sentence_chat_get_thread(input: $input) {
+    id
+    sentenceId
+    messages {
+      id
+      threadId
+      role
+      content
+      status
+      errorMessage
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+    `;
+
+/**
+ * __useSentence_Chat_Get_Thread__
+ *
+ * To run a query within a React component, call `useSentence_Chat_Get_Thread` and pass it any options that fit your needs.
+ * When your component renders, `useSentence_Chat_Get_Thread` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useSentence_Chat_Get_Thread({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useSentence_Chat_Get_Thread(baseOptions: Apollo.QueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables> & ({ variables: Sentence_Chat_Get_ThreadVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>(Sentence_Chat_Get_ThreadDocument, options);
+      }
+export function useSentence_Chat_Get_ThreadLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>(Sentence_Chat_Get_ThreadDocument, options);
+        }
+// @ts-ignore
+export function useSentence_Chat_Get_ThreadSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>): Apollo.UseSuspenseQueryResult<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>;
+export function useSentence_Chat_Get_ThreadSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>): Apollo.UseSuspenseQueryResult<Sentence_Chat_Get_Thread | undefined, Sentence_Chat_Get_ThreadVariables>;
+export function useSentence_Chat_Get_ThreadSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>(Sentence_Chat_Get_ThreadDocument, options);
+        }
+export type Sentence_Chat_Get_ThreadHookResult = ReturnType<typeof useSentence_Chat_Get_Thread>;
+export type Sentence_Chat_Get_ThreadLazyQueryHookResult = ReturnType<typeof useSentence_Chat_Get_ThreadLazyQuery>;
+export type Sentence_Chat_Get_ThreadSuspenseQueryHookResult = ReturnType<typeof useSentence_Chat_Get_ThreadSuspenseQuery>;
+export type Sentence_Chat_Get_ThreadQueryResult = Apollo.QueryResult<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>;
 export const Transcription_CreateDocument = gql`
     mutation Transcription_create($input: CreateUniversalTranscriptionInput!) {
   create_transcription(input: $input) {
@@ -1920,6 +2361,7 @@ export const Translate_Get_Phrase_TranslationDocument = gql`
     errorMessage
     createdAt
     updatedAt
+    flashcardId
   }
 }
     `;
@@ -1976,6 +2418,7 @@ export const Translate_Get_Phrase_Translations_By_SentenceDocument = gql`
     errorMessage
     createdAt
     updatedAt
+    flashcardId
   }
 }
     `;
@@ -2076,6 +2519,7 @@ export const Translate_Translate_PhraseDocument = gql`
     errorMessage
     createdAt
     updatedAt
+    flashcardId
   }
 }
     `;
@@ -2155,7 +2599,6 @@ export const UniversalPhrase_CreateDocument = gql`
       id
       universalPhraseId
       audioUrl
-      durationMs
     }
   }
 }
@@ -2202,7 +2645,6 @@ export const UniversalPhrase_GetDocument = gql`
       id
       universalPhraseId
       audioUrl
-      durationMs
     }
   }
 }

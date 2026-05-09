@@ -1,0 +1,42 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.available-materials {
+
+}
+
+.available-materials__header {
+	font-size: clamp(4rem, 6.6vw, 6rem);
+	line-height: clamp(4.4rem, 7.2vw, 6.6rem);
+	font-weight: 700;
+	text-align: center;
+}
+
+.available-materials__info-text {
+	font-size: clamp(1.6rem, 6.6vw, 2.2rem);
+	line-height: clamp(2.6rem, 7.2vw, 3rem);
+	text-align: center;
+	margin-top: 1rem;
+
+	@include mix.page-width(vars.$monitor-width) {
+		margin-top: 1.5rem;
+	}
+}
+
+.available-materials__languages {
+	display: flex;
+	justify-content: center;
+	margin: 1.5rem 0 0 0;
+
+	@include mix.page-width(vars.$monitor-width) {
+		margin: 2.5rem 0 0 0;
+	}
+}
+
+.available-materials__books-grid {
+	margin-top: 2rem;
+
+	@include mix.page-width(vars.$monitor-width) {
+		margin-top: 4rem;
+	}
+}

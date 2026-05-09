@@ -1,219 +1,119 @@
 export const chapter_48 = {
 	name: 'Chapter XLVIII',
 	header: 'The flight of Sikes',
-	text: `Of all the crimes committed in London that night, this was the worst. Of all the horrors that came with the morning, this was the most cruel.
+	text: `Of all the evil deeds done in darkness across London that night, this was the worst. Of all the horrors that the morning air carried, this was the most foul and cruel.
 
-The sun rose over the city—bright and clear. It brought light, but also hope and new life. It shone everywhere: through rich stained glass, through broken windows, through great churches and dark corners. It shone equally on everything.
+The sun, bright and brilliant, brought not just light, but new life, hope, and freshness to the crowded city. It shone its equal light everywhere, through expensive colored glass and windows patched with paper, through the great dome of the cathedral and into rotten cracks in walls. It lit up the room where the murdered woman lay. He tried to shut it out, but the light streamed in. The sight was horrifying in the dim morning light, but it was even worse in the brilliant light of the sun.
 
-It also shone into the room where the murdered woman lay.
+He hadn't moved; he was afraid to. There had been a moan, a movement of her hand. In a fit of terror and rage, he had struck her again and again. He threw a rug over her, but it was worse to imagine her eyes, to think they were moving towards him, than to see them staring up, as if watching the reflection of the pool of blood on the ceiling. He had pulled the rug off again. And there was the body—just flesh and blood, but so much of it.
 
-He tried to block the light, but he could not. It kept coming in. The sight had already been terrible in the dim morning. Now, in full sunlight, it was even worse.
+He lit a fire and pushed the club into it. There was hair on the end, which burned and shriveled into a cinder, then was carried up the chimney by the draft. Even that scared him, as strong as he was. He held the weapon in the fire until it broke, then piled coals on it to burn it to ashes. He washed himself and his clothes. Some spots wouldn't come out, so he cut them out and burned them. The stains were everywhere in the room. Even the dog's feet were bloody.
 
-He had not moved. He had been too afraid. At one moment, she had made a small sound and moved her hand. In fear and anger, he struck her again and again.
+All this time, he never turned his back on the body, not for a moment. When his preparations were finished, he moved backward to the door, dragging the dog with him, so it wouldn't get its feet dirty again and carry new evidence of the crime into the streets. He shut the door softly, locked it, took the key, and left the house.
 
-Once he threw a rug over the body. But that was worse. He imagined her eyes moving under it. He imagined them turning toward him. That frightened him more than seeing them open, staring upward, reflecting the blood on the ceiling in the sunlight. So he pulled the rug away again.
+He crossed over, and glanced up at the window, to be sure that nothing was visible from the outside. There was the curtain still drawn, which she would have opened to admit the light she never saw again. It lay nearly under there. He knew that. God, how the sun poured down upon the very spot!
 
-There lay the body. Only flesh and blood now—but so much blood.
+The glance was instantaneous. It was a relief to have got free of the room. He whistled on the dog, and walked rapidly away.
 
-He lit a fire and pushed the club into it. There was hair on it. It burned quickly and turned to ash, rising up the chimney. Even this scared him. Still, he held the weapon in the fire until it broke. Then he burned the rest.
+He walked through Islington, up the hill at Highgate, past the stone honoring Whittington. He turned down Highgate Hill, unsure of where to go. He then turned right again and took a footpath across the fields, around Caen Wood, and onto Hampstead Heath. He crossed the hollow by the Vale of Heath, climbed the opposite bank, and crossed the road between Hampstead and Highgate. He continued across the heath to the fields at North End, where he lay down under a hedge and slept.
 
-He washed himself and cleaned his clothes. Some blood stains would not come out, so he cut those pieces away and burned them. Blood was everywhere in the room. Even the dog’s feet were stained.
+Soon he was up and moving again—not far into the country, but back towards London, then back again. He wandered over the same ground, then up and down in fields, resting by ditches, then startling up to find another spot to do the same.
 
-All this time, he never turned his back on the body. Not once.
+Where could he go that was nearby but not too public to get food and drink? Hendon. It was a good place, not far, and not many people went there. He headed there, sometimes running, sometimes, with a strange stubbornness, walking at a snail's pace, or stopping to break hedges with a stick. But when he arrived, everyone he met—even the children at the doors—seemed to look at him with suspicion. He turned back, without the courage to buy a bite or a drink, though he hadn't eaten in hours. Once more, he lingered on the Heath, unsure where to go.
 
-When he finished, he moved backward toward the door. He pulled the dog with him so it would not step in more blood and leave traces outside. He opened the door quietly, locked it, took the key, and left the house.
+He wandered for miles, but he always came back to the same place. Morning and noon passed, the day began to fade, and still he wandered back and forth, and around and around the same spot. At last, he got away and headed for Hatfield.
 
-Outside, he crossed the street and looked up at the window. The curtain was still closed—the one she had tried to open to let in the light she would never see again. He knew where the body lay. The sun was shining directly on that place.
+It was nine o'clock at night when the man, exhausted, and the dog, limping from the unusual amount of exercise, came down the hill by the church of the quiet village. He plodded along the little street and crept into a small pub, its dim light guiding them. There was a fire in the tap-room, and some farm workers were drinking by it.
 
-He looked only for a moment. Then he turned away quickly. It was a relief to be outside. He called the dog and walked fast.
+They made room for the stranger, but he sat in the farthest corner, eating and drinking alone, or rather with his dog, to whom he occasionally threw a piece of food.
 
-He moved through Islington. Then he climbed the hill at Highgate, where a stone stands in memory of Dick Whittington. He went down the hill again, not knowing where to go. He turned off the road and crossed the fields. He passed near Caen Wood and came to Hampstead Heath.
+The men's conversation was about the nearby land and farmers. When they ran out of things to say on that topic, they talked about the age of an old man who had been buried the previous Sunday. The young men thought he was very old, but the old men said he was quite young. One white-haired grandfather said the man wasn't older than himself and had ten or fifteen years of life left in him, if he had taken care of himself.
 
-He walked across the low ground called the Vale of Heath. Then he climbed up again and crossed the road between Hampstead and Highgate. At last, in a field near North End, he lay down under a hedge and slept.
+There was nothing in this to attract attention or cause alarm. The robber, after paying his bill, sat silently in his corner and had almost fallen asleep when he was half-awakened by the noisy entrance of a newcomer.
 
-Soon he woke up and started walking again. Not far into the countryside, but back toward London—then away again—then back once more. He wandered without direction. He lay down in ditches to rest, then jumped up and moved again.
+This was a strange man, half peddler and half showman, who traveled the country on foot selling various goods: hones, strops, razors, washballs, harness-paste, medicine for animals, cheap perfumes, and cosmetics, which he carried in a case on his back. His entrance was the cue for jokes with the countrymen, which didn't stop until he had eaten his supper and opened his box of treasures, cleverly mixing business with fun.
 
-He was hungry and thirsty. Where could he go that was quiet, but not too crowded? He thought of Hendon. It was not far and usually not busy. He went there, sometimes running, sometimes walking slowly, even stopping to break branches with a stick.
+"And what's that stuff? Good to eat, Harry?" asked a grinning countryman, pointing to some cakes in a corner.
 
-But when he arrived, everyone seemed to look at him with suspicion—even children at their doors. He lost his courage and left without buying food or drink, though he had eaten nothing for many hours.
+"This," said the fellow, taking one out, "is the amazing and priceless mixture for removing all kinds of stains, rust, dirt, mildew, specks, or spots from any fabric. Wine stains, fruit stains, beer stains, water stains, paint stains, pitch stains, any stains, they all come out with one rub of this amazing and priceless mixture. If a lady stains her honor, she just needs to swallow one cake and she's cured at once—because it's poison. If a gentleman wants to prove this, he just needs to swallow one little square, and he's proven it beyond a doubt—for it's as effective as a pistol bullet, and a lot nastier in taste, so you get more credit for taking it. One penny a square. With all these great qualities, one penny a square!"
 
-He returned again to Hampstead Heath, still unsure where to go.
+Two people bought one immediately, and more of the listeners were clearly tempted. The seller, seeing this, talked even more.
 
-He walked for miles, but always came back to the same place. Morning passed. Then midday. The day began to end. Still he wandered—back and forth, up and down, in circles—never leaving the area.
+"It's all bought up as fast as it can be made," said the fellow. "There are fourteen water-mills, six steam-engines, and a galvanic battery always working on it, and they can't make it fast enough, even though the men work so hard they die, and the widows are immediately given a pension of twenty pounds a year for each child, and a bonus of fifty for twins. One penny a square! Two half-pence is the same, and four farthings is accepted with joy. One penny a square! Wine stains, fruit stains, beer stains, water stains, paint stains, pitch stains, mud stains, blood stains! Here is a stain on the hat of a gentleman here that I'll take right out, before he can order me a pint of ale."
 
-At last, he forced himself to go farther away. He set his path toward Hatfield.
+"Hey!" cried Sikes, jumping up. "Give that back."
 
-It was nine o’clock at night. The man was very tired. The dog was also tired and limping after so much walking. They came down a hill near the church of a quiet village. Following a small light, they entered a little inn.
+"I'll take it right out, sir," replied the man, winking at the others, "before you can cross the room to get it. Gentlemen, look at the dark stain on this gentleman's hat, no wider than a shilling, but thicker than a half-crown. Whether it is a wine stain, fruit stain, beer stain, water stain, paint stain, pitch stain, mud stain, or blood stain—"
 
-Inside, there was a fire. Some country workers sat around it, drinking.
+The man said no more, because Sikes, with a horrible curse, knocked over the table, and snatching the hat from him, burst out of the house.
 
-They made space for the stranger. But he sat in a far corner. He ate and drank alone, sharing some food with his dog.
+With the same strange feeling and indecision that had gripped him all day, the murderer, seeing he wasn't being followed and that they probably thought he was just a drunk, angry man, turned back up the town. He got out of the glare of the lamps of a stagecoach in the street and was walking past when he recognized the mail coach from London. He saw it was stopped at the little post office. He almost knew what was coming, but he crossed the street and listened.
 
-The men talked about farms and land nearby. Then they spoke about an old man who had died the previous Sunday. The younger men said he had been very old. The older men argued he was not so old—one even said the man could have lived ten or fifteen more years, “if he had taken care.”
+The guard was standing at the door, waiting for the letter-bag. A man dressed like a game-keeper came up and handed him a basket from the pavement.
 
-Nothing in this talk caused fear or suspicion. The robber paid for his food and stayed quiet in his corner. He was almost asleep when a loud new visitor entered.
+"That's for your people," said the guard. "Now, look alive in there, will you. Damn that bag, it wasn't ready the night before last; this won't do, you know!"
 
-This man was strange and funny. He was part salesman, part entertainer. He traveled on foot, selling small goods—razors, soap, perfumes, medicines for animals, and other cheap items. He carried everything in a box on his back.
+"Anything new in town, Ben?" asked the game-keeper, leaning against the window-shutters to admire the horses.
 
-The villagers greeted him with jokes. He joked back and soon began to sell his goods while entertaining them.
+"No, nothing I know of," replied the man, pulling on his gloves. "Corn prices are up a little. I heard talk of a murder, too, down in Spitalfields, but I don't think much of it."
 
-“What’s that stuff?” asked one man, pointing to some small cakes. “Is it good to eat?”
+"Oh, that's quite true," said a gentleman inside, looking out of the window. "And it was a dreadful murder."
 
-“This,” said the seller, holding one up, “is a wonderful product! It removes all kinds of stains—wine, fruit, beer, water, paint, even dirt and rust—from all kinds of cloth.”
+"Was it, sir?" said the guard, touching his hat. "Man or woman, sir?"
 
-He spoke quickly and confidently.
+"A woman," replied the gentleman. "It is believed—"
 
-“If a lady has a ‘stain’ on her honour,” he added with a grin, “she only needs to eat one—and she’ll be cured at once. Because it’s poison!”
+"Now, Ben," said the coachman impatiently.
 
-The men laughed.
+"Damn that bag," said the guard. "Have you fallen asleep in there?"
 
-“If a gentleman wants to test it, he can eat one too,” the man went on. “It works as well as a bullet—but tastes much worse! Only one penny each!”
+"Coming!" cried the office keeper, running out.
 
-Two men bought some at once. Others hesitated.
+"Coming," grumbled the guard. "Yes, and so is the young lady of property who's going to fall for me, but I don't know when. Here, give it to me. All right!"
 
-Seeing this, the seller spoke even more.
+The horn blew a few cheerful notes, and the coach was gone.
 
-“It’s so popular, we can’t make enough! Fourteen mills, six steam engines, and even a special battery are always working to produce it! The workers die from hard work—but their widows get paid well!” he said dramatically. “One penny each! It removes every stain—wine, fruit, mud—even blood!”
+Sikes stood in the street, seemingly unmoved by what he had heard, and feeling nothing stronger than doubt about where to go. At length, he went back again and took the road from Hatfield to St. Albans.
 
-He suddenly pointed at a hat nearby.
+He walked on stubbornly, but as he left the town behind and entered the lonely darkness of the road, a feeling of dread and awe crept over him that shook him to his soul. Every object in front of him, whether real or a shadow, still or moving, looked like something fearful. But these fears were nothing compared to the feeling that haunted him: that the ghastly figure from that morning was following at his heels. He could see its shadow in the darkness, make out every detail of its outline, and see how stiffly and solemnly it seemed to stalk him. He could hear its clothes rustling in the leaves, and every gust of wind carried that last, low cry. If he stopped, it stopped too. If he ran, it followed—not running, which would have been a relief, but moving like a corpse brought to life, carried on a slow, sad wind that never changed.
 
-“Here is a stain on this gentleman’s hat! I’ll clean it before he can even get a drink!”
+At times, he turned with desperate determination, resolved to fight off this phantom, even if it killed him. But his hair stood on end and his blood ran cold, for it had turned with him and was now behind him. He had kept it in front of him that morning, but now it was always behind him. He leaned his back against a bank and felt it standing over him, visible against the cold night sky. He threw himself on the road—on his back on the road. It stood at his head, silent, upright, and still—a living gravestone, with its epitaph written in blood.
 
-“Hah!” cried Bill Sikes, jumping up. “Give that back!”
+Let no one say that murderers escape justice, or suggest that God is not watching. In one long minute of that agony of fear, he died a hundred violent deaths.
 
-“I’ll clean it quickly, sir,” said the man, winking at the others. “Gentlemen, look at this dark stain—maybe wine, maybe paint… or maybe blood—”
+There was a shed in a field he passed, which offered shelter for the night. In front of the door were three tall poplar trees that made it very dark inside. The wind moaned through them with a sad wail. He couldn't walk on until daylight, so he lay down close to the wall—to suffer new torture.
 
-He could not finish.
+For now, a vision appeared to him, as constant and more terrible than the one he had escaped. Those wide-staring eyes, so dull and glassy, that it would have been better to see them than to think about them, appeared in the darkness. They were light in themselves, but they lit up nothing. There were only two, but they were everywhere. If he closed his eyes, he saw the room with every familiar object—some he would have forgotten if he had tried to remember them—each in its usual place. The body was in its place, and its eyes were as he saw them when he crept away. He got up and rushed out into the field. The figure was behind him. He went back into the shed and shrank down once more. The eyes were there before he had even lain down.
 
-With a furious shout, Sikes knocked over the table, grabbed his hat, and ran out of the house.
+And here he stayed in such terror as only he could know, trembling in every limb, cold sweat pouring from him. Suddenly, the night wind carried the sound of distant shouting, and the roar of voices mixed in alarm and wonder. Any sound of people in that lonely place, even if it was a real cause for alarm, was something to him. He regained his strength and energy at the thought of personal danger, and jumping to his feet, he rushed into the open air.
 
-No one followed him. They likely thought he was just a drunk, angry man.
+The broad sky seemed to be on fire. Sheets of flame rose into the air with showers of sparks, lighting up the sky for miles around and driving clouds of smoke towards him. The shouts grew louder as new voices joined in, and he could hear the cry of "Fire!" mixed with the ringing of an alarm bell, the crash of heavy objects, and the crackling of flames as they found new fuel and shot up as if refreshed. The noise grew as he watched. There were people there—men and women—light, activity. It was like a new life to him. He ran onward, straight ahead, crashing through thorns and bushes, and leaping over gates and fences as madly as his dog, who ran before him, barking loudly.
 
-After a moment, he slowed down. Then, uncertain and restless, he turned back toward the town. He avoided the bright lights of a coach standing in the street. As he passed, he recognized the mail coach from London, stopped at the small post office.
+He reached the spot. There were half-dressed people running everywhere, some trying to drag frightened horses from the stables, others driving cattle from the yard and outbuildings, and others carrying things from the burning building amid a shower of falling sparks and red-hot beams. The openings where doors and windows had been an hour ago now showed a mass of raging fire. Walls shook and crumbled into the fire. Molten lead and iron poured down, white-hot, onto the ground. Women and children shrieked, and men encouraged each other with loud shouts. The clanking of the engine pumps and the hissing of the water as it hit the blazing wood added to the tremendous roar. He shouted, too, until he was hoarse. And, running from his memories and himself, he plunged into the thickest of the crowd. He dived here and there that night, now working at the pumps, now hurrying through the smoke and flames, but always keeping himself busy where the noise and people were thickest. He was up and down ladders, on the roofs of buildings, over floors that shook with his weight, under falling bricks and stones, in every part of that great fire. But he seemed to have a charmed life, and had no scratches, bruises, or weariness until morning, when only smoke and blackened ruins were left.
 
-He seemed to expect something. Still, he crossed the street and listened.
+When the mad excitement was over, the dreadful awareness of his crime returned, ten times stronger. He looked around suspiciously, for the men were talking in groups, and he was afraid he was the subject of their conversation. The dog obeyed his finger's signal, and they crept away together. He passed by an engine where some men were sitting, and they called to him to share their food. He took some bread and meat, and as he drank some beer, he heard the firemen, who were from London, talking about the murder. "He has gone to Birmingham, they say," said one, "but they'll have him yet, for the search parties are out, and by tomorrow night, the news will be all over the country."
 
-A guard stood at the door, waiting for the mail bag. At that moment, a man dressed like a gamekeeper came up. The guard handed him a basket.
+He hurried off and walked until he almost collapsed. Then he lay down in a lane and had a long, but broken and restless sleep. He wandered on again, indecisisive and weighed down by the fear of another lonely night.
 
-“That’s for your people,” said the guard. “Now hurry up in there! That bag wasn’t ready the other night—this won’t do!”
+Suddenly, he made the desperate decision to go back to London.
 
-“Anything new in town, Ben?” asked the gamekeeper, stepping aside to look at the horses.
+"There's someone to talk to there, at least," he thought. "A good hiding place, too. They'll never expect to catch me there, after this country chase. Why can't I lie low for a week or so, get some money from Fagin, and go to France? Dammit, I'll risk it."
 
-“No, nothing I know of,” said the man, pulling on his gloves. “Corn prices are up a little. I also heard about a murder near Spitalfields, but I don’t think much of it.”
+He acted on this impulse immediately, and choosing the quietest roads, began his journey back. He decided to hide a short distance from the city and enter it at dusk by a roundabout route, then go straight to his destination.
 
-“Oh, it’s quite true,” said a gentleman inside the coach, looking out of the window. “And it was a terrible murder.”
+The dog, though. If any description of him was out, it would mention that the dog was missing and had probably gone with him. This could lead to his capture as he walked through the streets. He decided to drown him, and walked on, looking for a pond. He picked up a heavy stone and tied it to his handkerchief as he went.
 
-“Was it, sir?” said the guard, touching his hat. “A man or a woman, sir?”
+The animal looked up at his master's face as he made these preparations. Whether his instinct sensed something of their purpose, or the robber's sideways glance at him was harsher than usual, he stayed a little farther behind than usual and cowered as he walked more slowly. When his master stopped at the edge of a pool and looked around to call him, he stopped completely.
 
-“A woman,” replied the gentleman. “It is believed—”
+"Do you hear me call? Come here!" cried Sikes.
 
-“Come on, Ben!” the coachman said impatiently.
+The animal came, out of sheer habit. But as Sikes bent down to tie the handkerchief to his throat, he let out a low growl and jumped back.
 
-“Damn that bag!” said the guard. “Are you asleep in there?”
+"Come back!" said the robber.
 
-“Coming!” cried the clerk, running out.
+The dog wagged his tail, but didn't move. Sikes made a running noose and called him again.
 
-“Coming,” muttered the guard. “Yes, and so is the rich young lady who’s going to fall in love with me—someday. Here, take this. All right!”
+The dog came forward, then retreated, paused for a moment, and then ran away as fast as he could.
 
-The horn sounded, and the coach drove away.
-
-Bill Sikes stood in the street. He seemed calm, as if nothing had happened. But inside, he was unsure where to go. At last, he turned and took the road from Hatfield toward St. Albans.
-
-He walked forward stubbornly. But as he left the town and entered the dark, empty road, fear began to grow inside him. It shook him deeply.
-
-Everything around him—real or shadow, still or moving—looked strange and frightening. But this fear was nothing compared to another feeling: he thought the dead woman was following him.
-
-He imagined her shape behind him. He could see her shadow in the darkness. He could picture every detail. She moved slowly, stiffly, like something not alive. He heard her clothes moving in the wind. Every sound carried her last cry.
-
-If he stopped, she stopped. If he ran, she followed—but not running. That made it worse. She moved slowly, like a dead body that could somehow still walk.
-
-Sometimes he turned suddenly, ready to fight this ghost. But when he did, his body froze in terror. It had turned too—and now stood behind him again.
-
-In the morning, he had imagined it in front of him. Now it was always behind.
-
-He leaned against a bank and felt it standing above him, dark against the night sky. He threw himself down on the road. Still, it stood at his head—silent, straight, unmoving—like a gravestone, marked with blood.
-
-No one should say that murderers escape punishment. In one minute of this fear, he suffered as if he had died many violent deaths.
-
-He passed a small shed in a field. It could give him shelter for the night. Three tall trees stood near it, making it very dark inside. The wind moved through them with a sad, hollow sound.
-
-He could not keep walking until morning. So he lay down by the wall of the shed—but his suffering only grew.
-
-Now he saw something even worse: her eyes.
-
-They were wide open, empty and glassy. They seemed to shine, but gave no light. There were only two—but they were everywhere.
-
-If he closed his eyes, he saw the room again. Every object was in its place. Even small things he might have forgotten appeared clearly. The body lay where it had been. The eyes looked just as they had when he left.
-
-He jumped up and ran outside. But the figure was still behind him.
-
-He went back into the shed and lay down again. The eyes were there before he could even close his own.
-
-He stayed like this, shaking with fear. His whole body trembled. Cold sweat covered him.
-
-Then suddenly, he heard something in the distance—shouting, many voices together, full of alarm and excitement.
-
-In that lonely place, any human sound gave him strength. Even danger felt better than this fear.
-
-He stood up quickly and ran out into the open air.
-
-The wide sky looked as if it was on fire. Flames rose into the air, sending up showers of sparks. They rolled over each other, lighting the sky for miles around and pushing thick smoke toward him.
-
-The noise grew louder. More voices joined in, and he heard people shouting, “Fire!” Bells rang loudly. Heavy objects fell, and the flames crackled as they spread and climbed higher, as if they were being fed.
-
-As he watched, the noise kept growing. There were people everywhere—men and women, moving quickly and shouting. It felt like new energy filled him. He rushed forward without thinking, running through bushes and jumping over gates and fences, just like his dog, which ran ahead barking loudly.
-
-He reached the place. People, only half dressed, ran in all directions. Some tried to pull frightened horses out of the stables. Others drove cattle out of the yard and buildings. Some carried things away from the burning house while sparks fell around them and burning beams crashed down.
-
-Where doors and windows had stood an hour before, there was now only fire. The walls shook and collapsed into the flames. Melted metal poured down, glowing white-hot. Women and children screamed, while men shouted to encourage each other.
-
-The fire engines made loud, clanking sounds, and the water hissed as it hit the burning wood. All of this added to the terrible roar.
-
-He shouted too, until his voice was gone. Forgetting himself, he threw himself into the crowd. All night he moved from place to place—helping with the pumps, running through smoke and fire, always going where the noise and people were thickest.
-
-He climbed ladders, stood on roofs, and crossed floors that shook under his feet. Bricks and stones fell around him. He was everywhere in that great fire, yet he was not hurt at all. He felt no pain, no tiredness, and hardly even thought—until morning came, and only smoke and black ruins remained.
-
-When the wild excitement passed, the terrible memory of his crime returned even stronger. He looked around nervously. Men were talking in groups, and he was afraid they might be speaking about him.
-
-He signaled to his dog, and they quietly moved away together.
-
-As he passed a fire engine, some men sitting nearby called him over and offered him food. He took some bread and meat. While drinking beer, he heard the firemen—who had come from London—talking about the murder.
-
-“They say he’s gone to Birmingham,” one said. “But they’ll catch him soon. Men are already searching, and by tomorrow night everyone will be looking for him.”
-
-He quickly left and walked until he was almost too tired to stand. At last, he lay down in a narrow road and fell into a long but restless sleep.
-
-When he woke, he kept wandering, unsure what to do, and afraid of spending another night alone.
-
-Suddenly, he made a desperate decision: he would go back to London.
-
-“At least there’s someone to talk to there,” he thought. “And a good place to hide. They won’t expect to find me there after I’ve run into the countryside. Why not hide for a week, get some money from Fagin, and escape to France? I’ll risk it.”
-
-Without delay, he acted on this plan. He chose quiet roads and began his journey back. He decided to stay hidden near the city, and then enter it at dusk by a roundabout way, going straight to the place he had chosen.
-
-But there was the dog.
-
-If people were looking for him, they would remember the dog too. The dog could give him away in the streets.
-
-He decided to drown it. As he walked, he looked for a pond, picked up a heavy stone, and tied it in his handkerchief.
-
-The dog watched his master’s face. Perhaps it sensed something was wrong, or perhaps the man’s expression was harsher than usual. It moved more slowly and stayed a little farther behind.
-
-When his master stopped at the edge of a pool and called it, the dog stopped.
-
-“Do you hear me? Come here!” Sikes shouted.
-
-The dog came forward out of habit. But when Sikes bent down to tie the handkerchief around its neck, the dog gave a low growl and jumped back.
-
-“Come back!” the man said.
-
-The dog wagged its tail but did not move closer. Sikes made a loop with the handkerchief and called again.
-
-The dog stepped forward, then back, hesitated for a moment—and suddenly ran away as fast as it could.
-
-The man whistled again and again. Then he sat down and waited, expecting the dog to return.
-
-But it never came back.
-
-At last, he stood up and continued his journey.`,
+The man whistled again and again, and sat down, expecting the dog to return. But no dog appeared, and at last, he continued his journey.`,
 }

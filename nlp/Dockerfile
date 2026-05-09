@@ -10,8 +10,15 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Download spaCy model
-RUN python -m spacy download en_core_web_sm
+# Download spaCy models for all trained languages we support.
+# Keep this list in sync with TRAINED_MODELS in pipelines.py.
+RUN python -m spacy download en_core_web_sm \
+    && python -m spacy download es_core_news_sm \
+    && python -m spacy download fr_core_news_sm \
+    && python -m spacy download de_core_news_sm \
+    && python -m spacy download ru_core_news_sm \
+    && python -m spacy download it_core_news_sm \
+    && python -m spacy download pt_core_news_sm
 
 COPY . .
 

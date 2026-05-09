@@ -1,187 +1,155 @@
 export const chapter_2 = {
 	name: 'Chapter II',
 	header: 'Treats of Oliver Twist’s growth, education, and board',
-	text: `For the next eight or ten months, Oliver was raised in a system full of quiet neglect and deception. He was brought up by hand, without a mother. The workhouse officials reported his poor condition to the parish authorities. The parish authorities then asked, with great seriousness, whether there was any woman in the workhouse who could care for the child and give him the food he needed. The workhouse replied, politely, that there was not.
+	text: `For the next eight or ten months, Oliver was the victim of a system of betrayal and lies. He was not raised by his mother. The workhouse officials reported the orphan's hunger and poverty to the parish officials. The parish officials then asked the workhouse if there was any woman there who could give Oliver the comfort and food he needed. The workhouse officials replied that there was not. So, the parish decided to 'farm out' Oliver. In other words, he was sent to a branch workhouse about three miles away. There, twenty or thirty other young children who had broken the poor-laws rolled around on the floor all day. They did not have the problem of too much food or clothing. They were under the care of an old woman, who was paid seven and a half pence per child each week. Seven and a half pence a week was considered a good amount for a child's food. The old woman, however, was a wise and experienced person. She knew what was good for children, but she knew even better what was good for herself. So, she took most of the money for her own use and gave the children even less food than they were supposed to get. In this way, she proved herself to be a great experimental philosopher, always finding a new way to make a bad situation worse.
 
-So the parish authorities generously decided that Oliver should be “farmed out”—that is, sent to a branch workhouse about three miles away. There, twenty or thirty other children, guilty only of being poor, spent their days rolling on the floor, without too much food or clothing, under the care of an elderly woman. She received sevenpence-halfpenny per child each week.
+Everyone knows the story of another experimental philosopher who believed a horse could live without eating. He tested his theory so well that his horse was eating only one straw a day. He would have surely created a very lively and energetic animal that ate nothing at all, if the horse had not died twenty-four hours before its first meal of air. Unfortunately for the old woman's philosophy, a similar thing often happened with her system. Just when a child had managed to survive on the smallest amount of the worst food, it would either get sick from hunger and cold, fall into the fire by accident, or suffocate. In any of these cases, the poor child was usually sent to another world, to meet the family it never knew in this one.
 
-Sevenpence-halfpenny a week is, of course, quite enough for a child—more than enough to feed it well and keep it comfortable. The woman in charge was experienced and practical. She knew very well what was good for children—and even better what was good for herself. So she kept most of the money for her own use, and gave the children even less than they were supposed to receive. In this way, she managed to make their already poor situation even worse.
+Sometimes, there was a particularly interesting investigation into the death of a parish child. This happened if a child was accidentally killed when a bed was moved, or burned to death during a washing—although this was rare because washing itself was rare. On these occasions, the jury would ask difficult questions, or the local people would sign a protest. But these complaints were quickly stopped by the surgeon's evidence and the beadle's testimony. The surgeon always examined the body and found nothing inside (which was very likely), and the beadle always swore to whatever the parish wanted him to. Besides, the board made regular visits to the farm and always sent the beadle the day before to announce their arrival. The children were always neat and clean when the board visited, and what more could people want?
 
-Everyone has heard of the man who tried to prove that a horse could live without food. He fed it less and less each day, until it was almost living on nothing at all—and just when he was about to succeed completely, the horse died. Unfortunately, something similar often happened under this woman’s care. Just when a child had somehow managed to survive on almost no food at all, it would suddenly fall ill from hunger or cold, or be injured through neglect. In most cases, the poor child would quietly die and leave the world without ever having truly lived in it.
+It is not surprising that this system did not produce very healthy children. On his ninth birthday, Oliver Twist was a pale, thin child, small for his age. But nature, or his parents, had given him a strong spirit. It had plenty of room to grow, thanks to the poor diet of the place. And perhaps because of this, he even reached his ninth birthday. On that day, he was in the coal cellar with two other boys. They had all been beaten and then locked up for the terrible crime of being hungry. It was then that Mrs. Mann, the lady of the house, was surprised to see Mr. Bumble, the beadle, at her garden gate.
 
-Sometimes, when a child’s death attracted attention—perhaps because it had been accidentally burned or forgotten—people would begin to ask questions. Occasionally, even the local residents would complain. But these problems were quickly settled. The doctor would examine the body and report that there was nothing unusual—quite likely true, since there was almost nothing inside. The beadle would say whatever was required. And the board of officials always visited the place regularly—after sending notice the day before. Naturally, the children were washed and made to look neat on those occasions. What more could anyone expect?
+'Goodness gracious! Is that you, Mr. Bumble, sir?' said Mrs. Mann, putting her head out of the window with great, false joy. '(Susan, take Oliver and the other two upstairs and wash them immediately.) My dear Mr. Bumble, I am so glad to see you!'
 
-It is not surprising that this system did not produce strong or healthy children. By the time Oliver was nine years old, he was pale, thin, and small. But he had a strong spirit inside him. It had plenty of space to grow, thanks to the very light diet he received. Perhaps that is why he managed to reach his ninth birthday at all.
+Now, Mr. Bumble was a fat and angry man. So, instead of returning her warm greeting, he shook the small gate violently and then kicked it—a kick that could only come from a beadle.
 
-And it was his ninth birthday. He spent it locked in a coal cellar with two other boys. They had all been beaten for the terrible crime of being hungry.
+'Oh, just think of that!' said Mrs. Mann, running out, as the three boys were taken away. 'I forgot that the gate was locked from the inside because of those dear children! Please, come in, Mr. Bumble, sir.'
 
-At that moment, Mrs. Mann—the woman in charge—was suddenly interrupted by the arrival of Mr. Bumble, the parish beadle, who was trying to open the garden gate.
+Even though she said this with a curtsy that could soften the heart of a church official, it did not calm the beadle.
 
-“My goodness! Is that you, Mr. Bumble, sir?” cried Mrs. Mann, putting her head out of the window with great excitement. “(Susan, take Oliver and those two boys upstairs and wash them at once!) Dear me, Mr. Bumble, how glad I am to see you!”
+'Do you think this is respectful or proper behavior, Mrs. Mann,' asked Mr. Bumble, holding his cane, 'to keep the parish officers waiting at your garden gate? Are you aware, Mrs. Mann, that you are a parish representative and are paid for your services?'
 
-Mr. Bumble was a large man with a quick temper. Instead of returning the greeting kindly, he shook the gate violently and then kicked it hard.
+'I'm sure, Mr. Bumble, that I was just telling the dear children who are so fond of you that you were coming,' replied Mrs. Mann humbly.
 
-“Oh dear, just think of that!” said Mrs. Mann, hurrying out. “I quite forgot the gate was locked—for the sake of the dear children! Please come in, sir, do come in.”
+Mr. Bumble was very proud of his speaking skills and his own importance. He had just shown both. He relaxed.
 
-Although she spoke very politely, Mr. Bumble was not pleased.
+'Well, well, Mrs. Mann,' he said in a calmer voice. 'It may be as you say. Lead the way, Mrs. Mann, for I have business to discuss.'
 
-“Is this proper behavior, Mrs. Mann?” he said, holding his cane. “To keep parish officers waiting at the gate when they come on official business? Do you understand that you are responsible for these parish children?”
+Mrs. Mann led the beadle into a small room with a brick floor. She gave him a seat and placed his hat and cane on the table. Mr. Bumble wiped the sweat from his forehead, glanced proudly at his hat, and smiled. Yes, he smiled. Beadles are only human, after all, and Mr. Bumble smiled.
 
-“I was only telling the dear children that you were coming, sir,” replied Mrs. Mann humbly.
+'Now, don't be offended by what I'm going to say,' said Mrs. Mann with a charming sweetness. 'You've had a long walk, you know. Would you like a little something to drink, Mr. Bumble?'
 
-Mr. Bumble thought highly of himself and his speaking abilities. Having made his point, he calmed down.
+'Not a drop,' said Mr. Bumble, waving his hand in a dignified way.
 
-“Well, perhaps,” he said. “Lead the way, Mrs. Mann. I have business to attend to.”
-
-She showed him into a small room, gave him a chair, and carefully placed his hat and cane on the table. Mr. Bumble wiped his forehead, looked at his hat with satisfaction, and smiled. Yes—he smiled.
-
-“Now don’t be offended,” said Mrs. Mann sweetly. “You’ve had a long walk. Would you like a little drink, Mr. Bumble?”
-
-“Not a drop,” he said with dignity.
-
-“I think you will,” she replied, noticing his tone. “Just a little—with water and sugar.”
+'I think you will,' said Mrs. Mann, who understood his tone. 'Just a little drop, with some cold water and a lump of sugar.'
 
 Mr. Bumble coughed.
 
-“Just a little,” she insisted.
+'Now, just a little drop,' Mrs. Mann said again, persuasively.
 
-“What is it?” he asked.
+'What is it?' asked the beadle.
 
-“It’s something I keep for the children, when they are not well,” said Mrs. Mann, taking down a bottle. “It’s gin. I won’t hide it from you.”
+'Why, it's something I have to keep in the house for the infants when they are unwell, Mr. Bumble,' replied Mrs. Mann as she opened a cupboard and took out a bottle and glass. 'It's gin. I won't lie to you, Mr. B. It's gin.'
 
-“Do you give that to the children?” asked Mr. Bumble, watching closely.
+'Do you give the children medicine, Mrs. Mann?' asked Bumble, watching her mix the drink with interest.
 
-“Oh yes, poor things,” she said. “I couldn’t see them suffer.”
+'Oh, yes, that I do, bless them,' replied the nurse. 'I couldn't watch them suffer, you know, sir.'
 
-“You are a very kind woman, Mrs. Mann,” said Mr. Bumble. “I will mention it to the board.” He took the glass. “You have a mother’s heart.” He stirred the drink. “I drink your health, Mrs. Mann.” And he swallowed half of it.
+'No,' said Mr. Bumble with approval. 'No, you could not. You are a kind woman, Mrs. Mann.' (Here she put down the glass.) 'I will be sure to mention this to the board, Mrs. Mann.' (He pulled the glass towards him.) 'You feel like a mother, Mrs. Mann.' (He stirred the gin and water.) 'I—I drink to your health with pleasure, Mrs. Mann,' and he drank half of it.
 
-“And now to business,” he continued, taking out a notebook. “The child called Oliver Twist is nine years old today.”
+'And now for business,' said the beadle, taking out a leather notebook. 'The child, Oliver Twist, is nine years old today.'
 
-“Bless him!” said Mrs. Mann.
+'Bless him!' interrupted Mrs. Mann, wiping her eye with her apron.
 
-“And despite a reward being offered,” Mr. Bumble went on, “we have never discovered who his parents were.”
+'And even with a reward of ten pounds, which was later raised to twenty pounds. Even with the greatest efforts from this parish,' said Bumble, 'we have never been able to find out who his father is, or what his mother's name or situation was.'
 
-Mrs. Mann looked surprised. “Then how did he get his name?”
+Mrs. Mann raised her hands in surprise, but then asked, 'Then how does he have a name at all?'
 
-Mr. Bumble stood up proudly. “I invented it.”
+The beadle stood up proudly and said, 'I invented it.'
 
-“You did, sir?”
+'You, Mr. Bumble!'
 
-“Yes. We name the children in alphabetical order. The last one had an ‘S’ name. This one is ‘T’—so I named him Twist. The next will be Unwin, then Vilkins. I have names ready all the way through the alphabet.”
+'I, Mrs. Mann. We name our foundlings in alphabetical order. The last one was S—Swubble, I named him. This one was a T—Twist, I named him. The next one will be Unwin, and the one after that, Vilkins. I have names ready to the end of the alphabet, and then all the way through it again when we get to Z.'
 
-“Well, you are quite the scholar, sir!” said Mrs. Mann.
+'Why, you're quite a writer, sir!' said Mrs. Mann.
 
-“Perhaps I am,” said Mr. Bumble, pleased. He finished his drink. “Oliver is now too old to stay here. The board has decided to bring him back to the workhouse. I have come to take him. Bring him to me at once.”
+'Well, well,' said the beadle, clearly pleased with the compliment. 'Perhaps I am. Perhaps I am, Mrs. Mann.' He finished his gin and water and added, 'Oliver is now too old to stay here. The board has decided to bring him back to the workhouse. I have come to take him there myself. So let me see him at once.'
 
-“I’ll bring him at once,” said Mrs. Mann, leaving the room.
+'I'll get him right away,' said Mrs. Mann, leaving the room. Oliver, who had just been washed, was led into the room by his 'caring' guardian.
 
-Oliver had just had his face and hands washed—at least as much as could be done in one quick attempt—and was led in by his kind protector.
+'Bow to the gentleman, Oliver,' said Mrs. Mann.
 
-“Bow to the gentleman, Oliver,” said Mrs. Mann.
+Oliver bowed, looking at both the beadle and his hat on the table.
 
-Oliver bowed. Unfortunately, the bow was shared between the beadle sitting in the chair and the large hat lying on the table.
+'Will you come with me, Oliver?' said Mr. Bumble in a grand voice.
 
-“Will you come with me, Oliver?” asked Mr. Bumble in a grand voice.
+Oliver was about to say that he would gladly go with anyone, but then he saw Mrs. Mann behind the beadle's chair, shaking her fist at him angrily. He understood immediately, for he had felt that fist on his body many times before.
 
-Oliver was about to say that he would gladly go with anyone, when he looked up and saw Mrs. Mann behind Mr. Bumble’s chair, shaking her fist at him angrily. He understood at once. That fist had taught him many lessons before.
+'Will she go with me?' asked poor Oliver.
 
-“Will she come with me?” asked poor Oliver.
+'No, she can't,' replied Mr. Bumble. 'But she'll come and see you sometimes.'
 
-“No,” said Mr. Bumble. “But she will come to see you sometimes.”
+This was not much comfort to the child. Young as he was, he was smart enough to pretend to be very sad about leaving. It was not hard for him to cry. Hunger and recent mistreatment are good reasons to cry, and Oliver cried very naturally. Mrs. Mann hugged him many times and, more importantly to Oliver, gave him a piece of bread and butter so he would not seem too hungry when he arrived at the workhouse. With the bread in his hand and the small parish cap on his head, Oliver was led away by Mr. Bumble from the miserable home where he had never heard a kind word or seen a kind look. And yet, he cried with grief as the cottage gate closed behind him. As miserable as his companions were, they were the only friends he had ever known. For the first time, a sense of loneliness in the big, wide world filled the child's heart.
 
-This was not much comfort. Still, young as he was, Oliver was clever enough to pretend to be very sad about leaving. It was not hard for him to cry. Hunger and recent beatings are excellent help if one wants tears—and Oliver cried very naturally.
+Mr. Bumble walked with long steps. Little Oliver, holding tightly to his gold-trimmed cuff, trotted beside him, asking every quarter of a mile if they were 'almost there.' Mr. Bumble's replies were short and sharp. The temporary good mood that the gin and water had created was gone, and he was a beadle once more.
 
-Mrs. Mann hugged him many times and, what he needed much more, gave him a piece of bread and butter, so he would not seem too hungry when he arrived at the workhouse. With the bread in his hand and a small brown parish cap on his head, Oliver was led away by Mr. Bumble from the miserable place where he had never known a single kind word or look.
+Oliver had been in the workhouse for less than fifteen minutes and had just finished a second slice of bread when Mr. Bumble returned. He told Oliver that the board wanted to see him immediately.
 
-And yet, when the gate closed behind him, he burst into tears. Poor as his companions had been, they were the only friends he had ever known. For the first time, he felt how alone he was in the wide world.
+Not knowing what a 'live board' was, Oliver was quite surprised and did not know whether to laugh or cry. He had no time to think, however, because Mr. Bumble tapped him on the head with his cane to wake him up, and on the back to make him move. He ordered him to follow and led him into a large, white-washed room where eight or ten fat gentlemen were sitting around a table. At the head of the table, in a chair slightly higher than the others, sat a particularly fat gentleman with a very round, red face.
 
-Mr. Bumble walked quickly, and little Oliver hurried beside him, holding tightly to his sleeve. Every few minutes he asked, “Are we nearly there?” Mr. Bumble answered shortly and impatiently. The kindness produced by his earlier drink had now completely disappeared.
+'Bow to the board,' said Bumble. Oliver wiped away a few tears and, seeing no other board but the table, wisely bowed to that.
 
-Oliver had been in the workhouse less than fifteen minutes, and had barely finished a second piece of bread, when Mr. Bumble returned. He said that it was “board night,” and that Oliver must appear before the board immediately.
+'What's your name, boy?' said the gentleman in the high chair.
 
-Oliver did not clearly understand what a “board” was, and felt confused. He did not know whether to laugh or cry. He had no time to think, however, because Mr. Bumble tapped him on the head with his cane to make him pay attention, and again on the back to make him move faster. Then he led him into a large white room, where eight or ten fat gentlemen were sitting around a table. At the head of the table sat a particularly large man with a round red face.
+Oliver was frightened by the sight of so many gentlemen, which made him tremble. The beadle gave him another tap from behind, which made him cry. Because of this, he answered in a very low and hesitant voice. A gentleman in a white waistcoat then called him a fool, which was a great way to make him feel better and more at ease.
 
-“Bow to the board,” said Mr. Bumble.
+'Boy,' said the gentleman in the high chair, 'listen to me. You know you're an orphan, I suppose?'
 
-Oliver wiped his eyes and, seeing no board except the table, bowed to it.
+'What's that, sir?' asked poor Oliver.
 
-“What is your name, boy?” asked the gentleman at the head.
+'The boy is a fool—I thought so,' said the gentleman in the white waistcoat.
 
-Oliver was frightened by the sight of so many important men and began to tremble. Mr. Bumble gave him another push, which made him cry. Because of fear and pain, he answered in a very quiet voice. At this, a gentleman in a white waistcoat said he was a fool—which did not help him feel more comfortable.
+'Hush!' said the first gentleman. 'You know you have no father or mother, and that you were raised by the parish, don't you?'
 
-“Boy,” said the gentleman at the head, “listen. You know you are an orphan?”
+'Yes, sir,' replied Oliver, crying bitterly.
 
-“What is that, sir?” asked Oliver.
+'What are you crying for?' asked the gentleman in the white waistcoat. And it was indeed strange. What could the boy be crying for?
 
-“I knew he was a fool,” said the man in the white waistcoat.
+'I hope you say your prayers every night,' said another gentleman in a rough voice, 'and pray for the people who feed you and take care of you—like a good Christian.'
 
-“Be quiet,” said the first gentleman. “You know you have no father or mother, and that you were raised by the parish, don’t you?”
+'Yes, sir,' stammered the boy. The gentleman was right without knowing it. It would have been very Christian-like if Oliver had prayed for the people who 'cared' for him. But he hadn't, because no one had ever taught him.
 
-“Yes, sir,” said Oliver, crying.
+'Well! You have come here to be educated and taught a useful trade,' said the red-faced gentleman in the high chair.
 
-“Then why are you crying?” asked the gentleman in the white waistcoat. Indeed, it seemed very strange to him that the boy should cry at all.
+'So you'll begin picking oakum tomorrow morning at six o'clock,' added the rude one in the white waistcoat.
 
-“I hope you say your prayers every night,” said another gentleman roughly, “and pray for the people who feed and care for you.”
+For this combination of blessings, Oliver bowed low as the beadle directed. He was then quickly taken to a large ward, where he cried himself to sleep on a rough, hard bed. What a strange example of England's 'tender' laws! They let the poor sleep!
 
-“Yes, sir,” said Oliver. In truth, it would have been very proper if he had prayed for them—but no one had ever taught him to do so.
+Poor Oliver! As he slept, unaware of his surroundings, he did not know that the board had made a decision that day that would greatly affect his future. But they had. And this was it:
 
-“Well,” said the red-faced gentleman, “you are here to be educated and taught a useful trade.”
+The members of this board were very wise and deep men. When they considered the workhouse, they discovered something that ordinary people would never have noticed—the poor people liked it! It was a place of entertainment for them, a tavern with nothing to pay, a year-round feast. 'Aha!' said the board, looking very smart. 'We will fix this.' So, they made a rule that all poor people had a choice: be starved slowly in the workhouse, or quickly outside of it. They arranged for an unlimited supply of water and small amounts of oatmeal. They served three meals of thin gruel a day, with an onion twice a week and half a roll on Sundays. They made many other wise and kind rules, such as separating married couples. There is no telling how many people might have asked for help under these new rules if it weren't for the workhouse itself. But the board was clever. The help was tied to the workhouse and the gruel, and that scared people away.
 
-“So tomorrow morning at six, you will begin picking oakum,” added the man in the white waistcoat.
+For the first six months after Oliver Twist arrived, the new system was in full effect. It was expensive at first because of the increased number of funerals and the need to alter the paupers' clothes, which hung loosely on their thin bodies. But the number of people in the workhouse decreased, and the board was very happy.
 
-Oliver bowed, as instructed, and was quickly taken away to a large room, where he lay down on a hard bed and cried himself to sleep. Such was the kindness of the law: it allowed poor children to sleep.
+'The room where the boys ate was a large stone hall with a large copper pot at one end. The master, wearing an apron, and with the help of one or two women, served the gruel at mealtimes. Each boy received one bowl of this and no more—except on special occasions, when he also got two and a quarter ounces of bread. The bowls never needed washing. The boys polished them with their spoons until they shone. After this, they would stare at the copper pot with such hungry eyes, as if they could eat the very bricks it was made of. They also sucked their fingers, hoping to catch any stray drops of gruel. Boys usually have big appetites. Oliver Twist and his friends suffered from slow starvation for three months. At last, they became so hungry and wild that one boy, who was tall for his age, darkly hinted to his friends that if he didn't get another bowl of gruel a day, he might eat the small, weak boy who slept next to him. He had a wild, hungry look in his eye, and they believed him. A meeting was held, and they drew lots to decide who should ask the master for more food that evening. The lot fell to Oliver Twist.'
 
-Poor Oliver! As he slept peacefully, he did not know that the board had already made a decision that would greatly affect his future.
+The evening came, and the boys took their places. The master, in his cook's uniform, stood by the copper pot. His assistants stood behind him. The gruel was served, and a long prayer was said over the small meal. The gruel vanished. The boys whispered and winked at Oliver, while his neighbors nudged him. Though he was just a child, he was desperate with hunger and misery. He stood up from the table and, holding his bowl and spoon, walked to the master. He said, a little afraid of his own boldness:
 
-The members of the board were very wise men—at least, they believed so. When they examined the workhouse, they discovered something remarkable: the poor seemed to like it! It appeared to them like a place where people could live without paying, with food provided all year round.
+'Please, sir, I want some more.'
 
-“This must be stopped,” said the board. And so they introduced a new system. Poor people would have a choice: they could either slowly starve inside the workhouse, or starve more quickly outside it.
+The master was a fat, healthy man, but he turned very pale. He stared in shock at the small rebel for a few seconds and then leaned on the copper pot for support. The assistants were frozen with amazement, and the boys were frozen with fear.
 
-They arranged for a constant supply of water and small amounts of oatmeal. The diet was fixed: three meals of thin gruel a day, an onion twice a week, and half a roll on Sundays. Many other “kind” rules were added. Families were separated, because it was cheaper. Husbands were freed from their wives, and children from their parents. It was all very practical—and very terrible.
+'What!' said the master at last, in a faint voice.
 
-At first, the system was expensive, mostly because so many people died. But soon the number of people in the workhouse became smaller and thinner, and the board was very pleased.
+'Please, sir,' replied Oliver, 'I want some more.'
 
-The boys ate in a large stone hall. At one end stood a big pot, from which the master served the gruel. Each boy received one bowl—and no more, except on rare occasions when they also got a small piece of bread.
+The master swung the ladle at Oliver's head, grabbed him, and screamed for the beadle.
 
-The bowls never needed washing. The boys cleaned them with their spoons until they shone, and then sat staring at the pot as if they could eat it. They even sucked their fingers, hoping to catch any drops of food.
+The board was in a serious meeting when Mr. Bumble rushed in, very excited. He addressed the gentleman in the high chair, saying:
 
-Boys usually have good appetites. Oliver and his companions suffered from slow hunger for three months. At last, they became so hungry that one boy—who was bigger than the others—said he was afraid he might one day eat the boy who slept next to him. He looked so wild and hungry that the others believed him.
+'Mr. Limbkins, I beg your pardon, sir! Oliver Twist has asked for more!'
 
-They held a meeting and decided that one of them must ask for more food. They drew lots—and the task fell to Oliver.
+Everyone was shocked. Horror was on every face.
 
-That evening, the boys sat down to eat. The master stood by the pot; the assistants behind him. The gruel was served, and a long prayer was said. Then the food disappeared quickly.
+'For more!' said Mr. Limbkins. 'Calm down, Bumble, and answer me clearly. Do I understand that he asked for more after he had eaten the supper he was given?'
 
-The boys whispered and looked at Oliver. The boys next to him pushed him forward.
+'He did, sir,' replied Bumble.
 
-Desperate with hunger, Oliver stood up, took his bowl and spoon, and went to the master. Though frightened, he said:
+'That boy will be hanged,' said the gentleman in the white waistcoat. 'I know that boy will be hanged.'
 
-“Please, sir, I want some more.”
+No one argued with the gentleman's prediction. A lively discussion followed. Oliver was immediately locked up. The next morning, a sign was posted on the gate, offering a reward of five pounds to anyone who would take Oliver Twist off the parish's hands. In other words, five pounds and Oliver Twist were offered to any man or woman who wanted an apprentice.
 
-The master, who was a large and healthy man, turned pale. He stared at Oliver in shock. The assistants were speechless. The boys were terrified.
+'I have never been more sure of anything in my life,' said the gentleman in the white waistcoat, as he read the sign the next morning, 'than I am that that boy will be hanged.'
 
-“What?” said the master at last.
-
-“Please, sir,” repeated Oliver, “I want some more.”
-
-The master struck him with the ladle, seized him, and shouted for the beadle.
-
-The board was in session when Mr. Bumble rushed in.
-
-“Mr. Limbkins, sir! Oliver Twist has asked for more!”
-
-Everyone was shocked.
-
-“For more?” said Mr. Limbkins. “Do you mean after he had eaten his supper?”
-
-“Yes, sir,” said Mr. Bumble.
-
-“That boy will be hanged,” said the gentleman in the white waistcoat. “I am certain of it.”
-
-No one disagreed.
-
-After some discussion, Oliver was locked up. The next morning, a notice was placed outside offering five pounds to anyone who would take Oliver away as an apprentice—in other words, both the money and the boy were offered together.
-
-“I have never been more sure of anything,” said the gentleman in the white waistcoat, reading the notice, “than that this boy will be hanged.”
-
-Whether he was right or not, I shall show later—if I do not spoil the story by telling you too soon.`,
+As I plan to show later whether the gentleman in the white waistcoat was right or not, I should not spoil the story by revealing now whether Oliver Twist's life ended this way.`,
 }

@@ -66,7 +66,7 @@ export function oliverTwistBookData(coversFolderName: string) {
 
 Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
 		languageCode: languages.en.code as Language,
-		freeToUse: false,
+		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#343f3f',
 	}

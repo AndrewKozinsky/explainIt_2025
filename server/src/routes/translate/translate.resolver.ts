@@ -2,6 +2,7 @@ import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { Request } from 'express'
+import { FlashcardRepository } from 'repo/flashcard.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import {
@@ -16,6 +17,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { SentencePhraseTranslationOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
+import { SentencePhraseTranslationServiceModel } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { TranslateSentenceResultOutModel } from 'models/sentenceTranslation/translateSentenceResult.out.model'
 import { GetPhraseTranslationInput } from './inputs/getPhraseTranslation.input'
 import { GetPhraseTranslationsBySentenceInput } from './inputs/getPhraseTranslationsBySentence.input'
@@ -31,6 +33,7 @@ export class TranslateResolver {
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
+		private flashcardRepository: FlashcardRepository,
 	) {}
 
 	@UseGuards(OptionalSessionUserGuard)
@@ -82,11 +85,14 @@ export class TranslateResolver {
 			actionType: 'read',
 		})
 
-		return this.sentencePhraseTranslationRepository.getPhraseContainingOffset({
+		const phrase = await this.sentencePhraseTranslationRepository.getPhraseContainingOffset({
 			sentenceId: input.sentenceId,
 			selectedWordStartOffset: input.selectedWordStartOffset,
 			selectedWordEndOffset: input.selectedWordEndOffset,
 		})
+
+		const enriched = await this.attachFlashcardIds(phrase ? [phrase] : [], request.user?.id ?? null)
+		return enriched[0] ?? null
 	}
 
 	@UseGuards(OptionalSessionUserGuard)
@@ -109,7 +115,9 @@ export class TranslateResolver {
 			actionType: 'read',
 		})
 
-		return this.sentencePhraseTranslationRepository.getReadyPhrasesBySentenceId(input.sentenceId)
+		const phrases = await this.sentencePhraseTranslationRepository.getReadyPhrasesBySentenceId(input.sentenceId)
+
+		return this.attachFlashcardIds(phrases, request.user?.id ?? null)
 	}
 
 	@UseGuards(OptionalSessionUserGuard)
@@ -137,12 +145,30 @@ export class TranslateResolver {
 		description: translateResolversDesc.translatePhrase,
 	})
 	async translatePhrase(@Args('input') input: TranslatePhraseInput, @Context('req') request: Request) {
-		return this.commandBus.execute(
+		const result: SentencePhraseTranslationServiceModel = await this.commandBus.execute(
 			new TranslatePhraseCommand({
 				...input,
 				userId: request.user?.id ?? null,
 			}),
 		)
+
+		const [enriched] = await this.attachFlashcardIds([result], request.user?.id ?? null)
+		return enriched
+	}
+
+	private async attachFlashcardIds(
+		phrases: SentencePhraseTranslationServiceModel[],
+		userId: null | number,
+	): Promise<SentencePhraseTranslationServiceModel[]> {
+		if (!userId || phrases.length === 0) return phrases
+
+		const ids = phrases.map((phrase) => phrase.id)
+		const map = await this.flashcardRepository.getFlashcardIdsByUserAndPhrasesIds(userId, ids)
+
+		return phrases.map((phrase) => ({
+			...phrase,
+			flashcardId: map.get(phrase.id) ?? null,
+		}))
 	}
 
 	private async ensureModeIsAllowedOrThrow(input: {

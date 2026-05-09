@@ -15,7 +15,7 @@ function PlainTextContent() {
 						sentenceId={sentence.id}
 						sentenceText={sentence.text}
 						selectedSentenceId={selection.sentenceId}
-						selectedWordIds={selection.wordIds}
+						selectedWordId={selection.wordId}
 						key={sentence.id}
 						selectWord={selectWord}
 					/>

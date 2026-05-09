@@ -1,0 +1,28 @@
+@use '@/styles/variables' as vars;
+
+.language-switch {
+	display: flex;
+	gap: .8rem;
+}
+
+.language-switch__button {
+	padding: .5rem 1.2rem;
+	border-radius: 2rem;
+}
+.language-switch__button--active {
+	cursor: pointer;
+	background: vars.$grayColor-1;
+	transition: border-color .1s;
+
+	&:hover {
+		border-color: vars.$grayColor-3;
+	}
+}
+.language-switch__button--current {
+	color: white;
+	background: vars.$accentColor-2;
+
+	&:focus {
+		outline: none;
+	}
+}

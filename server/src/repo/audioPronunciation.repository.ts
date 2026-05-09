@@ -15,12 +15,11 @@ export class UniversalAudioPronunciationRepository {
 	}
 
 	@CatchDbError()
-	async createAudioPronunciation(dto: { universalPhraseId: number; s3Key: string; durationMs: number }) {
+	async createAudioPronunciation(dto: { universalPhraseId: number; s3Key: string }) {
 		return await this.prisma.universalAudioPronunciation.create({
 			data: {
 				universal_phrase_id: dto.universalPhraseId,
 				s3_key: dto.s3Key,
-				duration_ms: dto.durationMs,
 			},
 		})
 	}

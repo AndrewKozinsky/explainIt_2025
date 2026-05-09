@@ -1,107 +1,77 @@
 export const chapter_10 = {
 	name: 'Chapter X',
 	header: 'Oliver becomes better acquainted with the characters of his new associates; and purchases experience at a high price. Being a short, but very important chapter, in this history',
-	text: `For many days, Oliver stayed in the old man’s room, removing marks from handkerchiefs (of which many were brought in), and sometimes joining in the game the boys and the old man played every morning. After a while, however, he began to long for fresh air, and often begged the old man to let him go out and work with the other boys.
+	text: `For many days, Oliver stayed in the Jew’s room, carefully removing the identifying marks from a great number of pocket-handkerchiefs that were brought home. He sometimes took part in the game previously described, which the two boys and the Jew played regularly each morning. After a while, he began to yearn for fresh air and took every opportunity to earnestly ask the old gentleman to let him go out to work with his two companions.
 
-Oliver was even more eager to work because of what he had seen of the old man’s strict ideas about right and wrong. Whenever the Dodger or Charley came home at night with nothing, the old man would speak angrily about the dangers of laziness, and would teach them the value of hard work by sending them to bed without supper. Once, he even pushed them down the stairs—but this was a rare example of how far he could go in teaching his “lessons.”
+Oliver was made more anxious to be actively working by what he had seen of the old gentleman’s stern character. Whenever the Dodger or Charley Bates came home at night with empty hands, he would speak with great passion on the misery of idle habits and would enforce the need for an active life by sending them to bed without supper. On one occasion, he went so far as to knock them both down a flight of stairs, but this was carrying his virtuous principles to an unusual extreme.
 
-At last, one morning, Oliver got the permission he had been asking for. There had been no handkerchiefs to work on for a few days, and their meals had been rather small. Perhaps this was the reason—but whatever the case, the old man agreed. He told Oliver he could go out, and placed him under the care of Charley Bates and the Dodger.
+At last, one morning, Oliver received the permission he had so eagerly sought. For two or three days, there had been no handkerchiefs to work on, and the dinners had been rather small. Perhaps these were the reasons the old gentleman gave his consent; but whether they were or not, he told Oliver he could go, and placed him under the joint guardianship of Charley Bates and his friend the Dodger.
 
-The three boys set off together: the Dodger with his sleeves rolled up and his hat tilted, as usual; Charley walking lazily with his hands in his pockets; and Oliver between them, wondering where they were going and what kind of work he would learn.
+The three boys set out; the Dodger with his coat-sleeves tucked up and his hat tilted, as usual; Master Bates strolling along with his hands in his pockets; and Oliver between them, wondering where they were going and what sort of trade he would be taught first.
 
-They walked in such a slow and careless way that Oliver soon began to suspect they had no intention of working at all. The Dodger had a bad habit of pulling caps off younger boys and throwing them away, while Charley showed very little respect for other people’s property, quietly taking apples and onions from street stalls and stuffing them into his pockets—which seemed so large they could hold almost anything.
+The pace they kept was such a lazy, questionable saunter that Oliver soon began to think his companions were planning to deceive the old gentleman by not working at all. The Dodger also had a wicked habit of pulling caps from the heads of small boys and tossing them down into basement areas. Meanwhile, Charley Bates showed some very loose ideas about property rights by stealing various apples and onions from the market stalls and stuffing them into pockets so surprisingly large that they seemed to stretch his entire suit. These actions looked so wrong that Oliver was about to declare his intention to find his way back as best he could, when his thoughts were suddenly turned in another direction by a very mysterious change in the Dodger's behavior.
 
-These actions troubled Oliver greatly, and he was just about to say that he would go back on his own, when something unexpected happened.
-
-They were coming out of a narrow street near a small open square called “The Green,” when the Dodger suddenly stopped. He raised his finger to his lips and pulled the others back carefully.
+They were just coming out of a narrow alley near the open square in Clerkenwell, which is still strangely called “The Green.” The Dodger made a sudden stop and, putting a finger to his lip, pulled his companions back with great caution.
 
 “What’s the matter?” asked Oliver.
 
-“Quiet!” said the Dodger. “Do you see that old gentleman at the bookstall?”
+“Hush!” replied the Dodger. “Do you see that old fellow at the book-stall?”
 
-“The one across the street?” said Oliver. “Yes, I see him.”
+“The old gentleman across the street?” said Oliver. “Yes, I see him.”
 
 “He’ll do,” said the Dodger.
 
-“A perfect choice,” added Charley Bates.
+“A perfect target,” observed Master Charley Bates.
 
-Oliver looked from one to the other in great surprise, but he had no chance to ask questions. The two boys quietly crossed the street and moved close behind the old gentleman. Oliver followed a few steps behind, unsure whether to go forward or turn back, and stood watching in silent confusion.
+Oliver looked from one to the other in great surprise, but he was not allowed to ask any questions. The two boys walked silently across the road and crept up close behind the old gentleman. Oliver followed a few steps behind them and, not knowing whether to go forward or back, stood watching in silent amazement.
 
-The old gentleman looked very respectable. He had powdered hair and gold glasses, wore a dark green coat with a black velvet collar, white trousers, and carried a fine cane. He had picked up a book from the stall and was reading it with great attention—as if he were sitting comfortably at home. It seemed he noticed nothing around him—not the street, not the boys, nothing at all except the book.
+The old gentleman was a very respectable-looking person, with a powdered wig and gold spectacles. He was dressed in a dark green coat with a black velvet collar, wore white trousers, and carried a smart bamboo cane under his arm. He had picked up a book from the stall and stood there reading as intently as if he were in his armchair in his own study. It is very possible he imagined himself there, because it was clear from his concentration that he did not see the book-stall, the street, the boys, or anything but the book itself. He was reading it straight through, turning the page when he reached the bottom and starting at the top of the next, and going on with the greatest interest.
 
-Then, to Oliver’s horror, he saw the Dodger slip his hand into the old gentleman’s pocket and pull out a handkerchief. He saw him pass it to Charley Bates—and then both boys ran away as fast as they could around the corner.
+What was Oliver’s horror and alarm as he stood a few paces away, his eyes as wide as they would go, to see the Dodger plunge his hand into the old gentleman’s pocket and pull out a handkerchief! To see him hand it to Charley Bates, and finally to watch them both run away around the corner at full speed!
 
-In that moment, everything became clear to Oliver: the handkerchiefs, the watches, the jewels—and the old man himself.
+In an instant, the whole mystery of the handkerchiefs, the watches, the jewels, and the Jew rushed into the boy’s mind.
 
-For a moment, Oliver stood frozen. His whole body trembled with fear, as if he were burning in fire. Then, suddenly confused and terrified, he turned and ran as fast as he could.
+He stood for a moment, the blood tingling through his veins from terror, feeling as if he were on fire. Then, confused and frightened, he started to run, and, not knowing what he was doing, ran as fast as he could.
 
-Everything happened in less than a minute. At the very moment Oliver began to run, the old gentleman put his hand into his pocket, noticed his handkerchief was gone, and quickly turned around. Seeing Oliver running away, he naturally thought that Oliver was the thief. Holding his book, he shouted loudly, “Stop thief!” and ran after him.
+This all happened in a minute. The very instant Oliver began to run, the old gentleman put his hand in his pocket, missed his handkerchief, and turned around sharply. Seeing the boy hurrying away at such a rapid pace, he naturally concluded that he was the thief. Shouting “Stop, thief!” with all his might, he ran after him, book in hand.
 
-But he was not the only one shouting.
+But the old gentleman was not the only one to raise the alarm. The Dodger and Master Bates, not wanting to attract public attention by running down the open street, had just stepped into the first doorway around the corner. As soon as they heard the cry and saw Oliver running, they guessed exactly what had happened. They came out promptly and, shouting “Stop, thief!” too, joined the chase like good citizens.
 
-The Dodger and Charley Bates had hidden in a doorway nearby. As soon as they heard the cry and saw Oliver running, they understood the situation immediately. They ran out and joined the chase, shouting “Stop thief!” as loudly as anyone.
+Although Oliver had been raised by philosophers, he was not familiar with the axiom that self-preservation is the first law of nature. If he had been, perhaps he would have been prepared for this. Not being prepared, however, it alarmed him even more. So away he went like the wind, with the old gentleman and the two boys roaring and shouting behind him.
 
-Oliver had never learned the idea that saving yourself is the most important rule. If he had, he might have understood what was happening. But he didn’t. This only made him more frightened, and he ran faster and faster, with the old gentleman and the two boys shouting behind him.
+“Stop, thief! Stop, thief!” There is a magic in the sound. The shopkeeper leaves his counter, and the driver his wagon; the butcher throws down his tray, the baker his basket, the milkman his pail, the errand-boy his parcels, the school-boy his marbles, the road worker his pickaxe, the child his toy. Away they all run, in a chaotic rush, tearing, yelling, screaming, knocking down people as they turn corners, startling the dogs, and surprising the chickens. The streets, squares, and alleys echo with the sound.
 
-“Stop thief! Stop thief!”
+“Stop, thief! Stop, thief!” The cry is taken up by a hundred voices, and the crowd grows at every turn. Away they fly, splashing through the mud and rattling along the pavement. Windows are thrown open, people run out, and the mob presses onward. A whole audience deserts a puppet show in the middle of the plot and, joining the rushing crowd, swells the shout and lends new energy to the cry, “Stop, thief! Stop, thief!”
 
-There is something powerful in those words. People hear them and immediately react. A shopkeeper leaves his counter, a driver leaves his wagon, a butcher drops his tray, a baker his basket, a milkman his pail. Boys stop playing, workers drop their tools—everyone starts running.
+“Stop, thief! Stop, thief!” There is a passion for hunting something that is deeply embedded in the human heart. One miserable, breathless child, panting with exhaustion, terror in his looks, agony in his eyes, with large drops of sweat streaming down his face, strains every nerve to get ahead of his pursuers. And as they follow his track and gain on him every moment, they greet his fading strength with joy. “Stop, thief!” Yes, stop him for God’s sake, if only out of mercy!
 
-Soon, a crowd forms. People shout, push, and run wildly through the streets. Dogs bark, birds scatter, windows open, and more people join in. The cry spreads everywhere:
+Stopped at last! A hard blow. He is down on the pavement, and the crowd eagerly gathers around him, each newcomer pushing and struggling with the others to get a glimpse. “Stand aside!” “Give him a little air!” “Nonsense! He doesn’t deserve it.” “Where’s the gentleman?” “Here he is, coming down the street.” “Make room there for the gentleman!” “Is this the boy, sir?” “Yes.”
 
-“Stop thief! Stop thief!”
+Oliver lay covered with mud and dust, bleeding from the mouth, and looking wildly at the heap of faces surrounding him. Just then, the old gentleman was pushed into the circle by the front-runners of the chase.
 
-The noise grows louder and louder. More voices join. The crowd gets bigger at every corner. People run through mud and along the pavements. Even those watching a street show leave it and rush to join the chase, adding their voices to the cry.
+“Yes,” said the gentleman, “I am afraid it is the boy.”
 
-There is something deep inside people that makes them want to chase someone.
+“Afraid!” murmured the crowd. “That’s a good one!”
 
-And at the center of it all is one exhausted, terrified boy—Oliver. He is out of breath, his face wet with sweat, his eyes full of fear. He struggles to run faster, but the crowd is gaining on him.
+“Poor fellow!” said the gentleman, “he has hurt himself.”
 
-“Stop thief!” they shout.
+“I did that, sir,” said a large, clumsy man, stepping forward. “And I cut my knuckle badly on his mouth. I stopped him, sir.”
 
-At last—he is caught.
+The man touched his hat with a grin, expecting a reward for his efforts. But the old gentleman, looking at him with an expression of dislike, glanced around anxiously as if he were thinking of running away himself. He might have tried to do so, creating another chase, if a police officer (who is usually the last person to arrive in such cases) had not at that moment made his way through the crowd and seized Oliver by the collar.
 
-Someone hits him hard, and he falls to the ground. The crowd quickly gathers around him, pushing and fighting to see.
+“Come, get up,” said the man, roughly.
 
-“Stand back!”
-“Give him some air!”
-“He doesn’t deserve it!”
-“Where’s the gentleman?”
-“Here he comes!”
-“Is this the boy, sir?”
-“Yes!”
+“It wasn’t me, sir. Indeed, it was two other boys,” said Oliver, clasping his hands passionately, and looking around. “They are here somewhere.”
 
-Oliver lies on the ground, covered in mud and dust, bleeding from his mouth. He looks around in terror at the many faces surrounding him.
+“Oh no, they aren’t,” said the officer. He meant this to be sarcastic, but it was also true, for the Dodger and Charley Bates had slipped away down the first convenient alley they came to.
 
-The old gentleman is pushed forward into the circle.
+“Come, get up!”
 
-“Yes,” he says, “I’m afraid this is the boy.”
+“Don’t hurt him,” said the old gentleman, with compassion.
 
-“Afraid!” the crowd repeats mockingly.
+“Oh no, I won’t hurt him,” replied the officer, tearing Oliver’s jacket halfway off his back as proof. “Come on, I know your type; it won’t work. Will you stand up, you young devil?”
 
-“Poor child,” says the gentleman. “He is hurt.”
+Oliver, who could hardly stand, managed to get to his feet and was immediately dragged along the street by his jacket collar at a rapid pace. The gentleman walked beside them, and as many of the crowd as could manage got a little ahead and stared back at Oliver from time to time. The boys shouted in triumph, and on they went.
 
-“I did that, sir!” says a large, clumsy man, stepping forward proudly. “I hit him, sir—and hurt my hand doing it. I stopped him!”
-
-The man smiles, expecting a reward. But the old gentleman looks at him with clear dislike and glances around nervously, as if he might leave.
-
-At that moment, a police officer arrives—late, as usual—and pushes through the crowd. He grabs Oliver roughly by the collar.
-
-“Come on, get up,” he says.
-
-“It wasn’t me, sir! Truly, it wasn’t!” cries Oliver desperately. “It was two other boys! They’re here somewhere!”
-
-“Oh no, they aren’t,” says the officer. He means it as a joke—but it is true. The Dodger and Charley have already disappeared.
-
-“Come on, get up!”
-
-“Don’t hurt him,” says the old gentleman kindly.
-
-“Oh, I won’t hurt him,” replies the officer, roughly pulling at Oliver’s jacket. “I know your kind. Come on—stand up, you young rascal!”
-
-Oliver can barely stand, but somehow gets to his feet. The officer grabs him by the collar and drags him quickly through the streets.
-
-The old gentleman walks beside them. People from the crowd run ahead, then turn to look back at Oliver again and again. Some boys shout happily, as if this were a game.
-
-And so they all go on together.`,
+`,
 }

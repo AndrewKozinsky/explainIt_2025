@@ -8,6 +8,14 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export enum SubtitlesGenerationStatus {
+    idle = "idle",
+    pending = "pending",
+    processing = "processing",
+    done = "done",
+    failed = "failed"
+}
+
 export interface GetPrivateBookInput {
     id: number;
 }
@@ -23,6 +31,10 @@ export interface GetBookChapterInput {
 
 export interface GetPrivateVideoInput {
     id: number;
+}
+
+export interface VideoPrivateSubtitlesStatusInput {
+    videoId: number;
 }
 
 export interface GetPublicVideoInput {
@@ -43,9 +55,17 @@ export interface GetPhraseTranslationsBySentenceInput {
     sentenceId: number;
 }
 
+export interface GetSentenceChatThreadInput {
+    sentenceId: number;
+}
+
 export interface GetUniversalPhraseInput {
     phrase: string;
     languageCode: string;
+}
+
+export interface GetMyFlashcardsInput {
+    languageCode?: Nullable<string>;
 }
 
 export interface RegisterUserInput {
@@ -79,7 +99,7 @@ export interface CreatePrivateBookInput {
     author?: Nullable<string>;
     name?: Nullable<string>;
     note?: Nullable<string>;
-    languageCode?: Nullable<string>;
+    languageCode: string;
 }
 
 export interface UpdatePrivateBookInput {
@@ -119,7 +139,7 @@ export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
-    languageCode?: Nullable<string>;
+    languageCode: string;
 }
 
 export interface UpdatePrivateVideoInput {
@@ -135,6 +155,10 @@ export interface UpdatePrivateVideoInput {
 
 export interface DeletePrivateVideoInput {
     id: number;
+}
+
+export interface GenerateSubtitlesForPrivateVideoInput {
+    videoId: number;
 }
 
 export interface TranslateSentenceInput {
@@ -162,6 +186,15 @@ export interface TranslatePhraseInput {
     videoYear?: Nullable<string>;
 }
 
+export interface CreateSentenceChatThreadInput {
+    sentenceId: number;
+}
+
+export interface CreateSentenceChatUserMessageInput {
+    threadId: number;
+    question: string;
+}
+
 export interface CreateUniversalPhraseInput {
     phrase: string;
     languageCode: string;
@@ -175,11 +208,18 @@ export interface CreateUniversalAudioPronunciationInput {
     universalPhraseId: number;
 }
 
+export interface AddFlashcardInput {
+    sentencePhraseTranslationId: number;
+}
+
+export interface RemoveFlashcardInput {
+    flashcardId: number;
+}
+
 export interface UniversalAudioPronunciationOutModel {
     id: number;
     universalPhraseId: number;
     audioUrl: string;
-    durationMs: number;
 }
 
 export interface UserOutModel {
@@ -246,16 +286,6 @@ export interface BookPublicOutModel {
     chapters: BookChapterLiteOutModel[];
 }
 
-export interface LanguageOutModel {
-    code: string;
-    nameRus: string;
-    nameEng: string;
-}
-
-export interface CreateYooKassaPaymentOutModel {
-    confirmationUrl: string;
-}
-
 export interface SentencePhraseTranslationExampleOutModel {
     text: string;
     translate: string;
@@ -271,6 +301,55 @@ export interface SentencePhraseTranslationOutModel {
     examples: SentencePhraseTranslationExampleOutModel[];
     status: string;
     errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+    flashcardId?: Nullable<number>;
+}
+
+export interface FlashcardOutModel {
+    id: number;
+    languageCode: string;
+    sentenceText: string;
+    sentenceTranslation?: Nullable<string>;
+    phrase: string;
+    phraseStartOffset: number;
+    phraseEndOffset: number;
+    phraseTranslation?: Nullable<string>;
+    phraseTranscription?: Nullable<string>;
+    examples: SentencePhraseTranslationExampleOutModel[];
+    bookPrivateId?: Nullable<number>;
+    bookPublicId?: Nullable<number>;
+    videoPrivateId?: Nullable<number>;
+    videoPublicId?: Nullable<number>;
+    sentencePhraseTranslationId?: Nullable<number>;
+    createdAt: string;
+}
+
+export interface LanguageOutModel {
+    code: string;
+    nameRus: string;
+    nameEng: string;
+}
+
+export interface CreateYooKassaPaymentOutModel {
+    confirmationUrl: string;
+}
+
+export interface SentenceChatMessageOutModel {
+    id: number;
+    threadId: number;
+    role: string;
+    content: string;
+    status: string;
+    errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+}
+
+export interface SentenceChatThreadOutModel {
+    id: number;
+    sentenceId: number;
+    messages: SentenceChatMessageOutModel[];
     createdAt: string;
     updatedAt: string;
 }
@@ -385,6 +464,14 @@ export interface SentenceTranslationLiteOutModel {
     translation: string;
 }
 
+export interface VideoPrivateSubtitlesStatusOutModel {
+    videoId: number;
+    status: SubtitlesGenerationStatus;
+    error?: Nullable<string>;
+    startedAt?: Nullable<string>;
+    jobId?: Nullable<string>;
+}
+
 export interface VideoPublicOutModel {
     id: number;
     name: string;
@@ -448,13 +535,16 @@ export interface IQuery {
     book_chapter_get(input: GetBookChapterInput): BookChapterOutModel | Promise<BookChapterOutModel>;
     video_private_user_videos(): VideoPrivateLiteOutModel[] | Promise<VideoPrivateLiteOutModel[]>;
     video_private_get(input: GetPrivateVideoInput): VideoPrivateOutModel | Promise<VideoPrivateOutModel>;
+    video_private_get_subtitles_generation_status(input: VideoPrivateSubtitlesStatusInput): VideoPrivateSubtitlesStatusOutModel | Promise<VideoPrivateSubtitlesStatusOutModel>;
     video_public_get_videos(): VideoPublicLiteOutModel[] | Promise<VideoPublicLiteOutModel[]>;
     video_public_get(input: GetPublicVideoInput): VideoPublicOutModel | Promise<VideoPublicOutModel>;
     translate_get_sentence_translation(input: GetSentenceTranslationInput): Nullable<TranslateSentenceResultOutModel> | Promise<Nullable<TranslateSentenceResultOutModel>>;
     translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
     translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
+    sentence_chat_get_thread(input: GetSentenceChatThreadInput): Nullable<SentenceChatThreadOutModel> | Promise<Nullable<SentenceChatThreadOutModel>>;
     universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
+    flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
 }
 
 export interface IMutation {
@@ -474,11 +564,16 @@ export interface IMutation {
     video_private_create(input: CreatePrivateVideoInput): CreateVideoPrivateOutModel | Promise<CreateVideoPrivateOutModel>;
     video_private_update(input: UpdatePrivateVideoInput): UpdateVideoPrivateOutModel | Promise<UpdateVideoPrivateOutModel>;
     video_private_delete(input: DeletePrivateVideoInput): boolean | Promise<boolean>;
+    video_private_generate_subtitles(input: GenerateSubtitlesForPrivateVideoInput): VideoPrivateSubtitlesStatusOutModel | Promise<VideoPrivateSubtitlesStatusOutModel>;
     translate_translate_sentence(input: TranslateSentenceInput): TranslateSentenceResultOutModel | Promise<TranslateSentenceResultOutModel>;
     translate_translate_phrase(input: TranslatePhraseInput): SentencePhraseTranslationOutModel | Promise<SentencePhraseTranslationOutModel>;
+    sentence_chat_create_thread(input: CreateSentenceChatThreadInput): SentenceChatThreadOutModel | Promise<SentenceChatThreadOutModel>;
+    sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): SentenceChatMessageOutModel | Promise<SentenceChatMessageOutModel>;
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     create_transcription(input: CreateUniversalTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
+    flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
+    flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
 }
 
 type Nullable<T> = T | null;

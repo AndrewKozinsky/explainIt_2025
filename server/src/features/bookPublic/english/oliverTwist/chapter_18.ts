@@ -1,131 +1,123 @@
 export const chapter_18 = {
 	name: 'Chapter XVIII',
 	header: 'How Oliver passed his time in the improving society of his reputable friends',
-	text: `About noon the next day, when the Dodger and Charley Bates had gone out on their usual business, Mr. Fagin took the chance to give Oliver a long lecture about the terrible sin of ingratitude. He clearly showed that Oliver had been very ungrateful—first by leaving his “anxious friends,” and then by trying to escape even after they had spent so much effort and money to bring him back.
+	text: `Around noon the next day, after the Dodger and Master Bates had left for their usual activities, Mr. Fagin decided to give Oliver a long lecture on the great sin of ingratitude. He clearly showed that Oliver had been very guilty of this by deliberately leaving his worried friends, and even more so by trying to escape after all the trouble and money spent to get him back. Mr. Fagin emphasized that he had taken Oliver in and cared for him when he could have died of hunger. He then told a sad and moving story of a young boy he had helped in a similar situation. This boy, however, proved untrustworthy and wanted to talk to the police, which unfortunately led to him being hanged one morning. Mr. Fagin did not hide his role in this, but cried as he explained that the boy's foolish and disloyal behavior made it necessary for him to be convicted with certain evidence—evidence that, while not entirely true, was essential for the safety of Mr. Fagin and his close friends. Mr. Fagin finished by describing the unpleasantness of being hanged, and politely expressed his hope that he would never have to put Oliver through such an ordeal.
 
-Mr. Fagin spoke at length about how he had taken Oliver in and cared for him, when the boy might otherwise have starved. He also told a sad story about another boy he had once helped in the same way. That boy, he said, had proved unworthy, had tried to speak to the police, and had eventually been hanged. Mr. Fagin did not hide his part in what happened, but said, with tears in his eyes, that the boy’s foolish and disloyal behavior had made it necessary. The evidence given against him, he explained, might not have been entirely true—but it had been necessary for the safety of himself and a few close friends.
+Little Oliver’s blood ran cold as he listened to the Jew’s words and vaguely understood the dark threats they contained. He already knew that justice itself could confuse the innocent with the guilty when they were found together by chance. And he now thought it was very likely that the Jew had made detailed plans to get rid of people who knew too much on more than one occasion. He remembered the arguments between Fagin and Mr. Sikes, which seemed to hint at some past conspiracy. As he timidly glanced up and met the Jew’s searching eyes, he felt that his pale face and trembling body were both noticed and enjoyed by the cunning old man.
 
-He ended by describing, in an unpleasant way, what hanging was like, and then, in a polite and friendly tone, expressed his hope that he would never have to put Oliver through such an experience.
+The Jew, smiling horribly, patted Oliver on the head and said that if he stayed quiet and focused on his work, they could become very good friends. Then, putting on his hat and a patched old coat, he went out and locked the door behind him.
 
-Oliver’s blood ran cold as he listened. He did not fully understand everything, but he felt the dark threat behind the words. He already knew that innocent people could be treated like criminals if they were in the wrong place at the wrong time. And remembering the arguments he had heard between Fagin and Sikes, he could easily believe that dangerous plans had been made before. When he looked up and met Fagin’s sharp eyes, he felt sure that his fear had been noticed—and even enjoyed.
+So Oliver stayed there all day, and for most of the following days, seeing no one from early morning until midnight. He was left alone for long hours with his own thoughts. These thoughts always returned to his kind friends and what they must think of him now, which made him very sad.
 
-Fagin smiled in a horrible way, patted Oliver on the head, and said that if he stayed quiet and worked well, they could still be very good friends. Then he put on his hat and old coat, went out, and locked the door behind him.
+After about a week, the Jew left the door unlocked, and Oliver was free to walk around the house.
 
-So Oliver remained alone for that whole day, and for many days after, seeing no one from morning until midnight. During those long hours, he had nothing to do but think—and his thoughts always returned to his kind friends, and what they must now think of him. These thoughts made him very unhappy.
+It was a very dirty place. The upstairs rooms had tall wooden fireplaces and large doors, with paneled walls and decorative moldings on the ceiling. Although they were black with dirt and dust, they were decorated in different styles. From these clues, Oliver guessed that a long time ago, before the old Jew was born, the house had belonged to wealthier people and might have been quite cheerful and beautiful, unlike the gloomy and depressing place it was now.
 
-After about a week, Fagin began leaving the door unlocked, and Oliver was free to walk around the house.
+Spiders had built webs in the corners of the walls and ceilings. Sometimes, when Oliver walked quietly into a room, mice would scamper across the floor and run back to their holes in fear. Besides these, there was no sight or sound of any other living thing. Often, when it grew dark and he was tired of wandering from room to room, he would sit in a corner near the street door to be as close to other people as possible. He would stay there for hours, listening and counting the time until the Jew or the boys came back.
 
-It was a very dirty place. The upstairs rooms had large fireplaces and tall doors, with decorated walls and ceilings—though all were black with dust and neglect. From this, Oliver guessed that long ago, before Fagin lived there, the house had belonged to better people, and had once been bright and pleasant, however gloomy it looked now.
+In all the rooms, the decaying shutters were tightly closed. The bars holding them were screwed into the wood, and the only light that came in was through small round holes at the top. This made the rooms even gloomier and filled them with strange shadows. There was a back attic window with rusty bars outside that had no shutter. Oliver would often stare out of it with a sad face for hours. But all he could see was a messy, crowded view of rooftops, blackened chimneys, and the sides of buildings. Occasionally, a gray head might appear over the wall of a distant house, but it would quickly disappear. Since the window was nailed shut and clouded with years of rain and smoke, Oliver could barely make out the shapes of the objects outside, and there was no chance of him being seen or heard—he might as well have been inside the dome of St. Paul’s Cathedral.
 
-Spiders had filled the corners with webs, and sometimes mice would run across the floor when Oliver entered a room quietly, then hurry back to their holes in fear. Apart from these, there was no sign of life. Often, when it grew dark and he was tired of wandering, Oliver would sit near the front door, just to be closer to people outside. There he would stay, listening and counting the hours until Fagin or the boys returned.
+One afternoon, since the Dodger and Master Bates were going out that evening, the Dodger decided to pay some attention to his appearance (which, to be fair, was not something he usually cared about). For this purpose, he kindly ordered Oliver to help him with his grooming right away.
 
-All the shutters were tightly closed, with bars fixed across them. The only light came through small round holes at the top, making the rooms even darker and filling them with strange shadows. There was one small window at the back, with rusty bars and no shutter. Oliver would often stand there for hours, looking out sadly. But all he could see was a crowded mass of rooftops, black chimneys, and narrow walls. Sometimes he caught sight of a head looking over a distant wall, but it quickly disappeared. The window was nailed shut and covered with years of dirt, so he could barely see outside—and had almost no chance of being seen or heard himself.
+Oliver was only too happy to be useful. He was happy to see any faces, no matter how unpleasant, and he wanted to get along with the people around him if he could do so honestly. So he had no objection to the request. He immediately agreed and knelt on the floor. The Dodger sat on the table, putting his foot in Oliver's lap, and Oliver began the process that Mr. Dawkins called “polishing his walking boots,” which simply meant cleaning them.
 
-One afternoon, when the Dodger and Charley were staying in that evening, the Dodger suddenly decided to take some interest in his appearance (which was not his usual habit). He ordered Oliver to help him get ready.
+Whether it was the feeling of freedom that a person might feel sitting on a table, smoking a pipe, swinging one leg, and having his boots cleaned without the trouble of taking them off or putting them on; or whether it was the quality of the tobacco or the mildness of the beer that relaxed the Dodger’s thoughts, he was clearly feeling a touch of romance and excitement that was not typical for him. He looked down at Oliver with a thoughtful expression for a moment. Then, lifting his head and sighing softly, he said, partly to himself and partly to Master Bates:
 
-Oliver was only too happy to be useful—to see some faces, even bad ones—and to please those around him whenever he could. He agreed at once and began helping. Kneeling on the floor while the Dodger sat comfortably on the table, Oliver started what the Dodger called “japanning his trotter-cases”—which simply meant cleaning his boots.
+“What a shame he isn’t a thief!”
 
-Whether it was the comfort of sitting on a table, smoking a pipe, and having his boots cleaned without effort; or whether it was the tobacco or the beer; the Dodger seemed in an unusually thoughtful mood. He looked down at Oliver for a moment, then sighed lightly and said, half to himself and half to Charley:
+“Ah!” said Master Charles Bates. “He doesn’t know what’s good for him.”
 
-“What a pity he isn’t a prig!”
+The Dodger sighed again and continued smoking his pipe, and Charley Bates did the same. They both smoked in silence for a few seconds.
 
-“Ah!” said Charley. “He doesn’t know what’s good for him.”
+“I suppose you don’t even know what a thief is?” said the Dodger sadly.
 
-The Dodger sighed again and went on smoking. They were silent for a few seconds.
+“I think I know,” replied Oliver, looking up. “It’s a th—; you’re one, aren’t you?” he asked, stopping himself.
 
-“I suppose you don’t even know what a prig is?” said the Dodger sadly.
+“I am,” replied the Dodger. “I’d be ashamed to be anything else.” After saying this, Mr. Dawkins tipped his hat aggressively and looked at Master Bates, as if challenging him to disagree.
 
-“I think I do,” said Oliver. “It’s a th—” He stopped himself. “You are one, aren’t you?”
+“I am,” repeated the Dodger. “So is Charley. So is Fagin. So is Sikes. So is Nancy. So is Bet. We all are, even the dog. And he’s the cleverest of us all!”
 
-“I am,” said the Dodger proudly. “And I wouldn’t be anything else.” He tilted his hat boldly and looked at Charley, as if daring him to disagree.
+“And the least likely to snitch,” added Charley Bates.
 
-“I am,” he repeated. “And so is Charley. And Fagin. And Sikes. And Nancy. And Bet. We all are—even the dog. And he’s the cleverest of us!”
+“He wouldn’t even bark in a courtroom for fear of giving himself away; not even if you tied him up there without food for two weeks,” said the Dodger.
 
-“And the least likely to give us away,” added Charley.
+“Not at all,” agreed Charley.
 
-“He wouldn’t even bark in court,” said the Dodger. “Not even if he was left there starving for two weeks!”
+“He’s a strange dog. Doesn’t he look fierce at any stranger who laughs or sings when he’s around?” continued the Dodger. “He won’t growl at all when he hears a fiddle playing! And doesn’t he hate other dogs that aren’t his breed! Oh, no!”
 
-“Not a bit,” said Charley.
+“He’s a true Christian,” said Charley.
 
-“He’s a strange dog,” continued the Dodger. “Doesn’t like anyone who laughs or sings. Hates music. And can’t stand other dogs that aren’t like him!”
+This was just a compliment to the dog’s skills, but it was a fitting comment in another way, if only Master Bates had known it. For there are many ladies and gentlemen who claim to be true Christians but share strong and strange similarities with Mr. Sikes’s dog.
 
-“He’s a perfect Christian,” said Charley.
+“Well, well,” said the Dodger, returning to the original topic with the focus that his profession required. “This has nothing to do with young Green here.”
 
-This was meant as a joke about the dog’s cleverness—but it might also have applied to many people who call themselves Christians.
+“No, it doesn’t,” said Charley. “Why don’t you work for Fagin, Oliver?”
 
-“Well,” said the Dodger, returning to the subject, “this has nothing to do with young Green here.”
+“And make your fortune quickly?” added the Dodger with a grin.
 
-“That’s true,” said Charley. “Why don’t you join Fagin, Oliver?”
+“And then you can retire on your wealth and live like a gentleman, as I plan to do in the very next leap-year, four years from now, and the forty-second Tuesday in Trinity-week,” said Charley Bates.
 
-“And make your fortune quickly!” added the Dodger with a grin.
+“I don’t like it,” Oliver answered shyly. “I wish they would let me go. I—I—would rather leave.”
 
-“And then retire rich and live like a gentleman,” said Charley. “That’s my plan!”
+“And Fagin would rather not!” replied Charley.
 
-“I don’t like it,” said Oliver quietly. “I wish they would let me go. I would rather leave.”
+Oliver knew this very well, but he thought it might be dangerous to say more, so he just sighed and continued cleaning the boots.
 
-“And Fagin would rather you didn’t,” said Charley.
+“Leave!” exclaimed the Dodger. “Why, where’s your courage? Have you no pride? Would you go and depend on your friends?”
 
-Oliver knew that only too well. But he said nothing more—only sighed and went on cleaning the boots.
+“Oh, forget that!” said Master Bates, pulling a few silk handkerchiefs from his pocket and tossing them into a cupboard. “That’s too low, that is.”
 
-“Go!” said the Dodger. “Where’s your spirit? Don’t you have any pride? Would you rather depend on your friends?”
+“I couldn’t do it,” said the Dodger, with a look of proud disgust.
 
-“Oh, forget that,” said Charley, pulling silk handkerchiefs from his pocket and throwing them into a cupboard. “That’s too low.”
+“You can leave your friends, though,” said Oliver with a small smile, “and let them be punished for what you did.”
 
-“I couldn’t do it,” said the Dodger with disgust.
+“That,” replied the Dodger, waving his pipe, “was all for Fagin’s sake, because the police know we work together, and he might have gotten into trouble if we hadn’t escaped. That was the plan, wasn’t it, Charley?”
 
-“But you can leave your friends,” said Oliver with a faint smile, “and let them be punished for what you did.”
+Master Bates nodded in agreement and was about to speak, but the memory of Oliver’s escape made him laugh, and the smoke he was inhaling got caught in his throat, causing a coughing fit that lasted for about five minutes.
 
-“That,” said the Dodger, waving his pipe, “was for Fagin’s sake. The police know we work together. He might have got into trouble if we hadn’t run. That was the smart move—wasn’t it, Charley?”
+“Look here!” said the Dodger, pulling out a handful of coins. “This is a great life! Who cares where the money comes from? Here, take some; there’s plenty more where that came from. You won’t, will you? Oh, you silly boy!”
 
-Charley Bates nodded, ready to speak, but suddenly remembered Oliver’s escape. The thought made him burst into laughter while he was still smoking, and the smoke went the wrong way—into his head and throat—so that he began coughing and stamping about for nearly five minutes.
+“It’s wrong, isn’t it, Oliver?” asked Charley Bates. “He’ll get hanged, won’t he?”
 
-“Look here!” said the Dodger, pulling out a handful of coins. “This is a fine life! What does it matter where the money comes from? Here—take some. There’s plenty more where that came from. You won’t? Oh, you foolish boy!”
+“I don’t know what that means,” replied Oliver.
 
-“It’s wrong, isn’t it, Oliver?” asked Charley. “He’ll get hanged one day, won’t he?”
+“Something like this, old friend,” said Charley. As he spoke, Master Bates took the end of his scarf, held it up, dropped his head to his shoulder, and made a strange sound with his teeth. This was a lively pantomime to show that being “scragged” and being hanged were the same thing.
 
-“I don’t know what that means,” said Oliver.
+“That’s what it means,” said Charley. “Look how he’s staring, Jack! I’ve never seen such an entertaining boy; he’ll be the death of me, I know it.” Master Charley Bates, after another hearty laugh, picked up his pipe again with tears in his eyes.
 
-“It means something like this,” said Charley. He took hold of his neckerchief, held it up, dropped his head to one side, and made a strange choking sound—clearly showing what he meant.
+“You’ve been raised badly,” said the Dodger, looking at his boots with satisfaction after Oliver had polished them. “But Fagin will make something of you. You’ll be the first one he’s ever had who didn’t turn out to be profitable. You’d better start now, because you’ll join the trade sooner than you think, and you’re just wasting time, Oliver.”
 
-“That’s what it is,” he said. “Look at him stare, Jack! I never saw such a funny boy—he’ll be the death of me!” And Charley burst out laughing again, with tears in his eyes, before returning to his pipe.
+Master Bates supported this advice with his own moral warnings. When he was done, he and his friend Mr. Dawkins began a vivid description of the many pleasures of their lifestyle, adding hints that the best thing Oliver could do was to win Fagin’s approval without delay by using the same methods they had.
 
-“You’ve been brought up badly,” said the Dodger, looking with great satisfaction at his boots when Oliver had finished cleaning them. “But Fagin will make something of you. Otherwise, you’ll be the first he ever had who turned out useless. You’d better start soon—you’ll come to the trade before you know it, and you’re only wasting time now.”
+“And always remember this, Nolly,” said the Dodger, as they heard the Jew unlocking the door upstairs, “if you don’t take wallets and watches—”
 
-Charley supported this advice with several moral speeches of his own. When he ran out of those, he and the Dodger began describing all the pleasures of their life—dropping hints that Oliver should try to win Fagin’s favor the same way they had.
+“What’s the use of talking like that?” interrupted Master Bates. “He doesn’t know what you mean.”
 
-“And remember this, Nolly,” said the Dodger, as they heard Fagin unlocking the door upstairs, “if you don’t take—”
+“If you don’t take handkerchiefs and watches,” said the Dodger, simplifying his language for Oliver, “someone else will. So the people who lose them will be just as unfortunate, you’ll be worse off, and no one will be any better, except for the guys who get them—and you have just as much right to them as they do.”
 
-“What’s the use of talking like that?” interrupted Charley. “He doesn’t understand you.”
+“Of course, of course!” said the Jew, who had entered without Oliver seeing him. “It’s all very simple, my dear; in a nutshell, take the Dodger’s word for it. Ha! ha! ha! He understands the rules of his trade.”
 
-“If you don’t take handkerchiefs and watches,” said the Dodger, explaining more clearly, “someone else will. So the people who lose them will still be worse off, you’ll be worse off, and nobody will gain anything—except the ones who take them. And you’ve just as much right to them as they have.”
+The old man rubbed his hands together happily as he confirmed the Dodger’s logic, and he chuckled with delight at his student’s skill.
 
-“Exactly, exactly!” said Fagin, who had come in quietly without Oliver noticing. “That’s the whole matter in a nutshell, my dear. Listen to the Dodger—he understands his trade well!”
+The conversation ended there, for the Jew had returned with Miss Betsy and a gentleman Oliver had never seen before. The Dodger greeted him as Tom Chitling. After flirting with the lady on the stairs, Mr. Chitling now appeared.
 
-The old man rubbed his hands happily and laughed with delight at the Dodger’s cleverness.
+Mr. Chitling was older than the Dodger, perhaps eighteen years old, but he showed a certain respect to the younger man, which suggested he felt he was less talented in their line of work. He had small, twinkling eyes, a face with pockmarks, and wore a fur cap, a dark corduroy jacket, greasy trousers, and an apron. His clothes were in poor condition, but he explained to the group that he had just been released an hour ago. Because he had been wearing a uniform for the past six weeks, he hadn't been able to take care of his own clothes. Mr. Chitling added with irritation that the new method of cleaning clothes in that place was terrible because it burned holes in them, and there was nothing you could do about it. He felt the same way about the mandatory haircuts, which he thought were illegal. Mr. Chitling concluded by saying that he hadn't had a drink in forty-two long, hard-working days and that he was “as dry as a bone.”
 
-The conversation ended there for the moment, because Fagin had returned with Betsy and a young man Oliver had never seen before, whom the Dodger greeted as Tom Chitling. After a few words with Betsy on the stairs, he came into the room.
+“Where do you think the gentleman has come from, Oliver?” asked the Jew with a grin, as the other boys placed a bottle of liquor on the table.
 
-Tom Chitling was older than the Dodger—perhaps eighteen—but he treated him with a certain respect, as if he knew the Dodger was more skilled. He had small, bright eyes and a face marked with scars. He wore a fur cap, a worn jacket, greasy trousers, and an apron. His clothes were in poor condition, but he explained that he had only just been released, and had spent the past six weeks in prison uniform, so he hadn’t been able to take care of his own things.
+“I—I—don’t know, sir,” replied Oliver.
 
-He complained angrily about the way clothes were treated in prison, saying they were ruined by the process, and that the system was unfair. He also said the way they cut his hair should be illegal. He finished by declaring that he had not had a drink for forty-two long days, and that he was as dry as dust.
+“Who’s that?” asked Tom Chitling, looking at Oliver with disdain.
 
-“Where do you think this gentleman has come from, Oliver?” asked Fagin with a grin, as the boys put a bottle of spirits on the table.
+“A young friend of mine, my dear,” replied the Jew.
 
-“I—I don’t know, sir,” said Oliver.
+“He’s lucky, then,” said the young man, giving Fagin a meaningful look. “Never mind where I came from, kid; you’ll find your way there soon enough, I bet a crown!”
 
-“Who’s that?” asked Tom, looking at Oliver with contempt.
+At this joke, the boys laughed. After a few more jokes on the same topic, they whispered briefly with Fagin and then left.
 
-“A young friend of mine,” said Fagin.
+After the newcomer and Fagin spoke privately for a few moments, they moved their chairs closer to the fire. The Jew told Oliver to come and sit by him and then guided the conversation to topics that would most interest his listeners. These were the great benefits of their trade, the Dodger’s skill, Charley Bates’s friendly nature, and the Jew’s own generosity. Eventually, these topics were fully discussed, and Mr. Chitling seemed exhausted as well, as a week or two in jail can be tiring. Miss Betsy then left, leaving the men to rest.
 
-“He’s lucky, then,” said Tom, giving Fagin a knowing look. “Never mind where I came from, boy—you’ll get there soon enough, I’d bet!”
+From this day on, Oliver was rarely alone. He was almost always with the two boys, who practiced the old game with the Jew every day—whether for their own improvement or for Oliver’s, only Mr. Fagin knew. At other times, the old man would tell them stories of robberies he had committed in his youth, mixed with so many funny and strange details that Oliver couldn’t help but laugh and show his amusement, despite his better judgment.
 
-The boys laughed at this. After a few more jokes, they spoke quietly with Fagin and then left the room.
-
-After a short private conversation, Fagin and Tom sat by the fire. Fagin called Oliver to sit beside him and began talking about things that would interest his listeners: the advantages of their way of life, the Dodger’s skill, Charley’s good nature, and his own generosity.
-
-At last, they had said all there was to say—and Tom himself looked very tired, as people often do after time in prison. Betsy went away, and the others settled down to rest.
-
-From that day on, Oliver was rarely left alone. He spent most of his time with the two boys, who played their usual game with Fagin every day—whether for their own learning or for Oliver’s, only Fagin knew. At other times, Fagin would tell stories about robberies he had committed when he was younger. He told them in such a lively and amusing way that Oliver could not help laughing, even though he knew he should not.
-
-In short, the clever old man had trapped the boy. First, he had made Oliver lonely and miserable, so that he would want any company at all. Then, little by little, he began to fill his mind with ideas that would darken it—and, he hoped, change it forever.`,
+In short, the cunning old Jew had the boy trapped. After preparing Oliver’s mind with loneliness and sadness, making him prefer any company to his own dark thoughts in such a miserable place, Fagin was now slowly filling his soul with a poison that he hoped would corrupt it and change it forever.`,
 }

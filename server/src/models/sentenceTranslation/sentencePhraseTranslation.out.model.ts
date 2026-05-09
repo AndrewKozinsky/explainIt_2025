@@ -43,4 +43,7 @@ export class SentencePhraseTranslationOutModel {
 
 	@Field(() => String)
 	updatedAt: string
+
+	@Field(() => Int, { nullable: true })
+	flashcardId: null | number
 }

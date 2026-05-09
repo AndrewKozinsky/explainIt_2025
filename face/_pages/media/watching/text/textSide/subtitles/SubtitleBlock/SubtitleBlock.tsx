@@ -22,7 +22,7 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 							sentenceId={sentence.sentenceId}
 							sentenceText={sentence.text}
 							selectedSentenceId={selection.sentenceId}
-							selectedWordIds={selection.wordIds}
+							selectedWordId={selection.wordId}
 							key={`${subtitle.id}-${sentence.sentenceId}-${sentence.wordOffset}`}
 							selectWord={selectWord}
 							wordIdOffset={sentence.wordOffset}

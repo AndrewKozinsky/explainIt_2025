@@ -1,64 +1,74 @@
-import cn from 'classnames'
-import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
+import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { SentenceLoading } from '_pages/media/reading/ChapterContent/SentenceStatus'
 import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
+import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
+import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
 import { ChapterTextStructurePopulated } from '../readingStore'
-import SentenceTranslationText from './SentenceTranslationText'
-import { SentenceWordLoading, SentenceWordNotFound } from './SentenceWordStatus'
 
 type ChapterSentenceProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
 	selectedSentenceId: null | number
-	selectedWordIds: number[]
+	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: string
 }
 
-type SentenceDetailsProps = {
-	translation: ChapterTextStructurePopulated.Sentence['translation']
-	languageCode: string
-}
-
 function ChapterSentence(props: ChapterSentenceProps) {
-	const { sentence, selectedSentenceId, selectedWordIds, selectWord, languageCode } = props
-
-	const rootClasses = cn(
-		'chapter-content__sentence',
-		sentence.translation.isVisible && 'chapter-content__sentence--with-translation',
-	)
+	const { sentence, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
 
 	return (
-		<div className={rootClasses}>
+		<div className='chapter-content__sentence'>
 			<SentenceBlock
 				sentenceId={sentence.id}
 				sentenceText={sentence.sentence}
 				selectedSentenceId={selectedSentenceId}
-				selectedWordIds={selectedWordIds}
+				selectedWordId={selectedWordId}
 				selectWord={selectWord}
 			/>
-			<SentenceDetails translation={sentence.translation} languageCode={languageCode} />
+			<SentenceDetails sentenceId={sentence.id} languageCode={languageCode} />
 		</div>
 	)
 }
 
 export default ChapterSentence
 
-function SentenceDetails(props: SentenceDetailsProps) {
-	const { translation, languageCode } = props
+type SentenceDetailsProps = {
+	sentenceId: number
+	languageCode: string
+}
 
-	const detailsClassName = translation.isVisible
-		? 'chapter-content__details chapter-content__details--visible'
-		: 'chapter-content__details'
+function SentenceDetails(props: SentenceDetailsProps) {
+	const { sentenceId, languageCode } = props
+
+	const sentenceEntry = useDetailsStore(function (s) {
+		return findSentenceEntry({ sentences: s.sentences, sentenceId })
+	})
+
+	const coveringPhrase = useDetailsStore(function (s) {
+		const entry = findSentenceEntry({ sentences: s.sentences, sentenceId })
+		if (!entry || !entry.selectedPhraseId) return null
+
+		return entry.data.phrases.find((p) => p.randomGeneratedPhraseId === entry.selectedPhraseId) ?? null
+	})
+
+	if (!sentenceEntry) {
+		return null
+	}
 
 	return (
-		<div className={detailsClassName}>
-			<SentenceTranslationText translation={translation} />
-			<SentenceWordLoading translation={translation} />
-			<SentenceWordNotFound translation={translation} />
-			<SentencePhraseAnalysis
-				phraseAnalysis={translation.wordAnalysis}
-				extraClass='chapter-content__word-analysis'
-				languageCode={languageCode}
-			/>
+		<div className='chapter-content__details'>
+			{sentenceEntry.data.sentence.translation && (
+				<SentenceTranslationText translation={sentenceEntry.data.sentence.translation} bgColor='gray' />
+			)}
+			{sentenceEntry.data.sentence.loading && <SentenceLoading />}
+			{coveringPhrase && (
+				<SentencePhraseAnalysis
+					phraseAnalysis={coveringPhrase}
+					extraClass='chapter-content__word-analysis'
+					languageCode={languageCode}
+				/>
+			)}
 			<div className='chapter-content__separator' />
 		</div>
 	)

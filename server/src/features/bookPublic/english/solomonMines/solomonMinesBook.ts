@@ -31,7 +31,7 @@ export function solomonMinesBookData(coversFolderName: string) {
 Книга читается сложнее, чем другие приключенческие истории. Предложения нередко длинные, с описаниями природы и быта. Встречается устаревшая лексика XIX века и слова, связанные с путешествиями и военным делом. Диалоги есть, но повествование часто подробное и описательное.
 Уровень B2-C1 (Upper-Intermediate / Advanced).`,
 		languageCode: languages.en.code as Language,
-		freeToUse: false,
+		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#35392b',
 	}

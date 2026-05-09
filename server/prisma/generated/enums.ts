@@ -38,8 +38,7 @@ export const LanguageCode = {
   en: 'en',
   es: 'es',
   fr: 'fr',
-  de: 'de',
-  ru: 'ru'
+  de: 'de'
 } as const
 
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode]
@@ -60,6 +59,17 @@ export const VideoTextType = {
 export type VideoTextType = (typeof VideoTextType)[keyof typeof VideoTextType]
 
 
+export const SubtitlesGenerationStatus = {
+  idle: 'idle',
+  pending: 'pending',
+  processing: 'processing',
+  done: 'done',
+  failed: 'failed'
+} as const
+
+export type SubtitlesGenerationStatus = (typeof SubtitlesGenerationStatus)[keyof typeof SubtitlesGenerationStatus]
+
+
 export const SentencePhraseTranslationStatus = {
   pending: 'pending',
   ready: 'ready',
@@ -67,3 +77,21 @@ export const SentencePhraseTranslationStatus = {
 } as const
 
 export type SentencePhraseTranslationStatus = (typeof SentencePhraseTranslationStatus)[keyof typeof SentencePhraseTranslationStatus]
+
+
+export const SentenceChatMessageRole = {
+  user: 'user',
+  assistant: 'assistant'
+} as const
+
+export type SentenceChatMessageRole = (typeof SentenceChatMessageRole)[keyof typeof SentenceChatMessageRole]
+
+
+export const SentenceChatMessageStatus = {
+  streaming: 'streaming',
+  completed: 'completed',
+  canceled: 'canceled',
+  failed: 'failed'
+} as const
+
+export type SentenceChatMessageStatus = (typeof SentenceChatMessageStatus)[keyof typeof SentenceChatMessageStatus]

@@ -50,6 +50,12 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 			return
 		}
 
+		if (exception instanceof CustomGraphQLError) {
+			const statusCode = (exception.extensions?.statusCode as number | undefined) ?? 500
+			response.status(statusCode).json({ message: exception.message, statusCode })
+			return
+		}
+
 		this.logger.error('Unexpected HTTP error', { exception })
 		response.status(500).json({ message: 'Internal server error', statusCode: 500 })
 	}

@@ -21,6 +21,8 @@ model User {
     UserBalanceTransaction                  UserBalanceTransaction[]
     BookPrivate                             BookPrivate[]
     VideoPrivate                            VideoPrivate[]
+    SentenceChatThread                      SentenceChatThread[]
+    Flashcard                               Flashcard[]
     created_at                              DateTime                 @default(now())
 }
 
@@ -54,9 +56,10 @@ model BookPrivate {
     user_id       Int
     author        String?
     name          String?
-    language_code LanguageCode?
+    language_code LanguageCode
     note          String?
     BookChapter   BookChapter[]
+    Flashcard     Flashcard[]
     created_at    DateTime      @default(now())
 }
 
@@ -70,6 +73,7 @@ model BookPublic {
     name                 String
     note                 String
     BookChapter          BookChapter[]
+    Flashcard            Flashcard[]
     created_at           DateTime      @default(now())
 }
 
@@ -89,24 +93,29 @@ model BookChapter {
 }
 
 model VideoPrivate {
-    id                Int             @id @default(autoincrement())
-    user              User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id           Int
-    language_code     LanguageCode?
-    year              Int?
-    file_name         String?
-    file_s3_key       String?
-    s3_provider_name  S3ProviderName?
-    is_file_uploaded  Boolean         @default(false)
-    file_size_mb      Int             @default(0)
-    name              String?
-    original_content  String?
-    processed_content String?
-    content_type      VideoTextType   @default(text)
-    Subtitle          Subtitle[]
-    Sentence          Sentence[]
-    created_at        DateTime        @default(now())
-    updated_at        DateTime        @default(now())
+    id                              Int                       @id @default(autoincrement())
+    user                            User                      @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                         Int
+    language_code                   LanguageCode
+    year                            Int?
+    file_name                       String?
+    file_s3_key                     String?
+    s3_provider_name                S3ProviderName?
+    is_file_uploaded                Boolean                   @default(false)
+    file_size_mb                    Int                       @default(0)
+    name                            String?
+    original_content                String?
+    processed_content               String?
+    content_type                    VideoTextType             @default(text)
+    subtitles_generation_status     SubtitlesGenerationStatus @default(idle)
+    subtitles_generation_error      String?
+    subtitles_generation_started_at DateTime?
+    subtitles_generation_job_id     String?
+    Subtitle                        Subtitle[]
+    Sentence                        Sentence[]
+    Flashcard                       Flashcard[]
+    created_at                      DateTime                  @default(now())
+    updated_at                      DateTime                  @default(now())
 }
 
 model VideoPublic {
@@ -126,6 +135,7 @@ model VideoPublic {
     content_type         VideoTextType  @default(text)
     Subtitle             Subtitle[]
     Sentence             Sentence[]
+    Flashcard            Flashcard[]
     created_at           DateTime       @default(now())
     updated_at           DateTime       @default(now())
 }
@@ -144,6 +154,7 @@ model Sentence {
     SubtitleSentenceInit      SubtitleSentenceInit[]
     SentenceTranslation       SentenceTranslation[]
     SentencePhraseTranslation SentencePhraseTranslation[]
+    SentenceChatThread        SentenceChatThread[]
 }
 
 model SentenceTranslation {
@@ -167,6 +178,7 @@ model SentencePhraseTranslation {
     examples            String[]
     status              SentencePhraseTranslationStatus
     error_message       String?
+    Flashcard           Flashcard[]
     created_at          DateTime                        @default(now())
     updated_at          DateTime                        @default(now())
 
@@ -207,6 +219,8 @@ model UniversalPhrase {
     language_code               LanguageCode
     UniversalTranscription      UniversalTranscription?
     UniversalAudioPronunciation UniversalAudioPronunciation?
+
+    @@unique([language_code, phrase])
 }
 
 model UniversalTranscription {
@@ -222,8 +236,64 @@ model UniversalAudioPronunciation {
     universal_phrase    UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
     universal_phrase_id Int             @unique
     s3_key              String
-    duration_ms         Int             @default(0)
     created_at          DateTime        @default(now())
+}
+
+model SentenceChatThread {
+    id                  Int                   @id @default(autoincrement())
+    user                User                  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id             Int
+    sentence            Sentence              @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id         Int
+    SentenceChatMessage SentenceChatMessage[]
+    created_at          DateTime              @default(now())
+    updated_at          DateTime              @default(now())
+
+    @@unique([user_id, sentence_id])
+    @@index([user_id])
+}
+
+model SentenceChatMessage {
+    id            Int                       @id @default(autoincrement())
+    thread        SentenceChatThread        @relation(fields: [thread_id], references: [id], onDelete: Cascade)
+    thread_id     Int
+    role          SentenceChatMessageRole
+    content       String
+    status        SentenceChatMessageStatus @default(completed)
+    error_message String?
+    created_at    DateTime                  @default(now())
+    updated_at    DateTime                  @default(now())
+
+    @@index([thread_id])
+}
+
+model Flashcard {
+    id                             Int                        @id @default(autoincrement())
+    user                           User                       @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                        Int
+    language_code                  LanguageCode
+    sentence_text                  String
+    sentence_translation           String?
+    phrase                         String
+    phrase_start_offset            Int
+    phrase_end_offset              Int
+    phrase_translation             String?
+    examples                       String[]
+    bookPrivate                    BookPrivate?               @relation(fields: [book_private_id], references: [id], onDelete: SetNull)
+    book_private_id                Int?
+    bookPublic                     BookPublic?                @relation(fields: [book_public_id], references: [id], onDelete: SetNull)
+    book_public_id                 Int?
+    videoPrivate                   VideoPrivate?              @relation(fields: [video_private_id], references: [id], onDelete: SetNull)
+    video_private_id               Int?
+    videoPublic                    VideoPublic?               @relation(fields: [video_public_id], references: [id], onDelete: SetNull)
+    video_public_id                Int?
+    sentencePhraseTranslation      SentencePhraseTranslation? @relation(fields: [sentence_phrase_translation_id], references: [id], onDelete: SetNull)
+    sentence_phrase_translation_id Int?
+    created_at                     DateTime                   @default(now())
+
+    @@unique([user_id, sentence_phrase_translation_id])
+    @@index([user_id])
+    @@index([user_id, language_code])
 }
 
 enum BalanceTransactionType {
@@ -247,7 +317,6 @@ enum LanguageCode {
     es
     fr
     de
-    ru
 }
 
 enum S3ProviderName {
@@ -259,8 +328,28 @@ enum VideoTextType {
     subtitles
 }
 
+enum SubtitlesGenerationStatus {
+    idle
+    pending
+    processing
+    done
+    failed
+}
+
 enum SentencePhraseTranslationStatus {
     pending
     ready
     error
+}
+
+enum SentenceChatMessageRole {
+    user
+    assistant
+}
+
+enum SentenceChatMessageStatus {
+    streaming
+    completed
+    canceled
+    failed
 }

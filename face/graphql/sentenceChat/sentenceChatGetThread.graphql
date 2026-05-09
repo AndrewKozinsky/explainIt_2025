@@ -1,0 +1,18 @@
+query Sentence_chat_get_thread($input: GetSentenceChatThreadInput!) {
+	sentence_chat_get_thread(input: $input) {
+		id
+		sentenceId
+		messages {
+			id
+			threadId
+			role
+			content
+			status
+			errorMessage
+			createdAt
+			updatedAt
+		}
+		createdAt
+		updatedAt
+	}
+}

@@ -14,7 +14,7 @@ function InfoBlock(props: InfoBlockProps) {
 
 	return (
 		<div className={cn('info-block', `info-block--${props.type}`)} data-testid={dataTestId}>
-			<img src={publicFolderFilesUrls.icons.warningTriangle} alt='Warning triangle' />
+			<img src={publicFolderFilesUrls.icons.warningTriangleIcon} alt='Warning triangle' />
 			{children}
 		</div>
 	)

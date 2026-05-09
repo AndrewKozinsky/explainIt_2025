@@ -66,8 +66,8 @@ export class OpenAiTokenUsageBalanceChargeHandler implements ICommandHandler<Ope
 		if (input.lowPriority) totalPriceInRub /= 2
 
 		const baseAmountInKopecks = Math.ceil(totalPriceInRub * 100)
-		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
+		const markupMultiplier = this.mainConfig.get().billing.translationMarkupMultiplier
 
-		return baseAmountInKopecks + markupInKopecks
+		return baseAmountInKopecks * markupMultiplier
 	}
 }

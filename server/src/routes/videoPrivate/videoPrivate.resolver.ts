@@ -5,19 +5,25 @@ import { Cron, CronExpression } from '@nestjs/schedule'
 import { Request } from 'express'
 import { CreatePrivateVideoInput } from 'routes/videoPrivate/inputs/createPrivateVideo.input'
 import { DeletePrivateVideoInput } from 'routes/videoPrivate/inputs/deletePrivateVideo.input'
+import { GenerateSubtitlesForPrivateVideoInput } from 'routes/videoPrivate/inputs/generateSubtitlesForPrivateVideo.input'
 import { GetPrivateVideoInput } from 'routes/videoPrivate/inputs/getPrivateVideo.input'
 import { UpdatePrivateVideoInput } from 'routes/videoPrivate/inputs/updatePrivateVideo.input'
+import { VideoPrivateSubtitlesStatusInput } from 'routes/videoPrivate/inputs/videoPrivateSubtitlesStatus.input'
 import { CreatePrivateVideoCommand } from 'features/video/CreatePrivateVideo.command'
 import { DeletePrivateVideoCommand } from 'features/video/DeletePrivateVideo.command'
 import { GetUserVideosPrivateCommand } from 'features/video/GetUserVideosPrivate.command'
 import { GetVideoPrivateCommand } from 'features/video/GetVideoPrivate.command'
+import { GetSubtitlesGenerationStatusCommand } from 'features/video/subtitlesGeneration/GetSubtitlesGenerationStatus.command'
+import { StartGenerateSubtitlesCommand } from 'features/video/subtitlesGeneration/StartGenerateSubtitles.command'
 import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { UserWithMinBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
 import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
 import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
 import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivateOut.model'
+import { VideoPrivateSubtitlesStatusOutModel } from 'models/videoPrivate/videoPrivateSubtitlesStatus.out.model'
 import { videoPrivateResolversDesc } from './resolverDescriptions'
 
 @Resolver()
@@ -72,6 +78,34 @@ export class VideoPrivateResolver {
 	async getVideoPrivate(@Args('input') input: GetPrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
+	}
+
+	// NOTE: minimum balance threshold (1000 kopecks) must match
+	// MainConfigService.get().generateSubtitles.minBalanceKopecks.
+	@UseGuards(CheckSessionCookieGuard, UserWithMinBalanceGuard(1000))
+	@Mutation(() => VideoPrivateSubtitlesStatusOutModel, {
+		name: RouteNames.VIDEO_PRIVATE.GENERATE_SUBTITLES,
+		description: videoPrivateResolversDesc.generateSubtitlesForPrivateVideo,
+	})
+	async generateSubtitlesForPrivateVideo(
+		@Args('input') input: GenerateSubtitlesForPrivateVideoInput,
+		@Context('req') request: Request,
+	) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new StartGenerateSubtitlesCommand(userId, input.videoId))
+	}
+
+	@UseGuards(CheckSessionCookieGuard)
+	@Query(() => VideoPrivateSubtitlesStatusOutModel, {
+		name: RouteNames.VIDEO_PRIVATE.GET_SUBTITLES_GENERATION_STATUS,
+		description: videoPrivateResolversDesc.videoPrivateSubtitlesStatus,
+	})
+	async videoPrivateSubtitlesStatus(
+		@Args('input') input: VideoPrivateSubtitlesStatusInput,
+		@Context('req') request: Request,
+	) {
+		const userId = request.session.userId!
+		return await this.commandBus.execute(new GetSubtitlesGenerationStatusCommand(userId, input.videoId))
 	}
 
 	private isCleanupRunning = false

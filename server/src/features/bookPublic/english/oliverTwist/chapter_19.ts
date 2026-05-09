@@ -1,223 +1,219 @@
 export const chapter_19 = {
 	name: 'Chapter XIX',
 	header: 'In which a notable plan is discussed and determined on',
-	text: `It was a cold, damp, windy night when Fagin came out of his hiding place. He pulled his coat tightly around his thin body and raised the collar to cover most of his face. He paused on the step while the door was locked and chained behind him. Then he listened until the boys had finished securing the house and their footsteps faded away, before hurrying down the street as quickly as he could.
+	text: `It was a cold, damp, windy night when the Jew, Fagin, emerged from his den. He buttoned his large coat tightly around his thin body and pulled the collar over his ears, hiding the lower part of his face. He paused on the step as the door was locked and chained behind him. After listening to the boys secure the house, he waited until their footsteps faded, then hurried down the street as quickly as he could.
 
-The house where Oliver had been taken stood near Whitechapel. Fagin stopped at the corner, looked around suspiciously, crossed the road, and headed toward Spitalfields.
+The house where Oliver had been taken was near Whitechapel. Fagin stopped for a moment at the street corner, glanced around suspiciously, then crossed the road and headed towards Spitalfields.
 
-The streets were thick with mud, and a dark mist hung in the air. Rain fell slowly, and everything felt cold and damp. It seemed like a night that suited a man like Fagin. As he moved quietly along, keeping close to walls and doorways, he looked like some ugly creature of the night—something born in dirt and darkness, creeping out to search for food.
+Thick mud covered the stones, and a black mist hung over the streets. The rain fell slowly, and everything felt cold and clammy. It seemed like the perfect night for a creature like Fagin to be out. As he glided along, hiding in the shadows of walls and doorways, the old man looked like a disgusting reptile born from the slime and darkness he moved through, crawling out at night to find a meal.
 
-He went through many narrow, winding streets until he reached Bethnal Green. Then he turned sharply and entered a maze of small, dirty streets crowded with people.
+He continued through many winding, narrow streets until he reached Bethnal Green. Then, he turned left and entered a maze of poor, dirty streets in that crowded area.
 
-Fagin clearly knew the area well. He was not confused by the darkness or the complicated streets. He moved quickly through several alleys and finally turned into one that was lit only by a single lamp at the far end. He knocked at a door, spoke quietly to the person who opened it, and went upstairs.
+Fagin was too familiar with the area to be confused by the darkness or the complicated paths. He rushed through several alleys and streets, finally turning into one lit by a single lamp at the far end. He knocked on the door of a house and, after a few muttered words with the person who answered, he went upstairs.
 
-A dog growled as he touched a door, and a man’s voice called out,
+A dog growled as he touched the handle of a room door, and a man’s voice demanded, "Who is there?"
 
-“Who’s there?”
+"Only me, Bill; only me, my dear," said Fagin, looking in.
 
-“Only me, Bill—only me,” said Fagin, looking inside.
+"Then bring yourself in," said Sikes. "Lie down, you stupid animal! Don't you know the devil when he's wearing a coat?"
 
-“Then come in,” said Sikes. “Lie down, you stupid dog! Don’t you know him, even in a coat?”
+Apparently, the dog had been fooled by Fagin's coat. As the Jew unbuttoned it and threw it over a chair, the dog returned to its corner, wagging its tail to show it was satisfied.
 
-The dog had clearly been confused by Fagin’s coat, because as soon as he took it off and threw it over a chair, the animal returned calmly to its corner, wagging its tail.
+"Well!" said Sikes.
 
-“Well?” said Sikes.
+"Well, my dear," replied Fagin. "Ah, Nancy."
 
-“Well, my dear,” said Fagin. “Ah—Nancy.”
+He said Nancy's name with some embarrassment, unsure how she would react. Fagin and his young friend had not seen each other since she had defended Oliver. Any doubts he had were quickly cleared up by her behavior. She took her feet off the fender, pushed her chair back, and told Fagin to pull up his own without another word. It was a cold night, after all.
 
-He spoke her name a little awkwardly, unsure how she would react, since they had not met since she had helped Oliver. But Nancy showed no sign of anger. She moved her feet away from the fire, pushed back her chair, and told Fagin to sit down—without making any comment. It was a cold night, after all.
+"It is cold, Nancy dear," said Fagin, warming his skinny hands over the fire. "It feels like it goes right through you," he added, touching his side.
 
-“It is cold, my dear Nancy,” said Fagin, warming his thin hands at the fire. “It seems to go right through me,” he added, touching his side.
+"It must be a sharp cold to get through your heart," said Mr. Sikes. "Get him something to drink, Nancy. Hurry up! It's enough to make a man sick, seeing his thin old body shivering like an ugly ghost."
 
-“It must be very sharp if it gets through your heart,” said Sikes. “Give him something to drink, Nancy—and be quick! It’s enough to make a man sick, seeing him shaking like that, like some ghost just come out of the grave.”
+Nancy quickly brought a bottle from a cupboard filled with many others. Judging by their different appearances, they held several kinds of drinks. Sikes poured a glass of brandy and told Fagin to drink it.
 
-Nancy quickly brought out a bottle from a cupboard full of different drinks. Sikes poured a glass of brandy and told Fagin to drink it.
+"That's enough, thank you, Bill," replied Fagin, putting the glass down after barely touching it with his lips.
 
-“That’s enough, thank you, Bill,” said Fagin, only touching the glass to his lips before setting it down.
+"What, are you afraid we'll get the best of you?" asked Sikes, staring at Fagin. "Ugh!"
 
-“What’s that?” said Sikes, staring at him. “Afraid we might get the better of you, are you? Ugh!”
+With a hoarse grunt, Mr. Sikes grabbed the glass and threw the rest of its contents into the fireplace. Then, he filled it again for himself and drank it down.
 
-With a rough grunt of contempt, Sikes grabbed the glass and threw what was left of the drink into the ashes. Then he immediately filled it again for himself and drank it.
+Fagin glanced around the room as his companion finished the second glass. He wasn't curious, as he had seen it many times before, but his manner was restless and suspicious. It was a poorly furnished room, and only the contents of the cupboard suggested its owner was anything but a working man. The only suspicious items on display were two or three heavy clubs in a corner and a weapon called a "life-preserver" hanging over the fireplace.
 
-While Sikes finished his second glass, Fagin looked around the room—not out of curiosity, since he had seen it many times before, but in his usual restless and suspicious way. The room was poorly furnished. Nothing in it suggested that its owner was anything more than an ordinary working man—except for what was hidden in the cupboard. The only things that looked out of place were two or three heavy clubs in the corner and a weapon hanging above the fireplace.
+"There," said Sikes, smacking his lips. "Now I'm ready."
 
-“There,” said Sikes, licking his lips. “Now I’m ready.”
+"For business?" asked Fagin.
 
-“For business?” asked Fagin.
+"For business," replied Sikes. "So say what you have to say."
 
-“For business,” replied Sikes. “So say what you’ve got to say.”
+"About the house in Chertsey, Bill?" said Fagin, drawing his chair closer and speaking in a very low voice.
 
-“About the house at Chertsey, Bill?” said Fagin, moving his chair closer and lowering his voice.
+"Yes. What about it?" asked Sikes.
 
-“Yes. What about it?” said Sikes.
+"Ah, you know what I mean, my dear," said Fagin. "He knows what I mean, Nancy, doesn't he?"
 
-“Ah, you know what I mean, my dear,” said Fagin. “He knows what I mean, Nancy, doesn’t he?”
+"No, he doesn't," sneered Mr. Sikes. "Or he won't, which is the same thing. Speak plainly, and call things by their real names. Don't sit there winking and hinting, as if you weren't the first one who thought of the robbery. What do you mean?"
 
-“No, he doesn’t,” said Sikes sharply. “Or he won’t—and that’s the same thing. Speak plainly. Don’t sit there blinking and hinting, as if you weren’t the first to think of the robbery. What do you mean?”
+"Hush, Bill, hush!" said Fagin, who had tried to stop this outburst. "Someone will hear us, my dear. Someone will hear us."
 
-“Hush, Bill, hush!” said Fagin, trying to calm him. “Someone might hear us.”
+"Let them hear!" said Sikes. "I don't care." But since Mr. Sikes did care, he lowered his voice and calmed down.
 
-“Let them hear!” said Sikes. But after a moment, he lowered his voice and grew calmer.
+"There, there," said Fagin gently. "It was only my caution, nothing more. Now, my dear, about that house in Chertsey. When will it be done, Bill? When will it be done? Such treasures, my dear, such treasures!" said Fagin, rubbing his hands and raising his eyebrows in joyful expectation.
 
-“There, there,” said Fagin in a soothing tone. “I was only being careful. Now, my dear, about that house at Chertsey—when is it to be done? Eh? When? Such silver there, my dear—such silver!” he added, rubbing his hands eagerly.
+"Not at all," replied Sikes coldly.
 
-“It’s not happening,” said Sikes coldly.
+"Not to be done at all!" echoed Fagin, leaning back in his chair.
 
-“Not happening?” repeated Fagin, leaning back.
+"No, not at all," Sikes repeated. "At least, it can't be an inside job, as we expected."
 
-“No. Not like we planned, anyway,” said Sikes.
+"Then it hasn't been handled properly," said Fagin, turning pale with anger. "Don't tell me that!"
 
-“Then it hasn’t been done properly,” said Fagin, turning pale with anger. “Don’t tell me that!”
+"But I will tell you," retorted Sikes. "Who are you to not be told? I'm telling you that Toby Crackit has been hanging around the place for two weeks, and he can't get any of the servants on our side."
 
-“But I will tell you,” said Sikes. “Who are you to say I can’t? Toby Crackit has been watching the place for two weeks, and he hasn’t managed to win over a single servant.”
+"Do you mean to tell me, Bill," said Fagin, his voice softening as the other grew angry, "that neither of the two men in the house can be persuaded?"
 
-“Do you mean to tell me,” said Fagin, calming down as Sikes grew more heated, “that neither of the two men in the house can be persuaded?”
+"Yes, I do mean to tell you that," replied Sikes. "The old lady has had them for twenty years. You could offer them five hundred pounds, and they wouldn't join in."
 
-“Yes, that’s exactly what I mean,” said Sikes. “The old lady has had them for twenty years. You could offer them five hundred pounds, and they still wouldn’t help.”
+"But what about the women?" Fagin pressed. "Surely they can be persuaded?"
 
-“But surely,” said Fagin, “the women could be persuaded?”
+"Not a chance," replied Sikes.
 
-“Not at all,” replied Sikes.
+"Not even by the charming Toby Crackit?" said Fagin with disbelief. "Think about what women are like, Bill."
 
-“Not even by clever Toby Crackit?” said Fagin, in disbelief. “Think of what women are like, Bill—”
+"No, not even by him," replied Sikes. "He says he's worn fake whiskers and a bright yellow vest the whole time he's been there, and it's all been useless."
 
-“No. Not even by him,” said Sikes. “He says he’s been wearing fake whiskers and a bright waistcoat the whole time he’s been hanging around there—and it hasn’t helped at all.”
+"He should have tried a mustache and military trousers, my dear," said Fagin.
 
-“He should have tried a moustache and a pair of military trousers,” said Fagin.
+"He did," Sikes replied, "and they were no more use than the other outfit."
 
-“He did,” said Sikes. “And that didn’t work any better.”
+Fagin looked dismayed at this news. After thinking for a few minutes with his chin on his breast, he raised his head and sighed deeply, saying that if Toby Crackit's report was true, he feared the plan was over.
 
-The Jew looked confused when he heard this. After thinking quietly for a few minutes, his chin resting on his chest, he lifted his head and said with a deep sigh that, if what Toby Crackit said was true, he was afraid the plan had failed.
+"And yet," said the old man, dropping his hands on his knees, "it’s a sad thing to lose so much when we had our hearts set on it."
 
-“And yet,” said the old man, placing his hands on his knees, “it’s a sad thing, my dear, to lose so much when we had hoped for it so much.”
+"So it is," said Mr. Sikes. "Tough luck."
 
-“So it is,” said Mr. Sikes. “Bad luck!”
+A long silence followed. Fagin was deep in thought, his face wrinkled into a look of pure evil. Sikes watched him secretly from time to time. Nancy, afraid of annoying the housebreaker, sat with her eyes on the fire, as if she hadn't heard anything.
 
-A long silence followed. The Jew was deep in thought, his face twisted into a truly evil expression. Sikes watched him from time to time. Nancy, afraid of making Sikes angry, sat staring at the fire as if she hadn’t heard anything.
+"Fagin," said Sikes, suddenly breaking the silence, "is it worth an extra fifty coins if it's done safely from the outside?"
 
-“Fagin,” said Sikes suddenly, breaking the silence, “is it worth fifty more pounds, if it’s done safely from the outside?”
+"Yes," said Fagin, instantly alert.
 
-“Yes,” said the Jew at once, waking up from his thoughts.
+"Is it a deal?" asked Sikes.
 
-“Is it a deal?” asked Sikes.
+"Yes, my dear, yes," Fagin replied, his eyes glistening and every muscle in his face tense with excitement.
 
-“Yes, my dear, yes,” replied the Jew. His eyes shone, and his face moved with excitement.
+"Then," said Sikes, pushing Fagin's hand away with some disgust, "let it happen as soon as you like. Toby and I were over the garden wall the night before last, checking the doors and shutters. The house is barred up at night like a jail, but there’s one spot we can get through, safe and quiet."
 
-“Then,” said Sikes, pushing the Jew’s hand away with some dislike, “we’ll do it whenever you want. Toby and I were over the garden wall the night before last, checking the door and shutters. The house is locked up like a prison at night, but there’s one place we can break in quietly and safely.”
+"Which is that, Bill?" asked Fagin eagerly.
 
-“Which part is that, Bill?” asked the Jew eagerly.
+"Well," whispered Sikes, "as you cross the lawn—"
 
-“Well,” whispered Sikes, “as you cross the lawn—”
+"Yes?" said Fagin, leaning forward, his eyes wide.
 
-“Yes?” said the Jew, leaning forward, his eyes wide.
+"Never mind," Sikes said abruptly, as the girl, without moving her head much, looked around and pointed for a second at Fagin's face. "Never mind which part it is. You can't do it without me, I know. But it's best to be on the safe side when dealing with you."
 
-“Hmm!” said Sikes, stopping suddenly. The girl had slightly turned her head and pointed for a moment at the Jew’s face. “Never mind which part. You can’t do it without me, I know; but it’s better to be careful when dealing with you.”
+"As you like, my dear, as you like," replied Fagin. "Is there no other help needed, besides you and Toby?"
 
-“As you like, my dear, as you like,” said the Jew. “Do you need anyone else besides you and Toby?”
+"None," said Sikes, "except a drill and a boy. We have the first, but you must find us the second."
 
-“No,” said Sikes, “except a drill and a boy. We already have the tool; you must find the boy.”
+"A boy!" exclaimed Fagin. "Oh! So it's a panel, is it?"
 
-“A boy!” cried the Jew. “Oh! then it’s a panel, is it?”
+"Never mind what it is!" replied Sikes. "I want a boy, and he mustn't be a big one. Lord," said Mr. Sikes thoughtfully, "if only I had that young boy of Ned, the chimney-sweeper! He kept him small on purpose and rented him out for jobs. But then the father gets arrested, and the Juvenile Delinquent Society comes and takes the boy away from a trade where he was earning money. They teach him to read and write and make an apprentice of him. And that’s how they go on," said Mr. Sikes, his anger rising at the memory. "If they had enough money, which thankfully they don't, we wouldn’t have any boys left in the trade in a year or two."
 
-“Never mind what it is!” said Sikes. “I need a boy, and he mustn’t be big. If only I had that young boy of Ned, the chimney-sweeper! He kept him small on purpose and hired him out for jobs. But then the father got arrested, and the authorities came and took the boy away from his work, taught him to read and write, and later made him an apprentice. That’s what they do,” said Sikes, growing angry, “and if they had enough money—which luckily they don’t—we wouldn’t have any boys left for this work in a year or two.”
+"You're right," agreed Fagin, who had been thinking during the speech and only caught the last sentence. "Bill!"
 
-“No, we wouldn’t,” agreed the Jew, who had only caught the last part. “Bill!”
+"What now?" asked Sikes.
 
-“What now?” asked Sikes.
+Fagin nodded his head toward Nancy, who was still staring at the fire, and motioned for her to leave the room. Sikes shrugged impatiently, thinking it was unnecessary, but he still asked Miss Nancy to fetch him a jug of beer.
 
-The Jew nodded toward Nancy, who was still looking at the fire, and made a sign that she should leave the room. Sikes shrugged impatiently, as if it wasn’t necessary, but still asked Nancy to bring him some beer.
+"You don't want any beer," said Nancy, folding her arms and staying seated.
 
-“You don’t want any beer,” said Nancy, calmly crossing her arms and staying where she was.
+"I tell you I do!" replied Sikes.
 
-“I tell you I do!” said Sikes.
+"Nonsense," she replied coolly. "Go on, Fagin. I know what he's going to say, Bill. He doesn't need to mind me."
 
-“Nonsense,” said the girl coolly. “Go on, Fagin. I know what he’s going to say, Bill. He doesn’t need to worry about me.”
+Fagin still hesitated. Sikes looked from one to the other in surprise.
 
-The Jew still hesitated. Sikes looked from one to the other, surprised.
+"Why, you don't mind her, do you, Fagin?" he asked. "You've known her long enough to trust her. She's not one to gossip. Are you, Nancy?"
 
-“You don’t mind her, do you, Fagin?” he said at last. “You’ve known her long enough to trust her. She won’t talk. Right, Nancy?”
+"I should think not!" replied the young woman, pulling her chair to the table and putting her elbows on it.
 
-“I should think not!” said the young woman, pulling her chair closer to the table and resting her elbows on it.
+"No, no, my dear, I know you're not," said Fagin, "but—" and again the old man paused.
 
-“No, no, my dear, I know you won’t,” said the Jew. “But—” and he stopped again.
+"But what?" asked Sikes.
 
-“But what?” asked Sikes.
+"I didn't know if she might be in a bad mood, you know, my dear, like she was the other night," Fagin replied.
 
-“I wasn’t sure if she might still be upset, you know, my dear, like she was the other night,” said the Jew.
+At this, Miss Nancy burst into a loud laugh. She swallowed a glass of brandy, shook her head defiantly, and shouted things like "Keep the game going!" and "Never say die!" This seemed to reassure both men. Fagin nodded with a satisfied look and sat back down, and Mr. Sikes did the same.
 
-At this confession, Nancy burst out laughing loudly. She quickly drank a glass of brandy, shook her head in a bold, defiant way, and cried, “Keep it going!” “Never give up!” and other similar things. This seemed to calm both men. The Jew nodded with satisfaction and sat down again, and Mr. Sikes did the same.
+"Now, Fagin," said Nancy with a laugh. "Tell Bill about Oliver at once!"
 
-“Now, Fagin,” said Nancy with a laugh, “tell Bill about Oliver!”
+"Ha! You're a clever one, my dear, the sharpest girl I've ever seen!" said Fagin, patting her on the neck. "It was about Oliver I was going to speak. Ha! ha! ha!"
 
-“Ah! you’re a clever one, my dear—the sharpest girl I’ve ever seen!” said the Jew, patting her neck. “It was Oliver I was going to talk about. Ha! ha!”
+"What about him?" demanded Sikes.
 
-“What about him?” asked Sikes.
+"He's the boy for you, my dear," replied Fagin in a hoarse whisper, tapping the side of his nose and grinning horribly.
 
-“He’s the boy for you, my dear,” said the Jew in a low, rough whisper, touching the side of his nose and giving a nasty grin.
+"He!" exclaimed Sikes.
 
-“Him!” cried Sikes.
+"Take him, Bill!" said Nancy. "I would, if I were in your place. He may not be as experienced as the others, but that's not what you need if he's only opening a door for you. Trust me, he's a safe one, Bill."
 
-“Take him, Bill!” said Nancy. “I would, if I were you. He may not be as experienced as the others, but that doesn’t matter if he only needs to open a door for you. Trust me, he’s a safe choice, Bill.”
+"I know he is," Fagin added. "He's been in good training these last few weeks, and it's time he started to earn his keep. Besides, the others are all too big."
 
-“I know he is,” said Fagin. “He’s been well trained these last few weeks, and it’s time he started earning his living. Besides, the others are too big.”
+"Well, he is just the size I want," said Mr. Sikes, thinking.
 
-“Well, he’s just the right size,” said Sikes, thinking it over.
+"And he will do everything you want, Bill, my dear," interrupted Fagin. "He can't help himself. That is, if you frighten him enough."
 
-“And he’ll do whatever you tell him, Bill, my dear,” added the Jew. “He won’t have a choice—if you scare him enough.”
+"Frighten him!" echoed Sikes. "It won't be a fake frightening, mind you. If he does anything strange once we start the job, it's all or nothing. You won't see him alive again, Fagin. Think about that before you send him. Mark my words!" said the robber, holding up a crowbar he had pulled from under the bed.
 
-“Scare him!” repeated Sikes. “It won’t be pretend fear, understand. If anything goes wrong once we start the job—no turning back. You won’t see him alive again, Fagin. Remember that!” said the robber, lifting a crowbar he had taken from under the bed.
+"I've thought of it all," said Fagin with energy. "I've had my eye on him, my dears, very closely. Once he feels he is one of us, once we fill his head with the idea that he has been a thief, then he's ours! Ours for life! Oh! It couldn't have worked out better!" The old man crossed his arms on his chest, drew his head and shoulders in, and hugged himself with joy.
 
-“I’ve thought of everything,” said the Jew eagerly. “I’ve been watching him closely—very closely. Once he feels he belongs to us, once he believes he is a thief, then he’s ours—ours for life! Oh! It couldn’t have turned out better!” The old man crossed his arms and almost hugged himself with joy.
+"Ours!" said Sikes. "Yours, you mean."
 
-“Ours?” said Sikes. “Yours, you mean.”
+"Perhaps I do, my dear," said Fagin with a sharp chuckle. "Mine, if you like, Bill."
 
-“Perhaps I do, my dear,” said the Jew with a sharp laugh. “Mine, if you like, Bill.”
+"And what," said Sikes, scowling at his friend, "makes you take so much trouble over one pale-faced kid, when you know there are fifty boys sleeping in Common Garden every night you could choose from?"
 
-“And why,” said Sikes, frowning angrily at him, “why do you care so much about one pale-faced kid, when there are fifty boys sleeping around Covent Garden every night that you could choose from?”
+"Because they're of no use to me, my dear," replied Fagin, a little flustered. "Not worth the effort. Their faces give them away when they get into trouble, and I lose them all. With this boy, if managed properly, I could do what I couldn't with twenty of them. Besides," Fagin said, regaining his composure, "he has power over us now, if he could only escape again. He must be in the same boat with us. It doesn't matter how he got here; it's enough for my power over him that he was part of a robbery. That's all I want. Now, isn't this much better than having to get rid of the poor little boy, which would be dangerous and we would lose by it too."
 
-“Because they’re no use to me, my dear,” said the Jew, a little confused. “They’re not worth it. Their faces give them away when they get into trouble, and I lose them. But this boy, if managed properly, could do more for me than twenty of them. Besides,” he added, recovering himself, “he’s already involved with us—if he tries to escape again, he’s still tied to us. It doesn’t matter how he got there. It’s enough for me that he was part of a robbery—that’s all I need to control him. And think how much better this is than having to get rid of the poor little boy—which would be dangerous, and we would lose by it.”
+"When is it to be done?" asked Nancy, stopping an angry outburst from Mr. Sikes, who was disgusted by Fagin's fake display of humanity.
 
-“When will it be done?” asked Nancy, interrupting Sikes, who was about to angrily react to the Jew’s fake kindness.
+"Ah, yes," said Fagin. "When is it to be done, Bill?"
 
-“Yes, of course,” said the Jew. “When will it be done, Bill?”
+"I planned with Toby for the day after tomorrow," Sikes replied in a grumpy voice, "if he heard nothing from me to the contrary."
 
-“I planned it with Toby for the night after tomorrow,” said Sikes грубо, “unless he hears otherwise from me.”
+"Good," said Fagin. "There's no moon."
 
-“Good,” said the Jew. “There will be no moon.”
+"No," Sikes confirmed.
 
-“No,” said Sikes.
-
-“Everything is ready for carrying off the goods, then?” asked the Jew.
+"Is everything arranged for taking the loot?" asked Fagin.
 
 Sikes nodded.
 
-“And about—”
+"And about—"
 
-“Oh, yes, it’s all planned,” said Sikes, interrupting him. “Don’t worry about the details. You’d better bring the boy here tomorrow night. I’ll leave early in the morning. You just keep quiet and have the melting pot ready—that’s all you need to do.”
+"Oh, it's all planned," Sikes interrupted. "Never mind the details. You'd better bring the boy here tomorrow night. I'll be leaving an hour after daybreak. Then you keep quiet and have the melting-pot ready, and that's all you'll have to do."
 
-After some discussion, in which all three took part, they decided that Nancy would go to the Jew’s place the next evening, after dark, and bring Oliver with her. Fagin cleverly pointed out that if the boy refused, he would be more likely to go with Nancy, since she had recently helped him, than with anyone else.
+After some discussion, it was decided that Nancy should go to Fagin's the next evening after dark and bring Oliver with her. Fagin cleverly noted that if Oliver was reluctant, he would be more willing to go with the girl who had recently defended him. It was also agreed that poor Oliver would be completely handed over to Mr. William Sikes for the robbery. Sikes could deal with him as he saw fit and would not be held responsible for any harm that might come to the boy. To make the deal binding, any claims made by Mr. Sikes on his return would have to be confirmed by Toby Crackit.
 
-It was also clearly agreed that, for this planned job, poor Oliver would be completely placed under the control of Mr. William Sikes. Sikes would deal with him however he wished, and the Jew would not be responsible for anything bad that might happen to the boy. It was also agreed that when Sikes returned, his account of events would have to be confirmed in all important details by Toby Crackit.
+With these plans settled, Mr. Sikes began to drink brandy furiously and wave the crowbar around in an alarming way. He yelled out tuneless songs mixed with wild curses. At last, in a fit of professional enthusiasm, he insisted on showing his box of housebreaking tools. He had just stumbled in with it and opened it to explain the tools, but he fell over the box and went to sleep right where he fell.
 
-When these arrangements were finished, Mr. Sikes began drinking brandy very quickly and waving his crowbar in a dangerous way. At the same time, he shouted parts of songs in a terrible voice, mixed with wild curses. At last, in a burst of excitement, he insisted on showing his box of housebreaking tools. But as soon as he brought it in and opened it to explain how each tool worked and how well they were made, he tripped over the box, fell to the floor, and went to sleep where he lay.
+"Good-night, Nancy," said Fagin, bundling himself up again.
 
-“Good night, Nancy,” said the Jew, wrapping himself up again.
+"Good-night."
 
-“Good night.”
+Their eyes met, and Fagin studied her closely. The girl didn't flinch. She was as serious about the matter as Toby Crackit himself could be.
 
-Their eyes met, and the Jew watched her closely. The girl did not show any fear. She seemed completely steady and serious—just as reliable as Toby Crackit himself.
+Fagin said good-night again. While her back was turned, he gave a sly kick to the sleeping Mr. Sikes and crept downstairs.
 
-The Jew said good night again and, when Nancy turned away, gave Mr. Sikes’s body a quiet, sneaky kick before making his way downstairs.
+"Always the way," Fagin muttered to himself as he walked home. "The worst thing about these women is that a small thing can bring back some long-forgotten feeling. And the best thing is that it never lasts. Ha! ha! The man against the child, for a bag of gold!"
 
-“Always the same!” the Jew muttered to himself as he walked home. “The trouble with these women is that the smallest thing can bring back old feelings—and the best thing about them is that those feelings never last. Ha! ha! A man against a child, for a bag of gold!”
+Thinking about these pleasant thoughts, Mr. Fagin made his way through mud and mire to his gloomy home, where the Dodger was waiting up for him.
 
-Thinking these thoughts, Mr. Fagin made his way through the mud to his dark home, where the Dodger was still awake, impatiently waiting for him.
+"Is Oliver in bed? I want to speak to him," was his first question as they went down the stairs.
 
-“Is Oliver in bed? I want to speak to him,” he said as they went downstairs.
+"Hours ago," replied the Dodger, throwing open a door. "Here he is!"
 
-“Hours ago,” replied the Dodger, opening a door. “Here he is.”
+The boy was lying fast asleep on a rough bed on the floor. He was so pale from worry, sadness, and his confinement that he looked like death. Not the peaceful death in a coffin, but the kind that comes when life has just left, when a young and gentle spirit has just fled to Heaven, and the air of the world has not yet touched the body it left behind.
 
-The boy lay fast asleep on a rough bed on the floor. He was so pale from worry, sadness, and the close, airless room that he looked almost dead—not like a body in a coffin, but like someone whose life has just left him; as if a gentle young soul had only just gone to heaven, and the harsh air of the world had not yet touched what remained.
-
-“Not now,” said the Jew softly, turning away. “Tomorrow. Tomorrow.”—`,
+"Not now," said Fagin, turning away softly. "Tomorrow. Tomorrow."`,
 }

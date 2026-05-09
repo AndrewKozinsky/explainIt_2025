@@ -1,4 +1,5 @@
 import { SentenceRepository } from 'repo/sentence.repository'
+import { Language } from 'utils/languages'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -9,6 +10,7 @@ export async function generateSentencesAndSaveToDB(params: {
 	mainConfigService: MainConfigService
 	sentenceRepository: SentenceRepository
 	processedContent: string
+	languageCode: Language
 	bookChapterId?: number
 	videoPrivateId?: number
 	videoPublicId?: number
@@ -26,6 +28,7 @@ export async function generateSentencesAndSaveToDB(params: {
 		const sentences = await divideTextIntoSentences({
 			mainConfigService: params.mainConfigService,
 			text: params.processedContent,
+			languageCode: params.languageCode,
 		})
 
 		let cursor = 0

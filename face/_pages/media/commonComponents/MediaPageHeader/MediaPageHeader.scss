@@ -1,0 +1,34 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.media-page-header {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	@include mix.page-width(650px) {
+		gap: 2.8rem;
+	}
+
+	@include mix.page-width(950px) {
+		gap: 3.2rem;
+	}
+}
+
+.media-page-header__header-row {
+	display: flex;
+	flex-direction: column;
+	gap: .4rem;
+
+	@include mix.page-width(700px) {
+		gap: .6rem;
+	}
+}
+
+.media-page-header__chapter-number {
+	font-style: italic;
+	align-items: center;
+	font-size: 2rem;
+	line-height: 2.2rem;
+	font-weight: 600;
+}

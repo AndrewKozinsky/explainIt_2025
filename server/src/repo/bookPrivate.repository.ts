@@ -17,7 +17,7 @@ export class BookPrivateRepository {
 		author?: null | string
 		name?: null | string
 		note?: null | string
-		languageCode?: null | Language
+		languageCode: Language
 	}) {
 		const newBook = await this.prisma.bookPrivate.create({
 			data: {

@@ -3,6 +3,5 @@ mutation AudioPronunciation_create($input: CreateUniversalAudioPronunciationInpu
 		id
 		universalPhraseId
 		audioUrl
-		durationMs
 	}
 }

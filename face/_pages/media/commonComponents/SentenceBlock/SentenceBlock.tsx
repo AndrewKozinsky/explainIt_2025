@@ -7,7 +7,7 @@ type SentenceBlockProps = {
 	sentenceId: number
 	sentenceText: string
 	selectedSentenceId: null | number
-	selectedWordIds: number[]
+	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	wordIdOffset?: number
 	extraClass?: string
@@ -19,7 +19,7 @@ function SentenceBlock(props: SentenceBlockProps) {
 		sentenceId,
 		sentenceText,
 		selectedSentenceId,
-		selectedWordIds,
+		selectedWordId,
 		selectWord,
 		wordIdOffset = 0,
 		extraClass,
@@ -42,7 +42,7 @@ function SentenceBlock(props: SentenceBlockProps) {
 							text={part.value}
 							key={part.id}
 							selectedSentenceId={selectedSentenceId}
-							selectedWordIds={selectedWordIds}
+							selectedWordId={selectedWordId}
 							selectWord={selectWord}
 						/>
 					)

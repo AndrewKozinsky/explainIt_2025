@@ -59,6 +59,8 @@ export const RouteNames = {
 		DELETE: 'video_private_delete',
 		GET_USER_VIDEOS: 'video_private_user_videos',
 		GET: 'video_private_get',
+		GENERATE_SUBTITLES: 'video_private_generate_subtitles',
+		GET_SUBTITLES_GENERATION_STATUS: 'video_private_get_subtitles_generation_status',
 	},
 	VIDEO_PUBLIC: {
 		GET_VIDEOS: 'video_public_get_videos',
@@ -80,6 +82,18 @@ export const RouteNames = {
 	},
 	LANGUAGE: {
 		GET_ALL: 'language_get_languages',
+	},
+	FLASHCARD: {
+		ADD: 'flashcard_add',
+		REMOVE: 'flashcard_remove',
+		GET_MY: 'flashcard_get_my',
+	},
+	SENTENCE_CHAT: {
+		GET_THREAD: 'sentence_chat_get_thread',
+		CREATE_THREAD: 'sentence_chat_create_thread',
+		CREATE_USER_MESSAGE: 'sentence_chat_create_user_message',
+		// REST SSE: :threadId идёт параметром пути
+		STREAM_ASSISTANT_REPLY: 'sentence-chat/threads/:threadId/assistant-stream',
 	},
 }
 

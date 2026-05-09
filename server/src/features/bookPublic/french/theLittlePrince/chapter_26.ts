@@ -171,7 +171,5 @@ Moi, je m’assis parce que je ne pouvais plus rester debout. Il dit :
 
 Il hésita encore un peu, puis il se releva. Il fit un pas. Moi, je ne pouvais pas bouger.
 
-Il n’y eut rien qu’un éclair jaune près de sa cheville. Il resta un instant immobile. Il ne cria pas. Il tomba doucement comme tombe un arbre. Ça ne fit même pas de bruit, à cause du sable.
-
-`,
+Il n’y eut rien qu’un éclair jaune près de sa cheville. Il resta un instant immobile. Il ne cria pas. Il tomba doucement comme tombe un arbre. Ça ne fit même pas de bruit, à cause du sable.`,
 }

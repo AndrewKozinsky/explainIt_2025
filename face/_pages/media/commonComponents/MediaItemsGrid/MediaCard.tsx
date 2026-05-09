@@ -16,7 +16,7 @@ function MediaCard(props: MediaCardProps) {
 
 	return (
 		<Link className='media-items-grid__card' style={{ backgroundColor: backgroundColor }} href={url}>
-			{freeToUse && <p className='media-items-grid__card-label'>Открыто всем</p>}
+			{/*{freeToUse && <p className='media-items-grid__card-label'>Открыто всем</p>}*/}
 			{coverUrl && <img src={coverUrl} className='media-items-grid__card-cover' alt='cover' />}
 			<div
 				className={cn(

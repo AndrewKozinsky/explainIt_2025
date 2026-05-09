@@ -46,8 +46,8 @@ export class YandexTranslateUsageBalanceChargeHandler implements ICommandHandler
 		const providerAmount =
 			this.mainConfig.get().yandexCloud.translate.priceForSymbolInKopecks * translatedSymbolsCount
 		const baseAmountInKopecks = Math.ceil(providerAmount)
-		const markupInKopecks = this.mainConfig.get().billing.translationChargeMarkupInKopecks
+		const markupMultiplier = this.mainConfig.get().billing.translationMarkupMultiplier
 
-		return baseAmountInKopecks + markupInKopecks
+		return baseAmountInKopecks * markupMultiplier
 	}
 }

@@ -1,153 +1,135 @@
 export const chapter_44 = {
 	name: 'Chapter XLIV',
 	header: 'The time arrives for Nancy to redeem her pledge to Rose Maylie. She fails.',
-	text: `Although Nancy was skilled in lying and hiding her feelings, she could not fully hide what she had done. It affected her deeply. She remembered that both Fagin and Sikes had trusted her. They had shared their secret plans with her, believing she would never betray them.
+	text: `Even though Nancy was skilled in the arts of cunning and deception, she could not completely hide the effect that her recent actions had on her. She remembered that both the crafty Fagin and the brutal Sikes had trusted her with their secret plans, confident that she was loyal and beyond suspicion. As vile as their schemes were, and as bitter as she felt towards Fagin for leading her into a life of crime and misery, there were still moments when she felt a pang of guilt. She worried that her betrayal would lead to his capture, and that he would fall by her hand, even though he deserved such a fate.
 
-Those plans were cruel and evil. The men themselves were dangerous. Nancy hated Fagin for leading her, step by step, deeper into a life of crime and misery, with no escape. And yet, sometimes she felt a kind of pity for him. She feared that her actions might finally bring him to justice—that he might be caught after avoiding it for so long—and that she herself would be the cause.
+But these were just fleeting thoughts. Her mind was unable to completely detach from old friends and habits, even as she focused on her new goal, determined not to be swayed. Her fears for Sikes were a stronger temptation to turn back, but she had made it a condition that her secret be kept. She had left no clues that could lead to him, and had refused a safe refuge for herself, even for his sake. What more could she do? She was resolved.
 
-But these thoughts were only moments of weakness. She could not completely forget her old life and the people in it. Still, she held firmly to her decision. Nothing would change her mind.
+Although she always arrived at this conclusion, her mental struggles continued, and they began to show. She grew pale and thin in just a few days. At times, she paid no attention to what was happening around her, and was silent in conversations where she once would have been the most talkative. At other times, she would laugh without joy or be noisy, only to fall silent and dejected moments later, brooding with her head in her hands. The effort it took for her to rouse herself showed, more than anything, that she was deeply troubled and that her thoughts were far from the discussions of her companions.
 
-She might have been more afraid for Sikes. That could have stopped her while there was still time. But she had been careful. She had kept her secret. She had given no clue that could lead to him. She had even refused a chance to escape from her own life of crime, just to protect him. What more could she do? She had made her choice.
+It was Sunday night, and the bell of the nearest church struck the hour. Sikes and Fagin were talking, but they paused to listen. The girl looked up from the low seat where she was crouched, and listened too. Eleven.
 
-Even though she had decided, the struggle in her mind did not stop. It returned again and again, and it showed in her appearance. In just a few days, she became pale and thin. Sometimes she did not listen to what was happening around her. She did not join in conversations where she had once been the loudest voice. At other times, she laughed without real joy, or became noisy for no reason. Then suddenly she would fall silent and sit with her head in her hands, deep in thought. It was clear she was troubled, and that her mind was far away from the people around her.
+“An hour before midnight,” said Sikes, lifting the blind to look outside before returning to his seat. “It’s dark and heavy out. A good night for business.”
 
-It was Sunday night. The bell of a nearby church struck the hour. Sikes and Fagin were talking, but they stopped to listen. Nancy looked up from where she sat and listened too.
+“Ah!” replied Fagin. “What a pity, Bill, my dear, that we have no business ready.”
 
-Eleven.
+“You’re right for once,” replied Sikes gruffly. “It is a pity, because I’m in the mood.”
 
-“One hour before midnight,” said Sikes. He lifted the blind, looked outside, and sat down again. “It’s dark and heavy. A good night for work.”
+Fagin sighed and shook his head in disappointment.
 
-“Yes,” said Fagin. “What a pity, my dear Bill, that there’s nothing ready to be done.”
+“We must make up for lost time when we have things properly arranged,” said Sikes.
 
-“For once, you’re right,” said Sikes roughly. “It is a pity. I feel like working tonight.”
+“That’s the spirit, my dear,” replied Fagin, patting him on the shoulder. “It does me good to hear you say that.”
 
-Fagin sighed and shook his head.
+“Does you good, does it?” cried Sikes. “Well, so be it.”
 
-“We’ll make up for lost time when things are ready,” said Sikes.
+“Ha! ha! ha!” laughed Fagin, as if relieved by this small concession. “You’re back to your old self tonight, Bill. Quite like yourself.”
 
-“That’s the spirit, my dear,” said Fagin, touching his shoulder. “I like to hear you say that.”
+“I don’t feel like myself when you put that withered old claw on my shoulder, so take it away,” said Sikes, shaking off Fagin’s hand.
 
-“You like it, do you?” said Sikes. “Well, fine.”
+“Does it make you nervous, Bill? Reminds you of being caught, does it?” said Fagin, determined not to be offended.
 
-“Ha! ha! ha!” laughed Fagin, as if relieved. “You’re yourself tonight, Bill. Just like always.”
+“It reminds me of being caught by the devil,” returned Skes. “There was never another man with a face like yours, unless it was your father, and I suppose he’s singeing his grey beard by now. Or perhaps you came straight from the devil himself, with no father in between, which I wouldn’t be surprised at.”
 
-“I don’t feel like myself when you put that old hand on my shoulder,” said Sikes, pushing him away.
+Fagin didn’t reply to this compliment. Instead, he pulled Sikes by the sleeve and pointed towards Nancy, who had used the conversation as a chance to put on her bonnet and was now leaving the room.
 
-“Does it make you nervous, Bill?” said Fagin, still smiling. “Does it remind you of being caught?”
+“Hey!” cried Sikes. “Nance! Where is the girl going at this time of night?”
 
-“It reminds me of being caught by the devil,” said Sikes. “There’s never been a face like yours—unless your father looked the same. And I suppose he’s burning in hell now. Maybe you didn’t even have a father at all—I wouldn’t be surprised.”
+“Not far.”
 
-Fagin did not answer. Instead, he pulled Sikes’s sleeve and pointed at Nancy. During their talk, she had quietly put on her bonnet and was now leaving the room.
+“What kind of answer is that?” retorted Sikes. “Do you hear me?”
 
-“Hey!” shouted Sikes. “Nance! Where are you going at this time of night?”
+“I don’t know where,” replied the girl.
 
-“Not far,” she said.
+“Then I do,” said Sikes, more out of stubbornness than any real objection to her leaving. “Nowhere. Sit down.”
 
-“What kind of answer is that?” said Sikes. “Do you hear me?”
+“I’m not well. I told you that before,” she replied. “I need some fresh air.”
 
-“I don’t know exactly,” said the girl.
+“Put your head out of the window,” said Sikes.
 
-“Well, I do,” said Sikes stubbornly. “Nowhere. Sit down.”
+“There’s not enough air there,” said the girl. “I want to go out into the street.”
 
-“I’m not well—I told you before,” she said. “I need some fresh air.”
+“Then you won’t,” replied Sikes. With that, he rose, locked the door, took out the key, and, pulling the bonnet from her head, threw it onto the top of an old cabinet. “There,” said the robber. “Now stay quietly where you are, will you?”
 
-“Stick your head out the window,” said Sikes.
+“A bonnet won’t keep me here,” said the girl, turning very pale. “What do you mean, Bill? Do you know what you’re doing?”
 
-“That’s not enough,” said the girl. “I need to go into the street.”
+“Know what I’m—Oh!” cried Sikes, turning to Fagin. “She’s out of her mind, you know, or she wouldn’t dare talk to me like that.”
 
-“Then you won’t go,” said Sikes.
+“You’ll drive me to do something desperate,” muttered the girl, pressing her hands to her chest as if to hold back a violent outburst. “Let me go, will you—this minute—this instant.”
 
-He stood up, locked the door, and took the key. Then he pulled the bonnet from her head and threw it on top of a cupboard.
+“No!” said Sikes.
 
-“There,” he said. “Now stay where you are.”
+“Tell him to let me go, Fagin. He had better. It will be better for him. Do you hear me?” cried Nancy, stamping her foot on the ground.
 
-“My bonnet won’t stop me,” said the girl, turning very pale. “What are you doing, Bill? Do you understand?”
+“Hear you!” repeated Sikes, turning in his chair to face her. “Yes! And if I hear you for another half a minute, the dog will have such a grip on your throat that it’ll tear that screaming voice out. What has gotten into you, you girl! What is it?”
 
-“Do I understand—?” said Sikes, turning to Fagin. “She’s gone mad, or she wouldn’t talk to me like that.”
+“Let me go,” said the girl with great earnestness. Then, sitting down on the floor in front of the door, she said, “Bill, let me go; you don’t know what you are doing. You really don’t. For just one hour—please—please!”
 
-“You’ll push me too far,” said the girl, pressing her hands to her chest, as if trying to control herself. “Let me go—now—this moment.”
+“Cut my limbs off one by one!” cried Sikes, grabbing her roughly by the arm. “I swear the girl is stark raving mad. Get up.”
 
-“No,” said Sikes.
+“Not until you let me go—not until you let me go—Never—never!” screamed the girl. Sikes watched for a moment, waiting for his chance. Then, suddenly pinning her hands, he dragged her, struggling and wrestling, into a small adjoining room. There, he sat on a bench, pushed her into a chair, and held her down by force. She struggled and pleaded until twelve o’clock struck, and then, weary and exhausted, she stopped fighting. With a warning, backed by many oaths, to make no more attempts to go out that night, Sikes left her to recover and rejoined Fagin.
 
-“Tell him to let me go, Fagin. He should do it. It will be better for him. Do you hear me?” cried Nancy, stamping her foot.
+“Whew!” said the housebreaker, wiping the sweat from his face. “What a strange girl she is!”
 
-“Hear you?” repeated Sikes, turning in his chair to face her. “Yes! And if I hear you for another half minute, the dog will grab your throat and stop that screaming voice of yours. What’s wrong with you? What is it?”
+“You can say that again, Bill,” replied Fagin thoughtfully. “You can say that again.”
 
-“Let me go,” said the girl earnestly. Then she sat down on the floor in front of the door and said, “Bill, let me go. You don’t understand what you are doing. You really don’t. Just for one hour—please—please!”
+“What do you think made her want to go out tonight?” asked Sikes. “Come on, you should know her better than I do. What does it mean?”
 
-“I must be crazy!” cried Sikes, grabbing her roughly by the arm. “The girl has gone completely mad. Get up.”
+“Obstinacy. A woman’s obstinacy, I suppose, my dear.”
 
-“Not until you let me go—not until you let me go—never—never!” screamed the girl.
+“Well, I suppose it is,” growled Sikes. “I thought I had tamed her, but she’s as bad as ever.”
 
-Sikes watched her for a moment, waiting for his chance. Then suddenly he caught her hands and dragged her, struggling and fighting, into a small room nearby. He sat down on a bench, pushed her into a chair, and held her there by force. She struggled and begged again and again until midnight. Then, tired and exhausted, she stopped resisting.
+“Worse,” said Fagin thoughtfully. “I’ve never seen her like this over such a small thing.”
 
-After warning her, with many angry words, not to try to leave the house that night, Sikes left her there to recover and went back to Fagin.
+“Me neither,” said Sikes. “I think she still has a touch of that fever in her blood, and it won’t come out—eh?”
 
-“Whew!” said the housebreaker, wiping sweat from his face. “What a strange girl she is!”
+“It’s likely.”
 
-“You’re right, Bill,” said Fagin thoughtfully. “Very right.”
+“I’ll let a little of her blood myself, without bothering the doctor, if she acts that way again,” said Sikes.
 
-“Why did she suddenly want to go out tonight?” asked Sikes. “Come on, you know her better than I do. What does it mean?”
+Fagin nodded, showing his approval of this treatment.
 
-“Stubbornness; a woman’s stubbornness, I suppose, my dear,” said Fagin.
+“She was hovering around me all day and night when I was lying on my back, and you, like the black-hearted wolf you are, stayed away,” said Sikes. “We were poor the whole time, and I think, one way or another, it’s worried and upset her. And being shut up here for so long has made her restless—eh?”
 
-“Well, I guess so,” growled Sikes. “I thought I had controlled her, but she’s just the same as before.”
+“That’s it, my dear,” replied Fagin in a whisper. “Hush!”
 
-“Worse,” said Fagin quietly. “I have never seen her like this for such a small reason.”
+As he said these words, the girl herself appeared and returned to her seat. Her eyes were swollen and red. She rocked back and forth, tossed her head, and after a short time, burst out laughing.
 
-“Me neither,” said Sikes. “Maybe she still has some of that fever in her blood, and it hasn’t gone away yet—eh?”
+“Why, now she’s on a different tack!” exclaimed Sikes, giving his companion a look of great surprise.
 
-“Very possible.”
+Fagin nodded for him to take no more notice for now, and in a few minutes, the girl settled back into her usual quiet state. Whispering to Sikes that there was no fear of her relapsing, Fagin picked up his hat and said good-night. He paused at the door and, looking around, asked if someone would light his way down the dark stairs.
 
-“If she acts like this again, I’ll deal with it myself, without calling a doctor,” said Sikes.
+“Light him down,” said Sikes, who was filling his pipe. “It’s a pity he should break his neck himself and disappoint the sightseers. Show him a light.”
 
-Fagin nodded, clearly approving this way of dealing with her.
+Nancy followed the old man downstairs with a candle. When they reached the passage, he put his finger to his lip and, drawing close to the girl, said in a whisper,
 
-“She stayed close to me all day, and even at night, when I was lying on my back,” said Sikes. “And you, like the cold-hearted wolf you are, kept away. We were poor the whole time too, and I think that, one way or another, it made her worried and upset. And being shut up here so long has made her restless—eh?”
+“What is it, Nancy, dear?”
 
-“That’s right, my dear,” replied Fagin in a whisper. “Quiet!”
+“What do you mean?” replied the girl, in the same tone.
 
-At that moment, the girl came back and sat in her usual place. Her eyes were red and swollen. She rocked back and forth, shook her head, and after a moment suddenly burst out laughing.
+“The reason for all this,” replied Fagin. “If he”—he pointed with his skinny forefinger up the stairs—“is so hard on you (he’s a brute, Nance, a brute-beast), why don’t you—”
 
-“Well, now she’s acting the opposite way!” said Sikes, looking very surprised.
+“Well?” said the girl, as Fagin paused, his mouth almost touching her ear, and his eyes looking into hers.
 
-Fagin motioned to him not to react. After a few minutes, the girl calmed down and returned to her usual manner. Fagin quietly told Sikes there was no danger of her losing control again, then took his hat and said good night. At the door, he stopped, looked back, and asked if someone could light his way down the dark stairs.
+“No matter just now. We’ll talk about this again. You have a friend in me, Nance; a loyal friend. I have the means, quiet and close. If you want revenge on those who treat you like a dog—like a dog! worse than his own dog, for he is kind to it sometimes—come to me. I say, come to me. He is just a temporary nuisance, but you know me from old times, Nance.”
 
-“Go with him,” said Sikes, filling his pipe. “Wouldn’t want him to fall and break his neck and spoil the fun. Show him a light.”
+“I know you well,” replied the girl, without showing any emotion. “Good-night.”
 
-Nancy followed the old man downstairs with a candle. When they reached the passage, he put a finger to his lips and leaned close to her.
+She shrank back as Fagin offered to lay his hand on hers, but said good-night again in a steady voice and, answering his parting look with a nod, closed the door between them.
 
-“What is it, Nancy, dear?” he whispered.
+Fagin walked towards his home, his mind busy with thoughts. He had started to believe—not just from what had happened tonight, but slowly over time—that Nancy, tired of the housebreaker’s brutality, had formed an attachment to a new friend. Her changed behavior, her repeated absences from home, her relative indifference to the gang’s interests, and her desperate need to leave at a particular hour that night all supported this idea and made it almost a certainty in his mind. The object of this new affection was not one of his own men. This new person would be a valuable asset with Nancy as an assistant and, Fagin reasoned, must be secured without delay.
 
-“What do you mean?” she asked quietly.
+There was another, darker goal to achieve. Sikes knew too much, and his rough taunts had wounded Fagin’s pride, even if the wounds were hidden. The girl must know that if she left Sikes, she would never be safe from his fury, and that his anger would surely be taken out—perhaps through injury or even death—on the person she now favored.
 
-“The reason for all this,” said Fagin. He pointed upstairs with his thin finger. “If he is so hard on you—he’s a brute, Nance, a real beast—why don’t you—”
+“With a little persuasion,” Fagin thought, “it’s likely she would agree to poison him. Women have done such things, and worse, to get what they want. The dangerous villain, the man I hate, would be gone; another man would be secured in his place; and my influence over the girl, with the knowledge of this crime to support it, would be absolute.”
 
-“Well?” said the girl, as he paused, his mouth close to her ear, his eyes fixed on hers.
+These thoughts passed through Fagin’s mind as he sat alone in the housebreaker’s room. With them at the forefront of his thoughts, he had used the opportunity at parting to test the girl with his vague hints. She had shown no surprise, no sign of not understanding him. The girl clearly understood. Her final glance had shown it.
 
-“Never mind for now. We’ll talk later. You have a friend in me, Nance—a true friend. I have ways and means, quiet and secret. If you want revenge on those who treat you like a dog—like a dog! even worse than his dog, because he is sometimes kind to that—come to me. Come to me. He is nothing important, just a man for now, but you have known me for a long time, Nance.”
+But perhaps she would hesitate at a plot to kill Sikes, which was one of his main goals. “How,” thought Fagin as he crept homeward, “can I increase my influence with her? What new power can I gain?”
 
-“I know you well,” said the girl, without showing any emotion. “Good night.”
+Such minds are full of cunning plans. What if, without getting a confession from her, he watched her, discovered the object of her new affection, and threatened to reveal everything to Sikes (whom she greatly feared) unless she went along with his plans? Could he not ensure her cooperation?
 
-She pulled back when Fagin tried to touch her hand, but said good night again in a steady voice. She nodded slightly in understanding and closed the door.
+“I can,” said Fagin, almost aloud. “She wouldn’t dare refuse me then. Not for her life, not for her life! I have it all. The means are ready and will be put to use. I will have you yet!”
 
-Fagin walked home, deep in thought. He had begun to suspect—not just from this moment, though it confirmed it, but slowly over time—that Nancy, tired of Sikes’s cruelty, had grown attached to someone else. Her changed behavior, her frequent absences alone, her lack of interest in the gang she once cared about, and especially her desperate wish to leave the house at a certain hour that night—all this made him almost certain.
-
-This new person was not one of his own men. But with Nancy’s help, he could be very useful—and must be brought under control as soon as possible.
-
-There was also another, darker goal. Sikes knew too much, and his rough insults had hurt Fagin more than he showed. The girl must understand that if she left Sikes, she would never be safe from his anger. And that anger would fall—perhaps violently, even fatally—on the man she now cared about.
-
-“With a little persuasion,” thought Fagin, “what is more likely than that she would agree to poison him? Women have done such things before—and worse—for the same reason. Then the dangerous man, the one I hate, would be gone. Another would take his place. And my power over the girl, supported by the knowledge of her crime, would be complete.”
-
-These thoughts went through Fagin’s mind while he sat alone in the room. And with them in mind, he later used the chance to speak to the girl, hinting at his ideas before leaving. She showed no surprise, no confusion. She clearly understood him. Her final look proved it.
-
-But perhaps she would refuse to be part of a plan to kill Sikes—and that was one of Fagin’s main goals.
-
-“How,” thought Fagin as he walked slowly home, “can I gain more control over her? What new power can I get?”
-
-A mind like his quickly finds solutions. If he watched her carefully, discovered who she now cared about, and threatened to tell Sikes everything—Sikes, whom she greatly feared—then, even without forcing her to confess, he could make her obey him.
-
-“I can do it,” said Fagin, almost out loud. “She would not dare refuse me then. Not for her life—not for her life! I have the whole plan. The means are ready, and I will use them. I will control you yet!”
-
-He threw a dark, threatening look back toward the place where he had left Sikes, and made a sharp movement with his hand. Then he went on his way, his thin hands twisting the folds of his torn coat, gripping it tightly—as if he were crushing an enemy with every movement of his fingers.`,
+He cast a dark look and a threatening gesture back towards the spot where he had left the other villain, and went on his way, his bony hands twisting the folds of his tattered clothes as if he were crushing a hated enemy with every movement.`,
 }

@@ -1,0 +1,100 @@
+@use '@/styles/variables' as vars;
+
+.styled-markdown {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	word-break: break-word;
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		margin: 0.75rem 0 0.5rem;
+		line-height: 1.2;
+	}
+
+	h1 {
+		font-size: 2rem;
+	}
+
+	h2 {
+		font-size: 1.8rem;
+	}
+
+	h3 {
+		font-size: 1.7rem;
+	}
+
+	p {
+		margin: 0.5rem 0;
+	}
+
+	ul ul {
+		padding-left: 1.25rem;
+	}
+
+	ul {
+		display: grid;
+		gap: .8rem;
+	}
+
+	li > ul {
+		margin-top: .4rem;
+	}
+
+	a {
+		text-decoration: underline;
+	}
+
+	strong {
+		font-weight: 500;
+	}
+
+	code {
+		padding: 0.1rem 0.25rem;
+		border-radius: vars.$radius-1;
+		background: vars.$grayColor-1;
+	}
+
+	pre {
+		margin: 0.75rem 0;
+		padding: 0.75rem;
+		overflow: auto;
+		border-radius: 0.5rem;
+		background: vars.$grayColor-1;
+	}
+
+	pre code {
+		padding: 0;
+		background: transparent;
+		font-size: 0.9em;
+	}
+
+	blockquote {
+		margin: 0.75rem 0;
+		padding: 0.25rem 0.75rem;
+		border-left: 2px solid vars.$grayColor-3;
+		background: vars.$grayColor-1;
+		border-radius: vars.$radius-2;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin: 0.75rem 0;
+		font-size: 0.95em;
+	}
+
+	th,
+	td {
+		border: 1px solid vars.$grayColor-1;
+		padding: 0.4rem 0.5rem;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	th {
+		font-weight: 600;
+		background: vars.$grayColor-1;
+	}
+}

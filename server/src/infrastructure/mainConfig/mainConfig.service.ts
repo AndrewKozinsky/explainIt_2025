@@ -72,6 +72,29 @@ export class MainConfigService {
 					output: (oneDollarInRub * 0.42) / 1_000_000, // 110 рублей за доллар * количество долларов на выход / количество токенов
 				},
 			},
+			gemini: {
+				// Цены Google Gemini 2.5 Flash (public pricing): $0.30 / 1M input, $2.50 / 1M output.
+				priceInRub: {
+					input: (oneDollarInRub * 0.3) / 1_000_000,
+					output: (oneDollarInRub * 2.5) / 1_000_000,
+				},
+			},
+			deepgram: {
+				apiKey: enVariables.deepgram.apiKey,
+				// Deepgram Nova-3 prerecorded pricing: ~$0.0043/min = $0.258/hour.
+				// Convert to kopecks per second: $/min * 100kop/$ * 110руб/$ / 60s.
+				pricePerSecondInKopecks: (0.0043 * oneDollarInRub * 100) / 60,
+			},
+			generateSubtitles: {
+				// Минимальный баланс пользователя для запуска генерации субтитров (в копейках).
+				minBalanceKopecks: 1000,
+				// Максимальная допустимая длительность видео для генерации субтитров (в секундах).
+				maxVideoSeconds: 60 * 60 * 2,
+				// Каталог для временных файлов аудио/видео при обработке.
+				tmpDir: '/tmp/subs',
+				// Множитель наценки на стоимость распознавания речи.
+				asrMarkupMultiplier: 2,
+			},
 			oauth: {
 				github: {
 					clientId: enVariables.oauth.github.clientId,
@@ -100,7 +123,7 @@ export class MainConfigService {
 					keyId: enVariables.yandexCloud.translate.keyId,
 					secretKey: enVariables.yandexCloud.translate.secretKey,
 					folderId: enVariables.yandexCloud.translate.folderId,
-					priceForSymbolInKopecks: 0.05 * 2.3, // 0.5 рублей за тысячу символов * наценка
+					priceForSymbolInKopecks: 0.05, // 0.5 рублей за тысячу символов * наценка
 				},
 				dictionary: {
 					key: enVariables.yandexCloud.dictionary.key,
@@ -121,7 +144,7 @@ export class MainConfigService {
 			},
 			billing: {
 				// Наценка за каждый перевод пользователя
-				translationChargeMarkupInKopecks: 2,
+				translationMarkupMultiplier: 2,
 			},
 			// Grafana Loki
 			loki: enVariables.loki,
@@ -161,6 +184,9 @@ export class MainConfigService {
 			},
 			deepSeek: {
 				apiKey: this.configService.get<string>('DEEPSEEK_API_KEY') as string,
+			},
+			deepgram: {
+				apiKey: this.configService.get<string>('DEEPGRAM_API_KEY') as string,
 			},
 			oauth: {
 				github: {

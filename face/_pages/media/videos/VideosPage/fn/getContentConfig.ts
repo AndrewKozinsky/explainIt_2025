@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { LanguageCode } from 'utils/utils'
 import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
 import { useVideosStore } from '../../videosStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
@@ -51,7 +52,7 @@ export function useGetContentConfig() {
 							subName: video.year,
 							url: pageUrls.videos.video(videoId).path,
 							backgroundColor: video.coverBackgroundColor,
-							languageCode: video.languageCode,
+							languageCode: video.languageCode as LanguageCode,
 							coverUrl: video.covers[0],
 							freeToUse: video.freeToUse,
 						}

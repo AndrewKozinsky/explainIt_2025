@@ -158,6 +158,7 @@ export class SentencePhraseTranslationRepository {
 			errorMessage: db.error_message,
 			createdAt: db.created_at,
 			updatedAt: db.updated_at,
+			flashcardId: null,
 		}
 	}
 	private encodeExamples(examples: SentencePhraseTranslationExampleServiceModel[]): string[] {

@@ -7,3 +7,12 @@ export function extractNumFromStr(str: string): number {
 	const numStr = str.replace(regExp, '')
 	return parseInt(numStr)
 }
+
+/**
+ * Возвращает случайное число в диапазоне
+ * @param min
+ * @param max
+ */
+export function randomNumber(min: number, max: number) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}

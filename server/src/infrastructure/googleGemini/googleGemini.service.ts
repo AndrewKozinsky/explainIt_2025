@@ -46,12 +46,14 @@ export class GoogleGeminiService {
 	async *generateTextStreamChunks(input: {
 		contents: Content[]
 		model?: GoogleGeminiModels
+		systemInstruction?: string
 		abortSignal?: AbortSignal
 		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
 	}): AsyncGenerator<string, void, void> {
 		const stream = await this.ai.models.generateContentStream({
 			model: input.model ?? GoogleGeminiModels.Flash,
 			contents: input.contents,
+			config: { systemInstruction: input.systemInstruction },
 		})
 
 		let usageSent = false

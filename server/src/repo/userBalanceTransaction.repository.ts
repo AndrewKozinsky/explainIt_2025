@@ -46,13 +46,6 @@ export class UserBalanceTransactionRepository {
 					throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
 				}
 
-				if (user.balance < dto.amountInKopecks) {
-					throw new CustomGraphQLError(
-						errorMessage.insufficientBalanceForTranslation,
-						ErrorCode.BadRequest_400,
-					)
-				}
-
 				await this.prisma.userBalanceTransaction.create({
 					data: {
 						user_id: dto.userId,

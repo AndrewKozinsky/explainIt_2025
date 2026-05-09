@@ -1,215 +1,207 @@
 export const chapter_37 = {
 	name: 'Chapter XXXVII',
 	header: 'In which the reader may perceive a contrast, not uncommon in matrimonial cases',
-	text: `Mr. Bumble sat in the workhouse parlour, staring gloomily at the empty fireplace. It was summer, so there was no fire—only a faint reflection of weak sunlight on the cold metal. A paper fly-cage hung from the ceiling, and from time to time he looked up at it thoughtfully. As careless flies buzzed around the bright net, Mr. Bumble would sigh deeply, and his face would grow even darker. He was thinking deeply; perhaps the trapped insects reminded him of something unpleasant in his own past.
+	text: `Mr. Bumble sat in the workhouse parlor, staring gloomily at the empty fireplace. Since it was summer, the only light from it was a faint reflection of the sun on its cold, shining surface. A paper fly-trap hung from the ceiling, and he occasionally glanced at it with a heavy heart. As the careless insects buzzed around the trap, Mr. Bumble would sigh deeply, his expression growing even darker. He was lost in thought; perhaps the insects reminded him of a painful time in his own life.
 
-But Mr. Bumble’s mood was not the only thing that might make an observer feel a kind of sad sympathy. There were other signs—especially in his appearance—that showed a great change in his life. Where were his gold-laced coat and his grand cocked hat? He still wore knee-breeches and dark stockings, but they were not the same as before. His coat was still long, but oh, how different it looked! And the great cocked hat had been replaced by a simple round one. Mr. Bumble was no longer a beadle.
+Mr. Bumble's gloom wasn't the only thing that had changed. His appearance also showed that his situation was different. The laced coat and the cocked hat were gone. He still wore knee-breeches and dark cotton stockings, but they were not the same ones. The coat was wide, similar in that way to his old one, but oh, how different! The grand cocked hat had been replaced by a simple round one. Mr. Bumble was no longer a beadle.
 
-There are some promotions in life which, besides bringing real advantages, also depend greatly on appearance. A field-marshal has his uniform; a bishop his silk apron; a lawyer his gown; a beadle his cocked hat. Take away the bishop’s apron or the beadle’s hat and lace—what are they then? Just men. Ordinary men. Dignity—and sometimes even holiness—often depend more on clothes than people think.
+Some jobs come with special uniforms that give them a certain dignity, apart from the money they pay. A field-marshal has his uniform, a bishop his special apron, a lawyer his silk gown, and a beadle his cocked hat. If you take away the bishop's apron or the beadle's hat, what are they? Just men. Dignity, and even holiness, can sometimes depend more on clothes than people think.
 
-Mr. Bumble had married Mrs. Corney and had become master of the workhouse. Another beadle had taken his place, and now wore the cocked hat, the gold-laced coat, and carried the staff.
+Mr. Bumble had married Mrs. Corney and was now master of the workhouse. A new beadle had taken his place, inheriting the cocked hat, gold-laced coat, and staff.
 
-“And tomorrow it will be two months since it happened,” said Mr. Bumble with a sigh. “It feels like an age.”
+“And tomorrow it will be two months since it was done!” said Mr. Bumble with a sigh. “It feels like an age.”
 
-He might have meant that he had lived a whole lifetime of happiness in those eight weeks—but his sigh suggested something very different.
+Mr. Bumble might have meant that he had packed a lifetime of happiness into eight short weeks, but his sigh suggested something else entirely.
 
-“I sold myself,” said Mr. Bumble, continuing his thoughts, “for six teaspoons, a pair of sugar-tongs, and a milk jug; along with some second-hand furniture and twenty pounds in money. I went cheap—very cheap!”
+“I sold myself,” Mr. Bumble continued thinking, “for six teaspoons, a pair of sugar tongs, and a milk pot, along with some second-hand furniture, and twenty pounds. I was a bargain. Cheap, dirt cheap!”
 
-“Cheap!” cried a sharp voice near his ear. “You would have been expensive at any price—and I paid too much for you, Heaven knows!”
+“Cheap!” a sharp voice cried in his ear. “You would have been expensive at any price! The Lord knows I paid enough for you!”
 
-Mr. Bumble turned and saw his wife. She had only heard part of what he said, but she had quickly made her own comment.
+Mr. Bumble turned to see his wife. She had only heard a few words of his complaint and had made her remark without knowing the full story.
 
-“Mrs. Bumble, ma’am!” said Mr. Bumble, with a serious and slightly emotional tone.
+“Mrs. Bumble, ma’am!” said Mr. Bumble, with a stern but sentimental look.
 
-“Well!” replied the lady.
+“Well!” the lady snapped.
 
-“Be so kind as to look at me,” said Mr. Bumble, staring hard at her.
+“Please look at me,” said Mr. Bumble, fixing his eyes on her.
 
-“If she can stand a look like that,” he thought to himself, “she can stand anything. That look always worked on the poor people. If it doesn’t work on her, then my power is gone.”
+“If she can withstand a look like that,” Mr. Bumble thought to himself, “she can withstand anything. It’s a look that never fails with the poor. If it fails with her, my power is gone.”
 
-Whether such a fierce look is really enough to frighten poor people—who are often weak from hunger—or whether Mrs. Bumble was simply not afraid of it, is open to debate. The fact is, she was not affected at all. On the contrary, she treated his look with complete scorn, and even laughed at him—a real, genuine laugh.
+Whether a small widening of the eyes is enough to control poor people (who are not well-fed and therefore not in a strong condition), or whether the former Mrs. Corney was simply immune to powerful glares, is a matter of opinion. The fact is, the matron was not at all intimidated by Mr. Bumble’s scowl. On the contrary, she treated it with scorn and even laughed a genuine-sounding laugh.
 
-Hearing this unexpected sound, Mr. Bumble first looked doubtful, then shocked. After that, he fell silent again, until his wife spoke once more.
+Hearing this unexpected sound, Mr. Bumble looked at her, first in disbelief, and then in amazement. He slumped back into his gloomy state and didn't move until his wife's voice startled him again.
 
-“Are you going to sit there dozing all day?” asked Mrs. Bumble.
+“Are you going to sit there snoring all day?” Mrs. Bumble asked.
 
-“I will sit here as long as I like, ma’am,” replied Mr. Bumble. “And although I was not dozing, I will doze, yawn, sneeze, laugh, or cry whenever I choose. That is my right.”
+“I will sit here for as long as I please, ma’am,” Mr. Bumble replied. “And though I was not snoring, I will snore, yawn, sneeze, laugh, or cry whenever I feel like it. That is my right.”
 
-“Your right!” said Mrs. Bumble with deep contempt.
+“Your right!” sneered Mrs. Bumble with great contempt.
 
-“I said it, ma’am,” said Mr. Bumble. “A man’s right is to command.”
+“I said the word, ma’am,” said Mr. Bumble. “A man’s right is to command.”
 
-“And what is a woman’s right, in Heaven’s name?” cried the widow of Mr. Corney.
+“And what is a woman’s right, for goodness sake?” cried the widow of the late Mr. Corney.
 
-“To obey, ma’am,” thundered Mr. Bumble. “Your poor late husband should have taught you that. If he had, perhaps he would still be alive. I wish he were, poor man!”
+“To obey, ma’am,” thundered Mr. Bumble. “Your late, unfortunate husband should have taught you that. Then perhaps he would still be alive. I wish he were, poor man!”
 
-Mrs. Bumble immediately saw that this was the decisive moment. One of them had to win control, and the result would be final. As soon as she heard this reference to her dead husband, she dropped into a chair and burst into loud cries, calling Mr. Bumble a cruel and heartless brute.
+Mrs. Bumble saw at once that the decisive moment had come. A blow for control had to be struck, and it would be final. As soon as she heard this reference to her dead husband, she fell into a chair, and with a loud scream that Mr. Bumble was a cruel brute, she burst into tears.
 
-But tears had no effect on Mr. Bumble. His heart was completely unmoved. Like a hat that becomes stronger in the rain, he only grew firmer and more confident when she cried. Her tears showed weakness, and this made him feel more powerful. He looked at her with satisfaction and even encouraged her to cry as much as she could, as if it were good exercise.
+But tears did not affect Mr. Bumble; his heart was waterproof. Like a good hat that gets better with rain, his nerves grew stronger with showers of tears. He saw them as a sign of weakness and, therefore, an admission of his own power, which pleased him. He looked at his wife with great satisfaction and encouraged her to cry her hardest, saying it was good for her health.
 
-“It’s healthy,” said Mr. Bumble. “It opens the lungs, washes the face, exercises the eyes, and calms the temper. So go on—cry as much as you like.”
+“It opens the lungs, cleans the face, exercises the eyes, and calms the temper,” said Mr. Bumble. “So cry away.”
 
-After making this joke, Mr. Bumble took his hat from the peg and put it on at a slightly jaunty angle, like a man who felt proud of himself. He put his hands in his pockets and walked toward the door in a relaxed, confident way.
+With that pleasantry, Mr. Bumble took his hat from a peg. He put it on at a jaunty angle, like a man who felt he had just proven his superiority. He put his hands in his pockets and strolled towards the door with a look of easy confidence.
 
-Now, Mrs. Corney—as she had once been—had chosen tears first because they were easier than physical action. But she was quite ready to try a more direct method, as Mr. Bumble soon discovered.
+Now, the former Mrs. Corney had tried tears because they were less trouble than a physical fight, but she was quite ready for the latter, as Mr. Bumble soon discovered.
 
-The first sign came as a dull удар, followed by his hat suddenly flying across the room. With his head now uncovered, Mrs. Bumble quickly grabbed him by the throat with one hand and struck him repeatedly with the other, with great strength and skill. Then she added some variety by scratching his face and pulling his hair. When she felt she had punished him enough, she pushed him over a chair—which happened to be very conveniently placed—and dared him to speak of his “rights” again.
+The first sign was a hollow sound, followed by his hat flying off his head to the other side of the room. With his head now exposed, the expert lady grabbed him tightly by the throat with one hand and hit him repeatedly on the head with the other. After that, for variety, she scratched his face and tore his hair. When she felt she had delivered enough punishment, she pushed him over a conveniently placed chair and dared him to talk about his rights again.
 
-“Get up!” said Mrs. Bumble sharply. “And leave this room, unless you want me to do something worse.”
+“Get up!” said Mrs. Bumble in a commanding voice. “And get out of here, unless you want me to do something desperate.”
 
-Mr. Bumble got up, looking very miserable, and wondering what “something worse” might be. Picking up his hat, he glanced toward the door.
+Mr. Bumble got up with a very sad face, wondering what "something desperate" might be. He picked up his hat and looked towards the door.
 
 “Are you going?” demanded Mrs. Bumble.
 
-“Yes, my dear, yes,” said Mr. Bumble, moving quickly toward the door. “I didn’t mean to—I’m going, my dear! You are so very violent that really I—”
+“Certainly, my dear, certainly,” replied Mr. Bumble, moving more quickly towards the door. “I didn’t mean to—I’m going, my dear! You are so violent, that really I—”
 
-At that moment, Mrs. Bumble stepped forward to fix the carpet, which had been disturbed during the struggle. Mr. Bumble instantly rushed out of the room, without finishing his sentence, leaving Mrs. Bumble in complete control.
+At that moment, Mrs. Bumble stepped forward to fix the rug that had been messed up in the fight. Mr. Bumble immediately rushed out of the room without finishing his sentence, leaving the former Mrs. Corney in complete control.
 
-Mr. Bumble had been completely surprised—and completely defeated. He had always liked to bully others and took some pleasure in being cruel in small ways; and, as is often the case, this meant he was actually a coward. This does not make him unusual; many officials who are respected and admired share the same weakness. In fact, it almost makes him seem well suited to his position.
+Mr. Bumble was completely surprised and defeated. He had a strong tendency to bully others and enjoyed petty cruelty. As a result, he was, of course, a coward. This is not to judge him too harshly; many officials who are highly respected suffer from the same weakness. This remark is made more in his favor, to show the reader that he was well-suited for his job.
 
-But his humiliation was not yet complete. After walking through the house and, for the first time, thinking that the poor laws might be too harsh—and even that men who ran away from their wives should perhaps be rewarded rather than punished—Mr. Bumble came to a room where some poor women were washing the parish clothes. He heard them talking.
+But his humiliation was not yet complete. After walking around the house and thinking for the first time that the poor-laws were too hard on people, and that men who ran away from their wives should be rewarded instead of punished, Mr. Bumble came to a room where the female paupers were washing linen. He could hear them talking.
 
-“Ahem!” said Mr. Bumble, trying to recover his dignity. “These women will at least respect authority. Hallo! What is all this noise, you foolish women?”
+“Hem!” said Mr. Bumble, trying to summon his dignity. “These women, at least, will continue to respect my rights. Hello there! What’s all this noise about, you women?”
 
-With these words, he opened the door and entered with a fierce and angry expression. But this immediately changed to one of embarrassment and fear when he suddenly saw his wife standing there.
+With these words, Mr. Bumble opened the door and walked in with a fierce and angry expression. But his look quickly changed to one of humiliation and fear when he saw his wife.
 
 “My dear,” said Mr. Bumble, “I didn’t know you were here.”
 
-“You didn’t know I was here?” repeated Mrs. Bumble. “Then what are you doing here?”
+“Didn’t know I was here!” repeated Mrs. Bumble. “What are you doing here?”
 
-“I thought they were talking too much instead of working, my dear,” replied Mr. Bumble, glancing nervously at two old women at the wash-tub, who were quietly admiring how humble the master had become.
+“I thought they were talking too much to do their work properly, my dear,” replied Mr. Bumble, glancing nervously at two old women at the washtub, who were exchanging admiring looks at the master’s humility.
 
-“You thought they were talking too much?” said Mrs. Bumble. “And what business is that of yours?”
+“You thought they were talking too much?” said Mrs. Bumble. “What business is it of yours?”
 
-“Well, my dear—” began Mr. Bumble.
+“Why, my dear—” urged Mr. Bumble meekly.
 
-“What business is it of yours?” she repeated sharply.
+“What business is it of yours?” demanded Mrs. Bumble again.
 
-“It’s true that you are the matron here, my dear,” said Mr. Bumble in a submissive tone. “But I thought perhaps you weren’t here just now.”
+“It’s true, you’re the matron here, my dear,” submitted Mr. Bumble, “but I thought you might not be around just then.”
 
-“Let me tell you something, Mr. Bumble,” said his wife. “We don’t need your interference. You are far too fond of sticking your nose into things that don’t concern you. You make everyone in the house laugh at you, and you make yourself look foolish all day long. Now go—leave at once!”
+“I’ll tell you what, Mr. Bumble,” said his wife. “We don’t want your interference. You’re too fond of sticking your nose into things that don’t concern you. You make everyone in the house laugh at you behind your back and make a fool of yourself every hour of the day. Now, be off with you!”
 
-Mr. Bumble saw, with painful embarrassment, how delighted the two old paupers were. They were whispering and laughing together with great enjoyment. He hesitated for a moment.
+Mr. Bumble hesitated for a moment, feeling the painful delight of the two old paupers, who were laughing together with joy. Mrs. Bumble, having no patience, picked up a bowl of soapy water and, motioning him towards the door, ordered him to leave at once or she would throw it on him.
 
-Mrs. Bumble, who had no patience for delay, quickly picked up a bowl of soapy water and pointed toward the door, ordering him to leave immediately—or she would throw it over him.
+What could Mr. Bumble do? He looked around sadly and slunk away. As he reached the door, the paupers' laughter broke into a loud, joyful chuckle. That was the last straw. He was degraded in their eyes. He had lost his status before the very poor. He had fallen from the great height of his beadleship to the lowest depth of a hen-pecked husband.
 
-What could Mr. Bumble do? He looked around sadly and slipped away. As he reached the door, the quiet laughter of the paupers burst into loud, uncontrollable giggling.
+“All in two months!” said Mr. Bumble, filled with sad thoughts. “Two months! Just two months ago, I was not only my own master, but everyone else’s master in this workhouse, and now!—”
 
-This was too much. He was humiliated in their eyes. He had lost his status—even in front of the poor. He had fallen from the proud height of being a beadle to the lowest state of a man completely ruled by his wife.
+It was too much. Mr. Bumble, lost in his thoughts, had reached the gate. He boxed the ears of the boy who opened it for him and walked distractedly into the street.
 
-“All in two months!” said Mr. Bumble, full of dark thoughts. “Two months! Only two months ago, I was master of myself—and of everyone else in the workhouse—and now!”
+He walked up one street and down another until the exercise calmed his initial anger. Then, a change of feeling made him thirsty. He passed many pubs but finally stopped at one on a side street. A quick look through the blinds showed him it was empty except for one customer. It started to rain heavily, which made up his mind. Mr. Bumble stepped in, ordered a drink at the bar, and entered the room he had looked into from the street.
 
-It was too much to bear. Lost in thought, he struck the boy who opened the gate for him, and then wandered into the street in confusion.
+The man sitting there was tall and dark and wore a large cloak. He looked like a stranger and seemed to have traveled a long way, judging by his tired expression and dusty clothes. He glanced at Bumble as he entered but barely nodded in greeting.
 
-He walked up one street and down another until the movement helped calm his anger. Then, as often happens, he suddenly felt thirsty. He passed many public houses, but at last stopped at one in a quiet side street. Looking through the window, he saw that the room inside was almost empty, with only one man sitting there. At that moment, heavy rain began to fall, and this decided him.
+Mr. Bumble had enough dignity for both of them, even if the stranger had been more friendly. So he drank his gin and water in silence and read the newspaper with a great show of importance.
 
-Mr. Bumble stepped inside, ordered a drink at the bar, and went into the room he had just seen from the street.
+However, as often happens in such situations, Mr. Bumble felt a strong urge to steal a look at the stranger from time to time. And whenever he did, he quickly looked away in confusion, finding that the stranger was also stealing a look at him. Mr. Bumble’s discomfort was increased by the stranger’s very unusual expression, which was sharp and bright but shadowed by a look of distrust and suspicion, unlike anything he had ever seen before and unpleasant to look at.
 
-The man sitting there was tall and dark, wearing a large cloak. He looked like a stranger, and his tired face and dusty clothes suggested that he had traveled a long way. He looked at Mr. Bumble sideways as he entered, but barely nodded in return to his greeting.
+After they had exchanged glances several times, the stranger broke the silence in a harsh, deep voice.
 
-Mr. Bumble had dignity enough for both of them, even if the stranger had been more friendly. So he drank his gin and water in silence and read the newspaper with great importance.
+“Were you looking for me,” he said, “when you peeked in the window?”
 
-But, as often happens in such situations, Mr. Bumble felt a strong urge, again and again, to glance at the stranger. And each time he did so, he quickly looked away in embarrassment, only to find that the stranger had been looking at him at the very same moment.
+“Not that I know of, unless you’re Mr.—” Here Mr. Bumble stopped, hoping the stranger would reveal his name.
 
-Mr. Bumble’s discomfort grew even greater because of the strange expression in the man’s eyes. They were sharp and bright, but darkened by suspicion and distrust—unlike anything he had ever seen before, and very unpleasant to look at.
+“I see you weren’t,” said the stranger with a sarcastic smile. “Or you would have known my name. You don’t know it, and I suggest you don’t ask.”
 
-After they had caught each other looking several times, the stranger finally spoke in a harsh, deep voice.
+“I meant no harm, young man,” said Mr. Bumble majestically.
 
-“Were you looking for me,” he said, “when you looked in through the window?”
+“And you have done none,” said the stranger.
 
-“Not that I know of—unless you are Mr.—” Mr. Bumble stopped, hoping the man would say his name.
+Another silence followed, which was again broken by the stranger.
 
-“I see you were not,” said the stranger, with a faint, sarcastic smile. “Otherwise, you would know my name. You don’t—and I advise you not to ask.”
+“I think I’ve seen you before,” he said. “You were dressed differently then, and I only passed you on the street, but I recognize you. You were the beadle here once, weren’t you?”
 
-“I meant no harm, young man,” said Mr. Bumble, trying to sound important.
+“I was,” said Mr. Bumble, surprised. “The parish beadle.”
 
-“And you have done none,” replied the stranger.
+“Exactly,” the other replied, nodding. “That’s when I saw you. What are you now?”
 
-There was a short silence. Then the stranger spoke again.
+“Master of the workhouse,” replied Mr. Bumble, slowly and impressively, to discourage any familiarity. “Master of the workhouse, young man!”
 
-“I think I have seen you before,” he said. “You were dressed differently then, and I only passed you in the street—but I would recognize you again. You were a beadle here once, weren’t you?”
+“You still look out for your own interests, I have no doubt?” the stranger continued, looking sharply into Mr. Bumble’s eyes as he raised them in surprise.
 
-“I was,” said Mr. Bumble, a little surprised. “A parish beadle.”
+“Don’t be afraid to answer freely, man. I know you pretty well, you see.”
 
-“Exactly,” said the stranger, nodding. “That is how I saw you. And what are you now?”
+“I suppose a married man,” replied Mr. Bumble, shielding his eyes and looking the stranger over with confusion, “is just as willing to earn an honest penny as a single one. Parish officers are not paid so well that they can refuse a little extra money when it’s offered properly.”
 
-“I am the master of the workhouse,” said Mr. Bumble slowly and firmly, to prevent the stranger from becoming too familiar. “Master of the workhouse, young man!”
+The stranger smiled and nodded, as if to say he had judged his man correctly. Then he rang the bell.
 
-“I suppose you still look after your own interests as carefully as before?” said the stranger, staring sharply into Mr. Bumble’s eyes.
+“Fill this glass again,” he said, handing Mr. Bumble’s empty tumbler to the landlord. “Let it be strong and hot. You like it that way, I suppose?”
 
-“Don’t hesitate to answer honestly. I know you quite well, you see.”
+“Not too strong,” replied Mr. Bumble with a delicate cough.
 
-“I suppose a married man,” said Mr. Bumble, shading his eyes with his hand as he carefully studied the stranger, clearly puzzled, “is no less willing to earn an honest extra coin than a single man. Parish officers are not paid very well, and cannot afford to refuse a small extra fee, when it is offered in a proper and respectful way.”
+“You know what that means, landlord!” said the stranger dryly.
 
-The stranger smiled and nodded again, as if to say he had judged Mr. Bumble correctly. Then he rang the bell.
+The host smiled, disappeared, and soon returned with a steaming mug. The first sip brought tears to Mr. Bumble’s eyes.
 
-“Fill this glass again,” he said, handing Mr. Bumble’s empty glass to the landlord. “Make it strong and hot. That’s how you like it, I suppose?”
+“Now listen to me,” said the stranger, after closing the door and window. “I came here today to find you. And by one of those chances that the devil sometimes throws in the way of his friends, you walked into the very room I was sitting in, while I was thinking about you. I want some information from you. It’s not much, but I don’t expect you to give it for free. Take this to start.”
 
-“Not too strong,” replied Mr. Bumble, with a polite cough.
+As he spoke, he carefully pushed two gold coins across the table, not wanting the sound to be heard. Mr. Bumble carefully checked the coins to make sure they were real and then put them in his pocket with great satisfaction. The stranger continued:
 
-“You hear what he means,” said the stranger dryly to the landlord.
+“Think back—let me see—twelve years ago, last winter.”
 
-The landlord smiled, went away, and soon returned with a steaming drink. After the first gulp, Mr. Bumble’s eyes filled with water from its strength.
+“It’s a long time,” said Mr. Bumble. “Alright. I’ve done it.”
 
-“Now listen to me,” said the stranger, after closing the door and the window. “I came here today to find you. And by chance—one of those chances that seem almost planned—you walked into the very room where I was sitting, just when I was thinking about you. I want some information. I won’t ask for it for free, even if it’s not much. Take this to begin with.”
+“The place: the workhouse.”
 
-As he spoke, he quietly pushed two gold coins across the table, careful not to make any noise. Mr. Bumble carefully checked that the coins were real, then put them into his pocket with great satisfaction.
+“Good!”
 
-“Now think back—let me see—twelve years ago, last winter.”
-
-“That’s a long time,” said Mr. Bumble. “All right. I remember.”
-
-“The place—the workhouse.”
+“The time: night.”
 
 “Yes.”
 
-“The time—night.”
+“And the room: that miserable hole where wretched women gave birth to children for the parish to raise, and hid their shame in the grave!”
 
-“Yes.”
-
-“And the room—that miserable place where poor women gave birth to children they could not care for, children who became the responsibility of the parish.”
-
-“The lying-in room, you mean?” said Mr. Bumble, not fully following the stranger’s emotional words.
+“The birthing room, I suppose?” said Mr. Bumble, not quite following the stranger’s excited description.
 
 “Yes,” said the stranger. “A boy was born there.”
 
-“Many boys were born there,” said Mr. Bumble, shaking his head sadly.
+“Many boys,” said Mr. Bumble, shaking his head sadly.
 
-“Curse them all!” cried the stranger impatiently. “I mean one boy—a quiet, pale child who was later apprenticed here to a coffin-maker. I wish he had made his own coffin—and stayed in it! Then he ran away to London, or so people believed.”
+“A plague on the young devils!” cried the stranger. “I’m talking about one: a quiet, pale-faced boy who was apprenticed to a coffin-maker here—I wish he had made his own coffin and been screwed into it—and who later ran away to London.”
 
-“Ah! You mean Oliver—young Twist!” said Mr. Bumble. “Of course I remember him. There was never a more stubborn boy—”
+“Why, you mean Oliver! Young Twist!” said Mr. Bumble. “I remember him, of course. There wasn’t a more stubborn young rascal—”
 
-“I don’t want to hear about him,” said the stranger sharply, stopping Mr. Bumble before he could begin a long complaint about Oliver. “I’ve heard enough about the boy. I want to know about a woman—the old woman who cared for his mother. Where is she?”
+“I don’t want to hear about him; I’ve heard enough,” said the stranger, cutting off Mr. Bumble’s rant about Oliver’s supposed faults. “I want to know about a woman, the old hag who nursed his mother. Where is she?”
 
-“Where is she?” said Mr. Bumble, who had become a little cheerful from his drink. “That would be hard to say. Wherever she has gone, there’s no midwifery work there—so I suppose she’s out of a job anyway.”
+“Where is she?” said Mr. Bumble, who was feeling playful from the gin. “That would be hard to tell. There’s no midwifery where she’s gone, so I suppose she’s out of a job, anyway.”
 
-“What do you mean?” asked the stranger sharply.
+“What do you mean?” demanded the stranger sternly.
 
 “That she died last winter,” replied Mr. Bumble.
 
-The man stared at him after hearing this. He kept looking for some time, but his expression slowly changed. His eyes became distant, and he seemed lost in thought. For a while, he looked unsure whether this news made him feel relieved or disappointed. At last, he breathed more easily, looked away, and said it was not very important. Then he stood up, as if ready to leave.
+The man stared at him after hearing this. His gaze gradually became distant, and he seemed lost in thought. For a while, he seemed unsure whether to be relieved or disappointed by the news. But at length, he relaxed and said it didn't matter much. With that, he stood up as if to leave.
 
-But Mr. Bumble was clever. He quickly realized that this might be a chance to make money from a secret his wife knew. He clearly remembered the night old Sally died—the same night he had proposed to Mrs. Corney. Although she had never told him everything, he knew enough to understand that it was connected to something that happened when she was caring for Oliver’s young mother.
+But Mr. Bumble was clever. He saw a chance to make money from a secret his wife knew. He remembered the night of old Sally’s death well, because that was the night he had proposed to Mrs. Corney. And although his wife had never told him what she had learned that night, he had heard enough to know it was about something that happened when the old woman was nursing Oliver Twist’s young mother. Quickly recalling this, he told the stranger mysteriously that another woman had been with the old woman shortly before she died, and that she could, he believed, shed some light on the matter.
 
-Remembering this, Mr. Bumble told the stranger, in a mysterious tone, that a woman had been alone with the old nurse shortly before she died—and that this woman might be able to give useful information.
+“How can I find her?” said the stranger, caught off guard. All his fears seemed to be aroused again by this news.
 
-“How can I find her?” said the stranger quickly, losing his calm and showing sudden anxiety.
+“Only through me,” replied Mr. Bumble.
 
-“Only through me,” said Mr. Bumble.
+“When?” cried the stranger hastily.
 
-“When?” asked the stranger.
+“Tomorrow,” replied Bumble.
 
-“Tomorrow,” said Bumble.
+“At nine in the evening,” said the stranger, taking out a scrap of paper and nervously writing down an address by the river. “Bring her to me there at nine in the evening. I don’t need to tell you to be discreet. It’s in your best interest.”
 
-“At nine in the evening,” said the stranger, taking out a piece of paper and writing an address near the river. His writing showed that he was nervous. “At nine. Bring her to me there. I don’t need to tell you to be secret—it’s in your own interest.”
+With those words, he led the way to the door, after paying for their drinks. Remarking that they were going different ways, he left without any more ceremony than a firm repeat of the appointment time for the following night.
 
-With that, he walked toward the door, stopping only to pay for the drinks. After briefly saying that they were going in different directions, he left, repeating the time of the meeting once more.
+Looking at the address, the parish official noticed that it had no name. The stranger had not gone far, so he hurried after him to ask.
 
-When Mr. Bumble looked at the paper, he noticed there was no name written on it. The stranger had not gone far, so he hurried after him to ask.
+“What do you want?” cried the man, turning quickly as Bumble touched his arm. “Are you following me?”
 
-“What do you want?” said the man, turning quickly when Bumble touched his arm. “Are you following me?”
+“Only to ask a question,” said the other, pointing to the paper. “What name should I ask for?”
 
-“I only want to ask one question,” said Mr. Bumble, pointing to the paper. “What name should I ask for?”
+“Monks!” replied the man, and strode hastily away.
 
-“Monks,” said the man—and quickly walked away.`,
+`,
 }

@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { LanguageCode } from 'utils/utils'
 import { useBooksStore } from '_pages/media/books/booksStore'
 import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
@@ -52,7 +53,7 @@ export function useGetContentConfig() {
 							subName: book.author,
 							url: pageUrls.books.book(bookId).path,
 							backgroundColor: book.coverBackgroundColor,
-							languageCode: book.languageCode,
+							languageCode: book.languageCode as LanguageCode,
 							coverUrl: book.covers[0],
 							freeToUse: book.freeToUse,
 						}

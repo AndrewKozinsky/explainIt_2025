@@ -5,51 +5,35 @@ import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import { useDetailsStore } from '../../detailsStore'
 import { pageUrls } from 'сonsts/pageUrls'
 
-export function usePopulateStore() {
+export function usePopulateStoreWithBookData() {
 	const mediaType = useGetShowingMediaType()
 
 	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
 	const bookSelection = useReadingStore((s) => s.selection)
-	const bookSelectWord = useReadingStore((s) => s.selectWord)
-	const bookName = useReadingStore((s) => s.book?.data?.name)
-	const bookAuthor = useReadingStore((s) => s.book?.data?.author)
 
 	useEffect(
 		function () {
 			if (mediaType !== 'book' || !bookSentences) return
 
 			const sentence = bookSentences.find((s) => s.id === bookSelection.sentenceId)
+			const sentenceText = sentence?.sentence ?? null
 
-			useDetailsStore.getState().updateStore({
-				bookName: bookName ?? null,
-				bookAuthor: bookAuthor ?? null,
-				videoName: null,
-				videoYear: null,
+			applySelectionToDetailsStore({
 				sentenceId: bookSelection.sentenceId,
-				wordIds: bookSelection.wordIds,
-				sentenceText: sentence?.sentence ?? null,
-				selectWord: bookSelectWord,
+				wordId: bookSelection.wordId,
+				sentenceText,
 			})
 		},
-		[
-			bookAuthor,
-			bookName,
-			bookSelectWord,
-			bookSelection.sentenceId,
-			bookSelection.wordIds,
-			bookSentences,
-			mediaType,
-		],
+		[bookSelection.sentenceId, bookSelection.wordId],
 	)
+}
 
-	// ---
+export function usePopulateStoreWithMovieData() {
+	const mediaType = useGetShowingMediaType()
 
 	const videoSubSentences = useWatchingStore((s) => s.populatedSubtitles?.sentences)
 	const videoTextSentences = useWatchingStore((s) => s.populatedPlainText?.sentences)
 	const videoSelection = useWatchingStore((s) => s.selection)
-	const videoSelectWord = useWatchingStore((s) => s.selectWord)
-	const videoName = useWatchingStore((s) => s.video?.data?.name)
-	const videoYear = useWatchingStore((s) => s.video?.data?.year)
 
 	useEffect(
 		function () {
@@ -57,43 +41,34 @@ export function usePopulateStore() {
 
 			const plainTextSentence = videoSubSentences?.find((s) => s.id === videoSelection.sentenceId)
 			const subtitleSentence = videoTextSentences?.find((s) => s.id === videoSelection.sentenceId)
-
 			const sentence = plainTextSentence ?? subtitleSentence
+			const sentenceText = sentence?.text || null
 
-			useDetailsStore.getState().updateStore({
-				bookName: null,
-				bookAuthor: null,
-				videoName: videoName ?? null,
-				videoYear: videoYear ?? null,
+			applySelectionToDetailsStore({
 				sentenceId: videoSelection.sentenceId,
-				wordIds: videoSelection.wordIds,
-				sentenceText: sentence?.text || null,
-				selectWord: videoSelectWord,
+				wordId: videoSelection.wordId,
+				sentenceText,
 			})
 		},
-		[
-			mediaType,
-			videoName,
-			videoSelectWord,
-			videoSelection.sentenceId,
-			videoSelection.wordIds,
-			videoSubSentences,
-			videoTextSentences,
-			videoYear,
-		],
+		[videoSelection.sentenceId, videoSelection.wordId],
 	)
+}
 
+type ApplySelectionInput = {
+	sentenceId: null | number
+	sentenceText: null | string
+	wordId: null | number
+}
+
+function applySelectionToDetailsStore(input: ApplySelectionInput) {
+	useDetailsStore.getState().updateStore({
+		currentSentenceId: input.sentenceId,
+		currentSentenceText: input.sentenceText,
+		currentWordId: input.wordId,
+	})
 }
 
 export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
-}
-
-export function useClearDataOnUnmount() {
-	useEffect(function () {
-		return () => {
-			useDetailsStore.getState().clearStoreData()
-		}
-	}, [])
 }

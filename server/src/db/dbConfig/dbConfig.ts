@@ -88,6 +88,12 @@ export const bdConfig = {
 			VideoPrivate: {
 				type: 'oneToMany',
 			},
+			SentenceChatThread: {
+				type: 'oneToMany',
+			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -214,7 +220,7 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
-				required: false,
+				required: true,
 			},
 			note: {
 				type: 'string',
@@ -223,6 +229,9 @@ export const bdConfig = {
 				maxLength: 1000,
 			},
 			BookChapter: {
+				type: 'oneToMany',
+			},
+			Flashcard: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -280,6 +289,9 @@ export const bdConfig = {
 				maxLength: 2000,
 			},
 			BookChapter: {
+				type: 'oneToMany',
+			},
+			Flashcard: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -375,7 +387,7 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
-				required: false,
+				required: true,
 			},
 			year: {
 				type: 'number',
@@ -443,10 +455,38 @@ export const bdConfig = {
 				default: 'text',
 				enumName: 'VideoTextType',
 			},
+			subtitles_generation_status: {
+				type: 'enum',
+				description: 'Status of automatic subtitles generation from the uploaded video file',
+				required: true,
+				variants: ['idle', 'pending', 'processing', 'done', 'failed'],
+				default: 'idle',
+				enumName: 'SubtitlesGenerationStatus',
+			},
+			subtitles_generation_error: {
+				type: 'string',
+				description: 'Error message of the last failed subtitles generation attempt',
+				required: false,
+				maxLength: 1000,
+			},
+			subtitles_generation_started_at: {
+				type: 'dateTime',
+				description: 'When the current subtitles generation job started',
+				required: false,
+			},
+			subtitles_generation_job_id: {
+				type: 'string',
+				description: 'BullMQ job id of the current subtitles generation task',
+				required: false,
+				maxLength: 200,
+			},
 			Subtitle: {
 				type: 'oneToMany',
 			},
 			Sentence: {
+				type: 'oneToMany',
+			},
+			Flashcard: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -552,6 +592,9 @@ export const bdConfig = {
 			Sentence: {
 				type: 'oneToMany',
 			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -616,6 +659,9 @@ export const bdConfig = {
 				type: 'oneToMany',
 			},
 			SentencePhraseTranslation: {
+				type: 'oneToMany',
+			},
+			SentenceChatThread: {
 				type: 'oneToMany',
 			},
 		},
@@ -750,6 +796,9 @@ export const bdConfig = {
 				type: 'string',
 				required: false,
 			},
+			Flashcard: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -855,6 +904,7 @@ export const bdConfig = {
 	// Слово или фраза. Используется в таблице транскрипций и озвучки
 	UniversalPhrase: {
 		dtoProps: {},
+		indexes: [{ fields: ['language_code', 'phrase'], unique: true }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -932,11 +982,204 @@ export const bdConfig = {
 				required: true,
 				maxLength: 500,
 			},
-			duration_ms: {
-				type: 'number',
-				description: 'Duration of the audio in milliseconds',
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	// Тред чата с ИИ по конкретному выделенному предложению. У каждого пользователя не более одного треда на предложение.
+	SentenceChatThread: {
+		dtoProps: {},
+		indexes: [{ fields: ['user_id', 'sentence_id'], unique: true }, { fields: ['user_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				relationField: 'user',
+				foreignTable: 'User',
+				foreignField: 'id',
 				required: true,
-				default: 0,
+			},
+			sentence_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_id',
+				relationField: 'sentence',
+				foreignTable: 'Sentence',
+				foreignField: 'id',
+				required: true,
+			},
+			SentenceChatMessage: {
+				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
+			},
+		},
+	},
+	// Отдельное сообщение в треде чата с ИИ.
+	SentenceChatMessage: {
+		dtoProps: {},
+		indexes: [{ fields: ['thread_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			thread_id: {
+				type: 'manyToOne',
+				thisField: 'thread_id',
+				relationField: 'thread',
+				foreignTable: 'SentenceChatThread',
+				foreignField: 'id',
+				required: true,
+			},
+			role: {
+				type: 'enum',
+				description: 'Who sent this message',
+				required: true,
+				variants: ['user', 'assistant'],
+				enumName: 'SentenceChatMessageRole',
+			},
+			content: {
+				type: 'string',
+				description: 'Markdown-formatted message content',
+				required: true,
+			},
+			status: {
+				type: 'enum',
+				description: 'Lifecycle status of the message (mostly relevant for assistant messages)',
+				required: true,
+				variants: ['streaming', 'completed', 'canceled', 'failed'],
+				default: 'completed',
+				enumName: 'SentenceChatMessageStatus',
+			},
+			error_message: {
+				type: 'string',
+				description: 'Error description if status is failed',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
+			},
+		},
+	},
+	// Карточка для заучивания фразы. Снапшот данных, привязанный к пользователю.
+	// Источник (книга/видео) опциональный: при удалении источника связь обнуляется (SetNull),
+	// а сама карточка остаётся в коллекции пользователя.
+	Flashcard: {
+		dtoProps: {},
+		indexes: [
+			{ fields: ['user_id'] },
+			{ fields: ['user_id', 'language_code'] },
+			{ fields: ['user_id', 'sentence_phrase_translation_id'], unique: true },
+		],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				relationField: 'user',
+				foreignTable: 'User',
+				foreignField: 'id',
+				required: true,
+			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			sentence_text: {
+				type: 'string',
+				description: 'Snapshot of the sentence text',
+				required: true,
+			},
+			sentence_translation: {
+				type: 'string',
+				description: 'Snapshot of the sentence translation',
+				required: false,
+			},
+			phrase: {
+				type: 'string',
+				description: 'Snapshot of the phrase',
+				required: true,
+				maxLength: 500,
+			},
+			phrase_start_offset: {
+				type: 'number',
+				description: 'Phrase start offset within the sentence text snapshot',
+				required: true,
+			},
+			phrase_end_offset: {
+				type: 'number',
+				description: 'Phrase end offset within the sentence text snapshot',
+				required: true,
+			},
+			phrase_translation: {
+				type: 'string',
+				description: 'Snapshot of the phrase translation',
+				required: false,
+			},
+			examples: {
+				type: 'array',
+				arrayItemType: 'string',
+				description: 'Snapshot of phrase usage examples (encoded as flat [text, translate, ...] pairs)',
+				required: true,
+			},
+			book_private_id: {
+				type: 'manyToOne',
+				thisField: 'book_private_id',
+				relationField: 'bookPrivate',
+				foreignTable: 'BookPrivate',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			book_public_id: {
+				type: 'manyToOne',
+				thisField: 'book_public_id',
+				relationField: 'bookPublic',
+				foreignTable: 'BookPublic',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			video_private_id: {
+				type: 'manyToOne',
+				thisField: 'video_private_id',
+				relationField: 'videoPrivate',
+				foreignTable: 'VideoPrivate',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			video_public_id: {
+				type: 'manyToOne',
+				thisField: 'video_public_id',
+				relationField: 'videoPublic',
+				foreignTable: 'VideoPublic',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
+			},
+			sentence_phrase_translation_id: {
+				type: 'manyToOne',
+				thisField: 'sentence_phrase_translation_id',
+				relationField: 'sentencePhraseTranslation',
+				foreignTable: 'SentencePhraseTranslation',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				required: false,
 			},
 			created_at: {
 				type: 'createdAt',

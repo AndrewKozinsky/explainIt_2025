@@ -1,161 +1,149 @@
 export const chapter_27 = {
 	name: 'Chapter XXVII',
 	header: 'Atones for the unpoliteness of a former chapter; which deserted a lady, most unceremoniously',
-	text: `Since it would not be proper for a humble writer to keep such an important person as a beadle waiting by the fire, with his coat pulled up under his arms, until it suited the author to return to him—and since it would be even less proper to neglect a lady whom that beadle admired so tenderly—the narrator now hurries back to them. He wishes to show the proper respect to such important people, who hold positions of authority, and to treat them with all due ceremony, as their rank and (of course) their great virtues demand.
+	text: `It would not be proper for a humble author to keep a man as important as a beadle waiting. He stood with his back to the fire, coat-tails under his arms, waiting for the author to finally notice him. It would be even less appropriate to ignore the lady with him, at whom the beadle had looked so tenderly, whispering sweet words in her ear. Such words, from such a man, could thrill the heart of any woman. Therefore, the historian writing this, knowing his place and showing proper respect for those in authority, hurries to give them the attention their position requires. He will treat them with all the ceremony that their high rank and great virtues demand. To that end, he had planned to write a dissertation on the divine right of beadles, explaining how a beadle can do no wrong. This would have been both pleasant and useful for the reader, but it must be postponed for a better time. When that time comes, the author will show that a proper parish beadle, from a parish workhouse and church, possesses all the best human qualities. No other kind of beadle—not from a company, a court, or even a chapel—can claim such excellence.
 
-Indeed, the narrator had planned to include a long explanation about the special importance of beadles—and even to prove that a beadle can do no wrong. This would surely have been both enjoyable and useful for the reader. Unfortunately, there is not enough time or space, so this discussion must be saved for another occasion. Then it will be clearly shown that a true parish beadle—attached to a workhouse and a church—possesses all the finest qualities of human nature, far more than any other kind of beadle.
+Mr. Bumble had re-counted the teaspoons, re-weighed the sugar-tongs, inspected the milk-pot, and checked the exact condition of the furniture, down to the horse-hair seats of the chairs. He had repeated each of these tasks half a dozen times before he began to think it was time for Mrs. Corney to return. Thinking leads to more thinking. As there were no sounds of Mrs. Corney’s approach, it occurred to Mr. Bumble that it would be an innocent way to spend the time if he satisfied his curiosity with a quick glance inside Mrs. Corney’s chest of drawers.
 
-Meanwhile, Mr. Bumble had counted the teaspoons again, weighed the sugar-tongs again, carefully checked the milk jug, and examined all the furniture—even the horsehair seats of the chairs. He repeated all this at least six times before he began to think that Mrs. Corney should have returned by now.
+After listening at the keyhole to make sure no one was coming, Mr. Bumble started from the bottom and examined the contents of the three long drawers. They were filled with well-made clothes, carefully stored between layers of old newspapers and dried lavender, which seemed to please him greatly. Eventually, he reached the top right-hand drawer and found the key. Inside, he saw a small padlocked box that jingled with the sound of coins when he shook it. Mr. Bumble walked back to the fireplace with a stately posture, resumed his previous stance, and said with a serious, determined air, “I’ll do it!” He then shook his head playfully for ten minutes, as if scolding himself for being such a charming fellow, and admired the profile of his legs with great pleasure.
 
-Thinking led to more thinking. Since he heard no sign of her coming back, Mr. Bumble decided that it would be quite harmless—and even proper—to satisfy his curiosity by taking a quick look inside her chest of drawers.
+He was still calmly engaged in this activity when Mrs. Corney rushed into the room. Breathless, she threw herself into a chair by the fire, covered her eyes with one hand, placed the other over her heart, and gasped for air.
 
-After listening at the keyhole to make sure no one was coming, Mr. Bumble began with the bottom drawer and examined all three large drawers. They were full of well-made clothes, neatly kept between sheets of old newspaper and scented with dried lavender. This pleased him greatly. Eventually, he reached the small drawer on the right, where the key was, and found a little locked box. When he shook it, it made a pleasant sound—like coins inside.
+“Mrs. Corney,” said Mr. Bumble, leaning over her, “what is this, ma’am? Has something happened? Please answer me, I’m on… on…” In his alarm, Mr. Bumble couldn’t think of the word “tenterhooks,” so he said “broken bottles.”
 
-Mr. Bumble then returned to the fireplace, walking with great dignity. Taking up his former position, he said in a serious voice, “I’ll do it!”
+“Oh, Mr. Bumble!” cried the lady. “I have been so terribly upset!”
 
-After this important statement, he spent ten minutes shaking his head, as if arguing with himself about how clever and charming he was. Then he admired his legs in profile with great satisfaction.
+“Upset, ma’am!” exclaimed Mr. Bumble. “Who has dared to—? I know!” he said, stopping himself with natural authority. “It’s those wicked paupers!”
 
-He was still calmly looking at himself when Mrs. Corney rushed into the room. She fell into a chair by the fire, breathing heavily. Covering her eyes with one hand and pressing the other to her chest, she gasped for breath.
+“It’s dreadful to think about!” said the lady, shuddering.
 
-“Mrs. Corney!” said Mr. Bumble, bending over her. “What is it, ma’am? Has something happened? Please tell me—I’m on—on—” He could not remember the right expression in his panic, so he said, “on broken bottles.”
+“Then don’t think about it, ma’am,” replied Mr. Bumble.
 
-“Oh, Mr. Bumble!” cried the lady. “I’ve been terribly upset!”
+“I can’t help it,” whimpered the lady.
 
-“Upset, ma’am!” said Mr. Bumble. “Who dared—? I know!” he added grandly. “It’s those wicked paupers!”
+“Then have something, ma’am,” said Mr. Bumble soothingly. “A little of the wine?”
 
-“It’s dreadful to think about!” said Mrs. Corney, shivering.
+“Not for the world!” replied Mrs. Corney. “I couldn’t—oh! The top shelf in the right-hand corner—oh!” With these words, the good lady pointed frantically to the cupboard and was seized by a spasm. Mr. Bumble rushed to the closet, grabbed a pint green-glass bottle from the indicated shelf, filled a teacup with its contents, and held it to the lady’s lips.
 
-“Then don’t think about it, ma’am,” said Mr. Bumble.
+“I’m better now,” said Mrs. Corney, leaning back after drinking half of it.
 
-“I can’t help it,” she whimpered.
+Mr. Bumble raised his eyes to the ceiling in thankfulness. Bringing them down again, he lifted the cup to his nose.
 
-“Then take something, ma’am,” said Mr. Bumble kindly. “A little wine?”
+“Peppermint,” said Mrs. Corney in a faint voice, smiling gently at the beadle. “Try it! There’s a little… something else in it.”
 
-“Not for anything!” said Mrs. Corney. “I couldn’t—oh! The top shelf, in the right corner—oh!” As she spoke, she pointed wildly toward the cupboard and seemed overcome with emotion.
-
-Mr. Bumble rushed to the cupboard, grabbed a green glass bottle from the shelf she indicated, poured some into a teacup, and held it to her lips.
-
-“I feel better now,” said Mrs. Corney after drinking half of it, leaning back in her chair.
-
-Mr. Bumble looked up at the ceiling in thanks, then lowered his eyes to the cup and smelled it.
-
-“Peppermint,” said Mrs. Corney softly, smiling at him. “Try it—there’s a little something else in it.”
-
-Mr. Bumble tasted it cautiously, smacked his lips, took another sip—and then finished the whole cup.
+Mr. Bumble tasted the liquid with a doubtful look, smacked his lips, took another taste, and put the cup down empty.
 
 “It’s very comforting,” said Mrs. Corney.
 
-“Very much so, ma’am,” said the beadle. He moved a chair closer to her and gently asked what had upset her.
+“Very much so, indeed, ma’am,” said the beadle. As he spoke, he pulled his chair next to the matron and asked tenderly what had happened to upset her.
 
-“Nothing,” replied Mrs. Corney. “I am just a foolish, sensitive person.”
+“Nothing,” replied Mrs. Corney. “I am a foolish, excitable, weak creature.”
 
-“Not weak, ma’am,” said Mr. Bumble, moving a little closer. “Are you weak, Mrs. Corney?”
+“Not weak, ma’am,” retorted Mr. Bumble, drawing his chair a little closer. “Are you a weak creature, Mrs. Corney?”
 
-“We are all weak,” said Mrs. Corney, speaking generally.
+“We are all weak creatures,” said Mrs. Corney, stating a general principle.
 
 “So we are,” said the beadle.
 
-For a few moments, neither spoke. Then Mr. Bumble slowly moved his hand from the back of Mrs. Corney’s chair to her apron string, letting it rest there.
+For a minute or two, nothing was said. Then, Mr. Bumble moved his left arm from the back of Mrs. Corney’s chair to her apron-string, where it gradually became entwined.
 
-“We are all weak,” he repeated.
+“We are all weak creatures,” said Mr. Bumble.
 
 Mrs. Corney sighed.
 
 “Don’t sigh, Mrs. Corney,” said Mr. Bumble.
 
-“I can’t help it,” she answered, sighing again.
+“I can’t help it,” said Mrs. Corney, and sighed again.
 
-“This is a very comfortable room, ma’am,” said Mr. Bumble, looking around. “With another room, it would be perfect.”
+“This is a very comfortable room, ma’am,” said Mr. Bumble, looking around. “Another room like this, ma’am, and it would be a complete set.”
 
-“It would be too much for one,” murmured Mrs. Corney.
+“It would be too much for one person,” murmured the lady.
 
-“But not for two, ma’am,” said Mr. Bumble softly. “Eh, Mrs. Corney?”
+“But not for two, ma’am,” replied Mr. Bumble softly. “Eh, Mrs. Corney?”
 
-Mrs. Corney lowered her head. Mr. Bumble lowered his to see her face. She turned away politely to get her handkerchief, but her hand returned to his.
+Mrs. Corney lowered her head when the beadle said this; the beadle lowered his to see her face. With great propriety, Mrs. Corney turned her head away and freed her hand to get her handkerchief, but then unconsciously placed it back in Mr. Bumble’s.
 
-“The board gives you coals, doesn’t it, Mrs. Corney?” asked Mr. Bumble, gently holding her hand.
+“The board provides you with coals, don’t they, Mrs. Corney?” asked the beadle, pressing her hand affectionately.
 
-“And candles,” she replied, lightly pressing his hand back.
+“And candles,” replied Mrs. Corney, slightly returning the pressure.
 
-“Coals, candles, and rent-free,” said Mr. Bumble. “Oh, Mrs. Corney, you are an angel!”
+“Coals, candles, and free rent,” said Mr. Bumble. “Oh, Mrs. Corney, what an angel you are!”
 
-Mrs. Corney could not resist. She leaned into Mr. Bumble, and he, in his excitement, kissed her nose.
+The lady could not resist this display of emotion. She sank into Mr. Bumble’s arms, and in his excitement, he planted a passionate kiss on her nose.
 
-“Such perfection!” exclaimed Mr. Bumble. “You know that Mr. Slout is worse tonight, my darling?”
+“Such parish perfection!” exclaimed Mr. Bumble, delighted. “You know that Mr. Slout is worse tonight, my dear?”
 
-“Yes,” replied Mrs. Corney, shyly.
+“Yes,” replied Mrs. Corney bashfully.
 
-“He can’t live a week, the doctor says,” continued Mr. Bumble. “He is the head here; his death will leave a vacancy. That vacancy must be filled. Oh, Mrs. Corney, what a chance this is! What an opportunity for our hearts and households to join!”
+“The doctor says he won’t live a week,” continued Mr. Bumble. “He is the master of this establishment. His death will create a vacancy, and that vacancy must be filled. Oh, Mrs. Corney, what a prospect this opens up! What an opportunity for joining hearts and homes!”
 
-Mrs. Corney cried softly.
+Mrs. Corney sobbed.
 
-“The little word?” said Mr. Bumble, bending close. “The one little word, my blessed Corney?”
+“The little word?” said Mr. Bumble, bending over her. “The one little, little, little word, my dear Corney?”
 
-“Ye—ye—yes!” she sighed.
+“Ye-ye-yes!” sighed the matron.
 
-“One more,” said the beadle. “Just one more. When will it be?”
+“One more thing,” the beadle went on. “Just compose your darling feelings for one more moment. When will it happen?”
 
-Mrs. Corney tried to speak twice and failed. Finally, she hugged Mr. Bumble and said it could be whenever he wanted, and that he was “irresistible.”
+Mrs. Corney tried to speak twice and failed. Finally, gathering her courage, she threw her arms around Mr. Bumble’s neck and said it could be as soon as he pleased, and that he was “an irresistible duck.”
 
-The agreement was celebrated with another teacup of peppermint tea, needed to calm Mrs. Corney’s excitement. While drinking, she told Mr. Bumble about the old woman’s death.
+With matters so pleasantly arranged, the agreement was sealed with another teacup of the peppermint mixture, which was needed to calm the lady’s excited nerves. As they drank, she told Mr. Bumble about the old woman’s death.
 
-“Very good,” said Mr. Bumble, sipping. “I’ll tell Sowerberry to send tomorrow morning. Was that what frightened you, love?”
+“Very good,” said the gentleman, sipping his peppermint. “I’ll stop at Sowerberry’s on my way home and tell him to send for the body tomorrow morning. Was that what frightened you, love?”
 
-“It wasn’t anything important, dear,” she said, avoiding the topic.
+“It wasn’t anything in particular, dear,” said the lady evasively.
 
-“It must have been something, love,” he urged. “Won’t you tell your B.?”
+“It must have been something, love,” urged Mr. Bumble. “Won’t you tell your own B.?”
 
-“Not now,” she replied. “One day. After we are married, dear.”
+“Not now,” she replied. “One of these days. After we’re married, dear.”
 
-“After we’re married!” exclaimed Mr. Bumble. “It wasn’t any rudeness from the male paupers—”
+“After we’re married!” exclaimed Mr. Bumble. “It wasn’t any rudeness from one of the male paupers, was it?”
 
-“No, no, love!” interrupted Mrs. Corney quickly.
+“No, no, love!” she interrupted hastily.
 
-“If I thought it was,” continued Mr. Bumble, “if I thought any of them had dared to look at your lovely face—”
+“If I thought it was,” continued Mr. Bumble, “if I thought any of them had dared to look at that lovely face—”
 
-“They wouldn’t dare, love,” replied Mrs. Corney.
+“They wouldn’t have dared, love,” she responded.
 
-“They had better not!” said Mr. Bumble, clenching his fist. “If I saw any man, here or outside, try it, he wouldn’t do it a second time!”
+“They had better not!” said Mr. Bumble, clenching his fist. “Let me see any man, from this parish or not, who would dare to do it, and I can tell him he wouldn’t do it a second time!”
 
-Without gestures, this might have seemed a simple compliment, but Mr. Bumble added many dramatic movements. Mrs. Corney was touched by his devotion and said, admiringly, that he was indeed like a gentle dove.
+Without any dramatic gestures, this might not have seemed like a great compliment to the lady’s charms. But as Mr. Bumble accompanied his threat with many warlike motions, she was very touched by this proof of his devotion and declared with great admiration that he was a true dove.
 
-The “dove” then turned up his coat collar and put on his hat. After a long, affectionate hug with his future wife, he went out into the cold night. He paused briefly in the male paupers’ ward to scold them a little, making sure he could be strict as workhouse master. Satisfied, he left with a happy heart and bright thoughts of his promotion, thinking about them until he reached the undertaker’s shop.
+The dove then turned up his coat collar, put on his hat, and after a long, affectionate hug with his future partner, he once again faced the cold night wind. He paused for a few minutes in the men’s ward to insult them a little, just to be sure he had the necessary harshness to be a workhouse master. Confident in his qualifications, Mr. Bumble left the building with a light heart, dreaming of his future promotion, which occupied his mind until he reached the undertaker’s shop.
 
-Mr. and Mrs. Sowerberry were out for tea and supper, and Noah Claypole preferred to do as little work as possible, so the shop stayed open past the usual closing time. Mr. Bumble tapped the counter with his cane but got no attention. Seeing light in the back room, he peeked in—and was surprised.
+Now, since Mr. and Mrs. Sowerberry had gone out for tea, and Noah Claypole was never inclined to exert himself more than necessary for eating and drinking, the shop was still open, though it was past the usual closing time. Mr. Bumble tapped his cane on the counter several times. Getting no response and seeing a light from the small parlor behind the shop, he boldly peeked in to see what was happening. And he was quite surprised by what he saw.
 
-The table was set for supper with bread, butter, plates, glasses, a pot of beer, and a bottle of wine. At the head of the table, Noah Claypole sat lazily in an armchair, legs over one arm, a knife in one hand, buttered bread in the other. Beside him, Charlotte was opening oysters, which Noah ate eagerly. His red nose and squinting eye showed he was slightly drunk, confirmed by how eagerly he ate the oysters.
+The table was set for supper with bread and butter, plates, and glasses, along with a pitcher of porter and a bottle of wine. At the head of the table, Noah Claypole was lounging in a chair with his legs thrown over one of the arms, an open knife in one hand and a piece of buttered bread in the other. Beside him, Charlotte was opening oysters from a barrel, which Mr. Claypole eagerly swallowed. The unusual redness of the young man’s nose and a fixed wink in his right eye suggested he was slightly drunk. This was confirmed by the great enjoyment with which he ate the oysters, which could only be explained by a strong need for their cooling effect on an internal fever.
 
-“Here’s a big one, Noah, dear!” said Charlotte. “Try it, just this one.”
+“Here’s a delicious fat one, Noah, dear!” said Charlotte. “Try it, do; only this one.”
 
-“What a delicious thing an oyster is!” said Noah after swallowing it. “Too bad so many can make you feel sick, isn’t it, Charlotte?”
+“What a delicious thing an oyster is!” remarked Mr. Claypole after swallowing it. “What a pity that too many of them can make you feel unwell, isn’t it, Charlotte?”
 
-“It’s cruel,” said Charlotte.
+“It’s a real shame,” said Charlotte.
 
-“So it is,” agreed Noah. “Don’t you like oysters?”
+“So it is,” agreed Mr. Claypole. “Aren’t you fond of oysters?”
 
-“Not much,” said Charlotte. “I like watching you eat them better than eating myself.”
+“Not especially,” replied Charlotte. “I like watching you eat them, Noah dear, more than eating them myself.”
 
-“Lor!” said Noah. “How strange!”
+“Well, I declare!” said Noah thoughtfully. “How strange!”
 
-“Have another,” said Charlotte. “Look at this one’s beautiful, delicate beard!”
+“Have another,” said Charlotte. “Here’s one with such a beautiful, delicate beard!”
 
-“I can’t eat more,” said Noah. “I’m sorry. Come here, Charlotte, and I’ll kiss you.”
+“I can’t manage any more,” said Noah. “I’m very sorry. Come here, Charlotte, and I’ll kiss you.”
 
-“What!” cried Mr. Bumble, bursting in. “Say that again, sir!”
+“What!” said Mr. Bumble, bursting into the room. “Say that again, sir.”
 
-Charlotte screamed and hid her face in her apron. Noah, still in his chair, looked at the beadle in frightened surprise.
+Charlotte screamed and hid her face in her apron. Mr. Claypole, only moving enough to let his legs touch the ground, stared at the beadle in drunken terror.
 
-“Say it again, you rude fellow!” shouted Mr. Bumble. “And you, girl, how dare you encourage him? Kissing!”
+“Say it again, you vile, audacious fellow!” said Mr. Bumble. “How dare you say such a thing, sir? And how dare you encourage him, you insolent girl? Kiss her!” exclaimed Mr. Bumble in disgust. “Ugh!”
 
-“I didn’t mean to!” said Noah, crying. “She always kisses me, whether I like it or not.”
+“I didn’t mean to do it!” said Noah, crying. “She’s always kissing me, whether I like it or not.”
 
-“Oh, Noah,” cried Charlotte, reproachfully.
+“Oh, Noah,” cried Charlotte reproachfully.
 
-“You know it’s true!” said Noah. “She always does it, Mr. Bumble! She nuzzles me under the chin and shows all sorts of affection!”
+“You are; you know you are!” retorted Noah. “She’s always doing it, Mr. Bumble, sir. She chucks me under the chin and acts all lovey-dovey!”
 
-“Silence!” cried Mr. Bumble sternly. “Go downstairs, girl. Noah, close the shop. Say another word before your master comes home, and you’ll be in trouble. When he comes, tell him I said to send the old woman’s coffin after breakfast tomorrow. Do you hear? Kissing!” He raised his hands. “The sin and bad behavior of the lower classes here is terrible! If Parliament doesn’t act, the country and its people are ruined!”
+“Silence!” cried Mr. Bumble sternly. “Go downstairs, ma’am. Noah, you shut up the shop. Not another word until your master comes home, or you’ll be in trouble. And when he does, tell him Mr. Bumble said to send an old woman’s coffin after breakfast tomorrow. Do you hear, sir? Kissing!” cried Mr. Bumble, holding up his hands. “The sin and wickedness of the lower classes in this parish are frightful! If Parliament doesn’t do something about their abominable behavior, this country is ruined, and the character of its people will be gone forever!” With these words, the beadle strode out of the undertaker’s shop with a grand and gloomy air.
 
-With that, Mr. Bumble strode out of the undertaker’s shop, looking important and serious.
-
-Now that we have followed him home and prepared for the old woman’s funeral, let us turn our attention back to young Oliver Twist, and see whether he is still lying in the ditch where Toby Crackit left him.`,
+And now that we have followed him this far on his way home and made all the necessary arrangements for the old woman’s funeral, let us inquire about young Oliver Twist and find out if he is still lying in the ditch where Toby Crackit left him.`,
 }

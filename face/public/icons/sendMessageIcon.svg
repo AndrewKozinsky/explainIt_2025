@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <polyline id="Path-2-Copy-2" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" transform="translate(6.5, 4) rotate(-90) translate(-6.5, -4)" points="4 -1 9 4 4 9"></polyline>
+            <line x1="11.5" y1="7.5" x2="1.5" y2="7.5" id="Path-2-Copy" stroke="#FFFFFF" stroke-linecap="round" transform="translate(6.5, 7.5) rotate(-90) translate(-6.5, -7.5)"></line>
+        </g>
+    </g>
+</svg>

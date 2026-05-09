@@ -1,125 +1,115 @@
 export const chapter_8 = {
 	name: 'Chapter VIII',
 	header: 'Oliver walks to London. He encounters on the road a strange sort of young gentleman',
-	text: `Oliver reached the stile where the narrow path ended and came back onto the main road. It was now eight o’clock. Although he was nearly five miles from the town, he ran and hid behind hedges by turns until noon, afraid someone might follow and catch him. Then he sat down by a milestone and, for the first time, began to think where he should go and how he might live.
+	text: `Oliver reached the stile where the path ended and returned to the main road. It was eight o’clock. Although he was nearly five miles from town, he ran and hid behind hedges until noon, afraid of being pursued and caught. Then he sat down to rest by a milestone and began to wonder, for the first time, where he should go to live.
 
-The stone beside him said, in large letters, that it was seventy miles to London. The name filled the boy’s mind with new thoughts.
+The stone he sat by had large letters indicating it was seventy miles to London. The name sparked new ideas in the boy's mind.
 
-London!—that great place!—no one, not even Mr. Bumble, could find him there. He had often heard the old men in the workhouse say that a boy with spirit could always find a way to live in London, and that there were many ways of surviving there that country people could not imagine. It seemed the perfect place for a homeless boy, who might otherwise die in the streets unless someone helped him. Thinking this, Oliver jumped up and walked on again.
+London! That great city! Nobody, not even Mr. Bumble, could ever find him there. He had often heard the old men at the workhouse say that a spirited boy could always find opportunities in London. They said there were ways of living in that huge city that country people knew nothing about. It seemed like the perfect place for a homeless boy who would otherwise die on the streets. With these thoughts, he jumped to his feet and started walking again.
 
-He had gone another four miles before he suddenly realized how much he would have to endure before reaching his destination. This made him slow down a little and think about how he could get there. In his bundle he had a crust of bread, a rough shirt, and two pairs of stockings. In his pocket he had a penny—a gift from Sowerberry after a funeral where Oliver had done his work especially well.
+He walked four more miles towards London before he remembered how much he would have to endure to reach his destination. As this thought occurred to him, he slowed down and considered how he would get there. In his bundle, he had a crust of bread, a rough shirt, and two pairs of stockings. He also had a penny in his pocket, a gift from Mr. Sowerberry after a funeral where he had performed unusually well. "A clean shirt is a comfortable thing," Oliver thought, "and so are two pairs of mended stockings, and a penny. But they are little help for a sixty-five-mile walk in winter." Oliver's thoughts, like most people's, were good at pointing out his difficulties but offered no solutions. So, after much pointless thinking, he moved his small bundle to his other shoulder and continued on.
 
-“A clean shirt,” thought Oliver, “is very nice; and two pairs of stockings are useful; and a penny is something—but they are small help for a sixty-five-mile walk in winter.”
+Oliver walked twenty miles that day, eating only a crust of dry bread and drinking a little water he begged for at cottage doors. When night came, he went into a meadow and decided to sleep under a haystack until morning. At first, he was frightened. The wind moaned sadly over the empty fields, and he was cold, hungry, and more alone than ever. But being very tired from his walk, he soon fell asleep and forgot his troubles.
 
-Like many people, Oliver could clearly see his problems, but had no idea how to solve them. After thinking for a long time without any result, he shifted his bundle to his other shoulder and walked on.
+He felt cold and stiff when he woke up the next morning, and he was so hungry that he had to trade his penny for a small loaf of bread in the first village he passed. He had walked only twelve more miles when night fell again. His feet were sore, and his legs were so weak they trembled. Another night in the cold, damp air made him feel worse. When he started his journey the next morning, he could barely crawl.
 
-That day, Oliver walked twenty miles. All he had to eat was the crust of dry bread and a few drinks of water, which he begged for at cottages along the road. When night came, he went into a field and crept under a haystack, deciding to sleep there until morning. At first he was frightened: the wind sounded sad across the empty fields, he was cold and hungry, and more alone than ever before. But he was so tired that he soon fell asleep and forgot his troubles.
+He waited at the bottom of a steep hill until a stage-coach arrived, and then he begged from the passengers sitting on the outside. Few noticed him. Those who did told him to wait until they reached the top of the hill, and then they would see if he could run for a halfpenny. Poor Oliver tried to keep up with the coach for a short distance, but he couldn't because he was too tired and his feet were too sore. When the passengers saw this, they put their halfpennies back in their pockets, calling him an idle young dog who didn't deserve anything. The coach rattled away, leaving only a cloud of dust behind.
 
-He woke the next morning cold and stiff, and so hungry that he had to spend his penny on a small loaf in the first village he passed. He had walked only twelve miles when night came again. His feet were sore, and his legs so weak that they trembled. Another cold, damp night made him worse, and the next morning he could hardly move.
+In some villages, large painted signs warned that anyone begging in the area would be sent to jail. This frightened Oliver and made him eager to leave those villages quickly. In other villages, he would stand in the inn-yards, looking sadly at everyone who passed. This usually ended with the landlady ordering a boy to chase him away, assuming he was there to steal. If he begged at a farmer's house, they often threatened to set their dog on him. When he entered a shop, people would talk about the beadle, which made Oliver's heart jump into his throat—often the only thing in his mouth for hours.
 
-At the bottom of a steep hill, he waited for a stagecoach and begged from the passengers riding outside. Few paid any attention to him. Some told him to wait until they reached the top of the hill and then see how far he could run for a halfpenny. Poor Oliver tried to run after the coach, but he was too tired and his feet hurt too much. When the passengers saw this, they put their coins back into their pockets, saying he was lazy and didn’t deserve anything. The coach drove away, leaving only a cloud of dust.
+In fact, if it hadn't been for a kind-hearted turnpike-man and a generous old lady, Oliver's troubles would have ended the same way his mother's did; he would have died on the road. But the turnpike-man gave him a meal of bread and cheese. The old lady, who had a shipwrecked grandson wandering barefoot somewhere far away, took pity on the poor orphan. She gave him what little she could, along with kind words and tears of sympathy. These acts of kindness sank deeper into Oliver's soul than all the suffering he had ever experienced.
 
-In some villages there were large signs warning that anyone caught begging would be sent to jail. This frightened Oliver, and he hurried away from such places as quickly as he could. In others, he stood near inns and looked sadly at passersby, but this usually ended with the landlady ordering someone to chase him away, thinking he had come to steal. If he begged at a farmhouse, they often threatened to set a dog on him. If he appeared in a shop, people spoke of calling the beadle—words that filled Oliver with fear, and often left him with nothing at all to eat for many hours.
+Early on the seventh morning after leaving his home, Oliver limped slowly into the small town of Barnet. The window shutters were closed, the street was empty, and no one had woken up for the day. The sun was rising in all its beauty, but the light only highlighted the boy's loneliness and desolation as he sat on a doorstep, his feet bleeding and his body covered in dust.
 
-In fact, if it had not been for a kind turnpike keeper and a gentle old lady, Oliver’s suffering might have ended the same way as his mother’s—he would have died on the road. But the man gave him bread and cheese, and the old lady—who had a grandson wandering far away—took pity on him and gave him what little she could, along with kind words and tears of sympathy. These touched Oliver more deeply than all the hardships he had suffered.
+Gradually, shutters opened, window-blinds were drawn up, and people began to pass by. A few stopped to look at Oliver for a moment, or turned to stare as they hurried past, but no one helped him or asked how he got there. He didn't have the heart to beg. So he just sat there.
 
-Early on the seventh morning after leaving home, Oliver slowly walked into the small town of Barnet. The shutters were still closed, and the streets were empty. The sun was rising beautifully, but its light only made him feel more alone, as he sat on a doorstep with bleeding feet, covered in dust.
+He had been crouching on the step for some time, amazed at the number of pubs (every other house in Barnet was a tavern, large or small). He gazed apathetically at the coaches passing through, thinking how strange it was that they could easily travel in a few hours what had taken him a whole week of courage and determination to accomplish. He was startled when he noticed a boy who had passed him carelessly a few minutes before had returned and was now watching him intently from the other side of the street. At first, he paid little attention, but the boy continued to watch him so closely that Oliver raised his head and met his steady gaze. At this, the boy crossed the street, walked right up to Oliver, and said,
 
-Gradually, people began to appear. Some stopped to stare at him, others turned to look as they passed—but no one helped him or asked how he came there. He did not have the strength to beg. So he sat there.
+"Hello, my friend! What's the problem?"
 
-After some time, as he watched the many inns and coaches passing through the town, he thought how strange it was that they could travel in a few hours what had taken him a whole week of effort and courage. Just then, he noticed a boy who had passed earlier had come back and was now watching him closely from across the street. At first Oliver paid little attention, but when the boy kept staring, Oliver looked back.
+The boy who asked this was about Oliver's age, but he was one of the strangest-looking boys Oliver had ever seen. He had a snub nose, a flat brow, and a common face. He was as dirty as you could imagine, but he carried himself with the confidence of a man. He was short for his age, with slightly bowed legs and small, sharp, unattractive eyes. His hat was placed so lightly on his head that it looked like it would fall off at any moment, and it would have, if the wearer didn't have a habit of twitching his head to put it back in place. He wore a man's coat that almost reached his heels. He had folded the cuffs halfway up his arms to get his hands out of the sleeves, apparently so he could stuff them into his corduroy trouser pockets, which is where he kept them. He was, altogether, as boisterous and swaggering a young gentleman as ever stood four feet six inches tall.
 
-The boy crossed the street and came up to him.
+"Hello, my friend! What's the problem?" this strange young gentleman said to Oliver again.
 
-“Hello, my friend! What’s the matter?” he said.
+"I am very hungry and tired," Oliver replied, tears in his eyes. "I have walked a long way. I have been walking for seven days."
 
-The boy was about Oliver’s age, but one of the strangest-looking boys he had ever seen. His face was plain and dirty, but he carried himself like an adult. He was short, with slightly bowed legs and sharp, restless eyes. His hat sat loosely on his head and seemed ready to fall off at any moment, though he had a habit of jerking his head to keep it in place. He wore a man’s long coat, almost down to his heels, with the sleeves rolled back so his hands could reach his pockets, where he kept them.
+"Walking for seven days!" said the young gentleman. "Oh, I see. A judge's order, eh? But," he added, seeing Oliver's confused look, "I suppose you don't know what a 'beak' is, my stylish friend."
 
-“Hello, my friend! What’s the matter?” he repeated.
+Oliver replied politely that he had always heard the word used to describe a bird's mouth.
 
-“I am very hungry and tired,” said Oliver, with tears in his eyes. “I have walked a long way. I’ve been walking for seven days.”
+"Wow, you're naive!" exclaimed the young gentleman. "A 'beak' is a magistrate. And when you walk by a magistrate's order, it's not a straightforward path. Have you ever been on the 'mill'?"
 
-“Seven days!” said the boy. “Oh, I see. Running away, eh? But I suppose you don’t know what a magistrate is.”
+"What mill?" Oliver asked.
 
-Oliver said he only knew the word as meaning a bird’s beak.
+"What mill! The treadmill, of course! The one that works in a jail. But come on," said the young gentleman, "you need food, and you'll get it. I'm short on cash myself, but I'll share what I have. Get up. There! Now, let's go!"
 
-“How innocent you are!” said the boy. “A beak is a magistrate. And when you go by a magistrate’s order, it’s not a straight road—you’re always going up and never coming down again. Ever been in prison?”
+Helping Oliver to his feet, the young gentleman led him to a nearby shop, where he bought a good amount of cooked ham and half a loaf of bread. He cleverly made a hole in the loaf, stuffed the ham inside to keep it clean, and tucked it under his arm. Then, the young gentleman led the way to a small pub and into a back room. A pot of beer was brought in, and at his new friend's invitation, Oliver ate a long and hearty meal. During the meal, the strange boy watched him with great attention.
 
-“What prison?” asked Oliver.
+"Going to London?" the strange boy asked when Oliver had finished.
 
-“Well, never mind,” said the boy. “You need food, and you’ll have it. I don’t have much myself—but I’ll share. Come on, get up!”
+"Yes."
 
-Helping Oliver to his feet, the boy took him to a nearby shop and bought some ready-cooked ham and a loaf of bread. He stuffed the ham inside the bread to keep it clean, then led Oliver into a small public house. There he ordered a pot of beer, and Oliver, encouraged by his new friend, ate a full and hearty meal, while the strange boy watched him carefully.
+"Have a place to stay?"
 
-“Going to London?” asked the boy when Oliver had finished.
+"No."
 
-“Yes.”
+"Money?"
 
-“Got a place to stay?”
+"No."
 
-“No.”
+The strange boy whistled and pushed his hands as far as they would go into the pockets of his large coat.
 
-“Any money?”
+"Do you live in London?" Oliver asked.
 
-“No.”
+"Yes, when I'm home," the boy replied. "I suppose you need a place to sleep tonight, don't you?"
 
-The strange boy whistled and pushed his hands into his pockets as far as his long sleeves allowed.
+"I do, indeed," Oliver answered. "I haven't slept under a roof since I left the countryside."
 
-“Do you live in London?” Oliver asked.
+"Don't worry about that," said the young gentleman. "I have to be in London tonight, and I know a respectable old gentleman there who will give you a place to stay for free, and won't ask for anything in return—that is, if a gentleman he knows introduces you. And does he know me? Oh, no! Not at all! Of course not!"
 
-“Yes—when I’m at home,” said the boy. “I suppose you want somewhere to sleep tonight?”
+The young gentleman smiled, hinting that his last words were playfully sarcastic, and finished his beer.
 
-“Yes, very much,” replied Oliver. “I haven’t slept under a roof since I left the countryside.”
+This unexpected offer of shelter was too good to refuse, especially since it was followed by an assurance that the old gentleman would quickly find Oliver a comfortable place. This led to a more friendly and open conversation, from which Oliver learned that his friend's name was Jack Dawkins, and that he was a special favorite of the old gentleman.
 
-“Don’t worry about that,” said the boy. “I’m going to London tonight, and I know a respectable old gentleman there. He’ll give you a place to stay for nothing—and won’t ask any questions—if someone he knows introduces you. And doesn’t he know me? Oh no, not at all! Certainly not!”
+Mr. Dawkins's appearance didn't suggest a life of comfort, but he spoke in a wild and careless manner. He also admitted that among his close friends, he was known by the nickname "The Artful Dodger." Oliver concluded that the Dodger was a reckless and dissipated character and that his benefactor's moral lessons had been wasted on him. With this in mind, Oliver secretly decided to earn the old gentleman's good opinion as quickly as possible. And if he found the Dodger to be truly incorrigible, as he suspected he would, he would decline any further friendship with him.
 
-The boy smiled, clearly joking, and finished his beer.
+Since John Dawkins didn't want to enter London before nightfall, it was nearly eleven o'clock when they reached the tollgate at Islington. They crossed from the Angel inn to St. John's Road, then took a small street that ended at Sadler's Wells Theatre. They went through Exmouth Street and Coppice Row, down a small court beside the workhouse, across the historic area once known as Hockley-in-the-Hole, and then into Little Saffron Hill, and finally Saffron Hill the Great. The Dodger moved quickly, telling Oliver to follow closely behind him.
 
-This unexpected offer of shelter was too good to refuse—especially when the boy added that the old gentleman would quickly provide Oliver with a comfortable place. They began to talk more openly, and Oliver learned that his new friend’s name was Jack Dawkins, and that he was a special favourite of this elderly gentleman.
+Although Oliver was focused on keeping up with his leader, he couldn't help but glance around at the surroundings. He had never seen a dirtier or more miserable place. The street was narrow and muddy, and the air was thick with foul smells.
 
-However, Jack’s appearance did not suggest that life under this gentleman’s care was very comfortable. Jack spoke in a careless and rather wild manner, and admitted that his friends called him “the Artful Dodger.” Oliver decided that, although Jack seemed unreliable, it was probably because he had ignored the good advice of his protector. He secretly resolved to win the old gentleman’s approval as soon as possible—and, if Jack turned out to be truly hopeless, to avoid him in the future.
+There were many small shops, but their only merchandise seemed to be crowds of children, who, even at that late hour, were crawling in and out of doorways or screaming from inside. The only businesses that seemed to be thriving were the pubs, where the lowest class of Irish people were arguing loudly. Covered alleys and yards branched off the main street, revealing small clusters of houses where drunken men and women were wallowing in filth. From several doorways, large, threatening-looking men were cautiously emerging, clearly on their way to do something harmful.
 
-Since Jack did not want to enter London before dark, it was nearly eleven o’clock when they reached the turnpike at Islington. From there, they walked through several streets and narrow passages, until they came into Saffron Hill. Jack moved quickly, telling Oliver to keep close behind him.
+Oliver was just thinking about running away when they reached the bottom of the hill. His guide grabbed him by the arm, pushed open the door of a house near Field Lane, and pulled him into the passage, closing the door behind them.
 
-Although Oliver had to concentrate on not losing sight of his guide, he still glanced around as they went. He had never seen such a dirty and miserable place. The streets were narrow and muddy, and the air smelled terrible.
+"Now, then!" a voice called from below, in response to a whistle from the Dodger.
 
-There were many small shops, but they seemed full only of children, who were still awake at that late hour—running in and out or crying inside. The only places that appeared busy were the public houses, where rough crowds argued loudly. In the dark yards and passages nearby, drunken men and women lay in the dirt, and from some doorways suspicious-looking men slipped out quietly, as if on secret and unpleasant business.
+"All's good!" was the reply.
 
-Oliver had just begun to wonder whether he should run away when they reached the bottom of the hill. Jack suddenly caught his arm, pushed open the door of a house, and pulled him inside.
+This seemed to be a password, because the light of a weak candle appeared on the wall at the far end of the passage, and a man's face peeked out from a gap in the old kitchen staircase.
 
-“Now then!” cried a voice from below, answering Jack’s whistle.
+"There are two of you," the man said, holding the candle out and shielding his eyes with his hand. "Who's the other one?"
 
-“All right!” Jack replied.
+"A new friend," replied Jack Dawkins, pulling Oliver forward.
 
-This seemed to be some kind of signal, because a weak candlelight appeared at the far end of the passage, and a man’s face looked out from behind the broken staircase.
+"Where did he come from?"
 
-“There are two of you,” said the man, holding up the candle. “Who’s the other one?”
+"From far away. Is Fagin upstairs?"
 
-“A new friend,” said Jack, pulling Oliver forward.
+"Yes, he's sorting the handkerchiefs. Go on up!" The candle was pulled back, and the face disappeared.
 
-“Where’s he from?”
+Oliver, feeling his way with one hand while the other was held tightly by his companion, struggled up the dark and broken stairs. His guide, however, climbed them with an ease that showed he knew them well.
 
-“From the country. Is Fagin upstairs?”
+He threw open the door of a back room and pulled Oliver in after him.
 
-“Yes—he’s sorting the handkerchiefs. Go up!”
+The walls and ceiling of the room were black with age and dirt. A wooden table stood before the fire, holding a candle stuck in a ginger-beer bottle, a few pewter pots, a loaf of bread and butter, and a plate. Some sausages were cooking in a frying pan over the fire, which was tied to the mantelpiece with a string. Standing over them, with a toasting-fork in his hand, was a very old, shriveled Jewish man. His repulsive, villainous-looking face was hidden by a mass of matted red hair. He was dressed in a greasy flannel gown, his throat bare, and he seemed to be dividing his attention between the frying pan and a clothes-horse, where many silk handkerchiefs were hanging. Several rough beds made of old sacks were piled on the floor. Around the table sat four or five boys, none older than the Dodger, smoking long clay pipes and drinking liquor with the air of middle-aged men. They all gathered around their friend as he whispered a few words to the Jewish man, and then they turned and grinned at Oliver. The Jewish man did the same, toasting-fork in hand.
 
-The candle disappeared.
+"This is him, Fagin," said Jack Dawkins; "my friend, Oliver Twist."
 
-Oliver felt his way forward with one hand, while Jack held the other tightly, as they climbed the dark and broken stairs. Jack moved quickly and easily, showing he knew the place well.
+The Jewish man grinned and, with a low bow to Oliver, took him by the hand and said he hoped to have the honor of his close acquaintance. Then, the boys with the pipes came over and shook both of Oliver's hands very hard—especially the one holding his small bundle. One boy was very eager to hang up his cap for him, and another was so kind as to put his hands in Oliver's pockets, so that, since he was very tired, he wouldn't have to bother emptying them himself before bed. These friendly gestures would have probably continued, but the Jewish man used his toasting-fork to tap the heads and shoulders of the affectionate youths.
 
-He opened the door of a back room and pulled Oliver inside.
+"We are very glad to see you, Oliver, very," said the Jewish man. "Dodger, take the sausages off the fire, and pull a tub near the fire for Oliver. Ah, you're staring at the pocket-handkerchiefs, my dear? There are a lot of them, aren't there? We've just taken them out, ready for the wash; that's all, Oliver; that's all. Ha! ha! ha!"
 
-The room was black with age and dirt. A rough wooden table stood by the fire, with a candle stuck in a bottle, a few metal cups, some bread and butter, and a plate. In a pan over the fire, sausages were cooking. An old man stood there, turning them with a fork. He had a shriveled face, partly hidden by tangled red hair, and wore a dirty old robe. Around him hung many silk handkerchiefs, spread out to dry.
+The last part of his speech was met with a loud shout from all the hopeful students of the merry old gentleman. In the middle of the noise, they all sat down to supper.
 
-On the floor were several rough beds made of old sacks. Around the table sat four or five boys, no older than Jack, smoking long pipes and drinking alcohol like grown men. They crowded around as Jack whispered something to the old man, then turned and grinned at Oliver. The old man grinned too.
-
-“This is him, Fagin,” said Jack. “My friend Oliver Twist.”
-
-The old man smiled broadly, bowed slightly, and took Oliver’s hand, saying he was very pleased to meet him. The boys came up one by one, shaking Oliver’s hands very hard—especially the one holding his bundle. One offered to hang up his cap; another kindly tried to put his hands into Oliver’s pockets, so he wouldn’t have to empty them himself later. They might have gone even further, but the old man quickly stopped them, tapping them with his fork.
-
-“We are very glad to see you, Oliver—very glad,” said the old man. “Dodger, take the sausages off the fire, and bring something for Oliver to sit on. Ah, you’re looking at the handkerchiefs, are you? We’ve just taken them out, ready to be washed—that’s all! Ha! ha!”
-
-At this, all the boys burst into loud laughter, and they began their meal.
-
-Oliver ate his share, and afterwards the old man gave him a glass of hot gin and water, telling him to drink it quickly because someone else needed the cup. Oliver obeyed. Almost at once, he felt himself gently lifted onto one of the sacks—and then he fell into a deep sleep.`,
+Oliver ate his share, and then the Jewish man mixed him a glass of hot gin and water, telling him to drink it quickly because another gentleman needed the glass. Oliver did as he was told. Immediately after, he felt himself being gently lifted onto one of the sacks, and then he fell into a deep sleep.`,
 }

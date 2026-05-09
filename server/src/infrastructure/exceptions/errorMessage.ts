@@ -12,6 +12,7 @@ export const errorMessage = {
 	userNotFound: 'Пользователь не найден.',
 	userUnauthorized: 'Пользователь не авторизован.',
 	userBalanceIsNegative: 'Отрицательный баланс.',
+	userBalanceBelowMinimum: 'Недостаточно средств на балансе для выполнения операции.',
 	insufficientBalanceForTranslation: 'Недостаточно средств на балансе для перевода.',
 	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
 	paymentIdIsRequiredForPaymentTransactions: 'Payment ID is required for payment transactions',
@@ -94,6 +95,12 @@ export const errorMessage = {
 	video: {
 		notCreated: 'Видел не создано.',
 		notFound: 'Видео не найдено.',
+		subtitlesGenerationAlreadyRunning: 'Генерация субтитров для этого видео уже выполняется.',
+		subtitlesGenerationFileNotUploaded: 'Видеофайл не загружен — нечего распознавать.',
+		subtitlesGenerationLanguageRequired: 'Для генерации субтитров у видео должен быть указан язык.',
+		subtitlesGenerationVideoTooLong: 'Длительность видео превышает допустимый лимит для генерации субтитров.',
+		subtitlesGenerationFailed: 'Не удалось сгенерировать субтитры для видео.',
+		subtitlesAsrFailed: 'Сервис распознавания речи вернул ошибку.',
 	},
 	sentenceTranslation: {
 		notFound: 'Перевод предложения не найден.',
@@ -103,15 +110,34 @@ export const errorMessage = {
 	},
 	nlp: {
 		cantDivideTextIntoSentences: 'Не получилось разделить текст на предложения.',
+		languageRequired: 'Для разделения текста на предложения нужно указать язык.',
 	},
 	universalPhrase: {
 		notCreated: 'Фраза не создана.',
 		notFound: 'Фраза не найдена.',
+		alreadyExists: 'Фраза с таким текстом и языком уже существует.',
 	},
 	universalTranscription: {
 		notCreated: 'Не удалось создать транскрипцию.',
 		alreadyExists: 'Транскрипция для этой фразы уже существует.',
 		cannotGetTranscriptionFromLLM: 'Не удалось получить транскрипцию от LLM.',
+	},
+	sentenceChat: {
+		questionIsEmpty: 'Текст вопроса пустой.',
+		generationAlreadyActive: 'У вас уже есть активная генерация ответа. Дождитесь её завершения или отмените.',
+		threadNotFound: 'Тред чата не найден.',
+		threadAlreadyExists: 'Тред обсуждения для этого предложения уже существует.',
+		lastMessageIsNotUserQuestion:
+			'Невозможно сгенерировать ответ: последнее сообщение в треде не является вопросом пользователя.',
+		previousAnswerNotReady: 'Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.',
+		insufficientBalance: 'Недостаточно средств на балансе для генерации ответа.',
+	},
+	flashcard: {
+		notFound: 'Карточка не найдена.',
+		sourcePhraseNotFound: 'Фраза-источник для карточки не найдена.',
+		sourceSentenceNotFound: 'Предложение-источник для карточки не найдено.',
+		sourceLanguageNotFound: 'Не удалось определить язык фразы для карточки.',
+		alreadyExists: 'Карточка для этой фразы уже существует.',
 	},
 	audioPronunciation: {
 		notCreated: 'Не удалось создать озвучку.',

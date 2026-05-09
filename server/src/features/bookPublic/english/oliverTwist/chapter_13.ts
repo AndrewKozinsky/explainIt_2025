@@ -1,167 +1,168 @@
 export const chapter_13 = {
 	name: 'Chapter XIII',
 	header: 'Some new acquaintances are introduced to the intelligent reader, connected with whom various pleasant matters are related, appertaining to this history',
-	text: `“Where’s Oliver?” asked Fagin, rising with an angry look. “Where’s the boy?”
+	text: `“Where’s Oliver?” said the Jew, rising with a threatening look. “Where’s the boy?”
 
-The two young thieves looked at him nervously and at each other, but said nothing.
+The young thieves watched their teacher, alarmed by his violence, and looked uneasily at each other. But they did not reply.
 
-“What happened to the boy?” Fagin asked, grabbing the Dodger by the collar. “Speak, or I’ll strangle you!”
+“What’s become of the boy?” said the Jew, grabbing the Dodger tightly by the collar and threatening him with terrible curses. “Speak out, or I’ll strangle you!”
 
-Fagin looked so serious that Charley Bates, thinking it wise to be careful, dropped to his knees and let out a loud, continuous cry—half like a mad bull, half like a trumpet.
+Mr. Fagin looked so serious that Charley Bates, who always thought it wise to be on the safe side, and considered it quite possible that he might be strangled next, dropped to his knees and let out a loud, long, and continuous roar—something between a mad bull and a megaphone.
 
-“Will you speak?” shouted Fagin, shaking the Dodger so hard it was a miracle his coat stayed on.
+“Will you speak?” thundered the Jew, shaking the Dodger so much that it was amazing he stayed in his big coat at all.
 
-“The traps got him, that’s all,” said the Dodger, sullenly. “Now let go of me!” He pulled free of Fagin’s hands in one quick move, grabbed the toasting fork, and swung it at Fagin’s waistcoat. If it had hit, it might have caused some real damage.
+“Why, the police have got him, and that’s all there is to it,” said the Dodger sullenly. “Come on, let go of me, will you!” And with one quick movement, he swung himself completely out of the big coat, which was left in the Jew’s hands. The Dodger then grabbed the toasting fork and aimed it at the old gentleman’s vest. If it had hit, it would have let out a little more life than could have been easily replaced.
 
-Fagin stepped back quickly, surprisingly fast for a man who looked old and weak. He grabbed a pot to throw at the Dodger. But Charley Bates screamed so loudly that Fagin changed direction and threw it at Charley instead.
+The Jew jumped back in this emergency with more speed than one would expect from a man of his seeming old age and weakness. He grabbed the pot and prepared to throw it at his attacker’s head. But just then, Charley Bates got his attention with a truly terrible howl, so he changed his aim and threw it right at the young gentleman.
 
-“Hey! What’s going on?” growled a deep voice. “Who threw that? Lucky it was beer and not the pot, or I’d have dealt with someone. I should have known—only a greedy, rich old Jew would throw away drink. What’s going on, Fagin?”
+“Why, what the devil is going on now!” growled a deep voice. “Who threw that at me? It’s a good thing it was the beer and not the pot that hit me, or I would have hurt someone. I should have known that only a damned, rich, thieving, noisy old Jew could afford to throw away any drink but water—and not even that, unless he cheated the water company every quarter. What’s it all about, Fagin? Damn me, if my neckerchief isn’t soaked with beer! Come in, you sneaking rascal; why are you waiting outside, as if you were ashamed of your master! Come in!”
 
-The man was strong, about thirty-five, wearing a black velveteen coat, dirty breeches, lace-up boots, and grey stockings. His legs were large and strong, and he had a brown hat and a dirty scarf around his neck, which he used to wipe the beer off his face. His face was broad, with a short beard and two angry-looking eyes, one showing signs of a recent injury.
+The man who growled these words was a well-built man of about thirty-five, in a black velveteen coat, very dirty tan pants, lace-up half boots, and grey cotton stockings that revealed a pair of thick legs with large, muscular calves—the kind of legs that, in such an outfit, always look unfinished without a set of chains to complete the look. He had a brown hat on his head and a dirty, spotted handkerchief around his neck. With its long, frayed ends, he wiped the beer from his face as he spoke. When he was done, he revealed a wide, heavy face with a three-day beard and two scowling eyes, one of which had discolored marks from a recent blow.
 
-“Come in, you hear?” he growled.
+“Come in, do you hear?” growled this charming scoundrel.
 
-A white, shaggy dog with many scratches on his face slunk into the room.
+A white, shaggy dog, its face scratched and torn in twenty different places, crept into the room.
 
-“Why didn’t you come in earlier?” the man said. “Getting too proud to obey me in front of company? Lie down!” He kicked the dog, sending it to the corner, where it curled up quietly, winking its tired eyes.
+“Why didn’t you come in before?” said the man. “Are you getting too proud to acknowledge me in front of company? Lie down!”
 
-“What are you doing? Mistreating the boys, you greedy old man?” the man continued, sitting down. “I wonder why they don’t hurt you! I would if I were them. If I had been your apprentice, I’d have done it already. You’re only fit to be kept as a curiosity, like something in a glass bottle.”
+This command was followed by a kick that sent the animal to the other end of the room. He seemed used to it, though, for he curled up quietly in a corner without making a sound. Winking his very unpleasant-looking eyes twenty times a minute, he seemed to be looking around the room.
 
-“Hush! Hush, Mr. Sikes,” said Fagin, trembling. “Don’t speak so loudly!”
+“What are you up to? Mistreating the boys, you greedy, avaricious, insatiable old receiver of stolen goods?” said the man, sitting down with deliberation. “I wonder why they don’t murder you! I would, if I were them. If I had been your apprentice, I would have done it long ago. And—no, I couldn’t have sold you afterward, because you’re only fit to be kept as a curiosity of ugliness in a glass bottle, and I suppose they don’t make glass bottles that large.”
 
-“Don’t boss me around,” replied the man. “You always mean trouble. You know my name. I won’t disgrace it when the time comes.”
+“Hush! hush! Mr. Sikes,” said the Jew, trembling. “Don’t speak so loud!”
 
-“Well, then—Bill Sikes,” said Fagin, humbly. “You seem angry, Bill.”
+“None of your ‘mistering’,” replied the scoundrel. “You always mean trouble when you talk like that. You know my name, so say it! I won’t disgrace it when the time comes.”
 
-“Maybe I am,” said Sikes. “You’d be angry too if you were thrown pewter pots and shouted at like that.”
+“Well, well, then—Bill Sikes,” said the Jew with deep humility. “You seem to be in a bad mood, Bill.”
 
-“Are you mad?” said Fagin, catching Sikes by the sleeve and pointing at the boys.
+“Perhaps I am,” replied Sikes. “I should think you’re rather upset too, unless you mean as little harm when you throw pewter pots about as you do when you talk too much and—”
 
-Mr. Sikes pretended to tie a knot under his ear and jerked his head to the side, a silent gesture the Jew seemed to understand. Then, using his usual slang, he asked for a drink.
+“Are you mad?” said the Jew, grabbing the man by the sleeve and pointing toward the boys.
 
-“Be careful not to poison it,” Sikes said, putting his hat on the table.
+Mr. Sikes satisfied himself by tying an imaginary knot under his left ear and jerking his head over his right shoulder—a silent gesture that the Jew seemed to understand perfectly. Then, in slang terms that filled his conversation and would be impossible to understand if written here, he demanded a glass of liquor.
 
-He said this as a joke, but the Jew gave a sly look as he went to the cupboard.
+“And make sure you don’t poison it,” said Mr. Sikes, placing his hat on the table.
 
-After drinking two or three glasses, Sikes finally spoke to the young thieves. He asked them how Oliver had been caught, and the boys told the story, changing some details to make it safer for themselves.
+This was said as a joke, but if the speaker could have seen the evil grin with which the Jew bit his pale lip as he turned to the cupboard, he might have thought the warning was not entirely unnecessary, or the wish to improve on the distiller’s skill was not very far from the old gentleman’s merry heart.
 
-“I’m worried,” said the Jew, “that he might say something that gets us in trouble.”
+After swallowing two or three glasses of spirits, Mr. Sikes lowered himself to pay some attention to the young men. This gracious act led to a conversation in which the cause and manner of Oliver’s capture were told in great detail, with changes and additions to the truth that the Dodger thought were best in this situation.
 
-“That’s likely,” Sikes replied with a mean grin. “You’re done for, Fagin.”
+“I’m afraid,” said the Jew, “that he may say something that will get us into trouble.”
 
-The Jew ignored him, looking carefully at Sikes. “If we get caught, it might be worse for you than for me.”
+“That’s very likely,” returned Sikes with a malicious grin. “Someone has informed on you, Fagin.”
 
-Sikes turned to the Jew, but Fagin just shrugged and stared at the wall.
+“And I’m afraid, you see,” added the Jew, speaking as if he had not noticed the interruption, and watching the other man closely, “I’m afraid that if we were caught, many others might be caught too, and that it would turn out worse for you than it would for me, my dear.”
 
-A long silence followed. Everyone seemed lost in thought—even the dog, who licked his lips in a way that suggested he was thinking about biting someone when he went outside.
+The man started and turned to face the Jew. But the old gentleman’s shoulders were shrugged up to his ears, and his eyes were staring blankly at the opposite wall.
 
-“Someone has to find out what happened at the office,” Sikes said in a lower voice.
+There was a long pause. Every member of the respectable group seemed lost in his own thoughts, including the dog, who, with a certain malicious licking of his lips, seemed to be planning an attack on the legs of the first person he might meet in the streets when he went out.
 
-The Jew nodded.
+“Somebody must find out what’s been done at the office,” said Mr. Sikes in a much lower tone than he had used since he arrived.
 
-“If the boy hasn’t spoken and is locked up, we don’t need to worry yet,” said Sikes. “But when he comes out, we must watch him. You have to get him somehow.”
+The Jew nodded in agreement.
+
+“If he hasn’t informed on us and is captured, there’s no need to worry until he gets out again,” said Mr. Sikes, “and then he must be taken care of. You must get ahold of him somehow.”
 
 Again, the Jew nodded.
 
-The plan made sense, but there was a problem: none of them—Dodger, Charley Bates, Fagin, or Sikes—wanted to go near a police office under any circumstances.
+The wisdom of this plan was obvious, but unfortunately, there was one very strong reason not to do it. This was that the Dodger, Charley Bates, Fagin, and Mr. William Sikes all happened to have a strong and deep-seated hatred of going near a police station for any reason whatsoever.
 
-They might have stayed thinking in silence for a long time, but the sudden entrance of two young women Oliver had seen before changed the conversation.
+How long they might have sat and looked at each other in a state of unpleasant uncertainty is difficult to guess. It is not necessary to make any guesses on the subject, however, because the sudden entrance of the two young ladies whom Oliver had seen on a previous occasion started the conversation again.
 
-“That’s perfect!” said the Jew. “Bet will go, won’t you, my dear?”
+“The very thing!” said the Jew. “Bet will go; won’t you, my dear?”
 
-“Where?” asked the young woman.
+“Where?” inquired the young lady.
 
-“Just to the office, my dear,” said the Jew, trying to persuade her.
+“Only just up to the office, my dear,” said the Jew coaxingly.
 
-She did not agree or refuse directly, only expressed a polite hope she wouldn’t have to go, showing her natural good manners.
+To be fair to the young lady, she did not say no directly. Instead, she expressed a strong wish to be “blessed” if she would do it. This was a polite and subtle way of refusing, which showed that she had natural good manners and did not want to hurt anyone’s feelings with a direct refusal.
 
-The Jew looked disappointed. He turned from this young woman, dressed brightly in a red dress, green boots, and yellow curlers, to the other.
 
-“Nancy, my dear,” he said gently, “what do you say?”
+The Jew’s face fell. He turned from this young lady, who was brightly, if not beautifully, dressed in a red gown, green boots, and yellow curl-papers, to the other female.
 
-“I won’t do it, Fagin,” Nancy said calmly.
+“Nancy, my dear,” said the Jew in a soothing manner, “what do you say?”
 
-“What do you mean?” asked Sikes, frowning.
+“That it won’t do, so it’s no use trying it on, Fagin,” replied Nancy.
 
-“I mean exactly what I said, Bill,” Nancy replied.
+“What do you mean by that?” said Mr. Sikes, looking up in a surly manner.
 
-“You’re perfect for this,” Sikes said. “No one here knows you.”
+“What I say, Bill,” replied the lady calmly.
 
-“And I don’t want them to,” Nancy answered, “so it’s a definite no for me, Bill.”
+“Why, you’re just the very person for it,” reasoned Mr. Sikes. “Nobody about here knows anything of you.”
 
-“She’ll go, Fagin,” said Sikes confidently.
+“And since I don’t want them to, either,” replied Nancy in the same composed manner, “it’s more of a no than a yes with me, Bill.”
 
-“No, she won’t,” said Nancy firmly.
+“She’ll go, Fagin,” said Sikes.
 
-“Yes, she will,” insisted Sikes.
+“No, she won’t, Fagin,” said Nancy.
 
-Mr. Sikes was right. By using threats, promises, and bribes, he convinced Nancy to do the task. She was not afraid like her friend, because she had recently moved to Field Lane from Ratcliffe and did not know anyone who might recognize her.
+“Yes, she will, Fagin,” said Sikes.
 
-Nancy tied a clean white apron over her dress and tucked her curlers under a straw hat, both given by Fagin. She was ready to go.
+And Mr. Sikes was right. With a combination of threats, promises, and bribes, the lady was finally persuaded to take on the task. She was not stopped by the same concerns as her pleasant friend, for, having recently moved into the neighborhood of Field Lane from the distant but respectable suburb of Ratcliffe, she was not under the same fear of being recognized by any of her many acquaintances.
 
-“Wait a minute, my dear,” said Fagin, giving her a small covered basket. “Carry this—it looks proper.”
+Accordingly, with a clean white apron tied over her gown and her curl-papers tucked up under a straw bonnet—both items of clothing provided from the Jew’s endless supply—Miss Nancy prepared to go out on her errand.
 
-“Give her a door key too,” said Sikes. “It will look real.”
+“Stop a minute, my dear,” said the Jew, producing a little covered basket. “Carry that in one hand. It looks more respectable, my dear.”
 
-“Yes, yes, very good!” said Fagin, putting a large street key on Nancy’s finger.
+“Give her a door-key to carry in her other one, Fagin,” said Sikes. “It looks real and genuine-like.”
 
-“Oh, my brother! My poor little brother!” Nancy cried, holding the basket and key tightly. “Where is he? What have they done with him? Please, tell me!”
+“Yes, yes, my dear, so it does,” said the Jew, hanging a large street-door key on the forefinger of the young lady’s right hand. “There; very good! Very good indeed, my dear!” said the Jew, rubbing his hands.
 
-She spoke in a very sad voice, then winked at the others, smiled, and left.
+“Oh, my brother! My poor, dear, sweet, innocent little brother!” exclaimed Nancy, bursting into tears and wringing the little basket and the street-door key in an agony of distress. “What has become of him! Where have they taken him to! Oh, do have pity and tell me what’s been done with the dear boy, gentlemen; do, gentlemen, if you please, gentlemen!”
 
-“She’s clever, my dears,” said Fagin to the young boys, shaking his head.
+Having said these words in a sad and heartbroken voice, to the immense delight of her listeners, Miss Nancy paused, winked at the company, nodded smilingly around, and disappeared.
 
-“She’s a credit to her sex,” said Sikes, raising his glass. “Here’s to her health! I wish all girls were like her!”
+“Ah, she’s a clever girl, my dears,” said the Jew, turning to his young friends and shaking his head gravely, as if in silent warning to them to follow the bright example they had just seen.
 
-While they praised Nancy, she made her way to the police office. Though a little afraid of walking alone, she arrived safely.
+“She’s an honor to her sex,” said Mr. Sikes, filling his glass and hitting the table with his enormous fist. “Here’s to her health, and I wish they were all like her!”
 
-She entered through the back door, tapped a cell door with the key, and listened. No sound came, so she coughed and listened again. Still nothing, so she spoke softly:
+While these and many other praises were being said about the accomplished Nancy, that young lady made her way to the police office. Despite a little natural fear from walking through the streets alone and unprotected, she arrived there safely a short time later.
 
-“Nolly, dear? Nolly?”
+Entering by the back way, she tapped softly with the key at one of the cell doors and listened. There was no sound inside, so she coughed and listened again. Still, there was no reply, so she spoke.
 
-Inside was only a poor man without shoes, in prison for playing the flute. He did not answer, thinking sadly about his lost flute. Nancy moved to the next cell and knocked.
+“Nolly, dear?” murmured Nancy in a gentle voice. “Nolly?”
 
-“Well!” came a weak voice.
+There was nobody inside but a miserable, shoeless criminal who had been arrested for playing the flute. Since his crime against society had been clearly proven, he had been very properly sent by Mr. Fang to the House of Correction for one month, with the fitting and amusing remark that since he had so much breath to spare, it would be better used on the treadmill than on a musical instrument. He did not answer, as he was mentally mourning the loss of the flute, which had been taken for the use of the county. So Nancy moved on to the next cell and knocked there.
 
-“Is there a little boy here?” Nancy asked, crying a little.
+“Well!” cried a faint and feeble voice.
 
-“No,” said the voice.
+“Is there a little boy here?” inquired Nancy, with a sob.
 
-This was an old vagrant, going to prison for begging. In the next cell was another man in prison for selling tin pans without a license.
+“No,” replied the voice. “God forbid.”
 
-Neither of these men knew Oliver. Nancy went quickly to the officer in the striped waistcoat. She cried and held up the key and basket, demanding her brother.
+This was a homeless person of sixty-five who was going to prison for not playing the flute—or, in other words, for begging in the streets and doing nothing for a living. In the next cell was another man who was going to the same prison for selling tin saucepans without a license, thereby doing something for a living against the law of the Stamp-office.
 
-“I haven’t got him, my dear,” said the officer.
+But since neither of these criminals answered to the name of Oliver or knew anything about him, Nancy went straight up to the gruff officer in the striped vest. With the most pitiful cries and laments, made more pitiful by a quick and effective use of the street-door key and the little basket, she demanded her own dear brother.
 
-“Where is he?” Nancy screamed.
+“I haven’t got him, my dear,” said the old man.
 
-“The gentleman has him,” replied the officer.
+“Where is he?” screamed Nancy, in a distracted manner.
 
-“What gentleman! Oh, heavens! What gentleman?” Nancy exclaimed.
+“Why, the gentleman’s got him,” replied the officer.
 
-The old man told Nancy what he knew. Oliver had become ill at the office. He was released because a witness proved that another boy had done the robbery. The prosecutor had taken Oliver, who was unconscious, to his own home somewhere in Pentonville. The old man did not know exactly where it was, only that the coachman had been given directions to go there.
+“What gentleman! Oh, gracious heavens! What gentleman?” exclaimed Nancy.
 
-Nancy was full of fear and confusion. She staggered to the gate, then ran as fast as she could, taking a long and twisted route back to Fagin’s house.
+In reply to this confused questioning, the old man informed the deeply affected sister that Oliver had been taken ill in the office and was discharged because a witness had proven that the robbery was committed by another boy, who was not in custody. He added that the prosecutor had carried him away, in an unconscious state, to his own home. All the person knew about it was that it was somewhere in Pentonville, as he had heard that word mentioned in the directions to the coachman.
 
-As soon as Bill Sikes heard what had happened, he quickly called the white dog, put on his hat, and left immediately. He did not even say good morning to anyone.
+In a terrible state of doubt and uncertainty, the agonized young woman staggered to the gate. Then, changing her faltering walk for a swift run, she returned by the most winding and complicated route she could think of to the Jew’s home.
 
-“We must find him, my dears,” said Fagin, very excited. “Charley, just hide and watch, until you bring news of him. Nancy, my dear, you must find him. I trust you and the Artful for everything. Wait—wait,” he added, opening a drawer with shaking hands. “Here’s some money. I will close the shop tonight. You’ll know where to find me. Don’t stay here for a moment!”
+Mr. Bill Sikes no sooner heard the account of the expedition than he very hastily called up the white dog, and, putting on his hat, quickly left, without taking any time for the formality of wishing the company good morning.
 
-Fagin pushed them out of the room. He locked the door carefully, then took the box he had accidentally shown Oliver. He quickly hid the watches and jewellery under his clothes.
+“We must know where he is, my dears; he must be found,” said the Jew, greatly excited. “Charley, do nothing but sneak around until you bring home some news of him! Nancy, my dear, I must have him found. I trust you, my dear—you and the Artful for everything! Stay, stay,” added the Jew, unlocking a drawer with a shaking hand. “There’s money, my dears. I shall shut up this shop tonight. You’ll know where to find me! Don’t stop here a minute. Not an instant, my dears!”
 
-A knock at the door startled him.
+With these words, he pushed them from the room. After carefully double-locking and barring the door behind them, he pulled out from its hiding place the box he had unintentionally shown to Oliver. Then, he hastily began to hide the watches and jewelry under his clothes.
 
-“Who’s there?” he cried sharply.
+A rap at the door startled him in this activity. “Who’s there?” he cried in a shrill tone.
 
-“Me!” said the Dodger through the keyhole.
+“Me!” replied the voice of the Dodger through the keyhole.
 
-“What now?” asked Fagin impatiently.
+“What now?” cried the Jew impatiently.
 
-“Is Nancy going to take him to another place?” asked the Dodger.
+“Is he to be kidnapped to the other house, Nancy says?” inquired the Dodger.
 
-“Yes,” replied Fagin. “Wherever she takes him. Just find him, and I will know what to do next.”
+“Yes,” replied the Jew, “wherever she lays hands on him. Find him, find him out, that’s all. I shall know what to do next; never fear.”
 
-The boy nodded and hurried downstairs to join his friends.
+The boy murmured a reply of understanding and hurried downstairs after his companions.
 
-“He has not told anyone yet,” said Fagin, continuing his work. “If he tries to reveal us to his new friends, we can stop him.”`,
+“He has not informed on us so far,” said the Jew as he continued his work. “If he means to tell our secrets to his new friends, we may yet stop his mouth.”`,
 }

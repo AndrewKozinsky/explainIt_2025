@@ -19,6 +19,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 	const postgresServiceName = 'explainpostgres' + mode
 	const redisServiceName = 'explainredis' + mode
 	const serverServiceName = 'explainserver' + mode
+	const serverWorkerServiceName = 'explainserverworker' + mode
 	const faceServiceName = 'explainface' + mode
 	const helpServiceName = 'explainhelp' + mode
 	const nlpServiceName = 'explainnlp' + mode
@@ -63,6 +64,19 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				environment: getServerEnvs(mode),
 				env_file: ['.env.' + mode],
 				ports: isDev ? ['3001:3001'] : undefined,
+			},
+			[serverWorkerServiceName]: {
+				build: {
+					context: 'server/',
+					dockerfile: isDev ? 'Dockerfile.worker.dev' : 'Dockerfile.worker.server',
+				},
+				restart: 'unless-stopped',
+				volumes: isDev ? ['./server/src:/app/src'] : undefined,
+				command: isDev ? 'npm run start:worker:dev' : 'npm run start:worker:prod',
+				container_name: 'explainserverworker' + mode,
+				depends_on: [postgresServiceName, redisServiceName, nlpServiceName],
+				environment: { MODE: mode, PORT: 3001 },
+				env_file: ['.env.' + mode],
 			},
 			[faceServiceName]: {
 				build: {

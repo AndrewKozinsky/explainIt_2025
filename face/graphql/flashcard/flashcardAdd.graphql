@@ -1,0 +1,23 @@
+mutation Flashcard_add($input: AddFlashcardInput!) {
+	flashcard_add(input: $input) {
+		id
+		languageCode
+		sentenceText
+		sentenceTranslation
+		phrase
+		phraseStartOffset
+		phraseEndOffset
+		phraseTranslation
+		phraseTranscription
+		examples {
+			text
+			translate
+		}
+		bookPrivateId
+		bookPublicId
+		videoPrivateId
+		videoPublicId
+		sentencePhraseTranslationId
+		createdAt
+	}
+}

@@ -1,6 +1,7 @@
 import { CommandBus } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
+import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
@@ -47,7 +48,7 @@ export async function ensureCanChargeBalanceOrThrow(input: {
 	if (input.access.createMode === 'chargeBalance' && input.userId) {
 		await input.userBalanceTransactionRepository.ensureCanChargeOrThrow({
 			userId: input.userId,
-			minBalanceInKopecks: input.mainConfigService.get().billing.translationChargeMarkupInKopecks,
+			minBalanceInKopecks: 5,
 		})
 	}
 }
@@ -80,6 +81,14 @@ export async function chargeAfterTranslationIfNeeded(input: {
 				inputTokens: input.usage.inputTokens,
 				outputTokens: input.usage.outputTokens,
 				lowPriority: input.usage.lowPriority,
+			}),
+		)
+	} else if (input.usage.provider === 'gemini') {
+		await input.commandBus.execute(
+			new GeminiTokenUsageBalanceChargeCommand({
+				userId: input.userId,
+				inputTokens: input.usage.inputTokens,
+				outputTokens: input.usage.outputTokens,
 			}),
 		)
 	}

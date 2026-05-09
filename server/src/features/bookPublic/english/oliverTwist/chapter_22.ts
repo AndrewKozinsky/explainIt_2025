@@ -1,162 +1,139 @@
-// ГЛАВА НЕ ГОТОВА
 export const chapter_22 = {
 	name: 'Chapter XXII',
 	header: 'The burglary',
-	text: `“Hallo!” shouted a loud, rough voice as soon as they stepped into the passage.
+	text: `“Hello!” a loud, hoarse voice cried as soon as they stepped into the passage.
 
-“Don’t make so much noise,” said Sikes, locking the door. “Show a light, Toby.”
+“Don’t make so much noise,” said Sikes, bolting the door. “Toby, show a light.”
 
-“Ah, my friend!” cried the same voice. “A light, Barney, a light! Show the gentleman in—and wake up first, if you can.”
+“Aha! My friend!” cried the same voice. “A light, Barney, a light! Show the gentleman in. Wake up first, if you can.”
 
-Something heavy—like a boot-jack—was thrown across the room to wake the person being called. It hit the floor with a loud crash, followed by sleepy muttering.
+The speaker seemed to throw a boot-jack or something similar at the person he was talking to, to wake him up. The sound of something wooden falling violently was heard, followed by a low muttering, like a man half-asleep.
 
-“Do you hear?” shouted the voice again. “Bill Sikes is here, and nobody to welcome him—and you’re still sleeping like you’ve taken sleeping medicine! Are you awake now, or do you want me to throw something heavier at you?”
+“Do you hear?” the same voice cried. “Bill Sikes is in the passage with no one to greet him, and you’re sleeping as if you’ve taken drugs. Are you awake now, or do you need the iron candlestick to wake you up completely?”
 
-A pair of feet shuffled quickly across the floor. Then a weak candle appeared, followed by Barney—the same man who worked as a waiter at the tavern.
+As the question was asked, a pair of worn-out slippers shuffled quickly across the bare floor. From a door on the right, a weak candle appeared, followed by the man who was described earlier as speaking through his nose and working as a waiter at the pub on Saffron Hill.
 
-“Mr. Sikes!” said Barney, with a grin. “Come in, sir, come in.”
+“Mr. Sikes!” exclaimed Barney, with real or fake joy, “come in, sir; come in.”
 
-“Here—you go first,” said Sikes, pushing Oliver ahead of him. “Move! Or I’ll step on your heels.”
+“Here, you go first,” said Sikes, pushing Oliver in front of him. “Quicker! Or I’ll step on your heels.”
 
-Grumbling, Sikes shoved Oliver forward into a low, dark room. There was a smoky fire, a few broken chairs, a table, and an old worn-out couch. On the couch lay a man stretched out, smoking a long pipe, with his legs raised higher than his head.
+Muttering a curse about his slowness, Sikes pushed Oliver ahead, and they entered a low, dark room with a smoky fire. There were two or three broken chairs, a table, and a very old couch. On the couch, a man was resting with his legs much higher than his head, smoking a long clay pipe. He was dressed in a smart, snuff-colored coat with large brass buttons, an orange neckerchief, a rough, brightly-patterned waistcoat, and brownish trousers. Mr. Crackit (for that was his name) didn’t have much hair, but what he had was reddish and twisted into long corkscrew curls. He occasionally ran his very dirty fingers, decorated with large, cheap rings, through his hair. He was a bit taller than average and seemed to have weak legs, but this didn’t stop him from admiring his riding boots, which he looked at with great satisfaction.
 
-He wore a neat brown coat with large brass buttons, a bright neck scarf, a loud-patterned vest, and light-colored trousers. This was Toby Crackit. He didn’t have much hair, but what he had was red and curled into long ringlets. From time to time, he ran his dirty fingers—covered with large cheap rings—through it. He wasn’t very strong-looking, but he clearly admired his tall boots, which he kept glancing at with satisfaction.
+“Bill, my boy!” said this man, turning his head to the door, “I’m glad to see you. I was almost afraid you had given up. If you had, I would have gone on the adventure myself. Hello!”
 
-“Bill, my boy!” said Toby, turning toward the door. “Glad to see you. I thought you might not come—and then I’d have had to go myself. Hallo!”
+Shouting this in a very surprised tone as he saw Oliver, Mr. Toby Crackit sat up and asked who the boy was.
 
-He suddenly sat up, staring at Oliver in surprise.
+“The boy. Just the boy!” replied Sikes, pulling a chair to the fire.
 
-“Who’s that?”
+“One of Mr. Fagin’s lads,” exclaimed Barney with a grin.
 
-“The boy. Just the boy,” said Sikes, pulling a chair toward the fire.
+“Fagin’s, eh!” said Toby, looking at Oliver. “What a valuable boy he’ll be for stealing from the old ladies’ pockets in church! His face is his fortune.”
 
-“One of Fagin’s boys,” said Barney with a grin.
+“That’s enough of that,” interrupted Sikes impatiently. He leaned over his resting friend and whispered a few words in his ear. Mr. Crackit laughed a lot and gave Oliver a long, astonished stare.
 
-“Fagin’s, eh?” said Toby, looking closely at Oliver. “What a useful boy he’ll be—perfect for picking pockets in churches! That face alone is worth money.”
+“Now,” said Sikes, sitting down again, “if you’ll give us something to eat and drink while we wait, you’ll give us some courage, or at least me. Sit down by the fire, kid, and rest. You’ll have to go out with us again tonight, but not too far.”
 
-“That’s enough,” said Sikes impatiently. He leaned over and whispered something in Toby’s ear. Toby burst out laughing and stared at Oliver in amazement.
+Oliver looked at Sikes with silent, timid wonder. He pulled a stool to the fire and sat with his aching head in his hands, barely knowing where he was or what was happening.
 
-“Now,” said Sikes, sitting down again, “if you give us something to eat and drink while we wait, that’ll do us good—at least me. Sit by the fire, boy, and rest. You’ll be coming out with us again tonight—not very far, though.”
+“Here,” said Toby, as the young Jew put some pieces of food and a bottle on the table, “to success!” He stood up to honor the toast, carefully put his empty pipe in a corner, and went to the table. He filled a glass with spirits and drank it. Mr. Sikes did the same.
 
-Oliver looked at him in silent fear and confusion. He sat by the fire, holding his aching head in his hands, hardly understanding what was happening.
+“A little for the boy,” said Toby, half-filling a wine-glass. “Drink it down, innocent one.”
 
-“Here,” said Toby, as Barney placed some food and a bottle on the table, “success to the job!”
+“Indeed,” said Oliver, looking sadly up at the man’s face, “indeed, I—”
 
-He stood up, poured himself a glass of strong drink, and swallowed it at once. Sikes did the same.
+“Drink it down!” repeated Toby. “Do you think I don’t know what’s good for you? Tell him to drink it, Bill.”
 
-“Give some to the boy,” said Toby, filling a glass halfway. “Drink it, lad.”
+“He’d better!” said Sikes, clapping his hand on his pocket. “He’s more trouble than a whole family of pickpockets. Drink it, you stubborn imp, drink it!”
 
-“Please,” said Oliver, looking up at him, “I—”
+Frightened by the threatening gestures of the two men, Oliver quickly swallowed the drink and immediately started coughing violently. This delighted Toby Crackit and Barney, and even made the grumpy Mr. Sikes smile.
 
-“Drink it!” said Toby. “Do you think I don’t know what’s good for you? Tell him, Bill.”
+After this, and after Sikes had eaten (Oliver could only eat a small piece of bread they forced him to swallow), the two men lay down on chairs for a short nap. Oliver stayed on his stool by the fire. Barney, wrapped in a blanket, lay on the floor near the fireplace.
 
-“He’d better,” said Sikes, putting his hand on his pocket where the pistol was. “Drink it, you stubborn little devil!”
+They slept, or seemed to sleep, for some time. Only Barney moved, getting up once or twice to add coal to the fire. Oliver fell into a deep sleep, dreaming of wandering through dark lanes, dark churchyards, or reliving scenes from the past day. He was woken up by Toby Crackit jumping up and announcing it was half-past one.
 
-Frightened by their threats, Oliver quickly drank it—and immediately began coughing violently. Toby and Barney laughed, and even Sikes allowed himself a grim smile.
+In an instant, the other two were on their feet, all busy preparing. Sikes and his friend wrapped their necks and chins in large dark shawls and put on their great-coats. Barney opened a cupboard and brought out several items, which he quickly stuffed into their pockets.
 
-After that, Sikes ate his meal (Oliver could only manage a small piece of bread), and the two men lay down on chairs for a short sleep. Oliver stayed on his stool by the fire, while Barney wrapped himself in a blanket and lay on the floor nearby.
+“Guns for me, Barney,” said Toby Crackit.
 
-They slept—or seemed to—for some time. Only Barney moved now and then to add coal to the fire. Oliver fell into a heavy sleep, dreaming of dark roads, lonely fields, and the frightening events of the day.
+“Here they are,” replied Barney, showing a pair of pistols. “You loaded them yourself.”
 
-Suddenly, he woke as Toby jumped up.
+“Alright!” replied Toby, putting them away. “The crowbars?”
 
-“Half past one!” he shouted.
+“I’ve got them,” replied Sikes.
 
-At once, the others sprang to their feet and began preparing quickly. Sikes and Toby wrapped dark scarves around their necks and pulled on their coats. Barney opened a cupboard and took out several items, stuffing them into his pockets.
+“Masks, keys, drills, lanterns—nothing forgotten?” asked Toby, attaching a small crowbar to a loop inside his coat.
 
-“Pistols for me, Barney,” said Toby Crackit.
+“All right,” his friend replied. “Bring those pieces of wood, Barney. It’s time.”
 
-“Here they are,” replied Barney, handing him a pair. “You loaded them yourself.”
+With these words, he took a thick stick from Barney, who gave another to Toby and then helped Oliver with his cape.
 
-“All right,” said Toby, putting them away. “The tools?”
+“Now then!” said Sikes, holding out his hand.
 
-“I’ve got them,” said Sikes.
+Oliver, who was completely dazed by the unusual exercise, the air, and the drink he had been forced to take, mechanically put his hand in Sikes’s.
 
-“Masks, keys, drills—nothing forgotten?” asked Toby, fastening a small crowbar inside his coat.
+“Take his other hand, Toby,” said Sikes. “Barney, check outside.”
 
-“All set,” replied Sikes. “Give us those sticks, Barney.”
+The man went to the door, came back, and said that all was quiet. The two robbers went out with Oliver between them. Barney, after locking up, rolled himself in his blanket and was soon asleep again.
 
-With that, he took a heavy stick from Barney, who gave another to Toby and then helped fasten Oliver’s coat.
+It was now intensely dark. The fog was much thicker than earlier in the night. The air was so damp that, even though no rain fell, Oliver’s hair and eyebrows became stiff with half-frozen moisture within a few minutes of leaving the house. They crossed the bridge and walked towards the lights he had seen before. The lights were not far off, and since they walked quickly, they soon reached Chertsey.
 
-“Now then,” said Sikes, holding out his hand.
+“Straight through the town,” whispered Sikes. “No one will be out to see us tonight.”
 
-Oliver, confused by the fresh air, the movement, and the drink forced on him, put his hand into Sikes’s without thinking.
+Toby agreed, and they hurried through the main street of the small town, which was completely empty at that late hour. A dim light shone from a bedroom window here and there, and the hoarse barking of dogs sometimes broke the silence. But no one was out. They had left the town as the church bell struck two.
 
-“Take his other hand, Toby,” said Sikes. “Check outside, Barney.”
+They walked faster, turning up a road on the left. After about a quarter of a mile, they stopped in front of a detached house surrounded by a wall. Toby Crackit climbed to the top of the wall in a moment, barely pausing for breath.
 
-Barney went to the door, then came back and said everything was quiet. The two robbers went out, with Oliver between them. Barney locked up and soon went back to sleep.
+“The boy next,” said Toby. “Lift him up; I’ll catch him.”
 
-It was now very dark. The fog was thicker than before, and the air was so damp that even without rain, Oliver’s hair and eyebrows quickly became wet and stiff from the cold mist.
+Before Oliver had time to look around, Sikes had grabbed him under the arms. In three or four seconds, he and Toby were on the grass on the other side. Sikes followed right after. They carefully crept towards the house.
 
-They crossed the bridge and walked toward the distant lights Oliver had seen earlier. The place wasn’t far, and moving quickly, they soon reached the town of Chertsey.
+And now, for the first time, Oliver, almost mad with grief and terror, realized that housebreaking and robbery, if not murder, were the goals of the trip. He clasped his hands together and let out a soft cry of horror. A mist covered his eyes, cold sweat was on his pale face, his legs gave way, and he fell to his knees.
 
-“Straight through the town,” whispered Sikes. “No one will be around to see us tonight.”
+“Get up!” murmured Sikes, trembling with rage and pulling the pistol from his pocket. “Get up, or I’ll scatter your brains on the grass.”
 
-Toby agreed, and they hurried along the main street, which was completely empty at that late hour. Now and then, a faint light shone from a window, and dogs barked somewhere in the distance—but there was no one outside.
+“Oh! For God’s sake, let me go!” cried Oliver. “Let me run away and die in the fields. I will never come near London again, never! Oh! Please have mercy on me, and do not make me steal. For the love of all the bright Angels in Heaven, have mercy on me!”
 
-They had just left the town as the church clock struck two.
+The man to whom he pleaded swore a terrible oath and was about to shoot, but Toby knocked the pistol from his hand, put his hand on the boy’s mouth, and dragged him to the house.
 
-They walked faster and turned onto a road to the left. After about a quarter of a mile, they stopped at a house standing alone behind a wall. Without hesitation, Toby quickly climbed to the top.
+“Hush!” cried the man. “That won’t work here. Say another word, and I’ll take care of you myself with a crack on the head. It makes no noise, is just as effective, and more polite. Here, Bill, force the shutter open. He’s brave enough now, I’m sure. I’ve seen older boys his age act the same way for a minute or two on a cold night.”
 
-“The boy next,” he whispered. “Lift him up—I’ll catch him.”
+Sikes, cursing Fagin for sending Oliver on such a mission, used the crowbar with force but little noise. After some delay and help from Toby, the shutter he was working on swung open.
 
-Before Oliver could react, Sikes grabbed him and lifted him up. In a few seconds, Oliver and Toby were on the grass on the other side. Sikes followed immediately.
+It was a small lattice window, about five and a half feet above the ground, at the back of the house. It belonged to a scullery, or small brewing-place. The opening was so small that the residents probably didn't think it needed to be more secure, but it was large enough for a boy of Oliver’s size. A quick use of Mr. Sikes’s skill was enough to open the latch, and it soon stood wide open.
 
-Then, moving quietly, they crept toward the house.
+“Now listen, you young rascal,” whispered Sikes, taking a dark lantern from his pocket and shining it in Oliver’s face. “I’m going to put you through there. Take this light, go quietly up the steps right in front of you, and along the small hall to the street door. Unlock it and let us in.”
 
-Now, for the first time, Oliver clearly understood what was happening. Almost mad with fear and grief, he realized that they had come to break into the house—to rob it, and perhaps even to kill.
+“There’s a bolt at the top you won’t be able to reach,” interrupted Toby. “Stand on one of the hall chairs. There are three there, Bill, with a big blue unicorn and a gold pitchfork on them, which is the old lady’s coat of arms.”
 
-He clasped his hands together and let out a quiet cry of horror. Everything blurred before his eyes. His face went pale, cold sweat covered him, and his legs gave way. He fell to his knees.
+“Be quiet, can’t you?” replied Sikes with a threatening look. “The room door is open, right?”
 
-“Get up!” whispered Sikes angrily, pulling out his pistol. “Get up, or I’ll blow your brains out right here.”
+“Wide open,” replied Toby, after peeking in to check. “They always leave it open with a latch, so the dog, who has a bed in here, can walk up and down the passage when he’s awake. Ha! ha! Barney lured him away tonight. So clever!”
 
-“Oh, please—please let me go!” cried Oliver. “Let me run away and die in the fields. I’ll never come near London again—never! Please have mercy on me. Don’t make me steal. For the love of Heaven, have mercy on me!”
-
-Sikes cursed loudly and raised the pistol. But Toby knocked it from his hand, covered Oliver’s mouth, and dragged him toward the house.
-
-“Quiet!” he hissed. “This isn’t the place for noise. Say one more word, and I’ll knock you out myself. That’s quieter—and just as effective. Come on, Bill, open the shutter. He’ll do now. I’ve seen boys his age act the same way on a cold night.”
-
-Sikes muttered angrily about Fagin for sending Oliver on such a job, but began working with a crowbar as quietly as he could. After a short time, and with Toby’s help, the shutter came loose and swung open.
-
-Behind it was a small window, about five and a half feet above the ground, at the back of the house. It led into a small back room at the end of a narrow passage. The opening was small—probably too small for most people—but big enough for a boy like Oliver.
-
-Sikes quickly forced the window open as well.
-
-“Now listen carefully,” he whispered, taking a dark lantern from his pocket and shining it in Oliver’s face. “I’m going to lift you through that window. Take this light. Go quietly up the steps in front of you, then along the hallway to the front door. Open it and let us in.”
-
-“There’s a bolt at the top—you won’t reach it,” Toby added. “Stand on one of the chairs in the hall. There are three of them, with a big blue unicorn and gold fork on them—that’s the old lady’s coat of arms.”
-
-“Be quiet, will you?” said Sikes sharply, giving him a warning look. “The door inside is open, right?”
-
-“Wide,” replied Toby, after quietly checking. “The trick is, they always leave it open with a latch, so the dog—he sleeps here—can walk along the passage when he wakes up. Ha! Barney led him away tonight. Very neat!”
-
-Although Mr. Crackit spoke in a very soft whisper and laughed silently, Sikes sharply ordered him to be quiet and get to work. Toby obeyed. First, he took out his lantern and set it on the ground. Then he stood firmly, pressing his head against the wall under the window and placing his hands on his knees, making a step out of his back.
-
-As soon as he was ready, Sikes climbed onto him and carefully pushed Oliver through the window, feet first. Holding him by the collar, he lowered him safely onto the floor inside.
+Although Mr. Crackit spoke in a barely audible whisper, and laughed silently, Sikes ordered him to be quiet and get to work. Toby obeyed. First, he took out his lantern and placed it on the ground. Then, he braced himself with his head against the wall under the window and his hands on his knees, making a step with his back. As soon as this was done, Sikes climbed on him, gently put Oliver through the window feet first, and, without letting go of his collar, placed him safely on the floor inside.
 
 “Take this lantern,” said Sikes, looking into the room. “You see the stairs in front of you?”
 
-Oliver, almost fainting with fear, managed to whisper, “Yes.” Sikes pointed toward the front door with his pistol and warned him briefly that he could shoot him at any moment if he hesitated.
+Oliver, more dead than alive, gasped, “Yes.” Sikes, pointing to the street door with the pistol barrel, briefly warned him that he was within shooting range the whole way and that if he hesitated, he would be shot dead instantly.
 
-“It’ll be done in a minute,” Sikes whispered. “The moment I let you go, do your job. Listen!”
+“It’s done in a minute,” said Sikes in the same low whisper. “As soon as I let go, do your job. Listen!”
 
 “What’s that?” whispered the other man.
 
-They listened carefully.
+They listened intently.
 
-“Nothing,” said Sikes, letting go of Oliver. “Now!”
+“Nothing,” said Sikes, releasing his hold on Oliver. “Now!”
 
-In the short moment he had to think, the boy made a firm decision: whether he died or not, he would try to run upstairs and warn the family. Holding onto this thought, he moved forward at once, but quietly.
+In the short time he had to think, the boy had firmly decided that, whether he died trying or not, he would make one attempt to rush upstairs from the hall and alert the family. Filled with this idea, he moved forward at once, but quietly.
 
-“Come back!” suddenly shouted Sikes. “Back! Back!”
+“Come back!” Sikes suddenly cried aloud. “Back! Back!”
 
-Startled by the sudden noise breaking the deep silence, and by a loud cry that followed, Oliver dropped his lantern and didn’t know whether to run forward or escape.
+Scared by the sudden break in the dead silence and by a loud cry that followed, Oliver dropped his lantern and didn't know whether to go forward or run.
 
-The cry came again—a light appeared—he saw two frightened, half-dressed men at the top of the stairs—a flash—a loud shot—smoke—a crash somewhere—he didn’t know where—and he stumbled back.
+The cry was repeated—a light appeared—a vision of two terrified, half-dressed men at the top of the stairs swam before his eyes—a flash—a loud noise—a cloud of smoke—a crash somewhere, but he knew not where—and he staggered back.
 
-Sikes had disappeared for a moment, but he quickly returned and grabbed Oliver by the collar before the smoke cleared. He fired his pistol at the men, who were already running away, and pulled the boy up.
+Sikes had disappeared for a moment, but he was up again and had him by the collar before the smoke cleared. He fired his own pistol at the men, who were already running away, and pulled the boy up.
 
-“Hold on tighter,” said Sikes as he dragged him through the window. “Give me a cloth. They’ve shot him. Quick! The boy is bleeding!”
+“Hold your arm tighter,” said Sikes, as he pulled him through the window. “Give me a shawl here. They’ve hit him. Quick! The boy is bleeding so much!”
 
-Then came the loud ringing of a bell, mixed with gunshots and the shouts of men, and the feeling of being carried quickly over rough ground. After that, the noises faded into the distance, and a cold, deadly feeling spread through the boy’s heart—and he saw and heard nothing more.`,
+Then came the loud ringing of a bell, mixed with the sound of guns, the shouts of men, and the feeling of being carried over rough ground at a fast pace. And then, the noises grew faint in the distance, a cold, deadly feeling crept over the boy’s heart, and he saw and heard no more.`,
 }

@@ -1,134 +1,125 @@
 export const chapter_15 = {
 	name: 'Chapter XV',
 	header: 'Showing how very fond of Oliver Twist, the merry old Jew and Miss Nancy were',
-	text: `In a dark, dirty back room of a small, cheap pub in the worst part of Little Saffron Hill, a gas lamp burned all day in winter, and no sunlight ever reached the place, even in summer. There sat a man, deep in thought, with a small metal mug and a glass that smelled strongly of alcohol. He wore a rough velveteen coat, worn shorts, boots, and stockings. Even in the poor light, any experienced police officer would immediately recognize him as Mr. William Sikes.
+	text: `In the dim back room of a cheap pub, in the filthiest part of Little Saffron Hill, sat a man. It was a dark and gloomy den, where a gas lamp burned all day in winter and no sunlight ever reached in summer. The man, dressed in a velveteen coat, drab shorts, and half-boots, was staring into a small pewter cup and a glass that smelled strongly of liquor. Even in the dim light, any experienced policeman would have instantly recognized him as Mr. William Sikes. At his feet sat a white dog with red eyes. The dog would switch between winking at its master and licking a large, fresh cut on its mouth, likely from a recent fight.
 
-At his feet sat a white dog with red eyes. From time to time, the dog blinked at his master with both eyes at once, then licked a fresh wound on the side of his mouth, likely from a recent fight.
+“Keep quiet, you rascal! Keep quiet!” said Mr. Sikes, suddenly breaking the silence. It is hard to say whether the dog’s winking disturbed his deep thoughts, or if he was simply in a foul mood and needed to kick something. Whatever the reason, he gave the dog a kick and a curse.
 
-“Be quiet, you little beast! Be quiet!” said Mr. Sikes suddenly.
+Dogs usually don’t seek revenge on their masters, but Mr. Sikes’s dog shared his owner’s bad temper. Feeling wronged, the dog immediately bit down on one of Sikes's half-boots. After a hearty shake, it retreated, growling, under a bench, narrowly avoiding the pewter cup that Mr. Sikes threw at its head.
 
-It is hard to say whether the dog disturbed his thoughts, or whether Sikes simply needed to release his anger. Whatever the reason, he kicked the dog and cursed at it at the same time.
+“You would, would you?” said Sikes, grabbing a poker and pulling a large clasp-knife from his pocket. “Come here, you devil! Come here! Do you hear?”
 
-Dogs do not usually attack their masters. But this dog had a bad temper, much like Sikes. Feeling hurt and angry, it suddenly bit one of his boots, shook it hard, and then ran under a bench, growling. It just avoided a metal mug that Sikes threw at its head.
+The dog certainly heard Mr. Sikes’s harsh voice, but it seemed to object to the idea of having its throat cut. It stayed put and growled more fiercely, biting down on the end of the poker like a wild animal.
 
-“Oh, you would, would you?” said Sikes. He grabbed a fireplace poker in one hand and slowly opened a large knife with the other. “Come here, you devil! Come here! Do you hear me?”
+This resistance only made Mr. Sikes angrier. He dropped to his knees and began to attack the animal furiously. The dog dodged left and right, snapping and barking, while the man cursed and swung at it. The fight was reaching a critical moment when the door suddenly opened. The dog bolted out, leaving Bill Sikes standing alone with the poker and knife in his hands.
 
-The dog surely heard him—Sikes’s voice was harsh and loud—but it did not move. Instead, it growled even more fiercely. It grabbed the end of the poker with its teeth and bit it like a wild animal.
+As the old saying goes, it takes two to quarrel. Disappointed that the dog had left, Mr. Sikes turned his anger toward the newcomer.
 
-This made Sikes even angrier. He dropped to his knees and attacked the dog violently. The dog jumped from side to side, snapping and barking. The man pushed, struck, and swore. The fight was becoming very dangerous for one of them when suddenly the door opened. The dog ran out, leaving Sikes alone with the poker and the knife.
+“What the devil are you doing, coming between me and my dog?” said Sikes with a fierce look.
 
-There must always be two sides in a fight, as the old saying goes. Since the dog was gone, Sikes quickly turned his anger on the person who had just entered.
+“I didn’t know, my dear, I didn’t know,” replied Fagin, the newcomer, humbly.
 
-“What are you doing, coming between me and my dog?” he shouted angrily.
+“Didn’t know, you cowardly thief!” growled Sikes. “Couldn’t you hear the noise?”
 
-“I didn’t know, my dear, I didn’t know,” replied Fagin humbly.
+“Not a sound, I swear on my life, Bill,” replied the Jew.
 
-“You didn’t know, you coward!” growled Sikes. “Didn’t you hear the noise?”
+“Oh no! You hear nothing, you don’t,” sneered Sikes. “Always sneaking around so no one hears you. I wish you had been the dog, Fagin, just a minute ago.”
 
-“Not a sound, I swear, Bill,” said Fagin.
+“Why?” asked the Jew, forcing a smile.
 
-“Oh no, you never hear anything, do you?” said Sikes with a cruel smile. “Always sneaking around so no one hears you come or go! I wish you had been the dog a moment ago, Fagin.”
+“Because the government, which cares for men like you who have no courage, lets a man kill a dog however he likes,” replied Sikes, closing the knife with a meaningful look. “That’s why.”
 
-“Why?” asked Fagin, forcing a smile.
+The Jew rubbed his hands and, sitting at the table, pretended to laugh at his friend's joke. He was clearly very uncomfortable.
 
-“Because the law, which protects people like you—who have less courage than dogs—lets a man kill a dog however he likes,” said Sikes, closing his knife with a sharp, meaningful look. “That’s why.”
+“Go on, grin,” said Sikes, putting the poker back and looking at him with contempt. “But you'll never get the best of me, Fagin. I have the upper hand over you, and I'll keep it. If I go down, you go down. So you better take care of me.”
 
-The Jew rubbed his hands and sat down at the table, pretending to laugh at his friend’s joke. But he was clearly uncomfortable.
+“Yes, yes, my dear,” said the Jew. “I know all that. We have a mutual interest, Bill.”
 
-“Go on, laugh,” said Sikes, putting the poker aside and looking at him with cold contempt. “Laugh all you want. You’ll never laugh at me—unless I’m dead. I’ve got power over you, Fagin, and I’ll keep it. Remember that: if I fall, you fall too. So take care of me.”
+“Humph,” said Sikes, as if he thought the interest was mostly on the Jew’s side. “Well, what do you have for me?”
 
-“Well, well, my dear,” said the Jew, “I know, I know. We—we have a shared interest, Bill. A shared interest.”
+“It’s all been melted down,” replied Fagin, “and this is your share. It’s a little more than it should be, my dear, but I know you’ll do a good turn for me another time, and—”
 
-“Hmm,” said Sikes, as if he thought the Jew needed him more than he needed the Jew. “So, what do you want?”
+“Enough of that nonsense,” the robber interrupted. “Where is it? Hand it over!”
 
-“Everything has been safely melted down,” said Fagin, “and this is your share. It’s a little more than you should get, my dear, but I’m sure you’ll help me another time, and—”
+“Yes, yes, Bill; give me time,” replied the Jew calmly. “Here it is! All safe!” He pulled an old cotton handkerchief from his shirt, untied a large knot, and produced a small paper packet. Sikes snatched it, hastily opened it, and began to count the coins inside.
 
-“Stop talking nonsense,” Sikes interrupted impatiently. “Where is it? Give it to me!”
+“This is all?” asked Sikes.
 
-“Yes, yes, Bill, just a moment,” said the Jew calmly. “Here it is. All safe.”
-As he spoke, he took an old handkerchief from his coat, untied a large knot, and pulled out a small paper packet. Sikes grabbed it quickly, opened it, and began counting the gold coins inside.
+“All,” replied the Jew.
 
-“That’s all?” asked Sikes.
+“You didn’t open it and swallow a few on your way here, did you?” Sikes asked suspiciously. “Don’t give me that hurt look; you’ve done it before. Ring the bell.”
 
-“All,” said the Jew.
+He was telling him to ring the bell. It was answered by another Jew, younger than Fagin but just as unpleasant in appearance.
 
-“You didn’t open it and swallow a coin or two on the way, did you?” Sikes asked suspiciously. “Don’t look offended—you’ve done it before. Ring the bell.”
+Bill Sikes just pointed to the empty cup. The man understood, but before he left to refill it, he exchanged a quick, subtle look with Fagin. Fagin, expecting it, gave a slight shake of his head in reply. The gesture was so small that it would have been missed by most, and it was certainly lost on Sikes, who was busy tying a bootlace the dog had torn. If he had seen it, he might have suspected it meant trouble for him.
 
-This meant he wanted someone to come. Another Jew entered: younger than Fagin, but almost as unpleasant to look at.
+“Is anyone here, Barney?” asked Fagin, keeping his eyes on the ground now that Sikes was watching.
 
-Sikes simply pointed at his empty glass. The man understood and went to fill it. Before leaving, he exchanged a quick, meaningful look with Fagin. Fagin glanced up for a moment and slightly shook his head. The movement was so small that most people would not notice it.
+“Not a soul,” replied Barney, his voice nasally.
 
-Sikes didn’t see it. He was bending down, tying the bootlace that the dog had torn. If he had noticed the silent exchange, he might have guessed that something was wrong.
+“Nobody?” inquired Fagin, with a surprised tone that might have been a signal for Barney to tell the truth.
 
-“Is anyone here, Barney?” Fagin asked quietly, not lifting his eyes now that Sikes was watching.
+“Nobody but Miss Nancy,” replied Barney.
 
-“Not a soul,” replied Barney, speaking through his nose.
+“Nancy!” exclaimed Sikes. “Where? I swear, I admire that girl for her natural talents.”
 
-“No one?” asked Fagin, sounding surprised.
+“She’s having a plate of boiled beef in the bar,” replied Barney.
 
-“Nobody but Miss Nancy,” said Barney.
+“Send her here,” said Sikes, pouring a glass of liquor. “Send her here.”
 
-“Nancy!” cried Sikes. “Where is she? I respect that girl—she’s clever.”
+Barney glanced at Fagin for permission, but the Jew remained silent, his eyes fixed on the ground. Barney left and soon returned with Nancy, who was wearing a bonnet, apron, and carrying a basket and a key.
 
-“She’s having a plate of boiled beef in the bar,” said Barney.
+“On the job, are you, Nancy?” asked Sikes, offering her the glass.
 
-“Send her here,” said Sikes, pouring himself a drink. “Send her here.”
+“Yes, I am, Bill,” she replied, drinking it down. “And I’m tired of it. The young brat has been sick and stuck in bed, and—”
 
-Barney looked nervously at Fagin, as if asking permission. The Jew said nothing and kept his eyes on the floor, so Barney left the room. Soon he returned with Nancy, who was dressed for the street, wearing her bonnet and apron, and carrying a basket and a door key.
+“Ah, Nancy, dear!” said Fagin, looking up.
 
-“You’re working again, are you, Nancy?” asked Sikes, offering her a drink.
+A strange twitch of the Jew’s eyebrow and a narrowing of his eyes seemed to warn Nancy that she was saying too much. She immediately stopped and, with a few charming smiles at Mr. Sikes, changed the subject. About ten minutes later, Fagin began to cough, and Nancy announced it was time to go. Mr. Sikes, who was heading in the same direction, offered to walk with her. They left together, and the dog, which had been hiding in a backyard, slunk out and followed them from a distance.
 
-“Yes, I am, Bill,” she said, emptying the glass. “And I’m tired of it. The young boy has been sick and stuck in bed, and—”
+When Sikes was gone, the Jew stuck his head out the door and watched him walk down the dark passage. He shook his fist, muttered a curse, and then, with a horrible grin, sat back down at the table, where he became absorbed in a newspaper.
 
-“Ah, Nancy, my dear!” said Fagin, quickly looking up.
+Meanwhile, Oliver Twist was on his way to the bookstall, with no idea that he was so close to the “merry old gentleman.” In Clerkenwell, he accidentally took a wrong turn down a side street. Realizing his mistake halfway down, he knew it still led in the right general direction, so he decided not to turn back and walked on quickly, holding the books under his arm.
 
-Something in Fagin’s expression warned Nancy not to say too much. She stopped at once, smiled at Sikes, and changed the subject.
+He was thinking how happy he should feel, and how much he would give to see poor little Dick, who was likely starving and beaten at that very moment. Suddenly, he was startled by a young woman screaming, “Oh, my dear brother!” Before he could even look up, a pair of arms were thrown tightly around his neck.
 
-After about ten minutes, Fagin began coughing badly. Nancy pulled her shawl around her shoulders and said it was time to leave. Sikes, who was going the same way for a short distance, said he would walk with her. They left together. A little later, the dog quietly followed them, slipping out of a back yard once his master was out of sight.
+“Don’t!” cried Oliver, struggling. “Let go of me! Who is it? Why are you stopping me?”
 
-When Sikes had gone, Fagin stepped to the door, watched him walk down the dark passage, shook his fist, and muttered a curse. Then, with an ugly smile, he returned to the table and soon became deeply absorbed in reading the Hue and Cry.
+The only answer was a series of loud cries from the young woman who was holding him. She had a small basket and a key in her hand.
 
-Meanwhile, Oliver Twist had no idea that he was so close to the “kind old gentleman.” He was on his way to the bookstall. When he reached Clerkenwell, he accidentally turned into a side street. He didn’t realize his mistake until he was halfway down it, but since it seemed to go in the right direction, he decided not to turn back and continued walking quickly, carrying the books under his arm.
+“Oh, my goodness!” she cried. “I’ve found him! Oh, Oliver! Oliver! You naughty boy, making me worry so much! Come home, dear, come home. Oh, I’ve found him! Thank heavens, I’ve found him!” With these rambling words, she burst into another fit of tears, becoming so hysterical that a couple of women who had gathered around asked a butcher’s boy if he should run for a doctor. The boy, who seemed lazy, said he thought not.
 
-As he walked, he thought about how happy he should feel. He also thought sadly of poor little Dick, who might be crying at that very moment. Suddenly, he was startled by a young woman shouting loudly, “Oh, my dear brother!” Before he could understand what was happening, she threw her arms tightly around his neck.
+“Oh, no, never mind,” said the young woman, grabbing Oliver’s hand. “I’m better now. Come home right now, you cruel boy! Come on!”
 
-“Don’t!” cried Oliver, struggling. “Let me go! Who are you? Why are you stopping me?”
+“She said he ran away from his hard-working, respectable parents nearly a month ago,” the young woman explained to the crowd. “He joined a group of thieves and broke his mother’s heart.”
 
-The young woman did not answer. She only cried loudly and held him tighter. She had a small basket and a key in her hand.
+“Young wretch!” said one woman.
 
-“Oh my goodness!” she cried. “I’ve found him! Oh, Oliver! You naughty boy, making me suffer so much! Come home now, dear, come!” She burst into tears again and became so hysterical that two women nearby suggested calling a doctor. A butcher’s boy standing there said lazily that it wasn’t necessary.
+“Go home, you little brute,” said the other.
 
-“Oh no, no, I’m fine now,” said the young woman, holding Oliver’s hand. “Come home at once, you cruel boy! Come!”
+“I’m not!” cried Oliver, very alarmed. “I don’t know her. I don’t have a sister, or a father and mother. I’m an orphan; I live in Pentonville.”
 
-Then she turned to the others and said, “He ran away nearly a month ago from his honest, hardworking parents, joined a group of thieves, and almost broke his mother’s heart.”
+“Just listen to him, trying to deny it!” cried the young woman.
 
-“Wicked boy!” said one woman.
+“Why, it’s Nancy!” exclaimed Oliver, seeing her face for the first time and recoiling in shock.
 
-“Go home, you little brute,” said another.
+“You see? He knows me!” cried Nancy to the onlookers. “He can’t deny it. Make him come home, good people, or he’ll kill his dear mother and father and break my heart!”
 
-“I’m not!” cried Oliver in fear. “I don’t know her! I don’t have a sister—or parents. I’m an orphan. I live in Pentonville.”
-
-“Listen to him!” cried the young woman. “See how he lies!”
-
-“Why—it’s Nancy!” exclaimed Oliver, finally seeing her face. He stepped back in shock.
-
-“You see, he knows me!” cried Nancy to the crowd. “Make him come home, kind people, or he’ll kill his poor mother and father—and break my heart!”
-
-“What’s going on here?” said a man, coming out of a beer shop with a white dog behind him. “Young Oliver! Come home to your poor mother, you bad boy! Come at once!”
+“What’s all this?” said a man, bursting out of a pub with a white dog at his heels. “Young Oliver! Come home to your poor mother, you young dog! Come home right now.”
 
 “I don’t belong to them! I don’t know them! Help! Help!” cried Oliver, struggling in the man’s strong grip.
 
-“Help?” said the man. “Yes, I’ll help you, you little rascal! What books are these? Stolen them, have you? Give them here!” He snatched the books away and struck Oliver on the head.
+“Help?” the man repeated. “Yes, I’ll help you, you young rascal! What are these books? You’ve been stealing them, have you? Give them here.” With that, the man tore the books from Oliver’s grasp and hit him on the head.
 
-“That’s right!” shouted someone from a window above. “That’s how to deal with him!”
+“That’s right!” shouted a spectator from a high window. “That’s the only way to bring him to his senses!”
 
-“Of course!” said a carpenter nearby.
+“Exactly!” agreed a sleepy-faced carpenter, looking up approvingly.
 
 “It’ll do him good!” said the two women.
 
-“And he’ll get more of it!” said the man, hitting him again and grabbing him by the collar. “Come along, you villain! Watch him, Bull’s-eye! Watch him!”
+“And he’ll get more of it!” added the man, hitting Oliver again and grabbing him by the collar. “Come on, you young villain! Here, Bull’s-eye, watch him, boy! Watch him!”
 
-Oliver was weak from illness, stunned by the blows, terrified by the dog and the man’s violence, and surrounded by people who believed he was a bad child. What could he do? It was getting dark, the streets were empty, and no one came to help. Resistance was useless. Soon he was dragged through a maze of narrow, dark streets so quickly that his cries could hardly be understood—and no one was there to listen anyway.
+Weak from his recent illness, stunned by the blows and the surprise attack, and terrified by the dog’s growls and the man’s brutality, what could a poor child do? The crowd was convinced he was the hardened little criminal they described. Darkness had fallen, it was a rough neighborhood, no help was nearby, and resistance was useless. In another moment, he was dragged into a maze of dark, narrow alleys and forced along at a speed that made his few cries for help impossible to understand. Not that it mattered; no one was there to listen or care.
 
-The gas lamps were lit. Mrs. Bedwin waited anxiously at the open door. The servant had run up and down the street many times, hoping to see Oliver. Inside, the two old gentlemen still sat in the dark room, with the watch lying between them, waiting patiently.`,
+The gas lamps were lit. Mrs. Bedwin waited anxiously at the open door. The servant had run up the street twenty times to look for Oliver. And still, the two old gentlemen sat patiently in the dark parlor, a watch between them.`,
 }

@@ -20,3 +20,14 @@ Prefer ordinary functions rather than arrow functions. Use arrow functions only 
 Put reusable UI elements in the 'face/ui' directory.
 
 Данные пользователя можно взять из `face/stores/userStore.ts`.
+
+Чтобы показать уведомление нужно подключить
+```import { NotificationContext } from '@/ui/Notification/context'```
+Затем получить функцию
+```const { notify } = useContext(NotificationContext)```
+и вызвать её
+```notify({
+    type: 'error',
+    message:
+        'Не удалось удалить книгу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
+})```

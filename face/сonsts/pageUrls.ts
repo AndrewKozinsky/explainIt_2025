@@ -84,15 +84,15 @@ export const pageUrls = {
 		}
 	},
 	videos: {
-		name: 'Видео',
+		name: 'Фильмы',
 		path: '/videos',
 		video(videoId: string | number) {
 			return {
-				name: 'Видео',
+				name: 'Фильм',
 				path: '/videos/' + videoId,
 				watching: {
 					segment: 'watching',
-					name: 'Просмотр видео',
+					name: 'Просмотр фильма',
 					path: '/videos/' + videoId + '/watching',
 				},
 			}
@@ -102,12 +102,16 @@ export const pageUrls = {
 		name: 'Контакты',
 		path: '/contacts',
 	},
+	dictionary: {
+		name: 'Словарь',
+		path: '/dictionary',
+	},
 	help: {
 		name: 'Справка',
 		path: '/help',
 	},
 	me: {
-		name: 'Моя учётная запись',
+		name: 'Личный кабинет',
 		path: '/me',
 	},
 	docs: {

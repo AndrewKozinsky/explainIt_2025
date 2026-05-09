@@ -1,0 +1,67 @@
+@use '@/styles/variables' as vars;
+
+.dictionary-flashcard {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 2rem;
+}
+
+.dictionary-flashcard__content {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem;
+}
+
+.dictionary-flashcard__sentence {
+	display: flex;
+	flex-direction: column;
+	gap: .12rem;
+}
+.dictionary-flashcard__sentence-text {
+	font-size: 2rem;
+	line-height: 2.8rem;
+}
+.dictionary-flashcard__sentence-text-phrase {
+	display: inline-block;
+	font-weight: 500;
+	padding: 0 .6rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-1;
+}
+.dictionary-flashcard__sentence-translate {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	color: vars.$grayColor-5
+}
+
+.dictionary-flashcard__phrase {
+	display: flex;
+	align-items: center;
+	gap: .12em;
+	flex-wrap: wrap;
+	font-size: 3.6rem;
+	line-height: 4rem;
+	font-weight: 500;
+}
+
+.dictionary-flashcard__phrase-transcription {
+	font-size: 0.8em;
+	padding: 0.05em .3em;
+	transform: translateY(.1em);
+	border-radius: vars.$radius-2;
+
+	.transcription-audio__icon-wrapper {
+		width: .4em;
+	}
+}
+
+.dictionary-flashcard__examples {
+	display: flex;
+	flex-direction: column;
+	gap: .4rem;
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	padding-left: 1.4rem;
+	margin-top: .2rem;
+}

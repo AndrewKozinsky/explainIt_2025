@@ -3,6 +3,6 @@
 This document was split into multiple files for easier navigation.
 
 ## Categories
-- **General**: `aiDocs/general.md`
-- **Client (face)**: `aiDocs/client.md`
-- **Server (server)**: `aiDocs/server.md`
+- **General**: `aiDocsRus/general.md`
+- **Client (face)**: `aiDocsRus/client.md`
+- **Server (server)**: `aiDocsRus/server.md`

@@ -13,7 +13,6 @@ query UniversalPhrase_get($input: GetUniversalPhraseInput!) {
 			id
 			universalPhraseId
 			audioUrl
-			durationMs
 		}
 	}
 }

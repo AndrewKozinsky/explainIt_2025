@@ -4,6 +4,7 @@ import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { dryText, removeBOM } from 'features/mediaCommon'
 import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
@@ -43,6 +44,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 
 		const isBookPublic = createBookChapterInput.bookType === 'public'
 		let bookUserId: null | number = null
+		let bookLanguageCode: null | Language = null
 
 		if (isBookPublic) {
 			// Check if the book exists
@@ -50,6 +52,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			if (!bookForChapter) {
 				throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
 			}
+			bookLanguageCode = bookForChapter.languageCode as Language
 		} else {
 			// Check if the book exists
 			const bookForChapter = await this.bookQueryRepository.getBookById(createBookChapterInput.bookId)
@@ -58,6 +61,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			}
 
 			bookUserId = bookForChapter.userId
+			bookLanguageCode = (bookForChapter.languageCode ?? null) as null | Language
 		}
 
 		// Throw an error if this user is not the owner of the book
@@ -82,10 +86,15 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 		}
 
 		if (processedContent) {
+			if (!bookLanguageCode) {
+				throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+			}
+
 			await generateSentencesAndSaveToDB({
 				mainConfigService: this.mainConfigService,
 				sentenceRepository: this.sentenceRepository,
 				processedContent,
+				languageCode: bookLanguageCode,
 				bookChapterId: newBookChapter.id,
 			})
 		}

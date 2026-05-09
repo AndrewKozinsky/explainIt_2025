@@ -91,6 +91,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 						videoType: 'public',
 						videoId: newVideo.id,
 						preparedContent: preparedContentResult.processedContent,
+						languageCode: videoData.languageCode as Language,
 						subtitles: preparedContentResult.subtitles,
 						sentenceRepository: this.sentenceRepository,
 						subtitleRepository: this.subtitleRepository,
@@ -101,6 +102,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 						mainConfigService: this.mainConfig,
 						sentenceRepository: this.sentenceRepository,
 						processedContent: preparedContentResult.processedContent,
+						languageCode: videoData.languageCode as Language,
 						videoPublicId: newVideo.id,
 					})
 				}
@@ -147,10 +149,10 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'english/charade_3.jpg',
 					coversFolderName + 'english/charade_4.jpg',
 				],
-				coverBackgroundColor: '#444A21',
+				coverBackgroundColor: '#445a53',
 			},
 			{
-				freeToUse: false,
+				freeToUse: true,
 				name: 'His Girl Friday', // His Girl Friday (1940).mp4
 				languageCode: 'en',
 				year: 1940,
@@ -159,7 +161,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Живые диалоги, быстрая разговорная речь, много юмора и сарказма, журналистская и повседневная лексика. Это фильм о работе, амбициях, любви и о том, как трудно выбрать между карьерой и личной жизнью.
 Рекомендуемый уровень: B2-C1 (Upper-Intermediate / Advanced).`,
 				fileName: 'His Girl Friday (1940).webm',
-				file_s3_key: folderName + '/english/His Girl Friday (1940).webm',
+				file_s3_key: folderName + '/english/His Girl Friday (1940).mp4',
 				originalContent: hisGirlFridaySubs,
 				covers: [
 					coversFolderName + 'english/his_girl_friday_1.jpg',
@@ -167,7 +169,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'english/his_girl_friday_3.jpg',
 					coversFolderName + 'english/his_girl_friday_4.jpg',
 				],
-				coverBackgroundColor: '#24181A',
+				coverBackgroundColor: '#78675a',
 			},
 		]
 	}

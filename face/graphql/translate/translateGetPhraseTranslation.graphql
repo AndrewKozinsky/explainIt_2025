@@ -14,5 +14,6 @@ query Translate_get_phrase_translation($input: GetPhraseTranslationInput!) {
 		errorMessage
 		createdAt
 		updatedAt
+		flashcardId
 	}
 }
