@@ -2,7 +2,6 @@ import { Language, languages } from 'utils/languages'
 
 type BuildPhraseTranslationPromptInput = {
 	sourceLanguageCode: Language
-	targetLanguageCode: Language
 	sentenceText: string
 	selectedWord: string
 	selectedWordStartOffset: number
@@ -14,7 +13,7 @@ type BuildPhraseTranslationPromptInput = {
 }
 
 export function buildPhraseTranslationPrompt(input: BuildPhraseTranslationPromptInput) {
-	const targetLanguage = languages[input.targetLanguageCode].nameRus
+	const targetLanguage = 'Русский'
 	const sourceLanguage = languages[input.sourceLanguageCode].nameRus
 
 	const mediaContext = buildMediaContext({

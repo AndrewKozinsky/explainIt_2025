@@ -7,7 +7,6 @@ import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 export type TranslateTextInput = {
 	text: string
-	targetLanguageCode?: string
 	sourceLanguageCode?: string
 }
 
@@ -28,7 +27,6 @@ export class YandexTranslateService {
 				'https://translate.api.cloud.yandex.net/translate/v2/translate',
 				{
 					texts: [input.text],
-					targetLanguageCode: input.targetLanguageCode,
 					sourceLanguageCode: input.sourceLanguageCode,
 					folderId,
 				},

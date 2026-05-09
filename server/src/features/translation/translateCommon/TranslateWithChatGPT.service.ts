@@ -20,7 +20,6 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 		input: {
 			text: string
 			sourceLanguageCode: Language
-			targetLanguageCode: Language
 			lowPriority?: boolean
 			bookName?: string
 			bookAuthor?: string
@@ -34,7 +33,6 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 		const messages = this.getTranslationTask(
 			{
 				sourceLanguageCode: input.sourceLanguageCode,
-				targetLanguageCode: input.targetLanguageCode,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,
 				videoName: input.videoName,
@@ -77,7 +75,6 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 			selectedWordStartOffset: number
 			selectedWordEndOffset: number
 			sourceLanguageCode: string
-			targetLanguageCode: string
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string
@@ -94,7 +91,6 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 					role: 'system',
 					content: buildPrompt({
 						sourceLanguageCode: input.sourceLanguageCode as Language,
-						targetLanguageCode: input.targetLanguageCode as Language,
 						sentenceText: input.text,
 						selectedWord: input.selectedWord,
 						selectedWordStartOffset: input.selectedWordStartOffset,
@@ -120,7 +116,6 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 	private getTranslationTask(
 		input: {
 			sourceLanguageCode: Language
-			targetLanguageCode: Language
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string

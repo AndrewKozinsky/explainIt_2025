@@ -687,13 +687,6 @@ export const bdConfig = {
 				minLength: 2,
 				maxLength: 2,
 			},
-			targetLanguageCode: {
-				type: 'string',
-				description: 'Target language code',
-				required: false,
-				minLength: 2,
-				maxLength: 2,
-			},
 			bookName: {
 				type: 'string',
 				description: 'Name of the book',

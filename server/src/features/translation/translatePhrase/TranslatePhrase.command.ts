@@ -33,7 +33,6 @@ export type TranslatePhraseInput = {
 	selectedWordStartOffset: number
 	selectedWordEndOffset: number
 	sourceLanguageCode?: null | LanguageCode
-	targetLanguageCode?: null | LanguageCode
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -83,7 +82,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		const pendingPhrase = await this.ensurePendingPhraseRow(command.input)
 
 		const sourceLanguageCode = command.input.sourceLanguageCode ?? 'en'
-		const targetLanguageCode = command.input.targetLanguageCode ?? 'ru'
 
 		const provider = this.getTranslationProvider()
 
@@ -95,7 +93,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 					selectedWordStartOffset: command.input.selectedWordStartOffset,
 					selectedWordEndOffset: command.input.selectedWordEndOffset,
 					sourceLanguageCode,
-					targetLanguageCode,
 					bookName: command.input.bookName,
 					bookAuthor: command.input.bookAuthor,
 					videoName: command.input.videoName,
