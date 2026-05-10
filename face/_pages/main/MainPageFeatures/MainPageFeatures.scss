@@ -1,4 +1,10 @@
 @use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.main-page-features-wrapper {
+	position: relative;
+	container-type: inline-size;
+}
 
 .main-page-features {
 	display: flex;
@@ -24,7 +30,7 @@
 .main-page-feature {
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
+	gap: 1.6rem;
 	width: 336px;
 }
 
@@ -53,4 +59,29 @@
 	margin-top: calc(336px / 2 - 6rem / 2);
 	border: 1px solid vars.$grayColor-2;
 	border-radius: 50%;
+}
+
+.main-page-features__controls {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+	padding-top: 1.5rem; // Add some space above the buttons
+
+	@include mix.container-width(1328px) {
+		display: none;
+	}
+}
+
+.scroll-button {
+	background-color: vars.$grayColor-2;
+	border: none;
+	border-radius: 5rem;
+	font-size: 1.5rem;
+	cursor: pointer;
+	padding: .5rem 2rem;
+	transition: background-color .2s;
+
+	&:hover {
+		background-color: vars.$grayColor-3;
+	}
 }
