@@ -1,4 +1,4 @@
-import { publicFolderFilesUrls } from '../../../../utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import Button from './Button'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 
@@ -22,7 +22,7 @@ export const AllVariants: Story = {
 			<Button theme='danger' disabled>
 				Danger disabled
 			</Button>
-			<Button theme='regular' icon={publicFolderFilesUrls.icons.githubButtonIcon}>
+			<Button theme='regular' icon={filesUrls.icons.githubButtonIcon}>
 				Github
 			</Button>
 			<Button theme='regular' loading>

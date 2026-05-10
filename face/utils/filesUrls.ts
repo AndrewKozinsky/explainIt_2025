@@ -1,0 +1,85 @@
+const yaS3Url = 'https://storage.yandexcloud.net/explain/'
+const s3AssetsUrl = yaS3Url + 'assets/'
+
+export const filesUrls = {
+	icons: {
+		editButtonIcon: '/icons/editButtonIcon.svg',
+		githubButtonIcon: '/icons/githubButtonIcon.svg',
+		googleButtonIcon: '/icons/googleButtonIcon.svg',
+		plusButtonIcon: '/icons/plusButtonIcon.svg',
+		trashButtonIcon: '/icons/trashButtonIcon.svg',
+		walletButtonIcon: '/icons/walletButtonIcon.svg',
+		yandexButtonIcon: '/icons/yandexButtonIcon.svg',
+		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',
+		warningTriangleIcon: '/icons/warningTriangleIcon.svg',
+		copyButtonIcon: '/icons/copyButtonIcon.svg',
+		actionButtonIcon: '/icons/actionButtonIcon.svg',
+		checkMarkIcon: '/icons/checkMarkIcon.svg',
+		sendMessageIcon: '/icons/sendMessageIcon.svg',
+		stopGenerationIcon: '/icons/stopGenerationIcon.svg',
+		addIcon: '/icons/addIcon.svg',
+	},
+	images: {
+		common: {
+			camera: 'Camera.svg',
+			logo: 'logo.svg',
+			navArrowLeft: 'navArrowLeft.svg',
+			navArrowRight: 'navArrowRight.svg',
+		},
+	},
+	mainPage: {
+		anyDevices: '/mainPage/anyDevices.svg',
+		sherlockHolmes: '/mainPage/sherlockHolmes.png',
+		ironMan: '/mainPage/ironMan.png',
+		roundPlay: '/mainPage/roundPlay.svg',
+		roundArrow: '/mainPage/roundArrow.svg',
+		roundArrowWhite: '/mainPage/roundArrowWhite.svg',
+		bookIcon: '/mainPage/bookIcon.svg',
+		videoIcon: '/mainPage/videoIcon.svg',
+		booksCovers: [
+			s3AssetsUrl + 'mainPage/covers/1.webp',
+			s3AssetsUrl + 'mainPage/covers/2.webp',
+			s3AssetsUrl + 'mainPage/covers/3.webp',
+			s3AssetsUrl + 'mainPage/covers/4.webp',
+			s3AssetsUrl + 'mainPage/covers/5.webp',
+			s3AssetsUrl + 'mainPage/covers/6.webp',
+			s3AssetsUrl + 'mainPage/covers/7.webp',
+			s3AssetsUrl + 'mainPage/covers/8.webp',
+			s3AssetsUrl + 'mainPage/covers/9.webp',
+			s3AssetsUrl + 'mainPage/covers/10.webp',
+			s3AssetsUrl + 'mainPage/covers/11.webp',
+			s3AssetsUrl + 'mainPage/covers/12.webp',
+			s3AssetsUrl + 'mainPage/covers/13.webp',
+			s3AssetsUrl + 'mainPage/covers/14.webp',
+			s3AssetsUrl + 'mainPage/covers/15.webp',
+			s3AssetsUrl + 'mainPage/covers/17.webp',
+			s3AssetsUrl + 'mainPage/covers/18.webp',
+			s3AssetsUrl + 'mainPage/covers/19.webp',
+			s3AssetsUrl + 'mainPage/covers/20.webp',
+			s3AssetsUrl + 'mainPage/covers/21.webp',
+			s3AssetsUrl + 'mainPage/covers/22.webp',
+			s3AssetsUrl + 'mainPage/covers/23.webp',
+		],
+		features: {
+			phone: {
+				'1x': s3AssetsUrl + 'mainPage/features/phone@1x.webp',
+				'2x': s3AssetsUrl + 'mainPage/features/phone@2x.webp',
+			},
+
+			dictionary: {
+				'1x': s3AssetsUrl + 'mainPage/features/dictionary@1x.webp',
+				'2x': s3AssetsUrl + 'mainPage/features/dictionary@2x.webp',
+			},
+			assistant: {
+				'1x': s3AssetsUrl + 'mainPage/features/assistent@1x.webp',
+				'2x': s3AssetsUrl + 'mainPage/features/assistent@2x.webp',
+			},
+		},
+	},
+	onboardingModal: {
+		selectedWord: {
+			'1x': s3AssetsUrl + 'onboardingModal/selectedWord@1x.png',
+			'2x': s3AssetsUrl + 'onboardingModal/selectedWord@2x.png',
+		},
+	},
+}

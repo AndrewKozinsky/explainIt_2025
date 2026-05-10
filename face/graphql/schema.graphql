@@ -187,6 +187,11 @@ type FlashcardOutModel {
   videoPublicId: Int
 }
 
+input GenerateSubtitlesForPrivateVideoInput {
+  """Id of the private video to generate subtitles for"""
+  videoId: Int!
+}
+
 input GetBookChapterInput {
   """Book type: public or private"""
   bookType: String!
@@ -362,6 +367,11 @@ type Mutation {
   """Delete a video"""
   video_private_delete(input: DeletePrivateVideoInput!): Boolean!
 
+  """
+  Enqueue automatic subtitles generation (ASR) for a private uploaded video. Requires min balance.
+  """
+  video_private_generate_subtitles(input: GenerateSubtitlesForPrivateVideoInput!): VideoPrivateSubtitlesStatusOutModel!
+
   """Update a video"""
   video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
 }
@@ -410,6 +420,11 @@ type Query {
 
   """Get a video"""
   video_private_get(input: GetPrivateVideoInput!): VideoPrivateOutModel!
+
+  """
+  Poll current status of automatic subtitles generation for a private video.
+  """
+  video_private_get_subtitles_generation_status(input: VideoPrivateSubtitlesStatusInput!): VideoPrivateSubtitlesStatusOutModel!
 
   """Get user videos"""
   video_private_user_videos: [VideoPrivateLiteOutModel!]!
@@ -497,6 +512,15 @@ type SubtitleSentenceInitOutModel {
   subtitleId: Int!
 }
 
+"""Lifecycle status of automatic subtitles generation for a private video"""
+enum SubtitlesGenerationStatus {
+  done
+  failed
+  idle
+  pending
+  processing
+}
+
 input TopUpBalanceWithYooKassaInput {
   """Amount in kopecks"""
   amountInKopecks: Int!
@@ -528,9 +552,6 @@ input TranslatePhraseInput {
   """Source language code"""
   sourceLanguageCode: String
 
-  """Target language code"""
-  targetLanguageCode: String
-
   """Full sentence text"""
   text: String!
   videoName: String
@@ -549,9 +570,6 @@ input TranslateSentenceInput {
 
   """Source language code"""
   sourceLanguageCode: String
-
-  """Target language code"""
-  targetLanguageCode: String
 
   """Sentence for translation"""
   text: String!
@@ -713,6 +731,21 @@ type VideoPrivateSubtitleOutModel {
   orderIndex: Int!
   startOffset: Int!
   startTimeMs: Int!
+}
+
+input VideoPrivateSubtitlesStatusInput {
+  """Id of the private video to poll subtitles generation status for"""
+  videoId: Int!
+}
+
+type VideoPrivateSubtitlesStatusOutModel {
+  error: String
+  jobId: String
+
+  """ISO 8601 timestamp when current generation job started"""
+  startedAt: String
+  status: SubtitlesGenerationStatus!
+  videoId: Int!
 }
 
 type VideoPublicLiteOutModel {

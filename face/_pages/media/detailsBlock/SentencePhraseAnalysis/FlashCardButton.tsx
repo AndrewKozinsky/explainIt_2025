@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import { useFlashCardButton } from './fn/useFlashCardButton'
 
 type FlashCardButtonProps = {
@@ -21,7 +21,7 @@ function FlashCardButton(props: FlashCardButtonProps) {
 			onClick={view.onClick}
 			disabled={view.disabled}
 		>
-			<img src={publicFolderFilesUrls.icons.addIcon} alt='' />
+			<img src={filesUrls.icons.addIcon} alt='' />
 		</button>
 	)
 }

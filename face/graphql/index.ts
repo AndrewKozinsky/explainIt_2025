@@ -201,6 +201,11 @@ export type FlashcardOutModel = {
   videoPublicId?: Maybe<Scalars['Int']['output']>;
 };
 
+export type GenerateSubtitlesForPrivateVideoInput = {
+  /** Id of the private video to generate subtitles for */
+  videoId: Scalars['Int']['input'];
+};
+
 export type GetBookChapterInput = {
   /** Book type: public or private */
   bookType: Scalars['String']['input'];
@@ -340,6 +345,8 @@ export type Mutation = {
   video_private_create: CreateVideoPrivateOutModel;
   /** Delete a video */
   video_private_delete: Scalars['Boolean']['output'];
+  /** Enqueue automatic subtitles generation (ASR) for a private uploaded video. Requires min balance. */
+  video_private_generate_subtitles: VideoPrivateSubtitlesStatusOutModel;
   /** Update a video */
   video_private_update: UpdateVideoPrivateOutModel;
 };
@@ -460,6 +467,11 @@ export type MutationVideo_Private_DeleteArgs = {
 };
 
 
+export type MutationVideo_Private_Generate_SubtitlesArgs = {
+  input: GenerateSubtitlesForPrivateVideoInput;
+};
+
+
 export type MutationVideo_Private_UpdateArgs = {
   input: UpdatePrivateVideoInput;
 };
@@ -494,6 +506,8 @@ export type Query = {
   universal_phrase_get: UniversalPhraseOutModel;
   /** Get a video */
   video_private_get: VideoPrivateOutModel;
+  /** Poll current status of automatic subtitles generation for a private video. */
+  video_private_get_subtitles_generation_status: VideoPrivateSubtitlesStatusOutModel;
   /** Get user videos */
   video_private_user_videos: Array<VideoPrivateLiteOutModel>;
   /** Get public video */
@@ -550,6 +564,11 @@ export type QueryUniversal_Phrase_GetArgs = {
 
 export type QueryVideo_Private_GetArgs = {
   input: GetPrivateVideoInput;
+};
+
+
+export type QueryVideo_Private_Get_Subtitles_Generation_StatusArgs = {
+  input: VideoPrivateSubtitlesStatusInput;
 };
 
 
@@ -639,6 +658,15 @@ export type SubtitleSentenceInitOutModel = {
   subtitleId: Scalars['Int']['output'];
 };
 
+/** Lifecycle status of automatic subtitles generation for a private video */
+export enum SubtitlesGenerationStatus {
+  Done = 'done',
+  Failed = 'failed',
+  Idle = 'idle',
+  Pending = 'pending',
+  Processing = 'processing'
+}
+
 export type TopUpBalanceWithYooKassaInput = {
   /** Amount in kopecks */
   amountInKopecks: Scalars['Int']['input'];
@@ -665,8 +693,6 @@ export type TranslatePhraseInput = {
   sentenceId: Scalars['Float']['input'];
   /** Source language code */
   sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
-  /** Target language code */
-  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
   /** Full sentence text */
   text: Scalars['String']['input'];
   videoName?: InputMaybe<Scalars['String']['input']>;
@@ -682,8 +708,6 @@ export type TranslateSentenceInput = {
   sentenceId: Scalars['Float']['input'];
   /** Source language code */
   sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
-  /** Target language code */
-  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
   /** Sentence for translation */
   text: Scalars['String']['input'];
   /** Video name */
@@ -836,6 +860,21 @@ export type VideoPrivateSubtitleOutModel = {
   orderIndex: Scalars['Int']['output'];
   startOffset: Scalars['Int']['output'];
   startTimeMs: Scalars['Int']['output'];
+};
+
+export type VideoPrivateSubtitlesStatusInput = {
+  /** Id of the private video to poll subtitles generation status for */
+  videoId: Scalars['Int']['input'];
+};
+
+export type VideoPrivateSubtitlesStatusOutModel = {
+  __typename?: 'VideoPrivateSubtitlesStatusOutModel';
+  error?: Maybe<Scalars['String']['output']>;
+  jobId?: Maybe<Scalars['String']['output']>;
+  /** ISO 8601 timestamp when current generation job started */
+  startedAt?: Maybe<Scalars['String']['output']>;
+  status: SubtitlesGenerationStatus;
+  videoId: Scalars['Int']['output'];
 };
 
 export type VideoPublicLiteOutModel = {
@@ -1138,12 +1177,26 @@ export type VideoPrivate_DeleteVariables = Exact<{
 
 export type VideoPrivate_Delete = { __typename?: 'Mutation', video_private_delete: boolean };
 
+export type VideoPrivate_GenerateSubtitlesVariables = Exact<{
+  input: GenerateSubtitlesForPrivateVideoInput;
+}>;
+
+
+export type VideoPrivate_GenerateSubtitles = { __typename?: 'Mutation', video_private_generate_subtitles: { __typename?: 'VideoPrivateSubtitlesStatusOutModel', videoId: number, status: SubtitlesGenerationStatus, error?: string | null, startedAt?: string | null, jobId?: string | null } };
+
 export type VideoPrivate_GetVariables = Exact<{
   input: GetPrivateVideoInput;
 }>;
 
 
 export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+
+export type VideoPrivate_GetSubtitlesGenerationStatusVariables = Exact<{
+  input: VideoPrivateSubtitlesStatusInput;
+}>;
+
+
+export type VideoPrivate_GetSubtitlesGenerationStatus = { __typename?: 'Query', video_private_get_subtitles_generation_status: { __typename?: 'VideoPrivateSubtitlesStatusOutModel', videoId: number, status: SubtitlesGenerationStatus, error?: string | null, startedAt?: string | null, jobId?: string | null } };
 
 export type VideoPrivate_GetUserVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -2756,6 +2809,43 @@ export function useVideoPrivate_Delete(baseOptions?: Apollo.MutationHookOptions<
 export type VideoPrivate_DeleteHookResult = ReturnType<typeof useVideoPrivate_Delete>;
 export type VideoPrivate_DeleteMutationResult = Apollo.MutationResult<VideoPrivate_Delete>;
 export type VideoPrivate_DeleteMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_Delete, VideoPrivate_DeleteVariables>;
+export const VideoPrivate_GenerateSubtitlesDocument = gql`
+    mutation VideoPrivate_generateSubtitles($input: GenerateSubtitlesForPrivateVideoInput!) {
+  video_private_generate_subtitles(input: $input) {
+    videoId
+    status
+    error
+    startedAt
+    jobId
+  }
+}
+    `;
+export type VideoPrivate_GenerateSubtitlesMutationFn = Apollo.MutationFunction<VideoPrivate_GenerateSubtitles, VideoPrivate_GenerateSubtitlesVariables>;
+
+/**
+ * __useVideoPrivate_GenerateSubtitles__
+ *
+ * To run a mutation, you first call `useVideoPrivate_GenerateSubtitles` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_GenerateSubtitles` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [videoPrivateGenerateSubtitles, { data, loading, error }] = useVideoPrivate_GenerateSubtitles({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_GenerateSubtitles(baseOptions?: Apollo.MutationHookOptions<VideoPrivate_GenerateSubtitles, VideoPrivate_GenerateSubtitlesVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<VideoPrivate_GenerateSubtitles, VideoPrivate_GenerateSubtitlesVariables>(VideoPrivate_GenerateSubtitlesDocument, options);
+      }
+export type VideoPrivate_GenerateSubtitlesHookResult = ReturnType<typeof useVideoPrivate_GenerateSubtitles>;
+export type VideoPrivate_GenerateSubtitlesMutationResult = Apollo.MutationResult<VideoPrivate_GenerateSubtitles>;
+export type VideoPrivate_GenerateSubtitlesMutationOptions = Apollo.BaseMutationOptions<VideoPrivate_GenerateSubtitles, VideoPrivate_GenerateSubtitlesVariables>;
 export const VideoPrivate_GetDocument = gql`
     query VideoPrivate_get($input: GetPrivateVideoInput!) {
   video_private_get(input: $input) {
@@ -2837,6 +2927,53 @@ export type VideoPrivate_GetHookResult = ReturnType<typeof useVideoPrivate_Get>;
 export type VideoPrivate_GetLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetLazyQuery>;
 export type VideoPrivate_GetSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSuspenseQuery>;
 export type VideoPrivate_GetQueryResult = Apollo.QueryResult<VideoPrivate_Get, VideoPrivate_GetVariables>;
+export const VideoPrivate_GetSubtitlesGenerationStatusDocument = gql`
+    query VideoPrivate_getSubtitlesGenerationStatus($input: VideoPrivateSubtitlesStatusInput!) {
+  video_private_get_subtitles_generation_status(input: $input) {
+    videoId
+    status
+    error
+    startedAt
+    jobId
+  }
+}
+    `;
+
+/**
+ * __useVideoPrivate_GetSubtitlesGenerationStatus__
+ *
+ * To run a query within a React component, call `useVideoPrivate_GetSubtitlesGenerationStatus` and pass it any options that fit your needs.
+ * When your component renders, `useVideoPrivate_GetSubtitlesGenerationStatus` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useVideoPrivate_GetSubtitlesGenerationStatus({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useVideoPrivate_GetSubtitlesGenerationStatus(baseOptions: Apollo.QueryHookOptions<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables> & ({ variables: VideoPrivate_GetSubtitlesGenerationStatusVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>(VideoPrivate_GetSubtitlesGenerationStatusDocument, options);
+      }
+export function useVideoPrivate_GetSubtitlesGenerationStatusLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>(VideoPrivate_GetSubtitlesGenerationStatusDocument, options);
+        }
+// @ts-ignore
+export function useVideoPrivate_GetSubtitlesGenerationStatusSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>): Apollo.UseSuspenseQueryResult<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>;
+export function useVideoPrivate_GetSubtitlesGenerationStatusSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>): Apollo.UseSuspenseQueryResult<VideoPrivate_GetSubtitlesGenerationStatus | undefined, VideoPrivate_GetSubtitlesGenerationStatusVariables>;
+export function useVideoPrivate_GetSubtitlesGenerationStatusSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>(VideoPrivate_GetSubtitlesGenerationStatusDocument, options);
+        }
+export type VideoPrivate_GetSubtitlesGenerationStatusHookResult = ReturnType<typeof useVideoPrivate_GetSubtitlesGenerationStatus>;
+export type VideoPrivate_GetSubtitlesGenerationStatusLazyQueryHookResult = ReturnType<typeof useVideoPrivate_GetSubtitlesGenerationStatusLazyQuery>;
+export type VideoPrivate_GetSubtitlesGenerationStatusSuspenseQueryHookResult = ReturnType<typeof useVideoPrivate_GetSubtitlesGenerationStatusSuspenseQuery>;
+export type VideoPrivate_GetSubtitlesGenerationStatusQueryResult = Apollo.QueryResult<VideoPrivate_GetSubtitlesGenerationStatus, VideoPrivate_GetSubtitlesGenerationStatusVariables>;
 export const VideoPrivate_GetUserVideosDocument = gql`
     query VideoPrivate_getUserVideos {
   video_private_user_videos {

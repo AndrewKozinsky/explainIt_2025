@@ -1,0 +1,9 @@
+mutation VideoPrivate_generateSubtitles($input: GenerateSubtitlesForPrivateVideoInput!) {
+	video_private_generate_subtitles(input: $input) {
+		videoId
+		status
+		error
+		startedAt
+		jobId
+	}
+}

@@ -1,4 +1,4 @@
-import { publicFolderFilesUrls } from '../../utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import Button from '../formRelated/buttons/Button/Button'
 import Modal from '../Modal/Modal'
 import Paragraph from '../Paragraph/Paragraph'
@@ -27,7 +27,7 @@ function DeleteEntityModal(props: DeleteBookModalProps) {
 			<Button
 				theme='danger'
 				onClick={deleteEntity}
-				icon={publicFolderFilesUrls.icons.trashButtonIcon}
+				icon={filesUrls.icons.trashButtonIcon}
 				loading={isDeleteButtonLoading}
 			>
 				{modal.confirmButtonText}

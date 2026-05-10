@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import './MainPageGallery.scss'
-import { publicFolderFilesUrls } from '../../../utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 
 interface ImageDisplayData {
 	id: string // Unique ID for keying
@@ -67,7 +67,7 @@ const useFinalLayoutGap = () => {
 }
 
 function MainPageGallery() {
-	const allImages = publicFolderFilesUrls.mainPage.booksCovers
+	const allImages = filesUrls.mainPage.booksCovers
 	const totalImages = allImages.length
 
 	const finalExtraGap = useFinalLayoutGap()
