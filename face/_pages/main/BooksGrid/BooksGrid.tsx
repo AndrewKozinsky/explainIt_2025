@@ -1,5 +1,5 @@
 import React from 'react'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import { LanguageCode, languages } from 'utils/utils'
 import { BookData, useGetBooksData } from './fn/getBooks'
 import './BooksGrid.scss'
@@ -66,7 +66,7 @@ function Book(props: BookProps) {
 				style={{ backgroundImage: `url("${bookData.cover}")` }}
 			>
 				<div className='books-grid__book-link-mark'>
-					<img src={publicFolderFilesUrls.mainPage.roundArrowWhite} alt='' />
+					<img src={filesUrls.mainPage.roundArrowWhite} alt='' />
 					Открыть
 				</div>
 			</a>

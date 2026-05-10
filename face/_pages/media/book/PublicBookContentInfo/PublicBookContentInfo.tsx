@@ -1,5 +1,5 @@
 import { useRouter } from 'next/navigation'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
@@ -43,7 +43,7 @@ function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 
 	return (
 		<div className='public-book-info__actions'>
-			<Button onClick={handleActionClick} icon={publicFolderFilesUrls.icons.actionButtonIcon}>
+			<Button onClick={handleActionClick} icon={filesUrls.icons.actionButtonIcon}>
 				{actionLabel}
 			</Button>
 		</div>

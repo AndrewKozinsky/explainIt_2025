@@ -47,9 +47,19 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 	) {}
 
 	async execute() {
-		for (let i = 0; i < this.getBooksData().length; i++) {
-			const { book, chapters } = this.getBooksData()[i]
-			await this.createBookAndChaptersOfNotExists(book, chapters)
+		const booksData = this.getBooksData()
+		const createdBooks = []
+
+		for (const data of booksData) {
+			const bookId = await this.getOrCreateBookOfNotExists(data.book)
+			createdBooks.push({
+				bookId,
+				chapters: data.chapters,
+			})
+		}
+
+		for (const createdBook of createdBooks) {
+			await this.createBookChaptersOfNotExists(createdBook.bookId, createdBook.chapters)
 		}
 	}
 
@@ -105,12 +115,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 		]
 	}
 
-	async createBookAndChaptersOfNotExists(bookData: CreateBookPublicInput, chaptersData: ChapterData[]) {
-		let bookId = await this.createBookOfNotExists(bookData)
-		await this.createBookChaptersOfNotExists(bookId, chaptersData)
-	}
-
-	async createBookOfNotExists(bookData: CreateBookPublicInput) {
+	async getOrCreateBookOfNotExists(bookData: CreateBookPublicInput) {
 		const existingBook = await this.bookPublicRepository.getBook({ name: bookData.name, author: bookData.author })
 		if (existingBook) return existingBook.id
 
@@ -128,6 +133,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				bookType: 'public',
 				bookId,
 				name: bookChapter.name,
+				header: bookChapter.header,
 			})
 			if (existingBookChapter) {
 				continue

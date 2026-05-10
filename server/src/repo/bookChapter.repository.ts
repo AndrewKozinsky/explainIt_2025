@@ -56,10 +56,12 @@ export class BookChapterRepository {
 		id?: number
 		bookId?: number
 		name?: null | string
+		header?: null | string
 	}) {
 		const where: Prisma.BookChapterWhereInput = {}
 		if (input.id) where.id = input.id
 		if (input.name) where.name = input.name
+		if (input.header) where.header = input.header
 
 		if (!input.id && input.bookId) {
 			const bookKey = input.bookType === 'public' ? 'book_public_id' : 'book_id'
