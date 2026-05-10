@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import './InfoBlock.scss'
 
 interface InfoBlockProps {
@@ -14,7 +14,7 @@ function InfoBlock(props: InfoBlockProps) {
 
 	return (
 		<div className={cn('info-block', `info-block--${props.type}`)} data-testid={dataTestId}>
-			<img src={publicFolderFilesUrls.icons.warningTriangleIcon} alt='Warning triangle' />
+			<img src={filesUrls.icons.warningTriangleIcon} alt='Warning triangle' />
 			{children}
 		</div>
 	)

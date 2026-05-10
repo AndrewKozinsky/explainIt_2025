@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import cn from 'classnames'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 
-const covers = publicFolderFilesUrls.mainPage.booksCovers
+const covers = filesUrls.mainPage.booksCovers
 const VISIBLE_DURATION = 3000 // How long the cover stays visible
 const FADE_DURATION = 600 // Must match the SCSS transition duration
 const GAP_DURATION = 1200 // Duration of the gap between images fading out and new ones appearing

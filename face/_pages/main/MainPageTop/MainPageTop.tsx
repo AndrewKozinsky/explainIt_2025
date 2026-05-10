@@ -1,6 +1,6 @@
 import './MainPageTop.scss'
 import Link from 'next/link'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import MainPageGallery from '_pages/main/MainPageGallery/MainPageGallery'
 import { pageUrls } from 'сonsts/pageUrls'
 
@@ -11,19 +11,14 @@ function MainPageTop() {
 				Совершенствуйте язык через{' '}
 				<span className='main-page-top__header-block'>
 					<img
-						src={publicFolderFilesUrls.mainPage.sherlockHolmes}
+						src={filesUrls.mainPage.sherlockHolmes}
 						className='main-page-top__header-icon'
 						alt='CherlockIcon'
 					/>{' '}
 					<span className='main-page-top__header-fancy'>книги</span>
 				</span>{' '}
 				<span className='main-page-top__header-block'>
-					и{' '}
-					<img
-						src={publicFolderFilesUrls.mainPage.ironMan}
-						className='main-page-top__header-icon'
-						alt='CherlockIcon'
-					/>
+					и <img src={filesUrls.mainPage.ironMan} className='main-page-top__header-icon' alt='CherlockIcon' />
 					<span className='main-page-top__header-fancy'>фильмы</span>
 				</span>
 			</h1>
@@ -35,14 +30,13 @@ function MainPageTop() {
 					<img src={publicFolderFilesUrls.mainPage.roundPlay} alt='arrow icon' />
 					Демонстрация (1 мин.)
 				</button>*/}
-				<Link href={pageUrls.books.book('p1').path}>
+				<Link href={pageUrls.books.book('p1').chapter(1).reading.path}>
 					<button className='main-page-top__button main-page-top__button--accent'>
-						<img src={publicFolderFilesUrls.mainPage.roundArrow} alt='arrow icon' />
-						Начать
+						<img src={filesUrls.mainPage.roundArrow} alt='arrow icon' />
+						Попробовать
 					</button>
 				</Link>
 			</div>
-			<MainPageGallery />
 		</div>
 	)
 }

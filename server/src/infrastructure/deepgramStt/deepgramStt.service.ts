@@ -9,6 +9,13 @@ export type DeepgramUtterance = {
 	start: number // seconds
 	end: number // seconds
 	transcript: string
+	words: DeepgramWord[]
+}
+
+export type DeepgramWord = {
+	start: number // seconds
+	end: number // seconds
+	word: string
 }
 
 export type DeepgramTranscribeResult = {
@@ -23,6 +30,7 @@ type DeepgramListenResponse = {
 			start: number
 			end: number
 			transcript: string
+			words?: Array<{ start: number; end: number; punctuated_word?: string; word: string }>
 		}>
 		channels?: Array<{
 			alternatives?: Array<{
@@ -103,6 +111,11 @@ export class DeepgramSttService {
 			start: u.start,
 			end: u.end,
 			transcript: u.transcript.trim(),
+			words: (u.words ?? []).map((word) => ({
+				start: word.start,
+				end: word.end,
+				word: word.punctuated_word ?? word.word,
+			})),
 		}))
 
 		if (utterances.length === 0) {
@@ -113,7 +126,16 @@ export class DeepgramSttService {
 				const words = alt.words ?? []
 				const start = words[0]?.start ?? 0
 				const end = words[words.length - 1]?.end ?? data.metadata?.duration ?? 0
-				utterances.push({ start, end, transcript: alt.transcript.trim() })
+				utterances.push({
+					start,
+					end,
+					transcript: alt.transcript.trim(),
+					words: words.map((word) => ({
+						start: word.start,
+						end: word.end,
+						word: word.punctuated_word ?? word.word,
+					})),
+				})
 			}
 		}
 

@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { publicFolderFilesUrls } from 'utils/publicFolderFilesUrls'
+import { filesUrls } from 'utils/filesUrls'
 import CustomMaterialCovers from '_pages/main/CustomMaterials/CustomMaterialCovers'
 import { pageUrls } from 'сonsts/pageUrls'
 import './CustomMaterials.scss'
@@ -25,12 +25,12 @@ function CustomMaterials() {
 				<div className='custom-materials__add-btn'>
 					<Link className='custom-materials__add-btn-hit-area' href={pageUrls.books.path}>
 						<button className='custom-materials__add-btn-item'>
-							<img src={publicFolderFilesUrls.mainPage.bookIcon} alt='' />
+							<img src={filesUrls.mainPage.bookIcon} alt='' />
 						</button>
 					</Link>
 					<Link className='custom-materials__add-btn-hit-area' href={pageUrls.videos.path}>
 						<button className='custom-materials__add-btn-item'>
-							<img src={publicFolderFilesUrls.mainPage.videoIcon} alt='' />
+							<img src={filesUrls.mainPage.videoIcon} alt='' />
 						</button>
 					</Link>
 					<div className='custom-materials__add-btn-plus' />

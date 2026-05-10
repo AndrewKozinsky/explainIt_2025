@@ -61,17 +61,20 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 
 		const { tmpDir, maxVideoSeconds } = this.mainConfig.get().generateSubtitles
 		const jobTmpDir = join(tmpDir, `video-${videoId}-${job.id}`)
+		let videoExists = false
 
 		try {
-			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.processing, {
-				error: null,
-			})
-
 			const state = await this.videoRepository.getSubtitlesGenerationState(videoId)
+
 			if (!state) throw new Error(`Video ${videoId} not found`)
+			videoExists = true
 			if (state.userId !== userId) throw new Error(`Ownership mismatch for video ${videoId}`)
 			if (!state.isFileUploaded || !state.fileS3Key) throw new Error('Video file is not uploaded')
 			if (!state.languageCode) throw new Error('Video has no language code')
+
+			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.processing, {
+				error: null,
+			})
 
 			await mkdir(jobTmpDir, { recursive: true })
 			const videoPath = join(jobTmpDir, 'source.bin')
@@ -82,6 +85,7 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 
 			this.logger.log(`Job ${job.id}: probing duration`)
 			const durationSec = await probeDurationSec(videoPath)
+
 			if (durationSec > maxVideoSeconds) {
 				throw new Error(
 					`Video duration ${Math.round(durationSec)}s exceeds the ${maxVideoSeconds}s limit for subtitles generation`,
@@ -128,9 +132,11 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 			const message = err instanceof Error ? err.message : String(err)
 			this.logger.error(`Subtitles generation job ${job.id} for video ${videoId} failed: ${message}`, err)
 
-			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.failed, {
-				error: message,
-			})
+			if (videoExists) {
+				await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.failed, {
+					error: message,
+				})
+			}
 			throw err
 		} finally {
 			await rm(jobTmpDir, { recursive: true, force: true }).catch((cleanupErr) => {
