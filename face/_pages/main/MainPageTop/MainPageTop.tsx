@@ -37,7 +37,6 @@ function MainPageTop() {
 					</button>
 				</Link>
 			</div>
-			<MainPageGallery />
 		</div>
 	)
 }

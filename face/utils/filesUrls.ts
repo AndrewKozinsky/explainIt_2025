@@ -60,15 +60,26 @@ export const filesUrls = {
 			s3AssetsUrl + 'mainPage/covers/22.webp',
 			s3AssetsUrl + 'mainPage/covers/23.webp',
 		],
-	},
-	mediaPagesHelp: {
-		plainSentence: {
-			'1x': s3AssetsUrl + 'mediaPagesHelp/plainSentence@1x.png',
-			'2x': s3AssetsUrl + 'mediaPagesHelp/plainSentence@2x.png',
+		features: {
+			phone: {
+				'1x': s3AssetsUrl + 'mainPage/features/phone@1x.webp',
+				'2x': s3AssetsUrl + 'mainPage/features/phone@2x.webp',
+			},
+
+			dictionary: {
+				'1x': s3AssetsUrl + 'mainPage/features/dictionary@1x.webp',
+				'2x': s3AssetsUrl + 'mainPage/features/dictionary@2x.webp',
+			},
+			assistant: {
+				'1x': s3AssetsUrl + 'mainPage/features/assistent@1x.webp',
+				'2x': s3AssetsUrl + 'mainPage/features/assistent@2x.webp',
+			},
 		},
+	},
+	onboardingModal: {
 		selectedWord: {
-			'1x': s3AssetsUrl + 'mediaPagesHelp/selectedWord@1x.png',
-			'2x': s3AssetsUrl + 'mediaPagesHelp/selectedWord@2x.png',
+			'1x': s3AssetsUrl + 'onboardingModal/selectedWord@1x.png',
+			'2x': s3AssetsUrl + 'onboardingModal/selectedWord@2x.png',
 		},
 	},
 }

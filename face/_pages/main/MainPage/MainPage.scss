@@ -7,10 +7,10 @@
 	gap: 3.5rem;
 
 	@include mix.page-width(500px) {
-		gap: 5.5rem;
+		gap: 6rem;
 	}
 
 	@include mix.page-width(1000px) {
-		gap: 7rem;
+		gap: 8rem;
 	}
 }

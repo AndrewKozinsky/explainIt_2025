@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef } from 'react'
+import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
 import WatchingTop from '_pages/media/watching/WatchingTop/WatchingTop'
 import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
@@ -21,6 +22,7 @@ function WatchingRoot() {
 	return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
 			<main className='watching-root'>
+				<OnboardingModal />
 				<WatchingTop />
 				<div className='watching-root__content'>
 					<VideoContainer />

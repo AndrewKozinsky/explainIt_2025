@@ -1,0 +1,42 @@
+@use '@/styles/variables' as vars;
+
+.main-page-features {
+	display: flex;
+	gap: 2rem;
+	justify-content: center;
+	width: 100%;
+	overflow: auto;
+}
+
+.main-page-feature {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+	width: 336px;
+}
+
+.main-page-feature__image {
+
+}
+
+.main-page-feature__text {
+	font-size: 2rem;
+	line-height: 2.8rem;
+}
+.main-page-feature__text--bold {
+	font-weight: 600;
+}
+
+.main-page-feature__sign {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2rem;
+	line-height: 1;
+	color: vars.$grayColor-5;
+	width: 6rem;
+	height: 6rem;
+	margin-top: calc(336px / 2 - 6rem / 2);
+	border: 1px solid vars.$grayColor-2;
+	border-radius: 50%;
+}
