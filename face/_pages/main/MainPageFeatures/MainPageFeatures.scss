@@ -3,9 +3,22 @@
 .main-page-features {
 	display: flex;
 	gap: 2rem;
-	justify-content: center;
+	justify-content: flex-start; /* Default to left-aligned for scrolling */
 	width: 100%;
-	overflow: auto;
+	max-width: 100%; /* Ensure it doesn't exceed parent's width */
+	overflow-x: auto; /* Enable horizontal scrolling */
+	flex-wrap: nowrap; /* Prevent items from wrapping */
+
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+
+	&::-webkit-scrollbar {
+		display: none;  /* Chrome, Safari, Opera*/
+	}
+
+	@media (min-width: 1350px) {
+		justify-content: center; /* Center when enough space is available */
+	}
 }
 
 .main-page-feature {
@@ -31,6 +44,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-shrink: 0;
 	font-size: 2rem;
 	line-height: 1;
 	color: vars.$grayColor-5;
