@@ -35,7 +35,7 @@ function MainPageFeatures() {
 						alt='phone'
 					/>
 					<p className='main-page-feature__text'>
-						<span className='main-page-feature__text--bold'>Работайте с новыми фразами:</span> предложения,
+						<span className='main-page-feature__text--bold'>Работайте с новыми фразами:</span>
 						читайте транскрипцию, слушайте произношение и сохраняйте в словарь.
 					</p>
 				</div>
