@@ -18,6 +18,7 @@ export class TranslateWithGemini implements SentenceTranslationProvider, PhraseT
 		input: {
 			text: string
 			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
 			bookName?: string
 			bookAuthor?: string
@@ -28,6 +29,7 @@ export class TranslateWithGemini implements SentenceTranslationProvider, PhraseT
 	) {
 		const systemInstruction = buildPrompt({
 			sourceLanguageCode: input.sourceLanguageCode,
+			targetLanguageCode: input.targetLanguageCode,
 			bookName: input.bookName,
 			bookAuthor: input.bookAuthor,
 			videoName: input.videoName,
@@ -58,6 +60,7 @@ export class TranslateWithGemini implements SentenceTranslationProvider, PhraseT
 			selectedWordStartOffset: number
 			selectedWordEndOffset: number
 			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string
@@ -67,6 +70,7 @@ export class TranslateWithGemini implements SentenceTranslationProvider, PhraseT
 	) {
 		const systemInstruction = buildPrompt({
 			sourceLanguageCode: input.sourceLanguageCode,
+			targetLanguageCode: input.targetLanguageCode,
 			sentenceText: input.text,
 			selectedWord: input.selectedWord,
 			selectedWordStartOffset: input.selectedWordStartOffset,

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
 import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
 import { findSentenceEntry } from './selectors'
 import { offsetsFromWordIds } from './wordSegmentation'
@@ -124,6 +125,7 @@ async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Prom
 		variables: {
 			input: {
 				sentenceId: input.sentenceId,
+				targetLanguageCode: getCurrentUserLanguageCode(),
 				selectedWordStartOffset: input.wordStartOffset,
 				selectedWordEndOffset: input.wordEndOffset,
 			},
@@ -148,6 +150,7 @@ async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Prom
 				sentenceId: input.sentenceId,
 				text: input.sentenceText,
 				selectedWord,
+				targetLanguageCode: getCurrentUserLanguageCode(),
 				selectedWordStartOffset: input.wordStartOffset,
 				selectedWordEndOffset: input.wordEndOffset,
 				bookName: input.bookName ?? undefined,

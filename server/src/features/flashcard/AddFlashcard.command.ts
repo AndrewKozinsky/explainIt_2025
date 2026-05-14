@@ -75,9 +75,11 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 		const phraseStartOffset = phrase.phraseStartOffset
 		const phraseEndOffset = phrase.phraseEndOffset
 
-		const sentenceTranslation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
-			sentence.id,
-		)
+		const sentenceTranslation =
+			await this.sentenceTranslationRepository.getSentenceTranslationBySentenceIdAndTargetLanguageCode({
+				sentenceId: sentence.id,
+				targetLanguageCode: phrase.targetLanguageCode,
+			})
 
 		const created = await this.flashcardRepository.createFlashcard({
 			userId,
@@ -125,7 +127,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 				return {
 					...emptySource,
 					bookPrivateId: sentence.bookChapter.book.id,
-					languageCode: sentence.bookChapter.book.language_code,
+					languageCode: sentence.bookChapter.book.source_language_code,
 					sourceFullText,
 				}
 			}
@@ -134,7 +136,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 				return {
 					...emptySource,
 					bookPublicId: sentence.bookChapter.book_public.id,
-					languageCode: sentence.bookChapter.book_public.language_code,
+					languageCode: sentence.bookChapter.book_public.source_language_code,
 					sourceFullText,
 				}
 			}
@@ -145,7 +147,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			return {
 				...emptySource,
 				videoPrivateId: sentence.videoPrivate.id,
-				languageCode: sentence.videoPrivate.language_code,
+				languageCode: sentence.videoPrivate.source_language_code,
 				sourceFullText: this.pickFullText(
 					sentence.videoPrivate.processed_content,
 					sentence.videoPrivate.original_content,
@@ -157,7 +159,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			return {
 				...emptySource,
 				videoPublicId: sentence.videoPublic.id,
-				languageCode: sentence.videoPublic.language_code,
+				languageCode: sentence.videoPublic.source_language_code,
 				sourceFullText: this.pickFullText(
 					sentence.videoPublic.processed_content,
 					sentence.videoPublic.original_content,

@@ -175,7 +175,7 @@ export class BookChapterRepository {
 				id: book.id,
 				name: book.name,
 				author: book.author,
-				languageCode: book.language_code,
+				languageCode: book.source_language_code,
 				note: book.note,
 				userId: bookType === 'public' ? null : dbBookChapter.book.user_id,
 			},

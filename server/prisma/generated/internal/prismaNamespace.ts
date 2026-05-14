@@ -80,12 +80,12 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.6.0
- * Query Engine version: 75cbdc1eb7150937890ad5465d861175c6624711
+ * Prisma Client JS version: 7.8.0
+ * Query Engine version: 3c6e192761c0362d496ed980de936e2f3cebcd3a
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.6.0",
-  engine: "75cbdc1eb7150937890ad5465d861175c6624711"
+  client: "7.8.0",
+  engine: "3c6e192761c0362d496ed980de936e2f3cebcd3a"
 }
 
 /**
@@ -1913,7 +1913,7 @@ export const BookPrivateScalarFieldEnum = {
   user_id: 'user_id',
   author: 'author',
   name: 'name',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -1924,7 +1924,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 export const BookPublicScalarFieldEnum = {
   id: 'id',
   free_to_use: 'free_to_use',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   covers: 'covers',
   coverBackgroundColor: 'coverBackgroundColor',
   author: 'author',
@@ -1954,7 +1954,7 @@ export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[key
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   year: 'year',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
@@ -1979,7 +1979,7 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
   free_to_use: 'free_to_use',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   year: 'year',
   name: 'name',
   file_name: 'file_name',
@@ -2014,6 +2014,7 @@ export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typ
 export const SentenceTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
+  target_language_code: 'target_language_code',
   translation: 'translation',
   created_at: 'created_at'
 } as const
@@ -2024,6 +2025,7 @@ export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScal
 export const SentencePhraseTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
+  target_language_code: 'target_language_code',
   phrase: 'phrase',
   phrase_start_offset: 'phrase_start_offset',
   phrase_end_offset: 'phrase_end_offset',
@@ -2464,6 +2466,21 @@ export type PrismaClientOptions = ({
    * ```
    */
   comments?: runtime.SqlCommenterPlugin[]
+  /**
+   * Optional maximum size for the query plan cache. If not provided, a default size will be used.
+   * A value of `0` can be used to disable the cache entirely. A higher cache size can improve
+   * performance for applications that execute a large number of unique queries, while a smaller
+   * cache size can reduce memory usage.
+   * 
+   * @example
+   * ```
+   * const prisma = new PrismaClient({
+   *   adapter,
+   *   queryPlanCacheMaxSize: 100,
+   * })
+   * ```
+   */
+  queryPlanCacheMaxSize?: number
 }
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit

@@ -2,6 +2,7 @@ import { Language, languages } from 'utils/languages'
 
 type BuildPhraseTranslationPromptInput = {
 	sourceLanguageCode: Language
+	targetLanguageCode: Language
 	sentenceText: string
 	selectedWord: string
 	selectedWordStartOffset: number
@@ -13,8 +14,8 @@ type BuildPhraseTranslationPromptInput = {
 }
 
 export function buildPhraseTranslationPrompt(input: BuildPhraseTranslationPromptInput) {
-	const targetLanguage = 'Русский'
-	const sourceLanguage = languages[input.sourceLanguageCode].nameRus
+	const targetLanguage = languages[input.targetLanguageCode].nameEng
+	const sourceLanguage = languages[input.sourceLanguageCode].nameEng
 
 	const mediaContext = buildMediaContext({
 		bookName: input.bookName,
@@ -23,32 +24,32 @@ export function buildPhraseTranslationPrompt(input: BuildPhraseTranslationPrompt
 		videoYear: input.videoYear,
 	})
 
-	return `Ты — помощник для изучения ${sourceLanguage} языка.${mediaContext}
+	return `You are an assistant for learning ${sourceLanguage}.${mediaContext}
 
-Тебе дано предложение:
+You are given this sentence:
 "${input.sentenceText}"
 
-Пользователь выделил фрагмент:
+The user selected this fragment:
 - text: "${input.selectedWord}"
 - startOffset: ${input.selectedWordStartOffset}
 - endOffset: ${input.selectedWordEndOffset}
 
-Твоя задача:
-1) Определи смысловую фразу, к которой относится выделение.
-2) Переведи эту фразу на ${targetLanguage} язык.
-3) Дай короткие примеры.
+Your task:
+1) Identify the meaningful phrase related to the selection.
+2) Translate that phrase into ${targetLanguage}.
+3) Provide short examples.
 
-Верни ответ строго как многострочный текст без markdown и без пояснений:
-- Строка 1: фраза на исходном языке.
-- Строка 2: перевод этой фразы на ${targetLanguage} язык.
-- Строка 3: пример употребления фразы на исходном языке (необязательно).
-- Строка 4: перевод примера (необязательно).
-- Строки 5+ по той же схеме парами (пример / перевод примера).
+Return the answer strictly as multiline plain text without markdown and explanations:
+- Line 1: phrase in the source language.
+- Line 2: translation of this phrase into ${targetLanguage}.
+- Line 3: example using the phrase in the source language (optional).
+- Line 4: example translation (optional).
+- Lines 5+: follow the same paired pattern (example / example translation).
 
-Правила:
-- phrase должна быть подстрокой исходного предложения.
-- Не добавляй нумерацию строк, заголовки, JSON и ключи полей.
-- Если примеров нет, верни только первые 2 строки.`
+Rules:
+- The phrase must be a substring of the source sentence.
+- Do not add line numbering, headings, JSON, or field names.
+- If there are no examples, return only the first 2 lines.`
 }
 
 function buildMediaContext(input: {
@@ -58,17 +59,17 @@ function buildMediaContext(input: {
 	videoYear?: string | number
 }) {
 	if (input.bookName || input.bookAuthor) {
-		const details = [input.bookName ?? '', input.bookAuthor ? `автор: ${input.bookAuthor}` : '']
+		const details = [input.bookName ?? '', input.bookAuthor ? `author: ${input.bookAuthor}` : '']
 			.filter(Boolean)
 			.join(', ')
-		return details ? ` Контекст: книга (${details}).` : ''
+		return details ? ` Context: book (${details}).` : ''
 	}
 
 	if (input.videoName || input.videoYear) {
-		const details = [input.videoName ?? '', input.videoYear ? `год: ${input.videoYear}` : '']
+		const details = [input.videoName ?? '', input.videoYear ? `year: ${input.videoYear}` : '']
 			.filter(Boolean)
 			.join(', ')
-		return details ? ` Контекст: фильм (${details}).` : ''
+		return details ? ` Context: movie (${details}).` : ''
 	}
 
 	return ''

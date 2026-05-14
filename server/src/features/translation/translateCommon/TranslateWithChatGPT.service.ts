@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { OpenAIModels } from 'types/openAIModels'
-import { Language } from 'utils/languages'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
+import { LanguageCode } from 'prisma/generated/enums'
 import {
 	BuildPhrasePromptFn,
 	BuildSentencePromptFn,
@@ -19,7 +19,8 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 	async translate(
 		input: {
 			text: string
-			sourceLanguageCode: Language
+			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
 			bookName?: string
 			bookAuthor?: string
@@ -33,6 +34,7 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 		const messages = this.getTranslationTask(
 			{
 				sourceLanguageCode: input.sourceLanguageCode,
+				targetLanguageCode: input.targetLanguageCode,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,
 				videoName: input.videoName,
@@ -74,7 +76,8 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 			selectedWord: string
 			selectedWordStartOffset: number
 			selectedWordEndOffset: number
-			sourceLanguageCode: string
+			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string
@@ -90,7 +93,8 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 				{
 					role: 'system',
 					content: buildPrompt({
-						sourceLanguageCode: input.sourceLanguageCode as Language,
+						sourceLanguageCode: input.sourceLanguageCode,
+						targetLanguageCode: input.targetLanguageCode,
 						sentenceText: input.text,
 						selectedWord: input.selectedWord,
 						selectedWordStartOffset: input.selectedWordStartOffset,
@@ -115,7 +119,8 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 
 	private getTranslationTask(
 		input: {
-			sourceLanguageCode: Language
+			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string

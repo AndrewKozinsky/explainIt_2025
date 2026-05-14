@@ -8,7 +8,7 @@ CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED')
 CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateEnum
-CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de');
+CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de', 'ru');
 
 -- CreateEnum
 CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');
@@ -75,7 +75,7 @@ CREATE TABLE "BookPrivate" (
     "user_id" INTEGER NOT NULL,
     "author" TEXT,
     "name" TEXT,
-    "language_code" "LanguageCode" NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
     "note" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -86,7 +86,7 @@ CREATE TABLE "BookPrivate" (
 CREATE TABLE "BookPublic" (
     "id" SERIAL NOT NULL,
     "free_to_use" BOOLEAN DEFAULT false,
-    "language_code" "LanguageCode" NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
     "covers" TEXT[],
     "coverBackgroundColor" TEXT NOT NULL,
     "author" TEXT NOT NULL,
@@ -116,7 +116,7 @@ CREATE TABLE "BookChapter" (
 CREATE TABLE "VideoPrivate" (
     "id" SERIAL NOT NULL,
     "user_id" INTEGER NOT NULL,
-    "language_code" "LanguageCode" NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
     "year" INTEGER,
     "file_name" TEXT,
     "file_s3_key" TEXT,
@@ -141,7 +141,7 @@ CREATE TABLE "VideoPrivate" (
 CREATE TABLE "VideoPublic" (
     "id" SERIAL NOT NULL,
     "free_to_use" BOOLEAN DEFAULT false,
-    "language_code" "LanguageCode" NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
     "year" INTEGER NOT NULL,
     "name" TEXT NOT NULL,
     "file_name" TEXT NOT NULL,
@@ -176,6 +176,7 @@ CREATE TABLE "Sentence" (
 CREATE TABLE "SentenceTranslation" (
     "id" SERIAL NOT NULL,
     "sentence_id" INTEGER NOT NULL,
+    "target_language_code" "LanguageCode" NOT NULL,
     "translation" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -186,6 +187,7 @@ CREATE TABLE "SentenceTranslation" (
 CREATE TABLE "SentencePhraseTranslation" (
     "id" SERIAL NOT NULL,
     "sentence_id" INTEGER NOT NULL,
+    "target_language_code" "LanguageCode" NOT NULL,
     "phrase" TEXT NOT NULL,
     "phrase_start_offset" INTEGER NOT NULL,
     "phrase_end_offset" INTEGER NOT NULL,
@@ -313,10 +315,19 @@ CREATE UNIQUE INDEX "Payment_external_id_key" ON "Payment"("external_id");
 CREATE INDEX "SentenceTranslation_sentence_id_idx" ON "SentenceTranslation"("sentence_id");
 
 -- CreateIndex
+CREATE INDEX "SentenceTranslation_sentence_id_target_language_code_idx" ON "SentenceTranslation"("sentence_id", "target_language_code");
+
+-- CreateIndex
 CREATE INDEX "SentencePhraseTranslation_sentence_id_idx" ON "SentencePhraseTranslation"("sentence_id");
 
 -- CreateIndex
+CREATE INDEX "SentencePhraseTranslation_sentence_id_target_language_code_idx" ON "SentencePhraseTranslation"("sentence_id", "target_language_code");
+
+-- CreateIndex
 CREATE INDEX "SentencePhraseTranslation_sentence_id_phrase_start_offset_p_idx" ON "SentencePhraseTranslation"("sentence_id", "phrase_start_offset", "phrase_end_offset");
+
+-- CreateIndex
+CREATE INDEX "SentencePhraseTranslation_sentence_id_target_language_code__idx" ON "SentencePhraseTranslation"("sentence_id", "target_language_code", "phrase_start_offset", "phrase_end_offset");
 
 -- CreateIndex
 CREATE INDEX "SubtitleSentenceInit_subtitle_id_idx" ON "SubtitleSentenceInit"("subtitle_id");

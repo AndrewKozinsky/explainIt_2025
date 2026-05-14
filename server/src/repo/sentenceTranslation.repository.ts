@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { SentenceTranslationServiceModel } from 'models/sentenceTranslation/translateSentenceResult.service.model'
 import { Prisma, SentenceTranslation } from 'prisma/generated/client'
+import { LanguageCode } from 'prisma/generated/enums'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
@@ -35,9 +36,15 @@ export class SentenceTranslationRepository {
 	}
 
 	@CatchDbError()
-	async getFirstSentenceTranslationBySentenceId(sentenceId: number) {
+	async getSentenceTranslationBySentenceIdAndTargetLanguageCode(input: {
+		sentenceId: number
+		targetLanguageCode: LanguageCode
+	}) {
 		const sentenceTranslation = await this.prisma.sentenceTranslation.findFirst({
-			where: { sentence_id: sentenceId },
+			where: {
+				sentence_id: input.sentenceId,
+				target_language_code: input.targetLanguageCode,
+			},
 			orderBy: { created_at: 'asc' },
 		})
 		if (!sentenceTranslation) return null
@@ -46,10 +53,16 @@ export class SentenceTranslationRepository {
 	}
 
 	@CatchDbError()
-	async createSentenceTranslation(dto: { sentenceId: number; translation: string; analysis?: null | string }) {
+	async createSentenceTranslation(dto: {
+		sentenceId: number
+		targetLanguageCode: LanguageCode
+		translation: string
+		analysis?: null | string
+	}) {
 		const newSentenceTranslation = await this.prisma.sentenceTranslation.create({
 			data: {
 				sentence_id: dto.sentenceId,
+				target_language_code: dto.targetLanguageCode,
 				translation: dto.translation,
 			},
 		})
@@ -89,6 +102,7 @@ export class SentenceTranslationRepository {
 		return {
 			id: dbSentenceTranslation.id,
 			sentenceId: dbSentenceTranslation.sentence_id,
+			targetLanguageCode: dbSentenceTranslation.target_language_code,
 			translation: dbSentenceTranslation.translation,
 			createdAt: dbSentenceTranslation.created_at,
 		}

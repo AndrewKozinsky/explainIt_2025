@@ -52,7 +52,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			if (!bookForChapter) {
 				throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
 			}
-			bookLanguageCode = bookForChapter.languageCode as Language
+			bookLanguageCode = bookForChapter.sourceLanguageCode as Language
 		} else {
 			// Check if the book exists
 			const bookForChapter = await this.bookQueryRepository.getBookById(createBookChapterInput.bookId)

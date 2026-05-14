@@ -2,6 +2,7 @@ import { createReadStream } from 'fs'
 import { stat } from 'fs/promises'
 import { Injectable, Logger } from '@nestjs/common'
 import axios, { AxiosError } from 'axios'
+const { HttpsProxyAgent } = require('https-proxy-agent')
 import { Language } from 'utils/languages'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
@@ -50,8 +51,11 @@ type DeepgramListenResponse = {
 @Injectable()
 export class DeepgramSttService {
 	private readonly logger = new Logger(DeepgramSttService.name)
+	private readonly httpsAgent
 
-	constructor(private readonly mainConfig: MainConfigService) {}
+	constructor(private readonly mainConfig: MainConfigService) {
+		this.httpsAgent = new HttpsProxyAgent(this.mainConfig.get().proxyUrl)
+	}
 
 	/**
 	 * Send a local audio file to Deepgram Nova-3 and return utterance-level segments
@@ -92,6 +96,8 @@ export class DeepgramSttService {
 				maxContentLength: Infinity,
 				// Deepgram Nova-3 prerecorded can take up to ~20s per minute of audio.
 				timeout: 10 * 60 * 1000,
+				httpsAgent: this.httpsAgent,
+				proxy: false,
 			})
 		} catch (err) {
 			const axiosErr = err as AxiosError

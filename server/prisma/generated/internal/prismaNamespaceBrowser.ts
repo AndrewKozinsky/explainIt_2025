@@ -134,7 +134,7 @@ export const BookPrivateScalarFieldEnum = {
   user_id: 'user_id',
   author: 'author',
   name: 'name',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   note: 'note',
   created_at: 'created_at'
 } as const
@@ -145,7 +145,7 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 export const BookPublicScalarFieldEnum = {
   id: 'id',
   free_to_use: 'free_to_use',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   covers: 'covers',
   coverBackgroundColor: 'coverBackgroundColor',
   author: 'author',
@@ -175,7 +175,7 @@ export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[key
 export const VideoPrivateScalarFieldEnum = {
   id: 'id',
   user_id: 'user_id',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   year: 'year',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
@@ -200,7 +200,7 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
   free_to_use: 'free_to_use',
-  language_code: 'language_code',
+  source_language_code: 'source_language_code',
   year: 'year',
   name: 'name',
   file_name: 'file_name',
@@ -235,6 +235,7 @@ export type SentenceScalarFieldEnum = (typeof SentenceScalarFieldEnum)[keyof typ
 export const SentenceTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
+  target_language_code: 'target_language_code',
   translation: 'translation',
   created_at: 'created_at'
 } as const
@@ -245,6 +246,7 @@ export type SentenceTranslationScalarFieldEnum = (typeof SentenceTranslationScal
 export const SentencePhraseTranslationScalarFieldEnum = {
   id: 'id',
   sentence_id: 'sentence_id',
+  target_language_code: 'target_language_code',
   phrase: 'phrase',
   phrase_start_offset: 'phrase_start_offset',
   phrase_end_offset: 'phrase_end_offset',

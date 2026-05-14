@@ -155,6 +155,7 @@ export class MainConfigService {
 				// Google TTS Standard: ~$4 per 1M chars = 0.00044 руб/символ = 0.044 копейки/символ
 				pricePerCharInKopecks: 0.044 * 1.3, // стоимость * наценка
 			},
+			proxyUrl: enVariables.proxyUrl,
 		}
 	}
 
@@ -235,6 +236,7 @@ export class MainConfigService {
 			googleTts: {
 				serviceAccountJson: this.configService.get<string>('GOOGLE_AI_SERVICE_ACCOUNT_JSON') as string,
 			},
+			proxyUrl: this.configService.get<string>('PROXY_URL') || '',
 		}
 	}
 }

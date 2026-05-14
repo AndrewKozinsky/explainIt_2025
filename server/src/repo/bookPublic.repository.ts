@@ -30,7 +30,7 @@ export class BookPublicRepository {
 				note: dto.note,
 				covers: dto.covers,
 				coverBackgroundColor: dto.coverBackgroundColor,
-				language_code: dto.languageCode,
+				source_language_code: dto.languageCode,
 				free_to_use: dto.freeToUse,
 			},
 			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
@@ -74,7 +74,7 @@ export class BookPublicRepository {
 			note: dbBook.note,
 			covers: dbBook.covers,
 			coverBackgroundColor: dbBook.coverBackgroundColor,
-			languageCode: dbBook.language_code,
+			sourceLanguageCode: dbBook.source_language_code,
 			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,

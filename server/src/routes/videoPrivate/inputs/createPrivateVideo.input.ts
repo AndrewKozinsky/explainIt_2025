@@ -20,6 +20,6 @@ export class CreatePrivateVideoInput {
 	fileSizeMb?: number
 
 	@Field(() => String, { description: 'Language code' })
-	@DtoFieldDecorators('languageCode', bdConfig.VideoPrivate.dbFields.language_code, { required: true })
+	@DtoFieldDecorators('languageCode', bdConfig.VideoPrivate.dbFields.source_language_code, { required: true })
 	languageCode: Language
 }

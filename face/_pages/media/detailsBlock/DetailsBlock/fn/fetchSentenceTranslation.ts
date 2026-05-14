@@ -5,6 +5,7 @@ import {
 	useTranslate_Get_Sentence_TranslationLazyQuery,
 	useTranslate_Translate_Sentence,
 } from '@/graphql'
+import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
 import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
 import { wordIdsFromOffsets } from './wordSegmentation'
@@ -96,6 +97,7 @@ async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Pro
 			variables: {
 				input: {
 					sentenceId: input.sentenceId,
+					targetLanguageCode: getCurrentUserLanguageCode(),
 				},
 			},
 			fetchPolicy: 'network-only',
@@ -154,6 +156,7 @@ async function getOrCreateSentenceTranslation(input: RunFetchForSentenceInput): 
 		variables: {
 			input: {
 				sentenceId: input.sentenceId,
+				targetLanguageCode: getCurrentUserLanguageCode(),
 			},
 		},
 		fetchPolicy: 'network-only',
@@ -169,6 +172,7 @@ async function getOrCreateSentenceTranslation(input: RunFetchForSentenceInput): 
 			input: {
 				sentenceId: input.sentenceId,
 				text: input.sentenceText,
+				targetLanguageCode: getCurrentUserLanguageCode(),
 				bookName: input.bookName ?? undefined,
 				bookAuthor: input.bookAuthor ?? undefined,
 				videoName: input.videoName ?? undefined,

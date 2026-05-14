@@ -23,6 +23,7 @@ export class GoogleTtsService {
 			es: 'es-ES-Chirp3-HD-Fenrir',
 			fr: 'fr-FR-Chirp3-HD-Aoede',
 			de: 'de-DE-Chirp3-HD-Aoede',
+			ru: 'ru-RU-Standard-A',
 		}
 
 		const voiceName = VOICE_MAP[languageCode]
@@ -32,6 +33,7 @@ export class GoogleTtsService {
 			es: 'es-ES',
 			fr: 'fr-FR',
 			de: 'de-DE',
+			ru: 'ru-RU',
 		}
 
 		const bcp47LanguageCode = LANGUAGE_CODE_MAP[languageCode]

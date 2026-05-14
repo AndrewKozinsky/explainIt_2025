@@ -24,6 +24,7 @@ export type TranslationProviderUsage =
 
 export type BuildSentencePromptFn = (input: {
 	sourceLanguageCode: LanguageCode
+	targetLanguageCode: LanguageCode
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -32,6 +33,7 @@ export type BuildSentencePromptFn = (input: {
 
 export type BuildPhrasePromptFn = (input: {
 	sourceLanguageCode: LanguageCode
+	targetLanguageCode: LanguageCode
 	sentenceText: string
 	selectedWord: string
 	selectedWordStartOffset: number
@@ -47,7 +49,8 @@ export interface SentenceTranslationProvider {
 	translate(
 		input: {
 			text: string
-			sourceLanguageCode: string
+			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
 			bookName?: string
 			bookAuthor?: string
@@ -66,7 +69,8 @@ export interface PhraseTranslationProvider {
 			selectedWord: string
 			selectedWordStartOffset: number
 			selectedWordEndOffset: number
-			sourceLanguageCode: string
+			sourceLanguageCode: LanguageCode
+			targetLanguageCode: LanguageCode
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string

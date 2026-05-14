@@ -33,6 +33,7 @@ export type TranslatePhraseInput = {
 	selectedWordStartOffset: number
 	selectedWordEndOffset: number
 	sourceLanguageCode?: null | LanguageCode
+	targetLanguageCode: LanguageCode
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -93,6 +94,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 					selectedWordStartOffset: command.input.selectedWordStartOffset,
 					selectedWordEndOffset: command.input.selectedWordEndOffset,
 					sourceLanguageCode,
+					targetLanguageCode: command.input.targetLanguageCode,
 					bookName: command.input.bookName,
 					bookAuthor: command.input.bookAuthor,
 					videoName: command.input.videoName,
@@ -164,6 +166,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 		return this.sentencePhraseTranslationRepository.createPendingPhrase({
 			sentenceId: input.sentenceId,
+			targetLanguageCode: input.targetLanguageCode,
 			phrase,
 			phraseStartOffset: input.selectedWordStartOffset,
 			phraseEndOffset: input.selectedWordEndOffset,
