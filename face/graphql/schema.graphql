@@ -219,11 +219,17 @@ input GetPhraseTranslationInput {
 
   """Sentence id"""
   sentenceId: Float!
+
+  """Target language code"""
+  targetLanguageCode: String!
 }
 
 input GetPhraseTranslationsBySentenceInput {
   """Sentence id"""
   sentenceId: Float!
+
+  """Target language code"""
+  targetLanguageCode: String!
 }
 
 input GetPrivateBookInput {
@@ -249,6 +255,9 @@ input GetSentenceChatThreadInput {
 input GetSentenceTranslationInput {
   """Sentence id"""
   sentenceId: Float!
+
+  """Target language code"""
+  targetLanguageCode: String!
 }
 
 input GetUniversalPhraseInput {
@@ -552,6 +561,9 @@ input TranslatePhraseInput {
   """Source language code"""
   sourceLanguageCode: String
 
+  """Target language code"""
+  targetLanguageCode: String!
+
   """Full sentence text"""
   text: String!
   videoName: String
@@ -570,6 +582,9 @@ input TranslateSentenceInput {
 
   """Source language code"""
   sourceLanguageCode: String
+
+  """Target language code"""
+  targetLanguageCode: String!
 
   """Sentence for translation"""
   text: String!

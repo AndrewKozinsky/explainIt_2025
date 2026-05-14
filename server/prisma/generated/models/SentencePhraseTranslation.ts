@@ -43,6 +43,7 @@ export type SentencePhraseTranslationSumAggregateOutputType = {
 export type SentencePhraseTranslationMinAggregateOutputType = {
   id: number | null
   sentence_id: number | null
+  target_language_code: $Enums.LanguageCode | null
   phrase: string | null
   phrase_start_offset: number | null
   phrase_end_offset: number | null
@@ -56,6 +57,7 @@ export type SentencePhraseTranslationMinAggregateOutputType = {
 export type SentencePhraseTranslationMaxAggregateOutputType = {
   id: number | null
   sentence_id: number | null
+  target_language_code: $Enums.LanguageCode | null
   phrase: string | null
   phrase_start_offset: number | null
   phrase_end_offset: number | null
@@ -69,6 +71,7 @@ export type SentencePhraseTranslationMaxAggregateOutputType = {
 export type SentencePhraseTranslationCountAggregateOutputType = {
   id: number
   sentence_id: number
+  target_language_code: number
   phrase: number
   phrase_start_offset: number
   phrase_end_offset: number
@@ -99,6 +102,7 @@ export type SentencePhraseTranslationSumAggregateInputType = {
 export type SentencePhraseTranslationMinAggregateInputType = {
   id?: true
   sentence_id?: true
+  target_language_code?: true
   phrase?: true
   phrase_start_offset?: true
   phrase_end_offset?: true
@@ -112,6 +116,7 @@ export type SentencePhraseTranslationMinAggregateInputType = {
 export type SentencePhraseTranslationMaxAggregateInputType = {
   id?: true
   sentence_id?: true
+  target_language_code?: true
   phrase?: true
   phrase_start_offset?: true
   phrase_end_offset?: true
@@ -125,6 +130,7 @@ export type SentencePhraseTranslationMaxAggregateInputType = {
 export type SentencePhraseTranslationCountAggregateInputType = {
   id?: true
   sentence_id?: true
+  target_language_code?: true
   phrase?: true
   phrase_start_offset?: true
   phrase_end_offset?: true
@@ -226,6 +232,7 @@ export type SentencePhraseTranslationGroupByArgs<ExtArgs extends runtime.Types.E
 export type SentencePhraseTranslationGroupByOutputType = {
   id: number
   sentence_id: number
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -263,6 +270,7 @@ export type SentencePhraseTranslationWhereInput = {
   NOT?: Prisma.SentencePhraseTranslationWhereInput | Prisma.SentencePhraseTranslationWhereInput[]
   id?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
   sentence_id?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
+  target_language_code?: Prisma.EnumLanguageCodeFilter<"SentencePhraseTranslation"> | $Enums.LanguageCode
   phrase?: Prisma.StringFilter<"SentencePhraseTranslation"> | string
   phrase_start_offset?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
   phrase_end_offset?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
@@ -279,6 +287,7 @@ export type SentencePhraseTranslationWhereInput = {
 export type SentencePhraseTranslationOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   phrase?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
@@ -298,6 +307,7 @@ export type SentencePhraseTranslationWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.SentencePhraseTranslationWhereInput[]
   NOT?: Prisma.SentencePhraseTranslationWhereInput | Prisma.SentencePhraseTranslationWhereInput[]
   sentence_id?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
+  target_language_code?: Prisma.EnumLanguageCodeFilter<"SentencePhraseTranslation"> | $Enums.LanguageCode
   phrase?: Prisma.StringFilter<"SentencePhraseTranslation"> | string
   phrase_start_offset?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
   phrase_end_offset?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
@@ -314,6 +324,7 @@ export type SentencePhraseTranslationWhereUniqueInput = Prisma.AtLeast<{
 export type SentencePhraseTranslationOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   phrase?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
@@ -336,6 +347,7 @@ export type SentencePhraseTranslationScalarWhereWithAggregatesInput = {
   NOT?: Prisma.SentencePhraseTranslationScalarWhereWithAggregatesInput | Prisma.SentencePhraseTranslationScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"SentencePhraseTranslation"> | number
   sentence_id?: Prisma.IntWithAggregatesFilter<"SentencePhraseTranslation"> | number
+  target_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"SentencePhraseTranslation"> | $Enums.LanguageCode
   phrase?: Prisma.StringWithAggregatesFilter<"SentencePhraseTranslation"> | string
   phrase_start_offset?: Prisma.IntWithAggregatesFilter<"SentencePhraseTranslation"> | number
   phrase_end_offset?: Prisma.IntWithAggregatesFilter<"SentencePhraseTranslation"> | number
@@ -348,6 +360,7 @@ export type SentencePhraseTranslationScalarWhereWithAggregatesInput = {
 }
 
 export type SentencePhraseTranslationCreateInput = {
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -364,6 +377,7 @@ export type SentencePhraseTranslationCreateInput = {
 export type SentencePhraseTranslationUncheckedCreateInput = {
   id?: number
   sentence_id: number
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -377,6 +391,7 @@ export type SentencePhraseTranslationUncheckedCreateInput = {
 }
 
 export type SentencePhraseTranslationUpdateInput = {
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -393,6 +408,7 @@ export type SentencePhraseTranslationUpdateInput = {
 export type SentencePhraseTranslationUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -408,6 +424,7 @@ export type SentencePhraseTranslationUncheckedUpdateInput = {
 export type SentencePhraseTranslationCreateManyInput = {
   id?: number
   sentence_id: number
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -420,6 +437,7 @@ export type SentencePhraseTranslationCreateManyInput = {
 }
 
 export type SentencePhraseTranslationUpdateManyMutationInput = {
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -434,6 +452,7 @@ export type SentencePhraseTranslationUpdateManyMutationInput = {
 export type SentencePhraseTranslationUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -458,6 +477,7 @@ export type SentencePhraseTranslationOrderByRelationAggregateInput = {
 export type SentencePhraseTranslationCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   phrase?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
@@ -479,6 +499,7 @@ export type SentencePhraseTranslationAvgOrderByAggregateInput = {
 export type SentencePhraseTranslationMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   phrase?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
@@ -492,6 +513,7 @@ export type SentencePhraseTranslationMaxOrderByAggregateInput = {
 export type SentencePhraseTranslationMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   sentence_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   phrase?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
@@ -586,6 +608,7 @@ export type SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput = {
 }
 
 export type SentencePhraseTranslationCreateWithoutSentenceInput = {
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -600,6 +623,7 @@ export type SentencePhraseTranslationCreateWithoutSentenceInput = {
 
 export type SentencePhraseTranslationUncheckedCreateWithoutSentenceInput = {
   id?: number
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -644,6 +668,7 @@ export type SentencePhraseTranslationScalarWhereInput = {
   NOT?: Prisma.SentencePhraseTranslationScalarWhereInput | Prisma.SentencePhraseTranslationScalarWhereInput[]
   id?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
   sentence_id?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
+  target_language_code?: Prisma.EnumLanguageCodeFilter<"SentencePhraseTranslation"> | $Enums.LanguageCode
   phrase?: Prisma.StringFilter<"SentencePhraseTranslation"> | string
   phrase_start_offset?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
   phrase_end_offset?: Prisma.IntFilter<"SentencePhraseTranslation"> | number
@@ -656,6 +681,7 @@ export type SentencePhraseTranslationScalarWhereInput = {
 }
 
 export type SentencePhraseTranslationCreateWithoutFlashcardInput = {
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -671,6 +697,7 @@ export type SentencePhraseTranslationCreateWithoutFlashcardInput = {
 export type SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput = {
   id?: number
   sentence_id: number
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -699,6 +726,7 @@ export type SentencePhraseTranslationUpdateToOneWithWhereWithoutFlashcardInput =
 }
 
 export type SentencePhraseTranslationUpdateWithoutFlashcardInput = {
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -714,6 +742,7 @@ export type SentencePhraseTranslationUpdateWithoutFlashcardInput = {
 export type SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -727,6 +756,7 @@ export type SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput = {
 
 export type SentencePhraseTranslationCreateManySentenceInput = {
   id?: number
+  target_language_code: $Enums.LanguageCode
   phrase: string
   phrase_start_offset: number
   phrase_end_offset: number
@@ -739,6 +769,7 @@ export type SentencePhraseTranslationCreateManySentenceInput = {
 }
 
 export type SentencePhraseTranslationUpdateWithoutSentenceInput = {
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -753,6 +784,7 @@ export type SentencePhraseTranslationUpdateWithoutSentenceInput = {
 
 export type SentencePhraseTranslationUncheckedUpdateWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -767,6 +799,7 @@ export type SentencePhraseTranslationUncheckedUpdateWithoutSentenceInput = {
 
 export type SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   phrase?: Prisma.StringFieldUpdateOperationsInput | string
   phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
@@ -812,6 +845,7 @@ export type SentencePhraseTranslationCountOutputTypeCountFlashcardArgs<ExtArgs e
 export type SentencePhraseTranslationSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   sentence_id?: boolean
+  target_language_code?: boolean
   phrase?: boolean
   phrase_start_offset?: boolean
   phrase_end_offset?: boolean
@@ -829,6 +863,7 @@ export type SentencePhraseTranslationSelect<ExtArgs extends runtime.Types.Extens
 export type SentencePhraseTranslationSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   sentence_id?: boolean
+  target_language_code?: boolean
   phrase?: boolean
   phrase_start_offset?: boolean
   phrase_end_offset?: boolean
@@ -844,6 +879,7 @@ export type SentencePhraseTranslationSelectCreateManyAndReturn<ExtArgs extends r
 export type SentencePhraseTranslationSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   sentence_id?: boolean
+  target_language_code?: boolean
   phrase?: boolean
   phrase_start_offset?: boolean
   phrase_end_offset?: boolean
@@ -859,6 +895,7 @@ export type SentencePhraseTranslationSelectUpdateManyAndReturn<ExtArgs extends r
 export type SentencePhraseTranslationSelectScalar = {
   id?: boolean
   sentence_id?: boolean
+  target_language_code?: boolean
   phrase?: boolean
   phrase_start_offset?: boolean
   phrase_end_offset?: boolean
@@ -870,7 +907,7 @@ export type SentencePhraseTranslationSelectScalar = {
   updated_at?: boolean
 }
 
-export type SentencePhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "translate" | "examples" | "status" | "error_message" | "created_at" | "updated_at", ExtArgs["result"]["sentencePhraseTranslation"]>
+export type SentencePhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "target_language_code" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "translate" | "examples" | "status" | "error_message" | "created_at" | "updated_at", ExtArgs["result"]["sentencePhraseTranslation"]>
 export type SentencePhraseTranslationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
   Flashcard?: boolean | Prisma.SentencePhraseTranslation$FlashcardArgs<ExtArgs>
@@ -892,6 +929,7 @@ export type $SentencePhraseTranslationPayload<ExtArgs extends runtime.Types.Exte
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     sentence_id: number
+    target_language_code: $Enums.LanguageCode
     phrase: string
     phrase_start_offset: number
     phrase_end_offset: number
@@ -1328,6 +1366,7 @@ export interface Prisma__SentencePhraseTranslationClient<T, Null = never, ExtArg
 export interface SentencePhraseTranslationFieldRefs {
   readonly id: Prisma.FieldRef<"SentencePhraseTranslation", 'Int'>
   readonly sentence_id: Prisma.FieldRef<"SentencePhraseTranslation", 'Int'>
+  readonly target_language_code: Prisma.FieldRef<"SentencePhraseTranslation", 'LanguageCode'>
   readonly phrase: Prisma.FieldRef<"SentencePhraseTranslation", 'String'>
   readonly phrase_start_offset: Prisma.FieldRef<"SentencePhraseTranslation", 'Int'>
   readonly phrase_end_offset: Prisma.FieldRef<"SentencePhraseTranslation", 'Int'>

@@ -1,6 +1,7 @@
 import { Field, InputType } from '@nestjs/graphql'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+import { LanguageCode } from 'prisma/generated/enums'
 
 @InputType()
 export class TranslateSentenceInput {
@@ -14,7 +15,11 @@ export class TranslateSentenceInput {
 
 	@Field(() => String, { description: 'Source language code', nullable: true })
 	@DtoFieldDecorators('sourceLanguageCode', bdConfig.SentenceTranslation.dtoProps.sourceLanguageCode)
-	sourceLanguageCode?: null | string
+	sourceLanguageCode?: null | LanguageCode
+
+	@Field(() => String, { description: 'Target language code' })
+	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dbFields.target_language_code)
+	targetLanguageCode: LanguageCode
 
 	@Field(() => String, { description: 'Book name', nullable: true })
 	@DtoFieldDecorators('bookName', bdConfig.SentenceTranslation.dtoProps.bookName)

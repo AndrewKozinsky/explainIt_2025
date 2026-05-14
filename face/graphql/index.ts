@@ -230,11 +230,15 @@ export type GetPhraseTranslationInput = {
   selectedWordStartOffset: Scalars['Float']['input'];
   /** Sentence id */
   sentenceId: Scalars['Float']['input'];
+  /** Target language code */
+  targetLanguageCode: Scalars['String']['input'];
 };
 
 export type GetPhraseTranslationsBySentenceInput = {
   /** Sentence id */
   sentenceId: Scalars['Float']['input'];
+  /** Target language code */
+  targetLanguageCode: Scalars['String']['input'];
 };
 
 export type GetPrivateBookInput = {
@@ -260,6 +264,8 @@ export type GetSentenceChatThreadInput = {
 export type GetSentenceTranslationInput = {
   /** Sentence id */
   sentenceId: Scalars['Float']['input'];
+  /** Target language code */
+  targetLanguageCode: Scalars['String']['input'];
 };
 
 export type GetUniversalPhraseInput = {
@@ -693,6 +699,8 @@ export type TranslatePhraseInput = {
   sentenceId: Scalars['Float']['input'];
   /** Source language code */
   sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
+  /** Target language code */
+  targetLanguageCode: Scalars['String']['input'];
   /** Full sentence text */
   text: Scalars['String']['input'];
   videoName?: InputMaybe<Scalars['String']['input']>;
@@ -708,6 +716,8 @@ export type TranslateSentenceInput = {
   sentenceId: Scalars['Float']['input'];
   /** Source language code */
   sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
+  /** Target language code */
+  targetLanguageCode: Scalars['String']['input'];
   /** Sentence for translation */
   text: Scalars['String']['input'];
   /** Video name */

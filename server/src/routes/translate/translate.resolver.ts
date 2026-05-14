@@ -54,9 +54,11 @@ export class TranslateResolver {
 			actionType: 'read',
 		})
 
-		const translation = await this.sentenceTranslationRepository.getFirstSentenceTranslationBySentenceId(
-			input.sentenceId,
-		)
+		const translation =
+			await this.sentenceTranslationRepository.getSentenceTranslationBySentenceIdAndTargetLanguageCode({
+				sentenceId: input.sentenceId,
+				targetLanguageCode: input.targetLanguageCode,
+			})
 		if (!translation) {
 			return null
 		}
@@ -87,6 +89,7 @@ export class TranslateResolver {
 
 		const phrase = await this.sentencePhraseTranslationRepository.getPhraseContainingOffset({
 			sentenceId: input.sentenceId,
+			targetLanguageCode: input.targetLanguageCode,
 			selectedWordStartOffset: input.selectedWordStartOffset,
 			selectedWordEndOffset: input.selectedWordEndOffset,
 		})
@@ -115,7 +118,12 @@ export class TranslateResolver {
 			actionType: 'read',
 		})
 
-		const phrases = await this.sentencePhraseTranslationRepository.getReadyPhrasesBySentenceId(input.sentenceId)
+		const phrases = await this.sentencePhraseTranslationRepository.getReadyPhrasesBySentenceIdAndTargetLanguageCode(
+			{
+				sentenceId: input.sentenceId,
+				targetLanguageCode: input.targetLanguageCode,
+			},
+		)
 
 		return this.attachFlashcardIds(phrases, request.user?.id ?? null)
 	}

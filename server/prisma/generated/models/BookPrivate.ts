@@ -41,7 +41,7 @@ export type BookPrivateMinAggregateOutputType = {
   user_id: number | null
   author: string | null
   name: string | null
-  language_code: $Enums.LanguageCode | null
+  source_language_code: $Enums.LanguageCode | null
   note: string | null
   created_at: Date | null
 }
@@ -51,7 +51,7 @@ export type BookPrivateMaxAggregateOutputType = {
   user_id: number | null
   author: string | null
   name: string | null
-  language_code: $Enums.LanguageCode | null
+  source_language_code: $Enums.LanguageCode | null
   note: string | null
   created_at: Date | null
 }
@@ -61,7 +61,7 @@ export type BookPrivateCountAggregateOutputType = {
   user_id: number
   author: number
   name: number
-  language_code: number
+  source_language_code: number
   note: number
   created_at: number
   _all: number
@@ -83,7 +83,7 @@ export type BookPrivateMinAggregateInputType = {
   user_id?: true
   author?: true
   name?: true
-  language_code?: true
+  source_language_code?: true
   note?: true
   created_at?: true
 }
@@ -93,7 +93,7 @@ export type BookPrivateMaxAggregateInputType = {
   user_id?: true
   author?: true
   name?: true
-  language_code?: true
+  source_language_code?: true
   note?: true
   created_at?: true
 }
@@ -103,7 +103,7 @@ export type BookPrivateCountAggregateInputType = {
   user_id?: true
   author?: true
   name?: true
-  language_code?: true
+  source_language_code?: true
   note?: true
   created_at?: true
   _all?: true
@@ -200,7 +200,7 @@ export type BookPrivateGroupByOutputType = {
   user_id: number
   author: string | null
   name: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note: string | null
   created_at: Date
   _count: BookPrivateCountAggregateOutputType | null
@@ -233,7 +233,7 @@ export type BookPrivateWhereInput = {
   user_id?: Prisma.IntFilter<"BookPrivate"> | number
   author?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
-  language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -246,7 +246,7 @@ export type BookPrivateOrderByWithRelationInput = {
   user_id?: Prisma.SortOrder
   author?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -262,7 +262,7 @@ export type BookPrivateWhereUniqueInput = Prisma.AtLeast<{
   user_id?: Prisma.IntFilter<"BookPrivate"> | number
   author?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
-  language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -275,7 +275,7 @@ export type BookPrivateOrderByWithAggregationInput = {
   user_id?: Prisma.SortOrder
   author?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.BookPrivateCountOrderByAggregateInput
@@ -293,7 +293,7 @@ export type BookPrivateScalarWhereWithAggregatesInput = {
   user_id?: Prisma.IntWithAggregatesFilter<"BookPrivate"> | number
   author?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
   name?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
-  language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"BookPrivate"> | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"BookPrivate"> | Date | string
 }
@@ -301,7 +301,7 @@ export type BookPrivateScalarWhereWithAggregatesInput = {
 export type BookPrivateCreateInput = {
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
@@ -314,7 +314,7 @@ export type BookPrivateUncheckedCreateInput = {
   user_id: number
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
@@ -324,7 +324,7 @@ export type BookPrivateUncheckedCreateInput = {
 export type BookPrivateUpdateInput = {
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
@@ -337,7 +337,7 @@ export type BookPrivateUncheckedUpdateInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
@@ -349,7 +349,7 @@ export type BookPrivateCreateManyInput = {
   user_id: number
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
 }
@@ -357,7 +357,7 @@ export type BookPrivateCreateManyInput = {
 export type BookPrivateUpdateManyMutationInput = {
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -367,7 +367,7 @@ export type BookPrivateUncheckedUpdateManyInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -387,7 +387,7 @@ export type BookPrivateCountOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -402,7 +402,7 @@ export type BookPrivateMaxOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -412,7 +412,7 @@ export type BookPrivateMinOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   author?: Prisma.SortOrder
   name?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -508,7 +508,7 @@ export type BookPrivateUpdateOneWithoutFlashcardNestedInput = {
 export type BookPrivateCreateWithoutUserInput = {
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
@@ -519,7 +519,7 @@ export type BookPrivateUncheckedCreateWithoutUserInput = {
   id?: number
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
@@ -560,7 +560,7 @@ export type BookPrivateScalarWhereInput = {
   user_id?: Prisma.IntFilter<"BookPrivate"> | number
   author?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
-  language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
 }
@@ -568,7 +568,7 @@ export type BookPrivateScalarWhereInput = {
 export type BookPrivateCreateWithoutBookChapterInput = {
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
@@ -580,7 +580,7 @@ export type BookPrivateUncheckedCreateWithoutBookChapterInput = {
   user_id: number
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
@@ -605,7 +605,7 @@ export type BookPrivateUpdateToOneWithWhereWithoutBookChapterInput = {
 export type BookPrivateUpdateWithoutBookChapterInput = {
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
@@ -617,7 +617,7 @@ export type BookPrivateUncheckedUpdateWithoutBookChapterInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
@@ -626,7 +626,7 @@ export type BookPrivateUncheckedUpdateWithoutBookChapterInput = {
 export type BookPrivateCreateWithoutFlashcardInput = {
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
@@ -638,7 +638,7 @@ export type BookPrivateUncheckedCreateWithoutFlashcardInput = {
   user_id: number
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
@@ -663,7 +663,7 @@ export type BookPrivateUpdateToOneWithWhereWithoutFlashcardInput = {
 export type BookPrivateUpdateWithoutFlashcardInput = {
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
@@ -675,7 +675,7 @@ export type BookPrivateUncheckedUpdateWithoutFlashcardInput = {
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
@@ -685,7 +685,7 @@ export type BookPrivateCreateManyUserInput = {
   id?: number
   author?: string | null
   name?: string | null
-  language_code: $Enums.LanguageCode
+  source_language_code: $Enums.LanguageCode
   note?: string | null
   created_at?: Date | string
 }
@@ -693,7 +693,7 @@ export type BookPrivateCreateManyUserInput = {
 export type BookPrivateUpdateWithoutUserInput = {
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
@@ -704,7 +704,7 @@ export type BookPrivateUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
@@ -715,7 +715,7 @@ export type BookPrivateUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -765,7 +765,7 @@ export type BookPrivateSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   user_id?: boolean
   author?: boolean
   name?: boolean
-  language_code?: boolean
+  source_language_code?: boolean
   note?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -779,7 +779,7 @@ export type BookPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   user_id?: boolean
   author?: boolean
   name?: boolean
-  language_code?: boolean
+  source_language_code?: boolean
   note?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -790,7 +790,7 @@ export type BookPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   user_id?: boolean
   author?: boolean
   name?: boolean
-  language_code?: boolean
+  source_language_code?: boolean
   note?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -801,12 +801,12 @@ export type BookPrivateSelectScalar = {
   user_id?: boolean
   author?: boolean
   name?: boolean
-  language_code?: boolean
+  source_language_code?: boolean
   note?: boolean
   created_at?: boolean
 }
 
-export type BookPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "author" | "name" | "language_code" | "note" | "created_at", ExtArgs["result"]["bookPrivate"]>
+export type BookPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "author" | "name" | "source_language_code" | "note" | "created_at", ExtArgs["result"]["bookPrivate"]>
 export type BookPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   BookChapter?: boolean | Prisma.BookPrivate$BookChapterArgs<ExtArgs>
@@ -832,7 +832,7 @@ export type $BookPrivatePayload<ExtArgs extends runtime.Types.Extensions.Interna
     user_id: number
     author: string | null
     name: string | null
-    language_code: $Enums.LanguageCode
+    source_language_code: $Enums.LanguageCode
     note: string | null
     created_at: Date
   }, ExtArgs["result"]["bookPrivate"]>
@@ -1265,7 +1265,7 @@ export interface BookPrivateFieldRefs {
   readonly user_id: Prisma.FieldRef<"BookPrivate", 'Int'>
   readonly author: Prisma.FieldRef<"BookPrivate", 'String'>
   readonly name: Prisma.FieldRef<"BookPrivate", 'String'>
-  readonly language_code: Prisma.FieldRef<"BookPrivate", 'LanguageCode'>
+  readonly source_language_code: Prisma.FieldRef<"BookPrivate", 'LanguageCode'>
   readonly note: Prisma.FieldRef<"BookPrivate", 'String'>
   readonly created_at: Prisma.FieldRef<"BookPrivate", 'DateTime'>
 }

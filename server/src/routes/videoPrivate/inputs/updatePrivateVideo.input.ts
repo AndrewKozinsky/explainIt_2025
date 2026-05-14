@@ -14,7 +14,7 @@ export class UpdatePrivateVideoInput {
 	name?: null | string
 
 	@Field(() => String, { description: 'Language code', nullable: true })
-	@DtoFieldDecorators('languageCode', bdConfig.VideoPrivate.dbFields.language_code)
+	@DtoFieldDecorators('languageCode', bdConfig.VideoPrivate.dbFields.source_language_code)
 	languageCode?: null | Language
 
 	@Field(() => String, { description: 'Original content', nullable: true })

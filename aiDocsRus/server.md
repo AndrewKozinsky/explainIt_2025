@@ -108,3 +108,37 @@ Reuse an existing error message when one text already covers multiple forbidden 
 
 Гард следящий чтобы запросы делал пользователь не с нулевым балансом.
 ```server/src/infrastructure/guards/userWithPositiveBalanceGuard.guard.ts```
+
+
+## Использование прокси
+
+Пример кода чтобы запросы с сервера шли через прокси-сервер:
+```typescript
+import { HttpsProxyAgent } from 'https-proxy-agent'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import axios from 'axios'
+
+export class MyService {
+    private readonly httpsAgent: HttpsProxyAgent<string>
+
+    constructor(private readonly mainConfig: MainConfigService) {
+        this.httpsAgent = new HttpsProxyAgent(this.mainConfig.get().proxyUrl)
+    }
+    async makeRequest() {
+        const response = await axios.post(
+            'https://api.example.com/data',
+            {
+                // ... request body
+            },
+            {
+                headers: {
+                   // ... headers
+                },
+                httpsAgent: this.httpsAgent,
+                proxy: false,
+            },
+         )
+        // ...
+    }
+}
+```

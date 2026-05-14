@@ -6,6 +6,7 @@ import {
 	SentencePhraseTranslationServiceModel,
 } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { SentencePhraseTranslation, Prisma } from 'prisma/generated/client'
+import { LanguageCode } from 'prisma/generated/enums'
 
 @Injectable()
 export class SentencePhraseTranslationRepository {
@@ -14,12 +15,14 @@ export class SentencePhraseTranslationRepository {
 	@CatchDbError()
 	async getPhraseContainingOffset(input: {
 		sentenceId: number
+		targetLanguageCode: LanguageCode
 		selectedWordStartOffset: number
 		selectedWordEndOffset: number
 	}) {
 		const phrases = await this.prisma.sentencePhraseTranslation.findMany({
 			where: {
 				sentence_id: input.sentenceId,
+				target_language_code: input.targetLanguageCode,
 				phrase_start_offset: {
 					lte: input.selectedWordStartOffset,
 				},
@@ -42,10 +45,14 @@ export class SentencePhraseTranslationRepository {
 	}
 
 	@CatchDbError()
-	async getPhrasesBySentenceId(sentenceId: number) {
+	async getPhrasesBySentenceIdAndTargetLanguageCode(input: {
+		sentenceId: number
+		targetLanguageCode: LanguageCode
+	}) {
 		const rows = await this.prisma.sentencePhraseTranslation.findMany({
 			where: {
-				sentence_id: sentenceId,
+				sentence_id: input.sentenceId,
+				target_language_code: input.targetLanguageCode,
 			},
 		})
 
@@ -53,10 +60,14 @@ export class SentencePhraseTranslationRepository {
 	}
 
 	@CatchDbError()
-	async getReadyPhrasesBySentenceId(sentenceId: number) {
+	async getReadyPhrasesBySentenceIdAndTargetLanguageCode(input: {
+		sentenceId: number
+		targetLanguageCode: LanguageCode
+	}) {
 		const rows = await this.prisma.sentencePhraseTranslation.findMany({
 			where: {
-				sentence_id: sentenceId,
+				sentence_id: input.sentenceId,
+				target_language_code: input.targetLanguageCode,
 				status: 'ready',
 				translate: {
 					not: null,
@@ -73,6 +84,7 @@ export class SentencePhraseTranslationRepository {
 	@CatchDbError()
 	async createPendingPhrase(input: {
 		sentenceId: number
+		targetLanguageCode: LanguageCode
 		phrase: string
 		phraseStartOffset: number
 		phraseEndOffset: number
@@ -80,6 +92,7 @@ export class SentencePhraseTranslationRepository {
 		const db = await this.prisma.sentencePhraseTranslation.create({
 			data: {
 				sentence_id: input.sentenceId,
+				target_language_code: input.targetLanguageCode,
 				phrase: input.phrase,
 				phrase_start_offset: input.phraseStartOffset,
 				phrase_end_offset: input.phraseEndOffset,
@@ -149,6 +162,7 @@ export class SentencePhraseTranslationRepository {
 		return {
 			id: db.id,
 			sentenceId: db.sentence_id,
+			targetLanguageCode: db.target_language_code,
 			phrase: db.phrase,
 			phraseStartOffset: db.phrase_start_offset,
 			phraseEndOffset: db.phrase_end_offset,

@@ -23,7 +23,7 @@ export class BookPrivateRepository {
 			data: {
 				author: dto.author,
 				name: dto.name,
-				language_code: dto.languageCode,
+				source_language_code: dto.languageCode,
 				note: dto.note,
 				user_id: dto.userId,
 			},
@@ -63,7 +63,7 @@ export class BookPrivateRepository {
 				author: dto.author,
 				name: dto.name,
 				note: dto.note,
-				...(dto.languageCode ? { language_code: dto.languageCode } : {}),
+				...(dto.languageCode ? { source_language_code: dto.languageCode } : {}),
 			},
 			include: { BookChapter: true },
 		})
@@ -88,7 +88,7 @@ export class BookPrivateRepository {
 			id: dbBook.id,
 			author: dbBook.author,
 			name: dbBook.name,
-			languageCode: dbBook.language_code,
+			sourceLanguageCode: dbBook.source_language_code,
 			note: dbBook.note,
 			userId: dbBook.user_id,
 			chapters: dbBook.BookChapter.map((chapter) => ({

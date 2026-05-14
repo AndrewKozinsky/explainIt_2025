@@ -43,16 +43,19 @@ export interface GetPublicVideoInput {
 
 export interface GetSentenceTranslationInput {
     sentenceId: number;
+    targetLanguageCode: string;
 }
 
 export interface GetPhraseTranslationInput {
     sentenceId: number;
+    targetLanguageCode: string;
     selectedWordStartOffset: number;
     selectedWordEndOffset: number;
 }
 
 export interface GetPhraseTranslationsBySentenceInput {
     sentenceId: number;
+    targetLanguageCode: string;
 }
 
 export interface GetSentenceChatThreadInput {
@@ -165,6 +168,7 @@ export interface TranslateSentenceInput {
     sentenceId: number;
     text: string;
     sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode: string;
     bookName?: Nullable<string>;
     bookAuthor?: Nullable<string>;
     videoName?: Nullable<string>;
@@ -178,6 +182,7 @@ export interface TranslatePhraseInput {
     selectedWordStartOffset: number;
     selectedWordEndOffset: number;
     sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode: string;
     bookName?: Nullable<string>;
     bookAuthor?: Nullable<string>;
     videoName?: Nullable<string>;

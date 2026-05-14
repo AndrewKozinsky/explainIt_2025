@@ -4,7 +4,7 @@ export type BookServiceModel = {
 	id: number
 	author: null | string
 	name: null | string
-	languageCode: null | string
+	sourceLanguageCode: null | string
 	note: null | string
 	userId: number
 	chapters: BookChapterLiteServiceModel[]

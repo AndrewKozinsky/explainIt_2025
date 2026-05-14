@@ -32,7 +32,7 @@ export class VideoPrivateRepository {
 				content_type: dto.contentType,
 				user_id: dto.userId,
 				s3_provider_name: dto.s3ProviderName,
-				language_code: dto.languageCode,
+				source_language_code: dto.languageCode,
 				file_size_mb: dto.fileSizeMb,
 			},
 		})
@@ -65,7 +65,7 @@ export class VideoPrivateRepository {
 				is_file_uploaded: dto.isFileUploaded,
 				name: dto.name,
 				...(dto.languageCode !== undefined && dto.languageCode !== null
-					? { language_code: dto.languageCode }
+					? { source_language_code: dto.languageCode }
 					: {}),
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
@@ -179,7 +179,7 @@ export class VideoPrivateRepository {
 			where: { id: videoId },
 			select: {
 				user_id: true,
-				language_code: true,
+				source_language_code: true,
 				is_file_uploaded: true,
 				file_s3_key: true,
 				subtitles_generation_status: true,
@@ -191,7 +191,7 @@ export class VideoPrivateRepository {
 		if (!video) return null
 		return {
 			userId: video.user_id,
-			languageCode: video.language_code,
+			languageCode: video.source_language_code,
 			isFileUploaded: video.is_file_uploaded,
 			fileS3Key: video.file_s3_key,
 			status: video.subtitles_generation_status,
@@ -220,7 +220,7 @@ export class VideoPrivateRepository {
 			id: dbVideo.id,
 			name: dbVideo.name,
 			year: dbVideo.year,
-			languageCode: dbVideo.language_code,
+			languageCode: dbVideo.source_language_code,
 			fileUrl,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,

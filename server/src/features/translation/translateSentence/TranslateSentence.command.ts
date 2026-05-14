@@ -12,6 +12,7 @@ import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { LanguageCode } from 'prisma/generated/enums'
 import { TranslateWithChatGPT } from '../translateCommon/TranslateWithChatGPT.service'
 import { TranslateWithDeepSeek } from '../translateCommon/TranslateWithDeepSeek.service'
 import { TranslateWithGemini } from '../translateCommon/TranslateWithGemini.service'
@@ -27,7 +28,8 @@ export type TranslateSentenceInput = {
 	userId: null | number
 	sentenceId: number
 	text: string
-	sourceLanguageCode?: null | string
+	sourceLanguageCode?: null | LanguageCode
+	targetLanguageCode: LanguageCode
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -62,13 +64,17 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		try {
 			const preparedInput = await this.prepareTranslationOrThrow(command.input)
 
-			const draftSentenceTranslation = await this.createDraftSentenceTranslation(command.input.sentenceId)
+			const draftSentenceTranslation = await this.createDraftSentenceTranslation({
+				sentenceId: command.input.sentenceId,
+				targetLanguageCode: command.input.targetLanguageCode,
+			})
 			draftSentenceTranslationId = draftSentenceTranslation.id
 
 			const translationResult = await this.generateSentenceTranslation({
 				provider: preparedInput.provider,
 				text: command.input.text,
 				sourceLanguageCode: preparedInput.sourceLanguageCode,
+				targetLanguageCode: command.input.targetLanguageCode,
 				lowPriority: preparedInput.lowPriority,
 				bookName: command.input.bookName,
 				bookAuthor: command.input.bookAuthor,
@@ -122,7 +128,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async prepareTranslationOrThrow(input: TranslateSentenceInput): Promise<{
-		sourceLanguageCode: string
+		sourceLanguageCode: LanguageCode
 		lowPriority: boolean
 		provider: SentenceTranslationProvider
 		createMode: SentenceTranslationAccess['createMode']
@@ -157,9 +163,10 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		return providers[providerName]
 	}
 
-	private async createDraftSentenceTranslation(sentenceId: number) {
+	private async createDraftSentenceTranslation(input: { sentenceId: number; targetLanguageCode: LanguageCode }) {
 		return this.sentenceTranslationRepository.createSentenceTranslation({
-			sentenceId,
+			sentenceId: input.sentenceId,
+			targetLanguageCode: input.targetLanguageCode,
 			translation: '',
 		})
 	}
@@ -167,7 +174,8 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	private async generateSentenceTranslation(input: {
 		provider: SentenceTranslationProvider
 		text: string
-		sourceLanguageCode: string
+		sourceLanguageCode: LanguageCode
+		targetLanguageCode: LanguageCode
 		lowPriority: boolean
 		bookName?: string
 		bookAuthor?: string
@@ -181,6 +189,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			{
 				text: input.text,
 				sourceLanguageCode: input.sourceLanguageCode,
+				targetLanguageCode: input.targetLanguageCode,
 				lowPriority: input.lowPriority,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,

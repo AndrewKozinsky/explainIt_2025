@@ -32,7 +32,7 @@ export class VideoPublicRepository {
 		const newVideo = await this.prisma.videoPublic.create({
 			data: {
 				name: dto.name,
-				language_code: dto.languageCode,
+				source_language_code: dto.languageCode,
 				note: dto.note ?? null,
 				covers: dto.covers,
 				coverBackgroundColor: dto.coverBackgroundColor,
@@ -71,7 +71,7 @@ export class VideoPublicRepository {
 			where: { id: videoId },
 			data: {
 				name: dto.name,
-				language_code: dto.languageCode,
+				source_language_code: dto.languageCode,
 				note: dto.note,
 				covers: dto.covers,
 				year: dto.year,
@@ -103,7 +103,7 @@ export class VideoPublicRepository {
 			id: dbVideo.id,
 			name: dbVideo.name,
 			year: dbVideo.year,
-			languageCode: dbVideo.language_code,
+			languageCode: dbVideo.source_language_code,
 			note: dbVideo.note,
 			covers: dbVideo.covers,
 			fileName: dbVideo.file_name,

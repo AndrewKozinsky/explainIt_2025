@@ -2,6 +2,7 @@ import { Language, languages } from 'utils/languages'
 
 type TranslationTaskMedia = {
 	sourceLanguageCode: Language
+	targetLanguageCode: Language
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -11,25 +12,19 @@ type TranslationTaskMedia = {
 export function buildSentenceTranslationPrompt(media: TranslationTaskMedia) {
 	return `${getTaskIntro(media)}
 
-Верни перевод предложения на русский язык. Без пояснений и доп. текста.`
+Return the sentence translated into ${languages[media.targetLanguageCode].nameEng}. Do not add explanations or extra text.`
 }
 
-function getTaskIntro(media: {
-	sourceLanguageCode: Language
-	bookName?: string
-	bookAuthor?: string
-	videoName?: string
-	videoYear?: string | number
-}) {
-	const sourceLanguage = languages[media.sourceLanguageCode].nameRus
+function getTaskIntro(media: TranslationTaskMedia) {
+	const sourceLanguage = languages[media.sourceLanguageCode].nameEng
 
 	if (media.bookName || media.bookAuthor) {
 		const bookName = media.bookName ?? ''
 		const author = media.bookAuthor ?? ''
-		const bookDetails = [bookName, author].filter(Boolean).join(' автора ')
+		const bookDetails = [bookName, author].filter(Boolean).join(' by ')
 
 		return (
-			`Ты — помощник для изучения ${sourceLanguage} языка через чтение книги` +
+			`You are an assistant for learning ${sourceLanguage} through reading the book` +
 			(bookDetails ? ` ${bookDetails}` : '') +
 			'.'
 		)
@@ -41,11 +36,11 @@ function getTaskIntro(media: {
 		const details = [videoName, year].filter(Boolean).join(' ')
 
 		return (
-			`Ты — помощник для изучения ${sourceLanguage} языка через просмотр фильма` +
+			`You are an assistant for learning ${sourceLanguage} through watching the movie` +
 			(details ? ` ${details}` : '') +
 			'.'
 		)
 	}
 
-	return `Ты — помощник для изучения ${sourceLanguage} языка.`
+	return `You are an assistant for learning ${sourceLanguage}.`
 }

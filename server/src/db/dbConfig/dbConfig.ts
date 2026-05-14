@@ -216,7 +216,7 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			language_code: {
+			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
@@ -252,7 +252,7 @@ export const bdConfig = {
 				example: true,
 				required: false,
 			},
-			language_code: {
+			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
@@ -383,7 +383,7 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: true,
 			},
-			language_code: {
+			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
@@ -510,7 +510,7 @@ export const bdConfig = {
 				example: true,
 				required: false,
 			},
-			language_code: {
+			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
@@ -708,7 +708,7 @@ export const bdConfig = {
 				required: false,
 			},
 		},
-		indexes: [{ fields: ['sentence_id'] }],
+		indexes: [{ fields: ['sentence_id'] }, { fields: ['sentence_id', 'target_language_code'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -718,6 +718,12 @@ export const bdConfig = {
 				thisField: 'sentence_id',
 				foreignTable: 'Sentence',
 				foreignField: 'id',
+				required: true,
+			},
+			target_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
 				required: true,
 			},
 			translation: {
@@ -745,7 +751,12 @@ export const bdConfig = {
 				required: false,
 			},
 		},
-		indexes: [{ fields: ['sentence_id'] }, { fields: ['sentence_id', 'phrase_start_offset', 'phrase_end_offset'] }],
+		indexes: [
+			{ fields: ['sentence_id'] },
+			{ fields: ['sentence_id', 'target_language_code'] },
+			{ fields: ['sentence_id', 'phrase_start_offset', 'phrase_end_offset'] },
+			{ fields: ['sentence_id', 'target_language_code', 'phrase_start_offset', 'phrase_end_offset'] },
+		],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -755,6 +766,12 @@ export const bdConfig = {
 				thisField: 'sentence_id',
 				foreignTable: 'Sentence',
 				foreignField: 'id',
+				required: true,
+			},
+			target_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
 				required: true,
 			},
 			phrase: {
