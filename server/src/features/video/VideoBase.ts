@@ -1,11 +1,11 @@
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
 import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { dryText, removeAlignmentTags, removeBOM, removeItalicTags, removeLeadingDashes } from '../mediaCommon'
@@ -117,7 +117,7 @@ export class VideoBase {
 		}
 
 		if (subtitles.length === 0) {
-			throw new CustomError(errorMessage.invalidSrtFormat, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.invalidSrtFormat, ErrorStatusCode.BadRequest_400)
 		}
 
 		return { preparedContent: preparedContent.trim(), subtitles }
@@ -127,7 +127,7 @@ export class VideoBase {
 		const t = time.replace(',', '.')
 		const match = t.match(/^(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,3}))?$/)
 		if (!match) {
-			throw new CustomError(errorMessage.invalidSrtTimeFormat, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.invalidSrtTimeFormat, ErrorStatusCode.BadRequest_400)
 		}
 
 		const hours = Number(match[1])
@@ -268,7 +268,10 @@ export class VideoBase {
 			const startOffset = dto.preparedContent.indexOf(sentenceText, cursor)
 
 			if (startOffset === -1) {
-				throw new CustomError(errorMessage.nlp.cantDivideTextIntoSentences, ErrorCode.InternalServerError_500)
+				throw new CustomError(
+					errorMessage.nlp.cantDivideTextIntoSentences,
+					ErrorStatusCode.InternalServerError_500,
+				)
 			}
 
 			const createdSentence = await dto.sentenceRepository.createSentence({

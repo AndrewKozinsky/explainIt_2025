@@ -2,8 +2,8 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { Request } from 'express'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { UserOutModel } from 'models/user/user.out.model'
 
@@ -35,17 +35,17 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 
 		// Throw an error if user is not found or he registered with OAuth
 		if (!user || !user.password) {
-			throw new CustomError(errorMessage.userNotFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.userNotFound, ErrorStatusCode.NotFound_404)
 		}
 
 		// If user has not registered with OAuth and has unconfirmed email
 		if (!user.isUserConfirmed && !user.isEmailConfirmed) {
-			throw new CustomError(errorMessage.emailIsNotConfirmed, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.emailIsNotConfirmed, ErrorStatusCode.Forbidden_403)
 		}
 
 		const outUser = await this.userQueryRepository.getUserById(user.id)
 		if (!outUser) {
-			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return await this.saveSession(request, outUser, clientIP, clientName)
@@ -54,7 +54,7 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 	async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {
 		return new Promise((resolve, reject) => {
 			if (!req.session) {
-				throw new CustomError(errorMessage.noSessionObject, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.noSessionObject, ErrorStatusCode.InternalServerError_500)
 			}
 
 			req.session.userId = user.id
@@ -65,7 +65,9 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 				if (err) {
 					console.log(err)
 
-					return reject(new CustomError(errorMessage.cannotSaveSession, ErrorCode.InternalServerError_500))
+					return reject(
+						new CustomError(errorMessage.cannotSaveSession, ErrorStatusCode.InternalServerError_500),
+					)
 				}
 
 				resolve(user)

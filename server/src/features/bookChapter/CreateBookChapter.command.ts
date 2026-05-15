@@ -4,11 +4,11 @@ import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { dryText, removeBOM } from 'features/mediaCommon'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
@@ -50,14 +50,14 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			// Check if the book exists
 			const bookForChapter = await this.bookPublicRepository.getBook({ id: createBookChapterInput.bookId })
 			if (!bookForChapter) {
-				throw new CustomError(errorMessage.book.notFound, ErrorCode.NotFound_404)
+				throw new CustomError(errorMessage.book.notFound, ErrorStatusCode.NotFound_404)
 			}
 			bookLanguageCode = bookForChapter.sourceLanguageCode as Language
 		} else {
 			// Check if the book exists
 			const bookForChapter = await this.bookQueryRepository.getBookById(createBookChapterInput.bookId)
 			if (!bookForChapter) {
-				throw new CustomError(errorMessage.book.notFound, ErrorCode.NotFound_404)
+				throw new CustomError(errorMessage.book.notFound, ErrorStatusCode.NotFound_404)
 			}
 
 			bookUserId = bookForChapter.userId
@@ -66,7 +66,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 
 		// Throw an error if this user is not the owner of the book
 		if (!isBookPublic && userId !== bookUserId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		let processedContent = removeBOM(createBookChapterInput.originalContent ?? '')
@@ -82,12 +82,12 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 			note: createBookChapterInput.note,
 		})
 		if (!newBookChapter) {
-			throw new CustomError(errorMessage.bookChapter.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.bookChapter.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
 		if (processedContent) {
 			if (!bookLanguageCode) {
-				throw new CustomError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+				throw new CustomError(errorMessage.nlp.languageRequired, ErrorStatusCode.BadRequest_400)
 			}
 
 			await generateSentencesAndSaveToDB({

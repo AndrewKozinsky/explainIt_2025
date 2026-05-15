@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 type DeleteBookChapterInput = {
@@ -27,11 +27,11 @@ export class DeleteBookChapterHandler implements ICommandHandler<DeleteBookChapt
 			id: deleteBookChapterInput.id,
 		})
 		if (!bookChapter) {
-			throw new CustomError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.bookChapter.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (bookChapter.book.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		await this.bookChapterRepository.deleteBookChapterById(deleteBookChapterInput.id)

@@ -4,12 +4,12 @@ import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Logger } from 'winston'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
 } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -86,7 +86,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 			if (!finalizedTranslation) {
 				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslation.id)
-				throw new CustomError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownOpenAIError, ErrorStatusCode.InternalServerError_500)
 			}
 
 			await this.chargeAfterTranslationIfNeeded({
@@ -123,7 +123,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				message: error instanceof Error ? error.message : 'Unknown error',
 			})
 
-			throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 		}
 	}
 

@@ -1,6 +1,7 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -13,7 +14,6 @@ import {
 } from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
@@ -121,7 +121,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 
 		const book = await this.commandBus.execute(new CreatePublicBookCommand(bookData))
 		if (!book) {
-			throw new CustomError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.book.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return book.id

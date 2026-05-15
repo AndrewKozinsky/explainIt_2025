@@ -1,6 +1,6 @@
 import { Injectable, CanActivate, ExecutionContext, Type, mixin } from '@nestjs/common'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from '../exceptions/customErrors'
-import { ErrorCode } from '../exceptions/errorCode'
 import { errorMessage } from '../exceptions/errorMessage'
 import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
 
@@ -21,13 +21,13 @@ export function UserWithMinBalanceGuard(minBalanceKopecks: number): Type<CanActi
 			const request = getRequestFromExecutionContext(context)
 
 			if (!request.user) {
-				throw new CustomError(errorMessage.userUnauthorized, ErrorCode.Unauthorized_401)
+				throw new CustomError(errorMessage.userUnauthorized, ErrorStatusCode.Unauthorized_401)
 			}
 
 			if (request.user.balance < minBalanceKopecks) {
 				const message =
 					minBalanceKopecks <= 1 ? errorMessage.userBalanceIsNegative : errorMessage.userBalanceBelowMinimum
-				throw new CustomError(message, ErrorCode.BadRequest_400)
+				throw new CustomError(message, ErrorStatusCode.BadRequest_400)
 			}
 
 			return true

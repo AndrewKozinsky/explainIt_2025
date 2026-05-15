@@ -2,9 +2,9 @@ import { randomUUID } from 'crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalAudioPronunciationRepository } from 'repo/audioPronunciation.repository'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { GoogleTtsService } from 'infrastructure/googleTts/googleTts.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -31,11 +31,11 @@ export class CreateUniversalAudioPronunciationHandler implements ICommandHandler
 
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseById(universalPhraseId)
 		if (!phrase) {
-			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (phrase.audioPronunciation) {
-			throw new CustomError(errorMessage.audioPronunciation.alreadyExists, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.audioPronunciation.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
 		const audioBuffer = await this.googleTtsService.generateAudio(

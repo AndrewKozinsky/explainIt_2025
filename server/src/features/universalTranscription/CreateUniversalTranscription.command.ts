@@ -2,9 +2,9 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UniversalTranscriptionQueryRepository } from 'repo/universalTranscription.queryRepository'
 import { UniversalTranscriptionRepository } from 'repo/universalTranscription.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LanguageCode } from 'prisma/generated/enums'
 
@@ -26,11 +26,11 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseById(universalPhraseId)
 		if (!phrase) {
-			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (phrase.transcription) {
-			throw new CustomError(errorMessage.universalTranscription.alreadyExists, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.universalTranscription.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
 		const transcription = await this.getTranscriptionFromDeepSeek(phrase.phrase, phrase.languageCode)
@@ -81,7 +81,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 		if (!response.message) {
 			throw new CustomError(
 				errorMessage.universalTranscription.cannotGetTranscriptionFromLLM,
-				ErrorCode.InternalServerError_500,
+				ErrorStatusCode.InternalServerError_500,
 			)
 		}
 
@@ -97,7 +97,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 		} catch {
 			throw new CustomError(
 				errorMessage.universalTranscription.cannotGetTranscriptionFromLLM,
-				ErrorCode.InternalServerError_500,
+				ErrorStatusCode.InternalServerError_500,
 			)
 		}
 	}

@@ -5,6 +5,7 @@ import { Request } from 'express'
 import { FlashcardRepository } from 'repo/flashcard.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
@@ -12,7 +13,6 @@ import {
 import { TranslatePhraseCommand } from 'features/translation/translatePhrase/TranslatePhrase.command'
 import { TranslateSentenceCommand } from 'features/translation/translateSentence/TranslateSentence.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import RouteNames from 'infrastructure/routeNames'
@@ -191,17 +191,20 @@ export class TranslateResolver {
 		if (input.deniedReason === 'userIsNotOwner') {
 			throw new CustomError(
 				errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia,
-				ErrorCode.Forbidden_403,
+				ErrorStatusCode.Forbidden_403,
 			)
 		}
 
 		if (input.actionType === 'read') {
 			throw new CustomError(
 				errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-				ErrorCode.Unauthorized_401,
+				ErrorStatusCode.Unauthorized_401,
 			)
 		}
 
-		throw new CustomError(errorMessage.sentenceTranslation.anonymousUserCannotTranslate, ErrorCode.Unauthorized_401)
+		throw new CustomError(
+			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
+			ErrorStatusCode.Unauthorized_401,
+		)
 	}
 }

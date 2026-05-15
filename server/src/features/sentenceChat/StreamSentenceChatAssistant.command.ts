@@ -6,10 +6,10 @@ import { Logger } from 'winston'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
 import { SentenceChatMessage, SentenceChatThread } from 'prisma/generated/client'
@@ -173,11 +173,11 @@ export class StreamSentenceChatAssistantCommand {
 	private async loadAndAuthorizeThread(threadId: number, userId: number): Promise<SentenceChatThread> {
 		const thread = await this.sentenceChatThreadRepository.getThreadById(threadId)
 		if (!thread) {
-			throw new CustomError(errorMessage.sentenceChat.threadNotFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.sentenceChat.threadNotFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (thread.user_id !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		return thread
@@ -185,12 +185,12 @@ export class StreamSentenceChatAssistantCommand {
 
 	private async assertNoActiveGenerationForUser(userId: number): Promise<void> {
 		if (this.activeGenerationRegistry.hasActiveForUser(userId)) {
-			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorStatusCode.BadRequest_400)
 		}
 
 		const hasActiveInDb = await this.sentenceChatMessageRepository.hasActiveStreamingMessageForUser(userId)
 		if (hasActiveInDb) {
-			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorStatusCode.BadRequest_400)
 		}
 	}
 
@@ -202,7 +202,10 @@ export class StreamSentenceChatAssistantCommand {
 	private async assertLastMessageIsUserQuestion(threadId: number): Promise<void> {
 		const lastMessage = await this.sentenceChatMessageRepository.getLastMessageInThread(threadId)
 		if (!lastMessage || lastMessage.role !== 'user') {
-			throw new CustomError(errorMessage.sentenceChat.lastMessageIsNotUserQuestion, ErrorCode.BadRequest_400)
+			throw new CustomError(
+				errorMessage.sentenceChat.lastMessageIsNotUserQuestion,
+				ErrorStatusCode.BadRequest_400,
+			)
 		}
 	}
 
@@ -211,7 +214,7 @@ export class StreamSentenceChatAssistantCommand {
 	private async buildPromptPayload(thread: SentenceChatThread): Promise<PromptPayload> {
 		const context = await this.sentenceChatContextBuilder.buildForSentence(thread.sentence_id, NEIGHBORS_RADIUS)
 		if (!context) {
-			throw new CustomError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		const historyMessages = await this.sentenceChatMessageRepository.getLastMessagesByThreadId(

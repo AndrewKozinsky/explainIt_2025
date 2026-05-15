@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
@@ -33,7 +33,7 @@ export class GoogleTtsBalanceChargeHandler implements ICommandHandler<GoogleTtsB
 				throw error
 			}
 
-			throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 		}
 	}
 

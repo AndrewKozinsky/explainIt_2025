@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export type SentenceTranslationAccessMode = 'forbidden' | 'chargeBalance' | 'unlimited'
@@ -25,7 +25,7 @@ export class SentenceTranslationAccessService {
 	}): Promise<SentenceTranslationAccess> {
 		const sentenceDb = await this.sentenceRepository.getSentenceDbById(input.sentenceId)
 		if (!sentenceDb) {
-			throw new CustomError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		const isPublicBook = Boolean(sentenceDb.bookChapter?.book_public_id)

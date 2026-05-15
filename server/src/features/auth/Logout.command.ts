@@ -1,7 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { Request, Response } from 'express'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
@@ -22,7 +22,9 @@ export class LogoutHandler implements ICommandHandler<LogoutCommand> {
 		return new Promise((resolve, reject) => {
 			request.session.destroy((err) => {
 				if (err) {
-					return reject(new CustomError(errorMessage.cannotFinishSession, ErrorCode.InternalServerError_500))
+					return reject(
+						new CustomError(errorMessage.cannotFinishSession, ErrorStatusCode.InternalServerError_500),
+					)
 				}
 
 				response.clearCookie(this.mainConfig.get().session.name)

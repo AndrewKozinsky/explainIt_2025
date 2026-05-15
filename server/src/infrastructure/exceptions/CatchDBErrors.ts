@@ -1,5 +1,5 @@
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from './customErrors'
-import { ErrorCode } from './errorCode'
 import { errorMessage } from './errorMessage'
 
 /**
@@ -26,11 +26,11 @@ function CatchDbError() {
 					const message = error.message
 
 					if (typeof message === 'string') {
-						throw new CustomError(message, ErrorCode.InternalServerError_500)
+						throw new CustomError(message, ErrorStatusCode.InternalServerError_500)
 					}
 				}
 
-				throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 			}
 		}
 

@@ -1,10 +1,10 @@
 import { CommandBus } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentenceTranslationAccess } from './SentenceTranslationAccess.service'
@@ -22,15 +22,21 @@ export async function ensureModeIsAllowedOrThrow(input: {
 	if (input.deniedReason === 'userIsNotOwner') {
 		throw new CustomError(
 			errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia,
-			ErrorCode.Forbidden_403,
+			ErrorStatusCode.Forbidden_403,
 		)
 	}
 
 	if (input.actionType === 'read') {
-		throw new CustomError(errorMessage.sentenceTranslation.anonymousUserCannotTranslate, ErrorCode.Unauthorized_401)
+		throw new CustomError(
+			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
+			ErrorStatusCode.Unauthorized_401,
+		)
 	}
 
-	throw new CustomError(errorMessage.sentenceTranslation.anonymousUserCannotTranslate, ErrorCode.Unauthorized_401)
+	throw new CustomError(
+		errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
+		ErrorStatusCode.Unauthorized_401,
+	)
 }
 
 export async function ensureCanChargeBalanceOrThrow(input: {

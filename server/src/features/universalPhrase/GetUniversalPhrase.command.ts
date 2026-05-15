@@ -1,8 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export class GetUniversalPhraseCommand implements ICommand {
@@ -22,7 +22,7 @@ export class GetUniversalPhraseHandler implements ICommandHandler<GetUniversalPh
 			command.lang,
 		)
 		if (!phrase) {
-			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		return phrase

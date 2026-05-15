@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { SubtitlesGenerationQueue } from 'infrastructure/queues/subtitlesGeneration.queue'
 import { VideoPrivateSubtitlesStatusOutModel } from 'models/videoPrivate/videoPrivateSubtitlesStatus.out.model'
@@ -27,22 +27,25 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<StartGener
 		const state = await this.videoRepository.getSubtitlesGenerationState(videoId)
 
 		if (!state) {
-			throw new CustomError(errorMessage.video.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}
 		if (state.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 		if (!state.isFileUploaded || !state.fileS3Key) {
-			throw new CustomError(errorMessage.video.subtitlesGenerationFileNotUploaded, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.video.subtitlesGenerationFileNotUploaded, ErrorStatusCode.BadRequest_400)
 		}
 		if (!state.languageCode) {
-			throw new CustomError(errorMessage.video.subtitlesGenerationLanguageRequired, ErrorCode.BadRequest_400)
+			throw new CustomError(
+				errorMessage.video.subtitlesGenerationLanguageRequired,
+				ErrorStatusCode.BadRequest_400,
+			)
 		}
 
 		// Atomic transition: idle/done/failed -> pending. Guards against parallel runs.
 		const transitioned = await this.videoRepository.tryStartSubtitlesGeneration(videoId, userId)
 		if (!transitioned) {
-			throw new CustomError(errorMessage.video.subtitlesGenerationAlreadyRunning, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.video.subtitlesGenerationAlreadyRunning, ErrorStatusCode.BadRequest_400)
 		}
 
 		let jobId: string
