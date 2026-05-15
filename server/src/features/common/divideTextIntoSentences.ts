@@ -1,5 +1,5 @@
 import { Language } from 'utils/languages'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -10,7 +10,7 @@ export async function divideTextIntoSentences(params: {
 	languageCode: Language
 }): Promise<string[]> {
 	if (!params.languageCode) {
-		throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+		throw new CustomError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
 	}
 
 	try {
@@ -23,6 +23,6 @@ export async function divideTextIntoSentences(params: {
 		const resJson: { sentences: string[] } = await divideIntoSentencesRes.json()
 		return resJson.sentences || []
 	} catch (error) {
-		throw new CustomGraphQLError(errorMessage.nlp.cantDivideTextIntoSentences, ErrorCode.InternalServerError_500)
+		throw new CustomError(errorMessage.nlp.cantDivideTextIntoSentences, ErrorCode.InternalServerError_500)
 	}
 }

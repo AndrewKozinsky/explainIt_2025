@@ -3,7 +3,7 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryReposi
 import { UniversalTranscriptionQueryRepository } from 'repo/universalTranscription.queryRepository'
 import { UniversalTranscriptionRepository } from 'repo/universalTranscription.repository'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -26,11 +26,11 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseById(universalPhraseId)
 		if (!phrase) {
-			throw new CustomGraphQLError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
 		}
 
 		if (phrase.transcription) {
-			throw new CustomGraphQLError(errorMessage.universalTranscription.alreadyExists, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.universalTranscription.alreadyExists, ErrorCode.BadRequest_400)
 		}
 
 		const transcription = await this.getTranscriptionFromDeepSeek(phrase.phrase, phrase.languageCode)
@@ -79,7 +79,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 		})
 
 		if (!response.message) {
-			throw new CustomGraphQLError(
+			throw new CustomError(
 				errorMessage.universalTranscription.cannotGetTranscriptionFromLLM,
 				ErrorCode.InternalServerError_500,
 			)
@@ -95,7 +95,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 				pinyin: null,
 			}
 		} catch {
-			throw new CustomGraphQLError(
+			throw new CustomError(
 				errorMessage.universalTranscription.cannotGetTranscriptionFromLLM,
 				ErrorCode.InternalServerError_500,
 			)

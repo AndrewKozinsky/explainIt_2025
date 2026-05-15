@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceTranslationQueryRepository } from 'repo/sentenceTranslation.queryRepository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -26,7 +26,7 @@ export class GetSentenceTranslationHandler implements ICommandHandler<GetSentenc
 			await this.sentenceTranslationRepository.getSentenceTranslationDbById(sentenceTranslationId)
 
 		if (!sentenceTranslationDb) {
-			throw new CustomGraphQLError(errorMessage.sentenceTranslation.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.sentenceTranslation.notFound, ErrorCode.NotFound_404)
 		}
 
 		const sentence = sentenceTranslationDb.sentence
@@ -37,7 +37,7 @@ export class GetSentenceTranslationHandler implements ICommandHandler<GetSentenc
 		const isOwnerOfVideo = sentence.videoPrivate?.user_id === userId
 
 		if (!isPublicBookChapter && !isOwnerOfPrivateBook && !isOwnerOfVideo) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
 		return this.sentenceTranslationQueryRepository.getSentenceTranslationById(sentenceTranslationId)

@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -28,18 +28,18 @@ export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateV
 
 		const video = await this.videoRepository.getVideoOwnerAndUrlByVideoId(deleteVideoInput.id)
 		if (!video) {
-			throw new CustomGraphQLError(errorMessage.video.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.video.notFound, ErrorCode.NotFound_404)
 		}
 
 		if (video.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
 		if (video.fileS3Key) {
 			try {
 				await this.cloudRuS3Service.deleteFile(video.fileS3Key)
 			} catch {
-				throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 			}
 		}
 

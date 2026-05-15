@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { Language } from 'utils/languages'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -17,9 +17,12 @@ export class GetUniversalPhraseHandler implements ICommandHandler<GetUniversalPh
 	constructor(private universalPhraseQueryRepository: UniversalPhraseQueryRepository) {}
 
 	async execute(command: GetUniversalPhraseCommand) {
-		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseByTextAndLang(command.phrase, command.lang)
+		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseByTextAndLang(
+			command.phrase,
+			command.lang,
+		)
 		if (!phrase) {
-			throw new CustomGraphQLError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorCode.NotFound_404)
 		}
 
 		return phrase

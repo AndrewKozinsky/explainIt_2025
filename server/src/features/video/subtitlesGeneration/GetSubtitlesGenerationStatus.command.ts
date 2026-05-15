@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { VideoPrivateSubtitlesStatusOutModel } from 'models/videoPrivate/videoPrivateSubtitlesStatus.out.model'
@@ -21,10 +21,10 @@ export class GetSubtitlesGenerationStatusHandler implements ICommandHandler<GetS
 
 		const state = await this.videoRepository.getSubtitlesGenerationState(videoId)
 		if (!state) {
-			throw new CustomGraphQLError(errorMessage.video.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.video.notFound, ErrorCode.NotFound_404)
 		}
 		if (state.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
 		return {

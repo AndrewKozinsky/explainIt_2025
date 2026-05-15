@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { DBRepository } from 'repo/db.repository'
 import { PrismaService } from 'db/prisma.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { BalanceTransactionType } from 'prisma/generated/enums'
@@ -21,17 +21,17 @@ export class UserBalanceTransactionRepository {
 		})
 
 		if (!user) {
-			throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
 		}
 
 		if (user.balance < dto.minBalanceInKopecks) {
-			throw new CustomGraphQLError(errorMessage.insufficientBalanceForTranslation, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.insufficientBalanceForTranslation, ErrorCode.BadRequest_400)
 		}
 	}
 
 	async createCharge(dto: { userId: number; amountInKopecks: number }) {
 		if (dto.amountInKopecks <= 0) {
-			throw new CustomGraphQLError(errorMessage.cannotWriteOffAmountGreaterThanZero, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.cannotWriteOffAmountGreaterThanZero, ErrorCode.BadRequest_400)
 		}
 
 		return await this.dbRepository.wrapIntoPrismaTransaction({
@@ -43,7 +43,7 @@ export class UserBalanceTransactionRepository {
 				})
 
 				if (!user) {
-					throw new CustomGraphQLError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
+					throw new CustomError(errorMessage.userNotFound, ErrorCode.BadRequest_400)
 				}
 
 				await this.prisma.userBalanceTransaction.create({
@@ -70,7 +70,7 @@ export class UserBalanceTransactionRepository {
 
 	async createTopUpByPayment(dto: { userId: number; amountInKopecks: number; paymentId: number }) {
 		if (dto.amountInKopecks <= 0) {
-			throw new CustomGraphQLError(errorMessage.cannotDepositAmountLessThanZero, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.cannotDepositAmountLessThanZero, ErrorCode.BadRequest_400)
 		}
 
 		return await this.dbRepository.wrapIntoPrismaTransaction({

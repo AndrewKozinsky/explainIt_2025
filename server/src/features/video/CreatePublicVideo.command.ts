@@ -8,7 +8,7 @@ import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -60,7 +60,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 			preparedContentResult.processedContentForVideoUpdate === null ||
 			preparedContentResult.contentTypeForVideoUpdate === undefined
 		) {
-			throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.video.notCreated, ErrorCode.BadRequest_400)
 		}
 
 		const createdVideo = await this.dbRepository.wrapIntoPrismaTransaction({
@@ -81,7 +81,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 				})
 
 				if (!newVideo) {
-					throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
+					throw new CustomError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
 				}
 
 				if (preparedContentResult.processedContent !== null) {
@@ -112,12 +112,12 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 		})
 
 		if (!createdVideo) {
-			throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
 		}
 
 		const video = await this.videoQueryRepository.getVideoById(createdVideo.id)
 		if (!video) {
-			throw new CustomGraphQLError(errorMessage.video.notFound, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.video.notFound, ErrorCode.InternalServerError_500)
 		}
 
 		return video

@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -29,11 +29,11 @@ export class GoogleTtsBalanceChargeHandler implements ICommandHandler<GoogleTtsB
 		try {
 			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
 		} catch (error) {
-			if (error instanceof CustomGraphQLError) {
+			if (error instanceof CustomError) {
 				throw error
 			}
 
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 

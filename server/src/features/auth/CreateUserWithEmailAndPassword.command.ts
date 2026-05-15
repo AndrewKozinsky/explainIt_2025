@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -35,7 +35,7 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 					? errorMessage.emailIsAlreadyRegistered
 					: errorMessage.emailIsNotConfirmed
 
-				throw new CustomGraphQLError(errMessage, ErrorCode.BadRequest_400)
+				throw new CustomError(errMessage, ErrorCode.BadRequest_400)
 			} else if (!existingUser.isEmailConfirmed) {
 				// Set new email verification code...
 				const emailVerificationCode = await this.userRepository.setNewEmailVerifiedCode(existingUser.id)
@@ -55,7 +55,7 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 		const newUser = await this.userQueryRepository.getUserById(createdUser.id)
 		if (!newUser) {
 			// Add logger here!!!
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		this.emailAdapter.sendEmailConfirmationMessage(createdUser.email, createdUser.emailConfirmationCode!)

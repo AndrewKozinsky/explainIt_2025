@@ -9,7 +9,7 @@ import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -64,11 +64,11 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 
 		const videoForUpdating = await this.videoQueryRepository.getVideoById(updateVideoInput.id)
 		if (!videoForUpdating) {
-			throw new CustomGraphQLError(errorMessage.video.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.video.notFound, ErrorCode.NotFound_404)
 		}
 
 		if (videoForUpdating.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
 		const { fileName, fileS3Key, isFileUploaded, uploadUrl } = await this.getUploadFileUrlAndFileDetails(
@@ -85,7 +85,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 			const effectiveLanguageCode = updateVideoInput.languageCode ?? videoForUpdating.languageCode
 
 			if (preparedContentResult.processedContent !== null && !effectiveLanguageCode) {
-				throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+				throw new CustomError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
 			}
 
 			await this.updateVideoTextData({
@@ -111,7 +111,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		})
 
 		if (!updatedVideo) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		return {
@@ -143,7 +143,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 				if (dto.processedContent === null) return
 
 				if (!dto.languageCode) {
-					throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+					throw new CustomError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
 				}
 
 				if (dto.subtitles) {

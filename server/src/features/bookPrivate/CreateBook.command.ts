@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPrivateRepository } from 'repo/bookPrivate.repository'
 import { Language } from 'utils/languages'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -35,7 +35,7 @@ export class CreateBookHandler implements ICommandHandler<CreateBookCommand> {
 			...createBookInput,
 		})
 		if (!newBook) {
-			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
 		}
 
 		return await this.bookQueryRepository.getBookById(newBook.id)

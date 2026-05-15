@@ -8,7 +8,7 @@ import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
 } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -86,7 +86,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 			if (!finalizedTranslation) {
 				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslation.id)
-				throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 			}
 
 			await this.chargeAfterTranslationIfNeeded({
@@ -107,7 +107,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			console.log('Error in TranslateSentenceHandler => execute')
 			console.error(error)
 
-			if (error instanceof CustomGraphQLError) {
+			if (error instanceof CustomError) {
 				if (draftSentenceTranslationId !== null) {
 					await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslationId)
 				}
@@ -123,7 +123,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				message: error instanceof Error ? error.message : 'Unknown error',
 			})
 
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 

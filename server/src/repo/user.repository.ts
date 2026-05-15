@@ -3,7 +3,7 @@ import { add } from 'date-fns'
 import { User } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'
+import { CustomError } from '../infrastructure/exceptions/customErrors'
 import { ErrorCode } from '../infrastructure/exceptions/errorCode'
 import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { HashAdapterService } from '../infrastructure/hashAdapter/hash-adapter.service'
@@ -83,7 +83,7 @@ export class UserRepository {
 
 		const createdUser = await this.getUserById(user.id)
 		if (!createdUser) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		return createdUser
@@ -102,7 +102,7 @@ export class UserRepository {
 
 		const createdUser = await this.getUserById(user.id)
 		if (!createdUser) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		return createdUser

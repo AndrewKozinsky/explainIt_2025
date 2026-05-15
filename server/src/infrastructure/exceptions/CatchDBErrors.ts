@@ -1,4 +1,4 @@
-import { CustomGraphQLError } from './customErrors'
+import { CustomError } from './customErrors'
 import { ErrorCode } from './errorCode'
 import { errorMessage } from './errorMessage'
 
@@ -26,11 +26,11 @@ function CatchDbError() {
 					const message = error.message
 
 					if (typeof message === 'string') {
-						throw new CustomGraphQLError(message, ErrorCode.InternalServerError_500)
+						throw new CustomError(message, ErrorCode.InternalServerError_500)
 					}
 				}
 
-				throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 			}
 		}
 

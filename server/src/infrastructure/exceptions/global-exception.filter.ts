@@ -3,7 +3,7 @@ import { GqlContextType } from '@nestjs/graphql'
 import { Response } from 'express'
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Logger } from 'winston'
-import { CustomGraphQLError } from './customErrors'
+import { CustomError } from './customErrors'
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
@@ -32,7 +32,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 			})
 		}
 
-		if (exception instanceof CustomGraphQLError) {
+		if (exception instanceof CustomError) {
 			throw Object.assign(new Error(exception.message), { extensions: exception.extensions })
 		}
 
@@ -50,7 +50,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 			return
 		}
 
-		if (exception instanceof CustomGraphQLError) {
+		if (exception instanceof CustomError) {
 			const statusCode = (exception.extensions?.statusCode as number | undefined) ?? 500
 			response.status(statusCode).json({ message: exception.message, statusCode })
 			return

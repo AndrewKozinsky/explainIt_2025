@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql'
 import { ErrorCode } from './errorCode'
 
-export class CustomGraphQLError extends GraphQLError {
+export class CustomError extends GraphQLError {
 	constructor(message: string, statusCode: ErrorCode) {
 		const obj: Record<ErrorCode, string> = {
 			[ErrorCode.BadRequest_400]: 'Bad Request',

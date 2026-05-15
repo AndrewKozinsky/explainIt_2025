@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
@@ -40,7 +40,7 @@ export class YandexTranslateService {
 
 			const translatedText = response.data.translations?.[0]?.text
 			if (!translatedText) {
-				throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 			}
 
 			return {
@@ -49,7 +49,7 @@ export class YandexTranslateService {
 		} catch (error) {
 			console.log('Error in YandexTranslateService => translateText')
 			console.error(error)
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 }

@@ -12,7 +12,7 @@ import {
 	theLittlePrinceChapters,
 } from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -121,7 +121,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 
 		const book = await this.commandBus.execute(new CreatePublicBookCommand(bookData))
 		if (!book) {
-			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
 		}
 
 		return book.id

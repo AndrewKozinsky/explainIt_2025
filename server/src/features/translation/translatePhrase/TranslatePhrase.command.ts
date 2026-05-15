@@ -7,7 +7,7 @@ import {
 	TranslationProviderName,
 	TranslationProviderUsage,
 } from 'features/translation/translateCommon/TranslationProvider.types'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -105,7 +105,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 			const parsed = parsePhraseTranslationResult(generated.message)
 			if (!parsed || !parsed.translate) {
-				throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 			}
 
 			const resolvedPhrase = this.resolvePhraseBySentence({
@@ -142,21 +142,21 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				errorMessage: message,
 			})
 
-			if (error instanceof CustomGraphQLError) {
+			if (error instanceof CustomError) {
 				throw error
 			}
 
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
 		}
 	}
 
 	private validateSelectedOffsetsOrThrow(input: TranslatePhraseInput) {
 		if (input.selectedWordStartOffset < 0 || input.selectedWordEndOffset <= input.selectedWordStartOffset) {
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.unknownError, ErrorCode.BadRequest_400)
 		}
 
 		if (input.selectedWordEndOffset > input.text.length) {
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.unknownError, ErrorCode.BadRequest_400)
 		}
 	}
 

@@ -6,7 +6,7 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
@@ -38,7 +38,7 @@ export class DeepSeekService {
 		})
 
 		if (!response.usage) {
-			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 		}
 
 		return {

@@ -8,7 +8,7 @@ import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository
 import { UserRepository } from 'repo/user.repository'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
@@ -163,7 +163,7 @@ export class StreamSentenceChatAssistantCommand {
 
 		await this.finalize(input, subscriber, state, { status: 'failed', errorText })
 
-		if (error instanceof CustomGraphQLError) {
+		if (error instanceof CustomError) {
 			subscriber.error(error)
 		}
 	}
@@ -173,11 +173,11 @@ export class StreamSentenceChatAssistantCommand {
 	private async loadAndAuthorizeThread(threadId: number, userId: number): Promise<SentenceChatThread> {
 		const thread = await this.sentenceChatThreadRepository.getThreadById(threadId)
 		if (!thread) {
-			throw new CustomGraphQLError(errorMessage.sentenceChat.threadNotFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.sentenceChat.threadNotFound, ErrorCode.NotFound_404)
 		}
 
 		if (thread.user_id !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
 		return thread
@@ -185,12 +185,12 @@ export class StreamSentenceChatAssistantCommand {
 
 	private async assertNoActiveGenerationForUser(userId: number): Promise<void> {
 		if (this.activeGenerationRegistry.hasActiveForUser(userId)) {
-			throw new CustomGraphQLError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
 		}
 
 		const hasActiveInDb = await this.sentenceChatMessageRepository.hasActiveStreamingMessageForUser(userId)
 		if (hasActiveInDb) {
-			throw new CustomGraphQLError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorCode.BadRequest_400)
 		}
 	}
 
@@ -202,10 +202,7 @@ export class StreamSentenceChatAssistantCommand {
 	private async assertLastMessageIsUserQuestion(threadId: number): Promise<void> {
 		const lastMessage = await this.sentenceChatMessageRepository.getLastMessageInThread(threadId)
 		if (!lastMessage || lastMessage.role !== 'user') {
-			throw new CustomGraphQLError(
-				errorMessage.sentenceChat.lastMessageIsNotUserQuestion,
-				ErrorCode.BadRequest_400,
-			)
+			throw new CustomError(errorMessage.sentenceChat.lastMessageIsNotUserQuestion, ErrorCode.BadRequest_400)
 		}
 	}
 
@@ -214,7 +211,7 @@ export class StreamSentenceChatAssistantCommand {
 	private async buildPromptPayload(thread: SentenceChatThread): Promise<PromptPayload> {
 		const context = await this.sentenceChatContextBuilder.buildForSentence(thread.sentence_id, NEIGHBORS_RADIUS)
 		if (!context) {
-			throw new CustomGraphQLError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.sentence.notFound, ErrorCode.NotFound_404)
 		}
 
 		const historyMessages = await this.sentenceChatMessageRepository.getLastMessagesByThreadId(
@@ -376,7 +373,7 @@ export class StreamSentenceChatAssistantCommand {
 	}
 
 	private extractErrorMessage(error: unknown): string {
-		if (error instanceof CustomGraphQLError) return error.message
+		if (error instanceof CustomError) return error.message
 		if (error instanceof Error) return error.message
 
 		return errorMessage.unknownError

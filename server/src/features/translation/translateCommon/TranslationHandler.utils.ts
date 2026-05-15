@@ -3,7 +3,7 @@ import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.re
 import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -20,23 +20,17 @@ export async function ensureModeIsAllowedOrThrow(input: {
 	}
 
 	if (input.deniedReason === 'userIsNotOwner') {
-		throw new CustomGraphQLError(
+		throw new CustomError(
 			errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia,
 			ErrorCode.Forbidden_403,
 		)
 	}
 
 	if (input.actionType === 'read') {
-		throw new CustomGraphQLError(
-			errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-			ErrorCode.Unauthorized_401,
-		)
+		throw new CustomError(errorMessage.sentenceTranslation.anonymousUserCannotTranslate, ErrorCode.Unauthorized_401)
 	}
 
-	throw new CustomGraphQLError(
-		errorMessage.sentenceTranslation.anonymousUserCannotTranslate,
-		ErrorCode.Unauthorized_401,
-	)
+	throw new CustomError(errorMessage.sentenceTranslation.anonymousUserCannotTranslate, ErrorCode.Unauthorized_401)
 }
 
 export async function ensureCanChargeBalanceOrThrow(input: {

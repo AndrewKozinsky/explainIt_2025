@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -21,12 +21,12 @@ export class GetBookHandler implements ICommandHandler<GetBookCommand> {
 		// Check if the book exists
 		const book = await this.bookQueryRepository.getBookById(bookId)
 		if (!book) {
-			throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.book.notFound, ErrorCode.NotFound_404)
 		}
 
 		// Throw an error if this user is not the owner of the book
 		if (book.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
 		}
 
 		return book

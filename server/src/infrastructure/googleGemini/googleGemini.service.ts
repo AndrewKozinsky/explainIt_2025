@@ -1,7 +1,7 @@
 import { Content, GoogleGenAI } from '@google/genai'
 import { Injectable } from '@nestjs/common'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -31,7 +31,7 @@ export class GoogleGeminiService {
 		const usage = response.usageMetadata
 
 		if (!usage) {
-			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
 		}
 
 		const message = response.candidates?.[0]?.content?.parts?.[0]?.text ?? null

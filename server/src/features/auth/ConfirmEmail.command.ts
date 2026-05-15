@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserRepository } from 'repo/user.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
@@ -23,18 +23,18 @@ export class ConfirmEmailHandler implements ICommandHandler<ConfirmEmailCommand>
 
 		// Throw an error if user is not found or he registered with OAuth or confirmation code not found
 		if (!user || !user.password || !user.emailConfirmationCode) {
-			throw new CustomGraphQLError(errorMessage.emailConfirmationCodeNotFound, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.emailConfirmationCodeNotFound, ErrorCode.BadRequest_400)
 		}
 
 		if (new Date(user.confirmationCodeExpirationDate!) <= new Date()) {
-			throw new CustomGraphQLError(errorMessage.emailConfirmationCodeIsExpired, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.emailConfirmationCodeIsExpired, ErrorCode.BadRequest_400)
 		}
 
 		try {
 			await this.userRepository.makeEmailVerified(user.id)
 			return true
 		} catch (error: unknown) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 	}
 }

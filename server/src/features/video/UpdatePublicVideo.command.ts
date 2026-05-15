@@ -8,7 +8,7 @@ import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -48,7 +48,7 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 
 		const videoForUpdating = await this.videoQueryRepository.getVideoById(updateVideoInput.id)
 		if (!videoForUpdating) {
-			throw new CustomGraphQLError(errorMessage.video.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.video.notFound, ErrorCode.NotFound_404)
 		}
 
 		const preparedContentResult = this.prepareTextContentForSaving({
@@ -75,10 +75,10 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 				: preparedContentResult.contentTypeForVideoUpdate
 
 		if (nameForUpdate === null || fileNameForUpdate === null || fileS3KeyForUpdate === null) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 		if (originalContentForUpdate === null || processedContentForUpdate === null) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		if (preparedContentResult.shouldUpdateRelatedTextData) {
@@ -128,7 +128,7 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 		})
 
 		if (!updatedVideo) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
 		}
 
 		return {

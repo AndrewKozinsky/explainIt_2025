@@ -1,6 +1,6 @@
 import { TextToSpeechClient, protos } from '@google-cloud/text-to-speech'
 import { Injectable } from '@nestjs/common'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { ErrorCode } from 'infrastructure/exceptions/errorCode'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LanguageCode } from 'prisma/generated/client'
@@ -52,7 +52,7 @@ export class GoogleTtsService {
 		})
 
 		if (!response.audioContent) {
-			throw new CustomGraphQLError(
+			throw new CustomError(
 				errorMessage.audioPronunciation.cannotGenerateAudio,
 				ErrorCode.InternalServerError_500,
 			)
