@@ -51,7 +51,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 			validationErrors: [
 				{
 					field: 'email',
-					messages: [errorMessage.wrongEmailFormat],
+					messages: [errorMessage.email.wrongEmailFormat],
 				},
 			],
 		})
@@ -66,7 +66,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailNotFound,
+			message: errorMessage.email.emailNotFound,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
@@ -86,7 +86,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailNotFound,
+			message: errorMessage.email.emailNotFound,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
@@ -143,7 +143,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailIsAlreadyConfirmed,
+			message: errorMessage.email.emailIsAlreadyConfirmed,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)

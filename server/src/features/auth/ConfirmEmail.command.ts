@@ -23,11 +23,11 @@ export class ConfirmEmailHandler implements ICommandHandler<ConfirmEmailCommand>
 
 		// Throw an error if user is not found or he registered with OAuth or confirmation code not found
 		if (!user || !user.password || !user.emailConfirmationCode) {
-			throw new CustomError(errorMessage.emailConfirmationCodeNotFound, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.email.emailConfirmationCodeNotFound, ErrorStatusCode.BadRequest_400)
 		}
 
 		if (new Date(user.confirmationCodeExpirationDate!) <= new Date()) {
-			throw new CustomError(errorMessage.emailConfirmationCodeIsExpired, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.email.emailConfirmationCodeIsExpired, ErrorStatusCode.BadRequest_400)
 		}
 
 		try {

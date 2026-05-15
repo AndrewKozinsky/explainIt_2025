@@ -127,7 +127,7 @@ describe.skip('Delete book chapter', () => {
 		checkErrorResponse(deletedBookChapterResp, {
 			code: 'Forbidden',
 			statusCode: 403,
-			message: errorMessage.userIsNotOwner,
+			message: errorMessage.user.userIsNotOwner,
 		})
 	})
 

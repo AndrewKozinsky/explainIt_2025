@@ -103,7 +103,7 @@ export function DtoFieldDecorators(
 	}
 	if (updatedFieldConf.type === 'email') {
 		decorators.push(IsString({ message: errorMessage.mustBeString(name) }))
-		decorators.push(IsEmail({}, { message: errorMessage.wrongEmailFormat }))
+		decorators.push(IsEmail({}, { message: errorMessage.email.wrongEmailFormat }))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}

@@ -32,7 +32,7 @@ export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateV
 		}
 
 		if (video.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		if (video.fileS3Key) {

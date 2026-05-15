@@ -1,16 +1,16 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
+import { queries } from '../../src/features/db/queries'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+import RouteNames from '../../src/infrastructure/routeNames'
+import { UserRepository } from '../../src/repo/user.repository'
+import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
 import { checkErrorResponse } from '../utils/checkErrorResp'
-import RouteNames from '../../src/infrastructure/routeNames'
-import { makeGraphQLReq } from '../makeGQReq'
 import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { queries } from '../../src/features/db/queries'
 import { userUtils } from '../utils/userUtils'
-import { UserRepository } from '../../src/repo/user.repository'
 
 it('1', () => {
 	expect(2).toBe(2)
@@ -48,7 +48,7 @@ describe.skip('User login (e2e)', () => {
 			validationErrors: [
 				{
 					field: 'email',
-					messages: [errorMessage.wrongEmailFormat],
+					messages: [errorMessage.email.wrongEmailFormat],
 				},
 				{ field: 'password', messages: [errorMessage.minCharacters(6)] },
 			],
@@ -62,7 +62,7 @@ describe.skip('User login (e2e)', () => {
 		checkErrorResponse(loginResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.userNotFound,
+			message: errorMessage.user.userNotFound,
 		})
 	})
 
@@ -79,7 +79,7 @@ describe.skip('User login (e2e)', () => {
 		checkErrorResponse(loginResp, {
 			code: 'Forbidden',
 			statusCode: 403,
-			message: errorMessage.emailIsNotConfirmed,
+			message: errorMessage.email.emailIsNotConfirmed,
 		})
 	})
 
@@ -108,7 +108,7 @@ describe.skip('User login (e2e)', () => {
 		checkErrorResponse(loginResp, {
 			code: 'Not Found',
 			statusCode: 404,
-			message: errorMessage.userNotFound,
+			message: errorMessage.user.userNotFound,
 		})
 
 		expect(loginRespCookies).toEqual({})

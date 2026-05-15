@@ -30,7 +30,7 @@ export class TopUpBalanceWithYooKassaHandler implements ICommandHandler<TopUpBal
 
 		const user = await this.userRepository.getUserById(userId)
 		if (!user) {
-			throw new CustomError(errorMessage.userNotFound, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.user.userNotFound, ErrorStatusCode.BadRequest_400)
 		}
 
 		if (input.amountInKopecks <= 0) {

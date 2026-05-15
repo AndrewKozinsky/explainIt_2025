@@ -31,7 +31,7 @@ export class DeleteBookChapterHandler implements ICommandHandler<DeleteBookChapt
 		}
 
 		if (bookChapter.book.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		await this.bookChapterRepository.deleteBookChapterById(deleteBookChapterInput.id)

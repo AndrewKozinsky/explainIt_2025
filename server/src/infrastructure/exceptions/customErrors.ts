@@ -1,4 +1,4 @@
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 const errorCodeByStatusCode: Record<ErrorStatusCode, string> = {
 	[ErrorStatusCode.BadRequest_400]: 'BAD_REQUEST',

@@ -66,7 +66,7 @@ describe.skip('Get me (e2e)', () => {
 		checkErrorResponse(getMeResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
-			message: errorMessage.userUnauthorized,
+			message: errorMessage.user.userUnauthorized,
 		})
 	})
 
@@ -111,7 +111,7 @@ describe.skip('Get me (e2e)', () => {
 		checkErrorResponse(getMeResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
-			message: errorMessage.userUnauthorized,
+			message: errorMessage.user.userUnauthorized,
 		})
 	})
 })

@@ -47,7 +47,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(confirmEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailConfirmationCodeNotFound,
+			message: errorMessage.email.emailConfirmationCodeNotFound,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
@@ -98,7 +98,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(confirmEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailConfirmationCodeIsExpired,
+			message: errorMessage.email.emailConfirmationCodeIsExpired,
 		})
 
 		// Check the user's email is still unconfirmed
@@ -130,7 +130,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(confirmEmailResp2, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailConfirmationCodeNotFound,
+			message: errorMessage.email.emailConfirmationCodeNotFound,
 		})
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
@@ -187,7 +187,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		checkErrorResponse(confirmEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.emailConfirmationCodeNotFound,
+			message: errorMessage.email.emailConfirmationCodeNotFound,
 		})
 	})
 })

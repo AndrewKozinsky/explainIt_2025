@@ -26,7 +26,7 @@ export class RemoveFlashcardHandler implements ICommandHandler<RemoveFlashcardCo
 		}
 
 		if (flashcard.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		await this.flashcardRepository.deleteFlashcardById(flashcardId)

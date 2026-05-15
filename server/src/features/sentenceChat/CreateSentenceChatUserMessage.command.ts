@@ -41,7 +41,7 @@ export class CreateSentenceChatUserMessageHandler implements ICommandHandler<
 			throw new CustomError(errorMessage.sentenceChat.threadNotFound, ErrorStatusCode.NotFound_404)
 		}
 		if (thread.user_id !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		// Проверяем, что предыдущий ответ уже завершён: последнее сообщение либо отсутствует,

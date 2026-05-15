@@ -21,7 +21,7 @@ export class UserBalanceTransactionRepository {
 		})
 
 		if (!user) {
-			throw new CustomError(errorMessage.userNotFound, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.user.userNotFound, ErrorStatusCode.BadRequest_400)
 		}
 
 		if (user.balance < dto.minBalanceInKopecks) {
@@ -43,7 +43,7 @@ export class UserBalanceTransactionRepository {
 				})
 
 				if (!user) {
-					throw new CustomError(errorMessage.userNotFound, ErrorStatusCode.BadRequest_400)
+					throw new CustomError(errorMessage.user.userNotFound, ErrorStatusCode.BadRequest_400)
 				}
 
 				await this.prisma.userBalanceTransaction.create({

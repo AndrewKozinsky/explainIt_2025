@@ -39,7 +39,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 
 		// Throw an error if this user is not the owner of the book
 		if (bookForUpdating.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		const book = await this.bookRepository.updateBookById(updateBookInput.id, updateBookInput)

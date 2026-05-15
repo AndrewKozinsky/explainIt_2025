@@ -23,11 +23,11 @@ export class ResendConfirmationEmailHandler implements ICommandHandler<ResendCon
 
 		// Throw an error if user is not found or he registered with OAuth
 		if (!user || !user.password) {
-			throw new CustomError(errorMessage.emailNotFound, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.email.emailNotFound, ErrorStatusCode.BadRequest_400)
 		}
 
 		if (user.isEmailConfirmed) {
-			throw new CustomError(errorMessage.emailIsAlreadyConfirmed, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.email.emailIsAlreadyConfirmed, ErrorStatusCode.BadRequest_400)
 		}
 
 		const confirmationCode = await this.userRepository.setNewEmailVerifiedCode(user.id)

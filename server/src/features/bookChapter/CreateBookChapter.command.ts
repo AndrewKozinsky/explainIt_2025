@@ -66,7 +66,7 @@ export class CreateBookChapterHandler implements ICommandHandler<CreateBookChapt
 
 		// Throw an error if this user is not the owner of the book
 		if (!isBookPublic && userId !== bookUserId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		let processedContent = removeBOM(createBookChapterInput.originalContent ?? '')

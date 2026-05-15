@@ -24,7 +24,7 @@ export class GetVideoPrivateHandler implements ICommandHandler<GetVideoPrivateCo
 		}
 
 		if (video.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		return video

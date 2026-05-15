@@ -1,20 +1,25 @@
 export const errorMessage = {
 	// EMAIL
-	emailIsAlreadyRegistered: 'Почта уже зарегистрирована.',
-	emailIsNotConfirmed: 'Почта зарегистрирована, но не подтверждена.',
-	wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
-	emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
-	emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
-	emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
-	emailNotFound: 'Почта не найдена.',
+	email: {
+		emailIsAlreadyRegistered: 'Почта уже зарегистрирована.',
+		emailIsNotConfirmed: 'Почта зарегистрирована, но не подтверждена.',
+		wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
+		emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
+		emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
+		emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
+		emailNotFound: 'Почта не найдена.',
+	},
 
 	// USER
-	userNotFound: 'Пользователь не найден.',
-	userUnauthorized: 'Пользователь не авторизован.',
+	user: {
+		userNotFound: 'Пользователь не найден.',
+		userUnauthorized: 'Пользователь не авторизован.',
+		userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
+	},
+
 	userBalanceIsNegative: 'Отрицательный баланс.',
 	userBalanceBelowMinimum: 'Недостаточно средств на балансе для выполнения операции.',
 	insufficientBalanceForTranslation: 'Недостаточно средств на балансе для перевода.',
-	userIsNotOwner: 'Пользователь не является владельцем этой сущности.',
 	paymentIdIsRequiredForPaymentTransactions: 'Payment ID is required for payment transactions',
 	cannotDepositAmountLessThanZero: 'You cannot deposit an amount less than zero into your balance.',
 	cannotWriteOffAmountGreaterThanZero: 'You cannot write off an amount greater than zero from your balance.',
@@ -25,9 +30,6 @@ export const errorMessage = {
 	sessionTokenIsNotValid: 'Токен сессии недействителен.',
 	cannotGetAccessTokenForOAuthProvider: 'Не получилось получить токен доступа у поставщика OAuth.',
 	cannotGetUserDataFromOAuthProvider: 'Не получилось получить данные о пользователе у поставщика OAuth.',
-
-	// INPUT DATA
-	// wrongInputData: 'Неверные значения полей.',
 
 	// NUMBERS
 	minNum(num: number) {

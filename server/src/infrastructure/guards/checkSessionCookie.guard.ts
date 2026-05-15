@@ -13,12 +13,12 @@ export class CheckSessionCookieGuard implements CanActivate {
 		const request = getRequestFromExecutionContext(context)
 
 		if (!request.session?.userId) {
-			throw new CustomError(errorMessage.userUnauthorized, ErrorStatusCode.Unauthorized_401)
+			throw new CustomError(errorMessage.user.userUnauthorized, ErrorStatusCode.Unauthorized_401)
 		}
 
 		const user = await this.userRepository.getUserById(request.session.userId)
 		if (!user) {
-			throw new CustomError(errorMessage.userUnauthorized, ErrorStatusCode.BadRequest_400)
+			throw new CustomError(errorMessage.user.userUnauthorized, ErrorStatusCode.BadRequest_400)
 		}
 
 		request.user = user

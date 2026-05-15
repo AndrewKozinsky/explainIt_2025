@@ -37,7 +37,7 @@ export class GetSentenceTranslationHandler implements ICommandHandler<GetSentenc
 		const isOwnerOfVideo = sentence.videoPrivate?.user_id === userId
 
 		if (!isPublicBookChapter && !isOwnerOfPrivateBook && !isOwnerOfVideo) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		return this.sentenceTranslationQueryRepository.getSentenceTranslationById(sentenceTranslationId)

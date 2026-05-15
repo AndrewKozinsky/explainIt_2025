@@ -37,7 +37,7 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 		}
 
 		if (bookChapter.book.userId && bookChapter.book.userId !== userId) {
-			throw new CustomError(errorMessage.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		const getBookChapter = await this.bookChapterRepository.getBookChapter({
