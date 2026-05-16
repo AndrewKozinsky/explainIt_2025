@@ -77,9 +77,6 @@ export const filesUrls = {
 		},
 	},
 	onboardingModal: {
-		selectedWord: {
-			'1x': s3AssetsUrl + 'onboardingModal/selectedWord@1x.png',
-			'2x': s3AssetsUrl + 'onboardingModal/selectedWord@2x.png',
-		},
+		selectedWord: s3AssetsUrl + 'onboardingModal/selectWords.mp4',
 	},
 }
