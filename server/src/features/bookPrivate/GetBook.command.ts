@@ -26,7 +26,7 @@ export class GetBookHandler implements ICommandHandler<GetBookCommand> {
 
 		// Throw an error if this user is not the owner of the book
 		if (book.userId !== userId) {
-			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		return book

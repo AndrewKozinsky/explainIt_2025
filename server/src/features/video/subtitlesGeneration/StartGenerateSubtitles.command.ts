@@ -30,7 +30,7 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<StartGener
 			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}
 		if (state.userId !== userId) {
-			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 		if (!state.isFileUploaded || !state.fileS3Key) {
 			throw new CustomError(errorMessage.video.subtitlesGenerationFileNotUploaded, ErrorStatusCode.BadRequest_400)

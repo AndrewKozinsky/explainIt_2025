@@ -52,7 +52,7 @@ describe.skip('Register user (e2e)', () => {
 			validationErrors: [
 				{
 					field: 'email',
-					messages: [errorMessage.email.wrongEmailFormat],
+					messages: [errorMessage.email.wrongFormat],
 				},
 				{ field: 'password', messages: [errorMessage.minCharacters(6)] },
 			],
@@ -102,7 +102,7 @@ describe.skip('Register user (e2e)', () => {
 		checkErrorResponse(createUserResp2, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.email.emailIsNotConfirmed,
+			message: errorMessage.email.isNotConfirmed,
 		})
 	})
 
@@ -118,7 +118,7 @@ describe.skip('Register user (e2e)', () => {
 		checkErrorResponse(createUserResp2, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.email.emailIsAlreadyRegistered,
+			message: errorMessage.email.isAlreadyRegistered,
 		})
 	})
 

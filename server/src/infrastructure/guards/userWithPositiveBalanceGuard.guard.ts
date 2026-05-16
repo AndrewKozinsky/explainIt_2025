@@ -21,7 +21,7 @@ export function UserWithMinBalanceGuard(minBalanceKopecks: number): Type<CanActi
 			const request = getRequestFromExecutionContext(context)
 
 			if (!request.user) {
-				throw new CustomError(errorMessage.user.userUnauthorized, ErrorStatusCode.Unauthorized_401)
+				throw new CustomError(errorMessage.user.unauthorized, ErrorStatusCode.Unauthorized_401)
 			}
 
 			if (request.user.balance < minBalanceKopecks) {

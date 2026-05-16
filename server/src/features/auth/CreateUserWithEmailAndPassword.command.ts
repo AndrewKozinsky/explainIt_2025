@@ -32,8 +32,8 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 			if (existingUser.password) {
 				// If a user has already registered with email and password...
 				const errMessage = existingUser.isEmailConfirmed
-					? errorMessage.email.emailIsAlreadyRegistered
-					: errorMessage.email.emailIsNotConfirmed
+					? errorMessage.email.isAlreadyRegistered
+					: errorMessage.email.isNotConfirmed
 
 				throw new CustomError(errMessage, ErrorStatusCode.BadRequest_400)
 			} else if (!existingUser.isEmailConfirmed) {

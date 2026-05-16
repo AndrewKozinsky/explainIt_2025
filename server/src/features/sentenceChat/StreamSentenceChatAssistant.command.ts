@@ -10,7 +10,7 @@ import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
 import { SentenceChatMessage, SentenceChatThread } from 'prisma/generated/client'
 import { SentenceChatMessageStatus } from 'prisma/generated/enums'
@@ -115,7 +115,7 @@ export class StreamSentenceChatAssistantCommand {
 
 				await this.finalize(input, subscriber, state, {
 					status: 'failed',
-					errorText: errorMessage.sentenceChat.insufficientBalance,
+					errorText: serializeErrorMessage(errorMessage.sentenceChat.insufficientBalance),
 				})
 
 				return
@@ -177,7 +177,7 @@ export class StreamSentenceChatAssistantCommand {
 		}
 
 		if (thread.user_id !== userId) {
-			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		return thread
@@ -379,6 +379,6 @@ export class StreamSentenceChatAssistantCommand {
 		if (error instanceof CustomError) return error.message
 		if (error instanceof Error) return error.message
 
-		return errorMessage.unknownError
+		return serializeErrorMessage(errorMessage.unknownError)
 	}
 }

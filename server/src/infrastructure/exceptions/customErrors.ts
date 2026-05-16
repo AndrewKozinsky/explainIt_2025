@@ -1,3 +1,4 @@
+import { ErrorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 const errorCodeByStatusCode: Record<ErrorStatusCode, string> = {
@@ -12,10 +13,10 @@ export class CustomError extends Error {
 	public readonly code: string
 
 	constructor(
-		message: string,
+		public readonly errorMessage: ErrorMessage,
 		public readonly statusCode: ErrorStatusCode,
 	) {
-		super(message)
+		super(serializeErrorMessage(errorMessage))
 		this.code = errorCodeByStatusCode[statusCode]
 	}
 }

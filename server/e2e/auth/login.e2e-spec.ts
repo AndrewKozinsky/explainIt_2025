@@ -48,7 +48,7 @@ describe.skip('User login (e2e)', () => {
 			validationErrors: [
 				{
 					field: 'email',
-					messages: [errorMessage.email.wrongEmailFormat],
+					messages: [errorMessage.email.wrongFormat],
 				},
 				{ field: 'password', messages: [errorMessage.minCharacters(6)] },
 			],
@@ -62,7 +62,7 @@ describe.skip('User login (e2e)', () => {
 		checkErrorResponse(loginResp, {
 			code: 'Bad Request',
 			statusCode: 400,
-			message: errorMessage.user.userNotFound,
+			message: errorMessage.user.notFound,
 		})
 	})
 
@@ -79,7 +79,7 @@ describe.skip('User login (e2e)', () => {
 		checkErrorResponse(loginResp, {
 			code: 'Forbidden',
 			statusCode: 403,
-			message: errorMessage.email.emailIsNotConfirmed,
+			message: errorMessage.email.isNotConfirmed,
 		})
 	})
 
@@ -108,7 +108,7 @@ describe.skip('User login (e2e)', () => {
 		checkErrorResponse(loginResp, {
 			code: 'Not Found',
 			statusCode: 404,
-			message: errorMessage.user.userNotFound,
+			message: errorMessage.user.notFound,
 		})
 
 		expect(loginRespCookies).toEqual({})

@@ -35,12 +35,12 @@ export class LoginHandler implements ICommandHandler<LoginCommand> {
 
 		// Throw an error if user is not found or he registered with OAuth
 		if (!user || !user.password) {
-			throw new CustomError(errorMessage.user.userNotFound, ErrorStatusCode.NotFound_404)
+			throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		// If user has not registered with OAuth and has unconfirmed email
 		if (!user.isUserConfirmed && !user.isEmailConfirmed) {
-			throw new CustomError(errorMessage.email.emailIsNotConfirmed, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.email.isNotConfirmed, ErrorStatusCode.Forbidden_403)
 		}
 
 		const outUser = await this.userQueryRepository.getUserById(user.id)

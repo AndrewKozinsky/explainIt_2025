@@ -15,7 +15,7 @@ export const authUtils = {
 		checkErrorResponse(queryResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
-			message: errorMessage.user.userUnauthorized,
+			message: errorMessage.user.unauthorized,
 		})
 	},
 }

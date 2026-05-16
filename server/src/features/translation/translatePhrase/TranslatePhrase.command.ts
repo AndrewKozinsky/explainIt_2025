@@ -9,7 +9,7 @@ import {
 	TranslationProviderUsage,
 } from 'features/translation/translateCommon/TranslationProvider.types'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentencePhraseTranslationServiceModel } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -135,7 +135,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 			return savedPhrase
 		} catch (error) {
-			const message = error instanceof Error ? error.message : errorMessage.unknownError
+			const message = error instanceof Error ? error.message : serializeErrorMessage(errorMessage.unknownError)
 
 			await this.sentencePhraseTranslationRepository.updatePhraseById(pendingPhrase.id, {
 				status: 'error',

@@ -172,7 +172,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 
 	private assertOwner(sourceOwnerId: number, userId: number) {
 		if (sourceOwnerId !== userId) {
-			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 	}
 

@@ -22,14 +22,6 @@ function CatchDbError() {
 			try {
 				return await originalMethod.apply(this, args)
 			} catch (error: unknown) {
-				if (typeof error === 'object' && !!error && 'message' in error) {
-					const message = error.message
-
-					if (typeof message === 'string') {
-						throw new CustomError(message, ErrorStatusCode.InternalServerError_500)
-					}
-				}
-
 				throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 			}
 		}

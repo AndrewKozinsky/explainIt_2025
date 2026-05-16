@@ -1,6 +1,10 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import {
+	theTransformationBookData,
+	theTransformationChapters,
+} from 'src/features/bookPublic/german/theTransformation/theTransformation'
 import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
@@ -97,6 +101,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
+			},
+			{
+				book: theTransformationBookData(coversFolderName + 'german/'),
+				chapters: theTransformationChapters,
 			},
 			// Spanish
 			{

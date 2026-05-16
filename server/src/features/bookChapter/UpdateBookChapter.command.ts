@@ -46,7 +46,7 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 		}
 
 		if (bookChapter.book.userId !== userId) {
-			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		let processedContent = removeBOM(updateBookChapterInput.originalContent ?? '')

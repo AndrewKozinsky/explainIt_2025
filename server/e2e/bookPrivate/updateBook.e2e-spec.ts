@@ -113,7 +113,7 @@ describe.skip('Update book', () => {
 		checkErrorResponse(updatedBookResp, {
 			code: 'Forbidden',
 			statusCode: 403,
-			message: errorMessage.user.userIsNotOwner,
+			message: errorMessage.user.isNotOwner,
 		})
 	})
 

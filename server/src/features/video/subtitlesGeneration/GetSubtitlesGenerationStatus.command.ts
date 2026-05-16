@@ -24,7 +24,7 @@ export class GetSubtitlesGenerationStatusHandler implements ICommandHandler<GetS
 			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}
 		if (state.userId !== userId) {
-			throw new CustomError(errorMessage.user.userIsNotOwner, ErrorStatusCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		return {
