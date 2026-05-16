@@ -1,11 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import {
-	theTransformationBookData,
-	theTransformationChapters,
-} from 'src/features/bookPublic/german/theTransformation/theTransformation'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -16,9 +11,15 @@ import {
 	theLittlePrinceBookData,
 	theLittlePrinceChapters,
 } from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
+import { processBookData, processChapters } from 'features/bookPublic/german/process/process'
+import {
+	theTransformationBookData,
+	theTransformationChapters,
+} from 'features/bookPublic/german/theTransformation/theTransformation'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
 import { CreatePublicBookCommand, CreateBookPublicInput } from './CreatePublicBook.command'
@@ -105,6 +106,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: theTransformationBookData(coversFolderName + 'german/'),
 				chapters: theTransformationChapters,
+			},
+			{
+				book: processBookData(coversFolderName + 'german/'),
+				chapters: processChapters,
 			},
 			// Spanish
 			{
