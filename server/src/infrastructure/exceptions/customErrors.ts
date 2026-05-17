@@ -1,22 +1,22 @@
-import { GraphQLError } from 'graphql'
-import { ErrorCode } from './errorCode'
+import { ErrorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
-export class CustomGraphQLError extends GraphQLError {
-	constructor(message: string, statusCode: ErrorCode) {
-		const obj: Record<ErrorCode, string> = {
-			[ErrorCode.BadRequest_400]: 'Bad Request',
-			[ErrorCode.Unauthorized_401]: 'Unauthorized',
-			[ErrorCode.Forbidden_403]: 'Forbidden',
-			[ErrorCode.NotFound_404]: 'Not Found',
-			[ErrorCode.InternalServerError_500]: 'Internal Server Error',
-		}
+const errorCodeByStatusCode: Record<ErrorStatusCode, string> = {
+	[ErrorStatusCode.BadRequest_400]: 'BAD_REQUEST',
+	[ErrorStatusCode.Unauthorized_401]: 'UNAUTHORIZED',
+	[ErrorStatusCode.Forbidden_403]: 'FORBIDDEN',
+	[ErrorStatusCode.NotFound_404]: 'NOT_FOUND',
+	[ErrorStatusCode.InternalServerError_500]: 'INTERNAL_SERVER_ERROR',
+}
 
-		super(message, {
-			extensions: {
-				code: obj[statusCode],
-				statusCode,
-				message,
-			}, // Add the `code` property to the `extensions` field
-		})
+export class CustomError extends Error {
+	public readonly code: string
+
+	constructor(
+		public readonly errorMessage: ErrorMessage,
+		public readonly statusCode: ErrorStatusCode,
+	) {
+		super(serializeErrorMessage(errorMessage))
+		this.code = errorCodeByStatusCode[statusCode]
 	}
 }

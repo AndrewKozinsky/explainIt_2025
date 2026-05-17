@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { NotificationContext } from 'ui/Notification/context'
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { useVideoPrivate_Update, VideoPrivate_GetDocument, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import { useVideoStore } from '_pages/media/video/videoStore'
 import ContentFileDragging from './ContentFileDragging'
 import ContentFileSelected from './ContentFileSelected'
@@ -19,7 +19,7 @@ enum VideoDropzoneStatus {
 const supportedVideoFormatsStr = 'MP4, WebM, OGG'
 
 function VideoDropzone() {
-	const video = useVideoStore.getState().privateVideo.data
+	const video = useVideoStore((s) => s.privateVideo.data)
 
 	const { notify } = useContext(NotificationContext)
 
@@ -28,7 +28,12 @@ function VideoDropzone() {
 	const [totalBytes, setTotalBytes] = useState(0)
 	const [fileName, setFileName] = useState('')
 
-	const [updateVideo] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
+	const [updateVideo] = useVideoPrivate_Update({
+		refetchQueries: [
+			VideoPrivate_GetUserVideosDocument,
+			{ query: VideoPrivate_GetDocument, variables: { input: { id: video?.id } } },
+		],
+	})
 
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: { 'video/mp4': ['.mp4'], 'video/webm': ['.webm'], 'video/ogg': ['.ogg'] },

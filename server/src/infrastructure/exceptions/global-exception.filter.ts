@@ -3,7 +3,8 @@ import { GqlContextType } from '@nestjs/graphql'
 import { Response } from 'express'
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Logger } from 'winston'
-import { CustomGraphQLError } from './customErrors'
+import { CustomError } from './customErrors'
+import { ErrorStatusCode } from './errorStatusCode'
 
 @Catch()
 export class GlobalExceptionFilter implements ExceptionFilter {
@@ -28,12 +29,23 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 			}
 
 			throw Object.assign(new Error('Validation failed'), {
-				extensions: { message: 'Validation failed', code: 'Bad Request', statusCode: 400, validationErrors },
+				extensions: {
+					message: 'Validation failed',
+					code: 'BAD_REQUEST',
+					statusCode: ErrorStatusCode.BadRequest_400,
+					validationErrors,
+				},
 			})
 		}
 
-		if (exception instanceof CustomGraphQLError) {
-			throw Object.assign(new Error(exception.message), { extensions: exception.extensions })
+		if (exception instanceof CustomError) {
+			throw Object.assign(new Error(exception.message), {
+				extensions: {
+					message: exception.message,
+					code: exception.code,
+					statusCode: exception.statusCode,
+				},
+			})
 		}
 
 		this.logger.error('Unexpected GraphQL error', { exception })
@@ -50,9 +62,12 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 			return
 		}
 
-		if (exception instanceof CustomGraphQLError) {
-			const statusCode = (exception.extensions?.statusCode as number | undefined) ?? 500
-			response.status(statusCode).json({ message: exception.message, statusCode })
+		if (exception instanceof CustomError) {
+			response.status(exception.statusCode).json({
+				message: exception.message,
+				code: exception.code,
+				statusCode: exception.statusCode,
+			})
 			return
 		}
 

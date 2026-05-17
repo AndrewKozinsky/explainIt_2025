@@ -4,11 +4,11 @@ import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
@@ -61,7 +61,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 				})
 
 				if (!newVideo) {
-					throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
+					throw new CustomError(errorMessage.video.notCreated, ErrorStatusCode.InternalServerError_500)
 				}
 
 				if (preparedContentResult.processedContent !== null) {
@@ -92,7 +92,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 		})
 
 		if (!createdVideo) {
-			throw new CustomGraphQLError(errorMessage.video.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.video.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return createdVideo

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
 import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useBooksStore } from '_pages/media/books/booksStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -23,7 +24,7 @@ function useFetchPublicBooksAndSetToStore() {
 			} else if (error) {
 				useBooksStore.getState().updatePublicBooks({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: [],
 				})
 			} else if (!data) {
@@ -63,7 +64,7 @@ function useFetchPrivateBooksAndSetToStore() {
 			} else if (error) {
 				useBooksStore.getState().updatePrivateBooks({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: [],
 				})
 			} else if (!data) {

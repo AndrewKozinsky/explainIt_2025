@@ -6,6 +6,7 @@ import {
 	useSentence_Chat_Create_User_Message,
 	useSentence_Chat_Get_ThreadLazyQuery,
 } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { ChatMessageStatus, ChatUiMessage, SseEvent } from '../../types/sseTypes'
 
 export type UseSentenceChatReturn = {
@@ -62,7 +63,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 			})
 			.catch((err: unknown) => {
 				if (cancelled) return
-				setThreadThreadError(err instanceof Error ? err.message : 'Не удалось загрузить ветку диалога')
+				setThreadThreadError(getTextByUnknownError(err, 'Не удалось загрузить ветку диалога'))
 			})
 			.finally(() => {
 				if (!cancelled) setIsLoadingThread(false)
@@ -196,7 +197,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 
 				startAssistantStream(activeThreadId)
 			} catch (err: unknown) {
-				setThreadThreadError(err instanceof Error ? err.message : 'Ошибка отправки вопроса')
+				setThreadThreadError(getTextByUnknownError(err, 'Ошибка отправки вопроса'))
 			}
 		},
 		[createThread, createUserMessage, isGenerating, sentenceId, startAssistantStream, threadId],

@@ -26,20 +26,8 @@
 .main-page-top__header {
 	font-size: clamp(4rem, 6.6vw, 7.4rem);
 	line-height: clamp(4.4rem, 7.2vw, 7.8rem);
+	//color: vars.$accentColor-2;
 	font-weight: 700;
-}
-
-.main-page-top__header-fancy {
-	font-family: 'SignPainterSemibold', sans-serif;
-	font-size: 1.4em;
-	color: vars.$accentColor-2;
-}
-
-.main-page-top__header-icon {
-	position: relative;
-	height: 1em;
-	margin-right: -.24em;
-	margin-bottom: -.17em;
 }
 
 .main-page-top__header-block {
@@ -59,7 +47,11 @@
 	column-gap: 2rem;
 	row-gap: 1rem;
 	flex-wrap: wrap;
-	margin-top: 3.4rem;
+	margin-top: 2rem;
+
+	@include mix.page-width(800px) {
+		margin-top: 3.4rem;
+	}
 }
 
 .main-page-top__button {
@@ -68,21 +60,14 @@
 	gap: .6rem;
 	font-size: 1.8rem;
 	line-height: 2.2rem;
-	cursor: pointer;
 	padding: .6rem 1.2rem .6rem .6rem;
 	border-radius: 2rem;
-	transition: background-color .2s ease;
 }
 .main-page-top__button--white {
-	&:hover {
+	/*&:hover {
 		background-color: vars.$grayColor-1;
-	}
+	}*/
 }
 .main-page-top__button--accent {
-	color: white;
-	background-color: vars.$accentColor-2;
 
-	&:hover {
-		background-color: vars.$accentColor-3;
-	}
 }

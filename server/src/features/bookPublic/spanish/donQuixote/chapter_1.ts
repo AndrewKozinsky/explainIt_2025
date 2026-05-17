@@ -1,0 +1,49 @@
+export const chapter_1 = {
+	name: 'Capítulo primero',
+	header: 'Que trata de la condición y ejercicio del famoso hidalgo don Quijote de la Mancha',
+	text: `En un lugar de la Mancha, de cuyo nombre no quiero acordarme, vivía no hace mucho un hidalgo. Era de los que tenían una lanza guardada, un escudo antiguo, un caballo flaco y un perro de caza. Su alimentación consistía en un guiso con más carne de vaca que de cordero, y las sobras frías por las noches. Los sábados comía huevos con chorizo, los viernes lentejas, y los domingos, a veces, un pichón. Con esto gastaba las tres cuartas partes de sus ingresos. El resto lo usaba para vestirse: un traje de paño para las fiestas, con pantalones de terciopelo y zapatos a juego. Los días de diario usaba su ropa de lana más fina.
+
+Tenía en su casa una ama de llaves de más de cuarenta años y una sobrina que no llegaba a los veinte. También tenía un mozo para todo, que lo mismo le preparaba el caballo que podaba los árboles. Nuestro hidalgo rondaba los cincuenta años. Era de complexión fuerte, delgado, de rostro alargado, muy madrugador y le gustaba mucho cazar.
+
+Dicen que su apellido era Quijada, o Quesada, pues hay diferencias entre los autores que escriben sobre este caso. Aunque por suposiciones lógicas, se puede entender que se llamaba Quejana. Pero esto no es muy importante para nuestra historia. Lo importante es que la narración no se desvíe de la verdad.
+
+Es importante saber que este hidalgo, en sus ratos de ocio, que eran la mayor parte del año, se dedicaba a leer libros de caballerías. Le gustaba tanto que casi olvidó por completo la caza e incluso la administración de sus bienes. Su interés y locura por este tema llegaron a tal punto, que vendió varias parcelas de tierra para comprar más libros de caballerías. Así, llevó a su casa todos los que pudo encontrar.
+
+De todos los libros, sus preferidos eran los de Feliciano de Silva. Le encantaba la claridad de su escritura y sus complicados argumentos, que le parecían maravillosos. Especialmente le gustaban los piropos y las cartas de desafío, donde a menudo encontraba frases como: "La razón de la sinrazón que a mi razón se hace, de tal manera mi razón enflaquece, que con razón me quejo de la vuestra hermosura". Y también cuando leía: "...los altos cielos que de vuestra divinidad divinamente con las estrellas os fortifican, y os hacen merecedora del merecimiento que merece la vuestra grandeza".
+
+Con estas frases, el pobre caballero perdía el juicio. Pasaba las noches en vela tratando de entenderlas y descifrar su sentido, algo que ni el mismo Aristóteles habría logrado, aunque resucitara solo para eso. No le gustaban mucho las heridas que don Belianís daba y recibía en los libros. Se imaginaba que, aunque lo hubieran curado los mejores médicos, tendría la cara y el cuerpo llenos de cicatrices.
+
+Aun así, admiraba al autor por terminar su libro con la promesa de una aventura interminable. Muchas veces sintió el deseo de tomar la pluma y terminar la historia él mismo, tal como se prometía. Y sin duda lo habría hecho, y con éxito, si otros pensamientos más importantes y constantes no se lo hubieran impedido.
+
+A menudo discutía con el cura de su pueblo, que era un hombre culto, sobre quién había sido mejor caballero: Palmerín de Inglaterra o Amadís de Gaula. Pero el maese Nicolás, el barbero del pueblo, decía que ninguno era comparable al Caballero del Febo. Y que si alguno podía comparársele, era don Galaor, el hermano de Amadís de Gaula, porque era una persona muy adaptable. No era un caballero quisquilloso ni tan llorón como su hermano, y en cuanto a la valentía, no se quedaba atrás.
+
+En resumen, se sumergió tanto en su lectura que pasaba las noches leyendo sin parar, y los días también. De tanto leer y tan poco dormir, se le secó el cerebro y perdió el juicio. Su imaginación se llenó de todo lo que leía en los libros: encantamientos, peleas, batallas, desafíos, heridas, declaraciones de amor, tormentas y locuras imposibles.
+
+Se le metió tanto en la cabeza que todo lo que leía en esas historias de ficción era verdad, que para él no había historia más cierta en el mundo. Decía que el Cid Ruy Díaz había sido un gran caballero, pero que no se comparaba con el Caballero de la Ardiente Espada, que de un solo golpe había partido por la mitad a dos gigantes enormes. Le gustaba más Bernardo del Carpio, porque en Roncesvalles había matado a Roldán el encantado, usando la misma astucia que Hércules cuando ahogó a Anteo entre sus brazos.
+
+Hablaba muy bien del gigante Morgante. Porque, aunque pertenecía a la raza de los gigantes, que suelen ser arrogantes y maleducados, él era el único amable y de buenos modales. Pero su favorito era Reinaldos de Montalbán, sobre todo cuando lo imaginaba saliendo de su castillo para robar a todo el que se cruzaba, y cuando robó un ídolo de Mahoma hecho de oro, según cuenta su historia. Hubiera dado cualquier cosa, incluso a su ama de llaves y a su sobrina, por darle una paliza al traidor de Galalón.
+
+En efecto, habiendo perdido el juicio por completo, tuvo la idea más extraña que jamás haya tenido un loco. Le pareció conveniente y necesario, tanto para aumentar su honor como para servir a su país, hacerse caballero andante. Decidió recorrer el mundo con sus armas y su caballo en busca de aventuras, practicando todo lo que había leído que hacían los caballeros andantes. Quería corregir injusticias y enfrentarse a peligros para ganar fama y renombre eternos.
+
+El pobre hombre ya se imaginaba coronado emperador de Trapisonda por el valor de su brazo. Llevado por estos pensamientos tan agradables y el extraño placer que le producían, se dio prisa para poner en práctica su deseo.
+
+Lo primero que hizo fue limpiar una armadura que había sido de sus bisabuelos. Estaba oxidada y cubierta de moho, olvidada en un rincón durante siglos. La limpió y la arregló lo mejor que pudo. Pero se dio cuenta de que le faltaba una parte importante: el casco no tenía una protección completa para la cara, era un casco simple. Resolvió esto con su ingenio: hizo una especie de media visera de cartón que, al encajarla con el casco, parecía una protección completa.
+
+Para probar si era resistente y podía aguantar un golpe de espada, sacó su espada y le dio dos golpes. Con el primero, deshizo en un instante lo que había tardado una semana en hacer. No le gustó nada lo fácil que se había roto. Para estar más seguro, la volvió a hacer, esta vez poniendo unas barras de hierro por dentro. Quedó tan satisfecho con su resistencia que, sin querer volver a probarla, la consideró un casco perfecto y de la mejor calidad.
+
+Luego fue a ver a su caballo. Aunque el animal estaba muy flaco y tenía más defectos que un caballo de feria, le pareció que ni el Bucéfalo de Alejandro Magno ni el Babieca del Cid podían igualarse a él. Pasó cuatro días pensando qué nombre le pondría. Se decía a sí mismo que no era lógico que el caballo de un caballero tan famoso, y tan bueno por sí mismo, no tuviera un nombre conocido. Así que buscó un nombre que mostrara lo que el caballo había sido antes de ser de un caballero andante y lo que era ahora.
+
+Le parecía razonable que, si él cambiaba de estado, su caballo también cambiara de nombre y tuviera uno famoso y sonoro, como correspondía a la nueva vida que profesaba. Después de pensar, borrar, añadir y rehacer muchos nombres en su mente, finalmente lo llamó Rocinante. Le pareció un nombre elevado, sonoro y que explicaba lo que había sido: un rocín, un caballo de trabajo, antes de convertirse en lo que era ahora, el primero y más importante de todos los rocines del mundo.
+
+Una vez que le puso un nombre a su gusto a su caballo, quiso ponerse uno a sí mismo. Tardó otros ocho días en decidirse y al final se llamó don Quijote. De ahí, como ya se ha dicho, los autores de esta verdadera historia sacaron la conclusión de que su apellido debía ser Quijada y no Quesada, como otros decían.
+
+Pero recordó que el valiente Amadís no solo se contentó con llamarse Amadís, sino que añadió el nombre de su reino y patria para hacerse famoso, y se llamó Amadís de Gaula. Así que él, como buen caballero, quiso añadir el nombre de su tierra al suyo. Se llamó don Quijote de la Mancha. Con esto, le parecía que dejaba bien claro su origen y su patria, y la honraba al tomar su nombre como apellido.
+
+Una vez limpias sus armas, completado su casco, puesto nombre a su caballo y a sí mismo, se dio cuenta de que solo le faltaba una cosa: encontrar una dama de la que enamorarse. Porque un caballero andante sin amor era como un árbol sin hojas y sin fruto, o un cuerpo sin alma. Se decía a sí mismo:
+
+— Si por mala o buena suerte me encuentro con un gigante, como suele pasarles a los caballeros andantes, y lo derribo de un golpe, o lo parto por la mitad, o finalmente lo venzo y se rinde, ¿no sería bueno tener a alguien a quien enviárselo como trofeo? Que entre y se arrodille ante mi dulce señora y le diga con voz humilde y sumisa: "Yo, señora, soy el gigante Caraculiambro, señor de la isla Malindrania, a quien venció en batalla el nunca suficientemente alabado caballero don Quijote de la Mancha, quien me ordenó que me presentara ante usted, para que su grandeza disponga de mí como le plazca".
+
+¡Qué feliz se puso nuestro buen caballero después de este discurso, y más aún cuando encontró a quién darle el nombre de su dama! Se cree que en un pueblo cercano al suyo vivía una joven campesina muy guapa, de la que él estuvo enamorado un tiempo, aunque, según parece, ella nunca lo supo ni se dio cuenta.
+
+Se llamaba Aldonza Lorenzo. A don Quijote le pareció bien darle el título de señora de sus pensamientos. Buscando un nombre que no desentonara con el suyo y que sonara a princesa y gran señora, la llamó Dulcinea del Toboso, porque era de un pueblo llamado El Toboso. Le pareció un nombre musical, original y con significado, como todos los demás que había puesto a sus cosas y a sí mismo.`,
+}

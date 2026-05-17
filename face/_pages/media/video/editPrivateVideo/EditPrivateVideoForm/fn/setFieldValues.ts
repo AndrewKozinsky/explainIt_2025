@@ -12,5 +12,5 @@ export function useSetFieldValues(reset: (data: any) => void) {
 			name: video.name ?? '',
 			content: video.originalContent ?? '',
 		})
-	}, [video, reset])
+	}, [video?.id, reset])
 }

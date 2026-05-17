@@ -1,8 +1,8 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { UserRepository } from 'repo/user.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export class ResendConfirmationEmailCommand {
@@ -23,11 +23,11 @@ export class ResendConfirmationEmailHandler implements ICommandHandler<ResendCon
 
 		// Throw an error if user is not found or he registered with OAuth
 		if (!user || !user.password) {
-			throw new CustomGraphQLError(errorMessage.emailNotFound, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.email.notFound, ErrorStatusCode.BadRequest_400)
 		}
 
 		if (user.isEmailConfirmed) {
-			throw new CustomGraphQLError(errorMessage.emailIsAlreadyConfirmed, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.email.isAlreadyConfirmed, ErrorStatusCode.BadRequest_400)
 		}
 
 		const confirmationCode = await this.userRepository.setNewEmailVerifiedCode(user.id)

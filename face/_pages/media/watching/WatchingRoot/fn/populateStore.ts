@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useWatchingStore } from '../../watchingStore'
 import { createPopulatedPlainText } from './createPopulatedPlainText'
 import { createPopulatedSubtitles } from './createPopulatedText'
@@ -61,7 +62,7 @@ function useFetchVideoAndSetToStore() {
 			} else if (error) {
 				useWatchingStore.getState().updateVideo({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: null as any as VideoPrivateOutModel,
 					type: videoType,
 				})

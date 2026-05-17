@@ -10,14 +10,14 @@ export function useGetHeaderAndSubHeader() {
 		function () {
 			if (publicVideo.data) {
 				return {
-					header: publicVideo.data.name || videoConfig.emptyVideoName,
+					header: publicVideo.data.name || videoConfig.newVideoEmptyName,
 					subHeader: publicVideo.data.year,
 				}
 			}
 
 			if (privateVideo.data) {
 				return {
-					header: privateVideo.data.name || videoConfig.emptyVideoName,
+					header: privateVideo.data.name || videoConfig.newVideoEmptyName,
 					subHeader: privateVideo.data.year,
 				}
 			}

@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPrivateRepository } from 'repo/bookPrivate.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 type UpdateBookInput = {
@@ -34,17 +34,17 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 		// Check if the book exists
 		const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookInput.id)
 		if (!bookForUpdating) {
-			throw new CustomGraphQLError(errorMessage.book.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.book.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		// Throw an error if this user is not the owner of the book
 		if (bookForUpdating.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		const book = await this.bookRepository.updateBookById(updateBookInput.id, updateBookInput)
 		if (!book) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return this.bookQueryRepository.getBookById(book.id)

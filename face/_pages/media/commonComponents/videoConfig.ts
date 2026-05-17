@@ -1,3 +1,4 @@
 export const videoConfig = {
-	emptyVideoName: 'Новое видео...',
+	newVideoEmptyName: 'Новый фильм...',
+	defaultName: 'Фильм',
 }

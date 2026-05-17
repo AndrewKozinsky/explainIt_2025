@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export class GetVideoPublicCommand implements ICommand {
@@ -17,7 +17,7 @@ export class GetVideoPublicHandler implements ICommandHandler<GetVideoPublicComm
 
 		const video = await this.videoPublicQueryRepository.getVideoById(videoId)
 		if (!video) {
-			throw new CustomGraphQLError(errorMessage.video.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		return video

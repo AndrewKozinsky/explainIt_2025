@@ -1,8 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 type GetBookChapterInput = {
@@ -33,11 +33,11 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 		})
 
 		if (!bookChapter) {
-			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.bookChapter.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (bookChapter.book.userId && bookChapter.book.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		const getBookChapter = await this.bookChapterRepository.getBookChapter({
@@ -45,7 +45,7 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 			id: getBookChapterInput.id,
 		})
 		if (!getBookChapter) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return this.bookChapterQueryRepository.getBookChapterById(getBookChapter.id)

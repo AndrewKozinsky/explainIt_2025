@@ -18,7 +18,7 @@
 	line-height: 3.8rem;
 	font-weight: 600;
 
-	@include mix.page-width(900px) {
+	@include mix.page-width(500px) {
 		flex-shrink: 10;
 		font-size: 5rem;
 		line-height: 5.6rem;

@@ -2,8 +2,8 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { DBRepository } from 'repo/db.repository'
 import { PaymentRepository } from 'repo/payment.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { TelegramService } from 'infrastructure/telegram/telegram.service'
 import { YooKassaPaymentMetadata } from 'infrastructure/yooKassa/yooKassa.service'
@@ -54,18 +54,14 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 					},
 				})
 			} catch (error) {
-				throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 			}
 		} else if (paymentResult === 'payment.canceled') {
 			await this.paymentRepository.makePaymentCancelled(yooKassaPaymentId)
 		}
 	}
 
-	private async handleTopUpBalancePayment(dto: {
-		amount: number
-		userId: number
-		paymentId: number
-	}) {
+	private async handleTopUpBalancePayment(dto: { amount: number; userId: number; paymentId: number }) {
 		await this.userBalanceTransactionRepository.createTopUpByPayment({
 			userId: dto.userId,
 			paymentId: dto.paymentId,

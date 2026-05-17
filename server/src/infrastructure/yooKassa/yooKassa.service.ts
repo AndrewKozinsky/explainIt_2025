@@ -1,8 +1,8 @@
 import { randomUUID } from 'crypto'
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
-import { CustomGraphQLError } from '../exceptions/customErrors'
-import { ErrorCode } from '../exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from '../exceptions/customErrors'
 import { errorMessage } from '../exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
@@ -72,7 +72,7 @@ export class YooKassaService {
 		})
 
 		if (!createPaymentResponse) {
-			throw new CustomGraphQLError(errorMessage.yookassaCannotCreatePayment, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.yookassaCannotCreatePayment, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return {

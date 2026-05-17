@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
-import { useVideoStore } from '_pages/media/video/videoStore'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useChapterStore } from '../../chapterStore'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
@@ -38,7 +38,7 @@ function useSetBookToStore() {
 			} else if (privateBookError) {
 				useChapterStore.getState().updatePrivateBook({
 					loading: false,
-					errorMessage: privateBookError.message,
+					errorMessage: getTextByUnknownError(privateBookError),
 					data: null as any as BookPrivateOutModel,
 				})
 			} else if (!book) {
@@ -78,7 +78,7 @@ function useFetchChapterAndSetToStore() {
 			} else if (error) {
 				useChapterStore.getState().updateChapter({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: null,
 				})
 			} else if (!data) {

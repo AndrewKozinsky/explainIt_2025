@@ -2,9 +2,9 @@ import { createReadStream } from 'fs'
 import { stat } from 'fs/promises'
 import { Injectable, Logger } from '@nestjs/common'
 import axios, { AxiosError } from 'axios'
-const { HttpsProxyAgent } = require('https-proxy-agent')
 import { Language } from 'utils/languages'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// const { HttpsProxyAgent } = require('https-proxy-agent')
 
 export type DeepgramUtterance = {
 	start: number // seconds
@@ -51,10 +51,10 @@ type DeepgramListenResponse = {
 @Injectable()
 export class DeepgramSttService {
 	private readonly logger = new Logger(DeepgramSttService.name)
-	private readonly httpsAgent
+	// private readonly httpsAgent
 
 	constructor(private readonly mainConfig: MainConfigService) {
-		this.httpsAgent = new HttpsProxyAgent(this.mainConfig.get().proxyUrl)
+		// this.httpsAgent = new HttpsProxyAgent(this.mainConfig.get().proxyUrl)
 	}
 
 	/**
@@ -68,9 +68,6 @@ export class DeepgramSttService {
 		contentType?: string
 	}): Promise<DeepgramTranscribeResult> {
 		const apiKey = this.mainConfig.get().deepgram.apiKey
-		if (!apiKey) {
-			throw new Error('DEEPGRAM_API_KEY is not configured')
-		}
 
 		const url = new URL('https://api.deepgram.com/v1/listen')
 		url.searchParams.set('model', 'nova-3')
@@ -96,8 +93,8 @@ export class DeepgramSttService {
 				maxContentLength: Infinity,
 				// Deepgram Nova-3 prerecorded can take up to ~20s per minute of audio.
 				timeout: 10 * 60 * 1000,
-				httpsAgent: this.httpsAgent,
-				proxy: false,
+				// httpsAgent: this.httpsAgent,
+				// proxy: false,
 			})
 		} catch (err) {
 			const axiosErr = err as AxiosError

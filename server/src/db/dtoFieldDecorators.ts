@@ -15,8 +15,8 @@ import {
 	Min,
 	MinLength,
 } from 'class-validator'
-import { errorMessage } from '../infrastructure/exceptions/errorMessage'
-import { Trim } from '../infrastructure/pipes/Trim.decorator'
+import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
+import { Trim } from 'infrastructure/pipes/Trim.decorator'
 import { BdConfig } from './dbConfig/dbConfigType'
 
 /**
@@ -55,7 +55,7 @@ export function DtoFieldDecorators(
 		if (updatedFieldConf.minLength) {
 			decorators.push(
 				MinLength(updatedFieldConf.minLength, {
-					message: errorMessage.minCharacters(updatedFieldConf.minLength),
+					message: serializeErrorMessage(errorMessage.minCharacters(updatedFieldConf.minLength)),
 				}),
 			)
 		}
@@ -63,7 +63,7 @@ export function DtoFieldDecorators(
 		if (updatedFieldConf.maxLength) {
 			decorators.push(
 				MaxLength(updatedFieldConf.maxLength, {
-					message: errorMessage.maxCharacters(updatedFieldConf.maxLength),
+					message: serializeErrorMessage(errorMessage.maxCharacters(updatedFieldConf.maxLength)),
 				}),
 			)
 		}
@@ -92,7 +92,7 @@ export function DtoFieldDecorators(
 			IsDateString(
 				{},
 				{
-					message: errorMessage.stringDateInISO(name),
+					message: serializeErrorMessage(errorMessage.stringDateInISO(name)),
 				},
 			),
 		)
@@ -102,8 +102,8 @@ export function DtoFieldDecorators(
 		}
 	}
 	if (updatedFieldConf.type === 'email') {
-		decorators.push(IsString({ message: errorMessage.mustBeString(name) }))
-		decorators.push(IsEmail({}, { message: errorMessage.wrongEmailFormat }))
+		decorators.push(IsString({ message: serializeErrorMessage(errorMessage.mustBeString(name)) }))
+		decorators.push(IsEmail({}, { message: serializeErrorMessage(errorMessage.email.wrongFormat) }))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
@@ -113,10 +113,18 @@ export function DtoFieldDecorators(
 		decorators.push(IsNumber())
 
 		if (updatedFieldConf.min) {
-			decorators.push(Min(updatedFieldConf.min, { message: errorMessage.minNum(updatedFieldConf.min) }))
+			decorators.push(
+				Min(updatedFieldConf.min, {
+					message: serializeErrorMessage(errorMessage.minNum(updatedFieldConf.min)),
+				}),
+			)
 		}
 		if (updatedFieldConf.max) {
-			decorators.push(Max(updatedFieldConf.max, { message: errorMessage.maxNum(updatedFieldConf.max) }))
+			decorators.push(
+				Max(updatedFieldConf.max, {
+					message: serializeErrorMessage(errorMessage.maxNum(updatedFieldConf.max)),
+				}),
+			)
 		}
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
@@ -142,14 +150,14 @@ export function DtoFieldDecorators(
 		decorators.push(IsBoolean({ message: name + ' must be a boolean' }))
 	}
 	if (updatedFieldConf.type === 'array') {
-		let errMessage = errorMessage.mustBeArray(name)
+		let errMessage = serializeErrorMessage(errorMessage.mustBeArray(name))
 
 		if (updatedFieldConf.arrayItemType === 'string') {
-			errMessage = errorMessage.mustBeArrayOfStrings(name)
+			errMessage = serializeErrorMessage(errorMessage.mustBeArrayOfStrings(name))
 		}
 
 		if (updatedFieldConf.arrayItemType === 'mongoId') {
-			errMessage = errorMessage.mustBeArrayOfMongoDBStrings(name)
+			errMessage = serializeErrorMessage(errorMessage.mustBeArrayOfMongoDBStrings(name))
 		}
 
 		decorators.push(IsArray({ message: errMessage }))

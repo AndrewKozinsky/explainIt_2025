@@ -6,16 +6,11 @@
 	flex-wrap: wrap;
 	gap: 1rem;
 }
+
 .pagination-item {
 	display: flex;
 	align-items: center;
-	border: 1px solid color.adjust(vars.$grayColor-2, $saturation: 13%);
 	border-radius: 1.5rem;
-	transition: border-color 0.25s;
-
-	&:hover {
-		border-color: vars.$grayColor-3;
-	}
 }
 
 .pagination-item-text {

@@ -1,7 +1,8 @@
 import cn from 'classnames'
-import Link from 'next/link'
+import BaseButton from 'ui/BaseButton/BaseButton'
 
 type MediaCardProps = {
+	type: 'private' | 'public'
 	name?: null | string
 	subName?: null | number | string
 	url: string
@@ -12,22 +13,25 @@ type MediaCardProps = {
 }
 
 function MediaCard(props: MediaCardProps) {
-	const { name, subName, url, coverUrl, backgroundColor, defaultMediaName, freeToUse } = props
+	const { type, name, subName, url, coverUrl, backgroundColor, defaultMediaName } = props
 
 	return (
-		<Link className='media-items-grid__card' style={{ backgroundColor: backgroundColor }} href={url}>
-			{/*{freeToUse && <p className='media-items-grid__card-label'>Открыто всем</p>}*/}
+		<BaseButton
+			theme='regular'
+			href={url}
+			style={{ backgroundColor: backgroundColor }}
+			extraClass={cn(
+				'media-items-grid__card',
+				type === 'public' ? 'media-items-grid__card--public' : '',
+				type === 'private' ? 'media-items-grid__card--private' : '',
+			)}
+		>
 			{coverUrl && <img src={coverUrl} className='media-items-grid__card-cover' alt='cover' />}
-			<div
-				className={cn(
-					'media-items-grid__card-text-wrapper',
-					backgroundColor && 'media-items-grid__card-text-wrapper--white',
-				)}
-			>
+			<div className={cn('media-items-grid__card-text-wrapper')}>
 				{subName && <p className='media-items-grid__card-sub-name'>{subName}</p>}
 				{<p className='media-items-grid__card-name'>{name ?? defaultMediaName}</p>}
 			</div>
-		</Link>
+		</BaseButton>
 	)
 }
 

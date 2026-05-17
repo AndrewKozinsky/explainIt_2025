@@ -1,7 +1,7 @@
 import { SentenceRepository } from 'repo/sentence.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { divideTextIntoSentences } from './divideTextIntoSentences'
@@ -21,7 +21,7 @@ export async function generateSentencesAndSaveToDB(params: {
 
 	const targetsCount = [hasBookChapterId, hasVideoPrivateId, hasVideoPublicId].filter(Boolean).length
 	if (targetsCount !== 1) {
-		throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+		throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 	}
 
 	try {
@@ -52,6 +52,6 @@ export async function generateSentencesAndSaveToDB(params: {
 			cursor = startOffset + sentence.length
 		}
 	} catch (error) {
-		throw new CustomGraphQLError(errorMessage.nlp.cantDivideTextIntoSentences, ErrorCode.InternalServerError_500)
+		throw new CustomError(errorMessage.nlp.cantDivideTextIntoSentences, ErrorStatusCode.InternalServerError_500)
 	}
 }
