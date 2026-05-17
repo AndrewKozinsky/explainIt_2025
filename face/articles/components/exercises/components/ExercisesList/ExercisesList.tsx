@@ -19,7 +19,7 @@ function ExercisesList() {
 
 	return (
 		<div className='exercises-list'>
-			<Switcher items={items} orientation='vertical' dataButtonTestId='exercises-list_item' />
+			<Switcher items={items} orientation='vertical' />
 		</div>
 	)
 }

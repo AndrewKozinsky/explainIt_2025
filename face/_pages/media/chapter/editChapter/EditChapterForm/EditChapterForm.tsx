@@ -44,7 +44,6 @@ export default function EditChapterForm() {
 						<Button
 							type='submit'
 							disabled={['success', 'submitting'].includes(formStatus) || !isDirty}
-							dataTestId={ChangeChapterFormTest.submitButton.id}
 							key='save'
 						>
 							Сохранить
@@ -56,7 +55,6 @@ export default function EditChapterForm() {
 						<TextInput
 							label='Глава'
 							error={errors.name?.message}
-							dataTestId={ChangeChapterFormTest.nameField.id}
 							inputProps={{
 								...register('name'),
 								disabled: ['success', 'submitting'].includes(formStatus),
@@ -66,7 +64,6 @@ export default function EditChapterForm() {
 						<TextInput
 							label='Заголовок'
 							error={errors.header?.message}
-							dataTestId={ChangeChapterFormTest.headerField.id}
 							inputProps={{
 								...register('header'),
 								disabled: ['success', 'submitting'].includes(formStatus),
@@ -76,7 +73,6 @@ export default function EditChapterForm() {
 						<TextInput
 							label='Текст'
 							error={errors.content?.message}
-							dataTestId={ChangeChapterFormTest.contentField.id}
 							textareaProps={{
 								...register('content'),
 								disabled: ['success', 'submitting'].includes(formStatus),
@@ -90,14 +86,13 @@ export default function EditChapterForm() {
 						<TextInput
 							label='Заметка'
 							error={errors.note?.message}
-							dataTestId={ChangeChapterFormTest.noteField.id}
 							inputProps={{
 								...register('note'),
 								disabled: ['success', 'submitting'].includes(formStatus),
 								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							}}
 						/>
-						<FormError text={formError} dataTestId={ChangeChapterFormTest.failMessage.id} />
+						<FormError text={formError} />
 					</FormFieldsWrapper>
 				</MediaFormSurface>
 			</form>
