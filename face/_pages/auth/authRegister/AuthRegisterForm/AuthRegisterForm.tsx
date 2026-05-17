@@ -39,7 +39,6 @@ function AuthRegisterForm() {
 					<TextInput
 						label='Почта'
 						error={errors.email?.message}
-						dataTestId={RegisterFormTest.emailField.id}
 						inputProps={{
 							...register('email', { required: true }),
 							disabled: ['success', 'submitting'].includes(formStatus),
@@ -48,7 +47,6 @@ function AuthRegisterForm() {
 					<TextInput
 						label='Пароль'
 						error={errors.password?.message}
-						dataTestId={RegisterFormTest.passwordField.id}
 						inputProps={{
 							...register('password', { required: true }),
 							disabled: ['success', 'submitting'].includes(formStatus),
@@ -58,7 +56,6 @@ function AuthRegisterForm() {
 					<TextInput
 						label='Пароль ещё раз'
 						error={errors.passwordAgain?.message}
-						dataTestId={RegisterFormTest.passwordAgainField.id}
 						inputProps={{
 							...register('passwordAgain', { required: true }),
 							disabled: ['success', 'submitting'].includes(formStatus),
@@ -86,12 +83,8 @@ function AuthRegisterForm() {
 					<Button type='submit' disabled={['success', 'submitting'].includes(formStatus)}>
 						Зарегистрироваться
 					</Button>
-					<FormError text={formError} dataTestId={RegisterFormTest.failMessage.id} />
-					{formSuccess && (
-						<InfoBlock type='success' dataTestId={RegisterFormTest.successMessage.id}>
-							{formSuccess}
-						</InfoBlock>
-					)}
+					<FormError text={formError} />
+					{formSuccess && <InfoBlock type='success'>{formSuccess}</InfoBlock>}
 				</FormFieldsWrapper>
 			</form>
 		</div>

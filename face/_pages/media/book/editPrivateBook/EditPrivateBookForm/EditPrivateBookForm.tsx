@@ -44,7 +44,6 @@ export default function EditBookForm() {
 							type='submit'
 							disabled={['success', 'submitting'].includes(formStatus) || !isDirty}
 							loading={formStatus === 'submitting'}
-							dataTestId={ChangeBookFormTest.submitButton.id}
 							key='save'
 						>
 							Сохранить
@@ -75,7 +74,6 @@ export default function EditBookForm() {
 						<TextInput
 							label='Автор'
 							error={errors.author?.message}
-							dataTestId={ChangeBookFormTest.authorField.id}
 							inputProps={{
 								...register('author'),
 								disabled: isFormDisabled,
@@ -85,7 +83,6 @@ export default function EditBookForm() {
 						<TextInput
 							label='Название'
 							error={errors.name?.message}
-							dataTestId={ChangeBookFormTest.nameField.id}
 							inputProps={{
 								...register('name'),
 								disabled: isFormDisabled,
@@ -95,14 +92,13 @@ export default function EditBookForm() {
 						<TextInput
 							label='Заметка'
 							error={errors.note?.message}
-							dataTestId={ChangeBookFormTest.noteField.id}
 							inputProps={{
 								...register('note'),
 								disabled: isFormDisabled,
 								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							}}
 						/>
-						<FormError text={formError} dataTestId={ChangeBookFormTest.failMessage.id} />
+						<FormError text={formError} />
 					</FormFieldsWrapper>
 				</MediaFormSurface>
 			</form>
