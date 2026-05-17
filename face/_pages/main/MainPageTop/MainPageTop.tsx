@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { filesUrls } from 'utils/filesUrls'
+import BaseButton from 'ui/BaseButton/BaseButton'
+import { RoundArrowWhiteIcon } from 'ui/icons/RoundArrowWhiteIcon'
 import { pageUrls } from 'сonsts/pageUrls'
 import './MainPageTop.scss'
 
@@ -13,12 +13,14 @@ function MainPageTop() {
 					<img src={publicFolderFilesUrls.mainPage.roundPlay} alt='arrow icon' />
 					Демонстрация (1 мин.)
 				</button>*/}
-				<Link href={pageUrls.books.book('p1').chapter(1).reading.path}>
-					<button className='main-page-top__button main-page-top__button--accent'>
-						<img src={filesUrls.mainPage.roundArrow} alt='arrow icon' />
-						Начать без регистрации
-					</button>
-				</Link>
+				<BaseButton
+					type='accent'
+					extraClass='main-page-top__button main-page-top__button--accent'
+					href={pageUrls.books.book('p1').chapter(1).reading.path}
+				>
+					<RoundArrowWhiteIcon />
+					Попробовать
+				</BaseButton>
 			</div>
 		</div>
 	)

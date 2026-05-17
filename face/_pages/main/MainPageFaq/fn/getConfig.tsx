@@ -48,7 +48,7 @@ export const config: FaqTypes.Config = [
 	{
 		question: {
 			type: 'plain',
-			value: 'Я пробовал читать в оригинале и бросал через 10 страниц. Почему здесь будет иначе?',
+			value: 'Я пробовал читать в оригинале и бросал. Почему здесь будет иначе?',
 		},
 		answer: {
 			type: 'plain',

@@ -31,7 +31,6 @@ export const filesUrls = {
 		anyDevices: '/mainPage/anyDevices.svg',
 		roundPlay: '/mainPage/roundPlay.svg',
 		roundArrow: '/mainPage/roundArrow.svg',
-		roundArrowWhite: '/mainPage/roundArrowWhite.svg',
 		bookIcon: '/mainPage/bookIcon.svg',
 		videoIcon: '/mainPage/videoIcon.svg',
 		booksCovers: [

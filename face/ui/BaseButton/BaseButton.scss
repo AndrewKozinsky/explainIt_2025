@@ -1,0 +1,68 @@
+@use '@/styles/variables' as vars;
+
+.base-button {
+	cursor: pointer;
+	border: 1px solid transparent;
+	transition: background-color .2s ease, border-color .1s ease, color .1s ease;
+
+	&:disabled {
+		color: vars.$grayColor-3;
+		cursor: not-allowed;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:focus {
+		outline: 2px solid transparent;
+		//outline-offset: 2px;
+		outline-width: 4px;
+	}
+}
+
+.base-button--default {
+	color: vars.$textColor;
+	background-color: vars.$grayColor-1;
+
+	&:hover {
+		color: white;
+		background-color: vars.$accentColor-2;
+	}
+
+	&:focus {
+		border-color: vars.$grayColor-5;
+		outline-color: vars.$grayColor-3;
+	}
+
+	&:hover:focus {
+		border-color: rgba(vars.$accentColor-2, .3);
+		outline-color: rgba(vars.$accentColor-2, .3);
+	}
+}
+
+.base-button--accent {
+	color: white;
+	background-color: vars.$accentColor-2;
+
+	&:hover {
+		color: white;
+		background-color: vars.$textColor;
+	}
+
+	&:focus {
+		outline-color: rgba(vars.$accentColor-2, .3);
+	}
+}
+
+.base-button--danger {
+	color: vars.$dangerColor-1;
+	background-color: vars.$dangerColor-4;
+	border-color: vars.$dangerColor-1;
+}
+
+.base-button--current {
+
+	&:disabled {
+		color: white;
+		cursor: default;
+		background-color: vars.$accentColor-2;
+	}
+}

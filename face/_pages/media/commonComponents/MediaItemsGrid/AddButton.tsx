@@ -1,3 +1,4 @@
+import BaseButton from 'ui/BaseButton/BaseButton'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import { BigPlusIcon } from 'ui/icons/BigPlusIcon/BigPlusIcon'
 import Spinner from 'ui/Spinner/Spinner'
@@ -19,12 +20,12 @@ export function AddButton(props: AddButtonProps) {
 	if (errorMessage) content = <ErrorMessage text={errorMessage} />
 
 	return (
-		<button
-			className='media-items-grid__add-button'
+		<BaseButton
+			extraClass='media-items-grid__add-button'
 			onClick={onClickWithGuard}
 			disabled={loading || !!errorMessage}
 		>
 			{content}
-		</button>
+		</BaseButton>
 	)
 }

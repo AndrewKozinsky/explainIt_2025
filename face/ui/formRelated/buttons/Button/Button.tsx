@@ -2,6 +2,7 @@
 
 import React, { ReactNode } from 'react'
 import cn from 'classnames'
+import BaseButton from 'ui/BaseButton/BaseButton'
 import Spinner from '../../../Spinner/Spinner'
 import { ButtonIcon } from './ButtonIcon'
 import './Button.scss'
@@ -12,21 +13,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	children?: ReactNode
 	icon?: string | ReactNode
 	loading?: boolean
-	dataTestId?: string
 	extraClass?: string
 }
 
 function Button(props: ButtonProps) {
-	const {
-		theme = 'regular',
-		size = 'medium',
-		children,
-		icon,
-		loading = false,
-		dataTestId,
-		extraClass,
-		...restProps
-	} = props
+	const { theme = 'regular', size = 'medium', children, icon, loading = false, extraClass, ...restProps } = props
 
 	if (!restProps.type) {
 		restProps.type = 'button'
@@ -42,11 +33,11 @@ function Button(props: ButtonProps) {
 	let disabled = (props.disabled || loading) ?? false
 
 	return (
-		<button className={cn(buttonClasses, extraClass)} {...restProps} data-testid={dataTestId} disabled={disabled}>
+		<BaseButton extraClass={cn(buttonClasses, extraClass)} {...restProps} disabled={disabled}>
 			<ButtonIcon icon={icon} disabled={disabled} />
 			{children}
 			{loading && <Spinner size='small' />}
-		</button>
+		</BaseButton>
 	)
 }
 
