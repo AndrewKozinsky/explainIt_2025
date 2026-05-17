@@ -7,7 +7,7 @@ function DeleteChapterButton() {
 
 	return (
 		<DeleteEntityButtonAndModal
-			deleteButtonText='Удалить главу...'
+			deleteButtonText='Удаление главы...'
 			onDeleteButtonClick={onDeleteChapterClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{

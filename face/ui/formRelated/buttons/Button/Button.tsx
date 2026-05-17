@@ -14,10 +14,20 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	icon?: string | ReactNode
 	loading?: boolean
 	extraClass?: string
+	onClick?: () => void
 }
 
 function Button(props: ButtonProps) {
-	const { theme = 'regular', size = 'medium', children, icon, loading = false, extraClass, ...restProps } = props
+	const {
+		theme = 'regular',
+		size = 'medium',
+		children,
+		icon,
+		loading = false,
+		extraClass,
+		onClick,
+		...restProps
+	} = props
 
 	if (!restProps.type) {
 		restProps.type = 'button'
@@ -28,7 +38,7 @@ function Button(props: ButtonProps) {
 	let disabled = (props.disabled || loading) ?? false
 
 	return (
-		<BaseButton extraClass={cn(buttonClasses, extraClass)} disabled={disabled} theme={theme}>
+		<BaseButton extraClass={cn(buttonClasses, extraClass)} disabled={disabled} theme={theme} onClick={onClick}>
 			<ButtonIcon icon={icon} disabled={disabled} />
 			{children}
 			{loading && <Spinner size='small' />}

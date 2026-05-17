@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
 import './BaseButton.scss'
