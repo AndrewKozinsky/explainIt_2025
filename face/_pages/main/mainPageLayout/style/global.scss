@@ -64,11 +64,6 @@
 	font-weight: 900;
 	font-style: italic;
 }
-@font-face {
-	font-family: "SignPainterSemibold";
-	src: url("fonts/SignPainterSemibold.woff2") format("woff2");
-	font-weight: 600;
-}
 
 *:not(svg, g, path) {
 	all: unset;

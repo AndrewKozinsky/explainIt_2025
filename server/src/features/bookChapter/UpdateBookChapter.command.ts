@@ -2,10 +2,10 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { dryText, removeBOM } from '../mediaCommon'
@@ -42,11 +42,11 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 			id: updateBookChapterInput.id,
 		})
 		if (!bookChapter) {
-			throw new CustomGraphQLError(errorMessage.bookChapter.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.bookChapter.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (bookChapter.book.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		let processedContent = removeBOM(updateBookChapterInput.originalContent ?? '')
@@ -58,7 +58,7 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 
 			if (processedContent) {
 				if (!bookChapter.book.languageCode) {
-					throw new CustomGraphQLError(errorMessage.nlp.languageRequired, ErrorCode.BadRequest_400)
+					throw new CustomError(errorMessage.nlp.languageRequired, ErrorStatusCode.BadRequest_400)
 				}
 
 				await generateSentencesAndSaveToDB({
@@ -77,7 +77,7 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 		})
 
 		if (!updatedBookChapter) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return this.bookChapterQueryRepository.getBookChapterById(updatedBookChapter.id)

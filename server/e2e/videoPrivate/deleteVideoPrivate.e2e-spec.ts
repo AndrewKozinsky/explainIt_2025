@@ -120,7 +120,7 @@ describe.skip('Delete video private', () => {
 		checkErrorResponse(deleteVideoResponse, {
 			code: 'Forbidden',
 			statusCode: 403,
-			message: errorMessage.userIsNotOwner,
+			message: errorMessage.user.userIsNotOwner,
 		})
 	})*/
 

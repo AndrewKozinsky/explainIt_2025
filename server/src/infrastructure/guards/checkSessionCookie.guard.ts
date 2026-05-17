@@ -1,7 +1,7 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common'
 import { UserRepository } from 'repo/user.repository'
-import { CustomGraphQLError } from '../exceptions/customErrors'
-import { ErrorCode } from '../exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from '../exceptions/customErrors'
 import { errorMessage } from '../exceptions/errorMessage'
 import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
 
@@ -13,12 +13,12 @@ export class CheckSessionCookieGuard implements CanActivate {
 		const request = getRequestFromExecutionContext(context)
 
 		if (!request.session?.userId) {
-			throw new CustomGraphQLError(errorMessage.userUnauthorized, ErrorCode.Unauthorized_401)
+			throw new CustomError(errorMessage.user.unauthorized, ErrorStatusCode.Unauthorized_401)
 		}
 
 		const user = await this.userRepository.getUserById(request.session.userId)
 		if (!user) {
-			throw new CustomGraphQLError(errorMessage.userUnauthorized, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.user.unauthorized, ErrorStatusCode.BadRequest_400)
 		}
 
 		request.user = user

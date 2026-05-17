@@ -1,5 +1,6 @@
 import { useBook_GetBooksPublic } from 'graphql'
 import { LanguageCode } from 'utils/utils'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export type BookData = {
@@ -23,7 +24,7 @@ export function useGetBooksData(currentLanguage: LanguageCode) {
 	} else if (error) {
 		return {
 			loading: false,
-			errorMessage: error.message,
+			errorMessage: getTextByUnknownError(error),
 			data: [],
 		}
 	} else if (!data) {

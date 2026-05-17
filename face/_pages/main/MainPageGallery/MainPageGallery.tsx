@@ -1,10 +1,10 @@
-'use client'
+// 'use client'
 
-import React, { useState, useEffect, useRef, useMemo } from 'react'
-import './MainPageGallery.scss'
-import { filesUrls } from 'utils/filesUrls'
+// import React, { useState, useEffect, useRef, useMemo } from 'react'
+// import './MainPageGallery.scss'
+// import { filesUrls } from 'utils/filesUrls'
 
-interface ImageDisplayData {
+/*interface ImageDisplayData {
 	id: string // Unique ID for keying
 	src: string
 	position: number // 0 for rightmost, 1 for next left, etc.
@@ -14,20 +14,20 @@ interface ImageDisplayData {
 	opacity: number
 	isEntering: boolean // Flag to indicate if this is a newly entering image
 	isExiting: boolean // Flag to indicate if this image is currently exiting
-}
+}*/
 
-const VISIBLE_IMAGES_COUNT = 6
-const TRANSITION_INTERVAL = 2000 // 2 seconds
-const INITIAL_OFFSET_X = 100 // How far right off-screen to start for entering image
-const CSS_TRANSITION_DURATION_MS = 700 // Must match CSS transition duration
+// const VISIBLE_IMAGES_COUNT = 6
+// const TRANSITION_INTERVAL = 2000 // 2 seconds
+// const INITIAL_OFFSET_X = 100 // How far right off-screen to start for entering image
+// const CSS_TRANSITION_DURATION_MS = 700 // Must match CSS transition duration
 
-const CONTAINER_MAX_WIDTH = 500 // Corresponds to .main-page-gallery max-width in SCSS
-const IMAGE_MAX_WIDTH_AT_SCALE_1 = 250 // Corresponds to .main-page-gallery__image max-width in SCSS
-const BASE_INITIAL_STEP = 120 // The default starting gap between the first two images
-const STEP_DIVISOR = 1.7 // How much the gap decreases for subsequent images
-const ALIGNMENT_FUDGE_FACTOR = 25 // Increased Extra pixels to push the layout to the left to ensure it touches the edge
+// const CONTAINER_MAX_WIDTH = 500 // Corresponds to .main-page-gallery max-width in SCSS
+// const IMAGE_MAX_WIDTH_AT_SCALE_1 = 250 // Corresponds to .main-page-gallery__image max-width in SCSS
+// const BASE_INITIAL_STEP = 120 // The default starting gap between the first two images
+// const STEP_DIVISOR = 1.7 // How much the gap decreases for subsequent images
+// const ALIGNMENT_FUDGE_FACTOR = 25 // Increased Extra pixels to push the layout to the left to ensure it touches the edge
 
-const calculateTranslateX = (position: number, extraGapPerStep: number): number => {
+/*const calculateTranslateX = (position: number, extraGapPerStep: number): number => {
 	if (position === 0) return 0
 	const initialStep = BASE_INITIAL_STEP + extraGapPerStep
 	let totalTranslate = 0
@@ -37,9 +37,9 @@ const calculateTranslateX = (position: number, extraGapPerStep: number): number 
 		step /= STEP_DIVISOR
 	}
 	return totalTranslate
-}
+}*/
 
-const useFinalLayoutGap = () => {
+/*const useFinalLayoutGap = () => {
 	return useMemo(() => {
 		const finalLeftmostPosition = VISIBLE_IMAGES_COUNT - 1
 		if (finalLeftmostPosition < 1) return 0
@@ -64,9 +64,9 @@ const useFinalLayoutGap = () => {
 		}
 		return extraGap
 	}, []) // Empty dependency array ensures this is calculated only once
-}
+}*/
 
-function MainPageGallery() {
+/*function MainPageGallery() {
 	const allImages = filesUrls.mainPage.booksCovers
 	const totalImages = allImages.length
 
@@ -184,6 +184,6 @@ function MainPageGallery() {
 			))}
 		</div>
 	)
-}
+}*/
 
-export default MainPageGallery
+// export default MainPageGallery

@@ -83,11 +83,7 @@ function AuthRegisterForm() {
 						</Link>
 						.
 					</p>
-					<Button
-						type='submit'
-						disabled={['success', 'submitting'].includes(formStatus)}
-						dataTestId={RegisterFormTest.submitButton.id}
-					>
+					<Button type='submit' disabled={['success', 'submitting'].includes(formStatus)}>
 						Зарегистрироваться
 					</Button>
 					<FormError text={formError} dataTestId={RegisterFormTest.failMessage.id} />

@@ -1,7 +1,7 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { Request, Response } from 'express'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
@@ -23,7 +23,7 @@ export class LogoutHandler implements ICommandHandler<LogoutCommand> {
 			request.session.destroy((err) => {
 				if (err) {
 					return reject(
-						new CustomGraphQLError(errorMessage.cannotFinishSession, ErrorCode.InternalServerError_500),
+						new CustomError(errorMessage.cannotFinishSession, ErrorStatusCode.InternalServerError_500),
 					)
 				}
 

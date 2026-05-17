@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import cn from 'classnames'
-import Link from 'next/link'
+import BaseButton from 'ui/BaseButton/BaseButton'
 import { pageUrls } from '@/сonsts/pageUrls'
 import LogoSign from '../../logo/LogoSign/LogoSign'
 import './Pagination.scss'
@@ -52,14 +52,15 @@ type PaginationItemProps = {
 /** Элемент хлебных крошек */
 function PaginationItem(props: PaginationItemProps) {
 	const { item, icon = null } = props
+
 	const textElem = (
 		<span className={cn('pagination-item-text', !!icon && 'pagination-item-text--with-icon')}>{item.name}</span>
 	)
 
 	return (
-		<Link href={item.path} className='pagination-item'>
+		<BaseButton theme='outline' href={item.path} extraClass='pagination-item'>
 			{icon}
 			{item.name && textElem}
-		</Link>
+		</BaseButton>
 	)
 }

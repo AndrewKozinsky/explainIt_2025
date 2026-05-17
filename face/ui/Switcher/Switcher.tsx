@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import BaseButton from 'ui/BaseButton/BaseButton'
 import './Switcher.scss'
 
 export type SwitcherItem = {
@@ -10,16 +11,15 @@ export type SwitcherItem = {
 type SwitcherProps = {
 	orientation: 'horizontal' | 'vertical'
 	items: SwitcherItem[]
-	dataButtonTestId?: string
 }
 
 function Switcher(props: SwitcherProps) {
-	const { orientation, items, dataButtonTestId } = props
+	const { orientation, items } = props
 
 	return (
 		<div className={cn('switcher', 'switcher--' + orientation)}>
 			{items.map((item, i) => {
-				return <SwitcherButton item={item} dataTestId={dataButtonTestId} key={i} />
+				return <SwitcherButton item={item} key={i} />
 			})}
 		</div>
 	)
@@ -29,19 +29,14 @@ export default Switcher
 
 type SwitcherButtonProps = {
 	item: SwitcherItem
-	dataTestId?: string
 }
 
 function SwitcherButton(props: SwitcherButtonProps) {
-	const { item, dataTestId } = props
+	const { item } = props
 
 	return (
-		<button
-			className={cn('switcher__button', item.isCurrent && 'switcher__button--current')}
-			onClick={item.onClick}
-			data-testid={dataTestId}
-		>
+		<BaseButton theme='outline' extraClass={cn('switcher__button')} onClick={item.onClick} current={item.isCurrent}>
 			{item.text}
-		</button>
+		</BaseButton>
 	)
 }

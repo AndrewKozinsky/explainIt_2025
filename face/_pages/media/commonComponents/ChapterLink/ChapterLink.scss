@@ -4,22 +4,9 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.2rem;
-	width: 100%;
+	//width: 100%;
 	padding: 0.6rem 1rem;
 	border-radius: vars.$radius-1;
-
-	&:hover {
-		background-color: vars.$grayColor-1;
-	}
-}
-
-.chapter-link--current {
-	color: white;
-	background-color: vars.$accentColor-2;
-
-	&:hover {
-		background-color: vars.$accentColor-2;
-	}
 }
 
 .chapter-link__author {

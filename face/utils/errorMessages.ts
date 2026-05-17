@@ -1,88 +1,151 @@
+export type ServerErrorMessage = {
+	errorMessageCode: string
+	[key: string]: string | number | boolean | null
+}
+
+type ServerErrorMessageResolver = string | ((errorMessage: ServerErrorMessage) => string)
+
+const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolver> = {
+	EMAIL_IS_ALREADY_REGISTERED: 'Почта уже зарегистрирована.',
+	EMAIL_IS_NOT_CONFIRMED: 'Почта зарегистрирована, но не подтверждена.',
+	EMAIL_WRONG_FORMAT: 'Адрес электронной почты должен соответствовать формату example@mail.com',
+	EMAIL_IS_ALREADY_CONFIRMED: 'Почта уже подтверждена.',
+	EMAIL_CONFIRMATION_CODE_IS_EXPIRED: 'Срок действия кода подтверждения почты истек.',
+	EMAIL_CONFIRMATION_CODE_NOT_FOUND: 'Код подтверждения почты не найден.',
+	EMAIL_NOT_FOUND: 'Почта не найдена.',
+	USER_NOT_FOUND: 'Пользователь не найден.',
+	USER_UNAUTHORIZED: 'Пользователь не авторизован.',
+	USER_IS_NOT_OWNER: 'Пользователь не является владельцем этой сущности.',
+	USER_BALANCE_IS_NEGATIVE: 'Отрицательный баланс.',
+	USER_BALANCE_BELOW_MINIMUM: 'Недостаточно средств на балансе для выполнения операции.',
+	INSUFFICIENT_BALANCE_FOR_TRANSLATION: 'Недостаточно средств на балансе для перевода.',
+	PAYMENT_ID_IS_REQUIRED_FOR_PAYMENT_TRANSACTIONS: 'Payment ID is required for payment transactions',
+	CANNOT_DEPOSIT_AMOUNT_LESS_THAN_ZERO: 'You cannot deposit an amount less than zero into your balance.',
+	CANNOT_WRITE_OFF_AMOUNT_GREATER_THAN_ZERO: 'You cannot write off an amount greater than zero from your balance.',
+	INVALID_SRT_FORMAT: 'Invalid SRT format',
+	INVALID_SRT_TIME_FORMAT: 'Invalid SRT time format',
+	SESSION_TOKEN_IS_NOT_VALID: 'Токен сессии недействителен.',
+	CANNOT_GET_ACCESS_TOKEN_FOR_OAUTH_PROVIDER: 'Не получилось получить токен доступа у поставщика OAuth.',
+	CANNOT_GET_USER_DATA_FROM_OAUTH_PROVIDER: 'Не получилось получить данные о пользователе у поставщика OAuth.',
+	MIN_NUM: (errorMessage) => 'Минимальное число: ' + errorMessage.minNumber,
+	MAX_NUM: (errorMessage) => 'Максимальное число: ' + errorMessage.maxNumber,
+	MUST_BE_STRING: (errorMessage) => errorMessage.fieldName + ' должен быть строкой.',
+	MIN_CHARACTERS: (errorMessage) => 'Минимальное количество символов: ' + errorMessage.minNumber,
+	MAX_CHARACTERS: (errorMessage) => 'Максимальное количество символов: ' + errorMessage.maxNumber,
+	STRING_DATE_IN_ISO: (errorMessage) =>
+		errorMessage.fieldName +
+		'Должна быть строка в формате ISO. Например: 2024-09-29T09:18:40.523Z. Чтобы это сделать используйте new Date().toISOString().',
+	MUST_BE_ARRAY: (errorMessage) => errorMessage.fieldName + ' должен быть массивом.',
+	MUST_BE_ARRAY_OF_STRINGS: (errorMessage) => errorMessage.fieldName + ' должен быть массивом строк.',
+	MUST_BE_ARRAY_OF_MONGODB_STRINGS: (errorMessage) => errorMessage.fieldName + ' должен быть массивом строк mongoId.',
+	NO_SESSION_OBJECT: 'Нет объект сессии (request.session).',
+	CANNOT_FINISH_SESSION: 'Не удалось завершить сессию.',
+	UNKNOWN_DB_ERROR: 'Неизвестная ошибка в базе данных.',
+	UNKNOWN_OPENAI_ERROR: 'Неизвестная ошибка при запросе в LLM.',
+	UNKNOWN_ERROR: 'Неизвестная ошибка сервера.',
+	CANNOT_SAVE_SESSION: 'Невозможно сохранить сессию',
+	ONLY_DEV_MODE: 'Работает только в режиме разработки.',
+	YOOKASSA_CANNOT_CREATE_PAYMENT: 'Не удалось создать платеж .',
+	BOOK_NOT_CREATED: 'Книга не создана.',
+	BOOK_NOT_FOUND: 'Книга не найдена.',
+	BOOK_CHAPTER_NOT_CREATED: 'Глава книги не создана.',
+	BOOK_CHAPTER_NOT_FOUND: 'Глава книги не найдена.',
+	BOOK_CHAPTER_CANNOT_ANALYZE_SENTENCE_AND_PHRASE: 'Не удалось проанализировать предложение и фразу.',
+	SENTENCE_NOT_FOUND: 'Предложение не найдено.',
+	VIDEO_NOT_CREATED: 'Видел не создано.',
+	VIDEO_NOT_FOUND: 'Видео не найдено.',
+	VIDEO_SUBTITLES_GENERATION_ALREADY_RUNNING: 'Генерация субтитров для этого видео уже выполняется.',
+	VIDEO_SUBTITLES_GENERATION_FILE_NOT_UPLOADED: 'Видеофайл не загружен — нечего распознавать.',
+	VIDEO_SUBTITLES_GENERATION_LANGUAGE_REQUIRED: 'Для генерации субтитров у видео должен быть указан язык.',
+	VIDEO_SUBTITLES_GENERATION_VIDEO_TOO_LONG: 'Длительность видео превышает допустимый лимит для генерации субтитров.',
+	VIDEO_SUBTITLES_GENERATION_FAILED: 'Не удалось сгенерировать субтитры для видео.',
+	VIDEO_SUBTITLES_ASR_FAILED: 'Сервис распознавания речи вернул ошибку.',
+	SENTENCE_TRANSLATION_NOT_FOUND: 'Перевод предложения не найден.',
+	SENTENCE_TRANSLATION_ALREADY_EXISTS: 'Перевод предложения уже существует.',
+	SENTENCE_TRANSLATION_USER_CANNOT_ACCESS_FOREIGN_PRIVATE_MEDIA:
+		'Нельзя получать переводы материалов другого пользователя.',
+	SENTENCE_TRANSLATION_ANONYMOUS_USER_CANNOT_TRANSLATE: 'Вы не можете переводить без авторизации.',
+	NLP_CANT_DIVIDE_TEXT_INTO_SENTENCES: 'Не получилось разделить текст на предложения.',
+	NLP_LANGUAGE_REQUIRED: 'Для разделения текста на предложения нужно указать язык.',
+	UNIVERSAL_PHRASE_NOT_CREATED: 'Фраза не создана.',
+	UNIVERSAL_PHRASE_NOT_FOUND: 'Фраза не найдена.',
+	UNIVERSAL_PHRASE_ALREADY_EXISTS: 'Фраза с таким текстом и языком уже существует.',
+	UNIVERSAL_TRANSCRIPTION_NOT_CREATED: 'Не удалось создать транскрипцию.',
+	UNIVERSAL_TRANSCRIPTION_ALREADY_EXISTS: 'Транскрипция для этой фразы уже существует.',
+	UNIVERSAL_TRANSCRIPTION_CANNOT_GET_TRANSCRIPTION_FROM_LLM: 'Не удалось получить транскрипцию от LLM.',
+	SENTENCE_CHAT_QUESTION_IS_EMPTY: 'Текст вопроса пустой.',
+	SENTENCE_CHAT_GENERATION_ALREADY_ACTIVE:
+		'У вас уже есть активная генерация ответа. Дождитесь её завершения или отмените.',
+	SENTENCE_CHAT_THREAD_NOT_FOUND: 'Тред чата не найден.',
+	SENTENCE_CHAT_THREAD_ALREADY_EXISTS: 'Тред обсуждения для этого предложения уже существует.',
+	SENTENCE_CHAT_LAST_MESSAGE_IS_NOT_USER_QUESTION:
+		'Невозможно сгенерировать ответ: последнее сообщение в треде не является вопросом пользователя.',
+	SENTENCE_CHAT_PREVIOUS_ANSWER_NOT_READY: 'Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.',
+	SENTENCE_CHAT_INSUFFICIENT_BALANCE: 'Недостаточно средств на балансе для генерации ответа.',
+	FLASHCARD_NOT_FOUND: 'Карточка не найдена.',
+	FLASHCARD_SOURCE_PHRASE_NOT_FOUND: 'Фраза-источник для карточки не найдена.',
+	FLASHCARD_SOURCE_SENTENCE_NOT_FOUND: 'Предложение-источник для карточки не найдено.',
+	FLASHCARD_SOURCE_LANGUAGE_NOT_FOUND: 'Не удалось определить язык фразы для карточки.',
+	FLASHCARD_ALREADY_EXISTS: 'Карточка для этой фразы уже существует.',
+	AUDIO_PRONUNCIATION_NOT_CREATED: 'Не удалось создать озвучку.',
+	AUDIO_PRONUNCIATION_ALREADY_EXISTS: 'Озвучка для этой фразы уже существует.',
+	AUDIO_PRONUNCIATION_CANNOT_UPLOAD_TO_S3: 'Не удалось загрузить аудио файл в хранилище.',
+	AUDIO_PRONUNCIATION_CANNOT_GENERATE_AUDIO: 'Не удалось сгенерировать аудио.',
+	AUDIO_PRONUNCIATION_ANONYMOUS_USER_CANNOT_GENERATE: 'Вы не можете создавать озвучку без авторизации.',
+	VALIDATION_FAILED: 'Ошибка валидации.',
+}
+
+export function isServerErrorMessage(message: unknown): message is ServerErrorMessage {
+	return typeof message === 'object' && !!message && 'errorMessageCode' in message
+}
+
+export function getTextByServerErrorMessage(message: unknown) {
+	if (typeof message === 'string') {
+		try {
+			return getTextByServerErrorMessage(JSON.parse(message))
+		} catch {
+			return message
+		}
+	}
+	if (!isServerErrorMessage(message)) return errorMessages.unknownError
+
+	const resolver = serverErrorMessagesByCode[message.errorMessageCode]
+	if (typeof resolver === 'function') return resolver(message)
+	if (typeof resolver === 'string') return resolver
+
+	return errorMessages.unknownError
+}
+
+export function getTextByUnknownError(error: unknown, fallbackMessage = errorMessages.unknownError) {
+	if (isServerErrorMessage(error)) {
+		return getTextByServerErrorMessage(error)
+	}
+
+	if (typeof error === 'string') {
+		return error
+	}
+
+	if (error instanceof Error) {
+		try {
+			return getTextByServerErrorMessage(JSON.parse(error.message))
+		} catch {
+			return error.message || fallbackMessage
+		}
+	}
+
+	return fallbackMessage
+}
+
 export const errorMessages = {
-	fromServer: {
-		// EMAIL
-		emailIsAlreadyRegistered: 'Почта уже зарегистрирована.',
-		emailIsNotConfirmed: 'Почта зарегистрирована, но не подтверждена.',
-		wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
-		emailIsAlreadyConfirmed: 'Почта уже подтверждена.',
-		emailConfirmationCodeIsExpired: 'Срок действия кода подтверждения почты истек.',
-		emailConfirmationCodeNotFound: 'Код подтверждения почты не найден.',
-		emailNotFound: 'Почта не найдена.',
-
-		// USER
-		userNotFound: 'Пользователь не найден.',
-		userUnauthorized: 'Пользователь не авторизован.',
-
-		// AUTH
-		sessionTokenIsNotValid: 'Токен сессии недействителен.',
-
-		// INPUT DATA
-		// wrongInputData: 'Неверные значения полей.',
-
-		// NUMBERS
-		minNum(num: number) {
-			return 'Минимальное число: ' + num
-		},
-		maxNum(num: number) {
-			return 'Максимальное число: ' + num
-		},
-
-		// STRINGS
-		mustBeString(name: string) {
-			return name + ' должен быть строкой.'
-		},
-		minCharacters(num: number) {
-			return 'Минимальное количество символов: ' + num
-		},
-		maxCharacters(num: number) {
-			return 'Максимальное количество символов: ' + num
-		},
-		stringDateInISO(name: string) {
-			return (
-				name +
-				'Должна быть строка в формате ISO. Например: 2024-09-29T09:18:40.523Z. Чтобы это сделать используйте new Date().toISOString().'
-			)
-		},
-
-		// ARRAY
-		mustBeArray(name: string) {
-			return name + ' должен быть массивом.'
-		},
-		mustBeArrayOfStrings(name: string) {
-			return name + ' должен быть массивом строк.'
-		},
-		mustBeArrayOfMongoDBStrings(name: string) {
-			return name + ' должен быть массивом строк mongoId.'
-		},
-
-		// MICK
-		noSessionObject: 'Нет объект сессии (request.session).',
-		cannotFinishSession: 'Не удалось завершить сессию.',
-		unknownDbError: 'Неизвестная ошибка в базе данных.',
-		unknownError: 'Неизвестная ошибка сервера.',
-		cannotSaveSession: 'Невозможно сохранить сессию',
-		onlyDevMode: 'Работает только в режиме разработки.',
-
-		// YOOKASSA
-		yookassaCannotCreatePayment: 'Не удалось создать платеж .',
-	},
+	unknownError: 'Неизвестная ошибка сервера.',
 	requiredField: 'Обязательное поле',
-	mustBeNumber: 'Введите в поле число',
-	mustBeString: 'Введите в поле строку',
+	// mustBeNumber: 'Введите в поле число',
+	// mustBeString: 'Введите в поле строку',
 	passwordsMustBeTheSame: 'Пароли должны совпадать',
 	minCharacters(num: number) {
 		return 'Минимальное количество символов: ' + num
 	},
-	maxCharacters(num: number) {
-		return 'Максимальное количество символов: ' + num
-	},
-	minNum(num: number) {
-		return 'Минимальное число: ' + num
-	},
-	mustBePositiveNumber: 'Число должно быть положительным',
-	maxNum(num: number) {
-		return 'Максимальное число: ' + num
-	},
+	// mustBePositiveNumber: 'Число должно быть положительным',
 	wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
-	cannotGetPaymentConfirmationUrl: 'Не удалось получить адрес подтверждения платежа',
+	// cannotGetPaymentConfirmationUrl: 'Не удалось получить адрес подтверждения платежа',
 }

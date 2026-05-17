@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useBookChapter_Update } from '@/graphql'
-import { Book_GetUserBooksDocument } from '@/graphql'
+import { Book_GetDocument, Book_GetUserBooksDocument, BookChapter_GetDocument } from '@/graphql'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 import { ChangeChapterFormData } from './form'
@@ -33,6 +33,16 @@ export function useGetOnUpdateChapterFormSubmit(
 							note: formData.note,
 						},
 					},
+					refetchQueries: [
+						{
+							query: Book_GetDocument,
+							variables: { input: { id: chapter.data.book.id } },
+						},
+						{
+							query: BookChapter_GetDocument,
+							variables: { input: { id: chapter.data.id, bookType: 'private' } },
+						},
+					],
 				})
 
 				if (errors) {

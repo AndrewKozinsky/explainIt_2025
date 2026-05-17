@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common'
 import { add } from 'date-fns'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { User } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { CustomGraphQLError } from '../infrastructure/exceptions/customErrors'
-import { ErrorCode } from '../infrastructure/exceptions/errorCode'
+import { CustomError } from '../infrastructure/exceptions/customErrors'
 import { errorMessage } from '../infrastructure/exceptions/errorMessage'
 import { HashAdapterService } from '../infrastructure/hashAdapter/hash-adapter.service'
 import { UserServiceModel } from '../models/auth/auth.service.model'
@@ -83,7 +83,7 @@ export class UserRepository {
 
 		const createdUser = await this.getUserById(user.id)
 		if (!createdUser) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return createdUser
@@ -102,7 +102,7 @@ export class UserRepository {
 
 		const createdUser = await this.getUserById(user.id)
 		if (!createdUser) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return createdUser

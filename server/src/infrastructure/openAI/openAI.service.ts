@@ -6,9 +6,9 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { OpenAIModels } from 'types/openAIModels'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
@@ -48,7 +48,7 @@ export class OpenAIService {
 		})
 
 		if (!response.usage) {
-			throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownOpenAIError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return {

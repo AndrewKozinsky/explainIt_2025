@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useVideoStore } from '_pages/media/video/videoStore'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
@@ -36,7 +37,7 @@ function useSetVideoToStore() {
 			} else if (privateBookError) {
 				useVideoStore.getState().updatePrivateVideo({
 					loading: false,
-					errorMessage: privateBookError.message,
+					errorMessage: getTextByUnknownError(privateBookError),
 					data: null as any as VideoPrivateOutModel,
 				})
 			} else if (!video) {
@@ -80,7 +81,7 @@ function useSetVideoToStore() {
 			} else if (publicVideoError) {
 				useVideoStore.getState().updatePublicVideo({
 					loading: false,
-					errorMessage: publicVideoError.message,
+					errorMessage: getTextByUnknownError(publicVideoError),
 					data: null as any as VideoPublicOutModel,
 				})
 			} else if (!video) {

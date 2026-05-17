@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import { BookPrivateOutModel, BookPublicOutModel, useBook_Get, useBook_GetBookPublic } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useBookStore } from '_pages/media/book/bookStore'
-import { useVideoStore } from '_pages/media/video/videoStore'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -40,7 +40,7 @@ function useSetBookToStore() {
 			} else if (privateBookError) {
 				useBookStore.getState().updatePrivateBook({
 					loading: false,
-					errorMessage: privateBookError.message,
+					errorMessage: getTextByUnknownError(privateBookError),
 					data: null as any as BookPrivateOutModel,
 				})
 			} else if (!book) {
@@ -84,7 +84,7 @@ function useSetBookToStore() {
 			} else if (publicBookError) {
 				useBookStore.getState().updatePublicBook({
 					loading: false,
-					errorMessage: publicBookError.message,
+					errorMessage: getTextByUnknownError(publicBookError),
 					data: null as any as BookPublicOutModel,
 				})
 			} else if (!book) {

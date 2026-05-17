@@ -1,11 +1,11 @@
 @use '@/styles/variables' as vars;
 
-.onboarding-modal__image {
+.onboarding-modal {
+	max-width: 500px;
+}
+.onboarding-modal__video {
 	width: 100%;
     max-width: max-content;
 	box-sizing: border-box;
-	padding: 1.2rem;
     margin: 10px 0;
-	border: 5px solid vars.$grayColor-1;
-    border-radius: vars.$radius-2;
 }

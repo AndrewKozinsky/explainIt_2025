@@ -57,11 +57,7 @@ function AuthLoginForm() {
 							type: 'password',
 						}}
 					/>
-					<Button
-						type='submit'
-						disabled={['success', 'submitting'].includes(formStatus)}
-						dataTestId={LoginFormTest.submitButton.id}
-					>
+					<Button type='submit' disabled={['success', 'submitting'].includes(formStatus)}>
 						Войти
 					</Button>
 					<FormError text={formError} dataTestId={LoginFormTest.failMessage.id} />

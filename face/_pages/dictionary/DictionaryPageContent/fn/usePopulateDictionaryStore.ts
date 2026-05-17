@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useFlashcard_Get_My, useUniversalPhrase_GetLazyQuery } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
 
 function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {
@@ -29,8 +30,8 @@ export function usePopulateDictionaryStore() {
 	}, [loading, setIsFlashcardsLoading])
 
 	useEffect(() => {
-		setGetFlashcardsErrorMessage(error?.message ?? '')
-	}, [error?.message, setGetFlashcardsErrorMessage])
+		setGetFlashcardsErrorMessage(error ? getTextByUnknownError(error) : '')
+	}, [error, setGetFlashcardsErrorMessage])
 
 	useEffect(() => {
 		if (error) {
@@ -108,7 +109,7 @@ export function usePopulateDictionaryStore() {
 			} catch (e) {
 				if (!isCancelled) {
 					setFlashcards([])
-					setGetFlashcardsErrorMessage(e instanceof Error ? e.message : 'Не удалось загрузить флешкарточки')
+					setGetFlashcardsErrorMessage(getTextByUnknownError(e, 'Не удалось загрузить флешкарточки'))
 					setIsFlashcardsLoading(false)
 				}
 			}

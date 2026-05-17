@@ -22,7 +22,7 @@ function VideosPage() {
 				error={contentConfig.error}
 				config={contentConfig.config}
 				addMediaButtonConfig={addVideoConfig}
-				defaultMediaName={videoConfig.emptyVideoName}
+				defaultMediaName={videoConfig.newVideoEmptyName}
 			/>
 		</MediaPageContentWrapper>
 	)

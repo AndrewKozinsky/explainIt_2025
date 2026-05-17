@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import './Tabs.scss'
+import BaseButton from '../BaseButton/BaseButton'
 
 type TabsProps = {
 	tabsConfig: TabConfig[]
@@ -36,11 +37,11 @@ function LinkButton(props: LinkButtonProps) {
 
 	const isActive = currentTabId === tabConfig.id
 
-	const classes = cn('tabs__button', isActive ? 'tabs__button--active' : 'tabs__button--link')
+	const classes = cn('tabs__button', !isActive && 'tabs__button--link')
 
 	return (
-		<button className={classes} onClick={tabConfig.onClick}>
+		<BaseButton theme='outline' extraClass={classes} onClick={tabConfig.onClick} current={isActive}>
 			{tabConfig.label}
-		</button>
+		</BaseButton>
 	)
 }

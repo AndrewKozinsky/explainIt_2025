@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
+import BaseButton from 'ui/BaseButton/BaseButton'
 import { filesUrls } from 'utils/filesUrls'
 import './MainPageFeatures.scss'
 
@@ -54,12 +55,12 @@ function MainPageFeatures() {
 				</div>
 			</div>
 			<div className='main-page-features__controls'>
-				<button className='scroll-button' onClick={() => scrollBy(-336)}>
+				<BaseButton extraClass='scroll-button' onClick={() => scrollBy(-336)}>
 					←
-				</button>
-				<button className='scroll-button' onClick={() => scrollBy(336)}>
+				</BaseButton>
+				<BaseButton extraClass='scroll-button' onClick={() => scrollBy(-336)}>
 					→
-				</button>
+				</BaseButton>
 			</div>
 		</div>
 	)

@@ -1,15 +1,15 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { OpenAIModels } from 'types/openAIModels'
 import {
 	PhraseTranslationProvider,
 	TranslationProviderName,
 	TranslationProviderUsage,
 } from 'features/translation/translateCommon/TranslationProvider.types'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
+import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentencePhraseTranslationServiceModel } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -105,7 +105,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 			const parsed = parsePhraseTranslationResult(generated.message)
 			if (!parsed || !parsed.translate) {
-				throw new CustomGraphQLError(errorMessage.unknownOpenAIError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownOpenAIError, ErrorStatusCode.InternalServerError_500)
 			}
 
 			const resolvedPhrase = this.resolvePhraseBySentence({
@@ -135,28 +135,28 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 			return savedPhrase
 		} catch (error) {
-			const message = error instanceof Error ? error.message : errorMessage.unknownError
+			const message = error instanceof Error ? error.message : serializeErrorMessage(errorMessage.unknownError)
 
 			await this.sentencePhraseTranslationRepository.updatePhraseById(pendingPhrase.id, {
 				status: 'error',
 				errorMessage: message,
 			})
 
-			if (error instanceof CustomGraphQLError) {
+			if (error instanceof CustomError) {
 				throw error
 			}
 
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 		}
 	}
 
 	private validateSelectedOffsetsOrThrow(input: TranslatePhraseInput) {
 		if (input.selectedWordStartOffset < 0 || input.selectedWordEndOffset <= input.selectedWordStartOffset) {
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.BadRequest_400)
 		}
 
 		if (input.selectedWordEndOffset > input.text.length) {
-			throw new CustomGraphQLError(errorMessage.unknownError, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.BadRequest_400)
 		}
 	}
 

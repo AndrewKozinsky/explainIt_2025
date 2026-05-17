@@ -1,6 +1,7 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { donQuixoteBookData, donQuixoteChapters } from 'src/features/bookPublic/spanish/donQuixote/donQuixote'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -11,10 +12,15 @@ import {
 	theLittlePrinceBookData,
 	theLittlePrinceChapters,
 } from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
+import { processBookData, processChapters } from 'features/bookPublic/german/process/process'
+import {
+	theTransformationBookData,
+	theTransformationChapters,
+} from 'features/bookPublic/german/theTransformation/theTransformation'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
 import { CreatePublicBookCommand, CreateBookPublicInput } from './CreatePublicBook.command'
@@ -98,10 +104,22 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
 			},
+			{
+				book: theTransformationBookData(coversFolderName + 'german/'),
+				chapters: theTransformationChapters,
+			},
+			{
+				book: processBookData(coversFolderName + 'german/'),
+				chapters: processChapters,
+			},
 			// Spanish
 			{
 				book: jungleTalesBookData(coversFolderName + 'spanish/'),
 				chapters: jungleTalesChapters,
+			},
+			{
+				book: donQuixoteBookData(coversFolderName + 'spanish/'),
+				chapters: donQuixoteChapters,
 			},
 			// French
 			{
@@ -121,7 +139,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 
 		const book = await this.commandBus.execute(new CreatePublicBookCommand(bookData))
 		if (!book) {
-			throw new CustomGraphQLError(errorMessage.book.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.book.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return book.id

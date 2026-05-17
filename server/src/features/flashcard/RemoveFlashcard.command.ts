@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { FlashcardRepository } from 'repo/flashcard.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export class RemoveFlashcardCommand implements ICommand {
@@ -22,11 +22,11 @@ export class RemoveFlashcardHandler implements ICommandHandler<RemoveFlashcardCo
 
 		const flashcard = await this.flashcardRepository.getFlashcardById(flashcardId)
 		if (!flashcard) {
-			throw new CustomGraphQLError(errorMessage.flashcard.notFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.flashcard.notFound, ErrorStatusCode.NotFound_404)
 		}
 
 		if (flashcard.userId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
 		await this.flashcardRepository.deleteFlashcardById(flashcardId)

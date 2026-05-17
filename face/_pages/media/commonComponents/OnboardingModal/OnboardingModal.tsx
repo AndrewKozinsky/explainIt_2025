@@ -28,14 +28,15 @@ function OnboardingModal() {
 	}
 
 	return (
-		<Modal header='Перевод слов' isOpen={isModalOpen} close={handleClose}>
+		<Modal header='Перевод слов' isOpen={isModalOpen} close={handleClose} extraClass='onboarding-modal'>
 			<div>
 				<p>Для просмотра перевода нажмите на незнакомое слово.</p>
-				<img
-					src={filesUrls.onboardingModal.selectedWord['1x']}
-					srcSet={`${filesUrls.onboardingModal.selectedWord['2x']} 2x`}
-					alt='Selected word example'
-					className='onboarding-modal__image'
+				<video
+					src={filesUrls.onboardingModal.selectedWord}
+					className='onboarding-modal__video'
+					autoPlay
+					muted
+					loop
 				/>
 				<Button onClick={handleDoNotShowAgain} extraClass='mt-20'>
 					Больше не показывать

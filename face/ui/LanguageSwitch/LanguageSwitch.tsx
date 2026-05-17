@@ -2,6 +2,7 @@ import React from 'react'
 import cn from 'classnames'
 import { LanguageCode } from 'utils/utils'
 import './LanguageSwitch.scss'
+import BaseButton from '../BaseButton/BaseButton'
 
 type LanguageSwitchProps = {
 	languages: LanguageCode[]
@@ -17,18 +18,14 @@ function LanguageSwitch(props: LanguageSwitchProps) {
 		<div className={cn('language-switch', className)}>
 			{languages.map((lang) => {
 				return (
-					<button
-						className={cn(
-							'language-switch__button',
-							lang === currentLang
-								? 'language-switch__button--current'
-								: 'language-switch__button--active',
-						)}
+					<BaseButton
+						current={lang === currentLang}
+						extraClass={cn('language-switch__button')}
 						onClick={() => onChange(lang)}
 						key={lang}
 					>
 						{lang}
-					</button>
+					</BaseButton>
 				)
 			})}
 		</div>

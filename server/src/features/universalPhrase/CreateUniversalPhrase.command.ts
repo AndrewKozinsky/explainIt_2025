@@ -1,8 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LanguageCode } from 'prisma/generated/client'
 
@@ -30,12 +30,12 @@ export class CreateUniversalPhraseHandler implements ICommandHandler<CreateUnive
 			createPhraseInput.languageCode,
 		)
 		if (existingPhrase) {
-			throw new CustomGraphQLError(errorMessage.universalPhrase.alreadyExists, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.universalPhrase.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
 		const newPhrase = await this.universalPhraseRepository.createUniversalPhrase(createPhraseInput)
 		if (!newPhrase) {
-			throw new CustomGraphQLError(errorMessage.universalPhrase.notCreated, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.universalPhrase.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return await this.universalPhraseQueryRepository.getUniversalPhraseById(newPhrase.id)

@@ -29,11 +29,8 @@ export const filesUrls = {
 	},
 	mainPage: {
 		anyDevices: '/mainPage/anyDevices.svg',
-		sherlockHolmes: '/mainPage/sherlockHolmes.png',
-		ironMan: '/mainPage/ironMan.png',
 		roundPlay: '/mainPage/roundPlay.svg',
 		roundArrow: '/mainPage/roundArrow.svg',
-		roundArrowWhite: '/mainPage/roundArrowWhite.svg',
 		bookIcon: '/mainPage/bookIcon.svg',
 		videoIcon: '/mainPage/videoIcon.svg',
 		booksCovers: [
@@ -77,9 +74,6 @@ export const filesUrls = {
 		},
 	},
 	onboardingModal: {
-		selectedWord: {
-			'1x': s3AssetsUrl + 'onboardingModal/selectedWord@1x.png',
-			'2x': s3AssetsUrl + 'onboardingModal/selectedWord@2x.png',
-		},
+		selectedWord: s3AssetsUrl + 'onboardingModal/selectWords.mp4',
 	},
 }

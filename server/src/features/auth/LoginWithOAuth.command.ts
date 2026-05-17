@@ -4,8 +4,8 @@ import { Request } from 'express'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from 'models/user/user.out.model'
@@ -54,7 +54,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 			const createdUser = await this.userRepository.createUserByEmail(email)
 
 			if (!createdUser) {
-				throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 			}
 		} else {
 			if (!user.isUserConfirmed) {
@@ -64,7 +64,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 
 		const outUser = await this.userQueryRepository.getUserByEmail(email)
 		if (!outUser) {
-			throw new CustomGraphQLError(errorMessage.unknownDbError, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
 		return await this.saveSession(request, outUser, clientIP, clientName)
@@ -83,15 +83,15 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		let accessToken = await this.getAccessToken(code, providerType)
 
 		if (!accessToken) {
-			throw new CustomGraphQLError(errorMessage.cannotGetAccessTokenForOAuthProvider, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.cannotGetAccessTokenForOAuthProvider, ErrorStatusCode.BadRequest_400)
 		}
 
 		let userData = await this.getUserDataFromOAuthProvider(accessToken, providerType)
 
 		if (!userData) {
-			throw new CustomGraphQLError(
+			throw new CustomError(
 				errorMessage.cannotGetUserDataFromOAuthProvider,
-				ErrorCode.InternalServerError_500,
+				ErrorStatusCode.InternalServerError_500,
 			)
 		}
 
@@ -251,7 +251,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 	async saveSession(req: Request, user: UserOutModel, clientIP: string, clientName: string) {
 		return new Promise((resolve, reject) => {
 			if (!req.session) {
-				throw new CustomGraphQLError(errorMessage.noSessionObject, ErrorCode.InternalServerError_500)
+				throw new CustomError(errorMessage.noSessionObject, ErrorStatusCode.InternalServerError_500)
 			}
 
 			req.session.userId = user.id
@@ -263,7 +263,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 					console.log(err)
 
 					return reject(
-						new CustomGraphQLError(errorMessage.cannotSaveSession, ErrorCode.InternalServerError_500),
+						new CustomError(errorMessage.cannotSaveSession, ErrorStatusCode.InternalServerError_500),
 					)
 				}
 

@@ -4,8 +4,8 @@ import { FlashcardRepository } from 'repo/flashcard.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { CustomGraphQLError } from 'infrastructure/exceptions/customErrors'
-import { ErrorCode } from 'infrastructure/exceptions/errorCode'
+import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { FlashcardOutModel } from 'models/flashcard/flashcard.out.model'
 import { LanguageCode } from 'prisma/generated/client'
@@ -47,7 +47,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 
 		const phrase = await this.sentencePhraseTranslationRepository.getPhraseById(sentencePhraseTranslationId)
 		if (!phrase) {
-			throw new CustomGraphQLError(errorMessage.flashcard.sourcePhraseNotFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.flashcard.sourcePhraseNotFound, ErrorStatusCode.NotFound_404)
 		}
 
 		const existingFlashcard = await this.flashcardRepository.getFlashcardByUserAndPhraseId(
@@ -55,12 +55,12 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			sentencePhraseTranslationId,
 		)
 		if (existingFlashcard) {
-			throw new CustomGraphQLError(errorMessage.flashcard.alreadyExists, ErrorCode.BadRequest_400)
+			throw new CustomError(errorMessage.flashcard.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
 		const sentence = await this.sentenceRepository.getSentenceDbById(phrase.sentenceId)
 		if (!sentence) {
-			throw new CustomGraphQLError(errorMessage.flashcard.sourceSentenceNotFound, ErrorCode.NotFound_404)
+			throw new CustomError(errorMessage.flashcard.sourceSentenceNotFound, ErrorStatusCode.NotFound_404)
 		}
 
 		const sentenceSource = this.resolveSentenceSource(sentence, userId)
@@ -100,7 +100,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 
 		const out = await this.flashcardQueryRepository.getFlashcardById(created.id)
 		if (!out) {
-			throw new CustomGraphQLError(errorMessage.flashcard.notFound, ErrorCode.InternalServerError_500)
+			throw new CustomError(errorMessage.flashcard.notFound, ErrorStatusCode.InternalServerError_500)
 		}
 		return out
 	}
@@ -167,12 +167,12 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			}
 		}
 
-		throw new CustomGraphQLError(errorMessage.flashcard.sourceLanguageNotFound, ErrorCode.BadRequest_400)
+		throw new CustomError(errorMessage.flashcard.sourceLanguageNotFound, ErrorStatusCode.BadRequest_400)
 	}
 
 	private assertOwner(sourceOwnerId: number, userId: number) {
 		if (sourceOwnerId !== userId) {
-			throw new CustomGraphQLError(errorMessage.userIsNotOwner, ErrorCode.Forbidden_403)
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 	}
 
