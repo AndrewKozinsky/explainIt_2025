@@ -26,20 +26,8 @@
 .main-page-top__header {
 	font-size: clamp(4rem, 6.6vw, 7.4rem);
 	line-height: clamp(4.4rem, 7.2vw, 7.8rem);
-	font-weight: 700;
-}
-
-.main-page-top__header-fancy {
-	font-family: 'SignPainterSemibold', sans-serif;
-	font-size: 1.4em;
 	color: vars.$accentColor-2;
-}
-
-.main-page-top__header-icon {
-	position: relative;
-	height: 1em;
-	margin-right: -.24em;
-	margin-bottom: -.17em;
+	font-weight: 700;
 }
 
 .main-page-top__header-block {
@@ -59,7 +47,11 @@
 	column-gap: 2rem;
 	row-gap: 1rem;
 	flex-wrap: wrap;
-	margin-top: 3.4rem;
+	margin-top: 2rem;
+
+	@include mix.page-width(800px) {
+		margin-top: 3.4rem;
+	}
 }
 
 .main-page-top__button {

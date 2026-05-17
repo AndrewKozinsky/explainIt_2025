@@ -15,7 +15,7 @@
 	flex-direction: column;
 	justify-content: flex-end;
 	position: relative;
-	min-height: 21rem;
+	min-height: 20.5rem;
 	background: vars.$grayColor-1;
 	overflow: hidden;
 	transition: background .2s;
@@ -55,6 +55,12 @@
 
 .media-items-grid__card-text-wrapper--white {
 	color: white;
+}
+
+.media-items-grid__card-sub-name, .media-items-grid__card-name {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
 }
 
 .media-items-grid__card-sub-name {

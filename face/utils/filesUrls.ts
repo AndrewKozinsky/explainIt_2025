@@ -29,8 +29,6 @@ export const filesUrls = {
 	},
 	mainPage: {
 		anyDevices: '/mainPage/anyDevices.svg',
-		sherlockHolmes: '/mainPage/sherlockHolmes.png',
-		ironMan: '/mainPage/ironMan.png',
 		roundPlay: '/mainPage/roundPlay.svg',
 		roundArrow: '/mainPage/roundArrow.svg',
 		roundArrowWhite: '/mainPage/roundArrowWhite.svg',

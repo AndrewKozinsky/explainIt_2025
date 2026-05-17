@@ -18,8 +18,20 @@
 	-ms-overflow-style: none;  /* IE and Edge */
 	scrollbar-width: none;  /* Firefox */
 
+	@include mix.container-width(1100px) {
+		justify-content: center;
+	}
+
 	&::-webkit-scrollbar {
 		display: none;  /* Chrome, Safari, Opera*/
+	}
+
+	@include mix.page-width(1100px) {
+		gap: 4rem;
+	}
+
+	@include mix.page-width(1350px) {
+		gap: 2rem;
 	}
 
 	@media (min-width: 1350px) {
@@ -47,7 +59,7 @@
 }
 
 .main-page-feature__sign {
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	flex-shrink: 0;
@@ -59,6 +71,10 @@
 	margin-top: calc(336px / 2 - 6rem / 2);
 	border: 1px solid vars.$grayColor-2;
 	border-radius: 50%;
+
+	@include mix.page-width(1350px) {
+		display: flex;
+	}
 }
 
 .main-page-features__controls {
@@ -67,7 +83,7 @@
 	gap: 1rem;
 	padding-top: 1.5rem; // Add some space above the buttons
 
-	@include mix.container-width(1328px) {
+	@include mix.container-width(1100px) {
 		display: none;
 	}
 }
