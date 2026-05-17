@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import FormError from '@/ui/formRelated/FormError/FormError'
@@ -26,7 +26,7 @@ export default function EditPrivateVideoForm() {
 		register,
 		handleSubmit,
 		reset,
-		watch,
+		control,
 		formState: { errors, isDirty },
 		setError,
 	} = useForm<ChangeVideoFormData>({
@@ -36,7 +36,6 @@ export default function EditPrivateVideoForm() {
 	useSetFieldValues(reset)
 
 	const onSubmit = useGetOnUpdateVideoFormSubmit(setError, setFormStatus, setFormError)
-	const currentLanguageCode = watch('languageCode' as never) as unknown as string | null | undefined
 	const isFormDisabled = ['success', 'submitting'].includes(formStatus)
 
 	return (
@@ -67,10 +66,25 @@ export default function EditPrivateVideoForm() {
 					/>
 					<FileNameAndDeleteFileButton />
 					<VideoDropzone />
-					<LanguagesRadioGroup
-						value={currentLanguageCode ?? undefined}
-						disabled={isFormDisabled}
-						inputProps={register('languageCode' as never) as never}
+					<Controller
+						name='languageCode'
+						control={control}
+						render={({ field: { onChange, onBlur, value, name, ref } }) => (
+							<LanguagesRadioGroup
+								value={value ?? undefined}
+								disabled={isFormDisabled}
+								inputProps={{
+									onChange: async (e: any) => {
+										onChange(e)
+									},
+									onBlur: async () => {
+										onBlur()
+									},
+									name,
+									ref,
+								}}
+							/>
+						)}
 					/>
 					<TextInput
 						label='Субтитры или текст'
