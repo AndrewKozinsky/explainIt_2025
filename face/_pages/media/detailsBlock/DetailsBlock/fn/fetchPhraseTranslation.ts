@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
-import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
+import { getTextByUnknownError } from '@/utils/errorMessages'
+import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
 import { findSentenceEntry } from './selectors'
 import { offsetsFromWordIds } from './wordSegmentation'
@@ -114,7 +115,7 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 			phraseId: input.phraseId,
 			patch: {
 				loading: false,
-				error: error instanceof Error ? error.message : 'Unknown error',
+				error: getTextByUnknownError(error, 'Unknown error'),
 			},
 		})
 	}

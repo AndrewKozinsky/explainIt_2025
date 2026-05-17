@@ -7,6 +7,7 @@ import {
 	useBook_GetBookPublic,
 	useBookChapter_Get,
 } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { populateChapterStructure } from './populateChapterStructure'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
@@ -53,7 +54,7 @@ function useFetchBookAndSetToStore() {
 			} else if (error) {
 				useReadingStore.getState().updateBook({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: null as any as BookPrivateOutModel,
 					type: 'public',
 				})
@@ -106,7 +107,7 @@ function useFetchChapterAndSetToStore() {
 			} else if (error) {
 				useReadingStore.getState().updateChapter({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: null as any as BookChapterOutModel,
 				})
 			} else if (!data) {

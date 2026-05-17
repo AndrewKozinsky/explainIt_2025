@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
 import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useVideosStore } from '_pages/media/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -23,7 +24,7 @@ function useFetchPublicVideosAndSetToStore() {
 			} else if (error) {
 				useVideosStore.getState().updatePublicVideos({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: [],
 				})
 			} else if (!data) {
@@ -63,7 +64,7 @@ function useFetchPrivateVideosAndSetToStore() {
 			} else if (error) {
 				useVideosStore.getState().updatePrivateVideos({
 					loading: false,
-					errorMessage: error.message,
+					errorMessage: getTextByUnknownError(error),
 					data: [],
 				})
 			} else if (!data) {

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useUserStore } from 'stores/userStore'
 import { useAuth_Login_With_OAuth } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 
 export function useAuthorizeUser(providerType: string) {
 	const code = useSearchParams().get('code')!
@@ -36,7 +37,7 @@ export function useAuthorizeUser(providerType: string) {
 				})
 				.catch((error) => {
 					console.log(error)
-					setError(error.message)
+					setError(getTextByUnknownError(error, 'Неизвестная ошибка при авторизации'))
 					setAuthorizationStatus('error')
 				})
 		},

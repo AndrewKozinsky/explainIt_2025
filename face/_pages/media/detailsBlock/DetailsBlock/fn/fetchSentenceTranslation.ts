@@ -6,6 +6,7 @@ import {
 	useTranslate_Translate_Sentence,
 } from '@/graphql'
 import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
+import { getTextByUnknownError } from '@/utils/errorMessages'
 import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
 import { wordIdsFromOffsets } from './wordSegmentation'
@@ -83,7 +84,7 @@ async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<voi
 			sentenceId: input.sentenceId,
 			patch: {
 				loading: false,
-				error: error instanceof Error ? error.message : 'Unknown error',
+				error: getTextByUnknownError(error, 'Unknown error'),
 			},
 		})
 

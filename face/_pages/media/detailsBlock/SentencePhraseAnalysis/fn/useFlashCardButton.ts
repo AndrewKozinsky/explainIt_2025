@@ -3,6 +3,7 @@ import { useUserStore } from 'stores/userStore'
 import { Flashcard_Get_MyDocument, Flashcard_Get_My, useFlashcard_Add, useFlashcard_Remove } from '@/graphql'
 import { extractGraphQLError } from '@/graphql/extractGraphQLError'
 import { NotificationContext } from '@/ui/Notification/context'
+import { getTextByServerErrorMessage, getTextByUnknownError } from '@/utils/errorMessages'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 
 type UseFlashCardButtonInput = {
@@ -14,7 +15,7 @@ function getErrorMessage(error: unknown, fallbackMessage: string) {
 	const graphQLError = extractGraphQLError(error)
 
 	if (graphQLError?.message) return graphQLError.message
-	if (error instanceof Error && error.message) return error.message
+	if (error instanceof Error && error.message) return getTextByUnknownError(error, fallbackMessage)
 
 	return fallbackMessage
 }
@@ -74,8 +75,9 @@ export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardBut
 					.then(function (response) {
 						if (response.data?.flashcard_remove) return
 
-						const responseErrorMessage =
-							response.errors?.[0]?.message || 'Не удалось удалить карточку. Попробуйте ещё раз.'
+						const responseErrorMessage = response.errors?.[0]
+							? getTextByServerErrorMessage(response.errors[0].extensions?.message)
+							: 'Не удалось удалить карточку. Попробуйте ещё раз.'
 
 						setPhraseFlashcardId({
 							sentencePhraseId: input.sentencePhraseId,
@@ -118,8 +120,9 @@ export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardBut
 			})
 				.then(function (response) {
 					const created = response.data?.flashcard_add
-					const responseErrorMessage =
-						response.errors?.[0]?.message || 'Не удалось добавить карточку. Попробуйте ещё раз.'
+					const responseErrorMessage = response.errors?.[0]
+						? getTextByServerErrorMessage(response.errors[0].extensions?.message)
+						: 'Не удалось добавить карточку. Попробуйте ещё раз.'
 
 					if (created) {
 						setPhraseFlashcardId({

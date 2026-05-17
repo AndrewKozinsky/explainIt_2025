@@ -1,13 +1,23 @@
 import { ApolloError } from '@apollo/client'
+import { getTextByServerErrorMessage } from '@/utils/errorMessages'
 
 type GraphQLExtension = {
-	message: 'Validation failed'
-	code: 'Bad Request'
-	statusCode: 400
+	message: string
+	code: string
+	statusCode: number
 	validationErrors?: GraphQLFieldError[]
 }
 
-type GraphQLFieldError = { field: 'password'; messages: ['Минимальное количество символов: 6'] }
+type GraphQLFieldError = { field: string; messages: string[] }
+
+type RawGraphQLFieldError = { field: string; messages: unknown[] }
+
+type RawGraphQLExtensions = {
+	message?: unknown
+	code?: unknown
+	statusCode?: unknown
+	validationErrors?: RawGraphQLFieldError[]
+}
 
 export function extractGraphQLError(error: unknown) {
 	if (error instanceof ApolloError) {
@@ -16,12 +26,16 @@ export function extractGraphQLError(error: unknown) {
 
 		const { extensions } = firstError
 		if (!extensions) return null
+		const rawExtensions = extensions as RawGraphQLExtensions
 
 		return {
-			code: extensions.code,
-			message: extensions.message,
-			statusCode: extensions.statusCode,
-			validationErrors: extensions.validationErrors,
+			code: String(rawExtensions.code ?? ''),
+			message: getTextByServerErrorMessage(rawExtensions.message),
+			statusCode: Number(rawExtensions.statusCode ?? 0),
+			validationErrors: rawExtensions.validationErrors?.map((validationError) => ({
+				field: validationError.field,
+				messages: validationError.messages.map(getTextByServerErrorMessage),
+			})),
 		} as GraphQLExtension
 	}
 
