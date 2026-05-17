@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation'
-import { filesUrls } from 'utils/filesUrls'
 import Button from '@/ui/formRelated/buttons/Button/Button'
+import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
 import { useVideoStore } from '../videoStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
@@ -49,7 +49,7 @@ function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 
 	return (
 		<div className='public-video-info__actions'>
-			<Button onClick={handleActionClick} icon={filesUrls.icons.actionButtonIcon}>
+			<Button onClick={handleActionClick} icon={<ActionButtonIcon />}>
 				{actionLabel}
 			</Button>
 		</div>

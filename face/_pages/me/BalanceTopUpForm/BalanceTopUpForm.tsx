@@ -10,22 +10,20 @@ function BalanceTopUpForm() {
 	const { amountInRubles, formError, loading, handleSubmit, handleAmountChange } = useBalanceTopUpForm()
 
 	return (
-		<form className='balance-top-up-form' onSubmit={handleSubmit}>
-			<h3 className='balance-top-up-form__title'>Пополнение баланса</h3>
-			<div className='balance-top-up-form__row'>
-				<TextInput
-					inputProps={{
-						type: 'text',
-						value: amountInRubles,
-						onChange: handleAmountChange,
-						placeholder: '10',
-					}}
-					error={formError}
-				/>
-				<Button type='submit' loading={loading}>
-					Пополнить
-				</Button>
-			</div>
+		<form onSubmit={handleSubmit}>
+			<TextInput
+				label='Пополнение баланса'
+				inputProps={{
+					type: 'text',
+					value: amountInRubles,
+					onChange: handleAmountChange,
+					placeholder: '10',
+				}}
+				error={formError}
+			/>
+			<Button type='submit' loading={loading}>
+				Пополнить
+			</Button>
 			<FormError text={formError} />
 		</form>
 	)

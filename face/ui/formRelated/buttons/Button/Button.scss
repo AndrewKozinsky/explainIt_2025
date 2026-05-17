@@ -2,35 +2,19 @@
 @use '@/styles/mixins' as mix;
 @use 'sass:color';
 
-// Base button styles
 .button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	gap: .5rem;
-	cursor: pointer;
-	background: vars.$buttonGradient;
-	border-width: 1px;
-	border-style: solid;
 	border-radius: vars.$radius-1;
 	transition: border-color .2s ease-in-out;
-
-	&:disabled {
-		color: vars.$grayColor-4;
-		background: vars.$bg;
-		cursor: default;
-		border-color: vars.$grayColor-2;
-
-		&:hover {
-			border-color: vars.$grayColor-2;
-		}
-	}
 }
 
 .button--size-medium {
 	font-size: 1.4rem;
 	line-height: 2rem;
-	padding: .4rem 1.2rem;
+	padding: .5rem 1.2rem;
 
 	&.button--icon-only {
 		padding: .4rem;
@@ -47,47 +31,6 @@
 	}
 }
 
-.button--theme-regular {
-	color: vars.$textColor;
-	border-color: vars.$grayColor-3;
-
-	&:hover {
-		border-color: vars.$grayColor-4;
-	}
-
-	&:focus {
-		border-color: vars.$linkColor-2;
-	}
-}
-
-.button--theme-danger {
-	color: vars.$dangerColor-1;
-	border-color: vars.$dangerColor-2;
-
-	&:hover {
-		border-color: vars.$dangerColor-3;
-	}
-
-	&:focus {
-		border-color: vars.$dangerColor-1;
-		outline: 4px solid rgba(vars.$dangerColor-1, .3);
-	}
-}
-
-.button--theme-accent {
-	color: white;
-	background: vars.$accentColor-2;
-	border-color: vars.$accentColor-3;
-
-	&:hover {
-		border-color: vars.$accentColor-3;
-	}
-
-	&:focus {
-		//border-color: vars.$accentColor-2;
-		outline: 4px solid rgba(vars.$accentColor-2, .3);
-	}
-}
 
 .button__icon {
 	display: inline-block;

@@ -14,7 +14,7 @@ function MainPageTop() {
 					Демонстрация (1 мин.)
 				</button>*/}
 				<BaseButton
-					type='accent'
+					theme='accent'
 					extraClass='main-page-top__button main-page-top__button--accent'
 					href={pageUrls.books.book('p1').chapter(1).reading.path}
 				>

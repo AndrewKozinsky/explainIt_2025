@@ -2,6 +2,7 @@ import cn from 'classnames'
 import BaseButton from 'ui/BaseButton/BaseButton'
 
 type MediaCardProps = {
+	type: 'private' | 'public'
 	name?: null | string
 	subName?: null | number | string
 	url: string
@@ -12,15 +13,17 @@ type MediaCardProps = {
 }
 
 function MediaCard(props: MediaCardProps) {
-	const { name, subName, url, coverUrl, backgroundColor, defaultMediaName, freeToUse } = props
+	const { type, name, subName, url, coverUrl, backgroundColor, defaultMediaName } = props
 
 	return (
 		<BaseButton
+			theme='regular'
 			href={url}
 			style={{ backgroundColor: backgroundColor }}
 			extraClass={cn(
 				'media-items-grid__card',
-				backgroundColor ? 'media-items-grid__card--public' : 'media-items-grid__card--private',
+				type === 'public' ? 'media-items-grid__card--public' : '',
+				type === 'private' ? 'media-items-grid__card--private' : '',
 			)}
 		>
 			{coverUrl && <img src={coverUrl} className='media-items-grid__card-cover' alt='cover' />}

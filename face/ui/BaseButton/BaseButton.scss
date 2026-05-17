@@ -3,7 +3,7 @@
 .base-button {
 	cursor: pointer;
 	border: 1px solid transparent;
-	transition: background-color .2s ease, border-color .1s ease, color .1s ease;
+	transition: background-color .15s ease, border-color .1s ease, color .1s ease;
 
 	&:disabled {
 		color: vars.$grayColor-3;
@@ -13,12 +13,40 @@
 
 	&:focus {
 		outline: 2px solid transparent;
-		//outline-offset: 2px;
 		outline-width: 4px;
 	}
 }
 
-.base-button--default {
+.base-button--plain {
+
+	&:hover {
+		background-color: vars.$grayColor-1;
+	}
+
+	&:focus {
+		border-color: vars.$grayColor-4;
+		outline-color: vars.$grayColor-2;
+	}
+
+	&:hover:focus {
+		background-color: white;
+	}
+}
+
+.base-button--outline {
+	border-color: vars.$grayColor-2;
+
+	&:hover {
+		border-color: vars.$grayColor-4;
+	}
+
+	&:focus {
+		border-color: vars.$grayColor-4;
+		outline-color: vars.$grayColor-2;
+	}
+}
+
+.base-button--regular {
 	color: vars.$textColor;
 	background-color: vars.$grayColor-1;
 

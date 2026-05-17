@@ -21,6 +21,7 @@ export function AddButton(props: AddButtonProps) {
 
 	return (
 		<BaseButton
+			theme='outline'
 			extraClass='media-items-grid__add-button'
 			onClick={onClickWithGuard}
 			disabled={loading || !!errorMessage}

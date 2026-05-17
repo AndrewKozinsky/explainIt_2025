@@ -23,7 +23,7 @@ function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
 		<div className='media-items-grid'>
 			<div className='media-items-grid__items-row'>
 				{privateItems.map((item) => (
-					<MediaCard key={item.url} {...item} defaultMediaName={defaultMediaName} />
+					<MediaCard type='private' key={item.url} {...item} defaultMediaName={defaultMediaName} />
 				))}
 				<AddButton {...addMediaButtonConfig} />
 			</div>
@@ -38,7 +38,7 @@ function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
 				{publicItems
 					.filter((item) => item.languageCode === currentLang)
 					.map((item) => (
-						<MediaCard key={item.url} {...item} defaultMediaName={defaultMediaName} />
+						<MediaCard type='public' key={item.url} {...item} defaultMediaName={defaultMediaName} />
 					))}
 			</div>
 		</div>

@@ -17,11 +17,6 @@ function CloseButton(props: CloseButtonProps) {
 			<CloseIcon />
 		</BaseButton>
 	)
-	/*return (
-		<button onClick={onClick} className={cn('close-button', extraClass)}>
-			<CloseIcon />
-		</button>
-	)*/
 }
 
 export default CloseButton
