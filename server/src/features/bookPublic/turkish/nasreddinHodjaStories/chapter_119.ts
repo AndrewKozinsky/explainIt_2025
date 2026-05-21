@@ -1,12 +1,9 @@
 export const chapter_119 = {
 	name: '119',
 	header: 'Aklın Varsa Göle Koş',
-	text: `Nasreddin Hoca günün birinde eşeğine binerek ormana odun kesmeye gider. Kuru odunlardan
-epeyce kestikten sonra bunları eşeğine yükler ve evin yolunu tutar. Ancak, yolda aklına, kestiği
-odunların yanıp yanmayacağı konusu gelir ve ince kuru dallardan birkaçını tutuşturur.
-Başlangıçta odun çıtır çıtır yanarken Hoca ve eşeği gayet rahattır. Fakat bir süre sonra kuru
-odunların tamamı yanmaya başlayınca Nasreddin Hoca’yı bir telaş alır ki sormayın. Bu arada
-odunların yanmasıyla birlikte semeri de yanmaya başlayan eşek iyice huysuzlanır ve hoplayıp
-zıplamaya başlar. Eşeğin bu acı haline çok üzülen Nasreddin Hoca yüksekçe bir yere çıkar ve;
-“Eşeğim, aklın varsa göle koş, yoksa hâlin duman…” deyiverir.`,
+	text: `Hoca bir gün ormandan odun kesip eşeğine yükler ve eve doğru yola çıkar.
+	Yolda, "Acaba bu odunlar iyi yanar mı?" diye merak eder ve denemek için birkaç dalı tutuşturur.
+	Ateş birden büyür ve eşeğin sırtındaki bütün odunları, hatta eşeğin semerini bile tutuşturur.
+	Canı yanan eşek, acıyla zıplamaya başlar.
+	Hoca, çaresizce yakındaki bir tepeye çıkar ve eşeğine bağırır: "Eşeğim! Aklın varsa hemen göle doğru koş, yoksa halin duman!"`,
 }

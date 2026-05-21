@@ -1,13 +1,7 @@
 export const chapter_68 = {
 	name: '68',
 	header: 'Kara Karga',
-	text: `Günün birinde Hoca ile hanımı Akşehir Gölü’ne çamaşır yıkamaya giderler. İkili, bir yandan
-çamaşırlarını yıkarlarken, bir yandan da oturup sohbet ederler.
-O sırada yanlarına simsiyah bir karga iner, çamaşırları dağıtır, sabunu da kaptığı gibi uçup
-gider.
-Hanım bu duruma üzüldüğü kadar da şaşırır…
-Hoca bakar ki eşinin sakinleşeceği yok, onu avutmaya çalışır:
-“Hatun, canını sıkma, şimdi gider başka bir sabun getiririm ama, bak o karganın durumu
-bizden çok daha kötü. Ayrıca onun sabun isteyebileceği bir komşusu yok, sonra üstü başı da
-bizden çok kirli. Görmüyor musun simsiyah olmuş zavallı.”`,
+	text: `Bir gün Hoca ile karısı, Akşehir Gölü'nde çamaşır yıkarken yanlarına simsiyah bir karga konar. Karga, çamaşırları dağıtıp sabunu kaptığı gibi uçar gider.
+	Hoca'nın karısı bu duruma hem çok şaşırır hem de çok üzülür. Hoca, karısını teselli etmek için şöyle der:
+	"Hanım, üzülme. Ben şimdi yeni bir sabun alırım. Ama asıl o karganın durumuna üzülmek lazım. Baksana, bizim gibi sabun isteyebileceği bir komşusu bile yok. Üstelik o bizden daha kirli. Zavallı hayvan kapkara olmuş."`,
 }

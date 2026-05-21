@@ -1,11 +1,9 @@
 export const chapter_14 = {
 	name: '14',
 	header: 'Biliyorsun Savurganlığı Sevmem',
-	text: `Nasreddin Hoca ateş yakacaktır. Belli ki hanımı da yemek yapma hazırlığındadır. Hoca,
-duvarda asılı olan körüğü alır ve ateşi körüklemeye başlar, işini bitirdikten sonra da körüğün
-ağzını iyice bağlayarak yerine asar. Bütün bu olanlara bir anlam veremeyen Hoca’nın hanımı;
-“Yahu Hoca Efendi, bu körüğün ağzını niçin bağlıyorsun?” der.
-Hoca bu, lafın altında mı kalır;
-“Yahu hatun, bunu bilmeyecek ne var? Eğer körüğün ağzını tıkamasam içerisindeki
-hava uçup gidecektir. Biliyorsun ben savurganlığı sevmem.” der.`,
+	text: `Bir gün Nasreddin Hoca ateş yakmak ister. Karısı da o sırada yemek hazırlıyordur. Hoca duvardaki körüğü alır ve ateşi körükler. İşini bitirdikten sonra körüğün ağzını sıkıca bağlayıp yerine asar.
+	Karısı bu duruma bir anlam veremez ve sorar:
+	"Hoca, körüğün ağzını neden bağlıyorsun?"
+	Hoca, cevabı yapıştırır:
+	"Hanım, bunda anlaşılmayacak ne var? Eğer ağzını bağlamazsam içindeki hava uçar gider. Biliyorsun, ben israfı hiç sevmem."`,
 }

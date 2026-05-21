@@ -1,16 +1,12 @@
 export const chapter_117 = {
 	name: '117',
 	header: 'Yata Yata Usandım, Biraz da Dolaşmaya Çıkacaktım',
-	text: `Mevsimlerden yazdır. Bu aralarda Hocamızın da canı bir şeylere sıkılmıştır. Şöyle hava almak
-için dışarı çıkar.
-Hava sıcak mı sıcak… Hoca’nın iç çamaşırları da sıcaktan dolayı sırılsıklam olur. Hoca, terli
-elbiselerini değiştirebilmek için uygun bir yer ararsa da bulamaz.
-Yol boyu giderken karşısına bir mezarlık çıkar. Hemen mezarlığa girip mezar taşlardan birinin
-arkasında üzerini değiştirmeye başlar.
-Olacak bu ya, tam da o sırada mezarlığın yakınından geçmekte olan birkaç atlı adam, Nasreddin
-Hoca’yı yarı çıplak vaziyette görünce;
-“Be adam, bu nasıl hâldir? Senin ne işin var bu vaziyette mezarlıkta?” derler.
-Hoca bakar ki atlılar kızgın… Hemen, onların hoşlarına gidecek bir cevap vererek paçayı
-kurtarır:
-“Ne olsun, burası benim mezarım… Yata yata usandım da biraz dolaşmaya çıkacaktım.”`,
+	text: `Sıcak bir yaz günü, canı sıkkın olan Hoca biraz hava almak için dışarı çıkar.
+	Hava o kadar sıcaktır ki, kısa sürede sırılsıklam terler.
+	Üstünü değiştirmek için uygun bir yer ararken karşısına bir mezarlık çıkar.
+	Bir mezar taşının arkasına saklanıp üzerini değiştirmeye başlar.
+	Tam o sırada, yoldan geçen birkaç atlı, Hoca'yı o halde görür ve şaşırarak sorar:
+	"Hey! Bu ne hal? Mezarlıkta böyle ne yapıyorsun?"
+	Hoca, atlıların kızgın olduğunu görünce, durumu kurtarmak için hemen cevap verir:
+	"Burası benim mezarım. Yıllardır yatmaktan sıkıldım da, şöyle bir dışarı çıkayım dedim."`,
 }

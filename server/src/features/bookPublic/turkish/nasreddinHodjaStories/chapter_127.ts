@@ -1,12 +1,9 @@
 export const chapter_127 = {
 	name: '127',
 	header: 'Bunu Sana Haber Vermeye Geldim',
-	text: `Nasreddin Hoca ile hanımı evde sohbet ederlerken hanımın sancısı tutar ve kıvranmaya başlar.
-Bu arada Hoca’ya;
-“Hoca Efendi, git bana bir hekim çağır.” der.
-Nasreddin Hoca tam evden çıkacağı sırada hanımı;
-“Bey! Gitme, sancım geçti.” der.
-Hanımının uyarısına rağmen Hoca hiçbir şey olmamışçasına doktorun yanına gider ve;
-“Doktor Bey, hanımım sancılanmıştı, beni de sana göndermişti. Tam evden çıkarken
-sancısının geçtiğini söyledi; ben de bunu sana haber vermeye geldim.” der.`,
+	text: `Hoca ile karısı sohbet ederken, kadının aniden sancısı tutar. "Hoca, çabuk bana bir doktor çağır!" der.
+	Hoca tam evden çıkarken, karısı seslenir: "Dur, gitme! Sancım geçti."
+	Ancak Hoca yine de evden çıkar ve doğruca doktorun yanına gider.
+	"Doktor Bey," der, "Az önce karımın sancısı tuttu, beni de size gönderdi. Ama ben tam evden çıkarken sancısı geçtiğini söyledi.
+	Ben de size bunu haber vermeye geldim."`,
 }

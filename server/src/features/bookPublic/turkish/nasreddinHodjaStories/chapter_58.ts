@@ -1,27 +1,15 @@
 export const chapter_58 = {
 	name: '58',
 	header: 'Hınk Demenin Bedeli',
-	text: `Hoca’nın kadılık yaptığı yıllarda iki kişi birbirinden davacı olur. Bir süre sonra da Hoca’nın
-huzuruna gelirler. Hoca’nın;
-“Derdiniz nedir, anlatın bakayım.” demesi üzerine, adamlardan biri bağırıp çağırarak
-konuşur:
-“Kadı Efendi, bu adamdan davacıyım.”
-Hoca adamı sakin olmaya davet eder ve;
-“Önce sakin ol ve derdini anlat da bir dinleyeyim.” der.
-“Bu adam ormanda odun keserken ben de onun yanındaydım. O baltayı ağaca her
-vurduğunda ben de ‘hınk’ diyerek yardımcı oluyordum. Adam ağaçları kesti kesmesine de ben
-paramı alamadım. Söyle buna Kadı Efendi, ödesin borcunu.”
-Hoca adamları iyice süzdükten sonra, iyi birine benzettiği oduncuya döner:
-“Sen bu adamın borcunu niye ödemedin?”
-“Aman Kadı Efendi, ben ona, ‘Hınk mınk de’demedim. Sonra hınk demenin bedeli mi
-olurmuş?”
-Hoca her ikisini de dinledikten sonra kendine özgü yöntemle adaleti dağıtmaya karar verir.
-“Olur, olur, bal gibi olur. Şimdi sen bu adama on akçelik borcunu öde bakalım.”
-Oduncu şaşırır ama Kadı’ya da bir şey diyemez. Çıkarır on akçeyi Kadı’ya verir. Kadı madeni
-paraları duvara çarpınca sesler çıkmaya başlar. Bu sırada Hoca’da ‘hınk’ların bedelini isteyen
-adama dönerek;
-“İşte, aldın hınklarının bedelini, haydi şimdi gidin.” der.
-“Kadı Efendi, Kadı Efendi! Sen beni aldatıyorsun. İki ses çıkardın, bizim para ne oldu?”
-Kadı, parayı oduncuya teslim ederken, öbürüne;
-“Uzatma adam! Senin hınklarının bedeli de ancak on akçenin sesiyle ödenir.” der.`,
+	text: `Hoca'nın kadılık yaptığı zamanlarda, iki adam kavgalı bir şekilde huzuruna gelir.
+Biri öfkeyle, "Kadı Efendi, bu adamdan şikayetçiyim!" diye bağırır.
+Hoca, "Sakin ol ve derdini anlat," der.
+Adam anlatmaya başlar: "Bu adam ormanda odun keserken ben de yanındaydım. O baltayı her vurduğunda, 'hınk!' diyerek ona güç verdim. Ama iş bitince paramı vermedi. Hakkımı istiyorum!"
+Hoca oduncuya döner: "Neden bu adamın borcunu ödemedin?"
+Oduncu şaşırır: "Kadı Efendi, 'hınk' demenin parası mı olurmuş? Ben ondan yardım falan istemedim."
+Hoca ikisini de dinledikten sonra oduncuya, "Sen şimdi bu adama on gümüş para borcunu öde," der.
+Oduncu şaşkınlıkla paraları Hoca'ya uzatır. Hoca paraları alıp duvara fırlatır. Paralar "şangır!" diye ses çıkarır.
+Hoca, 'hınk' diyen adama döner: "İşte, 'hınk'larının karşılığını aldın. Haydi şimdi gidebilirsin."
+Adam itiraz eder: "Ama Kadı Efendi, paranın sadece sesini duydum!"
+Hoca paraları oduncuya geri verirken cevaplar: "Uzatma! 'Hınk' demenin bedeli, paranın sesidir."`,
 }

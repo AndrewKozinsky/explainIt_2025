@@ -1,20 +1,15 @@
 export const chapter_41 = {
 	name: '41',
 	header: 'Dünyanın Merkezi Neresidir?',
-	text: `Günün birinde üç papazın yolu Akşehir’e uğrar. Burada Nasreddin Hoca ile sohbet eden
-papazlar, Efendi’nin bilgisini denemek isterler. İlk soruyu birinci papaz sorar:
-“Hocam, dünyanın merkezi neresidir?”
-Hoca hiç tereddüt etmeden eşeğini göstererek;
-“Eşeğimin sağ ön ayağını bastığı yerdir.” diye cevap verir.
-İçlerinden biri itiraz eder:
-“Bunu nereden biliyorsun?”
-“İnanmıyorsanız ölçün.”
-Bu defa ikinci papaz sorar:
-“Hocam, gökte kaç yıldız vardır?”
-Hoca bu soruya da tereddüt etmeden yine eşeğini göstererek cevap verir:
-“Gökyüzünde, eşeğimin kuyruğundaki kıl kadar yıldız vardır.”
-“Bunu ispatlayabilir misiniz?” denildiğinde Nasreddin Hoca;
-“Arzu ederseniz sayabilirsiniz.” der.
-Hoca’nın sorulan sorulara verdiği cevaplar, papazları şaşırtınca üçüncü soruyu sormaktan
-vazgeçerler.`,
+	text: `Bir gün üç papazın yolu Akşehir'e düşer.
+	Orada Nasreddin Hoca ile tanışırlar ve onun ne kadar bilgili olduğunu test etmek isterler.
+	İlk papaz sorar: "Hocam, dünyanın merkezi tam olarak neresidir?"
+	Hoca hiç düşünmeden eşeğini işaret eder ve "Eşeğimin sağ ön ayağının bastığı yerdir." der.
+	Papazlardan biri itiraz eder: "Bundan nasıl bu kadar emin olabiliyorsun?"
+	Hoca cevaplar: "İnanmıyorsanız, ölçebilirsiniz."
+	Bu sefer ikinci papaz bir soru sorar: "Peki Hocam, gökyüzünde kaç tane yıldız var?"
+	Hoca yine eşeğini gösterir: "Gökyüzünde, tam olarak eşeğimin kuyruğundaki kıllar kadar yıldız vardır."
+	Papazlar şaşırır: "Bunu ispatlayabilir misiniz?"
+	Hoca gülümser: "Elbette. İsterseniz sayabilirsiniz."
+	Hoca'nın bu zekice cevapları karşısında şaşıran papazlar, üçüncü soruyu sormaktan vazgeçerler.`,
 }

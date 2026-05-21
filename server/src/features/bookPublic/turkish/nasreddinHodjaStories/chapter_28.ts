@@ -1,14 +1,11 @@
 export const chapter_28 = {
 	name: '28',
 	header: 'Buraya Yeni Taşındığımızı Sanıyordum',
-	text: `Hoca ile hanımı bir gece yataklarında mışıl mışıl uyurlarken evlerine hırsız girer. Usta hırsızın,
-onlar uyurlarken evde bulduğu değerli eşyaları bir çuvala doldurup kapıdan çıkacağı sırada
-Hoca Efendi uyanır. Bir bakar ki hırsız eşyalarını çuvala doldurmuş götürmektedir.
-Alelacele kalkan Hoca epeyce bir süre hırsızı takip ettikten sonra ikisi birlikte bir eve girerler.
-Bu ev de hırsızın evidir. Karşısında Hoca’yı gören hırsız heyecanlı bir şekilde;
-“Hoca Efendi, benim evimde senin ne işin var? Burası benim evim, haydi var git işine!”
-der.
-Hoca, hırsızın pişkinliğine aldırmadan cevabını yapıştırır:
-“Be adam ne kızıyorsun? Senin sırtındakiler bizim evin eşyaları değil mi? Ben de buraya
-yeni taşındığımızı sanıyordum!”`,
+	text: `Bir gece Hoca ve karısı uyurken evlerine bir hırsız girer. Hırsız, evdeki değerli eşyaları bir çuvala doldurur.
+	Tam evden çıkmak üzereyken Hoca uyanır ve hırsızı görür.
+	Hoca sessizce yataktan kalkar ve hırsızı takip etmeye başlar. Bir süre sonra hırsız bir eve girer, Hoca da peşinden girer.
+	Bu ev, hırsızın kendi evidir. Hırsız, karşısında Hoca'yı görünce çok şaşırır:
+	"Hoca Efendi, senin benim evimde ne işin var? Burası benim evim, hemen çık dışarı!"
+	Hoca, hırsızın bu arsız tavrına hiç aldırmadan cevap verir:
+	"Neden kızıyorsun ki? Sırtındaki çuvalda bizim evin eşyaları yok mu? Ben de yeni evimize taşındık sanmıştım!"`,
 }

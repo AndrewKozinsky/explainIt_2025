@@ -1,14 +1,10 @@
 export const chapter_125 = {
 	name: '125',
 	header: 'Biz Onun Ayağına Gideriz',
-	text: `Nasreddin Hoca’nın hocalığı halk arasında ermişliğe kadar ilerleyince günün birinde
-hemşerileri;
-“Hocam, senin bir ermiş olduğunu, istediğin her şeyi ayağına getirttiğini söylüyorlar.
-Fakat bunu biz göremedik; şu kerametini bize gösterir misin?” diye sorarlar.
-Bu sözler karşısında şöyle bir kendini toparlayan Nasreddin Hoca;
-“Ey dağ, haydi yanıma gel.” diye üç defa seslenir.
-Nasreddin Hoca ve hemşerileri bakarlar ki dağın kıpırdadığı filan yok. Herkes, Hoca ile dalga
-geçmeye hazırlanırken Hoca yerinden kalkıp yürümeye başlayarak;
-“Hemşerilerim, biliyorsunuz bizde kibir diye bir şey yoktur. Ne yapalım, dağ bizim
-ayağımıza gelmezse biz onun ayağına gideriz.” deyiverir.`,
+	text: `Hoca'nın ermiş olduğu söylentileri yayılınca, bir gün komşuları ondan bir keramet göstermesini ister:
+	"Hocam, istediğin her şeyi ayağına getirtebildiğini söylüyorlar. Hadi bize bir keramet göster."
+	Hoca, yakındaki bir dağa döner ve üç kez seslenir: "Ey dağ! Yanıma gel!"
+	Dağ yerinden kıpırdamayınca, komşuları Hoca ile dalga geçmeye hazırlanır.
+	Ancak Hoca, gayet sakin bir şekilde dağa doğru yürümeye başlar ve şöyle der:
+	"Bizde kibir yoktur. Dağ bize gelmezse, biz dağın ayağına gideriz."`,
 }

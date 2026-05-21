@@ -1,19 +1,12 @@
 export const chapter_93 = {
 	name: '93',
 	header: 'Peşin Parayı Görünce Ne de Güzel Gülüyorsun',
-	text: `Nasreddin Hoca komşularından birine borçlu olup bir türlü ödeyememektedir. Alacaklı birkaç
-defa kapıyı çalınca Hoca;
-“Komşu, çok kısa bir süre içerisinde borcumu sana ödeyeceğim.” der.
-Komşusu biraz şaşkın vaziyette;
-“Bu iş nasıl olacak, ne zaman ödeyeceksin?” deyince Hoca;
-“Bak komşu, kapının önüne çalı ektim, çalılar ilkbaharda yeşerecek, sonra çalıları
-sertleşecek…”
-“Eee…”
-“Kapının önünden geçen koyunların yünleri çalılara takılacak…”
-“Sonra?”
-“Sonra mı, bu yünleri toplayacağız, hatunla birlikte kabartacağız, sonra kirmanda
-eğireceğiz, son olarak da pazarda satacağız. O zaman senin paranı ödeyeceğim.” deyince
-alacaklı acı acı gülmeye başlar.
-Alacaklısının bu tavrı üzerine Hoca;
-“Ah komşu ah, peşin parayı görünce ne de güzel gülüyorsun.” der.`,
+	text: `Nasreddin Hoca'nın bir komşusuna borcu vardır ama bir türlü ödeyemez. Komşusu birkaç kez kapısına gelince Hoca ona bir plan anlatır:
+	"Komşu, borcumu yakında ödeyeceğim. Bak, kapının önüne çalılar ektim. İlkbaharda bu çalılar büyüyecek."
+	"Eee, sonra?"
+	"Yoldan geçen koyunların yünleri bu çalılara takılacak.
+	Biz de o yünleri toplayıp ip yapacağız ve pazarda satacağız. İşte o parayla da sana borcumu ödeyeceğim."
+	Bu planı duyan komşusu kahkahalarla gülmeye başlar.
+	Hoca, komşusunun bu neşeli haline bakıp şöyle der:
+	"Gördün mü komşu? Peşin paranın hayali bile seni nasıl da güldürüyor!"`,
 }

@@ -1,10 +1,10 @@
 export const chapter_53 = {
 	name: '53',
 	header: 'Gençlikle Yaşlılığın Hiç Farkı Yokmuş',
-	text: `Nasreddin Hoca komşuları ile bir sohbeti esnasında;
-“Gençlikle yaşlılık arasında hiçbir fark yokmuş.” der. Bunun üzerine çevresindekiler;
-“Olur mu Hocam, hem de dağ gibi fark var.” deyince Hoca;
-“Komşular ben bunu denedim, gençliğimde bizim evin önünde bir taş vardı. O zamanlar
-kaldırmak istedim, kaldıramadım. Geçenlerde aklıma geldi, taşı tekrar kaldırmak istedim, yine
-kaldıramadım. Bu sebepten anladım ki gençlikle yaşlılığın hiç farkı yokmuş.” der.`,
+	text: `Nasreddin Hoca bir gün komşularıyla sohbet ederken, "Anladım ki gençlikle yaşlılık arasında aslında hiçbir fark yokmuş." der.
+	Komşuları hemen itiraz eder: "Olur mu Hocam! Arada dağlar kadar fark var."
+	Hoca gülerek anlatır:
+	"Ben bunu bizzat test ettim. Gençken evimizin önünde büyük bir taş vardı.
+	Onu kaldırmayı denemiş ama başaramamıştım. Geçen gün aynı taşı tekrar kaldırmayı denedim, yine başaramadım.
+	İşte o zaman anladım ki, gençlikle yaşlılık arasında gerçekten de hiçbir fark yokmuş."`,
 }

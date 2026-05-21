@@ -3,7 +3,11 @@
 .base-button {
 	cursor: pointer;
 	border: 1px solid transparent;
-	transition: background-color .15s ease, color .1s ease;
+	transition: background-color .15s ease, color .1s ease, transform .2s ease;
+
+	&:active {
+		transform: scale(.97);
+	}
 
 	&:disabled {
 		color: vars.$grayColor-3;
@@ -77,6 +81,10 @@
 
 	&:focus {
 		outline-color: rgba(vars.$accentColor-2, .3);
+	}
+
+	&:hover:focus {
+		outline-color: vars.$grayColor-2;
 	}
 }
 

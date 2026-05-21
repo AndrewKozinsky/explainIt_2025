@@ -1,10 +1,9 @@
 export const chapter_50 = {
 	name: '50',
 	header: 'Eşeğin Başı Değişmiş',
-	text: `Hoca eşeğini bir ağaca bağladıktan sonra şöyle bir gezmek ister. Gezer tozar, ziyaretlerini yapar
-gelir ki ne görsün, eşeğinin yuları çalınmış.
-Duruma çok üzülen Hoca pazarda dolaşırken bir taraftan da eşeklerin başındaki yularları
-kontrol eder. Tam bu sırada bir bakar ki eşeğin birinin kafasında kendi eşeğinin yuları. . .
-Doğruca eşeğin yanına varan Nasreddin Hoca eşek sahibinin duyacağı bir ses tonuyla;
-“Yahu, yular bizim eşeğin yularına benziyor, fakat eşeğin başı değişmiş!” deyiverir.`,
+	text: `Hoca, bir gün eşeğini bir ağaca bağlayıp gezmeye gider. Geri döndüğünde bir de ne görsün, eşeğinin yuları çalınmış!
+	Hoca bu duruma çok üzülür ve yuları bulmak için pazara gider. Pazarda dolaşırken eşeklerin yularlarına dikkatle bakar.
+	Bir süre sonra, bir eşeğin üzerinde kendi yularını görür.
+	Hemen eşeğin yanına gider ve sahibinin duyabileceği bir sesle şöyle der:
+	"Ne tuhaf! Yular bizim eşeğin yularına benziyor ama eşeğin başı değişmiş!"`,
 }

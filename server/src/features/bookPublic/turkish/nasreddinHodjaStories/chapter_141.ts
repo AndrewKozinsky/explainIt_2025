@@ -1,17 +1,10 @@
 export const chapter_141 = {
 	name: '141',
 	header: 'Tasla Ortaya Getirecektim',
-	text: `Hoca’yı bütün konu komşu sırayla yemeğe çağırır. Bir gün, bir hafta, bir yıl derken günün
-birinde Hoca’nın ahbapları;
-“Hocam, hep biz sizi yemeğe çağırıyoruz, bir de siz bizi çağırsanız olmaz mı?” deyince
-Hoca;
-“Komşular, ben fakir bir adamım, kıt kanat geçiniyorum, ben size vereceğim ziyafetin
-altından kalkamam.” derse de işin içerisinden çıkamaz ve komşularını davet eder.
-Hoca’nın hanımı bu işten rahatsız olur:
-“Bu kadar adama ne yedireceksin, ne diye eve çağırdın, evde yiyecek hiçbir şey yok.”
-deyince Hoca, hanımına;
-“Hanım, sen üzülme, sen bana bir boş çorba tası ver, gerisini merak etme.” der.
-Misafirler eve geldikten sonra Hoca boş çorba tasını alır ve onların yanına varır:
-“Komşularım beni bağışlayın, evde odun yok, yağ yok, pirinç yok… Eğer bunlar olsaydı
-çorbayı pişirip gördüğünüz bu tasla ortaya getirecektim” der.`,
+	text: `Hoca'nın komşuları onu sürekli yemeğe davet eder. Bir gün arkadaşları, "Hocam, hep biz seni davet ediyoruz. Bir kere de sen bizi çağır." derler.
+	Hoca, fakir olduğunu ve onlara ziyafet veremeyeceğini söylese de ısrarlara dayanamaz ve komşularını evine davet eder.
+	Karısı endişelenir: "Evde hiçbir şey yok, bu kadar misafire ne ikram edeceğiz?"
+	Hoca, "Sen merak etme," der. "Bana sadece boş bir çorba kasesi ver yeter."
+	Misafirler gelince Hoca, elinde boş kaseyle yanlarına gider ve şöyle der: "Hoş geldiniz komşularım. Kusura bakmayın, evde ne odun var, ne yağ, ne de pirinç.
+	Eğer olsaydı, size lezzetli bir çorba pişirip bu kaseyle ikram edecektim."`,
 }

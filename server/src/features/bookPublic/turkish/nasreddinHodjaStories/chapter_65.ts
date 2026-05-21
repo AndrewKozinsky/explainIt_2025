@@ -1,17 +1,11 @@
 export const chapter_65 = {
 	name: '65',
 	header: 'İnsanın Hayalindeki Çorbayı Bile İstiyorlar',
-	text: `Günün birinde Nasreddin Hoca’nın canı sıcacık bir çorba ister. Tencereleri şöyle bir açıp bakar,
-çorba yoktur. Bunun üzerine dumanı üzerinde, kokusu etrafa yayılan mis gibi leziz mi leziz bir
-çorba hayal etmeye başlar. Çorbanın kendisi olmasa da hayali bile güzeldir.
-Hoca Efendi tam bu hayallerle kendisini avuturken birdenbire kapısı çalınır. Gelen komşusunun
-oğludur.
-“Hocam, babam hasta yatıyor. Varsa bir tas çorba verseniz de içirsek...” deyince, Hoca
-üzüntülü bir tavırla cevap verir:
-“Ah oğlum, keşke bir değil iki tas çorba olsaydı da verseydim. Babana ‘geçmiş olsun’
-deyiver.”
-Hoca, komşunun oğlunu uğurlayıp kapıyı da kapattıktan sonra kendi kendine söylenmeye
-başlar:
-“Buna da pes doğrusu! Şu bizim komşular da amma adamlar yahu… İnsanın
-hayalindeki çorbanın bile kokusunu alıyorlar.”`,
+	text: `Bir gün Nasreddin Hoca'nın canı sıcacık bir çorba çeker.
+	Ama evde çorba yoktur.
+	O da gözlerini kapatır ve dumanı tüten, mis gibi kokan lezzetli bir çorbayı hayal etmeye başlar.
+	Tam bu sırada kapı çalar. Gelen, komşusunun oğludur.
+	"Hocam," der çocuk, "babam çok hasta. Mümkünse bir kase çorba verebilir misiniz?"
+	Hoca üzgün bir şekilde cevap verir: "Ah evladım, keşke olsaydı da verseydim. Babana çok geçmiş olsun de."
+	Hoca çocuğu gönderdikten sonra kendi kendine söylenir: "İnanılır gibi değil! Bu komşular, insanın hayalindeki çorbanın bile kokusunu alıyorlar!"`,
 }

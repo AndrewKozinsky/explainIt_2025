@@ -1,11 +1,7 @@
 export const chapter_56 = {
 	name: '56',
 	header: 'Haydi Sen de Dişini Çektir',
-	text: `Günün birinde pazardan dönmekte olan Hoca'nın önünü bir komşusu keser ve derdini bir bir
-anlatır. Hoca onu biraz oyalamak isteyince komşusu tekrar;
-"Ama Hocam, başım çok ağrıyor. " der. Hoca şöyle sağına soluna baktıktan sonra, düşünür gibi
-yapar ve ardından cevabını veriverir:
-"Bak komşu, senin derdinin dermanını şimdi hatırladım. Bundan birkaç hafta önce benim de
-dişim ağrımıştı, epeyce direndikten sonra baktım olacak gibi değil, gittim dişçiye, dişimi
-çektirdim. Meğer başımın ağrısının dermanı buymuş. Haydi git sen de dişini çektir.”`,
+	text: `Bir gün Hoca pazardan dönerken bir komşusu yolunu keser ve dert yanmaya başlar. Hoca onu dinlerken komşusu ısrarla, "Hocam, başım çok fena ağrıyor." der.
+	Hoca biraz düşündükten sonra aklına bir fikir gelmiş gibi yapar ve şöyle der:
+	"Komşu, derdinin çaresini buldum! Birkaç hafta önce benim de dişim çok ağrıyordu ve bu ağrı başıma vuruyordu. Dayanamayıp dişçiye gittim ve dişi çektirdim. Bütün ağrım anında geçti. Bence sen de hemen git bir dişini çektir."`,
 }

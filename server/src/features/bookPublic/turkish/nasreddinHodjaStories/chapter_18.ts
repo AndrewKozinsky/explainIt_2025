@@ -1,12 +1,9 @@
 export const chapter_18 = {
 	name: '18',
 	header: 'Bizim Akşehir’de Araba Tekerine Bile Bakmazlar',
-	text: `Nasreddin Hoca bir Ramazan ayının yaklaştığı günlerde doğduğu Sivrihisar’daki yakınlarını
-ziyarete gider. Şehrin girişine vardığında bir de ne görsün, herkes toplanmış gökyüzünde
-Ramazan ayı doğacak mı, doğmayacak mı, ona bakıyor. Hoca dayanamayıp;
-“Hayırdır, neye bakıyorsunuz?” deyince, halk toplu hâlde;
-“Ramazan ayına bakıyoruz.” der.
-Bunun üzerine Nasreddin Hoca;
-“Yahu hemşerilerim, bizim Akşehir’de bunun araba tekeri gibi olanına bile bakmazlar,
-siz incecik ayı göreceğiz diye vaktinizi boşa harcıyorsunuz!” der ve yoluna devam eder.`,
+	text: `Ramazan ayı yaklaşırken Nasreddin Hoca, memleketi Sivrihisar'daki akrabalarını ziyarete gider. Şehrin girişine geldiğinde bir kalabalık görür. Herkes gökyüzüne bakıp Ramazan ayının hilalini görmeye çalışıyordur.
+	Hoca merakla sorar: "Hayırdır, neye bakıyorsunuz böyle?"
+	Kalabalıktan biri cevap verir: "Ramazan hilalini görmeye çalışıyoruz."
+	Nasreddin Hoca güler ve şöyle der:
+	"Hemşerilerim, bizim Akşehir'de insanlar gökyüzündeki araba tekerleği gibi dolunaya bile bakmaz. Siz ise burada incecik bir hilal göreceğiz diye boşuna vakit kaybediyorsunuz!" diyerek yoluna devam eder.`,
 }

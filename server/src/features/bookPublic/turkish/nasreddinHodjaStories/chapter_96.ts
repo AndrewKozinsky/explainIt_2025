@@ -1,14 +1,10 @@
 export const chapter_96 = {
 	name: '96',
 	header: 'Saklarlar da Kışın Yerler',
-	text: `Misafirlerden birisi, Nasreddin Hoca’nın evinde yatıya kalır. Akşam yemeği yenildikten sonra
-sohbet edilir, yatma zamanı gelince yataklar açılır. Vakit ilerlediği için karnı acıkan misafir;
-“Bizim eller bizim eller
-Yatarken üzüm yerler”
-diye bir türkü tutturmaz mı?
-Bu türkünün sonunun nereye varacağını anlayan Nasreddin Hoca da elini kulağına atar ve;
-“Sizin eller sizin eller
-Yatarken üzüm yerler
-Bizde böyle âdet yoktur
-Saklarlar da kışın yerler.” der.`,
+	text: `Bir gece, bir misafir Nasreddin Hoca'nın evinde kalır. Yatmadan önce misafirin karnı acıkır ve üzüm ister.
+	Ama bunu doğrudan söylemek yerine, imalı bir şekilde türkü söylemeye başlar:
+	"Bizim oralarda, bizim oralarda, Yatmadan önce üzüm yerler."
+	Misafirin ne demek istediğini anlayan Hoca, hemen türkünün devamını getirir:
+	"Sizin oralarda öyle olabilir ama, Bizim buralarda adet farklıdır.
+	Üzümü hemen yemezler, Saklarlar da kışın yerler."`,
 }

@@ -1,8 +1,8 @@
 export const chapter_40 = {
 	name: '40',
 	header: 'Dokuz Yüz Doksan Dokuzu Veren Allah Birini de Verir',
-	text: `Hoca’ya rüyasında dokuz yüz doksan dokuz akçe verirler, ancak Hoca;
-“Bin olmazsa kabul etmem.” diye direnirken uyanmaz mı?
-Elinin boş olduğunu gören Hoca tekrar yatar ve avuçlarını açarak;
-“Verin, kabulümdür, dokuz yüz doksan dokuzu veren Allah birini de verir!” deyiverir.`,
+	text: `Hoca bir gece rüyasında kendisine 999 gümüş para verildiğini görür.
+	Ancak Hoca, "Tam bin olmazsa kabul etmem!" diye pazarlık yaparken uyanır.
+	Bir de bakar ki avuçları bomboş. Hemen gözlerini kapatıp tekrar yatar ve seslenir:
+	"Tamam, tamam, kabul ediyorum! 999'u veren Allah, elbet bir taneyi de verir!"`,
 }

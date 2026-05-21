@@ -1,11 +1,12 @@
 export const chapter_104 = {
 	name: '104',
 	header: 'Senin İçin Yanıyorsa Bilmem',
-	text: `Günün birinde komşularından biri Nasreddin Hoca’yı yemeğe çağırır. Hoşbeşten sonra sofra
-kurulur, Hoca da tabaktakileri afiyetle yer. Yemek faslı bittikten sonra ev sahibi Hoca’nın
-önüne kara kovan balından bir tabak kor. Balın kaliteli olduğunu anlayan Hoca, kaşık kaşık balı
-yemeye başlayınca ev sahibi dayanamaz;
-“Hocam, eğer balı ekmeksiz yersen içini yakar.” der.
-Hoca, şöyle bir arkaya doğru yaslanır ve ardından da ekler:
-“Vallahi komşu, benim içimin filan yandığı yok, senin için yanıyorsa bilmem.”`,
+	text: `Bir komşusu Nasreddin Hoca'yı yemeğe davet eder.
+	Yemekten sonra ev sahibi, Hoca'nın önüne bir tabak kaliteli bal koyar.
+	Hoca, balın tadına doyamaz ve kaşık kaşık yemeye başlar.
+	Bunu gören ev sahibi endişeyle uyarır:
+	"Aman Hocam, balı ekmeksiz yerseniz içinizi yakar."
+	Hoca arkasına yaslanır ve gülerek cevap verir:
+	"Komşu, benim içim falan yanmıyor.
+	Ama anlaşılan senin için yanıyor."`,
 }

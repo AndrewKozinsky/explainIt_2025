@@ -1,11 +1,10 @@
 export const chapter_88 = {
 	name: '88',
 	header: 'Ölçmüş Biçmiş Gidiyor',
-	text: `Günün birinde Nasreddin Hoca yolda giderken birkaç kişiyle karşılaşır. Onlar;
-“Hocam, dünya kaç arşındır? Biz anlaşamadık. Sen görmüş geçirmiş adamsın, bize bir
-cevap ver.” deyince, Hoca Efendi şöyle bir düşüneyim diye başını kaldırdığında bir de ne
-görsün, karşı mahalleden mezarlığa doğru bir cenaze gidiyor. Cenaze, Hoca’nın imdadına
-yetişince o da hemen cevabını veriverir:
-“Arkadaşlar, ben de sizin sorunuzun cevabını biliyordum, ama bakın benden önce şu
-giden cenaze cevabı verdi. Görüyor musunuz o, ölçmüş, biçmiş ve gidiyor.”`,
+	text: `Bir gün yolda birkaç kişi, Hoca'nın önünü keser:
+	"Hocam, dünya kaç arşın (eski bir uzunluk ölçüsü) gelir? Kendi aramızda anlaşamadık, bir cevap verin."
+	Hoca tam düşünecekken, o sırada mezarlığa doğru giden bir cenaze görür.
+	Bu durum onun imdadına yetişir ve hemen cevap verir:
+	"Arkadaşlar, bakın! Ben cevabı vermeden, şu giden cenaze cevabı veriyor.
+	O dünyayı ölçmüş, biçmiş ve şimdi gidiyor."`,
 }

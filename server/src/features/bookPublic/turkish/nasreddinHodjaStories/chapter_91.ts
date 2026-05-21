@@ -1,9 +1,8 @@
 export const chapter_91 = {
 	name: '91',
 	header: 'Padişah mı Büyük Çiftçi mi?',
-	text: `Nasreddin Hoca bir köye gittiğinde halk, Hoca’yı imtihan etmek ister:
-“Hocam, padişah mı büyük, yoksa çiftçi mi?” diye bir soru sorarlar.
-Hoca şöyle bir arkasına yaslanır, sonra da sakalını sıvazlar ve;
-“Bunu bilmeyecek ne var, elbette çiftçi büyük, eğer çiftçi olmasa padişah acından
-ölürdü.” der.`,
+	text: `Nasreddin Hoca bir köye gittiğinde, köylüler onu denemek için bir soru sorar:
+	"Hocam, sence kim daha büyüktür, padişah mı yoksa çiftçi mi?"
+	Hoca arkasına yaslanır, sakalını sıvazlar ve cevap verir:
+	"Elbette çiftçi daha büyüktür. Çünkü çiftçi olmasaydı, padişah açlıktan ölürdü."`,
 }

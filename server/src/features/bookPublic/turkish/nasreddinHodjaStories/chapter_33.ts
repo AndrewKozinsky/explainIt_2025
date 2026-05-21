@@ -1,19 +1,11 @@
 export const chapter_33 = {
 	name: '33',
 	header: 'Cumaya Kadar Ancak Giderim',
-	text: `Nasreddin Hoca günün birinde Akşehir’de pazarı dolaşmaya başlar. Bir taraftan pazarda
-gezerken, bir taraftan da tanıdıklarıyla sohbet eder. Bu arada da komşu köylerin birinden birkaç
-köylü ile karşılaşır. Köylüler Hoca’ya;
-“Hoca Efendi, bir cuma vakti bizim köye kadar gelseniz de sizin arkanızda bir namaz
-kılsak!” derler.
-Bunun üzerine Hoca;
-“Neden olmasın, bu hafta geleyim!” der.
-Nasreddin Hoca ertesi gün eşeğine binerek köyün yolunu tutar. Olacak bu ya, yolu üzerinde
-eski dostlarından biriyle karşılaşır. Selamlaşıp hoşbeş edildikten sonra tanıdığı, Hoca’ya sorar:
-“Hayırdır Hocam, nereye gidersin böyle?”
-“Filanca köye cuma namazı kıldırmaya gidiyorum.”
-“Ama Hocam, bugün günlerden salı. . . Cumaya daha üç gün var.”
-Hoca, bir yandan eşeğinin boynunu sıvazlar, bir yandan da eski dostuna cevap verir:
-“Vallahi komşu, sen bu eşeğin huyunu suyunu bilmezsin; ben bununla o köye cumaya
-kadar ancak giderim.”`,
+	text: `Bir gün Nasreddin Hoca, Akşehir pazarında gezerken komşu köyden birkaç köylü ile karşılaşır.
+	Köylüler Hoca'ya ricada bulunur: "Hoca Efendi, bir cuma günü köyümüze gelseniz de arkanızda namaz kılsak!"
+	Hoca, "Neden olmasın? Bu hafta gelirim." diye söz verir.
+	Ertesi gün, yani salı günü, Hoca eşeğine biner ve köye doğru yola çıkar. Yolda eski bir arkadaşıyla karşılaşır. Arkadaşı sorar: "Hayırdır Hocam, böyle nereye?"
+	"Falan köye cuma namazı kıldırmaya gidiyorum."
+	Arkadaşı şaşırır: "Ama Hocam, bugün daha salı. Cumaya üç gün var."
+	Hoca, eşeğinin boynunu okşayarak cevap verir: "Ah komşum, sen benim bu eşeğimi bilmezsin. Ben bununla o köye cumaya anca varırım."`,
 }

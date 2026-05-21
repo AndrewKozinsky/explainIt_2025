@@ -1,19 +1,15 @@
 export const chapter_8 = {
 	name: '8',
 	header: 'Belki de Barışmışlardır',
-	text: `Nasreddin Hoca evinin bahçesindeki ağacın gölgesinde namaz saatini beklerken telaşlı bir
-şekilde kapısının tokmağına vurulduğunu işitir. Hoca, kapıyı açınca komşusunu görür ve;
-“Buyur komşu, nedir bu telaşın?” deyince komşusu;
-“Sorma Hocam, karımla baldızım saç saça, baş başa dövüşüyorlar.” der.
-Bunun üzerine Hoca merakla;
-“Komşu, ayıramadın mı?” deyince, komşusu sızlanarak cevap verir:
-“Ne mümkün Hocam, bırak ayırmayı yanlarına bile yaklaşamadım.”
-“Pekiyi, bu hanımlar ne diye kavga ediyorlar?” deyince komşusu;
-“Bilmiyorum Hocam!” der.
-Hoca bir defa daha sorar:
-“Sakın, ‘sen yaşlısın, ben yaşlıyım’ diye kavga etmesinler?” deyince komşusu;
-“Yok Hocam, yok başka bir konuda kavga ediyor olmalılar!” der.
-Bunun üzerine Hoca rahat bir şekilde konuyu çözüverir:
-“Komşum, o zaman telaşlanmaya gerek yok! Konu yaş değilse çabucak barışırlar, belki
-de şimdiye barışmışlardır bile.” der.`,
+	text: `Bir gün Nasreddin Hoca, evinin bahçesinde namaz vaktini bekliyordu. O sırada birisi telaşla kapısını çaldı. Hoca kapıyı açtığında karşısında komşusunu gördü.
+	"Buyur komşu, bu ne telaş?" diye sordu.
+	Komşusu nefes nefese cevap verdi: "Sorma Hocam! Karımla baldızım fena halde kavga ediyor, saç saça baş başalar!"
+	Hoca merakla, "Ayıramadın mı?" diye sordu.
+	Komşusu şikayet eder gibi cevap verdi: "Mümkün değil Hocam! Ayırmayı bırak, yanlarına bile yaklaşamadım."
+	Hoca tekrar sordu: "Peki, neden kavga ediyorlar?"
+	Komşusu, "Bilmiyorum Hocam!" dedi.
+	Hoca bu sefer şöyle bir soru sordu: "Acaba 'sen daha yaşlısın, ben daha yaşlıyım' diye mi kavga ediyorlar?"
+	Komşusu "Hayır Hocam, sanmıyorum. Başka bir şey için kavga ediyor olmalılar," diye cevap verdi.
+	Bunu duyan Hoca rahatladı ve şöyle dedi:
+	"Komşum, o zaman endişelenecek bir şey yok! Eğer yaş konusunda kavga etmiyorlarsa, çabucak barışırlar. Hatta belki de çoktan barışmışlardır."`,
 }

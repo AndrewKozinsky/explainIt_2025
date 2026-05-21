@@ -1,11 +1,10 @@
 export const chapter_126 = {
 	name: '126',
 	header: 'Bizim Eve Geliyor',
-	text: `Günün birinde Nasreddin Hoca’nın komşularından birisi vefat eder. Hoca da komşu hakkı
-diyerek başsağlığı dilemeye gider. Bu sırada evdekiler yüksek sesle ağlamaktadır.
-“Ah, bizi bırakıp da nereye gidiyorsun, hem de ocağı, ateşi olmayan yere…”
-Hoca bu sözleri iyice dinledikten sonra ev sahibinden izin ister ve doğruca evine gelerek
-hanımına;
-“Hanım, hanım! Sorma başımıza gelenleri, söylenenlere bakılırsa rahmetli komşumuz
-bizim eve geliyor.” der.`,
+	text: `Bir gün Hoca'nın komşusu vefat eder.
+	Hoca, başsağlığı dilemek için komşusunun evine gider.
+	İçeride, ölen kişinin yakınları yüksek sesle ağlıyordur.
+	Ağıt yakanlardan biri şöyle der: "Ah, bizi bırakıp nereye gidiyorsun? O ne ocağı ne de ateşi olan karanlık yere..."
+	Bu sözleri duyan Hoca, hemen kendi evine koşar ve telaşla karısına seslenir:
+	"Hanım! Söylenenlere bakılırsa, ölen komşumuz şimdi bizim eve geliyor!"`,
 }

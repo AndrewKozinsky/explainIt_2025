@@ -1,11 +1,8 @@
 export const chapter_110 = {
 	name: '110',
 	header: 'Tatlı Bir Uyku Uyumuştum',
-	text: `Nasreddin Hoca günün birinde eşeğine biner ve Konya’nın yolunu tutar. Ancak Konya yolu
-uzundur, birkaç gece yollarda konaklaması gerekmektedir. Sabah erkenden çıkılan yolculukta
-akşam olunca Hoca bir köyde konaklamak ister. Öyle de yapar ve çaldığı bir kapıda ‘Tanrı
-misafiri’ deyip orada konuk edilir. Bu arada Hoca çok acıkmıştır. Hâl hatırdan sonra ev sahibi
-Hoca’ya;
-“Hocam yoldan geldin, susuzluk, uykusuzluk var mı?” deyince Hoca;
-“Vallahi kardeşim, gelirken bir pınarın başında tatlı bir uyku çekmiştim.” deyiverir.`,
+	text: `Nasreddin Hoca, Konya'ya doğru uzun bir yolculuğa çıkar. Akşam olunca bir köyde konaklamak için bir kapıyı çalar ve "Tanrı misafiriyim" der. Ev sahibi onu içeri alır.
+	Hoca aslında çok acıkmıştır. Ev sahibi, sohbet sırasında Hoca'ya sorar: "Hocam, yoldan geldiniz. Açlık, susuzluk var mı?"
+	Hoca, doğrudan "açım" demek yerine, imalı bir şekilde cevap verir:
+	"Yok kardeşim, sağ ol. Gelirken yol kenarında tatlı bir uyku çekmiştim de..."`,
 }

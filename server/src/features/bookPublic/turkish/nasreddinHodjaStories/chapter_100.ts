@@ -1,17 +1,13 @@
 export const chapter_100 = {
 	name: '100',
 	header: 'Sen Evini Taşı',
-	text: `Evinin yerinden memnun olmayan köylünün biri, sıkıntısını anlatmak üzere Nasreddin Hoca’ya
-gelir:
-“Hocam, evde gün ışığına hasret kaldık. Evim güneş yüzü görmüyor. Bu sıkıntıma bir
-çare bul.”
-Nasreddin Hoca, evinden şikâyetçi olan adam hakkında bilgi sahibi olmadığından merakını
-gizleyemez ve sorar:
-“Yahu komşu, senin toprağın filan yok mu?”
-“İlahi Hoca Efendi, köylü adamın tarlası olmaz mı hiç?”
-“Madem tarlan var, o hâlde güneş de görüyordur.”
-“Yahu Hocam, tarladır bu, elbette güneş görür.”
-Hoca, bu lüzumsuz soruyu soran köylüye iyi bir ders vermek niyetindedir. Adama şöyle uzun
-uzun bakarak cevap verir:
-“Oh, ne güzel! Güneş senin evine gelmiyorsa sen evini tarlaya götürüver.”`,
+	text: `Evinden memnun olmayan bir köylü, Nasreddin Hoca'ya dert yanar:
+	"Hocam, evim hiç güneş görmüyor.
+	Ne olur bu derdime bir çare bul."
+	Hoca sorar: "Komşu, senin hiç tarlan yok mu?"
+	"Olur mu Hocam, köylünün tarlası olmaz mı?"
+	"Peki tarlan güneş görüyor mu?"
+	"Elbette görüyor."
+	Bunun üzerine Hoca pratik çözümünü sunar:
+	"Madem güneş senin evine gelmiyor, o zaman sen de evini tarlana taşı."`,
 }

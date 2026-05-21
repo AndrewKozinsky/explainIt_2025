@@ -1,10 +1,8 @@
 export const chapter_142 = {
 	name: '142',
 	header: 'Taşları Bağlamışlar, Köpekleri İnsanın Üzerine Salıyorlar',
-	text: `Hoca soğuk bir kış günü, eşeğine binerek başka bir köye doğru yola çıkar. Hoca, köye doğru
-yaklaştığında köpekler havlayarak üzerine doğru gelince o da savunmaya geçer ve yerde
-bulduğu taşlara sarılır, fakat taşlardan hiçbirisini yerinden kaldıramaz. Çünkü bütün taşlar buz
-tutmuştur. Hoca bir dener, iki dener, fakat kurtuluşun olmadığını anlayınca elini açar ve;
-“Allah’ım, burası nasıl bir memleket, şaşırdım. Görmüyor musun, taşlarını bağlamışlar
-köpeklerini insanın üzerine salıyorlar.” der.`,
+	text: `Soğuk bir kış günü Hoca, eşeğiyle komşu köye giderken bir grup köpek havlayarak üzerine doğru koşar.
+	Hoca kendini savunmak için yerden taş almak ister ama bütün taşlar donduğu için yerinden kımıldamaz.
+	Hoca, köpeklerden bir türlü kurtulamayacağını anlayınca ellerini gökyüzüne açar ve bağırır:
+	"Allah'ım, bu nasıl bir yer! Taşları bağlamışlar, köpekleri salmışlar!"`,
 }

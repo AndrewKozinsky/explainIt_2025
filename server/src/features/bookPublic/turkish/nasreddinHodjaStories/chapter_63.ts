@@ -1,13 +1,9 @@
 export const chapter_63 = {
 	name: '63',
 	header: 'İnanmıyorsanız Gidin Ölçün',
-	text: `Nasreddin Hoca’nın komşuları Hoca’yı sıkıştırmak için;
-“Hocam, sen bilgili adamsın. Bize dünyanın merkezinin neresi olduğunu söyleyebilir
-misin?” derler.
-Hoca şöyle bir düşündükten sonra;
-“Benim durduğum yer…” diye cevap verir.
-Bunun üzerine komşular gülüşerek;
-“Hoca Efendi bu nasıl cevap?” derler.
-Hoca, hiçbir şey olmamışçasına komşularına;
-“İnanmıyorsanız gidin, ölçün.” der.`,
+	text: `Bir gün komşuları, Nasreddin Hoca'yı test etmek için bir araya gelirler.
+	"Hocam, sen bilgili bir adamsın. Bize dünyanın merkezinin neresi olduğunu söyleyebilir misin?" diye sorarlar.
+	Hoca biraz düşündükten sonra, "Dünyanın merkezi, tam olarak benim şu an durduğum yerdir." diye cevap verir.
+	Komşuları gülüşerek, "Olur mu Hocam, bu nasıl cevap?" derler.
+	Hoca gayet ciddi bir şekilde cevaplar: "İnanmıyorsanız, ölçebilirsiniz."`,
 }

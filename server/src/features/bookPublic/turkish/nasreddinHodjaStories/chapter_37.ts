@@ -1,10 +1,10 @@
 export const chapter_37 = {
 	name: '37',
 	header: 'Daha Şimdiden Yolu Yarıladık',
-	text: `Nasreddin Hoca ile hanımı seyahate çıkarlar. Bir süre gittikten sonra Hoca, hanımına sorar:
-“Hanım, daha ne kadar yolumuz var?”
-Hanımı şöyle bir düşündükten sonra;
-“Efendi, bugün ve yarın da gidersek iki günlük yolumuz kaldı.” der.
-Bunun üzerine hanımına dönen Hoca;
-“Desene hanım, daha şimdiden yolu yarıladık.”`,
+	text: `Nasreddin Hoca ile karısı bir yolculuğa çıkarlar. Bir süre yol aldıktan sonra Hoca, karısına sorar:
+	"Hanım, daha yolun ne kadarı kaldı?"
+	Karısı biraz düşünür ve cevap verir:
+	"Efendi, bugün ve yarın da gidersek, geriye iki günlük yolumuz kalıyor."
+	Bunu duyan Hoca sevinçle karısına döner:
+	"Harika! Desene, şimdiden yolun yarısını bitirmişiz."`,
 }

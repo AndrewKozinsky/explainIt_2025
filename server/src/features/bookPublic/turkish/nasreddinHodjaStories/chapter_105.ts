@@ -1,19 +1,11 @@
 export const chapter_105 = {
 	name: '105',
 	header: 'Seninle de Konuşulmuyor ki',
-	text: `Bir akşam üzeri Nasreddin Hoca ile hanımı avluda oturmuş, sohbet etmektedirler. Tuhaf bir
-hâli olan Hoca, hanımına sorar:
-“Hanım, bizim komşu değirmenci Ahmet Efendi’nin adı neydi?”
-Kocasının dalgın hâlini merak eden hanım bu soru karşısında şaşırarak;
-“Hoca Efendi, bu nasıl söz? ‘Ahmet Efendi’ dedin ya.” der.
-Bozuntuya vermeyen Hoca soruyu değiştirir:
-“Dilim sürçtü. Ne iş yaptığını soracaktım.”
-“Efendi, sana ne oldu? ‘Değirmenci’ dedin ya.”
-Üste çıkmaya çalışan Hoca;
-“Hatun nerede oturuyor diye soracaktım.” der.
-Şaşkına dönen hanım dayanamaz ve;
-“Efendi, sana bir şeyler mi oldu ne… Az önce ‘komşu’ dedin ya.”
-Hanımının her sorusuna karşı çıktığını gören Hoca biraz da kızarak;
-“Yahu hanım, iki söz edelim dedik, burnumdan getirdin. Seninle de konuşulmuyor ki!”
-deyiverir.`,
+	text: `Bir akşam Hoca, karısıyla sohbet ederken dalgın bir şekilde sorar: "Hanım, bizim komşu değirmenci Ahmet'in adı neydi?"
+	Karısı şaşırır: "Efendi, 'Ahmet' dedin ya zaten."
+	Hoca bozuntuya vermeden devam eder: "Dilim sürçtü, ne iş yaptığını soracaktım."
+	Karısı yine düzeltir: "Ona da 'değirmenci' dedin ya."
+	Hoca üste çıkar: "Nerede oturduğunu sormak istemiştim."
+	Karısı iyice şaşırır: "Ona da 'komşu' dedin ya! Efendi, iyi misin sen?"
+	Hoca, karısının her söylediğini düzeltmesine sinirlenir: "Yahu hanım! İki dakika sohbet edelim dedik, sen de her lafıma bir cevap verdin. Seninle de hiç konuşulmuyor!"`,
 }

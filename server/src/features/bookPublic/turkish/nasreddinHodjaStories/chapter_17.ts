@@ -1,14 +1,10 @@
 export const chapter_17 = {
 	name: '17',
 	header: 'Birinin de Bininin de Tadı Aynı Değil mi?',
-	text: `Hoca günün birinde Akşehir’deki bağına üzüm kesmeye gider. Kestiği üzümleri bir sepete
-doldurduktan sonra eşeğine binerek evinin yolunu tutar. Bağ dönüşü karşılaştığı mahallenin
-çocukları Hoca’nın eşeğinin başını tutarlar;
-“Hocam üzüm, Hocam üzüm…” demeye başlarlar.
-Hoca üzümü vermeden geçmenin mümkün olmadığını anlayınca sepetten çıkardığı bir salkım
-üzümü çocuklar arasında paylaştırır. Çocuklar dağıtılan üzümü az bulurlar. İçlerinden biri;
-“Hocam, bu ne, bu kadar çocuğa bir salkım üzüm yeter mi?” der.
-Hoca daha fazla vermek istemez ama çocukları da kırmak istemez;
-“İyi de çocuklar, bunların hepsi aynı bağın üzümü. Birinin de bininin de tadı aynı değil
-mi?”deyiverir.`,
+	text: `Bir gün Hoca, Akşehir'deki bağına üzüm toplamaya gider. Üzümleri bir sepete doldurur ve eşeğine binip eve doğru yola çıkar.
+	Yolda mahallenin çocukları onu görür ve etrafını sararlar. Hep bir ağızdan "Hocam, üzüm isteriz! Hocam, üzüm isteriz!" diye bağırırlar.
+	Hoca, onlara üzüm vermeden kurtulamayacağını anlar. Sepetten bir salkım üzüm çıkarıp çocuklara dağıtır.
+	Çocuklar bu kadar az üzüme şaşırır. İçlerinden biri, "Hocam, bu kadarcık üzüm bu kadar çocuğa yeter mi?" diye sorar.
+	Hoca daha fazla üzüm vermek istemediği için, çocukları kırmadan cevap verir:
+	"Çocuklar, bu üzümlerin hepsi aynı bağdan geldi. Bir tanesinin tadıyla bin tanesinin tadı aynı değil mi?"`,
 }

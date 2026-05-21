@@ -1,11 +1,8 @@
 export const chapter_4 = {
 	name: '4',
 	header: 'Ayaklarını Dörde Çıkarabilirim',
-	text: `Nasreddin Hoca’dan hoşlanmayan komşularından birisi günün birinde onu yolu üzerinde
-durdurur ve bilmiş bilmiş konuşmaya başlar:
-“Hoca Efendi, senin için ‘Evliya oldu, erdi’ diyorlar. Doğrusu inanmadım, eğer
-kerametin varsa benim dört ayaklı eşeğimi iki ayaklı yap da inanayım.” der.
-Adamın sözlerine sinirlenen Nasreddin Hoca;
-“Be adam, ben eşeğin ayaklarını dörtten ikiye indirebilir miyim, bilmem. Fakat sen biraz
-daha konuşursan senin ayaklarını dörde çıkarabilirim.” deyiverir.`,
+	text: `Bir gün, Nasreddin Hoca'yı sevmeyen bir komşusu onu yolda durdurur. Komşusu, çok bilmiş bir tavırla konuşmaya başlar:
+"Hoca Efendi, senin için 'Evliya oldu' diyorlar. Açıkçası buna inanmadım. Eğer gerçekten bir keramet gösterebiliyorsan, benim dört ayaklı eşeğimi iki ayaklı yap da görelim."
+Nasreddin Hoca, adamın bu sözlerine çok sinirlenir ve şöyle der:
+"Hey ahbap! Bir eşeğin ayaklarını dörtten ikiye indirebilir miyim, bilmiyorum. Ama sen biraz daha konuşmaya devam edersen, ben senin ayaklarını dörde çıkarabilirim."`,
 }

@@ -1,8 +1,8 @@
 export const chapter_114 = {
 	name: '114',
 	header: 'Uykumu Kaybettim, Onu Arıyorum',
-	text: `Gecenin ilerlemiş bir saatinde Nasreddin Hoca sokakta gezerken bekçiler tarafından yakalanır
-ve sorguya çekilir:
-“Efendi, bu saatte sokakta ne arıyorsun?” dediklerinde Hoca gayet olgun bir şekilde;
-“Uykumu kaybettim, onu arıyorum.” deyiverir.`,
+	text: `Gece geç bir saatte Nasreddin Hoca sokakta gezerken bekçiler onu durdurur.
+	"Bu saatte sokakta ne işin var?" diye sorarlar.
+	Hoca gayet sakin bir şekilde cevaplar:
+	"Uykum kaçtı da, onu arıyorum."`,
 }

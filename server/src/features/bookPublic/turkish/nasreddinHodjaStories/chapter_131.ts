@@ -1,16 +1,11 @@
 export const chapter_131 = {
 	name: '131',
 	header: 'Elbette Eşekle Birlikte Ben de Kaybolacaktım',
-	text: `Günün birinde Nasreddin Hoca eşeğini kaybeder. Bunun üzerine Hoca’nın bütün eşi dostu
-toplanarak kaybolan eşeği aramaya başlarlar. Bu arada Nasreddin Hoca bir taraftan eşeğini
-ararken bir taraftan da;
-“Çok şükür ya Rabbi! Çok şükür ya Rabbi!” deyip durur.
-Bu sesi işiten Hoca’nın dostları;
-“Hocam, eşeği aramaya başladığımızdan beri ‘çok şükür ya Rabbi! Çok şükür ya
-Rabbi!’ deyip duruyorsun, bunun sebebi nedir?” diye sorunca Nasreddin Hoca;
-“Bu soruyu niçin sorduğunuzu anlayamadım. Bunu bilmeyecek ne var, eşeğin üzerinde
-olmadığım için şükrediyorum.” der.
-Hoca’nın dostları merakla bir defa daha sorarlar.
-“Pekiyi, eşeğin üzerinde olsan ne olacaktı?” deyince Hoca, bir şey olmamışçasına;
-“Efendiler, bunu bilmeyecek ne var, elbette eşekle birlikte ben de kaybolacaktım.”`,
+	text: `Bir gün Nasreddin Hoca eşeğini kaybeder.
+	Bütün arkadaşları toplanıp eşeği aramaya başlar.
+	Hoca da onlarla birlikte ararken bir yandan da sürekli "Çok şükür! Çok şükür!" diye tekrarlar.
+	Arkadaşları bu duruma şaşırır: "Hocam, eşeğin kayboldu, sen ise şükrediyorsun. Neden?"
+	Hoca cevap verir: "Eşeğin üzerinde olmadığım için şükrediyorum."
+	Arkadaşları daha da meraklanır: "Neden ki? Üzerinde olsan ne olurdu?"
+	Hoca gülerek açıklar: "Eğer üzerinde olsaydım, eşekle birlikte ben de kaybolmuş olacaktım!"`,
 }

@@ -1,11 +1,8 @@
 export const chapter_83 = {
 	name: '83',
 	header: 'O Şimdi de Benim Sözümü Dinlemez',
-	text: `Nasreddin Hoca hayatının bir döneminde Sivrihisar’da kâtiplik yapar. Bu arada subaşı ile de
-sürtüşür durur. İkilinin kavgası o kadar ileriye gider ki birbirleriyle konuşmayacak seviyeye
-gelir.
-Gün gelir, vakit geçer, subaşı ölür. Halk subaşıyı defnettikten sonra Nasreddin Hoca’ya;
-“Haydi Hocam, talkını ver.” deyince Nasreddin Hoca;
-“Bu hiç mümkün değil, çünkü subaşı benimle küs idi, o şimdi de benim sözümü
-dinlemez.” der.`,
+	text: `Nasreddin Hoca, Sivrihisar'da katiplik yaparken şehrin yöneticisi olan subaşı ile sürekli kavga eder. Sonunda araları o kadar bozulur ki birbirleriyle konuşmaz olurlar.
+	Bir gün subaşı ölür. Cenaze töreninden sonra halk, Hoca'dan adet olduğu üzere ölen kişinin arkasından dua (talkın) okumasını ister.
+	"Haydi Hocam, talkını sen ver." derler.
+	Nasreddin Hoca cevap verir: "Bu mümkün değil. Rahmetli benimle küstü. Sağken sözümü dinlemedi, şimdi hiç dinlemez."`,
 }

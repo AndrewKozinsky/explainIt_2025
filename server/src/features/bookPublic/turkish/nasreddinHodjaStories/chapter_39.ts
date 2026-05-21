@@ -1,8 +1,6 @@
 export const chapter_39 = {
 	name: '39',
 	header: 'Denizin Suyu Niçin Tuzludur?',
-	text: `Günün birinde Hoca'nın da içinde bulunduğu toplulukta yarenlik edilirken, hazır bulunanlardan
-biri Hoca'yı imtihan edercesine bir soru sorar:
-"Hocam, denizlerin suyu niçin tuzludur?"
-“Aaa, bunu bilmeyecek ne var, balıklar kokmasın diye.”`,
+	text: `Bir gün Hoca, arkadaşlarıyla sohbet ederken içlerinden biri onu denemek için sorar: "Hocam, denizlerin suyu neden tuzludur?"
+	Hoca hiç düşünmeden cevap verir: "Aaa, bunu bilmeyecek ne var? Tabii ki balıklar kokmasın diye!"`,
 }

@@ -1,16 +1,11 @@
 export const chapter_115 = {
 	name: '115',
 	header: 'Ya Eyüp İp Olursa',
-	text: `Hoca bir gün camide vaaz etmektedir:
-“Kardeşlerim, değerli Müslümanlar! Doğruluktan ayrılmayın, yalan yere yemin
-etmeyin!”
-Bu arada cemaat içinde oturmakta olan Eyüp Efendi’ye gözü ilişir.
-Tanıdıklarının Eyüp Efendi’nin adını doğru söyleyemediklerini, bu sebeple onun adını çok
-farklı seslendirdiklerini hatırlar ve evirir, çevirir sözü onun adına getirir:
-“Kardeşlerim, sizlere söylüyorum. Sakın ola ki çocuklarınızın ve torunlarınızın adlarını
-Eyüp koymayın.”
-Dinleyenler şaşırırlar. Hoca’nın Eyüp Peygamber’in adını beğenmediğini sanıp kızanlar bile
-olur. Kalabalıktan uğultu yükselince Hoca işi şakaya döker.
-“Eğer siz çocuklarınıza, torunlarınıza Eyüp adını verirseniz, günün birinde insanlar onu
-söyleye söyleye İp’e çevirirler.”`,
+	text: `Hoca bir gün camide vaaz verirken cemaate doğruluktan ayrılmamalarını söyler.
+	O sırada cemaatin içinde oturan Eyüp adındaki arkadaşını görür.
+	İnsanların "Eyüp" adını doğru telaffuz edemeyip kısaca "İp" dediklerini hatırlar.
+	Konuyu hemen buraya getirir: "Ey cemaat! Size tavsiyem, çocuklarınıza sakın 'Eyüp' adını koymayın."
+	Cemaat şaşırır, hatta bazıları Peygamber adını nasıl kötüler diye Hoca'ya kızar.
+	Hoca, yükselen uğultuları duyunca durumu şakayla açıklar:
+	"Neden olacak, siz adını 'Eyüp' koyarsınız ama insanlar çağıra çağıra onu 'İp' yapar!"`,
 }

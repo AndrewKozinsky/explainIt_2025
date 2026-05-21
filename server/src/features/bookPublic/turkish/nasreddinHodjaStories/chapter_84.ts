@@ -1,9 +1,8 @@
 export const chapter_84 = {
 	name: '84',
 	header: 'Oğlumun Babası Öldü de Onun Yasını Tutuyorum',
-	text: `Nasreddin Hoca, günün birinde karalara bürünmüş vaziyette sokağa çıkar. Onun bu hâlini
-görenler;
-“Hocam, hayırdır, biz seni hep yeşil cübbenin içinde görüyorduk, ne oldu da karalara
-büründün?” deyince Hoca, soruların ardı arkasının kesilmeyeceğini anlar ve;
-“Sormayın dostlar oğlumun babası öldü de onun yasını tutuyorum.” der.`,
+	text: `Bir gün Nasreddin Hoca, her zamanki yeşil cübbesi yerine baştan aşağı siyahlar giyerek sokağa çıkar. Onu bu halde görenler şaşırır ve sorarlar:
+	"Hocam, hayırdır? Neden karalar giydin?"
+	Hoca, üzgün bir ifadeyle cevap verir:
+	"Sormayın dostlar, oğlumun babası vefat etti de, onun yasını tutuyorum."`,
 }

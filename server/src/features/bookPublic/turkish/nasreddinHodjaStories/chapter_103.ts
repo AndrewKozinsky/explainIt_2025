@@ -1,8 +1,9 @@
 export const chapter_103 = {
 	name: '103',
 	header: 'Senin Gibilere Muhtaç Olmamak İçin',
-	text: `Cimrilerden birisi Hoca’ya takılır:
-“Hocam parayı çok sevdiğini öğrendim, acaba neden?”
-Hoca bu kendini bilmeze cevapta gecikmez;
-“Senin gibilere muhtaç olmamak için.” deyiverir.`,
+	text: `Cimri bir adam, Hoca'ya laf atmak için sorar:
+	"Hocam, duyduğuma göre parayı çok seviyormuşsunuz.
+	Neden acaba?"
+	Hoca, bu küstah adama cevabını hemen verir:
+	"Senin gibi insanlara muhtaç olmamak için!"`,
 }

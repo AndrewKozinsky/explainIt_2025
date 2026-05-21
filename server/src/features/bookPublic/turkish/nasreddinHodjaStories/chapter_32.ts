@@ -1,22 +1,14 @@
 export const chapter_32 = {
 	name: '32',
 	header: 'Ciğeri Yiyen Kedi Yüz Akçelik Baltayı Yemez mi?',
-	text: `Nasreddin Hoca zaman zaman evine ciğer getirir. Fakat ne tuhaftır ki akşam sofrada ciğer
-kebabının yerine başka yemeklerle karşılaşır. Bir gün böyle, iki gün böyle derken Hoca
-dayanamaz ve hanımına sorar:
-“Yahu hatun, getirdiğim ciğerlere ne oldu?”
-Hoca'nın hanımı hiçbir şey olmamışçasına;
-“Aman Hocam, sorma her defasında ciğerin kokusunu alan tekir, ben mutfağa girmeden
-yiyip bitiriyor.” der.
-Bu sözleri işiten Hoca birdenbire yerinden kalkar ve köşedeki baltayı kaptığı gibi koşmaya
-başlar, bir süre sonra da hanımının yanına gelir:
-“Hoca baltayı nettin?”
-“Sakladım.”
-“Niçin?”
-“Kedi yemesin diye.”
-Hoca’nın hanımı dayanamayıp itiraz eder.
-“Yahu Hocam, kedi baltayı yer mi?”
-Hoca, hanımını şöyle bir süzdükten sonra cevabını verir:
-“Yer hanım yer, üç beş akçelik ciğeri yiyen kedi, acaba yüz akçelik baltayı yemez mi?”
-der.`,
+	text: `Nasreddin Hoca ara sıra eve ciğer getirir ama akşam yemeğinde ciğeri hiç göremezdi.
+	Bu durum birkaç kez tekrarlanınca Hoca dayanamayıp karısına sorar: "Hanım, benim getirdiğim ciğerler nerede?"
+	Karısı gayet sakin bir şekilde, "Hiç sorma Hocam," der. "Ben mutfağa girmeden bizim kedi ciğerin kokusunu alıp hepsini yiyor."
+	Bunu duyan Hoca yerinden fırlar, köşedeki baltayı alıp saklar.
+	Karısı merakla sorar: "Hoca, baltayı ne yaptın?"
+	"Sakladım."
+	"Neden?"
+	"Kedi yemesin diye."
+	Karısı güler. "İyi de Hocam, kedi hiç balta yer mi?"
+	Hoca, karısına bakar ve cevabı yapıştırır: "Yer hanım, yer! Birkaç liralık ciğeri yiyen kedi, yüz liralık baltayı haydi haydi yer!"`,
 }

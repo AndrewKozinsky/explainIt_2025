@@ -1,11 +1,8 @@
 export const chapter_5 = {
 	name: '5',
 	header: 'Aynı Yaştayız',
-	text: `Arkadaşları zaman zaman Nasreddin Hoca’ya takılırlarmış, çünkü onun cevaplarından hisse
-çıkarırlarmış. Gene böyle bir günde Hoca’ya;
-“Hoca Efendi, sen mi büyüksün, yoksa kardeşin mi?” diye sorarlar.
-Hoca arkadaşlarının yine kendisine takıldıklarını anlayınca şöyle bir düşündükten sonra
-gülümseyerek şu cevabı verir:
-“Geçen yıl anneme bu soruyu sormuştum, o da; ‘Kardeşin senden bir yaş küçük.’
-demişti. O zamandan bu yana bir yıl geçtiğine göre şimdi aynı yaştayız.”`,
+	text: `Arkadaşları, dersler çıkardıkları için zaman zaman Nasreddin Hoca'ya takılırdı. Yine böyle bir günde Hoca'ya sormuşlar:
+"Hoca Efendi, sen mi daha büyüksün, yoksa kardeşin mi?"
+Hoca, arkadaşlarının yine ona takıldığını anlamış. Biraz düşündükten sonra gülümseyerek şöyle cevap vermiş:
+"Geçen yıl bu soruyu anneme sormuştum. O da bana, 'Kardeşin senden bir yaş küçük' demişti. O zamandan beri tam bir yıl geçtiğine göre, şimdi aynı yaşta olmalıyız."`,
 }

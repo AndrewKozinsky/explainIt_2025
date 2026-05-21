@@ -1,18 +1,11 @@
 export const chapter_51 = {
 	name: '51',
 	header: 'Evinizi de Hatırlayın',
-	text: `Nasreddin Hoca günün birinde hastalanır. Yatak yorgan derken, Hoca’ya geçmiş olsun
-ziyaretleri başlar. Bir gün böyle, iki gün böyle… Bu arada Hoca da yatağın içerisinde ağrıların
-etkisiyle kıvranmaktadır. Geçmiş olsuna gelen komşular da ilk geldiklerinde;
-“Hocam, geçmiş olsun, ne oldu, nasılsın?” dedikten sonra hastayı bırakıp kendi
-aralarında sohbeti koyulaştırmaktadırlar. Hoca’nın hanımı da gelenlere şerbet ikram etmekte,
-bu arada vakit de ilerlemektedir. Çünkü her gelen oturmakta, bir türlü kalkmayı
-hatırlayamamaktadır.
-Hocanın ağrısı çoktur ama misafirlere de “Kalkın gidin,” diyemez. Ne kadar inlerse de, sızılarsa
-da, oflarsa da hepsi boşuna… Bütün bu ofultuların sonunda hiç kimse yerinden bile kıpırdamaz.
-Vakit epeyce ilerleyince misafirlerden birisi;
-“Hocam, kusura bakma, geç oldu biz gidelim, daha sonra yine geliriz. Bir emrin olursa
-haberimiz olsun.” deyince, Hoca taşı gediğine koyuverir:
-“Vallahi komşular bu öğüdümü iyi öğrenin: Bundan sonra hasta ziyaretine gittiğinizde
-evinizi de hatırlayın, başka bir diyeceğim yok, haydin güle güle.”`,
+	text: `Nasreddin Hoca bir gün hastalanıp yatağa düşer.
+	Komşuları da "geçmiş olsun" demek için ziyarete gelmeye başlar.
+	Ancak Hoca yatağında ağrılar içinde kıvranırken, misafirler "Geçmiş olsun Hocam, nasılsın?" dedikten sonra Hoca'yı unutup kendi aralarında sohbete dalarlar.
+	Gelenler saatlerce oturur, bir türlü kalkmak bilmezler.
+	Hoca'nın ağrıları artsa da misafirlere "Artık gidin." diyemez. Ne kadar "ah, of" dese de kimse aldırmaz.
+	Vakit iyice geç olunca, misafirlerden biri nihayet kalkmaya karar verir: "Hocam, kusura bakma, çok oturduk. Biz artık gidelim. Bir isteğin olursa haberimiz olsun."
+	Hoca, lafı gediğine koyar: "Komşular, size bir tavsiyem var: Hasta ziyaretine gittiğiniz zaman, arada bir kendi evinizi de hatırlayın! Hadi güle güle."`,
 }

@@ -1,15 +1,11 @@
 export const chapter_46 = {
 	name: '46',
 	header: 'Ekmek Arası Kar',
-	text: `Günün birinde Hoca komşularını yemeğe davet eder. Misafirler sofraya oturduklarında görürler
-ki yemekler ziyafet yemeği filan olmayıp, günlük yemekler… İçlerinden biri Hoca’ya takılır:
-“Yahu Hoca, sen koskoca Nasreddin Hoca’sın, bugüne kadar hiç yeni yemek icat
-etmedin mi?”
-Hoca şaşkınlığını gizleyerek biraz düşünür gibi yapar ve adama dönerek;
-“Haklısınız, vaktiyle bir yemek icat etmek istedim, ancak pek tadı tuzu olmadı, tuhaf
-bir şey oldu.”der.
-Misafirler merakla sorarlar:
-“Hocam, Hocam yeni keşfettiğin yemek neydi?”
-Hoca şöyle bir düşündükten sonra;
-“Ekmeğin arasına kar koyup yemek.” der.`,
+	text: `Bir gün Hoca komşularını yemeğe davet eder.
+	Ancak misafirler sofraya oturduğunda, özel bir ziyafet yerine sıradan yemekler olduğunu görürler.
+	İçlerinden biri Hoca'ya takılır: "Hocam, siz koskoca Nasreddin Hoca'sınız.
+	Hiç yeni bir yemek icat etmediniz mi?"
+	Hoca biraz düşünür gibi yapar ve cevap verir: "Aslında bir keresinde yeni bir yemek icat etmeyi denedim ama pek lezzetli olmadı."
+	Misafirler merakla sorar: "Neydi o yemek Hocam?"
+	Hoca cevaplar: "Ekmeğin arasına kar koyup yemek."`,
 }

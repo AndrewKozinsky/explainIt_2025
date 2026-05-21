@@ -1,14 +1,9 @@
 export const chapter_55 = {
 	name: '55',
 	header: 'Hanım İpe Un Sermiş',
-	text: `Günün birinde komşularından biri Nasreddin Hoca’dan çamaşır ipini ister. Komşunun tavrı
-Nasreddin Hoca’nın hiç hoşuna gitmez, çünkü komşu aldığı emaneti geri vermeyen biridir.
-Hoca;
-“Komşucuğum, biraz bekle; ben ipi bulayım.” der.
-Bir süre sonra Hoca kapıda görünür.
-“Vallahi komşum, bizim hanım ipe un sermiş.”
-Bu cevaba şaşıran komşu kızgınlığını gizleyemez ve;
-“Yahu Hoca Efendi; alay mı ediyorsun sen, hiç ipe un serilir mi?” der.
-Hoca adamı umursamayan bir tavırla cevap verir:
-“Ee!. . İnsanın canı vermek istemeyince ipine un da serer, buğday da…”`,
+	text: `Bir gün, aldığı emanetleri geri getirmemesiyle bilinen bir komşusu, Nasreddin Hoca'dan çamaşır ipini ister. Hoca, ipi vermek istemediği için bir bahane düşünür.
+	"Biraz bekle komşu," der, "ipi bulup getireyim."
+	Az sonra kapıya çıkar ve şöyle der: "Kusura bakma komşu, bizim hanım ipe un sermiş."
+	Komşusu sinirlenir: "Aman Hocam! Hiç ipe un serilir mi? Benimle dalga mı geçiyorsun?"
+	Hoca sakin bir şekilde cevap verir: "Eğer insanın canı bir şeyi vermek istemiyorsa, ipine un da serer, bulgur da."`,
 }

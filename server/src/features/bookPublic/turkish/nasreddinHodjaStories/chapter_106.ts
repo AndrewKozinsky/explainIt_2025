@@ -1,20 +1,12 @@
 export const chapter_106 = {
 	name: '106',
 	header: 'Sondaki Est’leri Görmüyor musun?',
-	text: `Hoca, medresede öğrenciyken Arapça ve Farsça derslerini de okumuştur. Ancak günlük hayatta
-bu dilleri pek kullanmadığı için unutur. Bir işgüzar da Hoca’nın Arapça ve Farsça bilip
-bilmediğini anlamak için onu sıkıştırmaya başlar:
-“Hocam, iyi hoş adamsın; seni çok severim. Ama Farsça bilmediğin için vaazlarından
-yeterince yararlanamıyorum.”
-Bunun üzerine Hoca öfkeyle adama çıkışır:
-“Be adam, benim Farsçayı bilmediğimi de nereden çıkardın? Dinle bakalım, Farsça
-nasıl konuşulurmuş, nasıl Farsça şiir okunurmuş:
-‛Mor menekşe boynun eğmiş uyurest,
-Kâfir soğan kat kat urba giyerest. ’
-Soruyu soran işgüzar, önceleri şaşırırsa da kendisini hemen toparlayarak Hoca’ya bir soru daha
-sorar:
-“Aman Hocam sen de! Farsça bunun neresinde ki?”
-Hoca bu, altta kalır mı hiç! Adamı önce dikkatle süzer, sonra da tebessüm ederek cevabını
-yapıştırır:
-“Neresinde olacak yahu! Sonlarında elbette. . . Sen oradaki ‘est’leri görmüyor musun?”`,
+	text: `Hoca, gençliğinde Arapça ve Farsça öğrenmiş ama uzun süredir kullanmadığı için bu dilleri unutmuştur. Bilgiç bir adam, Hoca'nın bu dilleri bilip bilmediğini test etmek için ona laf atar:
+	"Hocam, sizi çok severim ama Farsça bilmediğiniz için anlattıklarınızdan tam olarak faydalanamıyorum."
+	Hoca sinirlenir: "Benim Farsça bilmediğimi de nereden çıkardın? Dinle de Farsça şiir nasıl olurmuş gör!"
+	Ve Hoca başlar okumaya:
+	"Mor menekşe boynun eğmiş uyur-est,
+	Kafir soğan kat kat urba giyer-est."
+	Adam şaşırır: "Hocam, bunun neresi Farsça?"
+	Hoca gülerek cevap verir: "Sonları Farsça ya! 'Est' eklerini görmüyor musun?"`,
 }

@@ -1,10 +1,9 @@
 export const chapter_113 = {
 	name: '113',
 	header: 'Tuzun Sayesinde Aklımız Denk Oldu',
-	text: `Nasreddin Hoca tuzlu yemekleri sevmezmiş. Olacak bu ya hanımı da bütün yemekleri tuzlu
-pişirirmiş. Bir ziyafette, önüne konulan çorbaya bol bol tuz atmaya başlar. Sofradakiler şöyle
-bir bakarlar Hoca hiç de tuzu bırakmıyor. Bunun üzerine içlerinden biri;
-“Hocam, yemeklere çok tuz atma, aklı geriletir.” der.
-Hoca, sakalını şöyle bir sıvazladıktan sonra, adamın yüzüne bir bakar ve;
-“Efendi efendi, tuz yemesem benim aklım herkesin aklıyla nasıl denk olabilir?” der.`,
+	text: `Nasreddin Hoca aslında tuzlu yemekleri pek sevmezmiş. Ama karısı her yemeği çok tuzlu yaparmış.
+	Bir gün bir ziyafette, Hoca önündeki çorbaya sürekli tuz ekler. Sofradakilerden biri bu durumu garipser:
+	"Hocam, yemeğe çok tuz koymayın, fazla tuz akla zarar verir derler."
+	Hoca, adama bakar ve cevap verir:
+	"Doğru. Ama benim aklım sizin seviyenize insin diye bu kadar tuz ekliyorum."`,
 }

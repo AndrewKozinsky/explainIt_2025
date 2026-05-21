@@ -1,16 +1,23 @@
 export const chapter_3 = {
 	name: '3',
 	header: 'Altın Olsa Ne, Taş Olsa Ne',
-	text: `Bir yolculuk sırasında Nasreddin Hoca’nın yolu bir ile düşer. Hoca orada bazı garipliklerle
-karşılaşır. Bunlardan biri de bazı evlerin üzerine bayrak dikilmesidir. Hoca sözü bir punduna
-getirerek sorar:
-“Yahu, bazı evlerin üzerinde bayrak asılı, bunun sebebi nedir?” deyince hep bir ağızdan;
-“Hocam, o bayrak asılı evlerde küp dolusu altın vardır.” derler.
-Bayrak dikmenin sebebini öğrenen Nasreddin Hoca, günün birinde çarşıdan kocaman bir küp
-alarak kalmakta olduğu eve gelir. Sonra da küpün içerisini çakıl taşlarıyla doldurur. Yine
-âdetmiş, evinde altın olanlar, küplere karşı sohbet ederlermiş. Sıra Nasreddin Hoca’ya gelince
-bakmışlar ki küpün içerisinde altın yerine çakıl taşları dolu… Misafirlerden birisi;
-“Hoca Efendi, bu nasıl iş, senin küpünde altın yerine çakıl taşları dolu.” deyince Hoca;
-“Yahu komşular neye üzülüyorsunuz, küpte yattıktan sonra altın olsa ne, taş olsa ne?
-Fark eden ne ki?” der.`,
+	text: `Nasreddin Hoca bir yolculuğu sırasında bir şehre varır.
+Hoca orada bazı tuhaf şeylerle karşılaşır.
+Örneğin, bazı evlerin üzerinde bayraklar asılıdır.
+Hoca, uygun bir anı bulup sorar:
+"Yahu, bazı evlerin üzerinde neden bayrak asılı?"
+Oradakiler hep bir ağızdan cevap verir:
+"Hocam, o bayraklı evlerde küpler dolusu altın vardır."
+Bunu öğrenen Nasreddin Hoca, bir gün çarşıdan kocaman bir küp alır ve kaldığı eve getirir.
+Sonra küpün içini çakıl taşlarıyla doldurur.
+O zamanlar, evinde altını olanların küpleriyle sohbet etmesi bir gelenekmiş.
+Sıra Nasreddin Hoca'ya gelince, misafirler bir de ne görsün!
+Küpün içinde altın değil, çakıl taşları var.
+Misafirlerden biri şaşırarak sorar:
+"Hoca Efendi, bu ne iş?
+Senin küpün altın yerine çakıl taşı dolu!"
+Hoca cevap verir:
+"Komşular, neden üzülüyorsunuz ki?
+Küpün içinde durduktan sonra, ha altın olmuş, ha taş.
+Ne fark eder?"`,
 }

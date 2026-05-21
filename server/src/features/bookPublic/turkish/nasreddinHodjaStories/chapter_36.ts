@@ -1,14 +1,11 @@
 export const chapter_36 = {
 	name: '36',
 	header: 'Çiğnediğini Sanırlar',
-	text: `Günün birinde işgüzar bir adam Hoca’ya;
-“Hocam, helada sakız çiğnenir mi?” diye bir soru sorar.
-Hoca, soruya hemen cevap veremediği için;
-“Oğlum, bekle ben bir kara kaplı kitaba bakayım.” der. Bir süre sonra soru sahibinin
-yanına gelen Hoca;
-“Efendi, kara kaplı kitaba baktım, bununla ilgili bir bilgiye rastlayamadım, ama sen
-çiğnemesen iyi edersin.” der. Adam:
-“Hocam, neden çiğnemeyeyim, madem kitapta yeri yok…” deyince Hoca;
-“Oğlum nedeni var mı? Sen tuvalette sakızı çiğnerken kapının dışındakiler senin başka
-şey çiğnediğini sanırlar.” diye cevap verir.`,
+	text: `Bilgiç bir adam bir gün Hoca'ya tuhaf bir soru sorar:
+	"Hocam, tuvalette sakız çiğnemek günah mıdır?"
+	Hoca bu soruya hemen cevap veremez. "Bekle," der, "şu her şeyi bilen kara kaplı kitaba bir bakayım."
+	Bir süre sonra adamın yanına döner ve şöyle der: Kitaba baktım ama bununla ilgili bir şey bulamadım.
+	Yine de sen çiğnemesen daha iyi olur."
+	Adam merakla sorar: "Neden Hocam? Madem kitapta yazmıyor..."
+	Hoca gülerek cevaplar: "Neden olacak, sen içeride sakız çiğnerken dışarıdakiler başka bir şey çiğnediğini sanabilir de ondan!"`,
 }

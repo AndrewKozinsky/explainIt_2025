@@ -1,12 +1,8 @@
 export const chapter_138 = {
 	name: '138',
 	header: 'O Ters Bir Kadındır',
-	text: `Günün birinde Nasreddin Hoca’nın hanımı ırmak kenarına çamaşır yıkamaya gider. O,
-ırmaktan kova ile su alırken, ırmağa düşüverir.
-Hanımının ırmağa düştüğünü gören komşuları hemen Hoca’ya koşarlar ve;
-“Hocam, hanımın ırmağa düştü.” derler.
-Haberi alan Hoca, ırmağın akıntısının tersi yöne doğru koşmaya başlayınca komşuları;
-“Hocam, yanlış yerde arıyorsun, bak ırmak aşağıya doğru akıyor.” derler.
-Bu söz üzerine Nasreddin Hoca;
-“O ne ters bir kadındır, siz onu bilmezsiniz, ırmağın tersine gider!” der.`,
+	text: `Bir gün Hoca'nın karısı, çamaşır yıkarken ırmağa düşer. Haberi alan komşuları hemen Hoca'ya koşar: "Hocam, çabuk gel, karın ırmağa düştü!"
+	Hoca, haberi duyar duymaz ırmağın aktığı yönün tersine doğru koşmaya başlar.
+	Komşuları şaşırır: "Hocam, ne yapıyorsun? Irmak o tarafa değil, bu tarafa akıyor!"
+	Hoca, koşmaya devam ederken cevap verir: "Siz benim karımı bilmezsiniz! O, o kadar inatçı bir kadındır ki, kesin ırmağın tersine doğru gitmiştir."`,
 }

@@ -1,19 +1,11 @@
 export const chapter_136 = {
 	name: '136',
 	header: 'Kazan Doğurdu',
-	text: `Nasreddin Hoca komşusundan bir kazan ister, kazanın dışını külle sıvar, bulgurunu kaynatır,
-sonra da kazanı güzelce temizler ve içerisine küçük bir tencere koyarak komşunun kapısını
-çalar. Komşu kazanın içindeki tencereyi görünce şaşkın bir şekilde Hoca’ya sorar:
-“Hocam, bu tencere ne?”
-“Komşu, senin kazan hamiyleymiş, doğurdu.” der.
-Komşu bu işten memnun kalır. Bir gün böyle, iki gün böyle derken günün birinde Hoca,
-komşusundan bir daha kazanı ister. Komşusu da sevinçle kazanı verir. Fakat aradan günler
-geçmesine karşılık Hoca kazanı bir türlü getirmez. Bir şeyler sezinleyen komşusu Hoca’nın
-kapısı çalar:
-“Hocam, bizim kazanı verir misin?”
-“Komşu, senin kazan öldü.” der.
-Bunun üzerine komşu sinirli bir şekilde Hoca’ya çıkışır:
-“Yahu Hocam, hiç kazan ölür mü?”
-Hoca, bıyık altından gülerek komşusuna cevap verir:
-“Be adam, kazanın doğurduğuna inanıyorsun da öldüğüne neden inanmıyorsun?”`,
+	text: `Nasreddin Hoca, bir gün komşusundan ödünç bir kazan alır.
+	İşini bitirdikten sonra kazanı temizler ve içine küçük bir tencere koyup komşusuna geri götürür.
+	Komşusu tencereyi görünce şaşırır: "Hocam, bu tencere de ne?"
+	Hoca cevaplar: "Komşu, müjdemi isterim, senin kazan doğurdu!" Komşu bu duruma çok sevinir.
+	Bir süre sonra Hoca, kazanı tekrar ödünç ister. Komşusu yine doğurur umuduyla kazanı sevinçle verir. Ancak aradan günler geçmesine rağmen Hoca kazanı geri getirmez.
+	Meraklanan komşusu, Hoca'nın kapısını çalar: "Hocam, bizim kazanı geri getirecektin?"\nHoca üzgün bir ifadeyle, "Ah komşum, başın sağ olsun, senin kazan öldü." der.
+	Komşusu sinirlenir: "Aman Hocam, hiç kazan ölür mü?"\nHoca gülerek cevap verir: "Kazanın doğurduğuna inandın da, öldüğüne neden inanmıyorsun?"`,
 }

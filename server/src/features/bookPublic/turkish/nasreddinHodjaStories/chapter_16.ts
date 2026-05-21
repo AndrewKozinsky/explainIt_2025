@@ -1,13 +1,9 @@
 export const chapter_16 = {
 	name: '16',
 	header: 'Bir Yanına da Keten Ekeyim',
-	text: `Hoca, her zaman tıraş olduğu berberin dükkânına vardığında ustanın gelmediğini görür, fakat
-tıraş da olması gerekmektedir. Ne yapsın kalfanın koltuğuna oturur. Kalfa, Hoca’nın yüzünü
-şöyle güzelce sabunladıktan sonra usturayı her kullanışından sonra kopardığı pamuğu Hoca’nın
-yüzüne yapıştırır. Bir pamuk, iki pamuk derken Hoca’nın bir yanağı bembeyaz olur. Yüzünün
-kesilmesine daha fazla dayanamayan Hoca koltuktan kalktığı gibi cübbesini giyer ve kavuğunu
-başına geçirir. Bu durum karşısında şaşıran kalfa;
-“Hocam, nereye böyle daha tıraşın bitmedi.” deyince Hoca;
-“Aman oğlum, görmüyor musun yüzümün bir tarafına pamuk ektin, izin verirsen öbür
-yanına da ben keten ekeyim.” der ve yavaş yavaş berber dükkânından ayrılır.`,
+	text: `Hoca, her zamanki berberine gittiğinde ustanın orada olmadığını görür. Ama mutlaka tıraş olması gerekiyordur. Mecburen kalfanın koltuğuna oturur.
+	Kalfa, Hoca'nın yüzünü sabunladıktan sonra acemice tıraş etmeye başlar. Usturasıyla Hoca'nın yüzünü her kestiğinde, oraya bir parça pamuk yapıştırır. Kısa sürede Hoca'nın bir yanağı pamuk tarlasına döner.
+	Yüzündeki kesiklere daha fazla dayanamayan Hoca, sinirle koltuktan kalkar, cübbesini giyip kavuğunu takar.
+	Şaşıran kalfa, "Hocam, nereye gidiyorsunuz? Tıraşınız daha bitmedi." der.
+	Hoca cevap verir: "Oğlum, görmüyor musun? Yüzümün bir tarafına pamuk ektin. İzin ver de diğer yanına da ben keten ekeyim." diyerek dükkândan çıkar.`,
 }

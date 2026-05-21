@@ -1,8 +1,7 @@
 export const chapter_146 = {
 	name: '146',
 	header: 'Yeni Aldığım Çarıkları Giymemiştim',
-	text: `Hoca, sonbaharda tarlasına tohum attıktan sonra çift sürmeye başlar. Olacak bu ya tarlada
-bulunan kocaman bir diken Hoca’nın ayağına batmaz mı!Hoca, zorlanarak da olsa dikeni
-çıkardıktan sonra;
-“Oh! Hele şükür, iyi ki yeni aldığım çarıkları giymemiştim.” der.`,
+	text: `Hoca, tarlasını sürerken ayağına büyük bir diken batar.
+	Canı çok yansa da, dikeni çıkardıktan sonra derin bir nefes alır ve şöyle der:
+	"Çok şükür! İyi ki bugün yeni çarıklarımı giymemişim."`,
 }

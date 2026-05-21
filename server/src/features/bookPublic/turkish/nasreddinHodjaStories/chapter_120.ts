@@ -1,16 +1,10 @@
 export const chapter_120 = {
 	name: '120',
 	header: 'Ay da Çıktı Ama Ben de Neler Çektim Neler?',
-	text: `Geceleyin ay ışığının etrafı aydınlattığı bir saatte Nasreddin Hoca evde suyun olmadığını
- öğrenince, kova ve testiyi alıp kuyuya gider. Nasreddin Hoca kovayı kuyuya sarkıttığında bir
-de ne görsün, kuyunun içerisinde kocaman bir ay…
-“Hay Allah, ayın kuyuda ne işi var?”
-Hoca, ayın kuyuya düştüğünü sanarak evine gelir, ipin yanına çengeli de alarak tekrar kuyunun
-başına döner. Çengeli ipe bağlayarak kuyudan aşağıya sarkıtan Nasreddin Hoca, çengelin bir
-taşa takılması üzerine var gücüyle asılmaya başlar. Bir asılır, iki asılır, üç asılır, ancak çengel
-çıkmaz.
-Biraz daha kendisini çengeli çekmeye hazırlayan Nasreddin Hoca var gücüyle ipi çekince,
-çengelin takıldığı taştan kurtulmasıyla birlikte sırtı üzerine düşer. Bir süre toz toprak içinde
-kaldıktan sonra Hoca, kendisine gelir ve gökte ayı gördükten sonra;
-“Ay çıktı ama ben de neler çektim neler?” deyiverir.`,
+	text: `Ay ışığının olduğu bir gece, Hoca evde su kalmadığını fark edip kuyuya gider.
+	Kovayı kuyuya sarkıttığında, suyun üzerinde ayın yansımasını görür.
+	Ayın kuyuya düştüğünü sanan Hoca, onu kurtarmak için hemen eve koşar ve ucu çengelli bir ip getirir.
+	Çengeli kuyuya atar. Çengel bir taşa takılınca, Hoca ay'ı yakaladığını sanır ve ipi var gücüyle çekmeye başlar.
+	Hoca o kadar güçlü çeker ki, çengel taştan kurtulunca sırtüstü yere düşer. O anda gözünü açar ve ayı gökyüzünde parıldarken görür.
+	Kendi kendine söylenir: "Neyse ki Ay'ı kurtardık ama ben de neler çektim!"`,
 }
