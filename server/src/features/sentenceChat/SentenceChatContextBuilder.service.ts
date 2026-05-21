@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { SentenceRepository } from 'repo/sentence.repository'
-import { PrismaService } from 'db/prisma.service'
 
 export type SentenceSourceInfo = {
 	kind: 'book' | 'video'
@@ -23,10 +22,7 @@ export type SentenceNeighbors = {
 
 @Injectable()
 export class SentenceChatContextBuilder {
-	constructor(
-		private sentenceRepository: SentenceRepository,
-		private prisma: PrismaService,
-	) {}
+	constructor(private sentenceRepository: SentenceRepository) {}
 
 	/** Собирает метаданные источника и окружение предложения для передачи в LLM. */
 	async buildForSentence(
@@ -42,7 +38,7 @@ export class SentenceChatContextBuilder {
 
 		const selectedText = source.wholeText.slice(sentence.start_offset, sentence.start_offset + sentence.length)
 
-		const neighborSentences = await this.fetchNeighborSentences({
+		const neighborSentences = await this.sentenceRepository.getNeighborSentences({
 			sentenceId,
 			orderIndex: sentence.order_index,
 			bookChapterId: sentence.book_chapter_id,
@@ -99,43 +95,5 @@ export class SentenceChatContextBuilder {
 		}
 
 		return null
-	}
-
-	private async fetchNeighborSentences(input: {
-		sentenceId: number
-		orderIndex: number
-		bookChapterId: null | number
-		videoPrivateId: null | number
-		videoPublicId: null | number
-		beforeSentences: number
-		afterSentences: number
-	}) {
-		const parentFilter: {
-			book_chapter_id?: number
-			video_private_id?: number
-			video_public_id?: number
-		} = {}
-
-		if (input.bookChapterId !== null) parentFilter.book_chapter_id = input.bookChapterId
-		else if (input.videoPrivateId !== null) parentFilter.video_private_id = input.videoPrivateId
-		else if (input.videoPublicId !== null) parentFilter.video_public_id = input.videoPublicId
-
-		return this.prisma.sentence.findMany({
-			where: {
-				...parentFilter,
-				id: { not: input.sentenceId },
-				order_index: {
-					gte: input.orderIndex - input.beforeSentences,
-					lte: input.orderIndex + input.afterSentences,
-				},
-			},
-			orderBy: { order_index: 'asc' },
-			select: {
-				id: true,
-				order_index: true,
-				start_offset: true,
-				length: true,
-			},
-		})
 	}
 }
