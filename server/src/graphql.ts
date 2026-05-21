@@ -142,6 +142,7 @@ export interface CreatePrivateVideoInput {
     name?: Nullable<string>;
     originalContent?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
+    fileDurationSec?: Nullable<number>;
     languageCode: string;
 }
 
@@ -154,6 +155,7 @@ export interface UpdatePrivateVideoInput {
     fileMimeType?: Nullable<string>;
     isFileUploaded?: Nullable<boolean>;
     fileSizeMb?: Nullable<number>;
+    fileDurationSec?: Nullable<number>;
 }
 
 export interface DeletePrivateVideoInput {
@@ -278,7 +280,7 @@ export interface SentenceOutModel {
 
 export interface BookPublicOutModel {
     id: number;
-    author: string;
+    author?: Nullable<string>;
     name: string;
     note: string;
     covers: string[];
@@ -398,6 +400,7 @@ export interface UpdateVideoPrivateOutModel {
     userId: number;
     uploadUrl?: Nullable<string>;
     fileSizeMb?: Nullable<number>;
+    fileDurationSec?: Nullable<number>;
 }
 
 export interface VideoPrivateLiteOutModel {
@@ -414,6 +417,7 @@ export interface VideoPrivateLiteOutModel {
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
     fileSizeMb: number;
+    fileDurationSec?: Nullable<number>;
 }
 
 export interface VideoPrivateOutModel {
@@ -430,6 +434,7 @@ export interface VideoPrivateOutModel {
     fileUrl?: Nullable<string>;
     isFileUploaded: boolean;
     fileSizeMb: number;
+    fileDurationSec?: Nullable<number>;
     freeToUse: boolean;
     sentences?: Nullable<VideoPrivateSentenceOutModel[]>;
     subtitles?: Nullable<VideoPrivateSubtitleOutModel[]>;

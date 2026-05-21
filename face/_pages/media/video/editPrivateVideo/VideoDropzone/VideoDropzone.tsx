@@ -18,6 +18,27 @@ enum VideoDropzoneStatus {
 
 const supportedVideoFormatsStr = 'MP4, WebM, OGG'
 
+function getVideoDurationSec(file: File): Promise<number> {
+	return new Promise((resolve, reject) => {
+		const videoElement = document.createElement('video')
+		const objectUrl = URL.createObjectURL(file)
+
+		videoElement.preload = 'metadata'
+
+		videoElement.onloadedmetadata = () => {
+			URL.revokeObjectURL(objectUrl)
+			resolve(Math.ceil(videoElement.duration))
+		}
+
+		videoElement.onerror = () => {
+			URL.revokeObjectURL(objectUrl)
+			reject(new Error('Cannot read video duration'))
+		}
+
+		videoElement.src = objectUrl
+	})
+}
+
 function VideoDropzone() {
 	const video = useVideoStore((s) => s.privateVideo.data)
 
@@ -41,7 +62,7 @@ function VideoDropzone() {
 		onDragEnter() {
 			setInputStatus(VideoDropzoneStatus.FILE_DRAGGING)
 		},
-		onDropAccepted(files) {
+		async onDropAccepted(files) {
 			setInputStatus(VideoDropzoneStatus.FILE_SELECTED)
 
 			const file = files[0]
@@ -50,10 +71,29 @@ function VideoDropzone() {
 			const fileMimeType = file.type
 
 			const fileSizeMb = Math.ceil(file.size / 1024 / 1024) // 896945634 / 1024 / 1024
+			let fileDurationSec: number
+
+			try {
+				fileDurationSec = await getVideoDurationSec(file)
+			} catch {
+				notify({
+					type: 'error',
+					message: 'Не удалось определить длительность видео',
+				})
+				setInputStatus(VideoDropzoneStatus.IDLE)
+				return
+			}
 
 			updateVideo({
 				variables: {
-					input: { id: video!.id, fileMimeType, fileName, fileSizeMb, languageCode: video!.languageCode },
+					input: {
+						id: video!.id,
+						fileMimeType,
+						fileName,
+						fileSizeMb,
+						fileDurationSec,
+						languageCode: video!.languageCode,
+					},
 				},
 			}).then((res) => {
 				if (!res.data) {
@@ -88,7 +128,12 @@ function VideoDropzone() {
 					if (xhr.status === 200) {
 						updateVideo({
 							variables: {
-								input: { id: video!.id, isFileUploaded: true, languageCode: video!.languageCode },
+								input: {
+									id: video!.id,
+									isFileUploaded: true,
+									languageCode: video!.languageCode,
+									fileDurationSec,
+								},
 							},
 						})
 							.then((data) => {

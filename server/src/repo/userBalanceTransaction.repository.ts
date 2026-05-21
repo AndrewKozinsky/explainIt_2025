@@ -68,6 +68,45 @@ export class UserBalanceTransactionRepository {
 		})
 	}
 
+	async createRefund(dto: { userId: number; amountInKopecks: number }) {
+		if (dto.amountInKopecks <= 0) {
+			throw new CustomError(errorMessage.cannotDepositAmountLessThanZero, ErrorStatusCode.BadRequest_400)
+		}
+
+		return await this.dbRepository.wrapIntoPrismaTransaction({
+			executableCode: async () => {
+				const user = await this.prisma.user.findUnique({
+					where: {
+						id: dto.userId,
+					},
+				})
+
+				if (!user) {
+					throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.BadRequest_400)
+				}
+
+				await this.prisma.userBalanceTransaction.create({
+					data: {
+						user_id: dto.userId,
+						amount: dto.amountInKopecks,
+						type: BalanceTransactionType.REFUND,
+					},
+				})
+
+				await this.prisma.user.update({
+					where: {
+						id: dto.userId,
+					},
+					data: {
+						balance: {
+							increment: dto.amountInKopecks,
+						},
+					},
+				})
+			},
+		})
+	}
+
 	async createTopUpByPayment(dto: { userId: number; amountInKopecks: number; paymentId: number }) {
 		if (dto.amountInKopecks <= 0) {
 			throw new CustomError(errorMessage.cannotDepositAmountLessThanZero, ErrorStatusCode.BadRequest_400)

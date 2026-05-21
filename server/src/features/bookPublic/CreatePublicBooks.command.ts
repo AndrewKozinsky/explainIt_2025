@@ -39,6 +39,10 @@ import {
 	littleRedRidingHoodChapters,
 	littleRedRidingHoodBookData,
 } from './german/littleRedRidingHood/littleRedRidingHood'
+import {
+	nasreddinHodjaStoriesBookData,
+	nasreddinHodjaStoriesChapters,
+} from './turkish/nasreddinHodjaStories/nasreddinHodjaStories'
 
 export class CreatePublicBooksCommand implements ICommand {
 	constructor() {}
@@ -135,6 +139,11 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: heartBookData(coversFolderName + 'italian/'),
 				chapters: heartChapters,
+			},
+			// Turkish
+			{
+				book: nasreddinHodjaStoriesBookData(coversFolderName + 'turkish/'),
+				chapters: nasreddinHodjaStoriesChapters,
 			},
 		]
 	}

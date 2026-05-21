@@ -7,7 +7,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 export type CreateBookPublicInput = {
-	author: string
+	author?: string
 	name: string
 	note: string
 	covers: string[]

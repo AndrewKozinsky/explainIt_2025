@@ -19,6 +19,12 @@ export class CreatePrivateVideoInput {
 	})
 	fileSizeMb?: number
 
+	@Field(() => Int, { description: 'File duration in seconds', nullable: true })
+	@DtoFieldDecorators('fileDurationSec', bdConfig.VideoPrivate.dbFields.file_duration_sec, {
+		required: false,
+	})
+	fileDurationSec?: number
+
 	@Field(() => String, { description: 'Language code' })
 	@DtoFieldDecorators('languageCode', bdConfig.VideoPrivate.dbFields.source_language_code, { required: true })
 	languageCode: Language

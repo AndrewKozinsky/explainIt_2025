@@ -15,8 +15,8 @@ import { DeletePrivateVideoHandler } from 'features/video/DeletePrivateVideo.com
 import { GetUserVideosPrivateHandler } from 'features/video/GetUserVideosPrivate.command'
 import { GetVideoPrivateHandler } from 'features/video/GetVideoPrivate.command'
 import { ChargeSubtitlesGenerationHandler } from 'features/video/subtitlesGeneration/ChargeSubtitlesGeneration.command'
+import { StartGenerateSubtitlesHandler } from 'features/video/subtitlesGeneration/GenerateSubtitles.command'
 import { GetSubtitlesGenerationStatusHandler } from 'features/video/subtitlesGeneration/GetSubtitlesGenerationStatus.command'
-import { StartGenerateSubtitlesHandler } from 'features/video/subtitlesGeneration/StartGenerateSubtitles.command'
 import { UpdatePrivateVideoHandler } from 'features/video/UpdatePrivateVideo.command'
 
 const services = [PrismaService]

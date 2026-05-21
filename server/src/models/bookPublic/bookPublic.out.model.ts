@@ -6,8 +6,8 @@ export class BookPublicOutModel {
 	@Field(() => Int)
 	id: number
 
-	@Field(() => String)
-	author: string
+	@Field(() => String, { nullable: true })
+	author: null | string
 
 	@Field(() => String)
 	name: string

@@ -110,6 +110,8 @@ export type CreatePrivateBookInput = {
 };
 
 export type CreatePrivateVideoInput = {
+  /** File duration in seconds */
+  fileDurationSec?: InputMaybe<Scalars['Int']['input']>;
   /** File size in MB */
   fileSizeMb?: InputMaybe<Scalars['Int']['input']>;
   /** Language code */
@@ -309,8 +311,8 @@ export type Mutation = {
   /**
    * Register a user.
    * 	Possible errors:
-   * 	**Почта зарегистрирована, но не подтверждена.** — the user is already registered, but doesn't confirm his email.
-   * 	**Почта уже зарегистрирована.** — the user is already registered and confirmed his email.
+   * 	**[object Object]** — the user is already registered, but doesn't confirm his email.
+   * 	**[object Object]** — the user is already registered and confirmed his email.
    */
   auth_register: UserOutModel;
   /** Resend email confirmation letter */
@@ -773,6 +775,8 @@ export type UpdatePrivateBookInput = {
 };
 
 export type UpdatePrivateVideoInput = {
+  /** File duration in seconds */
+  fileDurationSec?: InputMaybe<Scalars['Int']['input']>;
   /** File mime type */
   fileMimeType?: InputMaybe<Scalars['String']['input']>;
   /** File name */
@@ -794,6 +798,7 @@ export type UpdatePrivateVideoInput = {
 export type UpdateVideoPrivateOutModel = {
   __typename?: 'UpdateVideoPrivateOutModel';
   contentType: Scalars['String']['output'];
+  fileDurationSec?: Maybe<Scalars['Int']['output']>;
   fileSizeMb?: Maybe<Scalars['Int']['output']>;
   id: Scalars['Int']['output'];
   languageCode?: Maybe<Scalars['String']['output']>;
@@ -816,6 +821,7 @@ export type UserOutModel = {
 export type VideoPrivateLiteOutModel = {
   __typename?: 'VideoPrivateLiteOutModel';
   contentType: Scalars['String']['output'];
+  fileDurationSec?: Maybe<Scalars['Int']['output']>;
   fileName?: Maybe<Scalars['String']['output']>;
   fileS3Key?: Maybe<Scalars['String']['output']>;
   fileSizeMb: Scalars['Int']['output'];
@@ -833,6 +839,7 @@ export type VideoPrivateLiteOutModel = {
 export type VideoPrivateOutModel = {
   __typename?: 'VideoPrivateOutModel';
   contentType: Scalars['String']['output'];
+  fileDurationSec?: Maybe<Scalars['Int']['output']>;
   fileName?: Maybe<Scalars['String']['output']>;
   fileS3Key?: Maybe<Scalars['String']['output']>;
   fileSizeMb: Scalars['Int']['output'];

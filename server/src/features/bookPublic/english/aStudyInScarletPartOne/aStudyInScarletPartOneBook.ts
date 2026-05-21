@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_2 } from './chapter_2'
 import { chapter_3 } from './chapter_3'
@@ -24,7 +24,7 @@ export function aStudyInScarletPartOneBookData(coversFolderName: string) {
 Также книга даёт хороший пример того, как один и тот же факт можно описать точно и по-разному — это важно для развития речи.
 
 Уровень B1-B2.`,
-		languageCode: languages.en.code as Language,
+		languageCode: languages.en.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#6C8084',

@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_10 } from './chapter_10'
 import { chapter_11 } from './chapter_11'
@@ -34,7 +34,7 @@ export function wizardOfOzBookData(coversFolderName: string) {
 Книга читается довольно легко. Предложения в основном короткие и понятные. Много диалогов — текст не перегружен описаниями. Лексика повторяется, что помогает запоминанию слов. Сюжет линейный и ясный.
 Это одна из самых подходящих классических книг для перехода от адаптированных текстов к оригинальной литературе.
 Рекомендуемый уровень B1 (Intermediate)`,
-		languageCode: languages.en.code as Language,
+		languageCode: languages.en.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#937F43',

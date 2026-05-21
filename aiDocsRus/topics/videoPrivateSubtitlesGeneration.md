@@ -16,8 +16,8 @@
 1. Пользователь создаёт приватное видео и загружает видеофайл в S3.
 2. У видео должен быть указан `languageCode`.
 3. Пользователь нажимает «Сгенерировать субтитры».
-4. Сервер проверяет владельца, факт загрузки файла, язык и минимальный баланс.
-5. Сервер создаёт задачу в BullMQ и возвращает статус `pending`.
+4. Сервер проверяет владельца, факт загрузки файла, язык, известную длительность и баланс на сумму предварительной стоимости.
+5. Сервер списывает предварительную стоимость, сохраняет сумму списания, создаёт задачу в BullMQ и возвращает статус `pending`.
 6. Клиент периодически опрашивает статус генерации.
 7. Worker выполняет распознавание и сохраняет субтитры.
 8. После успеха статус становится `done`, а пользователь видит видео уже с субтитрами.
@@ -30,6 +30,9 @@
 - `subtitles_generation_error` — текст ошибки последней неудачной попытки.
 - `subtitles_generation_started_at` — время запуска текущей/последней задачи.
 - `subtitles_generation_job_id` — id BullMQ job.
+- `file_duration_sec` — длительность загруженного видео в секундах, используется для предварительного расчёта стоимости.
+- `subtitles_generation_charge_kopecks` — сумма, списанная перед запуском текущей попытки генерации.
+- `subtitles_generation_refunded_at` — время возврата предоплаты, если генерация завершилась ошибкой.
 
 ### `SubtitlesGenerationStatus`
 
@@ -47,7 +50,7 @@
 - **Mutation** `video_private_generate_subtitles(input: { videoId })` → `VideoPrivateSubtitlesStatusOutModel`. Запускает генерацию субтитров для приватного видео.
 - **Query** `video_private_get_subtitles_generation_status(input: { videoId })` → `VideoPrivateSubtitlesStatusOutModel`. Возвращает текущий статус генерации.
 
-Обе ручки требуют авторизации через `CheckSessionCookieGuard`. Мутация дополнительно защищена `UserWithMinBalanceGuard(1000)` — пользователь должен иметь минимум 1000 копеек на балансе для запуска.
+Обе ручки требуют авторизации через `CheckSessionCookieGuard`. Мутация сама рассчитывает предварительную стоимость по сохранённой длительности видео и списывает её перед постановкой задачи в очередь.
 
 ### `VideoPrivateSubtitlesStatusOutModel`
 
@@ -67,10 +70,14 @@
 3. Проверяет, что текущий пользователь — владелец видео.
 4. Проверяет, что файл загружен (`isFileUploaded` и `fileS3Key`).
 5. Проверяет, что указан `languageCode`.
-6. Делает атомарный переход статуса в `pending` через `tryStartSubtitlesGeneration`.
-7. Ставит задачу в BullMQ через `SubtitlesGenerationQueue.enqueue`.
-8. Сохраняет `jobId` в `VideoPrivate`.
-9. Возвращает `VideoPrivateSubtitlesStatusOutModel`.
+6. Проверяет, что сохранена `fileDurationSec`.
+7. Рассчитывает стоимость по `fileDurationSec`.
+8. Делает атомарный переход статуса в `pending` через `tryStartSubtitlesGeneration`.
+9. Списывает рассчитанную сумму с баланса пользователя.
+10. Сохраняет сумму списания в `subtitles_generation_charge_kopecks`.
+11. Ставит задачу в BullMQ через `SubtitlesGenerationQueue.enqueue`.
+12. Сохраняет `jobId` в `VideoPrivate`.
+13. Возвращает `VideoPrivateSubtitlesStatusOutModel`.
 
 Атомарный переход защищает от параллельных запусков: если статус уже `pending` или `processing`, повторный запуск не пройдёт.
 
@@ -83,7 +90,7 @@
 
 #### `ChargeSubtitlesGenerationHandler`
 
-Списывает деньги после успешного распознавания:
+Содержит общий расчёт стоимости и может списывать деньги по длительности, но основной запуск генерации теперь списывает предварительную стоимость до постановки задачи в очередь:
 
 `amount = ceil(durationSec * pricePerSecondInKopecks * asrMarkupMultiplier)`
 
@@ -128,9 +135,8 @@ Worker запускается из `server/src/main.worker.ts` через `NestF
 9. Отправляет WAV в `DeepgramSttService.transcribeFile`.
 10. Получает `utterances` и собирает SRT через `buildSrtFromUtterances`.
 11. Вызывает `UpdatePrivateVideoCommand` с `originalContent = srt`.
-12. Списывает баланс через `ChargeSubtitlesGenerationCommand`.
-13. Ставит статус `done`.
-14. В `finally` удаляет временную папку.
+12. Ставит статус `done`.
+13. В `finally` удаляет временную папку.
 
 Если любой шаг падает, processor пишет `failed` и сохраняет текст ошибки в `subtitles_generation_error`, затем пробрасывает ошибку в BullMQ для retry.
 
@@ -177,9 +183,11 @@ Second recognized phrase.
 
 ## Баланс и стоимость
 
-Для запуска требуется минимум `1000` копеек на балансе. Это проверка допуска, а не точная предоплата.
+Для запуска требуется, чтобы на балансе хватало денег на предварительную стоимость генерации по сохранённой длительности видео.
 
-Фактическое списание происходит **только после успешного распознавания и сохранения субтитров**. Если скачивание, ffmpeg, Deepgram или сохранение упали — деньги не списываются.
+Списание происходит **до постановки задачи в очередь**. Если постановка задачи в очередь или последняя попытка worker-а завершается ошибкой, сервер возвращает списанную сумму на баланс отдельной транзакцией `REFUND`.
+
+Возврат защищён от дублей: перед созданием refund-транзакции сервер атомарно выставляет `subtitles_generation_refunded_at`. Повторный refund для той же попытки не создаётся.
 
 Формула:
 
@@ -192,6 +200,8 @@ ceil(durationSec * deepgram.pricePerSecondInKopecks * generateSubtitles.asrMarku
 - курс в конфиге: `110 ₽ / $`;
 - наценка: `2x`;
 - лимит видео: 2 часа.
+
+Длительность берётся из `VideoPrivate.file_duration_sec`, которую клиент сохраняет при загрузке видео.
 
 ## Как работает клиент
 
@@ -248,6 +258,7 @@ query {
 - `subtitlesGenerationAlreadyRunning` — генерация уже `pending` или `processing`.
 - `subtitlesGenerationFileNotUploaded` — у видео нет загруженного файла.
 - `subtitlesGenerationLanguageRequired` — у видео не указан язык.
+- `subtitlesGenerationDurationRequired` — у видео нет сохранённой длительности.
 - `subtitlesGenerationVideoTooLong` — видео длиннее допустимого лимита.
 - `subtitlesGenerationFailed` — общая ошибка генерации.
 - `subtitlesAsrFailed` — ошибка сервиса распознавания речи.
@@ -255,7 +266,7 @@ query {
 Общие ошибки:
 - `userIsNotOwner` — пользователь не владелец приватного видео.
 - `userUnauthorized` — нет авторизации.
-- `userBalanceBelowMinimum` — баланс ниже минимального порога для запуска.
+- `insufficientBalanceForTranslation` — денег на балансе не хватает для списания рассчитанной стоимости.
 
 Некоторые ошибки worker-а пишутся в `subtitles_generation_error` как технический текст: например ошибка `ffmpeg`, пустой ответ Deepgram или ошибка скачивания из S3.
 

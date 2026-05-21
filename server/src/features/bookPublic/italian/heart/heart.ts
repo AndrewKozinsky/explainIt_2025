@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_10 } from './chapter_10'
 import { chapter_11 } from './chapter_11'
@@ -47,7 +47,7 @@ export function heartBookData(coversFolderName: string) {
 Книга подходит тем, кто хочет читать классическую итальянскую прозу и одновременно познакомиться с важной частью итальянской культуры.
 
 Уровень B1–B2.`,
-		languageCode: languages.it.code as Language,
+		languageCode: languages.it.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#b54736',

@@ -13,11 +13,10 @@ import { CreatePrivateVideoCommand } from 'features/video/CreatePrivateVideo.com
 import { DeletePrivateVideoCommand } from 'features/video/DeletePrivateVideo.command'
 import { GetUserVideosPrivateCommand } from 'features/video/GetUserVideosPrivate.command'
 import { GetVideoPrivateCommand } from 'features/video/GetVideoPrivate.command'
+import { GenerateSubtitlesCommand } from 'features/video/subtitlesGeneration/GenerateSubtitles.command'
 import { GetSubtitlesGenerationStatusCommand } from 'features/video/subtitlesGeneration/GetSubtitlesGenerationStatus.command'
-import { StartGenerateSubtitlesCommand } from 'features/video/subtitlesGeneration/StartGenerateSubtitles.command'
 import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
-import { UserWithMinBalanceGuard } from 'infrastructure/guards/userWithPositiveBalanceGuard.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
 import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
@@ -80,9 +79,7 @@ export class VideoPrivateResolver {
 		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
 	}
 
-	// NOTE: minimum balance threshold (1000 kopecks) must match
-	// MainConfigService.get().generateSubtitles.minBalanceKopecks.
-	@UseGuards(CheckSessionCookieGuard, UserWithMinBalanceGuard(1000))
+	@UseGuards(CheckSessionCookieGuard)
 	@Mutation(() => VideoPrivateSubtitlesStatusOutModel, {
 		name: RouteNames.VIDEO_PRIVATE.GENERATE_SUBTITLES,
 		description: videoPrivateResolversDesc.generateSubtitlesForPrivateVideo,
@@ -92,7 +89,7 @@ export class VideoPrivateResolver {
 		@Context('req') request: Request,
 	) {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new StartGenerateSubtitlesCommand(userId, input.videoId))
+		return await this.commandBus.execute(new GenerateSubtitlesCommand(userId, input.videoId))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

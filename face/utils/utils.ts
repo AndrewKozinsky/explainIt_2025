@@ -57,6 +57,10 @@ export const languages = {
 		nameRus: 'Итальянский',
 		code: 'it',
 	},
+	tr: {
+		nameRus: 'Турецкий',
+		code: 'ja',
+	},
 	/*ru: {
 		nameRus: 'Русский',
 		nameEng: 'russian',
@@ -65,10 +69,6 @@ export const languages = {
 	/*pt: {
 		nameRus: 'Португальский',
 		code: 'pt',
-	},*/
-	/*tr: {
-		nameRus: 'Турецкий',
-		code: 'ja',
 	},*/
 	/*ar: {
 		nameRus: 'Арабский',
