@@ -34,7 +34,7 @@ export const config: FaqTypes.Config = [
 	{
 		question: {
 			type: 'plain',
-			value: 'Я смогу после этого говорить?',
+			value: 'Я смогу заговорить?',
 		},
 		answer: {
 			type: 'plain',

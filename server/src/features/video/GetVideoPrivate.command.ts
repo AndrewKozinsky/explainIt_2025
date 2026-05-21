@@ -1,8 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 export class GetVideoPrivateCommand implements ICommand {
 	constructor(

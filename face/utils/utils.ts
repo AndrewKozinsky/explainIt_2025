@@ -53,14 +53,14 @@ export const languages = {
 		nameEng: 'german',
 		code: 'de',
 	},
+	it: {
+		nameRus: 'Итальянский',
+		code: 'it',
+	},
 	/*ru: {
 		nameRus: 'Русский',
 		nameEng: 'russian',
 		code: 'ru',
-	},*/
-	/*it: {
-		nameRus: 'Итальянский',
-		code: 'it',
 	},*/
 	/*pt: {
 		nameRus: 'Португальский',

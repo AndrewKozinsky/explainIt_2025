@@ -1,7 +1,7 @@
 import { randomUUID } from 'crypto'
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { CustomError } from '../exceptions/customErrors'
 import { errorMessage } from '../exceptions/errorMessage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'

@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceTranslationQueryRepository } from 'repo/sentenceTranslation.queryRepository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 export class GetSentenceTranslationCommand implements ICommand {
 	constructor(

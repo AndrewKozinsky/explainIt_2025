@@ -39,7 +39,9 @@ export const LanguageCode = {
   es: 'es',
   fr: 'fr',
   de: 'de',
-  ru: 'ru'
+  ru: 'ru',
+  it: 'it',
+  tr: 'tr'
 } as const
 
 export type LanguageCode = (typeof LanguageCode)[keyof typeof LanguageCode]

@@ -6,11 +6,11 @@ import { Logger } from 'winston'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
 import { SentenceChatMessage, SentenceChatThread } from 'prisma/generated/client'
 import { SentenceChatMessageStatus } from 'prisma/generated/enums'
@@ -19,9 +19,10 @@ import { buildSentenceChatContents, buildSentenceChatSystemInstruction } from '.
 import { SentenceChatContextBuilder } from './SentenceChatContextBuilder.service'
 
 // Сколько предложений до и после выделенного отдавать в контекст.
-const NEIGHBORS_RADIUS = 3
+const SENTENCES_BEFORE = 4
+const SENTENCES_AFTER = 0
 // Сколько последних сообщений треда брать для поддержания контекста диалога (включая только что добавленный user).
-const HISTORY_LIMIT = 10
+const HISTORY_LIMIT = 8
 
 export type StreamSentenceChatAssistantInput = {
 	userId: number
@@ -212,7 +213,11 @@ export class StreamSentenceChatAssistantCommand {
 	// ---------- prompt building ----------
 
 	private async buildPromptPayload(thread: SentenceChatThread): Promise<PromptPayload> {
-		const context = await this.sentenceChatContextBuilder.buildForSentence(thread.sentence_id, NEIGHBORS_RADIUS)
+		const context = await this.sentenceChatContextBuilder.buildForSentence(
+			thread.sentence_id,
+			SENTENCES_BEFORE,
+			SENTENCES_AFTER,
+		)
 		if (!context) {
 			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
 		}

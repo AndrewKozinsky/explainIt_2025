@@ -4,13 +4,13 @@ import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Logger } from 'winston'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
 } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { LanguageCode } from 'prisma/generated/enums'
 import { TranslateWithChatGPT } from '../translateCommon/TranslateWithChatGPT.service'

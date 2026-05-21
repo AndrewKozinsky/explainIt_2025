@@ -31,7 +31,8 @@ export class SentenceChatContextBuilder {
 	/** Собирает метаданные источника и окружение предложения для передачи в LLM. */
 	async buildForSentence(
 		sentenceId: number,
-		neighborsRadius: number,
+		beforeCount: number,
+		afterCount = 0,
 	): Promise<null | { source: SentenceSourceInfo; neighbors: SentenceNeighbors }> {
 		const sentence = await this.sentenceRepository.getSentenceDbById(sentenceId)
 		if (!sentence) return null
@@ -47,7 +48,8 @@ export class SentenceChatContextBuilder {
 			bookChapterId: sentence.book_chapter_id,
 			videoPrivateId: sentence.video_private_id,
 			videoPublicId: sentence.video_public_id,
-			radius: neighborsRadius,
+			beforeSentences: beforeCount,
+			afterSentences: afterCount,
 		})
 
 		const before: string[] = []
@@ -105,13 +107,15 @@ export class SentenceChatContextBuilder {
 		bookChapterId: null | number
 		videoPrivateId: null | number
 		videoPublicId: null | number
-		radius: number
+		beforeSentences: number
+		afterSentences: number
 	}) {
 		const parentFilter: {
 			book_chapter_id?: number
 			video_private_id?: number
 			video_public_id?: number
 		} = {}
+
 		if (input.bookChapterId !== null) parentFilter.book_chapter_id = input.bookChapterId
 		else if (input.videoPrivateId !== null) parentFilter.video_private_id = input.videoPrivateId
 		else if (input.videoPublicId !== null) parentFilter.video_public_id = input.videoPublicId
@@ -121,8 +125,8 @@ export class SentenceChatContextBuilder {
 				...parentFilter,
 				id: { not: input.sentenceId },
 				order_index: {
-					gte: input.orderIndex - input.radius,
-					lte: input.orderIndex + input.radius,
+					gte: input.orderIndex - input.beforeSentences,
+					lte: input.orderIndex + input.afterSentences,
 				},
 			},
 			orderBy: { order_index: 'asc' },

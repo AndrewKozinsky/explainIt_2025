@@ -1,8 +1,8 @@
 import React from 'react'
 import cn from 'classnames'
 import { LanguageCode } from 'utils/utils'
-import './LanguageSwitch.scss'
 import BaseButton from '../BaseButton/BaseButton'
+import './LanguageSwitch.scss'
 
 type LanguageSwitchProps = {
 	languages: LanguageCode[]

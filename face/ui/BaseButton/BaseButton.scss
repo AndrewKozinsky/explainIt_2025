@@ -3,7 +3,7 @@
 .base-button {
 	cursor: pointer;
 	border: 1px solid transparent;
-	transition: background-color .15s ease, border-color .1s ease, color .1s ease;
+	transition: background-color .15s ease, color .1s ease;
 
 	&:disabled {
 		color: vars.$grayColor-3;
@@ -83,6 +83,11 @@
 .base-button--danger {
 	color: vars.$dangerColor-1;
 	background-color: vars.$dangerColor-4;
+
+	&:focus {
+		border-color: vars.$dangerColor-1;
+		outline-color: vars.$dangerColor-2;
+	}
 }
 
 .base-button--current {

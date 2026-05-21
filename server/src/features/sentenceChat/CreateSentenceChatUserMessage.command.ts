@@ -2,9 +2,9 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadQueryRepository } from 'repo/sentenceChatThread.queryRepository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { SentenceChatMessageOutModel } from 'models/sentenceChat/sentenceChatMessage.out.model'
 
 export class CreateSentenceChatUserMessageCommand implements ICommand {

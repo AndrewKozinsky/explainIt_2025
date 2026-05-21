@@ -41,7 +41,7 @@ export function theCountOfMonteCristoBookData(coversFolderName: string) {
 
 Язык Дюма обычно динамичнее и легче, чем у многих других классиков: сюжет быстро движется вперёд, диалоги помогают понимать происходящее, а главы часто заканчиваются интригой.
 
-Уровень B2-C1 (Upper-Intermediate / Advanced).`,
+Уровень B2-C1.`,
 		languageCode: languages.fr.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

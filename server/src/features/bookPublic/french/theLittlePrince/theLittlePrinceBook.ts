@@ -40,7 +40,7 @@ export function theLittlePrinceBookData(coversFolderName: string) {
 
 Книга учит говорить о сложных чувствах (дружба, любовь, одиночество) простыми словами — это полезно для развития устной речи.
 
-Уровень A2-B1 (Beginner / Intermediate).`,
+Уровень A2-B1.`,
 		languageCode: languages.fr.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

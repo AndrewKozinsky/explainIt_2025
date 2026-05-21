@@ -39,7 +39,7 @@ export function solomonMinesBookData(coversFolderName: string) {
 
 Повествование обычно достаточно прямое: события развиваются быстро, цель героев понятна, а сюжет помогает не потеряться даже при незнакомых словах.
 
-Уровень B2-C1 (Upper-Intermediate / Advanced).`,
+Уровень B2-C1.`,
 		languageCode: languages.en.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

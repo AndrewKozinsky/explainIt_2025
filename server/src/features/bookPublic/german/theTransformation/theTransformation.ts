@@ -15,7 +15,7 @@ export function theTransformationBookData(coversFolderName: string) {
 
 Кафка использует ровный, ясный, почти бюрократический язык. В книге много внутренних монологов, бытовых описаний и диалогов за дверью. Это помогает учиться выражать эмоции через простые конструкции и запоминать лексику на темы «дом», «семья», «работа».
 
-Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
+Уровень B1-B2.`,
 		languageCode: languages.de.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

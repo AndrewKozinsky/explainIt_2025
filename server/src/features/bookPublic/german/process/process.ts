@@ -27,7 +27,7 @@ export function processBookData(coversFolderName: string) {
 
 Книга подходит тем, кто уже уверенно читает по-немецки и хочет познакомиться с классической литературой XX века.
 
-Уровень B2-С1 (Upper-Intermediate / Advanced).`,
+Уровень B2-С1.`,
 		languageCode: languages.de.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

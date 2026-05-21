@@ -23,7 +23,7 @@ export function aStudyInScarletPartOneBookData(coversFolderName: string) {
 
 Также книга даёт хороший пример того, как один и тот же факт можно описать точно и по-разному — это важно для развития речи.
 
-Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
+Уровень B1-B2.`,
 		languageCode: languages.en.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

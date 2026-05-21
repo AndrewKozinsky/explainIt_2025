@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { DBRepository } from 'repo/db.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { PrismaService } from 'db/prisma.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { BalanceTransactionType } from 'prisma/generated/enums'
 
 @Injectable()

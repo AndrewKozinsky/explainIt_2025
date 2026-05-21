@@ -1,0 +1,14 @@
+export const chapter_25 = {
+	name: '1, giovedì',
+	header: 'Il trafficante',
+	text: `Mio padre vuole che ogni giorno di vacanza io mi faccia venire a casa uno de' miei compagni, o chevada a trovarlo, per farmi a poco a poco amico di tutti.
+	Domenica andrò a passeggiare con Votini,quello ben vestito, che si liscia sempre, e che ha tanta invidia di Derossi. Oggi intanto è venuto acasa Garoffi, quello lungo e magro, col naso a becco di civetta e gli occhi piccoli e furbi, che parche frughino per tutto.
+	È figliuolo d'un droghiere. È un bell'originale. Egli conta sempre i soldi cheha in tasca, conta sulle dita lesto lesto, e fa qualunque moltiplicazione senza tavola pitagorica. Erammucchia, ha già un libretto della Cassa scolastica di risparmio.
+	Sfido, non spende mai un soldo,e se gli casca un centesimo sotto i banchi, è capace di cercarlo per una settimana. Fa come le gazze,dice Derossi. Tutto quello che trova, penne logore, francobolli usati, spilli, colaticci di candele, tuttoraccatta. Son già più di due anni che raccoglie francobolli, e n'ha già delle centinaia d'ogni paese, inun grande album, che venderà poi al libraio, quando sarà tutto pieno.
+	Intanto il libraio gli dà iquaderni gratis perché egli conduce molti ragazzi alla sua bottega. In iscuola traffica sempre, fa ognigiorno vendite d'oggetti, lotterie, baratti; poi si pente del baratto e rivuole la sua roba; compra perdue e smercia per quattro; gioca ai pennini e non perde mai; rivende giornali vecchi al tabaccaio, eha un quadernino dove nota i suoi affari, tutto pieno di somme e di sottrazioni. Alla scuola nonstudia che l'aritmetica, e se desidera la medaglia non è che per aver l'entrata gratis al teatro dellemarionette. A me piace, mi diverte. Abbiamo giocato a fare il mercato, coi pesi e le bilancie: egli sail prezzo giusto di tutte le cose, conosce i pesi e fa dei bei cartocci spedito, come i bottegai. Diceche appena finite le scuole metterà su un negozio, un commercio nuovo, che ha inventato lui. Èstato tutto contento ché gli ho dato dei francobolli esteri, e m'ha detto appuntino quando si rivende
+ciascuno per le collezioni. Mio padre, fingendo di legger la gazzetta, lo stava a sentire, e sidivertiva.
+Egli ha sempre le tasche gonfie delle sue piccole mercanzie, che ricopre con un lungomantello nero, e par continuamente sopra pensiero e affaccendato, come un negoziante.
+Ma quelloche gli sta più a cuore è la sua collezione di francobolli: questa è il suo tesoro, e ne parla sempre,come se dovesse cavarne una fortuna. I compagni gli danno dell'avaraccio, dell'usuraio.
+Io non so.Gli voglio bene, m'insegna molte cose, mi sembra un uomo. Coretti, il figliuolo del rivenditore dilegna, dice ch'egli non darebbe i suoi francobolli neanche per salvar la vita a sua madre.
+Mio padrenon lo crede. - Aspetta ancora a giudicarlo, - m'ha detto; - egli ha quella passione; ma ha cuore.`,
+}

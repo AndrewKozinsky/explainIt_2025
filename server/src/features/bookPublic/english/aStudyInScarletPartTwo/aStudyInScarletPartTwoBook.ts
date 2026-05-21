@@ -23,7 +23,7 @@ export function aStudyInScarletPartTwoBookData(coversFolderName: string) {
 
 Книга показывает, как английский язык используется не только для логики и анализа, но и для передачи атмосферы и переживаний.
 
-Уровень B1–B2 (Intermediate / Upper-Intermediate).`,
+Уровень B1–B2.`,
 		languageCode: languages.en.code as Language,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),

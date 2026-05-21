@@ -29,17 +29,19 @@ export const languages: Record<SupportedLanguageCode, { nameRus: string; nameEng
 		nameEng: 'russian',
 		code: 'ru',
 	},
-	/*it: {
+	it: {
 		nameRus: 'Итальянский',
+		nameEng: 'italian',
 		code: 'it',
-	},*/
+	},
+	tr: {
+		nameRus: 'Турецкий',
+		nameEng: 'turkish',
+		code: 'ja',
+	},
 	/*pt: {
 		nameRus: 'Португальский',
 		code: 'pt',
-	},*/
-	/*tr: {
-		nameRus: 'Турецкий',
-		code: 'ja',
 	},*/
 	/*ar: {
 		nameRus: 'Арабский',
