@@ -718,8 +718,6 @@ export type TranslateSentenceInput = {
   sourceLanguageCode?: InputMaybe<Scalars['String']['input']>;
   /** Target language code */
   targetLanguageCode: Scalars['String']['input'];
-  /** Sentence for translation */
-  text: Scalars['String']['input'];
   /** Video name */
   videoName?: InputMaybe<Scalars['String']['input']>;
   /** Video release year */

@@ -19,6 +19,7 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 	async translate(
 		input: {
 			text: string
+			contextText?: string
 			sourceLanguageCode: LanguageCode
 			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
@@ -35,6 +36,7 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 			{
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode,
+				contextText: input.contextText,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,
 				videoName: input.videoName,
@@ -121,6 +123,7 @@ export class TranslateWithChatGPT implements SentenceTranslationProvider, Phrase
 		input: {
 			sourceLanguageCode: LanguageCode
 			targetLanguageCode: LanguageCode
+			contextText?: string
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string

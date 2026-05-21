@@ -586,9 +586,6 @@ input TranslateSentenceInput {
   """Target language code"""
   targetLanguageCode: String!
 
-  """Sentence for translation"""
-  text: String!
-
   """Video name"""
   videoName: String
 

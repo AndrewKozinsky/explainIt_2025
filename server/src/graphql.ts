@@ -166,7 +166,6 @@ export interface GenerateSubtitlesForPrivateVideoInput {
 
 export interface TranslateSentenceInput {
     sentenceId: number;
-    text: string;
     sourceLanguageCode?: Nullable<string>;
     targetLanguageCode: string;
     bookName?: Nullable<string>;

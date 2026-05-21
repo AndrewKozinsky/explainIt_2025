@@ -25,6 +25,7 @@ export type TranslationProviderUsage =
 export type BuildSentencePromptFn = (input: {
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
+	contextText?: string
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -49,6 +50,7 @@ export interface SentenceTranslationProvider {
 	translate(
 		input: {
 			text: string
+			contextText?: string
 			sourceLanguageCode: LanguageCode
 			targetLanguageCode: LanguageCode
 			lowPriority?: boolean

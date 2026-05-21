@@ -2,6 +2,7 @@ import { Inject } from '@nestjs/common'
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Logger } from 'winston'
+import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import {
@@ -27,7 +28,6 @@ import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt
 export type TranslateSentenceInput = {
 	userId: null | number
 	sentenceId: number
-	text: string
 	sourceLanguageCode?: null | LanguageCode
 	targetLanguageCode: LanguageCode
 	bookName?: string
@@ -50,6 +50,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		private translateWithDeepSeek: TranslateWithDeepSeek,
 		private translateWithChatGPT: TranslateWithChatGPT,
 		private translateWithGemini: TranslateWithGemini,
+		private sentenceRepository: SentenceRepository,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
 		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
@@ -72,7 +73,8 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 			const translationResult = await this.generateSentenceTranslation({
 				provider: preparedInput.provider,
-				text: command.input.text,
+				text: preparedInput.text,
+				contextText: preparedInput.contextText,
 				sourceLanguageCode: preparedInput.sourceLanguageCode,
 				targetLanguageCode: command.input.targetLanguageCode,
 				lowPriority: preparedInput.lowPriority,
@@ -128,6 +130,8 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async prepareTranslationOrThrow(input: TranslateSentenceInput): Promise<{
+		text: string
+		contextText: string
 		sourceLanguageCode: LanguageCode
 		lowPriority: boolean
 		provider: SentenceTranslationProvider
@@ -143,7 +147,12 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			access,
 		})
 
+		const text = await this.getSentenceTextOrThrow(input.sentenceId)
+		const contextText = await this.getSentenceContextTextOrThrow(input.sentenceId)
+
 		return {
+			text,
+			contextText,
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			lowPriority: true,
 			provider: this.getTranslationProvider(),
@@ -171,9 +180,63 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		})
 	}
 
+	private async getSentenceTextOrThrow(sentenceId: number): Promise<string> {
+		const sentence = await this.sentenceRepository.getSentenceDbById(sentenceId)
+
+		if (!sentence) {
+			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
+		}
+
+		const content =
+			sentence.bookChapter?.processed_content ??
+			sentence.videoPrivate?.processed_content ??
+			sentence.videoPublic?.processed_content
+
+		if (!content) {
+			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
+		}
+
+		return content.slice(sentence.start_offset, sentence.start_offset + sentence.length)
+	}
+
+	private async getSentenceContextTextOrThrow(sentenceId: number): Promise<string> {
+		const sentence = await this.sentenceRepository.getSentenceDbById(sentenceId)
+
+		if (!sentence) {
+			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
+		}
+
+		const content =
+			sentence.bookChapter?.processed_content ??
+			sentence.videoPrivate?.processed_content ??
+			sentence.videoPublic?.processed_content
+
+		if (!content) {
+			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
+		}
+
+		const neighborSentences = await this.sentenceRepository.getNeighborSentences({
+			sentenceId,
+			orderIndex: sentence.order_index,
+			bookChapterId: sentence.book_chapter_id,
+			videoPrivateId: sentence.video_private_id,
+			videoPublicId: sentence.video_public_id,
+			beforeSentences: 4,
+			afterSentences: 0,
+		})
+
+		return [
+			...neighborSentences.map((neighbor) =>
+				content.slice(neighbor.start_offset, neighbor.start_offset + neighbor.length),
+			),
+			content.slice(sentence.start_offset, sentence.start_offset + sentence.length),
+		].join('\n')
+	}
+
 	private async generateSentenceTranslation(input: {
 		provider: SentenceTranslationProvider
 		text: string
+		contextText: string
 		sourceLanguageCode: LanguageCode
 		targetLanguageCode: LanguageCode
 		lowPriority: boolean
@@ -188,6 +251,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		const result = await input.provider.translate(
 			{
 				text: input.text,
+				contextText: input.contextText,
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode,
 				lowPriority: input.lowPriority,
