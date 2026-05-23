@@ -73,16 +73,6 @@ export const pageUrls = {
 			}
 		},
 	},
-	course: {
-		name: 'Курс',
-		path: '/course',
-	},
-	courseArticle(articleSlug: string) {
-		return {
-			name: 'Курс',
-			path: '/course/' + articleSlug,
-		}
-	},
 	videos: {
 		name: 'Фильмы',
 		path: '/videos',
@@ -109,6 +99,12 @@ export const pageUrls = {
 	expressions: {
 		name: 'Выражения',
 		path: '/expressions',
+		article(articleSlug: string) {
+			return {
+				name: 'Выражение',
+				path: '/expressions/' + articleSlug,
+			}
+		},
 	},
 	help: {
 		name: 'Справка',

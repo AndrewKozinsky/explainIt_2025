@@ -1,20 +1,17 @@
-// import cn from 'classnames'
-// import { typographyText } from '../../../utils/strings'
-// import ArticleType from '../../articleTypes/articleType'
-// import './Header.scss'
+import { ReactNode } from 'react'
+import cn from 'classnames'
+import './Header.scss'
 
-/*type HeaderProps = {
-	config: ArticleType.Header
-}*/
+type HeaderProps = {
+	tag: 'h2' | 'h3' | 'h4'
+	children: ReactNode
+}
 
-/*function Header(props: HeaderProps) {
-	const { config } = props
+function Header(props: HeaderProps) {
+	const { tag, children } = props
+	const Component = tag
 
-	const Component = config.tag
+	return <Component className={cn('art-header', 'art-header--' + tag)}>{children}</Component>
+}
 
-	return (
-		<Component className={cn('art-header', 'art-header--' + config.style)}>{typographyText(config.text)}</Component>
-	)
-}*/
-
-// export default Header
+export default Header

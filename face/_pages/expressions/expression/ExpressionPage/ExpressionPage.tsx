@@ -1,18 +1,24 @@
-import React from 'react'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import { mdxComponentsRouter } from '@/ui/articleBuilder/components/mdxComponentsRouter'
+import { getLessonBySlug } from './fn/getLessonBySlug'
 
-// This is a placeholder. In the future, this data would be fetched from an API.
-const getArticleContent = (id: string) => {
-	return `This is the content for article ${id}.`
-}
+export default async function ExpressionPage({ params }: { params: Promise<{ articleSlug: string }> }) {
+	const { articleSlug } = await params
+	const lesson = await getLessonBySlug(articleSlug)
 
-export default function ExpressionPage({ params }: { params: { articleId?: string; articleSlug?: string } }) {
-	const id = params.articleId
-	const articleContent = getArticleContent(id!)
+	if (!lesson) {
+		return (
+			<div>
+				<h1>Not found</h1>
+				<p>Lesson not found.</p>
+			</div>
+		)
+	}
 
 	return (
 		<div>
-			<h1>Article {id}</h1>
-			<p>{articleContent}</p>
+			<h1>{lesson.frontmatter.title}</h1>
+			<MDXRemote source={lesson.content} components={mdxComponentsRouter} />
 		</div>
 	)
 }
