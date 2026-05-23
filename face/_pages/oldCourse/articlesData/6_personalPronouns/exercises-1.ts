@@ -1,6 +1,6 @@
-import ExercisesType from '../../articleTypes/exercisesType'
+// import ExercisesType from '../../articleTypes/exercisesType'
 
-const exercises_1: ExercisesType.ExercisesObj = {
+/*const exercises_1: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
@@ -146,6 +146,6 @@ const exercises_1: ExercisesType.ExercisesObj = {
 			words: [{ rusWord: 'больной зуб', engWord: 'toothache' }],
 		},
 	],
-}
+}*/
 
-export default exercises_1
+// export default exercises_1

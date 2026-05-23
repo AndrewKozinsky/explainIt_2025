@@ -1,10 +1,10 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_5 from './exercises-5'
-import exercises_6 from './exercises-6'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_5 from './exercises-5'
+// import exercises_6 from './exercises-6'
 
-const pluralOfNouns: ArticleType.Art = {
+/*const pluralOfNouns: ArticleType.Art = {
 	meta: {
 		number: 7,
 		slug: 'plural-of-nouns',
@@ -794,6 +794,6 @@ const pluralOfNouns: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default pluralOfNouns
+// export default pluralOfNouns

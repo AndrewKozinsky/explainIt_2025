@@ -1,6 +1,7 @@
-import Header from './Header/Header'
-import Paragraph from './Paragraph/Paragraph'
-import List from './List/List'
+import Header from './components/Header/Header'
+import List from './components/List/List'
+import Note from './components/Note/Note'
+import Paragraph from './components/Paragraph/Paragraph'
 import type { MDXComponents } from 'mdx/types'
 
 export const mdxComponentsRouter: MDXComponents = {
@@ -15,4 +16,5 @@ export const mdxComponentsRouter: MDXComponents = {
 			<Paragraph>{children}</Paragraph>
 		</li>
 	),
+	Note: ({ noteStyle, children }) => <Note noteStyle={noteStyle}>{children}</Note>,
 }

@@ -1,5 +1,5 @@
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { mdxComponentsRouter } from '@/ui/articleBuilder/components/mdxComponentsRouter'
+import { mdxComponentsRouter } from '@/ui/articleBuilder/mdxComponentsRouter'
 import { getLessonBySlug } from './fn/getLessonBySlug'
 
 export default async function ExpressionPage({ params }: { params: Promise<{ articleSlug: string }> }) {

@@ -1,11 +1,11 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 //@use '@/styles/mixins' as mix;
 //@use '@/styles/inherit' as inh;
 
-//$CN: art-note;
+$CN: art-note;
 
-/*.#{$CN} {
-	@include inh.content-wrapper();
+.#{$CN} {
+	//@include inh.content-wrapper();
 
 	&--gray {
 		background-color: vars.$grayColor-1;
@@ -15,4 +15,4 @@
 		color: white;
 		background-color: vars.$accentColor-2;
 	}
-}*/
+}

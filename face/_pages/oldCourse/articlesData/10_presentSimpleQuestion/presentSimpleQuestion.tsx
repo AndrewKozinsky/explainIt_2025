@@ -1,8 +1,8 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const presentSimpleQuestion: ArticleType.Art = {
+/*const presentSimpleQuestion: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'present-simple-question',
@@ -434,6 +434,6 @@ const presentSimpleQuestion: ArticleType.Art = {
 		},
 		exercises_1,
 	],
-}
+}*/
 
-export default presentSimpleQuestion
+// export default presentSimpleQuestion

@@ -1,13 +1,13 @@
-import ArticleType from 'articleBuilder/articleTypes/articleType'
-import { pageUrls } from '@/сonsts/pageUrls'
-import { PrevAndNextButtonConfig } from '../../PrevAndNextButtons/PrevAndNextButtons'
+// import ArticleType from 'articleBuilder/articleTypes/articleType'
+// import { pageUrls } from '@/сonsts/pageUrls'
+// import { PrevAndNextButtonConfig } from '../../PrevAndNextButtons/PrevAndNextButtons'
 
 /**
  * Возвращает объект конфигурации для отрисовки кнопок-ссылок на предыдущую и следующую статью.
  * @param prevArticle — объект предыдущей статьи относительно текущей.
  * @param nextArticle — объект следующей статьи относительно текущей.
  */
-export function getPrevAndNextArticlesNavConfig(
+/*export function getPrevAndNextArticlesNavConfig(
 	prevArticle: ArticleType.Art | null,
 	nextArticle: ArticleType.Art | null,
 ) {
@@ -15,13 +15,13 @@ export function getPrevAndNextArticlesNavConfig(
 		prevBtnConfig: convertArticleToButtonConfig(prevArticle),
 		nextBtnConfig: convertArticleToButtonConfig(nextArticle),
 	}
-}
+}*/
 
 /**
  * Возвращает объект конфигурации для отрисовки кнопки-ссылки
  * @param article — объект статьи
  */
-export function convertArticleToButtonConfig(article: ArticleType.Art | null): undefined | PrevAndNextButtonConfig {
+/*export function convertArticleToButtonConfig(article: ArticleType.Art | null): undefined | PrevAndNextButtonConfig {
 	if (!article) return
 
 	return {
@@ -30,4 +30,4 @@ export function convertArticleToButtonConfig(article: ArticleType.Art | null): u
 		description: article.meta.description,
 		href: pageUrls.courseArticle(article.meta.slug).path,
 	}
-}
+}*/

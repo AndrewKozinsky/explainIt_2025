@@ -1,7 +1,7 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const structure: ArticleType.Art = {
+/*const structure: ArticleType.Art = {
 	meta: {
 		number: 0,
 		slug: 'structure',
@@ -431,6 +431,6 @@ const structure: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default structure
+// export default structure

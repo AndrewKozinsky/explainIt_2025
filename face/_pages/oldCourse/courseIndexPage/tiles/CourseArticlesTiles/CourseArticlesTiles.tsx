@@ -1,8 +1,8 @@
-import { TilesWrapper } from '../../TilesWrapper/TilesWrapper'
-import ArticleTile from '../ArticleTile/ArticleTile'
-import { getTilesData } from './fn/getTilesData'
+// import { TilesWrapper } from '../../TilesWrapper/TilesWrapper'
+// import ArticleTile from '../ArticleTile/ArticleTile'
+// import { getTilesData } from './fn/getTilesData'
 
-export function CourseArticlesTiles() {
+/*export function CourseArticlesTiles() {
 	const tilesArr = getTilesData()
 
 	return (
@@ -14,4 +14,4 @@ export function CourseArticlesTiles() {
 			})}
 		</TilesWrapper>
 	)
-}
+}*/

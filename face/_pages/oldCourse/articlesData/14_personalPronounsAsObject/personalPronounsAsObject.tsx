@@ -1,9 +1,9 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
 
-const personalPronounsAsObject: ArticleType.Art = {
+/*const personalPronounsAsObject: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'personal-pronouns-as-object',
@@ -601,6 +601,6 @@ const personalPronounsAsObject: ArticleType.Art = {
 
 		exercises_2,
 	],
-}
+}*/
 
-export default personalPronounsAsObject
+// export default personalPronounsAsObject
