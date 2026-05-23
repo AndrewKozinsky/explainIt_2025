@@ -36,7 +36,7 @@ function AuthLoginForm() {
 	return (
 		<div>
 			<OAuthButtons />
-			<form onSubmit={handleSubmit(onSubmit)} data-testid={LoginFormTest.form.id}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<FormFieldsWrapper>
 					<TextInput
 						label='Почта'

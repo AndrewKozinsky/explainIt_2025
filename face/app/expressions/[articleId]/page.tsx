@@ -1,3 +1,3 @@
-import ArticlePage from '@/_pages/expressions/ArticlePage/ArticlePage'
+import ExpressionPage from '_pages/expressions/expression/ExpressionPage/ExpressionPage'
 
-export default ArticlePage
+export default ExpressionPage

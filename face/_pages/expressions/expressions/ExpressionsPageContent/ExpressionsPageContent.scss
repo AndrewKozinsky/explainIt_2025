@@ -1,0 +1,14 @@
+.expressions-page-content {
+    display: flex;
+}
+
+.expressions-page-content__left {
+	width: 300px;
+	padding: 20px;
+	border-right: 1px solid #ccc;
+}
+
+.expressions-page-content__right {
+	flex-grow: 1;
+	padding: 20px;
+}

@@ -1,0 +1,31 @@
+//@use '@/styles/variables' as vars;
+//@use '@/styles/mixins' as mix;
+//@use '@/styles/inherit' as inh;
+//@use '@/styles/text-inherit' as textInh;
+
+//$CN: art-paragraph;
+
+/*.#{$CN} {
+	@include textInh.paragraph-16();
+
+	&--size-small {
+		@include textInh.paragraph-14();
+	}
+	&--size-big {
+		@include textInh.paragraph-18();
+	}
+	&--size-giant {
+		@include textInh.paragraph-20();
+	}
+
+	&--color-normal {
+
+	}
+	&--color-gray {
+		color: vars.$grayColor-3;
+	}
+
+	.art-arrow {
+		margin: 0 .3em;
+	}
+}*/

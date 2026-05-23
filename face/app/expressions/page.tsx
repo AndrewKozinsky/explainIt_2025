@@ -1,3 +1,5 @@
-import ExpressionsIndexPage from '@/_pages/expressions/ExpressionsIndexPage/ExpressionsIndexPage'
+import ExpressionsPage from '_pages/expressions/expressions/ExpressionsPage/ExpressionsPage'
 
-export default ExpressionsIndexPage
+export default function Page() {
+	return null
+}
