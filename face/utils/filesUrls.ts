@@ -7,7 +7,6 @@ export const filesUrls = {
 		githubButtonIcon: '/icons/githubButtonIcon.svg',
 		googleButtonIcon: '/icons/googleButtonIcon.svg',
 		plusButtonIcon: '/icons/plusButtonIcon.svg',
-		trashButtonIcon: '/icons/trashButtonIcon.svg',
 		walletButtonIcon: '/icons/walletButtonIcon.svg',
 		yandexButtonIcon: '/icons/yandexButtonIcon.svg',
 		fullScreenButtonIcon: '/icons/fullScreenButtonIcon.svg',

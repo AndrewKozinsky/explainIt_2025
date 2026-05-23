@@ -44,7 +44,7 @@ export function theLittlePrinceBookData(coversFolderName: string) {
 		languageCode: languages.fr.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#6a7b8b',
+		coverBackgroundColor: '#bec8d1',
 	}
 }
 

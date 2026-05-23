@@ -45,7 +45,7 @@ export function theCountOfMonteCristoBookData(coversFolderName: string) {
 		languageCode: languages.fr.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#265463',
+		coverBackgroundColor: '#6a8d97',
 	}
 }
 

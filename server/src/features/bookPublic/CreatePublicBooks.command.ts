@@ -1,6 +1,7 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { pinocchioBookData, pinocchioChapters } from 'src/features/bookPublic/italian/pinocchio/pinocchio'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -139,6 +140,10 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: heartBookData(coversFolderName + 'italian/'),
 				chapters: heartChapters,
+			},
+			{
+				book: pinocchioBookData(coversFolderName + 'italian/'),
+				chapters: pinocchioChapters,
 			},
 			// Turkish
 			{

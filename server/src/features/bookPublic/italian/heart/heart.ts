@@ -50,7 +50,7 @@ export function heartBookData(coversFolderName: string) {
 		languageCode: languages.it.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#b54736',
+		coverBackgroundColor: '#bfc0c5',
 	}
 }
 

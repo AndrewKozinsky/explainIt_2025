@@ -1,5 +1,5 @@
 import React from 'react'
-import { filesUrls } from 'utils/filesUrls'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import DeleteEntityModal from './DeleteEntityModal'
 
@@ -27,7 +27,7 @@ function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
 
 	return (
 		<>
-			<Button theme='danger' onClick={() => setIsModalOpen(true)} icon={filesUrls.icons.trashButtonIcon}>
+			<Button theme='danger' onClick={() => setIsModalOpen(true)} icon={<TrashButtonIcon />}>
 				{deleteButtonText}
 			</Button>
 			<DeleteEntityModal
