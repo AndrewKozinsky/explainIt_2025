@@ -1,7 +1,7 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const the: ArticleType.Art = {
+/*const the: ArticleType.Art = {
 	meta: {
 		number: 5,
 		slug: 'the',
@@ -748,6 +748,6 @@ const the: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default the
+// export default the

@@ -1,8 +1,8 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
 
-const presentSimplePositive2: ArticleType.Art = {
+/*const presentSimplePositive2: ArticleType.Art = {
 	meta: {
 		number: 2,
 		slug: 'present-simple-positive-2',
@@ -477,6 +477,6 @@ const presentSimplePositive2: ArticleType.Art = {
 		},
 		exercises_2,
 	],
-}
+}*/
 
-export default presentSimplePositive2
+// export default presentSimplePositive2

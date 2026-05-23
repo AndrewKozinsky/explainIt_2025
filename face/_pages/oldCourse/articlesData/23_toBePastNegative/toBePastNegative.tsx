@@ -1,7 +1,7 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const toBePastNegative: ArticleType.Art = {
+/*const toBePastNegative: ArticleType.Art = {
 	meta: {
 		number: 0,
 		slug: 'to-be-past-negative',
@@ -70,6 +70,6 @@ const toBePastNegative: ArticleType.Art = {
 		},
 		exercises_1,
 	],
-}
+}*/
 
-export default toBePastNegative
+// export default toBePastNegative

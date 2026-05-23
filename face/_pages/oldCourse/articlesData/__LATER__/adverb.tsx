@@ -1,7 +1,7 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const adverb: ArticleType.Art = {
+/*const adverb: ArticleType.Art = {
 	meta: {
 		number: 2,
 		slug: 'present-simple-positive-2',
@@ -11,6 +11,6 @@ const adverb: ArticleType.Art = {
 		keywords: '',
 	},
 	content: [exercises_1],
-}
+}*/
 
-export default adverb
+// export default adverb

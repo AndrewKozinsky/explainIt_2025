@@ -1,8 +1,8 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const pastSimpleQuestion: ArticleType.Art = {
+/*const pastSimpleQuestion: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'past-simple-question',
@@ -112,6 +112,6 @@ const pastSimpleQuestion: ArticleType.Art = {
 		},
 		exercises_1,
 	],
-}
+}*/
 
-export default pastSimpleQuestion
+// export default pastSimpleQuestion

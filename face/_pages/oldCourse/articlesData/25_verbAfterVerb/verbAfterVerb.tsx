@@ -1,10 +1,10 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_3 from './exercises-3'
-import exercises_4 from './exercises-4'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_3 from './exercises-3'
+// import exercises_4 from './exercises-4'
 
-const verbAfterVerb: ArticleType.Art = {
+/*const verbAfterVerb: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'verb-after-verb',
@@ -318,6 +318,6 @@ const verbAfterVerb: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default verbAfterVerb
+// export default verbAfterVerb

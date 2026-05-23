@@ -1,5 +1,9 @@
-import ExpressionsPage from '@/_pages/expressions/expressions/ExpressionsPage/ExpressionsPage'
+import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
 
 export default function ExpressionsLayout({ children }: { children: React.ReactNode }) {
-	return <ExpressionsPage>{children}</ExpressionsPage>
+	return (
+		<PageWrapper top bottom>
+			{children}
+		</PageWrapper>
+	)
 }

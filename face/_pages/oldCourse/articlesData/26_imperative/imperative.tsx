@@ -1,12 +1,12 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_3 from './exercises-3'
-import exercises_4 from './exercises-4'
-import exercises_5 from './exercises-5'
-import exercises_6 from './exercises-6'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_3 from './exercises-3'
+// import exercises_4 from './exercises-4'
+// import exercises_5 from './exercises-5'
+// import exercises_6 from './exercises-6'
 
-const imperative: ArticleType.Art = {
+/*const imperative: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'imperative',
@@ -809,6 +809,6 @@ const imperative: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default imperative
+// export default imperative

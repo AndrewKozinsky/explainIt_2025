@@ -1,6 +1,6 @@
-import ExercisesType from '../../articleTypes/exercisesType'
+// import ExercisesType from '../../articleTypes/exercisesType'
 
-const exercises_4: ExercisesType.ExercisesObj = {
+/*const exercises_4: ExercisesType.ExercisesObj = {
 	type: 'exercises',
 	exercises: [
 		{
@@ -14,6 +14,6 @@ const exercises_4: ExercisesType.ExercisesObj = {
 			],
 		},
 	],
-}
+}*/
 
-export default exercises_4
+// export default exercises_4

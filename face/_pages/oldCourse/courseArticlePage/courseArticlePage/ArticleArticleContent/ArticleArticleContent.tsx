@@ -1,17 +1,17 @@
-import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
+// import ArticleBuilder from '../../../../articles/ArticleBuilder/ArticleBuilder'
 // import LearnByHeartButton from '../../../../articleBuilder/components/learnByHeart/LearnByHeartButton/LearnByHeartButton'
-import ArticleType from '../../../../articles/articleTypes/articleType'
-import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
-import './ArticleArticleContent.scss'
+// import ArticleType from '../../../../articles/articleTypes/articleType'
+// import { PrevAndNextArticlesNav } from '../../common/ArtPrevAndNextButtons/PrevAndNextArticlesNav'
+// import './ArticleArticleContent.scss'
 
-type ArticleContentProps = {
+/*type ArticleContentProps = {
 	prevArticle: ArticleType.Art | null
 	article: ArticleType.Art
 	nextArticle: ArticleType.Art | null
-}
+}*/
 
 /** Содержимое страницы начала уровня языка в курсе */
-function ArticleArticleContent(props: ArticleContentProps) {
+/*function ArticleArticleContent(props: ArticleContentProps) {
 	const { prevArticle, article, nextArticle } = props
 
 	return (
@@ -20,11 +20,11 @@ function ArticleArticleContent(props: ArticleContentProps) {
 				<ArticleBuilder articleContent={article.content} />
 			</div>
 			<div className='article-article__footer'>
-				{/*<LearnByHeartButton article={nextArticle} />*/}
+				{/!*<LearnByHeartButton article={nextArticle} />*!/}
 				<PrevAndNextArticlesNav prevArticle={prevArticle} nextArticle={nextArticle} />
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default ArticleArticleContent
+// export default ArticleArticleContent

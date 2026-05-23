@@ -8,7 +8,6 @@ async function ExpressionsList() {
 
 	return (
 		<div>
-			<h2>Articles</h2>
 			<ul>
 				{lessons.map((lesson) => (
 					<li key={lesson.lesson_id}>

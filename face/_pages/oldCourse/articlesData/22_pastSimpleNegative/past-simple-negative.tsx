@@ -1,8 +1,6 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import ArticleType from '../../articleTypes/articleType'
 
-const pastSimpleNegative: ArticleType.Art = {
+/*const pastSimpleNegative: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'past-simple-negative',
@@ -11,6 +9,6 @@ const pastSimpleNegative: ArticleType.Art = {
 		keywords: 'Past Simple, паст симпл, отрицание',
 	},
 	content: [],
-}
+}*/
 
-export default pastSimpleNegative
+// export default pastSimpleNegative

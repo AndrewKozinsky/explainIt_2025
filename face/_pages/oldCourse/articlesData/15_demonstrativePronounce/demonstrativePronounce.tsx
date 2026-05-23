@@ -1,10 +1,10 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_3 from './exercises-3'
-import exercises_4 from './exercises-4'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_3 from './exercises-3'
+// import exercises_4 from './exercises-4'
 
-const demonstrativePronounce: ArticleType.Art = {
+/*const demonstrativePronounce: ArticleType.Art = {
 	meta: {
 		number: 10,
 		slug: 'demonstrative-pronouns',
@@ -896,6 +896,6 @@ const demonstrativePronounce: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default demonstrativePronounce
+// export default demonstrativePronounce

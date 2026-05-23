@@ -1,11 +1,11 @@
-import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import Header from '../../../ui/Header/Header'
-import { CourseArticlesTiles } from '../tiles/CourseArticlesTiles/CourseArticlesTiles'
+// import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+// import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+// import Header from '../../../ui/Header/Header'
+// import { CourseArticlesTiles } from '../tiles/CourseArticlesTiles/CourseArticlesTiles'
 
 /** Страница со ссылками-плитками на главы курса */
-function CourseIndexPage() {
+/*function CourseIndexPage() {
 	return (
 		<PageWrapper top bottom>
 			<PageContentWrapper>
@@ -15,6 +15,6 @@ function CourseIndexPage() {
 			</PageContentWrapper>
 		</PageWrapper>
 	)
-}
+}*/
 
-export default CourseIndexPage
+// export default CourseIndexPage

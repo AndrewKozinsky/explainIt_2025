@@ -1,10 +1,10 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_3 from './exercises-3'
-import exercises_4 from './exercises-4'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_3 from './exercises-3'
+// import exercises_4 from './exercises-4'
 
-const indefiniteArticle: ArticleType.Art = {
+/*const indefiniteArticle: ArticleType.Art = {
 	meta: {
 		number: 4,
 		slug: 'a',
@@ -1336,6 +1336,6 @@ const indefiniteArticle: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default indefiniteArticle
+// export default indefiniteArticle
