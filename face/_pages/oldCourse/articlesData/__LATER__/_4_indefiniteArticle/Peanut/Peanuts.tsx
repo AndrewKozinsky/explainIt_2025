@@ -1,12 +1,12 @@
-import React from 'react'
-import s from './Peanuts.module.scss'
+// import React from 'react'
+// import s from './Peanuts.module.scss'
 
-type PeanutsProps = {
+/*type PeanutsProps = {
 	imageNames: string[]
-}
+}*/
 
 // Группа слов в закруглённых прямоугольниках с переводами.
-function Peanuts(props: PeanutsProps) {
+/*function Peanuts(props: PeanutsProps) {
 	const { imageNames } = props
 
 	return (
@@ -21,6 +21,6 @@ function Peanuts(props: PeanutsProps) {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default Peanuts
+// export default Peanuts

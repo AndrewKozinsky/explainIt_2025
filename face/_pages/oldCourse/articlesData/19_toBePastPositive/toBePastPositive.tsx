@@ -1,9 +1,9 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
 
-const toBePastPositive: ArticleType.Art = {
+/*const toBePastPositive: ArticleType.Art = {
 	meta: {
 		number: 0,
 		slug: 'to-be-past-positive',
@@ -300,6 +300,6 @@ const toBePastPositive: ArticleType.Art = {
 		},
 		exercises_2,
 	],
-}
+}*/
 
-export default toBePastPositive
+// export default toBePastPositive

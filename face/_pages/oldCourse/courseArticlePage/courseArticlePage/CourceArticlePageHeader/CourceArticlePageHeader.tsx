@@ -1,13 +1,13 @@
-import React from 'react'
-import Header from '@/ui/Header/Header'
-import ArticleType from '../../../../articles/articleTypes/articleType'
-import './CourseArticlePageHeader.scss'
+// import React from 'react'
+// import Header from '@/ui/Header/Header'
+// import ArticleType from '../../../../articles/articleTypes/articleType'
+// import './CourseArticlePageHeader.scss'
 
-type ChapterNumberProps = {
+/*type ChapterNumberProps = {
 	article: ArticleType.Art
-}
+}*/
 
-function CourseArticlePageHeader(props: ChapterNumberProps) {
+/*function CourseArticlePageHeader(props: ChapterNumberProps) {
 	const { name, number: chapterNum } = props.article.meta
 
 	const headerBits = name.split(' ').map((textBit, i) => {
@@ -26,6 +26,6 @@ function CourseArticlePageHeader(props: ChapterNumberProps) {
 			</span>
 		</Header>
 	)
-}
+}*/
 
-export default CourseArticlePageHeader
+// export default CourseArticlePageHeader

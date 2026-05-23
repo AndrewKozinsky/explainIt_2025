@@ -15,10 +15,5 @@ export default async function ExpressionPage({ params }: { params: Promise<{ art
 		)
 	}
 
-	return (
-		<div>
-			<h1>{lesson.frontmatter.title}</h1>
-			<MDXRemote source={lesson.content} components={mdxComponentsRouter} />
-		</div>
-	)
+	return <MDXRemote source={lesson.content} components={mdxComponentsRouter} />
 }

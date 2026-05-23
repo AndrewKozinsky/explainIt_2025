@@ -1,6 +1,6 @@
-import ArticleType from '../../../articleTypes/articleType'
+// import ArticleType from '../../../articleTypes/articleType'
 
-const testChapter2: ArticleType.Art = {
+/*const testChapter2: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'test-2',
@@ -9,6 +9,6 @@ const testChapter2: ArticleType.Art = {
 		keywords: '',
 	},
 	content: [],
-}
+}*/
 
-export default testChapter2
+// export default testChapter2

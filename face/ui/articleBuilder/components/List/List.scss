@@ -1,49 +1,43 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
-//@use '@/styles/inherit' as inh;
-
-/*.art-list {
+.art-list {
 	position: relative;
 	list-style: none;
-
-	padding: 0 0 0 4.4rem;
-	margin-top: 0.4rem;
+	padding: 0 0 0 2.4rem;
+	margin: 8px 0;
 
 	li {
 		position: relative;
-		margin-top: 0.8rem;
+		margin-top: 4px;
+
+		&:first-child {
+			margin-top: 0;
+		}
 	}
-	li::before {
-		position: absolute;
-	}
-}*/
+}
 
 // Ненумерованный список
-/*ul.art-list {
-	li {
-		&::before {
-			content: '';
-			top: 0.6em;
-			left: -1.6rem;
-			width: 0.9rem;
-			height: 0.9rem;
-			background-color: vars.$textColor;
-			border-radius: 50%;
-		}
+ul.art-list {
+	li::before {
+		content: '';
+		position: absolute;
+		top: 0.6em;
+		left: -1.6rem;
+		width: 6px;
+		height: 6px;
+		background-color: #333;
+		border-radius: 50%;
 	}
-}*/
+}
 
 // Нумерованный список
-/*ol.art-list {
-	counter-reset: li;
+ol.art-list {
+	counter-reset: art-list-counter;
 
-	li {
-		&::before {
-			content: counter(li);
-			counter-increment: li;
-			top: 0.12em;
-			left: -2.2rem;
-			font-weight: 700;
-		}
+	li::before {
+		position: absolute;
+		content: counter(art-list-counter) '.';
+		counter-increment: art-list-counter;
+		top: 0;
+		left: -2rem;
+		font-weight: 700;
 	}
-}*/
+}

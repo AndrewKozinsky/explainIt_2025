@@ -1,8 +1,8 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const toBePresentNegative: ArticleType.Art = {
+/*const toBePresentNegative: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'to-be-present-negative',
@@ -211,6 +211,6 @@ const toBePresentNegative: ArticleType.Art = {
 		},
 		exercises_1,
 	],
-}
+}*/
 
-export default toBePresentNegative
+// export default toBePresentNegative

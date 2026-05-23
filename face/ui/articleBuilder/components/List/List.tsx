@@ -1,31 +1,17 @@
-// import cn from 'classnames'
-// import ArticleType from '../../articleTypes/articleType'
-// import Paragraph from '../Paragraph/Paragraph'
-// import './List.scss'
+import cn from 'classnames'
+import { ReactNode } from 'react'
+import './List.scss'
 
-/*type ListProps = {
-	config: ArticleType.List
-}*/
+type ListProps = {
+	listType: 'dots' | 'numbers'
+	children: ReactNode
+}
 
-/** Нумерованный и ненумерованный список */
-/*function List(props: ListProps) {
-	const { config } = props
+function List(props: ListProps) {
+	const { listType, children } = props
+	const Component = listType === 'dots' ? 'ul' : 'ol'
 
-	const classes = ['art-list']
+	return <Component className={cn('art-list')}>{children}</Component>
+}
 
-	const Component = config.listType === 'dots' ? 'ul' : 'ol'
-
-	return (
-		<Component className={cn(classes)}>
-			{config.children.map((paragraph, i) => {
-				return (
-					<li key={i}>
-						<Paragraph config={paragraph} />
-					</li>
-				)
-			})}
-		</Component>
-	)
-}*/
-
-// export default List
+export default List

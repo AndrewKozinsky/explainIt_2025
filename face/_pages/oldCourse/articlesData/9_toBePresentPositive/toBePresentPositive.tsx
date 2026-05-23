@@ -1,11 +1,11 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_3 from './exercises-3'
-import exercises_2 from './exercises-2'
-import exercises_4 from './exercises-4'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_3 from './exercises-3'
+// import exercises_2 from './exercises-2'
+// import exercises_4 from './exercises-4'
 
-const toBePresentPositive: ArticleType.Art = {
+/*const toBePresentPositive: ArticleType.Art = {
 	meta: {
 		number: 9,
 		slug: 'to-be-present-positive',
@@ -847,6 +847,6 @@ const toBePresentPositive: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default toBePresentPositive
+// export default toBePresentPositive

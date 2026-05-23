@@ -1,7 +1,7 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
 
-const toBePastQuestion: ArticleType.Art = {
+/*const toBePastQuestion: ArticleType.Art = {
 	meta: {
 		number: 0,
 		slug: 'to-be-past-question',
@@ -60,6 +60,6 @@ const toBePastQuestion: ArticleType.Art = {
 		},
 		exercises_1,
 	],
-}
+}*/
 
-export default toBePastQuestion
+// export default toBePastQuestion
