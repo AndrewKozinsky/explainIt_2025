@@ -6,13 +6,13 @@ import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
 import ExpressionsPageContent from '../ExpressionsPageContent/ExpressionsPageContent'
 import { pageUrls } from 'сonsts/pageUrls'
 
-function ExpressionsPage() {
+function ExpressionsPage({ children }: { children: React.ReactNode }) {
 	return (
 		<PageWrapper top bottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
 				<Header>{pageUrls.expressions.name}</Header>
-				<ExpressionsPageContent />
+				<ExpressionsPageContent>{children}</ExpressionsPageContent>
 			</PageContentWrapper>
 		</PageWrapper>
 	)

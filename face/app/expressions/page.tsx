@@ -1,5 +1,3 @@
-import ExpressionsPage from '@/_pages/expressions/ExpressionsPage/ExpressionsPage'
+import ExpressionsIndexPage from '@/_pages/expressions/ExpressionsIndexPage/ExpressionsIndexPage'
 
-export default function Home() {
-	return <ExpressionsPage />
-}
+export default ExpressionsIndexPage
