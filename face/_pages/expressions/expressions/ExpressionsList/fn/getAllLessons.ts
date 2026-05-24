@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-const LESSONS_DIR = path.join(process.cwd(), 'textbooks/ruUser/en/expressions')
+const TEXTBOOKS_DIR = path.join(process.cwd(), 'textbooks/ruUser/en')
 
 export type LessonMeta = {
 	lesson_id: string
@@ -11,11 +11,17 @@ export type LessonMeta = {
 	order: number
 }
 
-export async function getAllLessons(): Promise<LessonMeta[]> {
-	const files = fs.readdirSync(LESSONS_DIR).filter((f) => f.endsWith('.mdx'))
+export async function getAllLessons(subDir: string): Promise<LessonMeta[]> {
+	const lessonsDir = path.join(TEXTBOOKS_DIR, subDir)
+
+	if (!fs.existsSync(lessonsDir)) {
+		return []
+	}
+
+	const files = fs.readdirSync(lessonsDir).filter((f) => f.endsWith('.mdx'))
 
 	const lessons = files.map((filename) => {
-		const filePath = path.join(LESSONS_DIR, filename)
+		const filePath = path.join(lessonsDir, filename)
 		const raw = fs.readFileSync(filePath, 'utf-8')
 		const { data } = matter(raw)
 

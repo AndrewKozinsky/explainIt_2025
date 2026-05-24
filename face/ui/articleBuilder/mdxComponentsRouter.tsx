@@ -1,3 +1,4 @@
+import Examples, { Example } from './components/Examples/Examples'
 import Header from './components/Header/Header'
 import List from './components/List/List'
 import Note from './components/Note/Note'
@@ -17,4 +18,6 @@ export const mdxComponentsRouter: MDXComponents = {
 		</li>
 	),
 	Note: ({ noteStyle, children }) => <Note noteStyle={noteStyle}>{children}</Note>,
+	Examples,
+	Example,
 }

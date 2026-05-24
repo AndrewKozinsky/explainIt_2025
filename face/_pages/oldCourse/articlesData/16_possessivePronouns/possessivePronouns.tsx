@@ -1,10 +1,10 @@
-import { imageMapper } from '../../../utils/imageMapper'
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_3 from './exercises-3'
+// import { imageMapper } from '../../../utils/imageMapper'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_3 from './exercises-3'
 
-const possessivePronouns: ArticleType.Art = {
+/*const possessivePronouns: ArticleType.Art = {
 	meta: {
 		number: 1,
 		slug: 'possessive-pronouns',
@@ -961,6 +961,6 @@ const possessivePronouns: ArticleType.Art = {
 		},
 		exercises_3,
 	],
-}
+}*/
 
-export default possessivePronouns
+// export default possessivePronouns

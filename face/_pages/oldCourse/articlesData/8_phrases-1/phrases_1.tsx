@@ -1,9 +1,9 @@
-import ArticleType from '../../articleTypes/articleType'
-import exercises_1 from './exercises-1'
-import exercises_2 from './exercises-2'
-import exercises_3 from './exercises-3'
+// import ArticleType from '../../articleTypes/articleType'
+// import exercises_1 from './exercises-1'
+// import exercises_2 from './exercises-2'
+// import exercises_3 from './exercises-3'
 
-const phrases_1: ArticleType.Art = {
+/*const phrases_1: ArticleType.Art = {
 	meta: {
 		number: 8,
 		slug: 'phrases-1',
@@ -256,6 +256,6 @@ const phrases_1: ArticleType.Art = {
 			],
 		},
 	],
-}
+}*/
 
-export default phrases_1
+// export default phrases_1
