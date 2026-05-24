@@ -1,28 +1,28 @@
-import Link from 'next/link'
+import ExpressionLink from '_pages/expressions/expressions/ExpressionsList/ExpressionLink/ExpressionLink'
 import { getAllLessons } from './fn/getAllLessons'
 import { pageUrls } from 'сonsts/pageUrls'
+import './LessonSection.scss'
 
 type LessonSectionProps = {
-	title: string
 	subDir: string
 }
 
 export default async function LessonSection(props: LessonSectionProps) {
-	const { title, subDir } = props
+	const { subDir } = props
 	const lessons = await getAllLessons(subDir)
 
 	if (!lessons.length) return null
 
 	return (
-		<div>
-			<h3>{title}</h3>
-			<ul>
-				{lessons.map((lesson) => (
-					<li key={lesson.lesson_id}>
-						<Link href={pageUrls.expressions.article(lesson.slug).path}>{lesson.title}</Link>
-					</li>
-				))}
-			</ul>
+		<div className='lessons-list'>
+			{lessons.map((lesson) => (
+				<ExpressionLink
+					key={lesson.lesson_id}
+					name={lesson.title}
+					subName={null}
+					href={pageUrls.expressions.article(lesson.slug).path}
+				/>
+			))}
 		</div>
 	)
 }

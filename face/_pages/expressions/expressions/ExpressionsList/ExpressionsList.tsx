@@ -1,10 +1,16 @@
+import { SectionWithHeader } from '@/ui/SectionWithHeader/SectionWithHeader'
 import LessonSection from './LessonSection'
+import './ExpressionsList.scss'
 
 async function ExpressionsList() {
 	return (
-		<div>
-			<LessonSection title='Выражения' subDir='expressions' />
-			<LessonSection title='Фразовые глаголы' subDir='phrasalVerbs' />
+		<div className='expressions-list'>
+			<SectionWithHeader title='Выражения'>
+				<LessonSection subDir='expressions' />
+			</SectionWithHeader>
+			<SectionWithHeader title='Фразовые глаголы'>
+				<LessonSection subDir='phrasalVerbs' />
+			</SectionWithHeader>
 		</div>
 	)
 }
