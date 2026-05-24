@@ -18,19 +18,21 @@ type BaseButtonProps = {
 function BaseButton(props: BaseButtonProps) {
 	const { theme = 'regular', extraClass, onClick, current, disabled, href, type, style, children } = props
 
-	const Tag = href ? Link : 'button'
+	const isDisabled = !!disabled || !!current
+	const className = cn('base-button', 'base-button--' + theme, extraClass, current && 'base-button--current')
+
+	if (!href || isDisabled) {
+		return (
+			<button className={className} disabled={isDisabled} style={style} onClick={onClick} type={type ?? 'button'}>
+				{children}
+			</button>
+		)
+	}
 
 	return (
-		<Tag
-			className={cn('base-button', 'base-button--' + theme, extraClass, current && 'base-button--current')}
-			disabled={disabled || current}
-			href={href ?? '/'}
-			style={style}
-			onClick={onClick}
-			{...(!href ? { type: type ?? 'button' } : {})}
-		>
+		<Link className={className} href={href} style={style} onClick={onClick}>
 			{children}
-		</Tag>
+		</Link>
 	)
 }
 

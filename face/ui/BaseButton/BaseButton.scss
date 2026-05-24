@@ -109,6 +109,15 @@
 }
 
 .base-button--current {
+	color: white;
+	cursor: default;
+	background-color: vars.$accentColor-2;
+	pointer-events: none;
+
+	&:hover {
+		color: white;
+		background-color: vars.$accentColor-2;
+	}
 
 	&:disabled {
 		color: white;
