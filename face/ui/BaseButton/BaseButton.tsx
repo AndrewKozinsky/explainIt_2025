@@ -10,12 +10,13 @@ type BaseButtonProps = {
 	extraClass: string
 	current?: boolean
 	href?: string
+	type?: 'button' | 'submit' | 'reset'
 	style?: CSSProperties
 	children: React.ReactNode
 }
 
 function BaseButton(props: BaseButtonProps) {
-	const { theme = 'regular', extraClass, onClick, current, disabled, href, style, children } = props
+	const { theme = 'regular', extraClass, onClick, current, disabled, href, type, style, children } = props
 
 	const Tag = href ? Link : 'button'
 
@@ -26,6 +27,7 @@ function BaseButton(props: BaseButtonProps) {
 			href={href ?? '/'}
 			style={style}
 			onClick={onClick}
+			{...(!href ? { type: type ?? 'button' } : {})}
 		>
 			{children}
 		</Tag>

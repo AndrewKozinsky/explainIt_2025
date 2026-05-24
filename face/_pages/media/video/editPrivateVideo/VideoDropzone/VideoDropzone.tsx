@@ -7,6 +7,7 @@ import ContentFileDragging from './ContentFileDragging'
 import ContentFileSelected from './ContentFileSelected'
 import ContentFileUploading from './ContentFileUploading'
 import ContentIdle from './ContentIdle'
+import { getVideoDurationSec } from './fn/getVideoDurationSec'
 import './VideoDropzone.scss'
 
 enum VideoDropzoneStatus {
@@ -17,27 +18,6 @@ enum VideoDropzoneStatus {
 }
 
 const supportedVideoFormatsStr = 'MP4, WebM, OGG'
-
-function getVideoDurationSec(file: File): Promise<number> {
-	return new Promise((resolve, reject) => {
-		const videoElement = document.createElement('video')
-		const objectUrl = URL.createObjectURL(file)
-
-		videoElement.preload = 'metadata'
-
-		videoElement.onloadedmetadata = () => {
-			URL.revokeObjectURL(objectUrl)
-			resolve(Math.ceil(videoElement.duration))
-		}
-
-		videoElement.onerror = () => {
-			URL.revokeObjectURL(objectUrl)
-			reject(new Error('Cannot read video duration'))
-		}
-
-		videoElement.src = objectUrl
-	})
-}
 
 function VideoDropzone() {
 	const video = useVideoStore((s) => s.privateVideo.data)

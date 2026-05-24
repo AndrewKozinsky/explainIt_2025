@@ -27,7 +27,7 @@ function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
 
 	return (
 		<>
-			<Button theme='danger' onClick={() => setIsModalOpen(true)} icon={<TrashButtonIcon />}>
+			<Button type='button' theme='danger' onClick={() => setIsModalOpen(true)} icon={<TrashButtonIcon />}>
 				{deleteButtonText}
 			</Button>
 			<DeleteEntityModal

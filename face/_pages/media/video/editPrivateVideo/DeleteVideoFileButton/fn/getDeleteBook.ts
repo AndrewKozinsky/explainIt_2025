@@ -1,5 +1,5 @@
 import { useCallback, useContext, useState } from 'react'
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument, VideoPrivate_GetDocument } from '@/graphql'
 import { NotificationContext } from '@/ui//Notification/context'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
@@ -7,7 +7,7 @@ export function useGetDeleteVideoFile() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [updateVideo] = useVideoPrivate_Update({ refetchQueries: [VideoPrivate_GetUserVideosDocument] })
+	const [updateVideo] = useVideoPrivate_Update()
 
 	const onDeleteFileClick = useCallback(
 		async function () {
@@ -16,7 +16,20 @@ export function useGetDeleteVideoFile() {
 
 			setStatus('loading')
 
-			const { errors } = await updateVideo({ variables: { input: { id: video.id, fileName: null } } })
+			// Include existing languageCode to satisfy server-side validation rules
+			const input: { id: number; fileName: null; languageCode?: string | null } = {
+				id: video.id,
+				fileName: null,
+			}
+			if (video.languageCode) input.languageCode = video.languageCode
+
+			const { errors } = await updateVideo({
+				variables: { input },
+				refetchQueries: [
+					VideoPrivate_GetUserVideosDocument,
+					{ query: VideoPrivate_GetDocument, variables: { input: { id: video.id } } },
+				],
+			})
 
 			if (errors) {
 				notify({

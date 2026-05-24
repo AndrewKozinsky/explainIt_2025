@@ -3,7 +3,7 @@ import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButto
 import './FileNameAndDeleteFileButton.scss'
 
 function FileNameAndDeleteFileButton() {
-	const video = useVideoStore.getState().privateVideo.data
+	const video = useVideoStore((s) => s.privateVideo.data)
 
 	if (!video || !video.isFileUploaded || !video.fileUrl) {
 		return null
