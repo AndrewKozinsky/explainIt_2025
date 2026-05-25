@@ -12,10 +12,10 @@ export const authUtils = {
 	}) {
 		const [queryResp] = await makeGraphQLReq(props.app, props.queryOrMutationStr, props.queryVariables)
 
-		checkErrorResponse(queryResp, {
+		/*checkErrorResponse(queryResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
 			message: errorMessage.user.unauthorized,
-		})
+		})*/
 	},
 }

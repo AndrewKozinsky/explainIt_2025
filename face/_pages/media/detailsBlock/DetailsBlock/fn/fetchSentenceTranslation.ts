@@ -172,7 +172,6 @@ async function getOrCreateSentenceTranslation(input: RunFetchForSentenceInput): 
 		variables: {
 			input: {
 				sentenceId: input.sentenceId,
-				text: input.sentenceText,
 				targetLanguageCode: getCurrentUserLanguageCode(),
 				bookName: input.bookName ?? undefined,
 				bookAuthor: input.bookAuthor ?? undefined,

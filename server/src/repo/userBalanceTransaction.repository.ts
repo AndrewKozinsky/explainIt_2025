@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { DBRepository } from 'repo/db.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { PrismaService } from 'db/prisma.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { BalanceTransactionType } from 'prisma/generated/enums'
 
 @Injectable()
@@ -61,6 +61,45 @@ export class UserBalanceTransactionRepository {
 					data: {
 						balance: {
 							decrement: dto.amountInKopecks,
+						},
+					},
+				})
+			},
+		})
+	}
+
+	async createRefund(dto: { userId: number; amountInKopecks: number }) {
+		if (dto.amountInKopecks <= 0) {
+			throw new CustomError(errorMessage.cannotDepositAmountLessThanZero, ErrorStatusCode.BadRequest_400)
+		}
+
+		return await this.dbRepository.wrapIntoPrismaTransaction({
+			executableCode: async () => {
+				const user = await this.prisma.user.findUnique({
+					where: {
+						id: dto.userId,
+					},
+				})
+
+				if (!user) {
+					throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.BadRequest_400)
+				}
+
+				await this.prisma.userBalanceTransaction.create({
+					data: {
+						user_id: dto.userId,
+						amount: dto.amountInKopecks,
+						type: BalanceTransactionType.REFUND,
+					},
+				})
+
+				await this.prisma.user.update({
+					where: {
+						id: dto.userId,
+					},
+					data: {
+						balance: {
+							increment: dto.amountInKopecks,
 						},
 					},
 				})

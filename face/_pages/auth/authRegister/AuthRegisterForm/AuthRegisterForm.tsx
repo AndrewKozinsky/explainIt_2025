@@ -34,7 +34,7 @@ function AuthRegisterForm() {
 	return (
 		<div>
 			<OAuthButtons />
-			<form onSubmit={handleSubmit(onSubmit)} data-testid={RegisterFormTest.form.id}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<FormFieldsWrapper>
 					<TextInput
 						label='Почта'

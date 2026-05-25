@@ -60,7 +60,6 @@
 	height: 1.8rem;
 	border: 1px solid vars.$grayColor-3;
 	border-radius: 50%;
-	background: vars.$buttonGradient;
 	transition:
 		border-color .15s ease,
 		box-shadow .15s ease,
@@ -92,6 +91,6 @@
 }
 
 .radio-group__radio:focus-visible + .radio-group__control {
-	box-shadow: 0 0 0 0.3rem rgba(vars.$linkColor-2, .18);
-	border-color: vars.$linkColor-2;
+	box-shadow: 0 0 0 0.3rem vars.$grayColor-2;
+	border-color: vars.$grayColor-5;
 }

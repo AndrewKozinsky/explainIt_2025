@@ -3,7 +3,7 @@ import { BookChapterLiteServiceModel } from '../bookChapter/bookChapter.service.
 
 export type BookPublicServiceModel = {
 	id: number
-	author: string
+	author?: string | null
 	name: string
 	note: string
 	covers: string[]

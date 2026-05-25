@@ -1,8 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { VideoPrivateSubtitlesStatusOutModel } from 'models/videoPrivate/videoPrivateSubtitlesStatus.out.model'
 
 export class GetSubtitlesGenerationStatusCommand implements ICommand {

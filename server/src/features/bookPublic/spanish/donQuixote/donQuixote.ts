@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_10 } from './chapter_10'
 import { chapter_11 } from './chapter_11'
@@ -47,7 +47,7 @@ export function donQuixoteBookData(coversFolderName: string) {
 Для изучающего испанский язык книга полезна тем, что в ней много живых диалогов, описаний путешествий, бытовых сцен и характерной испанской лексики. Особенно интересны разговоры Дон Кихота и Санчо Пансы: в них встречаются разные стили речи — более возвышенный и книжный у Дон Кихота и более простой, народный у Санчо.
 
 Рекомендуемый уровень B1–B2 (Intermediate / Upper-Intermediate)`,
-		languageCode: languages.es.code as Language,
+		languageCode: languages.es.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#a68a6a',

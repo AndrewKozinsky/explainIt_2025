@@ -15,7 +15,7 @@ export class BookPublicRepository {
 
 	@CatchDbError()
 	async createBookPublic(dto: {
-		author: string
+		author?: string
 		name: string
 		note: string
 		covers: string[]

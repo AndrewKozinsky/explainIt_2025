@@ -182,6 +182,7 @@ export const VideoPrivateScalarFieldEnum = {
   s3_provider_name: 's3_provider_name',
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
+  file_duration_sec: 'file_duration_sec',
   name: 'name',
   original_content: 'original_content',
   processed_content: 'processed_content',
@@ -190,6 +191,8 @@ export const VideoPrivateScalarFieldEnum = {
   subtitles_generation_error: 'subtitles_generation_error',
   subtitles_generation_started_at: 'subtitles_generation_started_at',
   subtitles_generation_job_id: 'subtitles_generation_job_id',
+  subtitles_generation_charge_kopecks: 'subtitles_generation_charge_kopecks',
+  subtitles_generation_refunded_at: 'subtitles_generation_refunded_at',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

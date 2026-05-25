@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from '@/ui/formRelated/buttons/Button/Button'
 import { SubtitlesGenerationStatus } from '@/graphql'
+import Button from '@/ui/formRelated/buttons/Button/Button'
 import { useGenerateSubtitles } from './fn/useGenerateSubtitles'
 
 type GenerateSubtitlesButtonProps = {

@@ -23,6 +23,7 @@ export class VideoPrivateRepository {
 		contentType?: 'text' | 'subtitles'
 		s3ProviderName?: null | S3ProviderName
 		fileSizeMb?: number
+		fileDurationSec?: number
 	}) {
 		const newVideo = await this.prisma.videoPrivate.create({
 			data: {
@@ -34,6 +35,7 @@ export class VideoPrivateRepository {
 				s3_provider_name: dto.s3ProviderName,
 				source_language_code: dto.languageCode,
 				file_size_mb: dto.fileSizeMb,
+				file_duration_sec: dto.fileDurationSec,
 			},
 		})
 
@@ -54,6 +56,7 @@ export class VideoPrivateRepository {
 			processedContent?: null | string
 			contentType?: 'text' | 'subtitles'
 			fileSizeMb?: number
+			fileDurationSec?: number
 		},
 	) {
 		const updatedVideo = await this.prisma.videoPrivate.update({
@@ -71,6 +74,7 @@ export class VideoPrivateRepository {
 				processed_content: dto.processedContent,
 				content_type: dto.contentType,
 				file_size_mb: dto.fileSizeMb,
+				file_duration_sec: dto.fileDurationSec,
 			},
 		})
 
@@ -152,6 +156,8 @@ export class VideoPrivateRepository {
 				subtitles_generation_status: SubtitlesGenerationStatus.pending,
 				subtitles_generation_error: null,
 				subtitles_generation_started_at: new Date(),
+				subtitles_generation_charge_kopecks: null,
+				subtitles_generation_refunded_at: null,
 			},
 		})
 		return res.count === 1
@@ -161,7 +167,7 @@ export class VideoPrivateRepository {
 	async setSubtitlesGenerationStatus(
 		videoId: number,
 		status: SubtitlesGenerationStatus,
-		opts: { error?: null | string; jobId?: null | string } = {},
+		opts: { error?: null | string; jobId?: null | string; chargeKopecks?: null | number } = {},
 	): Promise<void> {
 		await this.prisma.videoPrivate.update({
 			where: { id: videoId },
@@ -169,8 +175,28 @@ export class VideoPrivateRepository {
 				subtitles_generation_status: status,
 				...(opts.error !== undefined ? { subtitles_generation_error: opts.error } : {}),
 				...(opts.jobId !== undefined ? { subtitles_generation_job_id: opts.jobId } : {}),
+				...(opts.chargeKopecks !== undefined
+					? { subtitles_generation_charge_kopecks: opts.chargeKopecks }
+					: {}),
 			},
 		})
+	}
+
+	@CatchDbError()
+	async tryMarkSubtitlesGenerationRefunded(videoId: number): Promise<boolean> {
+		const res = await this.prisma.videoPrivate.updateMany({
+			where: {
+				id: videoId,
+				subtitles_generation_charge_kopecks: {
+					not: null,
+				},
+				subtitles_generation_refunded_at: null,
+			},
+			data: {
+				subtitles_generation_refunded_at: new Date(),
+			},
+		})
+		return res.count === 1
 	}
 
 	@CatchDbError()
@@ -182,6 +208,9 @@ export class VideoPrivateRepository {
 				source_language_code: true,
 				is_file_uploaded: true,
 				file_s3_key: true,
+				file_duration_sec: true,
+				subtitles_generation_charge_kopecks: true,
+				subtitles_generation_refunded_at: true,
 				subtitles_generation_status: true,
 				subtitles_generation_error: true,
 				subtitles_generation_started_at: true,
@@ -189,11 +218,15 @@ export class VideoPrivateRepository {
 			},
 		})
 		if (!video) return null
+
 		return {
 			userId: video.user_id,
 			languageCode: video.source_language_code,
 			isFileUploaded: video.is_file_uploaded,
 			fileS3Key: video.file_s3_key,
+			fileDurationSec: video.file_duration_sec,
+			chargeKopecks: video.subtitles_generation_charge_kopecks,
+			refundedAt: video.subtitles_generation_refunded_at,
 			status: video.subtitles_generation_status,
 			error: video.subtitles_generation_error,
 			startedAt: video.subtitles_generation_started_at,
@@ -209,6 +242,7 @@ export class VideoPrivateRepository {
 				file_s3_key: null,
 				is_file_uploaded: false,
 				file_name: null,
+				file_duration_sec: null,
 			},
 		})
 	}
@@ -227,6 +261,7 @@ export class VideoPrivateRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
+			fileDurationSec: dbVideo.file_duration_sec,
 		}
 	}
 }

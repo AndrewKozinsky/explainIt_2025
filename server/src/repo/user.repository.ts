@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { add } from 'date-fns'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { User } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'

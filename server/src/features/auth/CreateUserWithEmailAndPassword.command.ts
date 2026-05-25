@@ -1,10 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 type CreateUserWithEmailAndPasswordInput = {
 	email: string
@@ -51,6 +51,8 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 
 		// User does not exist, create a new one
 		const createdUser = await this.userRepository.createUserByEmailAndPassword(createUserInput)
+
+		await this.userRepository.updateUser(createdUser.id, { balance: 500 })
 
 		const newUser = await this.userQueryRepository.getUserById(createdUser.id)
 		if (!newUser) {

@@ -4,12 +4,12 @@ import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { dryText, removeBOM } from 'features/mediaCommon'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 export type CreateBookChapterInput = {

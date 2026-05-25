@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LanguageCode } from 'prisma/generated/client'
 
 type CreateUniversalPhraseInput = {

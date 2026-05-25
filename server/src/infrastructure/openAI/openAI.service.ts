@@ -6,10 +6,10 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { OpenAIModels } from 'types/openAIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 @Injectable()

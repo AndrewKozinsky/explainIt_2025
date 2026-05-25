@@ -1,0 +1,24 @@
+@use '@/styles/variables' as vars;
+
+.chat-input__mic-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	width: 2.7rem;
+	height: 2.7rem;
+	background: vars.$grayColor-2;
+	border-radius: 50%;
+	cursor: pointer;
+	font-size: 1.4rem;
+
+	&.recording {
+		background: vars.$dangerColor-1;
+		color: white;
+	}
+
+	&:disabled {
+		background: vars.$grayColor-3;
+		cursor: not-allowed;
+	}
+}

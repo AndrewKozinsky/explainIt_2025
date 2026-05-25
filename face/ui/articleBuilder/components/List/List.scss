@@ -1,0 +1,43 @@
+.art-list {
+	position: relative;
+	list-style: none;
+	padding: 0 0 0 2.4rem;
+	margin: 8px 0;
+
+	li {
+		position: relative;
+		margin-top: 4px;
+
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+// Ненумерованный список
+ul.art-list {
+	li::before {
+		content: '';
+		position: absolute;
+		top: 0.6em;
+		left: -1.6rem;
+		width: 6px;
+		height: 6px;
+		background-color: #333;
+		border-radius: 50%;
+	}
+}
+
+// Нумерованный список
+ol.art-list {
+	counter-reset: art-list-counter;
+
+	li::before {
+		position: absolute;
+		content: counter(art-list-counter) '.';
+		counter-increment: art-list-counter;
+		top: 0;
+		left: -2rem;
+		font-weight: 700;
+	}
+}

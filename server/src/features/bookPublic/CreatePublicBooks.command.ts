@@ -1,7 +1,7 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { donQuixoteBookData, donQuixoteChapters } from 'src/features/bookPublic/spanish/donQuixote/donQuixote'
+import { pinocchioBookData, pinocchioChapters } from 'src/features/bookPublic/italian/pinocchio/pinocchio'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -17,6 +17,8 @@ import {
 	theTransformationBookData,
 	theTransformationChapters,
 } from 'features/bookPublic/german/theTransformation/theTransformation'
+import { heartBookData, heartChapters } from 'features/bookPublic/italian/heart/heart'
+import { donQuixoteBookData, donQuixoteChapters } from 'features/bookPublic/spanish/donQuixote/donQuixote'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -38,6 +40,10 @@ import {
 	littleRedRidingHoodChapters,
 	littleRedRidingHoodBookData,
 } from './german/littleRedRidingHood/littleRedRidingHood'
+import {
+	nasreddinHodjaStoriesBookData,
+	nasreddinHodjaStoriesChapters,
+} from './turkish/nasreddinHodjaStories/nasreddinHodjaStories'
 
 export class CreatePublicBooksCommand implements ICommand {
 	constructor() {}
@@ -129,6 +135,20 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
+			},
+			// Italian
+			{
+				book: heartBookData(coversFolderName + 'italian/'),
+				chapters: heartChapters,
+			},
+			{
+				book: pinocchioBookData(coversFolderName + 'italian/'),
+				chapters: pinocchioChapters,
+			},
+			// Turkish
+			{
+				book: nasreddinHodjaStoriesBookData(coversFolderName + 'turkish/'),
+				chapters: nasreddinHodjaStoriesChapters,
 			},
 		]
 	}

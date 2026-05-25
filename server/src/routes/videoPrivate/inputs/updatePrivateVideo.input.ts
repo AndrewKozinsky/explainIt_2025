@@ -41,4 +41,10 @@ export class UpdatePrivateVideoInput {
 		required: false,
 	})
 	fileSizeMb?: number
+
+	@Field(() => Int, { description: 'File duration in seconds', nullable: true })
+	@DtoFieldDecorators('fileDurationSec', bdConfig.VideoPrivate.dbFields.file_duration_sec, {
+		required: false,
+	})
+	fileDurationSec?: number
 }

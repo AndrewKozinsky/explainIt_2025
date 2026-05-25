@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 type DeletePrivateVideoInput = {
 	id: number

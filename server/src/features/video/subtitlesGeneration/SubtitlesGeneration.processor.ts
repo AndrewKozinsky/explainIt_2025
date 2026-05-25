@@ -4,6 +4,7 @@ import { Processor, WorkerHost } from '@nestjs/bullmq'
 import { Logger } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Job } from 'bullmq'
+import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
 import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
@@ -17,7 +18,6 @@ import {
 } from 'infrastructure/queues/subtitlesGeneration.types'
 import { SubtitlesGenerationStatus } from 'prisma/generated/client'
 import { buildSrtFromUtterances } from './buildSrtFromUtterances'
-import { ChargeSubtitlesGenerationCommand } from './ChargeSubtitlesGeneration.command'
 import { downloadS3ObjectToFile } from './downloadS3File'
 import { extractMonoWav16k, probeDurationSec } from './ffmpeg.utils'
 
@@ -30,8 +30,7 @@ import { extractMonoWav16k, probeDurationSec } from './ffmpeg.utils'
  *   5. Send audio to Deepgram Nova-3 and collect utterances
  *   6. Render an SRT and persist via UpdatePrivateVideoCommand (reuses the existing
  *      SRT parsing + subtitle/sentence/init DB wiring)
- *   7. Charge the user based on duration * Deepgram price * markup
- *   8. Flip status to DONE (or FAILED + error message on any exception)
+ *   7. Flip status to DONE (or FAILED + error message on any exception)
  *
  * Tmp artifacts are always cleaned up in a finally block.
  */
@@ -45,6 +44,7 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 		private readonly deepgramSttService: DeepgramSttService,
 		private readonly mainConfig: MainConfigService,
 		private readonly commandBus: CommandBus,
+		private readonly userBalanceTransactionRepository: UserBalanceTransactionRepository,
 	) {
 		super()
 	}
@@ -116,11 +116,7 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 				}),
 			)
 
-			const chargeDuration = deepgramDuration > 0 ? deepgramDuration : durationSec
-			const chargedKopecks = await this.commandBus.execute(
-				new ChargeSubtitlesGenerationCommand(userId, chargeDuration),
-			)
-			this.logger.log(`Job ${job.id}: charged ${chargedKopecks} kopecks from user ${userId}`)
+			this.logger.log(`Job ${job.id}: Deepgram processed ${deepgramDuration || durationSec}s of audio`)
 
 			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.done, {
 				error: null,
@@ -133,6 +129,21 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 			this.logger.error(`Subtitles generation job ${job.id} for video ${videoId} failed: ${message}`, err)
 
 			if (videoExists) {
+				const state = await this.videoRepository.getSubtitlesGenerationState(videoId)
+				const attempts = job.opts.attempts ?? 1
+				const isLastAttempt = job.attemptsMade + 1 >= attempts
+
+				if (
+					isLastAttempt &&
+					state?.chargeKopecks &&
+					(await this.videoRepository.tryMarkSubtitlesGenerationRefunded(videoId))
+				) {
+					await this.userBalanceTransactionRepository.createRefund({
+						userId,
+						amountInKopecks: state.chargeKopecks,
+					})
+				}
+
 				await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.failed, {
 					error: message,
 				})

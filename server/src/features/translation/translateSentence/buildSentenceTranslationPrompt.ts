@@ -3,6 +3,7 @@ import { Language, languages } from 'utils/languages'
 type TranslationTaskMedia = {
 	sourceLanguageCode: Language
 	targetLanguageCode: Language
+	contextText?: string
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
@@ -11,6 +12,8 @@ type TranslationTaskMedia = {
 
 export function buildSentenceTranslationPrompt(media: TranslationTaskMedia) {
 	return `${getTaskIntro(media)}
+
+${getContextBlock(media)}
 
 Return the sentence translated into ${languages[media.targetLanguageCode].nameEng}. Do not add explanations or extra text.`
 }
@@ -43,4 +46,13 @@ function getTaskIntro(media: TranslationTaskMedia) {
 	}
 
 	return `You are an assistant for learning ${sourceLanguage}.`
+}
+
+function getContextBlock(media: TranslationTaskMedia) {
+	if (!media.contextText) {
+		return ''
+	}
+
+	return `Use this context to choose the correct meaning. The last sentence is the sentence to translate:
+${media.contextText}`
 }

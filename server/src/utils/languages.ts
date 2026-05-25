@@ -3,7 +3,7 @@ import { LanguageCode } from 'prisma/generated/enums'
 export type Language = keyof typeof languages
 type SupportedLanguageCode = LanguageCode | 'ru'
 
-export const languages: Record<SupportedLanguageCode, { nameRus: string; nameEng: string; code: string }> = {
+export const languages: Record<SupportedLanguageCode, { nameRus: string; nameEng: string; code: Language }> = {
 	en: {
 		nameRus: 'Английский',
 		nameEng: 'english',
@@ -29,17 +29,19 @@ export const languages: Record<SupportedLanguageCode, { nameRus: string; nameEng
 		nameEng: 'russian',
 		code: 'ru',
 	},
-	/*it: {
+	it: {
 		nameRus: 'Итальянский',
+		nameEng: 'italian',
 		code: 'it',
-	},*/
+	},
+	tr: {
+		nameRus: 'Турецкий',
+		nameEng: 'turkish',
+		code: 'tr',
+	},
 	/*pt: {
 		nameRus: 'Португальский',
 		code: 'pt',
-	},*/
-	/*tr: {
-		nameRus: 'Турецкий',
-		code: 'ja',
 	},*/
 	/*ar: {
 		nameRus: 'Арабский',

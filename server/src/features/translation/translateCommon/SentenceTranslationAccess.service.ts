@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { SentenceRepository } from 'repo/sentence.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 export type SentenceTranslationAccessMode = 'forbidden' | 'chargeBalance' | 'unlimited'
 
