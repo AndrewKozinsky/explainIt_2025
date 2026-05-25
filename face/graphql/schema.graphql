@@ -94,6 +94,9 @@ input CreatePrivateBookInput {
 }
 
 input CreatePrivateVideoInput {
+  """File duration in seconds"""
+  fileDurationSec: Int
+
   """File size in MB"""
   fileSizeMb: Int
 
@@ -306,8 +309,8 @@ type Mutation {
   """
   Register a user.
   	Possible errors:
-  	**Почта зарегистрирована, но не подтверждена.** — the user is already registered, but doesn't confirm his email.
-  	**Почта уже зарегистрирована.** — the user is already registered and confirmed his email.
+  	**[object Object]** — the user is already registered, but doesn't confirm his email.
+  	**[object Object]** — the user is already registered and confirmed his email.
   """
   auth_register(input: RegisterUserInput!): UserOutModel!
 
@@ -586,9 +589,6 @@ input TranslateSentenceInput {
   """Target language code"""
   targetLanguageCode: String!
 
-  """Sentence for translation"""
-  text: String!
-
   """Video name"""
   videoName: String
 
@@ -650,6 +650,9 @@ input UpdatePrivateBookInput {
 }
 
 input UpdatePrivateVideoInput {
+  """File duration in seconds"""
+  fileDurationSec: Int
+
   """File mime type"""
   fileMimeType: String
 
@@ -677,6 +680,7 @@ input UpdatePrivateVideoInput {
 
 type UpdateVideoPrivateOutModel {
   contentType: String!
+  fileDurationSec: Int
   fileSizeMb: Int
   id: Int!
   languageCode: String
@@ -697,6 +701,7 @@ type UserOutModel {
 
 type VideoPrivateLiteOutModel {
   contentType: String!
+  fileDurationSec: Int
   fileName: String
   fileS3Key: String
   fileSizeMb: Int!
@@ -713,6 +718,7 @@ type VideoPrivateLiteOutModel {
 
 type VideoPrivateOutModel {
   contentType: String!
+  fileDurationSec: Int
   fileName: String
   fileS3Key: String
   fileSizeMb: Int!

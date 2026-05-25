@@ -32,4 +32,7 @@ export class UpdateVideoPrivateOutModel {
 
 	@Field(() => Int, { nullable: true })
 	fileSizeMb: null | number
+
+	@Field(() => Int, { nullable: true })
+	fileDurationSec: null | number
 }

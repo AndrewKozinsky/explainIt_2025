@@ -117,7 +117,7 @@ export const bdConfig = {
 				type: 'enum',
 				description: 'Status of balance changing ',
 				required: true,
-				variants: ['CHARGE', 'TOP_UP'],
+				variants: ['CHARGE', 'TOP_UP', 'REFUND'],
 				enumName: 'BalanceTransactionType',
 			},
 			amount: {
@@ -273,7 +273,7 @@ export const bdConfig = {
 			author: {
 				type: 'string',
 				description: 'Author of the book',
-				required: true,
+				required: false,
 				maxLength: 255,
 			},
 			name: {
@@ -431,6 +431,12 @@ export const bdConfig = {
 				required: true,
 				default: 0,
 			},
+			file_duration_sec: {
+				type: 'number',
+				description: 'Duration of the uploaded video file in seconds',
+				example: 3600,
+				required: false,
+			},
 			name: {
 				type: 'string',
 				description: 'Name of the video',
@@ -479,6 +485,16 @@ export const bdConfig = {
 				description: 'BullMQ job id of the current subtitles generation task',
 				required: false,
 				maxLength: 200,
+			},
+			subtitles_generation_charge_kopecks: {
+				type: 'number',
+				description: 'Amount charged upfront for the current subtitles generation attempt',
+				required: false,
+			},
+			subtitles_generation_refunded_at: {
+				type: 'dateTime',
+				description: 'When the upfront subtitles generation charge was refunded',
+				required: false,
 			},
 			Subtitle: {
 				type: 'oneToMany',

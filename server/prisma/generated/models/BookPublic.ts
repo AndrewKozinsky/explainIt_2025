@@ -205,7 +205,7 @@ export type BookPublicGroupByOutputType = {
   source_language_code: $Enums.LanguageCode
   covers: string[]
   coverBackgroundColor: string
-  author: string
+  author: string | null
   name: string
   note: string
   created_at: Date
@@ -240,7 +240,7 @@ export type BookPublicWhereInput = {
   source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPublic"> | $Enums.LanguageCode
   covers?: Prisma.StringNullableListFilter<"BookPublic">
   coverBackgroundColor?: Prisma.StringFilter<"BookPublic"> | string
-  author?: Prisma.StringFilter<"BookPublic"> | string
+  author?: Prisma.StringNullableFilter<"BookPublic"> | string | null
   name?: Prisma.StringFilter<"BookPublic"> | string
   note?: Prisma.StringFilter<"BookPublic"> | string
   created_at?: Prisma.DateTimeFilter<"BookPublic"> | Date | string
@@ -254,7 +254,7 @@ export type BookPublicOrderByWithRelationInput = {
   source_language_code?: Prisma.SortOrder
   covers?: Prisma.SortOrder
   coverBackgroundColor?: Prisma.SortOrder
-  author?: Prisma.SortOrder
+  author?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -271,7 +271,7 @@ export type BookPublicWhereUniqueInput = Prisma.AtLeast<{
   source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPublic"> | $Enums.LanguageCode
   covers?: Prisma.StringNullableListFilter<"BookPublic">
   coverBackgroundColor?: Prisma.StringFilter<"BookPublic"> | string
-  author?: Prisma.StringFilter<"BookPublic"> | string
+  author?: Prisma.StringNullableFilter<"BookPublic"> | string | null
   name?: Prisma.StringFilter<"BookPublic"> | string
   note?: Prisma.StringFilter<"BookPublic"> | string
   created_at?: Prisma.DateTimeFilter<"BookPublic"> | Date | string
@@ -285,7 +285,7 @@ export type BookPublicOrderByWithAggregationInput = {
   source_language_code?: Prisma.SortOrder
   covers?: Prisma.SortOrder
   coverBackgroundColor?: Prisma.SortOrder
-  author?: Prisma.SortOrder
+  author?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -305,7 +305,7 @@ export type BookPublicScalarWhereWithAggregatesInput = {
   source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"BookPublic"> | $Enums.LanguageCode
   covers?: Prisma.StringNullableListFilter<"BookPublic">
   coverBackgroundColor?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
-  author?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
+  author?: Prisma.StringNullableWithAggregatesFilter<"BookPublic"> | string | null
   name?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
   note?: Prisma.StringWithAggregatesFilter<"BookPublic"> | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"BookPublic"> | Date | string
@@ -316,7 +316,7 @@ export type BookPublicCreateInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -330,7 +330,7 @@ export type BookPublicUncheckedCreateInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -343,7 +343,7 @@ export type BookPublicUpdateInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -357,7 +357,7 @@ export type BookPublicUncheckedUpdateInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -371,7 +371,7 @@ export type BookPublicCreateManyInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -382,7 +382,7 @@ export type BookPublicUpdateManyMutationInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -394,7 +394,7 @@ export type BookPublicUncheckedUpdateManyInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -505,7 +505,7 @@ export type BookPublicCreateWithoutBookChapterInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -518,7 +518,7 @@ export type BookPublicUncheckedCreateWithoutBookChapterInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -546,7 +546,7 @@ export type BookPublicUpdateWithoutBookChapterInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -559,7 +559,7 @@ export type BookPublicUncheckedUpdateWithoutBookChapterInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -571,7 +571,7 @@ export type BookPublicCreateWithoutFlashcardInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -584,7 +584,7 @@ export type BookPublicUncheckedCreateWithoutFlashcardInput = {
   source_language_code: $Enums.LanguageCode
   covers?: Prisma.BookPublicCreatecoversInput | string[]
   coverBackgroundColor: string
-  author: string
+  author?: string | null
   name: string
   note: string
   created_at?: Date | string
@@ -612,7 +612,7 @@ export type BookPublicUpdateWithoutFlashcardInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -625,7 +625,7 @@ export type BookPublicUncheckedUpdateWithoutFlashcardInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   covers?: Prisma.BookPublicUpdatecoversInput | string[]
   coverBackgroundColor?: Prisma.StringFieldUpdateOperationsInput | string
-  author?: Prisma.StringFieldUpdateOperationsInput | string
+  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   name?: Prisma.StringFieldUpdateOperationsInput | string
   note?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -744,7 +744,7 @@ export type $BookPublicPayload<ExtArgs extends runtime.Types.Extensions.Internal
     source_language_code: $Enums.LanguageCode
     covers: string[]
     coverBackgroundColor: string
-    author: string
+    author: string | null
     name: string
     note: string
     created_at: Date

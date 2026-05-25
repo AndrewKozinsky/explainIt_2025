@@ -19,7 +19,7 @@ function MediaCard(props: MediaCardProps) {
 		<BaseButton
 			theme='regular'
 			href={url}
-			style={{ backgroundColor: backgroundColor }}
+			style={backgroundColor ? ({ ['--media-card-bg']: backgroundColor } as any) : undefined}
 			extraClass={cn(
 				'media-items-grid__card',
 				type === 'public' ? 'media-items-grid__card--public' : '',

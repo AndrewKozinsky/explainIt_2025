@@ -4,9 +4,9 @@ import { Request } from 'express'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from 'models/user/user.out.model'
 const qs = require('qs')
@@ -56,6 +56,8 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 			if (!createdUser) {
 				throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 			}
+
+			await this.userRepository.updateUser(createdUser.id, { balance: 500 })
 		} else {
 			if (!user.isUserConfirmed) {
 				await this.userRepository.updateUser(user.id, { is_user_confirmed: true })

@@ -7,6 +7,7 @@ import ContentFileDragging from './ContentFileDragging'
 import ContentFileSelected from './ContentFileSelected'
 import ContentFileUploading from './ContentFileUploading'
 import ContentIdle from './ContentIdle'
+import { getVideoDurationSec } from './fn/getVideoDurationSec'
 import './VideoDropzone.scss'
 
 enum VideoDropzoneStatus {
@@ -41,7 +42,7 @@ function VideoDropzone() {
 		onDragEnter() {
 			setInputStatus(VideoDropzoneStatus.FILE_DRAGGING)
 		},
-		onDropAccepted(files) {
+		async onDropAccepted(files) {
 			setInputStatus(VideoDropzoneStatus.FILE_SELECTED)
 
 			const file = files[0]
@@ -50,10 +51,29 @@ function VideoDropzone() {
 			const fileMimeType = file.type
 
 			const fileSizeMb = Math.ceil(file.size / 1024 / 1024) // 896945634 / 1024 / 1024
+			let fileDurationSec: number
+
+			try {
+				fileDurationSec = await getVideoDurationSec(file)
+			} catch {
+				notify({
+					type: 'error',
+					message: 'Не удалось определить длительность видео',
+				})
+				setInputStatus(VideoDropzoneStatus.IDLE)
+				return
+			}
 
 			updateVideo({
 				variables: {
-					input: { id: video!.id, fileMimeType, fileName, fileSizeMb, languageCode: video!.languageCode },
+					input: {
+						id: video!.id,
+						fileMimeType,
+						fileName,
+						fileSizeMb,
+						fileDurationSec,
+						languageCode: video!.languageCode,
+					},
 				},
 			}).then((res) => {
 				if (!res.data) {
@@ -88,7 +108,12 @@ function VideoDropzone() {
 					if (xhr.status === 200) {
 						updateVideo({
 							variables: {
-								input: { id: video!.id, isFileUploaded: true, languageCode: video!.languageCode },
+								input: {
+									id: video!.id,
+									isFileUploaded: true,
+									languageCode: video!.languageCode,
+									fileDurationSec,
+								},
 							},
 						})
 							.then((data) => {

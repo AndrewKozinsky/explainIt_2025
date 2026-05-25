@@ -53,22 +53,22 @@ export const languages = {
 		nameEng: 'german',
 		code: 'de',
 	},
+	it: {
+		nameRus: 'Итальянский',
+		code: 'it',
+	},
+	tr: {
+		nameRus: 'Турецкий',
+		code: 'ja',
+	},
 	/*ru: {
 		nameRus: 'Русский',
 		nameEng: 'russian',
 		code: 'ru',
 	},*/
-	/*it: {
-		nameRus: 'Итальянский',
-		code: 'it',
-	},*/
 	/*pt: {
 		nameRus: 'Португальский',
 		code: 'pt',
-	},*/
-	/*tr: {
-		nameRus: 'Турецкий',
-		code: 'ja',
 	},*/
 	/*ar: {
 		nameRus: 'Арабский',

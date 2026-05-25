@@ -3,12 +3,21 @@
 .base-button {
 	cursor: pointer;
 	border: 1px solid transparent;
-	transition: background-color .15s ease, border-color .1s ease, color .1s ease;
+	transition: background-color .15s ease, color .1s ease, transform .2s ease;
+
+	&:active {
+		transform: scale(.97);
+	}
 
 	&:disabled {
 		color: vars.$grayColor-3;
 		cursor: not-allowed;
 		background-color: vars.$grayColor-1;
+
+		&:hover {
+			color: vars.$grayColor-3;
+			background-color: vars.$grayColor-1;
+		}
 	}
 
 	&:focus {
@@ -78,14 +87,37 @@
 	&:focus {
 		outline-color: rgba(vars.$accentColor-2, .3);
 	}
+
+	&:hover:focus {
+		outline-color: vars.$grayColor-2;
+	}
 }
 
 .base-button--danger {
 	color: vars.$dangerColor-1;
 	background-color: vars.$dangerColor-4;
+
+	&:focus {
+		border-color: vars.$dangerColor-1;
+		outline-color: vars.$dangerColor-2;
+	}
+
+	&:hover {
+		color: white;
+		background-color: vars.$dangerColor-1;
+	}
 }
 
 .base-button--current {
+	color: white;
+	cursor: default;
+	background-color: vars.$accentColor-2;
+	pointer-events: none;
+
+	&:hover {
+		color: white;
+		background-color: vars.$accentColor-2;
+	}
 
 	&:disabled {
 		color: white;

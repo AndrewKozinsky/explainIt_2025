@@ -6,7 +6,7 @@ import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
 	include: {
-		bookChapter: { include: { book: true, book_public: true } }
+		bookChapter: { include: { book: true; book_public: true } }
 		videoPrivate: true
 		videoPublic: true
 	}
@@ -76,6 +76,45 @@ export class SentenceRepository {
 		})
 
 		return res.count
+	}
+
+	@CatchDbError()
+	async getNeighborSentences(input: {
+		sentenceId: number
+		orderIndex: number
+		bookChapterId: null | number
+		videoPrivateId: null | number
+		videoPublicId: null | number
+		beforeSentences: number
+		afterSentences: number
+	}) {
+		const parentFilter: {
+			book_chapter_id?: number
+			video_private_id?: number
+			video_public_id?: number
+		} = {}
+
+		if (input.bookChapterId !== null) parentFilter.book_chapter_id = input.bookChapterId
+		else if (input.videoPrivateId !== null) parentFilter.video_private_id = input.videoPrivateId
+		else if (input.videoPublicId !== null) parentFilter.video_public_id = input.videoPublicId
+
+		return this.prisma.sentence.findMany({
+			where: {
+				...parentFilter,
+				id: { not: input.sentenceId },
+				order_index: {
+					gte: input.orderIndex - input.beforeSentences,
+					lte: input.orderIndex + input.afterSentences,
+				},
+			},
+			orderBy: { order_index: 'asc' },
+			select: {
+				id: true,
+				order_index: true,
+				start_offset: true,
+				length: true,
+			},
+		})
 	}
 
 	mapDbBookToServiceBook(dbSentence: Sentence): SentenceServiceModel {

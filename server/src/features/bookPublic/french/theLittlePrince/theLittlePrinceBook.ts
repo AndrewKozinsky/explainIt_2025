@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_10 } from './chapter_10'
 import { chapter_11 } from './chapter_11'
@@ -40,11 +40,11 @@ export function theLittlePrinceBookData(coversFolderName: string) {
 
 Книга учит говорить о сложных чувствах (дружба, любовь, одиночество) простыми словами — это полезно для развития устной речи.
 
-Уровень A2-B1 (Beginner / Intermediate).`,
-		languageCode: languages.fr.code as Language,
+Уровень A2-B1.`,
+		languageCode: languages.fr.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#6a7b8b',
+		coverBackgroundColor: '#bec8d1',
 	}
 }
 

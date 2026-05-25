@@ -3,12 +3,6 @@
 ## Overview
 Сервер находится в папке `server/`. Сделан с помощью NestJS, GraphQL, CQRS, Prisma и Postgres.
 
-Так как по умолчанию на компьютере работает Node.js v18, то нужно в каждом новом Терминале переключиться на версию 24:
-
-```bash
-nvm use 24
-```
-
 Главная конфигурация находится в сервисе `server/src/infrastructure/mainConfig/mainConfig.service.ts`.
 
 ## Назначение папок

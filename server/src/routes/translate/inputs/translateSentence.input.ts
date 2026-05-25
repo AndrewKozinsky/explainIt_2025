@@ -9,10 +9,6 @@ export class TranslateSentenceInput {
 	@DtoFieldDecorators('sentenceId', bdConfig.SentenceTranslation.dbFields.sentence_id)
 	sentenceId: number
 
-	@Field(() => String, { description: 'Sentence for translation' })
-	@DtoFieldDecorators('text', bdConfig.SentenceTranslation.dtoProps.text)
-	text: string
-
 	@Field(() => String, { description: 'Source language code', nullable: true })
 	@DtoFieldDecorators('sourceLanguageCode', bdConfig.SentenceTranslation.dtoProps.sourceLanguageCode)
 	sourceLanguageCode?: null | LanguageCode

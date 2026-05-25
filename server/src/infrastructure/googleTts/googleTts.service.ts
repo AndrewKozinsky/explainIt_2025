@@ -1,8 +1,8 @@
 import { TextToSpeechClient, protos } from '@google-cloud/text-to-speech'
 import { Injectable } from '@nestjs/common'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LanguageCode } from 'prisma/generated/client'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
@@ -24,6 +24,8 @@ export class GoogleTtsService {
 			fr: 'fr-FR-Chirp3-HD-Aoede',
 			de: 'de-DE-Chirp3-HD-Aoede',
 			ru: 'ru-RU-Standard-A',
+			it: 'it-IT-Standard-A',
+			tr: 'tr-TR-Standard-A',
 		}
 
 		const voiceName = VOICE_MAP[languageCode]
@@ -34,6 +36,8 @@ export class GoogleTtsService {
 			fr: 'fr-FR',
 			de: 'de-DE',
 			ru: 'ru-RU',
+			it: 'it-IT',
+			tr: 'tr-TR',
 		}
 
 		const bcp47LanguageCode = LANGUAGE_CODE_MAP[languageCode]

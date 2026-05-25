@@ -5,7 +5,6 @@ import { Request } from 'express'
 import { FlashcardRepository } from 'repo/flashcard.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
@@ -14,6 +13,7 @@ import { TranslatePhraseCommand } from 'features/translation/translatePhrase/Tra
 import { TranslateSentenceCommand } from 'features/translation/translateSentence/TranslateSentence.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import RouteNames from 'infrastructure/routeNames'
 import { SentencePhraseTranslationOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'

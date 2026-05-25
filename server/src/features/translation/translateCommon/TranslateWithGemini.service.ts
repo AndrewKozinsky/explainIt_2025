@@ -17,6 +17,7 @@ export class TranslateWithGemini implements SentenceTranslationProvider, PhraseT
 	async translate(
 		input: {
 			text: string
+			contextText?: string
 			sourceLanguageCode: LanguageCode
 			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
@@ -30,6 +31,7 @@ export class TranslateWithGemini implements SentenceTranslationProvider, PhraseT
 		const systemInstruction = buildPrompt({
 			sourceLanguageCode: input.sourceLanguageCode,
 			targetLanguageCode: input.targetLanguageCode,
+			contextText: input.contextText,
 			bookName: input.bookName,
 			bookAuthor: input.bookAuthor,
 			videoName: input.videoName,

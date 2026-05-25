@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 export type LookupWordInput = {

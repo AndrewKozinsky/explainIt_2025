@@ -3,6 +3,7 @@ import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageConten
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import DictionaryPageContent from '_pages/dictionary/DictionaryPageContent/DictionaryPageContent'
+import { pageUrls } from 'сonsts/pageUrls'
 
 /** Страница словаря */
 function DictionaryPage() {
@@ -10,7 +11,7 @@ function DictionaryPage() {
 		<PageWrapper top bottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
-				<Header>Словарь</Header>
+				<Header>{pageUrls.dictionary.name}</Header>
 				<DictionaryPageContent />
 			</PageContentWrapper>
 		</PageWrapper>

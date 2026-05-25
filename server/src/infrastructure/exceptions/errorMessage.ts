@@ -102,6 +102,7 @@ export const errorMessage = {
 		subtitlesGenerationAlreadyRunning: { errorMessageCode: 'VIDEO_SUBTITLES_GENERATION_ALREADY_RUNNING' }, // Генерация субтитров для этого видео уже выполняется.
 		subtitlesGenerationFileNotUploaded: { errorMessageCode: 'VIDEO_SUBTITLES_GENERATION_FILE_NOT_UPLOADED' }, // Видеофайл не загружен — нечего распознавать.
 		subtitlesGenerationLanguageRequired: { errorMessageCode: 'VIDEO_SUBTITLES_GENERATION_LANGUAGE_REQUIRED' }, // Для генерации субтитров у видео должен быть указан язык.
+		subtitlesGenerationDurationRequired: { errorMessageCode: 'VIDEO_SUBTITLES_GENERATION_DURATION_REQUIRED' }, // Для генерации субтитров нужно знать длительность видео.
 		subtitlesGenerationVideoTooLong: { errorMessageCode: 'VIDEO_SUBTITLES_GENERATION_VIDEO_TOO_LONG' }, // Длительность видео превышает допустимый лимит для генерации субтитров.
 		subtitlesGenerationFailed: { errorMessageCode: 'VIDEO_SUBTITLES_GENERATION_FAILED' }, // Не удалось сгенерировать субтитры для видео.
 		subtitlesAsrFailed: { errorMessageCode: 'VIDEO_SUBTITLES_ASR_FAILED' }, // Сервис распознавания речи вернул ошибку.

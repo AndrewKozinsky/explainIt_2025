@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_10 } from './chapter_10'
 import { chapter_11 } from './chapter_11'
@@ -27,8 +27,8 @@ export function processBookData(coversFolderName: string) {
 
 Книга подходит тем, кто уже уверенно читает по-немецки и хочет познакомиться с классической литературой XX века.
 
-Уровень B2-С1 (Upper-Intermediate / Advanced).`,
-		languageCode: languages.de.code as Language,
+Уровень B2-С1.`,
+		languageCode: languages.de.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#585856',

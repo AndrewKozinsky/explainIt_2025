@@ -1,9 +1,12 @@
 'use client'
 
-import { KeyboardEvent, useState } from 'react'
+import { KeyboardEvent, useRef, useState } from 'react'
 import cn from 'classnames'
 import { useUserStore } from '@/stores/userStore'
+import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
 import ChatInputWarningMessage from './ChatInputWarningMessage'
+import { handleEnterToSend } from './fn/handleEnterToSend'
+import { computeInsertAtCaret, applyCaret } from './fn/insertAtCaret'
 import SendAndCancelButton from './SendAndCancelButton'
 import './ChatInput.scss'
 
@@ -21,6 +24,7 @@ function ChatInput(props: ChatInputProps) {
 
 	const [prompt, setPrompt] = useState<string>('')
 	const [isTextAreaFocused, setIsTextAreaFocused] = useState<boolean>(false)
+	const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
 
 	const trimmed = prompt.trim()
 	const canSend = trimmed.length > 0 && hasBalance && !isGenerating
@@ -33,15 +37,23 @@ function ChatInput(props: ChatInputProps) {
 	}
 
 	function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-		if (event.key === 'Enter' && !event.shiftKey) {
-			event.preventDefault()
-			handleSend()
-		}
+		handleEnterToSend(event, handleSend)
+	}
+
+	function insertAtCaret(text: string) {
+		const el = textAreaRef.current
+
+		setPrompt((prev) => {
+			const { next, caret } = computeInsertAtCaret(prev, el as HTMLTextAreaElement | null, text)
+			requestAnimationFrame(() => applyCaret(el as HTMLTextAreaElement | null, caret))
+			return next
+		})
 	}
 
 	return (
 		<div className={cn('chat-input', isTextAreaFocused && 'chat-input--focus')}>
 			<textarea
+				ref={textAreaRef}
 				className='chat-input__textarea'
 				value={prompt}
 				onChange={(e) => setPrompt(e.target.value)}
@@ -54,12 +66,15 @@ function ChatInput(props: ChatInputProps) {
 			/>
 			<div className='chat-input__bottom'>
 				<ChatInputWarningMessage />
-				<SendAndCancelButton
-					isGenerating={isGenerating}
-					onSend={handleSend}
-					onCancel={onCancel}
-					prompt={prompt}
-				/>
+				<div className='chat-input__actions'>
+					<VoiceInputButton onInsert={insertAtCaret} disabled={!hasBalance} />
+					<SendAndCancelButton
+						isGenerating={isGenerating}
+						onSend={handleSend}
+						onCancel={onCancel}
+						prompt={prompt}
+					/>
+				</div>
 			</div>
 		</div>
 	)

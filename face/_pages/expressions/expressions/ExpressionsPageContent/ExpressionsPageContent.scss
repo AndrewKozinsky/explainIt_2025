@@ -1,0 +1,13 @@
+.expressions-page-content {
+    display: flex;
+	gap: 2rem;
+}
+
+.expressions-page-content__left {
+	flex-shrink: 0;
+	width: 300px;
+}
+
+.expressions-page-content__right {
+	flex-grow: 1;
+}

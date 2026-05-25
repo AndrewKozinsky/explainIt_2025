@@ -18,6 +18,7 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 	async translate(
 		input: {
 			text: string
+			contextText?: string
 			sourceLanguageCode: LanguageCode
 			targetLanguageCode: LanguageCode
 			lowPriority?: boolean
@@ -32,6 +33,7 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 			{
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode,
+				contextText: input.contextText,
 				bookName: input.bookName,
 				bookAuthor: input.bookAuthor,
 				videoName: input.videoName,
@@ -110,6 +112,7 @@ export class TranslateWithDeepSeek implements SentenceTranslationProvider, Phras
 		input: {
 			sourceLanguageCode: LanguageCode
 			targetLanguageCode: LanguageCode
+			contextText?: string
 			bookName?: string
 			bookAuthor?: string
 			videoName?: string

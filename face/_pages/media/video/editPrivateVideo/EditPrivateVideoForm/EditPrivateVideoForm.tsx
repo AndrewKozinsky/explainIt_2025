@@ -29,11 +29,12 @@ export default function EditPrivateVideoForm() {
 		control,
 		formState: { errors, isDirty },
 		setError,
+		setValue,
 	} = useForm<ChangeVideoFormData>({
 		resolver: yupResolver(changeVideoFormSchema as yup.AnyObjectSchema),
 	})
 
-	useSetFieldValues(reset)
+	useSetFieldValues(reset, setValue)
 
 	const onSubmit = useGetOnUpdateVideoFormSubmit(setError, setFormStatus, setFormError)
 	const isFormDisabled = ['success', 'submitting'].includes(formStatus)

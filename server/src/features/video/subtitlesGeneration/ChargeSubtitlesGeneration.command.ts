@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { calculateSubtitlesGenerationPriceKopecks } from './calculateSubtitlesGenerationPriceKopecks'
 
 export class ChargeSubtitlesGenerationCommand implements ICommand {
 	constructor(
@@ -34,7 +35,11 @@ export class ChargeSubtitlesGenerationHandler implements ICommandHandler<ChargeS
 		const { pricePerSecondInKopecks } = this.mainConfig.get().deepgram
 		const { asrMarkupMultiplier } = this.mainConfig.get().generateSubtitles
 
-		const amountInKopecks = Math.max(1, Math.ceil(durationSec * pricePerSecondInKopecks * asrMarkupMultiplier))
+		const amountInKopecks = calculateSubtitlesGenerationPriceKopecks({
+			durationSec,
+			pricePerSecondInKopecks,
+			asrMarkupMultiplier,
+		})
 
 		await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
 		return amountInKopecks

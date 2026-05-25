@@ -1,6 +1,6 @@
 import React from 'react'
-import { CloseIcon } from 'ui/icons/CloseIcon'
-import { Flashcard_Get_MyDocument, useFlashcard_Remove } from '@/graphql/index'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
+import { Flashcard_Get_MyDocument, useFlashcard_Remove } from '@/graphql'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 
 type DeleteFlashcardButtonProps = {
@@ -29,7 +29,7 @@ function DeleteFlashcardButton(props: DeleteFlashcardButtonProps) {
 		}
 	}
 
-	return <Button icon={<CloseIcon />} size='big' onClick={handleDelete} disabled={loading} />
+	return <Button icon={<TrashButtonIcon />} size='big' onClick={handleDelete} disabled={loading} />
 }
 
 export default DeleteFlashcardButton

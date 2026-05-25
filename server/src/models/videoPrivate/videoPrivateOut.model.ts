@@ -41,6 +41,9 @@ export class VideoPrivateOutModel {
 	@Field(() => Int)
 	fileSizeMb: number
 
+	@Field(() => Int, { nullable: true })
+	fileDurationSec: null | number
+
 	@Field(() => Boolean)
 	freeToUse: boolean
 

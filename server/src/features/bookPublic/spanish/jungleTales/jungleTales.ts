@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_2 } from './chapter_2'
 import { chapter_3 } from './chapter_3'
@@ -24,8 +24,8 @@ export function jungleTalesBookData(coversFolderName: string) {
 
 Отдельный плюс — рассказы короткие. Можно читать по одному за раз и чувствовать завершённость, а не «тащить» длинный роман.
 
-Рекомендуемый уровень A2-B1 (Pre-intermediate / Intermediate)`,
-		languageCode: languages.es.code as Language,
+Рекомендуемый уровень A2-B1`,
+		languageCode: languages.es.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#475336',

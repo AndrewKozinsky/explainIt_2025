@@ -1,9 +1,9 @@
 import { Content, GoogleGenAI } from '@google/genai'
 import { Injectable } from '@nestjs/common'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
 import { GoogleGeminiModels } from 'types/googleGeminiModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 @Injectable()

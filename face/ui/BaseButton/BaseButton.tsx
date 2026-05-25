@@ -10,25 +10,29 @@ type BaseButtonProps = {
 	extraClass: string
 	current?: boolean
 	href?: string
+	type?: 'button' | 'submit' | 'reset'
 	style?: CSSProperties
 	children: React.ReactNode
 }
 
 function BaseButton(props: BaseButtonProps) {
-	const { theme = 'regular', extraClass, onClick, current, disabled, href, style, children } = props
+	const { theme = 'regular', extraClass, onClick, current, disabled, href, type, style, children } = props
 
-	const Tag = href ? Link : 'button'
+	const isDisabled = !!disabled || !!current
+	const className = cn('base-button', 'base-button--' + theme, extraClass, current && 'base-button--current')
+
+	if (!href || isDisabled) {
+		return (
+			<button className={className} disabled={isDisabled} style={style} onClick={onClick} type={type ?? 'button'}>
+				{children}
+			</button>
+		)
+	}
 
 	return (
-		<Tag
-			className={cn('base-button', 'base-button--' + theme, extraClass, current && 'base-button--current')}
-			disabled={disabled || current}
-			href={href ?? '/'}
-			style={style}
-			onClick={onClick}
-		>
+		<Link className={className} href={href} style={style} onClick={onClick}>
 			{children}
-		</Tag>
+		</Link>
 	)
 }
 

@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 import { chapter_10 } from './chapter_10'
 import { chapter_11 } from './chapter_11'
@@ -72,8 +72,8 @@ export function oliverTwistBookData(coversFolderName: string) {
 
 Книга подходит тем, кто хочет читать английскую классику и готов к более длинным описаниям и сложной лексике.
 
-Уровень B1-B2 (Intermediate / Upper-Intermediate).`,
-		languageCode: languages.en.code as Language,
+Уровень B1-B2.`,
+		languageCode: languages.en.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#343f3f',

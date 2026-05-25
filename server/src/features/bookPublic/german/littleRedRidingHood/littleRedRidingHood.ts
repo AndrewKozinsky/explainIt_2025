@@ -1,4 +1,4 @@
-import { Language, languages } from 'utils/languages'
+import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 
 export function littleRedRidingHoodBookData(coversFolderName: string) {
@@ -9,8 +9,8 @@ export function littleRedRidingHoodBookData(coversFolderName: string) {
 		name: 'Rotkäppchen',
 		note: `Классическая сказка про Красную Шапочку.
 Много диалогов помогающих изучать разговорные конструкции. Используется относительно простой и повторяющийся словарный запас. Сюжет хорошо известен, поэтому текст легче понимать даже с незнакомыми словами.
-Рекомендуемый уровень A2-B1 (Pre-intermediate / Intermediate)`,
-		languageCode: languages.de.code as Language,
+Рекомендуемый уровень A2-B1`,
+		languageCode: languages.de.code,
 		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#313B3C',

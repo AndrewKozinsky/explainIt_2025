@@ -77,6 +77,7 @@ export class VideoPrivateQueryRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
+			fileDurationSec: dbVideo.file_duration_sec,
 		}
 	}
 
@@ -97,6 +98,7 @@ export class VideoPrivateQueryRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
+			fileDurationSec: dbVideo.file_duration_sec,
 			freeToUse: false,
 		}
 

@@ -1,7 +1,6 @@
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+import { SectionWithHeader } from 'ui/SectionWithHeader/SectionWithHeader'
 import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
 import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
-import { SectionWithHeader } from '_pages/media/commonComponents/SectionWithHeader/SectionWithHeader'
 import { useBookStore } from '../bookStore'
 import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'

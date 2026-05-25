@@ -1,4 +1,4 @@
-import { filesUrls } from 'utils/filesUrls'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import Button from '../formRelated/buttons/Button/Button'
 import Modal from '../Modal/Modal'
 import Paragraph from '../Paragraph/Paragraph'
@@ -24,12 +24,7 @@ function DeleteEntityModal(props: DeleteBookModalProps) {
 	return (
 		<Modal header={modal.header} isOpen={isModalOpen} close={closeModal}>
 			<Paragraph fontSize='15'>{modal.content}</Paragraph>
-			<Button
-				theme='danger'
-				onClick={deleteEntity}
-				icon={filesUrls.icons.trashButtonIcon}
-				loading={isDeleteButtonLoading}
-			>
+			<Button type='button' theme='danger' onClick={deleteEntity} icon={<TrashButtonIcon />} loading={isDeleteButtonLoading}>
 				{modal.confirmButtonText}
 			</Button>
 		</Modal>

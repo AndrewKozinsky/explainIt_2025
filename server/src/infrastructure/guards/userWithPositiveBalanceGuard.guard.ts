@@ -1,5 +1,5 @@
 import { Injectable, CanActivate, ExecutionContext, Type, mixin } from '@nestjs/common'
-import { ErrorStatusCode } from 'src/infrastructure/exceptions/errorStatusCode'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { CustomError } from '../exceptions/customErrors'
 import { errorMessage } from '../exceptions/errorMessage'
 import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
