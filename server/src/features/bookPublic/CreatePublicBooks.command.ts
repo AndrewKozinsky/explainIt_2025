@@ -1,7 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { pinocchioBookData, pinocchioChapters } from 'src/features/bookPublic/italian/pinocchio/pinocchio'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -18,6 +17,7 @@ import {
 	theTransformationChapters,
 } from 'features/bookPublic/german/theTransformation/theTransformation'
 import { heartBookData, heartChapters } from 'features/bookPublic/italian/heart/heart'
+import { pinocchioBookData, pinocchioChapters } from 'features/bookPublic/italian/pinocchio/pinocchio'
 import { donQuixoteBookData, donQuixoteChapters } from 'features/bookPublic/spanish/donQuixote/donQuixote'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
@@ -34,6 +34,7 @@ import {
 	aStudyInScarletPartTwoBookData,
 	aStudyInScarletPartTwoChapters,
 } from './english/aStudyInScarletPartTwo/aStudyInScarletPartTwoBook'
+import { secretCluesBookData, secretCluesChapters } from './english/secretClues/secretCluesBook'
 import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './english/wizardOfOz/wizardOfOzBook'
 import {
@@ -85,7 +86,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 
 		return [
 			// English
-			{
+			/*{
 				book: wizardOfOzBookData(coversFolderName + 'english/'),
 				chapters: wizardOfOzChapters,
 			},
@@ -104,9 +105,13 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: aStudyInScarletPartTwoBookData(coversFolderName + 'english/'),
 				chapters: aStudyInScarletPartTwoChapters,
+			},*/
+			{
+				book: secretCluesBookData(coversFolderName + 'english/'),
+				chapters: secretCluesChapters,
 			},
 			// German
-			{
+			/*{
 				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
 			},
@@ -117,39 +122,39 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: processBookData(coversFolderName + 'german/'),
 				chapters: processChapters,
-			},
+			},*/
 			// Spanish
-			{
+			/*{
 				book: jungleTalesBookData(coversFolderName + 'spanish/'),
 				chapters: jungleTalesChapters,
 			},
 			{
 				book: donQuixoteBookData(coversFolderName + 'spanish/'),
 				chapters: donQuixoteChapters,
-			},
+			},*/
 			// French
-			{
+			/*{
 				book: theLittlePrinceBookData(coversFolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
 			},
 			{
 				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
-			},
+			},*/
 			// Italian
-			{
+			/*{
 				book: heartBookData(coversFolderName + 'italian/'),
 				chapters: heartChapters,
 			},
 			{
 				book: pinocchioBookData(coversFolderName + 'italian/'),
 				chapters: pinocchioChapters,
-			},
+			},*/
 			// Turkish
-			{
+			/*{
 				book: nasreddinHodjaStoriesBookData(coversFolderName + 'turkish/'),
 				chapters: nasreddinHodjaStoriesChapters,
-			},
+			},*/
 		]
 	}
 

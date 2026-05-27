@@ -660,6 +660,7 @@ export type SentenceOutModel = {
   grammarConcepts?: Maybe<Array<GrammarConceptOutModel>>;
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
+  missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   startOffset: Scalars['Int']['output'];
 };
 
@@ -1058,7 +1059,7 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -1635,6 +1636,10 @@ export const BookChapter_GetDocument = gql`
         order
         sourceLanguage
         targetLanguage
+      }
+      missingGrammarConcepts {
+        category
+        lemma
       }
     }
     book {

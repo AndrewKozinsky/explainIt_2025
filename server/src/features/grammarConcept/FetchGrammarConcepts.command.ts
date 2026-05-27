@@ -47,10 +47,16 @@ export class FetchGrammarConceptsHandler implements ICommandHandler<FetchGrammar
 			})
 
 			const foundIds = foundConcepts.map((c) => c.id)
-			const foundKeys = new Set(foundConcepts.map((c) => `${c.category}:${c.lemma}`))
 
 			const missingItems = concepts
-				.filter((c) => !foundKeys.has(`${c.category}:${c.lemma}`))
+				.filter(
+					(concept) =>
+						!foundConcepts.some(
+							(gc) =>
+								gc.category === concept.category &&
+								(gc.lemma === concept.lemma || gc.aliases.includes(concept.lemma)),
+						),
+				)
 				.map((c) => ({
 					sourceLanguage,
 					targetLanguage,

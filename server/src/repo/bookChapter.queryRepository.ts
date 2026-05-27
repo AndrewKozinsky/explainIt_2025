@@ -72,6 +72,7 @@ export class BookChapterQueryRepository {
 					Math.min(content.length, s.start_offset + Math.max(0, s.length)),
 				)
 				let grammarConcepts = null
+				let missingGrammarConcepts = null
 
 				if (targetLanguageCode) {
 					const us = await this.prisma.universalSentence.findUnique({
@@ -85,13 +86,21 @@ export class BookChapterQueryRepository {
 							GrammarConceptToUniversalSentence: {
 								include: { grammar_concept: true },
 							},
+							MissingGrammarConcept: {
+								where: { target_language_code: targetLanguageCode as any },
+								select: { category: true, lemma: true },
+							},
 						},
-					})
+					}) as any
 
 					if (us && us.status === 'SUCCESS') {
 						grammarConcepts = us.GrammarConceptToUniversalSentence.filter(
-							(j) => j.grammar_concept.target_language_code === targetLanguageCode,
-						).map((j) => this.grammarConceptQueryRepo.mapDbToOutModel(j.grammar_concept))
+							(j: any) => j.grammar_concept.target_language_code === targetLanguageCode,
+						).map((j: any) => this.grammarConceptQueryRepo.mapDbToOutModel(j.grammar_concept))
+						missingGrammarConcepts = us.MissingGrammarConcept.map((m: any) => ({
+							category: m.category,
+							lemma: m.lemma,
+						}))
 					}
 				}
 
@@ -100,6 +109,7 @@ export class BookChapterQueryRepository {
 					startOffset: s.start_offset,
 					length: s.length,
 					grammarConcepts,
+					missingGrammarConcepts,
 				}
 			}),
 		)

@@ -1,5 +1,6 @@
-import { readFileSync, readdirSync, existsSync } from 'fs'
+import { readFileSync, readdirSync, existsSync, writeFileSync } from 'fs'
 import { join, extname } from 'path'
+import { randomUUID } from 'crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import matter = require('gray-matter')
 import { PrismaService } from '../../db/prisma.service'
@@ -37,15 +38,31 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 		const mdxFiles = this.scanMdxFiles(contentDir)
 
 		const seenIds = new Set<string>()
+		const fileData: { file: string; frontmatter: MdxFrontmatter; lessonId: string }[] = []
 
+		// First pass: collect all data and generate missing UUIDs
 		for (const file of mdxFiles) {
 			const frontmatter = this.parseFrontmatter(file)
 			if (!frontmatter) continue
 
-			seenIds.add(frontmatter.lesson_id)
+			let lessonId = frontmatter.lesson_id
+			if (!lessonId) {
+				lessonId = randomUUID()
+				this.writeLessonIdToFile(file, lessonId)
+			}
+			seenIds.add(lessonId)
+			fileData.push({ file, frontmatter, lessonId })
+		}
 
-			await this.grammarConceptRepo.upsertByLessonId({
-				id: frontmatter.lesson_id,
+		// Delete records that no longer have corresponding files
+		if (seenIds.size > 0) {
+			await this.grammarConceptRepo.deleteNotInIds(Array.from(seenIds))
+		}
+
+		// Second pass: create or update records
+		for (const { frontmatter, lessonId } of fileData) {
+			const result = await this.grammarConceptRepo.upsertByLessonId({
+				id: lessonId,
 				sourceLanguageCode: frontmatter.sourceLanguage,
 				targetLanguageCode: frontmatter.targetLanguage,
 				category: frontmatter.category,
@@ -55,10 +72,8 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 				order: frontmatter.order,
 				aliases: frontmatter.aliases ?? [],
 			})
-		}
-
-		if (seenIds.size > 0) {
-			await this.grammarConceptRepo.deleteNotInIds(Array.from(seenIds))
+			// Track the actual DB id (may differ from file's lessonId if upsert matched by unique combo)
+			seenIds.add(result.id)
 		}
 
 		await this.resolveMissingConcepts()
@@ -99,7 +114,6 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 			const { data } = matter(raw)
 
 			if (
-				!data.lesson_id ||
 				!data.title ||
 				!data.slug ||
 				!data.category ||
@@ -111,7 +125,7 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 			}
 
 			return {
-				lesson_id: data.lesson_id,
+				lesson_id: data.lesson_id || '',
 				title: data.title,
 				slug: data.slug,
 				order: data.order ?? 0,
@@ -126,6 +140,12 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 		}
 	}
 
+	private writeLessonIdToFile(filePath: string, lessonId: string): void {
+		const raw = readFileSync(filePath, 'utf-8')
+		const updated = raw.replace(/lesson_id:\s*""/, `lesson_id: "${lessonId}"`)
+		writeFileSync(filePath, updated, 'utf-8')
+	}
+
 	private async resolveMissingConcepts(): Promise<void> {
 		const missingRecords = await this.prisma.missingGrammarConcept.findMany({
 			select: {
@@ -138,7 +158,9 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 			},
 		})
 
+		console.log(`[resolveMissingConcepts] Found ${missingRecords.length} missing concept(s)`)
 		for (const missing of missingRecords) {
+			console.log(`[resolveMissingConcepts] Looking for: source=${missing.source_language_code} target=${missing.target_language_code} category="${missing.category}" lemma="${missing.lemma}"`)
 			const grammarConcept = await this.prisma.grammarConcept.findFirst({
 				where: {
 					source_language_code: missing.source_language_code,
@@ -152,6 +174,7 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 			})
 
 			if (grammarConcept) {
+				console.log(`[resolveMissingConcepts] MATCHED: missing lemma="${missing.lemma}" → article "${grammarConcept.title}" (lemma="${grammarConcept.lemma}", id=${grammarConcept.id})`)
 				await this.prisma.$transaction([
 					this.prisma.grammarConceptToUniversalSentence.create({
 						data: {

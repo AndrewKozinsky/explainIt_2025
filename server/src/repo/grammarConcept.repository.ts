@@ -41,8 +41,32 @@ export class GrammarConceptRepository {
 		order: number
 		aliases: string[]
 	}): Promise<GrammarConceptServiceModel> {
-		const gc = await this.prisma.grammarConcept.upsert({
+		// If a record with this id exists but has different unique fields
+		// (e.g. category or lemma was changed in the file), delete it first.
+		const existingById = await this.prisma.grammarConcept.findUnique({
 			where: { id: dto.id },
+			select: { id: true, source_language_code: true, target_language_code: true, category: true, lemma: true },
+		})
+
+		if (
+			existingById &&
+			(existingById.source_language_code !== dto.sourceLanguageCode ||
+				existingById.target_language_code !== dto.targetLanguageCode ||
+				existingById.category !== dto.category ||
+				existingById.lemma !== dto.lemma)
+		) {
+			await this.prisma.grammarConcept.delete({ where: { id: dto.id } })
+		}
+
+		const gc = await this.prisma.grammarConcept.upsert({
+			where: {
+				source_language_code_target_language_code_category_lemma: {
+					source_language_code: dto.sourceLanguageCode as any,
+					target_language_code: dto.targetLanguageCode as any,
+					category: dto.category,
+					lemma: dto.lemma,
+				},
+			},
 			create: {
 				id: dto.id,
 				source_language_code: dto.sourceLanguageCode as any,
@@ -55,10 +79,6 @@ export class GrammarConceptRepository {
 				aliases: dto.aliases,
 			},
 			update: {
-				source_language_code: dto.sourceLanguageCode as any,
-				target_language_code: dto.targetLanguageCode as any,
-				category: dto.category,
-				lemma: dto.lemma,
 				title: dto.title,
 				slug: dto.slug,
 				order: dto.order,

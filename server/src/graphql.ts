@@ -309,6 +309,7 @@ export interface SentenceOutModel {
     startOffset: number;
     length: number;
     grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
+    missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
 }
 
 export interface BookPublicOutModel {

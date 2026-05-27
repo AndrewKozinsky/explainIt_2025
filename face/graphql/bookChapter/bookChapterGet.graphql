@@ -20,6 +20,10 @@ query BookChapter_get($input: GetBookChapterInput!) {
 					sourceLanguage
 					targetLanguage
 				}
+				missingGrammarConcepts {
+					category
+					lemma
+				}
 			}
 			book {
 				id

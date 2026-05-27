@@ -519,6 +519,7 @@ type SentenceOutModel {
   grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   startOffset: Int!
 }
 

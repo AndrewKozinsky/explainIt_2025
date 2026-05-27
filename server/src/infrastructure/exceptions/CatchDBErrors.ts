@@ -22,6 +22,7 @@ function CatchDbError() {
 			try {
 				return await originalMethod.apply(this, args)
 			} catch (error: unknown) {
+				console.error('[CatchDbError] Original error:', error)
 				throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 			}
 		}
