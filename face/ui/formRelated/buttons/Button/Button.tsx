@@ -34,11 +34,18 @@ function Button(props: ButtonProps) {
 	}
 
 	const buttonClasses = ['button', `button--size-${size}`, !children && icon && 'button--icon-only']
+	const buttonType = restProps.type || 'button'
 
 	let disabled = (props.disabled || loading) ?? false
 
 	return (
-		<BaseButton extraClass={cn(buttonClasses, extraClass)} disabled={disabled} theme={theme} onClick={onClick}>
+		<BaseButton
+			extraClass={cn(buttonClasses, extraClass)}
+			disabled={disabled}
+			theme={theme}
+			onClick={onClick}
+			type={buttonType}
+		>
 			<ButtonIcon icon={icon} disabled={disabled} />
 			{children}
 			{loading && <Spinner size='small' />}

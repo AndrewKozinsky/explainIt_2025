@@ -34,6 +34,10 @@
 Таблица UniversalPhrase — фразы на иностранном языке
 Таблица UniversalTranscription — транскрипции фраз на иностранном языке (зависит от UniversalPhrase)
 Таблица UniversalAudioPronunciation — озвучка фраз на иностранном языке (зависит от UniversalPhrase)
+Таблица GrammarConcept — грамматические концепты/статьи (синхронизируются с .mdx файлами в content/)
+Таблица UniversalSentence — тексты предложений для извлечения грамматических концептов
+Таблица MissingGrammarConcept — ненайденные грамматические концепты (для контент-райтеров)
+Таблица GrammarConceptToUniversalSentence — many-to-many связка GrammarConcept и UniversalSentence
 
 
 ## Как менять базу данных
@@ -130,9 +134,28 @@ export class MyService {
                 },
                 httpsAgent: this.httpsAgent,
                 proxy: false,
-            },
-         )
-        // ...
-    }
-}
-```
+	            },
+	         )
+	        // ...
+	    }
+	}
+	```
+
+	## Docker конфигурация
+
+	Docker-compose файлы не редактируются напрямую. Вместо этого используется генератор:
+
+	`infrastructure/docker-files-generator/src/createDockerConfig.ts`
+
+	Функция `createDockerConfig(mode: Mode)` принимает режим работы (`localtest`, `localdev`, `localcheckserver`, `serverdevelop`, `servermaster`) и возвращает объект конфигурации docker-compose.
+
+	Для добавления нового volume или сервиса нужно редактировать именно эту функцию, а затем сгенерировать docker-compose файл:
+
+	```bash
+	cd infrastructure/docker-files-generator
+	npm run build && npm run generate
+	```
+
+	Готовые docker-compose файлы находятся в корне проекта.
+
+	Если контент (например, `content/` или другие общие директории) должен быть доступен в нескольких контейнерах, volume монтирования нужно добавить в соответствующую секцию сервиса в `createDockerConfig.ts`.

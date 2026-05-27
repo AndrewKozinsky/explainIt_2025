@@ -5,14 +5,13 @@ import { BookChapterRepository } from 'repo/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPrivateRepository } from 'repo/bookPrivate.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
-// import { AnalysePhraseHandler } from 'features/bookChapter/AnalysePhrase.command'
 import { CreateBookChapterHandler } from 'features/bookChapter/CreateBookChapter.command'
 import { DeleteBookChapterHandler } from 'features/bookChapter/DeleteBookChapter.command'
 import { GetBookChapterHandler } from 'features/bookChapter/GetBookChapter.command'
-// import { TranslateSentencesHandler } from 'features/bookChapter/TranslateSentences.command'
 import { UpdateBookChapterHandler } from 'features/bookChapter/UpdateBookChapter.command'
 import { BookChapterResolver } from './bookChapter.resolver'
 
@@ -22,8 +21,6 @@ const commandHandlers = [
 	UpdateBookChapterHandler,
 	DeleteBookChapterHandler,
 	GetBookChapterHandler,
-	// AnalysePhraseHandler,
-	// TranslateSentencesHandler,
 ]
 const resolvers = [BookChapterResolver]
 const repositories = [
@@ -31,6 +28,7 @@ const repositories = [
 	BookPrivateQueryRepository,
 	BookChapterRepository,
 	BookChapterQueryRepository,
+	GrammarConceptQueryRepository,
 	UserRepository,
 	BookPublicRepository,
 	SentenceRepository,

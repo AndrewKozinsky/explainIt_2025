@@ -43,7 +43,7 @@ type BookPrivateOutModel {
 }
 
 type BookPublicOutModel {
-  author: String!
+  author: String
   chapters: [BookChapterLiteOutModel!]!
   coverBackgroundColor: String!
   covers: [String!]!
@@ -171,6 +171,12 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
+input FetchGrammarConceptsInput {
+  sentenceText: String!
+  sourceLanguage: String!
+  targetLanguage: String!
+}
+
 type FlashcardOutModel {
   bookPrivateId: Int
   bookPublicId: Int
@@ -201,6 +207,9 @@ input GetBookChapterInput {
 
   """BookChapter id"""
   id: Int!
+
+  """Target language to filter grammar concepts"""
+  targetLanguageCode: String
 }
 
 input GetBookPublicInput {
@@ -271,6 +280,17 @@ input GetUniversalPhraseInput {
   phrase: String!
 }
 
+type GrammarConceptOutModel {
+  category: String!
+  id: ID!
+  lemma: String!
+  order: Int!
+  slug: String!
+  sourceLanguage: String!
+  targetLanguage: String!
+  title: String!
+}
+
 type LanguageOutModel {
   code: String!
   nameEng: String!
@@ -291,6 +311,11 @@ input LoginWithOAuthInput {
 
   """Provider type: github, google, yandex"""
   providerType: String!
+}
+
+type MissingGrammarConceptOutModel {
+  category: String!
+  lemma: String!
 }
 
 type Mutation {
@@ -350,6 +375,11 @@ type Mutation {
 
   """Удалить карточку пользователя."""
   flashcard_remove(input: RemoveFlashcardInput!): Boolean!
+
+  """
+  Extract grammar concepts from a sentence using AI and link to available articles
+  """
+  grammar_concept_fetch(input: FetchGrammarConceptsInput!): UniversalSentenceOutModel!
 
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
@@ -486,6 +516,7 @@ type SentenceChatThreadOutModel {
 }
 
 type SentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
   startOffset: Int!
@@ -613,6 +644,15 @@ type UniversalPhraseOutModel {
   languageCode: String!
   phrase: String!
   transcription: TranscriptionOutModel
+}
+
+type UniversalSentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]!
+  id: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]!
+  sentenceText: String!
+  sourceLanguage: String!
+  status: String!
 }
 
 input UpdateBookChapterInput {

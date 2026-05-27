@@ -112,3 +112,23 @@ export type SentenceChatMessage = Prisma.SentenceChatMessageModel
  * 
  */
 export type Flashcard = Prisma.FlashcardModel
+/**
+ * Model GrammarConcept
+ * 
+ */
+export type GrammarConcept = Prisma.GrammarConceptModel
+/**
+ * Model UniversalSentence
+ * 
+ */
+export type UniversalSentence = Prisma.UniversalSentenceModel
+/**
+ * Model MissingGrammarConcept
+ * 
+ */
+export type MissingGrammarConcept = Prisma.MissingGrammarConceptModel
+/**
+ * Model GrammarConceptToUniversalSentence
+ * 
+ */
+export type GrammarConceptToUniversalSentence = Prisma.GrammarConceptToUniversalSentenceModel

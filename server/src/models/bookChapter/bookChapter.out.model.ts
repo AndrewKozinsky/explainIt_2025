@@ -1,5 +1,6 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 import { BookLiteOutModel } from '../book/book.out.model'
+import { GrammarConceptOutModel } from '../grammarConcept/grammarConcept.out.model'
 
 @ObjectType()
 export class BookChapterLiteOutModel {
@@ -56,4 +57,7 @@ export class SentenceOutModel {
 
 	@Field(() => Int)
 	length: number
+
+	@Field(() => [GrammarConceptOutModel], { nullable: true })
+	grammarConcepts: GrammarConceptOutModel[] | null
 }

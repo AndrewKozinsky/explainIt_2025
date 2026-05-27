@@ -18,6 +18,7 @@ export namespace BdConfig {
 
 	export type Field =
 		| IndexField
+		| UuidIndexField
 		| StringField
 		| DateStringField
 		| DateTimeField
@@ -36,6 +37,10 @@ export namespace BdConfig {
 
 	export type IndexField = {
 		type: 'index'
+	}
+
+	export type UuidIndexField = {
+		type: 'uuidIndex'
 	}
 
 	export type StringField = {
@@ -185,6 +190,7 @@ export namespace BdConfig {
 		relationField?: string // Optional name of relation field in Prisma model
 		foreignTable: string // Name of the table that this column refers to
 		foreignField: string // Name of the column of foreign table that this column refers to
+		foreignFieldType?: 'Int' | 'String' // Type of the foreign key column, defaults to 'Int'
 		onDelete?: OnDeleteAction
 		// Is the field required?
 		required: boolean

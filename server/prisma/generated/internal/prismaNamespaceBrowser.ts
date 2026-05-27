@@ -69,7 +69,11 @@ export const ModelName = {
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
-  Flashcard: 'Flashcard'
+  Flashcard: 'Flashcard',
+  GrammarConcept: 'GrammarConcept',
+  UniversalSentence: 'UniversalSentence',
+  MissingGrammarConcept: 'MissingGrammarConcept',
+  GrammarConceptToUniversalSentence: 'GrammarConceptToUniversalSentence'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -363,6 +367,56 @@ export const FlashcardScalarFieldEnum = {
 } as const
 
 export type FlashcardScalarFieldEnum = (typeof FlashcardScalarFieldEnum)[keyof typeof FlashcardScalarFieldEnum]
+
+
+export const GrammarConceptScalarFieldEnum = {
+  id: 'id',
+  source_language_code: 'source_language_code',
+  target_language_code: 'target_language_code',
+  category: 'category',
+  lemma: 'lemma',
+  title: 'title',
+  slug: 'slug',
+  order: 'order',
+  aliases: 'aliases'
+} as const
+
+export type GrammarConceptScalarFieldEnum = (typeof GrammarConceptScalarFieldEnum)[keyof typeof GrammarConceptScalarFieldEnum]
+
+
+export const UniversalSentenceScalarFieldEnum = {
+  id: 'id',
+  sentence_text: 'sentence_text',
+  source_language_code: 'source_language_code',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type UniversalSentenceScalarFieldEnum = (typeof UniversalSentenceScalarFieldEnum)[keyof typeof UniversalSentenceScalarFieldEnum]
+
+
+export const MissingGrammarConceptScalarFieldEnum = {
+  id: 'id',
+  universal_sentence_id: 'universal_sentence_id',
+  source_language_code: 'source_language_code',
+  target_language_code: 'target_language_code',
+  category: 'category',
+  lemma: 'lemma',
+  sentence_text: 'sentence_text',
+  created_at: 'created_at'
+} as const
+
+export type MissingGrammarConceptScalarFieldEnum = (typeof MissingGrammarConceptScalarFieldEnum)[keyof typeof MissingGrammarConceptScalarFieldEnum]
+
+
+export const GrammarConceptToUniversalSentenceScalarFieldEnum = {
+  id: 'id',
+  grammar_concept_id: 'grammar_concept_id',
+  universal_sentence_id: 'universal_sentence_id'
+} as const
+
+export type GrammarConceptToUniversalSentenceScalarFieldEnum = (typeof GrammarConceptToUniversalSentenceScalarFieldEnum)[keyof typeof GrammarConceptToUniversalSentenceScalarFieldEnum]
 
 
 export const SortOrder = {

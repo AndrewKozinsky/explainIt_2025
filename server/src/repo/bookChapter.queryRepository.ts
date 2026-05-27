@@ -3,6 +3,7 @@ import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookChapterOutModel } from '../models/bookChapter/bookChapter.out.model'
+import { GrammarConceptQueryRepository } from './grammarConcept.queryRepository'
 
 type FullBookChapter = Prisma.BookChapterGetPayload<{
 	include: {
@@ -20,10 +21,13 @@ type FullBookChapterPrivate = Omit<FullBookChapter, 'book'> & {
 
 @Injectable()
 export class BookChapterQueryRepository {
-	constructor(private prisma: PrismaService) {}
+	constructor(
+		private prisma: PrismaService,
+		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
+	) {}
 
 	@CatchDbError()
-	async getBookChapterById(id: number) {
+	async getBookChapterById(id: number, targetLanguageCode?: string) {
 		const bookChapter = await this.prisma.bookChapter.findUnique({
 			where: { id },
 			include: {
@@ -39,7 +43,7 @@ export class BookChapterQueryRepository {
 			return null
 		}
 
-		return this.mapDbBookChapterToOutBookChapter(bookChapter as FullBookChapterPrivate)
+		return this.mapDbBookChapterToOutBookChapter(bookChapter as FullBookChapterPrivate, targetLanguageCode)
 	}
 
 	/*@CatchDbError()
@@ -53,8 +57,52 @@ export class BookChapterQueryRepository {
 		return bookChapters.map((ch) => this.mapDbBookChapterToOutBookChapter(ch as FullBookChapterPrivate))
 	}*/
 
-	mapDbBookChapterToOutBookChapter(dbChapter: FullBookChapterPrivate): BookChapterOutModel {
+	async mapDbBookChapterToOutBookChapter(
+		dbChapter: FullBookChapterPrivate,
+		targetLanguageCode?: string,
+	): Promise<BookChapterOutModel> {
 		const book = dbChapter.book_public ? dbChapter.book_public : dbChapter.book
+		const sourceLanguageCode = book.source_language_code
+		const content = dbChapter.processed_content ?? ''
+
+		const sentences = await Promise.all(
+			dbChapter.Sentence.map(async (s) => {
+				const sentenceText = content.slice(
+					Math.max(0, s.start_offset),
+					Math.min(content.length, s.start_offset + Math.max(0, s.length)),
+				)
+				let grammarConcepts = null
+
+				if (targetLanguageCode) {
+					const us = await this.prisma.universalSentence.findUnique({
+						where: {
+							sentence_text_source_language_code: {
+								sentence_text: sentenceText.trim().replace(/\s+/g, ' '),
+								source_language_code: sourceLanguageCode,
+							},
+						},
+						include: {
+							GrammarConceptToUniversalSentence: {
+								include: { grammar_concept: true },
+							},
+						},
+					})
+
+					if (us && us.status === 'SUCCESS') {
+						grammarConcepts = us.GrammarConceptToUniversalSentence.filter(
+							(j) => j.grammar_concept.target_language_code === targetLanguageCode,
+						).map((j) => this.grammarConceptQueryRepo.mapDbToOutModel(j.grammar_concept))
+					}
+				}
+
+				return {
+					id: s.id,
+					startOffset: s.start_offset,
+					length: s.length,
+					grammarConcepts,
+				}
+			}),
+		)
 
 		return {
 			id: dbChapter.id,
@@ -62,16 +110,12 @@ export class BookChapterQueryRepository {
 			header: dbChapter.header,
 			originalContent: dbChapter.original_content,
 			processedContent: dbChapter.processed_content,
-			sentences: dbChapter.Sentence.map((s) => ({
-				id: s.id,
-				startOffset: s.start_offset,
-				length: s.length,
-			})),
+			sentences,
 			note: dbChapter.note,
 			book: {
 				id: book.id,
 				name: book.name,
-				languageCode: book.source_language_code,
+				languageCode: sourceLanguageCode,
 				author: book.author,
 				note: book.note,
 				userId: dbChapter.book_public ? null : dbChapter.book.user_id,

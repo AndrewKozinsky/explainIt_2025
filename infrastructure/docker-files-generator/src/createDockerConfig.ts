@@ -57,7 +57,9 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: isDev ? ['./server/src:/app/src', './server/e2e:/app/e2e'] : undefined,
+				volumes: isDev
+					? ['./server/src:/app/src', './server/e2e:/app/e2e', './content:/app/content']
+					: ['./content:/app/content'],
 				command: isDev ? 'npm run start:dev' : 'npm run start:prod',
 				container_name: 'explainserver' + mode,
 				depends_on: [postgresServiceName, nlpServiceName, redisServiceName],
@@ -84,7 +86,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
 				},
 				restart: 'unless-stopped',
-				volumes: isDev ? ['./face:/app', './face:/public'] : undefined,
+				volumes: isDev ? ['./face:/app', './face:/public', './content:/app/content'] : ['./content:/app/content'],
 				command: isDev ? 'npm run dev' : 'npm run start',
 				container_name: 'explainface' + mode,
 				depends_on: [postgresServiceName, serverServiceName],

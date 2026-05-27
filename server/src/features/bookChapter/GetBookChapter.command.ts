@@ -8,6 +8,7 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 type GetBookChapterInput = {
 	bookType: 'private' | 'public'
 	id: number
+	targetLanguageCode?: string
 }
 
 export class GetBookChapterCommand implements ICommand {
@@ -48,6 +49,9 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
-		return this.bookChapterQueryRepository.getBookChapterById(getBookChapter.id)
+		return this.bookChapterQueryRepository.getBookChapterById(
+			getBookChapter.id,
+			getBookChapterInput.targetLanguageCode,
+		)
 	}
 }

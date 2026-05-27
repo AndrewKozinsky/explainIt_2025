@@ -1,0 +1,22 @@
+mutation GrammarConcept_fetch($input: FetchGrammarConceptsInput!) {
+		grammar_concept_fetch(input: $input) {
+			id
+			sentenceText
+			sourceLanguage
+			status
+			grammarConcepts {
+				id
+				title
+				slug
+				category
+				lemma
+				order
+				sourceLanguage
+				targetLanguage
+			}
+			missingGrammarConcepts {
+				category
+				lemma
+			}
+		}
+	}

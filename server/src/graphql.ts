@@ -27,6 +27,7 @@ export interface GetBookPublicInput {
 export interface GetBookChapterInput {
     bookType: string;
     id: number;
+    targetLanguageCode?: Nullable<string>;
 }
 
 export interface GetPrivateVideoInput {
@@ -220,6 +221,12 @@ export interface RemoveFlashcardInput {
     flashcardId: number;
 }
 
+export interface FetchGrammarConceptsInput {
+    sentenceText: string;
+    sourceLanguage: string;
+    targetLanguage: string;
+}
+
 export interface UniversalAudioPronunciationOutModel {
     id: number;
     universalPhraseId: number;
@@ -253,6 +260,31 @@ export interface BookLiteOutModel {
     userId?: Nullable<number>;
 }
 
+export interface GrammarConceptOutModel {
+    id: string;
+    sourceLanguage: string;
+    targetLanguage: string;
+    category: string;
+    lemma: string;
+    title: string;
+    slug: string;
+    order: number;
+}
+
+export interface MissingGrammarConceptOutModel {
+    category: string;
+    lemma: string;
+}
+
+export interface UniversalSentenceOutModel {
+    id: number;
+    sentenceText: string;
+    sourceLanguage: string;
+    status: string;
+    grammarConcepts: GrammarConceptOutModel[];
+    missingGrammarConcepts: MissingGrammarConceptOutModel[];
+}
+
 export interface BookChapterLiteOutModel {
     id: number;
     bookId: number;
@@ -276,6 +308,7 @@ export interface SentenceOutModel {
     id: number;
     startOffset: number;
     length: number;
+    grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
 }
 
 export interface BookPublicOutModel {
@@ -581,6 +614,7 @@ export interface IMutation {
     create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
     flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
     flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
+    grammar_concept_fetch(input: FetchGrammarConceptsInput): UniversalSentenceOutModel | Promise<UniversalSentenceOutModel>;
 }
 
 type Nullable<T> = T | null;

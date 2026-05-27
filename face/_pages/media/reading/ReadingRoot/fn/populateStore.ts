@@ -92,10 +92,9 @@ function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId), bookType: bookType || 'private' } },
+		variables: { input: { id: parseInt(chapterId), bookType: bookType || 'private', targetLanguageCode: 'ru' } },
 		skip: !chapterId,
 	})
-
 	useEffect(
 		function () {
 			if (loading) {

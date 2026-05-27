@@ -53,6 +53,7 @@
 		"express-session": "^1.19.0",
 		"express-useragent": "^2.1.0",
 		"graphql": "^16.13.0",
+		"gray-matter": "^4.0.3",
 		"https-proxy-agent": "^9.0.0",
 		"ioredis": "^5.9.3",
 		"music-metadata": "^11.12.3",

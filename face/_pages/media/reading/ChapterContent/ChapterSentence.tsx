@@ -2,6 +2,7 @@ import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { SentenceLoading } from '_pages/media/reading/ChapterContent/SentenceStatus'
+import GrammarConceptLinks from '../../commonComponents/GrammarConceptLinks/GrammarConceptLinks'
 import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
@@ -13,10 +14,20 @@ type ChapterSentenceProps = {
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: string
+	onFetchGrammarConcepts: (sentenceId: number) => void
+	grammarLoading: boolean
 }
 
 function ChapterSentence(props: ChapterSentenceProps) {
-	const { sentence, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
+	const {
+		sentence,
+		selectedSentenceId,
+		selectedWordId,
+		selectWord,
+		languageCode,
+		onFetchGrammarConcepts,
+		grammarLoading,
+	} = props
 
 	return (
 		<div className='chapter-content__sentence'>
@@ -28,6 +39,12 @@ function ChapterSentence(props: ChapterSentenceProps) {
 				selectWord={selectWord}
 			/>
 			<SentenceDetails sentenceId={sentence.id} languageCode={languageCode} />
+			<GrammarConceptLinks
+				grammarConcepts={sentence.grammarConcepts}
+				missingGrammarConcepts={sentence.missingGrammarConcepts}
+				loading={grammarLoading}
+				onFetch={() => onFetchGrammarConcepts(sentence.id)}
+			/>
 		</div>
 	)
 }

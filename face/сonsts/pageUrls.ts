@@ -96,13 +96,13 @@ export const pageUrls = {
 		name: 'Словарь',
 		path: '/dictionary',
 	},
-	expressions: {
-		name: 'Выражения',
-		path: '/expressions',
-		article(articleSlug: string) {
+	grammar: {
+		name: 'Грамматика',
+		path: '/grammar',
+		article(sourceLanguage: string, category: string, slug: string) {
 			return {
-				name: 'Выражение',
-				path: '/expressions/' + articleSlug,
+				name: 'Грамматическая статья',
+				path: `/grammar/${sourceLanguage}/${category}/${slug}`,
 			}
 		},
 	},

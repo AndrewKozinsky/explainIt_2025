@@ -16,6 +16,15 @@ export function populateChapterStructure(chapter: {
 				id: number
 				startOffset: number
 				length: number
+				grammarConcepts?:
+					| null
+					| {
+							id: string
+							title: string
+							slug: string
+							category: string
+							sourceLanguage: string
+					  }[]
 		  }[]
 }): ChapterTextStructurePopulated.Chapter {
 	const content = chapter.content ?? ''
@@ -28,6 +37,8 @@ export function populateChapterStructure(chapter: {
 		return {
 			id: sentence.id,
 			sentence: content.slice(startOffset, endOffset),
+			grammarConcepts: sentence.grammarConcepts ?? null,
+			missingGrammarConcepts: [],
 		}
 	})
 

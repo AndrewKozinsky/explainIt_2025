@@ -99,3 +99,12 @@ export const SentenceChatMessageStatus = {
 } as const
 
 export type SentenceChatMessageStatus = (typeof SentenceChatMessageStatus)[keyof typeof SentenceChatMessageStatus]
+
+
+export const GrammarExtractionStatus = {
+  NOT_STARTED: 'NOT_STARTED',
+  ERROR: 'ERROR',
+  SUCCESS: 'SUCCESS'
+} as const
+
+export type GrammarExtractionStatus = (typeof GrammarExtractionStatus)[keyof typeof GrammarExtractionStatus]

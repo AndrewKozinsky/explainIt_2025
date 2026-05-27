@@ -12,4 +12,8 @@ export class GetBookChapterInput {
 	@Field(() => Int, { description: 'BookChapter id' })
 	@DtoFieldDecorators('id', bdConfig.BookChapter.dbFields.id, { type: 'number', required: true, min: 1 })
 	id: number
+
+	@Field(() => String, { nullable: true, description: 'Target language to filter grammar concepts' })
+	@DtoFieldDecorators('targetLanguageCode', bdConfig.GrammarConcept.dbFields.target_language_code, { type: 'enum', required: false })
+	targetLanguageCode?: string
 }
