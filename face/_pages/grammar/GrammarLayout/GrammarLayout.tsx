@@ -1,22 +1,22 @@
-import React from 'react'
-import Header from 'ui/Header/Header'
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import GrammarPageContent from '../GrammarPageContent/GrammarPageContent'
-import { pageUrls } from 'сonsts/pageUrls'
+// import React from 'react'
+// import Header from 'ui/Header/Header'
+// import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
+// import GrammarPageContent from '../GrammarPageContent/GrammarPageContent'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-type PageItemType = {
+/*type PageItemType = {
 	name: string
 	path: string
-}
+}*/
 
-type GrammarLayoutProps = {
+/*type GrammarLayoutProps = {
 	children: React.ReactNode
 	breadcrumbItems?: PageItemType[]
 	headerText?: string
-}
+}*/
 
-function GrammarLayout(props: GrammarLayoutProps) {
+/*function GrammarLayout(props: GrammarLayoutProps) {
 	const { children, breadcrumbItems = [], headerText = pageUrls.grammar.name } = props
 
 	return (
@@ -26,6 +26,6 @@ function GrammarLayout(props: GrammarLayoutProps) {
 			<GrammarPageContent>{children}</GrammarPageContent>
 		</PageContentWrapper>
 	)
-}
+}*/
 
-export default GrammarLayout
+// export default GrammarLayout

@@ -1,17 +1,17 @@
-'use client'
+// 'use client'
 
-import cn from 'classnames'
-import BaseButton from '@/ui/BaseButton/BaseButton'
-import { routesUtils } from '@/utils/routes'
-import './GrammarLink.scss'
+// import cn from 'classnames'
+// import BaseButton from '@/ui/BaseButton/BaseButton'
+// import { routesUtils } from '@/utils/routes'
+// import './GrammarLink.scss'
 
-type GrammarLinkProps = {
+/*type GrammarLinkProps = {
 	name?: null | string
 	subName?: null | string
 	href: string
-}
+}*/
 
-function GrammarLink(props: GrammarLinkProps) {
+/*function GrammarLink(props: GrammarLinkProps) {
 	const { name, subName, href } = props
 	const isCurrentPage = routesUtils.useIsCurrentPage(href)
 
@@ -26,6 +26,6 @@ function GrammarLink(props: GrammarLinkProps) {
 			<p className='grammar-link__name'>{name}</p>
 		</BaseButton>
 	)
-}
+}*/
 
-export default GrammarLink
+// export default GrammarLink

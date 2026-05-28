@@ -1,14 +1,14 @@
-import { SectionWithHeader } from '@/ui/SectionWithHeader/SectionWithHeader'
-import { getAllLessons } from '../fn/getAllLessons'
-import GrammarLink from '../GrammarLink/GrammarLink'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { SectionWithHeader } from '@/ui/SectionWithHeader/SectionWithHeader'
+// import { getAllLessons } from '../fn/getAllLessons'
+// import GrammarLink from '../GrammarLink/GrammarLink'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-type GrammarArticlesListProps = {
+/*type GrammarArticlesListProps = {
 	sourceLanguage: string
 	category: string
-}
+}*/
 
-export default async function GrammarArticlesList(props: GrammarArticlesListProps) {
+/*export default async function GrammarArticlesList(props: GrammarArticlesListProps) {
 	const { sourceLanguage, category } = props
 	const lessons = await getAllLessons(sourceLanguage, category)
 
@@ -26,4 +26,4 @@ export default async function GrammarArticlesList(props: GrammarArticlesListProp
 			))}
 		</SectionWithHeader>
 	)
-}
+}*/

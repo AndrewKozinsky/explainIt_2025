@@ -1,7 +1,7 @@
-import path from 'path'
+// import path from 'path'
 
-const CONTENT_DIR = path.join(process.cwd(), 'content')
+// const CONTENT_DIR = path.join(process.cwd(), 'content')
 
-export function getContentDir() {
+/*export function getContentDir() {
 	return CONTENT_DIR
-}
+}*/

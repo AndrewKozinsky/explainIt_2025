@@ -1,8 +1,8 @@
-import { SectionWithHeader } from '@/ui/SectionWithHeader/SectionWithHeader'
-import { getCategories } from '../fn/getCategories'
-import GrammarLink from '../GrammarLink/GrammarLink'
+// import { SectionWithHeader } from '@/ui/SectionWithHeader/SectionWithHeader'
+// import { getCategories } from '../fn/getCategories'
+// import GrammarLink from '../GrammarLink/GrammarLink'
 
-export default async function GrammarCategoriesList() {
+/*export default async function GrammarCategoriesList() {
 	const categories = await getCategories()
 
 	const bySourceLang = new Map<string, typeof categories>()
@@ -58,4 +58,4 @@ export default async function GrammarCategoriesList() {
 			))}
 		</div>
 	)
-}
+}*/
