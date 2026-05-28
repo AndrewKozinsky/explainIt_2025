@@ -112,6 +112,9 @@ export interface UpdatePrivateBookInput {
     name?: Nullable<string>;
     languageCode?: Nullable<string>;
     note?: Nullable<string>;
+    fileName?: Nullable<string>;
+    fileMimeType?: Nullable<string>;
+    isFileUploaded?: Nullable<boolean>;
 }
 
 export interface DeletePrivateBookInput {
@@ -248,6 +251,11 @@ export interface BookPrivateOutModel {
     note?: Nullable<string>;
     userId: number;
     freeToUse: boolean;
+    coverUrl?: Nullable<string>;
+    fileName?: Nullable<string>;
+    fileS3Key?: Nullable<string>;
+    isFileUploaded: boolean;
+    uploadUrl?: Nullable<string>;
     chapters: BookChapterLiteOutModel[];
 }
 

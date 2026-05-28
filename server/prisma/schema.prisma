@@ -58,6 +58,10 @@ model BookPrivate {
 	name	String?
 	source_language_code	LanguageCode
 	note	String?
+	file_name	String?
+	file_s3_key	String?
+	s3_provider_name	S3ProviderName?
+	is_file_uploaded	Boolean	@default(false)
 	BookChapter	BookChapter[]
 	Flashcard	Flashcard[]
 	created_at	DateTime	@default(now())

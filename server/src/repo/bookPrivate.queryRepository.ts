@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
+import { CloudRuS3Service } from '../infrastructure/cloudRuS3/cloudRuS3.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { BookPrivateOutModel } from '../models/book/book.out.model'
 
@@ -8,7 +9,10 @@ type BookWithChapters = Prisma.BookPrivateGetPayload<{ include: { BookChapter: t
 
 @Injectable()
 export class BookPrivateQueryRepository {
-	constructor(private prisma: PrismaService) {}
+	constructor(
+		private prisma: PrismaService,
+		private cloudRuS3Service: CloudRuS3Service,
+	) {}
 
 	@CatchDbError()
 	async getBookById(id: number) {
@@ -35,10 +39,12 @@ export class BookPrivateQueryRepository {
 			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 		})
 
-		return books.map(this.mapDbBookToOutBook)
+		return Promise.all(books.map((book) => this.mapDbBookToOutBook(book)))
 	}
 
-	mapDbBookToOutBook(dbBook: BookWithChapters): BookPrivateOutModel {
+	async mapDbBookToOutBook(dbBook: BookWithChapters): Promise<BookPrivateOutModel> {
+		const coverUrl = dbBook.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbBook.file_s3_key) : null
+
 		return {
 			id: dbBook.id,
 			author: dbBook.author,
@@ -47,6 +53,11 @@ export class BookPrivateQueryRepository {
 			userId: dbBook.user_id,
 			freeToUse: false,
 			languageCode: dbBook.source_language_code,
+			coverUrl,
+			uploadUrl: null,
+			fileName: dbBook.file_name,
+			fileS3Key: dbBook.file_s3_key,
+			isFileUploaded: dbBook.is_file_uploaded,
 			chapters: dbBook.BookChapter.map((chapter) => {
 				return {
 					id: chapter.id,

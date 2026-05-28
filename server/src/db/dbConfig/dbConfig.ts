@@ -192,7 +192,20 @@ export const bdConfig = {
 		},
 	},
 	BookPrivate: {
-		dtoProps: {},
+		dtoProps: {
+			fileName: {
+				type: 'string',
+				description: 'File name of the book cover',
+				required: false,
+				maxLength: 255,
+			},
+			fileMimeType: {
+				type: 'string',
+				description: 'File Mime Type of the book cover',
+				required: false,
+				maxLength: 50,
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
@@ -227,6 +240,34 @@ export const bdConfig = {
 				description: 'Note about the book',
 				required: false,
 				maxLength: 1000,
+			},
+			file_name: {
+				type: 'string',
+				description: 'Name of the book cover file',
+				required: false,
+				maxLength: 200,
+				example: 'cover.jpg',
+			},
+			file_s3_key: {
+				type: 'string',
+				description: 'S3 key of the book cover',
+				required: false,
+				maxLength: 1000,
+				example: 'privateBooksDev/cover.jpg',
+			},
+			s3_provider_name: {
+				type: 'enum',
+				enumName: 'S3ProviderName',
+				variants: s3ProviderName,
+				description: 'S3 provider name',
+				required: false,
+			},
+			is_file_uploaded: {
+				type: 'boolean',
+				default: false,
+				description: 'Is cover file was uploaded',
+				example: true,
+				required: true,
 			},
 			BookChapter: {
 				type: 'oneToMany',

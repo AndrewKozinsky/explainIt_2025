@@ -140,6 +140,10 @@ export const BookPrivateScalarFieldEnum = {
   name: 'name',
   source_language_code: 'source_language_code',
   note: 'note',
+  file_name: 'file_name',
+  file_s3_key: 'file_s3_key',
+  s3_provider_name: 's3_provider_name',
+  is_file_uploaded: 'is_file_uploaded',
   created_at: 'created_at'
 } as const
 
