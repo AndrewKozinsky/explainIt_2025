@@ -1,18 +1,18 @@
-import { LanguageCode } from 'utils/utils'
+// import { LanguageCode } from 'utils/utils'
 
-export type MediaItemsGridConfig = {
+/*export type MediaItemsGridConfig = {
 	privateItems: PrivateItem[]
 	publicItems: PublicItem[]
-}
+}*/
 
-export type PrivateItem = {
+/*export type PrivateItem = {
 	name?: null | string
 	subName?: null | number | string
 	url: string
 	freeToUse?: boolean
-}
+}*/
 
-export type PublicItem = {
+/*export type PublicItem = {
 	languageCode: LanguageCode
 	name: string
 	subName?: null | number | string
@@ -20,10 +20,10 @@ export type PublicItem = {
 	coverUrl: string
 	url: string
 	freeToUse?: boolean
-}
+}*/
 
-export type AddMediaButtonConfig = {
+/*export type AddMediaButtonConfig = {
 	onClick: () => void
 	loading: boolean
 	errorMessage: null | string
-}
+}*/

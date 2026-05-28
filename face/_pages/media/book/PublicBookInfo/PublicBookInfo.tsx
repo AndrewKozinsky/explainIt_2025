@@ -1,12 +1,12 @@
-import { SectionWithHeader } from 'ui/SectionWithHeader/SectionWithHeader'
-import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
-import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
-import { useBookStore } from '../bookStore'
-import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
-import './PublicBookInfo.scss'
+// import { SectionWithHeader } from 'ui/SectionWithHeader/SectionWithHeader'
+// import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
+// import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
+// import { useBookStore } from '../bookStore'
+// import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
+// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import './PublicBookInfo.scss'
 
-export default function PublicBookInfo() {
+/*export default function PublicBookInfo() {
 	const publicBook = useBookStore((s) => s.publicBook)
 
 	if (!publicBook.data) {
@@ -24,9 +24,9 @@ export default function PublicBookInfo() {
 			<PublicBookContentInfo />
 		</MenuAndContentContainer>
 	)
-}
+}*/
 
-function PublicBookChapters() {
+/*function PublicBookChapters() {
 	const publicBook = useBookStore((s) => s.publicBook)
 
 	const bookId = publicBook.data?.id
@@ -47,4 +47,4 @@ function PublicBookChapters() {
 	})
 
 	return <ChaptersList chapters={chaptersConfig} />
-}
+}*/

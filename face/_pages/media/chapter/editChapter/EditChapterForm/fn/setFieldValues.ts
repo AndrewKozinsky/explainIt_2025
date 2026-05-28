@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { useChapterStore } from '_pages/media/chapter/chapterStore'
+// import { useEffect } from 'react'
+// import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
-export function useSetFieldValues(reset: (data: any) => void) {
+/*export function useSetFieldValues(reset: (data: any) => void) {
 	const chapter = useChapterStore((s) => s.chapter.data)
 
 	useEffect(() => {
@@ -14,4 +14,4 @@ export function useSetFieldValues(reset: (data: any) => void) {
 			note: chapter.note ?? '',
 		})
 	}, [chapter, reset])
-}
+}*/

@@ -1,31 +1,31 @@
-import { useContext } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { Flashcard_Get_MyDocument, Flashcard_Get_My, useFlashcard_Add, useFlashcard_Remove } from '@/graphql'
-import { extractGraphQLError } from '@/graphql/extractGraphQLError'
-import { NotificationContext } from '@/ui/Notification/context'
-import { getTextByServerErrorMessage, getTextByUnknownError } from '@/utils/errorMessages'
-import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+// import { useContext } from 'react'
+// import { useUserStore } from 'stores/userStore'
+// import { Flashcard_Get_MyDocument, Flashcard_Get_My, useFlashcard_Add, useFlashcard_Remove } from '@/graphql'
+// import { extractGraphQLError } from '@/graphql/extractGraphQLError'
+// import { NotificationContext } from '@/ui/Notification/context'
+// import { getTextByServerErrorMessage, getTextByUnknownError } from '@/utils/errorMessages'
+// import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 
-type UseFlashCardButtonInput = {
+/*type UseFlashCardButtonInput = {
 	sentencePhraseId: number
 	flashcardId: null | number
-}
+}*/
 
-function getErrorMessage(error: unknown, fallbackMessage: string) {
+/*function getErrorMessage(error: unknown, fallbackMessage: string) {
 	const graphQLError = extractGraphQLError(error)
 
 	if (graphQLError?.message) return graphQLError.message
 	if (error instanceof Error && error.message) return getTextByUnknownError(error, fallbackMessage)
 
 	return fallbackMessage
-}
+}*/
 
-export type FlashCardButtonView =
+/*export type FlashCardButtonView =
 	| { state: 'hidden' }
 	| { state: 'add'; onClick: () => void; disabled: boolean }
-	| { state: 'remove'; onClick: () => void; disabled: boolean }
+	| { state: 'remove'; onClick: () => void; disabled: boolean }*/
 
-export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardButtonView {
+/*export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardButtonView {
 	const user = useUserStore((s) => s.user)
 	const { notify } = useContext(NotificationContext)
 	const setPhraseFlashcardId = useDetailsStore((s) => s.setPhraseFlashcardId)
@@ -155,4 +155,4 @@ export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardBut
 				})
 		},
 	}
-}
+}*/

@@ -1,7 +1,7 @@
-import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-import { useGetDeleteVideo } from '_pages/media/video/editPrivateVideo/DeleteVideoButton/fn/getDeleteVideo'
+// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+// import { useGetDeleteVideo } from '_pages/media/video/editPrivateVideo/DeleteVideoButton/fn/getDeleteVideo'
 
-function DeleteVideoButton() {
+/*function DeleteVideoButton() {
 	const { onDeleteVideoClick, status } = useGetDeleteVideo()
 
 	return (
@@ -16,6 +16,6 @@ function DeleteVideoButton() {
 			}}
 		/>
 	)
-}
+}*/
 
-export default DeleteVideoButton
+// export default DeleteVideoButton

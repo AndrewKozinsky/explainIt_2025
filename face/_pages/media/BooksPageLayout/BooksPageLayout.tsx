@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import React from 'react'
-import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
+// import React from 'react'
+// import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
 
-type LLMPageLayoutProps = {
+/*type LLMPageLayoutProps = {
 	children: React.ReactNode
-}
+}*/
 
-function BooksPageLayout(props: LLMPageLayoutProps) {
+/*function BooksPageLayout(props: LLMPageLayoutProps) {
 	const { children } = props
 
 	return (
@@ -15,6 +15,6 @@ function BooksPageLayout(props: LLMPageLayoutProps) {
 			{children}
 		</PageWrapper>
 	)
-}
+}*/
 
-export default BooksPageLayout
+// export default BooksPageLayout

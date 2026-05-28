@@ -1,14 +1,14 @@
-import cn from 'classnames'
-import { useDetailsStore } from '../detailsStore'
-import ReadingDetailsBlock from '../ReadingDetailsBlock/ReadingDetailsBlock'
-import WatchingDetailsBlock from '../WatchingDetailsBlock/WatchingDetailsBlock'
-import './DetailsBlockWrapper.scss'
+// import cn from 'classnames'
+// import { useDetailsStore } from '../detailsStore'
+// import ReadingDetailsBlock from '../ReadingDetailsBlock/ReadingDetailsBlock'
+// import WatchingDetailsBlock from '../WatchingDetailsBlock/WatchingDetailsBlock'
+// import './DetailsBlockWrapper.scss'
 
-type ViewRouterProps = {
+/*type ViewRouterProps = {
 	mediaType: 'reading' | 'watching'
-}
+}*/
 
-function DetailsBlockWrapper(props: ViewRouterProps) {
+/*function DetailsBlockWrapper(props: ViewRouterProps) {
 	const { mediaType } = props
 
 	const sentenceId = useDetailsStore((store) => store.currentSentenceId)
@@ -27,18 +27,18 @@ function DetailsBlockWrapper(props: ViewRouterProps) {
 			{mediaType === 'watching' && <WatchingDetailsBlock />}
 		</ContentWrapper>
 	)
-}
+}*/
 
-export default DetailsBlockWrapper
+// export default DetailsBlockWrapper
 
 // ------------
 
-type ContentWrapperProps = {
+/*type ContentWrapperProps = {
 	center?: boolean
 	children: React.ReactNode
-}
+}*/
 
-function ContentWrapper(props: ContentWrapperProps) {
+/*function ContentWrapper(props: ContentWrapperProps) {
 	const { center, children } = props
 
 	return (
@@ -46,8 +46,8 @@ function ContentWrapper(props: ContentWrapperProps) {
 			<div className='details-block-wrapper__scroll'>{children}</div>
 		</div>
 	)
-}
+}*/
 
-function InfoText({ children }: { children: React.ReactNode }) {
+/*function InfoText({ children }: { children: React.ReactNode }) {
 	return <p className='details-block-wrapper__text'>{children}</p>
-}
+}*/

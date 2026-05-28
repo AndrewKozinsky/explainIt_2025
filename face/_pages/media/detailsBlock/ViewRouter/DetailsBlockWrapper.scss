@@ -1,22 +1,22 @@
-@use "@/styles/variables" as vars;
-@use "@/styles/inherit" as inherit;
+//@use "@/styles/variables" as vars;
+//@use "@/styles/inherit" as inherit;
 
-.details-block-wrapper {
+/*.details-block-wrapper {
 	flex-grow: 1;
 	background-color: vars.$grayColor-1;
 	overflow: hidden;
 	border-radius: vars.$radius-2;
-}
+}*/
 
-.details-block-wrapper--center {
+/*.details-block-wrapper--center {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 5px;
-}
+}*/
 
-.details-block-wrapper__scroll {
+/*.details-block-wrapper__scroll {
 	max-height: 100%;
 	min-height: 100%;
 	overflow: auto;
@@ -24,11 +24,11 @@
 	padding: 1.5rem 1.5rem 0 1.5rem;
 	display: flex;
 	flex-direction: column;
-}
+}*/
 
-.details-block-wrapper__text {
+/*.details-block-wrapper__text {
 	font-size: 16px;
 	line-height: 24px;
 	color: vars.$grayColor-5;
 	text-align: center;
-}
+}*/

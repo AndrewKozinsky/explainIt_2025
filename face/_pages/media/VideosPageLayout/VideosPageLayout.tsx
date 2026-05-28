@@ -1,12 +1,12 @@
-'use client'
+// 'use client'
 
-import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
+// import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
 
-type LLMPageLayoutProps = {
+/*type LLMPageLayoutProps = {
 	children: React.ReactNode
-}
+}*/
 
-function VideosPageLayout(props: LLMPageLayoutProps) {
+/*function VideosPageLayout(props: LLMPageLayoutProps) {
 	const { children } = props
 
 	return (
@@ -14,6 +14,6 @@ function VideosPageLayout(props: LLMPageLayoutProps) {
 			{children}
 		</PageWrapper>
 	)
-}
+}*/
 
-export default VideosPageLayout
+// export default VideosPageLayout

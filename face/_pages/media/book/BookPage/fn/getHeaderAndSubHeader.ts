@@ -1,8 +1,8 @@
-import { useMemo } from 'react'
-import { useBookStore } from '_pages/media/book/bookStore'
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+// import { useMemo } from 'react'
+// import { useBookStore } from '_pages/media/book/bookStore'
+// import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 
-export function useGetHeaderAndSubHeader() {
+/*export function useGetHeaderAndSubHeader() {
 	const publicBook = useBookStore((s) => s.publicBook)
 	const privateBook = useBookStore((s) => s.privateBook)
 
@@ -29,4 +29,4 @@ export function useGetHeaderAndSubHeader() {
 		},
 		[publicBook, privateBook],
 	)
-}
+}*/

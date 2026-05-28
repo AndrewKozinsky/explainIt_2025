@@ -1,63 +1,63 @@
-@use '@/styles/variables' as vars;
+//@use '@/styles/variables' as vars;
 
-.media-items-grid {
+/*.media-items-grid {
 
-}
+}*/
 
-.media-items-grid__items-row {
+/*.media-items-grid__items-row {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr));
 	gap: 2rem;
-}
+}*/
 
-.media-items-grid__card {
+/*.media-items-grid__card {
 	overflow: hidden;
 	border-radius: vars.$radius-1;
-	/* background color comes from per-card CSS variable, fallback to regular button base */
+	!* background color comes from per-card CSS variable, fallback to regular button base *!
 	background-color: var(--media-card-bg, vars.$grayColor-1);
-}
+}*/
 
-.media-items-grid__card--private {
+/*.media-items-grid__card--private {
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
 	min-height: 20.5rem;
-}
+}*/
 
-.media-items-grid__card--public {
+/*.media-items-grid__card--public {
 	color: white;
 	border-width: 0;
-}
+}*/
 
-.media-items-grid__card-cover {
+/*.media-items-grid__card-cover {
 	width: 100%;
 	aspect-ratio: 2 / 1;
-}
+}*/
 
-.media-items-grid__card-text-wrapper {
+/*.media-items-grid__card-text-wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: .2rem;
 	padding: 1rem;
-}
+}*/
 
-.media-items-grid__card-sub-name, .media-items-grid__card-name {
+/*.media-items-grid__card-sub-name, .media-items-grid__card-name {
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-}
+}*/
 
-.media-items-grid__card-sub-name {
+/*.media-items-grid__card-sub-name {
 	font-size: 1.4rem;
 	line-height: 1.8rem;
-}
-.media-items-grid__card-name {
+}*/
+/*.media-items-grid__card-name {
 	font-size: 2rem;
 	line-height: 2.6rem;
 	font-weight: 400;
-}
+}*/
 
-.media-items-grid__add-button {
+/*.media-items-grid__add-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -68,8 +68,8 @@
 	&:hover {
 		color: vars.$grayColor-5;
 	}
-}
+}*/
 
-.media-items-grid__languages {
+/*.media-items-grid__languages {
 	margin: 4rem 0 2rem 0;
-}
+}*/

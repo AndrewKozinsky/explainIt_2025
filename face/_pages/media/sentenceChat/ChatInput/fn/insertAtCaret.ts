@@ -1,4 +1,4 @@
-export function computeInsertAtCaret(
+/*export function computeInsertAtCaret(
 	current: string,
 	textarea: HTMLTextAreaElement | null,
 	text: string,
@@ -14,12 +14,12 @@ export function computeInsertAtCaret(
 	const next = current.slice(0, start) + text + current.slice(end)
 	const caret = start + text.length
 	return { next, caret }
-}
+}*/
 
-export function applyCaret(textarea: HTMLTextAreaElement | null, caret: number) {
+/*export function applyCaret(textarea: HTMLTextAreaElement | null, caret: number) {
 	if (!textarea) return
 	try {
 		textarea.focus()
 		textarea.setSelectionRange(caret, caret)
 	} catch {}
-}
+}*/

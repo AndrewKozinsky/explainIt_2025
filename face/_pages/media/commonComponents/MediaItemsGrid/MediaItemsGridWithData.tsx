@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
-import LanguageSwitch from '@/ui/LanguageSwitch/LanguageSwitch'
-import { AddButton } from './AddButton'
-import MediaCard from './MediaCard'
-import { AddMediaButtonConfig, PrivateItem, PublicItem } from './types'
+// import React, { useState } from 'react'
+// import LanguageSwitch from '@/ui/LanguageSwitch/LanguageSwitch'
+// import { AddButton } from './AddButton'
+// import MediaCard from './MediaCard'
+// import { AddMediaButtonConfig, PrivateItem, PublicItem } from './types'
 
-type MediaItemsGridWithDataProps = {
+/*type MediaItemsGridWithDataProps = {
 	privateItems: PrivateItem[]
 	publicItems: PublicItem[]
 	addMediaButtonConfig: AddMediaButtonConfig
 	defaultMediaName: string
-}
+}*/
 
-function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
+/*function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
 	const { privateItems, publicItems, addMediaButtonConfig, defaultMediaName } = props
 
 	const languages = publicItems.map((item) => item.languageCode)
@@ -43,6 +43,6 @@ function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default MediaItemsGridWithData
+// export default MediaItemsGridWithData

@@ -1,13 +1,13 @@
-import React from 'react'
-import { SubtitlesGenerationStatus } from '@/graphql'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { useGenerateSubtitles } from './fn/useGenerateSubtitles'
+// import React from 'react'
+// import { SubtitlesGenerationStatus } from '@/graphql'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import { useGenerateSubtitles } from './fn/useGenerateSubtitles'
 
-type GenerateSubtitlesButtonProps = {
+/*type GenerateSubtitlesButtonProps = {
 	disabled?: boolean
-}
+}*/
 
-function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
+/*function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
 	const { disabled } = props
 	const { status, generationError, isGenerating, generate } = useGenerateSubtitles()
 
@@ -21,9 +21,9 @@ function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
 			{status === SubtitlesGenerationStatus.Failed && generationError && <p>{generationError}</p>}
 		</div>
 	)
-}
+}*/
 
-function getButtonText(status: SubtitlesGenerationStatus) {
+/*function getButtonText(status: SubtitlesGenerationStatus) {
 	if (status === SubtitlesGenerationStatus.Pending) {
 		return 'Ожидает обработки'
 	}
@@ -41,6 +41,6 @@ function getButtonText(status: SubtitlesGenerationStatus) {
 	}
 
 	return 'Сгенерировать субтитры'
-}
+}*/
 
-export default GenerateSubtitlesButton
+// export default GenerateSubtitlesButton

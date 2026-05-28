@@ -1,18 +1,18 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
-import { useChapterStore } from '../../chapterStore'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
+// import { getTextByUnknownError } from '@/utils/errorMessages'
+// import { useChapterStore } from '../../chapterStore'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
-export function usePopulateChapterStore() {
+/*export function usePopulateChapterStore() {
 	useSetBookToStore()
 	useFetchChapterAndSetToStore()
 	useClearDataOnUnmount()
-}
+}*/
 
-function useSetBookToStore() {
+/*function useSetBookToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
 	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
@@ -57,9 +57,9 @@ function useSetBookToStore() {
 		},
 		[bookType, privateBookData, privateBookError, privateBookLoading],
 	)
-}
+}*/
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
@@ -97,12 +97,12 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/
 
-function useClearDataOnUnmount() {
+/*function useClearDataOnUnmount() {
 	useEffect(function () {
 		return () => {
 			useChapterStore.getState().clearStore()
 		}
 	}, [])
-}
+}*/

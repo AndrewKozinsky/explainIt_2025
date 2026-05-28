@@ -6,6 +6,11 @@ mutation Book_update($input: UpdatePrivateBookInput!) {
 		languageCode
 		note
 		userId
+		coverUrl
+		uploadUrl
+		fileName
+		fileS3Key
+		isFileUploaded
 		chapters {
 			id
 			bookId

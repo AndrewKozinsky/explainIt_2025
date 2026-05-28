@@ -1,18 +1,18 @@
-'use client'
+// 'use client'
 
-import BaseButton from '@/ui/BaseButton/BaseButton'
-import { ChapterTextStructurePopulated } from '_pages/media/reading/readingStore'
-import { computeArticleUrl } from './computeArticleUrl'
-import './GrammarConceptLinks.scss'
+// import BaseButton from '@/ui/BaseButton/BaseButton'
+// import { ChapterTextStructurePopulated } from '_pages/media/reading/readingStore'
+// import { computeArticleUrl } from './computeArticleUrl'
+// import './GrammarConceptLinks.scss'
 
-type GrammarConceptLinksProps = {
+/*type GrammarConceptLinksProps = {
 	grammarConcepts: ChapterTextStructurePopulated.GrammarConceptData[] | null
 	missingGrammarConcepts: ChapterTextStructurePopulated.MissingGrammarConceptData[]
 	loading: boolean
 	onFetch: () => void
-}
+}*/
 
-export default function GrammarConceptLinks(props: GrammarConceptLinksProps) {
+/*export default function GrammarConceptLinks(props: GrammarConceptLinksProps) {
 	const { grammarConcepts, missingGrammarConcepts, loading, onFetch } = props
 
 	return (
@@ -53,4 +53,4 @@ export default function GrammarConceptLinks(props: GrammarConceptLinksProps) {
 			)}
 		</div>
 	)
-}
+}*/

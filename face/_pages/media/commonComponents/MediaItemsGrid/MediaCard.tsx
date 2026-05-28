@@ -1,7 +1,7 @@
-import cn from 'classnames'
-import BaseButton from 'ui/BaseButton/BaseButton'
+// import cn from 'classnames'
+// import BaseButton from 'ui/BaseButton/BaseButton'
 
-type MediaCardProps = {
+/*type MediaCardProps = {
 	type: 'private' | 'public'
 	name?: null | string
 	subName?: null | number | string
@@ -10,9 +10,9 @@ type MediaCardProps = {
 	backgroundColor?: string
 	defaultMediaName: string
 	freeToUse?: boolean
-}
+}*/
 
-function MediaCard(props: MediaCardProps) {
+/*function MediaCard(props: MediaCardProps) {
 	const { type, name, subName, url, coverUrl, backgroundColor, defaultMediaName } = props
 
 	return (
@@ -33,6 +33,6 @@ function MediaCard(props: MediaCardProps) {
 			</div>
 		</BaseButton>
 	)
-}
+}*/
 
-export default MediaCard
+// export default MediaCard

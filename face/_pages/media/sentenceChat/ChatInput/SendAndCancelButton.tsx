@@ -1,14 +1,14 @@
-import { filesUrls } from 'utils/filesUrls'
-import { useIsSendButtonDisabled } from './fn/isSendButtonDisabled'
+// import { filesUrls } from 'utils/filesUrls'
+// import { useIsSendButtonDisabled } from './fn/isSendButtonDisabled'
 
-type SendAndCancelButtonProps = {
+/*type SendAndCancelButtonProps = {
 	isGenerating: boolean
 	prompt: string
 	onSend: () => void
 	onCancel: () => void
-}
+}*/
 
-function SendAndCancelButton(props: SendAndCancelButtonProps) {
+/*function SendAndCancelButton(props: SendAndCancelButtonProps) {
 	const { isGenerating, onSend, onCancel, prompt } = props
 
 	const iconUrl = isGenerating ? filesUrls.icons.stopGenerationIcon : filesUrls.icons.sendMessageIcon
@@ -21,6 +21,6 @@ function SendAndCancelButton(props: SendAndCancelButtonProps) {
 			<img src={iconUrl} alt='send' />
 		</button>
 	)
-}
+}*/
 
-export default SendAndCancelButton
+// export default SendAndCancelButton

@@ -1,9 +1,9 @@
-import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
-import { bookConfig } from '../../commonComponents/bookConfig'
-import ChaptersList from '../../commonComponents/ChaptersList/ChaptersList'
-import { useBookStore } from '../bookStore'
+// import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
+// import { bookConfig } from '../../commonComponents/bookConfig'
+// import ChaptersList from '../../commonComponents/ChaptersList/ChaptersList'
+// import { useBookStore } from '../bookStore'
 
-function PrivateBookChapters() {
+/*function PrivateBookChapters() {
 	const privateBook = useBookStore((s) => s.privateBook)
 
 	const bookId = privateBook.data?.id
@@ -24,6 +24,6 @@ function PrivateBookChapters() {
 	})
 
 	return <ChaptersList chapters={chaptersConfig} />
-}
+}*/
 
-export default PrivateBookChapters
+// export default PrivateBookChapters

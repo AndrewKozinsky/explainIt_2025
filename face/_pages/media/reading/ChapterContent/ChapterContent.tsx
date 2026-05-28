@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { gql, useMutation } from '@apollo/client'
-import { useReadingStore } from '../readingStore'
-import ChapterSentence from './ChapterSentence'
-import './ChapterContent.scss'
+// import { useState } from 'react'
+// import { gql, useMutation } from '@apollo/client'
+// import { useReadingStore } from '../readingStore'
+// import ChapterSentence from './ChapterSentence'
+// import './ChapterContent.scss'
 
-const FETCH_GRAMMAR_CONCEPTS = gql`
+/*const FETCH_GRAMMAR_CONCEPTS = gql`
 	mutation fetchGrammarConcepts($input: FetchGrammarConceptsInput!) {
 		grammar_concept_fetch(input: $input) {
 			grammarConcepts {
@@ -23,9 +23,9 @@ const FETCH_GRAMMAR_CONCEPTS = gql`
 			}
 		}
 	}
-`
+`*/
 
-function ChapterContent() {
+/*function ChapterContent() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 	const selection = useReadingStore((state) => state.selection)
 	const selectWord = useReadingStore((state) => state.selectWord)
@@ -88,6 +88,6 @@ function ChapterContent() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default ChapterContent
+// export default ChapterContent

@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import BooksBreadCrumbs from '../BooksBreadCrumbs/BooksBreadCrumbs'
-import PrivateBookInfo from '../PrivateBookInfo/PrivateBookInfo'
-import PublicBookInfo from '../PublicBookInfo/PublicBookInfo'
-import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-import { usePopulateBookStore } from './fn/populateBooksStore'
+// import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
+// import BooksBreadCrumbs from '../BooksBreadCrumbs/BooksBreadCrumbs'
+// import PrivateBookInfo from '../PrivateBookInfo/PrivateBookInfo'
+// import PublicBookInfo from '../PublicBookInfo/PublicBookInfo'
+// import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+// import { usePopulateBookStore } from './fn/populateBooksStore'
 
-function BookPage() {
+/*function BookPage() {
 	usePopulateBookStore()
 	const { header, subHeader } = useGetHeaderAndSubHeader()
 
@@ -17,6 +17,6 @@ function BookPage() {
 			<PrivateBookInfo />
 		</MediaPageContentWrapper>
 	)
-}
+}*/
 
-export default BookPage
+// export default BookPage

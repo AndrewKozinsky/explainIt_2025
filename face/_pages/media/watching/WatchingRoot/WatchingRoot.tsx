@@ -1,17 +1,17 @@
-'use client'
+// 'use client'
 
-import { useRef } from 'react'
-import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
-import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
-import WatchingTop from '_pages/media/watching/WatchingTop/WatchingTop'
-import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
-import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
-import { usePopulateWatchingStore } from './fn/populateStore'
-import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
-import { TextContainer, VideoContainer } from './WatchingRootContent'
-import './WatchingRoot.scss'
+// import { useRef } from 'react'
+// import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
+// import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
+// import WatchingTop from '_pages/media/watching/WatchingTop/WatchingTop'
+// import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
+// import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+// import { usePopulateWatchingStore } from './fn/populateStore'
+// import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
+// import { TextContainer, VideoContainer } from './WatchingRootContent'
+// import './WatchingRoot.scss'
 
-function WatchingRoot() {
+/*function WatchingRoot() {
 	usePopulateWatchingStore()
 	useClearWatchingStoreOnUnmount()
 	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
@@ -31,6 +31,6 @@ function WatchingRoot() {
 			</main>
 		</RootSurface>
 	)
-}
+}*/
 
-export default WatchingRoot
+// export default WatchingRoot

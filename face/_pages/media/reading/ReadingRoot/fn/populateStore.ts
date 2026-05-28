@@ -1,24 +1,24 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import {
-	BookChapterOutModel,
-	BookPrivateOutModel,
-	useBook_Get,
-	useBook_GetBookPublic,
-	useBookChapter_Get,
-} from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
-import { useReadingStore } from '_pages/media/reading/readingStore'
-import { populateChapterStructure } from './populateChapterStructure'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import {
+// 	BookChapterOutModel,
+// 	BookPrivateOutModel,
+// 	useBook_Get,
+// 	useBook_GetBookPublic,
+// 	useBookChapter_Get,
+// } from '@/graphql'
+// import { getTextByUnknownError } from '@/utils/errorMessages'
+// import { useReadingStore } from '_pages/media/reading/readingStore'
+// import { populateChapterStructure } from './populateChapterStructure'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
-export function usePopulateReadingStore() {
+/*export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()
 	useFetchChapterAndSetToStore()
 	useCreatePopulatedChapterAndSetToStore()
-}
+}*/
 
-function useFetchBookAndSetToStore() {
+/*function useFetchBookAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
 	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
@@ -84,9 +84,9 @@ function useFetchBookAndSetToStore() {
 			publicBookLoading,
 		],
 	)
-}
+}*/
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
 	const chapterId = useParams().chapterId as string
@@ -127,9 +127,9 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, error, loading, chapterId],
 	)
-}
+}*/
 
-function useCreatePopulatedChapterAndSetToStore() {
+/*function useCreatePopulatedChapterAndSetToStore() {
 	const chapter = useReadingStore((s) => s.chapter)
 
 	useEffect(
@@ -149,4 +149,4 @@ function useCreatePopulatedChapterAndSetToStore() {
 		},
 		[chapter],
 	)
-}
+}*/

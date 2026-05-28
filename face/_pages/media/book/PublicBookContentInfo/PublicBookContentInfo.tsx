@@ -1,12 +1,12 @@
-import { useRouter } from 'next/navigation'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
-import { useBookStore } from '_pages/media/book/bookStore'
-import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
-import './PublicBookContentInfo.scss'
+// import { useRouter } from 'next/navigation'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
+// import { useBookStore } from '_pages/media/book/bookStore'
+// import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
+// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import './PublicBookContentInfo.scss'
 
-export default function PublicBookContentInfo() {
+/*export default function PublicBookContentInfo() {
 	const publicBook = useBookStore((s) => s.publicBook)
 
 	if (!publicBook.data) {
@@ -25,13 +25,13 @@ export default function PublicBookContentInfo() {
 			<PublicBookInfoActions bookUrl={firstChapterUrl} />
 		</div>
 	)
-}
+}*/
 
-type PublicBookInfoActionsProps = {
+/*type PublicBookInfoActionsProps = {
 	bookUrl: string
-}
+}*/
 
-function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
+/*function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 	const { bookUrl } = props
 
 	const router = useRouter()
@@ -48,4 +48,4 @@ function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 			</Button>
 		</div>
 	)
-}
+}*/

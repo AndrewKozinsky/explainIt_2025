@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
-import { UseFormReset, UseFormSetValue } from 'react-hook-form'
-import { useVideoPrivate_GetLazyQuery } from '@/graphql'
-import { useVideoStore } from '_pages/media/video/videoStore'
-import { ChangeVideoFormData } from '../fn/form'
+// import { useEffect } from 'react'
+// import { UseFormReset, UseFormSetValue } from 'react-hook-form'
+// import { useVideoPrivate_GetLazyQuery } from '@/graphql'
+// import { useVideoStore } from '_pages/media/video/videoStore'
+// import { ChangeVideoFormData } from '../fn/form'
 
-export function useSetFieldValues(
+/*export function useSetFieldValues(
 	reset: UseFormReset<ChangeVideoFormData>,
 	setValue: UseFormSetValue<ChangeVideoFormData>,
 ) {
@@ -35,4 +35,4 @@ export function useSetFieldValues(
 			setValue('content', video.originalContent ?? '')
 		}
 	}, [video, prevVideo, reset, setValue])
-}
+}*/

@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
-import { LanguageCode } from 'utils/utils'
-import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
-import { useVideosStore } from '../../videosStore'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import { useMemo } from 'react'
+// import { LanguageCode } from 'utils/utils'
+// import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+// import { useVideosStore } from '../../videosStore'
+// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-export function useGetContentConfig() {
+/*export function useGetContentConfig() {
 	const privateVideos = useVideosStore((s) => s.privateVideos)
 	const publicVideos = useVideosStore((s) => s.publicVideos)
 
@@ -62,4 +62,4 @@ export function useGetContentConfig() {
 		},
 		[privateVideos, publicVideos],
 	)
-}
+}*/

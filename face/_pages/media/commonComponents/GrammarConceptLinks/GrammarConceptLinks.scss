@@ -1,22 +1,22 @@
-@use '@/styles/variables' as vars;
+//@use '@/styles/variables' as vars;
 
-.grammar-concept-links {
+/*.grammar-concept-links {
 	margin-top: 0.5rem;
-}
+}*/
 
-.grammar-concept-links__fetch-button {
+/*.grammar-concept-links__fetch-button {
 	font-size: 1.4rem;
 	color: vars.$linkColor-2;
 	padding: 0.4rem 0;
-}
+}*/
 
-.grammar-concept-links__list {
+/*.grammar-concept-links__list {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 0.4rem;
-}
+}*/
 
-.grammar-concept-links__link {
+/*.grammar-concept-links__link {
 	font-size: 1.4rem;
 	color: vars.$linkColor-2;
 	padding: 0.3rem 0.8rem;
@@ -28,4 +28,4 @@
 		border-color: vars.$textColor;
 		opacity: 0.5;
 	}
-}
+}*/

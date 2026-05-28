@@ -1,13 +1,13 @@
-import React from 'react'
-import InfoBlock from 'ui/InfoBlock/InfoBlock'
-import { useChapterStore } from '_pages/media/chapter/chapterStore'
+// import React from 'react'
+// import InfoBlock from 'ui/InfoBlock/InfoBlock'
+// import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
-function YouWillLosePhrasesWarning() {
+/*function YouWillLosePhrasesWarning() {
 	const chapter = useChapterStore((s) => s.chapter.data)
 
 	if (!chapter?.originalContent) return null
 
 	return <InfoBlock type='warning'>При обновлении текста главы все переводы будут потеряны.</InfoBlock>
-}
+}*/
 
-export default YouWillLosePhrasesWarning
+// export default YouWillLosePhrasesWarning

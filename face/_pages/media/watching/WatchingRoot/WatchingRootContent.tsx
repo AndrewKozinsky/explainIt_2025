@@ -1,8 +1,8 @@
-import VideoPlayer from '_pages/media/watching/VideoPlayer/VideoPlayer'
-import TextRoot from '../text/TextRoot/TextRoot'
-import { useWatchingStore } from '../watchingStore'
+// import VideoPlayer from '_pages/media/watching/VideoPlayer/VideoPlayer'
+// import TextRoot from '../text/TextRoot/TextRoot'
+// import { useWatchingStore } from '../watchingStore'
 
-export function VideoContainer() {
+/*export function VideoContainer() {
 	const videoData = useWatchingStore((s) => s.video!.data)
 
 	if (!videoData.fileUrl) {
@@ -14,9 +14,9 @@ export function VideoContainer() {
 			<VideoPlayer />
 		</div>
 	)
-}
+}*/
 
-export function TextContainer() {
+/*export function TextContainer() {
 	const video = useWatchingStore((s) => s.video!.data)
 
 	if (!video.processedContent) {
@@ -28,4 +28,4 @@ export function TextContainer() {
 			<TextRoot />
 		</div>
 	)
-}
+}*/

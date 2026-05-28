@@ -1,14 +1,14 @@
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
-import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-import { SentenceLoading } from '_pages/media/reading/ChapterContent/SentenceStatus'
-import GrammarConceptLinks from '../../commonComponents/GrammarConceptLinks/GrammarConceptLinks'
-import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
-import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
-import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
-import { ChapterTextStructurePopulated } from '../readingStore'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+// import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+// import { SentenceLoading } from '_pages/media/reading/ChapterContent/SentenceStatus'
+// import GrammarConceptLinks from '../../commonComponents/GrammarConceptLinks/GrammarConceptLinks'
+// import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
+// import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
+// import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
+// import { ChapterTextStructurePopulated } from '../readingStore'
 
-type ChapterSentenceProps = {
+/*type ChapterSentenceProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
 	selectedSentenceId: null | number
 	selectedWordId: null | number
@@ -16,9 +16,9 @@ type ChapterSentenceProps = {
 	languageCode: string
 	onFetchGrammarConcepts: (sentenceId: number) => void
 	grammarLoading: boolean
-}
+}*/
 
-function ChapterSentence(props: ChapterSentenceProps) {
+/*function ChapterSentence(props: ChapterSentenceProps) {
 	const {
 		sentence,
 		selectedSentenceId,
@@ -47,16 +47,16 @@ function ChapterSentence(props: ChapterSentenceProps) {
 			/>
 		</div>
 	)
-}
+}*/
 
-export default ChapterSentence
+// export default ChapterSentence
 
-type SentenceDetailsProps = {
+/*type SentenceDetailsProps = {
 	sentenceId: number
 	languageCode: string
-}
+}*/
 
-function SentenceDetails(props: SentenceDetailsProps) {
+/*function SentenceDetails(props: SentenceDetailsProps) {
 	const { sentenceId, languageCode } = props
 
 	const sentenceEntry = useDetailsStore(function (s) {
@@ -91,4 +91,4 @@ function SentenceDetails(props: SentenceDetailsProps) {
 			<div className='chapter-content__separator' />
 		</div>
 	)
-}
+}*/

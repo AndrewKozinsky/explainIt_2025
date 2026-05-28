@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
-import { useTranscription_Create, Transcription_CreateHookResult } from '@/graphql'
-import { getCachedTranscription, upsertCachedTranscription } from './transcriptionCache'
-import { TranscriptionData } from './types'
+// import { useEffect, useState } from 'react'
+// import { useTranscription_Create, Transcription_CreateHookResult } from '@/graphql'
+// import { getCachedTranscription, upsertCachedTranscription } from './transcriptionCache'
+// import { TranscriptionData } from './types'
 
-type UseTranscriptionInput = {
+/*type UseTranscriptionInput = {
 	phraseId: number | null
 	phraseTranscription: { ipa?: string | null } | null
 	phrase: string
-}
+}*/
 
-type CreateTranscriptionFn = Transcription_CreateHookResult[0]
+// type CreateTranscriptionFn = Transcription_CreateHookResult[0]
 
-export function useTranscription({ phraseId, phraseTranscription, phrase }: UseTranscriptionInput) {
+/*export function useTranscription({ phraseId, phraseTranscription, phrase }: UseTranscriptionInput) {
 	const [transcription, setTranscription] = useState<TranscriptionData>({ status: 'loading' })
 	const [createTranscription] = useTranscription_Create()
 
@@ -52,17 +52,17 @@ export function useTranscription({ phraseId, phraseTranscription, phrase }: UseT
 	}, [phraseId, phraseTranscription, phrase])
 
 	return { transcription }
-}
+}*/
 
-type TranscriptionResult = { ok: true; ipa: string | null } | { ok: false }
+// type TranscriptionResult = { ok: true; ipa: string | null } | { ok: false }
 
 // Module-level cache that deduplicates concurrent `createTranscription` requests
 // for the same phraseId. Without this, two component instances mounting in
 // parallel both miss the transcription and race to create it — the second
 // request fails because the first has already created it.
-const transcriptionRequestCache = new Map<number, Promise<TranscriptionResult>>()
+// const transcriptionRequestCache = new Map<number, Promise<TranscriptionResult>>()
 
-function resolveTranscription(
+/*function resolveTranscription(
 	phraseId: number,
 	createTranscription: CreateTranscriptionFn,
 ): Promise<TranscriptionResult> {
@@ -85,4 +85,4 @@ function resolveTranscription(
 	})
 
 	return request
-}
+}*/

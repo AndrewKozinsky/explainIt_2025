@@ -1,7 +1,7 @@
-import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-import { PopulatedTextStructure } from '../../common/populatedTextStructure'
+// import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+// import { PopulatedTextStructure } from '../../common/populatedTextStructure'
 
-export function createPopulatedPlainText(
+/*export function createPopulatedPlainText(
 	videoData: VideoPrivateOutModel | VideoPublicOutModel,
 ): PopulatedTextStructure.Structure {
 	if (!videoData.processedContent || !videoData.sentences) {
@@ -24,4 +24,4 @@ export function createPopulatedPlainText(
 			}
 		}),
 	}
-}
+}*/

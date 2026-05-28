@@ -57,11 +57,16 @@ export type BookPrivateOutModel = {
   __typename?: 'BookPrivateOutModel';
   author?: Maybe<Scalars['String']['output']>;
   chapters: Array<BookChapterLiteOutModel>;
+  coverUrl?: Maybe<Scalars['String']['output']>;
+  fileName?: Maybe<Scalars['String']['output']>;
+  fileS3Key?: Maybe<Scalars['String']['output']>;
   freeToUse: Scalars['Boolean']['output'];
   id: Scalars['Int']['output'];
+  isFileUploaded: Scalars['Boolean']['output'];
   languageCode?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
+  uploadUrl?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
 };
 
@@ -809,8 +814,14 @@ export type UpdateBookChapterInput = {
 export type UpdatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
+  /** File mime type */
+  fileMimeType?: InputMaybe<Scalars['String']['input']>;
+  /** File name */
+  fileName?: InputMaybe<Scalars['String']['input']>;
   /** Book id */
   id: Scalars['Int']['input'];
+  /** Is file was upload to S3 */
+  isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
   /** Language code */
   languageCode?: InputMaybe<Scalars['String']['input']>;
   /** Name */
@@ -1087,19 +1098,19 @@ export type Book_GetVariables = Exact<{
 }>;
 
 
-export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, coverUrl?: string | null, fileName?: string | null, isFileUploaded: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, coverUrl?: string | null, fileName?: string | null, isFileUploaded: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Book_UpdateVariables = Exact<{
   input: UpdatePrivateBookInput;
 }>;
 
 
-export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, coverUrl?: string | null, uploadUrl?: string | null, fileName?: string | null, fileS3Key?: string | null, isFileUploaded: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBookPublicVariables = Exact<{
   input: GetBookPublicInput;
@@ -1821,6 +1832,9 @@ export const Book_GetDocument = gql`
     note
     userId
     freeToUse
+    coverUrl
+    fileName
+    isFileUploaded
     chapters {
       id
       bookId
@@ -1877,6 +1891,9 @@ export const Book_GetUserBooksDocument = gql`
     note
     userId
     freeToUse
+    coverUrl
+    fileName
+    isFileUploaded
     chapters {
       id
       bookId
@@ -1931,6 +1948,11 @@ export const Book_UpdateDocument = gql`
     languageCode
     note
     userId
+    coverUrl
+    uploadUrl
+    fileName
+    fileS3Key
+    isFileUploaded
     chapters {
       id
       bookId

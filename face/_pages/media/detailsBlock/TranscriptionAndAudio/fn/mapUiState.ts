@@ -1,19 +1,19 @@
-import { TranscriptionState } from 'ui/TranscriptionAndAudio/types'
-import { LanguageCode } from 'utils/utils'
+// import { TranscriptionState } from 'ui/TranscriptionAndAudio/types'
+// import { LanguageCode } from 'utils/utils'
 
-type TranscriptionInput = {
+/*type TranscriptionInput = {
 	status: string
 	ipa?: string | null
-}
+}*/
 
-type MapUiStateInput = {
+/*type MapUiStateInput = {
 	phrase: string
 	languageCode: LanguageCode
 	audioUrl: string | null
 	transcription: TranscriptionInput
-}
+}*/
 
-export function mapUiState(input: MapUiStateInput) {
+/*export function mapUiState(input: MapUiStateInput) {
 	const { phrase, languageCode, audioUrl, transcription } = input
 
 	return {
@@ -22,9 +22,9 @@ export function mapUiState(input: MapUiStateInput) {
 		audioUrl,
 		transcription: mapTranscription(transcription),
 	}
-}
+}*/
 
-export function mapTranscription(transcription: TranscriptionInput): TranscriptionState | null {
+/*export function mapTranscription(transcription: TranscriptionInput): TranscriptionState | null {
 	if (transcription.status === 'loading') {
 		return { status: 'loading' }
 	}
@@ -38,4 +38,4 @@ export function mapTranscription(transcription: TranscriptionInput): Transcripti
 	}
 
 	return null
-}
+}*/

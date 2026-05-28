@@ -1,12 +1,12 @@
-import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
-import { useDetailsStore } from '../detailsStore'
-import SentenceTranslationText from '../SentenceTranslationText/SentenceTranslationText'
+// import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+// import { useDetailsStore } from '../detailsStore'
+// import SentenceTranslationText from '../SentenceTranslationText/SentenceTranslationText'
 
-type CurrentSentenceTranslationProps = {
+/*type CurrentSentenceTranslationProps = {
 	bgColor: 'white' | 'gray'
-}
+}*/
 
-export function CurrentSentenceTranslation(props: CurrentSentenceTranslationProps) {
+/*export function CurrentSentenceTranslation(props: CurrentSentenceTranslationProps) {
 	const { bgColor } = props
 
 	const sentenceTranslation = useDetailsStore(function (s) {
@@ -22,4 +22,4 @@ export function CurrentSentenceTranslation(props: CurrentSentenceTranslationProp
 	}
 
 	return <SentenceTranslationText translation={sentenceTranslation} bgColor={bgColor} />
-}
+}*/

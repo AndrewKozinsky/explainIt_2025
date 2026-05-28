@@ -1,15 +1,15 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
-import {
-	SubtitlesGenerationStatus,
-	useVideoPrivate_GenerateSubtitles,
-	useVideoPrivate_GetSubtitlesGenerationStatus,
-	VideoPrivate_GetDocument,
-	VideoPrivate_GetUserVideosDocument,
-} from '@/graphql'
-import { NotificationContext } from '@/ui/Notification/context'
-import { useVideoStore } from '_pages/media/video/videoStore'
+// import { useCallback, useContext, useEffect, useState } from 'react'
+// import {
+// 	SubtitlesGenerationStatus,
+// 	useVideoPrivate_GenerateSubtitles,
+// 	useVideoPrivate_GetSubtitlesGenerationStatus,
+// 	VideoPrivate_GetDocument,
+// 	VideoPrivate_GetUserVideosDocument,
+// } from '@/graphql'
+// import { NotificationContext } from '@/ui/Notification/context'
+// import { useVideoStore } from '_pages/media/video/videoStore'
 
-export function useGenerateSubtitles() {
+/*export function useGenerateSubtitles() {
 	const { notify } = useContext(NotificationContext)
 	const video = useVideoStore((s) => s.privateVideo.data)
 	const [isPolling, setIsPolling] = useState(false)
@@ -86,4 +86,4 @@ export function useGenerateSubtitles() {
 		isGenerating,
 		generate,
 	}
-}
+}*/

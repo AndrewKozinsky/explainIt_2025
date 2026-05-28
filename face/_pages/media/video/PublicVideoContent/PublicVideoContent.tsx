@@ -1,12 +1,12 @@
-import { useRouter } from 'next/navigation'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
-import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
-import { useVideoStore } from '../videoStore'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
-import './PublicVideoContent.scss'
+// import { useRouter } from 'next/navigation'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
+// import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
+// import { useVideoStore } from '../videoStore'
+// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import './PublicVideoContent.scss'
 
-export default function PublicVideoContent() {
+/*export default function PublicVideoContent() {
 	const publicVideo = useVideoStore((s) => s.publicVideo)
 
 	if (!publicVideo.data) {
@@ -31,13 +31,13 @@ export default function PublicVideoContent() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-type PublicBookInfoActionsProps = {
+/*type PublicBookInfoActionsProps = {
 	videoUrl: string
-}
+}*/
 
-function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
+/*function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 	const { videoUrl } = props
 
 	const router = useRouter()
@@ -54,4 +54,4 @@ function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 			</Button>
 		</div>
 	)
-}
+}*/

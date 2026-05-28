@@ -1,16 +1,16 @@
-import { useEffect } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
-import { useBooksStore } from '_pages/media/books/booksStore'
+// import { useEffect } from 'react'
+// import { useUserStore } from 'stores/userStore'
+// import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
+// import { getTextByUnknownError } from '@/utils/errorMessages'
+// import { useBooksStore } from '_pages/media/books/booksStore'
 
 /** Наполняет Хранилище данными для начала работы */
-export function usePopulateBooksStore() {
+/*export function usePopulateBooksStore() {
 	useFetchPublicBooksAndSetToStore()
 	useFetchPrivateBooksAndSetToStore()
-}
+}*/
 
-function useFetchPublicBooksAndSetToStore() {
+/*function useFetchPublicBooksAndSetToStore() {
 	const { data, error, loading } = useBook_GetBooksPublic()
 
 	useEffect(
@@ -43,9 +43,9 @@ function useFetchPublicBooksAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/
 
-function useFetchPrivateBooksAndSetToStore() {
+/*function useFetchPrivateBooksAndSetToStore() {
 	const user = useUserStore((state) => state.user)
 
 	const { data, error, loading } = useBook_GetUserBooks({
@@ -83,4 +83,4 @@ function useFetchPrivateBooksAndSetToStore() {
 		},
 		[data, error, loading],
 	)
-}
+}*/

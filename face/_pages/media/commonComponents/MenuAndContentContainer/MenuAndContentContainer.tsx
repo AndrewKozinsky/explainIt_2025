@@ -1,12 +1,12 @@
-import React from 'react'
-import './MenuAndContentContainer.scss'
+// import React from 'react'
+// import './MenuAndContentContainer.scss'
 
-type MenuAndContentContainerProps = {
+/*type MenuAndContentContainerProps = {
 	leftMenu: React.ReactNode
 	children: React.ReactNode
-}
+}*/
 
-function MenuAndContentContainer(props: MenuAndContentContainerProps) {
+/*function MenuAndContentContainer(props: MenuAndContentContainerProps) {
 	const { leftMenu, children } = props
 
 	return (
@@ -15,6 +15,6 @@ function MenuAndContentContainer(props: MenuAndContentContainerProps) {
 			<aside className='menu-and-content-container__menu'>{leftMenu}</aside>
 		</div>
 	)
-}
+}*/
 
-export default MenuAndContentContainer
+// export default MenuAndContentContainer

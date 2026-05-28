@@ -1,15 +1,15 @@
-import React from 'react'
-import { UseFormRegisterReturn } from 'react-hook-form'
-import RadioGroup from 'ui/formRelated/RadioGroup/RadioGroup'
-import { useLanguage_Get_Languages } from '@/graphql'
+// import React from 'react'
+// import { UseFormRegisterReturn } from 'react-hook-form'
+// import RadioGroup from 'ui/formRelated/RadioGroup/RadioGroup'
+// import { useLanguage_Get_Languages } from '@/graphql'
 
-type LanguagesRadioGroupProps = {
+/*type LanguagesRadioGroupProps = {
 	value?: string
 	disabled?: boolean
 	inputProps: UseFormRegisterReturn<'languageCode'>
-}
+}*/
 
-function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
+/*function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 	const { value, disabled, inputProps } = props
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const { ref, ...restInputProps } = inputProps
@@ -30,6 +30,6 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 		.filter((lang) => lang.name !== 'ru')
 
 	return <RadioGroup label='Язык' direction='horizontal' config={config} name={inputProps.name} />
-}
+}*/
 
-export default LanguagesRadioGroup
+// export default LanguagesRadioGroup

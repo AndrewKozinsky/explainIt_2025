@@ -1,11 +1,11 @@
-import { useCallback, useContext, useState } from 'react'
-import { redirect } from 'next/navigation'
-import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import { NotificationContext } from '@/ui/Notification/context'
-import { languages } from '@/utils/utils'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import { useCallback, useContext, useState } from 'react'
+// import { redirect } from 'next/navigation'
+// import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+// import { NotificationContext } from '@/ui/Notification/context'
+// import { languages } from '@/utils/utils'
+// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-export function useGetAddVideoConfig() {
+/*export function useGetAddVideoConfig() {
 	const { notify } = useContext(NotificationContext)
 
 	const [loading, setLoading] = useState(false)
@@ -59,4 +59,4 @@ export function useGetAddVideoConfig() {
 		errorMessage,
 		onClick,
 	}
-}
+}*/

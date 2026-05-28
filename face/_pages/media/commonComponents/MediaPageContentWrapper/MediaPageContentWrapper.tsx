@@ -1,15 +1,15 @@
-import { ReactNode } from 'react'
-import Header from 'ui/Header/Header'
-import './MediaPageContentWrapper.scss'
+// import { ReactNode } from 'react'
+// import Header from 'ui/Header/Header'
+// import './MediaPageContentWrapper.scss'
 
-type MediaPageContentWrapperProps = {
+/*type MediaPageContentWrapperProps = {
 	breadCrumbs: ReactNode
 	header?: null | string
 	subHeader?: null | number | string
 	children: ReactNode
-}
+}*/
 
-function MediaPageContentWrapper(props: MediaPageContentWrapperProps) {
+/*function MediaPageContentWrapper(props: MediaPageContentWrapperProps) {
 	const { breadCrumbs, header, subHeader, children } = props
 
 	return (
@@ -24,6 +24,6 @@ function MediaPageContentWrapper(props: MediaPageContentWrapperProps) {
 			<div className='media-page-content-wrapper__content'>{children}</div>
 		</article>
 	)
-}
+}*/
 
-export default MediaPageContentWrapper
+// export default MediaPageContentWrapper

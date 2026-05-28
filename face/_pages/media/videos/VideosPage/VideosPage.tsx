@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import MediaItemsGrid from '_pages/media/commonComponents/MediaItemsGrid/MediaItemsGrid'
-import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import { videoConfig } from '_pages/media/commonComponents/videoConfig'
-import { useGetContentConfig } from './fn/getContentConfig'
-import { useGetAddVideoConfig } from './fn/getOnAddVideoClick'
-import { usePopulateVideosStore } from './fn/populateVideosStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import MediaItemsGrid from '_pages/media/commonComponents/MediaItemsGrid/MediaItemsGrid'
+// import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
+// import { videoConfig } from '_pages/media/commonComponents/videoConfig'
+// import { useGetContentConfig } from './fn/getContentConfig'
+// import { useGetAddVideoConfig } from './fn/getOnAddVideoClick'
+// import { usePopulateVideosStore } from './fn/populateVideosStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-function VideosPage() {
+/*function VideosPage() {
 	usePopulateVideosStore()
 
 	const contentConfig = useGetContentConfig()
@@ -26,6 +26,6 @@ function VideosPage() {
 			/>
 		</MediaPageContentWrapper>
 	)
-}
+}*/
 
-export default VideosPage
+// export default VideosPage

@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
-import MediaItemsGrid from '_pages/media/commonComponents/MediaItemsGrid/MediaItemsGrid'
-import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import { useGetContentConfig } from './fn/getContentConfig'
-import { useGetAddBookConfig } from './fn/getOnAddBookClick'
-import { usePopulateBooksStore } from './fn/populateBooksStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+// import MediaItemsGrid from '_pages/media/commonComponents/MediaItemsGrid/MediaItemsGrid'
+// import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
+// import { useGetContentConfig } from './fn/getContentConfig'
+// import { useGetAddBookConfig } from './fn/getOnAddBookClick'
+// import { usePopulateBooksStore } from './fn/populateBooksStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-function BooksPage() {
+/*function BooksPage() {
 	usePopulateBooksStore()
 
 	const contentConfig = useGetContentConfig()
@@ -26,6 +26,6 @@ function BooksPage() {
 			/>
 		</MediaPageContentWrapper>
 	)
-}
+}*/
 
-export default BooksPage
+// export default BooksPage

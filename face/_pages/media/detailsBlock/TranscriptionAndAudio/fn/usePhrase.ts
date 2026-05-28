@@ -1,30 +1,30 @@
-import { useEffect, useState } from 'react'
-import { LanguageCode } from 'utils/utils'
-import {
-	useUniversalPhrase_GetLazyQuery,
-	useUniversalPhrase_Create,
-	UniversalPhrase_GetLazyQueryHookResult,
-	UniversalPhrase_CreateHookResult,
-} from '@/graphql'
-import { Status } from './types'
+// import { useEffect, useState } from 'react'
+// import { LanguageCode } from 'utils/utils'
+// import {
+// 	useUniversalPhrase_GetLazyQuery,
+// 	useUniversalPhrase_Create,
+// 	UniversalPhrase_GetLazyQueryHookResult,
+// 	UniversalPhrase_CreateHookResult,
+// } from '@/graphql'
+// import { Status } from './types'
 
-type PhraseData = {
+/*type PhraseData = {
 	id: number
 	transcription?: { ipa?: string | null } | null
 	audioPronunciation?: { audioUrl: string } | null
-}
+}*/
 
-type GetPhraseFn = UniversalPhrase_GetLazyQueryHookResult[0]
-type CreatePhraseFn = UniversalPhrase_CreateHookResult[0]
+// type GetPhraseFn = UniversalPhrase_GetLazyQueryHookResult[0]
+// type CreatePhraseFn = UniversalPhrase_CreateHookResult[0]
 
-export type PhraseResult = {
+/*export type PhraseResult = {
 	status: Status
 	phraseId: number | null
 	phraseTranscription: { ipa?: string | null } | null
 	phraseAudioUrl: string | null
-}
+}*/
 
-export function usePhrase(phrase: string, languageCode: LanguageCode): PhraseResult {
+/*export function usePhrase(phrase: string, languageCode: LanguageCode): PhraseResult {
 	const [status, setStatus] = useState<Status>('loading')
 	const [phraseId, setPhraseId] = useState<number | null>(null)
 	const [phraseTranscription, setPhraseTranscription] = useState<{ ipa?: string | null } | null>(null)
@@ -60,14 +60,14 @@ export function usePhrase(phrase: string, languageCode: LanguageCode): PhraseRes
 	}, [phrase, languageCode])
 
 	return { status, phraseId, phraseTranscription, phraseAudioUrl }
-}
+}*/
 
 // Module-level cache that deduplicates concurrent requests for the same phrase.
 // Multiple component instances (or remounts of the same component) share a single
 // in-flight promise, so the server never receives duplicate `createPhrase` calls.
-const phraseRequestCache = new Map<string, Promise<PhraseData | null>>()
+// const phraseRequestCache = new Map<string, Promise<PhraseData | null>>()
 
-function resolvePhrase(
+/*function resolvePhrase(
 	phrase: string,
 	languageCode: LanguageCode,
 	getPhrase: GetPhraseFn,
@@ -94,9 +94,9 @@ function resolvePhrase(
 	)
 
 	return request
-}
+}*/
 
-async function fetchPhrase(
+/*async function fetchPhrase(
 	phrase: string,
 	languageCode: LanguageCode,
 	getPhrase: GetPhraseFn,
@@ -110,9 +110,9 @@ async function fetchPhrase(
 	} catch {
 		return null
 	}
-}
+}*/
 
-async function createNewPhrase(
+/*async function createNewPhrase(
 	phrase: string,
 	languageCode: LanguageCode,
 	createPhrase: CreatePhraseFn,
@@ -125,4 +125,4 @@ async function createNewPhrase(
 	} catch {
 		return null
 	}
-}
+}*/

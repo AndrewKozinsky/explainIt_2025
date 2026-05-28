@@ -1,12 +1,12 @@
-import SentenceBlock from '_pages/media/commonComponents/SentenceBlock/SentenceBlock'
-import { useGetShowingMediaType } from '_pages/media/detailsBlock/DetailsBlock/fn/populateStore'
-import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
-import { useReadingStore } from '_pages/media/reading/readingStore'
-import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import { useDetailsStore } from '../detailsStore'
-import './SelectedSentence.scss'
+// import SentenceBlock from '_pages/media/commonComponents/SentenceBlock/SentenceBlock'
+// import { useGetShowingMediaType } from '_pages/media/detailsBlock/DetailsBlock/fn/populateStore'
+// import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+// import { useReadingStore } from '_pages/media/reading/readingStore'
+// import { useWatchingStore } from '_pages/media/watching/watchingStore'
+// import { useDetailsStore } from '../detailsStore'
+// import './SelectedSentence.scss'
 
-export function CurrentSentence() {
+/*export function CurrentSentence() {
 	const mediaType = useGetShowingMediaType()
 
 	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
@@ -43,4 +43,4 @@ export function CurrentSentence() {
 			loading={sentenceAnalysisLoading}
 		/>
 	)
-}
+}*/

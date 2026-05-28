@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import { useReadingStore } from '_pages/media/reading/readingStore'
-import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import { useDetailsStore } from '../../detailsStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { usePathname } from 'next/navigation'
+// import { useReadingStore } from '_pages/media/reading/readingStore'
+// import { useWatchingStore } from '_pages/media/watching/watchingStore'
+// import { useDetailsStore } from '../../detailsStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-export function useInitStore() {
+/*export function useInitStore() {
 	const mediaType = useGetShowingMediaType()
 
 	const bookName = useReadingStore((s) => s.book?.data?.name)
@@ -45,17 +45,17 @@ export function useInitStore() {
 		},
 		[videoName, videoYear, videoLanguageCode, mediaType],
 	)
-}
+}*/
 
-type ApplySelectionInput = {
+/*type ApplySelectionInput = {
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
 	videoYear: null | string | number
 	languageCode: null | string
-}
+}*/
 
-function applySelectionToDetailsStore(input: ApplySelectionInput) {
+/*function applySelectionToDetailsStore(input: ApplySelectionInput) {
 	const store = useDetailsStore.getState()
 
 	store.updateStore({
@@ -65,9 +65,9 @@ function applySelectionToDetailsStore(input: ApplySelectionInput) {
 		videoYear: input.videoYear,
 		languageCode: input.languageCode,
 	})
-}
+}*/
 
-export function useGetShowingMediaType() {
+/*export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
-}
+}*/

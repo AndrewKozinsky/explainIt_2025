@@ -1,10 +1,10 @@
-import { useMemo } from 'react'
-import { LanguageCode } from 'utils/utils'
-import { useBooksStore } from '_pages/media/books/booksStore'
-import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+// import { useMemo } from 'react'
+// import { LanguageCode } from 'utils/utils'
+// import { useBooksStore } from '_pages/media/books/booksStore'
+// import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-export function useGetContentConfig() {
+/*export function useGetContentConfig() {
 	const privateBooks = useBooksStore((s) => s.privateBooks)
 	const publicBooks = useBooksStore((s) => s.publicBooks)
 
@@ -63,4 +63,4 @@ export function useGetContentConfig() {
 		},
 		[privateBooks, publicBooks],
 	)
-}
+}*/

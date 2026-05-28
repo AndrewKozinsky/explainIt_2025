@@ -1,13 +1,13 @@
-import { useEffect } from 'react'
-import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
-import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
-import { getTextByUnknownError } from '@/utils/errorMessages'
-import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
-import { findSentenceEntry } from './selectors'
-import { offsetsFromWordIds } from './wordSegmentation'
+// import { useEffect } from 'react'
+// import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
+// import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
+// import { getTextByUnknownError } from '@/utils/errorMessages'
+// import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+// import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
+// import { findSentenceEntry } from './selectors'
+// import { offsetsFromWordIds } from './wordSegmentation'
 
-export function useFetchCurrentPhraseTranslation() {
+/*export function useFetchCurrentPhraseTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
@@ -83,9 +83,9 @@ export function useFetchCurrentPhraseTranslation() {
 		},
 		[currentSentenceId, currentSentenceText, currentWordId],
 	)
-}
+}*/
 
-type RunFetchForPhraseInput = {
+/*type RunFetchForPhraseInput = {
 	sentenceId: number
 	sentenceText: string
 	phraseId: string
@@ -98,9 +98,9 @@ type RunFetchForPhraseInput = {
 	languageCode: null | string
 	getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
 	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
-}
+}*/
 
-async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
+/*async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 	try {
 		const phrase = await getOrCreatePhraseTranslation(input)
 
@@ -119,9 +119,9 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 			},
 		})
 	}
-}
+}*/
 
-async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhrase> {
+/*async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhrase> {
 	const existing = await input.getPhraseTranslation({
 		variables: {
 			input: {
@@ -172,4 +172,4 @@ async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Prom
 		sentenceText: input.sentenceText,
 		languageCode: input.languageCode,
 	})
-}
+}*/

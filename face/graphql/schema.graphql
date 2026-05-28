@@ -34,11 +34,16 @@ type BookLiteOutModel {
 type BookPrivateOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
+  coverUrl: String
+  fileName: String
+  fileS3Key: String
   freeToUse: Boolean!
   id: Int!
+  isFileUploaded: Boolean!
   languageCode: String
   name: String
   note: String
+  uploadUrl: String
   userId: Int!
 }
 
@@ -677,8 +682,17 @@ input UpdatePrivateBookInput {
   """Author"""
   author: String
 
+  """File mime type"""
+  fileMimeType: String
+
+  """File name"""
+  fileName: String
+
   """Book id"""
   id: Int!
+
+  """Is file was upload to S3"""
+  isFileUploaded: Boolean
 
   """Language code"""
   languageCode: String

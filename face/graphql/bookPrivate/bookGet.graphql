@@ -7,6 +7,9 @@ query Book_get($input: GetPrivateBookInput!) {
 		note
 		userId
 		freeToUse
+		coverUrl
+		fileName
+		isFileUploaded
 		chapters {
 			id
 			bookId

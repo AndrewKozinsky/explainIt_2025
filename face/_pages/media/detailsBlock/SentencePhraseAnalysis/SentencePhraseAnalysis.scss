@@ -1,36 +1,36 @@
-@use "@/styles/variables" as vars;
+//@use "@/styles/variables" as vars;
 
-.sentence-phrase-analysis {
+/*.sentence-phrase-analysis {
 	display: grid;
 	gap: .6rem;
-}
+}*/
 
-.sentence-phrase-analysis__top {
+/*.sentence-phrase-analysis__top {
 	display: flex;
 	align-items: baseline;
 	gap: .8rem;
-}
+}*/
 
-.sentence-phrase-analysis__top-content {
+/*.sentence-phrase-analysis__top-content {
 	flex-grow: 1;
 	font-size: 2.2rem;
 	line-height: 3rem;
-}
+}*/
 
-.sentence-phrase-analysis__analysis-phrase {
+/*.sentence-phrase-analysis__analysis-phrase {
 	font-weight: 600;
-}
+}*/
 
-.sentence-phrase-analysis__analysis-phrase-translate {
-}
+/*.sentence-phrase-analysis__analysis-phrase-translate {
+}*/
 
-.sentence-phrase-analysis__example {
+/*.sentence-phrase-analysis__example {
 	font-size: 1.8rem;
 	line-height: 2.6rem;
 	padding-left: 1.5rem;
-}
+}*/
 
-.sentence-phrase-analysis__flash-button {
+/*.sentence-phrase-analysis__flash-button {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -40,21 +40,21 @@
 	cursor: pointer;
 	transition: background-color .25s, transform .25s;
 	border-radius: 50%;
-}
+}*/
 
-.sentence-phrase-analysis__flash-button--add {
+/*.sentence-phrase-analysis__flash-button--add {
 	background-color: vars.$grayColor-4;
 
 	&:hover {
 		background-color: vars.$grayColor-5;
 	}
-}
+}*/
 
-.sentence-phrase-analysis__flash-button--remove {
+/*.sentence-phrase-analysis__flash-button--remove {
 	background-color: vars.$accentColor-2;
 	transform: rotate(45deg);
 
 	&:hover {
 		background-color: vars.$accentColor-3;
 	}
-}
+}*/

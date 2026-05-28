@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
-import { useReadingStore } from '_pages/media/reading/readingStore'
-import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import { useDetailsStore } from '../../detailsStore'
-import { pageUrls } from 'сonsts/pageUrls'
+// import { useEffect } from 'react'
+// import { usePathname } from 'next/navigation'
+// import { useReadingStore } from '_pages/media/reading/readingStore'
+// import { useWatchingStore } from '_pages/media/watching/watchingStore'
+// import { useDetailsStore } from '../../detailsStore'
+// import { pageUrls } from 'сonsts/pageUrls'
 
-export function usePopulateStoreWithBookData() {
+/*export function usePopulateStoreWithBookData() {
 	const mediaType = useGetShowingMediaType()
 
 	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
@@ -26,9 +26,9 @@ export function usePopulateStoreWithBookData() {
 		},
 		[bookSelection.sentenceId, bookSelection.wordId],
 	)
-}
+}*/
 
-export function usePopulateStoreWithMovieData() {
+/*export function usePopulateStoreWithMovieData() {
 	const mediaType = useGetShowingMediaType()
 
 	const videoSubSentences = useWatchingStore((s) => s.populatedSubtitles?.sentences)
@@ -52,23 +52,23 @@ export function usePopulateStoreWithMovieData() {
 		},
 		[videoSelection.sentenceId, videoSelection.wordId],
 	)
-}
+}*/
 
-type ApplySelectionInput = {
+/*type ApplySelectionInput = {
 	sentenceId: null | number
 	sentenceText: null | string
 	wordId: null | number
-}
+}*/
 
-function applySelectionToDetailsStore(input: ApplySelectionInput) {
+/*function applySelectionToDetailsStore(input: ApplySelectionInput) {
 	useDetailsStore.getState().updateStore({
 		currentSentenceId: input.sentenceId,
 		currentSentenceText: input.sentenceText,
 		currentWordId: input.wordId,
 	})
-}
+}*/
 
-export function useGetShowingMediaType() {
+/*export function useGetShowingMediaType() {
 	const pathname = usePathname()
 	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
-}
+}*/

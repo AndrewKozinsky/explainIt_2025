@@ -1,16 +1,16 @@
-'use client'
+// 'use client'
 
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import ChatInput from '../ChatInput/ChatInput'
-import MessageList from '../MessageList/MessageList'
-import { useSentenceChat } from './fn/useSentenceChat'
-import './SentenceChat.scss'
+// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+// import ChatInput from '../ChatInput/ChatInput'
+// import MessageList from '../MessageList/MessageList'
+// import { useSentenceChat } from './fn/useSentenceChat'
+// import './SentenceChat.scss'
 
-type SentenceChatProps = {
+/*type SentenceChatProps = {
 	sentenceId: number
-}
+}*/
 
-function SentenceChat(props: SentenceChatProps) {
+/*function SentenceChat(props: SentenceChatProps) {
 	const { sentenceId } = props
 
 	const { messages, isLoadingThread, isGenerating, threadError, sendQuestion, cancelGeneration } =
@@ -28,6 +28,6 @@ function SentenceChat(props: SentenceChatProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default SentenceChat
+// export default SentenceChat

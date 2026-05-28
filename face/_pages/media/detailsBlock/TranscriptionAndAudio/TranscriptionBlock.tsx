@@ -1,13 +1,13 @@
-import React from 'react'
-import { ErrorIcon } from 'ui/icons/ErrorIcon'
-import Spinner from 'ui/Spinner/Spinner'
-import { TranscriptionData } from './fn/types'
+// import React from 'react'
+// import { ErrorIcon } from 'ui/icons/ErrorIcon'
+// import Spinner from 'ui/Spinner/Spinner'
+// import { TranscriptionData } from './fn/types'
 
-type TranscriptionBlockProps = {
+/*type TranscriptionBlockProps = {
 	transcription: TranscriptionData
-}
+}*/
 
-export function TranscriptionBlock(props: TranscriptionBlockProps) {
+/*export function TranscriptionBlock(props: TranscriptionBlockProps) {
 	const { transcription } = props
 
 	if (transcription.status === 'loading') {
@@ -21,4 +21,4 @@ export function TranscriptionBlock(props: TranscriptionBlockProps) {
 	if (!transcription.ipa) return null
 
 	return <span className='transcription-audio__ipa'>{transcription.ipa}</span>
-}
+}*/

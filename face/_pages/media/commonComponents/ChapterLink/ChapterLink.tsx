@@ -1,15 +1,15 @@
-import cn from 'classnames'
-import BaseButton from '@/ui/BaseButton/BaseButton'
-import { routesUtils } from '@/utils/routes'
-import './ChapterLink.scss'
+// import cn from 'classnames'
+// import BaseButton from '@/ui/BaseButton/BaseButton'
+// import { routesUtils } from '@/utils/routes'
+// import './ChapterLink.scss'
 
-type BookLinkProps = {
+/*type BookLinkProps = {
 	name?: null | string
 	subName?: null | string
 	href: string
-}
+}*/
 
-function ChapterLink(props: BookLinkProps) {
+/*function ChapterLink(props: BookLinkProps) {
 	const { name, subName, href } = props
 	const isCurrentPage = routesUtils.useIsCurrentPage(href)
 
@@ -24,6 +24,6 @@ function ChapterLink(props: BookLinkProps) {
 			<p className='chapter-link__name'>{name}</p>
 		</BaseButton>
 	)
-}
+}*/
 
-export default ChapterLink
+// export default ChapterLink

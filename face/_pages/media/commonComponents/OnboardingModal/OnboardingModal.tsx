@@ -1,14 +1,14 @@
-'use client'
+// 'use client'
 
-import React, { useState, useEffect } from 'react'
-import { filesUrls } from 'utils/filesUrls'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import Modal from '@/ui/Modal/Modal'
-import './OnboardingModal.scss'
+// import React, { useState, useEffect } from 'react'
+// import { filesUrls } from 'utils/filesUrls'
+// import Button from '@/ui/formRelated/buttons/Button/Button'
+// import Modal from '@/ui/Modal/Modal'
+// import './OnboardingModal.scss'
 
-const LOCAL_STORAGE_KEY = 'hideOnboardingModal'
+// const LOCAL_STORAGE_KEY = 'hideOnboardingModal'
 
-function OnboardingModal() {
+/*function OnboardingModal() {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	useEffect(() => {
@@ -44,6 +44,6 @@ function OnboardingModal() {
 			</div>
 		</Modal>
 	)
-}
+}*/
 
-export default OnboardingModal
+// export default OnboardingModal
