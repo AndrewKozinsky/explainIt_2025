@@ -1,11 +1,11 @@
-// import { useCallback, useContext, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
-// import { NotificationContext } from '@/ui/Notification/context'
-// import { languages } from '@/utils/utils'
-// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
+import { NotificationContext } from '@/ui/Notification/context'
+import { languages } from '@/utils/utils'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-/*export function useGetAddBookConfig() {
+export function useGetAddBookConfig() {
 	const { notify } = useContext(NotificationContext)
 
 	const [loading, setLoading] = useState(false)
@@ -56,4 +56,4 @@
 		errorMessage,
 		onClick,
 	}
-}*/
+}

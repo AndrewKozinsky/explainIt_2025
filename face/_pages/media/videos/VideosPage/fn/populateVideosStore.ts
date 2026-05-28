@@ -1,16 +1,16 @@
-// import { useEffect } from 'react'
-// import { useUserStore } from 'stores/userStore'
-// import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
-// import { getTextByUnknownError } from '@/utils/errorMessages'
-// import { useVideosStore } from '_pages/media/videos/videosStore'
+import { useEffect } from 'react'
+import { useUserStore } from 'stores/userStore'
+import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
+import { useVideosStore } from '_pages/media/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */
-/*export function usePopulateVideosStore() {
+export function usePopulateVideosStore() {
 	useFetchPublicVideosAndSetToStore()
 	useFetchPrivateVideosAndSetToStore()
-}*/
+}
 
-/*function useFetchPublicVideosAndSetToStore() {
+function useFetchPublicVideosAndSetToStore() {
 	const { data, error, loading } = useVideoPublic_GetVideos()
 
 	useEffect(
@@ -43,9 +43,9 @@
 		},
 		[data, error, loading],
 	)
-}*/
+}
 
-/*function useFetchPrivateVideosAndSetToStore() {
+function useFetchPrivateVideosAndSetToStore() {
 	const user = useUserStore((state) => state.user)
 
 	const { data, error, loading } = useVideoPrivate_GetUserVideos({
@@ -83,4 +83,4 @@
 		},
 		[data, error, loading],
 	)
-}*/
+}

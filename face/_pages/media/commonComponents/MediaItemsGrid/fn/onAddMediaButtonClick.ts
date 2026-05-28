@@ -1,8 +1,8 @@
-// import { redirect } from 'next/navigation'
-// import { useUserStore } from 'stores/userStore'
-// import { pageUrls } from 'сonsts/pageUrls'
+import { redirect } from 'next/navigation'
+import { useUserStore } from 'stores/userStore'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*export function useGetOnAddMediaButtonClick(onClick: () => void) {
+export function useGetOnAddMediaButtonClick(onClick: () => void) {
 	const user = useUserStore((state) => state.user)
 	const isUserLoading = useUserStore((state) => state.isLoading)
 
@@ -17,4 +17,4 @@
 			redirect(pageUrls.auth.login.path)
 		}
 	}
-}*/
+}

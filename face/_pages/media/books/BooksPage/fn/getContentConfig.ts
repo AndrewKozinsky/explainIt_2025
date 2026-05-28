@@ -1,10 +1,10 @@
-// import { useMemo } from 'react'
-// import { LanguageCode } from 'utils/utils'
-// import { useBooksStore } from '_pages/media/books/booksStore'
-// import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
-// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { useMemo } from 'react'
+import { LanguageCode } from 'utils/utils'
+import { useBooksStore } from '_pages/media/books/booksStore'
+import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-/*export function useGetContentConfig() {
+export function useGetContentConfig() {
 	const privateBooks = useBooksStore((s) => s.privateBooks)
 	const publicBooks = useBooksStore((s) => s.publicBooks)
 
@@ -37,21 +37,25 @@
 				config: {
 					privateItems: privateBooks.data.map((book) => {
 						const bookId = createMediaIdUrl(book.id, 'private')
+						const chapterId = book.chapters[0].id
 
 						return {
 							name: book.name,
 							subName: book.author,
-							url: pageUrls.books.book(bookId).path,
-							freeToUse: book.freeToUse,
+							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
+							actionUrl: pageUrls.books.book(bookId).path,
+							coverUrl: book.coverUrl,
 						}
 					}),
 					publicItems: publicBooks.data.map((book) => {
 						const bookId = createMediaIdUrl(book.id, 'public')
+						const chapterId = book.chapters[0].id
 
 						return {
 							name: book.name,
 							subName: book.author,
-							url: pageUrls.books.book(bookId).path,
+							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
+							actionUrl: pageUrls.books.book(bookId).path,
 							backgroundColor: book.coverBackgroundColor,
 							languageCode: book.languageCode as LanguageCode,
 							coverUrl: book.covers[0],
@@ -63,4 +67,4 @@
 		},
 		[privateBooks, publicBooks],
 	)
-}*/
+}

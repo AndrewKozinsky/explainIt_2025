@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
 // import BooksBreadCrumbs from '../BooksBreadCrumbs/BooksBreadCrumbs'
@@ -6,15 +6,16 @@
 // import { useGetHeader } from './fn/getHeaderAndSubHeader'
 // import { usePopulateChapterStore } from './fn/populateChapterStore'
 
-/*function ChapterPage() {
-	usePopulateChapterStore()
-	const header = useGetHeader()
+function ChapterPage() {
+	// usePopulateChapterStore()
+	// const header = useGetHeader()
 
-	return (
+	/*return (
 		<MediaPageContentWrapper breadCrumbs={<BooksBreadCrumbs />} header={header}>
 			<PrivateChapterInfo />
 		</MediaPageContentWrapper>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default ChapterPage
+export default ChapterPage

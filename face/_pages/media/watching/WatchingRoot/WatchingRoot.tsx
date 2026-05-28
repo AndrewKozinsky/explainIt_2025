@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import { useRef } from 'react'
 // import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
@@ -11,15 +11,15 @@
 // import { TextContainer, VideoContainer } from './WatchingRootContent'
 // import './WatchingRoot.scss'
 
-/*function WatchingRoot() {
-	usePopulateWatchingStore()
-	useClearWatchingStoreOnUnmount()
-	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
+function WatchingRoot() {
+	// usePopulateWatchingStore()
+	// useClearWatchingStoreOnUnmount()
+	// const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
-	const rootRef = useRef<null | HTMLDivElement>(null)
-	useDetailsStickyTopBelowVideo(rootRef)
+	// const rootRef = useRef<null | HTMLDivElement>(null)
+	// useDetailsStickyTopBelowVideo(rootRef)
 
-	return (
+	/*return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
 			<main className='watching-root'>
 				<OnboardingModal />
@@ -30,7 +30,8 @@
 				</div>
 			</main>
 		</RootSurface>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default WatchingRoot
+export default WatchingRoot

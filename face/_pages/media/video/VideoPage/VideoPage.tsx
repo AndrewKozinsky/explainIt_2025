@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
 // import PrivateVideoContent from '_pages/media/video/PrivateVideoContent/PrivateVideoContent'
@@ -8,16 +8,17 @@
 // import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 // import { usePopulateVideoStore } from './fn/populateVideoStore'
 
-/*function VideoPage() {
-	usePopulateVideoStore()
-	const { header, subHeader } = useGetHeaderAndSubHeader()
+function VideoPage() {
+	// usePopulateVideoStore()
+	// const { header, subHeader } = useGetHeaderAndSubHeader()
 
-	return (
+	/*return (
 		<MediaPageContentWrapper breadCrumbs={<VideoBreadCrumbs />} header={header} subHeader={subHeader}>
 			<PublicVideoContent />
 			<PrivateVideoContent />
 		</MediaPageContentWrapper>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default VideoPage
+export default VideoPage

@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
 // import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
@@ -11,12 +11,12 @@
 // import { usePopulateReadingStore } from './fn/populateStore'
 // import './ReadingRoot.scss'
 
-/*function ReadingRoot() {
-	usePopulateReadingStore()
-	useClearReadingStoreOnUnmount()
-	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
+function ReadingRoot() {
+	// usePopulateReadingStore()
+	// useClearReadingStoreOnUnmount()
+	// const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
-	return (
+	/*return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage}>
 			<main className='reading-root'>
 				<OnboardingModal />
@@ -30,7 +30,8 @@
 				<ReadingBottomNavigation />
 			</main>
 		</RootSurface>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default ReadingRoot
+export default ReadingRoot

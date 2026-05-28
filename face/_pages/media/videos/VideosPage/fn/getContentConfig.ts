@@ -1,10 +1,11 @@
-// import { useMemo } from 'react'
-// import { LanguageCode } from 'utils/utils'
-// import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
-// import { useVideosStore } from '../../videosStore'
-// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { useMemo } from 'react'
+import { LanguageCode } from 'utils/utils'
+import { undefined } from 'zod'
+import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+import { useVideosStore } from '../../videosStore'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-/*export function useGetContentConfig() {
+export function useGetContentConfig() {
 	const privateVideos = useVideosStore((s) => s.privateVideos)
 	const publicVideos = useVideosStore((s) => s.publicVideos)
 
@@ -41,7 +42,8 @@
 						return {
 							name: video.name,
 							subName: video.year,
-							url: pageUrls.videos.video(videoId).path,
+							url: pageUrls.videos.video(videoId).watching.path,
+							actionUrl: pageUrls.videos.video(videoId).path,
 						}
 					}),
 					publicItems: publicVideos.data.map((video) => {
@@ -50,7 +52,8 @@
 						return {
 							name: video.name,
 							subName: video.year,
-							url: pageUrls.videos.video(videoId).path,
+							url: pageUrls.videos.video(videoId).watching.path,
+							actionUrl: pageUrls.videos.video(videoId).path,
 							backgroundColor: video.coverBackgroundColor,
 							languageCode: video.languageCode as LanguageCode,
 							coverUrl: video.covers[0],
@@ -62,4 +65,4 @@
 		},
 		[privateVideos, publicVideos],
 	)
-}*/
+}

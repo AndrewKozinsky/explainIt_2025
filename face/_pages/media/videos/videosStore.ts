@@ -1,7 +1,7 @@
-// import { create } from 'zustand'
-// import { VideoPrivateLiteOutModel, VideoPublicLiteOutModel } from '@/graphql'
+import { create } from 'zustand'
+import { VideoPrivateLiteOutModel, VideoPublicLiteOutModel } from '@/graphql'
 
-/*export const videosStoreValues: VideosStoreValues = {
+export const videosStoreValues: VideosStoreValues = {
 	publicVideos: {
 		loading: true,
 		errorMessage: null,
@@ -12,9 +12,9 @@
 		errorMessage: null,
 		data: null as any as VideoPrivateLiteOutModel[],
 	},
-}*/
+}
 
-/*export const useVideosStore = create<VideosStoreFull>()((set) => {
+export const useVideosStore = create<VideosStoreFull>()((set) => {
 	return {
 		...videosStoreValues,
 		updatePublicVideos: (videos: VideosStore.PublicVideosData) => {
@@ -36,16 +36,16 @@
 			})
 		},
 	}
-})*/
+})
 
-// export type VideosStoreFull = VideosStoreValues & VideosStoreMethods
+export type VideosStoreFull = VideosStoreValues & VideosStoreMethods
 
-/*export type VideosStoreValues = {
+export type VideosStoreValues = {
 	publicVideos: VideosStore.PublicVideosData
 	privateVideos: VideosStore.PrivateVideosData
-}*/
+}
 
-/*export namespace VideosStore {
+export namespace VideosStore {
 	export type PublicVideosData = {
 		loading: boolean
 		errorMessage: null | string
@@ -57,9 +57,9 @@
 		errorMessage: null | string
 		data: VideoPrivateLiteOutModel[]
 	}
-}*/
+}
 
-/*type VideosStoreMethods = {
+type VideosStoreMethods = {
 	updatePublicVideos: (videos: VideosStore.PublicVideosData) => void
 	updatePrivateVideos: (videos: VideosStore.PrivateVideosData) => void
-}*/
+}

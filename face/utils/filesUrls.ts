@@ -3,7 +3,6 @@ const s3AssetsUrl = yaS3Url + 'assets/'
 
 export const filesUrls = {
 	icons: {
-		editButtonIcon: '/icons/editButtonIcon.svg',
 		githubButtonIcon: '/icons/githubButtonIcon.svg',
 		googleButtonIcon: '/icons/googleButtonIcon.svg',
 		plusButtonIcon: '/icons/plusButtonIcon.svg',
