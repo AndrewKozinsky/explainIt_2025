@@ -293,6 +293,33 @@ export interface UniversalSentenceOutModel {
     missingGrammarConcepts: MissingGrammarConceptOutModel[];
 }
 
+export interface SentenceTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    translation: string;
+    createdAt: string;
+}
+
+export interface SentencePhraseTranslationExampleOutModel {
+    text: string;
+    translate: string;
+}
+
+export interface SentencePhraseTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    phrase: string;
+    phraseStartOffset: number;
+    phraseEndOffset: number;
+    translate?: Nullable<string>;
+    examples: SentencePhraseTranslationExampleOutModel[];
+    status: string;
+    errorMessage?: Nullable<string>;
+    createdAt: string;
+    updatedAt: string;
+    flashcardId?: Nullable<number>;
+}
+
 export interface BookChapterLiteOutModel {
     id: number;
     bookId: number;
@@ -318,6 +345,8 @@ export interface SentenceOutModel {
     length: number;
     grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
     missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
+    sentenceTranslation?: Nullable<SentenceTranslationOutModel>;
+    sentencePhraseTranslations?: Nullable<SentencePhraseTranslationOutModel[]>;
 }
 
 export interface BookPublicOutModel {
@@ -330,26 +359,6 @@ export interface BookPublicOutModel {
     languageCode: string;
     freeToUse: boolean;
     chapters: BookChapterLiteOutModel[];
-}
-
-export interface SentencePhraseTranslationExampleOutModel {
-    text: string;
-    translate: string;
-}
-
-export interface SentencePhraseTranslationOutModel {
-    id: number;
-    sentenceId: number;
-    phrase: string;
-    phraseStartOffset: number;
-    phraseEndOffset: number;
-    translate?: Nullable<string>;
-    examples: SentencePhraseTranslationExampleOutModel[];
-    status: string;
-    errorMessage?: Nullable<string>;
-    createdAt: string;
-    updatedAt: string;
-    flashcardId?: Nullable<number>;
 }
 
 export interface FlashcardOutModel {

@@ -666,6 +666,8 @@ export type SentenceOutModel = {
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
   missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
+  sentencePhraseTranslations?: Maybe<Array<SentencePhraseTranslationOutModel>>;
+  sentenceTranslation?: Maybe<SentenceTranslationOutModel>;
   startOffset: Scalars['Int']['output'];
 };
 
@@ -694,6 +696,14 @@ export type SentencePhraseTranslationOutModel = {
 export type SentenceTranslationLiteOutModel = {
   __typename?: 'SentenceTranslationLiteOutModel';
   id: Scalars['Int']['output'];
+  translation: Scalars['String']['output'];
+};
+
+export type SentenceTranslationOutModel = {
+  __typename?: 'SentenceTranslationOutModel';
+  createdAt: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  sentenceId: Scalars['Int']['output'];
   translation: Scalars['String']['output'];
 };
 
@@ -1070,7 +1080,7 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null, sentenceTranslation?: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, createdAt: string } | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -1651,6 +1661,29 @@ export const BookChapter_GetDocument = gql`
       missingGrammarConcepts {
         category
         lemma
+      }
+      sentenceTranslation {
+        id
+        sentenceId
+        translation
+        createdAt
+      }
+      sentencePhraseTranslations {
+        id
+        sentenceId
+        phrase
+        phraseStartOffset
+        phraseEndOffset
+        translate
+        examples {
+          text
+          translate
+        }
+        status
+        errorMessage
+        createdAt
+        updatedAt
+        flashcardId
       }
     }
     book {

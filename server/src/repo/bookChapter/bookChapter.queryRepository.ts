@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
 import { Prisma } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { BookChapterOutModel } from '../models/bookChapter/bookChapter.out.model'
-import { GrammarConceptQueryRepository } from './grammarConcept.queryRepository'
+import { GrammarConceptQueryRepository } from '../grammarConcept.queryRepository'
+import { mapSentencePhraseTranslations, mapSentenceTranslation } from './fn'
 
 type FullBookChapter = Prisma.BookChapterGetPayload<{
 	include: {
 		book: true
 		book_public: true
-		Sentence: true
+		Sentence: {
+			include: {
+				SentenceTranslation: true
+				SentencePhraseTranslation: true
+			}
+		}
 	}
 }>
 
@@ -35,6 +41,10 @@ export class BookChapterQueryRepository {
 				book_public: true,
 				Sentence: {
 					orderBy: { order_index: 'asc' },
+					include: {
+						SentenceTranslation: true,
+						SentencePhraseTranslation: true,
+					},
 				},
 			},
 		})
@@ -91,7 +101,7 @@ export class BookChapterQueryRepository {
 								select: { category: true, lemma: true },
 							},
 						},
-					}) as any
+					})
 
 					if (us && us.status === 'SUCCESS') {
 						grammarConcepts = us.GrammarConceptToUniversalSentence.filter(
@@ -110,6 +120,11 @@ export class BookChapterQueryRepository {
 					length: s.length,
 					grammarConcepts,
 					missingGrammarConcepts,
+					sentenceTranslation: mapSentenceTranslation(s.SentenceTranslation, targetLanguageCode),
+					sentencePhraseTranslations: mapSentencePhraseTranslations(
+						s.SentencePhraseTranslation,
+						targetLanguageCode,
+					),
 				}
 			}),
 		)

@@ -14,6 +14,10 @@
 		color: vars.$grayColor-3;
 	}
 
+	&:hover {
+		border-color: vars.$grayColor-3;
+	}
+
 	&:focus {
 		border-color: vars.$grayColor-5;
 		outline: 3px solid vars.$grayColor-2;

@@ -24,6 +24,29 @@ query BookChapter_get($input: GetBookChapterInput!) {
 					category
 					lemma
 				}
+				sentenceTranslation {
+					id
+					sentenceId
+					translation
+					createdAt
+				}
+				sentencePhraseTranslations {
+					id
+					sentenceId
+					phrase
+					phraseStartOffset
+					phraseEndOffset
+					translate
+					examples {
+						text
+						translate
+					}
+					status
+					errorMessage
+					createdAt
+					updatedAt
+					flashcardId
+				}
 			}
 			book {
 				id

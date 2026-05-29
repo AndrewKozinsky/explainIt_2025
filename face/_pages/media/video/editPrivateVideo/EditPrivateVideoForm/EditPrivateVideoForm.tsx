@@ -82,7 +82,7 @@ export default function EditPrivateVideoForm() {
 						inputProps={{
 							...register('name'),
 							disabled: isFormDisabled,
-							placeholder: 'Adventures in Wonderland',
+							placeholder: 'Terminator 2',
 						}}
 					/>
 					<FileNameAndDeleteFileButton />
@@ -94,6 +94,17 @@ export default function EditPrivateVideoForm() {
 							...register('content'),
 							disabled: isFormDisabled,
 							rows: 10,
+							placeholder: `1
+00:01:50,152 --> 00:01:52,238
+Three billion human lives ended
+
+2
+00:01:52,446 --> 00:01:54,865
+on August 29, 1997.
+
+3
+00:01:56,033 --> 00:02:00,913
+The survivors of the nuclear fire called the war Judgment Day.`,
 						}}
 					/>
 					<FormError text={formError} />

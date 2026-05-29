@@ -525,6 +525,8 @@ type SentenceOutModel {
   id: Int!
   length: Int!
   missingGrammarConcepts: [MissingGrammarConceptOutModel!]
+  sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
+  sentenceTranslation: SentenceTranslationOutModel
   startOffset: Int!
 }
 
@@ -550,6 +552,13 @@ type SentencePhraseTranslationOutModel {
 
 type SentenceTranslationLiteOutModel {
   id: Int!
+  translation: String!
+}
+
+type SentenceTranslationOutModel {
+  createdAt: String!
+  id: Int!
+  sentenceId: Int!
   translation: String!
 }
 
