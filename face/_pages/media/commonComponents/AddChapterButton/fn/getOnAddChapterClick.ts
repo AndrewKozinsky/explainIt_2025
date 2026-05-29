@@ -1,16 +1,10 @@
-// import { useCallback, useContext, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { Book_GetDocument, useBookChapter_Create } from '@/graphql'
-// import { NotificationContext } from '@/ui/Notification/context'
-// import { pageUrls } from 'сonsts/pageUrls'
+import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { Book_GetDocument, useBookChapter_Create } from '@/graphql'
+import { NotificationContext } from '@/ui/Notification/context'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*export function useGetOnAddChapterClick({
-	bookId,
-	bookIdInUrl,
-}: {
-	bookId: number
-	bookIdInUrl: string
-}) {
+export function useGetOnAddChapterClick({ bookId, bookIdInUrl }: { bookId: number; bookIdInUrl: string }) {
 	const { notify } = useContext(NotificationContext)
 
 	const [loading, setLoading] = useState(false)
@@ -62,4 +56,4 @@
 		errorMessage,
 		onClick,
 	}
-}*/
+}

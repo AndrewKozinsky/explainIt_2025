@@ -1,22 +1,22 @@
-// import React, { useState } from 'react'
-// import { yupResolver } from '@hookform/resolvers/yup'
-// import { Controller, useForm } from 'react-hook-form'
-// import * as yup from 'yup'
-// import Button from '@/ui/formRelated/buttons/Button/Button'
-// import FormError from '@/ui/formRelated/FormError/FormError'
-// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-// import TextInput from '@/ui/formRelated/TextInput/TextInput'
-// import { FormStatus } from '@/utils/forms'
-// import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
-// import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
-// import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
-// import BookCoverDropzone from './BookCoverDropzone'
-// import BookCoverPreview from './BookCoverPreview'
-// import { ChangeBookFormData, changeBookFormSchema, ChangeBookFormTest } from './fn/form'
-// import { useSetFieldValues } from './fn/setFieldValues'
-// import { useGetOnUpdateBookFormSubmit } from './fn/submit'
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Controller, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import FormError from '@/ui/formRelated/FormError/FormError'
+import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+import TextInput from '@/ui/formRelated/TextInput/TextInput'
+import { FormStatus } from '@/utils/forms'
+import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
+import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
+import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
+import BookCoverDropzone from './BookCoverDropzone'
+import BookCoverPreview from './BookCoverPreview'
+import { ChangeBookFormData, changeBookFormSchema } from './fn/form'
+import { useSetFieldValues } from './fn/setFieldValues'
+import { useGetOnUpdateBookFormSubmit } from './fn/submit'
 
-/*export default function EditBookForm() {
+export default function EditBookForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -38,7 +38,7 @@
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<MediaFormSurface
 					leftBottomButtons={[<DeleteBookButton key='delete' />]}
 					rightBottomButtons={[
@@ -91,21 +91,20 @@
 								placeholder: 'Adventures in Wonderland',
 							}}
 						/>
+						<BookCoverDropzone />
+						<BookCoverPreview />
 						<TextInput
 							label='Заметка'
 							error={errors.note?.message}
 							inputProps={{
 								...register('note'),
 								disabled: isFormDisabled,
-								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							}}
 						/>
-						<BookCoverPreview />
-						<BookCoverDropzone />
 						<FormError text={formError} />
 					</FormFieldsWrapper>
 				</MediaFormSurface>
 			</form>
 		</>
 	)
-}*/
+}

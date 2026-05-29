@@ -1,7 +1,6 @@
 import { useMemo } from 'react'
 import { LanguageCode } from 'utils/utils'
-import { undefined } from 'zod'
-import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+import { MediaItemsGridConfig } from '@/_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
 import { useVideosStore } from '../../videosStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 

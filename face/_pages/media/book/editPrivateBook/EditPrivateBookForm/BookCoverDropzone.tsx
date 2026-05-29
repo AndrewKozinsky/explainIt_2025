@@ -1,10 +1,10 @@
-// import { useBook_Update, Book_GetUserBooksDocument, Book_GetDocument } from '@/graphql'
-// import FileDropzone from '@/ui/formRelated/FileDropzone/FileDropzone'
-// import { useBookStore } from '_pages/media/book/bookStore'
+import { useBook_Update, Book_GetUserBooksDocument, Book_GetDocument } from '@/graphql'
+import FileDropzone from '@/ui/formRelated/FileDropzone/FileDropzone'
+import { useBookStore } from '_pages/media/book/bookStore'
 
-// const supportedFormatsStr = 'JPG, JPEG, PNG, WebP, AVIF'
+const supportedFormatsStr = 'JPG, JPEG, PNG, WebP, AVIF'
 
-/*function BookCoverDropzone() {
+function BookCoverDropzone() {
 	const book = useBookStore((s) => s.privateBook.data)
 
 	const [updateBook] = useBook_Update({
@@ -47,6 +47,7 @@
 
 	return (
 		<FileDropzone
+			label='Обложка'
 			accept={{
 				'image/jpeg': ['.jpg', '.jpeg'],
 				'image/png': ['.png'],
@@ -54,12 +55,11 @@
 				'image/avif': ['.avif'],
 			}}
 			supportedFormatsStr={supportedFormatsStr}
-			idleText='Перетащите обложку сюда'
-			visible={!!(book && !book.isFileUploaded)}
+			visible={book && !book.isFileUploaded}
 			onGetUploadUrl={onGetUploadUrl}
 			onUploadComplete={onUploadComplete}
 		/>
 	)
-}*/
+}
 
-// export default BookCoverDropzone
+export default BookCoverDropzone

@@ -1,10 +1,10 @@
-// import React, { useCallback } from 'react'
-// import { Book_GetDocument, Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
-// import { FormStatus, setErrorsToForm } from '@/utils/forms'
-// import { useBookStore } from '_pages/media/book/bookStore'
-// import { ChangeBookFormData } from './form'
+import React, { useCallback } from 'react'
+import { Book_GetDocument, Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
+import { FormStatus, setErrorsToForm } from '@/utils/forms'
+import { useBookStore } from '_pages/media/book/bookStore'
+import { ChangeBookFormData } from './form'
 
-/*export function useGetOnUpdateBookFormSubmit(
+export function useGetOnUpdateBookFormSubmit(
 	setFieldError: (field: keyof ChangeBookFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -50,4 +50,4 @@
 		},
 		[book, setFieldError, setFormError, setFormStatus, updateBook],
 	)
-}*/
+}

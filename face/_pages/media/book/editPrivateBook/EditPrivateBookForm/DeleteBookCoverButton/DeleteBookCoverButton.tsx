@@ -1,12 +1,13 @@
-// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { useDeleteBookCover } from './fn/useDeleteBookCover'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
+import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { useDeleteBookCover } from './fn/useDeleteBookCover'
 
-/*function DeleteBookCoverButton() {
+function DeleteBookCoverButton() {
 	const { status, onDeleteClick } = useDeleteBookCover()
 
 	return (
 		<DeleteEntityButtonAndModal
-			deleteButtonText='Удалить обложку...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{
@@ -16,6 +17,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteBookCoverButton
+export default DeleteBookCoverButton

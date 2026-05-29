@@ -1,11 +1,11 @@
-// import { useCallback, useContext, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { useVideoPrivate_Delete, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-// import { NotificationContext } from '@/ui//Notification/context'
-// import { pageUrls } from '@/сonsts/pageUrls'
-// import { useVideoStore } from '_pages/media/video/videoStore'
+import { useCallback, useContext, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { useVideoPrivate_Delete, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { NotificationContext } from '@/ui//Notification/context'
+import { pageUrls } from '@/сonsts/pageUrls'
+import { useVideoStore } from '_pages/media/video/videoStore'
 
-/*export function useGetDeleteVideo() {
+export function useGetDeleteVideo() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -43,4 +43,4 @@
 		status,
 		onDeleteVideoClick,
 	}
-}*/
+}

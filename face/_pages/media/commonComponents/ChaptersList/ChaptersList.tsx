@@ -1,19 +1,19 @@
-// import React from 'react'
-// import Paragraph from 'ui/Paragraph/Paragraph'
-// import ChapterLink from '../ChapterLink/ChapterLink'
-// import './ChaptersList.scss'
+import React from 'react'
+import Paragraph from 'ui/Paragraph/Paragraph'
+import ChapterLink from '../ChapterLink/ChapterLink'
+import './ChaptersList.scss'
 
-/*type ChaptersListProps = {
+type ChaptersListProps = {
 	chapters: ChaptersListItem[]
-}*/
+}
 
-/*type ChaptersListItem = {
+type ChaptersListItem = {
 	name?: null | string
 	subName?: null | string
 	href: string
-}*/
+}
 
-/*function ChaptersList(props: ChaptersListProps) {
+function ChaptersList(props: ChaptersListProps) {
 	const { chapters } = props
 
 	if (!chapters.length) {
@@ -27,6 +27,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default ChaptersList
+export default ChaptersList

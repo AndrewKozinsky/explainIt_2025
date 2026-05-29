@@ -1,4 +1,4 @@
-/*export function getVideoDurationSec(file: File): Promise<number> {
+export function getVideoDurationSec(file: File): Promise<number> {
 	return new Promise((resolve, reject) => {
 		const videoElement = document.createElement('video')
 		const objectUrl = URL.createObjectURL(file)
@@ -17,4 +17,4 @@
 
 		videoElement.src = objectUrl
 	})
-}*/
+}

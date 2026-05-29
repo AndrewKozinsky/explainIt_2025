@@ -1,14 +1,14 @@
-// import React from 'react'
-// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-// import Button from 'ui/formRelated/buttons/Button/Button'
-// import { useGetOnAddChapterClick } from './fn/getOnAddChapterClick'
+import React from 'react'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import Button from 'ui/formRelated/buttons/Button/Button'
+import { useGetOnAddChapterClick } from './fn/getOnAddChapterClick'
 
-/*interface AddChapterButtonProps {
+interface AddChapterButtonProps {
 	bookId: number
 	bookIdInUrl: string
-}*/
+}
 
-/*function AddChapterButton({ bookId, bookIdInUrl }: AddChapterButtonProps) {
+function AddChapterButton({ bookId, bookIdInUrl }: AddChapterButtonProps) {
 	const { onClick, loading, errorMessage } = useGetOnAddChapterClick({ bookId, bookIdInUrl })
 
 	return (
@@ -19,6 +19,6 @@
 			{errorMessage && <ErrorMessage text={errorMessage} />}
 		</>
 	)
-}*/
+}
 
-// export default AddChapterButton
+export default AddChapterButton

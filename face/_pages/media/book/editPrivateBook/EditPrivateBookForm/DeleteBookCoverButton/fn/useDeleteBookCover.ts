@@ -1,9 +1,9 @@
-// import { useContext, useCallback, useState } from 'react'
-// import { NotificationContext } from 'ui/Notification/context'
-// import { useBook_Update, Book_GetUserBooksDocument, Book_GetDocument } from '@/graphql'
-// import { useBookStore } from '_pages/media/book/bookStore'
+import { useContext, useCallback, useState } from 'react'
+import { NotificationContext } from 'ui/Notification/context'
+import { useBook_Update, Book_GetUserBooksDocument, Book_GetDocument } from '@/graphql'
+import { useBookStore } from '_pages/media/book/bookStore'
 
-/*export function useDeleteBookCover() {
+export function useDeleteBookCover() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -45,4 +45,4 @@
 		status,
 		onDeleteClick,
 	}
-}*/
+}

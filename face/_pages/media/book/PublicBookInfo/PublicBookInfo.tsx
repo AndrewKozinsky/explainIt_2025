@@ -1,12 +1,10 @@
-// import { SectionWithHeader } from 'ui/SectionWithHeader/SectionWithHeader'
-// import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
-// import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
-// import { useBookStore } from '../bookStore'
-// import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
-// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
-// import './PublicBookInfo.scss'
+import { SectionWithHeader } from 'ui/SectionWithHeader/SectionWithHeader'
+import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
+import { useBookStore } from '../bookStore'
+import PublicBookChapters from '../PublicBookChapters/PublicBookChapters'
+import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
 
-/*export default function PublicBookInfo() {
+export default function PublicBookInfo() {
 	const publicBook = useBookStore((s) => s.publicBook)
 
 	if (!publicBook.data) {
@@ -24,27 +22,4 @@
 			<PublicBookContentInfo />
 		</MenuAndContentContainer>
 	)
-}*/
-
-/*function PublicBookChapters() {
-	const publicBook = useBookStore((s) => s.publicBook)
-
-	const bookId = publicBook.data?.id
-	const chapters = publicBook.data?.chapters
-
-	if (!bookId || !chapters) {
-		return null
-	}
-
-	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createMediaIdUrl(bookId, 'public')
-
-		return {
-			name: chapter.header,
-			subName: chapter.name,
-			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).reading.path,
-		}
-	})
-
-	return <ChaptersList chapters={chaptersConfig} />
-}*/
+}

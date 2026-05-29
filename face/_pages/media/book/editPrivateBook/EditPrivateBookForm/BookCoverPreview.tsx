@@ -1,8 +1,9 @@
-// import { useBookStore } from '_pages/media/book/bookStore'
-// import DeleteBookCoverButton from './DeleteBookCoverButton/DeleteBookCoverButton'
-// import './BookCoverPreview.scss'
+import LabelWithField from 'ui/formRelated/LabelWithField/LabelWithField'
+import { useBookStore } from '_pages/media/book/bookStore'
+import DeleteBookCoverButton from './DeleteBookCoverButton/DeleteBookCoverButton'
+import './BookCoverPreview.scss'
 
-/*function BookCoverPreview() {
+function BookCoverPreview() {
 	const book = useBookStore((s) => s.privateBook.data)
 
 	if (!book || !book.isFileUploaded || !book.coverUrl) {
@@ -10,11 +11,12 @@
 	}
 
 	return (
-		<div className='book-cover-preview'>
-			<img src={book.coverUrl} alt='Обложка книги' className='book-cover-preview__image' />
-			<DeleteBookCoverButton />
-		</div>
+		<LabelWithField label='Обложка'>
+			<div className='book-cover-preview' style={{ backgroundImage: `url(${book.coverUrl})` }}>
+				<DeleteBookCoverButton />
+			</div>
+		</LabelWithField>
 	)
-}*/
+}
 
-// export default BookCoverPreview
+export default BookCoverPreview

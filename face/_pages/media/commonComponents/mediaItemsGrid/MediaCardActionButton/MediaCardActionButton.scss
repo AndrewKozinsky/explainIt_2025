@@ -1,0 +1,26 @@
+@use '@/styles/variables' as vars;
+
+.media-items-grid-action-button {
+	position: absolute;
+	top: .5rem;
+	right: .5rem;
+	z-index: 1;
+	color: white;
+	background-color:rgba(0, 0, 0, .15);
+	backdrop-filter: blur(5px);
+	padding: .5rem;
+	border-radius: vars.$radius-1;
+
+	&:hover {
+		color: vars.$textColor;
+		background-color: white;
+	}
+
+	&:focus {
+		outline-color: rgba(255, 255, 255, .25);
+	}
+
+	& > * {
+		display: block;
+	}
+}

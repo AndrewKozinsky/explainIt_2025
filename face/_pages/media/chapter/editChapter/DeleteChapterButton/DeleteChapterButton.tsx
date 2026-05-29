@@ -1,13 +1,15 @@
-// import React from 'react'
-// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { useGetDeleteBook } from './fn/getDeleteBook'
+import React from 'react'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
+import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { useGetDeleteBook } from './fn/getDeleteBook'
 
-/*function DeleteChapterButton() {
+function DeleteChapterButton() {
 	const { onDeleteChapterClick, status } = useGetDeleteBook()
 
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonText='Удаление главы...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteChapterClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{
@@ -17,6 +19,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteChapterButton
+export default DeleteChapterButton

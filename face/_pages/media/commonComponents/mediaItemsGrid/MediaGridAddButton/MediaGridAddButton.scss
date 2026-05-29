@@ -1,0 +1,14 @@
+@use '@/styles/variables' as vars;
+
+.media-items-grid-add-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 21rem;
+	color: vars.$grayColor-4;
+	border-radius: 30rem;
+
+	&:hover {
+		color: vars.$grayColor-5;
+	}
+}

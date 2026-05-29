@@ -1,9 +1,9 @@
-// import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-// import { useChapterStore } from '_pages/media/chapter/chapterStore'
-// import { bookConfig } from '_pages/media/commonComponents/bookConfig'
-// import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { useChapterStore } from '_pages/media/chapter/chapterStore'
+import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
-/*function BooksBreadCrumbs() {
+function BooksBreadCrumbs() {
 	const privateBook = useChapterStore((s) => s.privateBook)
 
 	const bookName = privateBook.data?.name || bookConfig.emptyBookName
@@ -13,6 +13,6 @@
 	const breadcrumbOptionsOptions = [pageUrls.books, { name: bookName, path: bookUrl }]
 
 	return <BreadCrumbs items={breadcrumbOptionsOptions} />
-}*/
+}
 
-// export default BooksBreadCrumbs
+export default BooksBreadCrumbs

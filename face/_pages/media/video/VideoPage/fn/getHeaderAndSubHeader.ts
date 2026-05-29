@@ -1,8 +1,8 @@
-// import { useMemo } from 'react'
-// import { videoConfig } from '_pages/media/commonComponents/videoConfig'
-// import { useVideoStore } from '../../videoStore'
+import { useMemo } from 'react'
+import { videoConfig } from '_pages/media/commonComponents/videoConfig'
+import { useVideoStore } from '../../videoStore'
 
-/*export function useGetHeaderAndSubHeader() {
+export function useGetHeaderAndSubHeader() {
 	const publicVideo = useVideoStore((s) => s.publicVideo)
 	const privateVideo = useVideoStore((s) => s.privateVideo)
 
@@ -29,4 +29,4 @@
 		},
 		[publicVideo, privateVideo],
 	)
-}*/
+}

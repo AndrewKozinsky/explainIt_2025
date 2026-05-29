@@ -1,9 +1,9 @@
-// import { useCallback, useEffect, useState } from 'react'
-// import { redirect } from 'next/navigation'
-// import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
-// import { useChapterStore } from '_pages/media/chapter/chapterStore'
+import { useCallback, useEffect, useState } from 'react'
+import { redirect } from 'next/navigation'
+import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
-/*export function useIsReadButtonDisabled() {
+export function useIsReadButtonDisabled() {
 	const chapter = useChapterStore((s) => s.chapter)
 	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
@@ -17,9 +17,9 @@
 	)
 
 	return isReadButtonDisabled
-}*/
+}
 
-/*export function useGetOnReadButtonClick() {
+export function useGetOnReadButtonClick() {
 	const book = useChapterStore((s) => s.privateBook.data)
 	const chapter = useChapterStore((s) => s.chapter)
 
@@ -33,4 +33,4 @@
 		},
 		[book, chapter],
 	)
-}*/
+}

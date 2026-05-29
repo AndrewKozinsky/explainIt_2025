@@ -1,7 +1,7 @@
-// import { create } from 'zustand'
-// import { VideoPublicOutModel, VideoPrivateOutModel } from '@/graphql'
+import { create } from 'zustand'
+import { VideoPublicOutModel, VideoPrivateOutModel } from '@/graphql'
 
-/*export const videoStoreValues: VideoStoreValues = {
+export const videoStoreValues: VideoStoreValues = {
 	publicVideo: {
 		loading: true,
 		errorMessage: null,
@@ -12,9 +12,9 @@
 		errorMessage: null,
 		data: null as any as VideoPrivateOutModel,
 	},
-}*/
+}
 
-/*export const useVideoStore = create<ReadingStore>()((set) => {
+export const useVideoStore = create<ReadingStore>()((set) => {
 	return {
 		...videoStoreValues,
 		updatePublicVideo: (video: VideoStore.PublicVideoData) => {
@@ -41,16 +41,16 @@
 			})
 		},
 	}
-})*/
+})
 
-// export type ReadingStore = VideoStoreValues & VideoStoreMethods
+export type ReadingStore = VideoStoreValues & VideoStoreMethods
 
-/*export type VideoStoreValues = {
+export type VideoStoreValues = {
 	publicVideo: VideoStore.PublicVideoData
 	privateVideo: VideoStore.PrivateVideoData
-}*/
+}
 
-/*export namespace VideoStore {
+export namespace VideoStore {
 	export type PrivateVideoData = {
 		loading: boolean
 		errorMessage: null | string
@@ -61,10 +61,10 @@
 		errorMessage: null | string
 		data: VideoPublicOutModel
 	}
-}*/
+}
 
-/*type VideoStoreMethods = {
+type VideoStoreMethods = {
 	updatePublicVideo: (video: VideoStore.PublicVideoData) => void
 	updatePrivateVideo: (video: VideoStore.PrivateVideoData) => void
 	clearStore: () => void
-}*/
+}

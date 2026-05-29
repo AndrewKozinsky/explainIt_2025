@@ -1,7 +1,7 @@
-//@use '@/styles/variables' as vars;
-//@use '@/styles/mixins' as mix;
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
-/*.public-video-info {
+.public-video-info {
 	@include mix.page-width(600px) {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
@@ -11,30 +11,30 @@
 	@include mix.page-width(700px) {
 		gap: 3rem;
 	}
-}*/
+}
 
-/*.public-video-info__left-aside {
+.public-video-info__left-aside {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-}*/
+}
 
-/*.public-video-info__right-aside {
+.public-video-info__right-aside {
 	margin-top: 1.5rem;
 
 	@include mix.page-width(600px) {
 		margin-top: 0;
 	}
-}*/
+}
 
-/*.public-video-info__cover {
+.public-video-info__cover {
 	width: 100%;
 	overflow: hidden;
 	border-radius: vars.$radius-2;
-}*/
+}
 
-/*.public-video-info__actions {
+.public-video-info__actions {
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 2.5rem;
-}*/
+}

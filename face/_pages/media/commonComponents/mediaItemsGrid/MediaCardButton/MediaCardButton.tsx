@@ -1,8 +1,5 @@
 import cn from 'classnames'
-import Link from 'next/link'
 import BaseButton from 'ui/BaseButton/BaseButton'
-import { EditIcon } from 'ui/icons/EditIcon'
-import { InfoIcon } from 'ui/icons/InfoIcon'
 
 type MediaCardProps = {
 	type: 'private' | 'public'
@@ -16,11 +13,12 @@ type MediaCardProps = {
 	freeToUse?: boolean
 }
 
-function MediaCard(props: MediaCardProps) {
-	const { type, name, subName, actionUrl, url, coverUrl, backgroundColor, defaultMediaName } = props
+function MediaCardButton(props: MediaCardProps) {
+	const { type, name, subName, url, coverUrl, backgroundColor, defaultMediaName } = props
 
 	return (
 		<BaseButton
+			href={url}
 			style={backgroundColor ? ({ ['--media-card-bg']: backgroundColor } as any) : undefined}
 			extraClass={cn(
 				'media-items-grid__card',
@@ -31,18 +29,7 @@ function MediaCard(props: MediaCardProps) {
 			<div
 				className='media-items-grid__card-cover'
 				style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}
-			>
-				{type === 'private' && (
-					<MediaCardButton url={actionUrl}>
-						<EditIcon />
-					</MediaCardButton>
-				)}
-				{type === 'public' && (
-					<MediaCardButton url={actionUrl}>
-						<InfoIcon />
-					</MediaCardButton>
-				)}
-			</div>
+			></div>
 			<div className={cn('media-items-grid__card-text-wrapper')}>
 				{subName && <p className='media-items-grid__card-sub-name'>{subName}</p>}
 				{<p className='media-items-grid__card-name'>{name ?? defaultMediaName}</p>}
@@ -51,19 +38,4 @@ function MediaCard(props: MediaCardProps) {
 	)
 }
 
-export default MediaCard
-
-type MediaCardButtonProps = {
-	url: string
-	children: React.ReactNode
-}
-
-function MediaCardButton(props: MediaCardButtonProps) {
-	const { url, children } = props
-
-	return (
-		<Link href={url} className='media-items-grid__action-button'>
-			{children}
-		</Link>
-	)
-}
+export default MediaCardButton

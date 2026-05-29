@@ -1,7 +1,7 @@
 import React from 'react'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import Spinner from 'ui/Spinner/Spinner'
-import MediaItemsGridWithData from './MediaItemsGridWithData'
+import MediaItemsGridWithData from '../MediaItemsGridWithData/MediaItemsGridWithData'
 import { AddMediaButtonConfig, MediaItemsGridConfig } from './types'
 import './MediaItemsGrid.scss'
 

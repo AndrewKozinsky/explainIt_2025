@@ -6,67 +6,78 @@
 
 .file-dropzone {
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	gap: 8px;
-	min-height: 180px;
+	gap: 2rem;
+	min-height: 9rem;
 	box-sizing: border-box;
-	padding: 10px 12px;
-	border: 1px dashed transparent;
+	padding: 1.2rem 2rem;
+	overflow: hidden;
+	border: 1px solid transparent;
 	border-radius: vars.$radius-1;
 	transition: all .2s ease-in-out;
 }
 
 .file-dropzone--idle {
-	background-color: vars.$grayColor-2;
-	border-color: vars.$grayColor-4;
+	cursor: pointer;
+	border-color: vars.$grayColor-2;
+
+	&:hover {
+		border-color: vars.$grayColor-3;
+	}
 }
 
 .file-dropzone--file-dragging {
+	justify-content: center;
 	background-color: vars.$linkColor-1;
 	border-color: vars.$linkColor-2;
 }
 
-.file-dropzone--file-selected {
-	background-color: vars.$grayColor-2;
+.file-dropzone--file-uploading {
+	position: relative;
+	border-color: vars.$linkColor-2;
 }
 
-.file-dropzone--file-uploading {
+.file-dropzone--file-uploading-content {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.file-dropzone__content {
+	display: flex;
+	flex-direction: column;
+	gap: .4rem;
+}
+
+.file-dropzone__text {
 	font-size: 1.6rem;
 	line-height: 2rem;
-	overflow-wrap: anywhere;
-	background-color: white;
 }
-
-.file-dropzone--file-uploaded {
-	background-color: white;
+.file-dropzone__text--idle {
+	color: vars.$grayColor-5;
 }
-
-.file-dropzone__header {
-	font-size: 2.4rem;
-	line-height: 2.8rem;
+.file-dropzone__text--dragging {
+	font-size: 2.2rem;
+	line-height: 2.6rem;
+	color: vars.$linkColor-2;
 }
-.file-dropzone__header--idle {
+.file-dropzone__sub-text {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+}
+.file-dropzone__sub-text--idle {
 	color: vars.$grayColor-4;
 }
-.file-dropzone__header--dragging {
-	color: rgba(vars.$linkColor-2, .5);
+.file-dropzone__sub-text--uploading {
+	color: vars.$linkColor-2;
 }
 
-.file-dropzone__file-uploading-top {
-	display: flex;
-	justify-content: space-between;
-	gap: 1rem;
-}
-.file-dropzone__file-uploading-bar {
-	width: 100%;
-	height: 10px;
-	background-color: vars.$linkColor-1;
-	overflow: hidden;
-	border-radius: vars.$radius-1;
-}
 .file-dropzone__file-uploading-progress {
+	position: absolute;
+	top: 0;
+	left: 0;
 	height: 100%;
-	background-color: vars.$linkColor-2;
+	background-color: vars.$linkColor-1;
 }

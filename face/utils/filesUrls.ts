@@ -23,6 +23,8 @@ export const filesUrls = {
 			logo: 'logo.svg',
 			navArrowLeft: 'navArrowLeft.svg',
 			navArrowRight: 'navArrowRight.svg',
+			filesGray: '/images/common/filesGray.svg',
+			filesBlue: '/images/common/filesBlue.svg',
 		},
 	},
 	mainPage: {

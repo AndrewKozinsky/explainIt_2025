@@ -11,10 +11,21 @@
 }
 
 .media-items-grid__card {
+	display: block;
 	overflow: hidden;
 	border-radius: vars.$radius-1;
 	/* background color comes from per-card CSS variable, fallback to regular button base */
-	//background-color: var(--media-card-bg, vars.$grayColor-1);
+	background-color: var(--media-card-bg, vars.$grayColor-1);
+}
+
+.media-items-grid__card--private {
+	/* background color comes from per-card CSS variable, fallback to regular button base */
+	background-color: var(--media-card-bg, vars.$grayColor-1);
+}
+
+.media-items-grid__card--public {
+	color: white;
+	border-width: 0;
 }
 
 .media-items-grid__card-cover {
@@ -48,39 +59,8 @@
 	font-weight: 400;
 }
 
-.media-items-grid__add-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 21rem;
-	color: vars.$grayColor-4;
-	border-radius: 30rem;
-
-	&:hover {
-		color: vars.$grayColor-5;
-	}
-}
-
 .media-items-grid__languages {
 	margin: 4rem 0 2rem 0;
 }
 
-.media-items-grid__action-button {
-	position: absolute;
-	top: .5rem;
-	right: .5rem;
-	color: white;
-	background-color:rgba(0, 0, 0, .15);
-	backdrop-filter: blur(5px);
-	padding: .5rem;
-	border-radius: vars.$radius-1;
 
-	&:hover {
-		color: vars.$textColor;
-		background-color: white;
-	}
-
-	& > * {
-		display: block;
-	}
-}

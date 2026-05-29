@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { LanguageCode } from 'utils/utils'
 import { useBooksStore } from '_pages/media/books/booksStore'
-import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+import { MediaItemsGridConfig } from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetContentConfig() {
@@ -44,7 +44,7 @@ export function useGetContentConfig() {
 							subName: book.author,
 							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
 							actionUrl: pageUrls.books.book(bookId).path,
-							coverUrl: book.coverUrl,
+							coverUrl: book.coverUrl ?? undefined,
 						}
 					}),
 					publicItems: publicBooks.data.map((book) => {

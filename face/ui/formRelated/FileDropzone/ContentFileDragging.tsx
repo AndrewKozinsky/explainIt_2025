@@ -1,7 +1,7 @@
 function ContentFileDragging() {
 	return (
 		<div className='file-dropzone file-dropzone--file-dragging'>
-			<p className='file-dropzone__header file-dropzone__header--dragging'>Бросьте файл</p>
+			<p className='file-dropzone__text file-dropzone__text--dragging'>Бросьте файл</p>
 		</div>
 	)
 }

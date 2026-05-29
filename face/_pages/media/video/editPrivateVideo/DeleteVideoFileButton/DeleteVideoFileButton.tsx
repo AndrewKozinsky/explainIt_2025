@@ -1,12 +1,14 @@
-// import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { useGetDeleteVideoFile } from './fn/getDeleteBook'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
+import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { useGetDeleteVideoFile } from './fn/getDeleteBook'
 
-/*function DeleteVideoFileButton() {
+function DeleteVideoFileButton() {
 	const { onDeleteFileClick, status } = useGetDeleteVideoFile()
 
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonText='Удалить файл...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteFileClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{
@@ -16,6 +18,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteVideoFileButton
+export default DeleteVideoFileButton

@@ -1,11 +1,11 @@
-// import Button from '@/ui/formRelated/buttons/Button/Button'
-// import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
 
-/*interface Props {
+interface Props {
 	disabled?: boolean
-}*/
+}
 
-/*function WatchMovieButton({ disabled = false }: Props) {
+function WatchMovieButton({ disabled = false }: Props) {
 	const isButtonDisabled = useIsWatchButtonDisabled()
 	const onButtonClick = useGetOnWatchButtonClick()
 
@@ -14,6 +14,6 @@
 			Смотреть
 		</Button>
 	)
-}*/
+}
 
-// export default WatchMovieButton
+export default WatchMovieButton

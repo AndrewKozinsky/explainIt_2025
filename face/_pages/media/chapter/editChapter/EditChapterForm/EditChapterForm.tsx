@@ -1,21 +1,21 @@
-// import React, { useState } from 'react'
-// import { yupResolver } from '@hookform/resolvers/yup'
-// import { useForm } from 'react-hook-form'
-// import * as yup from 'yup'
-// import Button from '@/ui/formRelated/buttons/Button/Button'
-// import FormError from '@/ui/formRelated/FormError/FormError'
-// import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-// import TextInput from '@/ui/formRelated/TextInput/TextInput'
-// import { FormStatus } from '@/utils/forms'
-// import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
-// import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
-// import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
-// import { ChangeChapterFormData, changeChapterFormSchema, ChangeChapterFormTest } from './fn/form'
-// import { useSetFieldValues } from './fn/setFieldValues'
-// import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
-// import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import FormError from '@/ui/formRelated/FormError/FormError'
+import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+import TextInput from '@/ui/formRelated/TextInput/TextInput'
+import { FormStatus } from '@/utils/forms'
+import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
+import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
+import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
+import { ChangeChapterFormData, changeChapterFormSchema } from './fn/form'
+import { useSetFieldValues } from './fn/setFieldValues'
+import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
+import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
 
-/*export default function EditChapterForm() {
+export default function EditChapterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -37,7 +37,7 @@
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeChapterFormTest.form.id}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<MediaFormSurface
 					leftBottomButtons={[<DeleteChapterButton key='delete' />]}
 					rightBottomButtons={[
@@ -82,14 +82,15 @@
 							}}
 							currentText={contentText}
 						/>
-						<YouWillLosePhrasesWarning />
+						<div style={{ width: '100%' }}>
+							<YouWillLosePhrasesWarning />
+						</div>
 						<TextInput
 							label='Заметка'
 							error={errors.note?.message}
 							inputProps={{
 								...register('note'),
 								disabled: ['success', 'submitting'].includes(formStatus),
-								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							}}
 						/>
 						<FormError text={formError} />
@@ -98,4 +99,4 @@
 			</form>
 		</>
 	)
-}*/
+}

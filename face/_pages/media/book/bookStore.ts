@@ -1,7 +1,7 @@
-// import { create } from 'zustand'
-// import { BookPublicOutModel, BookPrivateOutModel } from '@/graphql'
+import { create } from 'zustand'
+import { BookPublicOutModel, BookPrivateOutModel } from '@/graphql'
 
-/*export const bookStoreValues: BooksStoreValues = {
+export const bookStoreValues: BooksStoreValues = {
 	publicBook: {
 		loading: true,
 		errorMessage: null,
@@ -12,9 +12,9 @@
 		errorMessage: null,
 		data: null as any as BookPrivateOutModel,
 	},
-}*/
+}
 
-/*export const useBookStore = create<ReadingStore>()((set) => {
+export const useBookStore = create<ReadingStore>()((set) => {
 	return {
 		...bookStoreValues,
 		updatePublicBook: (book: BooksStore.PublicBookData) => {
@@ -41,16 +41,16 @@
 			})
 		},
 	}
-})*/
+})
 
-// export type ReadingStore = BooksStoreValues & BooksStoreMethods
+export type ReadingStore = BooksStoreValues & BooksStoreMethods
 
-/*export type BooksStoreValues = {
+export type BooksStoreValues = {
 	publicBook: BooksStore.PublicBookData
 	privateBook: BooksStore.PrivateBookData
-}*/
+}
 
-/*export namespace BooksStore {
+export namespace BooksStore {
 	export type PrivateBookData = {
 		loading: boolean
 		errorMessage: null | string
@@ -61,10 +61,10 @@
 		errorMessage: null | string
 		data: BookPublicOutModel
 	}
-}*/
+}
 
-/*type BooksStoreMethods = {
+type BooksStoreMethods = {
 	updatePublicBook: (book: BooksStore.PublicBookData) => void
 	updatePrivateBook: (book: BooksStore.PrivateBookData) => void
 	clearStore: () => void
-}*/
+}

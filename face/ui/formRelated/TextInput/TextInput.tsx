@@ -1,5 +1,5 @@
 import React from 'react'
-import cn from 'classnames'
+import LabelWithField from 'ui/formRelated/LabelWithField/LabelWithField'
 import MaxCharactersCounter from 'ui/formRelated/TextInput/MaxCharactersCounter'
 import FieldError from '../FieldError/FieldError'
 import { throwErrorIfWrongProps } from './fn/wrongPropsError'
@@ -8,7 +8,6 @@ import './TextInput.scss'
 export type TextInputProps = {
 	label?: string
 	error?: null | string
-	dataTestId?: string
 	inputProps?: React.InputHTMLAttributes<HTMLInputElement>
 	textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>
 	maxCharacters?: number
@@ -16,20 +15,19 @@ export type TextInputProps = {
 }
 
 function TextInput(props: TextInputProps) {
-	const { label, error, dataTestId, inputProps, textareaProps, maxCharacters, currentText } = props
+	const { label, error, inputProps, textareaProps, maxCharacters, currentText } = props
 
 	throwErrorIfWrongProps(props)
 
 	const disabled = inputProps?.disabled || textareaProps?.disabled
 
 	return (
-		<div className={cn('text-input', disabled && 'text-input--disabled')} data-testid={dataTestId}>
-			{label && <label className='text-input__label'>{label}</label>}
+		<LabelWithField label={label} disabled={disabled}>
 			{inputProps && <input className='text-input__input' {...inputProps} />}
 			{textareaProps && <textarea className='text-input__input' {...textareaProps} />}
 			{maxCharacters && <MaxCharactersCounter maxCharacters={maxCharacters} text={currentText} />}
 			<FieldError text={error} />
-		</div>
+		</LabelWithField>
 	)
 }
 

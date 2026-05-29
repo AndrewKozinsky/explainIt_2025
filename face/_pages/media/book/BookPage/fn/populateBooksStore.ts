@@ -1,17 +1,17 @@
-// import { useEffect } from 'react'
-// import { useParams } from 'next/navigation'
-// import { BookPrivateOutModel, BookPublicOutModel, useBook_Get, useBook_GetBookPublic } from '@/graphql'
-// import { getTextByUnknownError } from '@/utils/errorMessages'
-// import { useBookStore } from '_pages/media/book/bookStore'
-// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
+import { useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import { BookPrivateOutModel, BookPublicOutModel, useBook_Get, useBook_GetBookPublic } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
+import { useBookStore } from '_pages/media/book/bookStore'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
-/*export function usePopulateBookStore() {
+export function usePopulateBookStore() {
 	useSetBookToStore()
 	useClearDataOnUnmount()
-}*/
+}
 
-/*function useSetBookToStore() {
+function useSetBookToStore() {
 	const bookIdInUrl = useParams().bookId as string
 	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
 	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
@@ -103,12 +103,12 @@
 		},
 		[bookType, publicBookData, publicBookError, publicBookLoading],
 	)
-}*/
+}
 
-/*function useClearDataOnUnmount() {
+function useClearDataOnUnmount() {
 	useEffect(function () {
 		return () => {
 			useBookStore.getState().clearStore()
 		}
 	}, [])
-}*/
+}

@@ -1,15 +1,15 @@
-// import { useCallback, useContext, useEffect, useState } from 'react'
-// import {
-// 	SubtitlesGenerationStatus,
-// 	useVideoPrivate_GenerateSubtitles,
-// 	useVideoPrivate_GetSubtitlesGenerationStatus,
-// 	VideoPrivate_GetDocument,
-// 	VideoPrivate_GetUserVideosDocument,
-// } from '@/graphql'
-// import { NotificationContext } from '@/ui/Notification/context'
-// import { useVideoStore } from '_pages/media/video/videoStore'
+import { useCallback, useContext, useEffect, useState } from 'react'
+import {
+	SubtitlesGenerationStatus,
+	useVideoPrivate_GenerateSubtitles,
+	useVideoPrivate_GetSubtitlesGenerationStatus,
+	VideoPrivate_GetDocument,
+	VideoPrivate_GetUserVideosDocument,
+} from '@/graphql'
+import { NotificationContext } from '@/ui/Notification/context'
+import { useVideoStore } from '_pages/media/video/videoStore'
 
-/*export function useGenerateSubtitles() {
+export function useGenerateSubtitles() {
 	const { notify } = useContext(NotificationContext)
 	const video = useVideoStore((s) => s.privateVideo.data)
 	const [isPolling, setIsPolling] = useState(false)
@@ -27,13 +27,16 @@
 	const generationStatus = statusQuery.data?.video_private_get_subtitles_generation_status.status
 	const generationError = statusQuery.data?.video_private_get_subtitles_generation_status.error
 	const status = generationStatus ?? SubtitlesGenerationStatus.Idle
-	const isGenerating = generating || status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing
+	const isGenerating =
+		generating || status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing
 
 	useEffect(
 		function () {
 			if (!video) return
 
-			setIsPolling(status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing)
+			setIsPolling(
+				status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing,
+			)
 		},
 		[status, video],
 	)
@@ -86,4 +89,4 @@
 		isGenerating,
 		generate,
 	}
-}*/
+}

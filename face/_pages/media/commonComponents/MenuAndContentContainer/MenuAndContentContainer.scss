@@ -1,6 +1,6 @@
-//@use "@/styles/mixins" as mix;
+@use "@/styles/mixins" as mix;
 
-/*.menu-and-content-container {
+.menu-and-content-container {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -9,9 +9,9 @@
 		flex-direction: row;
 		gap: 4rem;
 	}
-}*/
+}
 
-/*.menu-and-content-container__menu {
+.menu-and-content-container__menu {
 	@include mix.page-width(700px) {
 		min-width: 40%;
 		width: 50%;
@@ -22,8 +22,8 @@
 		width: 36rem;
 		max-width: 36rem;
 	}
-}*/
+}
 
-/*.menu-and-content-container__content {
+.menu-and-content-container__content {
 	flex-grow: 1;
-}*/
+}

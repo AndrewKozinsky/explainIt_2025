@@ -1,8 +1,8 @@
-// import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-// import { pageUrls } from 'сonsts/pageUrls'
+import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*function VideoBreadCrumbs() {
+function VideoBreadCrumbs() {
 	return <BreadCrumbs items={[pageUrls.videos]} />
-}*/
+}
 
-// export default VideoBreadCrumbs
+export default VideoBreadCrumbs
