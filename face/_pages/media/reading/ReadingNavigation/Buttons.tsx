@@ -1,4 +1,5 @@
 import { useParams } from 'next/navigation'
+import { getBookCoverUrl } from '_pages/media/reading/ReadingNavigation/fn/getBookCoverUrl'
 import { useReadingStore } from '../readingStore'
 import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
 import { LinkButton } from './LinkButton'
@@ -7,9 +8,16 @@ import { pageUrls } from 'сonsts/pageUrls'
 export function BookLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
-	const bookCover = book.coverUrl
+	const bookCoverUrl = getBookCoverUrl(book)
 
-	return <LinkButton href={pageUrls.books.book(bookIdInUrl).path} smallText={book.author} text={book.name} />
+	return (
+		<LinkButton
+			href={pageUrls.books.book(bookIdInUrl).path}
+			smallText={book.author}
+			text={book.name}
+			coverUrl={bookCoverUrl}
+		/>
+	)
 }
 
 export function PrevChapterLink() {

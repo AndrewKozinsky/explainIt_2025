@@ -4,7 +4,7 @@ import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/Onboa
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
 // import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
 // import ChapterContent from '../ChapterContent/ChapterContent'
-import ReadingBottomNavigation from '../ReadingBottomNavigation/ReadingBottomNavigation'
+import ReadingNavigation from '_pages/media/reading/ReadingNavigation/ReadingNavigation'
 import ReadingTop from '../ReadingTop/ReadingTop'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
@@ -25,7 +25,7 @@ function ReadingRoot() {
 					{/*<ChapterContent />*/}
 					<div className='reading-root__analysis'>{/*<DetailsBlock mediaType='reading' />*/}</div>
 				</div>
-				<ReadingBottomNavigation />
+				<ReadingNavigation />
 			</main>
 		</RootSurface>
 	)

@@ -12,7 +12,7 @@ type BaseButtonProps = {
 	href?: string
 	type?: 'button' | 'submit' | 'reset'
 	style?: CSSProperties
-	children: React.ReactNode
+	children?: React.ReactNode
 }
 
 function BaseButton(props: BaseButtonProps) {
