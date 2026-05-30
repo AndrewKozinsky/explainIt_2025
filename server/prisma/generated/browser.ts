@@ -118,17 +118,12 @@ export type Flashcard = Prisma.FlashcardModel
  */
 export type GrammarConcept = Prisma.GrammarConceptModel
 /**
- * Model UniversalSentence
- * 
- */
-export type UniversalSentence = Prisma.UniversalSentenceModel
-/**
  * Model MissingGrammarConcept
  * 
  */
 export type MissingGrammarConcept = Prisma.MissingGrammarConceptModel
 /**
- * Model GrammarConceptToUniversalSentence
+ * Model GrammarConceptToUniversalPhrase
  * 
  */
-export type GrammarConceptToUniversalSentence = Prisma.GrammarConceptToUniversalSentenceModel
+export type GrammarConceptToUniversalPhrase = Prisma.GrammarConceptToUniversalPhraseModel

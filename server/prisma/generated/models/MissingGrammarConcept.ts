@@ -28,17 +28,17 @@ export type AggregateMissingGrammarConcept = {
 
 export type MissingGrammarConceptAvgAggregateOutputType = {
   id: number | null
-  universal_sentence_id: number | null
+  universal_phrase_id: number | null
 }
 
 export type MissingGrammarConceptSumAggregateOutputType = {
   id: number | null
-  universal_sentence_id: number | null
+  universal_phrase_id: number | null
 }
 
 export type MissingGrammarConceptMinAggregateOutputType = {
   id: number | null
-  universal_sentence_id: number | null
+  universal_phrase_id: number | null
   source_language_code: $Enums.LanguageCode | null
   target_language_code: $Enums.LanguageCode | null
   category: string | null
@@ -49,7 +49,7 @@ export type MissingGrammarConceptMinAggregateOutputType = {
 
 export type MissingGrammarConceptMaxAggregateOutputType = {
   id: number | null
-  universal_sentence_id: number | null
+  universal_phrase_id: number | null
   source_language_code: $Enums.LanguageCode | null
   target_language_code: $Enums.LanguageCode | null
   category: string | null
@@ -60,7 +60,7 @@ export type MissingGrammarConceptMaxAggregateOutputType = {
 
 export type MissingGrammarConceptCountAggregateOutputType = {
   id: number
-  universal_sentence_id: number
+  universal_phrase_id: number
   source_language_code: number
   target_language_code: number
   category: number
@@ -73,17 +73,17 @@ export type MissingGrammarConceptCountAggregateOutputType = {
 
 export type MissingGrammarConceptAvgAggregateInputType = {
   id?: true
-  universal_sentence_id?: true
+  universal_phrase_id?: true
 }
 
 export type MissingGrammarConceptSumAggregateInputType = {
   id?: true
-  universal_sentence_id?: true
+  universal_phrase_id?: true
 }
 
 export type MissingGrammarConceptMinAggregateInputType = {
   id?: true
-  universal_sentence_id?: true
+  universal_phrase_id?: true
   source_language_code?: true
   target_language_code?: true
   category?: true
@@ -94,7 +94,7 @@ export type MissingGrammarConceptMinAggregateInputType = {
 
 export type MissingGrammarConceptMaxAggregateInputType = {
   id?: true
-  universal_sentence_id?: true
+  universal_phrase_id?: true
   source_language_code?: true
   target_language_code?: true
   category?: true
@@ -105,7 +105,7 @@ export type MissingGrammarConceptMaxAggregateInputType = {
 
 export type MissingGrammarConceptCountAggregateInputType = {
   id?: true
-  universal_sentence_id?: true
+  universal_phrase_id?: true
   source_language_code?: true
   target_language_code?: true
   category?: true
@@ -203,7 +203,7 @@ export type MissingGrammarConceptGroupByArgs<ExtArgs extends runtime.Types.Exten
 
 export type MissingGrammarConceptGroupByOutputType = {
   id: number
-  universal_sentence_id: number
+  universal_phrase_id: number
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
@@ -237,26 +237,26 @@ export type MissingGrammarConceptWhereInput = {
   OR?: Prisma.MissingGrammarConceptWhereInput[]
   NOT?: Prisma.MissingGrammarConceptWhereInput | Prisma.MissingGrammarConceptWhereInput[]
   id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
-  universal_sentence_id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
+  universal_phrase_id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
   source_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   lemma?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   sentence_text?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   created_at?: Prisma.DateTimeFilter<"MissingGrammarConcept"> | Date | string
-  universal_sentence?: Prisma.XOR<Prisma.UniversalSentenceScalarRelationFilter, Prisma.UniversalSentenceWhereInput>
+  universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
 }
 
 export type MissingGrammarConceptOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
   lemma?: Prisma.SortOrder
   sentence_text?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
-  universal_sentence?: Prisma.UniversalSentenceOrderByWithRelationInput
+  universal_phrase?: Prisma.UniversalPhraseOrderByWithRelationInput
 }
 
 export type MissingGrammarConceptWhereUniqueInput = Prisma.AtLeast<{
@@ -264,19 +264,19 @@ export type MissingGrammarConceptWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.MissingGrammarConceptWhereInput | Prisma.MissingGrammarConceptWhereInput[]
   OR?: Prisma.MissingGrammarConceptWhereInput[]
   NOT?: Prisma.MissingGrammarConceptWhereInput | Prisma.MissingGrammarConceptWhereInput[]
-  universal_sentence_id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
+  universal_phrase_id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
   source_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   lemma?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   sentence_text?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   created_at?: Prisma.DateTimeFilter<"MissingGrammarConcept"> | Date | string
-  universal_sentence?: Prisma.XOR<Prisma.UniversalSentenceScalarRelationFilter, Prisma.UniversalSentenceWhereInput>
+  universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
 }, "id">
 
 export type MissingGrammarConceptOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
@@ -295,7 +295,7 @@ export type MissingGrammarConceptScalarWhereWithAggregatesInput = {
   OR?: Prisma.MissingGrammarConceptScalarWhereWithAggregatesInput[]
   NOT?: Prisma.MissingGrammarConceptScalarWhereWithAggregatesInput | Prisma.MissingGrammarConceptScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"MissingGrammarConcept"> | number
-  universal_sentence_id?: Prisma.IntWithAggregatesFilter<"MissingGrammarConcept"> | number
+  universal_phrase_id?: Prisma.IntWithAggregatesFilter<"MissingGrammarConcept"> | number
   source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringWithAggregatesFilter<"MissingGrammarConcept"> | string
@@ -311,12 +311,12 @@ export type MissingGrammarConceptCreateInput = {
   lemma: string
   sentence_text: string
   created_at?: Date | string
-  universal_sentence: Prisma.UniversalSentenceCreateNestedOneWithoutMissingGrammarConceptInput
+  universal_phrase: Prisma.UniversalPhraseCreateNestedOneWithoutMissingGrammarConceptInput
 }
 
 export type MissingGrammarConceptUncheckedCreateInput = {
   id?: number
-  universal_sentence_id: number
+  universal_phrase_id: number
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
@@ -332,12 +332,12 @@ export type MissingGrammarConceptUpdateInput = {
   lemma?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  universal_sentence?: Prisma.UniversalSentenceUpdateOneRequiredWithoutMissingGrammarConceptNestedInput
+  universal_phrase?: Prisma.UniversalPhraseUpdateOneRequiredWithoutMissingGrammarConceptNestedInput
 }
 
 export type MissingGrammarConceptUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  universal_sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
+  universal_phrase_id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
@@ -348,7 +348,7 @@ export type MissingGrammarConceptUncheckedUpdateInput = {
 
 export type MissingGrammarConceptCreateManyInput = {
   id?: number
-  universal_sentence_id: number
+  universal_phrase_id: number
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
@@ -368,7 +368,7 @@ export type MissingGrammarConceptUpdateManyMutationInput = {
 
 export type MissingGrammarConceptUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  universal_sentence_id?: Prisma.IntFieldUpdateOperationsInput | number
+  universal_phrase_id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
@@ -389,7 +389,7 @@ export type MissingGrammarConceptOrderByRelationAggregateInput = {
 
 export type MissingGrammarConceptCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
@@ -400,12 +400,12 @@ export type MissingGrammarConceptCountOrderByAggregateInput = {
 
 export type MissingGrammarConceptAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
 }
 
 export type MissingGrammarConceptMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
@@ -416,7 +416,7 @@ export type MissingGrammarConceptMaxOrderByAggregateInput = {
 
 export type MissingGrammarConceptMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
@@ -427,52 +427,52 @@ export type MissingGrammarConceptMinOrderByAggregateInput = {
 
 export type MissingGrammarConceptSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  universal_sentence_id?: Prisma.SortOrder
+  universal_phrase_id?: Prisma.SortOrder
 }
 
-export type MissingGrammarConceptCreateNestedManyWithoutUniversal_sentenceInput = {
-  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput[]
-  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput[]
-  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_sentenceInputEnvelope
+export type MissingGrammarConceptCreateNestedManyWithoutUniversal_phraseInput = {
+  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput[]
+  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput[]
+  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_phraseInputEnvelope
   connect?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
 }
 
-export type MissingGrammarConceptUncheckedCreateNestedManyWithoutUniversal_sentenceInput = {
-  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput[]
-  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput[]
-  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_sentenceInputEnvelope
+export type MissingGrammarConceptUncheckedCreateNestedManyWithoutUniversal_phraseInput = {
+  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput[]
+  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput[]
+  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_phraseInputEnvelope
   connect?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
 }
 
-export type MissingGrammarConceptUpdateManyWithoutUniversal_sentenceNestedInput = {
-  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput[]
-  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput[]
-  upsert?: Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_sentenceInput[]
-  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_sentenceInputEnvelope
+export type MissingGrammarConceptUpdateManyWithoutUniversal_phraseNestedInput = {
+  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput[]
+  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput[]
+  upsert?: Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_phraseInput[]
+  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_phraseInputEnvelope
   set?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
   disconnect?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
   delete?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
   connect?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
-  update?: Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_sentenceInput[]
-  updateMany?: Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_sentenceInput[]
+  update?: Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_phraseInput[]
+  updateMany?: Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_phraseInput[]
   deleteMany?: Prisma.MissingGrammarConceptScalarWhereInput | Prisma.MissingGrammarConceptScalarWhereInput[]
 }
 
-export type MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_sentenceNestedInput = {
-  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput[]
-  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput[]
-  upsert?: Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_sentenceInput[]
-  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_sentenceInputEnvelope
+export type MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseNestedInput = {
+  create?: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput> | Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput[] | Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput[]
+  connectOrCreate?: Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput[]
+  upsert?: Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_phraseInput[]
+  createMany?: Prisma.MissingGrammarConceptCreateManyUniversal_phraseInputEnvelope
   set?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
   disconnect?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
   delete?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
   connect?: Prisma.MissingGrammarConceptWhereUniqueInput | Prisma.MissingGrammarConceptWhereUniqueInput[]
-  update?: Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_sentenceInput[]
-  updateMany?: Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_sentenceInput | Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_sentenceInput[]
+  update?: Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_phraseInput[]
+  updateMany?: Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_phraseInput | Prisma.MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_phraseInput[]
   deleteMany?: Prisma.MissingGrammarConceptScalarWhereInput | Prisma.MissingGrammarConceptScalarWhereInput[]
 }
 
-export type MissingGrammarConceptCreateWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptCreateWithoutUniversal_phraseInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
@@ -481,7 +481,7 @@ export type MissingGrammarConceptCreateWithoutUniversal_sentenceInput = {
   created_at?: Date | string
 }
 
-export type MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput = {
   id?: number
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
@@ -491,30 +491,30 @@ export type MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput =
   created_at?: Date | string
 }
 
-export type MissingGrammarConceptCreateOrConnectWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptCreateOrConnectWithoutUniversal_phraseInput = {
   where: Prisma.MissingGrammarConceptWhereUniqueInput
-  create: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput>
+  create: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput>
 }
 
-export type MissingGrammarConceptCreateManyUniversal_sentenceInputEnvelope = {
-  data: Prisma.MissingGrammarConceptCreateManyUniversal_sentenceInput | Prisma.MissingGrammarConceptCreateManyUniversal_sentenceInput[]
+export type MissingGrammarConceptCreateManyUniversal_phraseInputEnvelope = {
+  data: Prisma.MissingGrammarConceptCreateManyUniversal_phraseInput | Prisma.MissingGrammarConceptCreateManyUniversal_phraseInput[]
   skipDuplicates?: boolean
 }
 
-export type MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUpsertWithWhereUniqueWithoutUniversal_phraseInput = {
   where: Prisma.MissingGrammarConceptWhereUniqueInput
-  update: Prisma.XOR<Prisma.MissingGrammarConceptUpdateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedUpdateWithoutUniversal_sentenceInput>
-  create: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_sentenceInput>
+  update: Prisma.XOR<Prisma.MissingGrammarConceptUpdateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedUpdateWithoutUniversal_phraseInput>
+  create: Prisma.XOR<Prisma.MissingGrammarConceptCreateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput>
 }
 
-export type MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUpdateWithWhereUniqueWithoutUniversal_phraseInput = {
   where: Prisma.MissingGrammarConceptWhereUniqueInput
-  data: Prisma.XOR<Prisma.MissingGrammarConceptUpdateWithoutUniversal_sentenceInput, Prisma.MissingGrammarConceptUncheckedUpdateWithoutUniversal_sentenceInput>
+  data: Prisma.XOR<Prisma.MissingGrammarConceptUpdateWithoutUniversal_phraseInput, Prisma.MissingGrammarConceptUncheckedUpdateWithoutUniversal_phraseInput>
 }
 
-export type MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUpdateManyWithWhereWithoutUniversal_phraseInput = {
   where: Prisma.MissingGrammarConceptScalarWhereInput
-  data: Prisma.XOR<Prisma.MissingGrammarConceptUpdateManyMutationInput, Prisma.MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_sentenceInput>
+  data: Prisma.XOR<Prisma.MissingGrammarConceptUpdateManyMutationInput, Prisma.MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseInput>
 }
 
 export type MissingGrammarConceptScalarWhereInput = {
@@ -522,7 +522,7 @@ export type MissingGrammarConceptScalarWhereInput = {
   OR?: Prisma.MissingGrammarConceptScalarWhereInput[]
   NOT?: Prisma.MissingGrammarConceptScalarWhereInput | Prisma.MissingGrammarConceptScalarWhereInput[]
   id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
-  universal_sentence_id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
+  universal_phrase_id?: Prisma.IntFilter<"MissingGrammarConcept"> | number
   source_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"MissingGrammarConcept"> | string
@@ -531,7 +531,7 @@ export type MissingGrammarConceptScalarWhereInput = {
   created_at?: Prisma.DateTimeFilter<"MissingGrammarConcept"> | Date | string
 }
 
-export type MissingGrammarConceptCreateManyUniversal_sentenceInput = {
+export type MissingGrammarConceptCreateManyUniversal_phraseInput = {
   id?: number
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
@@ -541,7 +541,7 @@ export type MissingGrammarConceptCreateManyUniversal_sentenceInput = {
   created_at?: Date | string
 }
 
-export type MissingGrammarConceptUpdateWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUpdateWithoutUniversal_phraseInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
@@ -550,7 +550,7 @@ export type MissingGrammarConceptUpdateWithoutUniversal_sentenceInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type MissingGrammarConceptUncheckedUpdateWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUncheckedUpdateWithoutUniversal_phraseInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -560,7 +560,7 @@ export type MissingGrammarConceptUncheckedUpdateWithoutUniversal_sentenceInput =
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_sentenceInput = {
+export type MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -574,43 +574,43 @@ export type MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_sentenceInp
 
 export type MissingGrammarConceptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  universal_sentence_id?: boolean
+  universal_phrase_id?: boolean
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
   lemma?: boolean
   sentence_text?: boolean
   created_at?: boolean
-  universal_sentence?: boolean | Prisma.UniversalSentenceDefaultArgs<ExtArgs>
+  universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["missingGrammarConcept"]>
 
 export type MissingGrammarConceptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  universal_sentence_id?: boolean
+  universal_phrase_id?: boolean
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
   lemma?: boolean
   sentence_text?: boolean
   created_at?: boolean
-  universal_sentence?: boolean | Prisma.UniversalSentenceDefaultArgs<ExtArgs>
+  universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["missingGrammarConcept"]>
 
 export type MissingGrammarConceptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  universal_sentence_id?: boolean
+  universal_phrase_id?: boolean
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
   lemma?: boolean
   sentence_text?: boolean
   created_at?: boolean
-  universal_sentence?: boolean | Prisma.UniversalSentenceDefaultArgs<ExtArgs>
+  universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["missingGrammarConcept"]>
 
 export type MissingGrammarConceptSelectScalar = {
   id?: boolean
-  universal_sentence_id?: boolean
+  universal_phrase_id?: boolean
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
@@ -619,25 +619,25 @@ export type MissingGrammarConceptSelectScalar = {
   created_at?: boolean
 }
 
-export type MissingGrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_sentence_id" | "source_language_code" | "target_language_code" | "category" | "lemma" | "sentence_text" | "created_at", ExtArgs["result"]["missingGrammarConcept"]>
+export type MissingGrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "source_language_code" | "target_language_code" | "category" | "lemma" | "sentence_text" | "created_at", ExtArgs["result"]["missingGrammarConcept"]>
 export type MissingGrammarConceptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  universal_sentence?: boolean | Prisma.UniversalSentenceDefaultArgs<ExtArgs>
+  universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }
 export type MissingGrammarConceptIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  universal_sentence?: boolean | Prisma.UniversalSentenceDefaultArgs<ExtArgs>
+  universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }
 export type MissingGrammarConceptIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  universal_sentence?: boolean | Prisma.UniversalSentenceDefaultArgs<ExtArgs>
+  universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }
 
 export type $MissingGrammarConceptPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "MissingGrammarConcept"
   objects: {
-    universal_sentence: Prisma.$UniversalSentencePayload<ExtArgs>
+    universal_phrase: Prisma.$UniversalPhrasePayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    universal_sentence_id: number
+    universal_phrase_id: number
     source_language_code: $Enums.LanguageCode
     target_language_code: $Enums.LanguageCode
     category: string
@@ -1038,7 +1038,7 @@ readonly fields: MissingGrammarConceptFieldRefs;
  */
 export interface Prisma__MissingGrammarConceptClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  universal_sentence<T extends Prisma.UniversalSentenceDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UniversalSentenceDefaultArgs<ExtArgs>>): Prisma.Prisma__UniversalSentenceClient<runtime.Types.Result.GetResult<Prisma.$UniversalSentencePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  universal_phrase<T extends Prisma.UniversalPhraseDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UniversalPhraseDefaultArgs<ExtArgs>>): Prisma.Prisma__UniversalPhraseClient<runtime.Types.Result.GetResult<Prisma.$UniversalPhrasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1069,7 +1069,7 @@ export interface Prisma__MissingGrammarConceptClient<T, Null = never, ExtArgs ex
  */
 export interface MissingGrammarConceptFieldRefs {
   readonly id: Prisma.FieldRef<"MissingGrammarConcept", 'Int'>
-  readonly universal_sentence_id: Prisma.FieldRef<"MissingGrammarConcept", 'Int'>
+  readonly universal_phrase_id: Prisma.FieldRef<"MissingGrammarConcept", 'Int'>
   readonly source_language_code: Prisma.FieldRef<"MissingGrammarConcept", 'LanguageCode'>
   readonly target_language_code: Prisma.FieldRef<"MissingGrammarConcept", 'LanguageCode'>
   readonly category: Prisma.FieldRef<"MissingGrammarConcept", 'String'>

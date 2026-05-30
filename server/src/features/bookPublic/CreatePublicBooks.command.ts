@@ -1,5 +1,5 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'

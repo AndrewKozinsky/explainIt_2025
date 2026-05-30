@@ -1,13 +1,13 @@
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Mutation, Resolver } from '@nestjs/graphql'
-import { FetchGrammarConceptsCommand } from '../../features/grammarConcept/FetchGrammarConcepts.command'
-import { RouteNames } from '../../infrastructure/routeNames'
-import { UniversalSentenceOutModel } from '../../models/grammarConcept/grammarConcept.out.model'
+import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
+import { FetchGrammarConceptsCommand } from 'features/grammarConcept/FetchGrammarConcepts.command'
+import { RouteNames } from 'infrastructure/routeNames'
+import { UniversalPhraseOutModel } from 'models/grammarConcept/grammarConcept.out.model'
 import {
 	GrammarConceptServiceModel,
 	MissingGrammarConceptServiceModel,
-} from '../../models/grammarConcept/grammarConcept.service.model'
-import { GrammarConceptQueryRepository } from '../../repo/grammarConcept.queryRepository'
+} from 'models/grammarConcept/grammarConcept.service.model'
 import { FetchGrammarConceptsInput } from './inputs/fetchGrammarConcepts.input'
 
 @Resolver()
@@ -17,7 +17,7 @@ export class GrammarConceptResolver {
 		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
 	) {}
 
-	@Mutation(() => UniversalSentenceOutModel, {
+	@Mutation(() => UniversalPhraseOutModel, {
 		name: RouteNames.GRAMMAR_CONCEPT.FETCH,
 		description: 'Extract grammar concepts from a sentence using AI and link to available articles',
 	})

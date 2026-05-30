@@ -968,26 +968,33 @@ export const bdConfig = {
 			},
 		},
 	},
-	// Слово или фраза. Используется в таблице транскрипций и озвучки
+	// Слово, фраза или предложение. Используется для транскрипций, озвучки и грамматических конструкций
 	UniversalPhrase: {
 		dtoProps: {},
-		indexes: [{ fields: ['language_code', 'phrase'], unique: true }],
+		indexes: [{ fields: ['source_language_code', 'text'], unique: true }],
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			phrase: {
+			text: {
 				type: 'string',
-				description: 'Word or phrase in foreign language',
+				description: 'Word, phrase or sentence in foreign language',
 				required: true,
-				maxLength: 500,
+				maxLength: 2000,
 				example: 'life',
 			},
-			language_code: {
+			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
 				required: true,
+			},
+			status: {
+				type: 'enum',
+				required: true,
+				variants: ['NOT_STARTED', 'ERROR', 'SUCCESS'],
+				enumName: 'GrammarExtractionStatus',
+				default: 'NOT_STARTED',
 			},
 			UniversalTranscription: {
 				type: 'parentOneToOne',
@@ -997,6 +1004,10 @@ export const bdConfig = {
 				type: 'parentOneToOne',
 				required: false,
 			},
+			GrammarConceptToUniversalPhrase: { type: 'oneToMany' },
+			MissingGrammarConcept: { type: 'oneToMany' },
+			created_at: { type: 'createdAt' },
+			updated_at: { type: 'updatedAt' },
 		},
 	},
 	// Транскрипция слова или фразы
@@ -1276,43 +1287,18 @@ export const bdConfig = {
 			slug: { type: 'string', required: true, maxLength: 500 },
 			order: { type: 'number', required: true, default: 0 },
 			aliases: { type: 'array', arrayItemType: 'string', required: true },
-			GrammarConceptToUniversalSentence: { type: 'oneToMany' },
-		},
-	},
-	UniversalSentence: {
-		dtoProps: {},
-		indexes: [{ fields: ['sentence_text', 'source_language_code'], unique: true }],
-		dbFields: {
-			id: { type: 'index' },
-			sentence_text: { type: 'string', required: true, maxLength: 2000 },
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			status: {
-				type: 'enum',
-				required: true,
-				variants: ['NOT_STARTED', 'ERROR', 'SUCCESS'],
-				enumName: 'GrammarExtractionStatus',
-				default: 'NOT_STARTED',
-			},
-			GrammarConceptToUniversalSentence: { type: 'oneToMany' },
-			MissingGrammarConcept: { type: 'oneToMany' },
-			created_at: { type: 'createdAt' },
-			updated_at: { type: 'updatedAt' },
+			GrammarConceptToUniversalPhrase: { type: 'oneToMany' },
 		},
 	},
 	MissingGrammarConcept: {
 		dtoProps: {},
-		indexes: [{ fields: ['universal_sentence_id'] }],
+		indexes: [{ fields: ['universal_phrase_id'] }],
 		dbFields: {
 			id: { type: 'index' },
-			universal_sentence_id: {
+			universal_phrase_id: {
 				type: 'manyToOne',
-				thisField: 'universal_sentence_id',
-				foreignTable: 'UniversalSentence',
+				thisField: 'universal_phrase_id',
+				foreignTable: 'UniversalPhrase',
 				foreignField: 'id',
 				onDelete: 'Cascade',
 				required: true,
@@ -1335,12 +1321,12 @@ export const bdConfig = {
 			created_at: { type: 'createdAt' },
 		},
 	},
-	GrammarConceptToUniversalSentence: {
+	GrammarConceptToUniversalPhrase: {
 		dtoProps: {},
 		indexes: [
-			{ fields: ['grammar_concept_id', 'universal_sentence_id'], unique: true },
+			{ fields: ['grammar_concept_id', 'universal_phrase_id'], unique: true },
 			{ fields: ['grammar_concept_id'] },
-			{ fields: ['universal_sentence_id'] },
+			{ fields: ['universal_phrase_id'] },
 		],
 		dbFields: {
 			id: { type: 'index' },
@@ -1353,10 +1339,10 @@ export const bdConfig = {
 				onDelete: 'Cascade',
 				required: true,
 			},
-			universal_sentence_id: {
+			universal_phrase_id: {
 				type: 'manyToOne',
-				thisField: 'universal_sentence_id',
-				foreignTable: 'UniversalSentence',
+				thisField: 'universal_phrase_id',
+				foreignTable: 'UniversalPhrase',
 				foreignField: 'id',
 				onDelete: 'Cascade',
 				required: true,

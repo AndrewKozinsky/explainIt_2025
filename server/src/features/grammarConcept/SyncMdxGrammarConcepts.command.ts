@@ -1,6 +1,6 @@
+import { randomUUID } from 'crypto'
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'fs'
 import { join, extname } from 'path'
-import { randomUUID } from 'crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import matter = require('gray-matter')
 import { PrismaService } from '../../db/prisma.service'
@@ -154,32 +154,33 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 				target_language_code: true,
 				category: true,
 				lemma: true,
-				universal_sentence_id: true,
+				universal_phrase_id: true,
 			},
 		})
 
 		console.log(`[resolveMissingConcepts] Found ${missingRecords.length} missing concept(s)`)
 		for (const missing of missingRecords) {
-			console.log(`[resolveMissingConcepts] Looking for: source=${missing.source_language_code} target=${missing.target_language_code} category="${missing.category}" lemma="${missing.lemma}"`)
+			console.log(
+				`[resolveMissingConcepts] Looking for: source=${missing.source_language_code} target=${missing.target_language_code} category="${missing.category}" lemma="${missing.lemma}"`,
+			)
 			const grammarConcept = await this.prisma.grammarConcept.findFirst({
 				where: {
 					source_language_code: missing.source_language_code,
 					target_language_code: missing.target_language_code,
 					category: missing.category,
-					OR: [
-						{ lemma: missing.lemma },
-						{ aliases: { has: missing.lemma } },
-					],
+					OR: [{ lemma: missing.lemma }, { aliases: { has: missing.lemma } }],
 				},
 			})
 
 			if (grammarConcept) {
-				console.log(`[resolveMissingConcepts] MATCHED: missing lemma="${missing.lemma}" → article "${grammarConcept.title}" (lemma="${grammarConcept.lemma}", id=${grammarConcept.id})`)
+				console.log(
+					`[resolveMissingConcepts] MATCHED: missing lemma="${missing.lemma}" → article "${grammarConcept.title}" (lemma="${grammarConcept.lemma}", id=${grammarConcept.id})`,
+				)
 				await this.prisma.$transaction([
-					this.prisma.grammarConceptToUniversalSentence.create({
+					this.prisma.grammarConceptToUniversalPhrase.create({
 						data: {
 							grammar_concept_id: grammarConcept.id,
-							universal_sentence_id: missing.universal_sentence_id,
+							universal_phrase_id: missing.universal_phrase_id,
 						},
 					}),
 					this.prisma.missingGrammarConcept.delete({

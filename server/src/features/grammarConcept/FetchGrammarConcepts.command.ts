@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UniversalSentenceServiceModel } from 'models/grammarConcept/grammarConcept.service.model'
-import { GrammarConceptRepository } from '../../repo/grammarConcept.repository'
-import { UniversalSentenceRepository } from '../../repo/universalSentence.repository'
+import { GrammarConceptRepository } from 'repo/grammarConcept.repository'
+import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
+import { UniversalPhraseServiceModel } from 'models/grammarConcept/grammarConcept.service.model'
 import { GrammarExtractionService } from './grammarExtraction.service'
 
 export class FetchGrammarConceptsCommand implements ICommand {
@@ -18,20 +18,20 @@ export class FetchGrammarConceptsCommand implements ICommand {
 export class FetchGrammarConceptsHandler implements ICommandHandler<FetchGrammarConceptsCommand> {
 	constructor(
 		private grammarConceptRepo: GrammarConceptRepository,
-		private universalSentenceRepo: UniversalSentenceRepository,
+		private universalPhraseRepo: UniversalPhraseRepository,
 		private grammarExtractionService: GrammarExtractionService,
 	) {}
 
-	async execute(command: FetchGrammarConceptsCommand): Promise<UniversalSentenceServiceModel> {
+	async execute(command: FetchGrammarConceptsCommand): Promise<UniversalPhraseServiceModel> {
 		const { sentenceText, sourceLanguage, targetLanguage } = command.input
 
-		const universalSentence = await this.universalSentenceRepo.findOrCreate({
+		const universalPhrase = await this.universalPhraseRepo.findOrCreate({
 			sentenceText,
 			sourceLanguage,
 		})
 
-		if (universalSentence.status === 'SUCCESS') {
-			return universalSentence
+		if (universalPhrase.status === 'SUCCESS') {
+			return universalPhrase
 		}
 
 		try {
@@ -65,16 +65,16 @@ export class FetchGrammarConceptsHandler implements ICommandHandler<FetchGrammar
 					sentenceText,
 				}))
 
-			await this.universalSentenceRepo.completeExtraction(universalSentence.id, foundIds, missingItems)
+			await this.universalPhraseRepo.completeExtraction(universalPhrase.id, foundIds, missingItems)
 
-			const updated = await this.universalSentenceRepo.findByIdWithRelations(universalSentence.id)
+			const updated = await this.universalPhraseRepo.findByIdWithRelations(universalPhrase.id)
 			if (!updated) {
-				throw new Error('Failed to load updated UniversalSentence')
+				throw new Error('Failed to load updated UniversalPhrase')
 			}
 
 			return updated
 		} catch (error) {
-			await this.universalSentenceRepo.updateStatus(universalSentence.id, 'ERROR')
+			await this.universalPhraseRepo.updateStatus(universalPhrase.id, 'ERROR')
 			throw error
 		}
 	}

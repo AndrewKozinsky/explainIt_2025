@@ -226,13 +226,18 @@ model SubtitleSentenceInit {
 }
 
 model UniversalPhrase {
-    id                          Int                          @id @default(autoincrement())
-    phrase                      String
-    language_code               LanguageCode
-    UniversalTranscription      UniversalTranscription?
-    UniversalAudioPronunciation UniversalAudioPronunciation?
+    id                              Int                               @id @default(autoincrement())
+    text                            String
+    source_language_code            LanguageCode
+    status                          GrammarExtractionStatus           @default(NOT_STARTED)
+    UniversalTranscription          UniversalTranscription?
+    UniversalAudioPronunciation     UniversalAudioPronunciation?
+    GrammarConceptToUniversalPhrase GrammarConceptToUniversalPhrase[]
+    MissingGrammarConcept           MissingGrammarConcept[]
+    created_at                      DateTime                          @default(now())
+    updated_at                      DateTime                          @default(now())
 
-    @@unique([language_code, phrase])
+    @@unique([source_language_code, text])
 }
 
 model UniversalTranscription {
@@ -309,57 +314,44 @@ model Flashcard {
 }
 
 model GrammarConcept {
-    id                                String                              @id @default(uuid())
-    source_language_code              LanguageCode
-    target_language_code              LanguageCode
-    category                          String
-    lemma                             String
-    title                             String
-    slug                              String
-    order                             Int                                 @default(0)
-    aliases                           String[]
-    GrammarConceptToUniversalSentence GrammarConceptToUniversalSentence[]
+    id                              String                            @id @default(uuid())
+    source_language_code            LanguageCode
+    target_language_code            LanguageCode
+    category                        String
+    lemma                           String
+    title                           String
+    slug                            String
+    order                           Int                               @default(0)
+    aliases                         String[]
+    GrammarConceptToUniversalPhrase GrammarConceptToUniversalPhrase[]
 
     @@unique([source_language_code, target_language_code, category, lemma])
 }
 
-model UniversalSentence {
-    id                                Int                                 @id @default(autoincrement())
-    sentence_text                     String
-    source_language_code              LanguageCode
-    status                            GrammarExtractionStatus             @default(NOT_STARTED)
-    GrammarConceptToUniversalSentence GrammarConceptToUniversalSentence[]
-    MissingGrammarConcept             MissingGrammarConcept[]
-    created_at                        DateTime                            @default(now())
-    updated_at                        DateTime                            @default(now())
-
-    @@unique([sentence_text, source_language_code])
-}
-
 model MissingGrammarConcept {
-    id                    Int               @id @default(autoincrement())
-    universal_sentence    UniversalSentence @relation(fields: [universal_sentence_id], references: [id], onDelete: Cascade)
-    universal_sentence_id Int
-    source_language_code  LanguageCode
-    target_language_code  LanguageCode
-    category              String
-    lemma                 String
-    sentence_text         String
-    created_at            DateTime          @default(now())
+    id                   Int             @id @default(autoincrement())
+    universal_phrase     UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id  Int
+    source_language_code LanguageCode
+    target_language_code LanguageCode
+    category             String
+    lemma                String
+    sentence_text        String
+    created_at           DateTime        @default(now())
 
-    @@index([universal_sentence_id])
+    @@index([universal_phrase_id])
 }
 
-model GrammarConceptToUniversalSentence {
-    id                    Int               @id @default(autoincrement())
-    grammar_concept       GrammarConcept    @relation(fields: [grammar_concept_id], references: [id], onDelete: Cascade)
-    grammar_concept_id    String
-    universal_sentence    UniversalSentence @relation(fields: [universal_sentence_id], references: [id], onDelete: Cascade)
-    universal_sentence_id Int
+model GrammarConceptToUniversalPhrase {
+    id                  Int             @id @default(autoincrement())
+    grammar_concept     GrammarConcept  @relation(fields: [grammar_concept_id], references: [id], onDelete: Cascade)
+    grammar_concept_id  String
+    universal_phrase    UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id Int
 
-    @@unique([grammar_concept_id, universal_sentence_id])
+    @@unique([grammar_concept_id, universal_phrase_id])
     @@index([grammar_concept_id])
-    @@index([universal_sentence_id])
+    @@index([universal_phrase_id])
 }
 
 enum BalanceTransactionType {
@@ -412,6 +404,12 @@ enum SentencePhraseTranslationStatus {
     error
 }
 
+enum GrammarExtractionStatus {
+    NOT_STARTED
+    ERROR
+    SUCCESS
+}
+
 enum SentenceChatMessageRole {
     user
     assistant
@@ -422,10 +420,4 @@ enum SentenceChatMessageStatus {
     completed
     canceled
     failed
-}
-
-enum GrammarExtractionStatus {
-    NOT_STARTED
-    ERROR
-    SUCCESS
 }

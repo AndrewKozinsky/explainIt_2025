@@ -404,9 +404,8 @@ export const ModelName = {
   SentenceChatMessage: 'SentenceChatMessage',
   Flashcard: 'Flashcard',
   GrammarConcept: 'GrammarConcept',
-  UniversalSentence: 'UniversalSentence',
   MissingGrammarConcept: 'MissingGrammarConcept',
-  GrammarConceptToUniversalSentence: 'GrammarConceptToUniversalSentence'
+  GrammarConceptToUniversalPhrase: 'GrammarConceptToUniversalPhrase'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -422,7 +421,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard" | "grammarConcept" | "universalSentence" | "missingGrammarConcept" | "grammarConceptToUniversalSentence"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard" | "grammarConcept" | "missingGrammarConcept" | "grammarConceptToUniversalPhrase"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1906,80 +1905,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    UniversalSentence: {
-      payload: Prisma.$UniversalSentencePayload<ExtArgs>
-      fields: Prisma.UniversalSentenceFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.UniversalSentenceFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.UniversalSentenceFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>
-        }
-        findFirst: {
-          args: Prisma.UniversalSentenceFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.UniversalSentenceFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>
-        }
-        findMany: {
-          args: Prisma.UniversalSentenceFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>[]
-        }
-        create: {
-          args: Prisma.UniversalSentenceCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>
-        }
-        createMany: {
-          args: Prisma.UniversalSentenceCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.UniversalSentenceCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>[]
-        }
-        delete: {
-          args: Prisma.UniversalSentenceDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>
-        }
-        update: {
-          args: Prisma.UniversalSentenceUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>
-        }
-        deleteMany: {
-          args: Prisma.UniversalSentenceDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.UniversalSentenceUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.UniversalSentenceUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>[]
-        }
-        upsert: {
-          args: Prisma.UniversalSentenceUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$UniversalSentencePayload>
-        }
-        aggregate: {
-          args: Prisma.UniversalSentenceAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateUniversalSentence>
-        }
-        groupBy: {
-          args: Prisma.UniversalSentenceGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UniversalSentenceGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.UniversalSentenceCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.UniversalSentenceCountAggregateOutputType> | number
-        }
-      }
-    }
     MissingGrammarConcept: {
       payload: Prisma.$MissingGrammarConceptPayload<ExtArgs>
       fields: Prisma.MissingGrammarConceptFieldRefs
@@ -2054,77 +1979,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    GrammarConceptToUniversalSentence: {
-      payload: Prisma.$GrammarConceptToUniversalSentencePayload<ExtArgs>
-      fields: Prisma.GrammarConceptToUniversalSentenceFieldRefs
+    GrammarConceptToUniversalPhrase: {
+      payload: Prisma.$GrammarConceptToUniversalPhrasePayload<ExtArgs>
+      fields: Prisma.GrammarConceptToUniversalPhraseFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.GrammarConceptToUniversalSentenceFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload> | null
+          args: Prisma.GrammarConceptToUniversalPhraseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.GrammarConceptToUniversalSentenceFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>
+          args: Prisma.GrammarConceptToUniversalPhraseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>
         }
         findFirst: {
-          args: Prisma.GrammarConceptToUniversalSentenceFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload> | null
+          args: Prisma.GrammarConceptToUniversalPhraseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.GrammarConceptToUniversalSentenceFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>
+          args: Prisma.GrammarConceptToUniversalPhraseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>
         }
         findMany: {
-          args: Prisma.GrammarConceptToUniversalSentenceFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>[]
+          args: Prisma.GrammarConceptToUniversalPhraseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>[]
         }
         create: {
-          args: Prisma.GrammarConceptToUniversalSentenceCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>
+          args: Prisma.GrammarConceptToUniversalPhraseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>
         }
         createMany: {
-          args: Prisma.GrammarConceptToUniversalSentenceCreateManyArgs<ExtArgs>
+          args: Prisma.GrammarConceptToUniversalPhraseCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.GrammarConceptToUniversalSentenceCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>[]
+          args: Prisma.GrammarConceptToUniversalPhraseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>[]
         }
         delete: {
-          args: Prisma.GrammarConceptToUniversalSentenceDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>
+          args: Prisma.GrammarConceptToUniversalPhraseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>
         }
         update: {
-          args: Prisma.GrammarConceptToUniversalSentenceUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>
+          args: Prisma.GrammarConceptToUniversalPhraseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>
         }
         deleteMany: {
-          args: Prisma.GrammarConceptToUniversalSentenceDeleteManyArgs<ExtArgs>
+          args: Prisma.GrammarConceptToUniversalPhraseDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.GrammarConceptToUniversalSentenceUpdateManyArgs<ExtArgs>
+          args: Prisma.GrammarConceptToUniversalPhraseUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.GrammarConceptToUniversalSentenceUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>[]
+          args: Prisma.GrammarConceptToUniversalPhraseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>[]
         }
         upsert: {
-          args: Prisma.GrammarConceptToUniversalSentenceUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalSentencePayload>
+          args: Prisma.GrammarConceptToUniversalPhraseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$GrammarConceptToUniversalPhrasePayload>
         }
         aggregate: {
-          args: Prisma.GrammarConceptToUniversalSentenceAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateGrammarConceptToUniversalSentence>
+          args: Prisma.GrammarConceptToUniversalPhraseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateGrammarConceptToUniversalPhrase>
         }
         groupBy: {
-          args: Prisma.GrammarConceptToUniversalSentenceGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.GrammarConceptToUniversalSentenceGroupByOutputType>[]
+          args: Prisma.GrammarConceptToUniversalPhraseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GrammarConceptToUniversalPhraseGroupByOutputType>[]
         }
         count: {
-          args: Prisma.GrammarConceptToUniversalSentenceCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.GrammarConceptToUniversalSentenceCountAggregateOutputType> | number
+          args: Prisma.GrammarConceptToUniversalPhraseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.GrammarConceptToUniversalPhraseCountAggregateOutputType> | number
         }
       }
     }
@@ -2374,8 +2299,11 @@ export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitSc
 
 export const UniversalPhraseScalarFieldEnum = {
   id: 'id',
-  phrase: 'phrase',
-  language_code: 'language_code'
+  text: 'text',
+  source_language_code: 'source_language_code',
+  status: 'status',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
 export type UniversalPhraseScalarFieldEnum = (typeof UniversalPhraseScalarFieldEnum)[keyof typeof UniversalPhraseScalarFieldEnum]
@@ -2463,21 +2391,9 @@ export const GrammarConceptScalarFieldEnum = {
 export type GrammarConceptScalarFieldEnum = (typeof GrammarConceptScalarFieldEnum)[keyof typeof GrammarConceptScalarFieldEnum]
 
 
-export const UniversalSentenceScalarFieldEnum = {
-  id: 'id',
-  sentence_text: 'sentence_text',
-  source_language_code: 'source_language_code',
-  status: 'status',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type UniversalSentenceScalarFieldEnum = (typeof UniversalSentenceScalarFieldEnum)[keyof typeof UniversalSentenceScalarFieldEnum]
-
-
 export const MissingGrammarConceptScalarFieldEnum = {
   id: 'id',
-  universal_sentence_id: 'universal_sentence_id',
+  universal_phrase_id: 'universal_phrase_id',
   source_language_code: 'source_language_code',
   target_language_code: 'target_language_code',
   category: 'category',
@@ -2489,13 +2405,13 @@ export const MissingGrammarConceptScalarFieldEnum = {
 export type MissingGrammarConceptScalarFieldEnum = (typeof MissingGrammarConceptScalarFieldEnum)[keyof typeof MissingGrammarConceptScalarFieldEnum]
 
 
-export const GrammarConceptToUniversalSentenceScalarFieldEnum = {
+export const GrammarConceptToUniversalPhraseScalarFieldEnum = {
   id: 'id',
   grammar_concept_id: 'grammar_concept_id',
-  universal_sentence_id: 'universal_sentence_id'
+  universal_phrase_id: 'universal_phrase_id'
 } as const
 
-export type GrammarConceptToUniversalSentenceScalarFieldEnum = (typeof GrammarConceptToUniversalSentenceScalarFieldEnum)[keyof typeof GrammarConceptToUniversalSentenceScalarFieldEnum]
+export type GrammarConceptToUniversalPhraseScalarFieldEnum = (typeof GrammarConceptToUniversalPhraseScalarFieldEnum)[keyof typeof GrammarConceptToUniversalPhraseScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2690,6 +2606,20 @@ export type ListEnumSentencePhraseTranslationStatusFieldRefInput<$PrismaModel> =
 
 
 /**
+ * Reference to a field of type 'GrammarExtractionStatus'
+ */
+export type EnumGrammarExtractionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GrammarExtractionStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'GrammarExtractionStatus[]'
+ */
+export type ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GrammarExtractionStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'SentenceChatMessageRole'
  */
 export type EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageRole'>
@@ -2714,20 +2644,6 @@ export type EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = FieldRefI
  * Reference to a field of type 'SentenceChatMessageStatus[]'
  */
 export type ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageStatus[]'>
-    
-
-
-/**
- * Reference to a field of type 'GrammarExtractionStatus'
- */
-export type EnumGrammarExtractionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GrammarExtractionStatus'>
-    
-
-
-/**
- * Reference to a field of type 'GrammarExtractionStatus[]'
- */
-export type ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'GrammarExtractionStatus[]'>
     
 
 
@@ -2874,9 +2790,8 @@ export type GlobalOmitConfig = {
   sentenceChatMessage?: Prisma.SentenceChatMessageOmit
   flashcard?: Prisma.FlashcardOmit
   grammarConcept?: Prisma.GrammarConceptOmit
-  universalSentence?: Prisma.UniversalSentenceOmit
   missingGrammarConcept?: Prisma.MissingGrammarConceptOmit
-  grammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceOmit
+  grammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseOmit
 }
 
 /* Types for Logging */

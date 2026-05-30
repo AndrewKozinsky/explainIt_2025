@@ -10,7 +10,7 @@ export type GrammarConceptServiceModel = {
 	aliases: string[]
 }
 
-export type UniversalSentenceServiceModel = {
+export type UniversalPhraseServiceModel = {
 	id: number
 	sentenceText: string
 	sourceLanguageCode: string
@@ -21,7 +21,7 @@ export type UniversalSentenceServiceModel = {
 
 export type MissingGrammarConceptServiceModel = {
 	id: number
-	universalSentenceId: number
+	universalPhraseId: number
 	sourceLanguageCode: string
 	targetLanguageCode: string
 	category: string

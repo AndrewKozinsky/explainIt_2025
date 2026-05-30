@@ -244,7 +244,7 @@ export type GrammarConceptWhereInput = {
   slug?: Prisma.StringFilter<"GrammarConcept"> | string
   order?: Prisma.IntFilter<"GrammarConcept"> | number
   aliases?: Prisma.StringNullableListFilter<"GrammarConcept">
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceListRelationFilter
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseListRelationFilter
 }
 
 export type GrammarConceptOrderByWithRelationInput = {
@@ -257,7 +257,7 @@ export type GrammarConceptOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   order?: Prisma.SortOrder
   aliases?: Prisma.SortOrder
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceOrderByRelationAggregateInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseOrderByRelationAggregateInput
 }
 
 export type GrammarConceptWhereUniqueInput = Prisma.AtLeast<{
@@ -274,7 +274,7 @@ export type GrammarConceptWhereUniqueInput = Prisma.AtLeast<{
   slug?: Prisma.StringFilter<"GrammarConcept"> | string
   order?: Prisma.IntFilter<"GrammarConcept"> | number
   aliases?: Prisma.StringNullableListFilter<"GrammarConcept">
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceListRelationFilter
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseListRelationFilter
 }, "id" | "source_language_code_target_language_code_category_lemma">
 
 export type GrammarConceptOrderByWithAggregationInput = {
@@ -319,7 +319,7 @@ export type GrammarConceptCreateInput = {
   slug: string
   order?: number
   aliases?: Prisma.GrammarConceptCreatealiasesInput | string[]
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceCreateNestedManyWithoutGrammar_conceptInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseCreateNestedManyWithoutGrammar_conceptInput
 }
 
 export type GrammarConceptUncheckedCreateInput = {
@@ -332,7 +332,7 @@ export type GrammarConceptUncheckedCreateInput = {
   slug: string
   order?: number
   aliases?: Prisma.GrammarConceptCreatealiasesInput | string[]
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceUncheckedCreateNestedManyWithoutGrammar_conceptInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedCreateNestedManyWithoutGrammar_conceptInput
 }
 
 export type GrammarConceptUpdateInput = {
@@ -345,7 +345,7 @@ export type GrammarConceptUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   aliases?: Prisma.GrammarConceptUpdatealiasesInput | string[]
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceUpdateManyWithoutGrammar_conceptNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUpdateManyWithoutGrammar_conceptNestedInput
 }
 
 export type GrammarConceptUncheckedUpdateInput = {
@@ -358,7 +358,7 @@ export type GrammarConceptUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   aliases?: Prisma.GrammarConceptUpdatealiasesInput | string[]
-  GrammarConceptToUniversalSentence?: Prisma.GrammarConceptToUniversalSentenceUncheckedUpdateManyWithoutGrammar_conceptNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedUpdateManyWithoutGrammar_conceptNestedInput
 }
 
 export type GrammarConceptCreateManyInput = {
@@ -460,21 +460,21 @@ export type GrammarConceptUpdatealiasesInput = {
   push?: string | string[]
 }
 
-export type GrammarConceptCreateNestedOneWithoutGrammarConceptToUniversalSentenceInput = {
-  create?: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalSentenceInput>
-  connectOrCreate?: Prisma.GrammarConceptCreateOrConnectWithoutGrammarConceptToUniversalSentenceInput
+export type GrammarConceptCreateNestedOneWithoutGrammarConceptToUniversalPhraseInput = {
+  create?: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
+  connectOrCreate?: Prisma.GrammarConceptCreateOrConnectWithoutGrammarConceptToUniversalPhraseInput
   connect?: Prisma.GrammarConceptWhereUniqueInput
 }
 
-export type GrammarConceptUpdateOneRequiredWithoutGrammarConceptToUniversalSentenceNestedInput = {
-  create?: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalSentenceInput>
-  connectOrCreate?: Prisma.GrammarConceptCreateOrConnectWithoutGrammarConceptToUniversalSentenceInput
-  upsert?: Prisma.GrammarConceptUpsertWithoutGrammarConceptToUniversalSentenceInput
+export type GrammarConceptUpdateOneRequiredWithoutGrammarConceptToUniversalPhraseNestedInput = {
+  create?: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
+  connectOrCreate?: Prisma.GrammarConceptCreateOrConnectWithoutGrammarConceptToUniversalPhraseInput
+  upsert?: Prisma.GrammarConceptUpsertWithoutGrammarConceptToUniversalPhraseInput
   connect?: Prisma.GrammarConceptWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.GrammarConceptUpdateToOneWithWhereWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUpdateWithoutGrammarConceptToUniversalSentenceInput>, Prisma.GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalSentenceInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.GrammarConceptUpdateToOneWithWhereWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUpdateWithoutGrammarConceptToUniversalPhraseInput>, Prisma.GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput>
 }
 
-export type GrammarConceptCreateWithoutGrammarConceptToUniversalSentenceInput = {
+export type GrammarConceptCreateWithoutGrammarConceptToUniversalPhraseInput = {
   id?: string
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
@@ -486,7 +486,7 @@ export type GrammarConceptCreateWithoutGrammarConceptToUniversalSentenceInput = 
   aliases?: Prisma.GrammarConceptCreatealiasesInput | string[]
 }
 
-export type GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalSentenceInput = {
+export type GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput = {
   id?: string
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
@@ -498,23 +498,23 @@ export type GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalSentenc
   aliases?: Prisma.GrammarConceptCreatealiasesInput | string[]
 }
 
-export type GrammarConceptCreateOrConnectWithoutGrammarConceptToUniversalSentenceInput = {
+export type GrammarConceptCreateOrConnectWithoutGrammarConceptToUniversalPhraseInput = {
   where: Prisma.GrammarConceptWhereUniqueInput
-  create: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalSentenceInput>
+  create: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
 }
 
-export type GrammarConceptUpsertWithoutGrammarConceptToUniversalSentenceInput = {
-  update: Prisma.XOR<Prisma.GrammarConceptUpdateWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalSentenceInput>
-  create: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalSentenceInput>
+export type GrammarConceptUpsertWithoutGrammarConceptToUniversalPhraseInput = {
+  update: Prisma.XOR<Prisma.GrammarConceptUpdateWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput>
+  create: Prisma.XOR<Prisma.GrammarConceptCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
   where?: Prisma.GrammarConceptWhereInput
 }
 
-export type GrammarConceptUpdateToOneWithWhereWithoutGrammarConceptToUniversalSentenceInput = {
+export type GrammarConceptUpdateToOneWithWhereWithoutGrammarConceptToUniversalPhraseInput = {
   where?: Prisma.GrammarConceptWhereInput
-  data: Prisma.XOR<Prisma.GrammarConceptUpdateWithoutGrammarConceptToUniversalSentenceInput, Prisma.GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalSentenceInput>
+  data: Prisma.XOR<Prisma.GrammarConceptUpdateWithoutGrammarConceptToUniversalPhraseInput, Prisma.GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput>
 }
 
-export type GrammarConceptUpdateWithoutGrammarConceptToUniversalSentenceInput = {
+export type GrammarConceptUpdateWithoutGrammarConceptToUniversalPhraseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -526,7 +526,7 @@ export type GrammarConceptUpdateWithoutGrammarConceptToUniversalSentenceInput = 
   aliases?: Prisma.GrammarConceptUpdatealiasesInput | string[]
 }
 
-export type GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalSentenceInput = {
+export type GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -544,11 +544,11 @@ export type GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalSentenc
  */
 
 export type GrammarConceptCountOutputType = {
-  GrammarConceptToUniversalSentence: number
+  GrammarConceptToUniversalPhrase: number
 }
 
 export type GrammarConceptCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  GrammarConceptToUniversalSentence?: boolean | GrammarConceptCountOutputTypeCountGrammarConceptToUniversalSentenceArgs
+  GrammarConceptToUniversalPhrase?: boolean | GrammarConceptCountOutputTypeCountGrammarConceptToUniversalPhraseArgs
 }
 
 /**
@@ -564,8 +564,8 @@ export type GrammarConceptCountOutputTypeDefaultArgs<ExtArgs extends runtime.Typ
 /**
  * GrammarConceptCountOutputType without action
  */
-export type GrammarConceptCountOutputTypeCountGrammarConceptToUniversalSentenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.GrammarConceptToUniversalSentenceWhereInput
+export type GrammarConceptCountOutputTypeCountGrammarConceptToUniversalPhraseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GrammarConceptToUniversalPhraseWhereInput
 }
 
 
@@ -579,7 +579,7 @@ export type GrammarConceptSelect<ExtArgs extends runtime.Types.Extensions.Intern
   slug?: boolean
   order?: boolean
   aliases?: boolean
-  GrammarConceptToUniversalSentence?: boolean | Prisma.GrammarConcept$GrammarConceptToUniversalSentenceArgs<ExtArgs>
+  GrammarConceptToUniversalPhrase?: boolean | Prisma.GrammarConcept$GrammarConceptToUniversalPhraseArgs<ExtArgs>
   _count?: boolean | Prisma.GrammarConceptCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["grammarConcept"]>
 
@@ -621,7 +621,7 @@ export type GrammarConceptSelectScalar = {
 
 export type GrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "source_language_code" | "target_language_code" | "category" | "lemma" | "title" | "slug" | "order" | "aliases", ExtArgs["result"]["grammarConcept"]>
 export type GrammarConceptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  GrammarConceptToUniversalSentence?: boolean | Prisma.GrammarConcept$GrammarConceptToUniversalSentenceArgs<ExtArgs>
+  GrammarConceptToUniversalPhrase?: boolean | Prisma.GrammarConcept$GrammarConceptToUniversalPhraseArgs<ExtArgs>
   _count?: boolean | Prisma.GrammarConceptCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type GrammarConceptIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -630,7 +630,7 @@ export type GrammarConceptIncludeUpdateManyAndReturn<ExtArgs extends runtime.Typ
 export type $GrammarConceptPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "GrammarConcept"
   objects: {
-    GrammarConceptToUniversalSentence: Prisma.$GrammarConceptToUniversalSentencePayload<ExtArgs>[]
+    GrammarConceptToUniversalPhrase: Prisma.$GrammarConceptToUniversalPhrasePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1036,7 +1036,7 @@ readonly fields: GrammarConceptFieldRefs;
  */
 export interface Prisma__GrammarConceptClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  GrammarConceptToUniversalSentence<T extends Prisma.GrammarConcept$GrammarConceptToUniversalSentenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GrammarConcept$GrammarConceptToUniversalSentenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GrammarConceptToUniversalSentencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  GrammarConceptToUniversalPhrase<T extends Prisma.GrammarConcept$GrammarConceptToUniversalPhraseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.GrammarConcept$GrammarConceptToUniversalPhraseArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GrammarConceptToUniversalPhrasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1468,27 +1468,27 @@ export type GrammarConceptDeleteManyArgs<ExtArgs extends runtime.Types.Extension
 }
 
 /**
- * GrammarConcept.GrammarConceptToUniversalSentence
+ * GrammarConcept.GrammarConceptToUniversalPhrase
  */
-export type GrammarConcept$GrammarConceptToUniversalSentenceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type GrammarConcept$GrammarConceptToUniversalPhraseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the GrammarConceptToUniversalSentence
+   * Select specific fields to fetch from the GrammarConceptToUniversalPhrase
    */
-  select?: Prisma.GrammarConceptToUniversalSentenceSelect<ExtArgs> | null
+  select?: Prisma.GrammarConceptToUniversalPhraseSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the GrammarConceptToUniversalSentence
+   * Omit specific fields from the GrammarConceptToUniversalPhrase
    */
-  omit?: Prisma.GrammarConceptToUniversalSentenceOmit<ExtArgs> | null
+  omit?: Prisma.GrammarConceptToUniversalPhraseOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.GrammarConceptToUniversalSentenceInclude<ExtArgs> | null
-  where?: Prisma.GrammarConceptToUniversalSentenceWhereInput
-  orderBy?: Prisma.GrammarConceptToUniversalSentenceOrderByWithRelationInput | Prisma.GrammarConceptToUniversalSentenceOrderByWithRelationInput[]
-  cursor?: Prisma.GrammarConceptToUniversalSentenceWhereUniqueInput
+  include?: Prisma.GrammarConceptToUniversalPhraseInclude<ExtArgs> | null
+  where?: Prisma.GrammarConceptToUniversalPhraseWhereInput
+  orderBy?: Prisma.GrammarConceptToUniversalPhraseOrderByWithRelationInput | Prisma.GrammarConceptToUniversalPhraseOrderByWithRelationInput[]
+  cursor?: Prisma.GrammarConceptToUniversalPhraseWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.GrammarConceptToUniversalSentenceScalarFieldEnum | Prisma.GrammarConceptToUniversalSentenceScalarFieldEnum[]
+  distinct?: Prisma.GrammarConceptToUniversalPhraseScalarFieldEnum | Prisma.GrammarConceptToUniversalPhraseScalarFieldEnum[]
 }
 
 /**

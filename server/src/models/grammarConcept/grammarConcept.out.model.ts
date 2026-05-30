@@ -37,7 +37,7 @@ export class MissingGrammarConceptOutModel {
 }
 
 @ObjectType()
-export class UniversalSentenceOutModel {
+export class UniversalPhraseOutModel {
 	@Field(() => Int)
 	id: number
 

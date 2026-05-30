@@ -5,24 +5,14 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 @InputType()
 export class FetchGrammarConceptsInput {
 	@Field(() => String)
-	@DtoFieldDecorators('sentenceText', bdConfig.UniversalSentence.dbFields.sentence_text, {
-		type: 'string',
-		required: true,
-		maxLength: 2000,
-	})
+	@DtoFieldDecorators('sentenceText', bdConfig.UniversalPhrase.dbFields.text)
 	sentenceText: string
 
 	@Field(() => String)
-	@DtoFieldDecorators('sourceLanguage', bdConfig.GrammarConcept.dbFields.source_language_code, {
-		type: 'enum',
-		required: true,
-	})
+	@DtoFieldDecorators('sourceLanguage', bdConfig.GrammarConcept.dbFields.source_language_code)
 	sourceLanguage: string
 
 	@Field(() => String)
-	@DtoFieldDecorators('targetLanguage', bdConfig.GrammarConcept.dbFields.target_language_code, {
-		type: 'enum',
-		required: true,
-	})
+	@DtoFieldDecorators('targetLanguage', bdConfig.GrammarConcept.dbFields.target_language_code)
 	targetLanguage: string
 }

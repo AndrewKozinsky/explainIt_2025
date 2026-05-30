@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'

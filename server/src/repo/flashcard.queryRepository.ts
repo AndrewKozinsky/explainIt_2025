@@ -39,14 +39,14 @@ export class FlashcardQueryRepository {
 
 	private async fetchTranscriptionsMap(rows: Flashcard[]): Promise<Map<string, string>> {
 		const uniqueKeys = new Set<string>()
-		const pairs: { language_code: LanguageCode; phrase: string }[] = []
+		const pairs: { source_language_code: LanguageCode; text: string }[] = []
 
 		for (const row of rows) {
 			const key = this.makeKey(row.language_code, row.phrase)
 
 			if (uniqueKeys.has(key)) continue
 			uniqueKeys.add(key)
-			pairs.push({ language_code: row.language_code, phrase: row.phrase })
+			pairs.push({ source_language_code: row.language_code, text: row.phrase })
 		}
 
 		if (pairs.length === 0) return new Map()
@@ -63,7 +63,7 @@ export class FlashcardQueryRepository {
 			if (!transcription) continue
 			const value = transcription.ipa ?? transcription.pinyin
 			if (!value) continue
-			map.set(this.makeKey(dbPhrase.language_code, dbPhrase.phrase), value)
+			map.set(this.makeKey(dbPhrase.source_language_code, dbPhrase.text), value)
 		}
 
 		return map
