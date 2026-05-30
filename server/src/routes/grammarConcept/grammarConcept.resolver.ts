@@ -34,7 +34,7 @@ export class GrammarConceptResolver {
 			id: result.id,
 			sentenceText: result.sentenceText,
 			sourceLanguage: result.sourceLanguageCode,
-			status: result.status,
+			grammarExtractionStatus: result.grammarExtractionStatus,
 			grammarConcepts: result.grammarConcepts.map((gc: GrammarConceptServiceModel) =>
 				this.grammarConceptQueryRepo.mapDbToOutModel({
 					id: gc.id,

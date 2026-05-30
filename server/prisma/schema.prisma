@@ -229,7 +229,7 @@ model UniversalPhrase {
     id                              Int                               @id @default(autoincrement())
     text                            String
     source_language_code            LanguageCode
-    status                          GrammarExtractionStatus           @default(NOT_STARTED)
+    grammarExtractionStatus         GrammarExtractionStatus           @default(NOT_STARTED)
     UniversalTranscription          UniversalTranscription?
     UniversalAudioPronunciation     UniversalAudioPronunciation?
     GrammarConceptToUniversalPhrase GrammarConceptToUniversalPhrase[]

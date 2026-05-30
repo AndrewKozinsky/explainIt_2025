@@ -55,7 +55,7 @@ export class UniversalPhraseRepository {
 			data: {
 				text: normalizedText,
 				source_language_code: input.sourceLanguage as any,
-				status: 'NOT_STARTED',
+				grammarExtractionStatus: 'NOT_STARTED',
 			},
 			include: {
 				GrammarConceptToUniversalPhrase: {
@@ -111,10 +111,10 @@ export class UniversalPhraseRepository {
 	}
 
 	@CatchDbError()
-	async updateStatus(id: number, status: 'NOT_STARTED' | 'ERROR' | 'SUCCESS'): Promise<void> {
+	async updateStatus(id: number, grammarExtractionStatus: 'NOT_STARTED' | 'ERROR' | 'SUCCESS'): Promise<void> {
 		await this.prisma.universalPhrase.update({
 			where: { id },
-			data: { status },
+			data: { grammarExtractionStatus },
 		})
 	}
 
@@ -133,7 +133,7 @@ export class UniversalPhraseRepository {
 		await this.prisma.$transaction(async (tx) => {
 			await tx.universalPhrase.update({
 				where: { id: universalPhraseId },
-				data: { status: 'SUCCESS' },
+				data: { grammarExtractionStatus: 'SUCCESS' },
 			})
 
 			if (grammarConceptIds.length > 0) {
@@ -166,7 +166,7 @@ export class UniversalPhraseRepository {
 			id: db.id,
 			sentenceText: db.text,
 			sourceLanguageCode: db.source_language_code,
-			status: db.status as 'NOT_STARTED' | 'ERROR' | 'SUCCESS',
+			grammarExtractionStatus: db.grammarExtractionStatus as 'NOT_STARTED' | 'ERROR' | 'SUCCESS',
 			grammarConcepts: db.GrammarConceptToUniversalPhrase.map((j) => ({
 				id: j.grammar_concept.id,
 				sourceLanguageCode: j.grammar_concept.source_language_code,

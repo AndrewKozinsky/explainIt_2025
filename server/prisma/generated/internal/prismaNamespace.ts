@@ -2301,7 +2301,7 @@ export const UniversalPhraseScalarFieldEnum = {
   id: 'id',
   text: 'text',
   source_language_code: 'source_language_code',
-  status: 'status',
+  grammarExtractionStatus: 'grammarExtractionStatus',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const

@@ -3,7 +3,7 @@ mutation GrammarConcept_fetch($input: FetchGrammarConceptsInput!) {
 			id
 			sentenceText
 			sourceLanguage
-			status
+			grammarExtractionStatus
 			grammarConcepts {
 				id
 				title

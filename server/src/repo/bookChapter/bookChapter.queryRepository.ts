@@ -103,7 +103,7 @@ export class BookChapterQueryRepository {
 						},
 					})
 
-					if (universalPhrase && universalPhrase.status === 'SUCCESS') {
+					if (universalPhrase && universalPhrase.grammarExtractionStatus === 'SUCCESS') {
 						grammarConcepts = universalPhrase.GrammarConceptToUniversalPhrase.filter(
 							(j: any) => j.grammar_concept.target_language_code === targetLanguageCode,
 						).map((j: any) => this.grammarConceptQueryRepo.mapDbToOutModel(j.grammar_concept))

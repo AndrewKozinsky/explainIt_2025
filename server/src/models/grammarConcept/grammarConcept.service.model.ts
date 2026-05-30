@@ -14,7 +14,7 @@ export type UniversalPhraseServiceModel = {
 	id: number
 	sentenceText: string
 	sourceLanguageCode: string
-	status: 'NOT_STARTED' | 'ERROR' | 'SUCCESS'
+	grammarExtractionStatus: 'NOT_STARTED' | 'ERROR' | 'SUCCESS'
 	grammarConcepts: GrammarConceptServiceModel[]
 	missingGrammarConcepts: MissingGrammarConceptServiceModel[]
 }

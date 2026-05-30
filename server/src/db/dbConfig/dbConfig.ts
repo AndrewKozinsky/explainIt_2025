@@ -1,4 +1,4 @@
-import { languages } from '../../utils/languages'
+import { languages } from 'utils/languages'
 import { BdConfig } from './dbConfigType'
 
 const languagesArr: string[] = Object.keys(languages)
@@ -989,7 +989,7 @@ export const bdConfig = {
 				variants: languagesArr,
 				required: true,
 			},
-			status: {
+			grammarExtractionStatus: {
 				type: 'enum',
 				required: true,
 				variants: ['NOT_STARTED', 'ERROR', 'SUCCESS'],

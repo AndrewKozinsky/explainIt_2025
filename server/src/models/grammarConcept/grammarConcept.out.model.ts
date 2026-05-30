@@ -48,7 +48,7 @@ export class UniversalPhraseOutModel {
 	sourceLanguage: string
 
 	@Field(() => String)
-	status: string
+	grammarExtractionStatus: string
 
 	@Field(() => [GrammarConceptOutModel])
 	grammarConcepts: GrammarConceptOutModel[]

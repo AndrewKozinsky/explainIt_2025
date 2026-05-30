@@ -30,7 +30,7 @@ export class FetchGrammarConceptsHandler implements ICommandHandler<FetchGrammar
 			sourceLanguage,
 		})
 
-		if (universalPhrase.status === 'SUCCESS') {
+		if (universalPhrase.grammarExtractionStatus === 'SUCCESS') {
 			return universalPhrase
 		}
 
