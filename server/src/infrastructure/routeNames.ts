@@ -20,6 +20,7 @@ export const RouteNames = {
 	},
 	GRAMMAR_CONCEPT: {
 		FETCH: 'grammar_concept_fetch',
+		ARTICLE_GET: 'grammar_article_get',
 	},
 	TRANSLATE: {
 		GET_SENTENCE_TRANSLATION: 'translate_get_sentence_translation',

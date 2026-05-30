@@ -1,14 +1,13 @@
-// import { MDXRemote } from 'next-mdx-remote/rsc'
-// import { mdxComponentsRouter } from '@/ui/articleBuilder/mdxComponentsRouter'
-// import { getLessonBySlug } from '../fn/getLessonBySlug'
+import Article from '@/ui/Article/Article'
+import { getLessonBySlug } from '../fn/getLessonBySlug'
 
-/*type GrammarArticlePageProps = {
+type GrammarArticlePageProps = {
 	sourceLanguage: string
 	category: string
 	articleSlug: string
-}*/
+}
 
-/*export default async function GrammarArticlePage(props: GrammarArticlePageProps) {
+export default async function GrammarArticlePage(props: GrammarArticlePageProps) {
 	const { sourceLanguage, category, articleSlug } = props
 	const lesson = await getLessonBySlug(sourceLanguage, category, articleSlug)
 
@@ -21,5 +20,5 @@
 		)
 	}
 
-	return <MDXRemote source={lesson.content} components={mdxComponentsRouter} />
-}*/
+	return <Article content={lesson.content} />
+}

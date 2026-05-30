@@ -1,4 +1,4 @@
-// import GrammarArticlesList from '_pages/grammar/GrammarArticlesList/GrammarArticlesList'
+import GrammarArticlesList from '_pages/grammar/GrammarArticlesList/GrammarArticlesList'
 
 type CategoryLayoutProps = {
 	children: React.ReactNode
@@ -10,10 +10,10 @@ export default async function GrammarCategoryLayout(props: CategoryLayoutProps) 
 
 	return (
 		<>
-			{/*<div className='grammar-page-content__left'>
+			<div className='grammar-page-content__left'>
 				<GrammarArticlesList sourceLanguage={sourceLanguage} category={category} />
-			</div>*/}
-			{/*<div className='grammar-page-content__right'>{props.children}</div>*/}
+			</div>
+			<div className='grammar-page-content__right'>{props.children}</div>
 		</>
 	)
 }

@@ -1,14 +1,17 @@
 import { CommandBus } from '@nestjs/cqrs'
-import { Args, Mutation, Resolver } from '@nestjs/graphql'
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { FetchGrammarConceptsCommand } from 'features/grammarConcept/FetchGrammarConcepts.command'
+import { GetGrammarArticleCommand } from 'features/grammarConcept/GetGrammarArticle.command'
 import { RouteNames } from 'infrastructure/routeNames'
+import { GrammarArticleOutModel } from 'models/grammarConcept/grammarArticle.out.model'
 import { GrammarExtractionOutModel } from 'models/grammarConcept/grammarConcept.out.model'
 import {
 	GrammarConceptServiceModel,
 	MissingGrammarConceptServiceModel,
 } from 'models/grammarConcept/grammarConcept.service.model'
 import { FetchGrammarConceptsInput } from './inputs/fetchGrammarConcepts.input'
+import { GetGrammarArticleInput } from './inputs/getGrammarArticle.input'
 
 @Resolver()
 export class GrammarConceptResolver {
@@ -51,5 +54,20 @@ export class GrammarConceptResolver {
 				this.grammarConceptQueryRepo.mapDbToMissingOutModel(m),
 			),
 		}
+	}
+
+	@Query(() => GrammarArticleOutModel, {
+		name: RouteNames.GRAMMAR_CONCEPT.ARTICLE_GET,
+		description: 'Get grammar article content by language, category and slug',
+	})
+	async getGrammarArticle(@Args('input') input: GetGrammarArticleInput) {
+		return await this.commandBus.execute(
+			new GetGrammarArticleCommand({
+				sourceLanguage: input.sourceLanguage,
+				targetLanguage: input.targetLanguage,
+				category: input.category,
+				slug: input.slug,
+			}),
+		)
 	}
 }

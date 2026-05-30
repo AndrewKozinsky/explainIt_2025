@@ -56,3 +56,4 @@ export class GrammarExtractionOutModel {
 	@Field(() => [MissingGrammarConceptOutModel])
 	missingGrammarConcepts: MissingGrammarConceptOutModel[]
 }
+

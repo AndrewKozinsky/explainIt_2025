@@ -1,14 +1,14 @@
-// import fs from 'fs'
-// import path from 'path'
-// import { getContentDir } from './getContentDir'
+import fs from 'fs'
+import path from 'path'
+import { getContentDir } from './getContentDir'
 
-/*export type CategoryInfo = {
+export type CategoryInfo = {
 	sourceLanguage: string
 	targetLanguage: string
 	category: string
-}*/
+}
 
-/*export async function getCategories(): Promise<CategoryInfo[]> {
+export async function getCategories(): Promise<CategoryInfo[]> {
 	const contentDir = getContentDir()
 
 	if (!fs.existsSync(contentDir)) return []
@@ -44,4 +44,4 @@
 	}
 
 	return result
-}*/
+}

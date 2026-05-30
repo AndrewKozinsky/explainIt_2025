@@ -74,6 +74,13 @@ export interface GetMyFlashcardsInput {
     languageCode?: Nullable<string>;
 }
 
+export interface GetGrammarArticleInput {
+    sourceLanguage: string;
+    targetLanguage: string;
+    category: string;
+    slug: string;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -382,6 +389,12 @@ export interface FlashcardOutModel {
     createdAt: string;
 }
 
+export interface GrammarArticleOutModel {
+    title: string;
+    content: string;
+    compiledSource: string;
+}
+
 export interface LanguageOutModel {
     code: string;
     nameRus: string;
@@ -609,6 +622,7 @@ export interface IQuery {
     universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
     flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
+    grammar_article_get(input: GetGrammarArticleInput): GrammarArticleOutModel | Promise<GrammarArticleOutModel>;
 }
 
 export interface IMutation {

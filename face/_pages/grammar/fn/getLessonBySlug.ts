@@ -1,15 +1,15 @@
-// import fs from 'fs'
-// import path from 'path'
-// import matter from 'gray-matter'
-// import { LessonMeta } from './getAllLessons'
-// import { getContentDir } from './getContentDir'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { LessonMeta } from './getAllLessons'
+import { getContentDir } from './getContentDir'
 
-/*export type LessonFile = {
+export type LessonFile = {
 	frontmatter: LessonMeta
 	content: string
-}*/
+}
 
-/*export async function getLessonBySlug(
+export async function getLessonBySlug(
 	sourceLanguage: string,
 	category: string,
 	slug: string,
@@ -39,4 +39,4 @@
 	}
 
 	return null
-}*/
+}

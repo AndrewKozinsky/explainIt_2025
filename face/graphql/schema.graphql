@@ -222,6 +222,20 @@ input GetBookPublicInput {
   id: Int!
 }
 
+input GetGrammarArticleInput {
+  """Grammar category"""
+  category: String!
+
+  """Article slug"""
+  slug: String!
+
+  """Source language code"""
+  sourceLanguage: String!
+
+  """Target language code"""
+  targetLanguage: String!
+}
+
 input GetMyFlashcardsInput {
   """Optional language filter"""
   languageCode: String
@@ -289,6 +303,12 @@ input GetUniversalPhraseInput {
 
   """Phrase or sentence text"""
   text: String!
+}
+
+type GrammarArticleOutModel {
+  compiledSource: String!
+  content: String!
+  title: String!
 }
 
 type GrammarConceptOutModel {
@@ -459,6 +479,9 @@ type Query {
 
   """Получить список карточек пользователя. Опционально фильтрует по языку."""
   flashcard_get_my(input: GetMyFlashcardsInput!): [FlashcardOutModel!]!
+
+  """Get grammar article content by language, category and slug"""
+  grammar_article_get(input: GetGrammarArticleInput!): GrammarArticleOutModel!
 
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!

@@ -233,6 +233,17 @@ export type GetBookPublicInput = {
   id: Scalars['Int']['input'];
 };
 
+export type GetGrammarArticleInput = {
+  /** Grammar category */
+  category: Scalars['String']['input'];
+  /** Article slug */
+  slug: Scalars['String']['input'];
+  /** Source language code */
+  sourceLanguage: Scalars['String']['input'];
+  /** Target language code */
+  targetLanguage: Scalars['String']['input'];
+};
+
 export type GetMyFlashcardsInput = {
   /** Optional language filter */
   languageCode?: InputMaybe<Scalars['String']['input']>;
@@ -292,6 +303,13 @@ export type GetUniversalPhraseInput = {
   sourceLanguageCode: Scalars['String']['input'];
   /** Phrase or sentence text */
   text: Scalars['String']['input'];
+};
+
+export type GrammarArticleOutModel = {
+  __typename?: 'GrammarArticleOutModel';
+  compiledSource: Scalars['String']['output'];
+  content: Scalars['String']['output'];
+  title: Scalars['String']['output'];
 };
 
 export type GrammarConceptOutModel = {
@@ -552,6 +570,8 @@ export type Query = {
   book_user_books: Array<BookPrivateOutModel>;
   /** Получить список карточек пользователя. Опционально фильтрует по языку. */
   flashcard_get_my: Array<FlashcardOutModel>;
+  /** Get grammar article content by language, category and slug */
+  grammar_article_get: GrammarArticleOutModel;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
   /** Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null. */
@@ -594,6 +614,11 @@ export type QueryBook_Public_Get_BookArgs = {
 
 export type QueryFlashcard_Get_MyArgs = {
   input: GetMyFlashcardsInput;
+};
+
+
+export type QueryGrammar_Article_GetArgs = {
+  input: GetGrammarArticleInput;
 };
 
 
@@ -1169,6 +1194,13 @@ export type GrammarConcept_FetchVariables = Exact<{
 
 
 export type GrammarConcept_Fetch = { __typename?: 'Mutation', grammar_concept_fetch: { __typename?: 'GrammarExtractionOutModel', id: number, sentenceText: string, sourceLanguage: string, grammarExtractionStatus: string, grammarConcepts: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }>, missingGrammarConcepts: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> } };
+
+export type GrammarArticle_GetVariables = Exact<{
+  input: GetGrammarArticleInput;
+}>;
+
+
+export type GrammarArticle_Get = { __typename?: 'Query', grammar_article_get: { __typename?: 'GrammarArticleOutModel', title: string, content: string, compiledSource: string } };
 
 export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
@@ -2336,6 +2368,51 @@ export function useGrammarConcept_Fetch(baseOptions?: Apollo.MutationHookOptions
 export type GrammarConcept_FetchHookResult = ReturnType<typeof useGrammarConcept_Fetch>;
 export type GrammarConcept_FetchMutationResult = Apollo.MutationResult<GrammarConcept_Fetch>;
 export type GrammarConcept_FetchMutationOptions = Apollo.BaseMutationOptions<GrammarConcept_Fetch, GrammarConcept_FetchVariables>;
+export const GrammarArticle_GetDocument = gql`
+    query GrammarArticle_get($input: GetGrammarArticleInput!) {
+  grammar_article_get(input: $input) {
+    title
+    content
+    compiledSource
+  }
+}
+    `;
+
+/**
+ * __useGrammarArticle_Get__
+ *
+ * To run a query within a React component, call `useGrammarArticle_Get` and pass it any options that fit your needs.
+ * When your component renders, `useGrammarArticle_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGrammarArticle_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useGrammarArticle_Get(baseOptions: Apollo.QueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables> & ({ variables: GrammarArticle_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GrammarArticle_Get, GrammarArticle_GetVariables>(GrammarArticle_GetDocument, options);
+      }
+export function useGrammarArticle_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GrammarArticle_Get, GrammarArticle_GetVariables>(GrammarArticle_GetDocument, options);
+        }
+// @ts-ignore
+export function useGrammarArticle_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>): Apollo.UseSuspenseQueryResult<GrammarArticle_Get, GrammarArticle_GetVariables>;
+export function useGrammarArticle_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>): Apollo.UseSuspenseQueryResult<GrammarArticle_Get | undefined, GrammarArticle_GetVariables>;
+export function useGrammarArticle_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GrammarArticle_Get, GrammarArticle_GetVariables>(GrammarArticle_GetDocument, options);
+        }
+export type GrammarArticle_GetHookResult = ReturnType<typeof useGrammarArticle_Get>;
+export type GrammarArticle_GetLazyQueryHookResult = ReturnType<typeof useGrammarArticle_GetLazyQuery>;
+export type GrammarArticle_GetSuspenseQueryHookResult = ReturnType<typeof useGrammarArticle_GetSuspenseQuery>;
+export type GrammarArticle_GetQueryResult = Apollo.QueryResult<GrammarArticle_Get, GrammarArticle_GetVariables>;
 export const Language_Get_LanguagesDocument = gql`
     query Language_get_languages {
   language_get_languages {

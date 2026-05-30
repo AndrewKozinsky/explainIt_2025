@@ -47,7 +47,8 @@ export namespace PopulatedSubtitlesStructure {
 		title: string
 		slug: string
 		category: string
-		// sourceLanguage: string
+		sourceLanguage: string
+		targetLanguage: string
 	}
 
 	export type MissingGrammarConceptData = {

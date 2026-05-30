@@ -7,6 +7,7 @@ import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { FetchGrammarConceptsHandler } from 'features/grammarConcept/FetchGrammarConcepts.command'
 import { GrammarExtractionService } from 'features/grammarConcept/grammarExtraction.service'
+import { GetGrammarArticleHandler } from 'features/grammarConcept/GetGrammarArticle.command'
 import { SyncMdxGrammarConceptsHandler } from 'features/grammarConcept/SyncMdxGrammarConcepts.command'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
 import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
@@ -15,7 +16,7 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 import { GrammarConceptResolver } from './grammarConcept.resolver'
 
-const commandHandlers = [FetchGrammarConceptsHandler, SyncMdxGrammarConceptsHandler]
+const commandHandlers = [FetchGrammarConceptsHandler, SyncMdxGrammarConceptsHandler, GetGrammarArticleHandler]
 
 @Module({
 	imports: [CqrsModule],

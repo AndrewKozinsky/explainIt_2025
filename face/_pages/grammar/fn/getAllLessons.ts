@@ -1,9 +1,9 @@
-// import fs from 'fs'
-// import path from 'path'
-// import matter from 'gray-matter'
-// import { getContentDir } from './getContentDir'
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { getContentDir } from './getContentDir'
 
-/*export type LessonMeta = {
+export type LessonMeta = {
 	lesson_id: string
 	title: string
 	slug: string
@@ -11,9 +11,9 @@
 	category: string
 	sourceLanguage: string
 	targetLanguage: string
-}*/
+}
 
-/*export async function getAllLessons(sourceLanguage: string, category: string): Promise<LessonMeta[]> {
+export async function getAllLessons(sourceLanguage: string, category: string): Promise<LessonMeta[]> {
 	const contentDir = getContentDir()
 	const entries = fs.readdirSync(contentDir, { withFileTypes: true })
 
@@ -39,4 +39,4 @@
 	}
 
 	return []
-}*/
+}

@@ -3,7 +3,7 @@ import Header from 'ui/Header/Header'
 import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { PageWrapper } from 'ui/pageRelated/PageWrapper/PageWrapper'
-// import GrammarPageContent from '_pages/grammar/GrammarPageContent/GrammarPageContent'
+import GrammarPageContent from '_pages/grammar/GrammarPageContent/GrammarPageContent'
 import { pageUrls } from 'сonsts/pageUrls'
 
 type PagItemType = {
@@ -20,8 +20,7 @@ type GrammarLayoutProps = {
 export default function GrammarRootLayout(props: GrammarLayoutProps) {
 	const { children, breadcrumbItems = [], headerText = pageUrls.grammar.name } = props
 
-	return null
-	/*return (
+	return (
 		<PageWrapper top bottom>
 			<PageContentWrapper>
 				<BreadCrumbs items={breadcrumbItems} />
@@ -29,5 +28,5 @@ export default function GrammarRootLayout(props: GrammarLayoutProps) {
 				<GrammarPageContent>{children}</GrammarPageContent>
 			</PageContentWrapper>
 		</PageWrapper>
-	)*/
+	)
 }
