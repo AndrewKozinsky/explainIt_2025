@@ -6,10 +6,10 @@ export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,
 	chapter: null as any as ReadingStore.ChapterData,
 	populatedChapter: null as any as ChapterTextStructurePopulated.Chapter,
-	/*selection: {
+	selection: {
 		sentenceId: null,
 		wordId: null,
-	},*/
+	},
 }
 
 export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
@@ -39,14 +39,14 @@ export const useReadingStore = create<ReadingStoreNext>()((set, get) => {
 				}
 			})
 		},
-		/*selectWord: (input: { sentenceId: number; wordId: number }) => {
+		selectWord: (input: { sentenceId: number; wordId: number }) => {
 			set(
 				produce((state: ReadingStoreNext) => {
 					state.selection.sentenceId = input.sentenceId
 					state.selection.wordId = input.wordId
 				}),
 			)
-		},*/
+		},
 	}
 })
 
@@ -71,21 +71,21 @@ export type ReadingStoreValues = {
 	chapter: ReadingStore.ChapterData
 	populatedChapter: ChapterTextStructurePopulated.Chapter
 	// Данные выделенного предложения и слов
-	// selection: SelectedSentence
+	selection: SelectedSentence
 }
 
-/*export type SelectedSentence = {
+export type SelectedSentence = {
 	sentenceId: null | number
 	// Идентификаторы выделенных слов
 	wordId: null | number
-}*/
+}
 
 export type ReadingStoreMethods = {
 	clearStoreData: () => void
 	updateBook: (book: ReadingStore.BookData) => void
 	updateChapter: (chapter: ReadingStore.ChapterData) => void
 	updatePopulatedChapter: (populatedChapter: ChapterTextStructurePopulated.Chapter) => void
-	// selectWord: (input: { sentenceId: number; wordId: number }) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }
 
 // Тип данных для структуры текста наполненный дополнительными сведениями (используется на клиенте)

@@ -1,12 +1,12 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.chapter-content {
+.chapter-content {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
 	font-size: 2.2rem;
 	line-height: 3.4rem;
-}*/
+}
 
 /*.chapter-content__sentence {
 

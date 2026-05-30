@@ -1,5 +1,5 @@
 import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
-import '_pages/media/reading/ReadingNavigation/ReadingNavigation.scss'
+import './ReadingNavigation.scss'
 
 function ReadingNavigation() {
 	return (
@@ -7,7 +7,6 @@ function ReadingNavigation() {
 			<div className='reading-navigation__auto-height' />
 			<div className='reading-navigation__inner'>
 				<BookLink />
-				{/*<span />*/}
 				<PrevChapterLink />
 				<NextChapterLink />
 			</div>

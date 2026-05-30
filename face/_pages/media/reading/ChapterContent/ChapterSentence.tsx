@@ -6,9 +6,9 @@
 // import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 // import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 // import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
-// import { ChapterTextStructurePopulated } from '../readingStore'
+import { ChapterTextStructurePopulated } from '../readingStore'
 
-/*type ChapterSentenceProps = {
+type ChapterSentenceProps = {
 	sentence: ChapterTextStructurePopulated.Sentence
 	selectedSentenceId: null | number
 	selectedWordId: null | number
@@ -16,9 +16,9 @@
 	languageCode: string
 	onFetchGrammarConcepts: (sentenceId: number) => void
 	grammarLoading: boolean
-}*/
+}
 
-/*function ChapterSentence(props: ChapterSentenceProps) {
+function ChapterSentence(props: ChapterSentenceProps) {
 	const {
 		sentence,
 		selectedSentenceId,
@@ -29,7 +29,7 @@
 		grammarLoading,
 	} = props
 
-	return (
+	/*return (
 		<div className='chapter-content__sentence'>
 			<SentenceBlock
 				sentenceId={sentence.id}
@@ -46,10 +46,11 @@
 				onFetch={() => onFetchGrammarConcepts(sentence.id)}
 			/>
 		</div>
-	)
-}*/
+	)*/
+	return <p>44</p>
+}
 
-// export default ChapterSentence
+export default ChapterSentence
 
 /*type SentenceDetailsProps = {
 	sentenceId: number
