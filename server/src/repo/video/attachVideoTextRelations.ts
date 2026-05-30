@@ -37,6 +37,8 @@ export function attachVideoTextRelations<TBase extends { contentType: 'text' | '
 		startOffset: s.start_offset,
 		length: s.length,
 		orderIndex: s.order_index,
+		grammarConcepts: null,
+		missingGrammarConcepts: null,
 	}))
 
 	if (dto.dbVideo.content_type !== 'subtitles') {
