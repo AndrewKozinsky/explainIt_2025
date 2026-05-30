@@ -23,6 +23,20 @@ query VideoPublic_get($input: GetPublicVideoInput!) {
 				id
 				translation
 			}
+			grammarConcepts {
+				id
+				title
+				slug
+				category
+				lemma
+				order
+				sourceLanguage
+				targetLanguage
+			}
+			missingGrammarConcepts {
+				category
+				lemma
+			}
 		}
 		subtitles {
 			id

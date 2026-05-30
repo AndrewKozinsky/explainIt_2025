@@ -40,7 +40,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
-		/*setPlayerState(playerState) {
+		setPlayerState(playerState) {
 			set((state) => {
 				return {
 					player: {
@@ -49,8 +49,8 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 					},
 				}
 			})
-		},*/
-		/*sendPlayerCommand(command) {
+		},
+		sendPlayerCommand(command) {
 			set((state) => {
 				return {
 					player: {
@@ -59,7 +59,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 					},
 				}
 			})
-		},*/
+		},
 		/*selectWord(input: { sentenceId: number; wordId: number }) {
 			set((state) => {
 				return {
@@ -80,12 +80,12 @@ export namespace WatchingStoreI {
 		data: VideoPrivateOutModel | VideoPublicOutModel
 		type: 'public' | 'private'
 	}
-	/*export type Player = {
+	export type Player = {
 		currentTime: number
 		duration: number
 		paused: boolean
 		command: null | PlayerCommand
-	}*/
+	}
 	/*export type SelectedSentence = {
 		sentenceId: null | number
 		// Идентификатор выделенного слова
@@ -125,7 +125,7 @@ export type WatchingStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<WatchingStoreValues>) => void
 	updateVideo: (video: WatchingStoreI.VideoData) => void
-	// setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
-	// sendPlayerCommand: (command: PlayerCommand) => void
+	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
+	sendPlayerCommand: (command: PlayerCommand) => void
 	// selectWord: (input: { sentenceId: number; wordId: number }) => void
 }

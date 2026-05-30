@@ -3,7 +3,7 @@ import { Args, Mutation, Resolver } from '@nestjs/graphql'
 import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { FetchGrammarConceptsCommand } from 'features/grammarConcept/FetchGrammarConcepts.command'
 import { RouteNames } from 'infrastructure/routeNames'
-import { UniversalPhraseOutModel } from 'models/grammarConcept/grammarConcept.out.model'
+import { GrammarExtractionOutModel } from 'models/grammarConcept/grammarConcept.out.model'
 import {
 	GrammarConceptServiceModel,
 	MissingGrammarConceptServiceModel,
@@ -17,7 +17,7 @@ export class GrammarConceptResolver {
 		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
 	) {}
 
-	@Mutation(() => UniversalPhraseOutModel, {
+	@Mutation(() => GrammarExtractionOutModel, {
 		name: RouteNames.GRAMMAR_CONCEPT.FETCH,
 		description: 'Extract grammar concepts from a sentence using AI and link to available articles',
 	})

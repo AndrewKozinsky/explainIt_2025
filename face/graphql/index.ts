@@ -145,10 +145,10 @@ export type CreateUniversalAudioPronunciationInput = {
 };
 
 export type CreateUniversalPhraseInput = {
-  /** Language code */
-  languageCode: Scalars['String']['input'];
-  /** Phrase text */
-  phrase: Scalars['String']['input'];
+  /** Source language code */
+  sourceLanguageCode: Scalars['String']['input'];
+  /** Phrase or sentence text */
+  text: Scalars['String']['input'];
 };
 
 export type CreateUniversalTranscriptionInput = {
@@ -264,11 +264,15 @@ export type GetPrivateBookInput = {
 export type GetPrivateVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
+  /** Target language for grammar concepts */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetPublicVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
+  /** Target language for grammar concepts */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetSentenceChatThreadInput = {
@@ -284,10 +288,10 @@ export type GetSentenceTranslationInput = {
 };
 
 export type GetUniversalPhraseInput = {
-  /** Language code */
-  languageCode: Scalars['String']['input'];
-  /** Phrase text */
-  phrase: Scalars['String']['input'];
+  /** Source language code */
+  sourceLanguageCode: Scalars['String']['input'];
+  /** Phrase or sentence text */
+  text: Scalars['String']['input'];
 };
 
 export type GrammarConceptOutModel = {
@@ -300,6 +304,16 @@ export type GrammarConceptOutModel = {
   sourceLanguage: Scalars['String']['output'];
   targetLanguage: Scalars['String']['output'];
   title: Scalars['String']['output'];
+};
+
+export type GrammarExtractionOutModel = {
+  __typename?: 'GrammarExtractionOutModel';
+  grammarConcepts: Array<GrammarConceptOutModel>;
+  grammarExtractionStatus: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  missingGrammarConcepts: Array<MissingGrammarConceptOutModel>;
+  sentenceText: Scalars['String']['output'];
+  sourceLanguage: Scalars['String']['output'];
 };
 
 export type LanguageOutModel = {
@@ -369,7 +383,7 @@ export type Mutation = {
   /** Удалить карточку пользователя. */
   flashcard_remove: Scalars['Boolean']['output'];
   /** Extract grammar concepts from a sentence using AI and link to available articles */
-  grammar_concept_fetch: UniversalSentenceOutModel;
+  grammar_concept_fetch: GrammarExtractionOutModel;
   /** Top up balance with YooKassa */
   payment_yookassa_top_up_balance: CreateYooKassaPaymentOutModel;
   /** Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку. */
@@ -793,19 +807,9 @@ export type UniversalPhraseOutModel = {
   __typename?: 'UniversalPhraseOutModel';
   audioPronunciation?: Maybe<UniversalAudioPronunciationOutModel>;
   id: Scalars['Int']['output'];
-  languageCode: Scalars['String']['output'];
-  phrase: Scalars['String']['output'];
+  sourceLanguageCode: Scalars['String']['output'];
+  text: Scalars['String']['output'];
   transcription?: Maybe<TranscriptionOutModel>;
-};
-
-export type UniversalSentenceOutModel = {
-  __typename?: 'UniversalSentenceOutModel';
-  grammarConcepts: Array<GrammarConceptOutModel>;
-  id: Scalars['Int']['output'];
-  missingGrammarConcepts: Array<MissingGrammarConceptOutModel>;
-  sentenceText: Scalars['String']['output'];
-  sourceLanguage: Scalars['String']['output'];
-  status: Scalars['String']['output'];
 };
 
 export type UpdateBookChapterInput = {
@@ -926,8 +930,10 @@ export type VideoPrivateOutModel = {
 
 export type VideoPrivateSentenceOutModel = {
   __typename?: 'VideoPrivateSentenceOutModel';
+  grammarConcepts?: Maybe<Array<GrammarConceptOutModel>>;
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
+  missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   orderIndex: Scalars['Int']['output'];
   sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
   startOffset: Scalars['Int']['output'];
@@ -999,8 +1005,10 @@ export type VideoPublicOutModel = {
 
 export type VideoPublicSentenceOutModel = {
   __typename?: 'VideoPublicSentenceOutModel';
+  grammarConcepts?: Maybe<Array<GrammarConceptOutModel>>;
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
+  missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   orderIndex: Scalars['Int']['output'];
   sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
   startOffset: Scalars['Int']['output'];
@@ -1160,7 +1168,7 @@ export type GrammarConcept_FetchVariables = Exact<{
 }>;
 
 
-export type GrammarConcept_Fetch = { __typename?: 'Mutation', grammar_concept_fetch: { __typename?: 'UniversalSentenceOutModel', id: number, sentenceText: string, sourceLanguage: string, status: string, grammarConcepts: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }>, missingGrammarConcepts: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> } };
+export type GrammarConcept_Fetch = { __typename?: 'Mutation', grammar_concept_fetch: { __typename?: 'GrammarExtractionOutModel', id: number, sentenceText: string, sourceLanguage: string, grammarExtractionStatus: string, grammarConcepts: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }>, missingGrammarConcepts: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> } };
 
 export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
@@ -1242,14 +1250,14 @@ export type UniversalPhrase_CreateVariables = Exact<{
 }>;
 
 
-export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
+export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type UniversalPhrase_GetVariables = Exact<{
   input: GetUniversalPhraseInput;
 }>;
 
 
-export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
+export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1277,7 +1285,7 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetSubtitlesGenerationStatusVariables = Exact<{
   input: VideoPrivateSubtitlesStatusInput;
@@ -1303,7 +1311,7 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -2284,7 +2292,7 @@ export const GrammarConcept_FetchDocument = gql`
     id
     sentenceText
     sourceLanguage
-    status
+    grammarExtractionStatus
     grammarConcepts {
       id
       title
@@ -2826,8 +2834,8 @@ export const UniversalPhrase_CreateDocument = gql`
     mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
   universal_phrase_create(input: $input) {
     id
-    phrase
-    languageCode
+    text
+    sourceLanguageCode
     transcription {
       id
       universalPhraseId
@@ -2872,8 +2880,8 @@ export const UniversalPhrase_GetDocument = gql`
     query UniversalPhrase_get($input: GetUniversalPhraseInput!) {
   universal_phrase_get(input: $input) {
     id
-    phrase
-    languageCode
+    text
+    sourceLanguageCode
     transcription {
       id
       universalPhraseId
@@ -3058,6 +3066,20 @@ export const VideoPrivate_GetDocument = gql`
       startOffset
       length
       orderIndex
+      grammarConcepts {
+        id
+        title
+        slug
+        category
+        lemma
+        order
+        sourceLanguage
+        targetLanguage
+      }
+      missingGrammarConcepts {
+        category
+        lemma
+      }
     }
     subtitles {
       id
@@ -3280,6 +3302,20 @@ export const VideoPublic_GetDocument = gql`
       sentenceTranslations {
         id
         translation
+      }
+      grammarConcepts {
+        id
+        title
+        slug
+        category
+        lemma
+        order
+        sourceLanguage
+        targetLanguage
+      }
+      missingGrammarConcepts {
+        category
+        lemma
       }
     }
     subtitles {

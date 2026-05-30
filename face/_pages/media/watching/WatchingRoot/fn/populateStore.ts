@@ -4,7 +4,7 @@ import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPub
 import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useWatchingStore } from '../../watchingStore'
 import { createPopulatedPlainText } from './createPopulatedPlainText'
-// import { createPopulatedSubtitles } from './createPopulatedText'
+import { createPopulatedSubtitles } from './createPopulatedText'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 export function usePopulateWatchingStore() {

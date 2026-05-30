@@ -1,20 +1,20 @@
-// import React from 'react'
-// import Header from 'ui/Header/Header'
-// import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-// import './MediaPageHeader.scss'
+import React from 'react'
+import Header from 'ui/Header/Header'
+import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import './MediaPageHeader.scss'
 
-/*type BreadCrumbsItem = {
+type BreadCrumbsItem = {
 	name: string
 	path: string
-}*/
+}
 
-/*type MediaPageHeaderProps = {
+type MediaPageHeaderProps = {
 	header?: React.ReactNode
 	chapterNumber?: string
 	breadCrumbsItems: BreadCrumbsItem[]
-}*/
+}
 
-/*function MediaPageHeader(props: MediaPageHeaderProps) {
+function MediaPageHeader(props: MediaPageHeaderProps) {
 	const { breadCrumbsItems, chapterNumber, header } = props
 
 	return (
@@ -26,6 +26,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default MediaPageHeader
+export default MediaPageHeader

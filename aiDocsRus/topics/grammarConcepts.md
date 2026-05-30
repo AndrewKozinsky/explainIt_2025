@@ -88,38 +88,38 @@ aliases:
 
 Уникальный индекс: `[source_language_code, target_language_code, category, lemma]`
 
-### UniversalSentence — кеш предложений
+### UniversalPhrase — кеш предложений
 
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `id` | `Int` (автоинкремент) | Первичный ключ |
-| `sentence_text` | `String` | Нормализованный текст предложения |
+| `text` | `String` | Нормализованный текст предложения |
 | `source_language_code` | `LanguageCode` | Код языка |
-| `status` | `GrammarExtractionStatus` | `NOT_STARTED`, `ERROR`, `SUCCESS` |
+| `grammarExtractionStatus` | `GrammarExtractionStatus` | `NOT_STARTED`, `ERROR`, `SUCCESS` |
 
-Уникальный индекс: `[sentence_text, source_language_code]`
+Уникальный индекс: `[text, source_language_code]`
 
 ### MissingGrammarConcept — ненайденные конструкции
 
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `id` | `Int` | Первичный ключ |
-| `universal_sentence_id` | `Int` | FK → UniversalSentence |
+| `universal_phrase_id` | `Int` | FK → UniversalPhrase |
 | `source_language_code` | `LanguageCode` | Код языка |
 | `target_language_code` | `LanguageCode` | Код языка перевода |
 | `category` | `String` | Категория (от LLM) |
 | `lemma` | `String` | Лемма (от LLM) |
 | `sentence_text` | `String` | Исходный текст предложения |
 
-### GrammarConceptToUniversalSentence — many-to-many связка
+### GrammarConceptToUniversalPhrase — many-to-many связка
 
 | Поле | Тип | Описание |
 |------|-----|----------|
 | `id` | `Int` | Первичный ключ |
 | `grammar_concept_id` | `String` (UUID) | FK → GrammarConcept |
-| `universal_sentence_id` | `Int` | FK → UniversalSentence |
+| `universal_phrase_id` | `Int` | FK → UniversalPhrase |
 
-Уникальный индекс: `[grammar_concept_id, universal_sentence_id]`
+Уникальный индекс: `[grammar_concept_id, universal_phrase_id]`
 
 ## Поток извлечения (FetchGrammarConcepts)
 
@@ -144,14 +144,14 @@ mutation {
 `FetchGrammarConceptsHandler` (`server/src/features/grammarConcept/FetchGrammarConcepts.command.ts`):
 
 1. **Нормализует** текст предложения (trim, единый пробел)
-2. **Находит или создаёт** `UniversalSentence` через `UniversalSentenceRepository.findOrCreate()`
+2. **Находит или создаёт** `UniversalPhrase` через `UniversalPhraseRepository.findOrCreate()`
 3. **Проверяет кеш**: если статус = `SUCCESS`, возвращает сохранённый результат (без повторного вызова LLM)
 4. **Вызывает LLM** (Gemini Flash) через `GrammarExtractionService.extractConcepts()` с промптом на языке предложения
 5. **Парсит ответ** LLM: очищает markdown-обёртку и висячие запятые, затем `JSON.parse`
 6. **Ищет совпадения** в БД через `GrammarConceptRepository.findByLemmas()` — поиск по `[sourceLanguage, targetLanguage, category]` AND (`lemma` OR `aliases has`)
-7. **Создаёт связки** через `UniversalSentenceRepository.completeExtraction()` — одной транзакцией:
-   - Обновляет статус UniversalSentence на `SUCCESS`
-   - Создаёт записи в `GrammarConceptToUniversalSentence` для найденных концептов
+7. **Создаёт связки** через `UniversalPhraseRepository.completeExtraction()` — одной транзакцией:
+   - Обновляет статус UniversalPhrase на `SUCCESS`
+   - Создаёт записи в `GrammarConceptToUniversalPhrase` для найденных концептов
    - Создаёт записи в `MissingGrammarConcept` для ненайденных
 8. **При ошибке** LLM (сетевой сбой, невалидный JSON) — статус ставится `ERROR`
 
@@ -178,7 +178,7 @@ mutation {
 1. **Сканирует** `content/` рекурсивно, собирает все `.mdx` файлы
 2. **Для каждого файла** извлекает frontmatter через `gray-matter`, upsert-ит запись в `GrammarConcept` по `id = lesson_id`
 3. **Удаляет** из БД GrammarConcept, чьи `id` не найдены среди `lesson_id` файлов
-4. **Разрешает missing-концепты** (`resolveMissingConcepts`): для каждой записи в `MissingGrammarConcept` ищет появившуюся статью по `[sourceLanguage, targetLanguage, category]` AND (`lemma` OR `aliases has`). Если находит — создаёт связку `GrammarConceptToUniversalSentence` и удаляет `MissingGrammarConcept`
+4. **Разрешает missing-концепты** (`resolveMissingConcepts`): для каждой записи в `MissingGrammarConcept` ищет появившуюся статью по `[sourceLanguage, targetLanguage, category]` AND (`lemma` OR `aliases has`). Если находит — создаёт связку `GrammarConceptToUniversalPhrase` и удаляет `MissingGrammarConcept`
 
 Поиск по алиасам в шаге 4 критичен: LLM может вернуть "get oneself in over one's head", а статья имеет `lemma: "in over one's head"` и `aliases: ["get oneself in over one's head"]`.
 
@@ -259,6 +259,64 @@ export namespace ChapterTextStructurePopulated {
 }
 ```
 
+## Клиент: отображение в видео
+
+Извлечение грамматических концептов для видео работает по тому же принципу, что и для книг, но использует общую таблицу `Sentence` (с полями `video_private_id` и `video_public_id`).
+
+### GraphQL-запросы
+
+#### getVideoPrivate / getVideoPublic
+
+Оба запроса принимают опциональный `targetLanguageCode`. При его передаче сервер для каждого предложения:
+1. Извлекает текст через offsets из `processedContent`
+2. Нормализует текст и ищет `UniversalPhrase`
+3. Если `grammarExtractionStatus === 'SUCCESS'` — возвращает найденные концепты (фильтруя по `targetLanguageCode`)
+
+```graphql
+query {
+  video_private_get(input: {
+    id: 1
+    targetLanguageCode: "ru"
+  }) {
+    sentences {
+      id
+      sentence
+      grammarConcepts { id title slug category sourceLanguage }
+      missingGrammarConcepts { category lemma }
+    }
+  }
+}
+```
+
+### Выходные модели
+
+Поля `grammarConcepts` и `missingGrammarConcepts` добавлены как в `VideoPrivateSentenceOutModel`, так и в `VideoPublicSentenceOutModel`:
+
+```typescript
+@Field(() => [GrammarConceptOutModel], { nullable: true })
+grammarConcepts: GrammarConceptOutModel[] | null
+// null = не загружалось (нет targetLanguageCode в запросе)
+
+@Field(() => [MissingGrammarConceptOutModel], { nullable: true })
+missingGrammarConcepts: MissingGrammarConceptOutModel[] | null
+```
+
+### enrichSentencesWithGrammarConcepts
+
+Общий хелпер `server/src/repo/grammarConcept/enrichSentencesWithGrammarConcepts.ts` используется для обогащения предложений грамматическими концептами как в книгах, так и в видео. Принимает:
+
+- `prisma` — экземпляр PrismaService
+- `grammarConceptQueryRepo` — для маппинга DB → OutModel
+- `sentences` — массив `{ id, startOffset, length }`
+- `content` — полный текст (processedContent)
+- `sourceLanguageCode`, `targetLanguageCode`
+
+Для каждого предложения нормализует текст, ищет UniversalPhrase, и если статус SUCCESS — возвращает grammarConcepts и missingGrammarConcepts.
+
+### attachVideoTextRelations
+
+Синхронная функция `server/src/repo/video/attachVideoTextRelations.ts` — общая для VideoPrivate и VideoPublic. При сборке выходной модели добавляет предложениям `grammarConcepts: null` и `missingGrammarConcepts: null` по умолчанию. Затем `enrichSentencesWithGrammarConcepts` заменяет эти null на реальные данные, если передан `targetLanguageCode`.
+
 ## Выбор LLM-провайдера
 
 Провайдер задаётся в `GrammarExtractionService` константой `provider`:
@@ -286,19 +344,28 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 ### Сервер
 
 #### БД и модели
-- `server/src/db/dbConfig/dbConfig.ts` — конфигурация таблиц `GrammarConcept`, `UniversalSentence`, `MissingGrammarConcept`, `GrammarConceptToUniversalSentence`
+- `server/src/db/dbConfig/dbConfig.ts` — конфигурация таблиц `GrammarConcept`, `UniversalPhrase`, `MissingGrammarConcept`, `GrammarConceptToUniversalPhrase`
 - `server/src/db/prismaGenerator/columns/uuidIndexColumn.ts` — генератор UUID-колонок для Prisma
-- `server/src/models/grammarConcept/grammarConcept.out.model.ts` — GraphQL-типы: `GrammarConceptOutModel`, `MissingGrammarConceptOutModel`, `UniversalSentenceOutModel`
-- `server/src/models/grammarConcept/grammarConcept.service.model.ts` — внутренние типы: `GrammarConceptServiceModel`, `UniversalSentenceServiceModel`, `MissingGrammarConceptServiceModel`
+- `server/src/models/grammarConcept/grammarConcept.out.model.ts` — GraphQL-типы: `GrammarConceptOutModel`, `MissingGrammarConceptOutModel`, `UniversalPhraseOutModel`
+- `server/src/models/grammarConcept/grammarConcept.service.model.ts` — внутренние типы: `GrammarConceptServiceModel`, `UniversalPhraseServiceModel`, `MissingGrammarConceptServiceModel`
+- `server/src/models/videoPrivate/videoPrivateOut.model.ts` — `VideoPrivateSentenceOutModel` с полями `grammarConcepts`, `missingGrammarConcepts`
+- `server/src/models/videoPublic/videoPublic.out.model.ts` — `VideoPublicSentenceOutModel` с полями `grammarConcepts`, `missingGrammarConcepts`
 
 #### Репозитории
 - `server/src/repo/grammarConcept.repository.ts` — `findByLemmas()`, `upsertByLessonId()`, `deleteNotInIds()`
 - `server/src/repo/grammarConcept.queryRepository.ts` — `mapDbToOutModel()`, `mapDbToMissingOutModel()`
-- `server/src/repo/universalSentence.repository.ts` — `findOrCreate()`, `findByIdWithRelations()`, `completeExtraction()`, `updateStatus()`
+- `server/src/repo/universalPhrase.repository.ts` — `findOrCreate()`, `findByIdWithRelations()`, `completeExtraction()`, `updateStatus()`
+- `server/src/repo/grammarConcept/enrichSentencesWithGrammarConcepts.ts` — общий хелпер обогащения предложений концептами (книги + видео)
+- `server/src/repo/video/attachVideoTextRelations.ts` — сборка выходной модели видео с дефолтными grammar-полями
+- `server/src/repo/bookChapter/bookChapter.queryRepository.ts` — `getBookChapterById()` с поддержкой `targetLanguageCode`
+- `server/src/repo/video/videoPrivate.queryRepository.ts` — `getVideoById()` с поддержкой `targetLanguageCode`
+- `server/src/repo/video/videoPublic.queryRepository.ts` — `getVideoById()` с поддержкой `targetLanguageCode`
 
 #### Команды
 - `server/src/features/grammarConcept/FetchGrammarConcepts.command.ts` — извлечение концептов из предложения
 - `server/src/features/grammarConcept/SyncMdxGrammarConcepts.command.ts` — синхронизация MDX-статей с БД при старте
+- `server/src/features/video/GetVideoPrivate.command.ts` — команда с параметром `targetLanguageCode`
+- `server/src/features/video/GetVideoPublic.command.ts` — команда с параметром `targetLanguageCode`
 
 #### LLM
 - `server/src/features/grammarConcept/grammarExtraction.service.ts` — вызов LLM и парсинг ответа
@@ -309,6 +376,12 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 - `server/src/routes/grammarConcept/grammarConcept.resolver.ts` — GraphQL-резолвер мутации `grammar_concept_fetch`
 - `server/src/routes/grammarConcept/inputs/fetchGrammarConcepts.input.ts` — входной тип с валидацией через `DtoFieldDecorators`
 - `server/src/routes/grammarConcept/grammarConcept.module.ts` — модуль со всеми зависимостями
+- `server/src/routes/videoPrivate/videoPrivate.resolver.ts` — `getVideoPrivate` с параметром `targetLanguageCode`
+- `server/src/routes/videoPrivate/inputs/getPrivateVideo.input.ts` — добавлено поле `targetLanguageCode`
+- `server/src/routes/videoPrivate/videoPrivate.module.ts` — провайдер `GrammarConceptQueryRepository`
+- `server/src/routes/videoPublic/videoPublic.resolver.ts` — `getPublicVideo` с параметром `targetLanguageCode`
+- `server/src/routes/videoPublic/inputs/getPublicVideo.input.ts` — добавлено поле `targetLanguageCode`
+- `server/src/routes/videoPublic/videoPublic.module.ts` — провайдер `GrammarConceptQueryRepository`
 
 #### Инфраструктура
 - `server/src/infrastructure/StartServerTasksRunner.ts` — запуск `SyncMdxGrammarConceptsCommand` при старте
@@ -333,7 +406,7 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 - `face/_pages/grammar/fn/getCategories.ts` — сканирование структуры content/
 - `face/_pages/grammar/fn/getContentDir.ts` — получение пути к content/
 
-#### Отображение в чтении
+#### Отображение в чтении и видео
 - `face/_pages/media/commonComponents/GrammarConceptLinks/GrammarConceptLinks.tsx` — кнопка/ссылки после предложения
 - `face/_pages/media/commonComponents/GrammarConceptLinks/computeArticleUrl.ts` — построение URL статьи
 - `face/_pages/media/reading/ChapterContent/ChapterContent.tsx` — хендлер мутации `fetchGrammarConcepts`
@@ -344,6 +417,8 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 #### GraphQL
 - `face/graphql/grammarConcept/fetchGrammarConcepts.graphql` — мутация извлечения
 - `face/graphql/bookChapter/bookChapterGet.graphql` — запрос главы с `grammarConcepts`
+- `face/graphql/videoPrivate/videoPrivateGet.graphql` — запрос видео с `targetLanguageCode` и `grammarConcepts`
+- `face/graphql/videoPublic/videoPublicGet.graphql` — запрос видео с `targetLanguageCode` и `grammarConcepts`
 
 ### Конфигурация
 - `face/сonsts/pageUrls.ts` — секция `grammar` с `path`, `name`, `article()`

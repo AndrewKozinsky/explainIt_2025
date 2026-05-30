@@ -23,6 +23,20 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 			startOffset
 			length
 			orderIndex
+			grammarConcepts {
+				id
+				title
+				slug
+				category
+				lemma
+				order
+				sourceLanguage
+				targetLanguage
+			}
+			missingGrammarConcepts {
+				category
+				lemma
+			}
 		}
 		subtitles {
 			id

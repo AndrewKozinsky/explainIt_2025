@@ -64,8 +64,8 @@ export function usePopulateDictionaryStore() {
 							const phraseResult = await getUniversalPhrase({
 								variables: {
 									input: {
-										phrase: flashcard.phrase,
-										languageCode: flashcard.languageCode,
+										text: flashcard.phrase,
+										sourceLanguageCode: flashcard.languageCode,
 									},
 								},
 								fetchPolicy: 'network-only',

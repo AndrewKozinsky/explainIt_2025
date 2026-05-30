@@ -134,11 +134,11 @@ input CreateUniversalAudioPronunciationInput {
 }
 
 input CreateUniversalPhraseInput {
-  """Language code"""
-  languageCode: String!
+  """Source language code"""
+  sourceLanguageCode: String!
 
-  """Phrase text"""
-  phrase: String!
+  """Phrase or sentence text"""
+  text: String!
 }
 
 input CreateUniversalTranscriptionInput {
@@ -257,11 +257,17 @@ input GetPrivateBookInput {
 input GetPrivateVideoInput {
   """Video id"""
   id: Int!
+
+  """Target language for grammar concepts"""
+  targetLanguageCode: String
 }
 
 input GetPublicVideoInput {
   """Video id"""
   id: Int!
+
+  """Target language for grammar concepts"""
+  targetLanguageCode: String
 }
 
 input GetSentenceChatThreadInput {
@@ -278,11 +284,11 @@ input GetSentenceTranslationInput {
 }
 
 input GetUniversalPhraseInput {
-  """Language code"""
-  languageCode: String!
+  """Source language code"""
+  sourceLanguageCode: String!
 
-  """Phrase text"""
-  phrase: String!
+  """Phrase or sentence text"""
+  text: String!
 }
 
 type GrammarConceptOutModel {
@@ -294,6 +300,15 @@ type GrammarConceptOutModel {
   sourceLanguage: String!
   targetLanguage: String!
   title: String!
+}
+
+type GrammarExtractionOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]!
+  grammarExtractionStatus: String!
+  id: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]!
+  sentenceText: String!
+  sourceLanguage: String!
 }
 
 type LanguageOutModel {
@@ -384,7 +399,7 @@ type Mutation {
   """
   Extract grammar concepts from a sentence using AI and link to available articles
   """
-  grammar_concept_fetch(input: FetchGrammarConceptsInput!): UniversalSentenceOutModel!
+  grammar_concept_fetch(input: FetchGrammarConceptsInput!): GrammarExtractionOutModel!
 
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
@@ -656,18 +671,9 @@ type UniversalAudioPronunciationOutModel {
 type UniversalPhraseOutModel {
   audioPronunciation: UniversalAudioPronunciationOutModel
   id: Int!
-  languageCode: String!
-  phrase: String!
+  sourceLanguageCode: String!
+  text: String!
   transcription: TranscriptionOutModel
-}
-
-type UniversalSentenceOutModel {
-  grammarConcepts: [GrammarConceptOutModel!]!
-  id: Int!
-  missingGrammarConcepts: [MissingGrammarConceptOutModel!]!
-  sentenceText: String!
-  sourceLanguage: String!
-  status: String!
 }
 
 input UpdateBookChapterInput {
@@ -802,8 +808,10 @@ type VideoPrivateOutModel {
 }
 
 type VideoPrivateSentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
   startOffset: Int!
@@ -871,8 +879,10 @@ type VideoPublicOutModel {
 }
 
 type VideoPublicSentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
   startOffset: Int!

@@ -1,7 +1,7 @@
-// import { useEffect, useRef } from 'react'
-// import { useWatchingStore } from '../../watchingStore'
+import { useEffect, useRef } from 'react'
+import { useWatchingStore } from '../../watchingStore'
 
-/*export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement | null>) {
+export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement | null>) {
 	const command = useWatchingStore((s) => s.player.command)
 	const reverseSeekIntervalIdRef = useRef<null | ReturnType<typeof setInterval>>(null)
 	const reverseSeekWasPlayingRef = useRef(false)
@@ -108,4 +108,4 @@
 
 		executeCommand(video, stopReverseSeekIfActive, stopForwardHoldIfActive)
 	}, [command, playerRef])
-}*/
+}

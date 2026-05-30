@@ -1,8 +1,8 @@
 query UniversalPhrase_get($input: GetUniversalPhraseInput!) {
 	universal_phrase_get(input: $input) {
 		id
-		phrase
-		languageCode
+		text
+		sourceLanguageCode
 		transcription {
 			id
 			universalPhraseId

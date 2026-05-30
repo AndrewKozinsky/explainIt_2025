@@ -32,6 +32,7 @@ export interface GetBookChapterInput {
 
 export interface GetPrivateVideoInput {
     id: number;
+    targetLanguageCode?: Nullable<string>;
 }
 
 export interface VideoPrivateSubtitlesStatusInput {
@@ -40,6 +41,7 @@ export interface VideoPrivateSubtitlesStatusInput {
 
 export interface GetPublicVideoInput {
     id: number;
+    targetLanguageCode?: Nullable<string>;
 }
 
 export interface GetSentenceTranslationInput {
@@ -64,8 +66,8 @@ export interface GetSentenceChatThreadInput {
 }
 
 export interface GetUniversalPhraseInput {
-    phrase: string;
-    languageCode: string;
+    text: string;
+    sourceLanguageCode: string;
 }
 
 export interface GetMyFlashcardsInput {
@@ -204,8 +206,8 @@ export interface CreateSentenceChatUserMessageInput {
 }
 
 export interface CreateUniversalPhraseInput {
-    phrase: string;
-    languageCode: string;
+    text: string;
+    sourceLanguageCode: string;
 }
 
 export interface CreateUniversalTranscriptionInput {
@@ -284,20 +286,13 @@ export interface MissingGrammarConceptOutModel {
     lemma: string;
 }
 
-export interface UniversalSentenceOutModel {
+export interface GrammarExtractionOutModel {
     id: number;
     sentenceText: string;
     sourceLanguage: string;
-    status: string;
+    grammarExtractionStatus: string;
     grammarConcepts: GrammarConceptOutModel[];
     missingGrammarConcepts: MissingGrammarConceptOutModel[];
-}
-
-export interface SentenceTranslationOutModel {
-    id: number;
-    sentenceId: number;
-    translation: string;
-    createdAt: string;
 }
 
 export interface SentencePhraseTranslationExampleOutModel {
@@ -318,6 +313,13 @@ export interface SentencePhraseTranslationOutModel {
     createdAt: string;
     updatedAt: string;
     flashcardId?: Nullable<number>;
+}
+
+export interface SentenceTranslationOutModel {
+    id: number;
+    sentenceId: number;
+    translation: string;
+    createdAt: string;
 }
 
 export interface BookChapterLiteOutModel {
@@ -423,8 +425,8 @@ export interface TranscriptionOutModel {
 
 export interface UniversalPhraseOutModel {
     id: number;
-    phrase: string;
-    languageCode: string;
+    text: string;
+    sourceLanguageCode: string;
     transcription?: Nullable<TranscriptionOutModel>;
     audioPronunciation?: Nullable<UniversalAudioPronunciationOutModel>;
 }
@@ -498,6 +500,8 @@ export interface VideoPrivateSentenceOutModel {
     startOffset: number;
     length: number;
     orderIndex: number;
+    grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
+    missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
 }
 
 export interface VideoPrivateSubtitleOutModel {
@@ -556,6 +560,8 @@ export interface VideoPublicSentenceOutModel {
     startOffset: number;
     length: number;
     orderIndex: number;
+    grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
+    missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
 }
 
 export interface VideoPublicSubtitleOutModel {
@@ -632,7 +638,7 @@ export interface IMutation {
     create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
     flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
     flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
-    grammar_concept_fetch(input: FetchGrammarConceptsInput): UniversalSentenceOutModel | Promise<UniversalSentenceOutModel>;
+    grammar_concept_fetch(input: FetchGrammarConceptsInput): GrammarExtractionOutModel | Promise<GrammarExtractionOutModel>;
 }
 
 type Nullable<T> = T | null;

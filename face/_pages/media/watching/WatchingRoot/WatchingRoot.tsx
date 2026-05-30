@@ -1,37 +1,36 @@
 'use client'
 
-// import { useRef } from 'react'
-// import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
-// import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
-// import WatchingTop from '_pages/media/watching/WatchingTop/WatchingTop'
-// import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
-// import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
+import { useRef } from 'react'
+import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
+import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
+import WatchingTop from '../WatchingTop/WatchingTop'
+import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
+import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
 import { usePopulateWatchingStore } from './fn/populateStore'
-// import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
-// import { TextContainer, VideoContainer } from './WatchingRootContent'
+import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
+import { VideoContainer } from './VideoContainer'
 import './WatchingRoot.scss'
 
 function WatchingRoot() {
 	usePopulateWatchingStore()
-	// useClearWatchingStoreOnUnmount()
-	// const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
+	useClearWatchingStoreOnUnmount()
+	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
-	// const rootRef = useRef<null | HTMLDivElement>(null)
-	// useDetailsStickyTopBelowVideo(rootRef)
+	const rootRef = useRef<null | HTMLDivElement>(null)
+	useDetailsStickyTopBelowVideo(rootRef)
 
-	/*return (
+	return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage} rootRef={rootRef}>
 			<main className='watching-root'>
 				<OnboardingModal />
 				<WatchingTop />
 				<div className='watching-root__content'>
 					<VideoContainer />
-					<TextContainer />
+					{/*<TextContainer />*/}
 				</div>
 			</main>
 		</RootSurface>
-	)*/
-	return null
+	)
 }
 
 export default WatchingRoot

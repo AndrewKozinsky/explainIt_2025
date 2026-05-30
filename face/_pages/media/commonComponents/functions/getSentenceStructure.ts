@@ -4,7 +4,7 @@
  * @param locale — language code
  * @returns
  */
-/*export function getSentenceStructure(sentenceText: string, locale?: string) {
+export function getSentenceStructure(sentenceText: string, locale?: string) {
 	const segmenter = new Intl.Segmenter(locale, { granularity: 'word' })
 	const sentenceParts = [...segmenter.segment(sentenceText)]
 
@@ -15,4 +15,4 @@
 			value: part.segment,
 		}
 	})
-}*/
+}

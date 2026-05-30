@@ -9,5 +9,8 @@ export class GetPublicVideoInput {
 	id: number
 
 	@Field(() => String, { nullable: true, description: 'Target language for grammar concepts' })
+	@DtoFieldDecorators('targetLanguageCode', bdConfig.GrammarConcept.dbFields.target_language_code, {
+		required: false,
+	})
 	targetLanguageCode?: string
 }
