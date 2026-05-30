@@ -15,7 +15,6 @@ export function useGetPrevAndNextChapters() {
 			}
 
 			const currentChapterIdx = book.chapters.findIndex((chapter) => chapter.id === currentChapterId)
-			console.log(book.chapters)
 			if (currentChapterIdx === -1) {
 				return { prev: null, next: null }
 			}

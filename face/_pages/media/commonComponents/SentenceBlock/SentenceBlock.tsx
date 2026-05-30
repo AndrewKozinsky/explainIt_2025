@@ -1,9 +1,8 @@
-// import cn from 'classnames'
-// import { getSentenceStructure } from '../functions/getSentenceStructure'
-// import Word from '../Word/Word'
-// import './SentenceBlock.scss'
+import cn from 'classnames'
+import { getSentenceStructure } from '../functions/getSentenceStructure'
+import Word from '../Word/Word'
 
-/*type SentenceBlockProps = {
+type SentenceBlockProps = {
 	sentenceId: number
 	sentenceText: string
 	selectedSentenceId: null | number
@@ -12,9 +11,9 @@
 	wordIdOffset?: number
 	extraClass?: string
 	loading?: boolean
-}*/
+}
 
-/*function SentenceBlock(props: SentenceBlockProps) {
+function SentenceBlock(props: SentenceBlockProps) {
 	const {
 		sentenceId,
 		sentenceText,
@@ -52,6 +51,6 @@
 			})}
 		</p>
 	)
-}*/
+}
 
-// export default SentenceBlock
+export default SentenceBlock

@@ -6,51 +6,6 @@
 // import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
 // import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 // import SentenceTranslationText from '../../detailsBlock/SentenceTranslationText/SentenceTranslationText'
-import { ChapterTextStructurePopulated } from '../readingStore'
-
-type ChapterSentenceProps = {
-	sentence: ChapterTextStructurePopulated.Sentence
-	selectedSentenceId: null | number
-	selectedWordId: null | number
-	selectWord: (input: { sentenceId: number; wordId: number }) => void
-	languageCode: string
-	onFetchGrammarConcepts: (sentenceId: number) => void
-	grammarLoading: boolean
-}
-
-function ChapterSentence(props: ChapterSentenceProps) {
-	const {
-		sentence,
-		selectedSentenceId,
-		selectedWordId,
-		selectWord,
-		languageCode,
-		onFetchGrammarConcepts,
-		grammarLoading,
-	} = props
-
-	/*return (
-		<div className='chapter-content__sentence'>
-			<SentenceBlock
-				sentenceId={sentence.id}
-				sentenceText={sentence.sentence}
-				selectedSentenceId={selectedSentenceId}
-				selectedWordId={selectedWordId}
-				selectWord={selectWord}
-			/>
-			<SentenceDetails sentenceId={sentence.id} languageCode={languageCode} />
-			<GrammarConceptLinks
-				grammarConcepts={sentence.grammarConcepts}
-				missingGrammarConcepts={sentence.missingGrammarConcepts}
-				loading={grammarLoading}
-				onFetch={() => onFetchGrammarConcepts(sentence.id)}
-			/>
-		</div>
-	)*/
-	return <p>44</p>
-}
-
-export default ChapterSentence
 
 /*type SentenceDetailsProps = {
 	sentenceId: number

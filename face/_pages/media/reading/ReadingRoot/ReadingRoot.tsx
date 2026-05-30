@@ -4,7 +4,7 @@ import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/Onboa
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
 // import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
 import ReadingNavigation from '_pages/media/reading/ReadingNavigation/ReadingNavigation'
-import ChapterContent from '../ChapterContent/ChapterContent'
+import ChapterContent from '../content/ChapterContent/ChapterContent'
 import ReadingTop from '../ReadingTop/ReadingTop'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'

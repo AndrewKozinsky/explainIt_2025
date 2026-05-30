@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { gql, useMutation } from '@apollo/client'
-import { useReadingStore } from '../readingStore'
+import Button from '@/ui/formRelated/buttons/Button/Button'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 
 const FETCH_GRAMMAR_CONCEPTS = gql`
 	mutation fetchGrammarConcepts($input: FetchGrammarConceptsInput!) {
@@ -71,8 +72,8 @@ export default function FetchGrammarConceptsButton(props: FetchGrammarConceptsBu
 	}
 
 	return (
-		<button onClick={handleClick} disabled={loading}>
-			{loading ? 'Загрузка...' : 'Показать грамматику'}
-		</button>
+		<Button onClick={handleClick} disabled={loading} size='small' loading={loading} theme='outline'>
+			Темы
+		</Button>
 	)
 }

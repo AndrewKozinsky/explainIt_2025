@@ -8,8 +8,8 @@ import { ButtonIcon } from './ButtonIcon'
 import './Button.scss'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-	theme?: 'regular' | 'danger' | 'accent'
-	size?: 'medium' | 'big'
+	theme?: 'regular' | 'danger' | 'accent' | 'plain' | 'outline'
+	size?: 'small' | 'medium' | 'big'
 	children?: ReactNode
 	icon?: string | ReactNode
 	loading?: boolean

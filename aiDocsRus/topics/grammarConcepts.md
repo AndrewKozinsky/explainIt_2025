@@ -229,7 +229,7 @@ app/grammar/
 
 1. При загрузке главы `getBookChapter` возвращает `grammarConcepts` для каждого предложения (если ранее извлекались)
 2. `populateChapterStructure` мапит ответ сервера в структуру стора
-3. `ChapterSentence` рендерит `GrammarConceptLinks` после каждого предложения
+3. `ChapterSentenceBlock` рендерит `GrammarConceptLinks` после каждого предложения
 4. При клике на кнопку — `handleFetchGrammarConcepts` вызывает мутацию `grammar_concept_fetch`
 5. После ответа обновляет локальный стейт предложения (и `grammarConcepts`, и `missingGrammarConcepts`)
 
