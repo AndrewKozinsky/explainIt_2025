@@ -6,13 +6,13 @@
 // import WatchingTop from '_pages/media/watching/WatchingTop/WatchingTop'
 // import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 // import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
-// import { usePopulateWatchingStore } from './fn/populateStore'
+import { usePopulateWatchingStore } from './fn/populateStore'
 // import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
 // import { TextContainer, VideoContainer } from './WatchingRootContent'
-// import './WatchingRoot.scss'
+import './WatchingRoot.scss'
 
 function WatchingRoot() {
-	// usePopulateWatchingStore()
+	usePopulateWatchingStore()
 	// useClearWatchingStoreOnUnmount()
 	// const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 

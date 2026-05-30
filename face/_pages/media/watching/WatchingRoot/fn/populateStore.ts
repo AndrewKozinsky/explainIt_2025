@@ -1,18 +1,18 @@
-// import { useEffect } from 'react'
-// import { useParams } from 'next/navigation'
-// import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-// import { getTextByUnknownError } from '@/utils/errorMessages'
-// import { useWatchingStore } from '../../watchingStore'
-// import { createPopulatedPlainText } from './createPopulatedPlainText'
+import { useEffect } from 'react'
+import { useParams } from 'next/navigation'
+import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
+import { useWatchingStore } from '../../watchingStore'
+import { createPopulatedPlainText } from './createPopulatedPlainText'
 // import { createPopulatedSubtitles } from './createPopulatedText'
-// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
-/*export function usePopulateWatchingStore() {
+export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
 	usePopulatedTextAndSetToStore()
-}*/
+}
 
-/*function useFetchVideoAndSetToStore() {
+function useFetchVideoAndSetToStore() {
 	const urlVideoId = useParams().videoId as string
 	const videoType = getMediaTypeByUrlMediaId(urlVideoId)
 	const videoId = extractMediaIdFromUrlBookId(urlVideoId)
@@ -112,9 +112,9 @@
 			publicVideoLoading,
 		],
 	)
-}*/
+}
 
-/*function usePopulatedTextAndSetToStore() {
+function usePopulatedTextAndSetToStore() {
 	const video = useWatchingStore((s) => s.video)
 
 	useEffect(
@@ -134,4 +134,4 @@
 		},
 		[video],
 	)
-}*/
+}

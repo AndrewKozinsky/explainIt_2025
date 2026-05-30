@@ -1,4 +1,4 @@
-/*export namespace PopulatedSubtitlesStructure {
+export namespace PopulatedSubtitlesStructure {
 	export type Structure = {
 		subtitles: (Subtitle | SpeechlessBar)[]
 		sentences: Sentence[]
@@ -38,5 +38,20 @@
 	type Sentence = {
 		id: number
 		text: string
+		grammarConcepts: null | GrammarConceptData[]
+		missingGrammarConcepts: MissingGrammarConceptData[]
 	}
-}*/
+
+	export type GrammarConceptData = {
+		id: string
+		title: string
+		slug: string
+		category: string
+		// sourceLanguage: string
+	}
+
+	export type MissingGrammarConceptData = {
+		category: string
+		lemma: string
+	}
+}

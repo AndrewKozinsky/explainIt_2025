@@ -1,6 +1,6 @@
-// import { useReadingStore } from '_pages/media/reading/readingStore'
+import { useReadingStore } from '_pages/media/reading/readingStore'
 
-/*export function useGetFetchedDataStatuses() {
+export function useGetFetchedDataStatuses() {
 	const book = useReadingStore((s) => s.book)
 	const chapter = useReadingStore((s) => s.chapter)
 
@@ -12,4 +12,4 @@
 		fetchedDataLoading,
 		fetchedDataErrorMessage,
 	}
-}*/
+}

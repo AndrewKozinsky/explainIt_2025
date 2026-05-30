@@ -1,37 +1,17 @@
-// import { ChapterTextStructurePopulated } from '_pages/media/reading/readingStore'
+import { SentenceOutModel } from 'graphql'
+import { ChapterTextStructurePopulated } from '_pages/media/reading/readingStore'
 
 /**
  * Получает структуру главы с сервера и наполняет её полезными данными чтобы из
  * ChapterTextStructure.Chapter получить ChapterTextStructurePopulated.Chapter
  * @param chapter — данные главы
  */
-/*export function populateChapterStructure(chapter: {
+export function populateChapterStructure(chapter: {
 	id: number
 	header: undefined | null | string
 	name: undefined | null | string
 	content: undefined | null | string
-	sentences?:
-		| null
-		| {
-				id: number
-				startOffset: number
-				length: number
-				grammarConcepts?:
-					| null
-					| {
-							id: string
-							title: string
-							slug: string
-							category: string
-							sourceLanguage: string
-					  }[]
-				missingGrammarConcepts?:
-					| null
-					| {
-							category: string
-							lemma: string
-					  }[]
-		  }[]
+	sentences?: null | SentenceOutModel[]
 }): ChapterTextStructurePopulated.Chapter {
 	const content = chapter.content ?? ''
 	const sentencesCoords = chapter.sentences ?? []
@@ -54,4 +34,4 @@
 		name: chapter.name || null,
 		sentences,
 	}
-}*/
+}
