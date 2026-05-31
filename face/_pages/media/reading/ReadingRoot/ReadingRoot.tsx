@@ -3,9 +3,9 @@
 import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
 import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
-import ReadingTop from '_pages/media/reading/ReadingTop/ReadingTop'
+import ReadingNavigation from '_pages/media/reading/ReadingNavigation/ReadingNavigation'
 import ChapterContent from '../ChapterContent/ChapterContent'
-import ReadingBottomNavigation from '../ReadingBottomNavigation/ReadingBottomNavigation'
+import ReadingTop from '../ReadingTop/ReadingTop'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
 import { usePopulateReadingStore } from './fn/populateStore'
@@ -27,7 +27,7 @@ function ReadingRoot() {
 						<DetailsBlock mediaType='reading' />
 					</div>
 				</div>
-				<ReadingBottomNavigation />
+				<ReadingNavigation />
 			</main>
 		</RootSurface>
 	)

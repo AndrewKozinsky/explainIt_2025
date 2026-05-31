@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import BaseButton from '@/ui/BaseButton/BaseButton'
 import { routesUtils } from '@/utils/routes'
+import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 import './ChapterLink.scss'
 
 type BookLinkProps = {
@@ -21,7 +22,7 @@ function ChapterLink(props: BookLinkProps) {
 			current={isCurrentPage}
 		>
 			{subName && <p className='chapter-link__author'>{subName}</p>}
-			<p className='chapter-link__name'>{name}</p>
+			<p className='chapter-link__name'>{name || bookConfig.emptyChapterName}</p>
 		</BaseButton>
 	)
 }

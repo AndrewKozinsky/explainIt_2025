@@ -189,12 +189,43 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 			}
 		}
 
+		// Exact contiguous match
 		const exactStart = input.sentenceText.indexOf(llmPhrase)
 		if (exactStart >= 0) {
 			return {
 				phrase: llmPhrase,
 				phraseStartOffset: exactStart,
 				phraseEndOffset: exactStart + llmPhrase.length,
+			}
+		}
+
+		// Non-contiguous match: all words of llmPhrase appear in order in the sentence
+		const phraseWords = llmPhrase.split(/\s+/)
+		if (phraseWords.length > 1) {
+			let searchFrom = 0
+			let firstWordStart = -1
+			let lastWordEnd = -1
+			let allFound = true
+
+			for (const word of phraseWords) {
+				const pos = input.sentenceText.indexOf(word, searchFrom)
+				if (pos < 0) {
+					allFound = false
+					break
+				}
+				if (firstWordStart < 0) {
+					firstWordStart = pos
+				}
+				lastWordEnd = pos + word.length
+				searchFrom = pos + word.length
+			}
+
+			if (allFound && firstWordStart >= 0) {
+				return {
+					phrase: llmPhrase,
+					phraseStartOffset: firstWordStart,
+					phraseEndOffset: lastWordEnd,
+				}
 			}
 		}
 

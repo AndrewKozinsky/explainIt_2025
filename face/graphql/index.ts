@@ -57,17 +57,22 @@ export type BookPrivateOutModel = {
   __typename?: 'BookPrivateOutModel';
   author?: Maybe<Scalars['String']['output']>;
   chapters: Array<BookChapterLiteOutModel>;
+  coverUrl?: Maybe<Scalars['String']['output']>;
+  fileName?: Maybe<Scalars['String']['output']>;
+  fileS3Key?: Maybe<Scalars['String']['output']>;
   freeToUse: Scalars['Boolean']['output'];
   id: Scalars['Int']['output'];
+  isFileUploaded: Scalars['Boolean']['output'];
   languageCode?: Maybe<Scalars['String']['output']>;
   name?: Maybe<Scalars['String']['output']>;
   note?: Maybe<Scalars['String']['output']>;
+  uploadUrl?: Maybe<Scalars['String']['output']>;
   userId: Scalars['Int']['output'];
 };
 
 export type BookPublicOutModel = {
   __typename?: 'BookPublicOutModel';
-  author: Scalars['String']['output'];
+  author?: Maybe<Scalars['String']['output']>;
   chapters: Array<BookChapterLiteOutModel>;
   coverBackgroundColor: Scalars['String']['output'];
   covers: Array<Scalars['String']['output']>;
@@ -140,10 +145,10 @@ export type CreateUniversalAudioPronunciationInput = {
 };
 
 export type CreateUniversalPhraseInput = {
-  /** Language code */
-  languageCode: Scalars['String']['input'];
-  /** Phrase text */
-  phrase: Scalars['String']['input'];
+  /** Source language code */
+  sourceLanguageCode: Scalars['String']['input'];
+  /** Phrase or sentence text */
+  text: Scalars['String']['input'];
 };
 
 export type CreateUniversalTranscriptionInput = {
@@ -183,6 +188,12 @@ export type DeletePrivateVideoInput = {
   id: Scalars['Int']['input'];
 };
 
+export type FetchGrammarConceptsInput = {
+  sentenceText: Scalars['String']['input'];
+  sourceLanguage: Scalars['String']['input'];
+  targetLanguage: Scalars['String']['input'];
+};
+
 export type FlashcardOutModel = {
   __typename?: 'FlashcardOutModel';
   bookPrivateId?: Maybe<Scalars['Int']['output']>;
@@ -213,11 +224,24 @@ export type GetBookChapterInput = {
   bookType: Scalars['String']['input'];
   /** BookChapter id */
   id: Scalars['Int']['input'];
+  /** Target language to filter grammar concepts */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetBookPublicInput = {
   /** Book id */
   id: Scalars['Int']['input'];
+};
+
+export type GetGrammarArticleInput = {
+  /** Grammar category */
+  category: Scalars['String']['input'];
+  /** Article slug */
+  slug: Scalars['String']['input'];
+  /** Source language code */
+  sourceLanguage: Scalars['String']['input'];
+  /** Target language code */
+  targetLanguage: Scalars['String']['input'];
 };
 
 export type GetMyFlashcardsInput = {
@@ -251,11 +275,15 @@ export type GetPrivateBookInput = {
 export type GetPrivateVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
+  /** Target language for grammar concepts */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetPublicVideoInput = {
   /** Video id */
   id: Scalars['Int']['input'];
+  /** Target language for grammar concepts */
+  targetLanguageCode?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type GetSentenceChatThreadInput = {
@@ -271,10 +299,39 @@ export type GetSentenceTranslationInput = {
 };
 
 export type GetUniversalPhraseInput = {
-  /** Language code */
-  languageCode: Scalars['String']['input'];
-  /** Phrase text */
-  phrase: Scalars['String']['input'];
+  /** Source language code */
+  sourceLanguageCode: Scalars['String']['input'];
+  /** Phrase or sentence text */
+  text: Scalars['String']['input'];
+};
+
+export type GrammarArticleOutModel = {
+  __typename?: 'GrammarArticleOutModel';
+  compiledSource: Scalars['String']['output'];
+  content: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type GrammarConceptOutModel = {
+  __typename?: 'GrammarConceptOutModel';
+  category: Scalars['String']['output'];
+  id: Scalars['ID']['output'];
+  lemma: Scalars['String']['output'];
+  order: Scalars['Int']['output'];
+  slug: Scalars['String']['output'];
+  sourceLanguage: Scalars['String']['output'];
+  targetLanguage: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type GrammarExtractionOutModel = {
+  __typename?: 'GrammarExtractionOutModel';
+  grammarConcepts: Array<GrammarConceptOutModel>;
+  grammarExtractionStatus: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  missingGrammarConcepts: Array<MissingGrammarConceptOutModel>;
+  sentenceText: Scalars['String']['output'];
+  sourceLanguage: Scalars['String']['output'];
 };
 
 export type LanguageOutModel = {
@@ -296,6 +353,12 @@ export type LoginWithOAuthInput = {
   code: Scalars['String']['input'];
   /** Provider type: github, google, yandex */
   providerType: Scalars['String']['input'];
+};
+
+export type MissingGrammarConceptOutModel = {
+  __typename?: 'MissingGrammarConceptOutModel';
+  category: Scalars['String']['output'];
+  lemma: Scalars['String']['output'];
 };
 
 export type Mutation = {
@@ -337,6 +400,8 @@ export type Mutation = {
   flashcard_add: FlashcardOutModel;
   /** Удалить карточку пользователя. */
   flashcard_remove: Scalars['Boolean']['output'];
+  /** Extract grammar concepts from a sentence using AI and link to available articles */
+  grammar_concept_fetch: GrammarExtractionOutModel;
   /** Top up balance with YooKassa */
   payment_yookassa_top_up_balance: CreateYooKassaPaymentOutModel;
   /** Создать новый пустой тред чата с ИИ для выделенного предложения. Вызывается клиентом перед отправкой первого вопроса, если getSentenceChatThread вернул null. Если тред уже существует — отдаёт ошибку. */
@@ -435,6 +500,11 @@ export type MutationFlashcard_RemoveArgs = {
 };
 
 
+export type MutationGrammar_Concept_FetchArgs = {
+  input: FetchGrammarConceptsInput;
+};
+
+
 export type MutationPayment_Yookassa_Top_Up_BalanceArgs = {
   input: TopUpBalanceWithYooKassaInput;
 };
@@ -500,6 +570,8 @@ export type Query = {
   book_user_books: Array<BookPrivateOutModel>;
   /** Получить список карточек пользователя. Опционально фильтрует по языку. */
   flashcard_get_my: Array<FlashcardOutModel>;
+  /** Get grammar article content by language, category and slug */
+  grammar_article_get: GrammarArticleOutModel;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
   /** Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null. */
@@ -542,6 +614,11 @@ export type QueryBook_Public_Get_BookArgs = {
 
 export type QueryFlashcard_Get_MyArgs = {
   input: GetMyFlashcardsInput;
+};
+
+
+export type QueryGrammar_Article_GetArgs = {
+  input: GetGrammarArticleInput;
 };
 
 
@@ -624,8 +701,12 @@ export type SentenceChatThreadOutModel = {
 
 export type SentenceOutModel = {
   __typename?: 'SentenceOutModel';
+  grammarConcepts?: Maybe<Array<GrammarConceptOutModel>>;
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
+  missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
+  sentencePhraseTranslations?: Maybe<Array<SentencePhraseTranslationOutModel>>;
+  sentenceTranslation?: Maybe<SentenceTranslationOutModel>;
   startOffset: Scalars['Int']['output'];
 };
 
@@ -654,6 +735,14 @@ export type SentencePhraseTranslationOutModel = {
 export type SentenceTranslationLiteOutModel = {
   __typename?: 'SentenceTranslationLiteOutModel';
   id: Scalars['Int']['output'];
+  translation: Scalars['String']['output'];
+};
+
+export type SentenceTranslationOutModel = {
+  __typename?: 'SentenceTranslationOutModel';
+  createdAt: Scalars['String']['output'];
+  id: Scalars['Int']['output'];
+  sentenceId: Scalars['Int']['output'];
   translation: Scalars['String']['output'];
 };
 
@@ -743,8 +832,8 @@ export type UniversalPhraseOutModel = {
   __typename?: 'UniversalPhraseOutModel';
   audioPronunciation?: Maybe<UniversalAudioPronunciationOutModel>;
   id: Scalars['Int']['output'];
-  languageCode: Scalars['String']['output'];
-  phrase: Scalars['String']['output'];
+  sourceLanguageCode: Scalars['String']['output'];
+  text: Scalars['String']['output'];
   transcription?: Maybe<TranscriptionOutModel>;
 };
 
@@ -764,8 +853,14 @@ export type UpdateBookChapterInput = {
 export type UpdatePrivateBookInput = {
   /** Author */
   author?: InputMaybe<Scalars['String']['input']>;
+  /** File mime type */
+  fileMimeType?: InputMaybe<Scalars['String']['input']>;
+  /** File name */
+  fileName?: InputMaybe<Scalars['String']['input']>;
   /** Book id */
   id: Scalars['Int']['input'];
+  /** Is file was upload to S3 */
+  isFileUploaded?: InputMaybe<Scalars['Boolean']['input']>;
   /** Language code */
   languageCode?: InputMaybe<Scalars['String']['input']>;
   /** Name */
@@ -860,9 +955,12 @@ export type VideoPrivateOutModel = {
 
 export type VideoPrivateSentenceOutModel = {
   __typename?: 'VideoPrivateSentenceOutModel';
+  grammarConcepts?: Maybe<Array<GrammarConceptOutModel>>;
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
+  missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   orderIndex: Scalars['Int']['output'];
+  sentencePhraseTranslations?: Maybe<Array<SentencePhraseTranslationOutModel>>;
   sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
   startOffset: Scalars['Int']['output'];
 };
@@ -933,9 +1031,12 @@ export type VideoPublicOutModel = {
 
 export type VideoPublicSentenceOutModel = {
   __typename?: 'VideoPublicSentenceOutModel';
+  grammarConcepts?: Maybe<Array<GrammarConceptOutModel>>;
   id: Scalars['Int']['output'];
   length: Scalars['Int']['output'];
+  missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   orderIndex: Scalars['Int']['output'];
+  sentencePhraseTranslations?: Maybe<Array<SentencePhraseTranslationOutModel>>;
   sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
   startOffset: Scalars['Int']['output'];
 };
@@ -1014,7 +1115,7 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, sentenceTranslation?: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, createdAt: string } | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -1042,31 +1143,31 @@ export type Book_GetVariables = Exact<{
 }>;
 
 
-export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Get = { __typename?: 'Query', book_get: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, coverUrl?: string | null, fileName?: string | null, isFileUploaded: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetUserBooksVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetUserBooks = { __typename?: 'Query', book_user_books: Array<{ __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, freeToUse: boolean, coverUrl?: string | null, fileName?: string | null, isFileUploaded: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Book_UpdateVariables = Exact<{
   input: UpdatePrivateBookInput;
 }>;
 
 
-export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_Update = { __typename?: 'Mutation', book_update: { __typename?: 'BookPrivateOutModel', id: number, author?: string | null, name?: string | null, languageCode?: string | null, note?: string | null, userId: number, coverUrl?: string | null, uploadUrl?: string | null, fileName?: string | null, fileS3Key?: string | null, isFileUploaded: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBookPublicVariables = Exact<{
   input: GetBookPublicInput;
 }>;
 
 
-export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
+export type Book_GetBookPublic = { __typename?: 'Query', book_public_get_book: { __typename?: 'BookPublicOutModel', id: number, author?: string | null, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> } };
 
 export type Book_GetBooksPublicVariables = Exact<{ [key: string]: never; }>;
 
 
-export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author: string, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
+export type Book_GetBooksPublic = { __typename?: 'Query', book_public_get_books: Array<{ __typename?: 'BookPublicOutModel', id: number, author?: string | null, name: string, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, freeToUse: boolean, chapters: Array<{ __typename?: 'BookChapterLiteOutModel', id: number, bookId: number, name?: string | null, header?: string | null, note?: string | null }> }> };
 
 export type Flashcard_AddVariables = Exact<{
   input: AddFlashcardInput;
@@ -1088,6 +1189,20 @@ export type Flashcard_RemoveVariables = Exact<{
 
 
 export type Flashcard_Remove = { __typename?: 'Mutation', flashcard_remove: boolean };
+
+export type GrammarConcept_FetchVariables = Exact<{
+  input: FetchGrammarConceptsInput;
+}>;
+
+
+export type GrammarConcept_Fetch = { __typename?: 'Mutation', grammar_concept_fetch: { __typename?: 'GrammarExtractionOutModel', id: number, sentenceText: string, sourceLanguage: string, grammarExtractionStatus: string, grammarConcepts: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }>, missingGrammarConcepts: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> } };
+
+export type GrammarArticle_GetVariables = Exact<{
+  input: GetGrammarArticleInput;
+}>;
+
+
+export type GrammarArticle_Get = { __typename?: 'Query', grammar_article_get: { __typename?: 'GrammarArticleOutModel', title: string, content: string, compiledSource: string } };
 
 export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
@@ -1169,14 +1284,14 @@ export type UniversalPhrase_CreateVariables = Exact<{
 }>;
 
 
-export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
+export type UniversalPhrase_Create = { __typename?: 'Mutation', universal_phrase_create: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type UniversalPhrase_GetVariables = Exact<{
   input: GetUniversalPhraseInput;
 }>;
 
 
-export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, phrase: string, languageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
+export type UniversalPhrase_Get = { __typename?: 'Query', universal_phrase_get: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -1204,7 +1319,7 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetSubtitlesGenerationStatusVariables = Exact<{
   input: VideoPrivateSubtitlesStatusInput;
@@ -1230,7 +1345,7 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -1575,6 +1690,43 @@ export const BookChapter_GetDocument = gql`
       id
       startOffset
       length
+      sentenceTranslation {
+        id
+        sentenceId
+        translation
+        createdAt
+      }
+      grammarConcepts {
+        id
+        title
+        slug
+        category
+        lemma
+        order
+        sourceLanguage
+        targetLanguage
+      }
+      missingGrammarConcepts {
+        category
+        lemma
+      }
+      sentencePhraseTranslations {
+        id
+        sentenceId
+        phrase
+        phraseStartOffset
+        phraseEndOffset
+        translate
+        examples {
+          text
+          translate
+        }
+        status
+        errorMessage
+        createdAt
+        updatedAt
+        flashcardId
+      }
     }
     book {
       id
@@ -1755,6 +1907,9 @@ export const Book_GetDocument = gql`
     note
     userId
     freeToUse
+    coverUrl
+    fileName
+    isFileUploaded
     chapters {
       id
       bookId
@@ -1811,6 +1966,9 @@ export const Book_GetUserBooksDocument = gql`
     note
     userId
     freeToUse
+    coverUrl
+    fileName
+    isFileUploaded
     chapters {
       id
       bookId
@@ -1865,6 +2023,11 @@ export const Book_UpdateDocument = gql`
     languageCode
     note
     userId
+    coverUrl
+    uploadUrl
+    fileName
+    fileS3Key
+    isFileUploaded
     chapters {
       id
       bookId
@@ -2157,6 +2320,101 @@ export function useFlashcard_Remove(baseOptions?: Apollo.MutationHookOptions<Fla
 export type Flashcard_RemoveHookResult = ReturnType<typeof useFlashcard_Remove>;
 export type Flashcard_RemoveMutationResult = Apollo.MutationResult<Flashcard_Remove>;
 export type Flashcard_RemoveMutationOptions = Apollo.BaseMutationOptions<Flashcard_Remove, Flashcard_RemoveVariables>;
+export const GrammarConcept_FetchDocument = gql`
+    mutation GrammarConcept_fetch($input: FetchGrammarConceptsInput!) {
+  grammar_concept_fetch(input: $input) {
+    id
+    sentenceText
+    sourceLanguage
+    grammarExtractionStatus
+    grammarConcepts {
+      id
+      title
+      slug
+      category
+      lemma
+      order
+      sourceLanguage
+      targetLanguage
+    }
+    missingGrammarConcepts {
+      category
+      lemma
+    }
+  }
+}
+    `;
+export type GrammarConcept_FetchMutationFn = Apollo.MutationFunction<GrammarConcept_Fetch, GrammarConcept_FetchVariables>;
+
+/**
+ * __useGrammarConcept_Fetch__
+ *
+ * To run a mutation, you first call `useGrammarConcept_Fetch` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useGrammarConcept_Fetch` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [grammarConceptFetch, { data, loading, error }] = useGrammarConcept_Fetch({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useGrammarConcept_Fetch(baseOptions?: Apollo.MutationHookOptions<GrammarConcept_Fetch, GrammarConcept_FetchVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<GrammarConcept_Fetch, GrammarConcept_FetchVariables>(GrammarConcept_FetchDocument, options);
+      }
+export type GrammarConcept_FetchHookResult = ReturnType<typeof useGrammarConcept_Fetch>;
+export type GrammarConcept_FetchMutationResult = Apollo.MutationResult<GrammarConcept_Fetch>;
+export type GrammarConcept_FetchMutationOptions = Apollo.BaseMutationOptions<GrammarConcept_Fetch, GrammarConcept_FetchVariables>;
+export const GrammarArticle_GetDocument = gql`
+    query GrammarArticle_get($input: GetGrammarArticleInput!) {
+  grammar_article_get(input: $input) {
+    title
+    content
+    compiledSource
+  }
+}
+    `;
+
+/**
+ * __useGrammarArticle_Get__
+ *
+ * To run a query within a React component, call `useGrammarArticle_Get` and pass it any options that fit your needs.
+ * When your component renders, `useGrammarArticle_Get` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGrammarArticle_Get({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useGrammarArticle_Get(baseOptions: Apollo.QueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables> & ({ variables: GrammarArticle_GetVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GrammarArticle_Get, GrammarArticle_GetVariables>(GrammarArticle_GetDocument, options);
+      }
+export function useGrammarArticle_GetLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GrammarArticle_Get, GrammarArticle_GetVariables>(GrammarArticle_GetDocument, options);
+        }
+// @ts-ignore
+export function useGrammarArticle_GetSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>): Apollo.UseSuspenseQueryResult<GrammarArticle_Get, GrammarArticle_GetVariables>;
+export function useGrammarArticle_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>): Apollo.UseSuspenseQueryResult<GrammarArticle_Get | undefined, GrammarArticle_GetVariables>;
+export function useGrammarArticle_GetSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GrammarArticle_Get, GrammarArticle_GetVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GrammarArticle_Get, GrammarArticle_GetVariables>(GrammarArticle_GetDocument, options);
+        }
+export type GrammarArticle_GetHookResult = ReturnType<typeof useGrammarArticle_Get>;
+export type GrammarArticle_GetLazyQueryHookResult = ReturnType<typeof useGrammarArticle_GetLazyQuery>;
+export type GrammarArticle_GetSuspenseQueryHookResult = ReturnType<typeof useGrammarArticle_GetSuspenseQuery>;
+export type GrammarArticle_GetQueryResult = Apollo.QueryResult<GrammarArticle_Get, GrammarArticle_GetVariables>;
 export const Language_Get_LanguagesDocument = gql`
     query Language_get_languages {
   language_get_languages {
@@ -2655,8 +2913,8 @@ export const UniversalPhrase_CreateDocument = gql`
     mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
   universal_phrase_create(input: $input) {
     id
-    phrase
-    languageCode
+    text
+    sourceLanguageCode
     transcription {
       id
       universalPhraseId
@@ -2701,8 +2959,8 @@ export const UniversalPhrase_GetDocument = gql`
     query UniversalPhrase_get($input: GetUniversalPhraseInput!) {
   universal_phrase_get(input: $input) {
     id
-    phrase
-    languageCode
+    text
+    sourceLanguageCode
     transcription {
       id
       universalPhraseId
@@ -2884,9 +3142,40 @@ export const VideoPrivate_GetDocument = gql`
         id
         translation
       }
+      sentencePhraseTranslations {
+        id
+        sentenceId
+        phrase
+        phraseStartOffset
+        phraseEndOffset
+        translate
+        status
+        errorMessage
+        createdAt
+        updatedAt
+        flashcardId
+        examples {
+          text
+          translate
+        }
+      }
       startOffset
       length
       orderIndex
+      grammarConcepts {
+        id
+        title
+        slug
+        category
+        lemma
+        order
+        sourceLanguage
+        targetLanguage
+      }
+      missingGrammarConcepts {
+        category
+        lemma
+      }
     }
     subtitles {
       id
@@ -3109,6 +3398,37 @@ export const VideoPublic_GetDocument = gql`
       sentenceTranslations {
         id
         translation
+      }
+      sentencePhraseTranslations {
+        id
+        sentenceId
+        phrase
+        phraseStartOffset
+        phraseEndOffset
+        translate
+        status
+        errorMessage
+        createdAt
+        updatedAt
+        flashcardId
+        examples {
+          text
+          translate
+        }
+      }
+      grammarConcepts {
+        id
+        title
+        slug
+        category
+        lemma
+        order
+        sourceLanguage
+        targetLanguage
+      }
+      missingGrammarConcepts {
+        category
+        lemma
       }
     }
     subtitles {

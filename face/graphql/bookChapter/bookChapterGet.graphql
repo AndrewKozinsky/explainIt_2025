@@ -1,23 +1,60 @@
 query BookChapter_get($input: GetBookChapterInput!) {
-	book_chapter_get(input: $input) {
-		id
-		name
-		header
-		note
-		originalContent
-		processedContent
-		sentences {
-			id
-			startOffset
-			length
-		}
-		book {
+		book_chapter_get(input: $input) {
 			id
 			name
-			languageCode
-			author
+			header
 			note
-			userId
+			originalContent
+			processedContent
+			sentences {
+				id
+				startOffset
+				length
+				sentenceTranslation {
+					id
+					sentenceId
+					translation
+					createdAt
+				}
+				grammarConcepts {
+					id
+					title
+					slug
+					category
+					lemma
+					order
+					sourceLanguage
+					targetLanguage
+				}
+				missingGrammarConcepts {
+					category
+					lemma
+				}
+				sentencePhraseTranslations {
+					id
+					sentenceId
+					phrase
+					phraseStartOffset
+					phraseEndOffset
+					translate
+					examples {
+						text
+						translate
+					}
+					status
+					errorMessage
+					createdAt
+					updatedAt
+					flashcardId
+				}
+			}
+			book {
+				id
+				name
+				languageCode
+				author
+				note
+				userId
+			}
 		}
 	}
-}

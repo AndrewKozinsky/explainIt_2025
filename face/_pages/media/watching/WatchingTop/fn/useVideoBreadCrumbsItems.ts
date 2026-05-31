@@ -18,7 +18,7 @@ export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
 	return React.useMemo(() => {
 		const videoUrl = pageUrls.videos.video(urlVideoId)
 
-		const movieName = videoName ? videoName : videoConfig.defaultName
+		const movieName = videoName ? videoName : videoConfig.newVideoEmptyName
 
 		return [pageUrls.videos, { name: movieName, path: videoUrl.path }]
 	}, [urlVideoId, videoName])

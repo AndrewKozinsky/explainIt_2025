@@ -24,4 +24,19 @@ export class UpdatePrivateBookInput {
 	@Field(() => String, { description: 'Note', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookPrivate.dbFields.note)
 	note?: null | string
+
+	@Field(() => String, { description: 'File name', nullable: true })
+	@DtoFieldDecorators('fileName', bdConfig.BookPrivate.dtoProps.fileName)
+	fileName?: null | string
+
+	@Field(() => String, { description: 'File mime type', nullable: true })
+	@DtoFieldDecorators('fileMimeType', bdConfig.BookPrivate.dtoProps.fileMimeType)
+	fileMimeType?: null | string
+
+	@Field(() => Boolean, { description: 'Is file was upload to S3', nullable: true })
+	@DtoFieldDecorators('isFileUploaded', bdConfig.BookPrivate.dbFields.is_file_uploaded, {
+		type: 'boolean',
+		required: false,
+	})
+	isFileUploaded?: boolean
 }

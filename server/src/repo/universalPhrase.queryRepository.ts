@@ -21,9 +21,9 @@ export class UniversalPhraseQueryRepository {
 	) {}
 
 	@CatchDbError()
-	async getUniversalPhraseByTextAndLang(phrase: string, lang: Language) {
+	async getUniversalPhraseByTextAndLang(text: string, sourceLanguageCode: Language) {
 		const dbPhrase = await this.prisma.universalPhrase.findFirst({
-			where: { phrase, language_code: lang },
+			where: { text, source_language_code: sourceLanguageCode },
 			include: {
 				UniversalTranscription: true,
 				UniversalAudioPronunciation: true,
@@ -75,8 +75,8 @@ export class UniversalPhraseQueryRepository {
 
 		return {
 			id: dbPhrase.id,
-			phrase: dbPhrase.phrase,
-			languageCode: dbPhrase.language_code,
+			text: dbPhrase.text,
+			sourceLanguageCode: dbPhrase.source_language_code,
 			transcription,
 			audioPronunciation,
 		}

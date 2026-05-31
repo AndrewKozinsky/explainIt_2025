@@ -1,3 +1,4 @@
+import { SentenceOutModel } from 'graphql'
 import { ChapterTextStructurePopulated } from '_pages/media/reading/readingStore'
 
 /**
@@ -10,13 +11,7 @@ export function populateChapterStructure(chapter: {
 	header: undefined | null | string
 	name: undefined | null | string
 	content: undefined | null | string
-	sentences?:
-		| null
-		| {
-				id: number
-				startOffset: number
-				length: number
-		  }[]
+	sentences?: null | SentenceOutModel[]
 }): ChapterTextStructurePopulated.Chapter {
 	const content = chapter.content ?? ''
 	const sentencesCoords = chapter.sentences ?? []
@@ -28,6 +23,8 @@ export function populateChapterStructure(chapter: {
 		return {
 			id: sentence.id,
 			sentence: content.slice(startOffset, endOffset),
+			grammarConcepts: sentence.grammarConcepts ?? null,
+			missingGrammarConcepts: sentence.missingGrammarConcepts ?? [],
 		}
 	})
 

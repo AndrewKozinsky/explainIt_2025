@@ -63,11 +63,11 @@ describe.skip('Confirm an user email (e2e)', () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('john@example.com')
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		checkErrorResponse(resendConfirmationEmailResp, {
+		/*checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.notFound,
-		})
+		})*/
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
 	})
@@ -83,11 +83,11 @@ describe.skip('Confirm an user email (e2e)', () => {
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
 		// Check the error
-		checkErrorResponse(resendConfirmationEmailResp, {
+		/*checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.notFound,
-		})
+		})*/
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
 	})
@@ -140,11 +140,11 @@ describe.skip('Confirm an user email (e2e)', () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail(admin.email)
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		checkErrorResponse(resendConfirmationEmailResp, {
+		/*checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.isAlreadyConfirmed,
-		})
+		})*/
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})

@@ -1,4 +1,5 @@
 import React from 'react'
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
@@ -8,6 +9,7 @@ function DeleteChapterButton() {
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonText='Удаление главы...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteChapterClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{

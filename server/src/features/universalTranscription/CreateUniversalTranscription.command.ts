@@ -33,7 +33,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 			throw new CustomError(errorMessage.universalTranscription.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
-		const transcription = await this.getTranscriptionFromDeepSeek(phrase.phrase, phrase.languageCode)
+		const transcription = await this.getTranscriptionFromDeepSeek(phrase.text, phrase.sourceLanguageCode)
 
 		const created = await this.universalTranscriptionRepository.createTranscription({
 			universalPhraseId,

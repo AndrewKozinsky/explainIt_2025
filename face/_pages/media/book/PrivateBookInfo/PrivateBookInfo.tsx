@@ -5,7 +5,6 @@ import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndConten
 import { useBookStore } from '../bookStore'
 import EditBookForm from '../editPrivateBook/EditPrivateBookForm/EditPrivateBookForm'
 import PrivateBookChapters from '../PrivateBookChapters/PrivateBookChapters'
-import './PrivateBookInfo.scss'
 
 export default function PrivateBookInfo() {
 	const privateBook = useBookStore((s) => s.privateBook)

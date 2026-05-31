@@ -1,19 +1,15 @@
-'use client'
-
 import React, { useState, useEffect } from 'react'
 import { filesUrls } from 'utils/filesUrls'
+import { localStorageManager } from 'utils/localStorageManager'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import Modal from '@/ui/Modal/Modal'
 import './OnboardingModal.scss'
-
-const LOCAL_STORAGE_KEY = 'hideOnboardingModal'
 
 function OnboardingModal() {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	useEffect(() => {
-		const shouldShowModal = localStorage.getItem(LOCAL_STORAGE_KEY) !== 'true'
-		if (shouldShowModal) {
+		if (localStorageManager.onboarding.shouldShow()) {
 			setIsModalOpen(true)
 		}
 	}, [])
@@ -23,7 +19,7 @@ function OnboardingModal() {
 	}
 
 	const handleDoNotShowAgain = () => {
-		localStorage.setItem(LOCAL_STORAGE_KEY, 'true')
+		localStorageManager.onboarding.hide()
 		handleClose()
 	}
 

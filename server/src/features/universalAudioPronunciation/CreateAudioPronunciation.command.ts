@@ -39,11 +39,11 @@ export class CreateUniversalAudioPronunciationHandler implements ICommandHandler
 		}
 
 		const audioBuffer = await this.googleTtsService.generateAudio(
-			phrase.phrase,
-			phrase.languageCode as LanguageCode,
+			phrase.text,
+			phrase.sourceLanguageCode as LanguageCode,
 		)
 
-		const s3Key = this.buildS3Key(phrase.languageCode as LanguageCode)
+		const s3Key = this.buildS3Key(phrase.sourceLanguageCode as LanguageCode)
 		await this.cloudRuS3Service.uploadFile(s3Key, audioBuffer, 'audio/ogg')
 
 		const created = await this.audioPronunciationRepository.createAudioPronunciation({

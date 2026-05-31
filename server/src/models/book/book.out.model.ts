@@ -24,6 +24,21 @@ export class BookPrivateOutModel {
 	@Field(() => Boolean)
 	freeToUse: boolean
 
+	@Field(() => String, { nullable: true })
+	coverUrl: null | string
+
+	@Field(() => String, { nullable: true })
+	fileName: null | string
+
+	@Field(() => String, { nullable: true })
+	fileS3Key: null | string
+
+	@Field(() => Boolean)
+	isFileUploaded: boolean
+
+	@Field(() => String, { nullable: true })
+	uploadUrl: null | string
+
 	@Field(() => [BookChapterLiteOutModel])
 	chapters: BookChapterLiteOutModel[]
 }

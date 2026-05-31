@@ -7,8 +7,8 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 export class GetUniversalPhraseCommand implements ICommand {
 	constructor(
-		public phrase: string,
-		public lang: Language,
+		public text: string,
+		public sourceLanguageCode: Language,
 	) {}
 }
 
@@ -18,8 +18,8 @@ export class GetUniversalPhraseHandler implements ICommandHandler<GetUniversalPh
 
 	async execute(command: GetUniversalPhraseCommand) {
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseByTextAndLang(
-			command.phrase,
-			command.lang,
+			command.text,
+			command.sourceLanguageCode,
 		)
 		if (!phrase) {
 			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)

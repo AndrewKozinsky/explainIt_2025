@@ -1,0 +1,16 @@
+.label-with-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+}
+
+.label-with-field__label {
+	display: block;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+}
+
+.label-with-field--disabled {
+	opacity: .3;
+}

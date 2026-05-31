@@ -1,8 +1,8 @@
 mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
 	universal_phrase_create(input: $input) {
 		id
-		phrase
-		languageCode
+		text
+		sourceLanguageCode
 		transcription {
 			id
 			universalPhraseId

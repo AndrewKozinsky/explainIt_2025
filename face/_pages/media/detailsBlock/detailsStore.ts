@@ -2,8 +2,10 @@ import { produce } from 'immer'
 import { create } from 'zustand'
 
 export const detailsStoreValues: DetailsStoreValues = {
+	chapterId: null,
 	bookName: null,
 	bookAuthor: null,
+	videoId: null,
 	videoName: null,
 	videoYear: null,
 	languageCode: null,
@@ -30,11 +32,12 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 						sentenceId: input.sentenceId,
 						selectedPhraseId: null,
 						data: {
-							sentence: {
-								text: input.text,
+							translation: {
+								text: '',
 								loading: true,
 								error: null,
 								translation: null,
+								visible: true,
 							},
 							phrases: [],
 						},
@@ -48,7 +51,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
 					if (!entry) return
 
-					Object.assign(entry.data.sentence, input.patch)
+					Object.assign(entry.data.translation, input.patch)
 				}),
 			)
 		},
@@ -181,7 +184,7 @@ export type DetailsSentenceEntry = {
 	sentenceId: number
 	selectedPhraseId: string | null
 	data: {
-		sentence: SentenceTranslation
+		translation: SentenceTranslation
 		phrases: SentencePhrase[]
 	}
 }
@@ -191,6 +194,7 @@ export type SentenceTranslation = {
 	loading: boolean
 	error: null | string
 	translation: null | string
+	visible: boolean
 }
 
 export type SentencePhrase = {
@@ -214,8 +218,10 @@ export type PhraseExample = {
 }
 
 export type DetailsStoreValues = {
+	chapterId: null | number
 	bookName: null | string
 	bookAuthor: null | string
+	videoId: null | number
 	videoName: null | string
 	videoYear: null | string | number
 	languageCode: null | string

@@ -4,13 +4,7 @@ import { Book_GetDocument, useBookChapter_Create } from '@/graphql'
 import { NotificationContext } from '@/ui/Notification/context'
 import { pageUrls } from 'сonsts/pageUrls'
 
-export function useGetOnAddChapterClick({
-	bookId,
-	bookIdInUrl,
-}: {
-	bookId: number
-	bookIdInUrl: string
-}) {
+export function useGetOnAddChapterClick({ bookId, bookIdInUrl }: { bookId: number; bookIdInUrl: string }) {
 	const { notify } = useContext(NotificationContext)
 
 	const [loading, setLoading] = useState(false)

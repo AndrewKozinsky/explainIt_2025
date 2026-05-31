@@ -1,0 +1,14 @@
+@use '@/styles/variables' as vars;
+
+.book-cover-preview {
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	aspect-ratio: 2 / 1;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-color: #cccccc;
+	padding: .5rem;
+	border-radius: vars.$radius-1;
+}

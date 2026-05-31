@@ -10,7 +10,9 @@ import { FormStatus } from '@/utils/forms'
 import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
 import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
 import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
-import { ChangeBookFormData, changeBookFormSchema, ChangeBookFormTest } from './fn/form'
+import BookCoverDropzone from './BookCoverDropzone'
+import BookCoverPreview from './BookCoverPreview'
+import { ChangeBookFormData, changeBookFormSchema } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateBookFormSubmit } from './fn/submit'
 
@@ -36,7 +38,7 @@ export default function EditBookForm() {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)} data-testid={ChangeBookFormTest.form.id}>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<MediaFormSurface
 					leftBottomButtons={[<DeleteBookButton key='delete' />]}
 					rightBottomButtons={[
@@ -89,13 +91,14 @@ export default function EditBookForm() {
 								placeholder: 'Adventures in Wonderland',
 							}}
 						/>
+						<BookCoverDropzone />
+						<BookCoverPreview />
 						<TextInput
 							label='Заметка'
 							error={errors.note?.message}
 							inputProps={{
 								...register('note'),
 								disabled: isFormDisabled,
-								placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							}}
 						/>
 						<FormError text={formError} />

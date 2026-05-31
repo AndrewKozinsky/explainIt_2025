@@ -33,20 +33,6 @@ export class BookPrivateRepository {
 		return this.mapDbBookToServiceBook(newBook)
 	}
 
-	/*@CatchDbError()
-	async getBookById(bookId: number) {
-		const book = await this.prisma.bookPrivate.findUnique({
-			where: { id: bookId },
-			include: { BookChapter: true },
-		})
-
-		if (!book) {
-			return null
-		}
-
-		return this.mapDbBookToServiceBook(book)
-	}*/
-
 	@CatchDbError()
 	async updateBookById(
 		bookId: number,
@@ -55,6 +41,9 @@ export class BookPrivateRepository {
 			name?: null | string
 			languageCode?: null | Language
 			note?: null | string
+			fileName?: null | string
+			fileS3Key?: null | string
+			isFileUploaded?: boolean
 		},
 	) {
 		const newBook = await this.prisma.bookPrivate.update({
@@ -64,6 +53,10 @@ export class BookPrivateRepository {
 				name: dto.name,
 				note: dto.note,
 				...(dto.languageCode ? { source_language_code: dto.languageCode } : {}),
+				file_name: dto.fileName,
+				file_s3_key: dto.fileS3Key,
+				s3_provider_name: dto.fileS3Key ? 'cloudRu' : null,
+				is_file_uploaded: dto.isFileUploaded,
 			},
 			include: { BookChapter: true },
 		})
@@ -91,6 +84,9 @@ export class BookPrivateRepository {
 			sourceLanguageCode: dbBook.source_language_code,
 			note: dbBook.note,
 			userId: dbBook.user_id,
+			fileName: dbBook.file_name,
+			fileS3Key: dbBook.file_s3_key,
+			isFileUploaded: dbBook.is_file_uploaded,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

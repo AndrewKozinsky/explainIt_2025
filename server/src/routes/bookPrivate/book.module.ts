@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
-import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookChapterQueryRepository } from 'repo/bookChapter/bookChapter.queryRepository'
+import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPrivateRepository } from 'repo/bookPrivate.repository'
 import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateBookHandler } from 'features/bookPrivate/CreateBook.command'
@@ -31,6 +32,7 @@ const repositories = [
 	BookPublicRepository,
 	BookChapterRepository,
 	BookChapterQueryRepository,
+	GrammarConceptQueryRepository,
 	UserRepository,
 	BookPrivateQueryRepository,
 	BookPublicQueryRepository,

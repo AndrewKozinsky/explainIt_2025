@@ -1,7 +1,6 @@
 import { UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Args, Context, Mutation, Query, Resolver } from '@nestjs/graphql'
-import { Cron, CronExpression } from '@nestjs/schedule'
 import { Request } from 'express'
 import { CreatePrivateVideoInput } from 'routes/videoPrivate/inputs/createPrivateVideo.input'
 import { DeletePrivateVideoInput } from 'routes/videoPrivate/inputs/deletePrivateVideo.input'
@@ -76,7 +75,7 @@ export class VideoPrivateResolver {
 	})
 	async getVideoPrivate(@Args('input') input: GetPrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
+		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id, input.targetLanguageCode))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

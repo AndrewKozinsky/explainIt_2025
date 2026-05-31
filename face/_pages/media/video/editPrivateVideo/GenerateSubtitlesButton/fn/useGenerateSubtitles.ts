@@ -27,13 +27,16 @@ export function useGenerateSubtitles() {
 	const generationStatus = statusQuery.data?.video_private_get_subtitles_generation_status.status
 	const generationError = statusQuery.data?.video_private_get_subtitles_generation_status.error
 	const status = generationStatus ?? SubtitlesGenerationStatus.Idle
-	const isGenerating = generating || status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing
+	const isGenerating =
+		generating || status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing
 
 	useEffect(
 		function () {
 			if (!video) return
 
-			setIsPolling(status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing)
+			setIsPolling(
+				status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing,
+			)
 		},
 		[status, video],
 	)

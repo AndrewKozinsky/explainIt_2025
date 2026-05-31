@@ -1,8 +1,6 @@
-import { useRouter } from 'next/navigation'
-import Button from '@/ui/formRelated/buttons/Button/Button'
-import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
+import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicBookContentInfo.scss'
 
@@ -23,29 +21,6 @@ export default function PublicBookContentInfo() {
 			{firstCoverImgUrl && <img className='public-book-info__cover' src={firstCoverImgUrl} alt='book cover' />}
 			<SummaryOfTheMedia text={publicBook.data.note} />
 			<PublicBookInfoActions bookUrl={firstChapterUrl} />
-		</div>
-	)
-}
-
-type PublicBookInfoActionsProps = {
-	bookUrl: string
-}
-
-function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
-	const { bookUrl } = props
-
-	const router = useRouter()
-	const actionLabel = 'Читать'
-
-	function handleActionClick() {
-		router.push(bookUrl)
-	}
-
-	return (
-		<div className='public-book-info__actions'>
-			<Button onClick={handleActionClick} icon={<ActionButtonIcon />}>
-				{actionLabel}
-			</Button>
 		</div>
 	)
 }

@@ -830,10 +830,6 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VideoPrivateScalarWhereInput | Prisma.VideoPrivateScalarWhereInput[]
 }
 
-export type NullableEnumS3ProviderNameFieldUpdateOperationsInput = {
-  set?: $Enums.S3ProviderName | null
-}
-
 export type EnumVideoTextTypeFieldUpdateOperationsInput = {
   set?: $Enums.VideoTextType
 }

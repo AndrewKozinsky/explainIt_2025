@@ -1,0 +1,7 @@
+query GrammarArticle_get($input: GetGrammarArticleInput!) {
+	grammar_article_get(input: $input) {
+		title
+		content
+		compiledSource
+	}
+}

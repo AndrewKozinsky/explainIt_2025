@@ -1,3 +1,4 @@
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteVideoFile } from './fn/getDeleteBook'
 
@@ -7,6 +8,7 @@ function DeleteVideoFileButton() {
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonText='Удалить файл...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteFileClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{

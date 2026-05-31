@@ -18,6 +18,10 @@ export const RouteNames = {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
 	},
+	GRAMMAR_CONCEPT: {
+		FETCH: 'grammar_concept_fetch',
+		ARTICLE_GET: 'grammar_article_get',
+	},
 	TRANSLATE: {
 		GET_SENTENCE_TRANSLATION: 'translate_get_sentence_translation',
 		GET_PHRASE_TRANSLATION: 'translate_get_phrase_translation',

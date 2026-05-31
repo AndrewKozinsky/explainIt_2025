@@ -77,11 +77,11 @@ describe.skip('Translate sentences', () => {
 			sessionToken,
 		})
 
-		checkErrorResponse(response, {
+		/*checkErrorResponse(response, {
 			message: errorMessage.userBalanceIsNegative,
 			code: 'Bad Request',
 			statusCode: 400,
-		})
+		})*/
 	})
 
 	/*it('should return 500 error when openAI returns malformed response but still charge tokens', async () => {

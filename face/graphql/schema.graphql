@@ -34,16 +34,21 @@ type BookLiteOutModel {
 type BookPrivateOutModel {
   author: String
   chapters: [BookChapterLiteOutModel!]!
+  coverUrl: String
+  fileName: String
+  fileS3Key: String
   freeToUse: Boolean!
   id: Int!
+  isFileUploaded: Boolean!
   languageCode: String
   name: String
   note: String
+  uploadUrl: String
   userId: Int!
 }
 
 type BookPublicOutModel {
-  author: String!
+  author: String
   chapters: [BookChapterLiteOutModel!]!
   coverBackgroundColor: String!
   covers: [String!]!
@@ -129,11 +134,11 @@ input CreateUniversalAudioPronunciationInput {
 }
 
 input CreateUniversalPhraseInput {
-  """Language code"""
-  languageCode: String!
+  """Source language code"""
+  sourceLanguageCode: String!
 
-  """Phrase text"""
-  phrase: String!
+  """Phrase or sentence text"""
+  text: String!
 }
 
 input CreateUniversalTranscriptionInput {
@@ -171,6 +176,12 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
+input FetchGrammarConceptsInput {
+  sentenceText: String!
+  sourceLanguage: String!
+  targetLanguage: String!
+}
+
 type FlashcardOutModel {
   bookPrivateId: Int
   bookPublicId: Int
@@ -201,11 +212,28 @@ input GetBookChapterInput {
 
   """BookChapter id"""
   id: Int!
+
+  """Target language to filter grammar concepts"""
+  targetLanguageCode: String
 }
 
 input GetBookPublicInput {
   """Book id"""
   id: Int!
+}
+
+input GetGrammarArticleInput {
+  """Grammar category"""
+  category: String!
+
+  """Article slug"""
+  slug: String!
+
+  """Source language code"""
+  sourceLanguage: String!
+
+  """Target language code"""
+  targetLanguage: String!
 }
 
 input GetMyFlashcardsInput {
@@ -243,11 +271,17 @@ input GetPrivateBookInput {
 input GetPrivateVideoInput {
   """Video id"""
   id: Int!
+
+  """Target language for grammar concepts"""
+  targetLanguageCode: String
 }
 
 input GetPublicVideoInput {
   """Video id"""
   id: Int!
+
+  """Target language for grammar concepts"""
+  targetLanguageCode: String
 }
 
 input GetSentenceChatThreadInput {
@@ -264,11 +298,37 @@ input GetSentenceTranslationInput {
 }
 
 input GetUniversalPhraseInput {
-  """Language code"""
-  languageCode: String!
+  """Source language code"""
+  sourceLanguageCode: String!
 
-  """Phrase text"""
-  phrase: String!
+  """Phrase or sentence text"""
+  text: String!
+}
+
+type GrammarArticleOutModel {
+  compiledSource: String!
+  content: String!
+  title: String!
+}
+
+type GrammarConceptOutModel {
+  category: String!
+  id: ID!
+  lemma: String!
+  order: Int!
+  slug: String!
+  sourceLanguage: String!
+  targetLanguage: String!
+  title: String!
+}
+
+type GrammarExtractionOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]!
+  grammarExtractionStatus: String!
+  id: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]!
+  sentenceText: String!
+  sourceLanguage: String!
 }
 
 type LanguageOutModel {
@@ -291,6 +351,11 @@ input LoginWithOAuthInput {
 
   """Provider type: github, google, yandex"""
   providerType: String!
+}
+
+type MissingGrammarConceptOutModel {
+  category: String!
+  lemma: String!
 }
 
 type Mutation {
@@ -351,6 +416,11 @@ type Mutation {
   """Удалить карточку пользователя."""
   flashcard_remove(input: RemoveFlashcardInput!): Boolean!
 
+  """
+  Extract grammar concepts from a sentence using AI and link to available articles
+  """
+  grammar_concept_fetch(input: FetchGrammarConceptsInput!): GrammarExtractionOutModel!
+
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
 
@@ -409,6 +479,9 @@ type Query {
 
   """Получить список карточек пользователя. Опционально фильтрует по языку."""
   flashcard_get_my(input: GetMyFlashcardsInput!): [FlashcardOutModel!]!
+
+  """Get grammar article content by language, category and slug"""
+  grammar_article_get(input: GetGrammarArticleInput!): GrammarArticleOutModel!
 
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
@@ -486,8 +559,12 @@ type SentenceChatThreadOutModel {
 }
 
 type SentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
+  sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
+  sentenceTranslation: SentenceTranslationOutModel
   startOffset: Int!
 }
 
@@ -513,6 +590,13 @@ type SentencePhraseTranslationOutModel {
 
 type SentenceTranslationLiteOutModel {
   id: Int!
+  translation: String!
+}
+
+type SentenceTranslationOutModel {
+  createdAt: String!
+  id: Int!
+  sentenceId: Int!
   translation: String!
 }
 
@@ -610,8 +694,8 @@ type UniversalAudioPronunciationOutModel {
 type UniversalPhraseOutModel {
   audioPronunciation: UniversalAudioPronunciationOutModel
   id: Int!
-  languageCode: String!
-  phrase: String!
+  sourceLanguageCode: String!
+  text: String!
   transcription: TranscriptionOutModel
 }
 
@@ -636,8 +720,17 @@ input UpdatePrivateBookInput {
   """Author"""
   author: String
 
+  """File mime type"""
+  fileMimeType: String
+
+  """File name"""
+  fileName: String
+
   """Book id"""
   id: Int!
+
+  """Is file was upload to S3"""
+  isFileUploaded: Boolean
 
   """Language code"""
   languageCode: String
@@ -738,9 +831,12 @@ type VideoPrivateOutModel {
 }
 
 type VideoPrivateSentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
+  sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
   startOffset: Int!
 }
@@ -807,9 +903,12 @@ type VideoPublicOutModel {
 }
 
 type VideoPublicSentenceOutModel {
+  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
+  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
+  sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
   startOffset: Int!
 }

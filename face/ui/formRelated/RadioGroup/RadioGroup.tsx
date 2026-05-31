@@ -1,5 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
+import LabelWithField from 'ui/formRelated/LabelWithField/LabelWithField'
 import FieldError from '../FieldError/FieldError'
 import './RadioGroup.scss'
 
@@ -30,8 +31,7 @@ function RadioGroup(props: TextInputProps) {
 		config.length > 0 && config.every((item) => (item.inputProps?.disabled ?? item.disabled) === true)
 
 	return (
-		<div className={cn('radio-group', isDisabled && 'radio-group--disabled', extraClass)}>
-			{label && <label className='radio-group__label'>{label}</label>}
+		<LabelWithField label={label} disabled={isDisabled}>
 			<div className={cn('radio-group__radios', 'radio-group__radios--' + direction)}>
 				{config.map((itemData, index) => {
 					const { label: itemLabel, name: itemName, checked, disabled, value, id, inputProps } = itemData
@@ -66,7 +66,7 @@ function RadioGroup(props: TextInputProps) {
 				})}
 			</div>
 			<FieldError text={error} />
-		</div>
+		</LabelWithField>
 	)
 }
 

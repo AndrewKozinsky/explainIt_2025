@@ -1,5 +1,8 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
 import { BookLiteOutModel } from '../book/book.out.model'
+import { GrammarConceptOutModel, MissingGrammarConceptOutModel } from '../grammarConcept/grammarConcept.out.model'
+import { SentencePhraseTranslationOutModel } from '../sentenceTranslation/sentencePhraseTranslation.out.model'
+import { SentenceTranslationOutModel } from '../sentenceTranslation/sentenceTranslation.out.model'
 
 @ObjectType()
 export class BookChapterLiteOutModel {
@@ -56,4 +59,16 @@ export class SentenceOutModel {
 
 	@Field(() => Int)
 	length: number
+
+	@Field(() => [GrammarConceptOutModel], { nullable: true })
+	grammarConcepts: GrammarConceptOutModel[] | null
+
+	@Field(() => [MissingGrammarConceptOutModel], { nullable: true })
+	missingGrammarConcepts: MissingGrammarConceptOutModel[] | null
+
+	@Field(() => SentenceTranslationOutModel, { nullable: true })
+	sentenceTranslation: SentenceTranslationOutModel | null
+
+	@Field(() => [SentencePhraseTranslationOutModel], { nullable: true })
+	sentencePhraseTranslations: SentencePhraseTranslationOutModel[] | null
 }

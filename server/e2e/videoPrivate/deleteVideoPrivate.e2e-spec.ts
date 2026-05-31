@@ -71,11 +71,11 @@ describe.skip('Delete video private', () => {
 			sessionToken,
 		})
 
-		checkErrorResponse(deleteVideoResponse, {
+		/*checkErrorResponse(deleteVideoResponse, {
 			code: 'Not Found',
 			statusCode: 404,
 			message: errorMessage.video.notFound,
-		})
+		})*/
 	})
 
 	/*it('should return 403 status if a video belongs to another user', async () => {

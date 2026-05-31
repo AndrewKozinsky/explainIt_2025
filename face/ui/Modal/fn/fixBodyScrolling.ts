@@ -6,6 +6,10 @@ export function useFixBodyScrolling(open: boolean) {
 			const $body = document.body
 
 			$body.style.overflow = open ? 'hidden' : 'auto'
+
+			return () => {
+				$body.style.overflow = 'auto'
+			}
 		},
 		[open],
 	)

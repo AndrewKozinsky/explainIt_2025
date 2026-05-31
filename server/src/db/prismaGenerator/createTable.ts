@@ -5,6 +5,7 @@ import { createCreatedOrUpdatedAtColum } from './columns/createdAndUpdatedAtColu
 import { createDateTimeColumn } from './columns/dateTimeColumn'
 import { createEnumColumn } from './columns/enumColumn'
 import { createIndexColumn } from './columns/indexColumn'
+import { createUuidIndexColumn } from './columns/uuidIndexColumn'
 import { createNumberColumn } from './columns/numberColumn'
 import {
 	createChildOneToOneColumn,
@@ -39,6 +40,8 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 
 		if (field.type === 'index') {
 			columnsArr.push(createIndexColumn(dbFieldName))
+		} else if (field.type === 'uuidIndex') {
+			columnsArr.push(createUuidIndexColumn(dbFieldName))
 		} else if (field.type === 'string') {
 			columnsArr.push(createStringColumn(dbFieldName, field))
 		} else if (field.type === 'email') {

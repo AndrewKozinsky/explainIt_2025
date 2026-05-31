@@ -1,10 +1,12 @@
 import React from 'react'
+import DeleteButton from 'ui/DeleteEntityButtonAndModal/DeleteButton'
 import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import DeleteEntityModal from './DeleteEntityModal'
 
 type DeleteEntityButtonAndModalProps = {
-	deleteButtonText: string
+	deleteButtonText?: string
+	deleteButtonIcon?: string | React.ReactNode
 	// Функция, которая должна срабатывать при нажатии на кнопку удаления в модальном окне
 	onDeleteButtonClick: () => Promise<void>
 	// Показывать ли загрузчик на кнопке удаления в мадальном окне
@@ -21,15 +23,13 @@ type DeleteEntityButtonAndModalProps = {
 
 // Этот компонент используется для отображения кнопки удаления и модального окна удаления
 function DeleteEntityButtonAndModal(props: DeleteEntityButtonAndModalProps) {
-	const { deleteButtonText, onDeleteButtonClick, isDeleteButtonLoading, modal } = props
+	const { deleteButtonText, deleteButtonIcon, onDeleteButtonClick, isDeleteButtonLoading, modal } = props
 
 	const [isModalOpen, setIsModalOpen] = React.useState(false)
 
 	return (
 		<>
-			<Button type='button' theme='danger' onClick={() => setIsModalOpen(true)} icon={<TrashButtonIcon />}>
-				{deleteButtonText}
-			</Button>
+			<DeleteButton setIsModalOpen={setIsModalOpen} text={deleteButtonText} icon={deleteButtonIcon} />
 			<DeleteEntityModal
 				isModalOpen={isModalOpen}
 				closeModal={() => setIsModalOpen(false)}

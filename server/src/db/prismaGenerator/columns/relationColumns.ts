@@ -39,7 +39,8 @@ export function createManyToOneColumn(fieldConfig: BdConfig.ManyToOneField) {
 
 	// For example: 'userId Int'
 	// Or: 'userId Int?'
-	const secondColumn = thisField + ' Int' + requiredMark
+	const fkType = fieldConfig.foreignFieldType ?? 'Int'
+	const secondColumn = thisField + ' ' + fkType + requiredMark
 
 	return ['\t' + firstColumn, '\t' + secondColumn]
 }

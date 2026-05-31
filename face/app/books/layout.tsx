@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import BooksPageLayout from '_pages/media/BooksPageLayout/BooksPageLayout'
+import MediaPageLayout from '_pages/media/commonComponents/MediaPageLayout/MediaPageLayout'
 
 type LayoutProps = {
 	children: ReactNode
@@ -8,7 +8,7 @@ type LayoutProps = {
 function Layout(props: LayoutProps) {
 	const { children } = props
 
-	return <BooksPageLayout>{children}</BooksPageLayout>
+	return <MediaPageLayout>{children}</MediaPageLayout>
 }
 
 export default Layout

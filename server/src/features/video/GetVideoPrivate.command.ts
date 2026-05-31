@@ -8,6 +8,7 @@ export class GetVideoPrivateCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public videoId: number,
+		public targetLanguageCode?: string,
 	) {}
 }
 
@@ -16,9 +17,9 @@ export class GetVideoPrivateHandler implements ICommandHandler<GetVideoPrivateCo
 	constructor(private videoQueryRepository: VideoPrivateQueryRepository) {}
 
 	async execute(command: GetVideoPrivateCommand) {
-		const { userId, videoId } = command
+		const { userId, videoId, targetLanguageCode } = command
 
-		const video = await this.videoQueryRepository.getVideoById(videoId)
+		const video = await this.videoQueryRepository.getVideoById(videoId, targetLanguageCode)
 		if (!video) {
 			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}

@@ -43,6 +43,10 @@ export type BookPrivateMinAggregateOutputType = {
   name: string | null
   source_language_code: $Enums.LanguageCode | null
   note: string | null
+  file_name: string | null
+  file_s3_key: string | null
+  s3_provider_name: $Enums.S3ProviderName | null
+  is_file_uploaded: boolean | null
   created_at: Date | null
 }
 
@@ -53,6 +57,10 @@ export type BookPrivateMaxAggregateOutputType = {
   name: string | null
   source_language_code: $Enums.LanguageCode | null
   note: string | null
+  file_name: string | null
+  file_s3_key: string | null
+  s3_provider_name: $Enums.S3ProviderName | null
+  is_file_uploaded: boolean | null
   created_at: Date | null
 }
 
@@ -63,6 +71,10 @@ export type BookPrivateCountAggregateOutputType = {
   name: number
   source_language_code: number
   note: number
+  file_name: number
+  file_s3_key: number
+  s3_provider_name: number
+  is_file_uploaded: number
   created_at: number
   _all: number
 }
@@ -85,6 +97,10 @@ export type BookPrivateMinAggregateInputType = {
   name?: true
   source_language_code?: true
   note?: true
+  file_name?: true
+  file_s3_key?: true
+  s3_provider_name?: true
+  is_file_uploaded?: true
   created_at?: true
 }
 
@@ -95,6 +111,10 @@ export type BookPrivateMaxAggregateInputType = {
   name?: true
   source_language_code?: true
   note?: true
+  file_name?: true
+  file_s3_key?: true
+  s3_provider_name?: true
+  is_file_uploaded?: true
   created_at?: true
 }
 
@@ -105,6 +125,10 @@ export type BookPrivateCountAggregateInputType = {
   name?: true
   source_language_code?: true
   note?: true
+  file_name?: true
+  file_s3_key?: true
+  s3_provider_name?: true
+  is_file_uploaded?: true
   created_at?: true
   _all?: true
 }
@@ -202,6 +226,10 @@ export type BookPrivateGroupByOutputType = {
   name: string | null
   source_language_code: $Enums.LanguageCode
   note: string | null
+  file_name: string | null
+  file_s3_key: string | null
+  s3_provider_name: $Enums.S3ProviderName | null
+  is_file_uploaded: boolean
   created_at: Date
   _count: BookPrivateCountAggregateOutputType | null
   _avg: BookPrivateAvgAggregateOutputType | null
@@ -235,6 +263,10 @@ export type BookPrivateWhereInput = {
   name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  file_name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  file_s3_key?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"BookPrivate"> | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFilter<"BookPrivate"> | boolean
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   BookChapter?: Prisma.BookChapterListRelationFilter
@@ -248,6 +280,10 @@ export type BookPrivateOrderByWithRelationInput = {
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
+  file_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   BookChapter?: Prisma.BookChapterOrderByRelationAggregateInput
@@ -264,6 +300,10 @@ export type BookPrivateWhereUniqueInput = Prisma.AtLeast<{
   name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  file_name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  file_s3_key?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"BookPrivate"> | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFilter<"BookPrivate"> | boolean
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   BookChapter?: Prisma.BookChapterListRelationFilter
@@ -277,6 +317,10 @@ export type BookPrivateOrderByWithAggregationInput = {
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
+  file_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.BookPrivateCountOrderByAggregateInput
   _avg?: Prisma.BookPrivateAvgOrderByAggregateInput
@@ -295,6 +339,10 @@ export type BookPrivateScalarWhereWithAggregatesInput = {
   name?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
   source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
+  file_name?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
+  file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"BookPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableWithAggregatesFilter<"BookPrivate"> | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolWithAggregatesFilter<"BookPrivate"> | boolean
   created_at?: Prisma.DateTimeWithAggregatesFilter<"BookPrivate"> | Date | string
 }
 
@@ -303,6 +351,10 @@ export type BookPrivateCreateInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
@@ -316,6 +368,10 @@ export type BookPrivateUncheckedCreateInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
@@ -326,6 +382,10 @@ export type BookPrivateUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
@@ -339,6 +399,10 @@ export type BookPrivateUncheckedUpdateInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
@@ -351,6 +415,10 @@ export type BookPrivateCreateManyInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
 }
 
@@ -359,6 +427,10 @@ export type BookPrivateUpdateManyMutationInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -369,6 +441,10 @@ export type BookPrivateUncheckedUpdateManyInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -389,6 +465,10 @@ export type BookPrivateCountOrderByAggregateInput = {
   name?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrder
+  file_name?: Prisma.SortOrder
+  file_s3_key?: Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -404,6 +484,10 @@ export type BookPrivateMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrder
+  file_name?: Prisma.SortOrder
+  file_s3_key?: Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -414,6 +498,10 @@ export type BookPrivateMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   note?: Prisma.SortOrder
+  file_name?: Prisma.SortOrder
+  file_s3_key?: Prisma.SortOrder
+  s3_provider_name?: Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -473,6 +561,10 @@ export type EnumLanguageCodeFieldUpdateOperationsInput = {
   set?: $Enums.LanguageCode
 }
 
+export type NullableEnumS3ProviderNameFieldUpdateOperationsInput = {
+  set?: $Enums.S3ProviderName | null
+}
+
 export type BookPrivateCreateNestedOneWithoutBookChapterInput = {
   create?: Prisma.XOR<Prisma.BookPrivateCreateWithoutBookChapterInput, Prisma.BookPrivateUncheckedCreateWithoutBookChapterInput>
   connectOrCreate?: Prisma.BookPrivateCreateOrConnectWithoutBookChapterInput
@@ -510,6 +602,10 @@ export type BookPrivateCreateWithoutUserInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookPrivateInput
@@ -521,6 +617,10 @@ export type BookPrivateUncheckedCreateWithoutUserInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
@@ -562,6 +662,10 @@ export type BookPrivateScalarWhereInput = {
   name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
   source_language_code?: Prisma.EnumLanguageCodeFilter<"BookPrivate"> | $Enums.LanguageCode
   note?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  file_name?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  file_s3_key?: Prisma.StringNullableFilter<"BookPrivate"> | string | null
+  s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"BookPrivate"> | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFilter<"BookPrivate"> | boolean
   created_at?: Prisma.DateTimeFilter<"BookPrivate"> | Date | string
 }
 
@@ -570,6 +674,10 @@ export type BookPrivateCreateWithoutBookChapterInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookPrivateInput
@@ -582,6 +690,10 @@ export type BookPrivateUncheckedCreateWithoutBookChapterInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput
 }
@@ -607,6 +719,10 @@ export type BookPrivateUpdateWithoutBookChapterInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutBookPrivateNestedInput
@@ -619,6 +735,10 @@ export type BookPrivateUncheckedUpdateWithoutBookChapterInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
 }
@@ -628,6 +748,10 @@ export type BookPrivateCreateWithoutFlashcardInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutBookPrivateInput
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
@@ -640,6 +764,10 @@ export type BookPrivateUncheckedCreateWithoutFlashcardInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
 }
@@ -665,6 +793,10 @@ export type BookPrivateUpdateWithoutFlashcardInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutBookPrivateNestedInput
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
@@ -677,6 +809,10 @@ export type BookPrivateUncheckedUpdateWithoutFlashcardInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
 }
@@ -687,6 +823,10 @@ export type BookPrivateCreateManyUserInput = {
   name?: string | null
   source_language_code: $Enums.LanguageCode
   note?: string | null
+  file_name?: string | null
+  file_s3_key?: string | null
+  s3_provider_name?: $Enums.S3ProviderName | null
+  is_file_uploaded?: boolean
   created_at?: Date | string
 }
 
@@ -695,6 +835,10 @@ export type BookPrivateUpdateWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutBookPrivateNestedInput
@@ -706,6 +850,10 @@ export type BookPrivateUncheckedUpdateWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput
@@ -717,6 +865,10 @@ export type BookPrivateUncheckedUpdateManyWithoutUserInput = {
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -767,6 +919,10 @@ export type BookPrivateSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   name?: boolean
   source_language_code?: boolean
   note?: boolean
+  file_name?: boolean
+  file_s3_key?: boolean
+  s3_provider_name?: boolean
+  is_file_uploaded?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   BookChapter?: boolean | Prisma.BookPrivate$BookChapterArgs<ExtArgs>
@@ -781,6 +937,10 @@ export type BookPrivateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   name?: boolean
   source_language_code?: boolean
   note?: boolean
+  file_name?: boolean
+  file_s3_key?: boolean
+  s3_provider_name?: boolean
+  is_file_uploaded?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bookPrivate"]>
@@ -792,6 +952,10 @@ export type BookPrivateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   name?: boolean
   source_language_code?: boolean
   note?: boolean
+  file_name?: boolean
+  file_s3_key?: boolean
+  s3_provider_name?: boolean
+  is_file_uploaded?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["bookPrivate"]>
@@ -803,10 +967,14 @@ export type BookPrivateSelectScalar = {
   name?: boolean
   source_language_code?: boolean
   note?: boolean
+  file_name?: boolean
+  file_s3_key?: boolean
+  s3_provider_name?: boolean
+  is_file_uploaded?: boolean
   created_at?: boolean
 }
 
-export type BookPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "author" | "name" | "source_language_code" | "note" | "created_at", ExtArgs["result"]["bookPrivate"]>
+export type BookPrivateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "author" | "name" | "source_language_code" | "note" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "created_at", ExtArgs["result"]["bookPrivate"]>
 export type BookPrivateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   BookChapter?: boolean | Prisma.BookPrivate$BookChapterArgs<ExtArgs>
@@ -834,6 +1002,10 @@ export type $BookPrivatePayload<ExtArgs extends runtime.Types.Extensions.Interna
     name: string | null
     source_language_code: $Enums.LanguageCode
     note: string | null
+    file_name: string | null
+    file_s3_key: string | null
+    s3_provider_name: $Enums.S3ProviderName | null
+    is_file_uploaded: boolean
     created_at: Date
   }, ExtArgs["result"]["bookPrivate"]>
   composites: {}
@@ -1267,6 +1439,10 @@ export interface BookPrivateFieldRefs {
   readonly name: Prisma.FieldRef<"BookPrivate", 'String'>
   readonly source_language_code: Prisma.FieldRef<"BookPrivate", 'LanguageCode'>
   readonly note: Prisma.FieldRef<"BookPrivate", 'String'>
+  readonly file_name: Prisma.FieldRef<"BookPrivate", 'String'>
+  readonly file_s3_key: Prisma.FieldRef<"BookPrivate", 'String'>
+  readonly s3_provider_name: Prisma.FieldRef<"BookPrivate", 'S3ProviderName'>
+  readonly is_file_uploaded: Prisma.FieldRef<"BookPrivate", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"BookPrivate", 'DateTime'>
 }
     
