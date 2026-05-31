@@ -3,9 +3,6 @@ import SentenceTranslationText from '@/_pages/media/detailsBlock/SentenceTransla
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { SentenceLoading } from '../ChapterContent/SentenceStatus'
-// import GrammarConceptLinks from '../../commonComponents/GrammarConceptLinks/GrammarConceptLinks'
-// import SentenceBlock from '../../commonComponents/SentenceBlock/SentenceBlock'
-// import SentencePhraseAnalysis from '../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
 
 type SentenceTranslationProps = {
 	sentenceId: number
@@ -19,6 +16,10 @@ function SentenceTranslation(props: SentenceTranslationProps) {
 	})
 
 	if (!sentenceEntry) {
+		return null
+	}
+
+	if (!sentenceEntry.data.translation.visible) {
 		return null
 	}
 

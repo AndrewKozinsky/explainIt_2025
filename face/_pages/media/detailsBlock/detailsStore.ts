@@ -37,6 +37,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 								loading: true,
 								error: null,
 								translation: null,
+								visible: true,
 							},
 							phrases: [],
 						},
@@ -193,6 +194,7 @@ export type SentenceTranslation = {
 	loading: boolean
 	error: null | string
 	translation: null | string
+	visible: boolean
 }
 
 export type SentencePhrase = {

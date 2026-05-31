@@ -1,12 +1,20 @@
 import { useEffect } from 'react'
+import { produce } from 'immer'
 import { useBookChapter_Get, useVideoPrivate_Get, useVideoPublic_Get } from '@/graphql'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import { useDetailsStore, DetailsSentenceEntry, SentencePhrase, makePhraseId } from '../../detailsStore'
+import {
+	useDetailsStore,
+	DetailsStoreNext,
+	DetailsSentenceEntry,
+	SentencePhrase,
+	makePhraseId,
+} from '../../detailsStore'
 
 export function usePopulateStore() {
 	useFetchChapterAndSetToStore()
 	useFetchVideoAndSetToStore()
+	useShowCurrentTranslation()
 }
 
 function useFetchChapterAndSetToStore() {
@@ -73,6 +81,26 @@ function useFetchVideoAndSetToStore() {
 	)
 }
 
+function useShowCurrentTranslation() {
+	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
+
+	useEffect(
+		function () {
+			if (currentSentenceId === null) return
+
+			useDetailsStore.setState(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === currentSentenceId)
+					if (entry) {
+						entry.data.translation.visible = true
+					}
+				}),
+			)
+		},
+		[currentSentenceId],
+	)
+}
+
 type ServerSentence = {
 	id: number
 	sentenceTranslation?: { translation: string } | null
@@ -108,6 +136,7 @@ function mapToDetailsSentenceEntries(input: {
 						loading: false,
 						error: null,
 						translation,
+						visible: false,
 					},
 					phrases: mapSentencePhrases(sentence.sentencePhraseTranslations ?? []),
 				},
