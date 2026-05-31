@@ -31,7 +31,6 @@ function useFetchChapterAndSetToStore() {
 			const chapter = data.book_chapter_get
 
 			const sentences = mapToDetailsSentenceEntries({
-				originalContent: chapter.originalContent ?? '',
 				sentences: chapter.sentences ?? [],
 				getTranslation: (s) => s.sentenceTranslation?.translation ?? null,
 			})
@@ -64,7 +63,6 @@ function useFetchVideoAndSetToStore() {
 			if (!video) return
 
 			const sentences = mapToDetailsSentenceEntries({
-				originalContent: video.originalContent ?? '',
 				sentences: video.sentences ?? [],
 				getTranslation: (s) => s.sentenceTranslations?.[0]?.translation ?? null,
 			})
@@ -77,8 +75,6 @@ function useFetchVideoAndSetToStore() {
 
 type ServerSentence = {
 	id: number
-	startOffset: number
-	length: number
 	sentenceTranslation?: { translation: string } | null
 	sentenceTranslations?: Array<{ translation: string }> | null
 	sentencePhraseTranslations?: Array<{
@@ -93,31 +89,30 @@ type ServerSentence = {
 }
 
 function mapToDetailsSentenceEntries(input: {
-	originalContent: string
 	sentences: ServerSentence[]
 	getTranslation: (sentence: ServerSentence) => null | string
 }): DetailsSentenceEntry[] {
-	const { originalContent, sentences, getTranslation } = input
+	const { sentences, getTranslation } = input
 
-	return sentences.map((sentence) => {
-		const startOffset = Math.max(0, sentence.startOffset)
-		const length = Math.max(0, sentence.length)
-		const text = originalContent.slice(startOffset, startOffset + length)
+	return sentences
+		.filter((s) => getTranslation(s) !== null)
+		.map((sentence) => {
+			const translation = getTranslation(sentence)!
 
-		return {
-			sentenceId: sentence.id,
-			selectedPhraseId: null,
-			data: {
-				translation: {
-					text,
-					loading: false,
-					error: null,
-					translation: getTranslation(sentence),
+			return {
+				sentenceId: sentence.id,
+				selectedPhraseId: null,
+				data: {
+					translation: {
+						text: translation,
+						loading: false,
+						error: null,
+						translation,
+					},
+					phrases: mapSentencePhrases(sentence.sentencePhraseTranslations ?? []),
 				},
-				phrases: mapSentencePhrases(sentence.sentencePhraseTranslations ?? []),
-			},
-		}
-	})
+			}
+		})
 }
 
 function mapSentencePhrases(

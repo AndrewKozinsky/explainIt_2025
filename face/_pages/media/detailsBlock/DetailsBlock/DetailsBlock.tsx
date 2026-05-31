@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { usePopulateStore } from '_pages/media/detailsBlock/DetailsBlock/fn/populateStore'
+import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
 import { useClearDataOnUnmount } from './fn/clearDataOnUnmount'
 // import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
@@ -23,6 +24,10 @@ function DetailsBlock(props: DetailsBlockProps) {
 	useFetchCurrentSentenceTranslation()
 	// useFetchCurrentPhraseTranslation()
 	useClearDataOnUnmount()
+
+	// delete later
+	// const sentences = useDetailsStore((s) => s.sentences)
+	// console.log(sentences)
 
 	return (
 		<ViewportSyncedHeight extraClass={cn('details-block', 'details-block--' + mediaType)}>

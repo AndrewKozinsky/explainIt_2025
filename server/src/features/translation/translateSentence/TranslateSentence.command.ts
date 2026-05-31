@@ -109,16 +109,12 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			console.log('Error in TranslateSentenceHandler => execute')
 			console.error(error)
 
-			if (error instanceof CustomError) {
-				if (draftSentenceTranslationId !== null) {
-					await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslationId)
-				}
-
-				throw error
-			}
-
 			if (draftSentenceTranslationId !== null) {
 				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslationId)
+			}
+
+			if (error instanceof CustomError) {
+				throw error
 			}
 
 			this.logger.info('Error while translating sentence', {
