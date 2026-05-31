@@ -20,6 +20,7 @@ function ChapterContent() {
 						selectedWordId={selection.wordId}
 						selectWord={selectWord}
 						languageCode={book?.languageCode! as LanguageCode}
+						environmentColor='white'
 					/>
 				)
 			})}

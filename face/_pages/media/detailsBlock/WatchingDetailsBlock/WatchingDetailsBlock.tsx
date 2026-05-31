@@ -2,13 +2,15 @@ import { LanguageCode } from 'utils/utils'
 import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingStore'
 import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
+import './WatchingDetailsBlock.scss'
 
 function WatchingDetailsBlock() {
 	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
 	const languageCode = useWatchingStore((s) => s.video?.data.languageCode as LanguageCode)
-	const originalContent = useWatchingStore((s) => s.video?.data.originalContent)
+	const originalContent = useWatchingStore((s) => s.video?.data.processedContent)
 	const sentences = useWatchingStore((s) => s.video?.data.sentences)
 	const selectWord = useWatchingStore((s) => s.selectWord)
 
@@ -29,13 +31,17 @@ function WatchingDetailsBlock() {
 	}
 
 	return (
-		<SentenceBlock
-			sentence={sentence}
-			selectedSentenceId={sentenceId}
-			selectedWordId={currentWordId}
-			selectWord={selectWord}
-			languageCode={languageCode}
-		/>
+		<div className='watching-details-block'>
+			<SentenceBlock
+				sentence={sentence}
+				selectedSentenceId={sentenceId}
+				selectedWordId={currentWordId}
+				selectWord={selectWord}
+				languageCode={languageCode}
+				environmentColor='gray'
+			/>
+			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
+		</div>
 	)
 }
 

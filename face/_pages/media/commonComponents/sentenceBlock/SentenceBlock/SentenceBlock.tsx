@@ -12,10 +12,11 @@ type ChapterSentenceProps = {
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: LanguageCode
+	environmentColor: 'white' | 'gray'
 }
 
 function SentenceBlock(props: ChapterSentenceProps) {
-	const { sentence, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
+	const { sentence, selectedSentenceId, selectedWordId, selectWord, languageCode, environmentColor } = props
 
 	return (
 		<div className='sentence-block'>
@@ -27,7 +28,7 @@ function SentenceBlock(props: ChapterSentenceProps) {
 				selectWord={selectWord}
 			/>
 			<SentenceTools sentence={sentence} />
-			<SentenceTranslation sentenceId={sentence.id} />
+			<SentenceTranslation sentenceId={sentence.id} bgColor={environmentColor === 'gray' ? 'white' : 'gray'} />
 			<PhraseDetails sentenceId={sentence.id} languageCode={languageCode} />
 		</div>
 	)

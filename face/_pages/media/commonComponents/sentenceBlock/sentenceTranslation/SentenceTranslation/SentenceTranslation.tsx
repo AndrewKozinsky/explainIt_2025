@@ -5,10 +5,11 @@ import SentenceTranslationContentWrapper from '../SentenceTranslationContentWrap
 
 type SentenceTranslationProps = {
 	sentenceId: number
+	bgColor: 'white' | 'gray'
 }
 
 function SentenceTranslation(props: SentenceTranslationProps) {
-	const { sentenceId } = props
+	const { sentenceId, bgColor } = props
 
 	const sentenceEntry = useDetailsStore(function (s) {
 		return findSentenceEntry({ sentences: s.sentences, sentenceId })
@@ -23,7 +24,7 @@ function SentenceTranslation(props: SentenceTranslationProps) {
 	const translationText = sentenceEntry.data.translation.text
 
 	return (
-		<SentenceTranslationContentWrapper loading={loading} bgColor='gray'>
+		<SentenceTranslationContentWrapper loading={loading} bgColor={bgColor}>
 			{loading && <span />}
 			{error && <ErrorMessage text={sentenceEntry.data.translation.error} />}
 			{translationText && translationText}
