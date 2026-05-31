@@ -1,8 +1,6 @@
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-// import SentenceTranslationText from '@/_pages/media/detailsBlock/SentenceTranslationText/SentenceTranslationText'
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-// import { SentenceLoading } from '../ChapterContent/SentenceStatus'
 import SentenceTranslationContentWrapper from '../SentenceTranslationContentWrapper/SentenceTranslationContentWrapper'
 
 type SentenceTranslationProps = {

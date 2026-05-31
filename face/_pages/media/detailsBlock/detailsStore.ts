@@ -33,7 +33,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 						selectedPhraseId: null,
 						data: {
 							translation: {
-								text: input.text,
+								text: '',
 								loading: true,
 								error: null,
 								translation: null,

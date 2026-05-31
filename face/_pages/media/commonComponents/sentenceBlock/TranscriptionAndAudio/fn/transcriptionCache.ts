@@ -1,4 +1,4 @@
-import { useDetailsStore } from '../../detailsStore'
+import { useDetailsStore } from '@/_pages/media/detailsBlock/detailsStore'
 
 export function getCachedTranscription(phrase: string): string | null {
 	const normalizedPhrase = normalizePhrase(phrase)

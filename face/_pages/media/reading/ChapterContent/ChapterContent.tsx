@@ -1,6 +1,6 @@
 import { LanguageCode } from 'utils/utils'
+import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
 import { useReadingStore } from '_pages/media/reading/readingStore'
-import ChapterSentenceBlock from '../ChapterSentenceBlock/ChapterSentenceBlock'
 import './ChapterContent.scss'
 
 function ChapterContent() {
@@ -13,7 +13,7 @@ function ChapterContent() {
 		<div className='chapter-content'>
 			{populatedChapter.sentences.map((sentence) => {
 				return (
-					<ChapterSentenceBlock
+					<SentenceBlock
 						key={sentence.id}
 						sentence={sentence}
 						selectedSentenceId={selection.sentenceId}

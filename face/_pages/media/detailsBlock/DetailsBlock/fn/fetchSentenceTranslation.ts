@@ -77,7 +77,7 @@ async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<voi
 
 		useDetailsStore.getState().patchSentenceTranslation({
 			sentenceId: input.sentenceId,
-			patch: { loading: false, error: null, translation },
+			patch: { text: translation, loading: false, error: null, translation },
 		})
 	} catch (error) {
 		useDetailsStore.getState().patchSentenceTranslation({

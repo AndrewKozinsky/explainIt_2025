@@ -1,6 +1,6 @@
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-import SentencePhraseAnalysis from '../../../detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
+import SentencePhraseAnalysis from '../SentencePhraseAnalysis/SentencePhraseAnalysis'
 
 type PhraseDetailsProps = {
 	sentenceId: number

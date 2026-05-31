@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import { getSentenceStructure } from '../functions/getSentenceStructure'
 import Word from '../Word/Word'
+import { getSentenceStructure } from './fn/getSentenceStructure'
 
 type SentenceBlockProps = {
 	sentenceId: number
@@ -13,7 +13,7 @@ type SentenceBlockProps = {
 	loading?: boolean
 }
 
-function SentenceBlock(props: SentenceBlockProps) {
+function Sentence(props: SentenceBlockProps) {
 	const {
 		sentenceId,
 		sentenceText,
@@ -53,4 +53,4 @@ function SentenceBlock(props: SentenceBlockProps) {
 	)
 }
 
-export default SentenceBlock
+export default Sentence

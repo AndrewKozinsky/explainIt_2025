@@ -1,5 +1,5 @@
 import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
-import { getSentenceStructure } from '_pages/media/commonComponents/functions/getSentenceStructure'
+import { getSentenceStructure } from '_pages/media/commonComponents/sentenceBlock/Sentence/fn/getSentenceStructure'
 import { PopulatedSubtitlesStructure } from '../../common/populatedSubtitlesStructure'
 
 export function createPopulatedSubtitles(
