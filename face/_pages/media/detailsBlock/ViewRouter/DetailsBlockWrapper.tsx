@@ -1,7 +1,7 @@
 import cn from 'classnames'
 import { useDetailsStore } from '../detailsStore'
-// import ReadingDetailsBlock from '../ReadingDetailsBlock/ReadingDetailsBlock'
-// import WatchingDetailsBlock from '../WatchingDetailsBlock/WatchingDetailsBlock'
+import ReadingDetailsBlock from '../ReadingDetailsBlock/ReadingDetailsBlock'
+import WatchingDetailsBlock from '../WatchingDetailsBlock/WatchingDetailsBlock'
 import './DetailsBlockWrapper.scss'
 
 type ViewRouterProps = {
@@ -21,13 +21,12 @@ function DetailsBlockWrapper(props: ViewRouterProps) {
 		)
 	}
 
-	/*return (
+	return (
 		<ContentWrapper>
 			{mediaType === 'reading' && <ReadingDetailsBlock />}
 			{mediaType === 'watching' && <WatchingDetailsBlock />}
 		</ContentWrapper>
-	)*/
-	return null
+	)
 }
 
 export default DetailsBlockWrapper

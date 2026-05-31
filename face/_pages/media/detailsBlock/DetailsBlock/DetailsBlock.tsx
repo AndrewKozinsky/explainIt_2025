@@ -25,10 +25,6 @@ function DetailsBlock(props: DetailsBlockProps) {
 	// useFetchCurrentPhraseTranslation()
 	useClearDataOnUnmount()
 
-	// delete later
-	// const sentences = useDetailsStore((s) => s.sentences)
-	// console.log(sentences)
-
 	return (
 		<ViewportSyncedHeight extraClass={cn('details-block', 'details-block--' + mediaType)}>
 			<DetailsBlockWrapper mediaType={mediaType} />

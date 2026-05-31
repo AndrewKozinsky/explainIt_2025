@@ -1,10 +1,10 @@
-// import SentencePhraseAnalyses from '_pages/media/detailsBlock/SentencePhrasesAnalyses/SentencePhraseAnalyses'
-// import { useReadingStore } from '_pages/media/reading/readingStore'
-// import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
-// import { useDetailsStore } from '../detailsStore'
+import SentencePhraseAnalyses from '_pages/media/commonComponents/sentenceBlock/SentencePhrasesAnalyses/SentencePhraseAnalyses'
+import { useReadingStore } from '_pages/media/reading/readingStore'
+import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
+import { useDetailsStore } from '../detailsStore'
 // import './ReadingDetailsBlock.scss'
 
-/*function ReadingDetailsBlock() {
+function ReadingDetailsBlock() {
 	const book = useReadingStore((s) => s.book?.data)
 	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
 
@@ -14,6 +14,6 @@
 			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
 		</div>
 	)
-}*/
+}
 
-// export default ReadingDetailsBlock
+export default ReadingDetailsBlock

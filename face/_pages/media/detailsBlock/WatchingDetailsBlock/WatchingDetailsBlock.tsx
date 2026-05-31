@@ -6,11 +6,12 @@
 // import { useWatchingStore } from '_pages/media/watching/watchingStore'
 // import { useDetailsStore } from '../detailsStore'
 // import './WatchingDetailsBlock.scss'
+import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
 
-/*function WatchingDetailsBlock() {
-	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
+function WatchingDetailsBlock() {
+	// const sentenceId = useDetailsStore((s) => s.currentSentenceId)
 
-	const wordAnalysis = useDetailsStore(function (s) {
+	/*const wordAnalysis = useDetailsStore(function (s) {
 		const entry = findSentenceEntry({
 			sentences: s.sentences,
 			sentenceId: s.currentSentenceId,
@@ -18,11 +19,11 @@
 		if (!entry || !entry.selectedPhraseId) return null
 
 		return entry.data.phrases.find((p) => p.randomGeneratedPhraseId === entry.selectedPhraseId) ?? null
-	})
+	})*/
 
-	const video = useWatchingStore((s) => s.video?.data)
+	// const video = useWatchingStore((s) => s.video?.data)
 
-	return (
+	/*return (
 		<div className='watching-details-block'>
 			<CurrentSentence />
 			<CurrentSentenceTranslation bgColor='white' />
@@ -35,7 +36,8 @@
 			)}
 			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
 		</div>
-	)
-}*/
+	)*/
+	return <SentenceBlock sentence={null} selectedSentenceId={null} selectedWordId={null} languageCode={null} />
+}
 
-// export default WatchingDetailsBlock
+export default WatchingDetailsBlock

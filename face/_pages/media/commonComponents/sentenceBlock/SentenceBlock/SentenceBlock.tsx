@@ -2,9 +2,9 @@ import { LanguageCode } from 'utils/utils'
 import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingStore'
 import PhraseDetails from '../PhraseDetails/PhraseDetails'
 import Sentence from '../Sentence/Sentence'
+import SentenceTranslation from '../sentenceTranslation/SentenceTranslation/SentenceTranslation'
 import SentenceTools from '../tools/SentenceTools/SentenceTools'
 import './SentenceBlock.scss'
-import SentenceTranslation from '../sentenceTranslation/SentenceTranslation/SentenceTranslation'
 
 type ChapterSentenceProps = {
 	sentence: ChapterTextStructurePopulated.Sentence

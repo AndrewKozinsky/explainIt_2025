@@ -1,13 +1,13 @@
-// import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
-// import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
-// import { useDetailsStore } from '../detailsStore'
-// import './SentencePhraseAnalyses.scss'
+import { findSentenceEntry } from '@/_pages/media/detailsBlock/DetailsBlock/fn/selectors'
+import { useDetailsStore } from '@/_pages/media/detailsBlock/detailsStore'
+import SentencePhraseAnalysis from '_pages/media/commonComponents/sentenceBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
+import './SentencePhraseAnalyses.scss'
 
-/*type SentencePhraseAnalysesProps = {
+type SentencePhraseAnalysesProps = {
 	languageCode: string
-}*/
+}
 
-/*function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
+function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 	const { languageCode } = props
 
 	const phrases = useDetailsStore(function (s) {
@@ -38,6 +38,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default SentencePhraseAnalyses
+export default SentencePhraseAnalyses
