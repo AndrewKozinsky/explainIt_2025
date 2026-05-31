@@ -5,11 +5,11 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 @InputType()
 export class GetUniversalPhraseInput {
-	@Field(() => String, { description: 'Phrase text' })
-	@DtoFieldDecorators('phrase', bdConfig.UniversalPhrase.dbFields.phrase, { type: 'string', required: true })
-	phrase: string
+	@Field(() => String, { description: 'Phrase or sentence text' })
+	@DtoFieldDecorators('text', bdConfig.UniversalPhrase.dbFields.text)
+	text: string
 
-	@Field(() => String, { description: 'Language code' })
-	@DtoFieldDecorators('languageCode', bdConfig.UniversalPhrase.dbFields.language_code, { type: 'enum', required: true })
-	languageCode: Language
+	@Field(() => String, { description: 'Source language code' })
+	@DtoFieldDecorators('sourceLanguageCode', bdConfig.UniversalPhrase.dbFields.source_language_code)
+	sourceLanguageCode: Language
 }

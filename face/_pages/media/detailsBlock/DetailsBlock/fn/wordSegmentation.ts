@@ -37,9 +37,7 @@ export function offsetsFromWordIds(input: {
 
 	const wordIdSet = new Set(input.wordIds)
 
-	const selected = segmentSentence(input.sentenceText, input.locale).filter((word) =>
-		wordIdSet.has(word.wordId),
-	)
+	const selected = segmentSentence(input.sentenceText, input.locale).filter((word) => wordIdSet.has(word.wordId))
 
 	if (selected.length === 0) return null
 

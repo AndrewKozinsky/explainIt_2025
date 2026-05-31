@@ -36,20 +36,29 @@ export type UniversalPhraseSumAggregateOutputType = {
 
 export type UniversalPhraseMinAggregateOutputType = {
   id: number | null
-  phrase: string | null
-  language_code: $Enums.LanguageCode | null
+  text: string | null
+  source_language_code: $Enums.LanguageCode | null
+  grammarExtractionStatus: $Enums.GrammarExtractionStatus | null
+  created_at: Date | null
+  updated_at: Date | null
 }
 
 export type UniversalPhraseMaxAggregateOutputType = {
   id: number | null
-  phrase: string | null
-  language_code: $Enums.LanguageCode | null
+  text: string | null
+  source_language_code: $Enums.LanguageCode | null
+  grammarExtractionStatus: $Enums.GrammarExtractionStatus | null
+  created_at: Date | null
+  updated_at: Date | null
 }
 
 export type UniversalPhraseCountAggregateOutputType = {
   id: number
-  phrase: number
-  language_code: number
+  text: number
+  source_language_code: number
+  grammarExtractionStatus: number
+  created_at: number
+  updated_at: number
   _all: number
 }
 
@@ -64,20 +73,29 @@ export type UniversalPhraseSumAggregateInputType = {
 
 export type UniversalPhraseMinAggregateInputType = {
   id?: true
-  phrase?: true
-  language_code?: true
+  text?: true
+  source_language_code?: true
+  grammarExtractionStatus?: true
+  created_at?: true
+  updated_at?: true
 }
 
 export type UniversalPhraseMaxAggregateInputType = {
   id?: true
-  phrase?: true
-  language_code?: true
+  text?: true
+  source_language_code?: true
+  grammarExtractionStatus?: true
+  created_at?: true
+  updated_at?: true
 }
 
 export type UniversalPhraseCountAggregateInputType = {
   id?: true
-  phrase?: true
-  language_code?: true
+  text?: true
+  source_language_code?: true
+  grammarExtractionStatus?: true
+  created_at?: true
+  updated_at?: true
   _all?: true
 }
 
@@ -169,8 +187,11 @@ export type UniversalPhraseGroupByArgs<ExtArgs extends runtime.Types.Extensions.
 
 export type UniversalPhraseGroupByOutputType = {
   id: number
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus: $Enums.GrammarExtractionStatus
+  created_at: Date
+  updated_at: Date
   _count: UniversalPhraseCountAggregateOutputType | null
   _avg: UniversalPhraseAvgAggregateOutputType | null
   _sum: UniversalPhraseSumAggregateOutputType | null
@@ -198,36 +219,54 @@ export type UniversalPhraseWhereInput = {
   OR?: Prisma.UniversalPhraseWhereInput[]
   NOT?: Prisma.UniversalPhraseWhereInput | Prisma.UniversalPhraseWhereInput[]
   id?: Prisma.IntFilter<"UniversalPhrase"> | number
-  phrase?: Prisma.StringFilter<"UniversalPhrase"> | string
-  language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhrase"> | $Enums.LanguageCode
+  text?: Prisma.StringFilter<"UniversalPhrase"> | string
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhrase"> | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFilter<"UniversalPhrase"> | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFilter<"UniversalPhrase"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"UniversalPhrase"> | Date | string
   UniversalTranscription?: Prisma.XOR<Prisma.UniversalTranscriptionNullableScalarRelationFilter, Prisma.UniversalTranscriptionWhereInput> | null
   UniversalAudioPronunciation?: Prisma.XOR<Prisma.UniversalAudioPronunciationNullableScalarRelationFilter, Prisma.UniversalAudioPronunciationWhereInput> | null
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseListRelationFilter
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptListRelationFilter
 }
 
 export type UniversalPhraseOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  phrase?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  text?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  grammarExtractionStatus?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   UniversalTranscription?: Prisma.UniversalTranscriptionOrderByWithRelationInput
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationOrderByWithRelationInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseOrderByRelationAggregateInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptOrderByRelationAggregateInput
 }
 
 export type UniversalPhraseWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  language_code_phrase?: Prisma.UniversalPhraseLanguage_codePhraseCompoundUniqueInput
+  source_language_code_text?: Prisma.UniversalPhraseSource_language_codeTextCompoundUniqueInput
   AND?: Prisma.UniversalPhraseWhereInput | Prisma.UniversalPhraseWhereInput[]
   OR?: Prisma.UniversalPhraseWhereInput[]
   NOT?: Prisma.UniversalPhraseWhereInput | Prisma.UniversalPhraseWhereInput[]
-  phrase?: Prisma.StringFilter<"UniversalPhrase"> | string
-  language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhrase"> | $Enums.LanguageCode
+  text?: Prisma.StringFilter<"UniversalPhrase"> | string
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhrase"> | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFilter<"UniversalPhrase"> | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFilter<"UniversalPhrase"> | Date | string
+  updated_at?: Prisma.DateTimeFilter<"UniversalPhrase"> | Date | string
   UniversalTranscription?: Prisma.XOR<Prisma.UniversalTranscriptionNullableScalarRelationFilter, Prisma.UniversalTranscriptionWhereInput> | null
   UniversalAudioPronunciation?: Prisma.XOR<Prisma.UniversalAudioPronunciationNullableScalarRelationFilter, Prisma.UniversalAudioPronunciationWhereInput> | null
-}, "id" | "language_code_phrase">
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseListRelationFilter
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptListRelationFilter
+}, "id" | "source_language_code_text">
 
 export type UniversalPhraseOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  phrase?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  text?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  grammarExtractionStatus?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
   _count?: Prisma.UniversalPhraseCountOrderByAggregateInput
   _avg?: Prisma.UniversalPhraseAvgOrderByAggregateInput
   _max?: Prisma.UniversalPhraseMaxOrderByAggregateInput
@@ -240,66 +279,101 @@ export type UniversalPhraseScalarWhereWithAggregatesInput = {
   OR?: Prisma.UniversalPhraseScalarWhereWithAggregatesInput[]
   NOT?: Prisma.UniversalPhraseScalarWhereWithAggregatesInput | Prisma.UniversalPhraseScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"UniversalPhrase"> | number
-  phrase?: Prisma.StringWithAggregatesFilter<"UniversalPhrase"> | string
-  language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"UniversalPhrase"> | $Enums.LanguageCode
+  text?: Prisma.StringWithAggregatesFilter<"UniversalPhrase"> | string
+  source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"UniversalPhrase"> | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusWithAggregatesFilter<"UniversalPhrase"> | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeWithAggregatesFilter<"UniversalPhrase"> | Date | string
+  updated_at?: Prisma.DateTimeWithAggregatesFilter<"UniversalPhrase"> | Date | string
 }
 
 export type UniversalPhraseCreateInput = {
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionCreateNestedOneWithoutUniversal_phraseInput
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseCreateNestedManyWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptCreateNestedManyWithoutUniversal_phraseInput
 }
 
 export type UniversalPhraseUncheckedCreateInput = {
   id?: number
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedCreateNestedOneWithoutUniversal_phraseInput
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedCreateNestedManyWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedCreateNestedManyWithoutUniversal_phraseInput
 }
 
 export type UniversalPhraseUpdateInput = {
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionUpdateOneWithoutUniversal_phraseNestedInput
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUpdateManyWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUpdateManyWithoutUniversal_phraseNestedInput
 }
 
 export type UniversalPhraseUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedUpdateOneWithoutUniversal_phraseNestedInput
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedUpdateManyWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseNestedInput
 }
 
 export type UniversalPhraseCreateManyInput = {
   id?: number
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
 }
 
 export type UniversalPhraseUpdateManyMutationInput = {
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type UniversalPhraseUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type UniversalPhraseLanguage_codePhraseCompoundUniqueInput = {
-  language_code: $Enums.LanguageCode
-  phrase: string
+export type UniversalPhraseSource_language_codeTextCompoundUniqueInput = {
+  source_language_code: $Enums.LanguageCode
+  text: string
 }
 
 export type UniversalPhraseCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  phrase?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  text?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  grammarExtractionStatus?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type UniversalPhraseAvgOrderByAggregateInput = {
@@ -308,14 +382,20 @@ export type UniversalPhraseAvgOrderByAggregateInput = {
 
 export type UniversalPhraseMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  phrase?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  text?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  grammarExtractionStatus?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type UniversalPhraseMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  phrase?: Prisma.SortOrder
-  language_code?: Prisma.SortOrder
+  text?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  grammarExtractionStatus?: Prisma.SortOrder
+  created_at?: Prisma.SortOrder
+  updated_at?: Prisma.SortOrder
 }
 
 export type UniversalPhraseSumOrderByAggregateInput = {
@@ -325,6 +405,10 @@ export type UniversalPhraseSumOrderByAggregateInput = {
 export type UniversalPhraseScalarRelationFilter = {
   is?: Prisma.UniversalPhraseWhereInput
   isNot?: Prisma.UniversalPhraseWhereInput
+}
+
+export type EnumGrammarExtractionStatusFieldUpdateOperationsInput = {
+  set?: $Enums.GrammarExtractionStatus
 }
 
 export type UniversalPhraseCreateNestedOneWithoutUniversalTranscriptionInput = {
@@ -355,17 +439,55 @@ export type UniversalPhraseUpdateOneRequiredWithoutUniversalAudioPronunciationNe
   update?: Prisma.XOR<Prisma.XOR<Prisma.UniversalPhraseUpdateToOneWithWhereWithoutUniversalAudioPronunciationInput, Prisma.UniversalPhraseUpdateWithoutUniversalAudioPronunciationInput>, Prisma.UniversalPhraseUncheckedUpdateWithoutUniversalAudioPronunciationInput>
 }
 
+export type UniversalPhraseCreateNestedOneWithoutMissingGrammarConceptInput = {
+  create?: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUncheckedCreateWithoutMissingGrammarConceptInput>
+  connectOrCreate?: Prisma.UniversalPhraseCreateOrConnectWithoutMissingGrammarConceptInput
+  connect?: Prisma.UniversalPhraseWhereUniqueInput
+}
+
+export type UniversalPhraseUpdateOneRequiredWithoutMissingGrammarConceptNestedInput = {
+  create?: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUncheckedCreateWithoutMissingGrammarConceptInput>
+  connectOrCreate?: Prisma.UniversalPhraseCreateOrConnectWithoutMissingGrammarConceptInput
+  upsert?: Prisma.UniversalPhraseUpsertWithoutMissingGrammarConceptInput
+  connect?: Prisma.UniversalPhraseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UniversalPhraseUpdateToOneWithWhereWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUpdateWithoutMissingGrammarConceptInput>, Prisma.UniversalPhraseUncheckedUpdateWithoutMissingGrammarConceptInput>
+}
+
+export type UniversalPhraseCreateNestedOneWithoutGrammarConceptToUniversalPhraseInput = {
+  create?: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
+  connectOrCreate?: Prisma.UniversalPhraseCreateOrConnectWithoutGrammarConceptToUniversalPhraseInput
+  connect?: Prisma.UniversalPhraseWhereUniqueInput
+}
+
+export type UniversalPhraseUpdateOneRequiredWithoutGrammarConceptToUniversalPhraseNestedInput = {
+  create?: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
+  connectOrCreate?: Prisma.UniversalPhraseCreateOrConnectWithoutGrammarConceptToUniversalPhraseInput
+  upsert?: Prisma.UniversalPhraseUpsertWithoutGrammarConceptToUniversalPhraseInput
+  connect?: Prisma.UniversalPhraseWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UniversalPhraseUpdateToOneWithWhereWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUpdateWithoutGrammarConceptToUniversalPhraseInput>, Prisma.UniversalPhraseUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput>
+}
+
 export type UniversalPhraseCreateWithoutUniversalTranscriptionInput = {
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseCreateNestedManyWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptCreateNestedManyWithoutUniversal_phraseInput
 }
 
 export type UniversalPhraseUncheckedCreateWithoutUniversalTranscriptionInput = {
   id?: number
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedCreateNestedManyWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedCreateNestedManyWithoutUniversal_phraseInput
 }
 
 export type UniversalPhraseCreateOrConnectWithoutUniversalTranscriptionInput = {
@@ -385,29 +507,49 @@ export type UniversalPhraseUpdateToOneWithWhereWithoutUniversalTranscriptionInpu
 }
 
 export type UniversalPhraseUpdateWithoutUniversalTranscriptionInput = {
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUpdateManyWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUpdateManyWithoutUniversal_phraseNestedInput
 }
 
 export type UniversalPhraseUncheckedUpdateWithoutUniversalTranscriptionInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedUpdateManyWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseNestedInput
 }
 
 export type UniversalPhraseCreateWithoutUniversalAudioPronunciationInput = {
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseCreateNestedManyWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptCreateNestedManyWithoutUniversal_phraseInput
 }
 
 export type UniversalPhraseUncheckedCreateWithoutUniversalAudioPronunciationInput = {
   id?: number
-  phrase: string
-  language_code: $Enums.LanguageCode
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedCreateNestedManyWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedCreateNestedManyWithoutUniversal_phraseInput
 }
 
 export type UniversalPhraseCreateOrConnectWithoutUniversalAudioPronunciationInput = {
@@ -427,50 +569,240 @@ export type UniversalPhraseUpdateToOneWithWhereWithoutUniversalAudioPronunciatio
 }
 
 export type UniversalPhraseUpdateWithoutUniversalAudioPronunciationInput = {
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUpdateManyWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUpdateManyWithoutUniversal_phraseNestedInput
 }
 
 export type UniversalPhraseUncheckedUpdateWithoutUniversalAudioPronunciationInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedUpdateManyWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseNestedInput
 }
 
+export type UniversalPhraseCreateWithoutMissingGrammarConceptInput = {
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionCreateNestedOneWithoutUniversal_phraseInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseCreateNestedManyWithoutUniversal_phraseInput
+}
+
+export type UniversalPhraseUncheckedCreateWithoutMissingGrammarConceptInput = {
+  id?: number
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedCreateNestedManyWithoutUniversal_phraseInput
+}
+
+export type UniversalPhraseCreateOrConnectWithoutMissingGrammarConceptInput = {
+  where: Prisma.UniversalPhraseWhereUniqueInput
+  create: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUncheckedCreateWithoutMissingGrammarConceptInput>
+}
+
+export type UniversalPhraseUpsertWithoutMissingGrammarConceptInput = {
+  update: Prisma.XOR<Prisma.UniversalPhraseUpdateWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUncheckedUpdateWithoutMissingGrammarConceptInput>
+  create: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUncheckedCreateWithoutMissingGrammarConceptInput>
+  where?: Prisma.UniversalPhraseWhereInput
+}
+
+export type UniversalPhraseUpdateToOneWithWhereWithoutMissingGrammarConceptInput = {
+  where?: Prisma.UniversalPhraseWhereInput
+  data: Prisma.XOR<Prisma.UniversalPhraseUpdateWithoutMissingGrammarConceptInput, Prisma.UniversalPhraseUncheckedUpdateWithoutMissingGrammarConceptInput>
+}
+
+export type UniversalPhraseUpdateWithoutMissingGrammarConceptInput = {
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionUpdateOneWithoutUniversal_phraseNestedInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUpdateManyWithoutUniversal_phraseNestedInput
+}
+
+export type UniversalPhraseUncheckedUpdateWithoutMissingGrammarConceptInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseUncheckedUpdateManyWithoutUniversal_phraseNestedInput
+}
+
+export type UniversalPhraseCreateWithoutGrammarConceptToUniversalPhraseInput = {
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionCreateNestedOneWithoutUniversal_phraseInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationCreateNestedOneWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptCreateNestedManyWithoutUniversal_phraseInput
+}
+
+export type UniversalPhraseUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput = {
+  id?: number
+  text: string
+  source_language_code: $Enums.LanguageCode
+  grammarExtractionStatus?: $Enums.GrammarExtractionStatus
+  created_at?: Date | string
+  updated_at?: Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedCreateNestedOneWithoutUniversal_phraseInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedCreateNestedManyWithoutUniversal_phraseInput
+}
+
+export type UniversalPhraseCreateOrConnectWithoutGrammarConceptToUniversalPhraseInput = {
+  where: Prisma.UniversalPhraseWhereUniqueInput
+  create: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
+}
+
+export type UniversalPhraseUpsertWithoutGrammarConceptToUniversalPhraseInput = {
+  update: Prisma.XOR<Prisma.UniversalPhraseUpdateWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput>
+  create: Prisma.XOR<Prisma.UniversalPhraseCreateWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUncheckedCreateWithoutGrammarConceptToUniversalPhraseInput>
+  where?: Prisma.UniversalPhraseWhereInput
+}
+
+export type UniversalPhraseUpdateToOneWithWhereWithoutGrammarConceptToUniversalPhraseInput = {
+  where?: Prisma.UniversalPhraseWhereInput
+  data: Prisma.XOR<Prisma.UniversalPhraseUpdateWithoutGrammarConceptToUniversalPhraseInput, Prisma.UniversalPhraseUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput>
+}
+
+export type UniversalPhraseUpdateWithoutGrammarConceptToUniversalPhraseInput = {
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionUpdateOneWithoutUniversal_phraseNestedInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUpdateOneWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUpdateManyWithoutUniversal_phraseNestedInput
+}
+
+export type UniversalPhraseUncheckedUpdateWithoutGrammarConceptToUniversalPhraseInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  text?: Prisma.StringFieldUpdateOperationsInput | string
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  grammarExtractionStatus?: Prisma.EnumGrammarExtractionStatusFieldUpdateOperationsInput | $Enums.GrammarExtractionStatus
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  UniversalTranscription?: Prisma.UniversalTranscriptionUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  UniversalAudioPronunciation?: Prisma.UniversalAudioPronunciationUncheckedUpdateOneWithoutUniversal_phraseNestedInput
+  MissingGrammarConcept?: Prisma.MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseNestedInput
+}
+
+
+/**
+ * Count Type UniversalPhraseCountOutputType
+ */
+
+export type UniversalPhraseCountOutputType = {
+  GrammarConceptToUniversalPhrase: number
+  MissingGrammarConcept: number
+}
+
+export type UniversalPhraseCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  GrammarConceptToUniversalPhrase?: boolean | UniversalPhraseCountOutputTypeCountGrammarConceptToUniversalPhraseArgs
+  MissingGrammarConcept?: boolean | UniversalPhraseCountOutputTypeCountMissingGrammarConceptArgs
+}
+
+/**
+ * UniversalPhraseCountOutputType without action
+ */
+export type UniversalPhraseCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UniversalPhraseCountOutputType
+   */
+  select?: Prisma.UniversalPhraseCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UniversalPhraseCountOutputType without action
+ */
+export type UniversalPhraseCountOutputTypeCountGrammarConceptToUniversalPhraseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.GrammarConceptToUniversalPhraseWhereInput
+}
+
+/**
+ * UniversalPhraseCountOutputType without action
+ */
+export type UniversalPhraseCountOutputTypeCountMissingGrammarConceptArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.MissingGrammarConceptWhereInput
+}
 
 
 export type UniversalPhraseSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  phrase?: boolean
-  language_code?: boolean
+  text?: boolean
+  source_language_code?: boolean
+  grammarExtractionStatus?: boolean
+  created_at?: boolean
+  updated_at?: boolean
   UniversalTranscription?: boolean | Prisma.UniversalPhrase$UniversalTranscriptionArgs<ExtArgs>
   UniversalAudioPronunciation?: boolean | Prisma.UniversalPhrase$UniversalAudioPronunciationArgs<ExtArgs>
+  GrammarConceptToUniversalPhrase?: boolean | Prisma.UniversalPhrase$GrammarConceptToUniversalPhraseArgs<ExtArgs>
+  MissingGrammarConcept?: boolean | Prisma.UniversalPhrase$MissingGrammarConceptArgs<ExtArgs>
+  _count?: boolean | Prisma.UniversalPhraseCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["universalPhrase"]>
 
 export type UniversalPhraseSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  phrase?: boolean
-  language_code?: boolean
+  text?: boolean
+  source_language_code?: boolean
+  grammarExtractionStatus?: boolean
+  created_at?: boolean
+  updated_at?: boolean
 }, ExtArgs["result"]["universalPhrase"]>
 
 export type UniversalPhraseSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  phrase?: boolean
-  language_code?: boolean
+  text?: boolean
+  source_language_code?: boolean
+  grammarExtractionStatus?: boolean
+  created_at?: boolean
+  updated_at?: boolean
 }, ExtArgs["result"]["universalPhrase"]>
 
 export type UniversalPhraseSelectScalar = {
   id?: boolean
-  phrase?: boolean
-  language_code?: boolean
+  text?: boolean
+  source_language_code?: boolean
+  grammarExtractionStatus?: boolean
+  created_at?: boolean
+  updated_at?: boolean
 }
 
-export type UniversalPhraseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "phrase" | "language_code", ExtArgs["result"]["universalPhrase"]>
+export type UniversalPhraseOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "text" | "source_language_code" | "grammarExtractionStatus" | "created_at" | "updated_at", ExtArgs["result"]["universalPhrase"]>
 export type UniversalPhraseInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   UniversalTranscription?: boolean | Prisma.UniversalPhrase$UniversalTranscriptionArgs<ExtArgs>
   UniversalAudioPronunciation?: boolean | Prisma.UniversalPhrase$UniversalAudioPronunciationArgs<ExtArgs>
+  GrammarConceptToUniversalPhrase?: boolean | Prisma.UniversalPhrase$GrammarConceptToUniversalPhraseArgs<ExtArgs>
+  MissingGrammarConcept?: boolean | Prisma.UniversalPhrase$MissingGrammarConceptArgs<ExtArgs>
+  _count?: boolean | Prisma.UniversalPhraseCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UniversalPhraseIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 export type UniversalPhraseIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -480,11 +812,16 @@ export type $UniversalPhrasePayload<ExtArgs extends runtime.Types.Extensions.Int
   objects: {
     UniversalTranscription: Prisma.$UniversalTranscriptionPayload<ExtArgs> | null
     UniversalAudioPronunciation: Prisma.$UniversalAudioPronunciationPayload<ExtArgs> | null
+    GrammarConceptToUniversalPhrase: Prisma.$GrammarConceptToUniversalPhrasePayload<ExtArgs>[]
+    MissingGrammarConcept: Prisma.$MissingGrammarConceptPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    phrase: string
-    language_code: $Enums.LanguageCode
+    text: string
+    source_language_code: $Enums.LanguageCode
+    grammarExtractionStatus: $Enums.GrammarExtractionStatus
+    created_at: Date
+    updated_at: Date
   }, ExtArgs["result"]["universalPhrase"]>
   composites: {}
 }
@@ -881,6 +1218,8 @@ export interface Prisma__UniversalPhraseClient<T, Null = never, ExtArgs extends 
   readonly [Symbol.toStringTag]: "PrismaPromise"
   UniversalTranscription<T extends Prisma.UniversalPhrase$UniversalTranscriptionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UniversalPhrase$UniversalTranscriptionArgs<ExtArgs>>): Prisma.Prisma__UniversalTranscriptionClient<runtime.Types.Result.GetResult<Prisma.$UniversalTranscriptionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   UniversalAudioPronunciation<T extends Prisma.UniversalPhrase$UniversalAudioPronunciationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UniversalPhrase$UniversalAudioPronunciationArgs<ExtArgs>>): Prisma.Prisma__UniversalAudioPronunciationClient<runtime.Types.Result.GetResult<Prisma.$UniversalAudioPronunciationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  GrammarConceptToUniversalPhrase<T extends Prisma.UniversalPhrase$GrammarConceptToUniversalPhraseArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UniversalPhrase$GrammarConceptToUniversalPhraseArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GrammarConceptToUniversalPhrasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  MissingGrammarConcept<T extends Prisma.UniversalPhrase$MissingGrammarConceptArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UniversalPhrase$MissingGrammarConceptArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$MissingGrammarConceptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -911,8 +1250,11 @@ export interface Prisma__UniversalPhraseClient<T, Null = never, ExtArgs extends 
  */
 export interface UniversalPhraseFieldRefs {
   readonly id: Prisma.FieldRef<"UniversalPhrase", 'Int'>
-  readonly phrase: Prisma.FieldRef<"UniversalPhrase", 'String'>
-  readonly language_code: Prisma.FieldRef<"UniversalPhrase", 'LanguageCode'>
+  readonly text: Prisma.FieldRef<"UniversalPhrase", 'String'>
+  readonly source_language_code: Prisma.FieldRef<"UniversalPhrase", 'LanguageCode'>
+  readonly grammarExtractionStatus: Prisma.FieldRef<"UniversalPhrase", 'GrammarExtractionStatus'>
+  readonly created_at: Prisma.FieldRef<"UniversalPhrase", 'DateTime'>
+  readonly updated_at: Prisma.FieldRef<"UniversalPhrase", 'DateTime'>
 }
     
 
@@ -1341,6 +1683,54 @@ export type UniversalPhrase$UniversalAudioPronunciationArgs<ExtArgs extends runt
    */
   include?: Prisma.UniversalAudioPronunciationInclude<ExtArgs> | null
   where?: Prisma.UniversalAudioPronunciationWhereInput
+}
+
+/**
+ * UniversalPhrase.GrammarConceptToUniversalPhrase
+ */
+export type UniversalPhrase$GrammarConceptToUniversalPhraseArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the GrammarConceptToUniversalPhrase
+   */
+  select?: Prisma.GrammarConceptToUniversalPhraseSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the GrammarConceptToUniversalPhrase
+   */
+  omit?: Prisma.GrammarConceptToUniversalPhraseOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.GrammarConceptToUniversalPhraseInclude<ExtArgs> | null
+  where?: Prisma.GrammarConceptToUniversalPhraseWhereInput
+  orderBy?: Prisma.GrammarConceptToUniversalPhraseOrderByWithRelationInput | Prisma.GrammarConceptToUniversalPhraseOrderByWithRelationInput[]
+  cursor?: Prisma.GrammarConceptToUniversalPhraseWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.GrammarConceptToUniversalPhraseScalarFieldEnum | Prisma.GrammarConceptToUniversalPhraseScalarFieldEnum[]
+}
+
+/**
+ * UniversalPhrase.MissingGrammarConcept
+ */
+export type UniversalPhrase$MissingGrammarConceptArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the MissingGrammarConcept
+   */
+  select?: Prisma.MissingGrammarConceptSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the MissingGrammarConcept
+   */
+  omit?: Prisma.MissingGrammarConceptOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.MissingGrammarConceptInclude<ExtArgs> | null
+  where?: Prisma.MissingGrammarConceptWhereInput
+  orderBy?: Prisma.MissingGrammarConceptOrderByWithRelationInput | Prisma.MissingGrammarConceptOrderByWithRelationInput[]
+  cursor?: Prisma.MissingGrammarConceptWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.MissingGrammarConceptScalarFieldEnum | Prisma.MissingGrammarConceptScalarFieldEnum[]
 }
 
 /**

@@ -8,13 +8,3 @@ export const changeChapterFormSchema = yup.object({
 })
 
 export type ChangeChapterFormData = yup.InferType<typeof changeChapterFormSchema>
-
-export const ChangeChapterFormTest = {
-	form: { id: 'form' },
-	nameField: { id: 'name-field' },
-	headerField: { id: 'header-field' },
-	contentField: { id: 'content-field' },
-	noteField: { id: 'note-field' },
-	submitButton: { id: 'submit-button' },
-	failMessage: { id: 'fail-message' },
-}

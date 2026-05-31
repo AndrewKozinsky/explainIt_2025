@@ -9,9 +9,9 @@ import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
 import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
 import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
-import GenerateSubtitlesButton from '_pages/media/video/editPrivateVideo/GenerateSubtitlesButton/GenerateSubtitlesButton'
 import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
 import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
+import GenerateSubtitlesButton from '../GenerateSubtitlesButton/GenerateSubtitlesButton'
 import VideoDropzone from '../VideoDropzone/VideoDropzone'
 import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
 import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
@@ -56,17 +56,6 @@ export default function EditPrivateVideoForm() {
 				]}
 			>
 				<FormFieldsWrapper gap='big'>
-					<TextInput
-						label='Название'
-						error={errors.name?.message}
-						inputProps={{
-							...register('name'),
-							disabled: isFormDisabled,
-							placeholder: 'Adventures in Wonderland',
-						}}
-					/>
-					<FileNameAndDeleteFileButton />
-					<VideoDropzone />
 					<Controller
 						name='languageCode'
 						control={control}
@@ -88,13 +77,34 @@ export default function EditPrivateVideoForm() {
 						)}
 					/>
 					<TextInput
+						label='Название'
+						error={errors.name?.message}
+						inputProps={{
+							...register('name'),
+							disabled: isFormDisabled,
+							placeholder: 'Terminator 2',
+						}}
+					/>
+					<FileNameAndDeleteFileButton />
+					<VideoDropzone />
+					<TextInput
 						label='Субтитры или текст'
 						error={errors.content?.message}
 						textareaProps={{
 							...register('content'),
 							disabled: isFormDisabled,
-							placeholder: 'It tells the story of Alice, a young girl who falls down a rabbit hole…',
 							rows: 10,
+							placeholder: `1
+00:01:50,152 --> 00:01:52,238
+Three billion human lives ended
+
+2
+00:01:52,446 --> 00:01:54,865
+on August 29, 1997.
+
+3
+00:01:56,033 --> 00:02:00,913
+The survivors of the nuclear fire called the war Judgment Day.`,
 						}}
 					/>
 					<FormError text={formError} />

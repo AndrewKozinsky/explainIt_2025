@@ -2,6 +2,7 @@ import { BullModule } from '@nestjs/bullmq'
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { DBRepository } from 'repo/db.repository'
+import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
@@ -52,6 +53,7 @@ import { QueueNames } from 'infrastructure/queues/queueNames'
 		DBRepository,
 		VideoPrivateRepository,
 		VideoPrivateQueryRepository,
+		GrammarConceptQueryRepository,
 		SubtitleRepository,
 		SentenceRepository,
 		SubtitleSentenceInitRepository,

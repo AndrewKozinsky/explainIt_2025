@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
-import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookChapterQueryRepository } from 'repo/bookChapter/bookChapter.queryRepository'
+import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'

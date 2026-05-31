@@ -9,10 +9,10 @@ export class UniversalPhraseOutModel {
 	id: number
 
 	@Field(() => String)
-	phrase: string
+	text: string
 
 	@Field(() => String)
-	languageCode: Language
+	sourceLanguageCode: Language
 
 	@Field(() => TranscriptionOutModel, { nullable: true })
 	transcription: TranscriptionOutModel | null

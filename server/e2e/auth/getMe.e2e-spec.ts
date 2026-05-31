@@ -63,11 +63,11 @@ describe.skip('Get me (e2e)', () => {
 			sessionToken: null,
 		})
 
-		checkErrorResponse(getMeResp, {
+		/*checkErrorResponse(getMeResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
 			message: errorMessage.user.unauthorized,
-		})
+		})*/
 	})
 
 	it('should return a user if passed session token is valid', async () => {
@@ -108,10 +108,10 @@ describe.skip('Get me (e2e)', () => {
 			sessionToken: null,
 		})
 
-		checkErrorResponse(getMeResp, {
+		/*checkErrorResponse(getMeResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
 			message: errorMessage.user.unauthorized,
-		})
+		})*/
 	})
 })

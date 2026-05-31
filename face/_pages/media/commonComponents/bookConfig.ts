@@ -1,4 +1,4 @@
 export const bookConfig = {
-	emptyBookName: 'Новая книга...',
-	emptyChapterName: 'Новая глава…',
+	emptyBookName: 'Без названия...',
+	emptyChapterName: 'Без названия…',
 }

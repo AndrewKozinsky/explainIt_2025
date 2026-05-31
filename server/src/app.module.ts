@@ -15,6 +15,7 @@ import { BookModule } from 'routes/bookPrivate/book.module'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { DbModule } from 'routes/db/db.module'
 import { FlashcardModule } from 'routes/flashcard/flashcard.module'
+import { GrammarConceptModule } from 'routes/grammarConcept/grammarConcept.module'
 import { LanguageModule } from 'routes/language/language.module'
 import { PaymentModule } from 'routes/payment/payment.module'
 import { SentenceChatModule } from 'routes/sentenceChat/sentenceChat.module'
@@ -111,6 +112,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		AudioPronunciationModule,
 		LanguageModule,
 		FlashcardModule,
+		GrammarConceptModule,
 	],
 	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })

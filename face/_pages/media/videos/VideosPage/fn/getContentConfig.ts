@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { LanguageCode } from 'utils/utils'
-import { MediaItemsGridConfig } from '_pages/media/commonComponents/MediaItemsGrid/types'
+import { MediaItemsGridConfig } from '@/_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
 import { useVideosStore } from '../../videosStore'
 import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
@@ -41,7 +41,8 @@ export function useGetContentConfig() {
 						return {
 							name: video.name,
 							subName: video.year,
-							url: pageUrls.videos.video(videoId).path,
+							url: pageUrls.videos.video(videoId).watching.path,
+							actionUrl: pageUrls.videos.video(videoId).path,
 						}
 					}),
 					publicItems: publicVideos.data.map((video) => {
@@ -50,7 +51,8 @@ export function useGetContentConfig() {
 						return {
 							name: video.name,
 							subName: video.year,
-							url: pageUrls.videos.video(videoId).path,
+							url: pageUrls.videos.video(videoId).watching.path,
+							actionUrl: pageUrls.videos.video(videoId).path,
 							backgroundColor: video.coverBackgroundColor,
 							languageCode: video.languageCode as LanguageCode,
 							coverUrl: video.covers[0],

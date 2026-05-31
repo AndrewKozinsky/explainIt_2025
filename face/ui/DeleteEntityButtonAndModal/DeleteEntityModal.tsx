@@ -24,7 +24,13 @@ function DeleteEntityModal(props: DeleteBookModalProps) {
 	return (
 		<Modal header={modal.header} isOpen={isModalOpen} close={closeModal}>
 			<Paragraph fontSize='15'>{modal.content}</Paragraph>
-			<Button type='button' theme='danger' onClick={deleteEntity} icon={<TrashButtonIcon />} loading={isDeleteButtonLoading}>
+			<Button
+				type='button'
+				theme='danger'
+				onClick={deleteEntity}
+				icon={<TrashButtonIcon />}
+				loading={isDeleteButtonLoading}
+			>
 				{modal.confirmButtonText}
 			</Button>
 		</Modal>

@@ -45,18 +45,20 @@
 	padding: 1.4rem 1.4rem;
 
 	@include mix.page-width(500px) {
-		gap: 2rem;
-		padding: 2.6rem 2.6rem;
+		gap: 1.6rem;
+		padding: 2.4rem 2.4rem;
 	}
 }
 
 .modal__header {
-	font-size: clamp(2.4rem, 10vw, 3.6rem);
-	line-height: clamp(3.2rem, 10vw, 4.2rem);
+	font-size: clamp(2.4rem, 10vw, 3.4rem);
+	line-height: clamp(3.2rem, 10vw, 4rem);
 	font-style: italic;
 	font-weight: 600;
 }
 
 .modal__content {
-
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }

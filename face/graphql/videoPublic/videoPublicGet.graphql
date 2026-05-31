@@ -23,6 +23,37 @@ query VideoPublic_get($input: GetPublicVideoInput!) {
 				id
 				translation
 			}
+			sentencePhraseTranslations {
+				id
+				sentenceId
+				phrase
+				phraseStartOffset
+				phraseEndOffset
+				translate
+				status
+				errorMessage
+				createdAt
+				updatedAt
+				flashcardId
+				examples {
+					text
+					translate
+				}
+			}
+			grammarConcepts {
+				id
+				title
+				slug
+				category
+				lemma
+				order
+				sourceLanguage
+				targetLanguage
+			}
+			missingGrammarConcepts {
+				category
+				lemma
+			}
 		}
 		subtitles {
 			id

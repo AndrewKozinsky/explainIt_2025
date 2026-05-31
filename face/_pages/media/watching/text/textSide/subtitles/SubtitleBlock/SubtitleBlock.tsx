@@ -1,4 +1,4 @@
-import SentenceBlock from '_pages/media/commonComponents/SentenceBlock/SentenceBlock'
+import Sentence from '_pages/media/commonComponents/sentenceBlock/Sentence/Sentence'
 import { PopulatedSubtitlesStructure } from '_pages/media/watching/common/populatedSubtitlesStructure'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import './SubtitleBlock.scss'
@@ -18,7 +18,7 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 			<div className='subtitle-block__subtitle'>
 				{subtitle.texts.map((sentence) => {
 					return (
-						<SentenceBlock
+						<Sentence
 							sentenceId={sentence.sentenceId}
 							sentenceText={sentence.text}
 							selectedSentenceId={selection.sentenceId}

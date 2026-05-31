@@ -1,5 +1,6 @@
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-import { useGetDeleteVideo } from '_pages/media/video/editPrivateVideo/DeleteVideoButton/fn/getDeleteVideo'
+import { useGetDeleteVideo } from './fn/getDeleteVideo'
 
 function DeleteVideoButton() {
 	const { onDeleteVideoClick, status } = useGetDeleteVideo()
@@ -7,6 +8,7 @@ function DeleteVideoButton() {
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonText='Удалить видео...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteVideoClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{

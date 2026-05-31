@@ -1,3 +1,4 @@
+import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
@@ -7,6 +8,7 @@ function DeleteBookButton() {
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonText='Удалить книгу...'
+			deleteButtonIcon={<TrashButtonIcon />}
 			onDeleteButtonClick={onDeleteBookClick}
 			isDeleteButtonLoading={status === 'loading'}
 			modal={{

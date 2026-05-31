@@ -1,74 +1,191 @@
 import { useEffect } from 'react'
-import { usePathname } from 'next/navigation'
+import { produce } from 'immer'
+import { useBookChapter_Get, useVideoPrivate_Get, useVideoPublic_Get } from '@/graphql'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import { useDetailsStore } from '../../detailsStore'
-import { pageUrls } from 'сonsts/pageUrls'
+import {
+	useDetailsStore,
+	DetailsStoreNext,
+	DetailsSentenceEntry,
+	SentencePhrase,
+	makePhraseId,
+} from '../../detailsStore'
+import { wordIdsFromOffsets } from './wordSegmentation'
 
-export function usePopulateStoreWithBookData() {
-	const mediaType = useGetShowingMediaType()
+export function usePopulateStore() {
+	useFetchChapterAndSetToStore()
+	useFetchVideoAndSetToStore()
+	useShowCurrentTranslation()
+}
 
-	const bookSentences = useReadingStore((s) => s.populatedChapter?.sentences)
-	const bookSelection = useReadingStore((s) => s.selection)
+function useFetchChapterAndSetToStore() {
+	const chapterId = useDetailsStore((s) => s.chapterId)
+	const bookType = useReadingStore((s) => s.book?.type)
+	const languageCode = useDetailsStore((s) => s.languageCode)
 
-	useEffect(
-		function () {
-			if (mediaType !== 'book' || !bookSentences) return
-
-			const sentence = bookSentences.find((s) => s.id === bookSelection.sentenceId)
-			const sentenceText = sentence?.sentence ?? null
-
-			applySelectionToDetailsStore({
-				sentenceId: bookSelection.sentenceId,
-				wordId: bookSelection.wordId,
-				sentenceText,
-			})
+	const { data } = useBookChapter_Get({
+		variables: {
+			input: {
+				id: chapterId!,
+				bookType: bookType || 'private',
+				targetLanguageCode: 'ru',
+			},
 		},
-		[bookSelection.sentenceId, bookSelection.wordId],
-	)
-}
-
-export function usePopulateStoreWithMovieData() {
-	const mediaType = useGetShowingMediaType()
-
-	const videoSubSentences = useWatchingStore((s) => s.populatedSubtitles?.sentences)
-	const videoTextSentences = useWatchingStore((s) => s.populatedPlainText?.sentences)
-	const videoSelection = useWatchingStore((s) => s.selection)
-
-	useEffect(
-		function () {
-			if (mediaType !== 'video') return
-
-			const plainTextSentence = videoSubSentences?.find((s) => s.id === videoSelection.sentenceId)
-			const subtitleSentence = videoTextSentences?.find((s) => s.id === videoSelection.sentenceId)
-			const sentence = plainTextSentence ?? subtitleSentence
-			const sentenceText = sentence?.text || null
-
-			applySelectionToDetailsStore({
-				sentenceId: videoSelection.sentenceId,
-				wordId: videoSelection.wordId,
-				sentenceText,
-			})
-		},
-		[videoSelection.sentenceId, videoSelection.wordId],
-	)
-}
-
-type ApplySelectionInput = {
-	sentenceId: null | number
-	sentenceText: null | string
-	wordId: null | number
-}
-
-function applySelectionToDetailsStore(input: ApplySelectionInput) {
-	useDetailsStore.getState().updateStore({
-		currentSentenceId: input.sentenceId,
-		currentSentenceText: input.sentenceText,
-		currentWordId: input.wordId,
+		skip: !chapterId,
 	})
+
+	useEffect(
+		function () {
+			if (!data) return
+
+			const chapter = data.book_chapter_get
+
+			const sentences = mapToDetailsSentenceEntries({
+				originalContent: chapter.originalContent ?? '',
+				sentences: chapter.sentences ?? [],
+				languageCode,
+				getTranslation: (s) => s.sentenceTranslation?.translation ?? null,
+			})
+
+			useDetailsStore.getState().updateStore({ sentences })
+		},
+		[data, languageCode],
+	)
 }
 
-export function useGetShowingMediaType() {
-	const pathname = usePathname()
-	return pathname.startsWith(pageUrls.books.path) ? 'book' : 'video'
+function useFetchVideoAndSetToStore() {
+	const videoId = useDetailsStore((s) => s.videoId)
+	const videoType = useWatchingStore((s) => s.video?.type)
+	const languageCode = useDetailsStore((s) => s.languageCode)
+
+	const { data: privateVideoData } = useVideoPrivate_Get({
+		variables: { input: { id: videoId! } },
+		skip: videoType !== 'private' || !videoId,
+	})
+
+	const { data: publicVideoData } = useVideoPublic_Get({
+		variables: { input: { id: videoId! } },
+		skip: videoType !== 'public' || !videoId,
+	})
+
+	useEffect(
+		function () {
+			const video =
+				videoType === 'private' ? privateVideoData?.video_private_get : publicVideoData?.video_public_get
+
+			if (!video) return
+
+			const sentences = mapToDetailsSentenceEntries({
+				originalContent: video.originalContent ?? '',
+				sentences: video.sentences ?? [],
+				languageCode,
+				getTranslation: (s) => s.sentenceTranslations?.[0]?.translation ?? null,
+			})
+
+			useDetailsStore.getState().updateStore({ sentences })
+		},
+		[videoType, privateVideoData, publicVideoData, languageCode],
+	)
+}
+
+function useShowCurrentTranslation() {
+	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
+
+	useEffect(
+		function () {
+			if (currentSentenceId === null) return
+
+			useDetailsStore.setState(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === currentSentenceId)
+					if (entry) {
+						entry.data.translation.visible = true
+					}
+				}),
+			)
+		},
+		[currentSentenceId],
+	)
+}
+
+type ServerSentence = {
+	id: number
+	startOffset: number
+	length: number
+	sentenceTranslation?: { translation: string } | null
+	sentenceTranslations?: Array<{ translation: string }> | null
+	sentencePhraseTranslations?: Array<{
+		id: number
+		phrase: string
+		phraseStartOffset: number
+		phraseEndOffset: number
+		translate?: string | null
+		status: string
+		errorMessage?: string | null
+		flashcardId?: number | null
+		examples: Array<{ text: string; translate: string }>
+	}> | null
+}
+
+function mapToDetailsSentenceEntries(input: {
+	originalContent: string
+	sentences: ServerSentence[]
+	languageCode: null | string
+	getTranslation: (sentence: ServerSentence) => null | string
+}): DetailsSentenceEntry[] {
+	const { originalContent, sentences, languageCode, getTranslation } = input
+
+	return sentences
+		.filter((s) => getTranslation(s) !== null)
+		.map((sentence) => {
+			const translation = getTranslation(sentence)!
+			const sentenceText = originalContent.slice(
+				Math.max(0, sentence.startOffset),
+				Math.max(0, sentence.startOffset) + Math.max(0, sentence.length),
+			)
+
+			return {
+				sentenceId: sentence.id,
+				selectedPhraseId: null,
+				data: {
+					translation: {
+						text: translation,
+						loading: false,
+						error: null,
+						translation,
+						visible: false,
+					},
+					phrases: mapSentencePhrases({
+						phraseTranslations: sentence.sentencePhraseTranslations ?? [],
+						sentenceText,
+						languageCode,
+					}),
+				},
+			}
+		})
+}
+
+function mapSentencePhrases(input: {
+	phraseTranslations: NonNullable<ServerSentence['sentencePhraseTranslations']>
+	sentenceText: string
+	languageCode: null | string
+}): SentencePhrase[] {
+	const { phraseTranslations, sentenceText, languageCode } = input
+
+	return phraseTranslations.map((pt) => ({
+		randomGeneratedPhraseId: makePhraseId(),
+		sentencePhraseId: pt.id,
+		flashcardId: pt.flashcardId ?? null,
+		wordIds: wordIdsFromOffsets({
+			sentenceText,
+			locale: languageCode,
+			startOffset: pt.phraseStartOffset,
+			endOffset: pt.phraseEndOffset,
+		}),
+		phrase: pt.phrase,
+		loading: false,
+		error: pt.status === 'error' ? (pt.errorMessage ?? 'Unknown error') : null,
+		translation: pt.translate ?? null,
+		examples: pt.examples ?? [],
+	}))
 }

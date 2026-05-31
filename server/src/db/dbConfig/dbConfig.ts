@@ -1,4 +1,4 @@
-import { languages } from '../../utils/languages'
+import { languages } from 'utils/languages'
 import { BdConfig } from './dbConfigType'
 
 const languagesArr: string[] = Object.keys(languages)
@@ -192,7 +192,20 @@ export const bdConfig = {
 		},
 	},
 	BookPrivate: {
-		dtoProps: {},
+		dtoProps: {
+			fileName: {
+				type: 'string',
+				description: 'File name of the book cover',
+				required: false,
+				maxLength: 255,
+			},
+			fileMimeType: {
+				type: 'string',
+				description: 'File Mime Type of the book cover',
+				required: false,
+				maxLength: 50,
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
@@ -227,6 +240,34 @@ export const bdConfig = {
 				description: 'Note about the book',
 				required: false,
 				maxLength: 1000,
+			},
+			file_name: {
+				type: 'string',
+				description: 'Name of the book cover file',
+				required: false,
+				maxLength: 200,
+				example: 'cover.jpg',
+			},
+			file_s3_key: {
+				type: 'string',
+				description: 'S3 key of the book cover',
+				required: false,
+				maxLength: 1000,
+				example: 'privateBooksDev/cover.jpg',
+			},
+			s3_provider_name: {
+				type: 'enum',
+				enumName: 'S3ProviderName',
+				variants: s3ProviderName,
+				description: 'S3 provider name',
+				required: false,
+			},
+			is_file_uploaded: {
+				type: 'boolean',
+				default: false,
+				description: 'Is cover file was uploaded',
+				example: true,
+				required: true,
 			},
 			BookChapter: {
 				type: 'oneToMany',
@@ -927,26 +968,33 @@ export const bdConfig = {
 			},
 		},
 	},
-	// Слово или фраза. Используется в таблице транскрипций и озвучки
+	// Слово, фраза или предложение. Используется для транскрипций, озвучки и грамматических конструкций
 	UniversalPhrase: {
 		dtoProps: {},
-		indexes: [{ fields: ['language_code', 'phrase'], unique: true }],
+		indexes: [{ fields: ['source_language_code', 'text'], unique: true }],
 		dbFields: {
 			id: {
 				type: 'index',
 			},
-			phrase: {
+			text: {
 				type: 'string',
-				description: 'Word or phrase in foreign language',
+				description: 'Word, phrase or sentence in foreign language',
 				required: true,
-				maxLength: 500,
+				maxLength: 2000,
 				example: 'life',
 			},
-			language_code: {
+			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
 				required: true,
+			},
+			grammarExtractionStatus: {
+				type: 'enum',
+				required: true,
+				variants: ['NOT_STARTED', 'ERROR', 'SUCCESS'],
+				enumName: 'GrammarExtractionStatus',
+				default: 'NOT_STARTED',
 			},
 			UniversalTranscription: {
 				type: 'parentOneToOne',
@@ -956,6 +1004,10 @@ export const bdConfig = {
 				type: 'parentOneToOne',
 				required: false,
 			},
+			GrammarConceptToUniversalPhrase: { type: 'oneToMany' },
+			MissingGrammarConcept: { type: 'oneToMany' },
+			created_at: { type: 'createdAt' },
+			updated_at: { type: 'updatedAt' },
 		},
 	},
 	// Транскрипция слова или фразы
@@ -1209,6 +1261,91 @@ export const bdConfig = {
 			},
 			created_at: {
 				type: 'createdAt',
+			},
+		},
+	},
+	GrammarConcept: {
+		dtoProps: {},
+		indexes: [{ fields: ['source_language_code', 'target_language_code', 'category', 'lemma'], unique: true }],
+		dbFields: {
+			id: { type: 'uuidIndex' },
+			source_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			target_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			category: { type: 'string', required: true, maxLength: 100 },
+			lemma: { type: 'string', required: true, maxLength: 500 },
+			title: { type: 'string', required: true, maxLength: 500 },
+			slug: { type: 'string', required: true, maxLength: 500 },
+			order: { type: 'number', required: true, default: 0 },
+			aliases: { type: 'array', arrayItemType: 'string', required: true },
+			GrammarConceptToUniversalPhrase: { type: 'oneToMany' },
+		},
+	},
+	MissingGrammarConcept: {
+		dtoProps: {},
+		indexes: [{ fields: ['universal_phrase_id'] }],
+		dbFields: {
+			id: { type: 'index' },
+			universal_phrase_id: {
+				type: 'manyToOne',
+				thisField: 'universal_phrase_id',
+				foreignTable: 'UniversalPhrase',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				required: true,
+			},
+			source_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			target_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			category: { type: 'string', required: true, maxLength: 100 },
+			lemma: { type: 'string', required: true, maxLength: 500 },
+			sentence_text: { type: 'string', required: true, maxLength: 2000 },
+			created_at: { type: 'createdAt' },
+		},
+	},
+	GrammarConceptToUniversalPhrase: {
+		dtoProps: {},
+		indexes: [
+			{ fields: ['grammar_concept_id', 'universal_phrase_id'], unique: true },
+			{ fields: ['grammar_concept_id'] },
+			{ fields: ['universal_phrase_id'] },
+		],
+		dbFields: {
+			id: { type: 'index' },
+			grammar_concept_id: {
+				type: 'manyToOne',
+				thisField: 'grammar_concept_id',
+				foreignTable: 'GrammarConcept',
+				foreignField: 'id',
+				foreignFieldType: 'String',
+				onDelete: 'Cascade',
+				required: true,
+			},
+			universal_phrase_id: {
+				type: 'manyToOne',
+				thisField: 'universal_phrase_id',
+				foreignTable: 'UniversalPhrase',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				required: true,
 			},
 		},
 	},

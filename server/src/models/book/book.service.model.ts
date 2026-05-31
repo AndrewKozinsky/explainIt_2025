@@ -7,6 +7,9 @@ export type BookServiceModel = {
 	sourceLanguageCode: null | string
 	note: null | string
 	userId: number
+	fileName: null | string
+	fileS3Key: null | string
+	isFileUploaded: boolean
 	chapters: BookChapterLiteServiceModel[]
 }
 

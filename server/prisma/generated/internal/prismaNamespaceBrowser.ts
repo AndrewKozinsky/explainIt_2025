@@ -69,7 +69,10 @@ export const ModelName = {
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
-  Flashcard: 'Flashcard'
+  Flashcard: 'Flashcard',
+  GrammarConcept: 'GrammarConcept',
+  MissingGrammarConcept: 'MissingGrammarConcept',
+  GrammarConceptToUniversalPhrase: 'GrammarConceptToUniversalPhrase'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -136,6 +139,10 @@ export const BookPrivateScalarFieldEnum = {
   name: 'name',
   source_language_code: 'source_language_code',
   note: 'note',
+  file_name: 'file_name',
+  file_s3_key: 'file_s3_key',
+  s3_provider_name: 's3_provider_name',
+  is_file_uploaded: 'is_file_uploaded',
   created_at: 'created_at'
 } as const
 
@@ -291,8 +298,11 @@ export type SubtitleSentenceInitScalarFieldEnum = (typeof SubtitleSentenceInitSc
 
 export const UniversalPhraseScalarFieldEnum = {
   id: 'id',
-  phrase: 'phrase',
-  language_code: 'language_code'
+  text: 'text',
+  source_language_code: 'source_language_code',
+  grammarExtractionStatus: 'grammarExtractionStatus',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
 } as const
 
 export type UniversalPhraseScalarFieldEnum = (typeof UniversalPhraseScalarFieldEnum)[keyof typeof UniversalPhraseScalarFieldEnum]
@@ -363,6 +373,44 @@ export const FlashcardScalarFieldEnum = {
 } as const
 
 export type FlashcardScalarFieldEnum = (typeof FlashcardScalarFieldEnum)[keyof typeof FlashcardScalarFieldEnum]
+
+
+export const GrammarConceptScalarFieldEnum = {
+  id: 'id',
+  source_language_code: 'source_language_code',
+  target_language_code: 'target_language_code',
+  category: 'category',
+  lemma: 'lemma',
+  title: 'title',
+  slug: 'slug',
+  order: 'order',
+  aliases: 'aliases'
+} as const
+
+export type GrammarConceptScalarFieldEnum = (typeof GrammarConceptScalarFieldEnum)[keyof typeof GrammarConceptScalarFieldEnum]
+
+
+export const MissingGrammarConceptScalarFieldEnum = {
+  id: 'id',
+  universal_phrase_id: 'universal_phrase_id',
+  source_language_code: 'source_language_code',
+  target_language_code: 'target_language_code',
+  category: 'category',
+  lemma: 'lemma',
+  sentence_text: 'sentence_text',
+  created_at: 'created_at'
+} as const
+
+export type MissingGrammarConceptScalarFieldEnum = (typeof MissingGrammarConceptScalarFieldEnum)[keyof typeof MissingGrammarConceptScalarFieldEnum]
+
+
+export const GrammarConceptToUniversalPhraseScalarFieldEnum = {
+  id: 'id',
+  grammar_concept_id: 'grammar_concept_id',
+  universal_phrase_id: 'universal_phrase_id'
+} as const
+
+export type GrammarConceptToUniversalPhraseScalarFieldEnum = (typeof GrammarConceptToUniversalPhraseScalarFieldEnum)[keyof typeof GrammarConceptToUniversalPhraseScalarFieldEnum]
 
 
 export const SortOrder = {

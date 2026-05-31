@@ -1,0 +1,13 @@
+.grammar-page-content {
+	display: flex;
+	gap: 2rem;
+}
+
+.grammar-page-content__left {
+	flex-shrink: 0;
+	width: 300px;
+}
+
+.grammar-page-content__right {
+	flex-grow: 1;
+}

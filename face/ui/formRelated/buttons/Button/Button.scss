@@ -11,10 +11,20 @@
 	transition: border-color .2s ease-in-out;
 }
 
-.button--size-medium {
+.button--size-small {
 	font-size: 1.4rem;
-	line-height: 2rem;
-	padding: .5rem 1.2rem;
+	line-height: 1.8rem;
+	padding: .3rem 0.8rem;
+
+	&.button--icon-only {
+		padding: .3rem;
+	}
+}
+
+.button--size-medium {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	padding: .7rem 1.4rem;
 
 	&.button--icon-only {
 		padding: .4rem;

@@ -1,5 +1,5 @@
 import { useWatchingStore } from '../../../watchingStore'
-import PlainTextContent from '../plainText/PlainTextContent/PlainTextContent'
+import PlainTextContent from '../PlainTextContent/PlainTextContent'
 import SubtitlesContent from '../subtitles/SubtitlesContent/SubtitlesContent'
 import './TextSide.scss'
 

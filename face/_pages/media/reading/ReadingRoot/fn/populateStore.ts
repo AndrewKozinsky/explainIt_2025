@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import header from 'ui/articleBuilder/components/Header/Header'
+import { localStorageManager } from 'utils/localStorageManager'
 import {
 	BookChapterOutModel,
 	BookPrivateOutModel,
@@ -92,10 +94,9 @@ function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId), bookType: bookType || 'private' } },
+		variables: { input: { id: parseInt(chapterId), bookType: bookType || 'private', targetLanguageCode: 'ru' } },
 		skip: !chapterId,
 	})
-
 	useEffect(
 		function () {
 			if (loading) {
@@ -124,6 +125,8 @@ function useFetchChapterAndSetToStore() {
 					errorMessage: null,
 					data: chapter,
 				})
+
+				localStorageManager.lastBookChapter.set(bookIdInUrl, chapter.id)
 			}
 		},
 		[data, error, loading, chapterId],

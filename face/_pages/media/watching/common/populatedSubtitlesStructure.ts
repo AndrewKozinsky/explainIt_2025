@@ -38,6 +38,21 @@ export namespace PopulatedSubtitlesStructure {
 	type Sentence = {
 		id: number
 		text: string
-		// translation?: string
+		grammarConcepts: null | GrammarConceptData[]
+		missingGrammarConcepts: MissingGrammarConceptData[]
+	}
+
+	export type GrammarConceptData = {
+		id: string
+		title: string
+		slug: string
+		category: string
+		sourceLanguage: string
+		targetLanguage: string
+	}
+
+	export type MissingGrammarConceptData = {
+		category: string
+		lemma: string
 	}
 }

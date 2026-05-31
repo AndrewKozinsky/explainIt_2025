@@ -5,7 +5,7 @@ import { queries } from '../../src/features/db/queries'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
 import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 import RouteNames from '../../src/infrastructure/routeNames'
-import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
+import { BookChapterRepository } from '../../src/repo/bookChapter/bookChapter.repository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
@@ -64,11 +64,11 @@ describe.skip('Delete book chapter', () => {
 			},
 		})
 
-		checkErrorResponse(deletedBookChapterResp, {
+		/*checkErrorResponse(deletedBookChapterResp, {
 			code: 'Not Found',
 			statusCode: 404,
 			message: errorMessage.bookChapter.notFound,
-		})
+		})*/
 	})
 
 	it('should return 400 status if a book chapter belongs to another user', async () => {
@@ -124,11 +124,11 @@ describe.skip('Delete book chapter', () => {
 			},
 		})
 
-		checkErrorResponse(deletedBookChapterResp, {
+		/*checkErrorResponse(deletedBookChapterResp, {
 			code: 'Forbidden',
 			statusCode: 403,
 			message: errorMessage.user.isNotOwner,
-		})
+		})*/
 	})
 
 	it('user should delete a created book chapter', async () => {

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { LanguageCode } from 'utils/utils'
 import {
 	useAudioPronunciation_Create,
 	useUniversalPhrase_Create,
@@ -7,7 +8,6 @@ import {
 	UniversalPhrase_CreateHookResult,
 	UniversalPhrase_GetLazyQueryHookResult,
 } from '@/graphql'
-import { LanguageCode } from 'utils/utils'
 import { TranscriptionAndAudioProps } from '../types'
 
 type UseAudioPlayerInput = Pick<TranscriptionAndAudioProps, 'audioUrl' | 'phrase' | 'languageCode'>
@@ -66,7 +66,7 @@ export function useAudioPlayer(input: UseAudioPlayerInput) {
 				resolvedAudioUrl ??
 				(await loadAudioUrl({
 					phrase,
-					languageCode,
+					sourceLanguageCode: languageCode,
 					getPhrase,
 					createPhrase,
 					createAudioPronunciation,
@@ -99,16 +99,22 @@ export function useAudioPlayer(input: UseAudioPlayerInput) {
 
 async function loadAudioUrl(input: {
 	phrase: string
-	languageCode: LanguageCode
+	sourceLanguageCode: LanguageCode
 	getPhrase: GetPhraseFn
 	createPhrase: CreatePhraseFn
 	createAudioPronunciation: CreateAudioFn
 	setStatus: (status: AudioViewStatus) => void
 }): Promise<string | null> {
-	const { phrase, languageCode, getPhrase, createPhrase, createAudioPronunciation, setStatus } = input
+	const { phrase, sourceLanguageCode, getPhrase, createPhrase, createAudioPronunciation, setStatus } = input
 	setStatus('loading')
 
-	const result = await resolveAudioUrl({ phrase, languageCode, getPhrase, createPhrase, createAudioPronunciation })
+	const result = await resolveAudioUrl({
+		phrase,
+		sourceLanguageCode,
+		getPhrase,
+		createPhrase,
+		createAudioPronunciation,
+	})
 	if (!result.ok) {
 		setStatus('error')
 		return null
@@ -122,13 +128,13 @@ const audioRequestCache = new Map<number, Promise<AudioUrlResult>>()
 
 async function resolveAudioUrl(input: {
 	phrase: string
-	languageCode: LanguageCode
+	sourceLanguageCode: LanguageCode
 	getPhrase: GetPhraseFn
 	createPhrase: CreatePhraseFn
 	createAudioPronunciation: CreateAudioFn
 }): Promise<AudioUrlResult> {
-	const { phrase, languageCode, getPhrase, createPhrase, createAudioPronunciation } = input
-	const phraseData = await resolvePhrase({ phrase, languageCode, getPhrase, createPhrase })
+	const { phrase, sourceLanguageCode, getPhrase, createPhrase, createAudioPronunciation } = input
+	const phraseData = await resolvePhrase({ phrase, sourceLanguageCode, getPhrase, createPhrase })
 	if (!phraseData) {
 		return { ok: false }
 	}
@@ -143,19 +149,19 @@ async function resolveAudioUrl(input: {
 
 function resolvePhrase(input: {
 	phrase: string
-	languageCode: LanguageCode
+	sourceLanguageCode: LanguageCode
 	getPhrase: GetPhraseFn
 	createPhrase: CreatePhraseFn
 }): Promise<PhraseData | null> {
-	const { phrase, languageCode, getPhrase, createPhrase } = input
-	const key = `${languageCode}:${phrase}`
+	const { phrase, sourceLanguageCode, getPhrase, createPhrase } = input
+	const key = `${sourceLanguageCode}:${phrase}`
 	const cached = phraseRequestCache.get(key)
 	if (cached) return cached
 
 	const request = (async function () {
-		const existing = await fetchPhrase({ phrase, languageCode, getPhrase })
+		const existing = await fetchPhrase({ phrase, sourceLanguageCode, getPhrase })
 		if (existing) return existing
-		return createNewPhrase({ phrase, languageCode, createPhrase })
+		return createNewPhrase({ phrase, sourceLanguageCode, createPhrase })
 	})()
 
 	phraseRequestCache.set(key, request)
@@ -173,14 +179,14 @@ function resolvePhrase(input: {
 
 async function fetchPhrase(input: {
 	phrase: string
-	languageCode: LanguageCode
+	sourceLanguageCode: LanguageCode
 	getPhrase: GetPhraseFn
 }): Promise<PhraseData | null> {
-	const { phrase, languageCode, getPhrase } = input
+	const { phrase, sourceLanguageCode, getPhrase } = input
 
 	try {
 		const result = await getPhrase({
-			variables: { input: { phrase, languageCode } },
+			variables: { input: { text: phrase, sourceLanguageCode } },
 			fetchPolicy: 'network-only',
 		})
 		return result.data?.universal_phrase_get ?? null
@@ -191,14 +197,14 @@ async function fetchPhrase(input: {
 
 async function createNewPhrase(input: {
 	phrase: string
-	languageCode: LanguageCode
+	sourceLanguageCode: LanguageCode
 	createPhrase: CreatePhraseFn
 }): Promise<PhraseData | null> {
-	const { phrase, languageCode, createPhrase } = input
+	const { phrase, sourceLanguageCode, createPhrase } = input
 
 	try {
 		const result = await createPhrase({
-			variables: { input: { phrase, languageCode } },
+			variables: { input: { text: phrase, sourceLanguageCode } },
 		})
 		return result.data?.universal_phrase_create ?? null
 	} catch {

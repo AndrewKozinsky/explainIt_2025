@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookChapterQueryRepository } from 'repo/bookChapter.queryRepository'
-import { BookChapterRepository } from 'repo/bookChapter.repository'
+import { BookChapterQueryRepository } from 'repo/bookChapter/bookChapter.queryRepository'
+import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -8,6 +8,7 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 type GetBookChapterInput = {
 	bookType: 'private' | 'public'
 	id: number
+	targetLanguageCode?: string
 }
 
 export class GetBookChapterCommand implements ICommand {
@@ -48,6 +49,9 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
-		return this.bookChapterQueryRepository.getBookChapterById(getBookChapter.id)
+		return this.bookChapterQueryRepository.getBookChapterById(
+			getBookChapter.id,
+			getBookChapterInput.targetLanguageCode,
+		)
 	}
 }

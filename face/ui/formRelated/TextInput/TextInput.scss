@@ -1,19 +1,7 @@
 @use '@/styles/variables' as vars;
 
 .text-input {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	width: 100%;
-}
-.text-input--disabled {
-	opacity: .3;
-}
 
-.text-input__label {
-	display: block;
-	font-size: 1.6rem;
-	line-height: 2.2rem;
 }
 
 .text-input__input {
@@ -24,6 +12,10 @@
 
 	&::placeholder {
 		color: vars.$grayColor-3;
+	}
+
+	&:hover {
+		border-color: vars.$grayColor-3;
 	}
 
 	&:focus {

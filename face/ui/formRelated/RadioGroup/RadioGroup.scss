@@ -1,20 +1,7 @@
 @use '@/styles/variables' as vars;
 
 .radio-group {
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem;
-	width: 100%;
-}
 
-.radio-group--disabled {
-	opacity: .3;
-}
-
-.radio-group__label {
-	display: block;
-	font-size: 1.6rem;
-	line-height: 2.2rem;
 }
 
 .radio-group__radios {

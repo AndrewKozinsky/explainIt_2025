@@ -1,5 +1,3 @@
-'use client'
-
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import ChatInput from '../ChatInput/ChatInput'
 import MessageList from '../MessageList/MessageList'

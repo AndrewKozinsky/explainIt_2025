@@ -103,7 +103,6 @@ export type WatchingStoreValues = {
 		paused: boolean
 		command: null | PlayerCommand
 	}
-	// fullScreen: boolean
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Данные выделенного предложения и слов

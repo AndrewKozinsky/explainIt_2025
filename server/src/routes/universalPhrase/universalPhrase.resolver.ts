@@ -17,7 +17,7 @@ export class UniversalPhraseResolver {
 		description: universalPhraseResolversDesc.getUniversalPhrase,
 	})
 	async getUniversalPhrase(@Args('input') input: GetUniversalPhraseInput) {
-		return await this.commandBus.execute(new GetUniversalPhraseCommand(input.phrase, input.languageCode))
+		return await this.commandBus.execute(new GetUniversalPhraseCommand(input.text, input.sourceLanguageCode))
 	}
 
 	@Mutation(() => UniversalPhraseOutModel, {

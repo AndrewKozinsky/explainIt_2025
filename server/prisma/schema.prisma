@@ -51,16 +51,20 @@ model Payment {
 }
 
 model BookPrivate {
-    id                   Int           @id @default(autoincrement())
-    user                 User          @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    id                   Int             @id @default(autoincrement())
+    user                 User            @relation(fields: [user_id], references: [id], onDelete: Cascade)
     user_id              Int
     author               String?
     name                 String?
     source_language_code LanguageCode
     note                 String?
+    file_name            String?
+    file_s3_key          String?
+    s3_provider_name     S3ProviderName?
+    is_file_uploaded     Boolean         @default(false)
     BookChapter          BookChapter[]
     Flashcard            Flashcard[]
-    created_at           DateTime      @default(now())
+    created_at           DateTime        @default(now())
 }
 
 model BookPublic {
@@ -222,13 +226,18 @@ model SubtitleSentenceInit {
 }
 
 model UniversalPhrase {
-    id                          Int                          @id @default(autoincrement())
-    phrase                      String
-    language_code               LanguageCode
-    UniversalTranscription      UniversalTranscription?
-    UniversalAudioPronunciation UniversalAudioPronunciation?
+    id                              Int                               @id @default(autoincrement())
+    text                            String
+    source_language_code            LanguageCode
+    grammarExtractionStatus         GrammarExtractionStatus           @default(NOT_STARTED)
+    UniversalTranscription          UniversalTranscription?
+    UniversalAudioPronunciation     UniversalAudioPronunciation?
+    GrammarConceptToUniversalPhrase GrammarConceptToUniversalPhrase[]
+    MissingGrammarConcept           MissingGrammarConcept[]
+    created_at                      DateTime                          @default(now())
+    updated_at                      DateTime                          @default(now())
 
-    @@unique([language_code, phrase])
+    @@unique([source_language_code, text])
 }
 
 model UniversalTranscription {
@@ -304,6 +313,47 @@ model Flashcard {
     @@index([user_id, language_code])
 }
 
+model GrammarConcept {
+    id                              String                            @id @default(uuid())
+    source_language_code            LanguageCode
+    target_language_code            LanguageCode
+    category                        String
+    lemma                           String
+    title                           String
+    slug                            String
+    order                           Int                               @default(0)
+    aliases                         String[]
+    GrammarConceptToUniversalPhrase GrammarConceptToUniversalPhrase[]
+
+    @@unique([source_language_code, target_language_code, category, lemma])
+}
+
+model MissingGrammarConcept {
+    id                   Int             @id @default(autoincrement())
+    universal_phrase     UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id  Int
+    source_language_code LanguageCode
+    target_language_code LanguageCode
+    category             String
+    lemma                String
+    sentence_text        String
+    created_at           DateTime        @default(now())
+
+    @@index([universal_phrase_id])
+}
+
+model GrammarConceptToUniversalPhrase {
+    id                  Int             @id @default(autoincrement())
+    grammar_concept     GrammarConcept  @relation(fields: [grammar_concept_id], references: [id], onDelete: Cascade)
+    grammar_concept_id  String
+    universal_phrase    UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id Int
+
+    @@unique([grammar_concept_id, universal_phrase_id])
+    @@index([grammar_concept_id])
+    @@index([universal_phrase_id])
+}
+
 enum BalanceTransactionType {
     CHARGE
     TOP_UP
@@ -352,6 +402,12 @@ enum SentencePhraseTranslationStatus {
     pending
     ready
     error
+}
+
+enum GrammarExtractionStatus {
+    NOT_STARTED
+    ERROR
+    SUCCESS
 }
 
 enum SentenceChatMessageRole {

@@ -7,8 +7,8 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LanguageCode } from 'prisma/generated/client'
 
 type CreateUniversalPhraseInput = {
-	phrase: string
-	languageCode: LanguageCode
+	text: string
+	sourceLanguageCode: LanguageCode
 }
 
 export class CreateUniversalPhraseCommand implements ICommand {
@@ -26,8 +26,8 @@ export class CreateUniversalPhraseHandler implements ICommandHandler<CreateUnive
 		const { createPhraseInput } = command
 
 		const existingPhrase = await this.universalPhraseQueryRepository.getUniversalPhraseByTextAndLang(
-			createPhraseInput.phrase,
-			createPhraseInput.languageCode,
+			createPhraseInput.text,
+			createPhraseInput.sourceLanguageCode,
 		)
 		if (existingPhrase) {
 			throw new CustomError(errorMessage.universalPhrase.alreadyExists, ErrorStatusCode.BadRequest_400)

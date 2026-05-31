@@ -37,7 +37,7 @@ export function PageWrapper(props: PageWrapperProps) {
 						<span>ИНН: 560912925372</span>
 						<span>Россия, Оренбург</span>
 						<span>andkozinskiy@yandex.ru</span>
-						<span>Переводы выполняются автоматически с использованием LLM. Возможны неточности.</span>
+						<span>Переводы выполняются автоматически с использованием ИИ. Возможны неточности.</span>
 					</p>
 				</footer>
 			)}
