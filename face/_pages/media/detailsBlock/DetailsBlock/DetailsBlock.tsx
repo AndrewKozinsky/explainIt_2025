@@ -1,10 +1,9 @@
 import cn from 'classnames'
 import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { usePopulateStore } from '_pages/media/detailsBlock/DetailsBlock/fn/populateStore'
-import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
 import { useClearDataOnUnmount } from './fn/clearDataOnUnmount'
-// import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
+import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
 import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
 import { useInitStore } from './fn/initStore'
 import { useSetBookSentenceIdAndWordId, useSetVideoSentenceIdAndWordId } from './fn/setSentenceIdAndWordId'
@@ -22,7 +21,7 @@ function DetailsBlock(props: DetailsBlockProps) {
 	useSetBookSentenceIdAndWordId()
 	useSetVideoSentenceIdAndWordId()
 	useFetchCurrentSentenceTranslation()
-	// useFetchCurrentPhraseTranslation()
+	useFetchCurrentPhraseTranslation()
 	useClearDataOnUnmount()
 
 	return (

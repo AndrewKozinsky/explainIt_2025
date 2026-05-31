@@ -60,7 +60,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 				}
 			})
 		},
-		/*selectWord(input: { sentenceId: number; wordId: number }) {
+		selectWord(input: { sentenceId: number; wordId: number }) {
 			set((state) => {
 				return {
 					selection: {
@@ -69,7 +69,7 @@ export const useWatchingStore = create<WatchingStore>()((set, get) => {
 					},
 				}
 			})
-		},*/
+		},
 	}
 })
 
@@ -127,5 +127,5 @@ export type WatchingStoreMethods = {
 	updateVideo: (video: WatchingStoreI.VideoData) => void
 	setPlayerState: (state: Partial<WatchingStoreI.Player>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
-	// selectWord: (input: { sentenceId: number; wordId: number }) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 }

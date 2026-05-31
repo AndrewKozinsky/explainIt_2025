@@ -75,7 +75,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		/*patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
+		patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -87,8 +87,8 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					Object.assign(phrase, input.patch)
 				}),
 			)
-		},*/
-		/*finalizePhraseTranslation: (input: {
+		},
+		finalizePhraseTranslation: (input: {
 			sentenceId: number
 			placeholderPhraseId: string
 			phrase: SentencePhrase
@@ -131,8 +131,8 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					entry.data.phrases.push({ ...input.phrase, randomGeneratedPhraseId: input.placeholderPhraseId })
 				}),
 			)
-		},*/
-		/*setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => {
+		},
+		setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -141,7 +141,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					entry.selectedPhraseId = input.phraseId
 				}),
 			)
-		},*/
+		},
 		setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
@@ -238,12 +238,12 @@ export type DetailsStoreMethods = {
 	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
 	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
 	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
-	// patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
-	/*finalizePhraseTranslation: (input: {
+	patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
+	finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
 		phrase: SentencePhrase
-	}) => void*/
-	// setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
+	}) => void
+	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
 	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
 }

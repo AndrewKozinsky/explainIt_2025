@@ -1,43 +1,42 @@
-// import { CurrentSentenceTranslation } from '_pages/media/detailsBlock/CurrentSentenceTranslation/CurrentSentenceTranslation'
-// import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
-// import { CurrentSentence } from '_pages/media/detailsBlock/SelectedSentence/CurrentSentence'
-// import SentencePhraseAnalysis from '_pages/media/detailsBlock/SentencePhraseAnalysis/SentencePhraseAnalysis'
-// import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
-// import { useWatchingStore } from '_pages/media/watching/watchingStore'
-// import { useDetailsStore } from '../detailsStore'
-// import './WatchingDetailsBlock.scss'
+import { LanguageCode } from 'utils/utils'
+import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingStore'
 import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
+import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { useWatchingStore } from '_pages/media/watching/watchingStore'
 
 function WatchingDetailsBlock() {
-	// const sentenceId = useDetailsStore((s) => s.currentSentenceId)
+	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
+	const currentWordId = useDetailsStore((s) => s.currentWordId)
+	const languageCode = useWatchingStore((s) => s.video?.data.languageCode as LanguageCode)
+	const originalContent = useWatchingStore((s) => s.video?.data.originalContent)
+	const sentences = useWatchingStore((s) => s.video?.data.sentences)
+	const selectWord = useWatchingStore((s) => s.selectWord)
 
-	/*const wordAnalysis = useDetailsStore(function (s) {
-		const entry = findSentenceEntry({
-			sentences: s.sentences,
-			sentenceId: s.currentSentenceId,
-		})
-		if (!entry || !entry.selectedPhraseId) return null
+	const videoSentence = sentences?.find((s) => s.id === sentenceId)
 
-		return entry.data.phrases.find((p) => p.randomGeneratedPhraseId === entry.selectedPhraseId) ?? null
-	})*/
+	if (!languageCode || !videoSentence || !originalContent) {
+		return null
+	}
 
-	// const video = useWatchingStore((s) => s.video?.data)
+	const sentence: ChapterTextStructurePopulated.Sentence = {
+		id: videoSentence.id,
+		sentence: originalContent.slice(
+			Math.max(0, videoSentence.startOffset),
+			Math.max(0, videoSentence.startOffset) + Math.max(0, videoSentence.length),
+		),
+		grammarConcepts: videoSentence.grammarConcepts ?? null,
+		missingGrammarConcepts: videoSentence.missingGrammarConcepts ?? [],
+	}
 
-	/*return (
-		<div className='watching-details-block'>
-			<CurrentSentence />
-			<CurrentSentenceTranslation bgColor='white' />
-			{wordAnalysis && (
-				<SentencePhraseAnalysis
-					phraseAnalysis={wordAnalysis}
-					languageCode={video?.languageCode!}
-					onWhiteBackground
-				/>
-			)}
-			{sentenceId && <SentenceChat sentenceId={sentenceId} />}
-		</div>
-	)*/
-	return <SentenceBlock sentence={null} selectedSentenceId={null} selectedWordId={null} languageCode={null} />
+	return (
+		<SentenceBlock
+			sentence={sentence}
+			selectedSentenceId={sentenceId}
+			selectedWordId={currentWordId}
+			selectWord={selectWord}
+			languageCode={languageCode}
+		/>
+	)
 }
 
 export default WatchingDetailsBlock
