@@ -16,10 +16,10 @@ export const watchingStoreValues: WatchingStoreValues = {
 		paused: true,
 		command: null,
 	},
-	/*selection: {
+	selection: {
 		sentenceId: null,
 		wordId: null,
-	},*/
+	},
 	populatedPlainText: null as any as PopulatedTextStructure.Structure,
 	populatedSubtitles: null as any as PopulatedSubtitlesStructure.Structure,
 }
@@ -86,11 +86,11 @@ export namespace WatchingStoreI {
 		paused: boolean
 		command: null | PlayerCommand
 	}
-	/*export type SelectedSentence = {
+	export type SelectedSentence = {
 		sentenceId: null | number
 		// Идентификатор выделенного слова
 		wordId: null | number
-	}*/
+	}
 }
 
 export type WatchingStore = WatchingStoreValues & WatchingStoreMethods
@@ -106,7 +106,7 @@ export type WatchingStoreValues = {
 	populatedPlainText: PopulatedTextStructure.Structure
 	populatedSubtitles: PopulatedSubtitlesStructure.Structure
 	// Данные выделенного предложения и слов
-	// selection: WatchingStoreI.SelectedSentence
+	selection: WatchingStoreI.SelectedSentence
 }
 
 export type PlayerCommand =

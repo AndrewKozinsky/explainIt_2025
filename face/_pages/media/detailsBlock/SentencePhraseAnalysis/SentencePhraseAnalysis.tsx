@@ -1,19 +1,19 @@
-// import cn from 'classnames'
-// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-// import { LanguageCode } from 'utils/utils'
-// import { PhraseExample, SentencePhrase } from '_pages/media/detailsBlock/detailsStore'
-// import TranscriptionAndAudio from '../TranscriptionAndAudio/TranscriptionAndAudio'
-// import FlashCardButton from './FlashCardButton'
-// import './SentencePhraseAnalysis.scss'
+import cn from 'classnames'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import { LanguageCode } from 'utils/utils'
+import { PhraseExample, SentencePhrase } from '_pages/media/detailsBlock/detailsStore'
+import TranscriptionAndAudio from '../TranscriptionAndAudio/TranscriptionAndAudio'
+import FlashCardButton from './FlashCardButton'
+import './SentencePhraseAnalysis.scss'
 
-/*type SentencePhraseProps = {
+type SentencePhraseProps = {
 	phraseAnalysis: SentencePhrase
 	extraClass?: string
 	languageCode: string
 	onWhiteBackground?: boolean
-}*/
+}
 
-/*function SentencePhraseAnalysis(props: SentencePhraseProps) {
+function SentencePhraseAnalysis(props: SentencePhraseProps) {
 	const { phraseAnalysis, extraClass, languageCode, onWhiteBackground } = props
 
 	if (!phraseAnalysis) {
@@ -47,20 +47,20 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default SentencePhraseAnalysis
+export default SentencePhraseAnalysis
 
-/*type TopPartProps = {
+type TopPartProps = {
 	phrase: string
 	phraseTranslation: string
 	sentencePhraseId: number
 	flashcardId: null | number
 	languageCode: string
 	onWhiteBackground?: boolean
-}*/
+}
 
-/*function TopPart(props: TopPartProps) {
+function TopPart(props: TopPartProps) {
 	const { phrase, phraseTranslation, languageCode, onWhiteBackground, sentencePhraseId, flashcardId } = props
 
 	return (
@@ -77,10 +77,10 @@
 			<FlashCardButton sentencePhraseId={sentencePhraseId} flashcardId={flashcardId} />
 		</div>
 	)
-}*/
+}
 
-/*function Example({ example }: { example: PhraseExample }) {
+function Example({ example }: { example: PhraseExample }) {
 	return (
 		<p className='sentence-phrase-analysis__example'>{example.text && `${example.text} — ${example.translate}`}</p>
 	)
-}*/
+}

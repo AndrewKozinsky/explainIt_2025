@@ -171,6 +171,46 @@ mutation {
 - Убирает висячие запятые перед `}` и `]`
 - Только затем парсит JSON
 
+## Поток получения статьи (GetGrammarArticle)
+
+### 1. GraphQL-запрос `grammar_article_get`
+
+Клиент отправляет:
+```graphql
+query {
+  grammar_article_get(input: {
+    sourceLanguage: "en"
+    targetLanguage: "ru"
+    category: "phrasal_verb"
+    slug: "wake-up"
+  }) {
+    title
+    content
+    compiledSource
+  }
+}
+```
+
+### 2. Обработчик команды
+
+`GetGrammarArticleHandler` (`server/src/features/grammarConcept/GetGrammarArticle.command.ts`):
+
+1. Ищет папку `content/{targetLanguage}/{sourceLanguage}/{category}/` (проверяет `cwd` и `cwd/..`)
+2. Сканирует `.mdx` файлы, ищет совпадение по `slug` в frontmatter
+3. Извлекает контент через `gray-matter` (отделяя frontmatter от тела статьи)
+4. Компилирует MDX через `@mdx-js/mdx` compile() с опциями:
+   - `outputFormat: 'function-body'` — формат, совместимый с `next-mdx-remote`
+   - `providerImportSource: '@mdx-js/react'` — источник MDX-провайдера
+   - `development: process.env.NODE_ENV !== 'production'`
+5. Возвращает `{ title, content, compiledSource }`
+
+### 3. Рендеринг на клиенте
+
+`GrammarArticleModal` использует `<MDXRemote>` из `next-mdx-remote` (non-RSC) с:
+- `compiledSource` — скомпилированный код
+- `components={mdxComponentsRouter}` — кастомные MDX-компоненты (`Header`, `Paragraph`, `List`, `Note`, `Examples`, `Example`)
+- `frontmatter={{}}` и `scope={{}`} — обязательные поля для TypeScript
+
 ## Стартовая синхронизация (SyncMdxGrammarConcepts)
 
 При старте сервера `StartServerTasksRunner.onApplicationBootstrap()` выполняет `SyncMdxGrammarConceptsCommand`:
@@ -214,24 +254,33 @@ app/grammar/
 
 ### Компонент GrammarConceptLinks
 
-`face/_pages/media/commonComponents/GrammarConceptLinks/GrammarConceptLinks.tsx`
+`face/_pages/media/reading/content/tools/GrammarConceptLinks/GrammarConceptLinks.tsx`
 
-Три состояния:
+Отображает после каждого предложения:
 
-| Состояние | Что показывает |
-|-----------|---------------|
-| `grammarConcepts === null` (не загружено) | Кнопка «Определить грамматические конструкции» |
-| `grammarConcepts !== null` (загружено) | Список ссылок: синие (найденные статьи), серые (missing) |
+| Тип | Вид | Поведение |
+|-----|-----|-----------|
+| Найденные статьи | Синие кнопки (`theme='outline'`) | При клике открывают модальное окно `GrammarArticleModal` |
+| Missing-концепты | Серые кнопки (`theme='plain'`, disabled) | Не кликабельны, показывают `lemma` как текст |
 
-Серые метки для missing-концептов — не кликабельны, показывают `lemma` как текст.
+### Модальное окно GrammarArticleModal
+
+`face/_pages/media/reading/content/tools/GrammarArticleModal/GrammarArticleModal.tsx`
+
+При клике на кнопку концепта открывается модальное окно, которое:
+
+1. Делает GraphQL-запрос `grammar_article_get` с параметрами `sourceLanguage`, `targetLanguage`, `category`, `slug`
+2. Получает `compiledSource` — скомпилированный MDX (с сервера через `@mdx-js/mdx`, формат `function-body`)
+3. Рендерит статью через `<MDXRemote>` из `next-mdx-remote` (non-RSC) с `mdxComponentsRouter` — те же компоненты, что использует `Article` (`Header`, `Paragraph`, `List`, `Note`, `Examples`, `Example`)
 
 ### Поток в чтении
 
 1. При загрузке главы `getBookChapter` возвращает `grammarConcepts` для каждого предложения (если ранее извлекались)
 2. `populateChapterStructure` мапит ответ сервера в структуру стора
 3. `ChapterSentenceBlock` рендерит `GrammarConceptLinks` после каждого предложения
-4. При клике на кнопку — `handleFetchGrammarConcepts` вызывает мутацию `grammar_concept_fetch`
-5. После ответа обновляет локальный стейт предложения (и `grammarConcepts`, и `missingGrammarConcepts`)
+4. При клике на кнопку концепта — открывается `GrammarArticleModal` и загружает статью через `grammar_article_get`
+5. Если концепты ещё не извлекались (`grammarConcepts === null`) — показывается кнопка «Определить грамматические конструкции», которая вызывает мутацию `grammar_concept_fetch`
+6. После ответа мутации обновляется локальный стейт предложения
 
 ### Типы в readingStore
 
@@ -250,6 +299,7 @@ export namespace ChapterTextStructurePopulated {
         slug: string
         category: string
         sourceLanguage: string
+        targetLanguage: string
     }
 
     export type MissingGrammarConceptData = {
@@ -289,6 +339,33 @@ query {
 ```
 
 ### Выходные модели
+
+#### GrammarExtractionOutModel
+Результат мутации `grammar_concept_fetch`:
+
+```typescript
+@ObjectType()
+export class GrammarExtractionOutModel {
+    @Field(() => Int) id: number
+    @Field(() => String) sentenceText: string
+    @Field(() => String) sourceLanguage: string
+    @Field(() => String) grammarExtractionStatus: string
+    @Field(() => [GrammarConceptOutModel]) grammarConcepts: GrammarConceptOutModel[]
+    @Field(() => [MissingGrammarConceptOutModel]) missingGrammarConcepts: MissingGrammarConceptOutModel[]
+}
+```
+
+#### GrammarArticleOutModel
+Результат запроса `grammar_article_get` (в отдельном файле `grammarArticle.out.model.ts`):
+
+```typescript
+@ObjectType()
+export class GrammarArticleOutModel {
+    @Field(() => String) title: string
+    @Field(() => String) content: string        // сырой MDX
+    @Field(() => String) compiledSource: string  // скомпилированный MDX (function-body)
+}
+```
 
 Поля `grammarConcepts` и `missingGrammarConcepts` добавлены как в `VideoPrivateSentenceOutModel`, так и в `VideoPublicSentenceOutModel`:
 
@@ -346,7 +423,8 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 #### БД и модели
 - `server/src/db/dbConfig/dbConfig.ts` — конфигурация таблиц `GrammarConcept`, `UniversalPhrase`, `MissingGrammarConcept`, `GrammarConceptToUniversalPhrase`
 - `server/src/db/prismaGenerator/columns/uuidIndexColumn.ts` — генератор UUID-колонок для Prisma
-- `server/src/models/grammarConcept/grammarConcept.out.model.ts` — GraphQL-типы: `GrammarConceptOutModel`, `MissingGrammarConceptOutModel`, `UniversalPhraseOutModel`
+- `server/src/models/grammarConcept/grammarConcept.out.model.ts` — GraphQL-типы: `GrammarConceptOutModel`, `MissingGrammarConceptOutModel`, `GrammarExtractionOutModel`
+- `server/src/models/grammarConcept/grammarArticle.out.model.ts` — GraphQL-тип `GrammarArticleOutModel`: `title`, `content`, `compiledSource`
 - `server/src/models/grammarConcept/grammarConcept.service.model.ts` — внутренние типы: `GrammarConceptServiceModel`, `UniversalPhraseServiceModel`, `MissingGrammarConceptServiceModel`
 - `server/src/models/videoPrivate/videoPrivateOut.model.ts` — `VideoPrivateSentenceOutModel` с полями `grammarConcepts`, `missingGrammarConcepts`
 - `server/src/models/videoPublic/videoPublic.out.model.ts` — `VideoPublicSentenceOutModel` с полями `grammarConcepts`, `missingGrammarConcepts`
@@ -363,6 +441,7 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 
 #### Команды
 - `server/src/features/grammarConcept/FetchGrammarConcepts.command.ts` — извлечение концептов из предложения
+- `server/src/features/grammarConcept/GetGrammarArticle.command.ts` — получение статьи из `content/` с компиляцией MDX через `@mdx-js/mdx`
 - `server/src/features/grammarConcept/SyncMdxGrammarConcepts.command.ts` — синхронизация MDX-статей с БД при старте
 - `server/src/features/video/GetVideoPrivate.command.ts` — команда с параметром `targetLanguageCode`
 - `server/src/features/video/GetVideoPublic.command.ts` — команда с параметром `targetLanguageCode`
@@ -373,8 +452,9 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 - `server/src/features/grammarConcept/grammarCategories.ts` — категории по языкам
 
 #### API
-- `server/src/routes/grammarConcept/grammarConcept.resolver.ts` — GraphQL-резолвер мутации `grammar_concept_fetch`
-- `server/src/routes/grammarConcept/inputs/fetchGrammarConcepts.input.ts` — входной тип с валидацией через `DtoFieldDecorators`
+- `server/src/routes/grammarConcept/grammarConcept.resolver.ts` — GraphQL-резолвер: мутация `grammar_concept_fetch` и запрос `grammar_article_get`
+- `server/src/routes/grammarConcept/inputs/fetchGrammarConcepts.input.ts` — входной тип мутации с валидацией через `DtoFieldDecorators`
+- `server/src/routes/grammarConcept/inputs/getGrammarArticle.input.ts` — входной тип запроса: `sourceLanguage`, `targetLanguage`, `category`, `slug`
 - `server/src/routes/grammarConcept/grammarConcept.module.ts` — модуль со всеми зависимостями
 - `server/src/routes/videoPrivate/videoPrivate.resolver.ts` — `getVideoPrivate` с параметром `targetLanguageCode`
 - `server/src/routes/videoPrivate/inputs/getPrivateVideo.input.ts` — добавлено поле `targetLanguageCode`
@@ -385,6 +465,12 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 
 #### Инфраструктура
 - `server/src/infrastructure/StartServerTasksRunner.ts` — запуск `SyncMdxGrammarConceptsCommand` при старте
+- `server/src/worker.module.ts` — добавлен `GrammarConceptQueryRepository` в провайдеры (нужен для `VideoPrivateQueryRepository`)
+
+#### Зависимости
+- `@mdx-js/mdx` (сервер) — компиляция MDX в `compiledSource` для отправки на клиент
+- `next-mdx-remote` (клиент) — non-RSC `<MDXRemote>` для рендеринга скомпилированного MDX в клиентском компоненте
+- `gray-matter` (сервер) — извлечение frontmatter из `.mdx` файлов
 
 ### Клиент
 
@@ -407,15 +493,15 @@ const provider: GrammarExtractionProvider = 'gemini'  // 'openai' | 'gemini' | '
 - `face/_pages/grammar/fn/getContentDir.ts` — получение пути к content/
 
 #### Отображение в чтении и видео
-- `face/_pages/media/commonComponents/GrammarConceptLinks/GrammarConceptLinks.tsx` — кнопка/ссылки после предложения
-- `face/_pages/media/commonComponents/GrammarConceptLinks/computeArticleUrl.ts` — построение URL статьи
-- `face/_pages/media/reading/ChapterContent/ChapterContent.tsx` — хендлер мутации `fetchGrammarConcepts`
+- `face/_pages/media/reading/content/tools/GrammarConceptLinks/GrammarConceptLinks.tsx` — кнопки концептов после предложения + модальное окно
+- `face/_pages/media/reading/content/tools/GrammarArticleModal/GrammarArticleModal.tsx` — модальное окно со статьёй (GraphQL + MDXRemote)
 - `face/_pages/media/reading/ChapterContent/ChapterSentence.tsx` — рендер предложения с GrammarConceptLinks
 - `face/_pages/media/reading/ReadingRoot/fn/populateChapterStructure.ts` — маппинг ответа сервера
 - `face/_pages/media/reading/readingStore.ts` — типы `GrammarConceptData`, `MissingGrammarConceptData`
 
 #### GraphQL
 - `face/graphql/grammarConcept/fetchGrammarConcepts.graphql` — мутация извлечения
+- `face/graphql/grammarConcept/getGrammarArticle.graphql` — запрос статьи (`title`, `content`, `compiledSource`)
 - `face/graphql/bookChapter/bookChapterGet.graphql` — запрос главы с `grammarConcepts`
 - `face/graphql/videoPrivate/videoPrivateGet.graphql` — запрос видео с `targetLanguageCode` и `grammarConcepts`
 - `face/graphql/videoPublic/videoPublicGet.graphql` — запрос видео с `targetLanguageCode` и `grammarConcepts`

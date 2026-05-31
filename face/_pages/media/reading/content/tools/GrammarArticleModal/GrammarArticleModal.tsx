@@ -5,6 +5,7 @@ import { gql, useLazyQuery } from '@apollo/client'
 import { MDXRemote } from 'next-mdx-remote'
 import { mdxComponentsRouter } from '@/ui/articleBuilder/mdxComponentsRouter'
 import Modal from '@/ui/Modal/Modal'
+import './GrammarArticleModal.scss'
 
 const GET_GRAMMAR_ARTICLE = gql`
 	query GrammarArticle_get($input: GetGrammarArticleInput!) {
@@ -55,7 +56,12 @@ export default function GrammarArticleModal(props: GrammarArticleModalProps) {
 			{loading && <p>Loading...</p>}
 			{!loading && compiledSource && (
 				<article className='article'>
-					<MDXRemote compiledSource={compiledSource} components={mdxComponentsRouter} />
+					<MDXRemote
+						compiledSource={compiledSource}
+						components={mdxComponentsRouter}
+						frontmatter={{}}
+						scope={{}}
+					/>
 				</article>
 			)}
 			{!loading && !compiledSource && <p>Article not found</p>}

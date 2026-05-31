@@ -1,6 +1,8 @@
 import { LanguageCode } from 'utils/utils'
+import SentenceTranslation from '_pages/media/reading/content/SentenceTranslation/SentenceTranslation'
 import SentenceBlock from '../../../commonComponents/SentenceBlock/SentenceBlock'
 import { ChapterTextStructurePopulated } from '../../readingStore'
+import PhraseDetails from '../PhraseDetails/PhraseDetails'
 import SentenceTools from '../tools/SentenceTools/SentenceTools'
 import './ChapterSentenceBlock.scss'
 
@@ -16,7 +18,7 @@ function ChapterSentenceBlock(props: ChapterSentenceProps) {
 	const { sentence, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
 
 	return (
-		<div>
+		<div className='chapter-sentence-block'>
 			<SentenceBlock
 				sentenceId={sentence.id}
 				sentenceText={sentence.sentence}
@@ -25,7 +27,8 @@ function ChapterSentenceBlock(props: ChapterSentenceProps) {
 				selectWord={selectWord}
 			/>
 			<SentenceTools sentence={sentence} />
-			{/*<SentenceDetails sentenceId={sentence.id} languageCode={languageCode} />*/}
+			<SentenceTranslation sentenceId={sentence.id} />
+			<PhraseDetails sentenceId={sentence.id} languageCode={languageCode} />
 		</div>
 	)
 }

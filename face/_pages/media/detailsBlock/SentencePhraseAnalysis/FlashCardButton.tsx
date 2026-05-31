@@ -1,13 +1,13 @@
-// import cn from 'classnames'
-// import { filesUrls } from 'utils/filesUrls'
-// import { useFlashCardButton } from './fn/useFlashCardButton'
+import cn from 'classnames'
+import { filesUrls } from 'utils/filesUrls'
+import { useFlashCardButton } from './fn/useFlashCardButton'
 
-/*type FlashCardButtonProps = {
+type FlashCardButtonProps = {
 	sentencePhraseId: number
 	flashcardId: null | number
-}*/
+}
 
-/*function FlashCardButton(props: FlashCardButtonProps) {
+function FlashCardButton(props: FlashCardButtonProps) {
 	const view = useFlashCardButton(props)
 
 	if (view.state === 'hidden') return null
@@ -24,6 +24,6 @@
 			<img src={filesUrls.icons.addIcon} alt='' />
 		</button>
 	)
-}*/
+}
 
-// export default FlashCardButton
+export default FlashCardButton

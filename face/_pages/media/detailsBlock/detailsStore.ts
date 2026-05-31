@@ -1,7 +1,7 @@
-// import { produce } from 'immer'
-// import { create } from 'zustand'
+import { produce } from 'immer'
+import { create } from 'zustand'
 
-/*export const detailsStoreValues: DetailsStoreValues = {
+export const detailsStoreValues: DetailsStoreValues = {
 	bookName: null,
 	bookAuthor: null,
 	videoName: null,
@@ -12,9 +12,9 @@
 	currentWordId: null,
 	sentences: [],
 	transcriptions: [],
-}*/
+}
 
-/*export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
+export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 	return {
 		...detailsStoreValues,
 		clearStoreData: () => {
@@ -23,7 +23,7 @@
 		updateStore: (storePart: Partial<DetailsStoreValues>) => {
 			set(storePart)
 		},
-		insertLoadingSentence: (input: { sentenceId: number; text: string }) => {
+		/*insertLoadingSentence: (input: { sentenceId: number; text: string }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					state.sentences.push({
@@ -41,8 +41,8 @@
 					})
 				}),
 			)
-		},
-		patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => {
+		},*/
+		/*patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -51,8 +51,8 @@
 					Object.assign(entry.data.sentence, input.patch)
 				}),
 			)
-		},
-		upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => {
+		},*/
+		/*upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -71,8 +71,8 @@
 					entry.data.phrases.push(input.phrase)
 				}),
 			)
-		},
-		patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
+		},*/
+		/*patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -84,8 +84,8 @@
 					Object.assign(phrase, input.patch)
 				}),
 			)
-		},
-		finalizePhraseTranslation: (input: {
+		},*/
+		/*finalizePhraseTranslation: (input: {
 			sentenceId: number
 			placeholderPhraseId: string
 			phrase: SentencePhrase
@@ -128,8 +128,8 @@
 					entry.data.phrases.push({ ...input.phrase, randomGeneratedPhraseId: input.placeholderPhraseId })
 				}),
 			)
-		},
-		setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => {
+		},*/
+		/*setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -138,7 +138,7 @@
 					entry.selectedPhraseId = input.phraseId
 				}),
 			)
-		},
+		},*/
 		setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
@@ -154,7 +154,7 @@
 			)
 		},
 	}
-})*/
+})
 
 /*export function makePhraseId(): string {
 	return 'p_' + Math.random().toString(36).slice(2) + '_' + Date.now().toString(36)
@@ -170,30 +170,30 @@
 	return true
 }*/
 
-// export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
+export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
-/*export type DetailsTranscription = {
+export type DetailsTranscription = {
 	phrase: string
 	transcription: string
-}*/
+}
 
-/*export type DetailsSentenceEntry = {
+export type DetailsSentenceEntry = {
 	sentenceId: number
 	selectedPhraseId: string | null
 	data: {
-		sentence: SentenceTranslation
+		translation: SentenceTranslation
 		phrases: SentencePhrase[]
 	}
-}*/
+}
 
-/*export type SentenceTranslation = {
+export type SentenceTranslation = {
 	text: string
 	loading: boolean
 	error: null | string
 	translation: null | string
-}*/
+}
 
-/*export type SentencePhrase = {
+export type SentencePhrase = {
 	// id фразы предложения генерируется на клиенте потому что запрос на сервер на создание фразы идёт после того, как фраза создаётся в Хранилище
 	randomGeneratedPhraseId: string
 	// Id фразы из предложения, созданной на сервере
@@ -206,14 +206,14 @@
 	error: null | string
 	translation: null | string
 	examples: PhraseExample[]
-}*/
+}
 
-/*export type PhraseExample = {
+export type PhraseExample = {
 	text: string
 	translate: string
-}*/
+}
 
-/*export type DetailsStoreValues = {
+export type DetailsStoreValues = {
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
@@ -224,20 +224,20 @@
 	currentWordId: null | number
 	sentences: DetailsSentenceEntry[]
 	transcriptions: DetailsTranscription[]
-}*/
+}
 
-/*export type DetailsStoreMethods = {
+export type DetailsStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DetailsStoreValues>) => void
-	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
-	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
-	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
-	patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
-	finalizePhraseTranslation: (input: {
+	// insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
+	// patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
+	// upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
+	// patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
+	/*finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
 		phrase: SentencePhrase
-	}) => void
-	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
+	}) => void*/
+	// setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
 	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
-}*/
+}

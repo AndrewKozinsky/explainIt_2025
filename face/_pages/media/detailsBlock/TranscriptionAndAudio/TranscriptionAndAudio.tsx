@@ -1,16 +1,16 @@
-// import UiTranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
-// import { LanguageCode } from 'utils/utils'
-// import { mapUiState } from './fn/mapUiState'
-// import { usePhrase } from './fn/usePhrase'
-// import { useTranscription } from './fn/useTranscription'
+import UiTranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
+import { LanguageCode } from 'utils/utils'
+import { mapUiState } from './fn/mapUiState'
+import { usePhrase } from './fn/usePhrase'
+import { useTranscription } from './fn/useTranscription'
 
-/*type TranscriptionAndAudioProps = {
+type TranscriptionAndAudioProps = {
 	phrase: string
 	languageCode: LanguageCode
 	onWhiteBackground?: boolean
-}*/
+}
 
-/*function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
+function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const { phrase, languageCode, onWhiteBackground } = props
 
 	const { status, phraseId, phraseTranscription, phraseAudioUrl } = usePhrase(phrase, languageCode)
@@ -44,6 +44,6 @@
 			onWhiteBackground={onWhiteBackground}
 		/>
 	)
-}*/
+}
 
-// export default TranscriptionAndAudio
+export default TranscriptionAndAudio

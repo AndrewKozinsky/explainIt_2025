@@ -1,10 +1,10 @@
-// import Spinner from 'ui/Spinner/Spinner'
+import Spinner from 'ui/Spinner/Spinner'
 
-/*export function SentenceLoading() {
+export function SentenceLoading() {
 	return (
 		<p className='chapter-content__sentence-loading'>
 			<Spinner size='small' />
 			Загрузка перевода предложения…
 		</p>
 	)
-}*/
+}
