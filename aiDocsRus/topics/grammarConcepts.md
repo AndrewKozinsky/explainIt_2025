@@ -246,10 +246,6 @@ app/grammar/
 - **`getAllLessons(sourceLanguage, category)`** — читает все `.mdx` из `content/{targetLang}/{sourceLanguage}/{category}/`, возвращает массив метаданных
 - **`getLessonBySlug(sourceLanguage, category, slug)`** — находит конкретный урок по slug
 
-### Вычисление URL статьи
-
-На клиенте: `computeArticleUrl(sourceLanguage, category, slug)` → `/grammar/{sourceLanguage}/{category}/{slug}`
-
 ## Клиент: отображение в чтении
 
 ### Компонент GrammarConceptLinks

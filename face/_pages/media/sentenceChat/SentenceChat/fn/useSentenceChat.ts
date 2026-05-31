@@ -1,24 +1,24 @@
 // 'use client'
 
-// import { useCallback, useEffect, useRef, useState } from 'react'
-// import {
-// 	useSentence_Chat_Create_Thread,
-// 	useSentence_Chat_Create_User_Message,
-// 	useSentence_Chat_Get_ThreadLazyQuery,
-// } from '@/graphql'
-// import { getTextByUnknownError } from '@/utils/errorMessages'
-// import { ChatMessageStatus, ChatUiMessage, SseEvent } from '../../types/sseTypes'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+	useSentence_Chat_Create_Thread,
+	useSentence_Chat_Create_User_Message,
+	useSentence_Chat_Get_ThreadLazyQuery,
+} from '@/graphql'
+import { getTextByUnknownError } from '@/utils/errorMessages'
+import { ChatMessageStatus, ChatUiMessage, SseEvent } from '../../types/sseTypes'
 
-/*export type UseSentenceChatReturn = {
+export type UseSentenceChatReturn = {
 	messages: ChatUiMessage[]
 	isLoadingThread: boolean
 	isGenerating: boolean
 	threadError: null | string
 	sendQuestion: (question: string) => Promise<void>
 	cancelGeneration: () => void
-}*/
+}
 
-/*export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
+export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 	const [threadId, setThreadId] = useState<null | number>(null)
 	const [messages, setMessages] = useState<ChatUiMessage[]>([])
 	const [isLoadingThread, setIsLoadingThread] = useState<boolean>(true)
@@ -226,8 +226,8 @@
 		sendQuestion,
 		cancelGeneration,
 	}
-}*/
+}
 
-/*function buildSseUrl(threadId: number) {
+function buildSseUrl(threadId: number) {
 	return `/api/sentence-chat/threads/${threadId}/assistant-stream`
-}*/
+}

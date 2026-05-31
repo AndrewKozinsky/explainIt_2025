@@ -1,14 +1,14 @@
-// import React from 'react'
-// import { ErrorIcon } from 'ui/icons/ErrorIcon'
-// import Spinner from 'ui/Spinner/Spinner'
-// import { AudioData } from './fn/types'
+import React from 'react'
+import { ErrorIcon } from 'ui/icons/ErrorIcon'
+import Spinner from 'ui/Spinner/Spinner'
+import { AudioData } from './fn/types'
 
-/*type AudioIconProps = {
+type AudioIconProps = {
 	audio: AudioData
 	isPlaying: boolean
-}*/
+}
 
-/*export function AudioIcon(props: AudioIconProps) {
+export function AudioIcon(props: AudioIconProps) {
 	const { audio, isPlaying } = props
 
 	// Show spinner while loading audio
@@ -22,9 +22,9 @@
 	}
 
 	return <span className='transcription-audio__icon-wrapper'>{isPlaying ? <PauseIcon /> : <PlayIcon />}</span>
-}*/
+}
 
-/*function PlayIcon() {
+function PlayIcon() {
 	return (
 		<svg
 			width='10px'
@@ -42,9 +42,9 @@
 			</g>
 		</svg>
 	)
-}*/
+}
 
-/*function PauseIcon() {
+function PauseIcon() {
 	return (
 		<svg
 			width='10px'
@@ -66,4 +66,4 @@
 			</g>
 		</svg>
 	)
-}*/
+}

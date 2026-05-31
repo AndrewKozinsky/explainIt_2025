@@ -1,22 +1,22 @@
-// 'use client'
+'use client'
 
-// import { KeyboardEvent, useRef, useState } from 'react'
-// import cn from 'classnames'
-// import { useUserStore } from '@/stores/userStore'
-// import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
-// import ChatInputWarningMessage from './ChatInputWarningMessage'
-// import { handleEnterToSend } from './fn/handleEnterToSend'
-// import { computeInsertAtCaret, applyCaret } from './fn/insertAtCaret'
-// import SendAndCancelButton from './SendAndCancelButton'
-// import './ChatInput.scss'
+import { KeyboardEvent, useRef, useState } from 'react'
+import cn from 'classnames'
+import { useUserStore } from '@/stores/userStore'
+import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
+import ChatInputWarningMessage from './ChatInputWarningMessage'
+import { handleEnterToSend } from './fn/handleEnterToSend'
+import { computeInsertAtCaret, applyCaret } from './fn/insertAtCaret'
+import SendAndCancelButton from './SendAndCancelButton'
+import './ChatInput.scss'
 
-/*type ChatInputProps = {
+type ChatInputProps = {
 	isGenerating: boolean
 	onSend: (question: string) => void
 	onCancel: () => void
-}*/
+}
 
-/*function ChatInput(props: ChatInputProps) {
+function ChatInput(props: ChatInputProps) {
 	const { isGenerating, onSend, onCancel } = props
 
 	const user = useUserStore((s) => s.user)
@@ -78,6 +78,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default ChatInput
+export default ChatInput

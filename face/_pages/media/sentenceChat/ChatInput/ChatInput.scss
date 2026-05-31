@@ -1,6 +1,6 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.chat-input {
+.chat-input {
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -8,13 +8,13 @@
 	padding: .8rem 1rem;
 	border: 1px solid vars.$grayColor-2;
 	border-radius: vars.$radius-2;
-}*/
+}
 
-/*.chat-input--focus {
+.chat-input--focus {
 	border-color: vars.$linkColor-2;
-}*/
+}
 
-/*.chat-input__textarea {
+.chat-input__textarea {
 	font-size: 1.6rem;
 	line-height: 2.4rem;
 	resize: none;
@@ -27,21 +27,21 @@
 	&:focus {
 		outline: none;
 	}
-}*/
+}
 
-/*.chat-input__bottom {
+.chat-input__bottom {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	gap: 1rem;
-}*/
+}
 
-/*.chat-input__warning-message {
+.chat-input__warning-message {
 	font-size: 1.4rem;
 	line-height: 1.8rem;
-}*/
+}
 
-/*.chat-input__send-button {
+.chat-input__send-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -56,10 +56,10 @@
 		background: vars.$grayColor-3;
 		cursor: not-allowed;
 	}
-}*/
+}
 
-/*.chat-input__actions {
+.chat-input__actions {
 	display: flex;
 	align-items: center;
 	gap: .6rem;
-}*/
+}

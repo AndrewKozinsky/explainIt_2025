@@ -1,6 +1,6 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.chat-input__mic-button {
+.chat-input__mic-button {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -21,4 +21,4 @@
 		background: vars.$grayColor-3;
 		cursor: not-allowed;
 	}
-}*/
+}

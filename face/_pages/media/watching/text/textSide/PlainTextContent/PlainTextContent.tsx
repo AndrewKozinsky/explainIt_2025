@@ -1,8 +1,8 @@
-// import SentenceBlock from '_pages/media/commonComponents/SentenceBlock/SentenceBlock'
-// import { useWatchingStore } from '_pages/media/watching/watchingStore'
-// import './PlainTextContent.scss'
+import Sentence from '_pages/media/commonComponents/sentenceBlock/Sentence/Sentence'
+import { useWatchingStore } from '_pages/media/watching/watchingStore'
+import './PlainTextContent.scss'
 
-/*function PlainTextContent() {
+function PlainTextContent() {
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 	const selection = useWatchingStore((s) => s.selection)
 	const selectWord = useWatchingStore((s) => s.selectWord)
@@ -11,7 +11,7 @@
 		<div className='plain-text-content'>
 			{populatedPlainText.sentences.map((sentence) => {
 				return (
-					<SentenceBlock
+					<Sentence
 						sentenceId={sentence.id}
 						sentenceText={sentence.text}
 						selectedSentenceId={selection.sentenceId}
@@ -23,6 +23,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default PlainTextContent
+export default PlainTextContent

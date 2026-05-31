@@ -10,6 +10,7 @@ import {
 	SentencePhrase,
 	makePhraseId,
 } from '../../detailsStore'
+import { wordIdsFromOffsets } from './wordSegmentation'
 
 export function usePopulateStore() {
 	useFetchChapterAndSetToStore()
@@ -20,6 +21,7 @@ export function usePopulateStore() {
 function useFetchChapterAndSetToStore() {
 	const chapterId = useDetailsStore((s) => s.chapterId)
 	const bookType = useReadingStore((s) => s.book?.type)
+	const languageCode = useDetailsStore((s) => s.languageCode)
 
 	const { data } = useBookChapter_Get({
 		variables: {
@@ -39,19 +41,22 @@ function useFetchChapterAndSetToStore() {
 			const chapter = data.book_chapter_get
 
 			const sentences = mapToDetailsSentenceEntries({
+				originalContent: chapter.originalContent ?? '',
 				sentences: chapter.sentences ?? [],
+				languageCode,
 				getTranslation: (s) => s.sentenceTranslation?.translation ?? null,
 			})
 
 			useDetailsStore.getState().updateStore({ sentences })
 		},
-		[data],
+		[data, languageCode],
 	)
 }
 
 function useFetchVideoAndSetToStore() {
 	const videoId = useDetailsStore((s) => s.videoId)
 	const videoType = useWatchingStore((s) => s.video?.type)
+	const languageCode = useDetailsStore((s) => s.languageCode)
 
 	const { data: privateVideoData } = useVideoPrivate_Get({
 		variables: { input: { id: videoId! } },
@@ -71,13 +76,15 @@ function useFetchVideoAndSetToStore() {
 			if (!video) return
 
 			const sentences = mapToDetailsSentenceEntries({
+				originalContent: video.originalContent ?? '',
 				sentences: video.sentences ?? [],
+				languageCode,
 				getTranslation: (s) => s.sentenceTranslations?.[0]?.translation ?? null,
 			})
 
 			useDetailsStore.getState().updateStore({ sentences })
 		},
-		[videoType, privateVideoData, publicVideoData],
+		[videoType, privateVideoData, publicVideoData, languageCode],
 	)
 }
 
@@ -103,11 +110,15 @@ function useShowCurrentTranslation() {
 
 type ServerSentence = {
 	id: number
+	startOffset: number
+	length: number
 	sentenceTranslation?: { translation: string } | null
 	sentenceTranslations?: Array<{ translation: string }> | null
 	sentencePhraseTranslations?: Array<{
 		id: number
 		phrase: string
+		phraseStartOffset: number
+		phraseEndOffset: number
 		translate?: string | null
 		status: string
 		errorMessage?: string | null
@@ -117,15 +128,21 @@ type ServerSentence = {
 }
 
 function mapToDetailsSentenceEntries(input: {
+	originalContent: string
 	sentences: ServerSentence[]
+	languageCode: null | string
 	getTranslation: (sentence: ServerSentence) => null | string
 }): DetailsSentenceEntry[] {
-	const { sentences, getTranslation } = input
+	const { originalContent, sentences, languageCode, getTranslation } = input
 
 	return sentences
 		.filter((s) => getTranslation(s) !== null)
 		.map((sentence) => {
 			const translation = getTranslation(sentence)!
+			const sentenceText = originalContent.slice(
+				Math.max(0, sentence.startOffset),
+				Math.max(0, sentence.startOffset) + Math.max(0, sentence.length),
+			)
 
 			return {
 				sentenceId: sentence.id,
@@ -138,20 +155,33 @@ function mapToDetailsSentenceEntries(input: {
 						translation,
 						visible: false,
 					},
-					phrases: mapSentencePhrases(sentence.sentencePhraseTranslations ?? []),
+					phrases: mapSentencePhrases({
+						phraseTranslations: sentence.sentencePhraseTranslations ?? [],
+						sentenceText,
+						languageCode,
+					}),
 				},
 			}
 		})
 }
 
-function mapSentencePhrases(
-	phraseTranslations: NonNullable<ServerSentence['sentencePhraseTranslations']>,
-): SentencePhrase[] {
+function mapSentencePhrases(input: {
+	phraseTranslations: NonNullable<ServerSentence['sentencePhraseTranslations']>
+	sentenceText: string
+	languageCode: null | string
+}): SentencePhrase[] {
+	const { phraseTranslations, sentenceText, languageCode } = input
+
 	return phraseTranslations.map((pt) => ({
 		randomGeneratedPhraseId: makePhraseId(),
 		sentencePhraseId: pt.id,
 		flashcardId: pt.flashcardId ?? null,
-		wordIds: [],
+		wordIds: wordIdsFromOffsets({
+			sentenceText,
+			locale: languageCode,
+			startOffset: pt.phraseStartOffset,
+			endOffset: pt.phraseEndOffset,
+		}),
 		phrase: pt.phrase,
 		loading: false,
 		error: pt.status === 'error' ? (pt.errorMessage ?? 'Unknown error') : null,

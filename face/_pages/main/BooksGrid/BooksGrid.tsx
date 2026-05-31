@@ -1,7 +1,6 @@
 import React from 'react'
 import BaseButton from 'ui/BaseButton/BaseButton'
 import { RoundArrowWhiteIcon } from 'ui/icons/RoundArrowWhiteIcon'
-import { filesUrls } from 'utils/filesUrls'
 import { LanguageCode, languages } from 'utils/utils'
 import { BookData, useGetBooksData } from './fn/getBooks'
 import './BooksGrid.scss'
@@ -73,16 +72,6 @@ function Book(props: BookProps) {
 					Открыть
 				</div>
 			</BaseButton>
-			{/*<a
-				href={bookData.url}
-				className='books-grid__book-cover'
-				style={{ backgroundImage: `url("${bookData.cover}")` }}
-			>
-				<div className='books-grid__book-link-mark'>
-					<RoundArrowWhiteIcon />
-					Открыть
-				</div>
-			</a>*/}
 			<p className='books-grid__book-lang'>{langName}</p>
 			<p className='books-grid__book-author'>{bookData.author}</p>
 			<p className='books-grid__book-name'>{bookData.name}</p>

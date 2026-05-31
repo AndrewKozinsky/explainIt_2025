@@ -1,8 +1,8 @@
-// import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-// import ChatInput from '../ChatInput/ChatInput'
-// import MessageList from '../MessageList/MessageList'
-// import { useSentenceChat } from './fn/useSentenceChat'
-// import './SentenceChat.scss'
+import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import ChatInput from '../ChatInput/ChatInput'
+import MessageList from '../MessageList/MessageList'
+import { useSentenceChat } from './fn/useSentenceChat'
+import './SentenceChat.scss'
 
 type SentenceChatProps = {
 	sentenceId: number
@@ -11,19 +11,19 @@ type SentenceChatProps = {
 function SentenceChat(props: SentenceChatProps) {
 	const { sentenceId } = props
 
-	// const { messages, isLoadingThread, isGenerating, threadError, sendQuestion, cancelGeneration } =
-	// 	useSentenceChat(sentenceId)
+	const { messages, isLoadingThread, isGenerating, threadError, sendQuestion, cancelGeneration } =
+		useSentenceChat(sentenceId)
 
 	return (
 		<div className='sentence-chat'>
-			{/*<div className='sentence-chat__messages'>
+			<div className='sentence-chat__messages'>
 				{!isLoadingThread && !threadError && <MessageList messages={messages} />}
 				{threadError && <ErrorMessage text={threadError} />}
-			</div>*/}
+			</div>
 
-			{/*<div className='sentence-chat__input'>
+			<div className='sentence-chat__input'>
 				<ChatInput isGenerating={isGenerating} onSend={sendQuestion} onCancel={cancelGeneration} />
-			</div>*/}
+			</div>
 		</div>
 	)
 }

@@ -8,6 +8,7 @@ import { useClearWatchingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
 import { usePopulateWatchingStore } from './fn/populateStore'
 import { useDetailsStickyTopBelowVideo } from './fn/useDetailsStickyTopBelowVideo'
+import { TextContainer } from './TextContainer'
 import { VideoContainer } from './VideoContainer'
 import './WatchingRoot.scss'
 
@@ -26,7 +27,7 @@ function WatchingRoot() {
 				<WatchingTop />
 				<div className='watching-root__content'>
 					<VideoContainer />
-					{/*<TextContainer />*/}
+					<TextContainer />
 				</div>
 			</main>
 		</RootSurface>

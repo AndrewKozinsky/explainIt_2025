@@ -1,38 +1,38 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.chat-message {
+.chat-message {
 	display: flex;
 	width: 100%;
-}*/
+}
 
-/*.chat-message__user {
+.chat-message__user {
 	display: flex;
 	justify-content: flex-end;
-}*/
+}
 
-/*.chat-message__user-bubble {
+.chat-message__user-bubble {
 	font-size: 1.6rem;
 	line-height: 2.2rem;
 	color: white;
 	background: vars.$linkColor-2;
 	padding: .6rem 1.2rem;
 	border-radius: vars.$radius-2;
-}*/
+}
 
-/*.chat-message__assistance {
+.chat-message__assistance {
 	justify-content: flex-start;
 	background-color: white;
 	padding: .8rem 1.4rem;
 	border-radius: vars.$radius-2;
-}*/
+}
 
-/*.chat-message__status-text {
+.chat-message__status-text {
 	margin-top: 0.6rem !important;
 	font-size: 1.3rem;
 	opacity: 0.7;
-}*/
+}
 
-/*.chat-message__cursor {
+.chat-message__cursor {
 	display: inline-block;
 	width: 0.6rem;
 	height: 1.4rem;
@@ -41,10 +41,10 @@
 	background: currentColor;
 	opacity: 0.6;
 	animation: chat-message-cursor-blink 1s steps(2, start) infinite;
-}*/
+}
 
-/*@keyframes chat-message-cursor-blink {
+@keyframes chat-message-cursor-blink {
 	to {
 		visibility: hidden;
 	}
-}*/
+}

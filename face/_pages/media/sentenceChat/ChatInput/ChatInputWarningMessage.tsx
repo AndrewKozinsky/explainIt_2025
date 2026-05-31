@@ -1,9 +1,9 @@
-// import React from 'react'
-// import Link from 'next/link'
-// import { useUserStore } from 'stores/userStore'
-// import { pageUrls } from 'сonsts/pageUrls'
+import React from 'react'
+import Link from 'next/link'
+import { useUserStore } from 'stores/userStore'
+import { pageUrls } from 'сonsts/pageUrls'
 
-/*function ChatInputWarningMessage() {
+function ChatInputWarningMessage() {
 	const user = useUserStore((s) => s.user)
 	const hasBalance = (user?.balance ?? 0) > 0
 
@@ -38,6 +38,6 @@
 	}
 
 	return <p className='chat-input__warning-message'>{warningMessage}</p>
-}*/
+}
 
-// export default ChatInputWarningMessage
+export default ChatInputWarningMessage

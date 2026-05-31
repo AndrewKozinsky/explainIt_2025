@@ -21,13 +21,7 @@ function PhraseDetails(props: PhraseDetailsProps) {
 		return null
 	}
 
-	return (
-		<SentencePhraseAnalysis
-			phraseAnalysis={coveringPhrase}
-			extraClass='chapter-content__word-analysis'
-			languageCode={languageCode}
-		/>
-	)
+	return <SentencePhraseAnalysis phraseAnalysis={coveringPhrase} languageCode={languageCode} />
 }
 
 export default PhraseDetails

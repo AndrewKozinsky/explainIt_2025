@@ -1,9 +1,9 @@
-// import { useWatchingStore } from '../../../watchingStore'
-// import PlainTextContent from '../plainText/PlainTextContent/PlainTextContent'
-// import SubtitlesContent from '../subtitles/SubtitlesContent/SubtitlesContent'
-// import './TextSide.scss'
+import { useWatchingStore } from '../../../watchingStore'
+import PlainTextContent from '../PlainTextContent/PlainTextContent'
+import SubtitlesContent from '../subtitles/SubtitlesContent/SubtitlesContent'
+import './TextSide.scss'
 
-/*function TextSide() {
+function TextSide() {
 	const populatedPlainText = useWatchingStore((s) => s.populatedPlainText)
 	const populatedSubtitles = useWatchingStore((s) => s.populatedSubtitles)
 
@@ -15,6 +15,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default TextSide
+export default TextSide

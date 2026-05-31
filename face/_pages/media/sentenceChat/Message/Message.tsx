@@ -1,14 +1,14 @@
-// import AssistantMessage from '_pages/media/sentenceChat/Message/AssistantMessage'
-// import GenerationIsCancelled from '_pages/media/sentenceChat/Message/GenerationIsCancelled'
-// import { ChatUiMessage } from '../types/sseTypes'
-// import UserMessage from './UserMessage'
-// import './Message.scss'
+import AssistantMessage from '_pages/media/sentenceChat/Message/AssistantMessage'
+import GenerationIsCancelled from '_pages/media/sentenceChat/Message/GenerationIsCancelled'
+import { ChatUiMessage } from '../types/sseTypes'
+import UserMessage from './UserMessage'
+import './Message.scss'
 
-/*type MessageProps = {
+type MessageProps = {
 	message: ChatUiMessage
-}*/
+}
 
-/*function Message(props: MessageProps) {
+function Message(props: MessageProps) {
 	const { message } = props
 
 	const isUser = message.role === 'user'
@@ -31,6 +31,6 @@
 	}
 
 	return <AssistantMessage content={message.content} errorMessage={message.errorMessage} isStreaming={isStreaming} />
-}*/
+}
 
-// export default Message
+export default Message

@@ -1,11 +1,11 @@
-//@use '@/styles/variables' as vars;
+@use '@/styles/variables' as vars;
 
-/*.onboarding-modal {
+.onboarding-modal {
 	max-width: 500px;
-}*/
-/*.onboarding-modal__video {
+}
+.onboarding-modal__video {
 	width: 100%;
     max-width: max-content;
 	box-sizing: border-box;
     margin: 10px 0;
-}*/
+}

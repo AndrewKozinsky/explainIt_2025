@@ -1,4 +1,4 @@
-// import TextRoot from '../text/TextRoot/TextRoot'
+import TextRoot from '../text/TextRoot/TextRoot'
 import { useWatchingStore } from '../watchingStore'
 
 export function TextContainer() {
@@ -8,5 +8,9 @@ export function TextContainer() {
 		return <p />
 	}
 
-	return <div className='watching-root__text-container'>{/*<TextRoot />*/}</div>
+	return (
+		<div className='watching-root__text-container'>
+			<TextRoot />
+		</div>
+	)
 }
