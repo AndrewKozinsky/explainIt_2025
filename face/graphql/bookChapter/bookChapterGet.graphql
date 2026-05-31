@@ -10,6 +10,12 @@ query BookChapter_get($input: GetBookChapterInput!) {
 				id
 				startOffset
 				length
+				sentenceTranslation {
+					id
+					sentenceId
+					translation
+					createdAt
+				}
 				grammarConcepts {
 					id
 					title
@@ -23,12 +29,6 @@ query BookChapter_get($input: GetBookChapterInput!) {
 				missingGrammarConcepts {
 					category
 					lemma
-				}
-				sentenceTranslation {
-					id
-					sentenceId
-					translation
-					createdAt
 				}
 				sentencePhraseTranslations {
 					id

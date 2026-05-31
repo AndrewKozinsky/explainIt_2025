@@ -515,6 +515,7 @@ export interface VideoPrivateSentenceOutModel {
     orderIndex: number;
     grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
     missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
+    sentencePhraseTranslations?: Nullable<SentencePhraseTranslationOutModel[]>;
 }
 
 export interface VideoPrivateSubtitleOutModel {
@@ -575,6 +576,7 @@ export interface VideoPublicSentenceOutModel {
     orderIndex: number;
     grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
     missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
+    sentencePhraseTranslations?: Nullable<SentencePhraseTranslationOutModel[]>;
 }
 
 export interface VideoPublicSubtitleOutModel {

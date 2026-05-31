@@ -25,14 +25,14 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		updateStore: (storePart: Partial<DetailsStoreValues>) => {
 			set(storePart)
 		},
-		/*insertLoadingSentence: (input: { sentenceId: number; text: string }) => {
+		insertLoadingSentence: (input: { sentenceId: number; text: string }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					state.sentences.push({
 						sentenceId: input.sentenceId,
 						selectedPhraseId: null,
 						data: {
-							sentence: {
+							translation: {
 								text: input.text,
 								loading: true,
 								error: null,
@@ -43,18 +43,18 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					})
 				}),
 			)
-		},*/
-		/*patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => {
+		},
+		patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
 					if (!entry) return
 
-					Object.assign(entry.data.sentence, input.patch)
+					Object.assign(entry.data.translation, input.patch)
 				}),
 			)
-		},*/
-		/*upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => {
+		},
+		upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -73,7 +73,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 					entry.data.phrases.push(input.phrase)
 				}),
 			)
-		},*/
+		},
 		/*patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
@@ -158,11 +158,11 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 	}
 })
 
-/*export function makePhraseId(): string {
+export function makePhraseId(): string {
 	return 'p_' + Math.random().toString(36).slice(2) + '_' + Date.now().toString(36)
-}*/
+}
 
-/*function sameWordIds(a: number[], b: number[]): boolean {
+function sameWordIds(a: number[], b: number[]): boolean {
 	if (a.length !== b.length) return false
 
 	for (let i = 0; i < a.length; i++) {
@@ -170,7 +170,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 	}
 
 	return true
-}*/
+}
 
 export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
@@ -233,9 +233,9 @@ export type DetailsStoreValues = {
 export type DetailsStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DetailsStoreValues>) => void
-	// insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
-	// patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
-	// upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
+	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
+	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
+	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
 	// patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
 	/*finalizePhraseTranslation: (input: {
 		sentenceId: number

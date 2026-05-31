@@ -1,17 +1,17 @@
-// import { useEffect } from 'react'
-// import {
-// 	SentencePhraseTranslationOutModel,
-// 	useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery,
-// 	useTranslate_Get_Sentence_TranslationLazyQuery,
-// 	useTranslate_Translate_Sentence,
-// } from '@/graphql'
-// import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
-// import { getTextByUnknownError } from '@/utils/errorMessages'
-// import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-// import { findSentenceEntry } from './selectors'
-// import { wordIdsFromOffsets } from './wordSegmentation'
+import { useEffect } from 'react'
+import {
+	SentencePhraseTranslationOutModel,
+	useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery,
+	useTranslate_Get_Sentence_TranslationLazyQuery,
+	useTranslate_Translate_Sentence,
+} from '@/graphql'
+import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
+import { getTextByUnknownError } from '@/utils/errorMessages'
+import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { findSentenceEntry } from './selectors'
+import { wordIdsFromOffsets } from './wordSegmentation'
 
-/*export function useFetchCurrentSentenceTranslation() {
+export function useFetchCurrentSentenceTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 
@@ -47,9 +47,9 @@
 		},
 		[currentSentenceId],
 	)
-}*/
+}
 
-/*type RunFetchForSentenceInput = {
+type RunFetchForSentenceInput = {
 	sentenceId: number
 	sentenceText: string
 	bookName: null | string
@@ -60,9 +60,9 @@
 	getSentenceTranslation: ReturnType<typeof useTranslate_Get_Sentence_TranslationLazyQuery>[0]
 	getPhraseTranslationsBySentence: ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery>[0]
 	translateSentence: ReturnType<typeof useTranslate_Translate_Sentence>[0]
-}*/
+}
 
-/*async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<void> {
+async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<void> {
 	const store = useDetailsStore.getState()
 
 	store.insertLoadingSentence({
@@ -90,9 +90,9 @@
 
 		throw error
 	}
-}*/
+}
 
-/*async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Promise<void> {
+async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Promise<void> {
 	try {
 		const response = await input.getPhraseTranslationsBySentence({
 			variables: {
@@ -120,9 +120,9 @@
 	} catch {
 		// Кеш фраз — некритичная подсказка, ошибки игнорируем
 	}
-}*/
+}
 
-/*export function mapPhraseTranslationToStatus(input: {
+export function mapPhraseTranslationToStatus(input: {
 	phraseTranslation: SentencePhraseTranslationOutModel
 	sentenceText: string
 	languageCode: null | string
@@ -150,9 +150,9 @@
 			translate: example.translate ?? '',
 		})),
 	}
-}*/
+}
 
-/*async function getOrCreateSentenceTranslation(input: RunFetchForSentenceInput): Promise<string> {
+async function getOrCreateSentenceTranslation(input: RunFetchForSentenceInput): Promise<string> {
 	const existing = await input.getSentenceTranslation({
 		variables: {
 			input: {
@@ -187,9 +187,9 @@
 	}
 
 	return generatedTranslation
-}*/
+}
 
-/*export function toNullableString(value: null | string | number): null | string {
+export function toNullableString(value: null | string | number): null | string {
 	if (value === null || value === undefined) return null
 	return String(value)
-}*/
+}

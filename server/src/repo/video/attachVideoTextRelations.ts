@@ -1,4 +1,6 @@
 import { SentenceTranslation, SubtitleSentenceInit } from 'prisma/generated/client'
+import { SentencePhraseTranslation } from 'prisma/generated/client'
+import { mapSentencePhraseTranslations } from '../bookChapter/fn'
 
 type DbSentenceLike = {
 	id: number
@@ -6,6 +8,7 @@ type DbSentenceLike = {
 	length: number
 	order_index: number
 	SentenceTranslation?: SentenceTranslation[]
+	SentencePhraseTranslation?: SentencePhraseTranslation[]
 }
 
 type DbSubtitleLike = {
@@ -34,6 +37,7 @@ export function attachVideoTextRelations<TBase extends { contentType: 'text' | '
 			id: t.id,
 			translation: t.translation,
 		})),
+		sentencePhraseTranslations: mapSentencePhraseTranslations(s.SentencePhraseTranslation ?? []),
 		startOffset: s.start_offset,
 		length: s.length,
 		orderIndex: s.order_index,

@@ -5,13 +5,14 @@ import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
 import { VideoPrivateOutModel } from 'models/videoPrivate/videoPrivateOut.model'
-import { Sentence, SentenceTranslation, Subtitle, SubtitleSentenceInit, VideoPrivate } from 'prisma/generated/client'
+import { Sentence, SentencePhraseTranslation, SentenceTranslation, Subtitle, SubtitleSentenceInit, VideoPrivate } from 'prisma/generated/client'
 import { enrichSentencesWithGrammarConcepts } from '../grammarConcept/enrichSentencesWithGrammarConcepts'
 import { GrammarConceptQueryRepository } from '../grammarConcept.queryRepository'
 
 type DbSentenceWithInit = Sentence & {
 	SubtitleSentenceInit?: SubtitleSentenceInit[]
 	SentenceTranslation?: SentenceTranslation[]
+	SentencePhraseTranslation?: SentencePhraseTranslation[]
 }
 type DbSubtitleWithInit = Subtitle & { SubtitleSentenceInit?: SubtitleSentenceInit[] }
 type DbVideoWithRelations = VideoPrivate & {
@@ -37,6 +38,7 @@ export class VideoPrivateQueryRepository {
 					include: {
 						SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } },
 						SentenceTranslation: { orderBy: { created_at: 'asc' } },
+							SentencePhraseTranslation: { orderBy: { created_at: 'asc' } },
 					},
 				},
 				Subtitle: {

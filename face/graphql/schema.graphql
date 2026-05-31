@@ -836,6 +836,7 @@ type VideoPrivateSentenceOutModel {
   length: Int!
   missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
+  sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
   startOffset: Int!
 }
@@ -907,6 +908,7 @@ type VideoPublicSentenceOutModel {
   length: Int!
   missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
+  sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
   startOffset: Int!
 }

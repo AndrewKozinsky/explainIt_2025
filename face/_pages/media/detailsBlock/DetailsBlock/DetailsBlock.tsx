@@ -4,7 +4,7 @@ import { usePopulateStore } from '_pages/media/detailsBlock/DetailsBlock/fn/popu
 import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
 import { useClearDataOnUnmount } from './fn/clearDataOnUnmount'
 // import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
-// import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
+import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
 import { useInitStore } from './fn/initStore'
 import { useSetBookSentenceIdAndWordId, useSetVideoSentenceIdAndWordId } from './fn/setSentenceIdAndWordId'
 import './DetailsBlock.scss'
@@ -20,7 +20,7 @@ function DetailsBlock(props: DetailsBlockProps) {
 	usePopulateStore()
 	useSetBookSentenceIdAndWordId()
 	useSetVideoSentenceIdAndWordId()
-	// useFetchCurrentSentenceTranslation()
+	useFetchCurrentSentenceTranslation()
 	// useFetchCurrentPhraseTranslation()
 	useClearDataOnUnmount()
 

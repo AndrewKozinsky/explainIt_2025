@@ -960,6 +960,7 @@ export type VideoPrivateSentenceOutModel = {
   length: Scalars['Int']['output'];
   missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   orderIndex: Scalars['Int']['output'];
+  sentencePhraseTranslations?: Maybe<Array<SentencePhraseTranslationOutModel>>;
   sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
   startOffset: Scalars['Int']['output'];
 };
@@ -1035,6 +1036,7 @@ export type VideoPublicSentenceOutModel = {
   length: Scalars['Int']['output'];
   missingGrammarConcepts?: Maybe<Array<MissingGrammarConceptOutModel>>;
   orderIndex: Scalars['Int']['output'];
+  sentencePhraseTranslations?: Maybe<Array<SentencePhraseTranslationOutModel>>;
   sentenceTranslations?: Maybe<Array<SentenceTranslationLiteOutModel>>;
   startOffset: Scalars['Int']['output'];
 };
@@ -1113,7 +1115,7 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null, sentenceTranslation?: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, createdAt: string } | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, sentenceTranslation?: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, createdAt: string } | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -1317,7 +1319,7 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetSubtitlesGenerationStatusVariables = Exact<{
   input: VideoPrivateSubtitlesStatusInput;
@@ -1343,7 +1345,7 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -1688,6 +1690,12 @@ export const BookChapter_GetDocument = gql`
       id
       startOffset
       length
+      sentenceTranslation {
+        id
+        sentenceId
+        translation
+        createdAt
+      }
       grammarConcepts {
         id
         title
@@ -1701,12 +1709,6 @@ export const BookChapter_GetDocument = gql`
       missingGrammarConcepts {
         category
         lemma
-      }
-      sentenceTranslation {
-        id
-        sentenceId
-        translation
-        createdAt
       }
       sentencePhraseTranslations {
         id
@@ -3140,6 +3142,23 @@ export const VideoPrivate_GetDocument = gql`
         id
         translation
       }
+      sentencePhraseTranslations {
+        id
+        sentenceId
+        phrase
+        phraseStartOffset
+        phraseEndOffset
+        translate
+        status
+        errorMessage
+        createdAt
+        updatedAt
+        flashcardId
+        examples {
+          text
+          translate
+        }
+      }
       startOffset
       length
       orderIndex
@@ -3379,6 +3398,23 @@ export const VideoPublic_GetDocument = gql`
       sentenceTranslations {
         id
         translation
+      }
+      sentencePhraseTranslations {
+        id
+        sentenceId
+        phrase
+        phraseStartOffset
+        phraseEndOffset
+        translate
+        status
+        errorMessage
+        createdAt
+        updatedAt
+        flashcardId
+        examples {
+          text
+          translate
+        }
       }
       grammarConcepts {
         id
