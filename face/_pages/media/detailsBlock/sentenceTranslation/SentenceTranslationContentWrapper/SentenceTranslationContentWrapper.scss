@@ -1,0 +1,22 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/inherit' as mix;
+
+.sentence-translation {
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	min-height: 2.8rem;
+	padding: .6rem 1.2rem;
+	margin-top: .6rem;
+	border-radius: vars.$radius-2;
+}
+
+.sentence-translation--white {
+	background-color: white;
+}
+.sentence-translation--gray {
+	background-color: vars.$grayColor-1;
+}
+
+.sentence-translation--loading {
+	@include mix.loading-shimmer();
+}

@@ -1,5 +1,5 @@
 import { LanguageCode } from 'utils/utils'
-import SentenceTranslation from '_pages/media/reading/content/SentenceTranslation/SentenceTranslation'
+import SentenceTranslation from '_pages/media/detailsBlock/sentenceTranslation/SentenceTranslation/SentenceTranslation'
 import SentenceBlock from '../../../commonComponents/SentenceBlock/SentenceBlock'
 import { ChapterTextStructurePopulated } from '../../readingStore'
 import PhraseDetails from '../PhraseDetails/PhraseDetails'
