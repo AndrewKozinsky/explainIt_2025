@@ -2,8 +2,10 @@ import { produce } from 'immer'
 import { create } from 'zustand'
 
 export const detailsStoreValues: DetailsStoreValues = {
+	chapterId: null,
 	bookName: null,
 	bookAuthor: null,
+	videoId: null,
 	videoName: null,
 	videoYear: null,
 	languageCode: null,
@@ -214,8 +216,10 @@ export type PhraseExample = {
 }
 
 export type DetailsStoreValues = {
+	chapterId: null | number
 	bookName: null | string
 	bookAuthor: null | string
+	videoId: null | number
 	videoName: null | string
 	videoYear: null | string | number
 	languageCode: null | string
