@@ -43,7 +43,7 @@ function ContentWrapper(props: ContentWrapperProps) {
 
 	return (
 		<div className={cn('details-block-wrapper', center && 'details-block-wrapper--center')}>
-			<div className='details-block-wrapper__scroll'>{children}</div>
+			<div className={cn(!center && 'details-block-wrapper__scroll')}>{children}</div>
 		</div>
 	)
 }
