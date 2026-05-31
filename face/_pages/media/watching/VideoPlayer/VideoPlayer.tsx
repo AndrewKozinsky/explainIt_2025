@@ -1,8 +1,8 @@
 import { useRef } from 'react'
+import { localStorageManager } from 'utils/localStorageManager'
 import { useWatchingStore } from '../watchingStore'
 import { usePlayerController } from './fn/controller'
 import { usePlayerControl } from './fn/playerControl'
-import { createVideoProgressSaver, loadVideoProgressSeconds } from './fn/videoProgressStorage'
 import VideoProgress from './VideoProgress'
 import './VideoPlayer.scss'
 
@@ -11,7 +11,7 @@ function VideoPlayer() {
 	const fileUrl = video!.fileUrl as string
 	const videoId = video!.id
 
-	const saveProgress = createVideoProgressSaver(videoId)
+	const saveProgress = localStorageManager.videoProgress.createSaver(videoId)
 
 	const playerWrapperRef = useRef<HTMLDivElement>(null)
 	const playerRef = useRef<HTMLVideoElement>(null)
@@ -41,7 +41,7 @@ function VideoPlayer() {
 						duration: e.currentTarget.duration,
 					})
 
-					const savedTime = loadVideoProgressSeconds(videoId)
+					const savedTime = localStorageManager.videoProgress.get(videoId)
 					if (savedTime > 0 && savedTime < e.currentTarget.duration) {
 						e.currentTarget.currentTime = savedTime
 						setPlayerState({

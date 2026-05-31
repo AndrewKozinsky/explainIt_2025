@@ -94,7 +94,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: solomonMinesBookData(coversFolderName + 'english/'),
 				chapters: solomonMinesChapters,
 			},
-			/*{
+			{
 				book: oliverTwistBookData(coversFolderName + 'english/'),
 				chapters: oliverTwistChapters,
 			},
@@ -105,56 +105,56 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			{
 				book: aStudyInScarletPartTwoBookData(coversFolderName + 'english/'),
 				chapters: aStudyInScarletPartTwoChapters,
-			},*/
-			{
+			},
+			/*{
 				book: secretCluesBookData(coversFolderName + 'english/'),
 				chapters: secretCluesChapters,
-			},
+			},*/
 			// German
 			{
 				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
 			},
-			/*{
+			{
 				book: theTransformationBookData(coversFolderName + 'german/'),
 				chapters: theTransformationChapters,
 			},
 			{
 				book: processBookData(coversFolderName + 'german/'),
 				chapters: processChapters,
-			},*/
+			},
 			// Spanish
-			/*{
+			{
 				book: jungleTalesBookData(coversFolderName + 'spanish/'),
 				chapters: jungleTalesChapters,
 			},
 			{
 				book: donQuixoteBookData(coversFolderName + 'spanish/'),
 				chapters: donQuixoteChapters,
-			},*/
+			},
 			// French
-			/*{
+			{
 				book: theLittlePrinceBookData(coversFolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
 			},
 			{
 				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
-			},*/
+			},
 			// Italian
-			/*{
+			{
 				book: heartBookData(coversFolderName + 'italian/'),
 				chapters: heartChapters,
 			},
 			{
 				book: pinocchioBookData(coversFolderName + 'italian/'),
 				chapters: pinocchioChapters,
-			},*/
+			},
 			// Turkish
-			/*{
+			{
 				book: nasreddinHodjaStoriesBookData(coversFolderName + 'turkish/'),
 				chapters: nasreddinHodjaStoriesChapters,
-			},*/
+			},
 		]
 	}
 

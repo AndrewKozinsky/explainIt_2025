@@ -5,7 +5,7 @@
 	border: 1px solid transparent;
 	transition: background-color .15s ease, color .1s ease, transform .2s ease;
 
-	&:active {
+	&:active:not(:disabled) {
 		transform: scale(.97);
 	}
 

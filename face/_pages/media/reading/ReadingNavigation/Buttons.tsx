@@ -25,7 +25,7 @@ export function PrevChapterLink() {
 	const prevChapter = useGetPrevAndNextChapters().prev
 
 	if (!prevChapter) {
-		return <span />
+		return <div />
 	}
 
 	return (
@@ -42,7 +42,7 @@ export function NextChapterLink() {
 	const nextChapter = useGetPrevAndNextChapters().next
 
 	if (!nextChapter) {
-		return <span />
+		return <div />
 	}
 
 	return (

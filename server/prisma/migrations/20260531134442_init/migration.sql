@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "BalanceTransactionType" AS ENUM ('CHARGE', 'TOP_UP');
+CREATE TYPE "BalanceTransactionType" AS ENUM ('CHARGE', 'TOP_UP', 'REFUND');
 
 -- CreateEnum
 CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED');
@@ -8,7 +8,7 @@ CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED')
 CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateEnum
-CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de', 'ru');
+CREATE TYPE "LanguageCode" AS ENUM ('en', 'es', 'fr', 'de', 'ru', 'it', 'tr');
 
 -- CreateEnum
 CREATE TYPE "S3ProviderName" AS ENUM ('cloudRu');
@@ -21,6 +21,9 @@ CREATE TYPE "SubtitlesGenerationStatus" AS ENUM ('idle', 'pending', 'processing'
 
 -- CreateEnum
 CREATE TYPE "SentencePhraseTranslationStatus" AS ENUM ('pending', 'ready', 'error');
+
+-- CreateEnum
+CREATE TYPE "GrammarExtractionStatus" AS ENUM ('NOT_STARTED', 'ERROR', 'SUCCESS');
 
 -- CreateEnum
 CREATE TYPE "SentenceChatMessageRole" AS ENUM ('user', 'assistant');
@@ -77,6 +80,10 @@ CREATE TABLE "BookPrivate" (
     "name" TEXT,
     "source_language_code" "LanguageCode" NOT NULL,
     "note" TEXT,
+    "file_name" TEXT,
+    "file_s3_key" TEXT,
+    "s3_provider_name" "S3ProviderName",
+    "is_file_uploaded" BOOLEAN NOT NULL DEFAULT false,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "BookPrivate_pkey" PRIMARY KEY ("id")
@@ -89,7 +96,7 @@ CREATE TABLE "BookPublic" (
     "source_language_code" "LanguageCode" NOT NULL,
     "covers" TEXT[],
     "coverBackgroundColor" TEXT NOT NULL,
-    "author" TEXT NOT NULL,
+    "author" TEXT,
     "name" TEXT NOT NULL,
     "note" TEXT NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -123,6 +130,7 @@ CREATE TABLE "VideoPrivate" (
     "s3_provider_name" "S3ProviderName",
     "is_file_uploaded" BOOLEAN NOT NULL DEFAULT false,
     "file_size_mb" INTEGER NOT NULL DEFAULT 0,
+    "file_duration_sec" INTEGER,
     "name" TEXT,
     "original_content" TEXT,
     "processed_content" TEXT,
@@ -131,6 +139,8 @@ CREATE TABLE "VideoPrivate" (
     "subtitles_generation_error" TEXT,
     "subtitles_generation_started_at" TIMESTAMP(3),
     "subtitles_generation_job_id" TEXT,
+    "subtitles_generation_charge_kopecks" INTEGER,
+    "subtitles_generation_refunded_at" TIMESTAMP(3),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -229,8 +239,11 @@ CREATE TABLE "SubtitleSentenceInit" (
 -- CreateTable
 CREATE TABLE "UniversalPhrase" (
     "id" SERIAL NOT NULL,
-    "phrase" TEXT NOT NULL,
-    "language_code" "LanguageCode" NOT NULL,
+    "text" TEXT NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
+    "grammarExtractionStatus" "GrammarExtractionStatus" NOT NULL DEFAULT 'NOT_STARTED',
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "UniversalPhrase_pkey" PRIMARY KEY ("id")
 );
@@ -302,6 +315,44 @@ CREATE TABLE "Flashcard" (
     CONSTRAINT "Flashcard_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "GrammarConcept" (
+    "id" TEXT NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
+    "target_language_code" "LanguageCode" NOT NULL,
+    "category" TEXT NOT NULL,
+    "lemma" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "slug" TEXT NOT NULL,
+    "order" INTEGER NOT NULL DEFAULT 0,
+    "aliases" TEXT[],
+
+    CONSTRAINT "GrammarConcept_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "MissingGrammarConcept" (
+    "id" SERIAL NOT NULL,
+    "universal_phrase_id" INTEGER NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
+    "target_language_code" "LanguageCode" NOT NULL,
+    "category" TEXT NOT NULL,
+    "lemma" TEXT NOT NULL,
+    "sentence_text" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "MissingGrammarConcept_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "GrammarConceptToUniversalPhrase" (
+    "id" SERIAL NOT NULL,
+    "grammar_concept_id" TEXT NOT NULL,
+    "universal_phrase_id" INTEGER NOT NULL,
+
+    CONSTRAINT "GrammarConceptToUniversalPhrase_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -336,7 +387,7 @@ CREATE INDEX "SubtitleSentenceInit_subtitle_id_idx" ON "SubtitleSentenceInit"("s
 CREATE INDEX "SubtitleSentenceInit_sentence_id_idx" ON "SubtitleSentenceInit"("sentence_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "UniversalPhrase_language_code_phrase_key" ON "UniversalPhrase"("language_code", "phrase");
+CREATE UNIQUE INDEX "UniversalPhrase_source_language_code_text_key" ON "UniversalPhrase"("source_language_code", "text");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "UniversalTranscription_universal_phrase_id_key" ON "UniversalTranscription"("universal_phrase_id");
@@ -361,6 +412,21 @@ CREATE INDEX "Flashcard_user_id_language_code_idx" ON "Flashcard"("user_id", "la
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Flashcard_user_id_sentence_phrase_translation_id_key" ON "Flashcard"("user_id", "sentence_phrase_translation_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "GrammarConcept_source_language_code_target_language_code_ca_key" ON "GrammarConcept"("source_language_code", "target_language_code", "category", "lemma");
+
+-- CreateIndex
+CREATE INDEX "MissingGrammarConcept_universal_phrase_id_idx" ON "MissingGrammarConcept"("universal_phrase_id");
+
+-- CreateIndex
+CREATE INDEX "GrammarConceptToUniversalPhrase_grammar_concept_id_idx" ON "GrammarConceptToUniversalPhrase"("grammar_concept_id");
+
+-- CreateIndex
+CREATE INDEX "GrammarConceptToUniversalPhrase_universal_phrase_id_idx" ON "GrammarConceptToUniversalPhrase"("universal_phrase_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "GrammarConceptToUniversalPhrase_grammar_concept_id_universa_key" ON "GrammarConceptToUniversalPhrase"("grammar_concept_id", "universal_phrase_id");
 
 -- AddForeignKey
 ALTER TABLE "UserBalanceTransaction" ADD CONSTRAINT "UserBalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -442,3 +508,12 @@ ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_video_public_id_fkey" FOREIGN 
 
 -- AddForeignKey
 ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_sentence_phrase_translation_id_fkey" FOREIGN KEY ("sentence_phrase_translation_id") REFERENCES "SentencePhraseTranslation"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "MissingGrammarConcept" ADD CONSTRAINT "MissingGrammarConcept_universal_phrase_id_fkey" FOREIGN KEY ("universal_phrase_id") REFERENCES "UniversalPhrase"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "GrammarConceptToUniversalPhrase" ADD CONSTRAINT "GrammarConceptToUniversalPhrase_grammar_concept_id_fkey" FOREIGN KEY ("grammar_concept_id") REFERENCES "GrammarConcept"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "GrammarConceptToUniversalPhrase" ADD CONSTRAINT "GrammarConceptToUniversalPhrase_universal_phrase_id_fkey" FOREIGN KEY ("universal_phrase_id") REFERENCES "UniversalPhrase"("id") ON DELETE CASCADE ON UPDATE CASCADE;

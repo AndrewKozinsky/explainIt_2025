@@ -9,6 +9,7 @@ type LinkButtonProps = {
 
 export function LinkButton(props: LinkButtonProps) {
 	const { href, smallText, text, coverUrl } = props
+
 	const withCover = !!coverUrl
 
 	return (

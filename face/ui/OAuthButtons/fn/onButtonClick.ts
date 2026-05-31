@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { localStorageManager } from 'utils/localStorageManager'
 import { generateRandomString } from 'utils/strings'
 import { env } from 'сonsts/env'
 import { pageUrls } from 'сonsts/pageUrls'
@@ -35,7 +36,7 @@ export function useGetOnButtonClick(buttonType: ButtonType) {
 			const providerPageUrl = providerPageUrlMapper[buttonType]
 			const providerState = providerPageUrlMapper[buttonType]
 
-			localStorage.setItem('latestCSRFToken', providerState)
+			localStorageManager.oauth.setCSRFToken(providerState)
 
 			window.location.assign(providerPageUrl)
 		},

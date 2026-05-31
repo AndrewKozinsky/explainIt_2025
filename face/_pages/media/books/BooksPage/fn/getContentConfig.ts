@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import { localStorageManager } from 'utils/localStorageManager'
 import { LanguageCode } from 'utils/utils'
 import { useBooksStore } from '_pages/media/books/booksStore'
 import { MediaItemsGridConfig } from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
@@ -13,7 +14,7 @@ export function useGetContentConfig() {
 			loading: boolean
 			error: null | string
 			config: null | MediaItemsGridConfig
-		} {
+			} {
 			const errorMessage = privateBooks.errorMessage || publicBooks.errorMessage
 			const isLoading = privateBooks.loading || publicBooks.loading
 
@@ -37,7 +38,7 @@ export function useGetContentConfig() {
 				config: {
 					privateItems: privateBooks.data.map((book) => {
 						const bookId = createMediaIdUrl(book.id, 'private')
-						const chapterId = book.chapters[0].id
+						const chapterId = resolveChapterId(bookId, book.chapters)
 
 						return {
 							name: book.name,
@@ -49,7 +50,7 @@ export function useGetContentConfig() {
 					}),
 					publicItems: publicBooks.data.map((book) => {
 						const bookId = createMediaIdUrl(book.id, 'public')
-						const chapterId = book.chapters[0].id
+						const chapterId = resolveChapterId(bookId, book.chapters)
 
 						return {
 							name: book.name,
@@ -67,4 +68,14 @@ export function useGetContentConfig() {
 		},
 		[privateBooks, publicBooks],
 	)
+}
+
+function resolveChapterId(bookUrlId: string, chapters: { id: number }[]): number {
+	const savedChapterId = localStorageManager.lastBookChapter.get(bookUrlId)
+
+	if (savedChapterId !== null && chapters.some((c) => c.id === savedChapterId)) {
+		return savedChapterId
+	}
+
+	return chapters[0].id
 }

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import header from 'ui/articleBuilder/components/Header/Header'
+import { localStorageManager } from 'utils/localStorageManager'
 import {
 	BookChapterOutModel,
 	BookPrivateOutModel,
@@ -124,6 +125,8 @@ function useFetchChapterAndSetToStore() {
 					errorMessage: null,
 					data: chapter,
 				})
+
+				localStorageManager.lastBookChapter.set(bookIdInUrl, chapter.id)
 			}
 		},
 		[data, error, loading, chapterId],
