@@ -27,7 +27,7 @@ function SentenceBlock(props: ChapterSentenceProps) {
 				selectedWordId={selectedWordId}
 				selectWord={selectWord}
 			/>
-			<SentenceTools sentence={sentence} />
+			{/*<SentenceTools sentence={sentence} />*/}
 			<SentenceTranslation sentenceId={sentence.id} bgColor={environmentColor === 'gray' ? 'white' : 'gray'} />
 			<PhraseDetails sentenceId={sentence.id} languageCode={languageCode} />
 		</div>

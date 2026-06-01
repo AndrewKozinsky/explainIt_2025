@@ -23,7 +23,7 @@ export function useGetOnAddChapterClick({ bookId, bookIdInUrl }: { bookId: numbe
 
 			try {
 				const { errors, data } = await createBookChapter({
-					variables: { input: { bookId, name: 'New chapter', bookType: 'private' } },
+					variables: { input: { bookId, bookType: 'private' } },
 				})
 
 				if (errors) {

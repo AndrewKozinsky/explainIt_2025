@@ -15,9 +15,9 @@ export function MainMenu() {
 				<li>
 					<MainMenuLink linkData={{ name: pageUrls.dictionary.name, path: pageUrls.dictionary.path }} />
 				</li>
-				<li>
+				{/*<li>
 					<MainMenuLink linkData={{ name: pageUrls.grammar.name, path: pageUrls.grammar.path }} />
-				</li>
+				</li>*/}
 				{/*<li>
 					<MainMenuLink linkData={{ name: pageUrls.help.name, path: pageUrls.help.path }} />
 				</li>*/}
