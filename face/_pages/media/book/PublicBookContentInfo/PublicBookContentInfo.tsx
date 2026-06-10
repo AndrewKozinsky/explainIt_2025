@@ -1,7 +1,7 @@
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
 import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicBookContentInfo.scss'
 
 export default function PublicBookContentInfo() {

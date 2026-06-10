@@ -1,5 +1,5 @@
-import { usePathname } from 'next/navigation'
-import { pageUrls } from 'сonsts/pageUrls'
+import { pageUrls } from 'utils/pageUrls'
+import { usePathname } from '@/i18n/routing'
 
 export function useGetShowingMediaType() {
 	const pathname = usePathname()

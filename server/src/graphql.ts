@@ -81,6 +81,11 @@ export interface GetGrammarArticleInput {
     slug: string;
 }
 
+export interface GetGrammarConceptsListInput {
+    sourceLanguage: string;
+    targetLanguage: string;
+}
+
 export interface RegisterUserInput {
     email: string;
     password: string;
@@ -282,7 +287,6 @@ export interface GrammarConceptOutModel {
     sourceLanguage: string;
     targetLanguage: string;
     category: string;
-    lemma: string;
     title: string;
     slug: string;
     order: number;
@@ -290,7 +294,7 @@ export interface GrammarConceptOutModel {
 
 export interface MissingGrammarConceptOutModel {
     category: string;
-    lemma: string;
+    alias: string;
 }
 
 export interface GrammarExtractionOutModel {
@@ -300,6 +304,21 @@ export interface GrammarExtractionOutModel {
     grammarExtractionStatus: string;
     grammarConcepts: GrammarConceptOutModel[];
     missingGrammarConcepts: MissingGrammarConceptOutModel[];
+}
+
+export interface TranscriptionOutModel {
+    id: number;
+    universalPhraseId: number;
+    ipa?: Nullable<string>;
+    pinyin?: Nullable<string>;
+}
+
+export interface UniversalPhraseOutModel {
+    id: number;
+    text: string;
+    sourceLanguageCode: string;
+    transcription?: Nullable<TranscriptionOutModel>;
+    audioPronunciation?: Nullable<UniversalAudioPronunciationOutModel>;
 }
 
 export interface SentencePhraseTranslationExampleOutModel {
@@ -320,6 +339,7 @@ export interface SentencePhraseTranslationOutModel {
     createdAt: string;
     updatedAt: string;
     flashcardId?: Nullable<number>;
+    universalPhrase?: Nullable<UniversalPhraseOutModel>;
 }
 
 export interface SentenceTranslationOutModel {
@@ -395,6 +415,17 @@ export interface GrammarArticleOutModel {
     compiledSource: string;
 }
 
+export interface GrammarConceptCategoryGroup {
+    category: string;
+    articles: GrammarConceptOutModel[];
+}
+
+export interface GrammarConceptsListOutModel {
+    sourceLanguage: string;
+    targetLanguage: string;
+    categories: GrammarConceptCategoryGroup[];
+}
+
 export interface LanguageOutModel {
     code: string;
     nameRus: string;
@@ -427,21 +458,6 @@ export interface SentenceChatThreadOutModel {
 export interface TranslateSentenceResultOutModel {
     sentenceId: number;
     translation: string;
-}
-
-export interface TranscriptionOutModel {
-    id: number;
-    universalPhraseId: number;
-    ipa?: Nullable<string>;
-    pinyin?: Nullable<string>;
-}
-
-export interface UniversalPhraseOutModel {
-    id: number;
-    text: string;
-    sourceLanguageCode: string;
-    transcription?: Nullable<TranscriptionOutModel>;
-    audioPronunciation?: Nullable<UniversalAudioPronunciationOutModel>;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -625,6 +641,7 @@ export interface IQuery {
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
     flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
     grammar_article_get(input: GetGrammarArticleInput): GrammarArticleOutModel | Promise<GrammarArticleOutModel>;
+    grammar_concepts_list(input: GetGrammarConceptsListInput): GrammarConceptsListOutModel | Promise<GrammarConceptsListOutModel>;
 }
 
 export interface IMutation {

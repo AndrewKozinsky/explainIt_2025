@@ -2,21 +2,15 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { OpenAIModels } from 'types/openAIModels'
-import {
-	PhraseTranslationProvider,
-	TranslationProviderName,
-	TranslationProviderUsage,
-} from 'features/translation/translateCommon/TranslationProvider.types'
+import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentencePhraseTranslationServiceModel } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { LanguageCode } from 'prisma/generated/enums'
 import { SentenceTranslationAccessService } from '../translateCommon/SentenceTranslationAccess.service'
-import { TranslateWithChatGPT } from '../translateCommon/TranslateWithChatGPT.service'
-import { TranslateWithDeepSeek } from '../translateCommon/TranslateWithDeepSeek.service'
-import { TranslateWithGemini } from '../translateCommon/TranslateWithGemini.service'
 import {
 	chargeAfterTranslationIfNeeded,
 	ensureCanChargeBalanceOrThrow,
@@ -53,9 +47,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 		private mainConfigService: MainConfigService,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
-		private translateWithDeepSeek: TranslateWithDeepSeek,
-		private translateWithChatGPT: TranslateWithChatGPT,
-		private translateWithGemini: TranslateWithGemini,
+		private llmAdapter: LlmAdapterService,
 		private commandBus: CommandBus,
 	) {}
 
@@ -84,24 +76,22 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 		const sourceLanguageCode = command.input.sourceLanguageCode ?? 'en'
 
-		const provider = this.getTranslationProvider()
+		const provider = this.getProviderName()
 
 		try {
-			const generated = await provider.translatePhrase(
-				{
-					text: command.input.text,
-					selectedWord: command.input.selectedWord,
-					selectedWordStartOffset: command.input.selectedWordStartOffset,
-					selectedWordEndOffset: command.input.selectedWordEndOffset,
-					sourceLanguageCode,
-					targetLanguageCode: command.input.targetLanguageCode,
-					bookName: command.input.bookName,
-					bookAuthor: command.input.bookAuthor,
-					videoName: command.input.videoName,
-					videoYear: command.input.videoYear,
-				},
-				buildPhraseTranslationPrompt,
-			)
+			const generated = await this.generatePhraseTranslation({
+				provider,
+				text: command.input.text,
+				selectedWord: command.input.selectedWord,
+				selectedWordStartOffset: command.input.selectedWordStartOffset,
+				selectedWordEndOffset: command.input.selectedWordEndOffset,
+				sourceLanguageCode,
+				targetLanguageCode: command.input.targetLanguageCode,
+				bookName: command.input.bookName,
+				bookAuthor: command.input.bookAuthor,
+				videoName: command.input.videoName,
+				videoYear: command.input.videoYear,
+			})
 
 			const parsed = parsePhraseTranslationResult(generated.message)
 			if (!parsed || !parsed.translate) {
@@ -129,7 +119,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 			await chargeAfterTranslationIfNeeded({
 				userId: command.input.userId,
 				chargeAfterTranslation: access.createMode === 'chargeBalance',
-				usage: this.buildUsage(provider.providerName, generated.inputTokens, generated.outputTokens),
+				usage: this.buildUsage(provider, generated.inputTokens, generated.outputTokens),
 				commandBus: this.commandBus,
 			})
 
@@ -236,30 +226,58 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		}
 	}
 
-	private getTranslationProvider(): PhraseTranslationProvider {
-		const providerName: TranslationProviderName = 'gemini'
+	private getProviderName(): TranslationProviderName {
+		return 'gemini'
+	}
 
-		const providers: Record<TranslationProviderName, PhraseTranslationProvider> = {
-			deepseek: this.translateWithDeepSeek,
-			chatgpt: this.translateWithChatGPT,
-			gemini: this.translateWithGemini,
+	private async generatePhraseTranslation(input: {
+		provider: TranslationProviderName
+		text: string
+		selectedWord: string
+		selectedWordStartOffset: number
+		selectedWordEndOffset: number
+		sourceLanguageCode: LanguageCode
+		targetLanguageCode: LanguageCode
+		bookName?: string
+		bookAuthor?: string
+		videoName?: string
+		videoYear?: string | number
+	}): Promise<{ message: string; inputTokens: number; outputTokens: number }> {
+		const systemPrompt = buildPhraseTranslationPrompt({
+			sourceLanguageCode: input.sourceLanguageCode,
+			targetLanguageCode: input.targetLanguageCode,
+			sentenceText: input.text,
+			selectedWord: input.selectedWord,
+			selectedWordStartOffset: input.selectedWordStartOffset,
+			selectedWordEndOffset: input.selectedWordEndOffset,
+			bookName: input.bookName,
+			bookAuthor: input.bookAuthor,
+			videoName: input.videoName,
+			videoYear: input.videoYear,
+		})
+
+		const result = await this.llmAdapter.generate({
+			provider: input.provider,
+			messages: [
+				{ role: 'system', content: systemPrompt },
+				{ role: 'user', content: input.text },
+			],
+			lowPriority: true,
+		})
+
+		return {
+			message: result.content,
+			inputTokens: result.inputTokens,
+			outputTokens: result.outputTokens,
 		}
-
-		return providers[providerName]
 	}
 
 	private buildUsage(
 		providerName: TranslationProviderName,
 		inputTokens: number,
 		outputTokens: number,
-	): TranslationProviderUsage {
-		if (providerName === 'deepseek') {
-			return {
-				provider: 'deepseek',
-				inputTokens,
-				outputTokens,
-			}
-		} else if (providerName === 'chatgpt') {
+	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
+		if (providerName === 'chatgpt') {
 			return {
 				provider: 'chatgpt',
 				inputTokens,
@@ -267,12 +285,8 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				model: OpenAIModels.Standard,
 				lowPriority: true,
 			}
-		} else {
-			return {
-				provider: 'gemini',
-				inputTokens,
-				outputTokens,
-			}
 		}
+
+		return { provider: providerName, inputTokens, outputTokens }
 	}
 }

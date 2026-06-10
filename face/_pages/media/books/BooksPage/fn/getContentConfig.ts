@@ -1,9 +1,9 @@
 import { useMemo } from 'react'
+import { LanguageCode } from 'utils/languages'
 import { localStorageManager } from 'utils/localStorageManager'
-import { LanguageCode } from 'utils/utils'
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { useBooksStore } from '_pages/media/books/booksStore'
 import { MediaItemsGridConfig } from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetContentConfig() {
 	const privateBooks = useBooksStore((s) => s.privateBooks)

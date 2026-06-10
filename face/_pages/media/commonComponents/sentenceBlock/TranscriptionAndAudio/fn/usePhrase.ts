@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 import {
 	useUniversalPhrase_GetLazyQuery,
 	useUniversalPhrase_Create,

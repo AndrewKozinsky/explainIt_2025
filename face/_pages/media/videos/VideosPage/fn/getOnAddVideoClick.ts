@@ -1,9 +1,9 @@
 import { useCallback, useContext, useState } from 'react'
-import { redirect } from 'next/navigation'
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { serverRedirect } from '@/i18n/serverRedirect'
 import { NotificationContext } from '@/ui/Notification/context'
-import { languages } from '@/utils/utils'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
+import { languages } from '@/utils/languages'
 
 export function useGetAddVideoConfig() {
 	const { notify } = useContext(NotificationContext)
@@ -48,7 +48,7 @@ export function useGetAddVideoConfig() {
 			if (createdVideoId) {
 				// Open a page with the created video
 				const videoIdInUrl = createMediaIdUrl(createdVideoId, 'private')
-				redirect(pageUrls.videos.video(videoIdInUrl).path)
+				await serverRedirect(pageUrls.videos.video(videoIdInUrl).path)
 			}
 		},
 		[createVideo, notify],

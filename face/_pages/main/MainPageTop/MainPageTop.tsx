@@ -1,6 +1,6 @@
 import BaseButton from 'ui/BaseButton/BaseButton'
 import { RoundArrowWhiteIcon } from 'ui/icons/RoundArrowWhiteIcon'
-import { pageUrls } from 'сonsts/pageUrls'
+import { pageUrls } from 'utils/pageUrls'
 import './MainPageTop.scss'
 
 function MainPageTop() {

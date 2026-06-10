@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
+import { useLocale } from 'next-intl'
 import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
-import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
 import { getTextByUnknownError } from '@/utils/errorMessages'
-import { makePhraseId, SentencePhrase, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { makePhraseId, SentencePhraseType, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
 import { findSentenceEntry } from './selectors'
 import { offsetsFromWordIds } from './wordSegmentation'
@@ -11,6 +11,8 @@ export function useFetchCurrentPhraseTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
+	const retryFetchPhraseQueue = useDetailsStore((s) => s.retryFetchPhraseQueue)
+	const locale = useLocale()
 
 	const [getPhraseTranslation] = useTranslate_Get_Phrase_TranslationLazyQuery()
 	const [translatePhrase] = useTranslate_Translate_Phrase()
@@ -21,18 +23,17 @@ export function useFetchCurrentPhraseTranslation() {
 
 			const state = useDetailsStore.getState()
 
-			const entry = findSentenceEntry({
+			const sentence = findSentenceEntry({
 				sentences: state.sentences,
 				sentenceId: currentSentenceId,
 			})
-			if (!entry) return
+			if (!sentence) return
 
-			const covering = entry.data.phrases.find((p) => p.wordIds.includes(currentWordId))
-
-			if (covering) {
+			const phrase = sentence.data.phrases.find((p) => p.wordIds.includes(currentWordId))
+			if (phrase) {
 				state.setSelectedPhraseId({
 					sentenceId: currentSentenceId,
-					phraseId: covering.randomGeneratedPhraseId,
+					phraseId: phrase.randomGeneratedPhraseId,
 				})
 				return
 			}
@@ -77,11 +78,49 @@ export function useFetchCurrentPhraseTranslation() {
 				videoName: state.videoName,
 				videoYear: state.videoYear,
 				languageCode: state.languageCode,
+				targetLanguageCode: locale,
 				getPhraseTranslation,
 				translatePhrase,
 			})
 		},
 		[currentSentenceId, currentSentenceText, currentWordId],
+	)
+
+	// Process retry queue: phrases that the user explicitly asked to re-fetch.
+	useEffect(
+		function () {
+			if (retryFetchPhraseQueue.length === 0) return
+
+			const state = useDetailsStore.getState()
+
+			for (const item of retryFetchPhraseQueue) {
+				const wordOffsets = offsetsFromWordIds({
+					sentenceText: item.sentenceText,
+					locale: state.languageCode,
+					wordIds: item.wordIds,
+				})
+				if (!wordOffsets) continue
+
+				void runFetchForPhrase({
+					sentenceId: item.sentenceId,
+					sentenceText: item.sentenceText,
+					phraseId: item.randomGeneratedPhraseId,
+					wordStartOffset: wordOffsets.startOffset,
+					wordEndOffset: wordOffsets.endOffset,
+					bookName: state.bookName,
+					bookAuthor: state.bookAuthor,
+					videoName: state.videoName,
+					videoYear: state.videoYear,
+					languageCode: state.languageCode,
+					targetLanguageCode: locale,
+					getPhraseTranslation,
+					translatePhrase,
+				}).catch(function () {})
+			}
+
+			useDetailsStore.getState().updateStore({ retryFetchPhraseQueue: [] })
+		},
+		[retryFetchPhraseQueue],
 	)
 }
 
@@ -96,6 +135,7 @@ type RunFetchForPhraseInput = {
 	videoName: null | string
 	videoYear: null | string | number
 	languageCode: null | string
+	targetLanguageCode: string
 	getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
 	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
 }
@@ -121,12 +161,12 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 	}
 }
 
-async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhrase> {
+async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhraseType> {
 	const existing = await input.getPhraseTranslation({
 		variables: {
 			input: {
 				sentenceId: input.sentenceId,
-				targetLanguageCode: getCurrentUserLanguageCode(),
+				targetLanguageCode: input.targetLanguageCode,
 				selectedWordStartOffset: input.wordStartOffset,
 				selectedWordEndOffset: input.wordEndOffset,
 			},
@@ -151,7 +191,7 @@ async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Prom
 				sentenceId: input.sentenceId,
 				text: input.sentenceText,
 				selectedWord,
-				targetLanguageCode: getCurrentUserLanguageCode(),
+				targetLanguageCode: input.targetLanguageCode,
 				selectedWordStartOffset: input.wordStartOffset,
 				selectedWordEndOffset: input.wordEndOffset,
 				bookName: input.bookName ?? undefined,

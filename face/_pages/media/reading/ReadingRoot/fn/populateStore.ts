@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
 import header from 'ui/articleBuilder/components/Header/Header'
 import { localStorageManager } from 'utils/localStorageManager'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
 import {
 	BookChapterOutModel,
 	BookPrivateOutModel,
@@ -12,7 +13,6 @@ import {
 import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { populateChapterStructure } from './populateChapterStructure'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 export function usePopulateReadingStore() {
 	useFetchBookAndSetToStore()

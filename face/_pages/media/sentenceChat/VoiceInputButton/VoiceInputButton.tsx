@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import cn from 'classnames'
-import { getCurrentUserLanguageCode } from '@/utils/currentUserLanguage'
+import { useLocale } from 'next-intl'
 import { startRecognition, stopRecognition } from './fn/recognition'
 import './VoiceInputButton.scss'
 
@@ -14,10 +14,11 @@ function VoiceInputButton(props: VoiceInputButtonProps) {
 	const { onInsert, disabled, className } = props
 	const [state, setState] = useState<'idle' | 'recording' | 'thinking'>('idle')
 	const recognitionRef = useRef<any>(null)
+	const locale = useLocale()
 
 	function start() {
 		if (disabled) return
-		startRecognition(recognitionRef, setState, onInsert, getCurrentUserLanguageCode() || 'ru')
+		startRecognition(recognitionRef, setState, onInsert, locale || 'ru')
 	}
 
 	function stop() {

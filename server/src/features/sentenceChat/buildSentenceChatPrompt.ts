@@ -1,8 +1,8 @@
-import { Content } from '@google/genai'
+import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { SentenceChatMessageRole } from 'prisma/generated/enums'
 import { SentenceNeighbors, SentenceSourceInfo } from './SentenceChatContextBuilder.service'
 
-/** Строит systemInstruction для Gemini. */
+/** Строит systemInstruction для LLM. */
 export function buildSentenceChatSystemInstruction(input: {
 	source: SentenceSourceInfo
 	neighbors: SentenceNeighbors
@@ -23,9 +23,7 @@ export function buildSentenceChatSystemInstruction(input: {
 
 	return [
 		'Ты помогаешь пользователю разобраться с иностранным предложением из книги или фильма.',
-		'Пользователь изучает язык; отвечай на русском языке, если пользователь явно не попросит иначе.',
 		'Объясняй кратко и по делу. Форматируй ответ в Markdown: используй списки, жирный текст и цитаты, где уместно.',
-		'Если в предложении есть идиома, сленг или культурная отсылка — укажи это отдельно.',
 		'',
 		'Контекст источника:',
 		sourceLines.length ? sourceLines.join(' ') : '(источник неизвестен)',
@@ -41,25 +39,26 @@ export function buildSentenceChatSystemInstruction(input: {
 	].join('\n')
 }
 
-/** Преобразует историю сообщений в формат contents для Gemini. */
-export function buildSentenceChatContents(input: {
+/** Преобразует историю сообщений и новый вопрос пользователя в нейтральный LlmMessage[]. */
+export function buildSentenceChatMessages(input: {
 	history: Array<{ role: SentenceChatMessageRole; content: string }>
 	newUserQuestion: string
-}): Content[] {
-	const contents: Content[] = []
+}): LlmMessage[] {
+	const messages: LlmMessage[] = []
 
 	for (const message of input.history) {
 		if (!message.content) continue
-		contents.push({
-			role: message.role === 'assistant' ? 'model' : 'user',
-			parts: [{ text: message.content }],
+
+		messages.push({
+			role: message.role,
+			content: message.content,
 		})
 	}
 
-	contents.push({
+	messages.push({
 		role: 'user',
-		parts: [{ text: input.newUserQuestion }],
+		content: input.newUserQuestion,
 	})
 
-	return contents
+	return messages
 }

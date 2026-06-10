@@ -2,9 +2,10 @@
 
 import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { FormStatus } from 'utils/forms'
+import { pageUrls } from 'utils/pageUrls'
+import { Link } from '@/i18n/routing'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import FormError from '@/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
@@ -13,7 +14,6 @@ import InfoBlock from '@/ui/InfoBlock/InfoBlock'
 import OAuthButtons from '@/ui/OAuthButtons/OAuthButtons'
 import { RegisterFormData, registerFormSchema, RegisterFormTest } from './fn/form'
 import { useGetOnRegisterFormSubmit } from './fn/submit'
-import { pageUrls } from 'сonsts/pageUrls'
 
 function AuthRegisterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')

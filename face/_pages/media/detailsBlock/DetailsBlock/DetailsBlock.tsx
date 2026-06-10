@@ -7,6 +7,7 @@ import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
 import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
 import { useInitStore } from './fn/initStore'
 import { useSetBookSentenceIdAndWordId, useSetVideoSentenceIdAndWordId } from './fn/setSentenceIdAndWordId'
+import { useShowCurrentTranslation } from './fn/showCurrentTranslation'
 import './DetailsBlock.scss'
 
 type DetailsBlockProps = {
@@ -18,6 +19,7 @@ function DetailsBlock(props: DetailsBlockProps) {
 
 	useInitStore()
 	usePopulateStore()
+	useShowCurrentTranslation()
 	useSetBookSentenceIdAndWordId()
 	useSetVideoSentenceIdAndWordId()
 	useFetchCurrentSentenceTranslation()

@@ -1,0 +1,26 @@
+@use '@/styles/variables' as vars;
+
+.dropdown {
+
+}
+
+.dropdown__select {
+	appearance: none;
+	background-color: white;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='none' stroke='%236D6D6C' stroke-width='1.5' d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	padding: 0.7rem 3.2rem 0.7rem 1rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-1;
+	cursor: pointer;
+
+	&:hover {
+		border-color: vars.$grayColor-3;
+	}
+
+	&:focus {
+		border-color: vars.$grayColor-5;
+		outline: 3px solid vars.$grayColor-2;
+	}
+}

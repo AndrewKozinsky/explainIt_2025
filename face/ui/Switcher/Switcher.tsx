@@ -9,15 +9,24 @@ export type SwitcherItem = {
 }
 
 type SwitcherProps = {
+	type: 'fit' | 'block'
 	orientation: 'horizontal' | 'vertical'
+	widePaddings?: boolean
 	items: SwitcherItem[]
 }
 
 function Switcher(props: SwitcherProps) {
-	const { orientation, items } = props
+	const { type, orientation, widePaddings, items } = props
 
 	return (
-		<div className={cn('switcher', 'switcher--' + orientation)}>
+		<div
+			className={cn(
+				'switcher',
+				'switcher--' + orientation,
+				'switcher--' + type,
+				widePaddings && 'switcher--wide-paddings',
+			)}
+		>
 			{items.map((item, i) => {
 				return <SwitcherButton item={item} key={i} />
 			})}
@@ -35,7 +44,7 @@ function SwitcherButton(props: SwitcherButtonProps) {
 	const { item } = props
 
 	return (
-		<BaseButton theme='outline' extraClass={cn('switcher__button')} onClick={item.onClick} current={item.isCurrent}>
+		<BaseButton theme='regular' extraClass={cn('switcher__button')} onClick={item.onClick} current={item.isCurrent}>
 			{item.text}
 		</BaseButton>
 	)

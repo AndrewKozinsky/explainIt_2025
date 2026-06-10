@@ -46,6 +46,7 @@ function getUri() {
 	// When running on the server, connect directly to the server container
 	if (isServerComponent()) {
 		const hostMapper = {
+			develop: 'http://localhost',
 			development: 'http://localhost',
 			serverDevelop: 'https://dev.explainit.ru',
 			serverMaster: 'https://explainit.ru',

@@ -6,6 +6,7 @@ import { UniversalTranscriptionRepository } from 'repo/universalTranscription.re
 import { UniversalTranscriptionResolver } from 'routes/universalTranscription/universalTranscription.resolver'
 import { PrismaService } from 'db/prisma.service'
 import { CreateUniversalTranscriptionHandler } from 'features/universalTranscription/CreateUniversalTranscription.command'
+import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 
 const services = [PrismaService]
 const commandHandlers = [CreateUniversalTranscriptionHandler]
@@ -17,7 +18,7 @@ const repositories = [
 ]
 
 @Module({
-	imports: [CqrsModule],
+	imports: [CqrsModule, LlmProviderModule],
 	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
 })
 export class UniversalTranscriptionModule {}

@@ -1,10 +1,10 @@
-import { pageUrls } from '@/сonsts/pageUrls'
+import { pageUrls } from '@/utils/pageUrls'
 import { MainMenuLink } from '../MainMenuLink'
 import './MainMenu.scss'
 
 export function MainMenu() {
 	return (
-		<nav data-testid='main-menu'>
+		<nav>
 			<ul className='main-menu__ul'>
 				<li>
 					<MainMenuLink linkData={{ name: pageUrls.books.name, path: pageUrls.books.path }} />

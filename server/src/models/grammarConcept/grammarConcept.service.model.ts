@@ -3,7 +3,6 @@ export type GrammarConceptServiceModel = {
 	sourceLanguageCode: string
 	targetLanguageCode: string
 	category: string
-	lemma: string
 	title: string
 	slug: string
 	order: number
@@ -25,6 +24,6 @@ export type MissingGrammarConceptServiceModel = {
 	sourceLanguageCode: string
 	targetLanguageCode: string
 	category: string
-	lemma: string
+	alias: string
 	sentenceText: string
 }

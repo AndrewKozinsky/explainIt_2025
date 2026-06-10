@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import { pageUrls } from 'сonsts/pageUrls'
+import { pageUrls } from 'utils/pageUrls'
+import { Link } from '@/i18n/routing'
 import './DocsPage.scss'
 import './DocsPage.scss'
 

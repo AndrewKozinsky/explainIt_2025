@@ -1,8 +1,8 @@
 import { useCallback, useContext, useState } from 'react'
-import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
+import { serverRedirect } from '@/i18n/serverRedirect'
 import { NotificationContext } from '@/ui//Notification/context'
-import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
 export function useGetDeleteBook() {
@@ -40,7 +40,7 @@ export function useGetDeleteBook() {
 			setStatus('idle')
 
 			const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-			redirect(pageUrls.books.book(bookIdInUrl).path)
+			await serverRedirect(pageUrls.books.book(bookIdInUrl).path)
 		},
 		[deleteChapter, notify],
 	)

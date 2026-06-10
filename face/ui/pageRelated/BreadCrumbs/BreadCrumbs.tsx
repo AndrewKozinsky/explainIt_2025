@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import cn from 'classnames'
 import BaseButton from 'ui/BaseButton/BaseButton'
-import { pageUrls } from '@/сonsts/pageUrls'
+import { pageUrls } from '@/utils/pageUrls'
 import LogoSign from '../../logo/LogoSign/LogoSign'
 import './Pagination.scss'
 

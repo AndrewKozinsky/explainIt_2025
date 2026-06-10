@@ -1,7 +1,8 @@
 import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { pageUrls } from 'utils/pageUrls'
+import { createMediaIdUrl } from 'utils/pageUrls'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 import { bookConfig } from '_pages/media/commonComponents/bookConfig'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 function BooksBreadCrumbs() {
 	const privateBook = useChapterStore((s) => s.privateBook)

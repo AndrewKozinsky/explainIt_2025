@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
 import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
 import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useWatchingStore } from '../../watchingStore'
 import { createPopulatedPlainText } from './createPopulatedPlainText'
 import { createPopulatedSubtitles } from './createPopulatedText'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()

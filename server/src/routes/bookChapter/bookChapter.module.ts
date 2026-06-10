@@ -7,6 +7,7 @@ import { BookPrivateRepository } from 'repo/bookPrivate.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { SentenceRepository } from 'repo/sentence.repository'
+import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateBookChapterHandler } from 'features/bookChapter/CreateBookChapter.command'
@@ -29,6 +30,7 @@ const repositories = [
 	BookChapterRepository,
 	BookChapterQueryRepository,
 	GrammarConceptQueryRepository,
+	UniversalPhraseQueryRepository,
 	UserRepository,
 	BookPublicRepository,
 	SentenceRepository,

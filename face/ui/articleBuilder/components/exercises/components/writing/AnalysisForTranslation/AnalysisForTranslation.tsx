@@ -23,6 +23,7 @@
 	return (
 		<div className='exercises-analysis-for-translation' data-testid='exercise-analysis-block'>
 			<Switcher
+				type='fit'
 				orientation='horizontal'
 				items={[
 					{

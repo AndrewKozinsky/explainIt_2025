@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 import { useLanguage_Get_Languages } from '@/graphql'
 import LanguageSwitch from '@/ui/LanguageSwitch/LanguageSwitch'
 import { useDictionaryStore } from '../dictionaryStore'

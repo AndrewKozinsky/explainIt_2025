@@ -43,7 +43,8 @@ export class GetGrammarArticleHandler implements ICommandHandler<GetGrammarArtic
 			const raw = fs.readFileSync(filePath, 'utf-8')
 			const { data, content } = matter(raw)
 
-			if ((data as any).slug === slug) {
+			const fileSlug = (data as any).slug || filename.replace(/\.mdx$/, '')
+			if (fileSlug === slug) {
 				const compiled = await compile(content, {
 					outputFormat: 'function-body',
 					providerImportSource: '@mdx-js/react',

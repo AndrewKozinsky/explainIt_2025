@@ -13,7 +13,15 @@
 	padding-right: var(--offset);
 
 	@include mix.page-width(400px) {
-		--offset: 4%;
+		--offset: 2.5%;
+	}
+
+	@include mix.page-width(750px) {
+		--offset: 3%;
+	}
+
+	@include mix.page-width(1100px) {
+		--offset: 3.5%;
 	}
 }
 

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname } from '@/i18n/routing'
 
 /**
  * Принимает ссылку на элемент меню и возвращает булево значение

@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
 import { useUserStore } from 'stores/userStore'
-import { pageUrls } from 'сonsts/pageUrls'
+import { pageUrls } from 'utils/pageUrls'
+import { Link } from '@/i18n/routing'
 
 function ChatInputWarningMessage() {
 	const user = useUserStore((s) => s.user)
@@ -34,7 +34,7 @@ function ChatInputWarningMessage() {
 	}
 
 	if (!warningMessage) {
-		return <span />
+		return null
 	}
 
 	return <p className='chat-input__warning-message'>{warningMessage}</p>

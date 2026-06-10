@@ -1,5 +1,5 @@
 import { SectionWithHeader } from '@/ui/SectionWithHeader/SectionWithHeader'
-import { createMediaIdUrl } from '@/сonsts/pageUrls'
+import { createMediaIdUrl } from '@/utils/pageUrls'
 import AddChapterButton from '_pages/media/commonComponents/AddChapterButton/AddChapterButton'
 import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
 import { useBookStore } from '../bookStore'

@@ -1,6 +1,6 @@
 export const chapter_5 = {
 	name: 'Chapter V',
-	header: 'Our advertisement brings a visitor.',
+	header: 'Our advertisement brings a visitor',
 	text: `The morning’s work had been too much for my weak health, and by afternoon I was completely worn out. After Holmes left for the concert, I lay down on the sofa and tried to sleep for a couple of hours. It was hopeless. My mind was too excited by what had happened, and the strangest ideas and guesses crowded in.
 
 Every time I closed my eyes I saw again the twisted, baboon-like face of the murdered man. The impression it had made on me was so sinister that I found it hard to feel anything but gratitude toward the person who had removed such a creature from the world. If ever a man’s features spoke of the worst kind of vice, they were surely those of Enoch J. Drebber of Cleveland. And yet I knew that justice must be done, and that the victim’s wickedness was no excuse in the eyes of the law.

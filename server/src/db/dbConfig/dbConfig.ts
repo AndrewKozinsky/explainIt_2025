@@ -1266,7 +1266,7 @@ export const bdConfig = {
 	},
 	GrammarConcept: {
 		dtoProps: {},
-		indexes: [{ fields: ['source_language_code', 'target_language_code', 'category', 'lemma'], unique: true }],
+		indexes: [{ fields: ['source_language_code', 'target_language_code', 'category', 'slug'], unique: true }],
 		dbFields: {
 			id: { type: 'uuidIndex' },
 			source_language_code: {
@@ -1282,7 +1282,6 @@ export const bdConfig = {
 				required: true,
 			},
 			category: { type: 'string', required: true, maxLength: 100 },
-			lemma: { type: 'string', required: true, maxLength: 500 },
 			title: { type: 'string', required: true, maxLength: 500 },
 			slug: { type: 'string', required: true, maxLength: 500 },
 			order: { type: 'number', required: true, default: 0 },
@@ -1316,7 +1315,7 @@ export const bdConfig = {
 				required: true,
 			},
 			category: { type: 'string', required: true, maxLength: 100 },
-			lemma: { type: 'string', required: true, maxLength: 500 },
+			alias: { type: 'string', required: true, maxLength: 500 },
 			sentence_text: { type: 'string', required: true, maxLength: 2000 },
 			created_at: { type: 'createdAt' },
 		},

@@ -1,8 +1,8 @@
 import { useCallback, useContext, useState } from 'react'
-import { redirect } from 'next/navigation'
 import { useVideoPrivate_Delete, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { serverRedirect } from '@/i18n/serverRedirect'
 import { NotificationContext } from '@/ui//Notification/context'
-import { pageUrls } from '@/сonsts/pageUrls'
+import { pageUrls } from '@/utils/pageUrls'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
 export function useGetDeleteVideo() {
@@ -34,7 +34,7 @@ export function useGetDeleteVideo() {
 
 			setStatus('idle')
 
-			redirect(pageUrls.videos.path)
+			await serverRedirect(pageUrls.videos.path)
 		},
 		[deleteVideo, notify],
 	)

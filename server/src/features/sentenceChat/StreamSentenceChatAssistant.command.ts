@@ -6,16 +6,18 @@ import { Logger } from 'winston'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
-import { GoogleGeminiModels } from 'types/googleGeminiModels'
-import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
+import { OpenAIModels } from 'types/openAIModels'
+import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
+import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
+import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
+import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { SentenceChatMessage, SentenceChatThread } from 'prisma/generated/client'
 import { SentenceChatMessageStatus } from 'prisma/generated/enums'
 import { ActiveSentenceChatGenerationRegistry } from './ActiveSentenceChatGenerationRegistry.service'
-import { buildSentenceChatContents, buildSentenceChatSystemInstruction } from './buildSentenceChatPrompt'
+import { buildSentenceChatMessages, buildSentenceChatSystemInstruction } from './buildSentenceChatPrompt'
 import { SentenceChatContextBuilder } from './SentenceChatContextBuilder.service'
 
 // Сколько предложений до и после выделенного отдавать в контекст.
@@ -27,14 +29,14 @@ const HISTORY_LIMIT = 8
 export type StreamSentenceChatAssistantInput = {
 	userId: number
 	threadId: number
+	provider: TranslationProviderName
 }
 
 type TokenUsage = { inputTokens: number; outputTokens: number }
 type FinalStatus = Extract<SentenceChatMessageStatus, 'completed' | 'canceled' | 'failed'>
 
 type PromptPayload = {
-	systemInstruction: string
-	contents: ReturnType<typeof buildSentenceChatContents>
+	messages: LlmMessage[]
 }
 
 /**
@@ -52,7 +54,7 @@ type PromptPayload = {
 @Injectable()
 export class StreamSentenceChatAssistantCommand {
 	constructor(
-		private googleGeminiService: GoogleGeminiService,
+		private llmAdapter: LlmAdapterService,
 		private sentenceChatThreadRepository: SentenceChatThreadRepository,
 		private sentenceChatMessageRepository: SentenceChatMessageRepository,
 		private sentenceChatContextBuilder: SentenceChatContextBuilder,
@@ -131,7 +133,7 @@ export class StreamSentenceChatAssistantCommand {
 
 			state.abortController = this.activeGenerationRegistry.register(input.userId, assistantMessage.id)
 
-			await this.streamChunksToSubscriber(subscriber, state, prompt)
+			await this.streamChunksToSubscriber(subscriber, state, prompt, input.provider)
 
 			await this.finalize(input, subscriber, state, {
 				status: state.aborted ? 'canceled' : 'completed',
@@ -236,12 +238,14 @@ export class StreamSentenceChatAssistantCommand {
 			neighbors: context.neighbors,
 		})
 
-		const contents = buildSentenceChatContents({
+		const chatMessages = buildSentenceChatMessages({
 			history: history.map((m) => ({ role: m.role, content: m.content })),
 			newUserQuestion: newQuestion.content,
 		})
 
-		return { systemInstruction, contents }
+		return {
+			messages: [{ role: 'system', content: systemInstruction }, ...chatMessages],
+		}
 	}
 
 	// ---------- streaming ----------
@@ -268,11 +272,11 @@ export class StreamSentenceChatAssistantCommand {
 			abortController: null | AbortController
 		},
 		prompt: PromptPayload,
+		provider: TranslationProviderName,
 	): Promise<void> {
-		const stream = this.googleGeminiService.generateTextStreamChunks({
-			contents: prompt.contents,
-			model: GoogleGeminiModels.Flash,
-			systemInstruction: prompt.systemInstruction,
+		const stream = this.llmAdapter.stream({
+			provider,
+			messages: prompt.messages,
 			abortSignal: state.abortController?.signal,
 			onUsage: (u) => {
 				if (u) state.usage = u
@@ -308,7 +312,7 @@ export class StreamSentenceChatAssistantCommand {
 			errorText: opts.errorText,
 		})
 
-		await this.chargeTokenUsage(input.userId, state.usage)
+		await this.chargeTokenUsage(input.userId, state.usage, input.provider)
 
 		if (state.assistantMessageId !== null) {
 			this.activeGenerationRegistry.unregister(state.assistantMessageId)
@@ -339,19 +343,43 @@ export class StreamSentenceChatAssistantCommand {
 		}
 	}
 
-	private async chargeTokenUsage(userId: number, usage: null | TokenUsage): Promise<void> {
+	private async chargeTokenUsage(
+		userId: number,
+		usage: null | TokenUsage,
+		provider: TranslationProviderName,
+	): Promise<void> {
 		if (!usage || (usage.inputTokens <= 0 && usage.outputTokens <= 0)) return
 
 		try {
-			await this.commandBus.execute(
-				new GeminiTokenUsageBalanceChargeCommand({
-					userId,
-					inputTokens: usage.inputTokens,
-					outputTokens: usage.outputTokens,
-				}),
-			)
+			await chargeAfterTranslationIfNeeded({
+				userId,
+				chargeAfterTranslation: true,
+				usage: this.buildProviderUsage(provider, usage),
+				commandBus: this.commandBus,
+			})
 		} catch (error) {
 			this.logger.error('Failed to charge user after sentence chat generation', { error })
+		}
+	}
+
+	private buildProviderUsage(
+		provider: TranslationProviderName,
+		usage: TokenUsage,
+	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
+		if (provider === 'chatgpt') {
+			return {
+				provider: 'chatgpt',
+				inputTokens: usage.inputTokens,
+				outputTokens: usage.outputTokens,
+				model: OpenAIModels.Standard,
+				lowPriority: false,
+			}
+		}
+
+		return {
+			provider,
+			inputTokens: usage.inputTokens,
+			outputTokens: usage.outputTokens,
 		}
 	}
 

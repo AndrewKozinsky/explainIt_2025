@@ -1,8 +1,8 @@
 import { useCallback, useContext, useState } from 'react'
-import { redirect } from 'next/navigation'
 import { Book_GetUserBooksDocument, useBook_Delete } from '@/graphql'
+import { serverRedirect } from '@/i18n/serverRedirect'
 import { NotificationContext } from '@/ui/Notification/context'
-import { pageUrls } from '@/сonsts/pageUrls'
+import { pageUrls } from '@/utils/pageUrls'
 import { useBookStore } from '_pages/media/book/bookStore'
 
 export function useGetDeleteBook() {
@@ -31,7 +31,7 @@ export function useGetDeleteBook() {
 
 			setStatus('idle')
 
-			redirect(pageUrls.books.path)
+			await serverRedirect(pageUrls.books.path)
 		},
 		[deleteBook, notify],
 	)

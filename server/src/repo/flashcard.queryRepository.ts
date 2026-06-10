@@ -61,8 +61,10 @@ export class FlashcardQueryRepository {
 		for (const dbPhrase of dbPhrases) {
 			const transcription = dbPhrase.UniversalTranscription
 			if (!transcription) continue
+
 			const value = transcription.ipa ?? transcription.pinyin
 			if (!value) continue
+
 			map.set(this.makeKey(dbPhrase.source_language_code, dbPhrase.text), value)
 		}
 
@@ -80,6 +82,7 @@ export class FlashcardQueryRepository {
 			const text = examples[i]
 			const translate = examples[i + 1]
 			if (!text || !translate) continue
+
 			result.push({ text, translate })
 		}
 

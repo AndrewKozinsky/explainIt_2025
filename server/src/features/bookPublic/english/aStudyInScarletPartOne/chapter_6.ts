@@ -1,6 +1,6 @@
 export const chapter_6 = {
 	name: 'Chapter VI',
-	header: 'Tobias Gregson shows what he can do.',
+	header: 'Tobias Gregson shows what he can do',
 	text: `The next day the papers were full of what they called the “Brixton Mystery.” Each paper printed a long account, and some even added leading articles. A few details were new to me. I still keep many clippings and extracts about the case in my scrapbook. Here is a shortened version of some of them:—
 
 The Daily Telegraph remarked that in the history of crime there had seldom been a tragedy with stranger features. The victim’s German-sounding name, the lack of any clear motive, and the sinister word on the wall all pointed, it said, to political refugees and revolutionists. The Socialists had many branches in America; the deceased had, no doubt, offended their unwritten laws and had been tracked down. After mentioning—very freely—the Vehmgericht, aqua tofana, the Carbonari, the Marchioness de Brinvilliers, the Darwinian theory, the principles of Malthus, and the Ratcliff Highway murders, the article ended by warning the Government and calling for closer watch over foreigners in England.

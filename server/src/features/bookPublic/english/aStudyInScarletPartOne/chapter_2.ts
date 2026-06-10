@@ -1,6 +1,6 @@
 export const chapter_2 = {
 	name: 'Chapter II',
-	header: 'The science of deduction.',
+	header: 'The science of deduction',
 	text: `We met the next day, as he had arranged, and went to see the rooms at 221B Baker Street which he had mentioned. They were two comfortable bedrooms and one large, airy sitting-room, cheerfully furnished and lit by two broad windows. The rooms were excellent, and when we divided the rent between us the price seemed reasonable, so we agreed at once and moved in.
 
 That evening I brought my things over from the hotel, and the next morning Sherlock Holmes followed with several boxes and portmanteaus. For a day or two we were busy unpacking and arranging our belongings as best we could. When that was done, we began to settle into our new home.

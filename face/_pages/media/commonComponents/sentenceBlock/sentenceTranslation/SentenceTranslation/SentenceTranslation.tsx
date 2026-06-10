@@ -1,7 +1,10 @@
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import cn from 'classnames'
 import { findSentenceEntry } from '_pages/media/detailsBlock/DetailsBlock/fn/selectors'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
-import SentenceTranslationContentWrapper from '../SentenceTranslationContentWrapper/SentenceTranslationContentWrapper'
+import SentenceTranslationContent from './SentenceTranslationContent/SentenceTranslationContent'
+import SentenceTranslationError from './SentenceTranslationError/SentenceTranslationError'
+import SentenceTranslationLoading from './SentenceTranslationLoading/SentenceTranslationLoading'
+import './SentenceTranslation.scss'
 
 type SentenceTranslationProps = {
 	sentenceId: number
@@ -24,11 +27,17 @@ function SentenceTranslation(props: SentenceTranslationProps) {
 	const translationText = sentenceEntry.data.translation.text
 
 	return (
-		<SentenceTranslationContentWrapper loading={loading} bgColor={bgColor}>
-			{loading && <span />}
-			{error && <ErrorMessage text={sentenceEntry.data.translation.error} />}
-			{translationText && translationText}
-		</SentenceTranslationContentWrapper>
+		<p
+			className={cn(
+				'sentence-translation',
+				'sentence-translation--' + bgColor,
+				loading && 'sentence-translation--loading',
+			)}
+		>
+			<SentenceTranslationLoading loading={loading} />
+			<SentenceTranslationError sentenceId={sentenceId} error={error} />
+			<SentenceTranslationContent translationText={translationText} />
+		</p>
 	)
 }
 

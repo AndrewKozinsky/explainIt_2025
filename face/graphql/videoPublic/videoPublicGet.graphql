@@ -39,20 +39,35 @@ query VideoPublic_get($input: GetPublicVideoInput!) {
 					text
 					translate
 				}
+				universalPhrase {
+					id
+					text
+					sourceLanguageCode
+					transcription {
+						id
+						universalPhraseId
+						ipa
+						pinyin
+					}
+					audioPronunciation {
+						id
+						universalPhraseId
+						audioUrl
+					}
+				}
 			}
 			grammarConcepts {
 				id
 				title
 				slug
 				category
-				lemma
 				order
 				sourceLanguage
 				targetLanguage
 			}
 			missingGrammarConcepts {
 				category
-				lemma
+				alias
 			}
 		}
 		subtitles {

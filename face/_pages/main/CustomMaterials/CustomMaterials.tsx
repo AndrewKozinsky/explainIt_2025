@@ -1,8 +1,8 @@
 import React from 'react'
-import Link from 'next/link'
 import { filesUrls } from 'utils/filesUrls'
+import { pageUrls } from 'utils/pageUrls'
+import { Link } from '@/i18n/routing'
 import CustomMaterialCovers from '_pages/main/CustomMaterials/CustomMaterialCovers'
-import { pageUrls } from 'сonsts/pageUrls'
 import './CustomMaterials.scss'
 
 function CustomMaterials() {

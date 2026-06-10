@@ -1,13 +1,12 @@
 import { useEffect } from 'react'
-import { produce } from 'immer'
 import { useBookChapter_Get, useVideoPrivate_Get, useVideoPublic_Get } from '@/graphql'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import {
 	useDetailsStore,
-	DetailsStoreNext,
 	DetailsSentenceEntry,
-	SentencePhrase,
+	DetailsTranscription,
+	SentencePhraseType,
 	makePhraseId,
 } from '../../detailsStore'
 import { wordIdsFromOffsets } from './wordSegmentation'
@@ -15,7 +14,6 @@ import { wordIdsFromOffsets } from './wordSegmentation'
 export function usePopulateStore() {
 	useFetchChapterAndSetToStore()
 	useFetchVideoAndSetToStore()
-	useShowCurrentTranslation()
 }
 
 function useFetchChapterAndSetToStore() {
@@ -39,15 +37,18 @@ function useFetchChapterAndSetToStore() {
 			if (!data) return
 
 			const chapter = data.book_chapter_get
+			const rawSentences = (chapter.sentences ?? []) as ServerSentence[]
 
 			const sentences = mapToDetailsSentenceEntries({
 				originalContent: chapter.originalContent ?? '',
-				sentences: chapter.sentences ?? [],
+				sentences: rawSentences,
 				languageCode,
 				getTranslation: (s) => s.sentenceTranslation?.translation ?? null,
 			})
 
-			useDetailsStore.getState().updateStore({ sentences })
+			const transcriptions = extractTranscriptions(rawSentences)
+
+			useDetailsStore.getState().updateStore({ sentences, transcriptions })
 		},
 		[data, languageCode],
 	)
@@ -75,36 +76,20 @@ function useFetchVideoAndSetToStore() {
 
 			if (!video) return
 
+			const rawSentences = (video.sentences ?? []) as ServerSentence[]
+
 			const sentences = mapToDetailsSentenceEntries({
 				originalContent: video.originalContent ?? '',
-				sentences: video.sentences ?? [],
+				sentences: rawSentences,
 				languageCode,
 				getTranslation: (s) => s.sentenceTranslations?.[0]?.translation ?? null,
 			})
 
-			useDetailsStore.getState().updateStore({ sentences })
+			const transcriptions = extractTranscriptions(rawSentences)
+
+			useDetailsStore.getState().updateStore({ sentences, transcriptions })
 		},
 		[videoType, privateVideoData, publicVideoData, languageCode],
-	)
-}
-
-function useShowCurrentTranslation() {
-	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
-
-	useEffect(
-		function () {
-			if (currentSentenceId === null) return
-
-			useDetailsStore.setState(
-				produce((state: DetailsStoreNext) => {
-					const entry = state.sentences.find((item) => item.sentenceId === currentSentenceId)
-					if (entry) {
-						entry.data.translation.visible = true
-					}
-				}),
-			)
-		},
-		[currentSentenceId],
 	)
 }
 
@@ -124,6 +109,10 @@ type ServerSentence = {
 		errorMessage?: string | null
 		flashcardId?: number | null
 		examples: Array<{ text: string; translate: string }>
+		universalPhrase?: {
+			transcription?: { ipa?: string | null; pinyin?: string | null } | null
+			audioPronunciation?: { audioUrl: string } | null
+		} | null
 	}> | null
 }
 
@@ -146,6 +135,7 @@ function mapToDetailsSentenceEntries(input: {
 
 			return {
 				sentenceId: sentence.id,
+				sentenceText,
 				selectedPhraseId: null,
 				data: {
 					translation: {
@@ -169,7 +159,7 @@ function mapSentencePhrases(input: {
 	phraseTranslations: NonNullable<ServerSentence['sentencePhraseTranslations']>
 	sentenceText: string
 	languageCode: null | string
-}): SentencePhrase[] {
+}): SentencePhraseType[] {
 	const { phraseTranslations, sentenceText, languageCode } = input
 
 	return phraseTranslations.map((pt) => ({
@@ -188,4 +178,30 @@ function mapSentencePhrases(input: {
 		translation: pt.translate ?? null,
 		examples: pt.examples ?? [],
 	}))
+}
+
+function extractTranscriptions(sentences: ServerSentence[]): DetailsTranscription[] {
+	const seen = new Set<string>()
+	const result: DetailsTranscription[] = []
+
+	for (const sentence of sentences) {
+		for (const pt of sentence.sentencePhraseTranslations ?? []) {
+			if (!pt.phrase || seen.has(pt.phrase)) continue
+
+			const up = pt.universalPhrase
+			const ipa = up?.transcription?.ipa
+			const audioUrl = up?.audioPronunciation?.audioUrl ?? null
+
+			if (ipa || audioUrl) {
+				seen.add(pt.phrase)
+				result.push({
+					phrase: pt.phrase,
+					transcription: ipa ?? '',
+					audioUrl,
+				})
+			}
+		}
+	}
+
+	return result
 }

@@ -1,4 +1,4 @@
-import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
 import { bookConfig } from '../../commonComponents/bookConfig'
 import ChaptersList from '../../commonComponents/ChaptersList/ChaptersList'
 import { useBookStore } from '../bookStore'

@@ -4,7 +4,9 @@ export function findSentenceEntry(input: {
 	sentences: DetailsSentenceEntry[]
 	sentenceId: null | number
 }): null | DetailsSentenceEntry {
-	if (input.sentenceId === null) return null
+	if (input.sentenceId === null) {
+		return null
+	}
 
 	return input.sentences.find((entry) => entry.sentenceId === input.sentenceId) ?? null
 }

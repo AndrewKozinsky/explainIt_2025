@@ -54,14 +54,14 @@ export class FetchGrammarConceptsHandler implements ICommandHandler<FetchGrammar
 						!foundConcepts.some(
 							(gc) =>
 								gc.category === concept.category &&
-								(gc.lemma === concept.lemma || gc.aliases.includes(concept.lemma)),
+								gc.aliases.includes(concept.lemma),
 						),
 				)
 				.map((c) => ({
 					sourceLanguage,
 					targetLanguage,
 					category: c.category,
-					lemma: c.lemma,
+					alias: c.lemma,
 					sentenceText,
 				}))
 

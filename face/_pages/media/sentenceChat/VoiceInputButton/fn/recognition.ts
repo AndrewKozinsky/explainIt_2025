@@ -2,7 +2,6 @@ export type RecognitionRef = { current: any }
 
 export function getSpeechRecognitionCtor(): any {
 	// No feature detection/guard by requirement; assume available
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	return (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
 }
 

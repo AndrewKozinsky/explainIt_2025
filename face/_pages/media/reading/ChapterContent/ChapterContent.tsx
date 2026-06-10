@@ -1,4 +1,4 @@
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import './ChapterContent.scss'

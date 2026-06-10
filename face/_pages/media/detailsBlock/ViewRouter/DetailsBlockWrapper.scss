@@ -32,3 +32,14 @@
 	color: vars.$grayColor-5;
 	text-align: center;
 }
+
+.details-block-wrapper__switcher {
+	position: sticky;
+	top: 0;
+}
+
+.details-block-wrapper__content {
+	flex-grow: 1;
+	display: flex;
+	padding: 1.4rem 0;
+}

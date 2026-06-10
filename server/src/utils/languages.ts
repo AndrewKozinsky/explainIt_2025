@@ -1,43 +1,43 @@
 import { LanguageCode } from 'prisma/generated/enums'
 
 export type Language = keyof typeof languages
-type SupportedLanguageCode = LanguageCode | 'ru'
+type SupportedLanguageCode = LanguageCode
 
-export const languages: Record<SupportedLanguageCode, { nameRus: string; nameEng: string; code: Language }> = {
+export const languages: Record<SupportedLanguageCode, { name: string; nameEng: string; code: Language }> = {
 	en: {
-		nameRus: 'Английский',
+		name: 'English',
 		nameEng: 'english',
 		code: 'en',
 	},
 	es: {
-		nameRus: 'Испанский',
+		name: 'Español',
 		nameEng: 'spanish',
 		code: 'es',
 	},
 	fr: {
-		nameRus: 'Французский',
+		name: 'Français',
 		nameEng: 'french',
 		code: 'fr',
 	},
 	de: {
-		nameRus: 'Немецкий',
+		name: 'Deutsch',
 		nameEng: 'german',
 		code: 'de',
 	},
-	ru: {
-		nameRus: 'Русский',
-		nameEng: 'russian',
-		code: 'ru',
-	},
 	it: {
-		nameRus: 'Итальянский',
+		name: 'Italiano',
 		nameEng: 'italian',
 		code: 'it',
 	},
 	tr: {
-		nameRus: 'Турецкий',
+		name: 'Türkçe',
 		nameEng: 'turkish',
 		code: 'tr',
+	},
+	ru: {
+		name: 'Русский',
+		nameEng: 'russian',
+		code: 'ru',
 	},
 	/*pt: {
 		nameRus: 'Португальский',

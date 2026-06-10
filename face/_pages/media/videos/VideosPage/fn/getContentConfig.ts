@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { MediaItemsGridConfig } from '@/_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
 import { useVideosStore } from '../../videosStore'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 export function useGetContentConfig() {
 	const privateVideos = useVideosStore((s) => s.privateVideos)
@@ -13,7 +13,7 @@ export function useGetContentConfig() {
 			loading: boolean
 			error: null | string
 			config: null | MediaItemsGridConfig
-		} {
+			} {
 			const errorMessage = privateVideos.errorMessage || publicVideos.errorMessage
 			const isLoading = privateVideos.loading || publicVideos.loading
 

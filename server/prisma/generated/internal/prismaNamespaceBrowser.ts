@@ -380,7 +380,6 @@ export const GrammarConceptScalarFieldEnum = {
   source_language_code: 'source_language_code',
   target_language_code: 'target_language_code',
   category: 'category',
-  lemma: 'lemma',
   title: 'title',
   slug: 'slug',
   order: 'order',
@@ -396,7 +395,7 @@ export const MissingGrammarConceptScalarFieldEnum = {
   source_language_code: 'source_language_code',
   target_language_code: 'target_language_code',
   category: 'category',
-  lemma: 'lemma',
+  alias: 'alias',
   sentence_text: 'sentence_text',
   created_at: 'created_at'
 } as const

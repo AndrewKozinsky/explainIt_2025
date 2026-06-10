@@ -1,0 +1,15 @@
+.sentence-phrase-top {
+	display: flex;
+	align-items: baseline;
+	gap: .8rem;
+}
+
+.sentence-phrase-top__content {
+	flex-grow: 1;
+	font-size: 2.2rem;
+	line-height: 3rem;
+}
+
+.sentence-phrase-top__phrase {
+	font-weight: 600;
+}

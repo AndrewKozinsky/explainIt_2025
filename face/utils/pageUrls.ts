@@ -1,0 +1,169 @@
+import { ParamValue } from 'next/dist/server/request/params'
+
+// ── Адреса страниц (без языкового префикса — локаль добавляет next-intl) ───────
+
+export const pageUrls = {
+	main: {
+		name: 'Главная',
+		path: '/',
+	},
+	auth: {
+		name: 'Авторизация',
+		path: '/auth',
+		login: {
+			name: 'Вход',
+			path: '/auth/login',
+		},
+		register: {
+			name: 'Регистрация',
+			path: '/auth/register',
+		},
+		emailConfirmation: {
+			name: 'Подтверждение эл. почты',
+			path: '/auth/email-confirmation',
+		},
+		resendConfirmationLetter: {
+			name: 'Повторная отправка письма подтверждения почты',
+			path: '/auth/resend-confirmation-letter',
+		},
+		oauth: {
+			github: {
+				getPermissions(input: { clientId: string; redirectUri: string; state: string }) {
+					return {
+						name: 'Получение прав на запрос данных пользователя у GutHub',
+						path: `https://github.com/login/oauth/authorize?client_id=${input.clientId}&response_type=code&scope=user&redirect_uri=${input.redirectUri}&state=${input.state}`,
+					}
+				},
+			},
+			google: {
+				getPermissions(input: { clientId: string; redirectUri: string; state: string }) {
+					return {
+						name: 'Получение прав на запрос данных пользователя у Google',
+						path: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${input.clientId}&response_type=code&scope=email profile&redirect_uri=${input.redirectUri}&state=${input.state}`,
+					}
+				},
+			},
+			yandex: {
+				getPermissions(input: { clientId: string; redirectUri: string; state: string }) {
+					return {
+						name: 'Получение прав на запрос данных пользователя у Google',
+						path: `https://oauth.yandex.ru/authorize?response_type=code&client_id=${input.clientId}&redirect_uri=${input.redirectUri}&scope=login:email login:info&state=fgg`,
+					}
+				},
+			},
+		},
+	},
+	books: {
+		name: 'Книги',
+		path: '/books',
+		// bookId: p1 or u1
+		book(bookId: string) {
+			return {
+				name: 'Книга',
+				path: '/books/' + bookId,
+				chapter(chapterId: string | number) {
+					return {
+						name: 'Книга',
+						path: '/books/' + bookId + '/' + chapterId,
+						reading: {
+							segment: 'reading',
+							name: 'Чтение главы',
+							path: '/books/' + bookId + '/' + chapterId + '/reading',
+						},
+					}
+				},
+			}
+		},
+	},
+	videos: {
+		name: 'Фильмы',
+		path: '/videos',
+		video(videoId: string | number) {
+			return {
+				name: 'Фильм',
+				path: '/videos/' + videoId,
+				watching: {
+					segment: 'watching',
+					name: 'Просмотр фильма',
+					path: '/videos/' + videoId + '/watching',
+				},
+			}
+		},
+	},
+	contacts: {
+		name: 'Контакты',
+		path: '/contacts',
+	},
+	dictionary: {
+		name: 'Словарь',
+		path: '/dictionary',
+	},
+	grammar: {
+		name: 'Грамматика',
+		path: '/grammar',
+		language(sourceLanguage: string) {
+			return {
+				name: 'Язык',
+				path: '/grammar/' + sourceLanguage,
+				article(sourceLanguage: string, category: string, slug: string) {
+					return {
+						name: 'Грамматическая статья',
+						path: `/grammar/${sourceLanguage}/${category}/${slug}`,
+					}
+				},
+			}
+		},
+	},
+	help: {
+		name: 'Справка',
+		path: '/help',
+	},
+	me: {
+		name: 'Личный кабинет',
+		path: '/me',
+	},
+	docs: {
+		privacyPolicy: {
+			name: 'Политика обработки персональных данных',
+			path: '/docs/privacy-policy',
+		},
+		offer: {
+			name: 'Пользовательское соглашение (Оферта)',
+			path: '/docs/offer',
+		},
+		contentUsePolicy: {
+			name: 'Политика использования контента',
+			path: '/docs/content-use-policy',
+		},
+	},
+}
+
+/** Добавляет языковой префикс к пути: localizePath('en', '/books') → '/en/books' */
+export function localizePath(locale: string, path: string): string {
+	return `/${locale}${path === '/' ? '' : path}`
+}
+
+// ── Утилиты для работы с media ID ────────────────────────────────────────────
+
+export function getMediaTypePrefixInUrl(mediaType: 'public' | 'private') {
+	return mediaType === 'public' ? 'p' : 'u'
+}
+
+export function createMediaIdUrl(mediaId: string | number, mediaType: 'public' | 'private') {
+	return getMediaTypePrefixInUrl(mediaType) + mediaId
+}
+
+export function getMediaTypeByUrlMediaId(
+	urlMediaId: ParamValue | undefined | null | string,
+): null | 'public' | 'private' {
+	if (!urlMediaId || typeof urlMediaId !== 'string') return null
+
+	return urlMediaId.startsWith('p') ? 'public' : 'private'
+}
+
+export function extractMediaIdFromUrlBookId(urlMediaId: ParamValue | undefined | null | string): null | number {
+	if (!urlMediaId || typeof urlMediaId !== 'string') return null
+
+	const mediaIdStr = urlMediaId.slice(1)
+	return parseInt(mediaIdStr)
+}

@@ -8,13 +8,18 @@ import { TranscriptionAndAudioProps, TranscriptionState } from './types'
 import './TranscriptionAndAudio.scss'
 
 function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
-	const { phrase, languageCode, audioUrl, transcription, onWhiteBackground, extraClass } = props
+	const { phrase, languageCode, audioUrl, transcription, bg = 'pale', extraClass } = props
 	const { isPlaying, handleClick, status } = useAudioPlayer({ phrase, languageCode, audioUrl })
 
 	const isSupportedLanguage = ['en', 'fr'].includes(languageCode)
 	if (!isSupportedLanguage) return null
 
-	const rootClasses = cn('transcription-audio', onWhiteBackground && 'transcription-audio--white-bg', extraClass)
+	const rootClasses = cn(
+		'transcription-audio',
+		`transcription-audio--${bg}-bg`,
+		(phrase === 'loading' || transcription?.status === 'loading') && 'transcription-audio--loading',
+		extraClass,
+	)
 	const canLoadAudio = audioUrl !== undefined
 
 	return (
@@ -36,12 +41,8 @@ type AudioIconProps = {
 function AudioIcon(props: AudioIconProps) {
 	const { audioStatus, isPlaying, hasAudio } = props
 
-	if (!hasAudio) {
+	if (!hasAudio || audioStatus === 'loading') {
 		return null
-	}
-
-	if (audioStatus === 'loading') {
-		return <Spinner size='extra-small' />
 	}
 
 	if (audioStatus === 'error') {
@@ -58,12 +59,8 @@ type TranscriptionBlockProps = {
 function TranscriptionBlock(props: TranscriptionBlockProps) {
 	const { transcription } = props
 
-	if (!transcription) {
+	if (!transcription || transcription.status === 'loading') {
 		return null
-	}
-
-	if (transcription.status === 'loading') {
-		return <Spinner size='extra-small' />
 	}
 
 	if (transcription.status === 'error') {

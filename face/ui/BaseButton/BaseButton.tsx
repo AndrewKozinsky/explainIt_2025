@@ -1,13 +1,13 @@
 import React, { CSSProperties, MouseEventHandler } from 'react'
 import cn from 'classnames'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import './BaseButton.scss'
 
 type BaseButtonProps = {
 	theme?: 'plain' | 'outline' | 'regular' | 'accent' | 'danger'
 	onClick?: () => void
 	disabled?: boolean
-	extraClass: string
+	extraClass?: string
 	current?: boolean
 	href?: string
 	type?: 'button' | 'submit' | 'reset'

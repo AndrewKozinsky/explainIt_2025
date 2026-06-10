@@ -1,9 +1,9 @@
 import Header from 'ui/Header/Header'
 import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { pageUrls } from 'utils/pageUrls'
 import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
 import DictionaryPageContent from '_pages/dictionary/DictionaryPageContent/DictionaryPageContent'
-import { pageUrls } from 'сonsts/pageUrls'
 
 /** Страница словаря */
 function DictionaryPage() {

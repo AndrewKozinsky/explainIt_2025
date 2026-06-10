@@ -12,8 +12,11 @@ export const detailsStoreValues: DetailsStoreValues = {
 	currentSentenceId: null,
 	currentSentenceText: null,
 	currentWordId: null,
+	currentInfoView: 'words',
 	sentences: [],
 	transcriptions: [],
+	retryFetchSentenceTranslationQueue: [],
+	retryFetchPhraseQueue: [],
 }
 
 export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
@@ -30,6 +33,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				produce((state: DetailsStoreNext) => {
 					state.sentences.push({
 						sentenceId: input.sentenceId,
+						sentenceText: input.text,
 						selectedPhraseId: null,
 						data: {
 							translation: {
@@ -55,7 +59,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => {
+		upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -75,7 +79,11 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
-		patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => {
+		patchPhraseTranslation: (input: {
+			sentenceId: number
+			phraseId: string
+			patch: Partial<SentencePhraseType>
+		}) => {
 			set(
 				produce((state: DetailsStoreNext) => {
 					const entry = state.sentences.find((item) => item.sentenceId === input.sentenceId)
@@ -91,7 +99,7 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 		finalizePhraseTranslation: (input: {
 			sentenceId: number
 			placeholderPhraseId: string
-			phrase: SentencePhrase
+			phrase: SentencePhraseType
 		}) => {
 			set(
 				produce((state: DetailsStoreNext) => {
@@ -156,6 +164,46 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
+		setActiveInfoView: (view: InfoViewType) => {
+			set({ currentInfoView: view })
+		},
+		retrySentenceTranslation: (sentenceId: number) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const idx = state.sentences.findIndex((item) => item.sentenceId === sentenceId)
+					if (idx < 0) return
+
+					const entry = state.sentences[idx]
+					state.sentences.splice(idx, 1)
+					state.retryFetchSentenceTranslationQueue.push({
+						sentenceId: entry.sentenceId,
+						sentenceText: entry.sentenceText,
+					})
+				}),
+			)
+		},
+		retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => {
+			set(
+				produce((state: DetailsStoreNext) => {
+					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
+					if (!entry) return
+
+					const phrase = entry.data.phrases.find((p) => p.randomGeneratedPhraseId === randomGeneratedPhraseId)
+					if (!phrase) return
+
+					phrase.loading = true
+					phrase.error = null
+					phrase.translation = null
+
+					state.retryFetchPhraseQueue.push({
+						sentenceId,
+						randomGeneratedPhraseId,
+						wordIds: phrase.wordIds,
+						sentenceText: entry.sentenceText,
+					})
+				}),
+			)
+		},
 	}
 })
 
@@ -178,14 +226,16 @@ export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 export type DetailsTranscription = {
 	phrase: string
 	transcription: string
+	audioUrl: string | null
 }
 
 export type DetailsSentenceEntry = {
 	sentenceId: number
+	sentenceText: string
 	selectedPhraseId: string | null
 	data: {
 		translation: SentenceTranslation
-		phrases: SentencePhrase[]
+		phrases: SentencePhraseType[]
 	}
 }
 
@@ -197,7 +247,7 @@ export type SentenceTranslation = {
 	visible: boolean
 }
 
-export type SentencePhrase = {
+export type SentencePhraseType = {
 	// id фразы предложения генерируется на клиенте потому что запрос на сервер на создание фразы идёт после того, как фраза создаётся в Хранилище
 	randomGeneratedPhraseId: string
 	// Id фразы из предложения, созданной на сервере
@@ -217,6 +267,20 @@ export type PhraseExample = {
 	translate: string
 }
 
+export type RetryFetchSentenceTranslationQueueItem = {
+	sentenceId: number
+	sentenceText: string
+}
+
+export type RetryFetchPhraseQueueItem = {
+	sentenceId: number
+	randomGeneratedPhraseId: string
+	wordIds: number[]
+	sentenceText: string
+}
+
+export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
+
 export type DetailsStoreValues = {
 	chapterId: null | number
 	bookName: null | string
@@ -228,8 +292,11 @@ export type DetailsStoreValues = {
 	currentSentenceId: null | number
 	currentSentenceText: null | string
 	currentWordId: null | number
+	currentInfoView: InfoViewType
 	sentences: DetailsSentenceEntry[]
 	transcriptions: DetailsTranscription[]
+	retryFetchSentenceTranslationQueue: RetryFetchSentenceTranslationQueueItem[]
+	retryFetchPhraseQueue: RetryFetchPhraseQueueItem[]
 }
 
 export type DetailsStoreMethods = {
@@ -237,13 +304,20 @@ export type DetailsStoreMethods = {
 	updateStore: (store: Partial<DetailsStoreValues>) => void
 	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
 	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
-	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhrase }) => void
-	patchPhraseTranslation: (input: { sentenceId: number; phraseId: string; patch: Partial<SentencePhrase> }) => void
+	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
+	patchPhraseTranslation: (input: {
+		sentenceId: number
+		phraseId: string
+		patch: Partial<SentencePhraseType>
+	}) => void
 	finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
-		phrase: SentencePhrase
+		phrase: SentencePhraseType
 	}) => void
 	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
 	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
+	setActiveInfoView: (view: InfoViewType) => void
+	retrySentenceTranslation: (sentenceId: number) => void
+	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
 }

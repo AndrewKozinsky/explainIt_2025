@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
 import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
 import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useChapterStore } from '../../chapterStore'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId, pageUrls } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateChapterStore() {

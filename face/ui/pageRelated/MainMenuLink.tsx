@@ -1,7 +1,7 @@
 'use client'
 
 import cn from 'classnames'
-import Link from 'next/link'
+import { Link } from '@/i18n/routing'
 import { useIsCurrentPage } from './MainMenu/fn/mainMenuFn'
 
 type MenuLinkProps = {

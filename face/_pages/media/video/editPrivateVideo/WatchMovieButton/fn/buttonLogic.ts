@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
-import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { useLocale } from 'next-intl'
+import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
+import { localizePath } from '@/utils/pageUrls'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
 export function useIsWatchButtonDisabled() {
@@ -22,14 +24,15 @@ export function useIsWatchButtonDisabled() {
 
 export function useGetOnWatchButtonClick() {
 	const privateVideo = useVideoStore((s) => s.privateVideo.data)
+	const locale = useLocale()
 
 	return useCallback(
 		function () {
 			if (!privateVideo) return
 
 			const videoIdInUrl = createMediaIdUrl(privateVideo.id, 'private')
-			redirect(pageUrls.videos.video(videoIdInUrl).watching.path)
+			redirect(localizePath(locale, pageUrls.videos.video(videoIdInUrl).watching.path))
 		},
-		[privateVideo],
+		[privateVideo, locale],
 	)
 }

@@ -244,6 +244,13 @@ export type GetGrammarArticleInput = {
   targetLanguage: Scalars['String']['input'];
 };
 
+export type GetGrammarConceptsListInput = {
+  /** Source language code (language being learned) */
+  sourceLanguage: Scalars['String']['input'];
+  /** Target language code (translation language) */
+  targetLanguage: Scalars['String']['input'];
+};
+
 export type GetMyFlashcardsInput = {
   /** Optional language filter */
   languageCode?: InputMaybe<Scalars['String']['input']>;
@@ -312,16 +319,28 @@ export type GrammarArticleOutModel = {
   title: Scalars['String']['output'];
 };
 
+export type GrammarConceptCategoryGroup = {
+  __typename?: 'GrammarConceptCategoryGroup';
+  articles: Array<GrammarConceptOutModel>;
+  category: Scalars['String']['output'];
+};
+
 export type GrammarConceptOutModel = {
   __typename?: 'GrammarConceptOutModel';
   category: Scalars['String']['output'];
   id: Scalars['ID']['output'];
-  lemma: Scalars['String']['output'];
   order: Scalars['Int']['output'];
   slug: Scalars['String']['output'];
   sourceLanguage: Scalars['String']['output'];
   targetLanguage: Scalars['String']['output'];
   title: Scalars['String']['output'];
+};
+
+export type GrammarConceptsListOutModel = {
+  __typename?: 'GrammarConceptsListOutModel';
+  categories: Array<GrammarConceptCategoryGroup>;
+  sourceLanguage: Scalars['String']['output'];
+  targetLanguage: Scalars['String']['output'];
 };
 
 export type GrammarExtractionOutModel = {
@@ -357,8 +376,8 @@ export type LoginWithOAuthInput = {
 
 export type MissingGrammarConceptOutModel = {
   __typename?: 'MissingGrammarConceptOutModel';
+  alias: Scalars['String']['output'];
   category: Scalars['String']['output'];
-  lemma: Scalars['String']['output'];
 };
 
 export type Mutation = {
@@ -572,6 +591,8 @@ export type Query = {
   flashcard_get_my: Array<FlashcardOutModel>;
   /** Get grammar article content by language, category and slug */
   grammar_article_get: GrammarArticleOutModel;
+  /** Get all grammar articles grouped by category for a language pair */
+  grammar_concepts_list: GrammarConceptsListOutModel;
   /** Get all available languages */
   language_get_languages: Array<LanguageOutModel>;
   /** Получить тред чата с ИИ для выделенного предложения со всеми сообщениями. Если тред ещё не создавался — возвращает null. */
@@ -619,6 +640,11 @@ export type QueryFlashcard_Get_MyArgs = {
 
 export type QueryGrammar_Article_GetArgs = {
   input: GetGrammarArticleInput;
+};
+
+
+export type QueryGrammar_Concepts_ListArgs = {
+  input: GetGrammarConceptsListInput;
 };
 
 
@@ -729,6 +755,7 @@ export type SentencePhraseTranslationOutModel = {
   sentenceId: Scalars['Int']['output'];
   status: Scalars['String']['output'];
   translate?: Maybe<Scalars['String']['output']>;
+  universalPhrase?: Maybe<UniversalPhraseOutModel>;
   updatedAt: Scalars['String']['output'];
 };
 
@@ -1115,7 +1142,7 @@ export type BookChapter_GetVariables = Exact<{
 }>;
 
 
-export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, sentenceTranslation?: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, createdAt: string } | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
+export type BookChapter_Get = { __typename?: 'Query', book_chapter_get: { __typename?: 'BookChapterOutModel', id: number, name?: string | null, header?: string | null, note?: string | null, originalContent?: string | null, processedContent?: string | null, sentences?: Array<{ __typename?: 'SentenceOutModel', id: number, startOffset: number, length: number, sentenceTranslation?: { __typename?: 'SentenceTranslationOutModel', id: number, sentenceId: number, translation: string, createdAt: string } | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, alias: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }>, universalPhrase?: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } | null }> | null }> | null, book: { __typename?: 'BookLiteOutModel', id: number, name?: string | null, languageCode: string, author?: string | null, note?: string | null, userId?: number | null } } };
 
 export type BookChapter_UpdateVariables = Exact<{
   input: UpdateBookChapterInput;
@@ -1195,7 +1222,7 @@ export type GrammarConcept_FetchVariables = Exact<{
 }>;
 
 
-export type GrammarConcept_Fetch = { __typename?: 'Mutation', grammar_concept_fetch: { __typename?: 'GrammarExtractionOutModel', id: number, sentenceText: string, sourceLanguage: string, grammarExtractionStatus: string, grammarConcepts: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }>, missingGrammarConcepts: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> } };
+export type GrammarConcept_Fetch = { __typename?: 'Mutation', grammar_concept_fetch: { __typename?: 'GrammarExtractionOutModel', id: number, sentenceText: string, sourceLanguage: string, grammarExtractionStatus: string, grammarConcepts: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, order: number, sourceLanguage: string, targetLanguage: string }>, missingGrammarConcepts: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, alias: string }> } };
 
 export type GrammarArticle_GetVariables = Exact<{
   input: GetGrammarArticleInput;
@@ -1203,6 +1230,13 @@ export type GrammarArticle_GetVariables = Exact<{
 
 
 export type GrammarArticle_Get = { __typename?: 'Query', grammar_article_get: { __typename?: 'GrammarArticleOutModel', title: string, content: string, compiledSource: string } };
+
+export type GrammarConceptsListVariables = Exact<{
+  input: GetGrammarConceptsListInput;
+}>;
+
+
+export type GrammarConceptsList = { __typename?: 'Query', grammar_concepts_list: { __typename?: 'GrammarConceptsListOutModel', sourceLanguage: string, targetLanguage: string, categories: Array<{ __typename?: 'GrammarConceptCategoryGroup', category: string, articles: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, order: number, sourceLanguage: string, targetLanguage: string }> }> } };
 
 export type Language_Get_LanguagesVariables = Exact<{ [key: string]: never; }>;
 
@@ -1319,7 +1353,7 @@ export type VideoPrivate_GetVariables = Exact<{
 }>;
 
 
-export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPrivate_Get = { __typename?: 'Query', video_private_get: { __typename?: 'VideoPrivateOutModel', id: number, name?: string | null, year?: number | null, languageCode?: string | null, originalContent?: string | null, processedContent?: string | null, contentType: string, userId: number, fileName?: string | null, fileS3Key?: string | null, fileUrl?: string | null, isFileUploaded: boolean, fileSizeMb: number, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPrivateSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }>, universalPhrase?: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } | null }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, alias: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPrivateSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPrivate_GetSubtitlesGenerationStatusVariables = Exact<{
   input: VideoPrivateSubtitlesStatusInput;
@@ -1345,7 +1379,7 @@ export type VideoPublic_GetVariables = Exact<{
 }>;
 
 
-export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }> }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, lemma: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, lemma: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
+export type VideoPublic_Get = { __typename?: 'Query', video_public_get: { __typename?: 'VideoPublicOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean, sentences?: Array<{ __typename?: 'VideoPublicSentenceOutModel', id: number, startOffset: number, length: number, orderIndex: number, sentenceTranslations?: Array<{ __typename?: 'SentenceTranslationLiteOutModel', id: number, translation: string }> | null, sentencePhraseTranslations?: Array<{ __typename?: 'SentencePhraseTranslationOutModel', id: number, sentenceId: number, phrase: string, phraseStartOffset: number, phraseEndOffset: number, translate?: string | null, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string, flashcardId?: number | null, examples: Array<{ __typename?: 'SentencePhraseTranslationExampleOutModel', text: string, translate: string }>, universalPhrase?: { __typename?: 'UniversalPhraseOutModel', id: number, text: string, sourceLanguageCode: string, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null, audioPronunciation?: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } | null } | null }> | null, grammarConcepts?: Array<{ __typename?: 'GrammarConceptOutModel', id: string, title: string, slug: string, category: string, order: number, sourceLanguage: string, targetLanguage: string }> | null, missingGrammarConcepts?: Array<{ __typename?: 'MissingGrammarConceptOutModel', category: string, alias: string }> | null }> | null, subtitles?: Array<{ __typename?: 'VideoPublicSubtitleOutModel', id: number, startTimeMs: number, endTimeMs: number, startOffset: number, length: number, orderIndex: number }> | null, subtitleSentenceInit?: Array<{ __typename?: 'SubtitleSentenceInitOutModel', id: number, subtitleId: number, sentenceId: number, startOffset: number, length: number }> | null } };
 
 export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 
@@ -1701,14 +1735,13 @@ export const BookChapter_GetDocument = gql`
         title
         slug
         category
-        lemma
         order
         sourceLanguage
         targetLanguage
       }
       missingGrammarConcepts {
         category
-        lemma
+        alias
       }
       sentencePhraseTranslations {
         id
@@ -1726,6 +1759,22 @@ export const BookChapter_GetDocument = gql`
         createdAt
         updatedAt
         flashcardId
+        universalPhrase {
+          id
+          text
+          sourceLanguageCode
+          transcription {
+            id
+            universalPhraseId
+            ipa
+            pinyin
+          }
+          audioPronunciation {
+            id
+            universalPhraseId
+            audioUrl
+          }
+        }
       }
     }
     book {
@@ -2332,14 +2381,13 @@ export const GrammarConcept_FetchDocument = gql`
       title
       slug
       category
-      lemma
       order
       sourceLanguage
       targetLanguage
     }
     missingGrammarConcepts {
       category
-      lemma
+      alias
     }
   }
 }
@@ -2415,6 +2463,62 @@ export type GrammarArticle_GetHookResult = ReturnType<typeof useGrammarArticle_G
 export type GrammarArticle_GetLazyQueryHookResult = ReturnType<typeof useGrammarArticle_GetLazyQuery>;
 export type GrammarArticle_GetSuspenseQueryHookResult = ReturnType<typeof useGrammarArticle_GetSuspenseQuery>;
 export type GrammarArticle_GetQueryResult = Apollo.QueryResult<GrammarArticle_Get, GrammarArticle_GetVariables>;
+export const GrammarConceptsListDocument = gql`
+    query GrammarConceptsList($input: GetGrammarConceptsListInput!) {
+  grammar_concepts_list(input: $input) {
+    sourceLanguage
+    targetLanguage
+    categories {
+      category
+      articles {
+        id
+        title
+        slug
+        category
+        order
+        sourceLanguage
+        targetLanguage
+      }
+    }
+  }
+}
+    `;
+
+/**
+ * __useGrammarConceptsList__
+ *
+ * To run a query within a React component, call `useGrammarConceptsList` and pass it any options that fit your needs.
+ * When your component renders, `useGrammarConceptsList` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGrammarConceptsList({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useGrammarConceptsList(baseOptions: Apollo.QueryHookOptions<GrammarConceptsList, GrammarConceptsListVariables> & ({ variables: GrammarConceptsListVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GrammarConceptsList, GrammarConceptsListVariables>(GrammarConceptsListDocument, options);
+      }
+export function useGrammarConceptsListLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GrammarConceptsList, GrammarConceptsListVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GrammarConceptsList, GrammarConceptsListVariables>(GrammarConceptsListDocument, options);
+        }
+// @ts-ignore
+export function useGrammarConceptsListSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GrammarConceptsList, GrammarConceptsListVariables>): Apollo.UseSuspenseQueryResult<GrammarConceptsList, GrammarConceptsListVariables>;
+export function useGrammarConceptsListSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GrammarConceptsList, GrammarConceptsListVariables>): Apollo.UseSuspenseQueryResult<GrammarConceptsList | undefined, GrammarConceptsListVariables>;
+export function useGrammarConceptsListSuspenseQuery(baseOptions?: Apollo.SkipToken | Apollo.SuspenseQueryHookOptions<GrammarConceptsList, GrammarConceptsListVariables>) {
+          const options = baseOptions === Apollo.skipToken ? baseOptions : {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GrammarConceptsList, GrammarConceptsListVariables>(GrammarConceptsListDocument, options);
+        }
+export type GrammarConceptsListHookResult = ReturnType<typeof useGrammarConceptsList>;
+export type GrammarConceptsListLazyQueryHookResult = ReturnType<typeof useGrammarConceptsListLazyQuery>;
+export type GrammarConceptsListSuspenseQueryHookResult = ReturnType<typeof useGrammarConceptsListSuspenseQuery>;
+export type GrammarConceptsListQueryResult = Apollo.QueryResult<GrammarConceptsList, GrammarConceptsListVariables>;
 export const Language_Get_LanguagesDocument = gql`
     query Language_get_languages {
   language_get_languages {
@@ -3158,6 +3262,22 @@ export const VideoPrivate_GetDocument = gql`
           text
           translate
         }
+        universalPhrase {
+          id
+          text
+          sourceLanguageCode
+          transcription {
+            id
+            universalPhraseId
+            ipa
+            pinyin
+          }
+          audioPronunciation {
+            id
+            universalPhraseId
+            audioUrl
+          }
+        }
       }
       startOffset
       length
@@ -3167,14 +3287,13 @@ export const VideoPrivate_GetDocument = gql`
         title
         slug
         category
-        lemma
         order
         sourceLanguage
         targetLanguage
       }
       missingGrammarConcepts {
         category
-        lemma
+        alias
       }
     }
     subtitles {
@@ -3415,20 +3534,35 @@ export const VideoPublic_GetDocument = gql`
           text
           translate
         }
+        universalPhrase {
+          id
+          text
+          sourceLanguageCode
+          transcription {
+            id
+            universalPhraseId
+            ipa
+            pinyin
+          }
+          audioPronunciation {
+            id
+            universalPhraseId
+            audioUrl
+          }
+        }
       }
       grammarConcepts {
         id
         title
         slug
         category
-        lemma
         order
         sourceLanguage
         targetLanguage
       }
       missingGrammarConcepts {
         category
-        lemma
+        alias
       }
     }
     subtitles {

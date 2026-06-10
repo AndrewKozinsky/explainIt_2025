@@ -1,0 +1,10 @@
+.topic-page {
+	display: flex;
+	gap: 3rem;
+}
+
+.topic-page__sidebar {
+	flex-shrink: 0;
+	min-width: 21rem;
+	width: 25%;
+}

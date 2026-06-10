@@ -1,6 +1,5 @@
 import React from 'react'
-import { NotificationProvider } from 'ui/Notification/Notification'
-import MainPageLayout from '_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
+import { getLocale } from 'next-intl/server'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -21,22 +20,20 @@ export const metadata: Metadata = {
 	},
 }
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+	const locale = await getLocale()
+
 	return (
-		<html lang='en'>
+		<html lang={locale}>
 			<head>
 				<meta name='google-site-verification' content='5OljJ97EI98yn2tlM7Vziu_9l0c5ujOn8F3VxahktD4' />
 				<meta name='yandex-verification' content='b8b37674c9ce501f' />
 			</head>
-			<body>
-				<NotificationProvider>
-					<MainPageLayout>{children}</MainPageLayout>
-				</NotificationProvider>
-			</body>
+			<body>{children}</body>
 		</html>
 	)
 }
