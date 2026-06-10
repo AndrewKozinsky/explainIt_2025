@@ -2,10 +2,11 @@
 
 import React from 'react'
 import { redirect } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import { pageUrls, localizePath } from 'utils/pageUrls'
 import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
 import Spinner from '../../../ui/Spinner/Spinner'
 import { useAuthorizeUser } from './fn/authorizeUser'
-import { pageUrls } from 'сonsts/pageUrls'
 
 type ProviderType = 'github' | 'google' | 'yandex'
 
@@ -17,6 +18,7 @@ function OAuthPage(props: OAuthPageProps) {
 	const { providerType } = props
 
 	const { authorizationStatus, error } = useAuthorizeUser(providerType)
+	const locale = useLocale()
 
 	if (authorizationStatus === 'loading') {
 		return <Spinner size='small' />
@@ -24,7 +26,7 @@ function OAuthPage(props: OAuthPageProps) {
 		return <ErrorMessage text={error} />
 	}
 
-	redirect(pageUrls.books.path)
+	redirect(localizePath(locale, pageUrls.books.path))
 }
 
 export default OAuthPage

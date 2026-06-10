@@ -2,8 +2,10 @@ import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
-import { Prisma } from 'prisma/generated/client'
+import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
+import { LanguageCode, Prisma } from 'prisma/generated/client'
 import { GrammarConceptQueryRepository } from '../grammarConcept.queryRepository'
+import { UniversalPhraseQueryRepository } from '../universalPhrase.queryRepository'
 import { mapSentencePhraseTranslations, mapSentenceTranslation } from './fn'
 
 type FullBookChapter = Prisma.BookChapterGetPayload<{
@@ -19,6 +21,13 @@ type FullBookChapter = Prisma.BookChapterGetPayload<{
 	}
 }>
 
+// Helper type for UniversalPhrase with transcription and audio pronunciation
+type UniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
+	include: {
+		UniversalTranscription: true
+		UniversalAudioPronunciation: true
+	}
+}>
 // Helper type: same as FullBookChapter but with non-nullable 'book' relation
 type FullBookChapterPrivate = Omit<FullBookChapter, 'book'> & {
 	book: NonNullable<FullBookChapter['book']>
@@ -30,6 +39,7 @@ export class BookChapterQueryRepository {
 	constructor(
 		private prisma: PrismaService,
 		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
+		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
 
 	@CatchDbError()
@@ -56,17 +66,6 @@ export class BookChapterQueryRepository {
 		return this.mapDbBookChapterToOutBookChapter(bookChapter as FullBookChapterPrivate, targetLanguageCode)
 	}
 
-	/*@CatchDbError()
-	async getBookChapters(bookId: number) {
-		const bookChapters = await this.prisma.bookChapter.findMany({
-			where: { book_id: bookId },
-			orderBy: { created_at: 'asc' },
-			include: { book: true, BookChapterPhrase: { include: { BookChapterPhraseExample: true } } },
-		})
-
-		return bookChapters.map((ch) => this.mapDbBookChapterToOutBookChapter(ch as FullBookChapterPrivate))
-	}*/
-
 	async mapDbBookChapterToOutBookChapter(
 		dbChapter: FullBookChapterPrivate,
 		targetLanguageCode?: string,
@@ -74,6 +73,10 @@ export class BookChapterQueryRepository {
 		const book = dbChapter.book_public ? dbChapter.book_public : dbChapter.book
 		const sourceLanguageCode = book.source_language_code
 		const content = dbChapter.processed_content ?? ''
+
+		// Collect all unique phrase texts from SentencePhraseTranslations and
+		// resolve their UniversalPhrase records in a single batch query.
+		const universalPhraseByText = await this.buildUniversalPhraseMap(dbChapter, sourceLanguageCode)
 
 		const sentences = await Promise.all(
 			dbChapter.Sentence.map(async (s) => {
@@ -98,7 +101,7 @@ export class BookChapterQueryRepository {
 							},
 							MissingGrammarConcept: {
 								where: { target_language_code: targetLanguageCode as any },
-								select: { category: true, lemma: true },
+								select: { category: true, alias: true },
 							},
 						},
 					})
@@ -109,7 +112,7 @@ export class BookChapterQueryRepository {
 						).map((j: any) => this.grammarConceptQueryRepo.mapDbToOutModel(j.grammar_concept))
 						missingGrammarConcepts = universalPhrase.MissingGrammarConcept.map((m: any) => ({
 							category: m.category,
-							lemma: m.lemma,
+							alias: m.alias,
 						}))
 					}
 				}
@@ -124,6 +127,7 @@ export class BookChapterQueryRepository {
 					sentencePhraseTranslations: mapSentencePhraseTranslations(
 						s.SentencePhraseTranslation,
 						targetLanguageCode,
+						universalPhraseByText,
 					),
 				}
 			}),
@@ -146,5 +150,44 @@ export class BookChapterQueryRepository {
 				userId: dbChapter.book_public ? null : dbChapter.book.user_id,
 			},
 		}
+	}
+
+	private async buildUniversalPhraseMap(
+		dbChapter: FullBookChapterPrivate,
+		sourceLanguageCode: LanguageCode,
+	): Promise<Map<string, UniversalPhraseOutModel>> {
+		const phraseTexts = new Set<string>()
+		for (const s of dbChapter.Sentence) {
+			for (const pt of s.SentencePhraseTranslation) {
+				if (pt.phrase) {
+					phraseTexts.add(pt.phrase)
+				}
+			}
+		}
+
+		if (phraseTexts.size === 0) {
+			return new Map()
+		}
+
+		const dbPhrases: UniversalPhraseWithRelations[] = await this.prisma.universalPhrase.findMany({
+			where: {
+				text: { in: [...phraseTexts] },
+				source_language_code: sourceLanguageCode,
+			},
+			include: {
+				UniversalTranscription: true,
+				UniversalAudioPronunciation: true,
+			},
+		})
+
+		const map = new Map<string, UniversalPhraseOutModel>()
+		await Promise.all(
+			dbPhrases.map(async (p) => {
+				const out = await this.universalPhraseQueryRepo.mapDbUniversalPhraseToOutModel(p)
+				map.set(p.text, out)
+			}),
+		)
+
+		return map
 	}
 }

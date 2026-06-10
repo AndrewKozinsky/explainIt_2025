@@ -42,7 +42,7 @@ export type MissingGrammarConceptMinAggregateOutputType = {
   source_language_code: $Enums.LanguageCode | null
   target_language_code: $Enums.LanguageCode | null
   category: string | null
-  lemma: string | null
+  alias: string | null
   sentence_text: string | null
   created_at: Date | null
 }
@@ -53,7 +53,7 @@ export type MissingGrammarConceptMaxAggregateOutputType = {
   source_language_code: $Enums.LanguageCode | null
   target_language_code: $Enums.LanguageCode | null
   category: string | null
-  lemma: string | null
+  alias: string | null
   sentence_text: string | null
   created_at: Date | null
 }
@@ -64,7 +64,7 @@ export type MissingGrammarConceptCountAggregateOutputType = {
   source_language_code: number
   target_language_code: number
   category: number
-  lemma: number
+  alias: number
   sentence_text: number
   created_at: number
   _all: number
@@ -87,7 +87,7 @@ export type MissingGrammarConceptMinAggregateInputType = {
   source_language_code?: true
   target_language_code?: true
   category?: true
-  lemma?: true
+  alias?: true
   sentence_text?: true
   created_at?: true
 }
@@ -98,7 +98,7 @@ export type MissingGrammarConceptMaxAggregateInputType = {
   source_language_code?: true
   target_language_code?: true
   category?: true
-  lemma?: true
+  alias?: true
   sentence_text?: true
   created_at?: true
 }
@@ -109,7 +109,7 @@ export type MissingGrammarConceptCountAggregateInputType = {
   source_language_code?: true
   target_language_code?: true
   category?: true
-  lemma?: true
+  alias?: true
   sentence_text?: true
   created_at?: true
   _all?: true
@@ -207,7 +207,7 @@ export type MissingGrammarConceptGroupByOutputType = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at: Date
   _count: MissingGrammarConceptCountAggregateOutputType | null
@@ -241,7 +241,7 @@ export type MissingGrammarConceptWhereInput = {
   source_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"MissingGrammarConcept"> | string
-  lemma?: Prisma.StringFilter<"MissingGrammarConcept"> | string
+  alias?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   sentence_text?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   created_at?: Prisma.DateTimeFilter<"MissingGrammarConcept"> | Date | string
   universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
@@ -253,7 +253,7 @@ export type MissingGrammarConceptOrderByWithRelationInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
+  alias?: Prisma.SortOrder
   sentence_text?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   universal_phrase?: Prisma.UniversalPhraseOrderByWithRelationInput
@@ -268,7 +268,7 @@ export type MissingGrammarConceptWhereUniqueInput = Prisma.AtLeast<{
   source_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"MissingGrammarConcept"> | string
-  lemma?: Prisma.StringFilter<"MissingGrammarConcept"> | string
+  alias?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   sentence_text?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   created_at?: Prisma.DateTimeFilter<"MissingGrammarConcept"> | Date | string
   universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
@@ -280,7 +280,7 @@ export type MissingGrammarConceptOrderByWithAggregationInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
+  alias?: Prisma.SortOrder
   sentence_text?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.MissingGrammarConceptCountOrderByAggregateInput
@@ -299,7 +299,7 @@ export type MissingGrammarConceptScalarWhereWithAggregatesInput = {
   source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringWithAggregatesFilter<"MissingGrammarConcept"> | string
-  lemma?: Prisma.StringWithAggregatesFilter<"MissingGrammarConcept"> | string
+  alias?: Prisma.StringWithAggregatesFilter<"MissingGrammarConcept"> | string
   sentence_text?: Prisma.StringWithAggregatesFilter<"MissingGrammarConcept"> | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"MissingGrammarConcept"> | Date | string
 }
@@ -308,7 +308,7 @@ export type MissingGrammarConceptCreateInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at?: Date | string
   universal_phrase: Prisma.UniversalPhraseCreateNestedOneWithoutMissingGrammarConceptInput
@@ -320,7 +320,7 @@ export type MissingGrammarConceptUncheckedCreateInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at?: Date | string
 }
@@ -329,7 +329,7 @@ export type MissingGrammarConceptUpdateInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   universal_phrase?: Prisma.UniversalPhraseUpdateOneRequiredWithoutMissingGrammarConceptNestedInput
@@ -341,7 +341,7 @@ export type MissingGrammarConceptUncheckedUpdateInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -352,7 +352,7 @@ export type MissingGrammarConceptCreateManyInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at?: Date | string
 }
@@ -361,7 +361,7 @@ export type MissingGrammarConceptUpdateManyMutationInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -372,7 +372,7 @@ export type MissingGrammarConceptUncheckedUpdateManyInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -393,7 +393,7 @@ export type MissingGrammarConceptCountOrderByAggregateInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
+  alias?: Prisma.SortOrder
   sentence_text?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -409,7 +409,7 @@ export type MissingGrammarConceptMaxOrderByAggregateInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
+  alias?: Prisma.SortOrder
   sentence_text?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -420,7 +420,7 @@ export type MissingGrammarConceptMinOrderByAggregateInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
+  alias?: Prisma.SortOrder
   sentence_text?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -476,7 +476,7 @@ export type MissingGrammarConceptCreateWithoutUniversal_phraseInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at?: Date | string
 }
@@ -486,7 +486,7 @@ export type MissingGrammarConceptUncheckedCreateWithoutUniversal_phraseInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at?: Date | string
 }
@@ -526,7 +526,7 @@ export type MissingGrammarConceptScalarWhereInput = {
   source_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"MissingGrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"MissingGrammarConcept"> | string
-  lemma?: Prisma.StringFilter<"MissingGrammarConcept"> | string
+  alias?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   sentence_text?: Prisma.StringFilter<"MissingGrammarConcept"> | string
   created_at?: Prisma.DateTimeFilter<"MissingGrammarConcept"> | Date | string
 }
@@ -536,7 +536,7 @@ export type MissingGrammarConceptCreateManyUniversal_phraseInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  alias: string
   sentence_text: string
   created_at?: Date | string
 }
@@ -545,7 +545,7 @@ export type MissingGrammarConceptUpdateWithoutUniversal_phraseInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -555,7 +555,7 @@ export type MissingGrammarConceptUncheckedUpdateWithoutUniversal_phraseInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -565,7 +565,7 @@ export type MissingGrammarConceptUncheckedUpdateManyWithoutUniversal_phraseInput
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
+  alias?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -578,7 +578,7 @@ export type MissingGrammarConceptSelect<ExtArgs extends runtime.Types.Extensions
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
+  alias?: boolean
   sentence_text?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
@@ -590,7 +590,7 @@ export type MissingGrammarConceptSelectCreateManyAndReturn<ExtArgs extends runti
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
+  alias?: boolean
   sentence_text?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
@@ -602,7 +602,7 @@ export type MissingGrammarConceptSelectUpdateManyAndReturn<ExtArgs extends runti
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
+  alias?: boolean
   sentence_text?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
@@ -614,12 +614,12 @@ export type MissingGrammarConceptSelectScalar = {
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
+  alias?: boolean
   sentence_text?: boolean
   created_at?: boolean
 }
 
-export type MissingGrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "source_language_code" | "target_language_code" | "category" | "lemma" | "sentence_text" | "created_at", ExtArgs["result"]["missingGrammarConcept"]>
+export type MissingGrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "source_language_code" | "target_language_code" | "category" | "alias" | "sentence_text" | "created_at", ExtArgs["result"]["missingGrammarConcept"]>
 export type MissingGrammarConceptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }
@@ -641,7 +641,7 @@ export type $MissingGrammarConceptPayload<ExtArgs extends runtime.Types.Extensio
     source_language_code: $Enums.LanguageCode
     target_language_code: $Enums.LanguageCode
     category: string
-    lemma: string
+    alias: string
     sentence_text: string
     created_at: Date
   }, ExtArgs["result"]["missingGrammarConcept"]>
@@ -1073,7 +1073,7 @@ export interface MissingGrammarConceptFieldRefs {
   readonly source_language_code: Prisma.FieldRef<"MissingGrammarConcept", 'LanguageCode'>
   readonly target_language_code: Prisma.FieldRef<"MissingGrammarConcept", 'LanguageCode'>
   readonly category: Prisma.FieldRef<"MissingGrammarConcept", 'String'>
-  readonly lemma: Prisma.FieldRef<"MissingGrammarConcept", 'String'>
+  readonly alias: Prisma.FieldRef<"MissingGrammarConcept", 'String'>
   readonly sentence_text: Prisma.FieldRef<"MissingGrammarConcept", 'String'>
   readonly created_at: Prisma.FieldRef<"MissingGrammarConcept", 'DateTime'>
 }

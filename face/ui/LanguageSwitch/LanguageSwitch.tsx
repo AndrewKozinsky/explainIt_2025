@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 import BaseButton from '../BaseButton/BaseButton'
 import './LanguageSwitch.scss'
 

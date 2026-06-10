@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/routing'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
 

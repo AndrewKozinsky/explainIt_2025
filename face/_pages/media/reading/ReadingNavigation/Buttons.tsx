@@ -1,9 +1,9 @@
 import { useParams } from 'next/navigation'
+import { pageUrls } from 'utils/pageUrls'
 import { getBookCoverUrl } from '_pages/media/reading/ReadingNavigation/fn/getBookCoverUrl'
 import { useReadingStore } from '../readingStore'
 import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
 import { LinkButton } from './LinkButton'
-import { pageUrls } from 'сonsts/pageUrls'
 
 export function BookLink() {
 	const bookIdInUrl = useParams().bookId as string

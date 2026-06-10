@@ -1,59 +1,30 @@
 import { Injectable } from '@nestjs/common'
-import { DeepSeekService } from '../../infrastructure/deepSeek/deepSeek.service'
-import { GoogleGeminiService } from '../../infrastructure/googleGemini/googleGemini.service'
-import { OpenAIService } from '../../infrastructure/openAI/openAI.service'
+import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { buildGrammarExtractionPrompt } from './buildGrammarExtractionPrompt'
-
-export type GrammarExtractionProvider = 'openai' | 'gemini' | 'deepseek'
 
 @Injectable()
 export class GrammarExtractionService {
-	constructor(
-		private openai: OpenAIService,
-		private gemini: GoogleGeminiService,
-		private deepseek: DeepSeekService,
-	) {}
+	constructor(private llmAdapter: LlmAdapterService) {}
 
 	async extractConcepts(input: {
 		sentenceText: string
 		sourceLanguage: string
 	}): Promise<{ category: string; lemma: string }[]> {
-		const provider: GrammarExtractionProvider = 'gemini'
+		const provider: TranslationProviderName = 'gemini'
 
 		const { systemPrompt, userPrompt } = buildGrammarExtractionPrompt(input.sentenceText, input.sourceLanguage)
 
-		let rawResponse: string
+		const result = await this.llmAdapter.generate({
+			provider,
+			messages: [
+				{ role: 'system', content: systemPrompt },
+				{ role: 'user', content: userPrompt },
+			],
+			responseFormat: 'json_object',
+		})
 
-		if (provider === 'gemini') {
-			const result = await this.gemini.generateText({
-				contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
-				systemInstruction: systemPrompt,
-			})
-
-			rawResponse = result.message ?? ''
-		} else if (provider === 'openai') {
-			const result = await this.openai.generateText({
-				messages: [
-					{ role: 'system', content: systemPrompt },
-					{ role: 'user', content: userPrompt },
-				],
-				responseFormat: { type: 'json_object' },
-			})
-
-			rawResponse = result.message ?? ''
-		} else {
-			const result = await this.deepseek.generateText({
-				messages: [
-					{ role: 'system', content: systemPrompt },
-					{ role: 'user', content: userPrompt },
-				],
-				responseFormat: { type: 'json_object' },
-			})
-
-			rawResponse = result.message ?? ''
-		}
-
-		return this.parseResponse(rawResponse)
+		return this.parseResponse(result.content)
 	}
 
 	private parseResponse(raw: string): { category: string; lemma: string }[] {

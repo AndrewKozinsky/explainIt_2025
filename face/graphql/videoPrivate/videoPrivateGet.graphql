@@ -36,6 +36,22 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 					text
 					translate
 				}
+				universalPhrase {
+					id
+					text
+					sourceLanguageCode
+					transcription {
+						id
+						universalPhraseId
+						ipa
+						pinyin
+					}
+					audioPronunciation {
+						id
+						universalPhraseId
+						audioUrl
+					}
+				}
 			}
 			startOffset
 			length
@@ -45,14 +61,13 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 				title
 				slug
 				category
-				lemma
 				order
 				sourceLanguage
 				targetLanguage
 			}
 			missingGrammarConcepts {
 				category
-				lemma
+				alias
 			}
 		}
 		subtitles {

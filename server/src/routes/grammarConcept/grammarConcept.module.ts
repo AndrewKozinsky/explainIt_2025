@@ -6,29 +6,30 @@ import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { FetchGrammarConceptsHandler } from 'features/grammarConcept/FetchGrammarConcepts.command'
-import { GrammarExtractionService } from 'features/grammarConcept/grammarExtraction.service'
 import { GetGrammarArticleHandler } from 'features/grammarConcept/GetGrammarArticle.command'
+import { GetGrammarConceptsListHandler } from 'features/grammarConcept/GetGrammarConceptsList.command'
+import { GrammarExtractionService } from 'features/grammarConcept/grammarExtraction.service'
 import { SyncMdxGrammarConceptsHandler } from 'features/grammarConcept/SyncMdxGrammarConcepts.command'
-import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
-import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 import { GrammarConceptResolver } from './grammarConcept.resolver'
 
-const commandHandlers = [FetchGrammarConceptsHandler, SyncMdxGrammarConceptsHandler, GetGrammarArticleHandler]
+const commandHandlers = [
+	FetchGrammarConceptsHandler,
+	SyncMdxGrammarConceptsHandler,
+	GetGrammarArticleHandler,
+	GetGrammarConceptsListHandler,
+]
 
 @Module({
-	imports: [CqrsModule],
+	imports: [CqrsModule, LlmProviderModule],
 	providers: [
 		PrismaService,
 		GrammarConceptRepository,
 		GrammarConceptQueryRepository,
 		UniversalPhraseRepository,
 		GrammarExtractionService,
-		OpenAIService,
-		GoogleGeminiService,
-		DeepSeekService,
 		MainConfigService,
 		CheckSessionCookieGuard,
 		UserRepository,

@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { UniversalPhraseOutModel } from '../universalPhrase/universalPhrase.out.model'
 
 @ObjectType()
 export class SentencePhraseTranslationExampleOutModel {
@@ -46,4 +47,7 @@ export class SentencePhraseTranslationOutModel {
 
 	@Field(() => Int, { nullable: true })
 	flashcardId: null | number
+
+	@Field(() => UniversalPhraseOutModel, { nullable: true })
+	universalPhrase: UniversalPhraseOutModel | null
 }

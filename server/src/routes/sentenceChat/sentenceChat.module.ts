@@ -8,7 +8,9 @@ import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository
 import { UserRepository } from 'repo/user.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
+import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
 import { GeminiTokenUsageBalanceChargeHandler } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
+import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
 import { ActiveSentenceChatGenerationRegistry } from 'features/sentenceChat/ActiveSentenceChatGenerationRegistry.service'
 import { CreateSentenceChatThreadHandler } from 'features/sentenceChat/CreateSentenceChatThread.command'
 import { CreateSentenceChatUserMessageHandler } from 'features/sentenceChat/CreateSentenceChatUserMessage.command'
@@ -16,6 +18,7 @@ import { GetSentenceChatThreadHandler } from 'features/sentenceChat/GetSentenceC
 import { SentenceChatContextBuilder } from 'features/sentenceChat/SentenceChatContextBuilder.service'
 import { StreamSentenceChatAssistantCommand } from 'features/sentenceChat/StreamSentenceChatAssistant.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { SentenceChatController } from './sentenceChat.controller'
 import { SentenceChatResolver } from './sentenceChat.resolver'
 
@@ -31,6 +34,8 @@ const handlers = [
 	CreateSentenceChatThreadHandler,
 	CreateSentenceChatUserMessageHandler,
 	GeminiTokenUsageBalanceChargeHandler,
+	OpenAiTokenUsageBalanceChargeHandler,
+	DeepSeekTokenUsageBalanceChargeHandler,
 ]
 
 const repositories = [
@@ -44,14 +49,8 @@ const repositories = [
 ]
 
 @Module({
-	imports: [CqrsModule],
+	imports: [CqrsModule, LlmProviderModule],
 	controllers: [SentenceChatController],
-	providers: [
-		...services,
-		...handlers,
-		...repositories,
-		CheckSessionCookieGuard,
-		SentenceChatResolver,
-	],
+	providers: [...services, ...handlers, ...repositories, CheckSessionCookieGuard, SentenceChatResolver],
 })
 export class SentenceChatModule {}

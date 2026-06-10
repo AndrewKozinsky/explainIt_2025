@@ -82,6 +82,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./face:/app
+      - /app/node_modules
       - ./face:/public
       - ./content:/app/content
     command: npm run dev

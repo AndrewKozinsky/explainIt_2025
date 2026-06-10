@@ -1,7 +1,7 @@
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
 import { useVideoStore } from '../../videoStore'
 import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 import './PublicVideoContent.scss'
 
 export default function PublicVideoContent() {

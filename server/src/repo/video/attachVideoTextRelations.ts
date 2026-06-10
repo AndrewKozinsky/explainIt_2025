@@ -1,3 +1,4 @@
+import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { SentenceTranslation, SubtitleSentenceInit } from 'prisma/generated/client'
 import { SentencePhraseTranslation } from 'prisma/generated/client'
 import { mapSentencePhraseTranslations } from '../bookChapter/fn'
@@ -30,6 +31,7 @@ type DbVideoWithTextRelationsLike = {
 export function attachVideoTextRelations<TBase extends { contentType: 'text' | 'subtitles' }>(dto: {
 	base: TBase
 	dbVideo: DbVideoWithTextRelationsLike
+	universalPhraseByText?: Map<string, UniversalPhraseOutModel>
 }) {
 	const sentences = (dto.dbVideo.Sentence ?? []).map((s) => ({
 		id: s.id,
@@ -37,7 +39,11 @@ export function attachVideoTextRelations<TBase extends { contentType: 'text' | '
 			id: t.id,
 			translation: t.translation,
 		})),
-		sentencePhraseTranslations: mapSentencePhraseTranslations(s.SentencePhraseTranslation ?? []),
+		sentencePhraseTranslations: mapSentencePhraseTranslations(
+			s.SentencePhraseTranslation ?? [],
+			undefined,
+			dto.universalPhraseByText,
+		),
 		startOffset: s.start_offset,
 		length: s.length,
 		orderIndex: s.order_index,

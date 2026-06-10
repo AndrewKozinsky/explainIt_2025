@@ -5,9 +5,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	padding-top: 1.8rem;
-	margin-top: 1.8rem;
-	border-top: 1px solid vars.$grayColor-2;
+	//padding-top: 1.8rem;
+	//margin-top: 1.8rem;
 }
 
 .sentence-chat__messages {
@@ -16,8 +15,6 @@
 
 .sentence-chat__input {
 	position: sticky;
-	bottom: 0;
-	background-color: vars.$grayColor-1;
-	padding-bottom: 1.5rem;
+	bottom: 1.4rem;
 	border-radius: vars.$radius-2 vars.$radius-2 0 0;
 }

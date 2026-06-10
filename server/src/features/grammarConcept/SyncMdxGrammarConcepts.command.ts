@@ -1,10 +1,10 @@
 import { randomUUID } from 'crypto'
-import { readFileSync, readdirSync, existsSync, writeFileSync } from 'fs'
+import { readFileSync, readdirSync, existsSync, writeFileSync, statSync } from 'fs'
 import { join, extname } from 'path'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import matter = require('gray-matter')
-import { PrismaService } from '../../db/prisma.service'
-import { GrammarConceptRepository } from '../../repo/grammarConcept.repository'
+import { GrammarConceptRepository } from 'repo/grammarConcept.repository'
+import { PrismaService } from 'db/prisma.service'
 
 type MdxFrontmatter = {
 	lesson_id: string
@@ -12,7 +12,6 @@ type MdxFrontmatter = {
 	slug: string
 	order: number
 	category: string
-	lemma: string
 	sourceLanguage: string
 	targetLanguage: string
 	aliases?: string[]
@@ -36,6 +35,9 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 		}
 
 		const mdxFiles = this.scanMdxFiles(contentDir)
+
+		// Ensure no duplicate lesson_ids — keep the oldest file, clear others
+		this.deduplicateLessonIds(mdxFiles)
 
 		const seenIds = new Set<string>()
 		const fileData: { file: string; frontmatter: MdxFrontmatter; lessonId: string }[] = []
@@ -66,7 +68,6 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 				sourceLanguageCode: frontmatter.sourceLanguage,
 				targetLanguageCode: frontmatter.targetLanguage,
 				category: frontmatter.category,
-				lemma: frontmatter.lemma,
 				title: frontmatter.title,
 				slug: frontmatter.slug,
 				order: frontmatter.order,
@@ -113,14 +114,7 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 			const raw = readFileSync(filePath, 'utf-8')
 			const { data } = matter(raw)
 
-			if (
-				!data.title ||
-				!data.slug ||
-				!data.category ||
-				!data.lemma ||
-				!data.sourceLanguage ||
-				!data.targetLanguage
-			) {
+			if (!data.title || !data.slug || !data.category || !data.sourceLanguage || !data.targetLanguage) {
 				return null
 			}
 
@@ -130,7 +124,6 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 				slug: data.slug,
 				order: data.order ?? 0,
 				category: data.category,
-				lemma: data.lemma,
 				sourceLanguage: data.sourceLanguage,
 				targetLanguage: data.targetLanguage,
 				aliases: data.aliases ?? [],
@@ -146,6 +139,63 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 		writeFileSync(filePath, updated, 'utf-8')
 	}
 
+	/**
+	 * If several .mdx files share the same lesson_id, keep it in the oldest file
+	 * (by creation time) and clear it in the rest. The cleared files will get
+	 * new UUIDs in the first pass below.
+	 */
+	private deduplicateLessonIds(mdxFiles: string[]): void {
+		const byLessonId = new Map<string, { path: string; birthtime: number }[]>()
+
+		for (const file of mdxFiles) {
+			const lessonId = this.extractLessonId(file)
+			if (!lessonId) continue
+
+			if (!byLessonId.has(lessonId)) {
+				byLessonId.set(lessonId, [])
+			}
+
+			const birthtime = statSync(file).birthtime.getTime()
+			byLessonId.get(lessonId)!.push({ path: file, birthtime })
+		}
+
+		for (const [lessonId, entries] of byLessonId) {
+			if (entries.length <= 1) continue
+
+			entries.sort((a, b) => a.birthtime - b.birthtime)
+
+			const [keep, ...duplicates] = entries
+
+			console.log(
+				`[SyncMdxGrammarConcepts] Duplicate lesson_id "${lessonId}": ` +
+					`keeping "${keep.path}" (oldest), clearing ${duplicates.length} duplicate(s)`,
+			)
+
+			for (const dup of duplicates) {
+				console.log(`  → Clearing lesson_id in: ${dup.path}`)
+				this.clearLessonIdInFile(dup.path)
+			}
+		}
+	}
+
+	/** Extracts lesson_id from frontmatter without full parsing. */
+	private extractLessonId(filePath: string): string | null {
+		try {
+			const raw = readFileSync(filePath, 'utf-8')
+			const match = raw.match(/lesson_id:\s*"([^"]*)"/)
+			return match?.[1] || null
+		} catch {
+			return null
+		}
+	}
+
+	/** Replaces any lesson_id value with an empty string so it gets regenerated. */
+	private clearLessonIdInFile(filePath: string): void {
+		const raw = readFileSync(filePath, 'utf-8')
+		const updated = raw.replace(/lesson_id:\s*"[^"]*"/, 'lesson_id: ""')
+		writeFileSync(filePath, updated, 'utf-8')
+	}
+
 	private async resolveMissingConcepts(): Promise<void> {
 		const missingRecords = await this.prisma.missingGrammarConcept.findMany({
 			select: {
@@ -153,7 +203,7 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 				source_language_code: true,
 				target_language_code: true,
 				category: true,
-				lemma: true,
+				alias: true,
 				universal_phrase_id: true,
 			},
 		})
@@ -161,20 +211,20 @@ export class SyncMdxGrammarConceptsHandler implements ICommandHandler<SyncMdxGra
 		console.log(`[resolveMissingConcepts] Found ${missingRecords.length} missing concept(s)`)
 		for (const missing of missingRecords) {
 			console.log(
-				`[resolveMissingConcepts] Looking for: source=${missing.source_language_code} target=${missing.target_language_code} category="${missing.category}" lemma="${missing.lemma}"`,
+				`[resolveMissingConcepts] Looking for: source=${missing.source_language_code} target=${missing.target_language_code} category="${missing.category}" alias="${missing.alias}"`,
 			)
 			const grammarConcept = await this.prisma.grammarConcept.findFirst({
 				where: {
 					source_language_code: missing.source_language_code,
 					target_language_code: missing.target_language_code,
 					category: missing.category,
-					OR: [{ lemma: missing.lemma }, { aliases: { has: missing.lemma } }],
+					aliases: { has: missing.alias },
 				},
 			})
 
 			if (grammarConcept) {
 				console.log(
-					`[resolveMissingConcepts] MATCHED: missing lemma="${missing.lemma}" → article "${grammarConcept.title}" (lemma="${grammarConcept.lemma}", id=${grammarConcept.id})`,
+					`[resolveMissingConcepts] MATCHED: missing alias="${missing.alias}" → article "${grammarConcept.title}" (aliases=[${grammarConcept.aliases.join(', ')}], id=${grammarConcept.id})`,
 				)
 				await this.prisma.$transaction([
 					this.prisma.grammarConceptToUniversalPhrase.create({

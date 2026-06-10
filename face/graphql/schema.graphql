@@ -236,6 +236,14 @@ input GetGrammarArticleInput {
   targetLanguage: String!
 }
 
+input GetGrammarConceptsListInput {
+  """Source language code (language being learned)"""
+  sourceLanguage: String!
+
+  """Target language code (translation language)"""
+  targetLanguage: String!
+}
+
 input GetMyFlashcardsInput {
   """Optional language filter"""
   languageCode: String
@@ -311,15 +319,25 @@ type GrammarArticleOutModel {
   title: String!
 }
 
+type GrammarConceptCategoryGroup {
+  articles: [GrammarConceptOutModel!]!
+  category: String!
+}
+
 type GrammarConceptOutModel {
   category: String!
   id: ID!
-  lemma: String!
   order: Int!
   slug: String!
   sourceLanguage: String!
   targetLanguage: String!
   title: String!
+}
+
+type GrammarConceptsListOutModel {
+  categories: [GrammarConceptCategoryGroup!]!
+  sourceLanguage: String!
+  targetLanguage: String!
 }
 
 type GrammarExtractionOutModel {
@@ -354,8 +372,8 @@ input LoginWithOAuthInput {
 }
 
 type MissingGrammarConceptOutModel {
+  alias: String!
   category: String!
-  lemma: String!
 }
 
 type Mutation {
@@ -483,6 +501,9 @@ type Query {
   """Get grammar article content by language, category and slug"""
   grammar_article_get(input: GetGrammarArticleInput!): GrammarArticleOutModel!
 
+  """Get all grammar articles grouped by category for a language pair"""
+  grammar_concepts_list(input: GetGrammarConceptsListInput!): GrammarConceptsListOutModel!
+
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
 
@@ -585,6 +606,7 @@ type SentencePhraseTranslationOutModel {
   sentenceId: Int!
   status: String!
   translate: String
+  universalPhrase: UniversalPhraseOutModel
   updatedAt: String!
 }
 

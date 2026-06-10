@@ -6,6 +6,7 @@ import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryReposito
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
+import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
@@ -54,6 +55,7 @@ import { QueueNames } from 'infrastructure/queues/queueNames'
 		VideoPrivateRepository,
 		VideoPrivateQueryRepository,
 		GrammarConceptQueryRepository,
+		UniversalPhraseQueryRepository,
 		SubtitleRepository,
 		SentenceRepository,
 		SubtitleSentenceInitRepository,

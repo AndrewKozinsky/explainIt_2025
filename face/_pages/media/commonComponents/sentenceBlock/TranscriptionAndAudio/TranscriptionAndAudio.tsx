@@ -1,5 +1,5 @@
 import UiTranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 import { mapUiState } from './fn/mapUiState'
 import { usePhrase } from './fn/usePhrase'
 import { useTranscription } from './fn/useTranscription'
@@ -22,7 +22,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 				phrase={phrase}
 				languageCode={languageCode}
 				transcription={{ status: 'loading' }}
-				onWhiteBackground={onWhiteBackground}
+				bg={onWhiteBackground ? 'white' : 'pale'}
 			/>
 		)
 	}
@@ -33,7 +33,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 				phrase={phrase}
 				languageCode={languageCode}
 				transcription={{ status: 'error' }}
-				onWhiteBackground={onWhiteBackground}
+				bg={onWhiteBackground ? 'white' : 'pale'}
 			/>
 		)
 	}
@@ -41,7 +41,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	return (
 		<UiTranscriptionAndAudio
 			{...mapUiState({ phrase, languageCode, audioUrl: phraseAudioUrl, transcription })}
-			onWhiteBackground={onWhiteBackground}
+			bg={onWhiteBackground ? 'white' : 'pale'}
 		/>
 	)
 }

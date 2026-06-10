@@ -1,5 +1,5 @@
 import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { pageUrls } from 'сonsts/pageUrls'
+import { pageUrls } from 'utils/pageUrls'
 
 function VideoBreadCrumbs() {
 	return <BreadCrumbs items={[pageUrls.videos]} />

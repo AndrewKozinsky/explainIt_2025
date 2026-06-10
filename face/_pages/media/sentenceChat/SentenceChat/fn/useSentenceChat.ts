@@ -1,13 +1,14 @@
-// 'use client'
-
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import {
 	useSentence_Chat_Create_Thread,
 	useSentence_Chat_Create_User_Message,
 	useSentence_Chat_Get_ThreadLazyQuery,
 } from '@/graphql'
 import { getTextByUnknownError } from '@/utils/errorMessages'
-import { ChatMessageStatus, ChatUiMessage, SseEvent } from '../../types/sseTypes'
+import { useSentenceChatStore } from '../../sentenceChatStore'
+import { ChatMessageStatus, ChatUiMessage } from '../../types/sseTypes'
+import { openAssistantStream } from './openAssistantStream'
+import { useLoadChatThread } from './useLoadChatThread'
 
 export type UseSentenceChatReturn = {
 	messages: ChatUiMessage[]
@@ -19,11 +20,8 @@ export type UseSentenceChatReturn = {
 }
 
 export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
-	const [threadId, setThreadId] = useState<null | number>(null)
-	const [messages, setMessages] = useState<ChatUiMessage[]>([])
-	const [isLoadingThread, setIsLoadingThread] = useState<boolean>(true)
-	const [isGenerating, setIsGenerating] = useState<boolean>(false)
-	const [threadError, setThreadThreadError] = useState<null | string>(null)
+	const store = useSentenceChatStore()
+	const { threadId, messages, isLoadingThread, isGenerating, threadError, llmProvider } = store
 
 	const eventSourceRef = useRef<null | EventSource>(null)
 	// Локальный id для streaming-плейсхолдера (до получения финального id от сервера).
@@ -33,136 +31,51 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 	const [createThread] = useSentence_Chat_Create_Thread()
 	const [createUserMessage] = useSentence_Chat_Create_User_Message()
 
-	const closeStream = useCallback(() => {
+	const closeStream = useCallback(function () {
 		eventSourceRef.current?.close()
 		eventSourceRef.current = null
 	}, [])
 
-	// Загрузка треда при монтировании и при смене sentenceId.
-	useEffect(() => {
-		let cancelled = false
-		setIsLoadingThread(true)
-		setThreadThreadError(null)
-		setMessages([])
-		setThreadId(null)
-
-		getThread({ variables: { input: { sentenceId } } })
-			.then((res) => {
-				if (cancelled) return
-				const thread = res.data?.sentence_chat_get_thread
-				if (thread) {
-					setThreadId(thread.id)
-					setMessages(
-						thread.messages.map((m) => ({
-							...m,
-							role: m.role as 'user' | 'assistant',
-							status: m.status as ChatMessageStatus,
-						})),
-					)
-				}
-			})
-			.catch((err: unknown) => {
-				if (cancelled) return
-				setThreadThreadError(getTextByUnknownError(err, 'Не удалось загрузить ветку диалога'))
-			})
-			.finally(() => {
-				if (!cancelled) setIsLoadingThread(false)
-			})
-
-		return () => {
-			cancelled = true
-			closeStream()
-		}
-	}, [sentenceId, getThread, closeStream])
+	useLoadChatThread({ sentenceId, getThread, closeStream })
 
 	// ---- SSE ----
 
 	const startAssistantStream = useCallback(
-		(activeThreadId: number) => {
+		function (activeThreadId: number) {
 			closeStream()
 
-			// Локальный плейсхолдер ассистент-ответа: появится в UI сразу, а реальный id
-			// узнаем только из done-события / следующего обновления треда.
 			const placeholderId = placeholderIdRef.current--
-			setMessages((prev) => [
-				...prev,
-				{
-					id: placeholderId,
-					threadId: activeThreadId,
-					role: 'assistant',
-					content: '',
-					status: 'streaming',
-					errorMessage: null,
-					createdAt: new Date().toISOString(),
-					updatedAt: new Date().toISOString(),
-					isLocalPlaceholder: true,
-				},
-			])
 
-			const eventSource = new EventSource(buildSseUrl(activeThreadId))
-			eventSourceRef.current = eventSource
-			setIsGenerating(true)
+			store.appendMessage({
+				id: placeholderId,
+				threadId: activeThreadId,
+				role: 'assistant',
+				content: '',
+				status: 'streaming',
+				errorMessage: null,
+				createdAt: new Date().toISOString(),
+				updatedAt: new Date().toISOString(),
+				isLocalPlaceholder: true,
+			})
+			store.updateStore({ isGenerating: true })
 
-			eventSource.onmessage = (event) => {
-				let parsed: SseEvent
-				try {
-					parsed = JSON.parse(event.data) as SseEvent
-				} catch {
-					return
-				}
-
-				if (parsed.type === 'chunk') {
-					setMessages((prev) =>
-						prev.map((m) => (m.id === placeholderId ? { ...m, content: m.content + parsed.chunk } : m)),
-					)
-					return
-				}
-
-				if (parsed.type === 'done') {
-					setMessages((prev) =>
-						prev.map((message) =>
-							message.id === placeholderId
-								? {
-										...message,
-										content: parsed.content,
-										status: parsed.status,
-										errorMessage: parsed.errorMessage,
-										isLocalPlaceholder: false,
-									}
-								: message,
-						),
-					)
-					setIsGenerating(false)
-					closeStream()
-				}
-			}
-
-			eventSource.onerror = () => {
-				// Сеть оборвалась или сервер закрыл соединение без done.
-				// Оставляем уже полученный текст, помечаем как failed.
-				setMessages((prev) =>
-					prev.map((m) =>
-						m.id === placeholderId && m.status === 'streaming'
-							? { ...m, status: 'failed', errorMessage: 'Соединение потеряно' }
-							: m,
-					),
-				)
-
-				setIsGenerating(false)
-				closeStream()
-			}
+			eventSourceRef.current = openAssistantStream({
+				threadId: activeThreadId,
+				placeholderId,
+				provider: llmProvider,
+				onClose: closeStream,
+			})
 		},
-		[closeStream],
+		[closeStream, store, llmProvider],
 	)
 
 	// ---- Отправка вопроса ----
-
 	const sendQuestion = useCallback(
-		async (question: string) => {
+		async function (question: string) {
 			const trimmed = question.trim()
 			if (!trimmed || isGenerating) return
 
-			setThreadThreadError(null)
+			store.updateStore({ threadError: null })
 
 			try {
 				let activeThreadId = threadId
@@ -175,7 +88,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 					}
 
 					activeThreadId = thread.id
-					setThreadId(activeThreadId)
+					store.updateStore({ threadId: activeThreadId })
 				}
 
 				const userRes = await createUserMessage({
@@ -186,37 +99,41 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 					throw new Error('Не удалось отправить сообщение')
 				}
 
-				setMessages((prev) => [
-					...prev,
-					{
-						...userMessage,
-						role: userMessage.role as 'user' | 'assistant',
-						status: userMessage.status as ChatMessageStatus,
-					},
-				])
+				store.appendMessage({
+					...userMessage,
+					role: userMessage.role as 'user' | 'assistant',
+					status: userMessage.status as ChatMessageStatus,
+				})
 
 				startAssistantStream(activeThreadId)
 			} catch (err: unknown) {
-				setThreadThreadError(getTextByUnknownError(err, 'Ошибка отправки вопроса'))
+				store.updateStore({
+					threadError: getTextByUnknownError(err, 'Ошибка отправки вопроса'),
+				})
 			}
 		},
-		[createThread, createUserMessage, isGenerating, sentenceId, startAssistantStream, threadId],
+		[createThread, createUserMessage, isGenerating, sentenceId, startAssistantStream, threadId, store],
 	)
 
-	const cancelGeneration = useCallback(() => {
-		if (!isGenerating) return
-		// Закрываем EventSource — сервер через teardown Observable сам запишет canceled в БД.
-		closeStream()
-		setMessages((prev) => prev.map((m) => (m.status === 'streaming' ? { ...m, status: 'canceled' } : m)))
-		setIsGenerating(false)
-	}, [closeStream, isGenerating])
+	const cancelGeneration = useCallback(
+		function () {
+			if (!isGenerating) return
+			// Закрываем EventSource — сервер через teardown Observable сам запишет canceled в БД.
+			closeStream()
+			store.cancelStreamingMessages()
+		},
+		[closeStream, isGenerating, store],
+	)
 
 	// Страховка на unmount.
-	useEffect(() => {
-		return () => {
-			closeStream()
-		}
-	}, [closeStream])
+	useEffect(
+		function () {
+			return function () {
+				closeStream()
+			}
+		},
+		[closeStream],
+	)
 
 	return {
 		messages,
@@ -226,8 +143,4 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 		sendQuestion,
 		cancelGeneration,
 	}
-}
-
-function buildSseUrl(threadId: number) {
-	return `/api/sentence-chat/threads/${threadId}/assistant-stream`
 }

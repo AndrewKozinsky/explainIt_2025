@@ -14,7 +14,7 @@
 		"start:worker:dev": "nest start --entryFile main.worker --watch",
 		"start:worker:prod": "node dist/src/main.worker",
 		"build": "nest build",
-		"generatePrismaFile": "ts-node src/db/prismaGenerator/generatePrismaSchemaFile.ts",
+		"generatePrismaFile": "ts-node -r tsconfig-paths/register src/db/prismaGenerator/generatePrismaSchemaFile.ts",
 		"generate": "prisma generate",
 		"migrate:dev": "prisma migrate dev",
 		"migrate:deploy": "prisma migrate deploy",

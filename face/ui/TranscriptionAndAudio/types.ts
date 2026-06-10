@@ -1,11 +1,11 @@
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 
 export type TranscriptionAndAudioProps = {
 	phrase: string
 	languageCode: LanguageCode
 	audioUrl?: string | null
 	transcription?: TranscriptionState | null
-	onWhiteBackground?: boolean
+	bg?: 'pale' | 'white'
 	extraClass?: string
 }
 

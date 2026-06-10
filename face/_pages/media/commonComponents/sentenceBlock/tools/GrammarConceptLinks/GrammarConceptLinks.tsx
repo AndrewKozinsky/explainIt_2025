@@ -25,9 +25,9 @@ export default function GrammarConceptLinks(props: GrammarConceptLinksProps) {
 			})}
 			{missingGrammarConcepts.map((concept) => {
 				return (
-					<Button key={`${concept.category}:${concept.lemma}`} size='small' theme='plain' disabled>
-						{concept.lemma}
-					</Button>
+					<span className='grammar-concept-links__missed' key={`${concept.category}:${concept.alias}`}>
+						{concept.alias}
+					</span>
 				)
 			})}
 

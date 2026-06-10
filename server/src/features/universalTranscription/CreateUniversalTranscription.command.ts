@@ -2,10 +2,10 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UniversalTranscriptionQueryRepository } from 'repo/universalTranscription.queryRepository'
 import { UniversalTranscriptionRepository } from 'repo/universalTranscription.repository'
-import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LanguageCode } from 'prisma/generated/enums'
 
 export class CreateUniversalTranscriptionCommand implements ICommand {
@@ -18,7 +18,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 		private universalPhraseQueryRepository: UniversalPhraseQueryRepository,
 		private universalTranscriptionRepository: UniversalTranscriptionRepository,
 		private universalTranscriptionQueryRepository: UniversalTranscriptionQueryRepository,
-		private deepSeekService: DeepSeekService,
+		private llmAdapter: LlmAdapterService,
 	) {}
 
 	async execute(command: CreateUniversalTranscriptionCommand) {
@@ -33,7 +33,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 			throw new CustomError(errorMessage.universalTranscription.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
-		const transcription = await this.getTranscriptionFromDeepSeek(phrase.text, phrase.sourceLanguageCode)
+		const transcription = await this.getTranscriptionFromLLM(phrase.text, phrase.sourceLanguageCode)
 
 		const created = await this.universalTranscriptionRepository.createTranscription({
 			universalPhraseId,
@@ -44,7 +44,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 		return await this.universalTranscriptionQueryRepository.getTranscriptionById(created.id)
 	}
 
-	private async getTranscriptionFromDeepSeek(word: string, languageCode: LanguageCode) {
+	private async getTranscriptionFromLLM(word: string, languageCode: LanguageCode) {
 		// const isChinese = languageCode === LanguageCode.zhCMN
 
 		/*const { systemPrompt, userPrompt } = isChinese
@@ -63,22 +63,23 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 					userPrompt: `Provide the IPA transcription for the word "${word}" in language "${languageCode}".`,
 				}*/
 
-		let systemPrompt =
+		const systemPrompt =
 			'You are a linguistics expert. Return a JSON object with IPA transcription for the given word. ' +
 			'The JSON must have one field: "ipa" (string, IPA transcription without slashes at the beginning and end). ' +
 			'Return only valid JSON, no extra text.'
 
 		const userPrompt = `Provide the IPA transcription for the word "${word}" in language "${languageCode}".`
 
-		const response = await this.deepSeekService.generateText({
+		const response = await this.llmAdapter.generate({
+			provider: 'deepseek',
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: userPrompt },
 			],
-			responseFormat: { type: 'json_object' },
+			responseFormat: 'json_object',
 		})
 
-		if (!response.message) {
+		if (!response.content) {
 			throw new CustomError(
 				errorMessage.universalTranscription.cannotGetTranscriptionFromLLM,
 				ErrorStatusCode.InternalServerError_500,
@@ -86,7 +87,7 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 		}
 
 		try {
-			const parsed = JSON.parse(response.message) as { ipa?: string; pinyin?: string }
+			const parsed = JSON.parse(response.content) as { ipa?: string; pinyin?: string }
 
 			const ipa = parsed.ipa ? parsed.ipa.replace(/^\/|\/$/g, '') : null
 

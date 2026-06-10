@@ -1,0 +1,6 @@
+@use "@/styles/variables" as vars;
+
+.sentence-phrase {
+	display: grid;
+	gap: .6rem;
+}

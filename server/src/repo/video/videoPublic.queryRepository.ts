@@ -3,11 +3,13 @@ import { attachVideoTextRelations } from 'repo/video/attachVideoTextRelations'
 import { PrismaService } from 'db/prisma.service'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { VideoPublicOutModel } from 'models/videoPublic/videoPublic.out.model'
 import { VideoPublicLiteOutModel } from 'models/videoPublic/videoPublicLite.out.model'
-import { Sentence, SentencePhraseTranslation, SentenceTranslation, Subtitle, SubtitleSentenceInit, VideoPublic } from 'prisma/generated/client'
+import { LanguageCode, Prisma, Sentence, SentencePhraseTranslation, SentenceTranslation, Subtitle, SubtitleSentenceInit, VideoPublic } from 'prisma/generated/client'
 import { enrichSentencesWithGrammarConcepts } from '../grammarConcept/enrichSentencesWithGrammarConcepts'
 import { GrammarConceptQueryRepository } from '../grammarConcept.queryRepository'
+import { UniversalPhraseQueryRepository } from '../universalPhrase.queryRepository'
 
 type DbSentenceWithInit = Sentence & {
 	SubtitleSentenceInit?: SubtitleSentenceInit[]
@@ -22,12 +24,20 @@ type DbVideoWithRelations = VideoPublic & {
 	Subtitle?: DbSubtitleWithInit[]
 }
 
+type UniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
+	include: {
+		UniversalTranscription: true
+		UniversalAudioPronunciation: true
+	}
+}>
+
 @Injectable()
 export class VideoPublicQueryRepository {
 	constructor(
 		private prisma: PrismaService,
 		private cloudRuS3Service: CloudRuS3Service,
 		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
+		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
 
 	@CatchDbError()
@@ -108,7 +118,9 @@ export class VideoPublicQueryRepository {
 			freeToUse: dbVideo.free_to_use ?? false,
 		}
 
-		const result = attachVideoTextRelations({ base, dbVideo })
+		const universalPhraseByText = await this.buildUniversalPhraseMap(dbVideo)
+
+		const result = attachVideoTextRelations({ base, dbVideo, universalPhraseByText })
 
 		if (targetLanguageCode) {
 			const grammarResults = await enrichSentencesWithGrammarConcepts({
@@ -132,5 +144,43 @@ export class VideoPublicQueryRepository {
 		}
 
 		return result
+	}
+
+	private async buildUniversalPhraseMap(
+		dbVideo: DbVideoWithRelations,
+	): Promise<Map<string, UniversalPhraseOutModel>> {
+		const phraseTexts = new Set<string>()
+		for (const s of dbVideo.Sentence ?? []) {
+			for (const pt of s.SentencePhraseTranslation ?? []) {
+				if (pt.phrase) {
+					phraseTexts.add(pt.phrase)
+				}
+			}
+		}
+
+		if (phraseTexts.size === 0) {
+			return new Map()
+		}
+
+		const dbPhrases: UniversalPhraseWithRelations[] = await this.prisma.universalPhrase.findMany({
+			where: {
+				text: { in: [...phraseTexts] },
+				source_language_code: dbVideo.source_language_code,
+			},
+			include: {
+				UniversalTranscription: true,
+				UniversalAudioPronunciation: true,
+			},
+		})
+
+		const map = new Map<string, UniversalPhraseOutModel>()
+		await Promise.all(
+			dbPhrases.map(async (p) => {
+				const out = await this.universalPhraseQueryRepo.mapDbUniversalPhraseToOutModel(p)
+				map.set(p.text, out)
+			}),
+		)
+
+		return map
 	}
 }

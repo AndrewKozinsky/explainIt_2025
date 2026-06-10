@@ -1,0 +1,18 @@
+query GrammarConceptsList($input: GetGrammarConceptsListInput!) {
+	grammar_concepts_list(input: $input) {
+		sourceLanguage
+		targetLanguage
+		categories {
+			category
+			articles {
+				id
+				title
+				slug
+				category
+				order
+				sourceLanguage
+				targetLanguage
+			}
+		}
+	}
+}

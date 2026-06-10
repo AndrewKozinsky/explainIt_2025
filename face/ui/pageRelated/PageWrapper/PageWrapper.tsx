@@ -1,7 +1,7 @@
 import React from 'react'
-import Link from 'next/link'
+import { pageUrls } from 'utils/pageUrls'
+import { Link } from '@/i18n/routing'
 import Bar from '../pageTopBar/PageTopBar/Bar'
-import { pageUrls } from 'сonsts/pageUrls'
 import './PageWrapper.scss'
 
 type PageWrapperProps = {

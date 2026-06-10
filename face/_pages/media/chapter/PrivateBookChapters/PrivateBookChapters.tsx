@@ -1,7 +1,7 @@
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 function PrivateBookChapters() {
 	const privateBook = useChapterStore((s) => s.privateBook)

@@ -39,7 +39,6 @@ export type GrammarConceptMinAggregateOutputType = {
   source_language_code: $Enums.LanguageCode | null
   target_language_code: $Enums.LanguageCode | null
   category: string | null
-  lemma: string | null
   title: string | null
   slug: string | null
   order: number | null
@@ -50,7 +49,6 @@ export type GrammarConceptMaxAggregateOutputType = {
   source_language_code: $Enums.LanguageCode | null
   target_language_code: $Enums.LanguageCode | null
   category: string | null
-  lemma: string | null
   title: string | null
   slug: string | null
   order: number | null
@@ -61,7 +59,6 @@ export type GrammarConceptCountAggregateOutputType = {
   source_language_code: number
   target_language_code: number
   category: number
-  lemma: number
   title: number
   slug: number
   order: number
@@ -83,7 +80,6 @@ export type GrammarConceptMinAggregateInputType = {
   source_language_code?: true
   target_language_code?: true
   category?: true
-  lemma?: true
   title?: true
   slug?: true
   order?: true
@@ -94,7 +90,6 @@ export type GrammarConceptMaxAggregateInputType = {
   source_language_code?: true
   target_language_code?: true
   category?: true
-  lemma?: true
   title?: true
   slug?: true
   order?: true
@@ -105,7 +100,6 @@ export type GrammarConceptCountAggregateInputType = {
   source_language_code?: true
   target_language_code?: true
   category?: true
-  lemma?: true
   title?: true
   slug?: true
   order?: true
@@ -204,7 +198,6 @@ export type GrammarConceptGroupByOutputType = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
   title: string
   slug: string
   order: number
@@ -239,7 +232,6 @@ export type GrammarConceptWhereInput = {
   source_language_code?: Prisma.EnumLanguageCodeFilter<"GrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"GrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"GrammarConcept"> | string
-  lemma?: Prisma.StringFilter<"GrammarConcept"> | string
   title?: Prisma.StringFilter<"GrammarConcept"> | string
   slug?: Prisma.StringFilter<"GrammarConcept"> | string
   order?: Prisma.IntFilter<"GrammarConcept"> | number
@@ -252,7 +244,6 @@ export type GrammarConceptOrderByWithRelationInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   order?: Prisma.SortOrder
@@ -262,27 +253,25 @@ export type GrammarConceptOrderByWithRelationInput = {
 
 export type GrammarConceptWhereUniqueInput = Prisma.AtLeast<{
   id?: string
-  source_language_code_target_language_code_category_lemma?: Prisma.GrammarConceptSource_language_codeTarget_language_codeCategoryLemmaCompoundUniqueInput
+  source_language_code_target_language_code_category_slug?: Prisma.GrammarConceptSource_language_codeTarget_language_codeCategorySlugCompoundUniqueInput
   AND?: Prisma.GrammarConceptWhereInput | Prisma.GrammarConceptWhereInput[]
   OR?: Prisma.GrammarConceptWhereInput[]
   NOT?: Prisma.GrammarConceptWhereInput | Prisma.GrammarConceptWhereInput[]
   source_language_code?: Prisma.EnumLanguageCodeFilter<"GrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFilter<"GrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringFilter<"GrammarConcept"> | string
-  lemma?: Prisma.StringFilter<"GrammarConcept"> | string
   title?: Prisma.StringFilter<"GrammarConcept"> | string
   slug?: Prisma.StringFilter<"GrammarConcept"> | string
   order?: Prisma.IntFilter<"GrammarConcept"> | number
   aliases?: Prisma.StringNullableListFilter<"GrammarConcept">
   GrammarConceptToUniversalPhrase?: Prisma.GrammarConceptToUniversalPhraseListRelationFilter
-}, "id" | "source_language_code_target_language_code_category_lemma">
+}, "id" | "source_language_code_target_language_code_category_slug">
 
 export type GrammarConceptOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   order?: Prisma.SortOrder
@@ -302,7 +291,6 @@ export type GrammarConceptScalarWhereWithAggregatesInput = {
   source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"GrammarConcept"> | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"GrammarConcept"> | $Enums.LanguageCode
   category?: Prisma.StringWithAggregatesFilter<"GrammarConcept"> | string
-  lemma?: Prisma.StringWithAggregatesFilter<"GrammarConcept"> | string
   title?: Prisma.StringWithAggregatesFilter<"GrammarConcept"> | string
   slug?: Prisma.StringWithAggregatesFilter<"GrammarConcept"> | string
   order?: Prisma.IntWithAggregatesFilter<"GrammarConcept"> | number
@@ -314,7 +302,6 @@ export type GrammarConceptCreateInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
   title: string
   slug: string
   order?: number
@@ -327,7 +314,6 @@ export type GrammarConceptUncheckedCreateInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
   title: string
   slug: string
   order?: number
@@ -340,7 +326,6 @@ export type GrammarConceptUpdateInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -353,7 +338,6 @@ export type GrammarConceptUncheckedUpdateInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -366,7 +350,6 @@ export type GrammarConceptCreateManyInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
   title: string
   slug: string
   order?: number
@@ -378,7 +361,6 @@ export type GrammarConceptUpdateManyMutationInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -390,18 +372,17 @@ export type GrammarConceptUncheckedUpdateManyInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
   aliases?: Prisma.GrammarConceptUpdatealiasesInput | string[]
 }
 
-export type GrammarConceptSource_language_codeTarget_language_codeCategoryLemmaCompoundUniqueInput = {
+export type GrammarConceptSource_language_codeTarget_language_codeCategorySlugCompoundUniqueInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
+  slug: string
 }
 
 export type GrammarConceptCountOrderByAggregateInput = {
@@ -409,7 +390,6 @@ export type GrammarConceptCountOrderByAggregateInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   order?: Prisma.SortOrder
@@ -425,7 +405,6 @@ export type GrammarConceptMaxOrderByAggregateInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   order?: Prisma.SortOrder
@@ -436,7 +415,6 @@ export type GrammarConceptMinOrderByAggregateInput = {
   source_language_code?: Prisma.SortOrder
   target_language_code?: Prisma.SortOrder
   category?: Prisma.SortOrder
-  lemma?: Prisma.SortOrder
   title?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   order?: Prisma.SortOrder
@@ -479,7 +457,6 @@ export type GrammarConceptCreateWithoutGrammarConceptToUniversalPhraseInput = {
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
   title: string
   slug: string
   order?: number
@@ -491,7 +468,6 @@ export type GrammarConceptUncheckedCreateWithoutGrammarConceptToUniversalPhraseI
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   category: string
-  lemma: string
   title: string
   slug: string
   order?: number
@@ -519,7 +495,6 @@ export type GrammarConceptUpdateWithoutGrammarConceptToUniversalPhraseInput = {
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -531,7 +506,6 @@ export type GrammarConceptUncheckedUpdateWithoutGrammarConceptToUniversalPhraseI
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   category?: Prisma.StringFieldUpdateOperationsInput | string
-  lemma?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   order?: Prisma.IntFieldUpdateOperationsInput | number
@@ -574,7 +548,6 @@ export type GrammarConceptSelect<ExtArgs extends runtime.Types.Extensions.Intern
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
   title?: boolean
   slug?: boolean
   order?: boolean
@@ -588,7 +561,6 @@ export type GrammarConceptSelectCreateManyAndReturn<ExtArgs extends runtime.Type
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
   title?: boolean
   slug?: boolean
   order?: boolean
@@ -600,7 +572,6 @@ export type GrammarConceptSelectUpdateManyAndReturn<ExtArgs extends runtime.Type
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
   title?: boolean
   slug?: boolean
   order?: boolean
@@ -612,14 +583,13 @@ export type GrammarConceptSelectScalar = {
   source_language_code?: boolean
   target_language_code?: boolean
   category?: boolean
-  lemma?: boolean
   title?: boolean
   slug?: boolean
   order?: boolean
   aliases?: boolean
 }
 
-export type GrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "source_language_code" | "target_language_code" | "category" | "lemma" | "title" | "slug" | "order" | "aliases", ExtArgs["result"]["grammarConcept"]>
+export type GrammarConceptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "source_language_code" | "target_language_code" | "category" | "title" | "slug" | "order" | "aliases", ExtArgs["result"]["grammarConcept"]>
 export type GrammarConceptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   GrammarConceptToUniversalPhrase?: boolean | Prisma.GrammarConcept$GrammarConceptToUniversalPhraseArgs<ExtArgs>
   _count?: boolean | Prisma.GrammarConceptCountOutputTypeDefaultArgs<ExtArgs>
@@ -637,7 +607,6 @@ export type $GrammarConceptPayload<ExtArgs extends runtime.Types.Extensions.Inte
     source_language_code: $Enums.LanguageCode
     target_language_code: $Enums.LanguageCode
     category: string
-    lemma: string
     title: string
     slug: string
     order: number
@@ -1070,7 +1039,6 @@ export interface GrammarConceptFieldRefs {
   readonly source_language_code: Prisma.FieldRef<"GrammarConcept", 'LanguageCode'>
   readonly target_language_code: Prisma.FieldRef<"GrammarConcept", 'LanguageCode'>
   readonly category: Prisma.FieldRef<"GrammarConcept", 'String'>
-  readonly lemma: Prisma.FieldRef<"GrammarConcept", 'String'>
   readonly title: Prisma.FieldRef<"GrammarConcept", 'String'>
   readonly slug: Prisma.FieldRef<"GrammarConcept", 'String'>
   readonly order: Prisma.FieldRef<"GrammarConcept", 'Int'>

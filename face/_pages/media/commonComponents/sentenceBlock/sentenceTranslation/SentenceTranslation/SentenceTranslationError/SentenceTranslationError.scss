@@ -1,0 +1,12 @@
+.sentence-translation-error {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1.2rem;
+}
+
+.sentence-translation-error__message {
+	flex: 1;
+	min-width: 0;
+}
+

@@ -1,6 +1,6 @@
+import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
 import { useBookStore } from '../bookStore'
-import { createMediaIdUrl, pageUrls } from 'сonsts/pageUrls'
 
 function PublicBookChapters() {
 	const publicBook = useBookStore((s) => s.publicBook)

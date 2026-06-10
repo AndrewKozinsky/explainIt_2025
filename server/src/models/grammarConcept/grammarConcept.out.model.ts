@@ -15,9 +15,6 @@ export class GrammarConceptOutModel {
 	category: string
 
 	@Field(() => String)
-	lemma: string
-
-	@Field(() => String)
 	title: string
 
 	@Field(() => String)
@@ -33,7 +30,7 @@ export class MissingGrammarConceptOutModel {
 	category: string
 
 	@Field(() => String)
-	lemma: string
+	alias: string
 }
 
 @ObjectType()

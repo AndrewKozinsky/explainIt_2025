@@ -1,7 +1,7 @@
 // import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 // import { PageContentWrapper } from '@/ui/pageRelated/PageContentWrapper/PageContentWrapper'
 // import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-// import { pageUrls } from '@/сonsts/pageUrls'
+// import { pageUrls } from '@/utils/pageUrls'
 // import ArticleType from '../../../../articles/articleTypes/articleType'
 // import ArticleArticleContent from '../ArticleArticleContent/ArticleArticleContent'
 // import CourseArticlePageHeader from '../CourceArticlePageHeader/CourceArticlePageHeader'

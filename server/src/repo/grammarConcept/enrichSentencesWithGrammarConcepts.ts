@@ -12,7 +12,7 @@ export async function enrichSentencesWithGrammarConcepts(params: {
 }): Promise<
 	{
 		grammarConcepts: any[] | null
-		missingGrammarConcepts: { category: string; lemma: string }[] | null
+		missingGrammarConcepts: { category: string; alias: string }[] | null
 	}[]
 > {
 	const { prisma, grammarConceptQueryRepo, sentences, content, sourceLanguageCode, targetLanguageCode } = params
@@ -37,7 +37,7 @@ export async function enrichSentencesWithGrammarConcepts(params: {
 					},
 					MissingGrammarConcept: {
 						where: { target_language_code: targetLanguageCode as any },
-						select: { category: true, lemma: true },
+						select: { category: true, alias: true },
 					},
 				},
 			})) as any
@@ -49,7 +49,7 @@ export async function enrichSentencesWithGrammarConcepts(params: {
 					).map((j: any) => grammarConceptQueryRepo.mapDbToOutModel(j.grammar_concept)),
 					missingGrammarConcepts: universalPhrase.MissingGrammarConcept.map((m: any) => ({
 						category: m.category,
-						lemma: m.lemma,
+						alias: m.alias,
 					})),
 				}
 			}

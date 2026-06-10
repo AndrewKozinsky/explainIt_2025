@@ -5,6 +5,7 @@ import { Logger } from 'winston'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+import { OpenAIModels } from 'types/openAIModels'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
@@ -12,17 +13,15 @@ import {
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { LanguageCode } from 'prisma/generated/enums'
-import { TranslateWithChatGPT } from '../translateCommon/TranslateWithChatGPT.service'
-import { TranslateWithDeepSeek } from '../translateCommon/TranslateWithDeepSeek.service'
-import { TranslateWithGemini } from '../translateCommon/TranslateWithGemini.service'
 import {
 	chargeAfterTranslationIfNeeded,
 	ensureCanChargeBalanceOrThrow,
 	ensureModeIsAllowedOrThrow,
 } from '../translateCommon/TranslationHandler.utils'
-import { SentenceTranslationProvider, TranslationProviderName } from '../translateCommon/TranslationProvider.types'
+import { TranslationProviderName } from '../translateCommon/TranslationProvider.types'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 
 export type TranslateSentenceInput = {
@@ -47,9 +46,7 @@ export class TranslateSentenceCommand implements ICommand {
 @CommandHandler(TranslateSentenceCommand)
 export class TranslateSentenceHandler implements ICommandHandler<TranslateSentenceCommand> {
 	constructor(
-		private translateWithDeepSeek: TranslateWithDeepSeek,
-		private translateWithChatGPT: TranslateWithChatGPT,
-		private translateWithGemini: TranslateWithGemini,
+		private llmAdapter: LlmAdapterService,
 		private sentenceRepository: SentenceRepository,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
@@ -60,6 +57,16 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
+		// Return existing translation if it already exists, avoiding an unnecessary LLM call.
+		const existingTranslation =
+			await this.sentenceTranslationRepository.getSentenceTranslationBySentenceIdAndTargetLanguageCode({
+				sentenceId: command.input.sentenceId,
+				targetLanguageCode: command.input.targetLanguageCode,
+			})
+		if (existingTranslation && existingTranslation.translation) {
+			return { translatedText: existingTranslation.translation }
+		}
+
 		let draftSentenceTranslationId: null | number = null
 
 		try {
@@ -130,7 +137,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		contextText: string
 		sourceLanguageCode: LanguageCode
 		lowPriority: boolean
-		provider: SentenceTranslationProvider
+		provider: TranslationProviderName
 		createMode: SentenceTranslationAccess['createMode']
 	}> {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
@@ -151,21 +158,13 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			contextText,
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			lowPriority: true,
-			provider: this.getTranslationProvider(),
+			provider: this.getProviderName(),
 			createMode: access.createMode,
 		}
 	}
 
-	private getTranslationProvider(): SentenceTranslationProvider {
-		const providerName: TranslationProviderName = 'gemini'
-
-		const providers: Record<TranslationProviderName, SentenceTranslationProvider> = {
-			deepseek: this.translateWithDeepSeek,
-			chatgpt: this.translateWithChatGPT,
-			gemini: this.translateWithGemini,
-		}
-
-		return providers[providerName]
+	private getProviderName(): TranslationProviderName {
+		return 'gemini'
 	}
 
 	private async createDraftSentenceTranslation(input: { sentenceId: number; targetLanguageCode: LanguageCode }) {
@@ -230,7 +229,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async generateSentenceTranslation(input: {
-		provider: SentenceTranslationProvider
+		provider: TranslationProviderName
 		text: string
 		contextText: string
 		sourceLanguageCode: LanguageCode
@@ -244,25 +243,48 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		fullText: string
 		usage: Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage']
 	}> {
-		const result = await input.provider.translate(
-			{
-				text: input.text,
-				contextText: input.contextText,
-				sourceLanguageCode: input.sourceLanguageCode,
-				targetLanguageCode: input.targetLanguageCode,
-				lowPriority: input.lowPriority,
-				bookName: input.bookName,
-				bookAuthor: input.bookAuthor,
-				videoName: input.videoName,
-				videoYear: input.videoYear,
-			},
-			buildSentenceTranslationPrompt,
-		)
+		const systemPrompt = buildSentenceTranslationPrompt({
+			sourceLanguageCode: input.sourceLanguageCode,
+			targetLanguageCode: input.targetLanguageCode,
+			contextText: input.contextText,
+			bookName: input.bookName,
+			bookAuthor: input.bookAuthor,
+			videoName: input.videoName,
+			videoYear: input.videoYear,
+		})
+
+		const result = await this.llmAdapter.generate({
+			provider: input.provider,
+			messages: [
+				{ role: 'system', content: systemPrompt },
+				{ role: 'user', content: input.text },
+			],
+			lowPriority: input.lowPriority,
+		})
 
 		return {
-			fullText: result.translatedText,
-			usage: result.usage,
+			fullText: result.content,
+			usage: this.buildUsage(input.provider, result.inputTokens, result.outputTokens, input.lowPriority),
 		}
+	}
+
+	private buildUsage(
+		provider: TranslationProviderName,
+		inputTokens: number,
+		outputTokens: number,
+		lowPriority: boolean,
+	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
+		if (provider === 'chatgpt') {
+			return {
+				provider: 'chatgpt',
+				inputTokens,
+				outputTokens,
+				model: OpenAIModels.Standard,
+				lowPriority,
+			}
+		}
+
+		return { provider, inputTokens, outputTokens }
 	}
 
 	private async saveFinalTranslation(input: { sentenceTranslationId: number; translation: string }) {

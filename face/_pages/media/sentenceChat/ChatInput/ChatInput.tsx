@@ -5,6 +5,7 @@ import cn from 'classnames'
 import { useUserStore } from '@/stores/userStore'
 import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
 import ChatInputWarningMessage from './ChatInputWarningMessage'
+import LlmProviderSwitch from './LlmProviderSwitch'
 import { handleEnterToSend } from './fn/handleEnterToSend'
 import { computeInsertAtCaret, applyCaret } from './fn/insertAtCaret'
 import SendAndCancelButton from './SendAndCancelButton'
@@ -65,7 +66,10 @@ function ChatInput(props: ChatInputProps) {
 				disabled={!hasBalance}
 			/>
 			<div className='chat-input__bottom'>
-				<ChatInputWarningMessage />
+				<div>
+					<ChatInputWarningMessage />
+					<LlmProviderSwitch />
+				</div>
 				<div className='chat-input__actions'>
 					<VoiceInputButton onInsert={insertAtCaret} disabled={!hasBalance} />
 					<SendAndCancelButton

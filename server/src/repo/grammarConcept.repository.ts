@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { GrammarConceptServiceModel } from 'models/grammarConcept/grammarConcept.service.model'
+import { LanguageCode } from 'prisma/generated/enums'
 import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
@@ -19,7 +20,7 @@ export class GrammarConceptRepository {
 			source_language_code: input.sourceLanguage as any,
 			target_language_code: input.targetLanguage as any,
 			category: item.category,
-			OR: [{ lemma: item.lemma }, { aliases: { has: item.lemma } }],
+			aliases: { has: item.lemma },
 		}))
 
 		const results = await this.prisma.grammarConcept.findMany({
@@ -35,17 +36,16 @@ export class GrammarConceptRepository {
 		sourceLanguageCode: string
 		targetLanguageCode: string
 		category: string
-		lemma: string
 		title: string
 		slug: string
 		order: number
 		aliases: string[]
 	}): Promise<GrammarConceptServiceModel> {
 		// If a record with this id exists but has different unique fields
-		// (e.g. category or lemma was changed in the file), delete it first.
+		// (e.g. category or slug was changed in the file), delete it first.
 		const existingById = await this.prisma.grammarConcept.findUnique({
 			where: { id: dto.id },
-			select: { id: true, source_language_code: true, target_language_code: true, category: true, lemma: true },
+			select: { id: true, source_language_code: true, target_language_code: true, category: true, slug: true },
 		})
 
 		if (
@@ -53,18 +53,18 @@ export class GrammarConceptRepository {
 			(existingById.source_language_code !== dto.sourceLanguageCode ||
 				existingById.target_language_code !== dto.targetLanguageCode ||
 				existingById.category !== dto.category ||
-				existingById.lemma !== dto.lemma)
+				existingById.slug !== dto.slug)
 		) {
 			await this.prisma.grammarConcept.delete({ where: { id: dto.id } })
 		}
 
 		const gc = await this.prisma.grammarConcept.upsert({
 			where: {
-				source_language_code_target_language_code_category_lemma: {
+				source_language_code_target_language_code_category_slug: {
 					source_language_code: dto.sourceLanguageCode as any,
 					target_language_code: dto.targetLanguageCode as any,
 					category: dto.category,
-					lemma: dto.lemma,
+					slug: dto.slug,
 				},
 			},
 			create: {
@@ -72,7 +72,6 @@ export class GrammarConceptRepository {
 				source_language_code: dto.sourceLanguageCode as any,
 				target_language_code: dto.targetLanguageCode as any,
 				category: dto.category,
-				lemma: dto.lemma,
 				title: dto.title,
 				slug: dto.slug,
 				order: dto.order,
@@ -102,12 +101,28 @@ export class GrammarConceptRepository {
 		return results.map((gc) => this.mapDbToServiceModel(gc))
 	}
 
+	// Попробуй string поменять на LanguageCode
+	@CatchDbError()
+	async findByLanguages(
+		sourceLanguageCode: string,
+		targetLanguageCode: string,
+	): Promise<GrammarConceptServiceModel[]> {
+		const grammarConcepts = await this.prisma.grammarConcept.findMany({
+			where: {
+				source_language_code: sourceLanguageCode as LanguageCode,
+				target_language_code: targetLanguageCode as LanguageCode,
+			},
+			orderBy: { order: 'asc' },
+		})
+
+		return grammarConcepts.map((gc) => this.mapDbToServiceModel(gc))
+	}
+
 	private mapDbToServiceModel(db: {
 		id: string
 		source_language_code: string
 		target_language_code: string
 		category: string
-		lemma: string
 		title: string
 		slug: string
 		order: number
@@ -118,7 +133,6 @@ export class GrammarConceptRepository {
 			sourceLanguageCode: db.source_language_code,
 			targetLanguageCode: db.target_language_code,
 			category: db.category,
-			lemma: db.lemma,
 			title: db.title,
 			slug: db.slug,
 			order: db.order,

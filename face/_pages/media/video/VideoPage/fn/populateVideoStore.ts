@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
 import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
 import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useVideoStore } from '_pages/media/video/videoStore'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'сonsts/pageUrls'
 
 /** Наполняет Хранилище данными для начала работы */
 export function usePopulateVideoStore() {

@@ -1,7 +1,7 @@
 import React from 'react'
 import BaseButton from 'ui/BaseButton/BaseButton'
 import { RoundArrowWhiteIcon } from 'ui/icons/RoundArrowWhiteIcon'
-import { LanguageCode, languages } from 'utils/utils'
+import { LanguageCode, languages } from 'utils/languages'
 import { BookData, useGetBooksData } from './fn/getBooks'
 import './BooksGrid.scss'
 
@@ -57,7 +57,7 @@ type BookProps = {
 function Book(props: BookProps) {
 	const { bookData } = props
 
-	const langName = languages[bookData.languageCode].nameRus
+	const langName = languages[bookData.languageCode].name
 
 	return (
 		<div className='books-grid__book'>

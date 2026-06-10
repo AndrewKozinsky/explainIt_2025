@@ -5,6 +5,7 @@ import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryReposito
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
+import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
 import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
 import { VideoPublicResolver } from 'routes/videoPublic/videoPublic.resolver'
@@ -31,6 +32,7 @@ const repositories = [
 	SubtitleSentenceInitRepository,
 	DBRepository,
 	GrammarConceptQueryRepository,
+	UniversalPhraseQueryRepository,
 ]
 
 @Module({

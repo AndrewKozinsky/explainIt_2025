@@ -1,5 +1,5 @@
 import { TranscriptionState } from 'ui/TranscriptionAndAudio/types'
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 
 type TranscriptionInput = {
 	status: string

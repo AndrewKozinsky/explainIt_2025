@@ -11,14 +11,13 @@ const FETCH_GRAMMAR_CONCEPTS = gql`
 				title
 				slug
 				category
-				lemma
 				order
 				sourceLanguage
 				targetLanguage
 			}
 			missingGrammarConcepts {
 				category
-				lemma
+				alias
 			}
 		}
 	}

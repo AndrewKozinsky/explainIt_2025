@@ -1,0 +1,30 @@
+@use "@/styles/variables" as vars;
+
+.sentence-phrase-flash-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	width: 2.1rem;
+	height: 2.1rem;
+	cursor: pointer;
+	transition: background-color .25s, transform .25s;
+	border-radius: 50%;
+}
+
+.sentence-phrase-flash-button--add {
+	background-color: vars.$grayColor-4;
+
+	&:hover {
+		background-color: vars.$grayColor-5;
+	}
+}
+
+.sentence-phrase-flash-button--remove {
+	background-color: vars.$accentColor-2;
+	transform: rotate(45deg);
+
+	&:hover {
+		background-color: vars.$accentColor-3;
+	}
+}

@@ -3,6 +3,7 @@ import {
 	SentencePhraseTranslationOutModel,
 } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 import { SentenceTranslationOutModel } from 'models/sentenceTranslation/sentenceTranslation.out.model'
+import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { SentenceTranslation } from 'prisma/generated/client'
 import { SentencePhraseTranslation } from 'prisma/generated/client'
 
@@ -29,6 +30,7 @@ export function mapSentenceTranslation(
 export function mapSentencePhraseTranslations(
 	phraseTranslations: SentencePhraseTranslation[],
 	targetLanguageCode?: string,
+	universalPhraseByText?: Map<string, UniversalPhraseOutModel>,
 ): SentencePhraseTranslationOutModel[] | null {
 	const filtered = targetLanguageCode
 		? phraseTranslations.filter((pt) => pt.target_language_code === targetLanguageCode)
@@ -54,6 +56,7 @@ export function mapSentencePhraseTranslations(
 			createdAt: pt.created_at.toISOString(),
 			updatedAt: pt.updated_at.toISOString(),
 			flashcardId: null,
+			universalPhrase: universalPhraseByText?.get(pt.phrase) ?? null,
 		}
 	})
 }

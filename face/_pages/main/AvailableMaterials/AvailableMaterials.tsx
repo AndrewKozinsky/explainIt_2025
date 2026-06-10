@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import LanguageSwitch from 'ui/LanguageSwitch/LanguageSwitch'
-import { LanguageCode, languageKeys } from 'utils/utils'
+import { LanguageCode, languageKeys } from 'utils/languages'
 import BooksGrid from '../BooksGrid/BooksGrid'
 import './AvailableMaterials.scss'
 

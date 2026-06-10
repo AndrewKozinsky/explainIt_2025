@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
-import { createMediaIdUrl, pageUrls } from '@/сonsts/pageUrls'
+import { useLocale } from 'next-intl'
+import { createMediaIdUrl, pageUrls, localizePath } from '@/utils/pageUrls'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
 export function useIsReadButtonDisabled() {
@@ -22,6 +23,7 @@ export function useIsReadButtonDisabled() {
 export function useGetOnReadButtonClick() {
 	const book = useChapterStore((s) => s.privateBook.data)
 	const chapter = useChapterStore((s) => s.chapter)
+	const locale = useLocale()
 
 	return useCallback(
 		function () {
@@ -29,8 +31,8 @@ export function useGetOnReadButtonClick() {
 			if (!chapter.data) return
 
 			const bookIdInUrl = createMediaIdUrl(book.id, 'private')
-			redirect(pageUrls.books.book(bookIdInUrl).chapter(chapter.data.id).reading.path)
+			redirect(localizePath(locale, pageUrls.books.book(bookIdInUrl).chapter(chapter.data.id).reading.path))
 		},
-		[book, chapter],
+		[book, chapter, locale],
 	)
 }

@@ -115,6 +115,6 @@ export namespace ChapterTextStructurePopulated {
 
 	export type MissingGrammarConceptData = {
 		category: string
-		lemma: string
+		alias: string
 	}
 }

@@ -1,5 +1,5 @@
 // import ArticleType from 'articleBuilder/articleTypes/articleType'
-// import { pageUrls } from '@/сonsts/pageUrls'
+// import { pageUrls } from '@/utils/pageUrls'
 // import articleService from '../../../../../articles/articleService/articleService'
 // import { ArticleTileType } from '../../ArticleTile/fn/types'
 

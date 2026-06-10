@@ -21,14 +21,13 @@ query BookChapter_get($input: GetBookChapterInput!) {
 					title
 					slug
 					category
-					lemma
 					order
 					sourceLanguage
 					targetLanguage
 				}
 				missingGrammarConcepts {
 					category
-					lemma
+					alias
 				}
 				sentencePhraseTranslations {
 					id
@@ -46,6 +45,22 @@ query BookChapter_get($input: GetBookChapterInput!) {
 					createdAt
 					updatedAt
 					flashcardId
+					universalPhrase {
+						id
+						text
+						sourceLanguageCode
+						transcription {
+							id
+							universalPhraseId
+							ipa
+							pinyin
+						}
+						audioPronunciation {
+							id
+							universalPhraseId
+							audioUrl
+						}
+					}
 				}
 			}
 			book {

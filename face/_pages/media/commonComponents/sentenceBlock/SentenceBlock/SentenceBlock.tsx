@@ -1,4 +1,4 @@
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingStore'
 import PhraseDetails from '../PhraseDetails/PhraseDetails'
 import Sentence from '../Sentence/Sentence'
@@ -27,9 +27,18 @@ function SentenceBlock(props: ChapterSentenceProps) {
 				selectedWordId={selectedWordId}
 				selectWord={selectWord}
 			/>
-			{/*<SentenceTools sentence={sentence} />*/}
-			<SentenceTranslation sentenceId={sentence.id} bgColor={environmentColor === 'gray' ? 'white' : 'gray'} />
-			<PhraseDetails sentenceId={sentence.id} languageCode={languageCode} />
+			<div className='sentence-block__tools'>
+				<SentenceTools sentence={sentence} />
+			</div>
+			<div className='sentence-block__translation'>
+				<SentenceTranslation
+					sentenceId={sentence.id}
+					bgColor={environmentColor === 'gray' ? 'white' : 'gray'}
+				/>
+			</div>
+			<div className='sentence-block__phase'>
+				<PhraseDetails sentenceId={sentence.id} languageCode={languageCode} />
+			</div>
 		</div>
 	)
 }

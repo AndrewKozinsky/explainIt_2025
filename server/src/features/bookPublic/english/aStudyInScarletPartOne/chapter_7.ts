@@ -1,6 +1,6 @@
 export const chapter_7 = {
 	name: 'Chapter VII',
-	header: 'Light in the darkness.',
+	header: 'Light in the darkness',
 	text: `The news with which Lestrade greeted us was so serious and so unexpected that all three of us were struck dumb. Gregson sprang from his chair and upset what remained of his whisky and water. I stared in silence at Sherlock Holmes, whose lips were tight and whose brows were drawn down.
 
 “Stangerson too!” he muttered. “The plot thickens.”

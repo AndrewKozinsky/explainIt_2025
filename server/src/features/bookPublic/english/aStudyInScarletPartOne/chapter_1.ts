@@ -1,6 +1,6 @@
 export const chapter_1 = {
 	name: 'Chapter I',
-	header: 'Mr. Sherlock Holmes.',
+	header: 'Mr. Sherlock Holmes',
 	text: `In 1878 I received my degree as a Doctor of Medicine from the University of London, and then went to Netley to complete the training required for army surgeons. When I finished there, I was appointed Assistant Surgeon to the Fifth Northumberland Fusiliers. The regiment was serving in India, but before I could join it the Second Afghan War had begun. When I landed at Bombay, I learned that my unit had already marched through the mountain passes and was far inside enemy territory. I followed as quickly as I could, like many other officers who were also trying to catch up, and at last reached Candahar safely. There I found my regiment and began my new duties at once.
 
 The campaign brought honours and promotion to many men, but for me it brought only misfortune. I was transferred from my brigade to the Berkshires, and with them I fought in the terrible battle of Maiwand. There a jezail bullet struck my shoulder, broke the bone, and grazed the artery beneath it. I would have fallen into the hands of the Ghazis—men who gave no mercy—if not for Murray, my orderly. With steady courage he lifted me onto a pack-horse and managed to bring me back to the British lines.

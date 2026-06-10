@@ -1,7 +1,7 @@
 import React from 'react'
 import { useParams } from 'next/navigation'
+import { pageUrls } from 'utils/pageUrls'
 import { useReadingStore } from '_pages/media/reading/readingStore'
-import { pageUrls } from 'сonsts/pageUrls'
 
 type BreadCrumbItem = {
 	name: string

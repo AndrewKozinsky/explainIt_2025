@@ -126,7 +126,7 @@ export class UniversalPhraseRepository {
 			sourceLanguage: string
 			targetLanguage: string
 			category: string
-			lemma: string
+			alias: string
 			sentenceText: string
 		}[],
 	): Promise<void> {
@@ -153,7 +153,7 @@ export class UniversalPhraseRepository {
 						source_language_code: item.sourceLanguage as any,
 						target_language_code: item.targetLanguage as any,
 						category: item.category,
-						lemma: item.lemma,
+						alias: item.alias,
 						sentence_text: item.sentenceText,
 					})) as any,
 				})
@@ -172,7 +172,6 @@ export class UniversalPhraseRepository {
 				sourceLanguageCode: j.grammar_concept.source_language_code,
 				targetLanguageCode: j.grammar_concept.target_language_code,
 				category: j.grammar_concept.category,
-				lemma: j.grammar_concept.lemma,
 				title: j.grammar_concept.title,
 				slug: j.grammar_concept.slug,
 				order: j.grammar_concept.order,
@@ -184,7 +183,7 @@ export class UniversalPhraseRepository {
 				sourceLanguageCode: m.source_language_code,
 				targetLanguageCode: m.target_language_code,
 				category: m.category,
-				lemma: m.lemma,
+				alias: m.alias,
 				sentenceText: m.sentence_text,
 			})),
 		}

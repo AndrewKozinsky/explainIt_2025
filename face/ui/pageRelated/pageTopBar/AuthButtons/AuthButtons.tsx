@@ -1,6 +1,6 @@
 'use client'
 
-import { pageUrls } from '@/сonsts/pageUrls'
+import { pageUrls } from '@/utils/pageUrls'
 import { MainMenuLink } from '../../MainMenuLink'
 import { useGetAuthLinkType } from './fn/authLinkType'
 import './AuthButtons.scss'

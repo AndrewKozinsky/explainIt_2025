@@ -1,0 +1,16 @@
+@use '@/styles/variables' as vars;
+
+.sentence-phrase-error {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.2rem;
+	padding: 0.8rem 1rem;
+	border: 1px solid vars.$grayColor-1;
+	border-radius: vars.$radius-1;
+}
+
+.sentence-phrase-error__message {
+	flex: 1;
+	min-width: 0;
+}

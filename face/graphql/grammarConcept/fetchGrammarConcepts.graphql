@@ -9,14 +9,13 @@ mutation GrammarConcept_fetch($input: FetchGrammarConceptsInput!) {
 				title
 				slug
 				category
-				lemma
 				order
 				sourceLanguage
 				targetLanguage
 			}
 			missingGrammarConcepts {
 				category
-				lemma
+				alias
 			}
 		}
 	}

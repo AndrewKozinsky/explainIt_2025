@@ -1,6 +1,6 @@
 export const chapter_4 = {
 	name: 'Chapter IV',
-	header: 'What John Rance had to tell.',
+	header: 'What John Rance had to tell',
 	text: `It was one o’clock when we left No. 3, Lauriston Gardens. Sherlock Holmes led me to the nearest telegraph office and sent a long telegram. Then he hailed a cab and told the driver to take us to the address Lestrade had given.
 
 “There is nothing like first-hand evidence,” he remarked. “In truth, my mind is already made up about the case; but we may as well learn all that can be learned.”

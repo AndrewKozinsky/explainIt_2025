@@ -53,6 +53,6 @@ export namespace PopulatedSubtitlesStructure {
 
 	export type MissingGrammarConceptData = {
 		category: string
-		lemma: string
+		alias: string
 	}
 }

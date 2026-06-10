@@ -1,8 +1,8 @@
 import React from 'react'
 import { useParams } from 'next/navigation'
+import { pageUrls } from 'utils/pageUrls'
 import { videoConfig } from '_pages/media/commonComponents/videoConfig'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import { pageUrls } from 'сonsts/pageUrls'
 
 type BreadCrumbItem = {
 	name: string

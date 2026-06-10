@@ -1,5 +1,15 @@
+@use '@/styles/variables' as vars;
+
 .grammar-concept-links {
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
-	gap: 0.4rem;
+	column-gap: 1.2rem;
+	row-gap: 0.8rem;
+}
+
+.grammar-concept-links__missed {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: vars.$grayColor-6;
 }

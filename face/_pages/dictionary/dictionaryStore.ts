@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { LanguageCode } from '@/utils/utils'
+import { LanguageCode } from '@/utils/languages'
 
 export const dictionaryStoreValues: DictionaryStoreValues = {
 	currentLang: 'en',

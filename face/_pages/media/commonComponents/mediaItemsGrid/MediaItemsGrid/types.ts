@@ -1,4 +1,4 @@
-import { LanguageCode } from 'utils/utils'
+import { LanguageCode } from 'utils/languages'
 
 export type MediaItemsGridConfig = {
 	privateItems: PrivateItem[]

@@ -1,21 +1,11 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { gql, useLazyQuery } from '@apollo/client'
+import { useGrammarArticle_GetLazyQuery } from 'graphql'
 import { MDXRemote } from 'next-mdx-remote'
 import { mdxComponentsRouter } from '@/ui/articleBuilder/mdxComponentsRouter'
 import Modal from '@/ui/Modal/Modal'
 import './GrammarArticleModal.scss'
-
-const GET_GRAMMAR_ARTICLE = gql`
-	query GrammarArticle_get($input: GetGrammarArticleInput!) {
-		grammar_article_get(input: $input) {
-			title
-			content
-			compiledSource
-		}
-	}
-`
 
 type GrammarArticleModalProps = {
 	isOpen: boolean
@@ -31,7 +21,7 @@ export default function GrammarArticleModal(props: GrammarArticleModalProps) {
 	const { isOpen, onClose, title, sourceLanguage, targetLanguage, category, slug } = props
 	const [compiledSource, setCompiledSource] = useState<string | null>(null)
 
-	const [fetchArticle, { loading }] = useLazyQuery(GET_GRAMMAR_ARTICLE, {
+	const [fetchArticle, { loading }] = useGrammarArticle_GetLazyQuery({
 		onCompleted: (data) => {
 			setCompiledSource(data.grammar_article_get.compiledSource || null)
 		},
