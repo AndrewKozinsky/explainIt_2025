@@ -2,7 +2,6 @@ import { promisify } from 'util'
 import { Injectable, OnApplicationBootstrap } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { CreatePublicBooksCommand } from 'features/bookPublic/CreatePublicBooks.command'
-import { SyncMdxGrammarConceptsCommand } from 'features/grammarConcept/SyncMdxGrammarConcepts.command'
 import { CreatePublicVideosCommand } from 'features/video/CreatePublicVideos.command'
 
 @Injectable()
@@ -13,7 +12,6 @@ export class StartServerTasksRunner implements OnApplicationBootstrap {
 		await this.runMigrations()
 		await this.commandBus.execute(new CreatePublicBooksCommand())
 		await this.commandBus.execute(new CreatePublicVideosCommand())
-		await this.commandBus.execute(new SyncMdxGrammarConceptsCommand())
 	}
 
 	private async runMigrations(attemptsLeft = 10, delayMs = 3000): Promise<void> {

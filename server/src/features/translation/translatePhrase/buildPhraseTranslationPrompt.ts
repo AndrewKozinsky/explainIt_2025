@@ -24,39 +24,32 @@ export function buildPhraseTranslationPrompt(input: BuildPhraseTranslationPrompt
 		videoYear: input.videoYear,
 	})
 
-	return `You are an assistant for learning ${sourceLanguage}.${mediaContext}
+	return `Ты — помощник для изучения ${sourceLanguage} языка.${mediaContext}
 
-You are given this sentence:
+Тебе дано предложение:
 "${input.sentenceText}"
 
-The user selected this fragment:
+Пользователь выделил слово:
 - text: "${input.selectedWord}"
 - startOffset: ${input.selectedWordStartOffset}
 - endOffset: ${input.selectedWordEndOffset}
 
-Your task:
-1) Translate the selected word into ${targetLanguage}. By default, translate ONLY the selected word — do NOT expand it into a larger phrase.
-2) Exception: expand the selection ONLY when the selected word belongs to a multi-word unit whose meaning cannot be derived by translating each word separately. This includes:
-   - Phrasal verbs: "look for", "give up", "turn off", "take after"
-   - Idioms: "kick the bucket", "spill the beans"
-   - Hyphenated compounds: "Eleven-year-old", "well-known", "mother-in-law"
-   - Strong collocations where the word changes its core meaning: "make friends" (make ≠ create), "take place" (take ≠ grab)
-   In such cases, output the minimal multi-word unit (e.g., "look for" not "look for the keys"; "make friends" not "make some new friends").
-3) Provide short examples using the translated word or expression.
+Твоя задача:
+1) Определи смысловую фразу, к которой относится выделение.
+2) Переведи эту фразу на ${targetLanguage} язык.
+3) Дай короткие примеры.
 
-Return the answer strictly as multiline plain text without markdown and explanations:
-- Line 1: phrase in the source language (the selected word, or the minimal multi-word expression if expansion is justified).
-- Line 2: translation into ${targetLanguage}.
-- Line 3: example using the phrase in the source language (optional).
-- Line 4: example translation (optional).
-- Lines 5+: follow the same paired pattern (example / example translation).
+Верни ответ строго как многострочный текст без markdown и без пояснений:
+- Строка 1: фраза на исходном языке.
+- Строка 2: перевод этой фразы на ${targetLanguage} язык.
+- Строка 3: пример употребления фразы на исходном языке (необязательно).
+- Строка 4: перевод примера (необязательно).
+- Строки 5+ по той же схеме парами (пример / перевод примера).
 
-Rules:
-- The phrase must be a substring of the source sentence.
-- Do NOT expand adjective+noun ("nearest relative", "big house"), adverb+verb ("quickly ran"), or verb+object where each word keeps its meaning ("read a book", "buy a car").
-- If the phrase is a strong collocation split by other words (e.g., "make some new friends"), return the canonical form ("make friends") — not the interrupted span.
-- Do not add line numbering, headings, JSON, or field names.
-- If there are no examples, return only the first 2 lines.`
+Правила:
+- phrase должна быть подстрокой исходного предложения.
+- Не добавляй нумерацию строк, заголовки, JSON и ключи полей.
+- Если примеров нет, верни только первые 2 строки.`
 }
 
 function buildMediaContext(input: {

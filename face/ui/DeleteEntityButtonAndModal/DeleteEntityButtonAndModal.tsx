@@ -1,7 +1,5 @@
 import React from 'react'
 import DeleteButton from 'ui/DeleteEntityButtonAndModal/DeleteButton'
-import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
-import Button from '@/ui/formRelated/buttons/Button/Button'
 import DeleteEntityModal from './DeleteEntityModal'
 
 type DeleteEntityButtonAndModalProps = {

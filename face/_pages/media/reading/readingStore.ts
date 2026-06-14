@@ -100,21 +100,5 @@ export namespace ChapterTextStructurePopulated {
 	export type Sentence = {
 		id: number
 		sentence: string
-		grammarConcepts: null | GrammarConceptData[]
-		missingGrammarConcepts: MissingGrammarConceptData[]
-	}
-
-	export type GrammarConceptData = {
-		id: string
-		title: string
-		slug: string
-		category: string
-		sourceLanguage: string
-		targetLanguage: string
-	}
-
-	export type MissingGrammarConceptData = {
-		category: string
-		alias: string
 	}
 }

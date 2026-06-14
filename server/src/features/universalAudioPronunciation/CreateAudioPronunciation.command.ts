@@ -1,7 +1,7 @@
 import { randomUUID } from 'crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UniversalAudioPronunciationRepository } from 'repo/audioPronunciation.repository'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+import { UniversalAudioPronunciationRepository } from 'repo/universalPhraseAudio.repository'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'

@@ -1,0 +1,28 @@
+mutation UniversalPhraseTranslation_getOrCreate($input: GetOrCreateUniversalPhraseTranslationInput!) {
+	universal_phrase_translation_get_or_create(input: $input) {
+		id
+		universalPhraseId
+		targetLanguageCode
+		translation {
+			coreIdea
+			usageGroups {
+				title
+				explain
+				examples {
+					sentence
+					translate
+				}
+			}
+			similarWords
+			commonMistakes
+			patterns {
+				phrase
+				translate
+			}
+		}
+		status
+		errorMessage
+		nonExistentWord
+		createdAt
+	}
+}

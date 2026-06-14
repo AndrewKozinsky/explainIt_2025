@@ -1,5 +1,4 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
-import { GrammarConceptOutModel, MissingGrammarConceptOutModel } from 'models/grammarConcept/grammarConcept.out.model'
 import { SentencePhraseTranslationOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 import {
 	SentenceTranslationLiteOutModel,
@@ -77,11 +76,7 @@ export class VideoPublicSentenceOutModel {
 	@Field(() => Int)
 	orderIndex: number
 
-	@Field(() => [GrammarConceptOutModel], { nullable: true })
-	grammarConcepts: GrammarConceptOutModel[] | null
 
-	@Field(() => [MissingGrammarConceptOutModel], { nullable: true })
-	missingGrammarConcepts: MissingGrammarConceptOutModel[] | null
 
 	@Field(() => [SentencePhraseTranslationOutModel], { nullable: true })
 	sentencePhraseTranslations: SentencePhraseTranslationOutModel[] | null

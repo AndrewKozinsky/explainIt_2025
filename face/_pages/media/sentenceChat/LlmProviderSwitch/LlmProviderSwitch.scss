@@ -1,0 +1,25 @@
+@use '@/styles/variables' as vars;
+
+.chat-input--llm-switch {
+	display: flex;
+	gap: 1px;
+}
+
+.chat-input--llm-switch__button {
+	color: vars.$grayColor-4;
+	padding: .3rem .7rem;
+	border-radius: 2rem;
+
+	&:hover {
+		color: vars.$grayColor-5;
+	}
+
+	& > svg {
+		display: block;
+	}
+}
+
+.chat-input--llm-switch__button--current {
+	color: vars.$textColor !important;
+	background-color: white !important;
+}

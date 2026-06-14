@@ -56,19 +56,6 @@ query VideoPrivate_get($input: GetPrivateVideoInput!) {
 			startOffset
 			length
 			orderIndex
-			grammarConcepts {
-				id
-				title
-				slug
-				category
-				order
-				sourceLanguage
-				targetLanguage
-			}
-			missingGrammarConcepts {
-				category
-				alias
-			}
 		}
 		subtitles {
 			id

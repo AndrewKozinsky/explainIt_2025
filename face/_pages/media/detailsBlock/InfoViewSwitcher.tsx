@@ -12,6 +12,11 @@ function InfoViewSwitcher() {
 			orientation='horizontal'
 			items={[
 				{
+					text: 'Словарь',
+					onClick: () => setActiveInfoView('dictionary'),
+					isCurrent: currentInfoView === 'dictionary',
+				},
+				{
 					text: 'Слова',
 					onClick: () => setActiveInfoView('words'),
 					isCurrent: currentInfoView === 'words',

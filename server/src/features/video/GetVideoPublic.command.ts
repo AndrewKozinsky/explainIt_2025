@@ -5,10 +5,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
 export class GetVideoPublicCommand implements ICommand {
-	constructor(
-		public videoId: number,
-		public targetLanguageCode?: string,
-	) {}
+	constructor(public videoId: number) {}
 }
 
 @CommandHandler(GetVideoPublicCommand)
@@ -16,9 +13,9 @@ export class GetVideoPublicHandler implements ICommandHandler<GetVideoPublicComm
 	constructor(private videoPublicQueryRepository: VideoPublicQueryRepository) {}
 
 	async execute(command: GetVideoPublicCommand) {
-		const { videoId, targetLanguageCode } = command
+		const { videoId } = command
 
-		const video = await this.videoPublicQueryRepository.getVideoById(videoId, targetLanguageCode)
+		const video = await this.videoPublicQueryRepository.getVideoById(videoId)
 		if (!video) {
 			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}

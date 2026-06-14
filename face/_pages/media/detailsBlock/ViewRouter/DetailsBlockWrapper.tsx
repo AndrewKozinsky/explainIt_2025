@@ -2,6 +2,7 @@ import cn from 'classnames'
 import WordsContent from '_pages/media/detailsBlock/WordsContent/WordsContent'
 import { useDetailsStore } from '../detailsStore'
 import DialogContent from '../DialogContent/DialogContent'
+import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
 import './DetailsBlockWrapper.scss'
 
@@ -28,6 +29,7 @@ function DetailsBlockWrapper(props: ViewRouterProps) {
 				<InfoViewSwitcher />
 			</div>
 			<div className='details-block-wrapper__content'>
+				<DictionaryContent />
 				<WordsContent mediaType={mediaType} />
 				<DialogContent />
 			</div>

@@ -12,7 +12,7 @@ export const detailsStoreValues: DetailsStoreValues = {
 	currentSentenceId: null,
 	currentSentenceText: null,
 	currentWordId: null,
-	currentInfoView: 'words',
+	currentInfoView: 'dictionary',
 	sentences: [],
 	transcriptions: [],
 	retryFetchSentenceTranslationQueue: [],

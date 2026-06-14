@@ -1,0 +1,54 @@
+@use '@/styles/variables' as vars;
+
+.chat-round-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.8rem;
+	height: 3.8rem;
+	background-color: vars.$grayColor-1;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	border-radius: 50%;
+
+	&:hover {
+		background-color: vars.$grayColor-2;
+	}
+
+	&:focus {
+		outline-color: vars.$grayColor-1;
+	}
+}
+
+.chat-round-button--red {
+	color: white;
+	background-color: vars.$dangerColor-1;
+
+	&:hover {
+		background-color: vars.$dangerColor-1;
+	}
+
+	&:focus {
+		outline-color: rgba(vars.$dangerColor-1, 0.2);
+	}
+}
+
+.chat-round-button--blue {
+	color: white;
+	background-color: vars.$linkColor-2;
+
+	&:hover {
+		color: white;
+		background-color: vars.$linkColor-2;
+	}
+
+	&:focus {
+		outline-color: rgba(vars.$linkColor-2, 0.2);
+	}
+}
+
+.chat-round-button--disabled, .chat-round-button--disabled:hover {
+	cursor: default;
+	color: vars.$grayColor-4;
+	background-color: vars.$grayColor-1;
+}

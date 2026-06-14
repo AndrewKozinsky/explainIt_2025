@@ -56,19 +56,6 @@ query VideoPublic_get($input: GetPublicVideoInput!) {
 					}
 				}
 			}
-			grammarConcepts {
-				id
-				title
-				slug
-				category
-				order
-				sourceLanguage
-				targetLanguage
-			}
-			missingGrammarConcepts {
-				category
-				alias
-			}
 		}
 		subtitles {
 			id

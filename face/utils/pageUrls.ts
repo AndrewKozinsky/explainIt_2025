@@ -98,22 +98,6 @@ export const pageUrls = {
 		name: 'Словарь',
 		path: '/dictionary',
 	},
-	grammar: {
-		name: 'Грамматика',
-		path: '/grammar',
-		language(sourceLanguage: string) {
-			return {
-				name: 'Язык',
-				path: '/grammar/' + sourceLanguage,
-				article(sourceLanguage: string, category: string, slug: string) {
-					return {
-						name: 'Грамматическая статья',
-						path: `/grammar/${sourceLanguage}/${category}/${slug}`,
-					}
-				},
-			}
-		},
-	},
 	help: {
 		name: 'Справка',
 		path: '/help',

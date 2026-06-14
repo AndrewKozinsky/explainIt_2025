@@ -32,7 +32,6 @@ export interface GetBookChapterInput {
 
 export interface GetPrivateVideoInput {
     id: number;
-    targetLanguageCode?: Nullable<string>;
 }
 
 export interface VideoPrivateSubtitlesStatusInput {
@@ -41,7 +40,6 @@ export interface VideoPrivateSubtitlesStatusInput {
 
 export interface GetPublicVideoInput {
     id: number;
-    targetLanguageCode?: Nullable<string>;
 }
 
 export interface GetSentenceTranslationInput {
@@ -72,18 +70,6 @@ export interface GetUniversalPhraseInput {
 
 export interface GetMyFlashcardsInput {
     languageCode?: Nullable<string>;
-}
-
-export interface GetGrammarArticleInput {
-    sourceLanguage: string;
-    targetLanguage: string;
-    category: string;
-    slug: string;
-}
-
-export interface GetGrammarConceptsListInput {
-    sourceLanguage: string;
-    targetLanguage: string;
 }
 
 export interface RegisterUserInput {
@@ -222,11 +208,19 @@ export interface CreateUniversalPhraseInput {
     sourceLanguageCode: string;
 }
 
-export interface CreateUniversalTranscriptionInput {
+export interface CreateUniversalPhraseTranscriptionInput {
     universalPhraseId: number;
 }
 
-export interface CreateUniversalAudioPronunciationInput {
+export interface GetOrCreateUniversalPhraseTranslationInput {
+    universalPhraseId?: Nullable<number>;
+    phraseText?: Nullable<string>;
+    sourceLanguageCode?: Nullable<string>;
+    targetLanguageCode: string;
+    provider: string;
+}
+
+export interface CreateUniversalPhraseAudioInput {
     universalPhraseId: number;
 }
 
@@ -236,18 +230,6 @@ export interface AddFlashcardInput {
 
 export interface RemoveFlashcardInput {
     flashcardId: number;
-}
-
-export interface FetchGrammarConceptsInput {
-    sentenceText: string;
-    sourceLanguage: string;
-    targetLanguage: string;
-}
-
-export interface UniversalAudioPronunciationOutModel {
-    id: number;
-    universalPhraseId: number;
-    audioUrl: string;
 }
 
 export interface UserOutModel {
@@ -282,28 +264,10 @@ export interface BookLiteOutModel {
     userId?: Nullable<number>;
 }
 
-export interface GrammarConceptOutModel {
-    id: string;
-    sourceLanguage: string;
-    targetLanguage: string;
-    category: string;
-    title: string;
-    slug: string;
-    order: number;
-}
-
-export interface MissingGrammarConceptOutModel {
-    category: string;
-    alias: string;
-}
-
-export interface GrammarExtractionOutModel {
+export interface UniversalAudioPronunciationOutModel {
     id: number;
-    sentenceText: string;
-    sourceLanguage: string;
-    grammarExtractionStatus: string;
-    grammarConcepts: GrammarConceptOutModel[];
-    missingGrammarConcepts: MissingGrammarConceptOutModel[];
+    universalPhraseId: number;
+    audioUrl: string;
 }
 
 export interface TranscriptionOutModel {
@@ -372,8 +336,6 @@ export interface SentenceOutModel {
     id: number;
     startOffset: number;
     length: number;
-    grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
-    missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
     sentenceTranslation?: Nullable<SentenceTranslationOutModel>;
     sentencePhraseTranslations?: Nullable<SentencePhraseTranslationOutModel[]>;
 }
@@ -409,27 +371,10 @@ export interface FlashcardOutModel {
     createdAt: string;
 }
 
-export interface GrammarArticleOutModel {
-    title: string;
-    content: string;
-    compiledSource: string;
-}
-
-export interface GrammarConceptCategoryGroup {
-    category: string;
-    articles: GrammarConceptOutModel[];
-}
-
-export interface GrammarConceptsListOutModel {
-    sourceLanguage: string;
-    targetLanguage: string;
-    categories: GrammarConceptCategoryGroup[];
-}
-
 export interface LanguageOutModel {
-    code: string;
-    nameRus: string;
+    name: string;
     nameEng: string;
+    code: string;
 }
 
 export interface CreateYooKassaPaymentOutModel {
@@ -458,6 +403,41 @@ export interface SentenceChatThreadOutModel {
 export interface TranslateSentenceResultOutModel {
     sentenceId: number;
     translation: string;
+}
+
+export interface TranslationExampleOutModel {
+    sentence: string;
+    translate: string;
+}
+
+export interface UsageGroupOutModel {
+    title: string;
+    explain: string;
+    examples: TranslationExampleOutModel[];
+}
+
+export interface PatternItemOutModel {
+    phrase: string;
+    translate: string;
+}
+
+export interface UniversalPhraseTranslationDataOutModel {
+    coreIdea: string;
+    usageGroups: UsageGroupOutModel[];
+    similarWords?: Nullable<string>;
+    commonMistakes?: Nullable<string>;
+    patterns?: Nullable<PatternItemOutModel[]>;
+}
+
+export interface UniversalPhraseTranslationOutModel {
+    id: number;
+    universalPhraseId: number;
+    targetLanguageCode: string;
+    translation?: Nullable<UniversalPhraseTranslationDataOutModel>;
+    status: string;
+    errorMessage?: Nullable<string>;
+    nonExistentWord: boolean;
+    createdAt: string;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -529,8 +509,6 @@ export interface VideoPrivateSentenceOutModel {
     startOffset: number;
     length: number;
     orderIndex: number;
-    grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
-    missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
     sentencePhraseTranslations?: Nullable<SentencePhraseTranslationOutModel[]>;
 }
 
@@ -590,8 +568,6 @@ export interface VideoPublicSentenceOutModel {
     startOffset: number;
     length: number;
     orderIndex: number;
-    grammarConcepts?: Nullable<GrammarConceptOutModel[]>;
-    missingGrammarConcepts?: Nullable<MissingGrammarConceptOutModel[]>;
     sentencePhraseTranslations?: Nullable<SentencePhraseTranslationOutModel[]>;
 }
 
@@ -640,8 +616,6 @@ export interface IQuery {
     universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
     flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
-    grammar_article_get(input: GetGrammarArticleInput): GrammarArticleOutModel | Promise<GrammarArticleOutModel>;
-    grammar_concepts_list(input: GetGrammarConceptsListInput): GrammarConceptsListOutModel | Promise<GrammarConceptsListOutModel>;
 }
 
 export interface IMutation {
@@ -667,11 +641,11 @@ export interface IMutation {
     sentence_chat_create_thread(input: CreateSentenceChatThreadInput): SentenceChatThreadOutModel | Promise<SentenceChatThreadOutModel>;
     sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): SentenceChatMessageOutModel | Promise<SentenceChatMessageOutModel>;
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
-    create_transcription(input: CreateUniversalTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
-    create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
+    create_transcription(input: CreateUniversalPhraseTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
+    universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput): UniversalPhraseTranslationOutModel | Promise<UniversalPhraseTranslationOutModel>;
+    create_audio_pronunciation(input: CreateUniversalPhraseAudioInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
     flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
     flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
-    grammar_concept_fetch(input: FetchGrammarConceptsInput): GrammarExtractionOutModel | Promise<GrammarExtractionOutModel>;
 }
 
 type Nullable<T> = T | null;

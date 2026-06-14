@@ -1,18 +1,32 @@
 import { Injectable } from '@nestjs/common'
-import { UniversalPhraseServiceModel } from 'models/grammarConcept/grammarConcept.service.model'
+import { normalizeSentence } from 'utils/stringUtils'
 import { LanguageCode, Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
-import { normalizeSentence } from '../features/grammarConcept/normalizeSentence'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type DbUniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
 	include: {
-		GrammarConceptToUniversalPhrase: {
-			include: { grammar_concept: true }
-		}
-		MissingGrammarConcept: true
+		UniversalTranscription: true
+		UniversalAudioPronunciation: true
 	}
 }>
+
+export type UniversalPhraseServiceModel = {
+	id: number
+	sentenceText: string
+	sourceLanguageCode: string
+	transcription: {
+		id: number
+		universalPhraseId: number
+		ipa: string | null
+		pinyin: string | null
+	} | null
+	audioPronunciation: {
+		id: number
+		universalPhraseId: number
+		audioUrl: string
+	} | null
+}
 
 @Injectable()
 export class UniversalPhraseRepository {
@@ -22,7 +36,7 @@ export class UniversalPhraseRepository {
 	async createUniversalPhrase(dto: { text: string; sourceLanguageCode: LanguageCode }) {
 		return await this.prisma.universalPhrase.create({
 			data: {
-				text: dto.text,
+				text: normalizeSentence(dto.text),
 				source_language_code: dto.sourceLanguageCode,
 			},
 		})
@@ -32,40 +46,27 @@ export class UniversalPhraseRepository {
 	async findOrCreate(input: { sentenceText: string; sourceLanguage: string }): Promise<UniversalPhraseServiceModel> {
 		const normalizedText = normalizeSentence(input.sentenceText)
 
-		const existing = await this.prisma.universalPhrase.findUnique({
+		// Атомарный upsert: один SQL-запрос INSERT ... ON CONFLICT ... DO NOTHING RETURNING *
+		// Нет окна для гонки между проверкой и вставкой, в отличие от findUnique + create.
+		const record = await this.prisma.universalPhrase.upsert({
 			where: {
 				source_language_code_text: {
 					text: normalizedText,
 					source_language_code: input.sourceLanguage as any,
 				},
 			},
-			include: {
-				GrammarConceptToUniversalPhrase: {
-					include: { grammar_concept: true },
-				},
-				MissingGrammarConcept: true,
-			},
-		})
-
-		if (existing) {
-			return this.mapDbToServiceModel(existing as DbUniversalPhraseWithRelations)
-		}
-
-		const created = await this.prisma.universalPhrase.create({
-			data: {
+			create: {
 				text: normalizedText,
 				source_language_code: input.sourceLanguage as any,
-				grammarExtractionStatus: 'NOT_STARTED',
 			},
+			update: {},
 			include: {
-				GrammarConceptToUniversalPhrase: {
-					include: { grammar_concept: true },
-				},
-				MissingGrammarConcept: true,
+				UniversalTranscription: true,
+				UniversalAudioPronunciation: true,
 			},
 		})
 
-		return this.mapDbToServiceModel(created as DbUniversalPhraseWithRelations)
+		return this.mapDbToServiceModel(record as DbUniversalPhraseWithRelations)
 	}
 
 	@CatchDbError()
@@ -73,10 +74,8 @@ export class UniversalPhraseRepository {
 		const record = await this.prisma.universalPhrase.findUnique({
 			where: { id },
 			include: {
-				GrammarConceptToUniversalPhrase: {
-					include: { grammar_concept: true },
-				},
-				MissingGrammarConcept: true,
+				UniversalTranscription: true,
+				UniversalAudioPronunciation: true,
 			},
 		})
 		if (!record) return null
@@ -99,10 +98,8 @@ export class UniversalPhraseRepository {
 				},
 			},
 			include: {
-				GrammarConceptToUniversalPhrase: {
-					include: { grammar_concept: true },
-				},
-				MissingGrammarConcept: true,
+				UniversalTranscription: true,
+				UniversalAudioPronunciation: true,
 			},
 		})
 
@@ -110,82 +107,26 @@ export class UniversalPhraseRepository {
 		return this.mapDbToServiceModel(record as DbUniversalPhraseWithRelations)
 	}
 
-	@CatchDbError()
-	async updateStatus(id: number, grammarExtractionStatus: 'NOT_STARTED' | 'ERROR' | 'SUCCESS'): Promise<void> {
-		await this.prisma.universalPhrase.update({
-			where: { id },
-			data: { grammarExtractionStatus },
-		})
-	}
-
-	@CatchDbError()
-	async completeExtraction(
-		universalPhraseId: number,
-		grammarConceptIds: string[],
-		missingItems: {
-			sourceLanguage: string
-			targetLanguage: string
-			category: string
-			alias: string
-			sentenceText: string
-		}[],
-	): Promise<void> {
-		await this.prisma.$transaction(async (tx) => {
-			await tx.universalPhrase.update({
-				where: { id: universalPhraseId },
-				data: { grammarExtractionStatus: 'SUCCESS' },
-			})
-
-			if (grammarConceptIds.length > 0) {
-				await tx.grammarConceptToUniversalPhrase.createMany({
-					data: grammarConceptIds.map((gcId) => ({
-						grammar_concept_id: gcId,
-						universal_phrase_id: universalPhraseId,
-					})),
-					skipDuplicates: true,
-				})
-			}
-
-			if (missingItems.length > 0) {
-				await tx.missingGrammarConcept.createMany({
-					data: missingItems.map((item) => ({
-						universal_phrase_id: universalPhraseId,
-						source_language_code: item.sourceLanguage as any,
-						target_language_code: item.targetLanguage as any,
-						category: item.category,
-						alias: item.alias,
-						sentence_text: item.sentenceText,
-					})) as any,
-				})
-			}
-		})
-	}
-
 	private mapDbToServiceModel(db: DbUniversalPhraseWithRelations): UniversalPhraseServiceModel {
 		return {
 			id: db.id,
 			sentenceText: db.text,
 			sourceLanguageCode: db.source_language_code,
-			grammarExtractionStatus: db.grammarExtractionStatus as 'NOT_STARTED' | 'ERROR' | 'SUCCESS',
-			grammarConcepts: db.GrammarConceptToUniversalPhrase.map((j) => ({
-				id: j.grammar_concept.id,
-				sourceLanguageCode: j.grammar_concept.source_language_code,
-				targetLanguageCode: j.grammar_concept.target_language_code,
-				category: j.grammar_concept.category,
-				title: j.grammar_concept.title,
-				slug: j.grammar_concept.slug,
-				order: j.grammar_concept.order,
-				aliases: j.grammar_concept.aliases,
-			})),
-			missingGrammarConcepts: db.MissingGrammarConcept.map((m) => ({
-				id: m.id,
-				universalPhraseId: m.universal_phrase_id,
-				sourceLanguageCode: m.source_language_code,
-				targetLanguageCode: m.target_language_code,
-				category: m.category,
-				alias: m.alias,
-				sentenceText: m.sentence_text,
-			})),
+			transcription: db.UniversalTranscription
+				? {
+						id: db.UniversalTranscription.id,
+						universalPhraseId: db.UniversalTranscription.universal_phrase_id,
+						ipa: db.UniversalTranscription.ipa,
+						pinyin: db.UniversalTranscription.pinyin,
+					}
+				: null,
+			audioPronunciation: db.UniversalAudioPronunciation
+				? {
+						id: db.UniversalAudioPronunciation.id,
+						universalPhraseId: db.UniversalAudioPronunciation.universal_phrase_id,
+						audioUrl: '', // URL генерируется через S3 сервис — здесь заглушка
+					}
+				: null,
 		}
 	}
 }

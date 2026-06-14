@@ -22,6 +22,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 		if (exception instanceof BadRequestException) {
 			const res = exception.getResponse()
 			let validationErrors: any[] = []
+
 			if (Array.isArray(res)) {
 				validationErrors = res
 			} else if (typeof res === 'object' && (res as any).message && Array.isArray((res as any).message)) {
@@ -39,6 +40,7 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 		}
 
 		if (exception instanceof CustomError) {
+			console.log(exception.message)
 			throw Object.assign(new Error(exception.message), {
 				extensions: {
 					message: exception.message,

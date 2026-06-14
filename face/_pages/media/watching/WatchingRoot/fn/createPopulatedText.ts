@@ -29,8 +29,6 @@ export function createPopulatedSubtitles(
 		return {
 			id: s.id,
 			text: text.slice(start, end),
-			grammarConcepts: s.grammarConcepts ?? null,
-			missingGrammarConcepts: s.missingGrammarConcepts ?? [],
 		}
 	})
 

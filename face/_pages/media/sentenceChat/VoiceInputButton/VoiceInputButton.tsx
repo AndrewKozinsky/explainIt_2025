@@ -1,20 +1,26 @@
 import { useEffect, useRef, useState } from 'react'
-import cn from 'classnames'
 import { useLocale } from 'next-intl'
+import { useUserStore } from 'stores/userStore'
+import MicButtonIcon from 'ui/icons/buttonIcons/MicButtonIcon'
+import StopRecordingButtonIcon from 'ui/icons/buttonIcons/StopRecordingButtonIcon'
+import ChatRoundButton from '_pages/media/sentenceChat/ChatRoundButton/ChatRoundButton'
 import { startRecognition, stopRecognition } from './fn/recognition'
 import './VoiceInputButton.scss'
 
 type VoiceInputButtonProps = {
 	onInsert: (text: string) => void
-	disabled?: boolean
 	className?: string
 }
 
 function VoiceInputButton(props: VoiceInputButtonProps) {
-	const { onInsert, disabled, className } = props
+	const { onInsert, className } = props
 	const [state, setState] = useState<'idle' | 'recording' | 'thinking'>('idle')
 	const recognitionRef = useRef<any>(null)
 	const locale = useLocale()
+
+	const user = useUserStore((s) => s.user)
+	const hasBalance = (user?.balance ?? 0) > 0
+	const disabled = !hasBalance
 
 	function start() {
 		if (disabled) return
@@ -36,6 +42,14 @@ function VoiceInputButton(props: VoiceInputButtonProps) {
 	const isRecording = state === 'recording'
 
 	return (
+		<ChatRoundButton
+			icon={isRecording ? <StopRecordingButtonIcon /> : <MicButtonIcon />}
+			disabled={disabled}
+			onClick={isRecording ? stop : start}
+			color={isRecording ? 'red' : undefined}
+		/>
+	)
+	/*return (
 		<button
 			type='button'
 			className={cn('chat-input__mic-button', className, state)}
@@ -45,7 +59,7 @@ function VoiceInputButton(props: VoiceInputButtonProps) {
 		>
 			{isRecording ? '■' : '🎤'}
 		</button>
-	)
+	)*/
 }
 
 export default VoiceInputButton

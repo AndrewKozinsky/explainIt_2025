@@ -92,6 +92,9 @@ const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolver> = {
 	AUDIO_PRONUNCIATION_CANNOT_UPLOAD_TO_S3: 'Не удалось загрузить аудио файл в хранилище.',
 	AUDIO_PRONUNCIATION_CANNOT_GENERATE_AUDIO: 'Не удалось сгенерировать аудио.',
 	AUDIO_PRONUNCIATION_ANONYMOUS_USER_CANNOT_GENERATE: 'Вы не можете создавать озвучку без авторизации.',
+	UNIVERSAL_PHRASE_TRANSLATION_NOT_FOUND: 'Перевод фразы не найден.',
+	UNIVERSAL_PHRASE_TRANSLATION_CANNOT_PARSE_LLM_RESPONSE: 'Не удалось разобрать ответ LLM.',
+	UNIVERSAL_PHRASE_TRANSLATION_CANNOT_GET_TRANSLATION_FROM_LLM: 'Не удалось получить перевод от LLM.',
 	VALIDATION_FAILED: 'Ошибка валидации.',
 }
 

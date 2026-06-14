@@ -368,21 +368,21 @@ export type EnumSentencePhraseTranslationStatusWithAggregatesFilter<$PrismaModel
   _max?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
 }
 
-export type EnumGrammarExtractionStatusFilter<$PrismaModel = never> = {
-  equals?: $Enums.GrammarExtractionStatus | Prisma.EnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumGrammarExtractionStatusFilter<$PrismaModel> | $Enums.GrammarExtractionStatus
+export type EnumUniversalPhraseTranslationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.UniversalPhraseTranslationStatus | Prisma.EnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel> | $Enums.UniversalPhraseTranslationStatus
 }
 
-export type EnumGrammarExtractionStatusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.GrammarExtractionStatus | Prisma.EnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumGrammarExtractionStatusWithAggregatesFilter<$PrismaModel> | $Enums.GrammarExtractionStatus
+export type EnumUniversalPhraseTranslationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.UniversalPhraseTranslationStatus | Prisma.EnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumUniversalPhraseTranslationStatusWithAggregatesFilter<$PrismaModel> | $Enums.UniversalPhraseTranslationStatus
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumGrammarExtractionStatusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumGrammarExtractionStatusFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
 }
 
 export type EnumSentenceChatMessageRoleFilter<$PrismaModel = never> = {
@@ -786,21 +786,21 @@ export type NestedEnumSentencePhraseTranslationStatusWithAggregatesFilter<$Prism
   _max?: Prisma.NestedEnumSentencePhraseTranslationStatusFilter<$PrismaModel>
 }
 
-export type NestedEnumGrammarExtractionStatusFilter<$PrismaModel = never> = {
-  equals?: $Enums.GrammarExtractionStatus | Prisma.EnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumGrammarExtractionStatusFilter<$PrismaModel> | $Enums.GrammarExtractionStatus
+export type NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.UniversalPhraseTranslationStatus | Prisma.EnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel> | $Enums.UniversalPhraseTranslationStatus
 }
 
-export type NestedEnumGrammarExtractionStatusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.GrammarExtractionStatus | Prisma.EnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.GrammarExtractionStatus[] | Prisma.ListEnumGrammarExtractionStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumGrammarExtractionStatusWithAggregatesFilter<$PrismaModel> | $Enums.GrammarExtractionStatus
+export type NestedEnumUniversalPhraseTranslationStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.UniversalPhraseTranslationStatus | Prisma.EnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.UniversalPhraseTranslationStatus[] | Prisma.ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumUniversalPhraseTranslationStatusWithAggregatesFilter<$PrismaModel> | $Enums.UniversalPhraseTranslationStatus
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumGrammarExtractionStatusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumGrammarExtractionStatusFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumSentenceChatMessageRoleFilter<$PrismaModel = never> = {

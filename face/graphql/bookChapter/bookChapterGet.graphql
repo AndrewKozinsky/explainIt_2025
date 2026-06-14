@@ -16,19 +16,6 @@ query BookChapter_get($input: GetBookChapterInput!) {
 					translation
 					createdAt
 				}
-				grammarConcepts {
-					id
-					title
-					slug
-					category
-					order
-					sourceLanguage
-					targetLanguage
-				}
-				missingGrammarConcepts {
-					category
-					alias
-				}
 				sentencePhraseTranslations {
 					id
 					sentenceId

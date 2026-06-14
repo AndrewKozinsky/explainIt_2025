@@ -1,6 +1,6 @@
 import { useRouter } from '@/i18n/routing'
 import Button from '@/ui/formRelated/buttons/Button/Button'
-import { ActionButtonIcon } from '@/ui/icons/ActionButtonIcon'
+import { ActionButtonIcon } from '@/ui/icons/buttonIcons/ActionButtonIcon'
 
 type PublicBookInfoActionsProps = {
 	videoUrl: string

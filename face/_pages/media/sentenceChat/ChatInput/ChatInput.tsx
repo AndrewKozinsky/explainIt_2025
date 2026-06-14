@@ -1,14 +1,13 @@
 'use client'
 
-import { KeyboardEvent, useRef, useState } from 'react'
+import { useRef } from 'react'
 import cn from 'classnames'
-import { useUserStore } from '@/stores/userStore'
+import LlmProviderSwitch from '../LlmProviderSwitch/LlmProviderSwitch'
+import PromptTextarea, { PromptTextareaHandle } from '../PromptTextarea/PromptTextarea'
+import SendAndCancelButtons from '../SendAndCancelButtons/SendAndCancelButtons'
+import { useSentenceChatStore } from '../sentenceChatStore'
 import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
 import ChatInputWarningMessage from './ChatInputWarningMessage'
-import LlmProviderSwitch from './LlmProviderSwitch'
-import { handleEnterToSend } from './fn/handleEnterToSend'
-import { computeInsertAtCaret, applyCaret } from './fn/insertAtCaret'
-import SendAndCancelButton from './SendAndCancelButton'
 import './ChatInput.scss'
 
 type ChatInputProps = {
@@ -20,63 +19,24 @@ type ChatInputProps = {
 function ChatInput(props: ChatInputProps) {
 	const { isGenerating, onSend, onCancel } = props
 
-	const user = useUserStore((s) => s.user)
-	const hasBalance = (user?.balance ?? 0) > 0
+	const isTextAreaFocused = useSentenceChatStore((s) => s.isTextAreaFocused)
 
-	const [prompt, setPrompt] = useState<string>('')
-	const [isTextAreaFocused, setIsTextAreaFocused] = useState<boolean>(false)
-	const textAreaRef = useRef<HTMLTextAreaElement | null>(null)
-
-	const trimmed = prompt.trim()
-	const canSend = trimmed.length > 0 && hasBalance && !isGenerating
-
-	function handleSend() {
-		if (!canSend) return
-
-		onSend(trimmed)
-		setPrompt('')
-	}
-
-	function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-		handleEnterToSend(event, handleSend)
-	}
-
-	function insertAtCaret(text: string) {
-		const el = textAreaRef.current
-
-		setPrompt((prev) => {
-			const { next, caret } = computeInsertAtCaret(prev, el as HTMLTextAreaElement | null, text)
-			requestAnimationFrame(() => applyCaret(el as HTMLTextAreaElement | null, caret))
-			return next
-		})
-	}
+	const promptTextareaRef = useRef<PromptTextareaHandle>(null)
 
 	return (
 		<div className={cn('chat-input', isTextAreaFocused && 'chat-input--focus')}>
-			<textarea
-				ref={textAreaRef}
-				className='chat-input__textarea'
-				value={prompt}
-				onChange={(e) => setPrompt(e.target.value)}
-				onKeyDown={handleKeyDown}
-				onFocus={() => setIsTextAreaFocused(true)}
-				onBlur={() => setIsTextAreaFocused(false)}
-				placeholder='Любой вопрос про предложение: грамматика, смысл, похожие конструкции…'
-				rows={2}
-				disabled={!hasBalance}
-			/>
+			<PromptTextarea ref={promptTextareaRef} onSend={onSend} />
 			<div className='chat-input__bottom'>
 				<div>
 					<ChatInputWarningMessage />
 					<LlmProviderSwitch />
 				</div>
 				<div className='chat-input__actions'>
-					<VoiceInputButton onInsert={insertAtCaret} disabled={!hasBalance} />
-					<SendAndCancelButton
+					<VoiceInputButton onInsert={(text) => promptTextareaRef.current?.insertAtCaret(text)} />
+					<SendAndCancelButtons
 						isGenerating={isGenerating}
-						onSend={handleSend}
+						onSend={() => promptTextareaRef.current?.submit()}
 						onCancel={onCancel}
-						prompt={prompt}
 					/>
 				</div>
 			</div>
