@@ -1,12 +1,13 @@
 import { useCallback, useContext, useState } from 'react'
 import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
 import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import { serverRedirect } from '@/i18n/serverRedirect'
+import { useRouter } from '@/i18n/routing'
 import { NotificationContext } from '@/ui/Notification/context'
 import { languages } from '@/utils/languages'
 
 export function useGetAddVideoConfig() {
 	const { notify } = useContext(NotificationContext)
+	const router = useRouter()
 
 	const [loading, setLoading] = useState(false)
 	const [errorMessage, setErrorMessage] = useState<null | string>(null)
@@ -48,10 +49,10 @@ export function useGetAddVideoConfig() {
 			if (createdVideoId) {
 				// Open a page with the created video
 				const videoIdInUrl = createMediaIdUrl(createdVideoId, 'private')
-				await serverRedirect(pageUrls.videos.video(videoIdInUrl).path)
+				router.push(pageUrls.videos.video(videoIdInUrl).path)
 			}
 		},
-		[createVideo, notify],
+		[createVideo, notify, router],
 	)
 
 	return {

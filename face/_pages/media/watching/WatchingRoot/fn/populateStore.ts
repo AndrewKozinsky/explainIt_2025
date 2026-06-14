@@ -79,7 +79,7 @@ function useFetchVideoAndSetToStore() {
 					errorMessage = 'Видео не загружено'
 				}
 				if (!video.originalContent) {
-					errorMessage = 'Текст не загружен'
+					errorMessage = 'Субтитры не загружены'
 				}
 
 				if (errorMessage) {

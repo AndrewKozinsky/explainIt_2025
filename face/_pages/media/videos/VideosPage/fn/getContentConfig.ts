@@ -13,7 +13,7 @@ export function useGetContentConfig() {
 			loading: boolean
 			error: null | string
 			config: null | MediaItemsGridConfig
-			} {
+		} {
 			const errorMessage = privateVideos.errorMessage || publicVideos.errorMessage
 			const isLoading = privateVideos.loading || publicVideos.loading
 

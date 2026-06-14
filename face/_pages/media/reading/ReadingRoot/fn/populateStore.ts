@@ -138,7 +138,18 @@ function useCreatePopulatedChapterAndSetToStore() {
 	useEffect(
 		function () {
 			const chapterData = chapter?.data
-			if (!chapterData || !chapterData.originalContent) return
+			if (!chapterData) return
+
+			if (!chapterData.originalContent) {
+				useReadingStore.getState().updatePopulatedChapter({
+					id: chapterData.id,
+					header: chapterData.header ?? null,
+					name: chapterData.name ?? null,
+					sentences: [],
+				})
+
+				return
+			}
 
 			const populatedChapter = populateChapterStructure({
 				id: chapterData.id,

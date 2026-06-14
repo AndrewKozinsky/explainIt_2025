@@ -1,12 +1,13 @@
 import { useCallback, useContext, useState } from 'react'
 import { useVideoPrivate_Delete, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import { serverRedirect } from '@/i18n/serverRedirect'
+import { useRouter } from '@/i18n/routing'
 import { NotificationContext } from '@/ui//Notification/context'
 import { pageUrls } from '@/utils/pageUrls'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
 export function useGetDeleteVideo() {
 	const { notify } = useContext(NotificationContext)
+	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
 	const [deleteVideo] = useVideoPrivate_Delete({
@@ -34,9 +35,9 @@ export function useGetDeleteVideo() {
 
 			setStatus('idle')
 
-			await serverRedirect(pageUrls.videos.path)
+			router.push(pageUrls.videos.path)
 		},
-		[deleteVideo, notify],
+		[deleteVideo, notify, router],
 	)
 
 	return {
