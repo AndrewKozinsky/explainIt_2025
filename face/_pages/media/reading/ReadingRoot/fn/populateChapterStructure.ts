@@ -23,8 +23,6 @@ export function populateChapterStructure(chapter: {
 		return {
 			id: sentence.id,
 			sentence: content.slice(startOffset, endOffset),
-			grammarConcepts: sentence.grammarConcepts ?? null,
-			missingGrammarConcepts: sentence.missingGrammarConcepts ?? [],
 		}
 	})
 

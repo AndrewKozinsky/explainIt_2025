@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
+import { TrashButtonIcon } from 'ui/icons/buttonIcons/TrashButtonIcon'
 import { Flashcard_Get_MyDocument, useFlashcard_Remove } from '@/graphql'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 

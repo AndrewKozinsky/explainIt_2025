@@ -18,11 +18,6 @@ export const RouteNames = {
 		CHECK_TRANSLATION: 'ai_checkTranslation',
 		GET_TRANSCRIPTION: 'ai_getTranscription',
 	},
-	GRAMMAR_CONCEPT: {
-		FETCH: 'grammar_concept_fetch',
-		ARTICLE_GET: 'grammar_article_get',
-		LIST: 'grammar_concepts_list',
-	},
 	TRANSLATE: {
 		GET_SENTENCE_TRANSLATION: 'translate_get_sentence_translation',
 		GET_PHRASE_TRANSLATION: 'translate_get_phrase_translation',
@@ -79,8 +74,11 @@ export const RouteNames = {
 		GET: 'universal_phrase_get',
 		CREATE: 'universal_phrase_create',
 	},
-	UNIVERSAL_TRANSCRIPTION: {
+	UNIVERSAL_PHRASE_TRANSCRIPTION: {
 		CREATE: 'create_transcription',
+	},
+	UNIVERSAL_PHRASE_TRANSLATION: {
+		GET_OR_CREATE: 'universal_phrase_translation_get_or_create',
 	},
 	AUDIO_PRONUNCIATION: {
 		CREATE: 'create_audio_pronunciation',

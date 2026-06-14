@@ -8,6 +8,7 @@ import {
 	UniversalPhrase_CreateHookResult,
 	UniversalPhrase_GetLazyQueryHookResult,
 } from '@/graphql'
+import { resolvePhrase } from '_pages/media/commonComponents/resolveUniversalPhrase'
 import { TranscriptionAndAudioProps } from '../types'
 
 type UseAudioPlayerInput = Pick<TranscriptionAndAudioProps, 'audioUrl' | 'phrase' | 'languageCode'>
@@ -16,11 +17,6 @@ type AudioViewStatus = 'idle' | 'loading' | 'error'
 type GetPhraseFn = UniversalPhrase_GetLazyQueryHookResult[0]
 type CreatePhraseFn = UniversalPhrase_CreateHookResult[0]
 type CreateAudioFn = AudioPronunciation_CreateHookResult[0]
-
-type PhraseData = {
-	id: number
-	audioPronunciation?: { audioUrl?: string | null } | null
-}
 
 type AudioUrlResult = { ok: true; url: string | null } | { ok: false }
 
@@ -123,7 +119,6 @@ async function loadAudioUrl(input: {
 	return result.url
 }
 
-const phraseRequestCache = new Map<string, Promise<PhraseData | null>>()
 const audioRequestCache = new Map<number, Promise<AudioUrlResult>>()
 
 async function resolveAudioUrl(input: {
@@ -134,7 +129,7 @@ async function resolveAudioUrl(input: {
 	createAudioPronunciation: CreateAudioFn
 }): Promise<AudioUrlResult> {
 	const { phrase, sourceLanguageCode, getPhrase, createPhrase, createAudioPronunciation } = input
-	const phraseData = await resolvePhrase({ phrase, sourceLanguageCode, getPhrase, createPhrase })
+	const phraseData = await resolvePhrase(phrase, sourceLanguageCode, getPhrase, createPhrase)
 	if (!phraseData) {
 		return { ok: false }
 	}
@@ -145,71 +140,6 @@ async function resolveAudioUrl(input: {
 	}
 
 	return resolveAudio(phraseData.id, createAudioPronunciation)
-}
-
-function resolvePhrase(input: {
-	phrase: string
-	sourceLanguageCode: LanguageCode
-	getPhrase: GetPhraseFn
-	createPhrase: CreatePhraseFn
-}): Promise<PhraseData | null> {
-	const { phrase, sourceLanguageCode, getPhrase, createPhrase } = input
-	const key = `${sourceLanguageCode}:${phrase}`
-	const cached = phraseRequestCache.get(key)
-	if (cached) return cached
-
-	const request = (async function () {
-		const existing = await fetchPhrase({ phrase, sourceLanguageCode, getPhrase })
-		if (existing) return existing
-		return createNewPhrase({ phrase, sourceLanguageCode, createPhrase })
-	})()
-
-	phraseRequestCache.set(key, request)
-	request.then(
-		function (data) {
-			if (!data) phraseRequestCache.delete(key)
-		},
-		function () {
-			phraseRequestCache.delete(key)
-		},
-	)
-
-	return request
-}
-
-async function fetchPhrase(input: {
-	phrase: string
-	sourceLanguageCode: LanguageCode
-	getPhrase: GetPhraseFn
-}): Promise<PhraseData | null> {
-	const { phrase, sourceLanguageCode, getPhrase } = input
-
-	try {
-		const result = await getPhrase({
-			variables: { input: { text: phrase, sourceLanguageCode } },
-			fetchPolicy: 'network-only',
-		})
-		return result.data?.universal_phrase_get ?? null
-	} catch {
-		return null
-	}
-}
-
-async function createNewPhrase(input: {
-	phrase: string
-	sourceLanguageCode: LanguageCode
-	createPhrase: CreatePhraseFn
-}): Promise<PhraseData | null> {
-	const { phrase, sourceLanguageCode, createPhrase } = input
-
-	try {
-		const result = await createPhrase({
-			variables: { input: { text: phrase, sourceLanguageCode } },
-		})
-		return result.data?.universal_phrase_create ?? null
-	} catch {
-		return null
-	}
 }
 
 function resolveAudio(phraseId: number, createAudioPronunciation: CreateAudioFn): Promise<AudioUrlResult> {

@@ -9,6 +9,8 @@ export const sentenceChatStoreValues: SentenceChatStoreValues = {
 	isGenerating: false,
 	threadError: null,
 	llmProvider: 'gemini',
+	prompt: '',
+	isTextAreaFocused: false,
 }
 
 export const useSentenceChatStore = create<SentenceChatStoreNext>()((set) => {
@@ -95,6 +97,12 @@ export const useSentenceChatStore = create<SentenceChatStoreNext>()((set) => {
 		setLlmProvider: (provider: LlmProvider) => {
 			set({ llmProvider: provider })
 		},
+		setPrompt: (prompt: string) => {
+			set({ prompt })
+		},
+		setIsTextAreaFocused: (isTextAreaFocused: boolean) => {
+			set({ isTextAreaFocused })
+		},
 	}
 })
 
@@ -109,6 +117,8 @@ export type SentenceChatStoreValues = {
 	isGenerating: boolean
 	threadError: null | string
 	llmProvider: LlmProvider
+	prompt: string
+	isTextAreaFocused: boolean
 }
 
 export type SentenceChatStoreMethods = {
@@ -126,4 +136,6 @@ export type SentenceChatStoreMethods = {
 	cancelStreamingMessages: () => void
 	failStreamingMessages: (errorMessage: string) => void
 	setLlmProvider: (provider: LlmProvider) => void
+	setPrompt: (prompt: string) => void
+	setIsTextAreaFocused: (isTextAreaFocused: boolean) => void
 }

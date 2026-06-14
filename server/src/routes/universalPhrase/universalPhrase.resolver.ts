@@ -2,7 +2,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { CreateUniversalPhraseInput } from 'routes/universalPhrase/inputs/createUniversalPhrase.input'
 import { GetUniversalPhraseInput } from 'routes/universalPhrase/inputs/getUniversalPhrase.input'
-import { CreateUniversalPhraseCommand } from 'features/universalPhrase/CreateUniversalPhrase.command'
+import { GetOrCreateUniversalPhraseCommand } from 'features/universalPhrase/GetOrCreateUniversalPhrase.command'
 import { GetUniversalPhraseCommand } from 'features/universalPhrase/GetUniversalPhrase.command'
 import RouteNames from 'infrastructure/routeNames'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
@@ -25,6 +25,6 @@ export class UniversalPhraseResolver {
 		description: universalPhraseResolversDesc.createUniversalPhrase,
 	})
 	async createUniversalPhrase(@Args('input') input: CreateUniversalPhraseInput) {
-		return await this.commandBus.execute(new CreateUniversalPhraseCommand(input))
+		return await this.commandBus.execute(new GetOrCreateUniversalPhraseCommand(input))
 	}
 }

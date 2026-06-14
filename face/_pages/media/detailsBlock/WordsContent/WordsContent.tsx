@@ -57,8 +57,6 @@ function WatchingDetailsBlock() {
 			Math.max(0, videoSentence.startOffset),
 			Math.max(0, videoSentence.startOffset) + Math.max(0, videoSentence.length),
 		),
-		grammarConcepts: videoSentence.grammarConcepts ?? null,
-		missingGrammarConcepts: videoSentence.missingGrammarConcepts ?? [],
 	}
 
 	return (

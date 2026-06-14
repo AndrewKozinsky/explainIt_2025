@@ -1,5 +1,5 @@
-import { SuccessIcon } from 'ui/icons/SuccessIcon'
 import './SuccessMessage.scss'
+import { SuccessIcon } from 'ui/icons/SuccessIcon'
 
 type SuccessMessageProps = {
 	text: null | string

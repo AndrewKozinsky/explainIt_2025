@@ -16,8 +16,6 @@ import {
 	SubtitleSentenceInit,
 	VideoPrivate,
 } from 'prisma/generated/client'
-import { enrichSentencesWithGrammarConcepts } from '../grammarConcept/enrichSentencesWithGrammarConcepts'
-import { GrammarConceptQueryRepository } from '../grammarConcept.queryRepository'
 import { UniversalPhraseQueryRepository } from '../universalPhrase.queryRepository'
 
 type DbSentenceWithInit = Sentence & {
@@ -43,7 +41,6 @@ export class VideoPrivateQueryRepository {
 	constructor(
 		private prisma: PrismaService,
 		private cloudRuS3Service: CloudRuS3Service,
-		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
 		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
 	@CatchDbError()
@@ -132,26 +129,6 @@ export class VideoPrivateQueryRepository {
 
 		const result = attachVideoTextRelations({ base, dbVideo, universalPhraseByText })
 
-		if (targetLanguageCode) {
-			const grammarResults = await enrichSentencesWithGrammarConcepts({
-				prisma: this.prisma,
-				grammarConceptQueryRepo: this.grammarConceptQueryRepo,
-				sentences: (dbVideo.Sentence ?? []).map((s) => ({
-					id: s.id,
-					startOffset: s.start_offset,
-					length: s.length,
-				})),
-				content: dbVideo.processed_content ?? '',
-				sourceLanguageCode: dbVideo.source_language_code,
-				targetLanguageCode,
-			})
-
-			result.sentences = result.sentences!.map((s, i) => ({
-				...s,
-				grammarConcepts: grammarResults[i].grammarConcepts,
-				missingGrammarConcepts: grammarResults[i].missingGrammarConcepts,
-			})) as any
-		}
 
 		return result
 	}

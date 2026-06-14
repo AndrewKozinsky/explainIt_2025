@@ -5,7 +5,6 @@ import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
 import { BookPrivateRepository } from 'repo/bookPrivate.repository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
-import { GrammarConceptQueryRepository } from 'repo/grammarConcept.queryRepository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UserRepository } from 'repo/user.repository'
@@ -29,7 +28,6 @@ const repositories = [
 	BookPrivateQueryRepository,
 	BookChapterRepository,
 	BookChapterQueryRepository,
-	GrammarConceptQueryRepository,
 	UniversalPhraseQueryRepository,
 	UserRepository,
 	BookPublicRepository,

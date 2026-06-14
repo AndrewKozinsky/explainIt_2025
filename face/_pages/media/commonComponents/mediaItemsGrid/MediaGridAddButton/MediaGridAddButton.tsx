@@ -1,6 +1,6 @@
 import BaseButton from 'ui/BaseButton/BaseButton'
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import { BigPlusIcon } from 'ui/icons/BigPlusIcon/BigPlusIcon'
+import { BigPlusIcon } from 'ui/icons/BigPlusIcon'
 import Spinner from 'ui/Spinner/Spinner'
 import { useGetOnAddMediaButtonClick } from './fn/onAddMediaButtonClick'
 import './MediaGridAddButton.scss'

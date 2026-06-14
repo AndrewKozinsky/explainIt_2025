@@ -128,7 +128,7 @@ input CreateSentenceChatUserMessageInput {
   threadId: Int!
 }
 
-input CreateUniversalAudioPronunciationInput {
+input CreateUniversalPhraseAudioInput {
   """Universal phrase id to create audio pronunciation for"""
   universalPhraseId: Int!
 }
@@ -141,7 +141,7 @@ input CreateUniversalPhraseInput {
   text: String!
 }
 
-input CreateUniversalTranscriptionInput {
+input CreateUniversalPhraseTranscriptionInput {
   """Universal phrase id"""
   universalPhraseId: Int!
 }
@@ -176,12 +176,6 @@ input DeletePrivateVideoInput {
   id: Int!
 }
 
-input FetchGrammarConceptsInput {
-  sentenceText: String!
-  sourceLanguage: String!
-  targetLanguage: String!
-}
-
 type FlashcardOutModel {
   bookPrivateId: Int
   bookPublicId: Int
@@ -213,7 +207,7 @@ input GetBookChapterInput {
   """BookChapter id"""
   id: Int!
 
-  """Target language to filter grammar concepts"""
+  """Target language for translations"""
   targetLanguageCode: String
 }
 
@@ -222,31 +216,26 @@ input GetBookPublicInput {
   id: Int!
 }
 
-input GetGrammarArticleInput {
-  """Grammar category"""
-  category: String!
-
-  """Article slug"""
-  slug: String!
-
-  """Source language code"""
-  sourceLanguage: String!
-
-  """Target language code"""
-  targetLanguage: String!
-}
-
-input GetGrammarConceptsListInput {
-  """Source language code (language being learned)"""
-  sourceLanguage: String!
-
-  """Target language code (translation language)"""
-  targetLanguage: String!
-}
-
 input GetMyFlashcardsInput {
   """Optional language filter"""
   languageCode: String
+}
+
+input GetOrCreateUniversalPhraseTranslationInput {
+  """Phrase text for automatic get-or-create UniversalPhrase"""
+  phraseText: String
+
+  """LLM provider name (deepseek, chatgpt, gemini)"""
+  provider: String!
+
+  """Source language code for automatic get-or-create UniversalPhrase"""
+  sourceLanguageCode: String
+
+  """Target language code for translation"""
+  targetLanguageCode: String!
+
+  """UniversalPhrase id"""
+  universalPhraseId: Float
 }
 
 input GetPhraseTranslationInput {
@@ -279,17 +268,11 @@ input GetPrivateBookInput {
 input GetPrivateVideoInput {
   """Video id"""
   id: Int!
-
-  """Target language for grammar concepts"""
-  targetLanguageCode: String
 }
 
 input GetPublicVideoInput {
   """Video id"""
   id: Int!
-
-  """Target language for grammar concepts"""
-  targetLanguageCode: String
 }
 
 input GetSentenceChatThreadInput {
@@ -313,46 +296,10 @@ input GetUniversalPhraseInput {
   text: String!
 }
 
-type GrammarArticleOutModel {
-  compiledSource: String!
-  content: String!
-  title: String!
-}
-
-type GrammarConceptCategoryGroup {
-  articles: [GrammarConceptOutModel!]!
-  category: String!
-}
-
-type GrammarConceptOutModel {
-  category: String!
-  id: ID!
-  order: Int!
-  slug: String!
-  sourceLanguage: String!
-  targetLanguage: String!
-  title: String!
-}
-
-type GrammarConceptsListOutModel {
-  categories: [GrammarConceptCategoryGroup!]!
-  sourceLanguage: String!
-  targetLanguage: String!
-}
-
-type GrammarExtractionOutModel {
-  grammarConcepts: [GrammarConceptOutModel!]!
-  grammarExtractionStatus: String!
-  id: Int!
-  missingGrammarConcepts: [MissingGrammarConceptOutModel!]!
-  sentenceText: String!
-  sourceLanguage: String!
-}
-
 type LanguageOutModel {
   code: String!
+  name: String!
   nameEng: String!
-  nameRus: String!
 }
 
 input LoginInput {
@@ -369,11 +316,6 @@ input LoginWithOAuthInput {
 
   """Provider type: github, google, yandex"""
   providerType: String!
-}
-
-type MissingGrammarConceptOutModel {
-  alias: String!
-  category: String!
 }
 
 type Mutation {
@@ -421,10 +363,10 @@ type Mutation {
   """
   Generate audio pronunciation for a word using Google TTS and store it on S3
   """
-  create_audio_pronunciation(input: CreateUniversalAudioPronunciationInput!): UniversalAudioPronunciationOutModel!
+  create_audio_pronunciation(input: CreateUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel!
 
   """Create transcription for a word using DeepSeek"""
-  create_transcription(input: CreateUniversalTranscriptionInput!): TranscriptionOutModel!
+  create_transcription(input: CreateUniversalPhraseTranscriptionInput!): TranscriptionOutModel!
 
   """
   Добавить фразу из разбора предложения в коллекцию карточек пользователя.
@@ -433,11 +375,6 @@ type Mutation {
 
   """Удалить карточку пользователя."""
   flashcard_remove(input: RemoveFlashcardInput!): Boolean!
-
-  """
-  Extract grammar concepts from a sentence using AI and link to available articles
-  """
-  grammar_concept_fetch(input: FetchGrammarConceptsInput!): GrammarExtractionOutModel!
 
   """Top up balance with YooKassa"""
   payment_yookassa_top_up_balance(input: TopUpBalanceWithYooKassaInput!): CreateYooKassaPaymentOutModel!
@@ -461,6 +398,9 @@ type Mutation {
   """Create a new phrase"""
   universal_phrase_create(input: CreateUniversalPhraseInput!): UniversalPhraseOutModel!
 
+  """Get or create translation for a phrase using LLM"""
+  universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput!): UniversalPhraseTranslationOutModel!
+
   """Create a video"""
   video_private_create(input: CreatePrivateVideoInput!): CreateVideoPrivateOutModel!
 
@@ -474,6 +414,11 @@ type Mutation {
 
   """Update a video"""
   video_private_update(input: UpdatePrivateVideoInput!): UpdateVideoPrivateOutModel!
+}
+
+type PatternItemOutModel {
+  phrase: String!
+  translate: String!
 }
 
 type Query {
@@ -497,12 +442,6 @@ type Query {
 
   """Получить список карточек пользователя. Опционально фильтрует по языку."""
   flashcard_get_my(input: GetMyFlashcardsInput!): [FlashcardOutModel!]!
-
-  """Get grammar article content by language, category and slug"""
-  grammar_article_get(input: GetGrammarArticleInput!): GrammarArticleOutModel!
-
-  """Get all grammar articles grouped by category for a language pair"""
-  grammar_concepts_list(input: GetGrammarConceptsListInput!): GrammarConceptsListOutModel!
 
   """Get all available languages"""
   language_get_languages: [LanguageOutModel!]!
@@ -580,10 +519,8 @@ type SentenceChatThreadOutModel {
 }
 
 type SentenceOutModel {
-  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
-  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslation: SentenceTranslationOutModel
   startOffset: Int!
@@ -707,6 +644,11 @@ type TranslateSentenceResultOutModel {
   translation: String!
 }
 
+type TranslationExampleOutModel {
+  sentence: String!
+  translate: String!
+}
+
 type UniversalAudioPronunciationOutModel {
   audioUrl: String!
   id: Int!
@@ -719,6 +661,25 @@ type UniversalPhraseOutModel {
   sourceLanguageCode: String!
   text: String!
   transcription: TranscriptionOutModel
+}
+
+type UniversalPhraseTranslationDataOutModel {
+  commonMistakes: String
+  coreIdea: String!
+  patterns: [PatternItemOutModel!]
+  similarWords: String
+  usageGroups: [UsageGroupOutModel!]!
+}
+
+type UniversalPhraseTranslationOutModel {
+  createdAt: String!
+  errorMessage: String
+  id: Int!
+  nonExistentWord: Boolean!
+  status: String!
+  targetLanguageCode: String!
+  translation: UniversalPhraseTranslationDataOutModel
+  universalPhraseId: Int!
 }
 
 input UpdateBookChapterInput {
@@ -807,6 +768,12 @@ type UpdateVideoPrivateOutModel {
   year: Int
 }
 
+type UsageGroupOutModel {
+  examples: [TranslationExampleOutModel!]!
+  explain: String!
+  title: String!
+}
+
 type UserOutModel {
   balance: Int!
   email: String!
@@ -853,10 +820,8 @@ type VideoPrivateOutModel {
 }
 
 type VideoPrivateSentenceOutModel {
-  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
-  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
   sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslations: [SentenceTranslationLiteOutModel!]
@@ -925,10 +890,8 @@ type VideoPublicOutModel {
 }
 
 type VideoPublicSentenceOutModel {
-  grammarConcepts: [GrammarConceptOutModel!]
   id: Int!
   length: Int!
-  missingGrammarConcepts: [MissingGrammarConceptOutModel!]
   orderIndex: Int!
   sentencePhraseTranslations: [SentencePhraseTranslationOutModel!]
   sentenceTranslations: [SentenceTranslationLiteOutModel!]

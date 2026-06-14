@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
 import RadioGroup from 'ui/formRelated/RadioGroup/RadioGroup'
@@ -20,7 +22,7 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 	const config = languages
 		.map((lang) => ({
 			name: lang.code,
-			label: lang.nameRus,
+			label: lang.name,
 			checked: value === lang.code,
 			value: lang.code,
 			disabled,

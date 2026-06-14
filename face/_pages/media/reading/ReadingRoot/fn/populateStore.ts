@@ -125,7 +125,6 @@ function useFetchChapterAndSetToStore() {
 					errorMessage: null,
 					data: chapter,
 				})
-
 				localStorageManager.lastBookChapter.set(bookIdInUrl, chapter.id)
 			}
 		},

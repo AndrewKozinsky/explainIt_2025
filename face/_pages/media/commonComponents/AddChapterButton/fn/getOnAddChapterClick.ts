@@ -1,11 +1,12 @@
 import { useCallback, useContext, useState } from 'react'
 import { pageUrls } from 'utils/pageUrls'
 import { Book_GetDocument, useBookChapter_Create } from '@/graphql'
-import { serverRedirect } from '@/i18n/serverRedirect'
+import { useRouter } from '@/i18n/routing'
 import { NotificationContext } from '@/ui/Notification/context'
 
 export function useGetOnAddChapterClick({ bookId, bookIdInUrl }: { bookId: number; bookIdInUrl: string }) {
 	const { notify } = useContext(NotificationContext)
+	const router = useRouter()
 
 	const [loading, setLoading] = useState(false)
 	const [errorMessage, setErrorMessage] = useState<null | string>(null)
@@ -45,10 +46,10 @@ export function useGetOnAddChapterClick({ bookId, bookIdInUrl }: { bookId: numbe
 			}
 
 			if (createdChapterId) {
-				await serverRedirect(pageUrls.books.book(bookIdInUrl).chapter(createdChapterId).path)
+				router.push(pageUrls.books.book(bookIdInUrl).chapter(createdChapterId).path)
 			}
 		},
-		[createBookChapter, notify, bookId, bookIdInUrl],
+		[createBookChapter, notify, router, bookId, bookIdInUrl],
 	)
 
 	return {

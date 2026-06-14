@@ -21,8 +21,6 @@ export function createPopulatedPlainText(
 			return {
 				id: sentence.id,
 				text: text.slice(start, end),
-				grammarConcepts: sentence.grammarConcepts ?? null,
-				missingGrammarConcepts: sentence.missingGrammarConcepts ?? [],
 			}
 		}),
 	}

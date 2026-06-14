@@ -8,23 +8,23 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { ScheduleModule } from '@nestjs/schedule'
 import { Request, Response } from 'express'
 import { WinstonModule } from 'nest-winston'
-import { AudioPronunciationModule } from 'routes/audioPronunciation/audioPronunciation.module'
 import { AuthModule } from 'routes/auth/auth.module'
 import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
 import { BookModule } from 'routes/bookPrivate/book.module'
 import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { DbModule } from 'routes/db/db.module'
 import { FlashcardModule } from 'routes/flashcard/flashcard.module'
-import { GrammarConceptModule } from 'routes/grammarConcept/grammarConcept.module'
 import { LanguageModule } from 'routes/language/language.module'
 import { PaymentModule } from 'routes/payment/payment.module'
 import { SentenceChatModule } from 'routes/sentenceChat/sentenceChat.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { UniversalPhraseModule } from 'routes/universalPhrase/universalPhrase.module'
-import { UniversalTranscriptionModule } from 'routes/universalTranscription/universalTranscription.module'
+import { UniversalPhraseTranslationModule } from 'routes/universalPhraseTranslation/universalPhraseTranslation.module'
 import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
 import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
+import { UniversalPhraseAudioModule } from 'src/routes/universalPhraseAudio/universalPhraseAudio.module'
+import { UniversalPhraseTranscriptionModule } from 'src/routes/universalPhraseTranscription/universalPhraseTranscription.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
@@ -108,11 +108,11 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		TranslateRouteModule,
 		SentenceChatModule,
 		UniversalPhraseModule,
-		UniversalTranscriptionModule,
-		AudioPronunciationModule,
+		UniversalPhraseTranscriptionModule,
+		UniversalPhraseTranslationModule,
+		UniversalPhraseAudioModule,
 		LanguageModule,
 		FlashcardModule,
-		GrammarConceptModule,
 	],
 	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })

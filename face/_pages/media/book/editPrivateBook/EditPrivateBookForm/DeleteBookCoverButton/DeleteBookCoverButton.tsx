@@ -1,4 +1,4 @@
-import { TrashButtonIcon } from 'ui/icons/TrashButtonIcon'
+import { TrashButtonIcon } from 'ui/icons/buttonIcons/TrashButtonIcon'
 import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { useDeleteBookCover } from './fn/useDeleteBookCover'
 

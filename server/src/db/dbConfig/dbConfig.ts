@@ -989,13 +989,6 @@ export const bdConfig = {
 				variants: languagesArr,
 				required: true,
 			},
-			grammarExtractionStatus: {
-				type: 'enum',
-				required: true,
-				variants: ['NOT_STARTED', 'ERROR', 'SUCCESS'],
-				enumName: 'GrammarExtractionStatus',
-				default: 'NOT_STARTED',
-			},
 			UniversalTranscription: {
 				type: 'parentOneToOne',
 				required: false,
@@ -1004,8 +997,9 @@ export const bdConfig = {
 				type: 'parentOneToOne',
 				required: false,
 			},
-			GrammarConceptToUniversalPhrase: { type: 'oneToMany' },
-			MissingGrammarConcept: { type: 'oneToMany' },
+			UniversalPhraseTranslation: {
+				type: 'oneToMany',
+			},
 			created_at: { type: 'createdAt' },
 			updated_at: { type: 'updatedAt' },
 		},
@@ -1059,6 +1053,66 @@ export const bdConfig = {
 				description: 'S3 object key of the audio file',
 				required: true,
 				maxLength: 500,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	// Перевод фразы из UniversalPhrase на конкретный язык через LLM
+	UniversalPhraseTranslation: {
+		dtoProps: {
+			provider: {
+				type: 'string',
+				description: 'LLM provider name',
+				required: false,
+			},
+		},
+		indexes: [
+			{ fields: ['universal_phrase_id', 'target_language_code'], unique: true },
+			{ fields: ['universal_phrase_id'] },
+		],
+		dbFields: {
+			id: {
+				type: 'index',
+			},
+			universal_phrase_id: {
+				type: 'manyToOne',
+				thisField: 'universal_phrase_id',
+				relationField: 'universal_phrase',
+				foreignTable: 'UniversalPhrase',
+				foreignField: 'id',
+				required: true,
+			},
+			target_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			translation: {
+				type: 'string',
+				description: 'JSON with translation result from LLM',
+				required: false,
+			},
+			status: {
+				type: 'enum',
+				description: 'Status of translation generation',
+				required: true,
+				variants: ['pending', 'ready', 'error'],
+				default: 'pending',
+				enumName: 'UniversalPhraseTranslationStatus',
+			},
+			error_message: {
+				type: 'string',
+				description: 'Error message if status is error',
+				required: false,
+			},
+			non_existent_word: {
+				type: 'boolean',
+				description: 'Flag indicating that the word/phrase does not exist in the source language',
+				required: true,
+				default: false,
 			},
 			created_at: {
 				type: 'createdAt',
@@ -1261,90 +1315,6 @@ export const bdConfig = {
 			},
 			created_at: {
 				type: 'createdAt',
-			},
-		},
-	},
-	GrammarConcept: {
-		dtoProps: {},
-		indexes: [{ fields: ['source_language_code', 'target_language_code', 'category', 'slug'], unique: true }],
-		dbFields: {
-			id: { type: 'uuidIndex' },
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			target_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			category: { type: 'string', required: true, maxLength: 100 },
-			title: { type: 'string', required: true, maxLength: 500 },
-			slug: { type: 'string', required: true, maxLength: 500 },
-			order: { type: 'number', required: true, default: 0 },
-			aliases: { type: 'array', arrayItemType: 'string', required: true },
-			GrammarConceptToUniversalPhrase: { type: 'oneToMany' },
-		},
-	},
-	MissingGrammarConcept: {
-		dtoProps: {},
-		indexes: [{ fields: ['universal_phrase_id'] }],
-		dbFields: {
-			id: { type: 'index' },
-			universal_phrase_id: {
-				type: 'manyToOne',
-				thisField: 'universal_phrase_id',
-				foreignTable: 'UniversalPhrase',
-				foreignField: 'id',
-				onDelete: 'Cascade',
-				required: true,
-			},
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			target_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			category: { type: 'string', required: true, maxLength: 100 },
-			alias: { type: 'string', required: true, maxLength: 500 },
-			sentence_text: { type: 'string', required: true, maxLength: 2000 },
-			created_at: { type: 'createdAt' },
-		},
-	},
-	GrammarConceptToUniversalPhrase: {
-		dtoProps: {},
-		indexes: [
-			{ fields: ['grammar_concept_id', 'universal_phrase_id'], unique: true },
-			{ fields: ['grammar_concept_id'] },
-			{ fields: ['universal_phrase_id'] },
-		],
-		dbFields: {
-			id: { type: 'index' },
-			grammar_concept_id: {
-				type: 'manyToOne',
-				thisField: 'grammar_concept_id',
-				foreignTable: 'GrammarConcept',
-				foreignField: 'id',
-				foreignFieldType: 'String',
-				onDelete: 'Cascade',
-				required: true,
-			},
-			universal_phrase_id: {
-				type: 'manyToOne',
-				thisField: 'universal_phrase_id',
-				foreignTable: 'UniversalPhrase',
-				foreignField: 'id',
-				onDelete: 'Cascade',
-				required: true,
 			},
 		},
 	},

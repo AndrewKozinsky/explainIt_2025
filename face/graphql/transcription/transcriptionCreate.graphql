@@ -1,4 +1,4 @@
-mutation Transcription_create($input: CreateUniversalTranscriptionInput!) {
+mutation Transcription_create($input: CreateUniversalPhraseTranscriptionInput!) {
 	create_transcription(input: $input) {
 		id
 		universalPhraseId

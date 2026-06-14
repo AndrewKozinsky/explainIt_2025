@@ -1,5 +1,5 @@
 import React from 'react'
-import { EditIcon } from 'ui/icons/EditIcon'
+import { EditIcon } from 'ui/icons/buttonIcons/EditIcon'
 import { InfoIcon } from 'ui/icons/InfoIcon'
 import MediaCardActionButton from '../MediaCardActionButton/MediaCardActionButton'
 import MediaCardButton from '../MediaCardButton/MediaCardButton'

@@ -6,9 +6,15 @@ import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { VideoPublicOutModel } from 'models/videoPublic/videoPublic.out.model'
 import { VideoPublicLiteOutModel } from 'models/videoPublic/videoPublicLite.out.model'
-import { LanguageCode, Prisma, Sentence, SentencePhraseTranslation, SentenceTranslation, Subtitle, SubtitleSentenceInit, VideoPublic } from 'prisma/generated/client'
-import { enrichSentencesWithGrammarConcepts } from '../grammarConcept/enrichSentencesWithGrammarConcepts'
-import { GrammarConceptQueryRepository } from '../grammarConcept.queryRepository'
+import {
+	Prisma,
+	Sentence,
+	SentencePhraseTranslation,
+	SentenceTranslation,
+	Subtitle,
+	SubtitleSentenceInit,
+	VideoPublic,
+} from 'prisma/generated/client'
 import { UniversalPhraseQueryRepository } from '../universalPhrase.queryRepository'
 
 type DbSentenceWithInit = Sentence & {
@@ -36,7 +42,6 @@ export class VideoPublicQueryRepository {
 	constructor(
 		private prisma: PrismaService,
 		private cloudRuS3Service: CloudRuS3Service,
-		private grammarConceptQueryRepo: GrammarConceptQueryRepository,
 		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
 
@@ -50,7 +55,7 @@ export class VideoPublicQueryRepository {
 					include: {
 						SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } },
 						SentenceTranslation: { orderBy: { created_at: 'asc' } },
-							SentencePhraseTranslation: { orderBy: { created_at: 'asc' } },
+						SentencePhraseTranslation: { orderBy: { created_at: 'asc' } },
 					},
 				},
 				Subtitle: {
@@ -62,7 +67,7 @@ export class VideoPublicQueryRepository {
 
 		if (!video) return null
 
-		return this.mapDbVideoToOutVideo(video, targetLanguageCode)
+		return this.mapDbVideoToOutVideo(video)
 	}
 
 	@CatchDbError()
@@ -95,10 +100,7 @@ export class VideoPublicQueryRepository {
 		}
 	}
 
-	async mapDbVideoToOutVideo(
-		dbVideo: DbVideoWithRelations,
-		targetLanguageCode?: string,
-	): Promise<VideoPublicOutModel> {
+	async mapDbVideoToOutVideo(dbVideo: DbVideoWithRelations): Promise<VideoPublicOutModel> {
 		const fileUrl = await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key)
 
 		const base: Omit<VideoPublicOutModel, 'sentences' | 'subtitles' | 'subtitleSentenceInit'> = {
@@ -121,27 +123,6 @@ export class VideoPublicQueryRepository {
 		const universalPhraseByText = await this.buildUniversalPhraseMap(dbVideo)
 
 		const result = attachVideoTextRelations({ base, dbVideo, universalPhraseByText })
-
-		if (targetLanguageCode) {
-			const grammarResults = await enrichSentencesWithGrammarConcepts({
-				prisma: this.prisma,
-				grammarConceptQueryRepo: this.grammarConceptQueryRepo,
-				sentences: (dbVideo.Sentence ?? []).map((s) => ({
-					id: s.id,
-					startOffset: s.start_offset,
-					length: s.length,
-				})),
-				content: dbVideo.processed_content ?? '',
-				sourceLanguageCode: dbVideo.source_language_code,
-				targetLanguageCode,
-			})
-
-			result.sentences = result.sentences!.map((s, i) => ({
-				...s,
-				grammarConcepts: grammarResults[i].grammarConcepts,
-				missingGrammarConcepts: grammarResults[i].missingGrammarConcepts,
-			})) as any
-		}
 
 		return result
 	}

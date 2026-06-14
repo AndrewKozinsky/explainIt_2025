@@ -25,6 +25,6 @@ export class VideoPublicResolver {
 		description: videoPublicResolversDesc.getVideoPublic,
 	})
 	async getVideoPublic(@Args('input') input: GetPublicVideoInput) {
-		return await this.commandBus.execute(new GetVideoPublicCommand(input.id, input.targetLanguageCode))
+		return await this.commandBus.execute(new GetVideoPublicCommand(input.id))
 	}
 }

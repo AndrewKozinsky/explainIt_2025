@@ -3,11 +3,11 @@ import { Field, ObjectType } from '@nestjs/graphql'
 @ObjectType()
 export class LanguageOutModel {
 	@Field(() => String)
-	code: string
-
-	@Field(() => String)
-	nameRus: string
+	name: string
 
 	@Field(() => String)
 	nameEng: string
+
+	@Field(() => String)
+	code: string
 }

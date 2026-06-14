@@ -36,6 +36,7 @@
 .details-block-wrapper__switcher {
 	position: sticky;
 	top: 0;
+	z-index: 1;
 }
 
 .details-block-wrapper__content {

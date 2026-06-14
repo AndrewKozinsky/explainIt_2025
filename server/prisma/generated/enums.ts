@@ -83,13 +83,13 @@ export const SentencePhraseTranslationStatus = {
 export type SentencePhraseTranslationStatus = (typeof SentencePhraseTranslationStatus)[keyof typeof SentencePhraseTranslationStatus]
 
 
-export const GrammarExtractionStatus = {
-  NOT_STARTED: 'NOT_STARTED',
-  ERROR: 'ERROR',
-  SUCCESS: 'SUCCESS'
+export const UniversalPhraseTranslationStatus = {
+  pending: 'pending',
+  ready: 'ready',
+  error: 'error'
 } as const
 
-export type GrammarExtractionStatus = (typeof GrammarExtractionStatus)[keyof typeof GrammarExtractionStatus]
+export type UniversalPhraseTranslationStatus = (typeof UniversalPhraseTranslationStatus)[keyof typeof UniversalPhraseTranslationStatus]
 
 
 export const SentenceChatMessageRole = {

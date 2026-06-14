@@ -75,7 +75,7 @@ export class VideoPrivateResolver {
 	})
 	async getVideoPrivate(@Args('input') input: GetPrivateVideoInput, @Context('req') request: Request) {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id, input.targetLanguageCode))
+		return await this.commandBus.execute(new GetVideoPrivateCommand(userId, input.id))
 	}
 
 	@UseGuards(CheckSessionCookieGuard)

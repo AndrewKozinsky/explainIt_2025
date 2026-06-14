@@ -3,7 +3,6 @@ import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingSto
 import PhraseDetails from '../PhraseDetails/PhraseDetails'
 import Sentence from '../Sentence/Sentence'
 import SentenceTranslation from '../sentenceTranslation/SentenceTranslation/SentenceTranslation'
-import SentenceTools from '../tools/SentenceTools/SentenceTools'
 import './SentenceBlock.scss'
 
 type ChapterSentenceProps = {
@@ -27,9 +26,6 @@ function SentenceBlock(props: ChapterSentenceProps) {
 				selectedWordId={selectedWordId}
 				selectWord={selectWord}
 			/>
-			<div className='sentence-block__tools'>
-				<SentenceTools sentence={sentence} />
-			</div>
 			<div className='sentence-block__translation'>
 				<SentenceTranslation
 					sentenceId={sentence.id}

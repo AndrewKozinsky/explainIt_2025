@@ -152,7 +152,14 @@ export const errorMessage = {
 		alreadyExists: { errorMessageCode: 'AUDIO_PRONUNCIATION_ALREADY_EXISTS' }, // Озвучка для этой фразы уже существует.
 		cannotUploadToS3: { errorMessageCode: 'AUDIO_PRONUNCIATION_CANNOT_UPLOAD_TO_S3' }, // Не удалось загрузить аудио файл в хранилище.
 		cannotGenerateAudio: { errorMessageCode: 'AUDIO_PRONUNCIATION_CANNOT_GENERATE_AUDIO' }, // Не удалось сгенерировать аудио.
-		anonymousUserCannotGenerate: { errorMessageCode: 'AUDIO_PRONUNCIATION_ANONYMOUS_USER_CANNOT_GENERATE' }, // Вы не можете создавать озвучку без авторизации.
+		anonymousUserCannotGenerate: { errorMessageCode: 'AUDIO_PRONUNCIATION_ANONYMOUS_USER_CANNOT_GENERATE' },
+	},
+	universalPhraseTranslation: {
+		notFound: { errorMessageCode: 'UNIVERSAL_PHRASE_TRANSLATION_NOT_FOUND' },
+		cannotParseLLmResponse: { errorMessageCode: 'UNIVERSAL_PHRASE_TRANSLATION_CANNOT_PARSE_LLM_RESPONSE' },
+		cannotGetTranslationFromLLM: {
+			errorMessageCode: 'UNIVERSAL_PHRASE_TRANSLATION_CANNOT_GET_TRANSLATION_FROM_LLM',
+		},
 	},
 } satisfies Record<string, any>
 

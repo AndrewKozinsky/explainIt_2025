@@ -1,8 +1,6 @@
-type QuestionButtonIconProps = {
-	extraClass?: string
-}
+import { ButtonIconProps } from 'ui/icons/buttonIcons/buttonProps'
 
-export function InfoIcon(props: QuestionButtonIconProps) {
+export function InfoIcon(props: ButtonIconProps) {
 	const { extraClass } = props
 
 	return (
