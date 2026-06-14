@@ -47,6 +47,7 @@
 
 .switcher__button {
 	background-color: transparent;
+	cursor: pointer;
 	padding: .4rem 1rem;
 	border-width: 0;
 	border-radius: vars.$radius-1;
@@ -61,9 +62,10 @@
 	}
 }
 
-.switcher__button.base-button--current {
+.switcher__button--current, .switcher__button--current:hover {
 	color: vars.$textColor;
 	background-color: white;
+	cursor: default;
 	box-shadow:
 		0 1px 0 rgba(0, 0, 0, .05),
 		0 0 2px rgba(0, 0, 0, .15);

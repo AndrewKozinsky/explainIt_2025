@@ -2,13 +2,13 @@
 
 import OnboardingModal from '_pages/media/commonComponents/OnboardingModal/OnboardingModal'
 import RootSurface from '_pages/media/commonComponents/RootSurface/RootSurface'
-import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
-import ReadingNavigation from '_pages/media/reading/ReadingNavigation/ReadingNavigation'
-import ChapterContent from '../ChapterContent/ChapterContent'
+import { useReadingStore } from '../readingStore'
 import ReadingTop from '../ReadingTop/ReadingTop'
+import EmptyChapterMessage from './EmptyChapterMessage'
 import { useClearReadingStoreOnUnmount } from './fn/clearStoreOnUnmount'
 import { useGetFetchedDataStatuses } from './fn/getFetchedDataStatuses'
 import { usePopulateReadingStore } from './fn/populateStore'
+import ReadingContent from './ReadingContent'
 import './ReadingRoot.scss'
 
 function ReadingRoot() {
@@ -16,18 +16,15 @@ function ReadingRoot() {
 	useClearReadingStoreOnUnmount()
 	const { fetchedDataLoading, fetchedDataErrorMessage } = useGetFetchedDataStatuses()
 
+	const populatedChapter = useReadingStore((s) => s.populatedChapter)
+	const hasContent = populatedChapter && populatedChapter.sentences.length > 0
+
 	return (
 		<RootSurface loading={fetchedDataLoading} error={fetchedDataErrorMessage}>
 			<main className='reading-root'>
 				<OnboardingModal />
 				<ReadingTop />
-				<div className='reading-root__content'>
-					<ChapterContent />
-					<div className='reading-root__analysis'>
-						<DetailsBlock mediaType='reading' />
-					</div>
-				</div>
-				<ReadingNavigation />
+				{hasContent ? <ReadingContent /> : <EmptyChapterMessage />}
 			</main>
 		</RootSurface>
 	)

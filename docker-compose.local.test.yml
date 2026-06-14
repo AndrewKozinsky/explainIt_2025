@@ -43,7 +43,6 @@ services:
     volumes:
       - ./server/src:/app/src
       - ./server/e2e:/app/e2e
-      - ./content:/app/content
     command: npm run start:dev
     container_name: explainserverlocaltest
     depends_on:
@@ -84,7 +83,6 @@ services:
       - ./face:/app
       - /app/node_modules
       - ./face:/public
-      - ./content:/app/content
     command: npm run dev
     container_name: explainfacelocaltest
     depends_on:
@@ -99,6 +97,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./help:/app
+      - /app/node_modules
     command: npm run dev
     container_name: explainhelplocaltest
     environment:

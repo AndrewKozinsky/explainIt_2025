@@ -53,7 +53,7 @@ export default function EditChapterForm() {
 				>
 					<FormFieldsWrapper gap='big'>
 						<TextInput
-							label='Глава'
+							label='Номер'
 							error={errors.name?.message}
 							inputProps={{
 								...register('name'),
@@ -76,8 +76,7 @@ export default function EditChapterForm() {
 							textareaProps={{
 								...register('content'),
 								disabled: ['success', 'submitting'].includes(formStatus),
-								placeholder:
-									'Alice was beginning to get very tired of sitting by her sister on the bank, and of having nothing to do',
+								placeholder: 'Alice was beginning to get very tired of sitting by her sister...',
 								rows: 10,
 							}}
 							currentText={contentText}

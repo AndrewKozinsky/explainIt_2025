@@ -40,8 +40,7 @@ services:
       context: server/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    volumes:
-      - ./content:/app/content
+    volumes: []
     command: npm run start:prod
     container_name: explainserverlocalcheckserver
     depends_on:
@@ -74,8 +73,7 @@ services:
       context: face/
       dockerfile: Dockerfile.server
     restart: unless-stopped
-    volumes:
-      - ./content:/app/content
+    volumes: []
     command: npm run start
     container_name: explainfacelocalcheckserver
     depends_on:

@@ -44,8 +44,11 @@ function SwitcherButton(props: SwitcherButtonProps) {
 	const { item } = props
 
 	return (
-		<BaseButton theme='regular' extraClass={cn('switcher__button')} onClick={item.onClick} current={item.isCurrent}>
+		<button
+			className={cn('switcher__button', item.isCurrent && 'switcher__button--current')}
+			onClick={item.onClick}
+		>
 			{item.text}
-		</BaseButton>
+		</button>
 	)
 }

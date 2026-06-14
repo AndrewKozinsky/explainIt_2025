@@ -54,6 +54,10 @@
 	@include mix.container-width(600px) {
 		min-height: 12rem;
 	}
+
+	@include mix.container-width(800px) {
+		aspect-ratio: 2 / 1;
+	}
 }
 
 .reading-navigation__link--with-cover {

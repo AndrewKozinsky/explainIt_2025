@@ -1,12 +1,13 @@
 import { useCallback, useContext, useState } from 'react'
 import { Book_GetUserBooksDocument, useBook_Delete } from '@/graphql'
-import { serverRedirect } from '@/i18n/serverRedirect'
+import { useRouter } from '@/i18n/routing'
 import { NotificationContext } from '@/ui/Notification/context'
 import { pageUrls } from '@/utils/pageUrls'
 import { useBookStore } from '_pages/media/book/bookStore'
 
 export function useGetDeleteBook() {
 	const { notify } = useContext(NotificationContext)
+	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
 	const [deleteBook] = useBook_Delete({ refetchQueries: [Book_GetUserBooksDocument], awaitRefetchQueries: true })
@@ -31,9 +32,9 @@ export function useGetDeleteBook() {
 
 			setStatus('idle')
 
-			await serverRedirect(pageUrls.books.path)
+			router.push(pageUrls.books.path)
 		},
-		[deleteBook, notify],
+		[deleteBook, notify, router],
 	)
 
 	return {

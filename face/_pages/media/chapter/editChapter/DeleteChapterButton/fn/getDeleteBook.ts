@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from 'react'
 import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
-import { serverRedirect } from '@/i18n/serverRedirect'
+import { useRouter } from '@/i18n/routing'
 import { NotificationContext } from '@/ui//Notification/context'
 import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
@@ -11,6 +11,7 @@ export function useGetDeleteBook() {
 	useChapterStore((s) => s.privateBook)
 
 	const { notify } = useContext(NotificationContext)
+	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
 	const [deleteChapter] = useBookChapter_Delete({ refetchQueries: [Book_GetUserBooksDocument] })
@@ -40,9 +41,9 @@ export function useGetDeleteBook() {
 			setStatus('idle')
 
 			const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-			await serverRedirect(pageUrls.books.book(bookIdInUrl).path)
+			router.push(pageUrls.books.book(bookIdInUrl).path)
 		},
-		[deleteChapter, notify],
+		[deleteChapter, notify, router],
 	)
 
 	return {
