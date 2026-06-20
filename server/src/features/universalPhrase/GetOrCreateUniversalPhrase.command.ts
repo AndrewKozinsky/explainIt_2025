@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
+import { normalizePhraseString } from 'utils/stringUtils'
 import { LanguageCode } from 'prisma/generated/client'
 
 type CreateUniversalPhraseInput = {
@@ -25,7 +26,7 @@ export class CreateUniversalPhraseHandler implements ICommandHandler<GetOrCreate
 		// Атомарный find-or-create (upsert) — нет окна для гонки между проверкой и вставкой.
 		// Команда идемпотентна: если фраза уже существует, возвращает её вместо ошибки.
 		const phrase = await this.universalPhraseRepository.findOrCreate({
-			sentenceText: createPhraseInput.text,
+			sentenceText: normalizePhraseString(createPhraseInput.text),
 			sourceLanguage: createPhraseInput.sourceLanguageCode,
 		})
 

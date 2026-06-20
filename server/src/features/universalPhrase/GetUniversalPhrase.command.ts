@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { Language } from 'utils/languages'
+import { normalizePhraseString } from 'utils/stringUtils'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -17,8 +18,10 @@ export class GetUniversalPhraseHandler implements ICommandHandler<GetUniversalPh
 	constructor(private universalPhraseQueryRepository: UniversalPhraseQueryRepository) {}
 
 	async execute(command: GetUniversalPhraseCommand) {
+		const normalizedText = normalizePhraseString(command.text)
+
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseByTextAndLang(
-			command.text,
+			normalizedText,
 			command.sourceLanguageCode,
 		)
 		if (!phrase) {
