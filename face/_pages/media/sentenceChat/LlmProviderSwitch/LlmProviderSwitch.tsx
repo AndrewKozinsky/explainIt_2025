@@ -1,9 +1,8 @@
 import { useUserStore } from 'stores/userStore'
-import { LlmProvider, useSentenceChatStore } from '../sentenceChatStore'
+import { useSentenceChatStore } from '../sentenceChatStore'
+import { getProviders } from './fn/llmProviders'
 import LLMProviderButton from './LLMProviderButton'
 import './LlmProviderSwitch.scss'
-
-const providers: LlmProvider[] = ['gemini', 'chatgpt', 'deepseek']
 
 type LlmProviderSwitchProps = {
 	smallIcons: boolean
@@ -23,7 +22,7 @@ function LlmProviderSwitch(props: LlmProviderSwitchProps) {
 
 	return (
 		<div className='chat-input--llm-switch'>
-			{providers.map((provider) => {
+			{getProviders().map((provider) => {
 				return (
 					<LLMProviderButton
 						provider={provider}
