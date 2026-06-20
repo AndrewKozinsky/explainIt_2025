@@ -438,6 +438,7 @@ export interface UniversalPhraseTranslationOutModel {
     errorMessage?: Nullable<string>;
     nonExistentWord: boolean;
     createdAt: string;
+    transcription?: Nullable<TranscriptionOutModel>;
 }
 
 export interface CreateVideoPrivateOutModel {

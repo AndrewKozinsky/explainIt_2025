@@ -678,6 +678,7 @@ type UniversalPhraseTranslationOutModel {
   nonExistentWord: Boolean!
   status: String!
   targetLanguageCode: String!
+  transcription: TranscriptionOutModel
   translation: UniversalPhraseTranslationDataOutModel
   universalPhraseId: Int!
 }

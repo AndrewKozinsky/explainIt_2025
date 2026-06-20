@@ -2,6 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { UniversalTranscriptionQueryRepository } from 'repo/universalTranscription.queryRepository'
 import { UniversalTranscriptionRepository } from 'repo/universalTranscription.repository'
+import { canLanguageHaveTranscription } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -31,6 +32,13 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 
 		if (phrase.transcription) {
 			throw new CustomError(errorMessage.universalTranscription.alreadyExists, ErrorStatusCode.BadRequest_400)
+		}
+
+		if (!canLanguageHaveTranscription(phrase.sourceLanguageCode as LanguageCode)) {
+			throw new CustomError(
+				errorMessage.universalTranscription.languageNotSupported,
+				ErrorStatusCode.BadRequest_400,
+			)
 		}
 
 		const transcription = await this.getTranscriptionFromLLM(phrase.text, phrase.sourceLanguageCode)

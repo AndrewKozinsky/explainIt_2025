@@ -1,4 +1,5 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { TranscriptionOutModel } from 'models/transcription/transcription.out.model'
 
 @ObjectType()
 export class TranslationExampleOutModel {
@@ -73,4 +74,7 @@ export class UniversalPhraseTranslationOutModel {
 
 	@Field(() => String)
 	createdAt: string
+
+	@Field(() => TranscriptionOutModel, { nullable: true })
+	transcription: TranscriptionOutModel | null
 }

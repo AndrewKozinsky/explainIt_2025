@@ -815,6 +815,7 @@ export type UniversalPhraseTranslationOutModel = {
   nonExistentWord: Scalars['Boolean']['output'];
   status: Scalars['String']['output'];
   targetLanguageCode: Scalars['String']['output'];
+  transcription?: Maybe<TranscriptionOutModel>;
   translation?: Maybe<UniversalPhraseTranslationDataOutModel>;
   universalPhraseId: Scalars['Int']['output'];
 };
@@ -1269,7 +1270,7 @@ export type UniversalPhraseTranslation_GetOrCreateVariables = Exact<{
 }>;
 
 
-export type UniversalPhraseTranslation_GetOrCreate = { __typename?: 'Mutation', universal_phrase_translation_get_or_create: { __typename?: 'UniversalPhraseTranslationOutModel', id: number, universalPhraseId: number, targetLanguageCode: string, status: string, errorMessage?: string | null, nonExistentWord: boolean, createdAt: string, translation?: { __typename?: 'UniversalPhraseTranslationDataOutModel', coreIdea: string, similarWords?: string | null, commonMistakes?: string | null, usageGroups: Array<{ __typename?: 'UsageGroupOutModel', title: string, explain: string, examples: Array<{ __typename?: 'TranslationExampleOutModel', sentence: string, translate: string }> }>, patterns?: Array<{ __typename?: 'PatternItemOutModel', phrase: string, translate: string }> | null } | null } };
+export type UniversalPhraseTranslation_GetOrCreate = { __typename?: 'Mutation', universal_phrase_translation_get_or_create: { __typename?: 'UniversalPhraseTranslationOutModel', id: number, universalPhraseId: number, targetLanguageCode: string, status: string, errorMessage?: string | null, nonExistentWord: boolean, createdAt: string, translation?: { __typename?: 'UniversalPhraseTranslationDataOutModel', coreIdea: string, similarWords?: string | null, commonMistakes?: string | null, usageGroups: Array<{ __typename?: 'UsageGroupOutModel', title: string, explain: string, examples: Array<{ __typename?: 'TranslationExampleOutModel', sentence: string, translate: string }> }>, patterns?: Array<{ __typename?: 'PatternItemOutModel', phrase: string, translate: string }> | null } | null, transcription?: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } | null } };
 
 export type VideoPrivate_CreateVariables = Exact<{
   input: CreatePrivateVideoInput;
@@ -2923,6 +2924,12 @@ export const UniversalPhraseTranslation_GetOrCreateDocument = gql`
     errorMessage
     nonExistentWord
     createdAt
+    transcription {
+      id
+      universalPhraseId
+      ipa
+      pinyin
+    }
   }
 }
     `;
