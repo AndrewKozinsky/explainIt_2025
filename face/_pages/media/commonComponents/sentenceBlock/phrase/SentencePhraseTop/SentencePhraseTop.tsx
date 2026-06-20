@@ -1,5 +1,5 @@
 import { LanguageCode } from 'utils/languages'
-import TranscriptionAndAudio from '../../TranscriptionAndAudio/TranscriptionAndAudio'
+import SentenceTranscriptionAndAudio from '_pages/media/commonComponents/sentenceBlock/SentenceTranscriptionAndAudio/SentenceTranscriptionAndAudio'
 import FlashCardButton from '../FlashCardButton/FlashCardButton'
 import './SentencePhraseTop.scss'
 
@@ -19,7 +19,7 @@ function SentencePhraseTop(props: SentencePhraseTopPartProps) {
 		<div className='sentence-phrase-top'>
 			<p className='sentence-phrase-top__content'>
 				<span className='sentence-phrase-top__phrase'>{phrase}</span>{' '}
-				<TranscriptionAndAudio
+				<SentenceTranscriptionAndAudio
 					phrase={phrase}
 					languageCode={languageCode as LanguageCode}
 					onWhiteBackground={onWhiteBackground}

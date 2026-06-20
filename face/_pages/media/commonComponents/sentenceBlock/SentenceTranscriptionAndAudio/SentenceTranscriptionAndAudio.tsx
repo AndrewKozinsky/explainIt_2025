@@ -1,4 +1,4 @@
-import UiTranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
+import TranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
 import { LanguageCode } from 'utils/languages'
 import { mapUiState } from './fn/mapUiState'
 import { usePhrase } from './fn/usePhrase'
@@ -10,7 +10,7 @@ type TranscriptionAndAudioProps = {
 	onWhiteBackground?: boolean
 }
 
-function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
+function SentenceTranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const { phrase, languageCode, onWhiteBackground } = props
 
 	const { status, phraseId, phraseTranscription, phraseAudioUrl } = usePhrase(phrase, languageCode)
@@ -18,7 +18,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 
 	if (status === 'loading') {
 		return (
-			<UiTranscriptionAndAudio
+			<TranscriptionAndAudio
 				phrase={phrase}
 				languageCode={languageCode}
 				transcription={{ status: 'loading' }}
@@ -29,7 +29,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 
 	if (status === 'error') {
 		return (
-			<UiTranscriptionAndAudio
+			<TranscriptionAndAudio
 				phrase={phrase}
 				languageCode={languageCode}
 				transcription={{ status: 'error' }}
@@ -39,11 +39,11 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	}
 
 	return (
-		<UiTranscriptionAndAudio
+		<TranscriptionAndAudio
 			{...mapUiState({ phrase, languageCode, audioUrl: phraseAudioUrl, transcription })}
 			bg={onWhiteBackground ? 'white' : 'pale'}
 		/>
 	)
 }
 
-export default TranscriptionAndAudio
+export default SentenceTranscriptionAndAudio

@@ -5,7 +5,7 @@ import { LanguageCode } from 'utils/languages'
 import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
 import './DictionaryPhraseTranscription.scss'
 
-function PhraseTranscription() {
+function DictionaryPhraseTranscription() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const transcription = usePhraseDictionaryStore((s) => s.transcription)
 	const nonExistentWord = usePhraseDictionaryStore((s) => s.nonExistentWord)
@@ -32,4 +32,4 @@ function PhraseTranscription() {
 	)
 }
 
-export default PhraseTranscription
+export default DictionaryPhraseTranscription
