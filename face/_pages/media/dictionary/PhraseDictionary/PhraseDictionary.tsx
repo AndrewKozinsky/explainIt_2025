@@ -4,6 +4,7 @@ import PhraseDictionaryLoading from '_pages/media/dictionary/PhraseDictionaryLoa
 import PhraseDictionaryNotExisting from '_pages/media/dictionary/PhraseDictionaryNotExisting/PhraseDictionaryNotExisting'
 import PhraseDictionaryError from '../PhraseDictionaryError/PhraseDictionaryError'
 import PhraseDictionaryInput from '../PhraseDictionaryInput/PhraseDictionaryInput'
+import PhraseTranscription from '../PhraseTranscription/PhraseTranscription'
 import PhraseTranslationResult from '../PhraseTranslationResult/PhraseTranslationResult'
 import './PhraseDictionary.scss'
 
@@ -17,6 +18,7 @@ function PhraseDictionary() {
 	return (
 		<div className='phrase-dictionary'>
 			<PhraseDictionaryInput />
+			<PhraseTranscription />
 			<PhraseDictionaryLoading />
 			<PhraseDictionaryError />
 			<PhraseDictionaryNotExisting />

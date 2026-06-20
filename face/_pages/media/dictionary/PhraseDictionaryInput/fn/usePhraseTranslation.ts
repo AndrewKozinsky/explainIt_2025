@@ -43,7 +43,7 @@ export function usePhraseTranslation() {
 			// Проверяем кэш перевода
 			const cached = store.getState().getCachedTranslation(cacheKey)
 			if (cached) {
-				store.getState().setTranslationResult(cached)
+				store.getState().setTranslationResult(cached, null)
 				return
 			}
 
@@ -98,7 +98,7 @@ export function usePhraseTranslation() {
 
 				if (result.translation) {
 					store.getState().setCachedTranslation(cacheKey, result.translation)
-					store.getState().setTranslationResult(result.translation)
+					store.getState().setTranslationResult(result.translation, result.transcription ?? null)
 				} else {
 					store.getState().setError(errorMessages.translationWasNotGot)
 				}

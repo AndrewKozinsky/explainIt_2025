@@ -1,11 +1,12 @@
 import { create } from 'zustand'
-import { UniversalPhraseTranslationDataOutModel } from '@/graphql'
+import { TranscriptionOutModel, UniversalPhraseTranslationDataOutModel } from '@/graphql'
 import { LlmProvider } from '_pages/media/sentenceChat/sentenceChatStore'
 
 export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	inputText: '',
 	status: 'idle',
 	translation: null,
+	transcription: null,
 	error: null,
 	nonExistentWord: false,
 	sourceLanguageCode: null,
@@ -26,8 +27,11 @@ export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set
 		setTargetLanguageCode: (code: string) => {
 			set({ targetLanguageCode: code })
 		},
-		setTranslationResult: (translation: UniversalPhraseTranslationDataOutModel) => {
-			set({ translation, status: 'ready', error: null })
+		setTranslationResult: (
+			translation: UniversalPhraseTranslationDataOutModel,
+			transcription: TranscriptionOutModel | null,
+		) => {
+			set({ translation, transcription, status: 'ready', error: null })
 		},
 		setError: (error: string) => {
 			set({ error, status: 'error', nonExistentWord: false })
@@ -64,6 +68,7 @@ export type PhraseDictionaryStoreValues = {
 	inputText: string
 	status: TranslationStatus
 	translation: null | UniversalPhraseTranslationDataOutModel
+	transcription: TranscriptionOutModel | null
 	error: null | string
 	nonExistentWord: boolean
 	sourceLanguageCode: null | string
@@ -76,7 +81,10 @@ export type PhraseDictionaryStoreMethods = {
 	setInputText: (text: string) => void
 	setSourceLanguageCode: (code: string) => void
 	setTargetLanguageCode: (code: string) => void
-	setTranslationResult: (translation: UniversalPhraseTranslationDataOutModel) => void
+	setTranslationResult: (
+		translation: UniversalPhraseTranslationDataOutModel,
+		transcription: TranscriptionOutModel | null,
+	) => void
 	setError: (error: string) => void
 	setNonExistentWord: () => void
 	setStatusLoading: () => void
