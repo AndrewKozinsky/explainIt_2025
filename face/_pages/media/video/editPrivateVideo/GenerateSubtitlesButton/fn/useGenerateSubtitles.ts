@@ -1,4 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from 'react'
+import { getTextByServerErrorMessage } from 'utils/errorMessages'
 import {
 	SubtitlesGenerationStatus,
 	useVideoPrivate_GenerateSubtitles,
@@ -73,6 +74,9 @@ export function useGenerateSubtitles() {
 				setIsPolling(true)
 				await statusQuery.refetch()
 			} catch (err) {
+				getTextByServerErrorMessage(err)
+				// @ts-ignore
+				console.log(err?.errorMessageCode)
 				notify({
 					type: 'error',
 					message:
