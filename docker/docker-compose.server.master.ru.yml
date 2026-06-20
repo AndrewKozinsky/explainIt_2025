@@ -23,7 +23,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     env_file:
-      - .env.servermaster
+      - docker/.env.servermaster
     volumes:
       - pgdata:/var/lib/postgresql/data
   explainredisservermaster:
@@ -33,7 +33,7 @@ services:
     ports:
       - 6384:6379
     env_file:
-      - .env.servermaster
+      - docker/.env.servermaster
     volumes:
       - redis_data:/data
   explainserverservermaster:
@@ -52,7 +52,7 @@ services:
       MODE: servermaster
       PORT: 3001
     env_file:
-      - .env.servermaster
+      - docker/.env.servermaster
   explainserverworkerservermaster:
     build:
       context: server/
@@ -68,7 +68,7 @@ services:
       MODE: servermaster
       PORT: 3001
     env_file:
-      - .env.servermaster
+      - docker/.env.servermaster
   explainfaceservermaster:
     build:
       context: face/
@@ -82,6 +82,7 @@ services:
       - explainserverservermaster
     environment:
       MODE: servermaster
+      NEXT_PUBLIC_REGION: ru
   explainhelpservermaster:
     build:
       context: help/

@@ -8,11 +8,14 @@ export enum Mode {
 	serverMaster = 'servermaster',
 }
 
+export type Region = 'ru' | 'intl'
+
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
  * @param mode — тип работы
+ * @param region — региональная версия (ru или intl)
  */
-export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
+export function createDockerConfig(mode: Mode, region: Region): ConfigSchemaV37Json {
 	const isDev = [Mode.localTest, Mode.localDev].includes(mode)
 
 	const nginxServiceName = 'explainnginx' + mode
@@ -32,7 +35,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				depends_on: [postgresServiceName, serverServiceName, faceServiceName, helpServiceName],
 				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
 				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
-				environment: getNginxEnvs(mode),
+				environment: getNginxEnvs(mode, region),
 			},
 			[postgresServiceName]: {
 				image: 'postgres:16.2',
@@ -40,7 +43,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainpostgres' + mode,
 				ports: getPostgresPort(mode),
 				environment: getPostgresEnvs(),
-				env_file: ['.env.' + mode],
+				env_file: ['docker/.env.' + mode],
 				volumes: ['pgdata:/var/lib/postgresql/data'],
 			},
 			[redisServiceName]: {
@@ -48,7 +51,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				restart: 'unless-stopped',
 				container_name: 'explainredis' + mode,
 				ports: getRedisPort(mode),
-				env_file:['.env.' + mode],
+				env_file:['docker/.env.' + mode],
 				volumes: ['redis_data:/data'],
 			},
 			[serverServiceName]: {
@@ -64,7 +67,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainserver' + mode,
 				depends_on: [postgresServiceName, nlpServiceName, redisServiceName],
 				environment: getServerEnvs(mode),
-				env_file: ['.env.' + mode],
+				env_file: ['docker/.env.' + mode],
 				ports: isDev ? ['3001:3001'] : undefined,
 			},
 			[serverWorkerServiceName]: {
@@ -78,7 +81,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				container_name: 'explainserverworker' + mode,
 				depends_on: [postgresServiceName, redisServiceName, nlpServiceName],
 				environment: { MODE: mode, PORT: 3001 },
-				env_file: ['.env.' + mode],
+				env_file: ['docker/.env.' + mode],
 			},
 			[faceServiceName]: {
 				build: {
@@ -90,7 +93,7 @@ export function createDockerConfig(mode: Mode): ConfigSchemaV37Json {
 				command: isDev ? 'npm run dev' : 'npm run start',
 				container_name: 'explainface' + mode,
 				depends_on: [postgresServiceName, serverServiceName],
-				environment: getFaceEnvs(mode),
+				environment: getFaceEnvs(mode, region),
 			},
 			[helpServiceName]: {
 				build: {
@@ -135,11 +138,14 @@ function getServerNetworks() {
  * Returns environment variables for Nginx
  * @param mode — тип конфигурации
  */
-function getNginxEnvs(mode: Mode) {
+function getNginxEnvs(mode: Mode, region: Region) {
 	if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
+		const isIntl = region === 'intl'
+
 		const domain = mode === Mode.serverDevelop
-			? 'dev.explainit.ru'
-			: 'explainit.ru'
+			? (isIntl ? 'dev.immersia.site' : 'dev.explainit.ru')
+			: (isIntl ? 'immersia.site' : 'explainit.ru')
+
 		const domains = `${domain},www.${domain}`
 
 		return {
@@ -165,9 +171,10 @@ function getServerEnvs(mode: Mode) {
 /**
  * Returns environment variables for Face
  * @param mode — тип конфигурации
+ * @param region — региональная версия
  */
-function getFaceEnvs(mode: Mode) {
-	return { MODE: mode }
+function getFaceEnvs(mode: Mode, region: Region) {
+	return { MODE: mode, NEXT_PUBLIC_REGION: region }
 }
 
 /** Returns environment variables for Postgres  */

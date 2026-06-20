@@ -1,4 +1,4 @@
-name: Deploy to the master server
+name: Deploy to the master server (Russia)
 on:
   push:
     branches:
@@ -17,7 +17,7 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Pull changes on server
+      - name: Deploy to Russian production server
         run: |
           ssh -o StrictHostKeyChecking=no root@185.170.10.212 << 'EOF'
             cd ~/sites/explain
@@ -25,16 +25,16 @@ jobs:
             git checkout master
             git fetch origin master
             git reset --hard origin/master
-          
-            # Generate .env file
-            echo "${{ secrets.ENV_FILE_MASTER }}" > .env.servermaster
-          
-            # Copy env file to server folder because it needs for migrations
-            cp .env.servermaster server/.env
-          
-            # Copy env file to face folder because it needs for getting oauth client id
-            cp .env.servermaster face/.env
 
-            docker compose -f docker-compose.server.master.yml --env-file .env.servermaster down
-            docker compose -f docker-compose.server.master.yml --env-file .env.servermaster up --build -d
+            # Generate .env file
+            echo "${{ secrets.ENV_FILE_MASTER }}" > docker/.env.servermaster
+
+            # Copy env file to server folder because it needs for migrations
+            cp docker/.env.servermaster server/.env
+
+            # Copy env file to face folder because it needs for getting oauth client id
+            cp docker/.env.servermaster face/.env
+
+            docker compose -f docker/docker-compose.server.master.ru.yml --project-directory . --env-file docker/.env.servermaster down
+            docker compose -f docker/docker-compose.server.master.ru.yml --project-directory . --env-file docker/.env.servermaster up --build -d
           EOF

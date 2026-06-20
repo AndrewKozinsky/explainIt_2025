@@ -22,7 +22,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     env_file:
-      - .env.localcheckserver
+      - docker/.env.localcheckserver
     volumes:
       - pgdata:/var/lib/postgresql/data
   explainredislocalcheckserver:
@@ -32,7 +32,7 @@ services:
     ports:
       - 6382:6379
     env_file:
-      - .env.localcheckserver
+      - docker/.env.localcheckserver
     volumes:
       - redis_data:/data
   explainserverlocalcheckserver:
@@ -51,7 +51,7 @@ services:
       MODE: localcheckserver
       PORT: 3001
     env_file:
-      - .env.localcheckserver
+      - docker/.env.localcheckserver
   explainserverworkerlocalcheckserver:
     build:
       context: server/
@@ -67,7 +67,7 @@ services:
       MODE: localcheckserver
       PORT: 3001
     env_file:
-      - .env.localcheckserver
+      - docker/.env.localcheckserver
   explainfacelocalcheckserver:
     build:
       context: face/
@@ -81,6 +81,7 @@ services:
       - explainserverlocalcheckserver
     environment:
       MODE: localcheckserver
+      NEXT_PUBLIC_REGION: ru
   explainhelplocalcheckserver:
     build:
       context: help/

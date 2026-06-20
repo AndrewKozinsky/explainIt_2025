@@ -1,40 +1,72 @@
 import * as fs from 'node:fs'
 import * as YAML from 'yaml'
-import {createDockerConfig, Mode} from './createDockerConfig'
+import {createDockerConfig, Mode, Region} from './createDockerConfig'
 
-// Массив с названием и контентом трёх файлов.
+// Массив с названием и контентом файлов.
 const configs = [
 	{
 		// Докер для тестирования
-		name: 'local.test',
-		content: createDockerConfig(Mode.localTest),
+		name: 'local.test.ru',
+		content: createDockerConfig(Mode.localTest, 'ru'),
+	},
+	{
+		// Докер для тестирования (международная версия)
+		name: 'local.test.intl',
+		content: createDockerConfig(Mode.localTest, 'intl'),
 	},
 	{
 		// Докер для разработки
-		name: 'local.dev',
-		content: createDockerConfig(Mode.localDev),
+		name: 'local.dev.ru',
+		content: createDockerConfig(Mode.localDev, 'ru'),
+	},
+	{
+		// Докер для разработки (международная версия)
+		name: 'local.dev.intl',
+		content: createDockerConfig(Mode.localDev, 'intl'),
 	},
 	{
 		// Докер для проверки как соберётся сборка для сервера
-		name: 'local.server-check',
-		content: createDockerConfig(Mode.localCheckServer),
+		name: 'local.server-check.ru',
+		content: createDockerConfig(Mode.localCheckServer, 'ru'),
 	},
 	{
-		// Докер для развёртывания
-		name: 'server.develop',
-		content: createDockerConfig(Mode.serverDevelop),
+		// Докер для проверки как соберётся сборка для сервера (международная версия)
+		name: 'local.server-check.intl',
+		content: createDockerConfig(Mode.localCheckServer, 'intl'),
 	},
 	{
-		// Докер для развёртывания
-		name: 'server.master',
-		content: createDockerConfig(Mode.serverMaster),
+		// Докер для развёртывания на dev-сервере (Россия)
+		name: 'server.develop.ru',
+		content: createDockerConfig(Mode.serverDevelop, 'ru'),
+	},
+	{
+		// Докер для развёртывания на dev-сервере (международная версия)
+		name: 'server.develop.intl',
+		content: createDockerConfig(Mode.serverDevelop, 'intl'),
+	},
+	{
+		// Докер для развёртывания на prod-сервере (Россия)
+		name: 'server.master.ru',
+		content: createDockerConfig(Mode.serverMaster, 'ru'),
+	},
+	{
+		// Докер для развёртывания на prod-сервере (международная версия)
+		name: 'server.master.intl',
+		content: createDockerConfig(Mode.serverMaster, 'intl'),
 	},
 ]
+
+const outputDir = '../../docker'
+
+// Create docker directory if it doesn't exist
+if (!fs.existsSync(outputDir)) {
+	fs.mkdirSync(outputDir)
+}
 
 for (let i = 0; i < configs.length; i++) {
 	const dataItem = configs[i]
 
-	const filePath = '../../docker-compose.' + dataItem.name + '.yml'
+	const filePath = `${outputDir}/docker-compose.${dataItem.name}.yml`
 	const content = YAML.stringify(dataItem.content)
 
 	fs.writeFile(filePath, content, (err) => {
