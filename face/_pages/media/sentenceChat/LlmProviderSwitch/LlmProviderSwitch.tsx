@@ -5,7 +5,13 @@ import './LlmProviderSwitch.scss'
 
 const providers: LlmProvider[] = ['gemini', 'chatgpt', 'deepseek']
 
-function LlmProviderSwitch() {
+type LlmProviderSwitchProps = {
+	smallIcons: boolean
+}
+
+function LlmProviderSwitch(props: LlmProviderSwitchProps) {
+	const { smallIcons } = props
+
 	const user = useUserStore((s) => s.user)
 	const hasBalance = (user?.balance ?? 0) > 0
 
@@ -18,7 +24,14 @@ function LlmProviderSwitch() {
 	return (
 		<div className='chat-input--llm-switch'>
 			{providers.map((provider) => {
-				return <LLMProviderButton provider={provider} activeProvider={activeProvider} key={provider} />
+				return (
+					<LLMProviderButton
+						provider={provider}
+						activeProvider={activeProvider}
+						key={provider}
+						smallIcon={smallIcons}
+					/>
+				)
 			})}
 		</div>
 	)
