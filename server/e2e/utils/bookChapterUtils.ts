@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { z } from 'zod'
 import { queries } from '../../src/features/db/queries'
-import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
+// import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
 export const bookChapterUtils = {
@@ -260,9 +260,9 @@ export const bookChapterUtils = {
 		return delteBookChapterResp
 	},
 
-	async getBookChapters(input: { bookId: number; bookChapterRepository: BookChapterRepository }) {
+	/*async getBookChapters(input: { bookId: number; bookChapterRepository: BookChapterRepository }) {
 		return await input.bookChapterRepository.getBookChapterByBookId(input.bookId)
-	},
+	},*/
 
 	async getBookChapter(input: {
 		app: INestApplication

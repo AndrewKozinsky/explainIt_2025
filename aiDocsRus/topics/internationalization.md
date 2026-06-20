@@ -13,7 +13,6 @@
 | `messages/*.json` | JSON-файлы с переводами (en.json, ru.json, es.json и т.д.) |
 | `utils/languages.ts` | Определения языков (код, названия), `languageKeys`, `LanguageCode` |
 | `utils/pageUrls.ts` | Адреса страниц **без** языкового префикса (`/books`, а не `/en/books`) |
-| `utils/localizePath.ts` | `localizePath(locale, path)` — добавляет языковой префикс к пути |
 
 ## Как это работает
 
