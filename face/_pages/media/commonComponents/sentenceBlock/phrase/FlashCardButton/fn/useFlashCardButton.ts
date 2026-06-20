@@ -1,23 +1,13 @@
 import { useContext } from 'react'
 import { useUserStore } from 'stores/userStore'
+import { getTextByServerErrorMessage, getTextByUnknownError } from 'utils/extractErrorText'
 import { Flashcard_Get_MyDocument, Flashcard_Get_My, useFlashcard_Add, useFlashcard_Remove } from '@/graphql'
-import { extractGraphQLError } from '@/graphql/extractGraphQLError'
 import { NotificationContext } from '@/ui/Notification/context'
-import { getTextByServerErrorMessage, getTextByUnknownError } from '@/utils/errorMessages'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 
 type UseFlashCardButtonInput = {
 	sentencePhraseId: number
 	flashcardId: null | number
-}
-
-function getErrorMessage(error: unknown, fallbackMessage: string) {
-	const graphQLError = extractGraphQLError(error)
-
-	if (graphQLError?.message) return graphQLError.message
-	if (error instanceof Error && error.message) return getTextByUnknownError(error, fallbackMessage)
-
-	return fallbackMessage
 }
 
 export type FlashCardButtonView =
@@ -97,7 +87,7 @@ export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardBut
 
 						notify({
 							type: 'error',
-							message: getErrorMessage(error, 'Не удалось удалить карточку. Попробуйте ещё раз.'),
+							message: getTextByUnknownError(error),
 						})
 					})
 			},
@@ -150,7 +140,7 @@ export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardBut
 
 					notify({
 						type: 'error',
-						message: getErrorMessage(error, 'Не удалось добавить карточку. Попробуйте ещё раз.'),
+						message: getTextByUnknownError(error),
 					})
 				})
 		},

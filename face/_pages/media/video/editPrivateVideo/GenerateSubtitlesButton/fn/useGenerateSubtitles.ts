@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useState } from 'react'
-import { getTextByServerErrorMessage } from 'utils/errorMessages'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import {
 	SubtitlesGenerationStatus,
 	useVideoPrivate_GenerateSubtitles,
@@ -74,13 +74,9 @@ export function useGenerateSubtitles() {
 				setIsPolling(true)
 				await statusQuery.refetch()
 			} catch (err) {
-				getTextByServerErrorMessage(err)
-				// @ts-ignore
-				console.log(err?.errorMessageCode)
 				notify({
 					type: 'error',
-					message:
-						'Не удалось запустить генерацию субтитров. Проверьте, что видео загружено, выбран язык и на балансе достаточно средств.',
+					message: getTextByUnknownError(err),
 				})
 			}
 		},

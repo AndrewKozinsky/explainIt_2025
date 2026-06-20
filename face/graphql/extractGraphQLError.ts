@@ -1,5 +1,5 @@
 import { ApolloError } from '@apollo/client'
-import { getTextByServerErrorMessage } from '@/utils/errorMessages'
+import { getTextByServerErrorMessage } from 'utils/extractErrorText'
 
 type GraphQLExtension = {
 	message: string
@@ -26,6 +26,7 @@ export function extractGraphQLError(error: unknown) {
 
 		const { extensions } = firstError
 		if (!extensions) return null
+
 		const rawExtensions = extensions as RawGraphQLExtensions
 
 		return {

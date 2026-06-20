@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useBooksStore } from '_pages/media/books/booksStore'
 
 /** Наполняет Хранилище данными для начала работы */

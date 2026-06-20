@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocale } from 'next-intl'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { makePhraseId, SentencePhraseType, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
 import { findSentenceEntry } from './selectors'
@@ -155,7 +155,7 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 			phraseId: input.phraseId,
 			patch: {
 				loading: false,
-				error: getTextByUnknownError(error, 'Unknown error'),
+				error: getTextByUnknownError(error),
 			},
 		})
 	}

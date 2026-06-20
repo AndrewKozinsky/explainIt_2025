@@ -23,4 +23,5 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/proxy.md` | прокси, HttpsProxyAgent, proxy |
 | `aiDocsRus/topics/sentenceChat.md` | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread |
 | `aiDocsRus/topics/universalPhraseTranslation.md` | UniversalPhrase, перевод универсальной фразы, universal phrase |
+| `aiDocsRus/topics/errorHandling.md` | ошибки, errorMessageCode, CustomError, extractErrorText, ApolloError, обработка ошибок, error handling |
 | `aiDocsRus/topics/videoPrivateSubtitlesGeneration.md` | генерация субтитров, Deepgram, ffmpeg, SRT, speech-to-text, автоматические субтитры |

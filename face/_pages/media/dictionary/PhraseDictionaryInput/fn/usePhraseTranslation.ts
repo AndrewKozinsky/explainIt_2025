@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useLocale } from 'next-intl'
-import { getTextByServerErrorMessage } from 'utils/errorMessages'
+import { getTextByServerErrorMessage } from 'utils/extractErrorText'
 import { LanguageCode } from 'utils/languages'
 import {
 	useUniversalPhraseTranslation_GetOrCreate,
 	useUniversalPhrase_GetLazyQuery,
 	useUniversalPhrase_Create,
 } from '@/graphql'
+import { errorMessages } from '@/utils/errorMessages'
 import { resolvePhrase } from '_pages/media/commonComponents/resolveUniversalPhrase'
 import { offsetsFromWordIds } from '_pages/media/detailsBlock/DetailsBlock/fn/wordSegmentation'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
@@ -81,14 +82,12 @@ export function usePhraseTranslation() {
 				const result = data?.universal_phrase_translation_get_or_create
 
 				if (!result) {
-					store.getState().setError('Неизвестная ошибка сервера.')
+					store.getState().setError(errorMessages.unknownServerError)
 					return
 				}
 
 				if (result.status === 'error' || result.errorMessage) {
-					store
-						.getState()
-						.setError(getTextByServerErrorMessage(result.errorMessage) || 'Ошибка при получении перевода.')
+					store.getState().setError(getTextByServerErrorMessage(result.errorMessage))
 					return
 				}
 
@@ -101,7 +100,7 @@ export function usePhraseTranslation() {
 					store.getState().setCachedTranslation(cacheKey, result.translation)
 					store.getState().setTranslationResult(result.translation)
 				} else {
-					store.getState().setError('Перевод не был получен.')
+					store.getState().setError(errorMessages.translationWasNotGot)
 				}
 			} catch (error: unknown) {
 				if (error instanceof DOMException && error.name === 'AbortError') {
