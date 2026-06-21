@@ -5,7 +5,7 @@ import { UniversalAudioPronunciationRepository } from 'repo/universalPhraseAudio
 import { UserRepository } from 'repo/user.repository'
 import { UniversalAudioPronunciationResolver } from 'routes/universalPhraseAudio/universalPhraseAudio.resolver'
 import { PrismaService } from 'db/prisma.service'
-import { CreateUniversalAudioPronunciationHandler } from 'features/universalAudioPronunciation/CreateAudioPronunciation.command'
+import { CreateUniversalAudioPronunciationHandler } from 'features/universalPhraseAudio/CreateAudioPronunciation.command'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 
 const services = [PrismaService]

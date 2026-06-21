@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import { ErrorIcon } from 'ui/icons/ErrorIcon'
+import { canLanguageHaveTranscription } from 'utils/languages'
 import { useAudioPlayer } from './fn/useAudioPlayer'
 import PauseIcon from './PauseIcon'
 import PlayIcon from './PlayIcon'
@@ -10,8 +11,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const { phrase, languageCode, audioUrl, transcription, bg = 'pale', extraClass } = props
 	const { isPlaying, handleClick, status } = useAudioPlayer({ phrase, languageCode, audioUrl })
 
-	const isSupportedLanguage = ['en', 'fr'].includes(languageCode)
-	if (!isSupportedLanguage) return null
+	if (!canLanguageHaveTranscription(languageCode)) return null
 
 	const rootClasses = cn(
 		'transcription-audio',

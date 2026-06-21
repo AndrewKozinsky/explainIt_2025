@@ -61,15 +61,10 @@ export const languages: Record<SupportedLanguageCode, { name: string; nameEng: s
 	},*/
 }
 
-const SUPPORTED_TRANSCRIPTION_LANGUAGES: ReadonlySet<LanguageCode> = new Set([
-	LanguageCode.en,
-	LanguageCode.fr,
-])
-
 /**
  * Проверяет, поддерживается ли транскрипция для переданного языка.
  * Сейчас транскрипция доступна только для английского и французского.
  */
 export function canLanguageHaveTranscription(languageCode: LanguageCode): boolean {
-	return SUPPORTED_TRANSCRIPTION_LANGUAGES.has(languageCode)
+	return [languages.en.code, languages.fr.code].includes(languageCode)
 }

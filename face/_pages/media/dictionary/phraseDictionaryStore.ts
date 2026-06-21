@@ -7,6 +7,7 @@ export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	status: 'idle',
 	translation: null,
 	transcription: null,
+	audioUrl: null,
 	error: null,
 	nonExistentWord: false,
 	sourceLanguageCode: null,
@@ -30,8 +31,9 @@ export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set
 		setTranslationResult: (
 			translation: UniversalPhraseTranslationDataOutModel,
 			transcription: TranscriptionOutModel | null,
+			audioUrl?: string | null,
 		) => {
-			set({ translation, transcription, status: 'ready', error: null })
+			set({ translation, transcription, audioUrl: audioUrl ?? null, status: 'ready', error: null })
 		},
 		setError: (error: string) => {
 			set({ error, status: 'error', nonExistentWord: false })
@@ -69,6 +71,7 @@ export type PhraseDictionaryStoreValues = {
 	status: TranslationStatus
 	translation: null | UniversalPhraseTranslationDataOutModel
 	transcription: TranscriptionOutModel | null
+	audioUrl: string | null
 	error: null | string
 	nonExistentWord: boolean
 	sourceLanguageCode: null | string
@@ -84,6 +87,7 @@ export type PhraseDictionaryStoreMethods = {
 	setTranslationResult: (
 		translation: UniversalPhraseTranslationDataOutModel,
 		transcription: TranscriptionOutModel | null,
+		audioUrl?: string | null,
 	) => void
 	setError: (error: string) => void
 	setNonExistentWord: () => void

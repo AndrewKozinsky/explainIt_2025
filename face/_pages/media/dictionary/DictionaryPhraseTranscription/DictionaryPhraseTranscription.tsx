@@ -8,6 +8,7 @@ import './DictionaryPhraseTranscription.scss'
 function DictionaryPhraseTranscription() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const transcription = usePhraseDictionaryStore((s) => s.transcription)
+	const audioUrl = usePhraseDictionaryStore((s) => s.audioUrl)
 	const nonExistentWord = usePhraseDictionaryStore((s) => s.nonExistentWord)
 	const phrase = usePhraseDictionaryStore((s) => s.inputText)
 	const sourceLanguageCode = usePhraseDictionaryStore((s) => s.sourceLanguageCode)
@@ -25,6 +26,7 @@ function DictionaryPhraseTranscription() {
 			<TranscriptionAndAudio
 				phrase={phrase}
 				languageCode={sourceLanguageCode as LanguageCode}
+				audioUrl={audioUrl}
 				transcription={transcriptionState}
 				bg='white'
 			/>

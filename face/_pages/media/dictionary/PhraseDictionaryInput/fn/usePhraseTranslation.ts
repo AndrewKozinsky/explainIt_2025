@@ -43,7 +43,7 @@ export function usePhraseTranslation() {
 			// Проверяем кэш перевода
 			const cached = store.getState().getCachedTranslation(cacheKey)
 			if (cached) {
-				store.getState().setTranslationResult(cached, null)
+				store.getState().setTranslationResult(cached, null, null)
 				return
 			}
 
@@ -95,10 +95,15 @@ export function usePhraseTranslation() {
 					store.getState().setNonExistentWord()
 					return
 				}
-
 				if (result.translation) {
 					store.getState().setCachedTranslation(cacheKey, result.translation)
-					store.getState().setTranslationResult(result.translation, result.transcription ?? null)
+					store
+						.getState()
+						.setTranslationResult(
+							result.translation,
+							result.transcription ?? null,
+							phraseData.audioPronunciation?.audioUrl ?? null,
+						)
 				} else {
 					store.getState().setError(errorMessages.translationWasNotGot)
 				}
