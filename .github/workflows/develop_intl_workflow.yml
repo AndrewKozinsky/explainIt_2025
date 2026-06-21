@@ -2,7 +2,7 @@ name: Deploy to the develop server (International)
 on:
   push:
     branches:
-      - develop
+      - _develop
 
 jobs:
   deploy:

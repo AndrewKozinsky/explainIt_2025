@@ -8,7 +8,8 @@
 }
 
 .chat-input--focus {
-	border-color: vars.$linkColor-2;
+	border-color: vars.$grayColor-5;
+	outline: 3px solid vars.$grayColor-2;
 }
 
 .chat-input__bottom {

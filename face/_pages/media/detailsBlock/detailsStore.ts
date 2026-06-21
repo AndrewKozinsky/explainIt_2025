@@ -1,5 +1,6 @@
 import { produce } from 'immer'
 import { create } from 'zustand'
+import { segmentSentence } from './DetailsBlock/fn/wordSegmentation'
 
 export const detailsStoreValues: DetailsStoreValues = {
 	chapterId: null,
@@ -203,6 +204,25 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 				}),
 			)
 		},
+		getCurrentWords: () => {
+			const state = get()
+			const { currentSentenceId, currentSentenceText, languageCode, sentences } = state
+
+			if (currentSentenceId === null || currentSentenceText === null) {
+				return { sentenceWords: [], phrase: null }
+			}
+
+			const entry = sentences.find((item) => item.sentenceId === currentSentenceId)
+			if (!entry) return { sentenceWords: [], phrase: null }
+
+			const sentenceWords = segmentSentence(currentSentenceText, languageCode).map((w) => w.word)
+
+			const selectedPhrase = entry.data.phrases.find((p) => p.randomGeneratedPhraseId === entry.selectedPhraseId)
+
+			const phrase = selectedPhrase?.phrase ?? null
+
+			return { sentenceWords, phrase }
+		},
 	}
 })
 
@@ -312,4 +332,5 @@ export type DetailsStoreMethods = {
 	setActiveInfoView: (view: InfoViewType) => void
 	retrySentenceTranslation: (sentenceId: number) => void
 	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
+	getCurrentWords: () => { sentenceWords: string[]; phrase: string | null }
 }
