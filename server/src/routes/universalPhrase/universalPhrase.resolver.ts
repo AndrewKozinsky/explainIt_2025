@@ -15,6 +15,7 @@ export class UniversalPhraseResolver {
 	@Query(() => UniversalPhraseOutModel, {
 		name: RouteNames.UNIVERSAL_PHRASE.GET,
 		description: universalPhraseResolversDesc.getUniversalPhrase,
+		nullable: true,
 	})
 	async getUniversalPhrase(@Args('input') input: GetUniversalPhraseInput) {
 		return await this.commandBus.execute(new GetUniversalPhraseCommand(input.text, input.sourceLanguageCode))

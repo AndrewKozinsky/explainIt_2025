@@ -3,7 +3,7 @@ import { useLocale } from 'next-intl'
 import { getTextByServerErrorMessage } from 'utils/extractErrorText'
 import { LanguageCode } from 'utils/languages'
 import { useUniversalPhraseTranslation_GetOrCreate } from '@/graphql'
-import { resolvePhrase } from '@/stores/transcriptionAudioStore'
+import { usePhraseStore } from '@/stores/phraseStore'
 import { errorMessages } from '@/utils/errorMessages'
 import { offsetsFromWordIds } from '_pages/media/detailsBlock/DetailsBlock/fn/wordSegmentation'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
@@ -45,7 +45,9 @@ export function usePhraseTranslation() {
 
 			try {
 				// 1. Получаем или создаём UniversalPhrase (стор сам кэширует и дедуплицирует)
-				const phraseResult = await resolvePhrase(phraseText.trim(), sourceLang as LanguageCode)
+				const phraseResult = await usePhraseStore
+					.getState()
+					.resolvePhrase(phraseText.trim(), sourceLang as LanguageCode)
 
 				if (!phraseResult.ok) {
 					store.getState().setError('Не удалось найти или создать фразу.')

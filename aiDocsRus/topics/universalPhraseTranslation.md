@@ -180,7 +180,7 @@ PhraseDictionary/
    - `nonExistentWord` → сообщение "Такого слова не существует"
    - `error` → `ErrorMessage`
 
-**Защита от гонки:** `resolvePhrase` вынесен в общий модуль `face/_pages/media/commonComponents/resolveUniversalPhrase.ts` с модульным кэшем промисов. `PhraseDictionary`, `usePhrase` (транскрипция) и `useAudioPlayer` (озвучка) используют один и тот же кэш — дублирующие запросы на создание фразы исключены.
+**Защита от гонки:** `resolvePhrase` находится в общем модуле `face/stores/phraseStore/resolvePhrase.ts` с модульным кэшем промисов. `PhraseDictionary`, `TranscriptionAndAudio` и `useAudioPlayback` используют один и тот же кэш — дублирующие запросы на создание фразы исключены.
 
 ## Ключевые файлы
 
@@ -209,7 +209,7 @@ PhraseDictionary/
 - `face/_pages/media/dictionary/PhraseDictionary/PhraseDictionary.tsx` — корневой компонент
 - `face/_pages/media/dictionary/PhraseDictionary/fn/usePhraseTranslation.ts` — хук с логикой запроса
 - `face/_pages/media/dictionary/PhraseDictionary/phraseDictionaryStore.ts` — Zustand-стор с кэшем
-- `face/_pages/media/commonComponents/resolveUniversalPhrase.ts` — общий модуль get-or-create фразы с кэшем
+- `face/stores/phraseStore/resolvePhrase.ts` — общий модуль get-or-create фразы с кэшем
 - `face/graphql/universalPhraseTranslation/universalPhraseTranslationGetOrCreate.graphql` — GraphQL-мутация
 
 ### Инфраструктура

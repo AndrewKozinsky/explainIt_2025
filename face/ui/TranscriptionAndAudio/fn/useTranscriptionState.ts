@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { LanguageCode } from 'utils/languages'
-import { useTranscriptionAudioStore, EntryData } from '@/stores/transcriptionAudioStore'
+import { usePhraseStore, EntryData } from '@/stores/phraseStore'
 import { TranscriptionState } from '../types'
 
 type UseTranscriptionStateInput = {
@@ -8,7 +8,7 @@ type UseTranscriptionStateInput = {
 	languageCode?: LanguageCode
 	propTranscription?: string | null
 	storeEntry?: EntryData
-	store: typeof useTranscriptionAudioStore
+	store: typeof usePhraseStore
 }
 
 export function useTranscriptionState(input: UseTranscriptionStateInput): TranscriptionState | null | undefined {

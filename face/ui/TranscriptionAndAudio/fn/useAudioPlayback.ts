@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { LanguageCode } from 'utils/languages'
-import { useTranscriptionAudioStore, EntryData } from '@/stores/transcriptionAudioStore'
+import { usePhraseStore, EntryData } from '@/stores/phraseStore'
 
 type AudioViewStatus = 'idle' | 'loading' | 'error'
 
@@ -9,7 +9,7 @@ type UseAudioPlaybackInput = {
 	languageCode?: LanguageCode
 	propAudioUrl?: string | null
 	storeEntry?: EntryData
-	store: typeof useTranscriptionAudioStore
+	store: typeof usePhraseStore
 }
 
 type UseAudioPlaybackResult = {

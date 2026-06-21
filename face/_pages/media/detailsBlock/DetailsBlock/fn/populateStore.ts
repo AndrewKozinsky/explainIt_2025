@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { LanguageCode } from 'utils/languages'
 import { useBookChapter_Get, useVideoPrivate_Get, useVideoPublic_Get } from '@/graphql'
-import { useTranscriptionAudioStore, PreloadItem } from '@/stores/transcriptionAudioStore'
+import { usePhraseStore, PreloadItem } from '@/stores/phraseStore'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
 import { useDetailsStore, DetailsSentenceEntry, SentencePhraseType, makePhraseId } from '../../detailsStore'
@@ -43,7 +43,7 @@ function useFetchChapterAndSetToStore() {
 			})
 
 			const preloadItems = extractPreloadItems(rawSentences, languageCode as LanguageCode)
-			useTranscriptionAudioStore.getState().preload(preloadItems)
+			usePhraseStore.getState().preload(preloadItems)
 
 			useDetailsStore.getState().updateStore({ sentences })
 		},
@@ -83,7 +83,7 @@ function useFetchVideoAndSetToStore() {
 			})
 
 			const preloadItems = extractPreloadItems(rawSentences, languageCode as LanguageCode)
-			useTranscriptionAudioStore.getState().preload(preloadItems)
+			usePhraseStore.getState().preload(preloadItems)
 
 			useDetailsStore.getState().updateStore({ sentences })
 		},

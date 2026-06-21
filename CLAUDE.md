@@ -22,6 +22,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/multiRegionDeployment.md` | регионы, деплой, GitHub Actions, explainit.ru, immersia.site, серверы, CI/CD |
 | `aiDocsRus/topics/proxy.md` | прокси, HttpsProxyAgent, proxy |
 | `aiDocsRus/topics/sentenceChat.md` | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread |
-| `aiDocsRus/topics/universalPhraseTranslation.md` | UniversalPhrase, перевод универсальной фразы, universal phrase |
+| `aiDocsRus/topics/universalPhraseTranslation.md` | перевод универсальной фразы, universal phrase translation, GetOrCreateUniversalPhraseTranslation |
+| `aiDocsRus/topics/phraseStore.md` | PhraseStore, usePhraseStore, resolvePhrase, phraseStore, транскрипция, transcription, озвучка, audio pronunciation, универсальная фраза, universal phrase, preload фраз |
 | `aiDocsRus/topics/errorHandling.md` | ошибки, errorMessageCode, CustomError, extractErrorText, ApolloError, обработка ошибок, error handling |
 | `aiDocsRus/topics/videoPrivateSubtitlesGeneration.md` | генерация субтитров, Deepgram, ffmpeg, SRT, speech-to-text, автоматические субтитры |
