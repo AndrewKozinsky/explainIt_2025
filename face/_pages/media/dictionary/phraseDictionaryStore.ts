@@ -12,7 +12,7 @@ export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	nonExistentWord: false,
 	sourceLanguageCode: null,
 	targetLanguageCode: 'ru',
-	provider: 'gemini',
+	provider: 'deepseek',
 	cache: {},
 }
 

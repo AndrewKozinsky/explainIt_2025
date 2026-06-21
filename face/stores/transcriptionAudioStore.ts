@@ -53,9 +53,9 @@ export function makeKey(phrase: string, languageCode: LanguageCode): string {
 const transcriptionRequests = new Map<string, Promise<void>>()
 const audioRequests = new Map<string, Promise<void>>()
 
-// ---- Phrase resolution (imperative Apollo, mirrors resolveUniversalPhrase.ts pattern) ----
+// ---- Phrase resolution (imperative Apollo, the single source of truth for get-or-create) ----
 
-type PhraseData = {
+export type PhraseData = {
 	id: number
 	text: string
 	sourceLanguageCode: string
@@ -63,11 +63,11 @@ type PhraseData = {
 	audioPronunciation?: { id: number; universalPhraseId: number; audioUrl: string } | null
 }
 
-type PhraseResult = { ok: true; data: PhraseData } | { ok: false }
+export type PhraseResult = { ok: true; data: PhraseData } | { ok: false }
 
 const phraseRequestCache = new Map<string, Promise<PhraseResult>>()
 
-async function resolvePhrase(phrase: string, languageCode: LanguageCode): Promise<PhraseResult> {
+export async function resolvePhrase(phrase: string, languageCode: LanguageCode): Promise<PhraseResult> {
 	const key = makeKey(phrase, languageCode)
 	const cached = phraseRequestCache.get(key)
 	if (cached) return cached

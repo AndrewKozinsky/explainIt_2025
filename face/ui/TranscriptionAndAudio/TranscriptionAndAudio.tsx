@@ -4,15 +4,22 @@ import { ErrorIcon } from 'ui/icons/ErrorIcon'
 import Spinner from 'ui/Spinner/Spinner'
 import { canLanguageHaveTranscription } from 'utils/languages'
 import { useTranscriptionAudioStore, makeKey } from '@/stores/transcriptionAudioStore'
-import { useTranscriptionState } from './fn/useTranscriptionState'
 import { useAudioPlayback } from './fn/useAudioPlayback'
+import { useTranscriptionState } from './fn/useTranscriptionState'
 import PauseIcon from './PauseIcon'
 import PlayIcon from './PlayIcon'
 import { TranscriptionAndAudioProps, TranscriptionState } from './types'
 import './TranscriptionAndAudio.scss'
 
 function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
-	const { bg = 'pale', extraClass, phrase, languageCode, audioUrl: propAudioUrl, transcription: propTranscription } = props
+	const {
+		bg = 'pale',
+		extraClass,
+		phrase,
+		languageCode,
+		audioUrl: propAudioUrl,
+		transcription: propTranscription,
+	} = props
 
 	const store = useTranscriptionAudioStore
 	const key = phrase && languageCode ? makeKey(phrase, languageCode) : null
@@ -48,7 +55,12 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	)
 
 	return (
-		<BaseButton extraClass={rootClasses} onClick={handleClick} type='button' theme='regular'>
+		<BaseButton
+			extraClass={rootClasses}
+			onClick={handleClick}
+			type='button'
+			theme={bg === 'pale' ? 'regular' : 'plain'}
+		>
 			{showAudioIcon ? <AudioIcon audioStatus={audioStatus} isPlaying={isPlaying} /> : null}
 			<TranscriptionBlock transcription={effectiveTranscription} />
 		</BaseButton>

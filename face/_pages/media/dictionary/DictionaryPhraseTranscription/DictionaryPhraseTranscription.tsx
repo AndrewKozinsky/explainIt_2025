@@ -12,7 +12,10 @@ function DictionaryPhraseTranscription() {
 	const phrase = usePhraseDictionaryStore((s) => s.inputText)
 	const sourceLanguageCode = usePhraseDictionaryStore((s) => s.sourceLanguageCode)
 
-	if (status !== 'ready' || nonExistentWord || !phrase || !sourceLanguageCode) {
+	/*if (status !== 'ready' || nonExistentWord || !phrase || !sourceLanguageCode) {
+		return null
+	}*/
+	if (!phrase || !sourceLanguageCode) {
 		return null
 	}
 

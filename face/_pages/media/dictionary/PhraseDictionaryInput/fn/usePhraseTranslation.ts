@@ -2,13 +2,9 @@ import { useCallback, useEffect, useRef } from 'react'
 import { useLocale } from 'next-intl'
 import { getTextByServerErrorMessage } from 'utils/extractErrorText'
 import { LanguageCode } from 'utils/languages'
-import {
-	useUniversalPhraseTranslation_GetOrCreate,
-	useUniversalPhrase_GetLazyQuery,
-	useUniversalPhrase_Create,
-} from '@/graphql'
+import { useUniversalPhraseTranslation_GetOrCreate } from '@/graphql'
+import { resolvePhrase } from '@/stores/transcriptionAudioStore'
 import { errorMessages } from '@/utils/errorMessages'
-import { resolvePhrase } from '_pages/media/commonComponents/resolveUniversalPhrase'
 import { offsetsFromWordIds } from '_pages/media/detailsBlock/DetailsBlock/fn/wordSegmentation'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { makeCacheKey, usePhraseDictionaryStore } from '../../phraseDictionaryStore'
@@ -26,8 +22,6 @@ export function usePhraseTranslation() {
 	const store = usePhraseDictionaryStore
 
 	const [mutateTranslation] = useUniversalPhraseTranslation_GetOrCreate()
-	const [getPhrase] = useUniversalPhrase_GetLazyQuery()
-	const [createPhrase] = useUniversalPhrase_Create()
 
 	const abortRef = useRef<AbortController | null>(null)
 
@@ -50,18 +44,15 @@ export function usePhraseTranslation() {
 			store.getState().setStatusLoading()
 
 			try {
-				// 1. Получаем или создаём UniversalPhrase (общий кэш с транскрипцией/озвучкой)
-				const phraseData = await resolvePhrase(
-					phraseText.trim(),
-					sourceLang as LanguageCode,
-					getPhrase,
-					createPhrase,
-				)
+				// 1. Получаем или создаём UniversalPhrase (стор сам кэширует и дедуплицирует)
+				const phraseResult = await resolvePhrase(phraseText.trim(), sourceLang as LanguageCode)
 
-				if (!phraseData) {
+				if (!phraseResult.ok) {
 					store.getState().setError('Не удалось найти или создать фразу.')
 					return
 				}
+
+				const phraseData = phraseResult.data
 
 				// 2. Запрашиваем перевод по universalPhraseId
 				const { data } = await mutateTranslation({
@@ -114,7 +105,7 @@ export function usePhraseTranslation() {
 				store.getState().setError(getTextByServerErrorMessage(error))
 			}
 		},
-		[languageCode, locale, mutateTranslation, getPhrase, createPhrase, store],
+		[languageCode, locale, mutateTranslation, store],
 	)
 
 	// Следит за кликом по слову
