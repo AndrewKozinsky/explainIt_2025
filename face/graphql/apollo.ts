@@ -11,6 +11,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 	}
 
 	if (networkError) {
+		// AbortError — expected when a request is intentionally cancelled (e.g. user switches words quickly)
+		if (networkError.name === 'AbortError') return
 		console.error(`[Network error]: ${networkError}`)
 	}
 })

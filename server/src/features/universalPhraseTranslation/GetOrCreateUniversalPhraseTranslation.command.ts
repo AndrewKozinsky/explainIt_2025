@@ -1,5 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
+import { UniversalPhraseTranslationQueryRepository } from 'repo/universalPhraseTranslation.queryRepository'
 import { UniversalPhraseTranslationRepository } from 'repo/universalPhraseTranslation.repository'
 import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
 import { GetOrCreateUniversalPhraseCommand } from 'features/universalPhrase/GetOrCreateUniversalPhrase.command'
@@ -7,7 +8,7 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
-import { UniversalPhraseTranslationServiceModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
+import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
 import { LanguageCode } from 'prisma/generated/enums'
 import { buildUniversalPhraseTranslationPrompt } from './buildUniversalPhraseTranslationPrompt'
 import { parseUniversalPhraseTranslationResult } from './parseUniversalPhraseTranslationResult'
@@ -20,7 +21,7 @@ export type GetOrCreateUniversalPhraseTranslationInput = {
 	provider: TranslationProviderName
 }
 
-export type GetOrCreateUniversalPhraseTranslationResult = UniversalPhraseTranslationServiceModel
+export type GetOrCreateUniversalPhraseTranslationResult = UniversalPhraseTranslationOutModel
 
 export class GetOrCreateUniversalPhraseTranslationCommand implements ICommand {
 	constructor(public input: GetOrCreateUniversalPhraseTranslationInput) {}
@@ -31,6 +32,7 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 	constructor(
 		private universalPhraseRepository: UniversalPhraseRepository,
 		private universalPhraseTranslationRepository: UniversalPhraseTranslationRepository,
+		private universalPhraseTranslationQueryRepository: UniversalPhraseTranslationQueryRepository,
 		private llmAdapter: LlmAdapterService,
 		private commandBus: CommandBus,
 	) {}
@@ -40,16 +42,11 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 	): Promise<GetOrCreateUniversalPhraseTranslationResult> {
 		const { universalPhraseId, phraseText, sourceLanguageCode, targetLanguageCode, provider } = command.input
 
-		// 2. Получаем universalPhraseId (get-or-create если передан текст)
+		// 1. Получаем universalPhraseId (get-or-create если передан текст)
 		let resolvedPhraseId: number
 
 		if (universalPhraseId) {
-			const sourcePhrase = await this.universalPhraseRepository.findByIdWithRelations(universalPhraseId)
-			if (!sourcePhrase) {
-				throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
-			}
-
-			resolvedPhraseId = sourcePhrase.id
+			resolvedPhraseId = universalPhraseId
 		} else if (phraseText && sourceLanguageCode) {
 			const phrase = await this.commandBus.execute(
 				new GetOrCreateUniversalPhraseCommand({
@@ -63,35 +60,37 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
 		}
 
-		// 1. Ищем уже существующий перевод
+		// 2. Получаем фразу-источник
+		const sourcePhrase = await this.universalPhraseRepository.findByIdWithRelations(resolvedPhraseId)
+		if (!sourcePhrase) {
+			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
+		}
+
+		// 3. Ищем уже существующий перевод
 		const existingTranslation = await this.universalPhraseTranslationRepository.findByPhraseIdAndTargetLang(
 			resolvedPhraseId,
 			targetLanguageCode,
 		)
 
 		if (existingTranslation && existingTranslation.status === 'ready') {
-			return existingTranslation
+			return (await this.universalPhraseTranslationQueryRepository.getById(existingTranslation.id))!
 		}
 
-		// Получаем фразу-источник для промпта
-		const sourcePhrase = await this.universalPhraseRepository.findByIdWithRelations(resolvedPhraseId)
-		if (!sourcePhrase) {
-			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
-		}
-
-		// 3. Создаём или находим pending-запись
-		let pendingTranslation: UniversalPhraseTranslationServiceModel
+		// 4. Создаём или находим pending-запись
+		let translationId: number
 
 		if (existingTranslation) {
-			pendingTranslation = existingTranslation
+			translationId = existingTranslation.id
 		} else {
-			pendingTranslation = await this.universalPhraseTranslationRepository.createPending({
+			const pending = await this.universalPhraseTranslationRepository.createPending({
 				universalPhraseId: resolvedPhraseId,
 				targetLanguageCode,
 			})
+
+			translationId = pending.id
 		}
 
-		// 4. Запрашиваем перевод через LLM
+		// 5. Запрашиваем перевод через LLM
 		try {
 			const systemPrompt = buildUniversalPhraseTranslationPrompt({
 				sourceLanguageCode: sourcePhrase.sourceLanguageCode as LanguageCode,
@@ -109,7 +108,7 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 				lowPriority: true,
 			})
 
-			// 5. Парсим результат
+			// 6. Парсим результат
 			const parsedResult = parseUniversalPhraseTranslationResult(llmResponse.content)
 
 			if (parsedResult.type === 'invalid') {
@@ -119,26 +118,19 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 				)
 			}
 
-			// 6. Сохраняем результат
+			// 7. Сохраняем результат
 			if (parsedResult.type === 'nonExistentWord') {
-				const savedTranslation = await this.universalPhraseTranslationRepository.updateToNonExistentWord(
-					pendingTranslation.id,
-				)
-
-				return savedTranslation
+				await this.universalPhraseTranslationRepository.updateToNonExistentWord(translationId)
+			} else {
+				await this.universalPhraseTranslationRepository.updateToReady(translationId, parsedResult.data)
 			}
 
-			const savedTranslation = await this.universalPhraseTranslationRepository.updateToReady(
-				pendingTranslation.id,
-				parsedResult.data,
-			)
-
-			return savedTranslation
+			return (await this.universalPhraseTranslationQueryRepository.getById(translationId))!
 		} catch (error) {
 			const errorMessageText =
 				error instanceof Error ? error.message : serializeErrorMessage(errorMessage.unknownError)
 
-			await this.universalPhraseTranslationRepository.updateToError(pendingTranslation.id, errorMessageText)
+			await this.universalPhraseTranslationRepository.updateToError(translationId, errorMessageText)
 
 			if (error instanceof CustomError) {
 				throw error

@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import cn from 'classnames'
+import ContainerWidthObserver from 'ui/ContainerWidthObserver/ContainerWidthObserver'
 import LlmProviderSwitch from '../LlmProviderSwitch/LlmProviderSwitch'
 import PromptTextarea, { PromptTextareaHandle } from '../PromptTextarea/PromptTextarea'
 import SendAndCancelButtons from '../SendAndCancelButtons/SendAndCancelButtons'
@@ -26,20 +27,26 @@ function ChatInput(props: ChatInputProps) {
 	return (
 		<div className={cn('chat-input', isTextAreaFocused && 'chat-input--focus')}>
 			<PromptTextarea ref={promptTextareaRef} onSend={onSend} />
-			<div className='chat-input__bottom'>
-				<div>
-					<ChatInputWarningMessage />
-					<LlmProviderSwitch />
-				</div>
-				<div className='chat-input__actions'>
-					<VoiceInputButton onInsert={(text) => promptTextareaRef.current?.insertAtCaret(text)} />
-					<SendAndCancelButtons
-						isGenerating={isGenerating}
-						onSend={() => promptTextareaRef.current?.submit()}
-						onCancel={onCancel}
-					/>
-				</div>
-			</div>
+			<ContainerWidthObserver extraClass='chat-input__bottom' widths={[380]}>
+				{(containerWidthRangeIndex) => {
+					return (
+						<>
+							<div>
+								<ChatInputWarningMessage />
+								<LlmProviderSwitch smallIcons={containerWidthRangeIndex === 1} />
+							</div>
+							<div className='chat-input__actions'>
+								<VoiceInputButton onInsert={(text) => promptTextareaRef.current?.insertAtCaret(text)} />
+								<SendAndCancelButtons
+									isGenerating={isGenerating}
+									onSend={() => promptTextareaRef.current?.submit()}
+									onCancel={onCancel}
+								/>
+							</div>
+						</>
+					)
+				}}
+			</ContainerWidthObserver>
 		</div>
 	)
 }

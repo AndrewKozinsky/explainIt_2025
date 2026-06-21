@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { useSentence_Chat_Get_ThreadLazyQuery } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useSentenceChatStore } from '../../sentenceChatStore'
 import { ChatMessageStatus } from '../../types/sseTypes'
 
@@ -42,7 +42,7 @@ export function useLoadChatThread(input: {
 					if (cancelled) return
 
 					useSentenceChatStore.getState().updateStore({
-						threadError: getTextByUnknownError(err, 'Не удалось загрузить ветку диалога'),
+						threadError: getTextByUnknownError(err),
 						isLoadingThread: false,
 					})
 				})

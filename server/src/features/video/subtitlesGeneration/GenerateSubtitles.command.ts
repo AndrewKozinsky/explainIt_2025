@@ -62,6 +62,12 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 			asrMarkupMultiplier,
 		})
 
+		// Ensure user has enough balance before transitioning to pending
+		await this.userBalanceTransactionRepository.ensureCanChargeOrThrow({
+			userId,
+			minBalanceInKopecks: amountInKopecks,
+		})
+
 		// Atomic transition: idle/done/failed -> pending. Guards against parallel runs.
 		const transitioned = await this.videoRepository.tryStartSubtitlesGeneration(videoId, userId)
 		if (!transitioned) {
@@ -84,6 +90,7 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.failed, {
 				error: err instanceof Error ? err.message : 'Failed to enqueue subtitles generation job',
 			})
+
 			throw err
 		}
 

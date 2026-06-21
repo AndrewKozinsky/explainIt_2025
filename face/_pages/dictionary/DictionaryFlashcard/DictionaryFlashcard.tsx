@@ -52,8 +52,8 @@ function Phrase(props: DictionaryFlashcardProps) {
 			<TranscriptionAndAudio
 				phrase={flashcard.phrase}
 				languageCode={flashcard.languageCode as LanguageCode}
-				audioUrl={flashcard.phraseAudioUrl || null}
-				transcription={{ status: 'ready', transcription: flashcard.phraseTranscription || null }}
+				audioUrl={flashcard.phraseAudioUrl}
+				transcription={flashcard.phraseTranscription}
 				extraClass='dictionary-flashcard__phrase-transcription'
 			/>
 			{flashcard.phraseTranslation}

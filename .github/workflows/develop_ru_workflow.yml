@@ -1,0 +1,40 @@
+name: Deploy to the develop server (Russia)
+on:
+  push:
+    branches:
+      - _develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Russian develop server
+        run: |
+          ssh -o StrictHostKeyChecking=no root@185.170.10.212 << 'EOF'
+            cd ~/sites/explain_dev
+
+            git checkout develop
+            git fetch origin develop
+            git reset --hard origin/develop
+
+            # Generate .env file
+            echo "${{ secrets.ENV_FILE_DEV }}" > docker/.env.serverdevelop
+
+            # Copy env file to server folder because it needs for migrations
+            cp docker/.env.serverdevelop server/.env
+
+            # Copy env file to face folder because it needs for getting oauth client id
+            cp docker/.env.serverdevelop face/.env
+
+            docker compose -f docker/docker-compose.server.develop.ru.yml --project-directory . --env-file docker/.env.serverdevelop down
+            docker compose -f docker/docker-compose.server.develop.ru.yml --project-directory . --env-file docker/.env.serverdevelop up --build -d
+          EOF

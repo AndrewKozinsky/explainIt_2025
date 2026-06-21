@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
 import { useLocale } from 'next-intl'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import {
 	SentencePhraseTranslationOutModel,
 	useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery,
 	useTranslate_Translate_Sentence,
 } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { makePhraseId, SentencePhraseType, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
 import { wordIdsFromOffsets } from './wordSegmentation'
@@ -113,7 +113,7 @@ async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<voi
 			sentenceId: input.sentenceId,
 			patch: {
 				loading: false,
-				error: getTextByUnknownError(error, 'Unknown error'),
+				error: getTextByUnknownError(error),
 			},
 		})
 

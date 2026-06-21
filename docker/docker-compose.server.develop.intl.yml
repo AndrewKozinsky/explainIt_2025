@@ -1,0 +1,107 @@
+services:
+  explainnginxserverdevelop:
+    image: nginx:1.19.7-alpine
+    container_name: explainnginxserverdevelop
+    depends_on:
+      - explainpostgresserverdevelop
+      - explainserverserverdevelop
+      - explainfaceserverdevelop
+      - explainhelpserverdevelop
+    volumes:
+      - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
+    environment:
+      VIRTUAL_HOST: dev.immersia.site,www.dev.immersia.site
+      LETSENCRYPT_HOST: dev.immersia.site,www.dev.immersia.site
+  explainpostgresserverdevelop:
+    image: postgres:16.2
+    restart: unless-stopped
+    container_name: explainpostgresserverdevelop
+    ports:
+      - 5446:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - docker/.env.serverdevelop
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+  explainredisserverdevelop:
+    image: redis:7.4.4
+    restart: unless-stopped
+    container_name: explainredisserverdevelop
+    ports:
+      - 6383:6379
+    env_file:
+      - docker/.env.serverdevelop
+    volumes:
+      - redis_data:/data
+  explainserverserverdevelop:
+    build:
+      context: server/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    volumes: []
+    command: npm run start:prod
+    container_name: explainserverserverdevelop
+    depends_on:
+      - explainpostgresserverdevelop
+      - explainnlpserverdevelop
+      - explainredisserverdevelop
+    environment:
+      MODE: serverdevelop
+      PORT: 3001
+    env_file:
+      - docker/.env.serverdevelop
+  explainserverworkerserverdevelop:
+    build:
+      context: server/
+      dockerfile: Dockerfile.worker.server
+    restart: unless-stopped
+    command: npm run start:worker:prod
+    container_name: explainserverworkerserverdevelop
+    depends_on:
+      - explainpostgresserverdevelop
+      - explainredisserverdevelop
+      - explainnlpserverdevelop
+    environment:
+      MODE: serverdevelop
+      PORT: 3001
+    env_file:
+      - docker/.env.serverdevelop
+  explainfaceserverdevelop:
+    build:
+      context: face/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    volumes: []
+    command: npm run start
+    container_name: explainfaceserverdevelop
+    depends_on:
+      - explainpostgresserverdevelop
+      - explainserverserverdevelop
+    environment:
+      MODE: serverdevelop
+      NEXT_PUBLIC_REGION: intl
+  explainhelpserverdevelop:
+    build:
+      context: help/
+      dockerfile: Dockerfile.server
+    restart: unless-stopped
+    command: npm run start
+    container_name: explainhelpserverdevelop
+    environment:
+      MODE: serverdevelop
+  explainnlpserverdevelop:
+    build:
+      context: nlp/
+      dockerfile: Dockerfile
+    ports:
+      - 8003:8000
+networks:
+  default:
+    external: true
+    name: nginx-proxy
+volumes:
+  pgdata: {}
+  redis_data: {}

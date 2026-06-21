@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
 import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useChapterStore } from '../../chapterStore'
 
 /** Наполняет Хранилище данными для начала работы */

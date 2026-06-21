@@ -1,0 +1,7 @@
+mutation UniversalPhraseAudioGetOrCreate($input: CreateUniversalPhraseAudioInput!) {
+	universal_phrase_audio_get_or_create(input: $input) {
+		id
+		universalPhraseId
+		audioUrl
+	}
+}

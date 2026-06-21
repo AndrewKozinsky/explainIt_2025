@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import header from 'ui/articleBuilder/components/Header/Header'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { localStorageManager } from 'utils/localStorageManager'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
 import {
@@ -10,7 +10,6 @@ import {
 	useBook_GetBookPublic,
 	useBookChapter_Get,
 } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { populateChapterStructure } from './populateChapterStructure'
 

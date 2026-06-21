@@ -68,6 +68,10 @@ export interface GetUniversalPhraseInput {
     sourceLanguageCode: string;
 }
 
+export interface GetUniversalPhraseAudioInput {
+    universalPhraseId: number;
+}
+
 export interface GetMyFlashcardsInput {
     languageCode?: Nullable<string>;
 }
@@ -438,6 +442,7 @@ export interface UniversalPhraseTranslationOutModel {
     errorMessage?: Nullable<string>;
     nonExistentWord: boolean;
     createdAt: string;
+    transcription?: Nullable<TranscriptionOutModel>;
 }
 
 export interface CreateVideoPrivateOutModel {
@@ -613,7 +618,8 @@ export interface IQuery {
     translate_get_phrase_translation(input: GetPhraseTranslationInput): Nullable<SentencePhraseTranslationOutModel> | Promise<Nullable<SentencePhraseTranslationOutModel>>;
     translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
     sentence_chat_get_thread(input: GetSentenceChatThreadInput): Nullable<SentenceChatThreadOutModel> | Promise<Nullable<SentenceChatThreadOutModel>>;
-    universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
+    universal_phrase_get(input: GetUniversalPhraseInput): Nullable<UniversalPhraseOutModel> | Promise<Nullable<UniversalPhraseOutModel>>;
+    universal_phrase_audio_get(input: GetUniversalPhraseAudioInput): Nullable<UniversalAudioPronunciationOutModel> | Promise<Nullable<UniversalAudioPronunciationOutModel>>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
     flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
 }
@@ -641,9 +647,9 @@ export interface IMutation {
     sentence_chat_create_thread(input: CreateSentenceChatThreadInput): SentenceChatThreadOutModel | Promise<SentenceChatThreadOutModel>;
     sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): SentenceChatMessageOutModel | Promise<SentenceChatMessageOutModel>;
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
-    create_transcription(input: CreateUniversalPhraseTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
+    universal_phrase_transcription_get_or_create(input: CreateUniversalPhraseTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput): UniversalPhraseTranslationOutModel | Promise<UniversalPhraseTranslationOutModel>;
-    create_audio_pronunciation(input: CreateUniversalPhraseAudioInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
+    universal_phrase_audio_get_or_create(input: CreateUniversalPhraseAudioInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
     flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
     flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
 }

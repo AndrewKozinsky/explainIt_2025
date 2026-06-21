@@ -1,9 +1,20 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { TranscriptionOutModel } from 'models/transcription/transcription.out.model'
 import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
 import { UniversalPhraseTranslationData } from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
-import { UniversalPhraseTranslation } from 'prisma/generated/client'
+import { Prisma } from 'prisma/generated/client'
+
+type TranslationWithPhraseAndTranscription = Prisma.UniversalPhraseTranslationGetPayload<{
+	include: {
+		universal_phrase: {
+			include: {
+				UniversalTranscription: true
+			}
+		}
+	}
+}>
 
 @Injectable()
 export class UniversalPhraseTranslationQueryRepository {
@@ -11,20 +22,36 @@ export class UniversalPhraseTranslationQueryRepository {
 
 	@CatchDbError()
 	async getById(id: number): Promise<null | UniversalPhraseTranslationOutModel> {
-		const db = await this.prisma.universalPhraseTranslation.findUnique({
+		const phraseTranscription = await this.prisma.universalPhraseTranslation.findUnique({
 			where: { id },
+			include: {
+				universal_phrase: {
+					include: {
+						UniversalTranscription: true,
+					},
+				},
+			},
 		})
-		if (!db) return null
+		if (!phraseTranscription) return null
 
-		return this.mapDbToOut(db)
+		return this.mapDbToOut(phraseTranscription as TranslationWithPhraseAndTranscription)
 	}
 
-	private mapDbToOut(db: UniversalPhraseTranslation): UniversalPhraseTranslationOutModel {
+	private mapDbToOut(db: TranslationWithPhraseAndTranscription): UniversalPhraseTranslationOutModel {
 		let translation: null | UniversalPhraseTranslationData = null
 
 		if (db.translation) {
 			translation = JSON.parse(db.translation) as UniversalPhraseTranslationData
 		}
+
+		const transcription: TranscriptionOutModel | null = db.universal_phrase?.UniversalTranscription
+			? {
+					id: db.universal_phrase.UniversalTranscription.id,
+					universalPhraseId: db.universal_phrase.UniversalTranscription.universal_phrase_id,
+					ipa: db.universal_phrase.UniversalTranscription.ipa,
+					pinyin: db.universal_phrase.UniversalTranscription.pinyin,
+				}
+			: null
 
 		return {
 			id: db.id,
@@ -35,6 +62,7 @@ export class UniversalPhraseTranslationQueryRepository {
 			errorMessage: db.error_message,
 			nonExistentWord: db.non_existent_word,
 			createdAt: db.created_at.toISOString(),
+			transcription,
 		}
 	}
 }

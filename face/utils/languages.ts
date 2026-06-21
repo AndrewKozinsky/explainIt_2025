@@ -59,3 +59,11 @@ export const languages = {
 export type LanguageCode = keyof typeof languages
 
 export const languageKeys = Object.keys(languages) as LanguageCode[]
+
+/**
+ * Проверяет, поддерживается ли транскрипция для переданного языка.
+ * Сейчас транскрипция доступна только для английского и французского.
+ */
+export function canLanguageHaveTranscription(languageCode: LanguageCode): boolean {
+	return [languages.en.code, languages.fr.code].includes(languageCode)
+}

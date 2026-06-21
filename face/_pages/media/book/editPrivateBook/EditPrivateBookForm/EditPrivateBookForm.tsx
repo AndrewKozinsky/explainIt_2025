@@ -27,11 +27,12 @@ export default function EditBookForm() {
 		control,
 		formState: { errors, isDirty },
 		setError,
+		setValue,
 	} = useForm<ChangeBookFormData>({
 		resolver: yupResolver(changeBookFormSchema as yup.AnyObjectSchema),
 	})
 
-	useSetFieldValues(reset)
+	useSetFieldValues(reset, setValue)
 
 	const onSubmit = useGetOnUpdateBookFormSubmit(setError, setFormStatus, setFormError)
 	const isFormDisabled = ['success', 'submitting'].includes(formStatus)

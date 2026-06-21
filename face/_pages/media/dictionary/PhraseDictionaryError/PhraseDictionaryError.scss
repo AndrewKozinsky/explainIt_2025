@@ -1,0 +1,13 @@
+@use '@/styles/variables' as vars;
+
+.phrase-dictionary-error {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.2rem;
+}
+
+.phrase-dictionary-error__message {
+	flex: 1;
+	min-width: 0;
+}
