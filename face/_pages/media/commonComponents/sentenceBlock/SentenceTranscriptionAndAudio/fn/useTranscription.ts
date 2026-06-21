@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useTranscription_Create, Transcription_CreateHookResult } from '@/graphql'
+import { useUniversalPhaseTranscriptionGetOrCreate, UniversalPhaseTranscriptionGetOrCreateHookResult } from '@/graphql'
 import { getCachedTranscription, upsertCachedTranscription } from './transcriptionCache'
 import { TranscriptionData } from './types'
 
@@ -9,11 +9,11 @@ type UseTranscriptionInput = {
 	phrase: string
 }
 
-type CreateTranscriptionFn = Transcription_CreateHookResult[0]
+type CreateTranscriptionFn = UniversalPhaseTranscriptionGetOrCreateHookResult[0]
 
 export function useTranscription({ phraseId, phraseTranscription, phrase }: UseTranscriptionInput) {
 	const [transcription, setTranscription] = useState<TranscriptionData>({ status: 'loading' })
-	const [createTranscription] = useTranscription_Create()
+	const [createTranscription] = useUniversalPhaseTranscriptionGetOrCreate()
 
 	useEffect(() => {
 		if (phraseId === null) return
@@ -72,7 +72,7 @@ function resolveTranscription(
 	const request: Promise<TranscriptionResult> = (async () => {
 		try {
 			const result = await createTranscription({ variables: { input: { universalPhraseId: phraseId } } })
-			return { ok: true, ipa: result.data?.create_transcription.ipa ?? null }
+			return { ok: true, ipa: result.data?.universal_phrase_transcription_get_or_create.ipa ?? null }
 		} catch {
 			return { ok: false }
 		}
