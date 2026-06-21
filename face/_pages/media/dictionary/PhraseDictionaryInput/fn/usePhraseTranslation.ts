@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react'
+import { ApolloError } from '@apollo/client'
 import { useLocale } from 'next-intl'
 import { getTextByServerErrorMessage } from 'utils/extractErrorText'
 import { LanguageCode } from 'utils/languages'
@@ -19,8 +20,6 @@ export function usePhraseTranslation() {
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 
-	const store = usePhraseDictionaryStore
-
 	const [mutateTranslation] = useUniversalPhraseTranslation_GetOrCreate()
 
 	const abortRef = useRef<AbortController | null>(null)
@@ -35,13 +34,13 @@ export function usePhraseTranslation() {
 			const cacheKey = makeCacheKey(phraseText.trim(), sourceLang, targetLang)
 
 			// Проверяем кэш перевода
-			const cached = store.getState().getCachedTranslation(cacheKey)
+			const cached = usePhraseDictionaryStore.getState().getCachedTranslation(cacheKey)
 			if (cached) {
-				store.getState().setTranslationResult(cached, null, null)
+				usePhraseDictionaryStore.getState().setTranslationResult(cached, null, null)
 				return
 			}
 
-			store.getState().setStatusLoading()
+			usePhraseDictionaryStore.getState().setStatusLoading()
 
 			try {
 				// 1. Получаем или создаём UniversalPhrase (стор сам кэширует и дедуплицирует)
@@ -50,7 +49,7 @@ export function usePhraseTranslation() {
 					.resolvePhrase(phraseText.trim(), sourceLang as LanguageCode)
 
 				if (!phraseResult.ok) {
-					store.getState().setError('Не удалось найти или создать фразу.')
+					usePhraseDictionaryStore.getState().setError('Не удалось найти или создать фразу.')
 					return
 				}
 
@@ -75,22 +74,22 @@ export function usePhraseTranslation() {
 				const result = data?.universal_phrase_translation_get_or_create
 
 				if (!result) {
-					store.getState().setError(errorMessages.unknownServerError)
+					usePhraseDictionaryStore.getState().setError(errorMessages.unknownServerError)
 					return
 				}
 
 				if (result.status === 'error' || result.errorMessage) {
-					store.getState().setError(getTextByServerErrorMessage(result.errorMessage))
+					usePhraseDictionaryStore.getState().setError(getTextByServerErrorMessage(result.errorMessage))
 					return
 				}
 
 				if (result.nonExistentWord) {
-					store.getState().setNonExistentWord()
+					usePhraseDictionaryStore.getState().setNonExistentWord()
 					return
 				}
 				if (result.translation) {
-					store.getState().setCachedTranslation(cacheKey, result.translation)
-					store
+					usePhraseDictionaryStore.getState().setCachedTranslation(cacheKey, result.translation)
+					usePhraseDictionaryStore
 						.getState()
 						.setTranslationResult(
 							result.translation,
@@ -98,16 +97,21 @@ export function usePhraseTranslation() {
 							phraseData.audioPronunciation?.audioUrl ?? null,
 						)
 				} else {
-					store.getState().setError(errorMessages.translationWasNotGot)
+					usePhraseDictionaryStore.getState().setError(errorMessages.translationWasNotGot)
 				}
 			} catch (error: unknown) {
+				// AbortError — expected when the user quickly switches words
 				if (error instanceof DOMException && error.name === 'AbortError') {
 					return
 				}
-				store.getState().setError(getTextByServerErrorMessage(error))
+				// Apollo wraps AbortError in ApolloError, so check networkError too
+				if (error instanceof ApolloError && error.networkError?.name === 'AbortError') {
+					return
+				}
+				usePhraseDictionaryStore.getState().setError(getTextByServerErrorMessage(error))
 			}
 		},
-		[languageCode, locale, mutateTranslation, store],
+		[languageCode, locale, mutateTranslation, usePhraseDictionaryStore],
 	)
 
 	// Следит за кликом по слову
@@ -121,8 +125,8 @@ export function usePhraseTranslation() {
 			})
 			if (!offsets || !offsets.text.trim()) return
 
-			store.getState().setInputText(offsets.text)
-			store.getState().setSourceLanguageCode(languageCode)
+			usePhraseDictionaryStore.getState().setInputText(offsets.text)
+			usePhraseDictionaryStore.getState().setSourceLanguageCode(languageCode)
 
 			// Отменяем предыдущий запрос
 			abortRef.current?.abort()
@@ -137,7 +141,7 @@ export function usePhraseTranslation() {
 	// Обработчик ручного ввода (Enter)
 	const handleSubmit = useCallback(
 		function () {
-			const text = store.getState().inputText
+			const text = usePhraseDictionaryStore.getState().inputText
 			if (!text.trim() || !languageCode) return
 
 			abortRef.current?.abort()
@@ -145,7 +149,7 @@ export function usePhraseTranslation() {
 
 			fetchTranslation(text)
 		},
-		[fetchTranslation, languageCode, store],
+		[fetchTranslation, languageCode, usePhraseDictionaryStore],
 	)
 
 	return {
