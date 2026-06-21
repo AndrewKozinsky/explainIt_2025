@@ -75,7 +75,7 @@ export const RouteNames = {
 		CREATE: 'universal_phrase_create',
 	},
 	UNIVERSAL_PHRASE_TRANSCRIPTION: {
-		CREATE: 'create_transcription',
+		GET_OR_CREATE: 'universal_phrase_transcription_get_or_create',
 	},
 	UNIVERSAL_PHRASE_TRANSLATION: {
 		GET_OR_CREATE: 'universal_phrase_translation_get_or_create',

@@ -5,11 +5,11 @@ import { UniversalTranscriptionQueryRepository } from 'repo/universalTranscripti
 import { UniversalTranscriptionRepository } from 'repo/universalTranscription.repository'
 import { UniversalPhraseTranscriptionResolver } from 'routes/universalPhraseTranscription/universalPhraseTranscription.resolver'
 import { PrismaService } from 'db/prisma.service'
-import { CreateUniversalTranscriptionHandler } from 'features/universalPhraseTranscription/CreateUniversalTranscription.command'
+import { GetOrCreateUniversalPhraseTranscriptionHandler } from 'features/universalPhraseTranscription/CreateUniversalPhraseTranscription.command'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 
 const services = [PrismaService]
-const commandHandlers = [CreateUniversalTranscriptionHandler]
+const commandHandlers = [GetOrCreateUniversalPhraseTranscriptionHandler]
 const resolvers = [UniversalPhraseTranscriptionResolver]
 const repositories = [
 	UniversalTranscriptionRepository,

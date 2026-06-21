@@ -349,8 +349,6 @@ export type Mutation = {
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
   book_update: BookPrivateOutModel;
-  /** Create transcription for a word using DeepSeek */
-  create_transcription: TranscriptionOutModel;
   /** Добавить фразу из разбора предложения в коллекцию карточек пользователя. */
   flashcard_add: FlashcardOutModel;
   /** Удалить карточку пользователя. */
@@ -369,6 +367,8 @@ export type Mutation = {
   universal_phrase_audio_get_or_create: UniversalAudioPronunciationOutModel;
   /** Create a new phrase */
   universal_phrase_create: UniversalPhraseOutModel;
+  /** Get or create transcription for a word using DeepSeek */
+  universal_phrase_transcription_get_or_create: TranscriptionOutModel;
   /** Get or create translation for a phrase using LLM */
   universal_phrase_translation_get_or_create: UniversalPhraseTranslationOutModel;
   /** Create a video */
@@ -437,11 +437,6 @@ export type MutationBook_UpdateArgs = {
 };
 
 
-export type MutationCreate_TranscriptionArgs = {
-  input: CreateUniversalPhraseTranscriptionInput;
-};
-
-
 export type MutationFlashcard_AddArgs = {
   input: AddFlashcardInput;
 };
@@ -484,6 +479,11 @@ export type MutationUniversal_Phrase_Audio_Get_Or_CreateArgs = {
 
 export type MutationUniversal_Phrase_CreateArgs = {
   input: CreateUniversalPhraseInput;
+};
+
+
+export type MutationUniversal_Phrase_Transcription_Get_Or_CreateArgs = {
+  input: CreateUniversalPhraseTranscriptionInput;
 };
 
 
@@ -1037,13 +1037,6 @@ export type VideoPublicSubtitleOutModel = {
   startTimeMs: Scalars['Int']['output'];
 };
 
-export type UniversalPhraseAudioGetOrCreateVariables = Exact<{
-  input: CreateUniversalPhraseAudioInput;
-}>;
-
-
-export type UniversalPhraseAudioGetOrCreate = { __typename?: 'Mutation', universal_phrase_audio_get_or_create: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } };
-
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
 }>;
@@ -1209,12 +1202,12 @@ export type Sentence_Chat_Get_ThreadVariables = Exact<{
 
 export type Sentence_Chat_Get_Thread = { __typename?: 'Query', sentence_chat_get_thread?: { __typename?: 'SentenceChatThreadOutModel', id: number, sentenceId: number, createdAt: string, updatedAt: string, messages: Array<{ __typename?: 'SentenceChatMessageOutModel', id: number, threadId: number, role: string, content: string, status: string, errorMessage?: string | null, createdAt: string, updatedAt: string }> } | null };
 
-export type Transcription_CreateVariables = Exact<{
+export type UniversalPhaseTranscriptionGetOrCreateVariables = Exact<{
   input: CreateUniversalPhraseTranscriptionInput;
 }>;
 
 
-export type Transcription_Create = { __typename?: 'Mutation', create_transcription: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } };
+export type UniversalPhaseTranscriptionGetOrCreate = { __typename?: 'Mutation', universal_phrase_transcription_get_or_create: { __typename?: 'TranscriptionOutModel', id: number, universalPhraseId: number, ipa?: string | null, pinyin?: string | null } };
 
 export type Translate_Get_Phrase_TranslationVariables = Exact<{
   input: GetPhraseTranslationInput;
@@ -1250,6 +1243,13 @@ export type Translate_Translate_SentenceVariables = Exact<{
 
 
 export type Translate_Translate_Sentence = { __typename?: 'Mutation', translate_translate_sentence: { __typename?: 'TranslateSentenceResultOutModel', sentenceId: number, translation: string } };
+
+export type UniversalPhraseAudioGetOrCreateVariables = Exact<{
+  input: CreateUniversalPhraseAudioInput;
+}>;
+
+
+export type UniversalPhraseAudioGetOrCreate = { __typename?: 'Mutation', universal_phrase_audio_get_or_create: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } };
 
 export type UniversalPhrase_CreateVariables = Exact<{
   input: CreateUniversalPhraseInput;
@@ -1332,41 +1332,6 @@ export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
 
-export const UniversalPhraseAudioGetOrCreateDocument = gql`
-    mutation UniversalPhraseAudioGetOrCreate($input: CreateUniversalPhraseAudioInput!) {
-  universal_phrase_audio_get_or_create(input: $input) {
-    id
-    universalPhraseId
-    audioUrl
-  }
-}
-    `;
-export type UniversalPhraseAudioGetOrCreateMutationFn = Apollo.MutationFunction<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>;
-
-/**
- * __useUniversalPhraseAudioGetOrCreate__
- *
- * To run a mutation, you first call `useUniversalPhraseAudioGetOrCreate` within a React component and pass it any options that fit your needs.
- * When your component renders, `useUniversalPhraseAudioGetOrCreate` returns a tuple that includes:
- * - A mutate function that you can call at any time to execute the mutation
- * - An object with fields that represent the current status of the mutation's execution
- *
- * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
- *
- * @example
- * const [universalPhraseAudioGetOrCreate, { data, loading, error }] = useUniversalPhraseAudioGetOrCreate({
- *   variables: {
- *      input: // value for 'input'
- *   },
- * });
- */
-export function useUniversalPhraseAudioGetOrCreate(baseOptions?: Apollo.MutationHookOptions<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>(UniversalPhraseAudioGetOrCreateDocument, options);
-      }
-export type UniversalPhraseAudioGetOrCreateHookResult = ReturnType<typeof useUniversalPhraseAudioGetOrCreate>;
-export type UniversalPhraseAudioGetOrCreateMutationResult = Apollo.MutationResult<UniversalPhraseAudioGetOrCreate>;
-export type UniversalPhraseAudioGetOrCreateMutationOptions = Apollo.BaseMutationOptions<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>;
 export const Auth_ConfirmEmailDocument = gql`
     mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
   auth_confirmEmail(input: $input)
@@ -2520,9 +2485,9 @@ export type Sentence_Chat_Get_ThreadHookResult = ReturnType<typeof useSentence_C
 export type Sentence_Chat_Get_ThreadLazyQueryHookResult = ReturnType<typeof useSentence_Chat_Get_ThreadLazyQuery>;
 export type Sentence_Chat_Get_ThreadSuspenseQueryHookResult = ReturnType<typeof useSentence_Chat_Get_ThreadSuspenseQuery>;
 export type Sentence_Chat_Get_ThreadQueryResult = Apollo.QueryResult<Sentence_Chat_Get_Thread, Sentence_Chat_Get_ThreadVariables>;
-export const Transcription_CreateDocument = gql`
-    mutation Transcription_create($input: CreateUniversalPhraseTranscriptionInput!) {
-  create_transcription(input: $input) {
+export const UniversalPhaseTranscriptionGetOrCreateDocument = gql`
+    mutation UniversalPhaseTranscriptionGetOrCreate($input: CreateUniversalPhraseTranscriptionInput!) {
+  universal_phrase_transcription_get_or_create(input: $input) {
     id
     universalPhraseId
     ipa
@@ -2530,32 +2495,32 @@ export const Transcription_CreateDocument = gql`
   }
 }
     `;
-export type Transcription_CreateMutationFn = Apollo.MutationFunction<Transcription_Create, Transcription_CreateVariables>;
+export type UniversalPhaseTranscriptionGetOrCreateMutationFn = Apollo.MutationFunction<UniversalPhaseTranscriptionGetOrCreate, UniversalPhaseTranscriptionGetOrCreateVariables>;
 
 /**
- * __useTranscription_Create__
+ * __useUniversalPhaseTranscriptionGetOrCreate__
  *
- * To run a mutation, you first call `useTranscription_Create` within a React component and pass it any options that fit your needs.
- * When your component renders, `useTranscription_Create` returns a tuple that includes:
+ * To run a mutation, you first call `useUniversalPhaseTranscriptionGetOrCreate` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUniversalPhaseTranscriptionGetOrCreate` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [transcriptionCreate, { data, loading, error }] = useTranscription_Create({
+ * const [universalPhaseTranscriptionGetOrCreate, { data, loading, error }] = useUniversalPhaseTranscriptionGetOrCreate({
  *   variables: {
  *      input: // value for 'input'
  *   },
  * });
  */
-export function useTranscription_Create(baseOptions?: Apollo.MutationHookOptions<Transcription_Create, Transcription_CreateVariables>) {
+export function useUniversalPhaseTranscriptionGetOrCreate(baseOptions?: Apollo.MutationHookOptions<UniversalPhaseTranscriptionGetOrCreate, UniversalPhaseTranscriptionGetOrCreateVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<Transcription_Create, Transcription_CreateVariables>(Transcription_CreateDocument, options);
+        return Apollo.useMutation<UniversalPhaseTranscriptionGetOrCreate, UniversalPhaseTranscriptionGetOrCreateVariables>(UniversalPhaseTranscriptionGetOrCreateDocument, options);
       }
-export type Transcription_CreateHookResult = ReturnType<typeof useTranscription_Create>;
-export type Transcription_CreateMutationResult = Apollo.MutationResult<Transcription_Create>;
-export type Transcription_CreateMutationOptions = Apollo.BaseMutationOptions<Transcription_Create, Transcription_CreateVariables>;
+export type UniversalPhaseTranscriptionGetOrCreateHookResult = ReturnType<typeof useUniversalPhaseTranscriptionGetOrCreate>;
+export type UniversalPhaseTranscriptionGetOrCreateMutationResult = Apollo.MutationResult<UniversalPhaseTranscriptionGetOrCreate>;
+export type UniversalPhaseTranscriptionGetOrCreateMutationOptions = Apollo.BaseMutationOptions<UniversalPhaseTranscriptionGetOrCreate, UniversalPhaseTranscriptionGetOrCreateVariables>;
 export const Translate_Get_Phrase_TranslationDocument = gql`
     query Translate_get_phrase_translation($input: GetPhraseTranslationInput!) {
   translate_get_phrase_translation(input: $input) {
@@ -2795,6 +2760,41 @@ export function useTranslate_Translate_Sentence(baseOptions?: Apollo.MutationHoo
 export type Translate_Translate_SentenceHookResult = ReturnType<typeof useTranslate_Translate_Sentence>;
 export type Translate_Translate_SentenceMutationResult = Apollo.MutationResult<Translate_Translate_Sentence>;
 export type Translate_Translate_SentenceMutationOptions = Apollo.BaseMutationOptions<Translate_Translate_Sentence, Translate_Translate_SentenceVariables>;
+export const UniversalPhraseAudioGetOrCreateDocument = gql`
+    mutation UniversalPhraseAudioGetOrCreate($input: CreateUniversalPhraseAudioInput!) {
+  universal_phrase_audio_get_or_create(input: $input) {
+    id
+    universalPhraseId
+    audioUrl
+  }
+}
+    `;
+export type UniversalPhraseAudioGetOrCreateMutationFn = Apollo.MutationFunction<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>;
+
+/**
+ * __useUniversalPhraseAudioGetOrCreate__
+ *
+ * To run a mutation, you first call `useUniversalPhraseAudioGetOrCreate` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUniversalPhraseAudioGetOrCreate` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [universalPhraseAudioGetOrCreate, { data, loading, error }] = useUniversalPhraseAudioGetOrCreate({
+ *   variables: {
+ *      input: // value for 'input'
+ *   },
+ * });
+ */
+export function useUniversalPhraseAudioGetOrCreate(baseOptions?: Apollo.MutationHookOptions<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useMutation<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>(UniversalPhraseAudioGetOrCreateDocument, options);
+      }
+export type UniversalPhraseAudioGetOrCreateHookResult = ReturnType<typeof useUniversalPhraseAudioGetOrCreate>;
+export type UniversalPhraseAudioGetOrCreateMutationResult = Apollo.MutationResult<UniversalPhraseAudioGetOrCreate>;
+export type UniversalPhraseAudioGetOrCreateMutationOptions = Apollo.BaseMutationOptions<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>;
 export const UniversalPhrase_CreateDocument = gql`
     mutation UniversalPhrase_create($input: CreateUniversalPhraseInput!) {
   universal_phrase_create(input: $input) {

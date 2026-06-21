@@ -642,7 +642,7 @@ export interface IMutation {
     sentence_chat_create_thread(input: CreateSentenceChatThreadInput): SentenceChatThreadOutModel | Promise<SentenceChatThreadOutModel>;
     sentence_chat_create_user_message(input: CreateSentenceChatUserMessageInput): SentenceChatMessageOutModel | Promise<SentenceChatMessageOutModel>;
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
-    create_transcription(input: CreateUniversalPhraseTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
+    universal_phrase_transcription_get_or_create(input: CreateUniversalPhraseTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput): UniversalPhraseTranslationOutModel | Promise<UniversalPhraseTranslationOutModel>;
     universal_phrase_audio_get_or_create(input: CreateUniversalPhraseAudioInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
     flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;

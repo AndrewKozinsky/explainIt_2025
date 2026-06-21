@@ -1,0 +1,8 @@
+mutation UniversalPhaseTranscriptionGetOrCreate($input: CreateUniversalPhraseTranscriptionInput!) {
+	universal_phrase_transcription_get_or_create(input: $input) {
+		id
+		universalPhraseId
+		ipa
+		pinyin
+	}
+}

@@ -360,9 +360,6 @@ type Mutation {
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
-  """Create transcription for a word using DeepSeek"""
-  create_transcription(input: CreateUniversalPhraseTranscriptionInput!): TranscriptionOutModel!
-
   """
   Добавить фразу из разбора предложения в коллекцию карточек пользователя.
   """
@@ -397,6 +394,9 @@ type Mutation {
 
   """Create a new phrase"""
   universal_phrase_create(input: CreateUniversalPhraseInput!): UniversalPhraseOutModel!
+
+  """Get or create transcription for a word using DeepSeek"""
+  universal_phrase_transcription_get_or_create(input: CreateUniversalPhraseTranscriptionInput!): TranscriptionOutModel!
 
   """Get or create translation for a phrase using LLM"""
   universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput!): UniversalPhraseTranslationOutModel!

@@ -9,21 +9,27 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LanguageCode } from 'prisma/generated/enums'
 
-export class CreateUniversalTranscriptionCommand implements ICommand {
+export class GetOrCreateUniversalPhraseTranscriptionCommand implements ICommand {
 	constructor(public universalPhraseId: number) {}
 }
 
-@CommandHandler(CreateUniversalTranscriptionCommand)
-export class CreateUniversalTranscriptionHandler implements ICommandHandler<CreateUniversalTranscriptionCommand> {
+@CommandHandler(GetOrCreateUniversalPhraseTranscriptionCommand)
+export class GetOrCreateUniversalPhraseTranscriptionHandler implements ICommandHandler<GetOrCreateUniversalPhraseTranscriptionCommand> {
 	constructor(
 		private universalPhraseQueryRepository: UniversalPhraseQueryRepository,
-		private universalTranscriptionRepository: UniversalTranscriptionRepository,
-		private universalTranscriptionQueryRepository: UniversalTranscriptionQueryRepository,
+		private transcriptionRepository: UniversalTranscriptionRepository,
+		private transcriptionQueryRepository: UniversalTranscriptionQueryRepository,
 		private llmAdapter: LlmAdapterService,
 	) {}
 
-	async execute(command: CreateUniversalTranscriptionCommand) {
+	async execute(command: GetOrCreateUniversalPhraseTranscriptionCommand) {
 		const { universalPhraseId } = command
+
+		const existingTranscription =
+			await this.transcriptionQueryRepository.getTranscriptionByUniversalPhraseId(universalPhraseId)
+		if (existingTranscription) {
+			return existingTranscription
+		}
 
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseById(universalPhraseId)
 		if (!phrase) {
@@ -43,13 +49,13 @@ export class CreateUniversalTranscriptionHandler implements ICommandHandler<Crea
 
 		const transcription = await this.getTranscriptionFromLLM(phrase.text, phrase.sourceLanguageCode)
 
-		const created = await this.universalTranscriptionRepository.createTranscription({
+		const created = await this.transcriptionRepository.createTranscription({
 			universalPhraseId,
 			ipa: transcription.ipa,
 			pinyin: transcription.pinyin,
 		})
 
-		return await this.universalTranscriptionQueryRepository.getTranscriptionById(created.id)
+		return await this.transcriptionQueryRepository.getTranscriptionById(created.id)
 	}
 
 	private async getTranscriptionFromLLM(word: string, languageCode: LanguageCode) {
