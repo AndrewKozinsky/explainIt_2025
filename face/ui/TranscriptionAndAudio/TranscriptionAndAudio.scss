@@ -8,16 +8,9 @@
 	gap: .18em;
 	font-size: .9em;
 	line-height: 1.1em;
-	font-weight: 300;
-	cursor: pointer;
 	min-height: 1.1em;
 	padding: 0.08em .4em;
 	border-radius: vars.$radius-1;
-	transition: background-color .2s ease;
-
-	&:hover {
-		background: vars.$grayColor-2;
-	}
 }
 
 .transcription-audio--pale-bg {

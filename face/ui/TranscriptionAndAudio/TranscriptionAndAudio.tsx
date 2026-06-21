@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import BaseButton from 'ui/BaseButton/BaseButton'
 import { ErrorIcon } from 'ui/icons/ErrorIcon'
 import { canLanguageHaveTranscription } from 'utils/languages'
 import { useAudioPlayer } from './fn/useAudioPlayer'
@@ -22,10 +23,10 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const canLoadAudio = audioUrl !== undefined
 
 	return (
-		<span className={rootClasses} onClick={handleClick} role='button' tabIndex={0}>
+		<BaseButton extraClass={rootClasses} onClick={handleClick} type='button' theme='regular'>
 			<AudioIcon audioStatus={status} isPlaying={isPlaying} hasAudio={canLoadAudio || status !== 'idle'} />
 			<TranscriptionBlock transcription={transcription} />
-		</span>
+		</BaseButton>
 	)
 }
 
