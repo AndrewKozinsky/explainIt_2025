@@ -1,41 +1,43 @@
 import { randomUUID } from 'crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
-import { UniversalAudioPronunciationRepository } from 'repo/universalPhraseAudio.repository'
+import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhraseAudio.queryRepository'
+import { UniversalPhraseAudioRepository } from 'repo/universalPhraseAudio.repository'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { GoogleTtsService } from 'infrastructure/googleTts/googleTts.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { UniversalAudioPronunciationOutModel } from 'models/audioPronunciation/audioPronunciation.out.model'
 import { LanguageCode } from 'prisma/generated/client'
 
-export class CreateUniversalAudioPronunciationCommand implements ICommand {
+export class GetOrCreateUniversalPhraseAudioCommand implements ICommand {
 	constructor(public universalPhraseId: number) {}
 }
 
-@CommandHandler(CreateUniversalAudioPronunciationCommand)
-export class CreateUniversalAudioPronunciationHandler implements ICommandHandler<CreateUniversalAudioPronunciationCommand> {
+@CommandHandler(GetOrCreateUniversalPhraseAudioCommand)
+export class GetOrCreateUniversalPhraseAudioHandler implements ICommandHandler<GetOrCreateUniversalPhraseAudioCommand> {
 	constructor(
 		private universalPhraseQueryRepository: UniversalPhraseQueryRepository,
-		private audioPronunciationRepository: UniversalAudioPronunciationRepository,
+		private audioQueryRepository: UniversalPhraseAudioQueryRepository,
+		private audioRepository: UniversalPhraseAudioRepository,
 		private googleTtsService: GoogleTtsService,
 		private cloudRuS3Service: CloudRuS3Service,
 		private mainConfig: MainConfigService,
 	) {}
 
-	async execute(
-		command: CreateUniversalAudioPronunciationCommand,
-	): Promise<{ id: number; universalPhraseId: number; audioUrl: string }> {
+	async execute(command: GetOrCreateUniversalPhraseAudioCommand): Promise<UniversalAudioPronunciationOutModel> {
 		const { universalPhraseId } = command
+
+		const existingAudio = await this.audioQueryRepository.getAudioByUniversalPhraseId(universalPhraseId)
+		if (existingAudio) {
+			return existingAudio
+		}
 
 		const phrase = await this.universalPhraseQueryRepository.getUniversalPhraseById(universalPhraseId)
 		if (!phrase) {
 			throw new CustomError(errorMessage.universalPhrase.notFound, ErrorStatusCode.NotFound_404)
-		}
-
-		if (phrase.audioPronunciation) {
-			throw new CustomError(errorMessage.audioPronunciation.alreadyExists, ErrorStatusCode.BadRequest_400)
 		}
 
 		const audioBuffer = await this.googleTtsService.generateAudio(
@@ -46,13 +48,12 @@ export class CreateUniversalAudioPronunciationHandler implements ICommandHandler
 		const s3Key = this.buildS3Key(phrase.sourceLanguageCode as LanguageCode)
 		await this.cloudRuS3Service.uploadFile(s3Key, audioBuffer, 'audio/ogg')
 
-		const created = await this.audioPronunciationRepository.createAudioPronunciation({
+		await this.audioRepository.createAudio({
 			universalPhraseId,
 			s3Key,
 		})
 
-		const audioUrl = await this.cloudRuS3Service.getFileUrl(s3Key)
-		return { id: created.id, universalPhraseId, audioUrl }
+		return (await this.audioQueryRepository.getAudioByUniversalPhraseId(universalPhraseId))!
 	}
 
 	private buildS3Key(languageCode: LanguageCode): string {

@@ -3,7 +3,7 @@ import { PrismaService } from '../db/prisma.service'
 import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
-export class UniversalAudioPronunciationRepository {
+export class UniversalPhraseAudioRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
@@ -15,7 +15,7 @@ export class UniversalAudioPronunciationRepository {
 	}
 
 	@CatchDbError()
-	async createAudioPronunciation(dto: { universalPhraseId: number; s3Key: string }) {
+	async createAudio(dto: { universalPhraseId: number; s3Key: string }) {
 		return await this.prisma.universalAudioPronunciation.create({
 			data: {
 				universal_phrase_id: dto.universalPhraseId,

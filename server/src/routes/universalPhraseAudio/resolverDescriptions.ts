@@ -1,8 +1,5 @@
-import { UniversalAudioPronunciationResolver } from 'routes/universalPhraseAudio/universalPhraseAudio.resolver'
+import { UniversalPhraseAudioResolver } from 'routes/universalPhraseAudio/universalPhraseAudio.resolver'
 
-export const audioPronunciationResolversDesc: Record<
-	keyof typeof UniversalAudioPronunciationResolver.prototype,
-	string
-> = {
-	createAudio: 'Generate audio pronunciation for a word using Google TTS and store it on S3',
+export const universalPhraseAudioResolversDesc: Record<keyof typeof UniversalPhraseAudioResolver.prototype, string> = {
+	getOrCreateAudio: 'Get or create audio pronunciation for a word using Google TTS and store it on S3',
 }

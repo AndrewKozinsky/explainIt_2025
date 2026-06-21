@@ -644,7 +644,7 @@ export interface IMutation {
     universal_phrase_create(input: CreateUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
     create_transcription(input: CreateUniversalPhraseTranscriptionInput): TranscriptionOutModel | Promise<TranscriptionOutModel>;
     universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput): UniversalPhraseTranslationOutModel | Promise<UniversalPhraseTranslationOutModel>;
-    create_audio_pronunciation(input: CreateUniversalPhraseAudioInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
+    get_or_create_audio_pronunciation(input: CreateUniversalPhraseAudioInput): UniversalAudioPronunciationOutModel | Promise<UniversalAudioPronunciationOutModel>;
     flashcard_add(input: AddFlashcardInput): FlashcardOutModel | Promise<FlashcardOutModel>;
     flashcard_remove(input: RemoveFlashcardInput): boolean | Promise<boolean>;
 }

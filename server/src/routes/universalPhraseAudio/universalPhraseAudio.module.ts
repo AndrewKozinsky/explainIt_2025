@@ -1,17 +1,23 @@
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
-import { UniversalAudioPronunciationRepository } from 'repo/universalPhraseAudio.repository'
+import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhraseAudio.queryRepository'
+import { UniversalPhraseAudioRepository } from 'repo/universalPhraseAudio.repository'
 import { UserRepository } from 'repo/user.repository'
-import { UniversalAudioPronunciationResolver } from 'routes/universalPhraseAudio/universalPhraseAudio.resolver'
+import { UniversalPhraseAudioResolver } from 'routes/universalPhraseAudio/universalPhraseAudio.resolver'
 import { PrismaService } from 'db/prisma.service'
-import { CreateUniversalAudioPronunciationHandler } from 'features/universalPhraseAudio/CreateAudioPronunciation.command'
+import { GetOrCreateUniversalPhraseAudioHandler } from 'features/universalPhraseAudio/CreateAudioPronunciation.command'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 
 const services = [PrismaService]
-const commandHandlers = [CreateUniversalAudioPronunciationHandler]
-const resolvers = [UniversalAudioPronunciationResolver]
-const repositories = [UniversalAudioPronunciationRepository, UniversalPhraseQueryRepository, UserRepository]
+const commandHandlers = [GetOrCreateUniversalPhraseAudioHandler]
+const resolvers = [UniversalPhraseAudioResolver]
+const repositories = [
+	UniversalPhraseAudioRepository,
+	UniversalPhraseQueryRepository,
+	UniversalPhraseAudioQueryRepository,
+	UserRepository,
+]
 
 @Module({
 	imports: [CqrsModule],
