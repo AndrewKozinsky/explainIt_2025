@@ -1,6 +1,5 @@
 import React from 'react'
 import TranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
-import { TranscriptionState } from 'ui/TranscriptionAndAudio/types'
 import { LanguageCode } from 'utils/languages'
 import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
 import './DictionaryPhraseTranscription.scss'
@@ -17,17 +16,13 @@ function DictionaryPhraseTranscription() {
 		return null
 	}
 
-	const transcriptionState: TranscriptionState = transcription?.ipa
-		? { status: 'ready', transcription: transcription.ipa }
-		: { status: 'ready', transcription: null }
-
 	return (
 		<div className='dictionary-phrase-transcription'>
 			<TranscriptionAndAudio
 				phrase={phrase}
 				languageCode={sourceLanguageCode as LanguageCode}
 				audioUrl={audioUrl}
-				transcription={transcriptionState}
+				transcription={transcription?.ipa}
 				bg='white'
 			/>
 		</div>

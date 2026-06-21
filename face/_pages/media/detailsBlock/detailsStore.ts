@@ -14,7 +14,6 @@ export const detailsStoreValues: DetailsStoreValues = {
 	currentWordId: null,
 	currentInfoView: 'dictionary',
 	sentences: [],
-	transcriptions: [],
 	retryFetchSentenceTranslationQueue: [],
 	retryFetchPhraseQueue: [],
 }
@@ -223,12 +222,6 @@ function sameWordIds(a: number[], b: number[]): boolean {
 
 export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
-export type DetailsTranscription = {
-	phrase: string
-	transcription: string
-	audioUrl: string | null
-}
-
 export type DetailsSentenceEntry = {
 	sentenceId: number
 	sentenceText: string
@@ -294,7 +287,6 @@ export type DetailsStoreValues = {
 	currentWordId: null | number
 	currentInfoView: InfoViewType
 	sentences: DetailsSentenceEntry[]
-	transcriptions: DetailsTranscription[]
 	retryFetchSentenceTranslationQueue: RetryFetchSentenceTranslationQueueItem[]
 	retryFetchPhraseQueue: RetryFetchPhraseQueueItem[]
 }

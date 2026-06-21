@@ -288,6 +288,11 @@ input GetSentenceTranslationInput {
   targetLanguageCode: String!
 }
 
+input GetUniversalPhraseAudioInput {
+  """Universal phrase id to get audio pronunciation for"""
+  universalPhraseId: Int!
+}
+
 input GetUniversalPhraseInput {
   """Source language code"""
   sourceLanguageCode: String!
@@ -459,6 +464,11 @@ type Query {
 
   """Get existing sentence translation by sentence id"""
   translate_get_sentence_translation(input: GetSentenceTranslationInput!): TranslateSentenceResultOutModel
+
+  """
+  Get existing audio pronunciation for a phrase (read-only, does not create)
+  """
+  universal_phrase_audio_get(input: GetUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel
 
   """Get phrase with transcription and audio pronunciations"""
   universal_phrase_get(input: GetUniversalPhraseInput!): UniversalPhraseOutModel!

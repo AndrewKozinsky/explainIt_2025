@@ -1,14 +1,10 @@
 import { useEffect } from 'react'
+import { LanguageCode } from 'utils/languages'
 import { useBookChapter_Get, useVideoPrivate_Get, useVideoPublic_Get } from '@/graphql'
+import { useTranscriptionAudioStore, PreloadItem } from '@/stores/transcriptionAudioStore'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
-import {
-	useDetailsStore,
-	DetailsSentenceEntry,
-	DetailsTranscription,
-	SentencePhraseType,
-	makePhraseId,
-} from '../../detailsStore'
+import { useDetailsStore, DetailsSentenceEntry, SentencePhraseType, makePhraseId } from '../../detailsStore'
 import { wordIdsFromOffsets } from './wordSegmentation'
 
 export function usePopulateStore() {
@@ -46,9 +42,10 @@ function useFetchChapterAndSetToStore() {
 				getTranslation: (s) => s.sentenceTranslation?.translation ?? null,
 			})
 
-			const transcriptions = extractTranscriptions(rawSentences)
+			const preloadItems = extractPreloadItems(rawSentences, languageCode as LanguageCode)
+			useTranscriptionAudioStore.getState().preload(preloadItems)
 
-			useDetailsStore.getState().updateStore({ sentences, transcriptions })
+			useDetailsStore.getState().updateStore({ sentences })
 		},
 		[data, languageCode],
 	)
@@ -85,9 +82,10 @@ function useFetchVideoAndSetToStore() {
 				getTranslation: (s) => s.sentenceTranslations?.[0]?.translation ?? null,
 			})
 
-			const transcriptions = extractTranscriptions(rawSentences)
+			const preloadItems = extractPreloadItems(rawSentences, languageCode as LanguageCode)
+			useTranscriptionAudioStore.getState().preload(preloadItems)
 
-			useDetailsStore.getState().updateStore({ sentences, transcriptions })
+			useDetailsStore.getState().updateStore({ sentences })
 		},
 		[videoType, privateVideoData, publicVideoData, languageCode],
 	)
@@ -180,9 +178,9 @@ function mapSentencePhrases(input: {
 	}))
 }
 
-function extractTranscriptions(sentences: ServerSentence[]): DetailsTranscription[] {
+function extractPreloadItems(sentences: ServerSentence[], languageCode: LanguageCode): PreloadItem[] {
 	const seen = new Set<string>()
-	const result: DetailsTranscription[] = []
+	const result: PreloadItem[] = []
 
 	for (const sentence of sentences) {
 		for (const pt of sentence.sentencePhraseTranslations ?? []) {
@@ -196,7 +194,8 @@ function extractTranscriptions(sentences: ServerSentence[]): DetailsTranscriptio
 				seen.add(pt.phrase)
 				result.push({
 					phrase: pt.phrase,
-					transcription: ipa ?? '',
+					languageCode,
+					transcription: ipa ?? undefined,
 					audioUrl,
 				})
 			}

@@ -68,6 +68,10 @@ export interface GetUniversalPhraseInput {
     sourceLanguageCode: string;
 }
 
+export interface GetUniversalPhraseAudioInput {
+    universalPhraseId: number;
+}
+
 export interface GetMyFlashcardsInput {
     languageCode?: Nullable<string>;
 }
@@ -615,6 +619,7 @@ export interface IQuery {
     translate_get_phrase_translations_by_sentence(input: GetPhraseTranslationsBySentenceInput): SentencePhraseTranslationOutModel[] | Promise<SentencePhraseTranslationOutModel[]>;
     sentence_chat_get_thread(input: GetSentenceChatThreadInput): Nullable<SentenceChatThreadOutModel> | Promise<Nullable<SentenceChatThreadOutModel>>;
     universal_phrase_get(input: GetUniversalPhraseInput): UniversalPhraseOutModel | Promise<UniversalPhraseOutModel>;
+    universal_phrase_audio_get(input: GetUniversalPhraseAudioInput): Nullable<UniversalAudioPronunciationOutModel> | Promise<Nullable<UniversalAudioPronunciationOutModel>>;
     language_get_languages(): LanguageOutModel[] | Promise<LanguageOutModel[]>;
     flashcard_get_my(input: GetMyFlashcardsInput): FlashcardOutModel[] | Promise<FlashcardOutModel[]>;
 }

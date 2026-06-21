@@ -18,8 +18,8 @@ export function LinkButton(props: LinkButtonProps) {
 			extraClass={'reading-navigation__link' + (withCover ? ' reading-navigation__link--with-cover' : '')}
 			style={withCover ? ({ '--cover-url': `url(${coverUrl})` } as React.CSSProperties) : undefined}
 		>
-			<p className='reading-navigation__small-text'>{smallText}</p>
-			<p className='reading-navigation__text'>{text}</p>
+			{smallText && <p className='reading-navigation__small-text'>{smallText}</p>}
+			{text && <p className='reading-navigation__text'>{text}</p>}
 		</BaseButton>
 	)
 }

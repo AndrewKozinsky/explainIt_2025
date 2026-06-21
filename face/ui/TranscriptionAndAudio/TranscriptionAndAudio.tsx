@@ -1,48 +1,74 @@
 import cn from 'classnames'
 import BaseButton from 'ui/BaseButton/BaseButton'
 import { ErrorIcon } from 'ui/icons/ErrorIcon'
+import Spinner from 'ui/Spinner/Spinner'
 import { canLanguageHaveTranscription } from 'utils/languages'
-import { useAudioPlayer } from './fn/useAudioPlayer'
+import { useTranscriptionAudioStore, makeKey } from '@/stores/transcriptionAudioStore'
+import { useTranscriptionState } from './fn/useTranscriptionState'
+import { useAudioPlayback } from './fn/useAudioPlayback'
 import PauseIcon from './PauseIcon'
 import PlayIcon from './PlayIcon'
 import { TranscriptionAndAudioProps, TranscriptionState } from './types'
 import './TranscriptionAndAudio.scss'
 
 function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
-	const { phrase, languageCode, audioUrl, transcription, bg = 'pale', extraClass } = props
-	const { isPlaying, handleClick, status } = useAudioPlayer({ phrase, languageCode, audioUrl })
+	const { bg = 'pale', extraClass, phrase, languageCode, audioUrl: propAudioUrl, transcription: propTranscription } = props
 
-	if (!canLanguageHaveTranscription(languageCode)) return null
+	const store = useTranscriptionAudioStore
+	const key = phrase && languageCode ? makeKey(phrase, languageCode) : null
+	const storeEntry = store(function (s) {
+		return key ? s.entries[key] : undefined
+	})
+
+	const effectiveTranscription = useTranscriptionState({
+		phrase,
+		languageCode,
+		propTranscription,
+		storeEntry,
+		store,
+	})
+
+	const { audioStatus, isPlaying, handleClick, showAudioIcon } = useAudioPlayback({
+		phrase,
+		languageCode,
+		propAudioUrl,
+		storeEntry,
+		store,
+	})
+
+	if (languageCode && !canLanguageHaveTranscription(languageCode)) return null
+
+	const isLoading = effectiveTranscription?.status === 'loading' || phrase === 'loading'
 
 	const rootClasses = cn(
 		'transcription-audio',
 		`transcription-audio--${bg}-bg`,
-		(phrase === 'loading' || transcription?.status === 'loading') && 'transcription-audio--loading',
+		isLoading && 'transcription-audio--loading',
 		extraClass,
 	)
-	const canLoadAudio = audioUrl !== undefined
 
 	return (
 		<BaseButton extraClass={rootClasses} onClick={handleClick} type='button' theme='regular'>
-			<AudioIcon audioStatus={status} isPlaying={isPlaying} hasAudio={canLoadAudio || status !== 'idle'} />
-			<TranscriptionBlock transcription={transcription} />
+			{showAudioIcon ? <AudioIcon audioStatus={audioStatus} isPlaying={isPlaying} /> : null}
+			<TranscriptionBlock transcription={effectiveTranscription} />
 		</BaseButton>
 	)
 }
 
 export default TranscriptionAndAudio
 
+// ---- Sub-components ----
+
 type AudioIconProps = {
 	audioStatus: 'idle' | 'loading' | 'error'
 	isPlaying: boolean
-	hasAudio: boolean
 }
 
 function AudioIcon(props: AudioIconProps) {
-	const { audioStatus, isPlaying, hasAudio } = props
+	const { audioStatus, isPlaying } = props
 
-	if (!hasAudio || audioStatus === 'loading') {
-		return null
+	if (audioStatus === 'loading') {
+		return <Spinner size='extra-small' />
 	}
 
 	if (audioStatus === 'error') {

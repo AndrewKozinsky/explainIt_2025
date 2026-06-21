@@ -1,10 +1,10 @@
 import { LanguageCode } from 'utils/languages'
 
 export type TranscriptionAndAudioProps = {
-	phrase: string
-	languageCode: LanguageCode
+	phrase?: string
+	languageCode?: LanguageCode
 	audioUrl?: string | null
-	transcription?: TranscriptionState | null
+	transcription?: string | null
 	bg?: 'pale' | 'white'
 	extraClass?: string
 }
