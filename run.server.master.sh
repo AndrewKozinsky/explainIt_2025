@@ -1,1 +1,0 @@
-docker compose -f docker-compose.server.master.yml --env-file .env.servermaster up --build -d

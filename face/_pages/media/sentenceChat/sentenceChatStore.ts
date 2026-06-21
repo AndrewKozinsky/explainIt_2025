@@ -8,7 +8,7 @@ export const sentenceChatStoreValues: SentenceChatStoreValues = {
 	isLoadingThread: true,
 	isGenerating: false,
 	threadError: null,
-	llmProvider: 'gemini',
+	llmProvider: 'deepseek',
 	prompt: '',
 	isTextAreaFocused: false,
 }

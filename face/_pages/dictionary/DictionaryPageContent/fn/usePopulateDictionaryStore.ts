@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { useFlashcard_Get_My, useUniversalPhrase_GetLazyQuery } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
 
 function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {

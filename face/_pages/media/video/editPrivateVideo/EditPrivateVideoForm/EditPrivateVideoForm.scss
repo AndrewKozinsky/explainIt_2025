@@ -1,0 +1,31 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.edit-private-video-form__subtitles-container {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	column-gap: 2.4rem;
+	row-gap: 1rem;
+	width: 100%;
+
+	@include mix.page-width(vars.$tablet-width) {
+		flex-direction: row;
+
+		& > *:nth-child(1) {
+
+		}
+		& > *:nth-child(2) {
+			max-width: 40%;
+		}
+	}
+
+	@include mix.page-width(vars.$monitor-width) {
+		column-gap: 3rem;
+
+		& > *:nth-child(2) {
+			max-width: 30%;
+		}
+	}
+}

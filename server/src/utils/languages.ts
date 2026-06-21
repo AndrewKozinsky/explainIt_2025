@@ -60,3 +60,11 @@ export const languages: Record<SupportedLanguageCode, { name: string; nameEng: s
 		code: 'ja',
 	},*/
 }
+
+/**
+ * Проверяет, поддерживается ли транскрипция для переданного языка.
+ * Сейчас транскрипция доступна только для английского и французского.
+ */
+export function canLanguageHaveTranscription(languageCode: LanguageCode): boolean {
+	return [languages.en.code, languages.fr.code].includes(languageCode)
+}

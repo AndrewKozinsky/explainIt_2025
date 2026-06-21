@@ -1,7 +1,7 @@
 import { useBook_GetBooksPublic } from 'graphql'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { LanguageCode } from 'utils/languages'
 import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 
 export type BookData = {
 	id: number

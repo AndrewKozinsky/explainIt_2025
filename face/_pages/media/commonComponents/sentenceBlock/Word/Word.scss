@@ -32,6 +32,7 @@
 }
 
 .word--selected {
+	cursor: default;
 	color: vars.$accentColor-1;
 
 	&:before {

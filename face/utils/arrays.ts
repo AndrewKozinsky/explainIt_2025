@@ -12,9 +12,11 @@ export function areArraysEqualIgnoringOrder(arr1: any[], arr2: any[]) {
 	// Проверяем второй массив на соответствие частотам
 	for (const item of arr2) {
 		const count = frequency.get(item)
+
 		if (count === undefined || count <= 0) {
 			return false
 		}
+
 		frequency.set(item, count - 1)
 	}
 

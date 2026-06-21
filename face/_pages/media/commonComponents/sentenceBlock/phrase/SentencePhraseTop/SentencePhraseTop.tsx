@@ -1,5 +1,5 @@
+import TranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
 import { LanguageCode } from 'utils/languages'
-import TranscriptionAndAudio from '../../TranscriptionAndAudio/TranscriptionAndAudio'
 import FlashCardButton from '../FlashCardButton/FlashCardButton'
 import './SentencePhraseTop.scss'
 
@@ -22,7 +22,7 @@ function SentencePhraseTop(props: SentencePhraseTopPartProps) {
 				<TranscriptionAndAudio
 					phrase={phrase}
 					languageCode={languageCode as LanguageCode}
-					onWhiteBackground={onWhiteBackground}
+					bg={onWhiteBackground ? 'white' : 'pale'}
 				/>{' '}
 				— {phraseTranslation}
 			</p>

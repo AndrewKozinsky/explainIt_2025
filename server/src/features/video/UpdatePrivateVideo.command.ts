@@ -25,6 +25,7 @@ export type UpdatePrivateVideoInput = {
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
 	fileSizeMb?: number
+	fileDurationSec?: number
 }
 
 export class UpdatePrivateVideoCommand implements ICommand {
@@ -108,6 +109,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 			s3ProviderName: 'cloudRu',
 			isFileUploaded,
 			fileSizeMb: updateVideoInput.fileSizeMb,
+			fileDurationSec: updateVideoInput.fileDurationSec,
 		})
 
 		if (!updatedVideo) {

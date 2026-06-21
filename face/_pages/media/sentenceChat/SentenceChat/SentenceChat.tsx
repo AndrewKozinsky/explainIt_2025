@@ -1,6 +1,7 @@
 import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
 import ChatInput from '../ChatInput/ChatInput'
 import MessageList from '../MessageList/MessageList'
+import WordsQuickPrompt from '../WordsQuickPrompt/WordsQuickPrompt'
 import { useSentenceChat } from './fn/useSentenceChat'
 import './SentenceChat.scss'
 
@@ -19,6 +20,7 @@ function SentenceChat(props: SentenceChatProps) {
 			<div className='sentence-chat__messages'>
 				{!isLoadingThread && !threadError && <MessageList messages={messages} />}
 				{threadError && <ErrorMessage text={threadError} />}
+				<WordsQuickPrompt />
 			</div>
 
 			<div className='sentence-chat__input'>

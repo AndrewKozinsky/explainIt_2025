@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import {
 	useSentence_Chat_Create_Thread,
 	useSentence_Chat_Create_User_Message,
 	useSentence_Chat_Get_ThreadLazyQuery,
 } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useSentenceChatStore } from '../../sentenceChatStore'
 import { ChatMessageStatus, ChatUiMessage } from '../../types/sseTypes'
 import { openAssistantStream } from './openAssistantStream'

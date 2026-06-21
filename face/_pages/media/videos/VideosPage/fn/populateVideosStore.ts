@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useUserStore } from 'stores/userStore'
+import { getTextByUnknownError } from 'utils/extractErrorText'
 import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
-import { getTextByUnknownError } from '@/utils/errorMessages'
 import { useVideosStore } from '_pages/media/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */

@@ -130,6 +130,7 @@ export const errorMessage = {
 		cannotGetTranscriptionFromLLM: {
 			errorMessageCode: 'UNIVERSAL_TRANSCRIPTION_CANNOT_GET_TRANSCRIPTION_FROM_LLM',
 		}, // Не удалось получить транскрипцию от LLM.
+		languageNotSupported: { errorMessageCode: 'UNIVERSAL_TRANSCRIPTION_LANGUAGE_NOT_SUPPORTED' }, // Транскрипция не поддерживается для этого языка.
 	},
 	sentenceChat: {
 		questionIsEmpty: { errorMessageCode: 'SENTENCE_CHAT_QUESTION_IS_EMPTY' }, // Текст вопроса пустой.

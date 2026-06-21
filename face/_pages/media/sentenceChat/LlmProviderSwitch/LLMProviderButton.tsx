@@ -1,11 +1,22 @@
 import cn from 'classnames'
 import BaseButton from 'ui/BaseButton/BaseButton'
 import DeepseekButtonIcon from 'ui/icons/buttonIcons/DeepseekButtonIcon'
+import DeepseekLiteButtonIcon from 'ui/icons/buttonIcons/DeepseekLiteButtonIcon'
 import GeminiButtonIcon from 'ui/icons/buttonIcons/GeminiButtonIcon'
+import GeminiLiteButtonIcon from 'ui/icons/buttonIcons/GeminiLiteButtonIcon'
 import OpenAIButtonIcon from 'ui/icons/buttonIcons/OpenAIButtonIcon'
+import OpenAILiteButtonIcon from 'ui/icons/buttonIcons/OpenAILiteButtonIcon'
 import { LlmProvider, useSentenceChatStore } from '../sentenceChatStore'
 
-function LLMProviderButton({ activeProvider, provider }: { activeProvider: LlmProvider; provider: LlmProvider }) {
+type LLMProviderButtonProps = {
+	activeProvider: LlmProvider
+	provider: LlmProvider
+	smallIcon: boolean
+}
+
+function LLMProviderButton(props: LLMProviderButtonProps) {
+	const { activeProvider, provider, smallIcon } = props
+
 	const setLlmProvider = useSentenceChatStore((s) => s.setLlmProvider)
 	const isActive = activeProvider === provider
 
@@ -17,19 +28,19 @@ function LLMProviderButton({ activeProvider, provider }: { activeProvider: LlmPr
 			disabled={isActive}
 			theme='plain'
 		>
-			<LLMProviderButtonIcon provider={provider} />
+			<LLMProviderButtonIcon provider={provider} smallIcon={smallIcon} />
 		</BaseButton>
 	)
 }
 
 export default LLMProviderButton
 
-function LLMProviderButtonIcon({ provider }: { provider: LlmProvider }) {
+function LLMProviderButtonIcon({ provider, smallIcon }: { provider: LlmProvider; smallIcon: boolean }) {
 	if (provider === 'gemini') {
-		return <GeminiButtonIcon />
+		return smallIcon ? <GeminiLiteButtonIcon /> : <GeminiButtonIcon />
 	} else if (provider === 'chatgpt') {
-		return <OpenAIButtonIcon />
+		return smallIcon ? <OpenAILiteButtonIcon /> : <OpenAIButtonIcon />
 	} else {
-		return <DeepseekButtonIcon />
+		return smallIcon ? <DeepseekLiteButtonIcon /> : <DeepseekButtonIcon />
 	}
 }

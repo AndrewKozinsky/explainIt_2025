@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, useForm } from 'react-hook-form'
+import LabelWithField from 'ui/formRelated/LabelWithField/LabelWithField'
 import * as yup from 'yup'
 import Button from '@/ui/formRelated/buttons/Button/Button'
 import FormError from '@/ui/formRelated/FormError/FormError'
@@ -9,6 +10,7 @@ import TextInput from '@/ui/formRelated/TextInput/TextInput'
 import { FormStatus } from '@/utils/forms'
 import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
 import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
+import GenerateSubtitlesBlock from '_pages/media/video/editPrivateVideo/GenerateSubtitlesBlock/GenerateSubtitlesBlock'
 import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
 import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
 import GenerateSubtitlesButton from '../GenerateSubtitlesButton/GenerateSubtitlesButton'
@@ -17,6 +19,7 @@ import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
 import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
+import './EditPrivateVideoForm.scss'
 
 export default function EditPrivateVideoForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
@@ -87,14 +90,15 @@ export default function EditPrivateVideoForm() {
 					/>
 					<FileNameAndDeleteFileButton />
 					<VideoDropzone />
-					<TextInput
-						label='Субтитры или текст'
-						error={errors.content?.message}
-						textareaProps={{
-							...register('content'),
-							disabled: isFormDisabled,
-							rows: 10,
-							placeholder: `1
+					<LabelWithField label='Субтитры или текст'>
+						<div className='edit-private-video-form__subtitles-container'>
+							<TextInput
+								error={errors.content?.message}
+								textareaProps={{
+									...register('content'),
+									disabled: isFormDisabled,
+									rows: 10,
+									placeholder: `1
 00:01:50,152 --> 00:01:52,238
 Three billion human lives ended
 
@@ -105,10 +109,12 @@ on August 29, 1997.
 3
 00:01:56,033 --> 00:02:00,913
 The survivors of the nuclear fire called the war Judgment Day.`,
-						}}
-					/>
+								}}
+							/>
+							<GenerateSubtitlesBlock isFormDisabled={isFormDisabled}></GenerateSubtitlesBlock>
+						</div>
+					</LabelWithField>
 					<FormError text={formError} />
-					<GenerateSubtitlesButton disabled={isFormDisabled} />
 				</FormFieldsWrapper>
 			</MediaFormSurface>
 		</form>

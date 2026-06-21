@@ -288,6 +288,11 @@ input GetSentenceTranslationInput {
   targetLanguageCode: String!
 }
 
+input GetUniversalPhraseAudioInput {
+  """Universal phrase id to get audio pronunciation for"""
+  universalPhraseId: Int!
+}
+
 input GetUniversalPhraseInput {
   """Source language code"""
   sourceLanguageCode: String!
@@ -361,14 +366,6 @@ type Mutation {
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
   """
-  Generate audio pronunciation for a word using Google TTS and store it on S3
-  """
-  create_audio_pronunciation(input: CreateUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel!
-
-  """Create transcription for a word using DeepSeek"""
-  create_transcription(input: CreateUniversalPhraseTranscriptionInput!): TranscriptionOutModel!
-
-  """
   Добавить фразу из разбора предложения в коллекцию карточек пользователя.
   """
   flashcard_add(input: AddFlashcardInput!): FlashcardOutModel!
@@ -395,8 +392,16 @@ type Mutation {
   """Translate sentence"""
   translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceResultOutModel!
 
+  """
+  Get or create audio pronunciation for a word using Google TTS and store it on S3
+  """
+  universal_phrase_audio_get_or_create(input: CreateUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel!
+
   """Create a new phrase"""
   universal_phrase_create(input: CreateUniversalPhraseInput!): UniversalPhraseOutModel!
+
+  """Get or create transcription for a word using DeepSeek"""
+  universal_phrase_transcription_get_or_create(input: CreateUniversalPhraseTranscriptionInput!): TranscriptionOutModel!
 
   """Get or create translation for a phrase using LLM"""
   universal_phrase_translation_get_or_create(input: GetOrCreateUniversalPhraseTranslationInput!): UniversalPhraseTranslationOutModel!
@@ -459,6 +464,11 @@ type Query {
 
   """Get existing sentence translation by sentence id"""
   translate_get_sentence_translation(input: GetSentenceTranslationInput!): TranslateSentenceResultOutModel
+
+  """
+  Get existing audio pronunciation for a phrase (read-only, does not create)
+  """
+  universal_phrase_audio_get(input: GetUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel
 
   """Get phrase with transcription and audio pronunciations"""
   universal_phrase_get(input: GetUniversalPhraseInput!): UniversalPhraseOutModel!
@@ -678,6 +688,7 @@ type UniversalPhraseTranslationOutModel {
   nonExistentWord: Boolean!
   status: String!
   targetLanguageCode: String!
+  transcription: TranscriptionOutModel
   translation: UniversalPhraseTranslationDataOutModel
   universalPhraseId: Int!
 }

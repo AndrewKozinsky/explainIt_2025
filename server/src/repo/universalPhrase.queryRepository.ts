@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
-import { normalizeSentence } from 'utils/stringUtils'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
@@ -23,10 +22,8 @@ export class UniversalPhraseQueryRepository {
 
 	@CatchDbError()
 	async getUniversalPhraseByTextAndLang(text: string, sourceLanguageCode: Language) {
-		const normalizedText = normalizeSentence(text)
-
 		const dbPhrase = await this.prisma.universalPhrase.findFirst({
-			where: { text: normalizedText, source_language_code: sourceLanguageCode },
+			where: { text, source_language_code: sourceLanguageCode },
 			include: {
 				UniversalTranscription: true,
 				UniversalAudioPronunciation: true,

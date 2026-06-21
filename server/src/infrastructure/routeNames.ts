@@ -75,13 +75,14 @@ export const RouteNames = {
 		CREATE: 'universal_phrase_create',
 	},
 	UNIVERSAL_PHRASE_TRANSCRIPTION: {
-		CREATE: 'create_transcription',
+		GET_OR_CREATE: 'universal_phrase_transcription_get_or_create',
 	},
 	UNIVERSAL_PHRASE_TRANSLATION: {
 		GET_OR_CREATE: 'universal_phrase_translation_get_or_create',
 	},
-	AUDIO_PRONUNCIATION: {
-		CREATE: 'create_audio_pronunciation',
+	UNIVERSAL_PHRASE_AUDIO: {
+		GET: 'universal_phrase_audio_get',
+		GET_OR_CREATE: 'universal_phrase_audio_get_or_create',
 	},
 	LANGUAGE: {
 		GET_ALL: 'language_get_languages',

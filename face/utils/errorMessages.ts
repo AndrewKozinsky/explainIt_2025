@@ -5,7 +5,7 @@ export type ServerErrorMessage = {
 
 type ServerErrorMessageResolver = string | ((errorMessage: ServerErrorMessage) => string)
 
-const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolver> = {
+export const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolver> = {
 	EMAIL_IS_ALREADY_REGISTERED: 'Почта уже зарегистрирована.',
 	EMAIL_IS_NOT_CONFIRMED: 'Почта зарегистрирована, но не подтверждена.',
 	EMAIL_WRONG_FORMAT: 'Адрес электронной почты должен соответствовать формату example@mail.com',
@@ -55,6 +55,7 @@ const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolver> = {
 	VIDEO_NOT_CREATED: 'Видел не создано.',
 	VIDEO_NOT_FOUND: 'Видео не найдено.',
 	VIDEO_SUBTITLES_GENERATION_ALREADY_RUNNING: 'Генерация субтитров для этого видео уже выполняется.',
+	VIDEO_SUBTITLES_GENERATION_DURATION_REQUIRED: 'Для генерации субтитров нужно знать длительность видео.',
 	VIDEO_SUBTITLES_GENERATION_FILE_NOT_UPLOADED: 'Видеофайл не загружен — нечего распознавать.',
 	VIDEO_SUBTITLES_GENERATION_LANGUAGE_REQUIRED: 'Для генерации субтитров у видео должен быть указан язык.',
 	VIDEO_SUBTITLES_GENERATION_VIDEO_TOO_LONG: 'Длительность видео превышает допустимый лимит для генерации субтитров.',
@@ -97,50 +98,9 @@ const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolver> = {
 	UNIVERSAL_PHRASE_TRANSLATION_CANNOT_GET_TRANSLATION_FROM_LLM: 'Не удалось получить перевод от LLM.',
 	VALIDATION_FAILED: 'Ошибка валидации.',
 }
-
-export function isServerErrorMessage(message: unknown): message is ServerErrorMessage {
-	return typeof message === 'object' && !!message && 'errorMessageCode' in message
-}
-
-export function getTextByServerErrorMessage(message: unknown) {
-	if (typeof message === 'string') {
-		try {
-			return getTextByServerErrorMessage(JSON.parse(message))
-		} catch {
-			return message
-		}
-	}
-	if (!isServerErrorMessage(message)) return errorMessages.unknownError
-
-	const resolver = serverErrorMessagesByCode[message.errorMessageCode]
-	if (typeof resolver === 'function') return resolver(message)
-	if (typeof resolver === 'string') return resolver
-
-	return errorMessages.unknownError
-}
-
-export function getTextByUnknownError(error: unknown, fallbackMessage = errorMessages.unknownError) {
-	if (isServerErrorMessage(error)) {
-		return getTextByServerErrorMessage(error)
-	}
-
-	if (typeof error === 'string') {
-		return error
-	}
-
-	if (error instanceof Error) {
-		try {
-			return getTextByServerErrorMessage(JSON.parse(error.message))
-		} catch {
-			return error.message || fallbackMessage
-		}
-	}
-
-	return fallbackMessage
-}
-
 export const errorMessages = {
-	unknownError: 'Неизвестная ошибка сервера.',
+	unknownServerError: 'Неизвестная ошибка сервера.',
+	unknownErrorWhileAuth: 'Неизвестная ошибка при авторизации',
 	requiredField: 'Обязательное поле',
 	// mustBeNumber: 'Введите в поле число',
 	// mustBeString: 'Введите в поле строку',
@@ -151,4 +111,5 @@ export const errorMessages = {
 	// mustBePositiveNumber: 'Число должно быть положительным',
 	wrongEmailFormat: 'Адрес электронной почты должен соответствовать формату example@mail.com',
 	// cannotGetPaymentConfirmationUrl: 'Не удалось получить адрес подтверждения платежа',
+	translationWasNotGot: 'Перевод не был получен.',
 }
