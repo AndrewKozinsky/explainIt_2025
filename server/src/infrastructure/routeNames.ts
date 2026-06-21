@@ -81,7 +81,7 @@ export const RouteNames = {
 		GET_OR_CREATE: 'universal_phrase_translation_get_or_create',
 	},
 	UNIVERSAL_PHRASE_AUDIO: {
-		GET_OR_CREATE: 'universal_phrase_audio_get_or_create_',
+		GET_OR_CREATE: 'universal_phrase_audio_get_or_create',
 	},
 	LANGUAGE: {
 		GET_ALL: 'language_get_languages',

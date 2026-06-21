@@ -1,7 +1,0 @@
-mutation AudioPronunciation_create($input: CreateUniversalPhraseAudioInput!) {
-	create_audio_pronunciation(input: $input) {
-		id
-		universalPhraseId
-		audioUrl
-	}
-}

@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { LanguageCode } from 'utils/languages'
 import {
-	useAudioPronunciation_Create,
+	useUniversalPhraseAudioGetOrCreate,
 	useUniversalPhrase_Create,
 	useUniversalPhrase_GetLazyQuery,
-	AudioPronunciation_CreateHookResult,
+	UniversalPhraseAudioGetOrCreateHookResult,
 	UniversalPhrase_CreateHookResult,
 	UniversalPhrase_GetLazyQueryHookResult,
 } from '@/graphql'
@@ -16,7 +16,7 @@ type UseAudioPlayerInput = Pick<TranscriptionAndAudioProps, 'audioUrl' | 'phrase
 type AudioViewStatus = 'idle' | 'loading' | 'error'
 type GetPhraseFn = UniversalPhrase_GetLazyQueryHookResult[0]
 type CreatePhraseFn = UniversalPhrase_CreateHookResult[0]
-type CreateAudioFn = AudioPronunciation_CreateHookResult[0]
+type CreateAudioFn = UniversalPhraseAudioGetOrCreateHookResult[0]
 
 type AudioUrlResult = { ok: true; url: string | null } | { ok: false }
 
@@ -28,7 +28,7 @@ export function useAudioPlayer(input: UseAudioPlayerInput) {
 	const [resolvedAudioUrl, setResolvedAudioUrl] = useState<string | null>(audioUrl ?? null)
 	const [getPhrase] = useUniversalPhrase_GetLazyQuery()
 	const [createPhrase] = useUniversalPhrase_Create()
-	const [createAudioPronunciation] = useAudioPronunciation_Create()
+	const [createAudioPronunciation] = useUniversalPhraseAudioGetOrCreate()
 
 	useEffect(
 		function () {
@@ -151,7 +151,7 @@ function resolveAudio(phraseId: number, createAudioPronunciation: CreateAudioFn)
 			const result = await createAudioPronunciation({
 				variables: { input: { universalPhraseId: phraseId } },
 			})
-			return { ok: true, url: result.data?.create_audio_pronunciation.audioUrl ?? null }
+			return { ok: true, url: result.data?.universal_phrase_audio_get_or_create.audioUrl ?? null }
 		} catch {
 			return { ok: false }
 		}

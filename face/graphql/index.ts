@@ -349,8 +349,6 @@ export type Mutation = {
   book_delete: Scalars['Boolean']['output'];
   /** Update user book */
   book_update: BookPrivateOutModel;
-  /** Generate audio pronunciation for a word using Google TTS and store it on S3 */
-  create_audio_pronunciation: UniversalAudioPronunciationOutModel;
   /** Create transcription for a word using DeepSeek */
   create_transcription: TranscriptionOutModel;
   /** Добавить фразу из разбора предложения в коллекцию карточек пользователя. */
@@ -367,6 +365,8 @@ export type Mutation = {
   translate_translate_phrase: SentencePhraseTranslationOutModel;
   /** Translate sentence */
   translate_translate_sentence: TranslateSentenceResultOutModel;
+  /** Get or create audio pronunciation for a word using Google TTS and store it on S3 */
+  universal_phrase_audio_get_or_create: UniversalAudioPronunciationOutModel;
   /** Create a new phrase */
   universal_phrase_create: UniversalPhraseOutModel;
   /** Get or create translation for a phrase using LLM */
@@ -437,11 +437,6 @@ export type MutationBook_UpdateArgs = {
 };
 
 
-export type MutationCreate_Audio_PronunciationArgs = {
-  input: CreateUniversalPhraseAudioInput;
-};
-
-
 export type MutationCreate_TranscriptionArgs = {
   input: CreateUniversalPhraseTranscriptionInput;
 };
@@ -479,6 +474,11 @@ export type MutationTranslate_Translate_PhraseArgs = {
 
 export type MutationTranslate_Translate_SentenceArgs = {
   input: TranslateSentenceInput;
+};
+
+
+export type MutationUniversal_Phrase_Audio_Get_Or_CreateArgs = {
+  input: CreateUniversalPhraseAudioInput;
 };
 
 
@@ -1037,12 +1037,12 @@ export type VideoPublicSubtitleOutModel = {
   startTimeMs: Scalars['Int']['output'];
 };
 
-export type AudioPronunciation_CreateVariables = Exact<{
+export type UniversalPhraseAudioGetOrCreateVariables = Exact<{
   input: CreateUniversalPhraseAudioInput;
 }>;
 
 
-export type AudioPronunciation_Create = { __typename?: 'Mutation', create_audio_pronunciation: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } };
+export type UniversalPhraseAudioGetOrCreate = { __typename?: 'Mutation', universal_phrase_audio_get_or_create: { __typename?: 'UniversalAudioPronunciationOutModel', id: number, universalPhraseId: number, audioUrl: string } };
 
 export type Auth_ConfirmEmailVariables = Exact<{
   input: ConfirmEmailInput;
@@ -1332,41 +1332,41 @@ export type VideoPublic_GetVideosVariables = Exact<{ [key: string]: never; }>;
 export type VideoPublic_GetVideos = { __typename?: 'Query', video_public_get_videos: Array<{ __typename?: 'VideoPublicLiteOutModel', id: number, name: string, year: number, languageCode: string, note: string, covers: Array<string>, coverBackgroundColor: string, originalContent: string, processedContent: string, contentType: string, fileName: string, fileS3Key: string, fileUrl: string, freeToUse: boolean }> };
 
 
-export const AudioPronunciation_CreateDocument = gql`
-    mutation AudioPronunciation_create($input: CreateUniversalPhraseAudioInput!) {
-  create_audio_pronunciation(input: $input) {
+export const UniversalPhraseAudioGetOrCreateDocument = gql`
+    mutation UniversalPhraseAudioGetOrCreate($input: CreateUniversalPhraseAudioInput!) {
+  universal_phrase_audio_get_or_create(input: $input) {
     id
     universalPhraseId
     audioUrl
   }
 }
     `;
-export type AudioPronunciation_CreateMutationFn = Apollo.MutationFunction<AudioPronunciation_Create, AudioPronunciation_CreateVariables>;
+export type UniversalPhraseAudioGetOrCreateMutationFn = Apollo.MutationFunction<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>;
 
 /**
- * __useAudioPronunciation_Create__
+ * __useUniversalPhraseAudioGetOrCreate__
  *
- * To run a mutation, you first call `useAudioPronunciation_Create` within a React component and pass it any options that fit your needs.
- * When your component renders, `useAudioPronunciation_Create` returns a tuple that includes:
+ * To run a mutation, you first call `useUniversalPhraseAudioGetOrCreate` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useUniversalPhraseAudioGetOrCreate` returns a tuple that includes:
  * - A mutate function that you can call at any time to execute the mutation
  * - An object with fields that represent the current status of the mutation's execution
  *
  * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
  *
  * @example
- * const [audioPronunciationCreate, { data, loading, error }] = useAudioPronunciation_Create({
+ * const [universalPhraseAudioGetOrCreate, { data, loading, error }] = useUniversalPhraseAudioGetOrCreate({
  *   variables: {
  *      input: // value for 'input'
  *   },
  * });
  */
-export function useAudioPronunciation_Create(baseOptions?: Apollo.MutationHookOptions<AudioPronunciation_Create, AudioPronunciation_CreateVariables>) {
+export function useUniversalPhraseAudioGetOrCreate(baseOptions?: Apollo.MutationHookOptions<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<AudioPronunciation_Create, AudioPronunciation_CreateVariables>(AudioPronunciation_CreateDocument, options);
+        return Apollo.useMutation<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>(UniversalPhraseAudioGetOrCreateDocument, options);
       }
-export type AudioPronunciation_CreateHookResult = ReturnType<typeof useAudioPronunciation_Create>;
-export type AudioPronunciation_CreateMutationResult = Apollo.MutationResult<AudioPronunciation_Create>;
-export type AudioPronunciation_CreateMutationOptions = Apollo.BaseMutationOptions<AudioPronunciation_Create, AudioPronunciation_CreateVariables>;
+export type UniversalPhraseAudioGetOrCreateHookResult = ReturnType<typeof useUniversalPhraseAudioGetOrCreate>;
+export type UniversalPhraseAudioGetOrCreateMutationResult = Apollo.MutationResult<UniversalPhraseAudioGetOrCreate>;
+export type UniversalPhraseAudioGetOrCreateMutationOptions = Apollo.BaseMutationOptions<UniversalPhraseAudioGetOrCreate, UniversalPhraseAudioGetOrCreateVariables>;
 export const Auth_ConfirmEmailDocument = gql`
     mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
   auth_confirmEmail(input: $input)

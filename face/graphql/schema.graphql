@@ -360,11 +360,6 @@ type Mutation {
   """Update user book"""
   book_update(input: UpdatePrivateBookInput!): BookPrivateOutModel!
 
-  """
-  Generate audio pronunciation for a word using Google TTS and store it on S3
-  """
-  create_audio_pronunciation(input: CreateUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel!
-
   """Create transcription for a word using DeepSeek"""
   create_transcription(input: CreateUniversalPhraseTranscriptionInput!): TranscriptionOutModel!
 
@@ -394,6 +389,11 @@ type Mutation {
 
   """Translate sentence"""
   translate_translate_sentence(input: TranslateSentenceInput!): TranslateSentenceResultOutModel!
+
+  """
+  Get or create audio pronunciation for a word using Google TTS and store it on S3
+  """
+  universal_phrase_audio_get_or_create(input: CreateUniversalPhraseAudioInput!): UniversalAudioPronunciationOutModel!
 
   """Create a new phrase"""
   universal_phrase_create(input: CreateUniversalPhraseInput!): UniversalPhraseOutModel!
