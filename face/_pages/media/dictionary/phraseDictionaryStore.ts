@@ -14,6 +14,7 @@ export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	targetLanguageCode: 'ru',
 	provider: 'deepseek',
 	cache: {},
+	retryTrigger: 0,
 }
 
 export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set, get) => {
@@ -52,6 +53,9 @@ export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set
 				cache: { ...state.cache, [key]: translation },
 			}))
 		},
+		triggerRetry: () => {
+			set({ retryTrigger: get().retryTrigger + 1 })
+		},
 		reset: () => {
 			set(phraseDictionaryStoreValues)
 		},
@@ -78,6 +82,7 @@ export type PhraseDictionaryStoreValues = {
 	targetLanguageCode: string
 	provider: LlmProvider
 	cache: Record<string, UniversalPhraseTranslationDataOutModel>
+	retryTrigger: number
 }
 
 export type PhraseDictionaryStoreMethods = {
@@ -94,5 +99,6 @@ export type PhraseDictionaryStoreMethods = {
 	setStatusLoading: () => void
 	getCachedTranslation: (key: string) => null | UniversalPhraseTranslationDataOutModel
 	setCachedTranslation: (key: string, translation: UniversalPhraseTranslationDataOutModel) => void
+	triggerRetry: () => void
 	reset: () => void
 }
