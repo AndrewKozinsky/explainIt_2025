@@ -17,9 +17,7 @@ export function theTransformationBookData(coversFolderName: string) {
 
 Уровень B1-B2.`,
 		languageCode: languages.de.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#6c6558',
 	}
 }
 

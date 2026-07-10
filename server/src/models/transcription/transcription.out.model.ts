@@ -1,16 +1,19 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.UniversalTranscription.dbFields
+
 export class TranscriptionOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(bdConfig.UniversalPhrase.dbFields.id))
 	universalPhraseId: number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.ipa))
 	ipa: string | null
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.pinyin))
 	pinyin: string | null
 }

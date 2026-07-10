@@ -1,20 +1,20 @@
-import { Injectable } from '@nestjs/common'
-import axios from 'axios'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from '../mainConfig/mainConfig.service'
+// import { Injectable } from '@nestjs/common'
+// import axios from 'axios'
+// import { CustomError } from 'infrastructure/exceptions/customErrors'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { MainConfigService } from '../mainConfig/mainConfig.service'
 
-export type TranslateTextInput = {
+/*export type TranslateTextInput = {
 	text: string
 	sourceLanguageCode?: string
-}
+}*/
 
-export type TranslateTextResult = {
+/*export type TranslateTextResult = {
 	translatedText: string
-}
+}*/
 
-@Injectable()
+/*@Injectable()
 export class YandexTranslateService {
 	constructor(private mainConfig: MainConfigService) {}
 
@@ -52,24 +52,24 @@ export class YandexTranslateService {
 			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 		}
 	}
-}
+}*/
 
-type YandexTranslateApiResponse = {
+/*type YandexTranslateApiResponse = {
 	translations: Array<{
 		text: string
 		detectedLanguageCode?: string
 	}>
-}
+}*/
 
-export interface YandexTranslateServiceI {
+/*export interface YandexTranslateServiceI {
 	translateText(input: TranslateTextInput): Promise<TranslateTextResult>
-}
+}*/
 
-@Injectable()
+/*@Injectable()
 export class YandexTranslateServiceMock implements YandexTranslateServiceI {
 	async translateText(input: TranslateTextInput): Promise<TranslateTextResult> {
 		return {
 			translatedText: input.text,
 		}
 	}
-}
+}*/

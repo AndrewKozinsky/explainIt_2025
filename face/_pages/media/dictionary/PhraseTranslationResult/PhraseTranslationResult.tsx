@@ -1,5 +1,5 @@
 import React from 'react'
-import StyledMarkdown from 'ui/StyledMarkdown/StyledMarkdown'
+import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
 import PhraseTranslationExamples from '_pages/media/dictionary/PhraseTranslationExamples/PhraseTranslationExamples'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import './PhraseTranslationResult.scss'

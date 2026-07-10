@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
+import { PrismaService } from 'db/prisma.service'
+import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { Prisma } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import { CloudRuS3Service } from '../infrastructure/cloudRuS3/cloudRuS3.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type UniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
 	include: {
@@ -57,20 +57,20 @@ export class UniversalPhraseQueryRepository {
 	async mapDbUniversalPhraseToOutModel(dbPhrase: UniversalPhraseWithRelations): Promise<UniversalPhraseOutModel> {
 		const transcription = dbPhrase.UniversalTranscription
 			? {
-					id: dbPhrase.UniversalTranscription.id,
-					universalPhraseId: dbPhrase.UniversalTranscription.universal_phrase_id,
-					ipa: dbPhrase.UniversalTranscription.ipa,
-					pinyin: dbPhrase.UniversalTranscription.pinyin,
-				}
+				id: dbPhrase.UniversalTranscription.id,
+				universalPhraseId: dbPhrase.UniversalTranscription.universal_phrase_id,
+				ipa: dbPhrase.UniversalTranscription.ipa,
+				pinyin: dbPhrase.UniversalTranscription.pinyin,
+			}
 			: null
 
 		const dbAudioPronunciation = dbPhrase.UniversalAudioPronunciation
 		const audioPronunciation = dbAudioPronunciation
 			? {
-				id: dbAudioPronunciation.id,
-				universalPhraseId: dbAudioPronunciation.universal_phrase_id,
-				audioUrl: await this.cloudRuS3Service.getFileUrl(dbAudioPronunciation.s3_key),
-			}
+					id: dbAudioPronunciation.id,
+					universalPhraseId: dbAudioPronunciation.universal_phrase_id,
+					audioUrl: await this.cloudRuS3Service.getFileUrl(dbAudioPronunciation.s3_key),
+				}
 			: null
 
 		return {

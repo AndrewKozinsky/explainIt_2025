@@ -1,8 +1,8 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import RouteNames from '../../src/infrastructure/routeNames'
+// import { queries } from '../../src/features/db/queries'
+// import RouteNames from '../../src/infrastructure/routeNames'
 import { BookPrivateQueryRepository } from '../../src/repo/bookPrivate.queryRepository'
 import { UserRepository } from '../../src/repo/user.repository'
 import { authUtils } from '../utils/authUtils'
@@ -16,7 +16,7 @@ it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Create book', () => {
+/*describe.skip('Create book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
@@ -105,4 +105,4 @@ describe.skip('Create book', () => {
 		userBooks = await bookQueryRepository.getUserBooks(loginData.id)
 		expect(userBooks.length).toBe(2)
 	})
-})
+})*/

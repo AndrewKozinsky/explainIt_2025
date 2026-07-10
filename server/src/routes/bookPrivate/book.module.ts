@@ -15,7 +15,7 @@ import { DeleteBookHandler } from 'features/bookPrivate/DeleteBook.command'
 import { GetBookHandler } from 'features/bookPrivate/GetBook.command'
 import { GetUserBooksHandler } from 'features/bookPrivate/GetUserBooks.command'
 import { UpdateBookHandler } from 'features/bookPrivate/UpdateBook.command'
-import { BookResolver } from './book.resolver'
+import { BookPrivateController } from './bookPrivate.controller'
 
 const services = [PrismaService]
 const commandHandlers = [
@@ -26,7 +26,6 @@ const commandHandlers = [
 	UpdateBookHandler,
 	DeleteBookHandler,
 ]
-const resolvers = [BookResolver]
 const repositories = [
 	BookPrivateRepository,
 	BookPublicRepository,
@@ -40,6 +39,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	controllers: [BookPrivateController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class BookModule {}

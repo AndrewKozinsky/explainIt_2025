@@ -1,18 +1,13 @@
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { useUserStore } from 'stores/userStore'
 import { pageUrls, localizePath } from 'utils/pageUrls'
+import { useUser } from '@/shared/api/auth/UserProvider'
 
 export function useGetOnAddMediaButtonClick(onClick: () => void) {
-	const user = useUserStore((state) => state.user)
-	const isUserLoading = useUserStore((state) => state.isLoading)
+	const user = useUser()
 	const locale = useLocale()
 
 	return () => {
-		if (isUserLoading) {
-			return () => {}
-		}
-
 		if (user) {
 			onClick()
 		} else {

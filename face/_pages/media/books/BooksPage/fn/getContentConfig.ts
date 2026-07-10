@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { LanguageCode } from 'utils/languages'
 import { localStorageManager } from 'utils/localStorageManager'
 import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
+import type { BookChapterLiteOutModel } from '@/shared/api/generated/models'
 import { useBooksStore } from '_pages/media/books/booksStore'
 import { MediaItemsGridConfig } from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
 
@@ -14,7 +15,7 @@ export function useGetContentConfig() {
 			loading: boolean
 			error: null | string
 			config: null | MediaItemsGridConfig
-			} {
+		} {
 			const errorMessage = privateBooks.errorMessage || publicBooks.errorMessage
 			const isLoading = privateBooks.loading || publicBooks.loading
 
@@ -38,14 +39,17 @@ export function useGetContentConfig() {
 				config: {
 					privateItems: privateBooks.data.map((book) => {
 						const bookId = createMediaIdUrl(book.id, 'private')
-						const chapterId = resolveChapterId(bookId, book.chapters)
+						const chapterId = resolveChapterId(
+							bookId,
+							book.chapters as unknown as BookChapterLiteOutModel[],
+						)
 
 						return {
-							name: book.name,
-							subName: book.author,
+							name: book.name as unknown as string | null,
+							subName: book.author as unknown as string | null,
 							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
 							actionUrl: pageUrls.books.book(bookId).path,
-							coverUrl: book.coverUrl ?? undefined,
+							coverUrl: book.coverUrl as unknown as string | undefined,
 						}
 					}),
 					publicItems: publicBooks.data.map((book) => {
@@ -54,13 +58,11 @@ export function useGetContentConfig() {
 
 						return {
 							name: book.name,
-							subName: book.author,
+							subName: book.author as unknown as string | null,
 							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
 							actionUrl: pageUrls.books.book(bookId).path,
-							backgroundColor: book.coverBackgroundColor,
 							languageCode: book.languageCode as LanguageCode,
 							coverUrl: book.covers[0],
-							freeToUse: book.freeToUse,
 						}
 					}),
 				},

@@ -1,13 +1,20 @@
 import { useCallback, useContext, useState } from 'react'
-import { useVideoPrivate_Update, VideoPrivate_GetUserVideosDocument, VideoPrivate_GetDocument } from '@/graphql'
-import { NotificationContext } from '@/ui//Notification/context'
+import { useQueryClient } from '@tanstack/react-query'
+import {
+	useVideoPrivateControllerUpdateVideoPrivate,
+	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
+	getVideoPrivateControllerGetVideoPrivateQueryKey,
+} from '@/shared/api/generated/video-private/video-private'
+import type { UpdateVideoDtoLanguageCode } from '@/shared/api/generated/models'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
 export function useGetDeleteVideoFile() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [updateVideo] = useVideoPrivate_Update()
+	const { mutateAsync: updateVideo } = useVideoPrivateControllerUpdateVideoPrivate()
+	const queryClient = useQueryClient()
 
 	const onDeleteFileClick = useCallback(
 		async function () {
@@ -17,32 +24,33 @@ export function useGetDeleteVideoFile() {
 			setStatus('loading')
 
 			// Include existing languageCode to satisfy server-side validation rules
-			const input: { id: number; fileName: null; languageCode?: string | null } = {
-				id: video.id,
+			const data: {
+				fileName: null
+				languageCode?: UpdateVideoDtoLanguageCode | null
+			} = {
 				fileName: null,
 			}
-			if (video.languageCode) input.languageCode = video.languageCode
+			if (video.languageCode) data.languageCode = video.languageCode as unknown as UpdateVideoDtoLanguageCode
 
-			const { errors } = await updateVideo({
-				variables: { input },
-				refetchQueries: [
-					VideoPrivate_GetUserVideosDocument,
-					{ query: VideoPrivate_GetDocument, variables: { input: { id: video.id } } },
-				],
-			})
+			try {
+				await updateVideo({
+					id: video.id,
+					data,
+				})
 
-			if (errors) {
+				queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetUserVideosPrivateQueryKey() })
+				queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetVideoPrivateQueryKey(video.id) })
+
+				setStatus('idle')
+			} catch {
 				notify({
 					type: 'error',
 					message:
 						'Не удалось удалить видео. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
-				return
 			}
-
-			setStatus('idle')
 		},
-		[updateVideo, notify],
+		[updateVideo, notify, queryClient],
 	)
 
 	return {

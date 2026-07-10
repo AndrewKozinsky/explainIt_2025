@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { getTextByUnknownError } from 'utils/extractErrorText'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import { BookPrivateOutModel, useBook_Get, useBookChapter_Get } from '@/graphql'
+import { useBookChapterControllerGetBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
+import { useBookPrivateControllerGetBook } from '@/shared/api/generated/book-private/book-private'
+import type { BookChapterOutModel, BookPrivateOutModel } from '@/shared/api/generated/models'
 import { useChapterStore } from '../../chapterStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -19,15 +20,17 @@ function useSetBookToStore() {
 
 	const {
 		data: privateBookData,
-		error: privateBookError,
-		loading: privateBookLoading,
-	} = useBook_Get({ variables: { input: { id: bookId! } }, skip: bookType !== 'private' })
+		isError: privateBookIsError,
+		isLoading: privateBookLoading,
+	} = useBookPrivateControllerGetBook(bookId!, {
+		query: { enabled: bookType === 'private' && !!bookId },
+	})
 
 	useEffect(
 		function () {
 			if (bookType !== 'private') return
 
-			const book = privateBookData?.book_get
+			const book = privateBookData as unknown as BookPrivateOutModel | undefined
 
 			if (privateBookLoading) {
 				useChapterStore.getState().updatePrivateBook({
@@ -35,10 +38,10 @@ function useSetBookToStore() {
 					errorMessage: null,
 					data: null as any as BookPrivateOutModel,
 				})
-			} else if (privateBookError) {
+			} else if (privateBookIsError) {
 				useChapterStore.getState().updatePrivateBook({
 					loading: false,
-					errorMessage: getTextByUnknownError(privateBookError),
+					errorMessage: 'Не удалось загрузить книгу',
 					data: null as any as BookPrivateOutModel,
 				})
 			} else if (!book) {
@@ -55,30 +58,31 @@ function useSetBookToStore() {
 				})
 			}
 		},
-		[bookType, privateBookData, privateBookError, privateBookLoading],
+		[bookType, privateBookData, privateBookIsError, privateBookLoading],
 	)
 }
 
 function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
-	const { data, error, loading } = useBookChapter_Get({
-		variables: { input: { id: parseInt(chapterId), bookType: 'private' } },
-		skip: !chapterId,
-	})
+	const { data, isError, isLoading } = useBookChapterControllerGetBookChapter(
+		parseInt(chapterId),
+		{ bookType: 'private' },
+		{ query: { enabled: !!chapterId } },
+	)
 
 	useEffect(
 		function () {
-			if (loading) {
+			if (isLoading) {
 				useChapterStore.getState().updateChapter({
 					loading: true,
 					errorMessage: null,
 					data: null,
 				})
-			} else if (error) {
+			} else if (isError) {
 				useChapterStore.getState().updateChapter({
 					loading: false,
-					errorMessage: getTextByUnknownError(error),
+					errorMessage: 'Не удалось загрузить главу',
 					data: null,
 				})
 			} else if (!data) {
@@ -91,11 +95,11 @@ function useFetchChapterAndSetToStore() {
 				useChapterStore.getState().updateChapter({
 					loading: false,
 					errorMessage: null,
-					data: data.book_chapter_get,
+					data: data as unknown as BookChapterOutModel,
 				})
 			}
 		},
-		[data, error, loading],
+		[data, isError, isLoading],
 	)
 }
 

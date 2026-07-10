@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { getTextByUnknownError } from 'utils/extractErrorText'
-import { useBook_GetBooksPublic, useBook_GetUserBooks } from '@/graphql'
+import { useUser } from '@/shared/api/auth/UserProvider'
+import { useBookPrivateControllerGetUserBooks } from '@/shared/api/generated/book-private/book-private'
+import { useBookPublicControllerGetBooks } from '@/shared/api/generated/book-public/book-public'
+import type { BookPublicOutModel, BookPrivateOutModel } from '@/shared/api/generated/models'
 import { useBooksStore } from '_pages/media/books/booksStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -11,11 +12,11 @@ export function usePopulateBooksStore() {
 }
 
 function useFetchPublicBooksAndSetToStore() {
-	const { data, error, loading } = useBook_GetBooksPublic()
+	const { data, error, isLoading } = useBookPublicControllerGetBooks()
 
 	useEffect(
 		function () {
-			if (loading) {
+			if (isLoading) {
 				useBooksStore.getState().updatePublicBooks({
 					loading: true,
 					errorMessage: null,
@@ -24,7 +25,7 @@ function useFetchPublicBooksAndSetToStore() {
 			} else if (error) {
 				useBooksStore.getState().updatePublicBooks({
 					loading: false,
-					errorMessage: getTextByUnknownError(error),
+					errorMessage: 'Не удалось загрузить список публичных книг.',
 					data: [],
 				})
 			} else if (!data) {
@@ -37,25 +38,24 @@ function useFetchPublicBooksAndSetToStore() {
 				useBooksStore.getState().updatePublicBooks({
 					loading: false,
 					errorMessage: null,
-					data: data.book_public_get_books,
+					data: data as unknown as BookPublicOutModel[],
 				})
 			}
 		},
-		[data, error, loading],
+		[data, error, isLoading],
 	)
 }
 
 function useFetchPrivateBooksAndSetToStore() {
-	const user = useUserStore((state) => state.user)
+	const user = useUser()
 
-	const { data, error, loading } = useBook_GetUserBooks({
-		skip: !user?.id,
-		fetchPolicy: 'cache-and-network',
+	const { data, error, isLoading } = useBookPrivateControllerGetUserBooks({
+		query: { enabled: !!user?.id },
 	})
 
 	useEffect(
 		function () {
-			if (loading) {
+			if (isLoading) {
 				useBooksStore.getState().updatePrivateBooks({
 					loading: true,
 					errorMessage: null,
@@ -64,7 +64,7 @@ function useFetchPrivateBooksAndSetToStore() {
 			} else if (error) {
 				useBooksStore.getState().updatePrivateBooks({
 					loading: false,
-					errorMessage: getTextByUnknownError(error),
+					errorMessage: 'Не удалось загрузить список ваших книг.',
 					data: [],
 				})
 			} else if (!data) {
@@ -77,10 +77,10 @@ function useFetchPrivateBooksAndSetToStore() {
 				useBooksStore.getState().updatePrivateBooks({
 					loading: false,
 					errorMessage: null,
-					data: data.book_user_books,
+					data: data as unknown as BookPrivateOutModel[],
 				})
 			}
 		},
-		[data, error, loading],
+		[data, error, isLoading],
 	)
 }

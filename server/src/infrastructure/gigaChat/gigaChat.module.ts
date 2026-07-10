@@ -1,8 +1,8 @@
-import { Global, Module } from '@nestjs/common'
-import { MainConfigService } from '../mainConfig/mainConfig.service'
-import { GigaChatService, GigaChatServiceMock } from './gigaChat.service'
+// import { Global, Module } from '@nestjs/common'
+// import { MainConfigService } from '../mainConfig/mainConfig.service'
+// import { GigaChatService, GigaChatServiceMock } from './gigaChat.service'
 
-const gigaChatServiceProvider = {
+/*const gigaChatServiceProvider = {
 	provide: GigaChatService,
 	useFactory: (mainConfigService: MainConfigService) => {
 		return mainConfigService.get().mode === 'localtest'
@@ -10,11 +10,11 @@ const gigaChatServiceProvider = {
 			: new GigaChatService(mainConfigService)
 	},
 	inject: [MainConfigService],
-}
+}*/
 
-@Global()
+/*@Global()
 @Module({
 	providers: [gigaChatServiceProvider],
 	exports: [GigaChatService],
 })
-export class GigaChatModule {}
+export class GigaChatModule {}*/

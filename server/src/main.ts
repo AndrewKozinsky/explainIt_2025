@@ -1,15 +1,14 @@
 import 'dotenv/config'
 import { NestFactory } from '@nestjs/core'
 import { json, urlencoded } from 'express'
-import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston'
+import { applyAppSettings } from 'infrastructure/applyAppSettings'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AppModule } from './app.module'
-import { applyAppSettings } from './infrastructure/applyAppSettings'
-import { MainConfigService } from './infrastructure/mainConfig/mainConfig.service'
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
 
-	app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER))
+	// app.useLogger(app.get(WINSTON_MODULE_NEST_PROVIDER))
 
 	// Increase request body size limits to 10 MB for JSON and URL-encoded payloads
 	app.use(json({ limit: '10mb' }))
@@ -22,6 +21,6 @@ async function bootstrap() {
 
 	const programUrl = mainConfig.get().site.domainRootWithProtocol + ':' + mainConfig.get().port
 	console.log('ExplainIt server has just started 🔥 at ' + programUrl)
-	console.log('GraphQL Explorer is available at ' + programUrl + '/graphql')
+	console.log('Swagger docs are available at ' + programUrl + '/api/docs')
 }
 bootstrap()

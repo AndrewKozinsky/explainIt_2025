@@ -1,20 +1,20 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { DBRepository } from 'repo/db.repository'
-import { SentenceRepository } from 'repo/sentence.repository'
-import { SubtitleRepository } from 'repo/subtitle.repository'
-import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
-import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
-import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
-import { Language } from 'utils/languages'
-import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
-import { VideoBase } from 'features/video/VideoBase'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { UpdateVideoPublicOutModel } from 'models/videoPublic/updateVideoPublic.out.model'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { DBRepository } from 'repo/db.repository'
+// import { SentenceRepository } from 'repo/sentence.repository'
+// import { SubtitleRepository } from 'repo/subtitle.repository'
+// import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
+// import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
+// import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
+// import { Language } from 'utils/languages'
+// import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
+// import { VideoBase } from 'features/video/VideoBase'
+// import { CustomError } from 'infrastructure/exceptions/customErrors'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { UpdateVideoPublicOutModel } from 'models/videoPublic/updateVideoPublic.out.model'
 
-export type UpdatePublicVideoInput = {
+/*export type UpdatePublicVideoInput = {
 	id: number
 	name?: string
 	note?: string
@@ -23,14 +23,14 @@ export type UpdatePublicVideoInput = {
 	originalContent?: string
 	fileName?: string
 	fileS3Key?: string
-}
+}*/
 
-export class UpdatePublicVideoCommand implements ICommand {
+/*export class UpdatePublicVideoCommand implements ICommand {
 	constructor(public updateVideoInput: UpdatePublicVideoInput) {}
-}
+}*/
 
-@CommandHandler(UpdatePublicVideoCommand)
-export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandler<UpdatePublicVideoCommand> {
+// @CommandHandler(UpdatePublicVideoCommand)
+/*export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandler<UpdatePublicVideoCommand> {
 	constructor(
 		private videoRepository: VideoPublicRepository,
 		private videoQueryRepository: VideoPublicQueryRepository,
@@ -143,4 +143,4 @@ export class UpdatePublicVideoHandler extends VideoBase implements ICommandHandl
 			fileS3Key: updatedVideo.fileS3Key,
 		}
 	}
-}
+}*/

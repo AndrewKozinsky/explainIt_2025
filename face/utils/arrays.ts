@@ -1,4 +1,4 @@
-export function areArraysEqualIgnoringOrder(arr1: any[], arr2: any[]) {
+/*export function areArraysEqualIgnoringOrder(arr1: any[], arr2: any[]) {
 	if (arr1.length !== arr2.length) {
 		return false
 	}
@@ -21,4 +21,4 @@ export function areArraysEqualIgnoringOrder(arr1: any[], arr2: any[]) {
 	}
 
 	return true
-}
+}*/

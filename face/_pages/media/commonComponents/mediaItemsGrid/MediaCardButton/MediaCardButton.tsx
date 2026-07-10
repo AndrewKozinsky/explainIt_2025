@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import BaseButton from 'ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 
 type MediaCardProps = {
 	type: 'private' | 'public'
@@ -8,18 +8,15 @@ type MediaCardProps = {
 	actionUrl: string
 	url: string
 	coverUrl?: string
-	backgroundColor?: string
 	defaultMediaName: string
-	freeToUse?: boolean
 }
 
 function MediaCardButton(props: MediaCardProps) {
-	const { type, name, subName, url, coverUrl, backgroundColor, defaultMediaName } = props
+	const { type, name, subName, url, coverUrl, defaultMediaName } = props
 
 	return (
 		<BaseButton
 			href={url}
-			style={backgroundColor ? ({ ['--media-card-bg']: backgroundColor } as any) : undefined}
 			extraClass={cn(
 				'media-items-grid__card',
 				type === 'public' ? 'media-items-grid__card--public' : '',

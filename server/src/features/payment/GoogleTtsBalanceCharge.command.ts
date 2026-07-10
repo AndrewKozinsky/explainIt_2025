@@ -1,20 +1,20 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+// import { CustomError } from 'infrastructure/exceptions/customErrors'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
-export class GoogleTtsBalanceChargeCommand implements ICommand {
+/*export class GoogleTtsBalanceChargeCommand implements ICommand {
 	constructor(
 		public dto: {
 			userId: number
 			charsCount: number
 		},
 	) {}
-}
+}*/
 
-@CommandHandler(GoogleTtsBalanceChargeCommand)
+/*@CommandHandler(GoogleTtsBalanceChargeCommand)
 export class GoogleTtsBalanceChargeHandler implements ICommandHandler<GoogleTtsBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
@@ -41,4 +41,4 @@ export class GoogleTtsBalanceChargeHandler implements ICommandHandler<GoogleTtsB
 		const pricePerChar = this.mainConfig.get().googleTts.pricePerCharInKopecks
 		return Math.max(1, Math.ceil(pricePerChar * charsCount))
 	}
-}
+}*/

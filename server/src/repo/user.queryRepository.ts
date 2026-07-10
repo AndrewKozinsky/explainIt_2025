@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { UserOutModel } from 'models/user/user.out.model'
 import { User } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { UserOutModel } from '../models/user/user.out.model'
 
 @Injectable()
 export class UserQueryRepository {

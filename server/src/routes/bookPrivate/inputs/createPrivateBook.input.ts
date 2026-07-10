@@ -1,23 +1,17 @@
-import { Field, InputType } from '@nestjs/graphql'
-import { Language } from 'utils/languages'
-import { bdConfig } from 'db/dbConfig/dbConfig'
-import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+// import { Language } from 'utils/languages'
+// import { bdConfig } from 'db/dbConfig/dbConfig'
+// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-@InputType()
-export class CreatePrivateBookInput {
-	@Field(() => String, { description: 'Author', nullable: true })
+/*export class CreatePrivateBookInput {
 	@DtoFieldDecorators('author', bdConfig.BookPrivate.dbFields.author)
 	author: null | string
 
-	@Field(() => String, { description: 'Name', nullable: true })
 	@DtoFieldDecorators('name', bdConfig.BookPrivate.dbFields.name)
 	name: null | string
 
-	@Field(() => String, { description: 'Note', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookPrivate.dbFields.note)
 	note: null | string
 
-	@Field(() => String, { description: 'Language code' })
 	@DtoFieldDecorators('languageCode', bdConfig.BookPrivate.dbFields.source_language_code, { required: true })
 	languageCode: Language
-}
+}*/

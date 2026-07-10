@@ -4,14 +4,13 @@ import React from 'react'
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { pageUrls, localizePath } from 'utils/pageUrls'
-import ErrorMessage from '@/ui/ErrorMessage/ErrorMessage'
-import Spinner from '../../../ui/Spinner/Spinner'
+import type { LoginWithOAuthDtoProviderType } from '@/shared/api/generated/models'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Spinner from '@/shared/ui/Spinner/Spinner'
 import { useAuthorizeUser } from './fn/authorizeUser'
 
-type ProviderType = 'github' | 'google' | 'yandex'
-
 type OAuthPageProps = {
-	providerType: ProviderType
+	providerType: LoginWithOAuthDtoProviderType
 }
 
 function OAuthPage(props: OAuthPageProps) {

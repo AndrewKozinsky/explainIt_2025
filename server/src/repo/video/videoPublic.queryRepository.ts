@@ -89,14 +89,12 @@ export class VideoPublicQueryRepository {
 			languageCode: dbVideo.source_language_code,
 			note: dbVideo.note,
 			covers: dbVideo.covers,
-			coverBackgroundColor: dbVideo.coverBackgroundColor,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			freeToUse: dbVideo.free_to_use ?? false,
 		}
 	}
 
@@ -110,14 +108,12 @@ export class VideoPublicQueryRepository {
 			languageCode: dbVideo.source_language_code,
 			note: dbVideo.note,
 			covers: dbVideo.covers,
-			coverBackgroundColor: dbVideo.coverBackgroundColor,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			freeToUse: dbVideo.free_to_use ?? false,
 		}
 
 		const universalPhraseByText = await this.buildUniversalPhraseMap(dbVideo)

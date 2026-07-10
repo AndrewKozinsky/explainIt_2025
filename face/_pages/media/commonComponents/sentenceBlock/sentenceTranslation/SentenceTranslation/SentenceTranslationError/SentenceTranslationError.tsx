@@ -1,5 +1,5 @@
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import './SentenceTranslationError.scss'
 

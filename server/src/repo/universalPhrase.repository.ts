@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
 import { normalizeSentence } from 'utils/stringUtils'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { LanguageCode, Prisma } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type DbUniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
 	include: {
@@ -32,7 +32,7 @@ export type UniversalPhraseServiceModel = {
 export class UniversalPhraseRepository {
 	constructor(private prisma: PrismaService) {}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async createUniversalPhrase(dto: { text: string; sourceLanguageCode: LanguageCode }) {
 		return await this.prisma.universalPhrase.create({
 			data: {
@@ -40,7 +40,7 @@ export class UniversalPhraseRepository {
 				source_language_code: dto.sourceLanguageCode,
 			},
 		})
-	}
+	}*/
 
 	@CatchDbError()
 	async findOrCreate(input: { sentenceText: string; sourceLanguage: string }): Promise<UniversalPhraseServiceModel> {
@@ -83,7 +83,7 @@ export class UniversalPhraseRepository {
 		return this.mapDbToServiceModel(record as DbUniversalPhraseWithRelations)
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async findBySentenceTextAndLang(
 		sentenceText: string,
 		sourceLanguage: string,
@@ -105,7 +105,7 @@ export class UniversalPhraseRepository {
 
 		if (!record) return null
 		return this.mapDbToServiceModel(record as DbUniversalPhraseWithRelations)
-	}
+	}*/
 
 	private mapDbToServiceModel(db: DbUniversalPhraseWithRelations): UniversalPhraseServiceModel {
 		return {
@@ -114,18 +114,18 @@ export class UniversalPhraseRepository {
 			sourceLanguageCode: db.source_language_code,
 			transcription: db.UniversalTranscription
 				? {
-						id: db.UniversalTranscription.id,
-						universalPhraseId: db.UniversalTranscription.universal_phrase_id,
-						ipa: db.UniversalTranscription.ipa,
-						pinyin: db.UniversalTranscription.pinyin,
-					}
+					id: db.UniversalTranscription.id,
+					universalPhraseId: db.UniversalTranscription.universal_phrase_id,
+					ipa: db.UniversalTranscription.ipa,
+					pinyin: db.UniversalTranscription.pinyin,
+				}
 				: null,
 			audioPronunciation: db.UniversalAudioPronunciation
 				? {
-						id: db.UniversalAudioPronunciation.id,
-						universalPhraseId: db.UniversalAudioPronunciation.universal_phrase_id,
-						audioUrl: '', // URL генерируется через S3 сервис — здесь заглушка
-					}
+					id: db.UniversalAudioPronunciation.id,
+					universalPhraseId: db.UniversalAudioPronunciation.universal_phrase_id,
+					audioUrl: '', // URL генерируется через S3 сервис — здесь заглушка
+				}
 				: null,
 		}
 	}

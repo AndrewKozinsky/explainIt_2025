@@ -1,12 +1,16 @@
 import { LanguageCode } from 'utils/languages'
 import { create } from 'zustand'
+import type {
+	UniversalPhraseOutModel,
+	TranscriptionOutModel,
+	UniversalAudioPronunciationOutModel,
+} from '@/shared/api/generated/models'
 import {
-	UniversalPhrase_GetDocument,
-	UniversalPhrase_CreateDocument,
-	UniversalPhaseTranscriptionGetOrCreateDocument,
-	UniversalPhraseAudioGetOrCreateDocument,
-} from '@/graphql'
-import { apolloClient } from '@/graphql/apollo'
+	universalPhraseControllerGetUniversalPhrase,
+	universalPhraseControllerCreateUniversalPhrase,
+} from '@/shared/api/generated/universal-phrase/universal-phrase'
+import { universalPhraseAudioControllerGetOrCreateAudio } from '@/shared/api/generated/universal-phrase-audio/universal-phrase-audio'
+import { universalPhraseTranscriptionControllerGetOrCreateTranscription } from '@/shared/api/generated/universal-phrase-transcription/universal-phrase-transcription'
 import { makePhraseKey } from './helpers'
 import { EntryData, PhraseData, PhraseResult, PhraseStore, PreloadItem } from './types'
 
@@ -102,31 +106,30 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 				setEntry(key, { phraseStatus: 'loading' })
 
 				try {
-					const result = await apolloClient.query({
-						query: UniversalPhrase_GetDocument,
-						variables: { input: { text: phrase, sourceLanguageCode: languageCode } },
-						fetchPolicy: 'network-only',
+					const response = await universalPhraseControllerGetUniversalPhrase({
+						text: phrase,
+						sourceLanguageCode: languageCode,
 					})
 
-					const data = result.data?.universal_phrase_get
+					const data = response as unknown as UniversalPhraseOutModel | null
 					if (data) {
-						savePhraseToEntry(key, data)
-						return { ok: true, data }
+						savePhraseToEntry(key, data as unknown as PhraseData)
+						return { ok: true, data: data as unknown as PhraseData }
 					}
 				} catch {
 					// fall through to create
 				}
 
 				try {
-					const result = await apolloClient.mutate({
-						mutation: UniversalPhrase_CreateDocument,
-						variables: { input: { text: phrase, sourceLanguageCode: languageCode } },
+					const response = await universalPhraseControllerCreateUniversalPhrase({
+						text: phrase,
+						sourceLanguageCode: languageCode,
 					})
 
-					const data = result.data?.universal_phrase_create
+					const data = response as unknown as UniversalPhraseOutModel
 					if (data) {
-						savePhraseToEntry(key, data)
-						return { ok: true, data }
+						savePhraseToEntry(key, data as unknown as PhraseData)
+						return { ok: true, data: data as unknown as PhraseData }
 					}
 				} catch {
 					// fall through to failure
@@ -217,13 +220,14 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 
 				// Create transcription
 				try {
-					const transcriptionResult = await apolloClient.mutate({
-						mutation: UniversalPhaseTranscriptionGetOrCreateDocument,
-						variables: { input: { universalPhraseId: updated.phraseId! } },
+					const transcriptionResult = await universalPhraseTranscriptionControllerGetOrCreateTranscription({
+						universalPhraseId: updated.phraseId!,
 					})
-					const ipa = transcriptionResult.data?.universal_phrase_transcription_get_or_create?.ipa ?? null
+
+					const transcription = transcriptionResult as unknown as TranscriptionOutModel
+					const ipa = transcription?.ipa ?? null
 					setEntry(key, {
-						transcription: ipa,
+						transcription: ipa as string | null,
 						transcriptionStatus: 'ready',
 					})
 				} catch {
@@ -273,12 +277,12 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 
 				// Create audio
 				try {
-					const audioResult = await apolloClient.mutate({
-						mutation: UniversalPhraseAudioGetOrCreateDocument,
-						variables: { input: { universalPhraseId: updated.phraseId! } },
+					const audioResult = await universalPhraseAudioControllerGetOrCreateAudio({
+						universalPhraseId: updated.phraseId!,
 					})
 
-					const audioUrl = audioResult.data?.universal_phrase_audio_get_or_create?.audioUrl ?? null
+					const audio = audioResult as unknown as UniversalAudioPronunciationOutModel
+					const audioUrl = audio?.audioUrl ?? null
 					setEntry(key, {
 						audioUrl,
 						audioStatus: audioUrl ? 'ready' : 'error',

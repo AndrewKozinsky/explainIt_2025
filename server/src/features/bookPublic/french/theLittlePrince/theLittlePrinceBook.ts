@@ -42,9 +42,7 @@ export function theLittlePrinceBookData(coversFolderName: string) {
 
 Уровень A2-B1.`,
 		languageCode: languages.fr.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#bec8d1',
 	}
 }
 

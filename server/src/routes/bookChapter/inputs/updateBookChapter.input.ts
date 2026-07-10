@@ -1,26 +1,19 @@
-import { Field, InputType, Int } from '@nestjs/graphql'
-import { bdConfig } from 'db/dbConfig/dbConfig'
-import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+// import { bdConfig } from 'db/dbConfig/dbConfig'
+// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-@InputType()
-export class UpdateBookChapterInput {
-	@Field(() => Int, { description: 'BookChapter id' })
+/*export class UpdateBookChapterInput {
 	@DtoFieldDecorators('id', bdConfig.BookChapter.dbFields.id, { type: 'number', required: true, min: 1 })
 	id: number
 
-	@Field(() => String, { description: 'BookChapter name (chapter 1)', nullable: true })
 	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.name)
 	name?: null | string
 
-	@Field(() => String, { description: 'BookChapter header', nullable: true })
 	@DtoFieldDecorators('header', bdConfig.BookChapter.dbFields.header)
 	header?: null | string
 
-	@Field(() => String, { description: 'BookChapter content', nullable: true })
 	@DtoFieldDecorators('content', bdConfig.BookChapter.dbFields.original_content)
 	originalContent?: null | string
 
-	@Field(() => String, { description: 'BookChapter note', nullable: true })
 	@DtoFieldDecorators('note', bdConfig.BookChapter.dbFields.note)
 	note?: null | string
-}
+}*/

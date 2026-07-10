@@ -1,6 +1,9 @@
 import { useEffect } from 'react'
 import { LanguageCode } from 'utils/languages'
-import { useBookChapter_Get, useVideoPrivate_Get, useVideoPublic_Get } from '@/graphql'
+import { useBookChapterControllerGetBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
+import type { BookChapterControllerGetBookChapterBookType } from '@/shared/api/generated/models'
+import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
 import { usePhraseStore, PreloadItem } from '@/stores/phraseStore'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
@@ -17,26 +20,27 @@ function useFetchChapterAndSetToStore() {
 	const bookType = useReadingStore((s) => s.book?.type)
 	const languageCode = useDetailsStore((s) => s.languageCode)
 
-	const { data } = useBookChapter_Get({
-		variables: {
-			input: {
-				id: chapterId!,
-				bookType: bookType || 'private',
-				targetLanguageCode: 'ru',
-			},
+	const { data } = useBookChapterControllerGetBookChapter(
+		chapterId!,
+		{
+			bookType: (bookType || 'private') as BookChapterControllerGetBookChapterBookType,
+			targetLanguageCode: 'ru',
 		},
-		skip: !chapterId,
-	})
+		{ query: { enabled: !!chapterId } },
+	)
 
 	useEffect(
 		function () {
 			if (!data) return
 
-			const chapter = data.book_chapter_get
+			const chapter = data as unknown as {
+				originalContent?: string | null
+				sentences?: ServerSentence[] | null
+			}
 			const rawSentences = (chapter.sentences ?? []) as ServerSentence[]
 
 			const sentences = mapToDetailsSentenceEntries({
-				originalContent: chapter.originalContent ?? '',
+				originalContent: (chapter.originalContent as string) ?? '',
 				sentences: rawSentences,
 				languageCode,
 				getTranslation: (s) => s.sentenceTranslation?.translation ?? null,
@@ -56,27 +60,29 @@ function useFetchVideoAndSetToStore() {
 	const videoType = useWatchingStore((s) => s.video?.type)
 	const languageCode = useDetailsStore((s) => s.languageCode)
 
-	const { data: privateVideoData } = useVideoPrivate_Get({
-		variables: { input: { id: videoId! } },
-		skip: videoType !== 'private' || !videoId,
+	const { data: privateVideoData } = useVideoPrivateControllerGetVideoPrivate(videoId!, {
+		query: { enabled: videoType === 'private' && !!videoId },
 	})
 
-	const { data: publicVideoData } = useVideoPublic_Get({
-		variables: { input: { id: videoId! } },
-		skip: videoType !== 'public' || !videoId,
+	const { data: publicVideoData } = useVideoPublicControllerGetVideoPublic(videoId!, {
+		query: { enabled: videoType === 'public' && !!videoId },
 	})
 
 	useEffect(
 		function () {
-			const video =
-				videoType === 'private' ? privateVideoData?.video_private_get : publicVideoData?.video_public_get
+			const rawData = videoType === 'private' ? privateVideoData : publicVideoData
 
-			if (!video) return
+			if (!rawData) return
+
+			const video = rawData as unknown as {
+				originalContent?: string | null
+				sentences?: ServerSentence[] | null
+			}
 
 			const rawSentences = (video.sentences ?? []) as ServerSentence[]
 
 			const sentences = mapToDetailsSentenceEntries({
-				originalContent: video.originalContent ?? '',
+				originalContent: (video.originalContent as string) ?? '',
 				sentences: rawSentences,
 				languageCode,
 				getTranslation: (s) => s.sentenceTranslations?.[0]?.translation ?? null,

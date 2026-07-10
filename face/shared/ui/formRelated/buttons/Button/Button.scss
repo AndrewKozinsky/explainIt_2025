@@ -1,0 +1,53 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use 'sass:color';
+
+.button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: .5rem;
+	border-radius: vars.$radius-1;
+	transition: border-color .2s ease-in-out;
+}
+
+.button--size-small {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	padding: .3rem 0.8rem;
+
+	&.button--icon-only {
+		padding: .3rem;
+	}
+}
+
+.button--size-medium {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	padding: .7rem 1.4rem;
+
+	&.button--icon-only {
+		padding: .4rem;
+	}
+}
+
+.button--size-big {
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	padding: 1.1rem 2.6rem;
+
+	&.button--icon-only {
+		padding: .6rem;
+	}
+}
+
+.button__icon {
+	display: inline-block;
+
+	& > img {
+		display: block;
+	}
+}
+.button__icon--disabled {
+	opacity: 0.4;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
-import { EditIcon } from 'ui/icons/buttonIcons/EditIcon'
-import { InfoIcon } from 'ui/icons/InfoIcon'
+import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
+import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
 import MediaCardActionButton from '../MediaCardActionButton/MediaCardActionButton'
 import MediaCardButton from '../MediaCardButton/MediaCardButton'
 import './MediaCard.scss'
@@ -12,9 +12,7 @@ type MediaCardProps = {
 	actionUrl: string
 	url: string
 	coverUrl?: string
-	backgroundColor?: string
 	defaultMediaName: string
-	freeToUse?: boolean
 }
 
 function MediaCard(props: MediaCardProps) {

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { BookPrivateOutModel } from 'models/book/book.out.model'
 import { Prisma } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import { CloudRuS3Service } from '../infrastructure/cloudRuS3/cloudRuS3.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { BookPrivateOutModel } from '../models/book/book.out.model'
 
 type BookWithChapters = Prisma.BookPrivateGetPayload<{ include: { BookChapter: true } }>
 
@@ -51,7 +51,6 @@ export class BookPrivateQueryRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			userId: dbBook.user_id,
-			freeToUse: false,
 			languageCode: dbBook.source_language_code,
 			coverUrl,
 			uploadUrl: null,

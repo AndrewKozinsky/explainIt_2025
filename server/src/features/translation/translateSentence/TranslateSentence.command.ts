@@ -1,7 +1,4 @@
-import { Inject } from '@nestjs/common'
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
-import { Logger } from 'winston'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
@@ -53,7 +50,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 		private mainConfigService: MainConfigService,
 		private commandBus: CommandBus,
-		@Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
@@ -124,7 +120,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				throw error
 			}
 
-			this.logger.info('Error while translating sentence', {
+			console.log('Error while translating sentence', {
 				message: error instanceof Error ? error.message : 'Unknown error',
 			})
 

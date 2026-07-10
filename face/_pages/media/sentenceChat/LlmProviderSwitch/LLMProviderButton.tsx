@@ -1,11 +1,11 @@
 import cn from 'classnames'
-import BaseButton from 'ui/BaseButton/BaseButton'
-import DeepseekButtonIcon from 'ui/icons/buttonIcons/DeepseekButtonIcon'
-import DeepseekLiteButtonIcon from 'ui/icons/buttonIcons/DeepseekLiteButtonIcon'
-import GeminiButtonIcon from 'ui/icons/buttonIcons/GeminiButtonIcon'
-import GeminiLiteButtonIcon from 'ui/icons/buttonIcons/GeminiLiteButtonIcon'
-import OpenAIButtonIcon from 'ui/icons/buttonIcons/OpenAIButtonIcon'
-import OpenAILiteButtonIcon from 'ui/icons/buttonIcons/OpenAILiteButtonIcon'
+import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import DeepseekButtonIcon from '@/shared/ui/icons/buttonIcons/DeepseekButtonIcon'
+import DeepseekLiteButtonIcon from '@/shared/ui/icons/buttonIcons/DeepseekLiteButtonIcon'
+import GeminiButtonIcon from '@/shared/ui/icons/buttonIcons/GeminiButtonIcon'
+import GeminiLiteButtonIcon from '@/shared/ui/icons/buttonIcons/GeminiLiteButtonIcon'
+import OpenAIButtonIcon from '@/shared/ui/icons/buttonIcons/OpenAIButtonIcon'
+import OpenAILiteButtonIcon from '@/shared/ui/icons/buttonIcons/OpenAILiteButtonIcon'
 import { LlmProvider, useSentenceChatStore } from '../sentenceChatStore'
 
 type LLMProviderButtonProps = {

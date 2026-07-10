@@ -35,9 +35,6 @@ export class SentenceTranslationAccessService {
 		if (isPublicMaterial) {
 			return this.resolvePublicMaterialAccess({
 				userId: input.userId,
-				isFreeToUse: Boolean(
-					sentenceDb.bookChapter?.book_public?.free_to_use || sentenceDb.videoPublic?.free_to_use,
-				),
 			})
 		}
 
@@ -48,22 +45,12 @@ export class SentenceTranslationAccessService {
 		})
 	}
 
-	private async resolvePublicMaterialAccess(input: {
-		userId: null | number
-		isFreeToUse: boolean
-	}): Promise<SentenceTranslationAccess> {
-		if (input.isFreeToUse) {
-			return this.createUnlimitedAccess()
-		}
-
+	private async resolvePublicMaterialAccess(input: { userId: null | number }): Promise<SentenceTranslationAccess> {
 		if (!input.userId) {
 			return this.createForbiddenAccess('anonymousNonFreeToUse')
 		}
 
-		return {
-			readMode: 'unlimited',
-			createMode: 'chargeBalance',
-		}
+		return this.createUnlimitedAccess()
 	}
 
 	private async resolvePrivateMaterialAccess(input: {

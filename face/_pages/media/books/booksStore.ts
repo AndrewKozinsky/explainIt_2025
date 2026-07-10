@@ -1,16 +1,16 @@
 import { create } from 'zustand'
-import { BookPublicOutModel, BookPrivateOutModel } from '@/graphql'
+import type { BookPublicOutModel, BookPrivateOutModel } from '@/shared/api/generated/models'
 
 export const booksStoreValues: BooksStoreValues = {
 	publicBooks: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as BookPublicOutModel[],
+		data: [],
 	},
 	privateBooks: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as BookPrivateOutModel[],
+		data: [],
 	},
 }
 

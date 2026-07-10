@@ -1,22 +1,29 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
 import { Language } from 'utils/languages'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { UniversalAudioPronunciationOutModel } from 'models/audioPronunciation/audioPronunciation.out.model'
 import { TranscriptionOutModel } from '../transcription/transcription.out.model'
 
-@ObjectType()
+const $ = bdConfig.UniversalPhrase.dbFields
+
 export class UniversalPhraseOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.text))
 	text: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	sourceLanguageCode: Language
 
-	@Field(() => TranscriptionOutModel, { nullable: true })
+	@ApiProperty({ description: 'Transcription data', type: TranscriptionOutModel, nullable: true })
 	transcription: TranscriptionOutModel | null
 
-	@Field(() => UniversalAudioPronunciationOutModel, { nullable: true })
+	@ApiProperty({
+		description: 'Audio pronunciation data',
+		type: UniversalAudioPronunciationOutModel,
+		nullable: true,
+	})
 	audioPronunciation: UniversalAudioPronunciationOutModel | null
 }

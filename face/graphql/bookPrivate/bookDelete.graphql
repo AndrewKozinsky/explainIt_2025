@@ -1,3 +1,0 @@
-mutation Book_delete($input: DeletePrivateBookInput!) {
-	book_delete(input: $input)
-}

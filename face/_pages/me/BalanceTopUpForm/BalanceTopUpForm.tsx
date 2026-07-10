@@ -1,10 +1,9 @@
 'use client'
 
-import Button from 'ui/formRelated/buttons/Button/Button'
-import FormError from 'ui/formRelated/FormError/FormError'
-import TextInput from 'ui/formRelated/TextInput/TextInput'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import FormError from '@/shared/ui/formRelated/FormError/FormError'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import { useBalanceTopUpForm } from './fn/useBalanceTopUpForm'
-import './BalanceTopUpForm.scss'
 
 function BalanceTopUpForm() {
 	const { amountInRubles, formError, loading, handleSubmit, handleAmountChange } = useBalanceTopUpForm()

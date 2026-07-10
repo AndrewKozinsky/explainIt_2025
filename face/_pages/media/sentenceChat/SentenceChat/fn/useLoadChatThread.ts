@@ -1,28 +1,22 @@
 import { useEffect } from 'react'
-import { getTextByUnknownError } from 'utils/extractErrorText'
-import { useSentence_Chat_Get_ThreadLazyQuery } from '@/graphql'
+import type { SentenceChatThreadOutModel } from '@/shared/api/generated/models'
+import { sentenceChatControllerGetThread } from '@/shared/api/generated/sentence-chat/sentence-chat'
 import { useSentenceChatStore } from '../../sentenceChatStore'
 import { ChatMessageStatus } from '../../types/sseTypes'
 
-type GetThreadFn = ReturnType<typeof useSentence_Chat_Get_ThreadLazyQuery>[0]
-
-export function useLoadChatThread(input: {
-	sentenceId: number
-	getThread: GetThreadFn
-	closeStream: () => void
-}): void {
-	const { sentenceId, getThread, closeStream } = input
+export function useLoadChatThread(input: { sentenceId: number; closeStream: () => void }): void {
+	const { sentenceId, closeStream } = input
 
 	useEffect(
 		function () {
 			let cancelled = false
 			useSentenceChatStore.getState().clearStoreData()
 
-			getThread({ variables: { input: { sentenceId } } })
+			sentenceChatControllerGetThread({ sentenceId })
 				.then(function (res) {
 					if (cancelled) return
 
-					const thread = res.data?.sentence_chat_get_thread
+					const thread = res as unknown as SentenceChatThreadOutModel | null
 					if (thread) {
 						useSentenceChatStore.getState().setThreadMessages({
 							threadId: thread.id,
@@ -31,6 +25,7 @@ export function useLoadChatThread(input: {
 									...m,
 									role: m.role as 'user' | 'assistant',
 									status: m.status as ChatMessageStatus,
+									errorMessage: m.errorMessage as unknown as null | string,
 								}
 							}),
 						})
@@ -38,11 +33,11 @@ export function useLoadChatThread(input: {
 						useSentenceChatStore.getState().updateStore({ isLoadingThread: false })
 					}
 				})
-				.catch(function (err: unknown) {
+				.catch(function () {
 					if (cancelled) return
 
 					useSentenceChatStore.getState().updateStore({
-						threadError: getTextByUnknownError(err),
+						threadError: 'Не удалось загрузить историю чата',
 						isLoadingThread: false,
 					})
 				})
@@ -52,6 +47,6 @@ export function useLoadChatThread(input: {
 				closeStream()
 			}
 		},
-		[sentenceId, getThread, closeStream],
+		[sentenceId, closeStream],
 	)
 }

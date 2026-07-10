@@ -1,7 +1,0 @@
-query UniversalPhraseAudioGet($input: GetUniversalPhraseAudioInput!) {
-	universal_phrase_audio_get(input: $input) {
-		id
-		universalPhraseId
-		audioUrl
-	}
-}

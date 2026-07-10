@@ -17,11 +17,9 @@ export type PublicItem = {
 	languageCode: LanguageCode
 	name: string
 	subName?: null | number | string
-	backgroundColor: string
 	coverUrl: string
 	url: string
 	actionUrl: string
-	freeToUse?: boolean
 }
 
 export type AddMediaButtonConfig = {

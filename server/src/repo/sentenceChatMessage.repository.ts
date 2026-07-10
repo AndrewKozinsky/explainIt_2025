@@ -1,24 +1,24 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { SentenceChatMessageRole, SentenceChatMessageStatus } from 'prisma/generated/enums'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
 export class SentenceChatMessageRepository {
 	constructor(private prisma: PrismaService) {}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getMessageById(id: number) {
 		return this.prisma.sentenceChatMessage.findUnique({ where: { id } })
-	}
+	}*/
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getMessagesByThreadId(threadId: number) {
 		return this.prisma.sentenceChatMessage.findMany({
 			where: { thread_id: threadId },
 			orderBy: { id: 'asc' },
 		})
-	}
+	}*/
 
 	@CatchDbError()
 	async getLastMessageInThread(threadId: number) {
@@ -87,7 +87,7 @@ export class SentenceChatMessageRepository {
 		return !!found
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async markAllStreamingAsFailedForUser(userId: number, errorText: string) {
 		await this.prisma.sentenceChatMessage.updateMany({
 			where: {
@@ -99,5 +99,5 @@ export class SentenceChatMessageRepository {
 				error_message: errorText,
 			},
 		})
-	}
+	}*/
 }

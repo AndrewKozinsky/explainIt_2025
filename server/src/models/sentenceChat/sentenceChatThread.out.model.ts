@@ -1,20 +1,23 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { SentenceChatMessageOutModel } from './sentenceChatMessage.out.model'
 
-@ObjectType()
+const $ = bdConfig.SentenceChatThread.dbFields
+
 export class SentenceChatThreadOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(bdConfig.Sentence.dbFields.id))
 	sentenceId: number
 
-	@Field(() => [SentenceChatMessageOutModel])
+	@ApiProperty({ description: 'Chat messages in the thread', type: [SentenceChatMessageOutModel] })
 	messages: SentenceChatMessageOutModel[]
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.created_at))
 	createdAt: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.updated_at))
 	updatedAt: string
 }

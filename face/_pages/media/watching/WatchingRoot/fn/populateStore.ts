@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { getTextByUnknownError } from 'utils/extractErrorText'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
+import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
 import { useWatchingStore } from '../../watchingStore'
 import { createPopulatedPlainText } from './createPopulatedPlainText'
 import { createPopulatedSubtitles } from './createPopulatedText'
@@ -19,20 +20,18 @@ function useFetchVideoAndSetToStore() {
 
 	const {
 		data: privateVideoData,
-		error: privateVideoError,
-		loading: privateVideoLoading,
-	} = useVideoPrivate_Get({
-		variables: { input: { id: videoId! } },
-		skip: videoType !== 'private' || !videoId,
+		isError: privateVideoIsError,
+		isLoading: privateVideoLoading,
+	} = useVideoPrivateControllerGetVideoPrivate(videoId!, {
+		query: { enabled: videoType === 'private' && !!videoId },
 	})
 
 	const {
 		data: publicVideoData,
-		error: publicVideoError,
-		loading: publicVideoLoading,
-	} = useVideoPublic_Get({
-		variables: { input: { id: videoId! } },
-		skip: videoType !== 'public' || !videoId,
+		isError: publicVideoIsError,
+		isLoading: publicVideoLoading,
+	} = useVideoPublicControllerGetVideoPublic(videoId!, {
+		query: { enabled: videoType === 'public' && !!videoId },
 	})
 
 	useEffect(
@@ -48,8 +47,10 @@ function useFetchVideoAndSetToStore() {
 			}
 
 			const video =
-				videoType === 'private' ? privateVideoData?.video_private_get : publicVideoData?.video_public_get
-			const error = videoType === 'private' ? privateVideoError : publicVideoError
+				videoType === 'private'
+					? (privateVideoData as unknown as VideoPrivateOutModel | undefined)
+					: (publicVideoData as unknown as VideoPublicOutModel | undefined)
+			const error = videoType === 'private' ? privateVideoIsError : publicVideoIsError
 			const loading = videoType === 'private' ? privateVideoLoading : publicVideoLoading
 
 			if (loading) {
@@ -62,7 +63,7 @@ function useFetchVideoAndSetToStore() {
 			} else if (error) {
 				useWatchingStore.getState().updateVideo({
 					loading: false,
-					errorMessage: getTextByUnknownError(error),
+					errorMessage: 'Не удалось загрузить видео',
 					data: null as any as VideoPrivateOutModel,
 					type: videoType,
 				})
@@ -105,10 +106,10 @@ function useFetchVideoAndSetToStore() {
 			videoType,
 			videoId,
 			privateVideoData,
-			privateVideoError,
+			privateVideoIsError,
 			privateVideoLoading,
 			publicVideoData,
-			publicVideoError,
+			publicVideoIsError,
 			publicVideoLoading,
 		],
 	)

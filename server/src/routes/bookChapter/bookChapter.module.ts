@@ -13,7 +13,7 @@ import { CreateBookChapterHandler } from 'features/bookChapter/CreateBookChapter
 import { DeleteBookChapterHandler } from 'features/bookChapter/DeleteBookChapter.command'
 import { GetBookChapterHandler } from 'features/bookChapter/GetBookChapter.command'
 import { UpdateBookChapterHandler } from 'features/bookChapter/UpdateBookChapter.command'
-import { BookChapterResolver } from './bookChapter.resolver'
+import { BookChapterController } from './bookChapter.controller'
 
 const services = [PrismaService]
 const commandHandlers = [
@@ -22,7 +22,6 @@ const commandHandlers = [
 	DeleteBookChapterHandler,
 	GetBookChapterHandler,
 ]
-const resolvers = [BookChapterResolver]
 const repositories = [
 	BookPrivateRepository,
 	BookPrivateQueryRepository,
@@ -36,6 +35,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	controllers: [BookChapterController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class BookChapterModule {}

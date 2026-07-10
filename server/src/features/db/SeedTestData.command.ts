@@ -1,20 +1,20 @@
 import { CommandBus, CommandHandler, ICommandHandler } from '@nestjs/cqrs'
-import { Request } from 'express'
+// import { Request } from 'express'
 import { UserRepository } from 'repo/user.repository'
-import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
+// import { OAuthProviderType } from 'routes/auth/inputs/loginWithOAuth.input'
 // import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 // import { CreateBookCommand } from 'features/bookPrivate/CreateBook.command'
-import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
-import { CreateUserWithEmailAndPasswordCommand } from '../auth/CreateUserWithEmailAndPassword.command'
-import { LoginWithOAuthCommand } from '../auth/LoginWithOAuth.command'
-import {
-	serverTestDataConfig,
-	UserBookConfig,
-	UserRegisteredWithCredentialsAndOAuthConfig,
-	UserRegisteredWithCredentialsConfig,
-	UserRegisteredWithOAuthConfig,
-	UserWithUnconfirmedEmailConfig,
-} from './serverTestDataConfig'
+// import { ConfirmEmailCommand } from '../auth/ConfirmEmail.command'
+// import { CreateUserWithEmailAndPasswordCommand } from '../auth/CreateUserWithEmailAndPassword.command'
+// import { LoginWithOAuthCommand } from '../auth/LoginWithOAuth.command'
+// import {
+// 	serverTestDataConfig,
+// 	UserBookConfig,
+// 	UserRegisteredWithCredentialsAndOAuthConfig,
+// 	UserRegisteredWithCredentialsConfig,
+// 	UserRegisteredWithOAuthConfig,
+// 	UserWithUnconfirmedEmailConfig,
+// } from './serverTestDataConfig'
 
 export class SeedTestDataCommand {
 	constructor() {}
@@ -29,10 +29,10 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 
 	async execute() {
 		// Create test users and set id into each user in usersConfig
-		await this.seedUsers()
+		// await this.seedUsers()
 	}
 
-	async seedUsers() {
+	/*async seedUsers() {
 		// Create test users
 		const usersConfig = serverTestDataConfig.getUsersConfig()
 
@@ -66,14 +66,14 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 		}
 
 		return usersConfig
-	}
+	}*/
 
-	async createUserWithUnconfirmedEmail(userConfig: UserWithUnconfirmedEmailConfig) {
+	/*async createUserWithUnconfirmedEmail(userConfig: UserWithUnconfirmedEmailConfig) {
 		const createdUser = await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(userConfig))
 		return createdUser.id
-	}
+	}*/
 
-	async createUserWithConfirmedEmail(userConfig: UserRegisteredWithCredentialsConfig) {
+	/*async createUserWithConfirmedEmail(userConfig: UserRegisteredWithCredentialsConfig) {
 		const createdUser = await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(userConfig))
 		if (!createdUser) return null
 
@@ -88,9 +88,9 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 		await this.commandBus.execute(new ConfirmEmailCommand({ code: emailConfirmationCode }))
 
 		return user.id
-	}
+	}*/
 
-	async createUserWithOAuth(userConfig: UserRegisteredWithOAuthConfig) {
+	/*async createUserWithOAuth(userConfig: UserRegisteredWithOAuthConfig) {
 		const createdUser = await this.commandBus.execute(
 			new LoginWithOAuthCommand({
 				request: this.getFakeRequest(),
@@ -105,9 +105,9 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 		)
 
 		return createdUser?.id
-	}
+	}*/
 
-	async createUserWithCredentialsAndOAuth(userConfig: UserRegisteredWithCredentialsAndOAuthConfig) {
+	/*async createUserWithCredentialsAndOAuth(userConfig: UserRegisteredWithCredentialsAndOAuthConfig) {
 		const createdUser = await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(userConfig))
 
 		await this.commandBus.execute(
@@ -124,10 +124,10 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 		)
 
 		return createdUser?.id
-	}
+	}*/
 
-	async createUserBooks(userId: number, booksConfig: UserBookConfig[]) {
-		/*for (const bookConfig of booksConfig) {
+	/*async createUserBooks(userId: number, booksConfig: UserBookConfig[]) {
+		for (const bookConfig of booksConfig) {
 			const createdBook = await this.commandBus.execute(new CreateBookCommand(userId, bookConfig))
 			bookConfig.id = createdBook.id
 
@@ -143,10 +143,10 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 				)
 				chapterConfig.id = createdChapter.id
 			}
-		}*/
-	}
+		}
+	}*/
 
-	getFakeRequest() {
+	/*getFakeRequest() {
 		return {
 			session: {
 				userId: null,
@@ -155,5 +155,5 @@ export class SeedTestDataHandler implements ICommandHandler<SeedTestDataCommand>
 				save: (callback: (err?: any) => void) => callback(null),
 			},
 		} as any as Request
-	}
+	}*/
 }

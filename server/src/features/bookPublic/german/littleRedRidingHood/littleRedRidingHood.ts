@@ -11,9 +11,7 @@ export function littleRedRidingHoodBookData(coversFolderName: string) {
 Много диалогов помогающих изучать разговорные конструкции. Используется относительно простой и повторяющийся словарный запас. Сюжет хорошо известен, поэтому текст легче понимать даже с незнакомыми словами.
 Рекомендуемый уровень A2-B1`,
 		languageCode: languages.de.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#313B3C',
 	}
 }
 

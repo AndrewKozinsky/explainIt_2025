@@ -5,15 +5,15 @@ import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateUniversalPhraseHandler } from 'features/universalPhrase/GetOrCreateUniversalPhrase.command'
 import { GetUniversalPhraseHandler } from 'features/universalPhrase/GetUniversalPhrase.command'
-import { UniversalPhraseResolver } from './universalPhrase.resolver'
+import { UniversalPhraseController } from './universalPhrase.controller'
 
 const services = [PrismaService]
 const commandHandlers = [GetUniversalPhraseHandler, CreateUniversalPhraseHandler]
-const resolvers = [UniversalPhraseResolver]
 const repositories = [UniversalPhraseRepository, UniversalPhraseQueryRepository]
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	controllers: [UniversalPhraseController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class UniversalPhraseModule {}

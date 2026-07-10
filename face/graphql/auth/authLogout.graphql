@@ -1,3 +1,0 @@
-mutation Auth_logout {
-	auth_logout
-}

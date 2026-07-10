@@ -9,7 +9,7 @@ import { UserRepository } from 'repo/user.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
 import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
-import { VideoPrivateResolver } from 'routes/videoPrivate/videoPrivate.resolver'
+import { VideoPrivateController } from 'routes/videoPrivate/videoPrivate.controller'
 import { PrismaService } from 'db/prisma.service'
 import { CreatePrivateVideoHandler } from 'features/video/CreatePrivateVideo.command'
 import { DeletePrivateVideoHandler } from 'features/video/DeletePrivateVideo.command'
@@ -31,7 +31,6 @@ const commandHandlers = [
 	GetSubtitlesGenerationStatusHandler,
 	ChargeSubtitlesGenerationHandler,
 ]
-const resolvers = [VideoPrivateResolver]
 const repositories = [
 	VideoPrivateRepository,
 	VideoPrivateQueryRepository,
@@ -46,6 +45,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	controllers: [VideoPrivateController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class VideoPrivateModule {}

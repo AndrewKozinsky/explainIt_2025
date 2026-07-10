@@ -1,5 +1,4 @@
-import React from 'react'
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 import './AuthMainPageLayout.scss'
 
 type AuthPageLayoutProps = {
@@ -10,7 +9,7 @@ function AuthMainPageLayout(props: AuthPageLayoutProps) {
 	const { children } = props
 
 	return (
-		<PageWrapper top>
+		<PageWrapper withTop>
 			<div className='auth-main-page-layout__body'>{children}</div>
 		</PageWrapper>
 	)

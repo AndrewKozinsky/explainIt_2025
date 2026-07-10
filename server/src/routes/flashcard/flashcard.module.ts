@@ -11,7 +11,7 @@ import { AddFlashcardHandler } from 'features/flashcard/AddFlashcard.command'
 import { GetMyFlashcardsHandler } from 'features/flashcard/GetMyFlashcards.query'
 import { RemoveFlashcardHandler } from 'features/flashcard/RemoveFlashcard.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
-import { FlashcardResolver } from './flashcard.resolver'
+import { FlashcardController } from './flashcard.controller'
 
 const services = [PrismaService]
 
@@ -28,6 +28,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...handlers, ...repositories, CheckSessionCookieGuard, FlashcardResolver],
+	controllers: [FlashcardController],
+	providers: [...services, ...handlers, ...repositories, CheckSessionCookieGuard],
 })
 export class FlashcardModule {}

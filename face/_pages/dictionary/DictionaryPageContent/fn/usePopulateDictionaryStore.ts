@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
-import { getTextByUnknownError } from 'utils/extractErrorText'
-import { useFlashcard_Get_My, useUniversalPhrase_GetLazyQuery } from '@/graphql'
+import { useFlashcardControllerGetMyFlashcards } from '@/shared/api/generated/flashcard/flashcard'
+import type { FlashcardOutModel, UniversalPhraseOutModel } from '@/shared/api/generated/models'
+import { universalPhraseControllerGetUniversalPhrase } from '@/shared/api/generated/universal-phrase/universal-phrase'
 import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
 
 function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {
@@ -17,20 +18,19 @@ export function usePopulateDictionaryStore() {
 	const setIsFlashcardsLoading = useDictionaryStore((state) => state.setIsFlashcardsLoading)
 	const setGetFlashcardsErrorMessage = useDictionaryStore((state) => state.setGetFlashcardsErrorMessage)
 
-	const { data, loading, error } = useFlashcard_Get_My({
-		variables: { input: {} },
-		skip: !currentLang,
-	})
-	const [getUniversalPhrase] = useUniversalPhrase_GetLazyQuery()
+	const { data, isLoading, error } = useFlashcardControllerGetMyFlashcards(
+		currentLang ? { languageCode: currentLang } : undefined,
+		{ query: { enabled: !!currentLang } },
+	)
 
 	useEffect(() => {
-		if (loading) {
+		if (isLoading) {
 			setIsFlashcardsLoading(true)
 		}
-	}, [loading, setIsFlashcardsLoading])
+	}, [isLoading, setIsFlashcardsLoading])
 
 	useEffect(() => {
-		setGetFlashcardsErrorMessage(error ? getTextByUnknownError(error) : '')
+		setGetFlashcardsErrorMessage(error ? 'Не удалось загрузить флешкарточки' : '')
 	}, [error, setGetFlashcardsErrorMessage])
 
 	useEffect(() => {
@@ -40,64 +40,66 @@ export function usePopulateDictionaryStore() {
 	}, [error, setIsFlashcardsLoading])
 
 	useEffect(() => {
-		if (!data?.flashcard_get_my) {
-			if (!loading && !error) {
+		const flashcards = data as unknown as FlashcardOutModel[] | undefined
+
+		if (!flashcards) {
+			if (!isLoading && !error) {
 				setFlashcards([])
 				setIsFlashcardsLoading(false)
 			}
 			return
 		}
 
-		const flashcards = data.flashcard_get_my
 		let isCancelled = false
 
 		async function enrichFlashcards() {
 			try {
 				setIsFlashcardsLoading(true)
-				const flashcardsByLang = flashcards.filter((flashcard) => flashcard.languageCode === currentLang)
+				const flashcardsByLang = flashcards!.filter((flashcard) => flashcard.languageCode === currentLang)
 				const preparedFlashcards = await Promise.all(
 					flashcardsByLang.map(async (flashcard): Promise<DictionaryFlashcardData> => {
 						let phraseAudioUrl = ''
-						let phraseTranscription = flashcard.phraseTranscription ?? ''
+						let phraseTranscription = (flashcard.phraseTranscription as unknown as string | null) ?? ''
 
 						try {
-							const phraseResult = await getUniversalPhrase({
-								variables: {
-									input: {
-										text: flashcard.phrase,
-										sourceLanguageCode: flashcard.languageCode,
-									},
-								},
-								fetchPolicy: 'network-only',
+							const response = await universalPhraseControllerGetUniversalPhrase({
+								text: flashcard.phrase,
+								sourceLanguageCode: flashcard.languageCode ?? '',
 							})
 
-							phraseAudioUrl = phraseResult.data?.universal_phrase_get.audioPronunciation?.audioUrl ?? ''
+							const phraseData = response as unknown as UniversalPhraseOutModel | null
+
+							phraseAudioUrl = phraseData?.audioPronunciation?.audioUrl ?? ''
 							phraseTranscription =
-								flashcard.phraseTranscription ??
-								phraseResult.data?.universal_phrase_get.transcription?.ipa ??
-								phraseResult.data?.universal_phrase_get.transcription?.pinyin ??
+								(flashcard.phraseTranscription as unknown as string | null) ??
+								(phraseData?.transcription?.ipa as unknown as string | undefined) ??
+								(phraseData?.transcription?.pinyin as unknown as string | undefined) ??
 								''
-						} catch {}
+						} catch {
+							/* ignore individual phrase fetch errors */
+						}
 
 						return {
 							id: flashcard.id,
-							languageCode: flashcard.languageCode,
+							languageCode: flashcard.languageCode ?? '',
 							sentenceText: getSentenceTextParts(
 								flashcard.sentenceText,
 								flashcard.phraseStartOffset,
 								flashcard.phraseEndOffset,
 							),
-							sentenceTranslation: flashcard.sentenceTranslation ?? '',
+							sentenceTranslation: (flashcard.sentenceTranslation as unknown as string | null) ?? '',
 							phrase: flashcard.phrase,
 							phraseStartOffset: flashcard.phraseStartOffset,
 							phraseEndOffset: flashcard.phraseEndOffset,
-							phraseTranslation: flashcard.phraseTranslation ?? '',
+							phraseTranslation: (flashcard.phraseTranslation as unknown as string | null) ?? '',
 							phraseTranscription,
 							phraseAudioUrl,
-							examples: flashcard.examples.map((example) => ({
-								text: example.text,
-								translate: example.translate,
-							})),
+							examples: (flashcard.examples as unknown as { text: string; translate: string }[]).map(
+								(example) => ({
+									text: example.text,
+									translate: example.translate,
+								}),
+							),
 						}
 					}),
 				)
@@ -109,7 +111,7 @@ export function usePopulateDictionaryStore() {
 			} catch (e) {
 				if (!isCancelled) {
 					setFlashcards([])
-					setGetFlashcardsErrorMessage(getTextByUnknownError(e, 'Не удалось загрузить флешкарточки'))
+					setGetFlashcardsErrorMessage('Не удалось загрузить флешкарточки')
 					setIsFlashcardsLoading(false)
 				}
 			}
@@ -120,14 +122,5 @@ export function usePopulateDictionaryStore() {
 		return () => {
 			isCancelled = true
 		}
-	}, [
-		currentLang,
-		data,
-		error,
-		getUniversalPhrase,
-		loading,
-		setFlashcards,
-		setGetFlashcardsErrorMessage,
-		setIsFlashcardsLoading,
-	])
+	}, [currentLang, data, error, isLoading, setFlashcards, setGetFlashcardsErrorMessage, setIsFlashcardsLoading])
 }

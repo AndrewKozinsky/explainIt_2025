@@ -1,4 +1,5 @@
 import { applyDecorators } from '@nestjs/common'
+import { ApiProperty } from '@nestjs/swagger'
 import { Transform, Type } from 'class-transformer'
 import {
 	IsArray,
@@ -20,7 +21,8 @@ import { Trim } from 'infrastructure/pipes/Trim.decorator'
 import { BdConfig } from './dbConfig/dbConfigType'
 
 /**
- * Creates universal decorator to check property in DTO for compliance with fieldConf
+ * Creates universal decorator to check property in DTO for compliance with fieldConf.
+ * Also adds @ApiProperty for OpenAPI documentation.
  * @param fieldName — name of the field. For example: email, recoveryCode, cityId
  * @param dbFieldConf — database field config object
  * @param rewrittenDbConfigFields — changes for database field config object
@@ -30,13 +32,16 @@ export function DtoFieldDecorators(
 	dbFieldConf: BdConfig.Field,
 	rewrittenDbConfigFields: Partial<BdConfig.Field> = {},
 ) {
-	const updatedFieldConf = Object.assign(dbFieldConf, rewrittenDbConfigFields)
+	const updatedFieldConf = Object.assign(dbFieldConf, rewrittenDbConfigFields) as BdConfig.Field & Record<string, any>
 
 	// Set the first letter to lowercase 'password' -> 'Password'
 	const name = fieldName.charAt(0).toUpperCase() + fieldName.slice(1)
 
 	const decorators: any[] = []
 
+	decorators.push(getApiPropertyDecorator(updatedFieldConf))
+
+	// --- class-validator decorators ---
 	if (updatedFieldConf.type === 'index') {
 		decorators.push(Type(() => Number)) // Converts string to number
 		decorators.push(IsNumber())
@@ -172,4 +177,48 @@ export function DtoFieldDecorators(
 	}
 
 	return applyDecorators(...decorators)
+}
+
+/**
+ * Builds @ApiProperty options object from bdConfig field metadata.
+ * Used by both DtoFieldDecorators (for DTOs) and Out-models (via @ApiProperty(getApiPropertyOptions($.field))).
+ */
+export function getApiPropertyOptions(fieldConf: Record<string, any>) {
+	const options: Record<string, any> = {}
+
+	if (fieldConf.description) {
+		options.description = fieldConf.description
+	}
+
+	if (fieldConf.example !== undefined) {
+		options.example = fieldConf.example
+	}
+
+	if (fieldConf.required !== undefined) {
+		options.required = fieldConf.required
+		options.nullable = !fieldConf.required
+	}
+
+	if (fieldConf.minLength !== undefined) {
+		options.minLength = fieldConf.minLength
+	}
+	if (fieldConf.maxLength !== undefined) {
+		options.maxLength = fieldConf.maxLength
+	}
+
+	if (fieldConf.min !== undefined) {
+		options.minimum = fieldConf.min
+	}
+	if (fieldConf.max !== undefined) {
+		options.maximum = fieldConf.max
+	}
+
+	return options
+}
+
+/**
+ * Builds @ApiProperty decorator from bdConfig field metadata for OpenAPI documentation.
+ */
+function getApiPropertyDecorator(fieldConf: Record<string, any>) {
+	return ApiProperty(getApiPropertyOptions(fieldConf))
 }

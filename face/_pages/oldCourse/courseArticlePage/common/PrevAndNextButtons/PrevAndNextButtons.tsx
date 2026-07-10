@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { Link } from '@/i18n/routing'
-import { LeftArrow, RightArrow } from '@/ui/icons/ArrowIcon'
+import { LeftArrow, RightArrow } from '@/shared/ui/icons/ArrowIcon'
 import './ArtPrevAndNextButtons.scss'
 
 // Какого цвета будет текст кнопки

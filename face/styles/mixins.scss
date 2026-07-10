@@ -21,3 +21,21 @@
 		box-shadow: 0 1px 2px rgba(0, 0, 0, .12), 0 2px 5px rgba(0, 0, 0, .1);
     }
 }
+
+@mixin side-offset {
+	--offset: 1rem;
+	padding-left: var(--offset);
+	padding-right: var(--offset);
+
+	@include page-width(400px) {
+		--offset: 2.5%;
+	}
+
+	@include page-width(750px) {
+		--offset: 3%;
+	}
+
+	@include page-width(1100px) {
+		--offset: 3.5%;
+	}
+}

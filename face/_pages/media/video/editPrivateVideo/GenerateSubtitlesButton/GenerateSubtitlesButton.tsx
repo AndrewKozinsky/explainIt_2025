@@ -1,7 +1,7 @@
 import React from 'react'
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
-import { SubtitlesGenerationStatus } from '@/graphql'
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import { VideoPrivateSubtitlesStatusOutModelStatus } from '@/shared/api/generated/models'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { getButtonText } from '_pages/media/video/editPrivateVideo/GenerateSubtitlesButton/fn/getButtonText'
 import { useGenerateSubtitles } from './fn/useGenerateSubtitles'
 import './GenerateSubtitlesButton.scss'
@@ -21,7 +21,9 @@ function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
 			<Button onClick={generate} disabled={disabled || isGenerating} loading={isGenerating}>
 				{buttonText}
 			</Button>
-			{status === SubtitlesGenerationStatus.Failed && generationError && <ErrorMessage text={generationError} />}
+			{status === VideoPrivateSubtitlesStatusOutModelStatus.failed && generationError && (
+				<ErrorMessage text={(generationError as unknown as string) ?? null} />
+			)}
 		</div>
 	)
 }

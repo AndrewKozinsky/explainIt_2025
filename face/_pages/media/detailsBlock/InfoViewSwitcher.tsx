@@ -1,5 +1,5 @@
-import ContainerWidthObserver from 'ui/ContainerWidthObserver/ContainerWidthObserver'
-import Switcher from 'ui/Switcher/Switcher'
+import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
+import Switcher from '@/shared/ui/Switcher/Switcher'
 import { useDetailsStore } from './detailsStore'
 
 function InfoViewSwitcher() {

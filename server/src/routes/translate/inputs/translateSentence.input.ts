@@ -1,35 +1,26 @@
-import { Field, InputType } from '@nestjs/graphql'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 import { LanguageCode } from 'prisma/generated/enums'
 
-@InputType()
 export class TranslateSentenceInput {
-	@Field(() => Number, { description: 'Sentence id' })
 	@DtoFieldDecorators('sentenceId', bdConfig.SentenceTranslation.dbFields.sentence_id)
 	sentenceId: number
 
-	@Field(() => String, { description: 'Source language code', nullable: true })
 	@DtoFieldDecorators('sourceLanguageCode', bdConfig.SentenceTranslation.dtoProps.sourceLanguageCode)
 	sourceLanguageCode?: null | LanguageCode
 
-	@Field(() => String, { description: 'Target language code' })
 	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dbFields.target_language_code)
 	targetLanguageCode: LanguageCode
 
-	@Field(() => String, { description: 'Book name', nullable: true })
 	@DtoFieldDecorators('bookName', bdConfig.SentenceTranslation.dtoProps.bookName)
 	bookName?: string
 
-	@Field(() => String, { description: 'Book author', nullable: true })
 	@DtoFieldDecorators('bookAuthor', bdConfig.SentenceTranslation.dtoProps.bookAuthor)
 	bookAuthor?: string
 
-	@Field(() => String, { description: 'Video name', nullable: true })
 	@DtoFieldDecorators('videoName', bdConfig.SentenceTranslation.dtoProps.videoName)
 	videoName?: string
 
-	@Field(() => String, { description: 'Video release year', nullable: true })
 	@DtoFieldDecorators('videoYear', bdConfig.SentenceTranslation.dtoProps.videoYear)
 	videoYear?: string
 }

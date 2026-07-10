@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import cn from 'classnames'
-import ContainerWidthObserver from 'ui/ContainerWidthObserver/ContainerWidthObserver'
+import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
 import LlmProviderSwitch from '../LlmProviderSwitch/LlmProviderSwitch'
 import PromptTextarea, { PromptTextareaHandle } from '../PromptTextarea/PromptTextarea'
 import SendAndCancelButtons from '../SendAndCancelButtons/SendAndCancelButtons'

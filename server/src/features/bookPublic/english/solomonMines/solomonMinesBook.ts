@@ -41,9 +41,7 @@ export function solomonMinesBookData(coversFolderName: string) {
 
 Уровень B2-C1.`,
 		languageCode: languages.en.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#35392b',
 	}
 }
 

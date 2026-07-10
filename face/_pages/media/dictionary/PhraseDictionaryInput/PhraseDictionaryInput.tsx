@@ -1,5 +1,5 @@
 import React from 'react'
-import TextInput from 'ui/formRelated/TextInput/TextInput'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import { usePhraseTranslation } from './fn/usePhraseTranslation'
 

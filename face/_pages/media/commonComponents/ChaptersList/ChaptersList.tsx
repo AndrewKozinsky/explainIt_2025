@@ -1,5 +1,5 @@
 import React from 'react'
-import Paragraph from 'ui/Paragraph/Paragraph'
+import Paragraph from '@/shared/ui/Paragraph/Paragraph'
 import ChapterLink from '../ChapterLink/ChapterLink'
 import './ChaptersList.scss'
 

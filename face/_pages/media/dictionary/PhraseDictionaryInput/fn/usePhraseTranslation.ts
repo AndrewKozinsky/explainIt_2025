@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { useLocale } from 'next-intl'
-import { useUniversalPhraseTranslation_GetOrCreate } from '@/graphql'
+import { universalPhraseTranslationControllerGetOrCreateTranslation } from '@/shared/api/generated/universal-phrase-translation/universal-phrase-translation'
+import type { GetOrCreateUniversalPhraseTranslationInput, UniversalPhraseTranslationOutModel } from '@/shared/api/generated/models'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 import { createFetchTranslation } from './createFetchTranslation'
@@ -17,8 +18,15 @@ export function usePhraseTranslation() {
 	const locale = useLocale()
 	const languageCode = useDetailsStore((s) => s.languageCode)
 
-	const [mutateTranslation] = useUniversalPhraseTranslation_GetOrCreate()
 	const abortRef = useRef<AbortController | null>(null)
+
+	const mutateTranslation = useCallback(
+		async (input: GetOrCreateUniversalPhraseTranslationInput, options?: RequestInit) => {
+			const response = await universalPhraseTranslationControllerGetOrCreateTranslation(input, options)
+			return response as unknown as UniversalPhraseTranslationOutModel
+		},
+		[],
+	)
 
 	// Функция перевода — создаётся один раз, значения читает через геттеры
 	const fetchTranslation = useMemo(

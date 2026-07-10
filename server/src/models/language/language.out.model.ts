@@ -1,13 +1,12 @@
-import { Field, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
 
-@ObjectType()
 export class LanguageOutModel {
-	@Field(() => String)
+	@ApiProperty({ description: 'Language name in its native form', example: 'English' })
 	name: string
 
-	@Field(() => String)
+	@ApiProperty({ description: 'Language name in English', example: 'english' })
 	nameEng: string
 
-	@Field(() => String)
+	@ApiProperty({ description: 'Language code (ISO)', example: 'en' })
 	code: string
 }

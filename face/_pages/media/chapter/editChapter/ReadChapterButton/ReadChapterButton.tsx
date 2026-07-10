@@ -1,4 +1,4 @@
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useGetOnReadButtonClick, useIsReadButtonDisabled } from './fn/buttonLogic'
 
 function ReadChapterButton() {

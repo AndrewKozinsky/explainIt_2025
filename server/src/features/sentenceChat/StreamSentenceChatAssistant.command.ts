@@ -1,8 +1,6 @@
-import { Inject, Injectable, MessageEvent } from '@nestjs/common'
+import { Injectable, MessageEvent } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { WINSTON_MODULE_PROVIDER } from 'nest-winston'
 import { Observable, Subscriber } from 'rxjs'
-import { Logger } from 'winston'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
@@ -61,7 +59,6 @@ export class StreamSentenceChatAssistantCommand {
 		private activeGenerationRegistry: ActiveSentenceChatGenerationRegistry,
 		private commandBus: CommandBus,
 		private userRepository: UserRepository,
-		@Inject(WINSTON_MODULE_PROVIDER) private readonly logger: Logger,
 	) {}
 
 	execute(input: StreamSentenceChatAssistantInput): Observable<MessageEvent> {
@@ -77,7 +74,7 @@ export class StreamSentenceChatAssistantCommand {
 			}
 
 			this.runStream(input, subscriber, state).catch((error) => {
-				this.logger.error('Sentence chat generation: unexpected error outside of run()', { error })
+				console.log('Sentence chat generation: unexpected error outside of run()', { error })
 			})
 
 			// Вызывается, когда клиент отсоединяется (или subscriber.complete/error был вызван изнутри).
@@ -162,7 +159,7 @@ export class StreamSentenceChatAssistantCommand {
 		}
 
 		const errorText = this.extractErrorMessage(error)
-		this.logger.error('Sentence chat generation failed', { error })
+		console.log('Sentence chat generation failed', { error })
 
 		await this.finalize(input, subscriber, state, { status: 'failed', errorText })
 
@@ -339,7 +336,7 @@ export class StreamSentenceChatAssistantCommand {
 				errorMessage: opts.errorText ?? null,
 			})
 		} catch (error) {
-			this.logger.error('Failed to persist final assistant message', { error })
+			console.log('Failed to persist final assistant message', { error })
 		}
 	}
 
@@ -358,7 +355,7 @@ export class StreamSentenceChatAssistantCommand {
 				commandBus: this.commandBus,
 			})
 		} catch (error) {
-			this.logger.error('Failed to charge user after sentence chat generation', { error })
+			console.log('Failed to charge user after sentence chat generation', { error })
 		}
 	}
 

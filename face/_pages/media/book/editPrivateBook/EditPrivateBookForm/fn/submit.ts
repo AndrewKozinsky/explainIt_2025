@@ -1,5 +1,11 @@
 import React, { useCallback } from 'react'
-import { Book_GetDocument, Book_GetUserBooksDocument, useBook_Update } from '@/graphql'
+import { useQueryClient } from '@tanstack/react-query'
+import { useBookPrivateControllerUpdateBook } from '@/shared/api/generated/book-private/book-private'
+import {
+	getBookPrivateControllerGetUserBooksQueryKey,
+	getBookPrivateControllerGetBookQueryKey,
+} from '@/shared/api/generated/book-private/book-private'
+import type { UpdateBookDtoLanguageCode } from '@/shared/api/generated/models'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { ChangeBookFormData } from './form'
@@ -10,12 +16,8 @@ export function useGetOnUpdateBookFormSubmit(
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
 	const book = useBookStore((s) => s.privateBook.data)
-	const [updateBook] = useBook_Update({
-		refetchQueries: [
-			Book_GetUserBooksDocument,
-			{ query: Book_GetDocument, variables: { input: { id: book?.id } } },
-		],
-	})
+	const { mutateAsync: updateBook } = useBookPrivateControllerUpdateBook()
+	const queryClient = useQueryClient()
 
 	return useCallback(
 		async function (formData: ChangeBookFormData) {
@@ -25,22 +27,18 @@ export function useGetOnUpdateBookFormSubmit(
 			setFormStatus('submitting')
 
 			try {
-				const { data, errors } = await updateBook({
-					variables: {
-						input: {
-							id: book.id,
-							author: formData.author,
-							name: formData.name,
-							languageCode: formData.languageCode,
-							note: formData.note,
-						},
+				await updateBook({
+					id: book.id,
+					data: {
+						author: formData.author,
+						name: formData.name,
+						languageCode: formData.languageCode as unknown as UpdateBookDtoLanguageCode,
+						note: formData.note,
 					},
 				})
 
-				if (errors) {
-					setFormError('Не удалось сохранить книгу')
-					return
-				}
+				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetBookQueryKey(book.id) })
 
 				setFormStatus('idle')
 			} catch (gqError: unknown) {
@@ -48,6 +46,6 @@ export function useGetOnUpdateBookFormSubmit(
 				setFormStatus('idle')
 			}
 		},
-		[book, setFieldError, setFormError, setFormStatus, updateBook],
+		[book, setFieldError, setFormError, setFormStatus, updateBook, queryClient],
 	)
 }

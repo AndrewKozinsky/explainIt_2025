@@ -1,4 +1,4 @@
-import { openSse } from 'utils/sse/openSse'
+// import { openSse } from 'utils/sse/openSse'
 
 /**
  * Универсальный "клиент потока":
@@ -14,7 +14,7 @@ import { openSse } from 'utils/sse/openSse'
  * - этот слой всё ещё не знает про домен (перевод/анализ). Он знает только про
  *   то, что сервер в событии `chunk` присылает JSON вида { text: string }.
  */
-export async function readStream(
+/*export async function readStream(
 	url: string,
 	options?: {
 		onChunk?: (chunk: string, fullText: string) => void
@@ -48,17 +48,17 @@ export async function readStream(
 			onError: (message) => resolve({ type: 'error', message }),
 		})
 	})
-}
+}*/
 
 /**
  * Безопасно парсим JSON из чанка.
  * Если сервер прислал невалидный JSON — возвращаем null.
  */
-function safeReadChunkText(data: string): null | string {
+/*function safeReadChunkText(data: string): null | string {
 	try {
 		const parsed = JSON.parse(data) as { text?: string }
 		return parsed.text ?? ''
 	} catch (error) {
 		return null
 	}
-}
+}*/

@@ -1,13 +1,17 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.UniversalAudioPronunciation.dbFields
+const $$ = bdConfig.UniversalAudioPronunciation.dtoProps
+
 export class UniversalAudioPronunciationOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(bdConfig.UniversalPhrase.dbFields.id))
 	universalPhraseId: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($$.audioUrl))
 	audioUrl: string
 }

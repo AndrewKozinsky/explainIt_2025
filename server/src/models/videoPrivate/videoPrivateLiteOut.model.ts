@@ -1,46 +1,49 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.VideoPrivate.dbFields
+
 export class VideoPrivateLiteOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty({ description: 'User ID', example: 1 })
 	userId: number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.name))
 	name: string | null
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.year))
 	year: null | number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.processed_content))
 	processedContent: null | string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.content_type))
 	contentType: 'text' | 'subtitles'
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.file_name))
 	fileName: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.file_s3_key))
 	fileS3Key: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty({ description: 'Pre-signed URL for downloading the video file from S3', example: 'https://...' })
 	fileUrl: null | string
 
-	@Field(() => Boolean)
+	@ApiProperty(getApiPropertyOptions($.is_file_uploaded))
 	isFileUploaded: boolean
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.file_size_mb))
 	fileSizeMb: number
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
 	fileDurationSec: null | number
 }

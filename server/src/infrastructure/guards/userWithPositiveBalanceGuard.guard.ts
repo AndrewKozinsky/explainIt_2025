@@ -1,8 +1,8 @@
-import { Injectable, CanActivate, ExecutionContext, Type, mixin } from '@nestjs/common'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { CustomError } from '../exceptions/customErrors'
-import { errorMessage } from '../exceptions/errorMessage'
-import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
+// import { Injectable, CanActivate, ExecutionContext, Type, mixin } from '@nestjs/common'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { CustomError } from '../exceptions/customErrors'
+// import { errorMessage } from '../exceptions/errorMessage'
+// import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
 
 /**
  * Guard factory that requires the authenticated user to have a balance
@@ -14,7 +14,7 @@ import { getRequestFromExecutionContext } from './getRequestFromExecutionContext
  * The threshold is expressed in kopecks (the unit used in the User.balance column).
  * For the previous "balance must be positive" semantics use UserWithPositiveBalanceGuard.
  */
-export function UserWithMinBalanceGuard(minBalanceKopecks: number): Type<CanActivate> {
+/*export function UserWithMinBalanceGuard(minBalanceKopecks: number): Type<CanActivate> {
 	@Injectable()
 	class MixinMinBalanceGuard implements CanActivate {
 		async canActivate(context: ExecutionContext) {
@@ -35,10 +35,10 @@ export function UserWithMinBalanceGuard(minBalanceKopecks: number): Type<CanActi
 	}
 
 	return mixin(MixinMinBalanceGuard)
-}
+}*/
 
 /**
  * Backwards-compatible guard equivalent to "balance > 0".
  * Kept as a named export so existing usages keep working.
  */
-export const UserWithPositiveBalanceGuard = UserWithMinBalanceGuard(1)
+// export const UserWithPositiveBalanceGuard = UserWithMinBalanceGuard(1)

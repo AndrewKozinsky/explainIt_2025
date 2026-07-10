@@ -5,15 +5,14 @@ import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
 import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { BookPublicController } from 'routes/bookPublic/bookPublic.controller'
 import { PrismaService } from 'db/prisma.service'
 import { CreateBookPublicHandler } from 'features/bookPublic/CreatePublicBook.command'
 import { CreatePublicBooksHandler } from 'features/bookPublic/CreatePublicBooks.command'
 import { GetBookPublicHandler } from 'features/bookPublic/GetBookPublic.command'
 import { GetBooksPublicHandler } from 'features/bookPublic/GetBooksPublic.command'
-import { BookPublicResolver } from './bookPublic.resolver'
 
 const services = [PrismaService]
-const resolvers = [BookPublicResolver]
 const commandHandlers = [CreatePublicBooksHandler, CreateBookPublicHandler, GetBooksPublicHandler, GetBookPublicHandler]
 const repositories = [
 	BookPublicRepository,
@@ -25,6 +24,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...repositories, ...resolvers],
+	controllers: [BookPublicController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class BookPublicModule {}

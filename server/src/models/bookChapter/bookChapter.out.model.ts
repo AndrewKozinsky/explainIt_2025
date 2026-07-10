@@ -1,67 +1,63 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { BookLiteOutModel } from '../book/book.out.model'
 import { SentencePhraseTranslationOutModel } from '../sentenceTranslation/sentencePhraseTranslation.out.model'
 import { SentenceTranslationOutModel } from '../sentenceTranslation/sentenceTranslation.out.model'
 
-@ObjectType()
+const $ = bdConfig.BookChapter.dbFields
+
 export class BookChapterLiteOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty({ description: 'Book ID', example: 1 })
 	bookId: number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.name))
 	name: string | null
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.header))
 	header: string | null
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.note))
 	note: string | null
 }
 
-@ObjectType()
-export class BookChapterOutModel {
-	@Field(() => Int)
-	id: number
-
-	@Field(() => String, { nullable: true })
-	name: string | null
-
-	@Field(() => String, { nullable: true })
-	header: string | null
-
-	@Field(() => String, { nullable: true })
-	note: string | null
-
-	@Field(() => String, { nullable: true })
-	originalContent: string | null
-
-	@Field(() => String, { nullable: true })
-	processedContent: string | null
-
-	@Field(() => [SentenceOutModel], { nullable: true })
-	sentences: SentenceOutModel[]
-
-	@Field(() => BookLiteOutModel)
-	book: BookLiteOutModel
-}
-
-@ObjectType()
 export class SentenceOutModel {
-	@Field(() => Int)
 	id: number
 
-	@Field(() => Int)
 	startOffset: number
 
-	@Field(() => Int)
 	length: number
 
-	@Field(() => SentenceTranslationOutModel, { nullable: true })
 	sentenceTranslation: SentenceTranslationOutModel | null
 
-	@Field(() => [SentencePhraseTranslationOutModel], { nullable: true })
 	sentencePhraseTranslations: SentencePhraseTranslationOutModel[] | null
+}
+
+export class BookChapterOutModel {
+	@ApiProperty(getApiPropertyOptions($.id))
+	id: number
+
+	@ApiProperty(getApiPropertyOptions($.name))
+	name: string | null
+
+	@ApiProperty(getApiPropertyOptions($.header))
+	header: string | null
+
+	@ApiProperty(getApiPropertyOptions($.note))
+	note: string | null
+
+	@ApiProperty(getApiPropertyOptions($.original_content))
+	originalContent: string | null
+
+	@ApiProperty(getApiPropertyOptions($.processed_content))
+	processedContent: string | null
+
+	@ApiProperty({ description: 'Sentences of the chapter', type: [SentenceOutModel], nullable: true })
+	sentences: null | SentenceOutModel[]
+
+	@ApiProperty({ description: 'Book that the chapter belongs to', type: BookLiteOutModel })
+	book: BookLiteOutModel
 }

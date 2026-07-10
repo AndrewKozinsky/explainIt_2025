@@ -8,6 +8,8 @@ type PhraseTranslationExampleProps = {
 function PhraseTranslationExamples(props: PhraseTranslationExampleProps) {
 	const { config } = props
 
+	if (!config.length) return null
+
 	return (
 		<div className='phrase-translation-examples'>
 			{config.map((obj) => {

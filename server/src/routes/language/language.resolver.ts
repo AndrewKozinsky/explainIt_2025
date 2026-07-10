@@ -1,10 +1,10 @@
-import { Query, Resolver } from '@nestjs/graphql'
-import { languages } from 'utils/languages'
-import RouteNames from 'infrastructure/routeNames'
-import { LanguageOutModel } from 'models/language/language.out.model'
-import { languageResolversDesc } from './resolverDescriptions'
+// import { Query, Resolver } from '@nestjs/graphql'
+// import { languages } from 'utils/languages'
+// import RouteNames from 'infrastructure/routeNames'
+// import { LanguageOutModel } from 'models/language/language.out.model'
+// import { languageResolversDesc } from './resolverDescriptions'
 
-@Resolver()
+/*@Resolver()
 export class LanguageResolver {
 	@Query(() => [LanguageOutModel], {
 		name: RouteNames.LANGUAGE.GET_ALL,
@@ -13,4 +13,4 @@ export class LanguageResolver {
 	async getLanguages() {
 		return Object.values(languages)
 	}
-}
+}*/

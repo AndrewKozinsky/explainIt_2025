@@ -1,4 +1,4 @@
-import { SentenceOutModel } from 'graphql'
+import type { SentenceOutModel } from '@/shared/api/generated/models'
 import { ChapterTextStructurePopulated } from '_pages/media/reading/readingStore'
 
 /**
@@ -16,7 +16,8 @@ export function populateChapterStructure(chapter: {
 	const content = chapter.content ?? ''
 	const sentencesCoords = chapter.sentences ?? []
 
-	const sentences: ChapterTextStructurePopulated.Sentence[] = sentencesCoords.map((sentence) => {
+	const sentences: ChapterTextStructurePopulated.Sentence[] = sentencesCoords.map((rawSentence) => {
+		const sentence = rawSentence as unknown as { id: number; startOffset: number; length: number }
 		const startOffset = Math.max(0, sentence.startOffset)
 		const endOffset = Math.min(content.length, startOffset + Math.max(0, sentence.length))
 

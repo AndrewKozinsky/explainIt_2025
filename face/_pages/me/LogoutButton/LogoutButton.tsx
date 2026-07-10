@@ -1,6 +1,6 @@
 'use client'
 
-import Button from '../../../ui/formRelated/buttons/Button/Button'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useGetLogout } from './fn/logout'
 
 function LogoutButton() {

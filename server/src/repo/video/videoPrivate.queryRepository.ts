@@ -23,7 +23,9 @@ type DbSentenceWithInit = Sentence & {
 	SentenceTranslation?: SentenceTranslation[]
 	SentencePhraseTranslation?: SentencePhraseTranslation[]
 }
+
 type DbSubtitleWithInit = Subtitle & { SubtitleSentenceInit?: SubtitleSentenceInit[] }
+
 type DbVideoWithRelations = VideoPrivate & {
 	Sentence?: DbSentenceWithInit[]
 	Subtitle?: DbSubtitleWithInit[]
@@ -43,6 +45,7 @@ export class VideoPrivateQueryRepository {
 		private cloudRuS3Service: CloudRuS3Service,
 		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
+
 	@CatchDbError()
 	async getVideoById(id: number, targetLanguageCode?: string) {
 		const video = await this.prisma.videoPrivate.findUnique({
@@ -77,7 +80,7 @@ export class VideoPrivateQueryRepository {
 			orderBy: { created_at: 'asc' },
 		})
 
-		return videos.map((video) => this.mapDbVideoToLiteOutVideo(video))
+		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
 	}
 
 	async mapDbVideoToLiteOutVideo(dbVideo: VideoPrivate): Promise<VideoPrivateLiteOutModel> {
@@ -91,7 +94,7 @@ export class VideoPrivateQueryRepository {
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
-			isFileUploaded: dbVideo.is_file_uploaded,
+			isFileUploaded: !!dbVideo.is_file_uploaded,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
@@ -115,20 +118,18 @@ export class VideoPrivateQueryRepository {
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
-			isFileUploaded: dbVideo.is_file_uploaded,
+			isFileUploaded: !!dbVideo.is_file_uploaded,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id,
 			fileSizeMb: dbVideo.file_size_mb,
 			fileDurationSec: dbVideo.file_duration_sec,
-			freeToUse: false,
 		}
 
 		const universalPhraseByText = await this.buildUniversalPhraseMap(dbVideo)
 
 		const result = attachVideoTextRelations({ base, dbVideo, universalPhraseByText })
-
 
 		return result
 	}

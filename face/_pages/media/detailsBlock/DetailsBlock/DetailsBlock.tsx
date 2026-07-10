@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import ViewportSyncedHeight from 'ui/ViewportSyncedHeight/ViewportSyncedHeight'
+import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { usePopulateStore } from '_pages/media/detailsBlock/DetailsBlock/fn/populateStore'
 import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
 import { useClearDataOnUnmount } from './fn/clearDataOnUnmount'

@@ -26,9 +26,7 @@ export function jungleTalesBookData(coversFolderName: string) {
 
 Рекомендуемый уровень A2-B1`,
 		languageCode: languages.es.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#475336',
 	}
 }
 

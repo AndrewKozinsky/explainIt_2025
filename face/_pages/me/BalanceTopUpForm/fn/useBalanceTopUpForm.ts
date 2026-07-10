@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { usePayment_YookassaTopUpBalance } from '@/graphql'
+import { usePaymentControllerTopUpBalanceWithYooKassa } from '@/shared/api/generated/payment/payment'
 
 const RUBLES_TO_KOPECKS = 100
 
@@ -9,7 +9,7 @@ export function useBalanceTopUpForm() {
 	const [amountInRubles, setAmountInRubles] = useState('')
 	const [formError, setFormError] = useState<null | string>(null)
 
-	const [topUpBalance, { loading }] = usePayment_YookassaTopUpBalance()
+	const { mutateAsync: topUpBalance, isPending: loading } = usePaymentControllerTopUpBalanceWithYooKassa()
 
 	function handleSubmit(event: React.FormEvent) {
 		event.preventDefault()
@@ -23,21 +23,16 @@ export function useBalanceTopUpForm() {
 
 		const amountInKopecks = rubles * RUBLES_TO_KOPECKS
 
-		topUpBalance({
-			variables: {
-				input: {
-					amountInKopecks,
-				},
-			},
-		})
+		topUpBalance({ data: { amountInKopecks } })
 			.then((response) => {
-				const confirmationUrl = response.data?.payment_yookassa_top_up_balance?.confirmationUrl
+				// NestJS returns the model directly, not wrapped in { data, status }
+				const confirmationUrl = (response as unknown as { confirmationUrl: string }).confirmationUrl
 				if (confirmationUrl) {
 					window.location.href = confirmationUrl
 				}
 			})
-			.catch((error) => {
-				setFormError(error.message || 'Произошла ошибка при создании платежа')
+			.catch((error: unknown) => {
+				setFormError(error instanceof Error ? error.message : 'Произошла ошибка при создании платежа')
 			})
 	}
 

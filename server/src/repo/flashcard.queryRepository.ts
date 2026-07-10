@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { FlashcardOutModel } from 'models/flashcard/flashcard.out.model'
 import { SentencePhraseTranslationExampleOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 import { Flashcard, LanguageCode } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
 export class FlashcardQueryRepository {

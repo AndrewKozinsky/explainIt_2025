@@ -12,7 +12,7 @@ function FileNameAndDeleteFileButton() {
 	return (
 		<div>
 			<video
-				src={video.fileUrl}
+				src={video.fileUrl as unknown as string}
 				controls
 				preload='metadata'
 				className='file-name-and-delete-file-button__video'

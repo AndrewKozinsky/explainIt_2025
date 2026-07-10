@@ -2,8 +2,7 @@
 
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
-import { useUserStore } from '@/stores/userStore'
+import { useUser } from '@/shared/api/auth/UserProvider'
 import { pageUrls, localizePath } from '@/utils/pageUrls'
 
 type LLMPageLayoutProps = {
@@ -13,13 +12,8 @@ type LLMPageLayoutProps = {
 function MePageLayout(props: LLMPageLayoutProps) {
 	const { children } = props
 
-	const user = useUserStore((state) => state.user)
-	const isLoading = useUserStore((state) => state.isLoading)
+	const user = useUser()
 	const locale = useLocale()
-
-	if (isLoading) {
-		return <LoadingMessage text='Загрузка...' />
-	}
 
 	if (!user) {
 		redirect(localizePath(locale, pageUrls.auth.login.path))

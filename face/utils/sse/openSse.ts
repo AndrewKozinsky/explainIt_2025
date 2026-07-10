@@ -22,7 +22,7 @@
  * - маршрутизирует события в коллбеки
  * - умеет безопасно закрыть соединение
  */
-export function openSse(
+/*export function openSse(
 	url: string,
 	handlers: {
 		onChunk?: (data: string) => void
@@ -77,4 +77,4 @@ export function openSse(
 	}
 
 	return { close }
-}
+}*/

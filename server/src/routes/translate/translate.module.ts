@@ -16,7 +16,7 @@ import { TranslatePhraseHandler } from 'features/translation/translatePhrase/Tra
 import { TranslateSentenceHandler } from 'features/translation/translateSentence/TranslateSentence.command'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
-import { TranslateResolver } from './translate.resolver'
+import { TranslateController } from './translate.controller'
 
 const services = [PrismaService, SentenceTranslationAccessService]
 const commandHandlers = [
@@ -38,12 +38,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule, LlmProviderModule],
-	providers: [
-		...commandHandlers,
-		...services,
-		...repositories,
-		OptionalSessionUserGuard,
-		TranslateResolver,
-	],
+	controllers: [TranslateController],
+	providers: [...commandHandlers, ...services, ...repositories, OptionalSessionUserGuard],
 })
 export class TranslateRouteModule {}

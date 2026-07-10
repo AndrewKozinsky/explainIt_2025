@@ -1,46 +1,44 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.VideoPublic.dbFields
+const $$ = bdConfig.VideoPublic.dtoProps
+
 export class VideoPublicLiteOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.name))
 	name: string
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.year))
 	year: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.note))
 	note: string
 
-	@Field(() => [String])
+	@ApiProperty(getApiPropertyOptions($.covers))
 	covers: string[]
 
-	@Field(() => String)
-	coverBackgroundColor: string
-
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.processed_content))
 	processedContent: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.content_type))
 	contentType: 'text' | 'subtitles'
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.file_name))
 	fileName: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.file_s3_key))
 	fileS3Key: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($$.fileUrl))
 	fileUrl: string
-
-	@Field(() => Boolean)
-	freeToUse: boolean
 }

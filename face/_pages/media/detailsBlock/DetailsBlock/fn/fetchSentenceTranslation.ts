@@ -1,11 +1,9 @@
 import { useEffect } from 'react'
 import { useLocale } from 'next-intl'
-import { getTextByUnknownError } from 'utils/extractErrorText'
 import {
-	SentencePhraseTranslationOutModel,
-	useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery,
-	useTranslate_Translate_Sentence,
-} from '@/graphql'
+	translateControllerGetPhraseTranslationsBySentence,
+	translateControllerTranslateSentence,
+} from '@/shared/api/generated/translate/translate'
 import { makePhraseId, SentencePhraseType, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { findSentenceEntry } from './selectors'
 import { wordIdsFromOffsets } from './wordSegmentation'
@@ -15,9 +13,6 @@ export function useFetchCurrentSentenceTranslation() {
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 	const retryFetchSentenceTranslationQueue = useDetailsStore((s) => s.retryFetchSentenceTranslationQueue)
 	const locale = useLocale()
-
-	const [getPhraseTranslationsBySentence] = useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery()
-	const [translateSentence] = useTranslate_Translate_Sentence()
 
 	// Process retry queue: sentences that the user explicitly asked to re-fetch.
 	useEffect(
@@ -36,8 +31,6 @@ export function useFetchCurrentSentenceTranslation() {
 					videoYear: state.videoYear,
 					languageCode: state.languageCode,
 					targetLanguageCode: locale,
-					getPhraseTranslationsBySentence,
-					translateSentence,
 				}).catch(function () {})
 			}
 
@@ -70,8 +63,6 @@ export function useFetchCurrentSentenceTranslation() {
 				videoYear: state.videoYear,
 				languageCode: state.languageCode,
 				targetLanguageCode: locale,
-				getPhraseTranslationsBySentence,
-				translateSentence,
 			}).catch(function () {})
 		},
 		[currentSentenceId],
@@ -87,8 +78,6 @@ type RunFetchForSentenceInput = {
 	videoYear: null | string | number
 	languageCode: null | string
 	targetLanguageCode: string
-	getPhraseTranslationsBySentence: ReturnType<typeof useTranslate_Get_Phrase_Translations_By_SentenceLazyQuery>[0]
-	translateSentence: ReturnType<typeof useTranslate_Translate_Sentence>[0]
 }
 
 async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<void> {
@@ -113,7 +102,7 @@ async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<voi
 			sentenceId: input.sentenceId,
 			patch: {
 				loading: false,
-				error: getTextByUnknownError(error),
+				error: 'Не удалось получить перевод предложения',
 			},
 		})
 
@@ -123,17 +112,13 @@ async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<voi
 
 async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Promise<void> {
 	try {
-		const response = await input.getPhraseTranslationsBySentence({
-			variables: {
-				input: {
-					sentenceId: input.sentenceId,
-					targetLanguageCode: input.targetLanguageCode,
-				},
-			},
-			fetchPolicy: 'network-only',
+		const response = await translateControllerGetPhraseTranslationsBySentence({
+			sentenceId: input.sentenceId,
+			targetLanguageCode: input.targetLanguageCode,
 		})
 
-		const phraseTranslations = response.data?.translate_get_phrase_translations_by_sentence ?? []
+		const phraseTranslations = (response as unknown as Record<string, unknown>[]) ?? []
+
 		const store = useDetailsStore.getState()
 
 		for (const phraseTranslation of phraseTranslations) {
@@ -152,29 +137,32 @@ async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Pro
 }
 
 export function mapPhraseTranslationToStatus(input: {
-	phraseTranslation: SentencePhraseTranslationOutModel
+	phraseTranslation: Record<string, unknown>
 	sentenceText: string
 	languageCode: null | string
 }): SentencePhraseType {
 	const { phraseTranslation, sentenceText, languageCode } = input
 
+	const phraseStartOffset = phraseTranslation.phraseStartOffset as number
+	const phraseEndOffset = phraseTranslation.phraseEndOffset as number
+
 	const wordIds = wordIdsFromOffsets({
 		sentenceText,
 		locale: languageCode,
-		startOffset: phraseTranslation.phraseStartOffset,
-		endOffset: phraseTranslation.phraseEndOffset,
+		startOffset: phraseStartOffset,
+		endOffset: phraseEndOffset,
 	})
 
 	return {
 		randomGeneratedPhraseId: makePhraseId(),
-		sentencePhraseId: phraseTranslation.id,
-		flashcardId: phraseTranslation.flashcardId ?? null,
+		sentencePhraseId: phraseTranslation.id as number,
+		flashcardId: (phraseTranslation.flashcardId as number | null) ?? null,
 		wordIds,
-		phrase: phraseTranslation.phrase ?? null,
+		phrase: (phraseTranslation.phrase as string) ?? null,
 		loading: false,
 		error: null,
-		translation: phraseTranslation.translate ?? null,
-		examples: (phraseTranslation.examples ?? []).map((example) => ({
+		translation: (phraseTranslation.translate as string | null) ?? null,
+		examples: ((phraseTranslation.examples as Array<{ text: string; translate: string }>) ?? []).map((example) => ({
 			text: example.text ?? '',
 			translate: example.translate ?? '',
 		})),
@@ -182,20 +170,17 @@ export function mapPhraseTranslationToStatus(input: {
 }
 
 async function fetchSentenceTranslation(input: RunFetchForSentenceInput): Promise<string> {
-	const generated = await input.translateSentence({
-		variables: {
-			input: {
-				sentenceId: input.sentenceId,
-				targetLanguageCode: input.targetLanguageCode,
-				bookName: input.bookName ?? undefined,
-				bookAuthor: input.bookAuthor ?? undefined,
-				videoName: input.videoName ?? undefined,
-				videoYear: toNullableString(input.videoYear) ?? undefined,
-			},
-		},
+	const response = await translateControllerTranslateSentence({
+		sentenceId: input.sentenceId,
+		targetLanguageCode: input.targetLanguageCode,
+		bookName: input.bookName ?? undefined,
+		bookAuthor: input.bookAuthor ?? undefined,
+		videoName: input.videoName ?? undefined,
+		videoYear: toNullableString(input.videoYear) ?? undefined,
 	})
 
-	const generatedTranslation = generated.data?.translate_translate_sentence?.translation
+	const result = response as unknown as { translation: string } | null
+	const generatedTranslation = result?.translation
 	if (!generatedTranslation) {
 		throw new Error('Не удалось получить перевод предложения')
 	}

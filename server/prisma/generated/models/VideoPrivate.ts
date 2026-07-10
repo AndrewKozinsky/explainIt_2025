@@ -309,7 +309,7 @@ export type VideoPrivateGroupByOutputType = {
   file_name: string | null
   file_s3_key: string | null
   s3_provider_name: $Enums.S3ProviderName | null
-  is_file_uploaded: boolean
+  is_file_uploaded: boolean | null
   file_size_mb: number
   file_duration_sec: number | null
   name: string | null
@@ -357,7 +357,7 @@ export type VideoPrivateWhereInput = {
   file_name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
+  is_file_uploaded?: Prisma.BoolNullableFilter<"VideoPrivate"> | boolean | null
   file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   file_duration_sec?: Prisma.IntNullableFilter<"VideoPrivate"> | number | null
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
@@ -386,7 +386,7 @@ export type VideoPrivateOrderByWithRelationInput = {
   file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
-  is_file_uploaded?: Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrderInput | Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   file_duration_sec?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -418,7 +418,7 @@ export type VideoPrivateWhereUniqueInput = Prisma.AtLeast<{
   file_name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
+  is_file_uploaded?: Prisma.BoolNullableFilter<"VideoPrivate"> | boolean | null
   file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   file_duration_sec?: Prisma.IntNullableFilter<"VideoPrivate"> | number | null
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
@@ -447,7 +447,7 @@ export type VideoPrivateOrderByWithAggregationInput = {
   file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
-  is_file_uploaded?: Prisma.SortOrder
+  is_file_uploaded?: Prisma.SortOrderInput | Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   file_duration_sec?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -480,7 +480,7 @@ export type VideoPrivateScalarWhereWithAggregatesInput = {
   file_name?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableWithAggregatesFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolWithAggregatesFilter<"VideoPrivate"> | boolean
+  is_file_uploaded?: Prisma.BoolNullableWithAggregatesFilter<"VideoPrivate"> | boolean | null
   file_size_mb?: Prisma.IntWithAggregatesFilter<"VideoPrivate"> | number
   file_duration_sec?: Prisma.IntNullableWithAggregatesFilter<"VideoPrivate"> | number | null
   name?: Prisma.StringNullableWithAggregatesFilter<"VideoPrivate"> | string | null
@@ -503,7 +503,7 @@ export type VideoPrivateCreateInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -532,7 +532,7 @@ export type VideoPrivateUncheckedCreateInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -558,7 +558,7 @@ export type VideoPrivateUpdateInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -587,7 +587,7 @@ export type VideoPrivateUncheckedUpdateInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -615,7 +615,7 @@ export type VideoPrivateCreateManyInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -638,7 +638,7 @@ export type VideoPrivateUpdateManyMutationInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -663,7 +663,7 @@ export type VideoPrivateUncheckedUpdateManyInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -830,6 +830,10 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.VideoPrivateScalarWhereInput | Prisma.VideoPrivateScalarWhereInput[]
 }
 
+export type NullableBoolFieldUpdateOperationsInput = {
+  set?: boolean | null
+}
+
 export type EnumVideoTextTypeFieldUpdateOperationsInput = {
   set?: $Enums.VideoTextType
 }
@@ -896,7 +900,7 @@ export type VideoPrivateCreateWithoutUserInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -923,7 +927,7 @@ export type VideoPrivateUncheckedCreateWithoutUserInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -980,7 +984,7 @@ export type VideoPrivateScalarWhereInput = {
   file_name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"VideoPrivate"> | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFilter<"VideoPrivate"> | boolean
+  is_file_uploaded?: Prisma.BoolNullableFilter<"VideoPrivate"> | boolean | null
   file_size_mb?: Prisma.IntFilter<"VideoPrivate"> | number
   file_duration_sec?: Prisma.IntNullableFilter<"VideoPrivate"> | number | null
   name?: Prisma.StringNullableFilter<"VideoPrivate"> | string | null
@@ -1003,7 +1007,7 @@ export type VideoPrivateCreateWithoutSentenceInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1031,7 +1035,7 @@ export type VideoPrivateUncheckedCreateWithoutSentenceInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1072,7 +1076,7 @@ export type VideoPrivateUpdateWithoutSentenceInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1100,7 +1104,7 @@ export type VideoPrivateUncheckedUpdateWithoutSentenceInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1125,7 +1129,7 @@ export type VideoPrivateCreateWithoutSubtitleInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1153,7 +1157,7 @@ export type VideoPrivateUncheckedCreateWithoutSubtitleInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1194,7 +1198,7 @@ export type VideoPrivateUpdateWithoutSubtitleInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1222,7 +1226,7 @@ export type VideoPrivateUncheckedUpdateWithoutSubtitleInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1247,7 +1251,7 @@ export type VideoPrivateCreateWithoutFlashcardInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1275,7 +1279,7 @@ export type VideoPrivateUncheckedCreateWithoutFlashcardInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1316,7 +1320,7 @@ export type VideoPrivateUpdateWithoutFlashcardInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1344,7 +1348,7 @@ export type VideoPrivateUncheckedUpdateWithoutFlashcardInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1370,7 +1374,7 @@ export type VideoPrivateCreateManyUserInput = {
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean
+  is_file_uploaded?: boolean | null
   file_size_mb?: number
   file_duration_sec?: number | null
   name?: string | null
@@ -1393,7 +1397,7 @@ export type VideoPrivateUpdateWithoutUserInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1420,7 +1424,7 @@ export type VideoPrivateUncheckedUpdateWithoutUserInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1447,7 +1451,7 @@ export type VideoPrivateUncheckedUpdateManyWithoutUserInput = {
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1651,7 +1655,7 @@ export type $VideoPrivatePayload<ExtArgs extends runtime.Types.Extensions.Intern
     file_name: string | null
     file_s3_key: string | null
     s3_provider_name: $Enums.S3ProviderName | null
-    is_file_uploaded: boolean
+    is_file_uploaded: boolean | null
     file_size_mb: number
     file_duration_sec: number | null
     name: string | null

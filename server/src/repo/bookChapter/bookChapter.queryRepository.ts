@@ -105,7 +105,6 @@ export class BookChapterQueryRepository {
 			},
 		}
 	}
-
 	private async buildUniversalPhraseMap(
 		dbChapter: FullBookChapterPrivate,
 		sourceLanguageCode: LanguageCode,

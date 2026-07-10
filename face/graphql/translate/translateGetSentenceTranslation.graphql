@@ -1,6 +1,0 @@
-query Translate_get_sentence_translation($input: GetSentenceTranslationInput!) {
-	translate_get_sentence_translation(input: $input) {
-		sentenceId
-		translation
-	}
-}

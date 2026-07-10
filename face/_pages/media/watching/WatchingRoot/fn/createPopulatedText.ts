@@ -1,4 +1,4 @@
-import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
 import { getSentenceStructure } from '_pages/media/commonComponents/sentenceBlock/Sentence/fn/getSentenceStructure'
 import { PopulatedSubtitlesStructure } from '../../common/populatedSubtitlesStructure'
 
@@ -18,7 +18,7 @@ export function createPopulatedSubtitles(
 		}
 	}
 
-	const text = videoData.processedContent
+	const text = videoData.processedContent as unknown as string
 	const sentencesSorted = [...videoData.sentences].sort((a, b) => a.orderIndex - b.orderIndex)
 	const subtitlesSorted = [...videoData.subtitles].sort((a, b) => a.orderIndex - b.orderIndex)
 

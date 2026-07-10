@@ -1,65 +1,59 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { BookChapterLiteOutModel } from '../bookChapter/bookChapter.out.model'
 
-@ObjectType()
+const $ = bdConfig.BookPrivate.dbFields
+const $$ = bdConfig.BookPrivate.dtoProps
+
 export class BookPrivateOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.author))
 	author: string | null
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.name))
 	name: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.note))
 	note: null | string
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.user_id))
 	userId: number
 
-	@Field(() => Boolean)
-	freeToUse: boolean
-
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($$.coverUrl))
 	coverUrl: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.file_name))
 	fileName: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.file_s3_key))
 	fileS3Key: null | string
 
-	@Field(() => Boolean)
+	@ApiProperty(getApiPropertyOptions($.is_file_uploaded))
 	isFileUploaded: boolean
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($$.uploadUrl))
 	uploadUrl: null | string
 
-	@Field(() => [BookChapterLiteOutModel])
+	@ApiProperty({ description: 'Book chapters', type: [BookChapterLiteOutModel] })
 	chapters: BookChapterLiteOutModel[]
 }
 
-@ObjectType()
 export class BookLiteOutModel {
-	@Field(() => Int)
 	id: number
 
-	@Field(() => String, { nullable: true })
 	author: null | string
 
-	@Field(() => String, { nullable: true })
 	name: null | string
 
-	@Field(() => String)
 	languageCode: null | string
 
-	@Field(() => String, { nullable: true })
 	note: null | string
 
-	@Field(() => Int, { nullable: true })
 	userId: null | number
 }

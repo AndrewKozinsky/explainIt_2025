@@ -64,12 +64,10 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 			let newVideo: Awaited<ReturnType<VideoPublicRepository['createVideo']>>
 			try {
 				newVideo = await this.videoPublicRepository.createVideo({
-					freeToUse: videoData.freeToUse,
 					name: videoData.name,
 					languageCode: videoData.languageCode as Language,
 					note: videoData.note,
 					covers: videoData.covers,
-					coverBackgroundColor: videoData.coverBackgroundColor,
 					year: videoData.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
@@ -111,7 +109,6 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 	}
 
 	getVideosData(): {
-		freeToUse: boolean
 		name: string
 		languageCode: string
 		year: number
@@ -120,7 +117,6 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 		file_s3_key: string
 		originalContent: string
 		covers: string[]
-		coverBackgroundColor: string
 	}[] {
 		const workingMode = this.mainConfig.get().mode!
 		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
@@ -131,7 +127,6 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 
 		return [
 			{
-				freeToUse: true,
 				name: 'Charade', // Charade (1963).mp4
 				languageCode: 'en',
 				year: 1963,
@@ -149,10 +144,8 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'english/charade_3.jpg',
 					coversFolderName + 'english/charade_4.jpg',
 				],
-				coverBackgroundColor: '#445a53',
 			},
 			{
-				freeToUse: true,
 				name: 'His Girl Friday', // His Girl Friday (1940).mp4
 				languageCode: 'en',
 				year: 1940,
@@ -169,7 +162,6 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 					coversFolderName + 'english/his_girl_friday_3.jpg',
 					coversFolderName + 'english/his_girl_friday_4.jpg',
 				],
-				coverBackgroundColor: '#78675a',
 			},
 		]
 	}

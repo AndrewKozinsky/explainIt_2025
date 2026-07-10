@@ -1,6 +1,6 @@
-import RouteNames from '../../src/infrastructure/routeNames'
+// import RouteNames from '../../src/infrastructure/routeNames'
 
-export const aiTranslationChecker = {
+/*export const aiTranslationChecker = {
 	checkTranslation: {
 		checkErrorRes(checkTranslationResp: any) {
 			expect(checkTranslationResp.data[RouteNames.AI.CHECK_TRANSLATION]).toEqual({
@@ -26,4 +26,4 @@ export const aiTranslationChecker = {
 			})
 		},
 	},
-}
+}*/

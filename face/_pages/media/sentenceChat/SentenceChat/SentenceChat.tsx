@@ -1,4 +1,4 @@
-import ErrorMessage from 'ui/ErrorMessage/ErrorMessage'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import ChatInput from '../ChatInput/ChatInput'
 import MessageList from '../MessageList/MessageList'
 import WordsQuickPrompt from '../WordsQuickPrompt/WordsQuickPrompt'

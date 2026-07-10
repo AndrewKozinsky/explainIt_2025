@@ -1,34 +1,34 @@
+import { getDeviceType } from 'utils/utils'
 import { create } from 'zustand'
+import { registerKeyboardListeners } from './listeners'
 
 export type SystemStoreValues = {
 	deviceType: 'desktop' | 'touch'
 	isCmdKeyPressed: boolean
 }
 
-export const userStoreValues: SystemStoreValues = {
-	deviceType: 'desktop',
-	isCmdKeyPressed: false,
-}
-
 export type SystemStoreMethods = {
 	setDeviceType: (deviceType: SystemStoreValues['deviceType']) => void
-	setIsCmdKeyPressed: (user: SystemStoreValues['isCmdKeyPressed']) => void
+	setIsCmdKeyPressed: (isCmdKeyPressed: boolean) => void
 }
 
 export type SystemStore = SystemStoreValues & SystemStoreMethods
 
 export const useSystemStore = create<SystemStore>()((set) => {
+	if (typeof window !== 'undefined') {
+		registerKeyboardListeners({
+			setIsCmdKeyPressed: (value: boolean) => set({ isCmdKeyPressed: value }),
+		})
+	}
+
 	return {
-		...userStoreValues,
+		deviceType: typeof window !== 'undefined' ? getDeviceType() : 'desktop',
+		isCmdKeyPressed: false,
 		setDeviceType: (deviceType: SystemStoreValues['deviceType']) => {
 			set({ deviceType })
 		},
 		setIsCmdKeyPressed(isCmdKeyPressed: boolean) {
-			set((state) => {
-				return {
-					isCmdKeyPressed,
-				}
-			})
+			set({ isCmdKeyPressed })
 		},
 	}
 })

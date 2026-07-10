@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { getTextByUnknownError } from 'utils/extractErrorText'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import { BookPrivateOutModel, BookPublicOutModel, useBook_Get, useBook_GetBookPublic } from '@/graphql'
+import { useBookPrivateControllerGetBook } from '@/shared/api/generated/book-private/book-private'
+import { useBookPublicControllerGetBook } from '@/shared/api/generated/book-public/book-public'
+import type { BookPrivateOutModel, BookPublicOutModel } from '@/shared/api/generated/models'
 import { useBookStore } from '_pages/media/book/bookStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -18,18 +19,15 @@ function useSetBookToStore() {
 
 	const {
 		data: privateBookData,
-		error: privateBookError,
-		loading: privateBookLoading,
-	} = useBook_Get({
-		variables: { input: { id: bookId! } },
-		skip: bookType !== 'private',
+		isError: privateBookIsError,
+		isLoading: privateBookLoading,
+	} = useBookPrivateControllerGetBook(bookId!, {
+		query: { enabled: bookType === 'private' && !!bookId },
 	})
 
 	useEffect(
 		function () {
 			if (bookType !== 'private') return
-
-			const book = privateBookData?.book_get
 
 			if (privateBookLoading) {
 				useBookStore.getState().updatePrivateBook({
@@ -37,19 +35,20 @@ function useSetBookToStore() {
 					errorMessage: null,
 					data: null as any as BookPrivateOutModel,
 				})
-			} else if (privateBookError) {
+			} else if (privateBookIsError) {
 				useBookStore.getState().updatePrivateBook({
 					loading: false,
-					errorMessage: getTextByUnknownError(privateBookError),
+					errorMessage: 'Не удалось загрузить книгу',
 					data: null as any as BookPrivateOutModel,
 				})
-			} else if (!book) {
+			} else if (!privateBookData) {
 				useBookStore.getState().updatePrivateBook({
 					loading: false,
 					errorMessage: null,
 					data: null as any as BookPrivateOutModel,
 				})
 			} else {
+				const book = privateBookData as unknown as BookPrivateOutModel
 				useBookStore.getState().updatePrivateBook({
 					loading: false,
 					errorMessage: null,
@@ -57,23 +56,20 @@ function useSetBookToStore() {
 				})
 			}
 		},
-		[bookType, privateBookData, privateBookError, privateBookLoading],
+		[bookType, privateBookData, privateBookIsError, privateBookLoading],
 	)
 
 	const {
 		data: publicBookData,
-		error: publicBookError,
-		loading: publicBookLoading,
-	} = useBook_GetBookPublic({
-		variables: { input: { id: bookId! } },
-		skip: bookType !== 'public',
+		isError: publicBookIsError,
+		isLoading: publicBookLoading,
+	} = useBookPublicControllerGetBook(bookId!, {
+		query: { enabled: bookType === 'public' && !!bookId },
 	})
 
 	useEffect(
 		function () {
 			if (bookType !== 'public') return
-
-			const book = publicBookData?.book_public_get_book
 
 			if (publicBookLoading) {
 				useBookStore.getState().updatePublicBook({
@@ -81,19 +77,20 @@ function useSetBookToStore() {
 					errorMessage: null,
 					data: null as any as BookPublicOutModel,
 				})
-			} else if (publicBookError) {
+			} else if (publicBookIsError) {
 				useBookStore.getState().updatePublicBook({
 					loading: false,
-					errorMessage: getTextByUnknownError(publicBookError),
+					errorMessage: 'Не удалось загрузить книгу',
 					data: null as any as BookPublicOutModel,
 				})
-			} else if (!book) {
+			} else if (!publicBookData) {
 				useBookStore.getState().updatePublicBook({
 					loading: false,
 					errorMessage: null,
 					data: null as any as BookPublicOutModel,
 				})
 			} else {
+				const book = publicBookData as unknown as BookPublicOutModel
 				useBookStore.getState().updatePublicBook({
 					loading: false,
 					errorMessage: null,
@@ -101,7 +98,7 @@ function useSetBookToStore() {
 				})
 			}
 		},
-		[bookType, publicBookData, publicBookError, publicBookLoading],
+		[bookType, publicBookData, publicBookIsError, publicBookLoading],
 	)
 }
 

@@ -1,13 +1,13 @@
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from 'utils/pageUrls'
 import { createMediaIdUrl } from 'utils/pageUrls'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 
 function BooksBreadCrumbs() {
 	const privateBook = useChapterStore((s) => s.privateBook)
 
-	const bookName = privateBook.data?.name || bookConfig.emptyBookName
+	const bookName = (privateBook.data?.name as unknown as string) || bookConfig.emptyBookName
 	const bookIdInUrl = createMediaIdUrl(privateBook.data?.id, 'private')
 	const bookUrl = pageUrls.books.book(bookIdInUrl)?.path ?? '1'
 

@@ -3,7 +3,6 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Response } from 'express'
 import { SeedTestDataCommand } from 'features/db/SeedTestData.command'
 import { OnlyDevOrTestingModeGuard } from 'infrastructure/guards/onlyDevMode.guard'
-import RouteNames from 'infrastructure/routeNames'
 import { DbService } from './db.service'
 
 @Controller()
@@ -15,7 +14,7 @@ export class DbController {
 
 	@HttpCode(HttpStatus.NO_CONTENT)
 	@UseGuards(OnlyDevOrTestingModeGuard)
-	@Delete(RouteNames.DB.ALL_DATA)
+	@Delete('testing/all-data')
 	async deleteAllData(@Res() res: Response) {
 		const isDropped = await this.testsService.drop()
 
@@ -29,7 +28,7 @@ export class DbController {
 
 	@HttpCode(HttpStatus.NO_CONTENT)
 	@UseGuards(OnlyDevOrTestingModeGuard)
-	@Post(RouteNames.DB.SEED)
+	@Post('testing/seed')
 	async seedTestData() {
 		await this.commandBus.execute(new SeedTestDataCommand())
 	}

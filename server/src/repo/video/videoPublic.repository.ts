@@ -19,7 +19,6 @@ export class VideoPublicRepository {
 		languageCode: Language
 		note: string
 		covers: string[]
-		coverBackgroundColor: string
 		year: number
 		originalContent: string
 		processedContent: string
@@ -27,7 +26,6 @@ export class VideoPublicRepository {
 		fileName: string
 		fileS3Key: string
 		s3ProviderName: S3ProviderName
-		freeToUse?: boolean
 	}) {
 		const newVideo = await this.prisma.videoPublic.create({
 			data: {
@@ -35,7 +33,6 @@ export class VideoPublicRepository {
 				source_language_code: dto.languageCode,
 				note: dto.note ?? null,
 				covers: dto.covers,
-				coverBackgroundColor: dto.coverBackgroundColor,
 				year: dto.year,
 				original_content: dto.originalContent,
 				processed_content: dto.processedContent,
@@ -43,14 +40,13 @@ export class VideoPublicRepository {
 				file_name: dto.fileName,
 				file_s3_key: dto.fileS3Key,
 				s3_provider_name: dto.s3ProviderName,
-				free_to_use: dto.freeToUse,
 			},
 		})
 
 		return this.mapDbVideoToServiceVideo(newVideo)
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async updateVideoById(
 		videoId: number,
 		dto: {
@@ -87,14 +83,14 @@ export class VideoPublicRepository {
 		if (!updatedVideo) return null
 
 		return this.mapDbVideoToServiceVideo(updatedVideo)
-	}
+	}*/
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async deleteVideoById(videoId: number) {
 		await this.prisma.videoPublic.delete({
 			where: { id: videoId },
 		})
-	}
+	}*/
 
 	async mapDbVideoToServiceVideo(dbVideo: VideoPublic): Promise<VideoPublicServiceModel> {
 		const fileUrl = await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key)
@@ -112,7 +108,6 @@ export class VideoPublicRepository {
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			freeToUse: dbVideo.free_to_use ?? false,
 		}
 	}
 }

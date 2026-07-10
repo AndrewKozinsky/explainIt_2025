@@ -45,10 +45,7 @@ export class SentencePhraseTranslationRepository {
 	}
 
 	@CatchDbError()
-	async getPhrasesBySentenceIdAndTargetLanguageCode(input: {
-		sentenceId: number
-		targetLanguageCode: LanguageCode
-	}) {
+	async getPhrasesBySentenceIdAndTargetLanguageCode(input: { sentenceId: number; targetLanguageCode: LanguageCode }) {
 		const rows = await this.prisma.sentencePhraseTranslation.findMany({
 			where: {
 				sentence_id: input.sentenceId,
@@ -139,12 +136,12 @@ export class SentencePhraseTranslationRepository {
 		return this.mapDbToService(db)
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async deletePhraseById(id: number) {
 		await this.prisma.sentencePhraseTranslation.delete({
 			where: { id },
 		})
-	}
+	}*/
 
 	@CatchDbError()
 	async getPhraseById(id: number) {
@@ -175,6 +172,7 @@ export class SentencePhraseTranslationRepository {
 			flashcardId: null,
 		}
 	}
+
 	private encodeExamples(examples: SentencePhraseTranslationExampleServiceModel[]): string[] {
 		return examples.flatMap((item) => {
 			return [item.text, item.translate]

@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
 export class UniversalPhraseAudioRepository {
 	constructor(private prisma: PrismaService) {}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async findByUniversalPhraseId(universalPhraseId: number) {
 		return await this.prisma.universalAudioPronunciation.findFirst({
 			where: { universal_phrase_id: universalPhraseId },
 			orderBy: { created_at: 'desc' },
 		})
-	}
+	}*/
 
 	@CatchDbError()
 	async createAudio(dto: { universalPhraseId: number; s3Key: string }) {

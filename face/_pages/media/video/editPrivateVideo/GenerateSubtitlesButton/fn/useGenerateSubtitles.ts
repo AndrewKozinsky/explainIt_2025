@@ -1,42 +1,47 @@
 import { useCallback, useContext, useEffect, useState } from 'react'
-import { getTextByUnknownError } from 'utils/extractErrorText'
+import { useQueryClient } from '@tanstack/react-query'
 import {
-	SubtitlesGenerationStatus,
-	useVideoPrivate_GenerateSubtitles,
-	useVideoPrivate_GetSubtitlesGenerationStatus,
-	VideoPrivate_GetDocument,
-	VideoPrivate_GetUserVideosDocument,
-} from '@/graphql'
-import { NotificationContext } from '@/ui/Notification/context'
+	useVideoPrivateControllerGenerateSubtitles,
+	useVideoPrivateControllerGetSubtitlesStatus,
+	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
+	getVideoPrivateControllerGetVideoPrivateQueryKey,
+} from '@/shared/api/generated/video-private/video-private'
+import type { VideoPrivateSubtitlesStatusOutModel } from '@/shared/api/generated/models'
+import { VideoPrivateSubtitlesStatusOutModelStatus } from '@/shared/api/generated/models'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
 export function useGenerateSubtitles() {
 	const { notify } = useContext(NotificationContext)
 	const video = useVideoStore((s) => s.privateVideo.data)
 	const [isPolling, setIsPolling] = useState(false)
+	const queryClient = useQueryClient()
 
-	const [generateSubtitles, { loading: generating }] = useVideoPrivate_GenerateSubtitles({
-		refetchQueries: [VideoPrivate_GetUserVideosDocument],
-	})
+	const { mutateAsync: generateSubtitles, isPending: generating } = useVideoPrivateControllerGenerateSubtitles()
 
-	const statusQuery = useVideoPrivate_GetSubtitlesGenerationStatus({
-		variables: { input: { videoId: video?.id ?? 0 } },
-		skip: !video,
-		pollInterval: isPolling ? 1500 : 0,
-	})
+	const { data: statusData, refetch: refetchStatus } = useVideoPrivateControllerGetSubtitlesStatus(
+		video?.id ?? 0,
+		{
+			query: { enabled: !!video, refetchInterval: isPolling ? 1500 : false },
+		},
+	)
 
-	const generationStatus = statusQuery.data?.video_private_get_subtitles_generation_status.status
-	const generationError = statusQuery.data?.video_private_get_subtitles_generation_status.error
-	const status = generationStatus ?? SubtitlesGenerationStatus.Idle
+	const statusModel = statusData as unknown as VideoPrivateSubtitlesStatusOutModel | undefined
+	const generationStatus = statusModel?.status
+	const generationError = statusModel?.error
+	const status = generationStatus ?? VideoPrivateSubtitlesStatusOutModelStatus.idle
 	const isGenerating =
-		generating || status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing
+		generating ||
+		status === VideoPrivateSubtitlesStatusOutModelStatus.pending ||
+		status === VideoPrivateSubtitlesStatusOutModelStatus.processing
 
 	useEffect(
 		function () {
 			if (!video) return
 
 			setIsPolling(
-				status === SubtitlesGenerationStatus.Pending || status === SubtitlesGenerationStatus.Processing,
+				status === VideoPrivateSubtitlesStatusOutModelStatus.pending ||
+					status === VideoPrivateSubtitlesStatusOutModelStatus.processing,
 			)
 		},
 		[status, video],
@@ -44,15 +49,11 @@ export function useGenerateSubtitles() {
 
 	useEffect(
 		function () {
-			if (!video || status !== SubtitlesGenerationStatus.Done) return
+			if (!video || status !== VideoPrivateSubtitlesStatusOutModelStatus.done) return
 
-			void statusQuery.client.query({
-				query: VideoPrivate_GetDocument,
-				variables: { input: { id: video.id } },
-				fetchPolicy: 'network-only',
-			})
+			queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetVideoPrivateQueryKey(video.id) })
 		},
-		[status, statusQuery.client, video],
+		[status, queryClient, video],
 	)
 
 	const generate = useCallback(
@@ -60,27 +61,21 @@ export function useGenerateSubtitles() {
 			if (!video) return
 
 			try {
-				const { errors } = await generateSubtitles({ variables: { input: { videoId: video.id } } })
+				await generateSubtitles({ id: video.id })
 
-				if (errors) {
-					notify({
-						type: 'error',
-						message:
-							'Не удалось запустить генерацию субтитров. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
-					})
-					return
-				}
+				queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetUserVideosPrivateQueryKey() })
 
 				setIsPolling(true)
-				await statusQuery.refetch()
-			} catch (err) {
+				await refetchStatus()
+			} catch {
 				notify({
 					type: 'error',
-					message: getTextByUnknownError(err),
+					message:
+						'Не удалось запустить генерацию субтитров. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
 			}
 		},
-		[generateSubtitles, notify, statusQuery, video],
+		[generateSubtitles, notify, queryClient, refetchStatus, video],
 	)
 
 	return {

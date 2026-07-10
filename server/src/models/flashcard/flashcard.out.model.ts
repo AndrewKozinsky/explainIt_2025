@@ -1,53 +1,57 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { SentencePhraseTranslationExampleOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 
-@ObjectType()
+const $ = bdConfig.Flashcard.dbFields
+const $$ = bdConfig.Flashcard.dtoProps
+
 export class FlashcardOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.language_code))
 	languageCode: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.sentence_text))
 	sentenceText: string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.sentence_translation))
 	sentenceTranslation: null | string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.phrase))
 	phrase: string
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.phrase_start_offset))
 	phraseStartOffset: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.phrase_end_offset))
 	phraseEndOffset: number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.phrase_translation))
 	phraseTranslation: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($$.phraseTranscription))
 	phraseTranscription: null | string
 
-	@Field(() => [SentencePhraseTranslationExampleOutModel])
+	@ApiProperty({ description: 'Phrase usage examples', type: [SentencePhraseTranslationExampleOutModel] })
 	examples: SentencePhraseTranslationExampleOutModel[]
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty({ description: 'Private book ID (source)', type: Number, nullable: true })
 	bookPrivateId: null | number
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty({ description: 'Public book ID (source)', type: Number, nullable: true })
 	bookPublicId: null | number
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty({ description: 'Private video ID (source)', type: Number, nullable: true })
 	videoPrivateId: null | number
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty({ description: 'Public video ID (source)', type: Number, nullable: true })
 	videoPublicId: null | number
 
-	@Field(() => Int, { nullable: true })
+	@ApiProperty({ description: 'Source phrase translation ID', type: Number, nullable: true })
 	sentencePhraseTranslationId: null | number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.created_at))
 	createdAt: string
 }

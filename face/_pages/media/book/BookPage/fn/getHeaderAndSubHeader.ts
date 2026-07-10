@@ -11,14 +11,14 @@ export function useGetHeaderAndSubHeader() {
 			if (publicBook.data) {
 				return {
 					header: publicBook.data.name || bookConfig.emptyBookName,
-					subHeader: publicBook.data.author,
+					subHeader: publicBook.data.author as unknown as string | null,
 				}
 			}
 
 			if (privateBook.data) {
 				return {
-					header: privateBook.data.name || bookConfig.emptyBookName,
-					subHeader: privateBook.data.author,
+					header: (privateBook.data.name as unknown as string) || bookConfig.emptyBookName,
+					subHeader: privateBook.data.author as unknown as string | null,
 				}
 			}
 

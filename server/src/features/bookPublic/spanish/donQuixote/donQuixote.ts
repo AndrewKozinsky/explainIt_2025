@@ -48,7 +48,6 @@ export function donQuixoteBookData(coversFolderName: string) {
 
 Рекомендуемый уровень B1–B2 (Intermediate / Upper-Intermediate)`,
 		languageCode: languages.es.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
 		coverBackgroundColor: '#a68a6a',
 	}

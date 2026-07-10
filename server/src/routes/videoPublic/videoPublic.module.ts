@@ -7,13 +7,13 @@ import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.reposi
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
 import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
 import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
-import { VideoPublicResolver } from 'routes/videoPublic/videoPublic.resolver'
 import { PrismaService } from 'db/prisma.service'
 import { CreatePublicVideoHandler } from 'features/video/CreatePublicVideo.command'
 import { CreatePublicVideosHandler } from 'features/video/CreatePublicVideos.command'
 import { GetVideoPublicHandler } from 'features/video/GetVideoPublic.command'
 import { GetVideosPublicHandler } from 'features/video/GetVideosPublic.command'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { VideoPublicController } from './videoPublic.controller'
 
 const services = [PrismaService, MainConfigService]
 const commandHandlers = [
@@ -22,7 +22,6 @@ const commandHandlers = [
 	CreatePublicVideoHandler,
 	CreatePublicVideosHandler,
 ]
-const resolvers = [VideoPublicResolver]
 const repositories = [
 	VideoPublicQueryRepository,
 	VideoPublicRepository,
@@ -35,6 +34,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	controllers: [VideoPublicController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class VideoPublicModule {}

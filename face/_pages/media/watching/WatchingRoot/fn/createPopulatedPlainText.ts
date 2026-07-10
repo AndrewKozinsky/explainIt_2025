@@ -1,4 +1,4 @@
-import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
 import { PopulatedTextStructure } from '../../common/populatedTextStructure'
 
 export function createPopulatedPlainText(
@@ -10,7 +10,7 @@ export function createPopulatedPlainText(
 		}
 	}
 
-	const text = videoData.processedContent
+	const text = videoData.processedContent as unknown as string
 	const sortedSentences = [...videoData.sentences].sort((a, b) => a.orderIndex - b.orderIndex)
 
 	return {

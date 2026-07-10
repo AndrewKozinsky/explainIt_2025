@@ -1,7 +1,10 @@
-import { Field, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $$ = bdConfig.Payment.dtoProps
+
 export class CreateYooKassaPaymentOutModel {
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($$.confirmationUrl))
 	confirmationUrl: string
 }

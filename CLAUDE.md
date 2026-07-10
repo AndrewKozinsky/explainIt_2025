@@ -16,6 +16,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 |------|------------------------------|
 | `aiDocsRus/topics/balance.md` | баланс, оплата, платежи, YooKassa, копейки, пополнение, списание, user balance |
 | `aiDocsRus/topics/booksAndMoviesTranslation.md` | перевод предложения, перевод фразы в книге/фильме, sentence translation, phrase translation |
+| `aiDocsRus/topics/clientUserData.md` | пользователь, user, getCurrentUser, UserProvider, useAuthControllerGetMe, авторизация, текущий пользователь, user data |
 | `aiDocsRus/topics/expressions.md` | выражения, expressions, MDX-уроки, фразовые глаголы, phrasal verbs, `/expressions` |
 | `aiDocsRus/topics/flashcards.md` | карточки, flashcards, заучивание фраз, flashcard |
 | `aiDocsRus/topics/internationalization.md` | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale |
@@ -26,3 +27,5 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/phraseStore.md` | PhraseStore, usePhraseStore, resolvePhrase, phraseStore, транскрипция, transcription, озвучка, audio pronunciation, универсальная фраза, universal phrase, preload фраз |
 | `aiDocsRus/topics/errorHandling.md` | ошибки, errorMessageCode, CustomError, extractErrorText, ApolloError, обработка ошибок, error handling |
 | `aiDocsRus/topics/videoPrivateSubtitlesGeneration.md` | генерация субтитров, Deepgram, ffmpeg, SRT, speech-to-text, автоматические субтитры |
+| `aiDocsRus/topics/restAndDtoDecorators.md` | REST, контроллер, controller, DTO, DtoFieldDecorators, декораторы, bdConfig, OpenAPI, Swagger, миграция с GraphQL, ApiProperty |
+| `aiDocsRus/topics/openapiCodegen.md` | Orval, генерация клиентских функций, OpenAPI, React Query, orval, codegen, npm run orval, mutator, shared/api |

@@ -2002,10 +2002,8 @@ export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[key
 
 export const BookPublicScalarFieldEnum = {
   id: 'id',
-  free_to_use: 'free_to_use',
   source_language_code: 'source_language_code',
   covers: 'covers',
-  coverBackgroundColor: 'coverBackgroundColor',
   author: 'author',
   name: 'name',
   note: 'note',
@@ -2060,7 +2058,6 @@ export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[k
 
 export const VideoPublicScalarFieldEnum = {
   id: 'id',
-  free_to_use: 'free_to_use',
   source_language_code: 'source_language_code',
   year: 'year',
   name: 'name',
@@ -2069,7 +2066,6 @@ export const VideoPublicScalarFieldEnum = {
   s3_provider_name: 's3_provider_name',
   note: 'note',
   covers: 'covers',
-  coverBackgroundColor: 'coverBackgroundColor',
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',

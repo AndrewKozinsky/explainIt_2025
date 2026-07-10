@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { UseFormReset, UseFormSetValue } from 'react-hook-form'
-import { useBook_GetLazyQuery } from '@/graphql'
+import { useBookPrivateControllerGetBook } from '@/shared/api/generated/book-private/book-private'
+import type { BookPrivateOutModel } from '@/shared/api/generated/models'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { ChangeBookFormData } from './form'
 
@@ -9,30 +10,28 @@ export function useSetFieldValues(
 	setValue: UseFormSetValue<ChangeBookFormData>,
 ) {
 	const bookId = useBookStore((s) => s.privateBook.data?.id)
-	const [getBook, { data, previousData }] = useBook_GetLazyQuery()
+	const prevBookIdRef = useRef<number | undefined>(undefined)
 
-	const book = data?.book_get
-	const prevBook = previousData?.book_get
+	const { data } = useBookPrivateControllerGetBook(bookId!, {
+		query: { enabled: !!bookId },
+	})
 
-	useEffect(() => {
-		if (bookId) {
-			getBook({ variables: { input: { id: bookId } } })
-		}
-	}, [getBook, bookId])
+	const book = data as unknown as BookPrivateOutModel | undefined
 
-	useEffect(() => {
-		if (!book) return
+	useEffect(
+		function () {
+			if (!book) return
 
-		// full form reset on ID change
-		if (book.id !== prevBook?.id) {
-			reset({
-				languageCode: book.languageCode ?? '',
-				author: book.author ?? '',
-				name: book.name ?? '',
-				note: book.note ?? '',
-			})
-		}
-		// For same-book updates (cover upload), fields like coverUrl, fileName,
-		// isFileUploaded change, but those are not form fields — so we skip reset.
-	}, [book, prevBook, reset, setValue])
+			if (book.id !== prevBookIdRef.current) {
+				reset({
+					languageCode: (book.languageCode as unknown as string) ?? '',
+					author: (book.author as unknown as string) ?? '',
+					name: (book.name as unknown as string) ?? '',
+					note: (book.note as unknown as string) ?? '',
+				})
+				prevBookIdRef.current = book.id
+			}
+		},
+		[book, reset, setValue],
+	)
 }

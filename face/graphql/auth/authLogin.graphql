@@ -1,8 +1,0 @@
-mutation Auth_login($input: LoginInput!) {
-	auth_login(input: $input) {
-		id
-		email
-		isUserConfirmed
-		balance
-	}
-}

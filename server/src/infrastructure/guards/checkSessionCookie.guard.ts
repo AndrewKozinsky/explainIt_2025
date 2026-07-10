@@ -3,14 +3,13 @@ import { UserRepository } from 'repo/user.repository'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { CustomError } from '../exceptions/customErrors'
 import { errorMessage } from '../exceptions/errorMessage'
-import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
 
 @Injectable()
 export class CheckSessionCookieGuard implements CanActivate {
 	constructor(private userRepository: UserRepository) {}
 
 	async canActivate(context: ExecutionContext) {
-		const request = getRequestFromExecutionContext(context)
+		const request = context.switchToHttp().getRequest()
 
 		if (!request.session?.userId) {
 			throw new CustomError(errorMessage.user.unauthorized, ErrorStatusCode.Unauthorized_401)

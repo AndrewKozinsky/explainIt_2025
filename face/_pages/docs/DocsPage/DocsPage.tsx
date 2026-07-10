@@ -1,7 +1,6 @@
 import { pageUrls } from 'utils/pageUrls'
 import { Link } from '@/i18n/routing'
 import './DocsPage.scss'
-import './DocsPage.scss'
 
 function DocsPage() {
 	const pagesConfig = [pageUrls.docs.privacyPolicy, pageUrls.docs.offer, pageUrls.docs.contentUsePolicy]

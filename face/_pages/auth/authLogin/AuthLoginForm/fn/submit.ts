@@ -1,6 +1,7 @@
 import { useCallback } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { useAuth_Login } from '@/graphql'
+import { useAuthControllerLogin } from '@/shared/api/generated/auth/auth'
+import type { UserOutModel } from '@/shared/api/generated/models'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { LoginFormData } from './form'
 
@@ -9,7 +10,8 @@ export function useGetOnLoginFormSubmit(
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const [loginUser] = useAuth_Login()
+	const { mutateAsync: loginUser } = useAuthControllerLogin()
+	const setUser = useSetUser()
 
 	return useCallback(
 		async function (formData: LoginFormData) {
@@ -17,24 +19,16 @@ export function useGetOnLoginFormSubmit(
 			setFormStatus('submitting')
 
 			try {
-				const { data } = await loginUser({
-					variables: { input: { email: formData.email, password: formData.password } },
-				})
+				const response = await loginUser({ data: { email: formData.email, password: formData.password } })
+				const user = response as unknown as UserOutModel
 
-				if (!data || data?.auth_login === null) {
-					setFormError('Неверный логин или пароль')
-					return
-				}
-
-				// Put user data to the User store
-				useUserStore.setState({ user: data.auth_login })
-
+				setUser(user)
 				setFormStatus('success')
 			} catch (gqError: unknown) {
 				setErrorsToForm(gqError, setFieldError, setFormError)
 				setFormStatus('idle')
 			}
 		},
-		[loginUser, setFieldError, setFormError, setFormStatus],
+		[loginUser, setUser, setFieldError, setFormError, setFormStatus],
 	)
 }

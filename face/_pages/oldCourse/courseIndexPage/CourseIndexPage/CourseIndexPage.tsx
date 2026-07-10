@@ -7,7 +7,7 @@
 /** Страница со ссылками-плитками на главы курса */
 /*function CourseIndexPage() {
 	return (
-		<PageWrapper top bottom>
+		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
 				<Header>Понимая английский</Header>

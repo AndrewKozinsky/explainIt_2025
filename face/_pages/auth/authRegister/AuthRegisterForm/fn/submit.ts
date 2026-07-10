@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
-import { useAuth_Register } from '@/graphql'
+import { useAuthControllerRegister } from '@/shared/api/generated/auth/auth'
+import type { UserOutModel } from '@/shared/api/generated/models'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { RegisterFormData } from './form'
 
@@ -9,7 +10,7 @@ export function useGetOnRegisterFormSubmit(
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 	setFormSuccess: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const [registerUser] = useAuth_Register()
+	const { mutateAsync: registerUser } = useAuthControllerRegister()
 
 	return useCallback(
 		async function (formData: RegisterFormData) {
@@ -17,12 +18,11 @@ export function useGetOnRegisterFormSubmit(
 			setFormStatus('submitting')
 
 			try {
-				const { data } = await registerUser({
-					variables: { input: { email: formData.email, password: formData.password } },
-				})
+				const response = await registerUser({ data: { email: formData.email, password: formData.password } })
+				const user = response as unknown as UserOutModel
 
 				setFormStatus('success')
-				setFormSuccess('На почту ' + data?.auth_register.email + ' отправлено письмо с кодом подтверждения.')
+				setFormSuccess('На почту ' + user.email + ' отправлено письмо с кодом подтверждения.')
 			} catch (gqError: unknown) {
 				setErrorsToForm(gqError, setFieldError, setFormError)
 				setFormStatus('idle')

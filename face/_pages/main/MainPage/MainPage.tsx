@@ -1,14 +1,14 @@
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
-import CustomMaterials from '_pages/main/CustomMaterials/CustomMaterials'
-import MainPageFaq from '_pages/main/MainPageFaq/MainPageFaq'
-import MainPageFeatures from '_pages/main/MainPageFeatures/MainPageFeatures'
-import AvailableMaterials from '../AvailableMaterials/AvailableMaterials'
-import MainPageTop from '../MainPageTop/MainPageTop'
+import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
+import AvailableMaterials from '@/widgets/mainPage/AvailableMaterials/AvailableMaterials'
+import CustomMaterials from '@/widgets/mainPage/CustomMaterials/CustomMaterials'
+import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
+import MainPageFeatures from '@/widgets/mainPage/MainPageFeatures/MainPageFeatures'
+import MainPageTop from '@/widgets/mainPage/MainPageTop/MainPageTop'
 import './MainPage.scss'
 
 function MainPage() {
 	return (
-		<PageWrapper top bottom>
+		<PageWrapper withTop withBottom>
 			<main className='main-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
 				<MainPageTop />

@@ -1,18 +1,24 @@
 import { useCallback, useContext, useState } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { Book_GetUserBooksDocument, useBook_Create } from '@/graphql'
 import { useRouter } from '@/i18n/routing'
-import { NotificationContext } from '@/ui/Notification/context'
+import {
+	useBookPrivateControllerCreateBookPrivate,
+	getBookPrivateControllerGetUserBooksQueryKey,
+} from '@/shared/api/generated/book-private/book-private'
+import type { CreatePrivateBookDtoLanguageCode } from '@/shared/api/generated/models'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { languages } from '@/utils/languages'
 
 export function useGetAddBookConfig() {
 	const { notify } = useContext(NotificationContext)
 	const router = useRouter()
+	const queryClient = useQueryClient()
 
 	const [loading, setLoading] = useState(false)
 	const [errorMessage, setErrorMessage] = useState<null | string>(null)
 
-	const [createBook] = useBook_Create({ refetchQueries: [Book_GetUserBooksDocument], awaitRefetchQueries: true })
+	const createBook = useBookPrivateControllerCreateBookPrivate()
 
 	const onClick = useCallback(
 		async function () {
@@ -21,24 +27,29 @@ export function useGetAddBookConfig() {
 			let createdBookId: string | number | null = null
 
 			try {
-				const { errors, data } = await createBook({
-					variables: { input: { author: null, name: null, note: null, languageCode: languages.en.code } },
+				const response = await createBook.mutateAsync({
+					data: {
+						author: null,
+						name: null,
+						note: null,
+						languageCode: languages.en.code as CreatePrivateBookDtoLanguageCode,
+					},
 				})
 
-				if (errors) {
-					setErrorMessage('Не удалось создать книгу.')
-					return
-				}
-
-				const bookId = data?.book_create.id
+				const bookId = (response as unknown as { id: number }).id
 				if (!bookId) {
 					setErrorMessage('Не удалось создать книгу.')
 					return
 				}
 
 				createdBookId = bookId
+
+				// Invalidate the user books query so the list refreshes when the user comes back
+				queryClient.invalidateQueries({
+					queryKey: getBookPrivateControllerGetUserBooksQueryKey(),
+				})
 			} catch (error) {
-				notify({ type: 'error', message: 'Не удалось получить список книг.' })
+				notify({ type: 'error', message: 'Не удалось создать книгу.' })
 			} finally {
 				setLoading(false)
 			}
@@ -49,7 +60,7 @@ export function useGetAddBookConfig() {
 				router.push(pageUrls.books.book(bookIdInUrl).path)
 			}
 		},
-		[createBook, notify, router],
+		[createBook, notify, router, queryClient],
 	)
 
 	return {

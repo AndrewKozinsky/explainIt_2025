@@ -1,11 +1,11 @@
-import { Injectable } from '@nestjs/common'
-import axios from 'axios'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from '../mainConfig/mainConfig.service'
+// import { Injectable } from '@nestjs/common'
+// import axios from 'axios'
+// import { CustomError } from 'infrastructure/exceptions/customErrors'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { MainConfigService } from '../mainConfig/mainConfig.service'
 
-export type LookupWordInput = {
+/*export type LookupWordInput = {
 	text: string
 	directionOfTranslation?: 'en-ru' // "en-ru" or "ru-en"
 	// Язык интерфейса пользователя, на котором будут отображаться названия частей речи в словарной статье.
@@ -15,11 +15,11 @@ export type LookupWordInput = {
 	// uk - украинский;
 	// tr - турецкий.
 	ui?: string
-}
+}*/
 
-export type LookupWordResult = YandexDictionaryApiResponse
+// export type LookupWordResult = YandexDictionaryApiResponse
 
-@Injectable()
+/*@Injectable()
 export class YandexDictionaryService {
 	constructor(private mainConfig: MainConfigService) {}
 
@@ -46,21 +46,21 @@ export class YandexDictionaryService {
 			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 		}
 	}
-}
+}*/
 
-export type YandexDictionaryApiResponse = {
+/*export type YandexDictionaryApiResponse = {
 	head: Record<string, unknown>
 	def: YandexDictionaryDefinition[]
-}
+}*/
 
-export type YandexDictionaryDefinition = {
+/*export type YandexDictionaryDefinition = {
 	text: string
 	pos?: string
 	ts?: string
 	tr?: YandexDictionaryTranslation[]
-}
+}*/
 
-export type YandexDictionaryTranslation = {
+/*export type YandexDictionaryTranslation = {
 	text: string
 	pos?: string
 	gen?: string
@@ -70,13 +70,13 @@ export type YandexDictionaryTranslation = {
 		text: string
 		tr?: Array<{ text: string }>
 	}>
-}
+}*/
 
-export interface YandexDictionaryServiceI {
+/*export interface YandexDictionaryServiceI {
 	lookupWord(input: LookupWordInput): Promise<LookupWordResult>
-}
+}*/
 
-@Injectable()
+/*@Injectable()
 export class YandexDictionaryServiceMock implements YandexDictionaryServiceI {
 	async lookupWord(input: LookupWordInput): Promise<LookupWordResult> {
 		return {
@@ -89,4 +89,4 @@ export class YandexDictionaryServiceMock implements YandexDictionaryServiceI {
 			],
 		}
 	}
-}
+}*/

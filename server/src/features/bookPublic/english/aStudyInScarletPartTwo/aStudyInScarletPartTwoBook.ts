@@ -25,9 +25,7 @@ export function aStudyInScarletPartTwoBookData(coversFolderName: string) {
 
 Уровень B1–B2.`,
 		languageCode: languages.en.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#786e60',
 	}
 }
 

@@ -1,7 +1,13 @@
 import { useContext, useRef } from 'react'
-import { NotificationContext } from 'ui/Notification/context'
-import { useVideoPrivate_Update, VideoPrivate_GetDocument, VideoPrivate_GetUserVideosDocument } from '@/graphql'
-import FileDropzone from '@/ui/formRelated/FileDropzone/FileDropzone'
+import { useQueryClient } from '@tanstack/react-query'
+import {
+	useVideoPrivateControllerUpdateVideoPrivate,
+	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
+	getVideoPrivateControllerGetVideoPrivateQueryKey,
+} from '@/shared/api/generated/video-private/video-private'
+import type { UpdateVideoDtoLanguageCode, UpdateVideoPrivateOutModel } from '@/shared/api/generated/models'
+import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { useVideoStore } from '_pages/media/video/videoStore'
 import { getVideoDurationSec } from './fn/getVideoDurationSec'
 
@@ -13,12 +19,8 @@ function VideoDropzone() {
 	const { notify } = useContext(NotificationContext)
 	const fileDurationSecRef = useRef<number>(0)
 
-	const [updateVideo] = useVideoPrivate_Update({
-		refetchQueries: [
-			VideoPrivate_GetUserVideosDocument,
-			{ query: VideoPrivate_GetDocument, variables: { input: { id: video?.id } } },
-		],
-	})
+	const { mutateAsync: updateVideo } = useVideoPrivateControllerUpdateVideoPrivate()
+	const queryClient = useQueryClient()
 
 	const onGetUploadUrl = async (file: File): Promise<string | null> => {
 		if (!video) return null
@@ -37,34 +39,34 @@ function VideoDropzone() {
 		}
 
 		const res = await updateVideo({
-			variables: {
-				input: {
-					id: video.id,
-					fileMimeType,
-					fileName: file.name,
-					fileSizeMb,
-					fileDurationSec: fileDurationSecRef.current,
-					languageCode: video.languageCode,
-				},
+			id: video.id,
+			data: {
+				fileMimeType,
+				fileName: file.name,
+				fileSizeMb,
+				fileDurationSec: fileDurationSecRef.current,
+				languageCode: video.languageCode as unknown as UpdateVideoDtoLanguageCode,
 			},
 		})
 
-		return res.data?.video_private_update.uploadUrl ?? null
+		const updatedVideo = res as unknown as UpdateVideoPrivateOutModel
+		return (updatedVideo.uploadUrl as unknown as string) ?? null
 	}
 
 	const onUploadComplete = async (): Promise<void> => {
 		if (!video) return
 
 		await updateVideo({
-			variables: {
-				input: {
-					id: video.id,
-					isFileUploaded: true,
-					languageCode: video.languageCode,
-					fileDurationSec: fileDurationSecRef.current,
-				},
+			id: video.id,
+			data: {
+				isFileUploaded: true,
+				languageCode: video.languageCode as unknown as UpdateVideoDtoLanguageCode,
+				fileDurationSec: fileDurationSecRef.current,
 			},
 		})
+
+		queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetUserVideosPrivateQueryKey() })
+		queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetVideoPrivateQueryKey(video.id) })
 	}
 
 	return (

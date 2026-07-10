@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { PaymentServiceModel } from 'models/payment/payment.service.model'
 import { Payment } from 'prisma/generated/client'
 import { PaymentStatus } from 'prisma/generated/enums'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { PaymentServiceModel } from '../models/payment/payment.service.model'
 
 @Injectable()
 export class PaymentRepository {
 	constructor(private prisma: PrismaService) {}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getPaymentsByUserId(userId: number) {
 		const payments = await this.prisma.payment.findMany({
 			where: {
@@ -21,7 +21,7 @@ export class PaymentRepository {
 		})
 
 		return this.mapDbPaymentsToServicePayments(payments)
-	}
+	}*/
 
 	@CatchDbError()
 	async createPayment(dto: { userId: number; amount: number; externalPaymentId: string }) {

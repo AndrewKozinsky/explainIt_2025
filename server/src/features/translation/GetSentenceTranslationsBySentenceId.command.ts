@@ -1,15 +1,15 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { SentenceRepository } from 'repo/sentence.repository'
-import { SentenceTranslationQueryRepository } from 'repo/sentenceTranslation.queryRepository'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { SentenceRepository } from 'repo/sentence.repository'
+// import { SentenceTranslationQueryRepository } from 'repo/sentenceTranslation.queryRepository'
+// import { CustomError } from 'infrastructure/exceptions/customErrors'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 
-export class GetSentenceTranslationsBySentenceIdCommand implements ICommand {
+/*export class GetSentenceTranslationsBySentenceIdCommand implements ICommand {
 	constructor(public sentenceId: number) {}
-}
+}*/
 
-@CommandHandler(GetSentenceTranslationsBySentenceIdCommand)
+/*@CommandHandler(GetSentenceTranslationsBySentenceIdCommand)
 export class GetSentenceTranslationsBySentenceIdHandler implements ICommandHandler<GetSentenceTranslationsBySentenceIdCommand> {
 	constructor(
 		private sentenceRepository: SentenceRepository,
@@ -26,4 +26,4 @@ export class GetSentenceTranslationsBySentenceIdHandler implements ICommandHandl
 
 		return await this.sentenceTranslationQueryRepository.getSentenceTranslationsBySentenceId(sentenceId)
 	}
-}
+}*/

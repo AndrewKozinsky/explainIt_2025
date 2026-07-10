@@ -54,9 +54,7 @@ export function pinocchioBookData(coversFolderName: string) {
 
 Уровень B1–B2.`,
 		languageCode: languages.it.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#ad9c85',
 	}
 }
 

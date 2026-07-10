@@ -1,4 +1,4 @@
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
 
 interface Props {

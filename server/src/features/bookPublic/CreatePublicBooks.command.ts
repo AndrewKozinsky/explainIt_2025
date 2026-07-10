@@ -34,7 +34,7 @@ import {
 	aStudyInScarletPartTwoBookData,
 	aStudyInScarletPartTwoChapters,
 } from './english/aStudyInScarletPartTwo/aStudyInScarletPartTwoBook'
-import { secretCluesBookData, secretCluesChapters } from './english/secretClues/secretCluesBook'
+// import { secretCluesBookData, secretCluesChapters } from './english/secretClues/secretCluesBook'
 import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './english/wizardOfOz/wizardOfOzBook'
 import {

@@ -1,26 +1,26 @@
-import { mkdir, rm } from 'fs/promises'
-import { join } from 'path'
-import { Processor, WorkerHost } from '@nestjs/bullmq'
-import { Logger } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
-import { Job } from 'bullmq'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
-import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
-import { DeepgramSttService } from 'infrastructure/deepgramStt/deepgramStt.service'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { QueueNames } from 'infrastructure/queues/queueNames'
-import {
-	SUBTITLES_GENERATION_JOB_NAME,
-	SubtitlesGenerationJobData,
-	SubtitlesGenerationJobResult,
-} from 'infrastructure/queues/subtitlesGeneration.types'
-import { SubtitlesGenerationStatus } from 'prisma/generated/client'
-import { buildSrtFromUtterances } from './buildSrtFromUtterances'
-import { downloadS3ObjectToFile } from './downloadS3File'
-import { extractMonoWav16k, probeDurationSec } from './ffmpeg.utils'
-
+// import { mkdir, rm } from 'fs/promises'
+// import { join } from 'path'
+// import { Processor, WorkerHost } from '@nestjs/bullmq'
+// import { Logger } from '@nestjs/common'
+// import { CommandBus } from '@nestjs/cqrs'
+// import { Job } from 'bullmq'
+// import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+// import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+// import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
+// import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+// import { DeepgramSttService } from 'infrastructure/deepgramStt/deepgramStt.service'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { QueueNames } from 'infrastructure/queues/queueNames'
+// import {
+// 	SUBTITLES_GENERATION_JOB_NAME,
+// 	SubtitlesGenerationJobData,
+// 	SubtitlesGenerationJobResult,
+// } from 'infrastructure/queues/subtitlesGeneration.types'
+// import { SubtitlesGenerationStatus } from 'prisma/generated/client'
+// import { buildSrtFromUtterances } from './buildSrtFromUtterances'
+// import { downloadS3ObjectToFile } from './downloadS3File'
+// import { extractMonoWav16k, probeDurationSec } from './ffmpeg.utils'
+//
 /**
  * End-to-end subtitles generation pipeline executed on the worker process:
  *   1. Load DB state, move status to PROCESSING, sanity-check file presence
@@ -34,8 +34,8 @@ import { extractMonoWav16k, probeDurationSec } from './ffmpeg.utils'
  *
  * Tmp artifacts are always cleaned up in a finally block.
  */
-@Processor(QueueNames.SUBTITLES_GENERATION, { concurrency: 1 })
-export class SubtitlesGenerationProcessor extends WorkerHost {
+// @Processor(QueueNames.SUBTITLES_GENERATION, { concurrency: 1 })
+/*export class SubtitlesGenerationProcessor extends WorkerHost {
 	private readonly logger = new Logger(SubtitlesGenerationProcessor.name)
 
 	constructor(
@@ -155,4 +155,4 @@ export class SubtitlesGenerationProcessor extends WorkerHost {
 			})
 		}
 	}
-}
+}*/

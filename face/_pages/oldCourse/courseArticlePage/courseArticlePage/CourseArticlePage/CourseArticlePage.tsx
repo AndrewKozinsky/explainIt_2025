@@ -20,7 +20,7 @@
 	const { prevArticle, article, nextArticle } = props
 
 	return (
-		<PageWrapper top bottom>
+		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs items={[pageUrls.course]} />
 				<CourseArticlePageHeader article={article} />

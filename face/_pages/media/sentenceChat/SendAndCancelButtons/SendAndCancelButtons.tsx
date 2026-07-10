@@ -1,5 +1,5 @@
-import ArrowUpPureButtonIcon from 'ui/icons/buttonIcons/ArrowUpPureButtonIcon'
-import SquareButtonIcon from 'ui/icons/buttonIcons/SquareButtonIcon'
+import ArrowUpPureButtonIcon from '@/shared/ui/icons/buttonIcons/ArrowUpPureButtonIcon'
+import SquareButtonIcon from '@/shared/ui/icons/buttonIcons/SquareButtonIcon'
 import ChatRoundButton from '_pages/media/sentenceChat/ChatRoundButton/ChatRoundButton'
 import { useSentenceChatStore } from '../sentenceChatStore'
 import { useIsSendButtonDisabled } from './fn/isSendButtonDisabled'
@@ -29,11 +29,6 @@ function SendAndCancelButtons(props: SendAndCancelButtonProps) {
 			color={isGenerating ? 'red' : 'blue'}
 		/>
 	)
-	/*return (
-		<button className='chat-input__send-buttons' disabled={isDisabled} onClick={buttonAction}>
-			<img src={iconUrl} alt='send' />
-		</button>
-	)*/
 }
 
 export default SendAndCancelButtons

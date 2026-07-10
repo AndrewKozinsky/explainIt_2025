@@ -1,25 +1,27 @@
-import { Field, Int, ObjectType, registerEnumType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
 import { SubtitlesGenerationStatus } from 'prisma/generated/client'
 
-registerEnumType(SubtitlesGenerationStatus, {
-	name: 'SubtitlesGenerationStatus',
-	description: 'Lifecycle status of automatic subtitles generation for a private video',
-})
-
-@ObjectType()
 export class VideoPrivateSubtitlesStatusOutModel {
-	@Field(() => Int)
+	@ApiProperty({ description: 'Video ID', example: 1 })
 	videoId: number
 
-	@Field(() => SubtitlesGenerationStatus)
+	@ApiProperty({
+		description: 'Current status of subtitles generation',
+		enum: ['idle', 'pending', 'processing', 'done', 'failed'],
+		example: 'pending',
+	})
 	status: SubtitlesGenerationStatus
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty({ description: 'Error message if generation failed', example: null, nullable: true })
 	error: null | string
 
-	@Field(() => String, { nullable: true, description: 'ISO 8601 timestamp when current generation job started' })
+	@ApiProperty({
+		description: 'ISO timestamp when generation started',
+		example: '2024-01-01T00:00:00.000Z',
+		nullable: true,
+	})
 	startedAt: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty({ description: 'BullMQ job ID of the generation task', example: 'abc123', nullable: true })
 	jobId: null | string
 }

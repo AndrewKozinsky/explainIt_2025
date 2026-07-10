@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import Header from 'ui/Header/Header'
+import Header from '@/shared/ui/Header/Header'
 import './MediaPageContentWrapper.scss'
 
 type MediaPageContentWrapperProps = {

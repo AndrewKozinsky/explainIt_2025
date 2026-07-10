@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { SentenceServiceModel } from 'models/sentence/sentence.service.model'
 import { Prisma, Sentence } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
 	include: {
@@ -69,14 +69,14 @@ export class SentenceRepository {
 		return res.count
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
 		const res = await this.prisma.sentence.deleteMany({
 			where: { video_public_id: videoPublicId },
 		})
 
 		return res.count
-	}
+	}*/
 
 	@CatchDbError()
 	async getNeighborSentences(input: {

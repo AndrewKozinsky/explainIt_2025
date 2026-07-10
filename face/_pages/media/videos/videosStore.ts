@@ -1,16 +1,16 @@
 import { create } from 'zustand'
-import { VideoPrivateLiteOutModel, VideoPublicLiteOutModel } from '@/graphql'
+import type { VideoPublicLiteOutModel, VideoPrivateLiteOutModel } from '@/shared/api/generated/models'
 
 export const videosStoreValues: VideosStoreValues = {
 	publicVideos: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as VideoPublicLiteOutModel[],
+		data: [],
 	},
 	privateVideos: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as VideoPrivateLiteOutModel[],
+		data: [],
 	},
 }
 

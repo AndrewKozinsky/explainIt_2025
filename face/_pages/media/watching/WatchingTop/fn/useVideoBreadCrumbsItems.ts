@@ -13,7 +13,7 @@ export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
 	const params = useParams() as { videoId?: string }
 	const urlVideoId = params.videoId!
 
-	const videoName = useWatchingStore((s) => s.video?.data?.name)
+	const videoName = useWatchingStore((s) => s.video?.data?.name) as unknown as string | undefined
 
 	return React.useMemo(() => {
 		const videoUrl = pageUrls.videos.video(urlVideoId)

@@ -1,28 +1,31 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.SentenceChatMessage.dbFields
+
 export class SentenceChatMessageOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(bdConfig.SentenceChatThread.dbFields.id))
 	threadId: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.role))
 	role: 'user' | 'assistant'
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.content))
 	content: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.status))
 	status: 'streaming' | 'completed' | 'canceled' | 'failed'
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.error_message))
 	errorMessage: null | string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.created_at))
 	createdAt: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.updated_at))
 	updatedAt: string
 }

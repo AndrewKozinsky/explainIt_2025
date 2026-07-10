@@ -1,14 +1,14 @@
-import Header from 'ui/Header/Header'
-import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
 import { pageUrls } from 'utils/pageUrls'
-import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import Header from '@/shared/ui/Header/Header'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 import DictionaryPageContent from '_pages/dictionary/DictionaryPageContent/DictionaryPageContent'
 
 /** Страница словаря */
 function DictionaryPage() {
 	return (
-		<PageWrapper top bottom>
+		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
 				<Header>{pageUrls.dictionary.name}</Header>

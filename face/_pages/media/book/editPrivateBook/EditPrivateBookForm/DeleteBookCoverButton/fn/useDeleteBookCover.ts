@@ -1,13 +1,20 @@
 import { useContext, useCallback, useState } from 'react'
-import { NotificationContext } from 'ui/Notification/context'
-import { useBook_Update, Book_GetUserBooksDocument, Book_GetDocument } from '@/graphql'
+import { useQueryClient } from '@tanstack/react-query'
+import { useBookPrivateControllerUpdateBook } from '@/shared/api/generated/book-private/book-private'
+import {
+	getBookPrivateControllerGetUserBooksQueryKey,
+	getBookPrivateControllerGetBookQueryKey,
+} from '@/shared/api/generated/book-private/book-private'
+import type { UpdateBookDtoLanguageCode } from '@/shared/api/generated/models'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { useBookStore } from '_pages/media/book/bookStore'
 
 export function useDeleteBookCover() {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [updateBook] = useBook_Update()
+	const { mutateAsync: updateBook } = useBookPrivateControllerUpdateBook()
+	const queryClient = useQueryClient()
 
 	const onDeleteClick = useCallback(async () => {
 		const book = useBookStore.getState().privateBook.data
@@ -15,31 +22,31 @@ export function useDeleteBookCover() {
 
 		setStatus('loading')
 
-		const input: { id: number; fileName: null; languageCode?: string | null } = {
-			id: book.id,
+		const data: { fileName: null; languageCode?: UpdateBookDtoLanguageCode } = {
 			fileName: null,
 		}
-		if (book.languageCode) input.languageCode = book.languageCode
+		if (book.languageCode) {
+			data.languageCode = book.languageCode as unknown as UpdateBookDtoLanguageCode
+		}
 
-		const { errors } = await updateBook({
-			variables: { input },
-			refetchQueries: [
-				Book_GetUserBooksDocument,
-				{ query: Book_GetDocument, variables: { input: { id: book.id } } },
-			],
-		})
+		try {
+			await updateBook({
+				id: book.id,
+				data,
+			})
 
-		if (errors) {
+			queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+			queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetBookQueryKey(book.id) })
+
+			setStatus('idle')
+		} catch {
 			notify({
 				type: 'error',
 				message:
 					'Не удалось удалить обложку. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 			})
-			return
 		}
-
-		setStatus('idle')
-	}, [updateBook, notify])
+	}, [updateBook, notify, queryClient])
 
 	return {
 		status,

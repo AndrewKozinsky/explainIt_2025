@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
 import { PopulatedSubtitlesStructure } from './common/populatedSubtitlesStructure'
 import { PopulatedTextStructure } from './common/populatedTextStructure'
 

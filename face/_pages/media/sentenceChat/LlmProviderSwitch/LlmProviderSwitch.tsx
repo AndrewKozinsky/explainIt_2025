@@ -1,4 +1,4 @@
-import { useUserStore } from 'stores/userStore'
+import { useUser } from '@/shared/api/auth/UserProvider'
 import { useSentenceChatStore } from '../sentenceChatStore'
 import { getProviders } from './fn/llmProviders'
 import LLMProviderButton from './LLMProviderButton'
@@ -11,7 +11,7 @@ type LlmProviderSwitchProps = {
 function LlmProviderSwitch(props: LlmProviderSwitchProps) {
 	const { smallIcons } = props
 
-	const user = useUserStore((s) => s.user)
+	const user = useUser()
 	const hasBalance = (user?.balance ?? 0) > 0
 
 	const activeProvider = useSentenceChatStore((s) => s.llmProvider)

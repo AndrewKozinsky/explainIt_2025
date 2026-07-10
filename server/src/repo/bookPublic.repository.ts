@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { BookPublicServiceModel } from 'models/bookPublic/bookPublic.service.model'
 import { Prisma } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 type BookPublicWithChapters = Prisma.BookPublicGetPayload<{
 	include: { BookChapter: { orderBy: { created_at: 'asc' } } }
@@ -19,7 +19,6 @@ export class BookPublicRepository {
 		name: string
 		note: string
 		covers: string[]
-		coverBackgroundColor: string
 		languageCode: Language
 		freeToUse?: boolean
 	}) {
@@ -29,9 +28,7 @@ export class BookPublicRepository {
 				name: dto.name,
 				note: dto.note,
 				covers: dto.covers,
-				coverBackgroundColor: dto.coverBackgroundColor,
 				source_language_code: dto.languageCode,
-				free_to_use: dto.freeToUse,
 			},
 			include: { BookChapter: { orderBy: { created_at: 'asc' } } },
 		})
@@ -73,9 +70,7 @@ export class BookPublicRepository {
 			name: dbBook.name,
 			note: dbBook.note,
 			covers: dbBook.covers,
-			coverBackgroundColor: dbBook.coverBackgroundColor,
 			sourceLanguageCode: dbBook.source_language_code,
-			freeToUse: dbBook.free_to_use ?? false,
 			chapters: dbBook.BookChapter.map((chapter) => ({
 				id: chapter.id,
 				bookId: dbBook.id,

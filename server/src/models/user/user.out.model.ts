@@ -1,16 +1,19 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.User.dbFields
+
 export class UserOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.email))
 	email: string
 
-	@Field(() => Boolean)
+	@ApiProperty(getApiPropertyOptions($.is_user_confirmed))
 	isUserConfirmed: boolean
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.balance))
 	balance: number
 }

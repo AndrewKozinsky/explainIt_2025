@@ -2,18 +2,20 @@
 
 import React, { useEffect } from 'react'
 import { LanguageCode } from 'utils/languages'
-import { useLanguage_Get_Languages } from '@/graphql'
-import LanguageSwitch from '@/ui/LanguageSwitch/LanguageSwitch'
+import { useLanguageControllerGetLanguages } from '@/shared/api/generated/language/language'
+import type { LanguageOutModel } from '@/shared/api/generated/models'
+import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import { useDictionaryStore } from '../dictionaryStore'
 
 function DictionaryLanguageSwitch() {
-	const { data } = useLanguage_Get_Languages()
+	const { data } = useLanguageControllerGetLanguages()
 	const currentLang = useDictionaryStore((state) => state.currentLang)
 	const setCurrentLang = useDictionaryStore((state) => state.setCurrentLang)
 
 	const languages =
-		(data?.language_get_languages.map((lang) => lang.code).filter((lang) => lang !== 'ru') as LanguageCode[]) ??
-		([] as LanguageCode[])
+		((data as unknown as LanguageOutModel[])
+			?.map((lang) => lang.code)
+			.filter((lang) => lang !== 'ru') as LanguageCode[]) ?? ([] as LanguageCode[])
 
 	useEffect(() => {
 		if (!currentLang && languages[0]) {

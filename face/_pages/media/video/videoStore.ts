@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { VideoPublicOutModel, VideoPrivateOutModel } from '@/graphql'
+import type { VideoPublicOutModel, VideoPrivateOutModel } from '@/shared/api/generated/models'
 
 export const videoStoreValues: VideoStoreValues = {
 	publicVideo: {

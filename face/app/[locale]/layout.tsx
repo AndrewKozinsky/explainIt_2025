@@ -1,9 +1,11 @@
-import React from 'react'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getMessages } from 'next-intl/server'
-import { NotificationProvider } from 'ui/Notification/Notification'
 import { routing } from '@/i18n/routing'
+import { getCurrentUser } from '@/shared/api/auth/getCurrentUser'
+import { Providers } from '@/shared/api/auth/Providers'
+import { UserProvider } from '@/shared/api/auth/UserProvider'
+import { NotificationProvider } from '@/shared/ui/Notification/Notification'
 import MainPageLayout from '_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
 
 export default async function LocaleLayout({
@@ -19,12 +21,16 @@ export default async function LocaleLayout({
 		notFound()
 	}
 
-	const messages = await getMessages()
+	const [messages, user] = await Promise.all([getMessages(), getCurrentUser()])
 
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
 			<NotificationProvider>
-				<MainPageLayout>{children}</MainPageLayout>
+				<Providers>
+					<UserProvider user={user}>
+						<MainPageLayout>{children}</MainPageLayout>
+					</UserProvider>
+				</Providers>
 			</NotificationProvider>
 		</NextIntlClientProvider>
 	)

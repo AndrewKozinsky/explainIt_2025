@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { useLocale } from 'next-intl'
-import { getTextByUnknownError } from 'utils/extractErrorText'
-import { useTranslate_Get_Phrase_TranslationLazyQuery, useTranslate_Translate_Phrase } from '@/graphql'
+import {
+	translateControllerGetPhraseTranslation,
+	translateControllerTranslatePhrase,
+} from '@/shared/api/generated/translate/translate'
 import { makePhraseId, SentencePhraseType, useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
 import { mapPhraseTranslationToStatus, toNullableString } from './fetchSentenceTranslation'
 import { findSentenceEntry } from './selectors'
@@ -13,9 +15,6 @@ export function useFetchCurrentPhraseTranslation() {
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
 	const retryFetchPhraseQueue = useDetailsStore((s) => s.retryFetchPhraseQueue)
 	const locale = useLocale()
-
-	const [getPhraseTranslation] = useTranslate_Get_Phrase_TranslationLazyQuery()
-	const [translatePhrase] = useTranslate_Translate_Phrase()
 
 	useEffect(
 		function () {
@@ -79,8 +78,6 @@ export function useFetchCurrentPhraseTranslation() {
 				videoYear: state.videoYear,
 				languageCode: state.languageCode,
 				targetLanguageCode: locale,
-				getPhraseTranslation,
-				translatePhrase,
 			})
 		},
 		[currentSentenceId, currentSentenceText, currentWordId],
@@ -113,8 +110,6 @@ export function useFetchCurrentPhraseTranslation() {
 					videoYear: state.videoYear,
 					languageCode: state.languageCode,
 					targetLanguageCode: locale,
-					getPhraseTranslation,
-					translatePhrase,
 				}).catch(function () {})
 			}
 
@@ -136,8 +131,6 @@ type RunFetchForPhraseInput = {
 	videoYear: null | string | number
 	languageCode: null | string
 	targetLanguageCode: string
-	getPhraseTranslation: ReturnType<typeof useTranslate_Get_Phrase_TranslationLazyQuery>[0]
-	translatePhrase: ReturnType<typeof useTranslate_Translate_Phrase>[0]
 }
 
 async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
@@ -155,26 +148,21 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 			phraseId: input.phraseId,
 			patch: {
 				loading: false,
-				error: getTextByUnknownError(error),
+				error: error as string,
 			},
 		})
 	}
 }
 
 async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhraseType> {
-	const existing = await input.getPhraseTranslation({
-		variables: {
-			input: {
-				sentenceId: input.sentenceId,
-				targetLanguageCode: input.targetLanguageCode,
-				selectedWordStartOffset: input.wordStartOffset,
-				selectedWordEndOffset: input.wordEndOffset,
-			},
-		},
-		fetchPolicy: 'network-only',
+	const existingResponse = await translateControllerGetPhraseTranslation({
+		sentenceId: input.sentenceId,
+		targetLanguageCode: input.targetLanguageCode,
+		selectedWordStartOffset: input.wordStartOffset,
+		selectedWordEndOffset: input.wordEndOffset,
 	})
 
-	const existingPhrase = existing.data?.translate_get_phrase_translation
+	const existingPhrase = existingResponse as unknown as Record<string, unknown> | null
 	if (existingPhrase?.translate) {
 		return mapPhraseTranslationToStatus({
 			phraseTranslation: existingPhrase,
@@ -185,24 +173,20 @@ async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Prom
 
 	const selectedWord = input.sentenceText.slice(input.wordStartOffset, input.wordEndOffset)
 
-	const generated = await input.translatePhrase({
-		variables: {
-			input: {
-				sentenceId: input.sentenceId,
-				text: input.sentenceText,
-				selectedWord,
-				targetLanguageCode: input.targetLanguageCode,
-				selectedWordStartOffset: input.wordStartOffset,
-				selectedWordEndOffset: input.wordEndOffset,
-				bookName: input.bookName ?? undefined,
-				bookAuthor: input.bookAuthor ?? undefined,
-				videoName: input.videoName ?? undefined,
-				videoYear: toNullableString(input.videoYear) ?? undefined,
-			},
-		},
+	const generatedResponse = await translateControllerTranslatePhrase({
+		sentenceId: input.sentenceId,
+		text: input.sentenceText,
+		selectedWord,
+		targetLanguageCode: input.targetLanguageCode,
+		selectedWordStartOffset: input.wordStartOffset,
+		selectedWordEndOffset: input.wordEndOffset,
+		bookName: input.bookName ?? undefined,
+		bookAuthor: input.bookAuthor ?? undefined,
+		videoName: input.videoName ?? undefined,
+		videoYear: toNullableString(input.videoYear) ?? undefined,
 	})
 
-	const generatedPhrase = generated.data?.translate_translate_phrase
+	const generatedPhrase = generatedResponse as unknown as Record<string, unknown>
 	if (!generatedPhrase?.translate) {
 		throw new Error('Не удалось получить перевод слова')
 	}

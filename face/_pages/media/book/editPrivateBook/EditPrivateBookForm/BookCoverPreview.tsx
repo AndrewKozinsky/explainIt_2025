@@ -1,4 +1,4 @@
-import LabelWithField from 'ui/formRelated/LabelWithField/LabelWithField'
+import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import { useBookStore } from '_pages/media/book/bookStore'
 import DeleteBookCoverButton from './DeleteBookCoverButton/DeleteBookCoverButton'
 import './BookCoverPreview.scss'

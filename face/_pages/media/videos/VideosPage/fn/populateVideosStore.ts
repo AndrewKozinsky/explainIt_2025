@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
-import { useUserStore } from 'stores/userStore'
-import { getTextByUnknownError } from 'utils/extractErrorText'
-import { useVideoPrivate_GetUserVideos, useVideoPublic_GetVideos } from '@/graphql'
+import { useUser } from '@/shared/api/auth/UserProvider'
+import type { VideoPublicLiteOutModel, VideoPrivateLiteOutModel } from '@/shared/api/generated/models'
+import { useVideoPrivateControllerGetUserVideosPrivate } from '@/shared/api/generated/video-private/video-private'
+import { useVideoPublicControllerGetVideosPublic } from '@/shared/api/generated/video-public/video-public'
 import { useVideosStore } from '_pages/media/videos/videosStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -11,11 +12,11 @@ export function usePopulateVideosStore() {
 }
 
 function useFetchPublicVideosAndSetToStore() {
-	const { data, error, loading } = useVideoPublic_GetVideos()
+	const { data, error, isLoading } = useVideoPublicControllerGetVideosPublic()
 
 	useEffect(
 		function () {
-			if (loading) {
+			if (isLoading) {
 				useVideosStore.getState().updatePublicVideos({
 					loading: true,
 					errorMessage: null,
@@ -24,7 +25,7 @@ function useFetchPublicVideosAndSetToStore() {
 			} else if (error) {
 				useVideosStore.getState().updatePublicVideos({
 					loading: false,
-					errorMessage: getTextByUnknownError(error),
+					errorMessage: 'Не удалось загрузить список публичных видео.',
 					data: [],
 				})
 			} else if (!data) {
@@ -37,25 +38,24 @@ function useFetchPublicVideosAndSetToStore() {
 				useVideosStore.getState().updatePublicVideos({
 					loading: false,
 					errorMessage: null,
-					data: data.video_public_get_videos,
+					data: data as unknown as VideoPublicLiteOutModel[],
 				})
 			}
 		},
-		[data, error, loading],
+		[data, error, isLoading],
 	)
 }
 
 function useFetchPrivateVideosAndSetToStore() {
-	const user = useUserStore((state) => state.user)
+	const user = useUser()
 
-	const { data, error, loading } = useVideoPrivate_GetUserVideos({
-		skip: !user?.id,
-		fetchPolicy: 'cache-and-network',
+	const { data, error, isLoading } = useVideoPrivateControllerGetUserVideosPrivate({
+		query: { enabled: !!user?.id },
 	})
 
 	useEffect(
 		function () {
-			if (loading) {
+			if (isLoading) {
 				useVideosStore.getState().updatePrivateVideos({
 					loading: true,
 					errorMessage: null,
@@ -64,7 +64,7 @@ function useFetchPrivateVideosAndSetToStore() {
 			} else if (error) {
 				useVideosStore.getState().updatePrivateVideos({
 					loading: false,
-					errorMessage: getTextByUnknownError(error),
+					errorMessage: 'Не удалось загрузить список ваших видео.',
 					data: [],
 				})
 			} else if (!data) {
@@ -77,10 +77,10 @@ function useFetchPrivateVideosAndSetToStore() {
 				useVideosStore.getState().updatePrivateVideos({
 					loading: false,
 					errorMessage: null,
-					data: data.video_private_user_videos,
+					data: data as unknown as VideoPrivateLiteOutModel[],
 				})
 			}
 		},
-		[data, error, loading],
+		[data, error, isLoading],
 	)
 }

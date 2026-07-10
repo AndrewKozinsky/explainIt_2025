@@ -37,6 +37,10 @@ export namespace BdConfig {
 
 	export type IndexField = {
 		type: 'index'
+		// Field description
+		description?: string
+		// Field example value
+		example?: number
 	}
 
 	export type UuidIndexField = {
@@ -174,6 +178,8 @@ export namespace BdConfig {
 		required: boolean
 		// Field description
 		description?: string
+		// Field example value
+		example?: string
 	}
 
 	export type CreatedAtField = {
@@ -194,6 +200,10 @@ export namespace BdConfig {
 		onDelete?: OnDeleteAction
 		// Is the field required?
 		required: boolean
+		// Field description
+		description?: string
+		// Field example value
+		example?: number
 	}
 
 	export type OneToManyField = {

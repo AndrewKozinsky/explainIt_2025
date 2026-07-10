@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { Subtitle } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
 export class SubtitleRepository {
@@ -40,13 +40,13 @@ export class SubtitleRepository {
 		return res.count
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
 		const res = await this.prisma.subtitle.deleteMany({
 			where: { video_public_id: videoPublicId },
 		})
 		return res.count
-	}
+	}*/
 
 	mapDbSubtitleToServiceSubtitle(dbSubtitle: Subtitle) {
 		return {

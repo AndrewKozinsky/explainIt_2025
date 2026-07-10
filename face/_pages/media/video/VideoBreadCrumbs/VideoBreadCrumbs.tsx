@@ -1,5 +1,5 @@
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from 'utils/pageUrls'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 
 function VideoBreadCrumbs() {
 	return <BreadCrumbs items={[pageUrls.videos]} />

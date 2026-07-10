@@ -112,7 +112,7 @@ export class VideoPrivateRepository {
 		}
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async getVideosWithUploadedFilesByUserIds(userIds: number[]): Promise<Array<{ id: number; fileS3Key: string }>> {
 		if (!userIds.length) return []
 
@@ -134,7 +134,7 @@ export class VideoPrivateRepository {
 		return videos
 			.filter((video) => Boolean(video.file_s3_key))
 			.map((video) => ({ id: video.id, fileS3Key: video.file_s3_key! }))
-	}
+	}*/
 
 	/**
 	 * Atomically transition the video from an idle/done/failed state to PENDING
@@ -234,7 +234,7 @@ export class VideoPrivateRepository {
 		}
 	}
 
-	@CatchDbError()
+	/*@CatchDbError()
 	async clearVideoFileFieldsById(videoId: number): Promise<void> {
 		await this.prisma.videoPrivate.update({
 			where: { id: videoId },
@@ -245,7 +245,7 @@ export class VideoPrivateRepository {
 				file_duration_sec: null,
 			},
 		})
-	}
+	}*/
 
 	async mapDbVideoToServiceVideo(dbVideo: VideoPrivate): Promise<VideoPrivateServiceModel> {
 		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null

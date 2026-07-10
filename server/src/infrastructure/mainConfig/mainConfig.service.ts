@@ -16,17 +16,28 @@ export class MainConfigService {
 		}
 
 		return {
+			region: enVariables.region,
 			mode: enVariables.mode,
 			port: enVariables.port,
-			gigaChatClientId: enVariables.gigaChatClientId,
-			gigaChatClientSecret: enVariables.gigaChatClientSecret,
-			gigaChatAuthorizationKey: enVariables.gigaChatAuthorizationKey,
+			// gigaChatClientId: enVariables.gigaChatClientId,
+			// gigaChatClientSecret: enVariables.gigaChatClientSecret,
+			// gigaChatAuthorizationKey: enVariables.gigaChatAuthorizationKey,
 			telegramFromExplainBotToken: enVariables.telegramFromExplainBotToken,
 			telegramFromExplainBotChatId: enVariables.telegramFromExplainBotChatId,
-			site: {
-				name: 'ExplainIt',
-				domainRoot: enVariables.siteDomainRoot,
-				domainRootWithProtocol: enVariables.siteDomainRootWithProtocol,
+			get site() {
+				if (enVariables.region === 'ru') {
+					return {
+						name: 'ExplainIt',
+						domainRoot: enVariables.siteRuDomainRoot,
+						domainRootWithProtocol: enVariables.siteRuDomainRootWithProtocol,
+					}
+				} else {
+					return {
+						name: 'Immersia',
+						domainRoot: enVariables.siteIntlDomainRoot,
+						domainRootWithProtocol: enVariables.siteIntlDomainRootWithProtocol,
+					}
+				}
 			},
 			emailAdapter: {
 				userId: enVariables.emailAdapterUserId,
@@ -147,7 +158,7 @@ export class MainConfigService {
 				translationMarkupMultiplier: 2,
 			},
 			// Grafana Loki
-			loki: enVariables.loki,
+			// loki: enVariables.loki,
 			googleTts: {
 				serviceAccountCredentials: JSON.parse(
 					Buffer.from(enVariables.googleTts.serviceAccountJson, 'base64').toString('utf-8'),
@@ -155,23 +166,28 @@ export class MainConfigService {
 				// Google TTS Standard: ~$4 per 1M chars = 0.00044 руб/символ = 0.044 копейки/символ
 				pricePerCharInKopecks: 0.044 * 1.3, // стоимость * наценка
 			},
-			proxyUrl: enVariables.proxyUrl,
+			// proxyUrl: enVariables.proxyUrl,
 		}
 	}
 
 	getEnVariables() {
 		return {
+			region: this.configService.get<'intl' | 'ru'>('REGION'),
 			mode: this.configService.get<
 				'localtest' | 'localdev' | 'localcheckserver' | 'serverdevelop' | 'servermaster'
 			>('MODE'),
 			port: this.configService.get<number>('PORT') || 3001,
-			gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
-			gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',
-			gigaChatAuthorizationKey: this.configService.get<string>('GIGA_CHAT_AUTHORIZATION_KEY') || '',
+			// gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
+			// gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',
+			// gigaChatAuthorizationKey: this.configService.get<string>('GIGA_CHAT_AUTHORIZATION_KEY') || '',
 			telegramFromExplainBotToken: this.configService.get<string>('TELEGRAM_FROM_EXPLAIN_BOT_TOKEN') || '',
 			telegramFromExplainBotChatId: this.configService.get<number>('TELEGRAM_FROM_EXPLAIN_BOT_CHAT_ID') || 0,
-			siteDomainRoot: this.configService.get<string>('SITE_DOMAIN_ROOT') as string,
-			siteDomainRootWithProtocol: this.configService.get<string>('SITE_DOMAIN_ROOT_WITH_PROTOCOL') as string,
+			siteRuDomainRoot: this.configService.get<string>('SITE_RU_DOMAIN_ROOT') as string,
+			siteRuDomainRootWithProtocol: this.configService.get<string>('SITE_RU_DOMAIN_ROOT_WITH_PROTOCOL') as string,
+			siteIntlDomainRoot: this.configService.get<string>('SITE_INTL_DOMAIN_ROOT') as string,
+			siteIntlDomainRootWithProtocol: this.configService.get<string>(
+				'SITE_INTL_DOMAIN_ROOT_WITH_PROTOCOL',
+			) as string,
 			emailAdapterUserId: this.configService.get<string>('EMAIL_ADAPTER_USER_ID') as string,
 			emailAdapterSecret: this.configService.get<string>('EMAIL_ADAPTER_SECRET') as string,
 			jwtSecret: this.configService.get<string>('JWT_SECRET') as string,
@@ -228,15 +244,15 @@ export class MainConfigService {
 					tenantId: this.configService.get<string>('CLOUD_RU_S3_TENANT_ID') as string,
 				},
 			},
-			loki: {
+			/*loki: {
 				url: this.configService.get<string>('LOKI_URL') as string,
 				userId: this.configService.get<string>('LOKI_USER_ID') as string,
 				apiKey: this.configService.get<string>('LOKI_API_KEY') as string,
-			},
+			},*/
 			googleTts: {
 				serviceAccountJson: this.configService.get<string>('GOOGLE_AI_SERVICE_ACCOUNT_JSON') as string,
 			},
-			proxyUrl: this.configService.get<string>('PROXY_URL') || '',
+			// proxyUrl: this.configService.get<string>('PROXY_URL') || '',
 		}
 	}
 }

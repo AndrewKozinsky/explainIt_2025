@@ -1,80 +1,83 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { TranscriptionOutModel } from 'models/transcription/transcription.out.model'
 
-@ObjectType()
+const $ = bdConfig.UniversalPhraseTranslation.dbFields
+
 export class TranslationExampleOutModel {
-	@Field(() => String)
+	@ApiProperty({ description: 'Example sentence in target language', type: String })
 	sentence: string
 
-	@Field(() => String)
+	@ApiProperty({ description: 'Translation of the example sentence', type: String })
 	translate: string
 }
 
-@ObjectType()
 export class UsageGroupOutModel {
-	@Field(() => String)
+	@ApiProperty({ description: 'Usage group title', type: String })
 	title: string
 
-	@Field(() => String)
+	@ApiProperty({ description: 'Explanation of the usage group', type: String })
 	explain: string
 
-	@Field(() => [TranslationExampleOutModel])
+	@ApiProperty({ description: 'Examples for this usage group', type: [TranslationExampleOutModel] })
 	examples: TranslationExampleOutModel[]
 }
 
-@ObjectType()
 export class PatternItemOutModel {
-	@Field(() => String)
+	@ApiProperty({ description: 'Pattern phrase', type: String })
 	phrase: string
 
-	@Field(() => String)
+	@ApiProperty({ description: 'Translation of the pattern', type: String })
 	translate: string
 }
 
-@ObjectType()
 export class UniversalPhraseTranslationDataOutModel {
-	@Field(() => String)
+	@ApiProperty({ description: 'Core idea of the phrase', type: String })
 	coreIdea: string
 
-	@Field(() => [UsageGroupOutModel])
+	@ApiProperty({ description: 'Usage groups with examples', type: [UsageGroupOutModel] })
 	usageGroups: UsageGroupOutModel[]
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty({ description: 'Similar words or phrases', type: String, nullable: true })
 	similarWords: null | string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty({ description: 'Common mistakes when using this phrase', type: String, nullable: true })
 	commonMistakes: null | string
 
-	@Field(() => [PatternItemOutModel], { nullable: true })
+	@ApiProperty({ description: 'Grammatical patterns', type: [PatternItemOutModel], nullable: true })
 	patterns: null | PatternItemOutModel[]
 }
 
-@ObjectType()
 export class UniversalPhraseTranslationOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(bdConfig.UniversalPhrase.dbFields.id))
 	universalPhraseId: number
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.target_language_code))
 	targetLanguageCode: string
 
-	@Field(() => UniversalPhraseTranslationDataOutModel, { nullable: true })
+	@ApiProperty({
+		description: 'Translation result from LLM',
+		type: UniversalPhraseTranslationDataOutModel,
+		nullable: true,
+	})
 	translation: null | UniversalPhraseTranslationDataOutModel
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.status))
 	status: string
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.error_message))
 	errorMessage: null | string
 
-	@Field(() => Boolean)
+	@ApiProperty(getApiPropertyOptions($.non_existent_word))
 	nonExistentWord: boolean
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.created_at))
 	createdAt: string
 
-	@Field(() => TranscriptionOutModel, { nullable: true })
+	@ApiProperty({ description: 'Transcription of the source phrase', type: TranscriptionOutModel, nullable: true })
 	transcription: TranscriptionOutModel | null
 }

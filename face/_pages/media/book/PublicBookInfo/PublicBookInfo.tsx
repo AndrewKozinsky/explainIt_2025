@@ -1,4 +1,4 @@
-import { SectionWithHeader } from 'ui/SectionWithHeader/SectionWithHeader'
+import { SectionWithHeader } from '@/shared/ui/SectionWithHeader/SectionWithHeader'
 import MenuAndContentContainer from '_pages/media/commonComponents/MenuAndContentContainer/MenuAndContentContainer'
 import { useBookStore } from '../bookStore'
 import PublicBookChapters from '../PublicBookChapters/PublicBookChapters'

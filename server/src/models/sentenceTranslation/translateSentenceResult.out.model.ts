@@ -1,10 +1,14 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
-@ObjectType()
+const $ = bdConfig.SentenceTranslation.dbFields
+const $$ = bdConfig.Sentence.dbFields
+
 export class TranslateSentenceResultOutModel {
-	@Field(() => Int)
-	sentenceId: number
+    @ApiProperty(getApiPropertyOptions($$.id))
+    sentenceId: number
 
-	@Field(() => String)
-	translation: string
+    @ApiProperty(getApiPropertyOptions($.translation))
+    translation: string
 }

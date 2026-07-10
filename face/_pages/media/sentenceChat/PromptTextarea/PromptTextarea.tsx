@@ -1,5 +1,5 @@
 import { forwardRef, KeyboardEvent, useImperativeHandle, useRef } from 'react'
-import { useUserStore } from '@/stores/userStore'
+import { useUser } from '@/shared/api/auth/UserProvider'
 import { handleEnterToSend } from '../ChatInput/fn/handleEnterToSend'
 import { computeInsertAtCaret, applyCaret } from '../ChatInput/fn/insertAtCaret'
 import { useSentenceChatStore } from '../sentenceChatStore'
@@ -22,7 +22,7 @@ const PromptTextarea = forwardRef<PromptTextareaHandle, PromptTextareaProps>(fun
 	const setPrompt = useSentenceChatStore((s) => s.setPrompt)
 	const setIsTextAreaFocused = useSentenceChatStore((s) => s.setIsTextAreaFocused)
 
-	const user = useUserStore((s) => s.user)
+	const user = useUser()
 	const hasBalance = (user?.balance ?? 0) > 0
 
 	const textAreaRef = useRef<HTMLTextAreaElement | null>(null)

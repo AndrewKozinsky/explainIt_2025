@@ -1,20 +1,19 @@
 import { useCallback, useContext, useState } from 'react'
-import { Book_GetUserBooksDocument, useBookChapter_Delete } from '@/graphql'
+import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from '@/i18n/routing'
-import { NotificationContext } from '@/ui//Notification/context'
+import { useBookChapterControllerDeleteBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
+import { getBookPrivateControllerGetUserBooksQueryKey } from '@/shared/api/generated/book-private/book-private'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
 export function useGetDeleteBook() {
-	// Subscribe to the store to trigger re-renders if needed
-	useChapterStore((s) => s.chapter)
-	useChapterStore((s) => s.privateBook)
-
 	const { notify } = useContext(NotificationContext)
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [deleteChapter] = useBookChapter_Delete({ refetchQueries: [Book_GetUserBooksDocument] })
+	const { mutateAsync: deleteChapter } = useBookChapterControllerDeleteBookChapter()
+	const queryClient = useQueryClient()
 
 	const onDeleteChapterClick = useCallback(
 		async function () {
@@ -27,23 +26,24 @@ export function useGetDeleteBook() {
 
 			setStatus('loading')
 
-			const { errors } = await deleteChapter({ variables: { input: { id: chapterId } } })
+			try {
+				await deleteChapter({ id: chapterId })
 
-			if (errors) {
+				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+
+				setStatus('idle')
+
+				const bookIdInUrl = createMediaIdUrl(bookId, 'private')
+				router.push(pageUrls.books.book(bookIdInUrl).path)
+			} catch {
 				notify({
 					type: 'error',
 					message:
 						'Не удалось удалить главу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
-				return
 			}
-
-			setStatus('idle')
-
-			const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-			router.push(pageUrls.books.book(bookIdInUrl).path)
 		},
-		[deleteChapter, notify, router],
+		[deleteChapter, notify, router, queryClient],
 	)
 
 	return {

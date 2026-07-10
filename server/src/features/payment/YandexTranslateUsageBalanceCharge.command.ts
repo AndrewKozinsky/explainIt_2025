@@ -1,21 +1,21 @@
-import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+// import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+// import { CustomError } from 'infrastructure/exceptions/customErrors'
+// import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+// import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
-export class YandexTranslateUsageBalanceChargeCommand implements ICommand {
+/*export class YandexTranslateUsageBalanceChargeCommand implements ICommand {
 	constructor(
 		public dto: {
 			userId: number
 			symbolsCount: number
 		},
 	) {}
-}
+}*/
 
 // Этот командный обработчик получает количество входящих и исходящих токенов, высчитывает стоимость и создает транзакцию
-@CommandHandler(YandexTranslateUsageBalanceChargeCommand)
+/*@CommandHandler(YandexTranslateUsageBalanceChargeCommand)
 export class YandexTranslateUsageBalanceChargeHandler implements ICommandHandler<YandexTranslateUsageBalanceChargeCommand> {
 	constructor(
 		private mainConfig: MainConfigService,
@@ -38,10 +38,10 @@ export class YandexTranslateUsageBalanceChargeHandler implements ICommandHandler
 		}
 	}
 
-	/**
+	/!**
 	 * Получает количество символов и умножает на цену поставщика.
 	 * В конце умножается на мою наценку.
-	 */
+	 *!/
 	calculateAmountInKopeckDependsOnTokens(translatedSymbolsCount: number): number {
 		const providerAmount =
 			this.mainConfig.get().yandexCloud.translate.priceForSymbolInKopecks * translatedSymbolsCount
@@ -50,4 +50,4 @@ export class YandexTranslateUsageBalanceChargeHandler implements ICommandHandler
 
 		return baseAmountInKopecks * markupMultiplier
 	}
-}
+}*/

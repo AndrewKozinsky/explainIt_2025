@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { SentenceChatMessageOutModel } from 'models/sentenceChat/sentenceChatMessage.out.model'
 import { SentenceChatThreadOutModel } from 'models/sentenceChat/sentenceChatThread.out.model'
 import { SentenceChatMessage } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
 export class SentenceChatThreadQueryRepository {

@@ -30,11 +30,14 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'User ID',
+				example: 1,
 			},
 			email: {
 				type: 'email',
 				unique: true,
 				description: 'User-s email',
+				example: 'user@example.com',
 				required: true,
 			},
 			password: {
@@ -68,12 +71,14 @@ export const bdConfig = {
 				type: 'boolean',
 				default: false,
 				description: 'Is user account confirmed with a social network',
+				example: true,
 				required: true,
 			},
 			balance: {
 				type: 'number',
 				default: 0,
 				description: 'User balance in kopecks',
+				example: 50000,
 				required: true,
 			},
 			Payment: {
@@ -104,6 +109,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'User balance transaction ID',
+				example: 1,
 			},
 			user_id: {
 				type: 'manyToOne',
@@ -139,16 +146,35 @@ export const bdConfig = {
 	},
 	// User increases his balance with payment
 	Payment: {
-		dtoProps: {},
+		dtoProps: {
+			amountInKopecks: {
+				type: 'number',
+				min: 1,
+				max: 10000,
+				description: 'Amount in kopecks to top up the balance',
+				example: 10000,
+				required: true,
+			},
+			confirmationUrl: {
+				type: 'string',
+				description: 'URL for payment confirmation redirect',
+				example: 'https://yookassa.ru/payments/...',
+				required: true,
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Payment ID',
+				example: 1,
 			},
 			user_id: {
 				type: 'manyToOne',
 				thisField: 'user_id', // Name of the column of this table that refers to another table
 				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
+				description: 'User ID who owns the book',
+				example: 1,
 				required: true,
 			},
 			amount: {
@@ -205,27 +231,45 @@ export const bdConfig = {
 				required: false,
 				maxLength: 50,
 			},
+			coverUrl: {
+				type: 'string',
+				description: 'URL to the book cover image',
+				example: 'https://s3.example.com/privateBooksDev/cover.jpg',
+				required: false,
+			},
+			uploadUrl: {
+				type: 'string',
+				description: 'Pre-signed S3 upload URL for the book cover',
+				example: 'https://s3.example.com/presigned-url',
+				required: false,
+			},
 		},
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Book private ID',
+				example: 1,
 			},
 			user_id: {
 				type: 'manyToOne',
 				thisField: 'user_id', // Name of the column of this table that refers to another table
 				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
+				description: 'User ID who owns the book',
+				example: 1,
 				required: true,
 			},
 			author: {
 				type: 'string',
 				description: 'Author of the book',
+				example: 'J.K. Rowling',
 				required: false,
 				maxLength: 255,
 			},
 			name: {
 				type: 'string',
 				description: 'Name of the book',
+				example: 'Harry Potter',
 				required: false,
 				maxLength: 255,
 			},
@@ -233,11 +277,14 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
+				description: 'Language code of the book',
+				example: 'en',
 				required: true,
 			},
 			note: {
 				type: 'string',
 				description: 'Note about the book',
+				example: 'This book is great for learning new vocabulary',
 				required: false,
 				maxLength: 1000,
 			},
@@ -285,47 +332,42 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
-			},
-			free_to_use: {
-				type: 'boolean',
-				default: false,
-				description: 'Can user see this book without subscription',
-				example: true,
-				required: false,
+				description: 'Book public ID',
+				example: 1,
 			},
 			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
+				description: 'Language code of the book',
+				example: 'en',
 				required: true,
 			},
 			covers: {
 				type: 'array',
 				arrayItemType: 'string',
 				description: 'Covers of the book',
+				example: ['https://example.com/cover.jpg'],
 				required: true,
-			},
-			coverBackgroundColor: {
-				type: 'string',
-				description: 'Background color for the book card',
-				required: true,
-				maxLength: 255,
 			},
 			author: {
 				type: 'string',
 				description: 'Author of the book',
+				example: 'J.K. Rowling',
 				required: false,
 				maxLength: 255,
 			},
 			name: {
 				type: 'string',
 				description: 'Name of the book',
+				example: 'Harry Potter',
 				required: true,
 				maxLength: 255,
 			},
 			note: {
 				type: 'string',
 				description: 'Note about the book',
+				example: 'A young wizard discovers his magical heritage.',
 				required: true,
 				maxLength: 2000,
 			},
@@ -341,10 +383,21 @@ export const bdConfig = {
 		},
 	},
 	BookChapter: {
-		dtoProps: {},
+		dtoProps: {
+			bookType: {
+				type: 'enum',
+				enumName: 'BookType',
+				variants: ['public', 'private'],
+				description: 'Book type: public or private',
+				example: 'private',
+				required: true,
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Book chapter ID',
+				example: 1,
 			},
 			book_id: {
 				type: 'manyToOne',
@@ -363,18 +416,21 @@ export const bdConfig = {
 			name: {
 				type: 'string',
 				description: 'Name of the chapter. For example: Chapter 1.',
+				example: 'Chapter 1',
 				required: false,
 				maxLength: 255,
 			},
 			header: {
 				type: 'string',
 				description: 'Header of the chapter',
+				example: 'The Boy Who Lived',
 				required: false,
 				maxLength: 255,
 			},
 			original_content: {
 				type: 'string',
 				description: 'Original content of the chapter',
+				example: 'Mr. and Mrs. Dursley, of number four, Privet Drive...',
 				required: false,
 				maxLength: 900000,
 			},
@@ -386,6 +442,7 @@ export const bdConfig = {
 			note: {
 				type: 'string',
 				description: 'Note about the book',
+				example: 'This chapter introduces the main character.',
 				required: false,
 				minLength: 0,
 				maxLength: 1000,
@@ -403,12 +460,14 @@ export const bdConfig = {
 			fileName: {
 				type: 'string',
 				description: 'File name of the video',
+				example: 'Zootopia-2016.mp4',
 				required: false,
 				maxLength: 255,
 			},
 			fileMimeType: {
 				type: 'string',
 				description: 'File Mime Type of the video',
+				example: 'video/mp4',
 				required: false,
 				maxLength: 50,
 			},
@@ -416,23 +475,30 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Video private ID',
+				example: 1,
 			},
 			user_id: {
 				type: 'manyToOne',
 				thisField: 'user_id', // Name of the column of this table that refers to another table
 				foreignTable: 'User', // Name of the table that this column refers to
 				foreignField: 'id',
+				description: 'User ID who owns the book',
+				example: 1,
 				required: true,
 			},
 			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
+				description: 'Language code of the video',
+				example: 'en',
 				required: true,
 			},
 			year: {
 				type: 'number',
 				description: 'Year of video release',
+				example: 2024,
 				required: false,
 				max: 2030,
 				min: 1900,
@@ -463,7 +529,7 @@ export const bdConfig = {
 				default: false,
 				description: 'Is file was uploaded',
 				example: true,
-				required: true,
+				required: false,
 			},
 			file_size_mb: {
 				type: 'number',
@@ -481,22 +547,26 @@ export const bdConfig = {
 			name: {
 				type: 'string',
 				description: 'Name of the video',
+				example: 'Zootopia',
 				required: false,
 				maxLength: 255,
 			},
 			original_content: {
 				type: 'string',
 				description: 'Original subtitles or text of the video provided by user',
+				example: 'Some original content.',
 				required: false,
 			},
 			processed_content: {
 				type: 'string',
 				description: 'Processed subtitles or text of the video (flattened)',
+				example: 'Processed content.',
 				required: false,
 			},
 			content_type: {
 				type: 'enum',
 				description: 'Type of content in the video: plain text or subtitles (SRT)',
+				example: 'text',
 				required: true,
 				variants: ['text', 'subtitles'],
 				default: 'text',
@@ -555,27 +625,32 @@ export const bdConfig = {
 		},
 	},
 	VideoPublic: {
-		dtoProps: {},
+		dtoProps: {
+			fileUrl: {
+				type: 'string',
+				description: 'Downloadable URL for the video file',
+				example: 'https://s3.example.com/video_dev/Zootopia-2016.mp4',
+				required: false,
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
-			},
-			free_to_use: {
-				type: 'boolean',
-				default: false,
-				description: 'Can user see this video without subscription',
-				example: true,
-				required: false,
+				description: 'Video public ID',
+				example: 1,
 			},
 			source_language_code: {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
+				description: 'Language code of the video',
+				example: 'en',
 				required: true,
 			},
 			year: {
 				type: 'number',
 				description: 'Year of video release',
+				example: 2016,
 				required: true,
 				max: 2030,
 				min: 1900,
@@ -583,6 +658,7 @@ export const bdConfig = {
 			name: {
 				type: 'string',
 				description: 'Name of the video',
+				example: 'Zootopia',
 				required: true,
 				maxLength: 255,
 			},
@@ -605,11 +681,13 @@ export const bdConfig = {
 				enumName: 'S3ProviderName',
 				variants: s3ProviderName,
 				description: 'S3 provider name',
+				example: 'cloudru',
 				required: true,
 			},
 			note: {
 				type: 'string',
 				description: 'Note about the video',
+				example: 'A great animated movie about animals.',
 				required: true,
 				maxLength: 4000,
 			},
@@ -617,27 +695,25 @@ export const bdConfig = {
 				type: 'array',
 				arrayItemType: 'string',
 				description: 'Covers of the video',
+				example: ['https://example.com/cover1.jpg'],
 				required: true,
-			},
-			coverBackgroundColor: {
-				type: 'string',
-				description: 'Background color for the video card',
-				required: true,
-				maxLength: 255,
 			},
 			original_content: {
 				type: 'string',
 				description: 'Original subtitles or text of the video provided by user',
+				example: 'In a city of anthropomorphic animals...',
 				required: true,
 			},
 			processed_content: {
 				type: 'string',
 				description: 'Processed subtitles or text of the video (flattened)',
+				example: 'In a city of anthropomorphic animals...',
 				required: true,
 			},
 			content_type: {
 				type: 'enum',
 				description: 'Type of content in the video: plain text or subtitles (SRT)',
+				example: 'subtitles',
 				required: true,
 				variants: ['text', 'subtitles'],
 				default: 'text',
@@ -665,6 +741,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Sentence ID',
+				example: 1,
 			},
 			book_chapter_id: {
 				type: 'manyToOne',
@@ -769,6 +847,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Sentence translation ID',
+				example: 1,
 			},
 			sentence_id: {
 				type: 'manyToOne',
@@ -817,6 +897,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Sentence phrase translation ID',
+				example: 1,
 			},
 			sentence_id: {
 				type: 'manyToOne',
@@ -879,6 +961,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Subtitle ID',
+				example: 1,
 			},
 			start_time_ms: {
 				type: 'number',
@@ -938,6 +1022,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Subtitle sentence init ID',
+				example: 1,
 			},
 			subtitle_id: {
 				type: 'manyToOne',
@@ -975,6 +1061,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Universal phrase ID',
+				example: 1,
 			},
 			text: {
 				type: 'string',
@@ -987,6 +1075,8 @@ export const bdConfig = {
 				type: 'enum',
 				enumName: 'LanguageCode',
 				variants: languagesArr,
+				description: 'Language code of the book or video',
+				example: 'en',
 				required: true,
 			},
 			UniversalTranscription: {
@@ -1010,6 +1100,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Universal transcription ID',
+				example: 1,
 			},
 			universal_phrase_id: {
 				type: 'childOneToOne',
@@ -1036,10 +1128,19 @@ export const bdConfig = {
 	},
 	// Озвучка слова
 	UniversalAudioPronunciation: {
-		dtoProps: {},
+		dtoProps: {
+			audioUrl: {
+				type: 'string',
+				description: 'Audio file URL',
+				example: 'https://s3.example.com/pronunciations/en/abc.ogg',
+				required: true,
+			},
+		},
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Universal audio pronunciation ID',
+				example: 1,
 			},
 			universal_phrase_id: {
 				type: 'childOneToOne',
@@ -1075,6 +1176,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Universal phrase translation ID',
+				example: 1,
 			},
 			universal_phrase_id: {
 				type: 'manyToOne',
@@ -1126,6 +1229,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Sentence chat thread ID',
+				example: 1,
 			},
 			user_id: {
 				type: 'manyToOne',
@@ -1161,6 +1266,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Sentence chat message ID',
+				example: 1,
 			},
 			thread_id: {
 				type: 'manyToOne',
@@ -1207,7 +1314,13 @@ export const bdConfig = {
 	// Источник (книга/видео) опциональный: при удалении источника связь обнуляется (SetNull),
 	// а сама карточка остаётся в коллекции пользователя.
 	Flashcard: {
-		dtoProps: {},
+		dtoProps: {
+			phraseTranscription: {
+				type: 'string',
+				description: 'Snapshot of the phrase transcription',
+				required: false,
+			},
+		},
 		indexes: [
 			{ fields: ['user_id'] },
 			{ fields: ['user_id', 'language_code'] },
@@ -1216,6 +1329,8 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
+				description: 'Flashcard ID',
+				example: 1,
 			},
 			user_id: {
 				type: 'manyToOne',

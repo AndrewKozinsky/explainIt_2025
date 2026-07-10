@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { TranscriptionOutModel, UniversalPhraseTranslationDataOutModel } from '@/graphql'
+import type { TranscriptionOutModel, UniversalPhraseTranslationDataOutModel } from '@/shared/api/generated/models'
 import { LlmProvider } from '_pages/media/sentenceChat/sentenceChatStore'
 
 export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {

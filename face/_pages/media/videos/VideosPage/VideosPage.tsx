@@ -1,7 +1,7 @@
 'use client'
 
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from 'utils/pageUrls'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
 import { videoConfig } from '_pages/media/commonComponents/videoConfig'
 import MediaItemsGrid from '../../commonComponents/mediaItemsGrid/MediaItemsGrid/MediaItemsGrid'

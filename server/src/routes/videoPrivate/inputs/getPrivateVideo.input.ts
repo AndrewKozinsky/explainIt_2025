@@ -1,10 +1,7 @@
-import { Field, InputType, Int } from '@nestjs/graphql'
-import { bdConfig } from 'db/dbConfig/dbConfig'
-import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+// import { bdConfig } from 'db/dbConfig/dbConfig'
+// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-@InputType()
-export class GetPrivateVideoInput {
-	@Field(() => Int, { description: 'Video id' })
+/*export class GetPrivateVideoInput {
 	@DtoFieldDecorators('id', bdConfig.VideoPrivate.dbFields.id)
 	id: number
-}
+}*/

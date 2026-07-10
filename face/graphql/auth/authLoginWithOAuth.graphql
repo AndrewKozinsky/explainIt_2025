@@ -1,8 +1,0 @@
-mutation Auth_login_with_OAuth($input: LoginWithOAuthInput!) {
-	auth_login_with_OAuth(input: $input) {
-		id
-		email
-		isUserConfirmed
-		balance
-	}
-}

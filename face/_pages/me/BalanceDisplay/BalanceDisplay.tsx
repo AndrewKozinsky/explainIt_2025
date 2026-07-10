@@ -1,19 +1,11 @@
 'use client'
 
-import LoadingMessage from 'ui/LoadingMessage/LoadingMessage'
+import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import { useBalanceDisplay } from './fn/useBalanceDisplay'
 import './BalanceDisplay.scss'
 
 function BalanceDisplay() {
-	const { isLoading, formattedBalance, hasUser } = useBalanceDisplay()
-
-	if (isLoading) {
-		return (
-			<div className='balance-display'>
-				<LoadingMessage text='Загрузка...' />
-			</div>
-		)
-	}
+	const { formattedBalance, hasUser } = useBalanceDisplay()
 
 	if (!hasUser) {
 		return null

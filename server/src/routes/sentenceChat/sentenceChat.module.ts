@@ -20,7 +20,6 @@ import { StreamSentenceChatAssistantCommand } from 'features/sentenceChat/Stream
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { SentenceChatController } from './sentenceChat.controller'
-import { SentenceChatResolver } from './sentenceChat.resolver'
 
 const services = [
 	PrismaService,
@@ -51,6 +50,6 @@ const repositories = [
 @Module({
 	imports: [CqrsModule, LlmProviderModule],
 	controllers: [SentenceChatController],
-	providers: [...services, ...handlers, ...repositories, CheckSessionCookieGuard, SentenceChatResolver],
+	providers: [...services, ...handlers, ...repositories, CheckSessionCookieGuard],
 })
 export class SentenceChatModule {}

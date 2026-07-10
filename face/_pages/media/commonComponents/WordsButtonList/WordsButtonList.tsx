@@ -1,4 +1,4 @@
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useCurrentWords } from './fn/currentWords'
 import './WordsButtonList.scss'
 

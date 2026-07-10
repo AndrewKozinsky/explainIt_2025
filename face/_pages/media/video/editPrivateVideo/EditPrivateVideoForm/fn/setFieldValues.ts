@@ -1,6 +1,7 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { UseFormReset, UseFormSetValue } from 'react-hook-form'
-import { useVideoPrivate_GetLazyQuery } from '@/graphql'
+import type { VideoPrivateOutModel } from '@/shared/api/generated/models'
+import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
 import { useVideoStore } from '_pages/media/video/videoStore'
 import { ChangeVideoFormData } from '../fn/form'
 
@@ -9,30 +10,36 @@ export function useSetFieldValues(
 	setValue: UseFormSetValue<ChangeVideoFormData>,
 ) {
 	const videoId = useVideoStore((s) => s.privateVideo.data?.id)
-	const [getVideo, { data, previousData }] = useVideoPrivate_GetLazyQuery()
+	const prevVideoIdRef = useRef<number | undefined>(undefined)
+	const prevContentRef = useRef<string | undefined>(undefined)
 
-	const video = data?.video_private_get
-	const prevVideo = previousData?.video_private_get
+	const { data } = useVideoPrivateControllerGetVideoPrivate(videoId!, {
+		query: { enabled: !!videoId },
+	})
 
-	useEffect(() => {
-		if (videoId) {
-			getVideo({ variables: { input: { id: videoId } } })
-		}
-	}, [getVideo, videoId])
+	const video = data as unknown as VideoPrivateOutModel | undefined
 
-	useEffect(() => {
-		if (!video) return
+	useEffect(
+		function () {
+			if (!video) return
 
-		// full form reset on ID change
-		if (video.id !== prevVideo?.id) {
-			reset({
-				languageCode: video.languageCode ?? '',
-				name: video.name ?? '',
-				content: video.originalContent ?? '',
-			})
-		} else if (video.originalContent !== prevVideo?.originalContent) {
-			// partial update only for content (subtitles)
-			setValue('content', video.originalContent ?? '')
-		}
-	}, [video, prevVideo, reset, setValue])
+			const currentContent = (video.originalContent as unknown as string) ?? ''
+
+			// full form reset on ID change
+			if (video.id !== prevVideoIdRef.current) {
+				reset({
+					languageCode: (video.languageCode as unknown as string) ?? '',
+					name: (video.name as unknown as string) ?? '',
+					content: currentContent,
+				})
+				prevVideoIdRef.current = video.id
+				prevContentRef.current = currentContent
+			} else if (currentContent !== prevContentRef.current) {
+				// partial update only for content (subtitles)
+				setValue('content', currentContent)
+				prevContentRef.current = currentContent
+			}
+		},
+		[video, reset, setValue],
+	)
 }

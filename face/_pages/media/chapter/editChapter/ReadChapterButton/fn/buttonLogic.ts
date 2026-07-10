@@ -10,7 +10,7 @@ export function useIsReadButtonDisabled() {
 
 	useEffect(
 		function () {
-			const chapterContent = chapter.data?.originalContent ? chapter.data.originalContent : ''
+			const chapterContent = (chapter.data?.originalContent as unknown as string) || ''
 
 			setIsReadButtonDisabled(!chapterContent)
 		},

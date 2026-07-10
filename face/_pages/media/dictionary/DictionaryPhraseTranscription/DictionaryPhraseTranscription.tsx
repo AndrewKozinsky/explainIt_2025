@@ -1,6 +1,6 @@
 import React from 'react'
-import TranscriptionAndAudio from 'ui/TranscriptionAndAudio/TranscriptionAndAudio'
 import { LanguageCode } from 'utils/languages'
+import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
 import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
 import './DictionaryPhraseTranscription.scss'
 
@@ -12,9 +12,6 @@ function DictionaryPhraseTranscription() {
 	const phrase = usePhraseDictionaryStore((s) => s.inputText)
 	const sourceLanguageCode = usePhraseDictionaryStore((s) => s.sourceLanguageCode)
 
-	/*if (status !== 'ready' || nonExistentWord || !phrase || !sourceLanguageCode) {
-		return null
-	}*/
 	if (!phrase || !sourceLanguageCode) {
 		return null
 	}

@@ -3,21 +3,17 @@ import { CqrsModule } from '@nestjs/cqrs'
 import { PaymentRepository } from 'repo/payment.repository'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
+import { PrismaService } from 'db/prisma.service'
 import { TopUpBalanceWithYooKassaHandler } from 'features/payment/TopUpBalanceWithYooKassa.command'
-import { PrismaService } from '../../db/prisma.service'
-import { PaymentResolver } from './payment.resolver'
+import { PaymentController } from './payment.controller'
 
 const services = [PrismaService]
 const commandHandlers = [TopUpBalanceWithYooKassaHandler]
-const resolvers = [PaymentResolver]
-const repositories = [
-	UserRepository,
-	UserQueryRepository,
-	PaymentRepository,
-]
+const repositories = [UserRepository, UserQueryRepository, PaymentRepository]
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories],
+	controllers: [PaymentController],
+	providers: [...services, ...commandHandlers, ...repositories],
 })
 export class PaymentModule {}

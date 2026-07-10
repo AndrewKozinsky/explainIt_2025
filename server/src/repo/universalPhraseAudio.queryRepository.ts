@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { UniversalAudioPronunciationOutModel } from 'models/audioPronunciation/audioPronunciation.out.model'
 import { UniversalAudioPronunciation } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import { CloudRuS3Service } from '../infrastructure/cloudRuS3/cloudRuS3.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
-import { UniversalAudioPronunciationOutModel } from '../models/audioPronunciation/audioPronunciation.out.model'
 
 @Injectable()
 export class UniversalPhraseAudioQueryRepository {

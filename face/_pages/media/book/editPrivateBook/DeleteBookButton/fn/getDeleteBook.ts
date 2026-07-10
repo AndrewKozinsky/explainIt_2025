@@ -1,7 +1,9 @@
 import { useCallback, useContext, useState } from 'react'
-import { Book_GetUserBooksDocument, useBook_Delete } from '@/graphql'
+import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from '@/i18n/routing'
-import { NotificationContext } from '@/ui/Notification/context'
+import { useBookPrivateControllerDeleteBook } from '@/shared/api/generated/book-private/book-private'
+import { getBookPrivateControllerGetUserBooksQueryKey } from '@/shared/api/generated/book-private/book-private'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { pageUrls } from '@/utils/pageUrls'
 import { useBookStore } from '_pages/media/book/bookStore'
 
@@ -10,7 +12,8 @@ export function useGetDeleteBook() {
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [deleteBook] = useBook_Delete({ refetchQueries: [Book_GetUserBooksDocument], awaitRefetchQueries: true })
+	const { mutateAsync: deleteBook } = useBookPrivateControllerDeleteBook()
+	const queryClient = useQueryClient()
 
 	const onDeleteBookClick = useCallback(
 		async function () {
@@ -19,22 +22,22 @@ export function useGetDeleteBook() {
 
 			setStatus('loading')
 
-			const { errors } = await deleteBook({ variables: { input: { id: book.id } } })
+			try {
+				await deleteBook({ id: book.id })
 
-			if (errors) {
+				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+
+				setStatus('idle')
+				router.push(pageUrls.books.path)
+			} catch {
 				notify({
 					type: 'error',
 					message:
 						'Не удалось удалить книгу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
-				return
 			}
-
-			setStatus('idle')
-
-			router.push(pageUrls.books.path)
 		},
-		[deleteBook, notify, router],
+		[deleteBook, notify, router, queryClient],
 	)
 
 	return {

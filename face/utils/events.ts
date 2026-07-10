@@ -1,14 +1,14 @@
-import { useCallback, useRef } from 'react'
+// import { useCallback, useRef } from 'react'
 
-type LongPressInput = {
+/*type LongPressInput = {
 	onLongPress: (e: React.SyntheticEvent) => void
 	onClick?: (e: React.SyntheticEvent) => void
 	delay: number
 	vibrate: number | false
 	getScrollContainer?: (e: React.SyntheticEvent) => HTMLElement | null
-}
+}*/
 
-export function useLongPress(input: LongPressInput) {
+/*export function useLongPress(input: LongPressInput) {
 	const { onLongPress, onClick, delay = 500, vibrate = 50, getScrollContainer } = input
 
 	const timerRef = useRef<number | null>(null)
@@ -154,4 +154,4 @@ export function useLongPress(input: LongPressInput) {
 		onTouchEnd: cancel,
 		onTouchCancel: cancel,
 	}
-}
+}*/

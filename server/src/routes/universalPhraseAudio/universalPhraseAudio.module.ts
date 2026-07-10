@@ -4,14 +4,13 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryReposi
 import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhraseAudio.queryRepository'
 import { UniversalPhraseAudioRepository } from 'repo/universalPhraseAudio.repository'
 import { UserRepository } from 'repo/user.repository'
-import { UniversalPhraseAudioResolver } from 'routes/universalPhraseAudio/universalPhraseAudio.resolver'
 import { PrismaService } from 'db/prisma.service'
-import { GetOrCreateUniversalPhraseAudioHandler } from 'features/universalPhraseAudio/CreateAudioPronunciation.command'
+import { GetOrCreateUniversalPhraseAudioHandler } from 'features/universalPhraseAudio/GetOrCreateAudioPronunciation.command'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
+import { UniversalPhraseAudioController } from './universalPhraseAudio.controller'
 
 const services = [PrismaService]
 const commandHandlers = [GetOrCreateUniversalPhraseAudioHandler]
-const resolvers = [UniversalPhraseAudioResolver]
 const repositories = [
 	UniversalPhraseAudioRepository,
 	UniversalPhraseQueryRepository,
@@ -21,6 +20,7 @@ const repositories = [
 
 @Module({
 	imports: [CqrsModule],
-	providers: [...services, ...commandHandlers, ...resolvers, ...repositories, OptionalSessionUserGuard],
+	controllers: [UniversalPhraseAudioController],
+	providers: [...services, ...commandHandlers, ...repositories, OptionalSessionUserGuard],
 })
 export class UniversalPhraseAudioModule {}

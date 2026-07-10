@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useUserStore } from 'stores/userStore'
 import { errorMessages } from 'utils/errorMessages'
-import { getTextByUnknownError } from 'utils/extractErrorText'
-import { useAuth_Login_With_OAuth } from '@/graphql'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
+import { useAuthControllerLoginWithOAuth } from '@/shared/api/generated/auth/auth'
+import type { UserOutModel, LoginWithOAuthDtoProviderType } from '@/shared/api/generated/models'
+import { ApiError } from '@/shared/api/mutator'
 
-export function useAuthorizeUser(providerType: string) {
+export function useAuthorizeUser(providerType: LoginWithOAuthDtoProviderType) {
 	const code = useSearchParams().get('code')!
 
-	const [authorizeWithOAuth] = useAuth_Login_With_OAuth()
+	const { mutateAsync: authorizeWithOAuth } = useAuthControllerLoginWithOAuth()
+	const setUser = useSetUser()
 
 	const [authorizationStatus, setAuthorizationStatus] = useState<'loading' | 'error' | 'success'>('loading')
 	const [error, setError] = useState<null | string>(null)
@@ -16,33 +18,32 @@ export function useAuthorizeUser(providerType: string) {
 	useEffect(
 		function () {
 			authorizeWithOAuth({
-				variables: {
-					input: {
-						providerType,
-						code,
-					},
+				data: {
+					providerType,
+					code,
 				},
 			})
-				.then((data) => {
-					const payload = data?.data?.auth_login_with_OAuth
-					if (!payload) {
-						setAuthorizationStatus('error')
-						setError(errorMessages.unknownErrorWhileAuth)
-						return
-					}
-
-					// Put user data in the User store
-					useUserStore.setState({ user: payload })
-
+				.then((response) => {
+					const user = response as unknown as UserOutModel
+					setUser(user)
 					setAuthorizationStatus('success')
 				})
-				.catch((error) => {
+				.catch((error: unknown) => {
 					console.log(error)
-					setError(getTextByUnknownError(error, errorMessages.unknownErrorWhileAuth))
+					if (
+						error instanceof ApiError &&
+						error.body &&
+						typeof error.body === 'object' &&
+						'message' in error.body
+					) {
+						setError((error.body as { message: string }).message)
+					} else {
+						setError(errorMessages.unknownErrorWhileAuth)
+					}
 					setAuthorizationStatus('error')
 				})
 		},
-		[authorizeWithOAuth, code, providerType],
+		[authorizeWithOAuth, code, providerType, setUser],
 	)
 
 	return { authorizationStatus, error }

@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from 'ui/Header/Header'
-import { BreadCrumbs } from 'ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import Header from '@/shared/ui/Header/Header'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import './MediaPageHeader.scss'
 
 type BreadCrumbsItem = {

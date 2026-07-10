@@ -7,8 +7,6 @@ export type BookPublicServiceModel = {
 	name: string
 	note: string
 	covers: string[]
-	coverBackgroundColor: string
 	sourceLanguageCode: Language
 	chapters: BookChapterLiteServiceModel[]
-	freeToUse: boolean
 }

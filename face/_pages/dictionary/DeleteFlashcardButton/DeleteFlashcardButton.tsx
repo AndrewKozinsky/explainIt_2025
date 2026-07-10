@@ -1,7 +1,11 @@
 import React from 'react'
-import { TrashButtonIcon } from 'ui/icons/buttonIcons/TrashButtonIcon'
-import { Flashcard_Get_MyDocument, useFlashcard_Remove } from '@/graphql'
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import { useQueryClient } from '@tanstack/react-query'
+import {
+	useFlashcardControllerRemoveFlashcard,
+	getFlashcardControllerGetMyFlashcardsQueryKey,
+} from '@/shared/api/generated/flashcard/flashcard'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
 
 type DeleteFlashcardButtonProps = {
 	flashcardId: number
@@ -10,17 +14,23 @@ type DeleteFlashcardButtonProps = {
 function DeleteFlashcardButton(props: DeleteFlashcardButtonProps) {
 	const { flashcardId } = props
 
-	const [deleteFlashcard, { loading, error }] = useFlashcard_Remove({
-		refetchQueries: [Flashcard_Get_MyDocument],
+	const queryClient = useQueryClient()
+
+	const { mutateAsync: deleteFlashcard, isPending: loading } = useFlashcardControllerRemoveFlashcard({
+		mutation: {
+			onSuccess: () => {
+				queryClient.invalidateQueries({
+					queryKey: getFlashcardControllerGetMyFlashcardsQueryKey(),
+				})
+			},
+		},
 	})
 
 	const handleDelete = async () => {
 		try {
 			await deleteFlashcard({
-				variables: {
-					input: {
-						flashcardId: flashcardId,
-					},
+				data: {
+					flashcardId: flashcardId,
 				},
 			})
 			console.log('Flashcard deleted successfully!')

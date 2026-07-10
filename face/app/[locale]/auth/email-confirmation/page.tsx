@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import Spinner from '@/ui/Spinner/Spinner'
+import Spinner from '@/shared/ui/Spinner/Spinner'
 import AuthConfirmEmailPage from '_pages/auth/AuthConfirmEmailPage/AuthConfirmEmailPage'
 
 export default async function Page() {

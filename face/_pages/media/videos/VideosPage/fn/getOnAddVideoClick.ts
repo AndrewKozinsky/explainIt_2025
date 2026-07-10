@@ -1,21 +1,24 @@
 import { useCallback, useContext, useState } from 'react'
+import { useQueryClient } from '@tanstack/react-query'
 import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { useVideoPrivate_Create, VideoPrivate_GetUserVideosDocument } from '@/graphql'
 import { useRouter } from '@/i18n/routing'
-import { NotificationContext } from '@/ui/Notification/context'
+import type { CreateVideoDtoLanguageCode } from '@/shared/api/generated/models'
+import {
+	useVideoPrivateControllerCreateVideoPrivate,
+	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
+} from '@/shared/api/generated/video-private/video-private'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { languages } from '@/utils/languages'
 
 export function useGetAddVideoConfig() {
 	const { notify } = useContext(NotificationContext)
 	const router = useRouter()
+	const queryClient = useQueryClient()
 
 	const [loading, setLoading] = useState(false)
 	const [errorMessage, setErrorMessage] = useState<null | string>(null)
 
-	const [createVideo] = useVideoPrivate_Create({
-		refetchQueries: [VideoPrivate_GetUserVideosDocument],
-		awaitRefetchQueries: true,
-	})
+	const createVideo = useVideoPrivateControllerCreateVideoPrivate()
 
 	const onClick = useCallback(
 		async function () {
@@ -24,24 +27,28 @@ export function useGetAddVideoConfig() {
 			let createdVideoId: string | number | null = null
 
 			try {
-				const { errors, data } = await createVideo({
-					variables: { input: { name: null, originalContent: null, languageCode: languages.en.code } },
+				const response = await createVideo.mutateAsync({
+					data: {
+						name: null,
+						originalContent: null,
+						languageCode: languages.en.code as CreateVideoDtoLanguageCode,
+					},
 				})
 
-				if (errors) {
-					setErrorMessage('Не удалось создать видео.')
-					return
-				}
-
-				const videoId = data?.video_private_create.id
+				const videoId = (response as unknown as { id: number }).id
 				if (!videoId) {
 					setErrorMessage('Не удалось создать видео.')
 					return
 				}
 
 				createdVideoId = videoId
+
+				// Invalidate the user videos query so the list refreshes when the user comes back
+				queryClient.invalidateQueries({
+					queryKey: getVideoPrivateControllerGetUserVideosPrivateQueryKey(),
+				})
 			} catch (error) {
-				notify({ type: 'error', message: 'Не удалось получить список видео.' })
+				notify({ type: 'error', message: 'Не удалось создать видео.' })
 			} finally {
 				setLoading(false)
 			}
@@ -52,7 +59,7 @@ export function useGetAddVideoConfig() {
 				router.push(pageUrls.videos.video(videoIdInUrl).path)
 			}
 		},
-		[createVideo, notify, router],
+		[createVideo, notify, router, queryClient],
 	)
 
 	return {

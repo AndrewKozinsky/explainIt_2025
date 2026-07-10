@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { useParams } from 'next/navigation'
-import { getTextByUnknownError } from 'utils/extractErrorText'
 import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import { useVideoPrivate_Get, useVideoPublic_Get, VideoPrivateOutModel, VideoPublicOutModel } from '@/graphql'
+import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
+import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
 /** Наполняет Хранилище данными для начала работы */
@@ -17,27 +18,29 @@ function useSetVideoToStore() {
 	const videoId = extractMediaIdFromUrlBookId(videoIdInUrl)
 
 	const {
-		data: privateBookData,
-		error: privateBookError,
-		loading: privateBookLoading,
-	} = useVideoPrivate_Get({ variables: { input: { id: videoId! } }, skip: videoType !== 'private' })
+		data: privateVideoData,
+		isError: privateVideoIsError,
+		isLoading: privateVideoLoading,
+	} = useVideoPrivateControllerGetVideoPrivate(videoId!, {
+		query: { enabled: videoType === 'private' && !!videoId },
+	})
 
 	useEffect(
 		function () {
 			if (videoType !== 'private') return
 
-			const video = privateBookData?.video_private_get
+			const video = privateVideoData as unknown as VideoPrivateOutModel | undefined
 
-			if (privateBookLoading) {
+			if (privateVideoLoading) {
 				useVideoStore.getState().updatePrivateVideo({
 					loading: true,
 					errorMessage: null,
 					data: null as any as VideoPrivateOutModel,
 				})
-			} else if (privateBookError) {
+			} else if (privateVideoIsError) {
 				useVideoStore.getState().updatePrivateVideo({
 					loading: false,
-					errorMessage: getTextByUnknownError(privateBookError),
+					errorMessage: 'Не удалось загрузить видео',
 					data: null as any as VideoPrivateOutModel,
 				})
 			} else if (!video) {
@@ -54,23 +57,22 @@ function useSetVideoToStore() {
 				})
 			}
 		},
-		[videoType, privateBookData, privateBookError, privateBookLoading],
+		[videoType, privateVideoData, privateVideoIsError, privateVideoLoading],
 	)
 
 	const {
 		data: publicVideoData,
-		error: publicVideoError,
-		loading: publicVideoLoading,
-	} = useVideoPublic_Get({
-		variables: { input: { id: videoId! } },
-		skip: videoType !== 'public',
+		isError: publicVideoIsError,
+		isLoading: publicVideoLoading,
+	} = useVideoPublicControllerGetVideoPublic(videoId!, {
+		query: { enabled: videoType === 'public' && !!videoId },
 	})
 
 	useEffect(
 		function () {
 			if (videoType !== 'public') return
 
-			const video = publicVideoData?.video_public_get
+			const video = publicVideoData as unknown as VideoPublicOutModel | undefined
 
 			if (publicVideoLoading) {
 				useVideoStore.getState().updatePublicVideo({
@@ -78,10 +80,10 @@ function useSetVideoToStore() {
 					errorMessage: null,
 					data: null as any as VideoPublicOutModel,
 				})
-			} else if (publicVideoError) {
+			} else if (publicVideoIsError) {
 				useVideoStore.getState().updatePublicVideo({
 					loading: false,
-					errorMessage: getTextByUnknownError(publicVideoError),
+					errorMessage: 'Не удалось загрузить видео',
 					data: null as any as VideoPublicOutModel,
 				})
 			} else if (!video) {
@@ -98,7 +100,7 @@ function useSetVideoToStore() {
 				})
 			}
 		},
-		[videoType, publicVideoData, publicVideoError, publicVideoLoading],
+		[videoType, publicVideoData, publicVideoIsError, publicVideoLoading],
 	)
 }
 

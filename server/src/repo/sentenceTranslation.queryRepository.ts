@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
+import { PrismaService } from 'db/prisma.service'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { SentenceTranslationOutModel } from 'models/sentenceTranslation/sentenceTranslation.out.model'
 import { SentenceTranslation } from 'prisma/generated/client'
-import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 
 @Injectable()
 export class SentenceTranslationQueryRepository {

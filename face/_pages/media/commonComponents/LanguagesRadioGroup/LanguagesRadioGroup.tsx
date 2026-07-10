@@ -2,8 +2,9 @@
 
 import React from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import RadioGroup from 'ui/formRelated/RadioGroup/RadioGroup'
-import { useLanguage_Get_Languages } from '@/graphql'
+import { useLanguageControllerGetLanguages } from '@/shared/api/generated/language/language'
+import type { LanguageOutModel } from '@/shared/api/generated/models'
+import RadioGroup from '@/shared/ui/formRelated/RadioGroup/RadioGroup'
 
 type LanguagesRadioGroupProps = {
 	value?: string
@@ -15,9 +16,9 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 	const { value, disabled, inputProps } = props
 	const { ref, ...restInputProps } = inputProps
 
-	const { data } = useLanguage_Get_Languages()
+	const { data } = useLanguageControllerGetLanguages()
 
-	const languages = data?.language_get_languages ?? []
+	const languages = (data as unknown as LanguageOutModel[]) ?? []
 
 	const config = languages
 		.map((lang) => ({

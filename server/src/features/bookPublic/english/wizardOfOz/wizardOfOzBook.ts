@@ -35,9 +35,7 @@ export function wizardOfOzBookData(coversFolderName: string) {
 Это одна из самых подходящих классических книг для перехода от адаптированных текстов к оригинальной литературе.
 Рекомендуемый уровень B1 (Intermediate)`,
 		languageCode: languages.en.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#937F43',
 	}
 }
 

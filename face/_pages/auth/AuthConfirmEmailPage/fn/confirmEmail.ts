@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useAuth_ConfirmEmail } from '@/graphql'
+import { useAuthControllerConfirmEmail } from '@/shared/api/generated/auth/auth'
 
 export type ConfirmationStatus = 'loading' | 'success' | 'error'
 
 export function useConfirmEmail() {
-	const [confirmEmail] = useAuth_ConfirmEmail()
+	const { mutateAsync: confirmEmail } = useAuthControllerConfirmEmail()
 
 	const [confirmationStatus, setConfirmationStatus] = useState<ConfirmationStatus>('loading')
 
@@ -19,13 +19,7 @@ export function useConfirmEmail() {
 				return
 			}
 
-			confirmEmail({
-				variables: {
-					input: {
-						code: confirmationCode,
-					},
-				},
-			})
+			confirmEmail({ data: { code: confirmationCode } })
 				.then(function () {
 					setConfirmationStatus('success')
 				})

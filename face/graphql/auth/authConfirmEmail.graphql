@@ -1,3 +1,0 @@
-mutation Auth_confirmEmail($input: ConfirmEmailInput!) {
-	auth_confirmEmail(input: $input)
-}

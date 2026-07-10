@@ -1,7 +1,9 @@
 import { useCallback, useContext, useState } from 'react'
-import { useVideoPrivate_Delete, VideoPrivate_GetUserVideosDocument } from '@/graphql'
+import { useQueryClient } from '@tanstack/react-query'
 import { useRouter } from '@/i18n/routing'
-import { NotificationContext } from '@/ui//Notification/context'
+import { useVideoPrivateControllerDeleteVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+import { getVideoPrivateControllerGetUserVideosPrivateQueryKey } from '@/shared/api/generated/video-private/video-private'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { pageUrls } from '@/utils/pageUrls'
 import { useVideoStore } from '_pages/media/video/videoStore'
 
@@ -10,10 +12,8 @@ export function useGetDeleteVideo() {
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const [deleteVideo] = useVideoPrivate_Delete({
-		refetchQueries: [VideoPrivate_GetUserVideosDocument],
-		awaitRefetchQueries: true,
-	})
+	const { mutateAsync: deleteVideo } = useVideoPrivateControllerDeleteVideoPrivate()
+	const queryClient = useQueryClient()
 
 	const onDeleteVideoClick = useCallback(
 		async function () {
@@ -22,22 +22,22 @@ export function useGetDeleteVideo() {
 
 			setStatus('loading')
 
-			const { errors } = await deleteVideo({ variables: { input: { id: video.id } } })
+			try {
+				await deleteVideo({ id: video.id })
 
-			if (errors) {
+				queryClient.invalidateQueries({ queryKey: getVideoPrivateControllerGetUserVideosPrivateQueryKey() })
+
+				setStatus('idle')
+				router.push(pageUrls.videos.path)
+			} catch {
 				notify({
 					type: 'error',
 					message:
 						'Не удалось удалить видео. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 				})
-				return
 			}
-
-			setStatus('idle')
-
-			router.push(pageUrls.videos.path)
 		},
-		[deleteVideo, notify, router],
+		[deleteVideo, notify, router, queryClient],
 	)
 
 	return {

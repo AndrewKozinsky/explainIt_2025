@@ -1,9 +1,6 @@
 import React from 'react'
-import mainConfig from '../../../../сonsts/mainConfig'
-import ApolloProvider from '../ApolloProvider/ApolloProvider'
-import CurrentUserLoader from '../CurrentUserLoader/CurrentUserLoader'
-import Metrika from '../Metrika/Metrika'
-import SystemStoreSetUp from '../SystemStoreSetUp/SystemStoreSetUp'
+import mainConfig from '@/сonsts/mainConfig'
+import GoogleTagManager from '../GoogleTagManager/GoogleTagManager'
 import '../style/global.scss'
 
 type MainPageLayoutProps = {
@@ -15,12 +12,8 @@ function MainPageLayout(props: MainPageLayoutProps) {
 
 	return (
 		<>
-			{mainConfig.workingMode === 'servermaster' && <Metrika />}
-			<ApolloProvider>
-				<CurrentUserLoader />
-				<SystemStoreSetUp />
-				{children}
-			</ApolloProvider>
+			{mainConfig.workingMode === 'servermaster' && <GoogleTagManager />}
+			{children}
 		</>
 	)
 }

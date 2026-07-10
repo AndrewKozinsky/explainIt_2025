@@ -48,9 +48,7 @@ export function heartBookData(coversFolderName: string) {
 
 Уровень B1–B2.`,
 		languageCode: languages.it.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#bfc0c5',
 	}
 }
 

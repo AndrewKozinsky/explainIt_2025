@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import Spinner from '@/ui/Spinner/Spinner'
+import Spinner from '@/shared/ui/Spinner/Spinner'
 import OAuthPage from '_pages/auth/OAuthPage/OAuthPage'
 
 export default async function Page() {

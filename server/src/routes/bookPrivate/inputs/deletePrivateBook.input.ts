@@ -1,10 +1,7 @@
-import { Field, InputType, Int } from '@nestjs/graphql'
-import { bdConfig } from 'db/dbConfig/dbConfig'
-import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+// import { bdConfig } from 'db/dbConfig/dbConfig'
+// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-@InputType()
-export class DeletePrivateBookInput {
-	@Field(() => Int, { description: 'Book id' })
+/*export class DeletePrivateBookInput {
 	@DtoFieldDecorators('id', bdConfig.BookPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
 	id: number
-}
+}*/

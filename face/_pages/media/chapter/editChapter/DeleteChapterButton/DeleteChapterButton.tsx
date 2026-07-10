@@ -1,6 +1,6 @@
 import React from 'react'
-import { TrashButtonIcon } from 'ui/icons/buttonIcons/TrashButtonIcon'
-import DeleteEntityButtonAndModal from '@/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
 function DeleteChapterButton() {

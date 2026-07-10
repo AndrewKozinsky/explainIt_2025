@@ -1,0 +1,18 @@
+@use "@/styles/variables" as vars;
+@use "@/styles/mixins" as mix;
+
+.page-wrapper__bottom {
+	padding-top: 7rem;
+	padding-bottom: 3rem;
+	@include mix.side-offset;
+}
+
+.page-wrapper__legal-text-wrapper {
+	display: inline-flex;
+	column-gap: 1.8rem;
+	row-gap: .6rem;
+	flex-wrap: wrap;
+	font-size: 1.3rem;
+	line-height: 1.7rem;
+	color: vars.$grayColor-4;
+}

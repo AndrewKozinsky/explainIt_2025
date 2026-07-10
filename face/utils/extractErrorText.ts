@@ -1,5 +1,5 @@
-import { ApolloError } from '@apollo/client'
-import { ServerErrorMessage, serverErrorMessagesByCode, errorMessages } from './errorMessages'
+// import { ApolloError } from '@apollo/client'
+// import { ServerErrorMessage, serverErrorMessagesByCode, errorMessages } from './errorMessages'
 
 // ─── Public API ─────────────────────────────────────────────────────
 
@@ -19,7 +19,7 @@ import { ServerErrorMessage, serverErrorMessagesByCode, errorMessages } from './
  *                      Pass e.g. `'UNKNOWN_ERROR'` or any other key from
  *                      {@link serverErrorMessagesByCode}.
  */
-export function getTextByUnknownError(error: unknown, fallbackCode?: string): string {
+/*export function getTextByUnknownError(error: unknown, fallbackCode?: string): string {
 	// ApolloError — extract from the formal GraphQL extensions path
 	if (error instanceof ApolloError) {
 		const extensionsMessage = error.graphQLErrors[0]?.extensions?.message
@@ -34,14 +34,14 @@ export function getTextByUnknownError(error: unknown, fallbackCode?: string): st
 
 	const code = tryExtractErrorCode(error) ?? fallbackCode ?? 'UNKNOWN_ERROR'
 	return getTextByServerErrorMessage({ errorMessageCode: code })
-}
+}*/
 
 /**
  * Type guard: checks whether `message` is a {@link ServerErrorMessage}.
  */
-function isServerErrorMessage(message: unknown): message is ServerErrorMessage {
+/*function isServerErrorMessage(message: unknown): message is ServerErrorMessage {
 	return typeof message === 'object' && !!message && 'errorMessageCode' in message
-}
+}*/
 
 /**
  * Resolves a human-readable Russian text for a server error message.
@@ -49,7 +49,7 @@ function isServerErrorMessage(message: unknown): message is ServerErrorMessage {
  * Accepts both a raw JSON string and a parsed {@link ServerErrorMessage} object.
  * Falls back to {@link errorMessages.unknownServerError} when the code is unrecognised.
  */
-export function getTextByServerErrorMessage(message: unknown): string {
+/*export function getTextByServerErrorMessage(message: unknown): string {
 	if (typeof message === 'string') {
 		try {
 			return getTextByServerErrorMessage(JSON.parse(message))
@@ -68,7 +68,7 @@ export function getTextByServerErrorMessage(message: unknown): string {
 	if (typeof resolver === 'string') return resolver
 
 	return errorMessages.unknownServerError
-}
+}*/
 
 // ─── Private helpers ────────────────────────────────────────────────
 
@@ -76,7 +76,7 @@ export function getTextByServerErrorMessage(message: unknown): string {
  * Tries to extract a server `errorMessageCode` from any error shape.
  * Returns `null` when no code can be recognised.
  */
-function tryExtractErrorCode(error: unknown): null | string {
+/*function tryExtractErrorCode(error: unknown): null | string {
 	// 1. Direct ServerErrorMessage object
 	if (isServerErrorMessage(error)) {
 		return error.errorMessageCode
@@ -89,7 +89,7 @@ function tryExtractErrorCode(error: unknown): null | string {
 			const parsed = JSON.parse(error)
 			if (isServerErrorMessage(parsed)) return parsed.errorMessageCode
 		} catch {
-			/* not JSON — continue below */
+			/!* not JSON — continue below *!/
 		}
 
 		// 2b. Check whether the string itself is a known code
@@ -105,7 +105,7 @@ function tryExtractErrorCode(error: unknown): null | string {
 			const parsed = JSON.parse(error.message)
 			if (isServerErrorMessage(parsed)) return parsed.errorMessageCode
 		} catch {
-			/* not JSON — continue below */
+			/!* not JSON — continue below *!/
 		}
 
 		// 3b. Check whether error.message is a known code
@@ -115,4 +115,4 @@ function tryExtractErrorCode(error: unknown): null | string {
 	}
 
 	return null
-}
+}*/

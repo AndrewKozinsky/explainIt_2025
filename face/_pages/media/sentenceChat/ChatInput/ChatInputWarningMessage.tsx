@@ -1,10 +1,10 @@
 import React from 'react'
-import { useUserStore } from 'stores/userStore'
 import { pageUrls } from 'utils/pageUrls'
 import { Link } from '@/i18n/routing'
+import { useUser } from '@/shared/api/auth/UserProvider'
 
 function ChatInputWarningMessage() {
-	const user = useUserStore((s) => s.user)
+	const user = useUser()
 	const hasBalance = (user?.balance ?? 0) > 0
 
 	let warningMessage: React.ReactNode = ''

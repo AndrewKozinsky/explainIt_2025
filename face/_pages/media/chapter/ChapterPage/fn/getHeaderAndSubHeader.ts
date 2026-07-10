@@ -7,7 +7,7 @@ export function useGetHeader() {
 
 	return useMemo(
 		function () {
-			return chapter?.data?.header || bookConfig.emptyChapterName
+			return (chapter?.data?.header as unknown as string) || bookConfig.emptyChapterName
 		},
 		[chapter],
 	)

@@ -167,9 +167,7 @@ export function nasreddinHodjaStoriesBookData(coversFolderName: string) {
 
 Рекомендуемый уровень A2–B1`,
 		languageCode: languages.tr.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#aa7958',
 	}
 }
 

@@ -29,9 +29,7 @@ export function processBookData(coversFolderName: string) {
 
 Уровень B2-С1.`,
 		languageCode: languages.de.code,
-		freeToUse: true,
 		covers: covers.map((cover) => coversFolderName + cover),
-		coverBackgroundColor: '#585856',
 	}
 }
 

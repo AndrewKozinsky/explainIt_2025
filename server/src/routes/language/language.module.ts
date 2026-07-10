@@ -1,9 +1,7 @@
 import { Module } from '@nestjs/common'
-import { LanguageResolver } from './language.resolver'
-
-const resolvers = [LanguageResolver]
+import { LanguageController } from './language.controller'
 
 @Module({
-	providers: [...resolvers],
+	controllers: [LanguageController],
 })
 export class LanguageModule {}

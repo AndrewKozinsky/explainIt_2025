@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { BookChapterLiteOutModel } from '@/graphql'
+import type { BookChapterLiteOutModel } from '@/shared/api/generated/models'
 import { useReadingStore } from '../../readingStore'
 
 export function useGetPrevAndNextChapters() {
@@ -14,7 +14,8 @@ export function useGetPrevAndNextChapters() {
 				return { prev: null, next: null }
 			}
 
-			const currentChapterIdx = book.chapters.findIndex((chapter) => chapter.id === currentChapterId)
+			const chapters = book.chapters as unknown as BookChapterLiteOutModel[]
+			const currentChapterIdx = chapters.findIndex((chapter) => chapter.id === currentChapterId)
 			if (currentChapterIdx === -1) {
 				return { prev: null, next: null }
 			}
@@ -22,12 +23,12 @@ export function useGetPrevAndNextChapters() {
 			let prevChapter: null | BookChapterLiteOutModel = null
 			let nextChapter: null | BookChapterLiteOutModel = null
 
-			if (book.chapters[currentChapterIdx - 1]) {
-				prevChapter = book.chapters[currentChapterIdx - 1]
+			if (chapters[currentChapterIdx - 1]) {
+				prevChapter = chapters[currentChapterIdx - 1]
 			}
 
-			if (book.chapters[currentChapterIdx + 1]) {
-				nextChapter = book.chapters[currentChapterIdx + 1]
+			if (chapters[currentChapterIdx + 1]) {
+				nextChapter = chapters[currentChapterIdx + 1]
 			}
 
 			return {

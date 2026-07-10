@@ -1,9 +1,9 @@
-import { DeepgramUtterance, DeepgramWord } from 'infrastructure/deepgramStt/deepgramStt.service'
+// import { DeepgramUtterance, DeepgramWord } from 'infrastructure/deepgramStt/deepgramStt.service'
 
 /**
  * Format seconds into an SRT timestamp: HH:MM:SS,mmm
  */
-function formatSrtTime(totalSeconds: number): string {
+/*function formatSrtTime(totalSeconds: number): string {
 	const clamped = Math.max(0, totalSeconds)
 	const ms = Math.round(clamped * 1000)
 	const hours = Math.floor(ms / 3_600_000)
@@ -13,14 +13,14 @@ function formatSrtTime(totalSeconds: number): string {
 
 	const pad = (n: number, width = 2) => String(n).padStart(width, '0')
 	return `${pad(hours)}:${pad(minutes)}:${pad(seconds)},${pad(millis, 3)}`
-}
+}*/
 
 /**
  * Convert Deepgram utterances into a standards-compliant SRT string.
  * Empty utterances are skipped; overlapping/out-of-order utterances are sanitized
  * by clamping end >= start and sorting ascending.
  */
-export function buildSrtFromUtterances(utterances: DeepgramUtterance[]): string {
+/*export function buildSrtFromUtterances(utterances: DeepgramUtterance[]): string {
 	const cues = utterances
 		.flatMap((utterance) => splitUtteranceIntoSentenceCues(utterance))
 		.filter((cue) => cue.transcript.length > 0)
@@ -36,9 +36,9 @@ export function buildSrtFromUtterances(utterances: DeepgramUtterance[]): string 
 	})
 
 	return lines.join('\n').trimEnd() + '\n'
-}
+}*/
 
-function splitUtteranceIntoSentenceCues(utterance: DeepgramUtterance): SrtCue[] {
+/*function splitUtteranceIntoSentenceCues(utterance: DeepgramUtterance): SrtCue[] {
 	const transcript = utterance.transcript.trim()
 	if (!transcript) return []
 
@@ -69,9 +69,9 @@ function splitUtteranceIntoSentenceCues(utterance: DeepgramUtterance): SrtCue[] 
 	}
 
 	return cues
-}
+}*/
 
-function buildCueFromWords(words: DeepgramWord[]): SrtCue {
+/*function buildCueFromWords(words: DeepgramWord[]): SrtCue {
 	const firstWord = words[0]
 	const lastWord = words[words.length - 1]
 
@@ -80,14 +80,14 @@ function buildCueFromWords(words: DeepgramWord[]): SrtCue {
 		end: Math.max(firstWord.start, lastWord.end),
 		transcript: words.map((word) => word.word).join(' ').trim(),
 	}
-}
+}*/
 
-function isSentenceEndingWord(word: string): boolean {
+/*function isSentenceEndingWord(word: string): boolean {
 	return /[.!?…]["'”’)]*$/.test(word)
-}
+}*/
 
-type SrtCue = {
+/*type SrtCue = {
 	start: number
 	end: number
 	transcript: string
-}
+}*/

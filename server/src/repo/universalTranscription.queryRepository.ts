@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
+import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UniversalTranscription } from 'prisma/generated/client'
 import { PrismaService } from '../db/prisma.service'
-import CatchDbError from '../infrastructure/exceptions/CatchDBErrors'
 import { TranscriptionOutModel } from '../models/transcription/transcription.out.model'
 
 @Injectable()

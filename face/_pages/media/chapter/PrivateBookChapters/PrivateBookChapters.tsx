@@ -7,7 +7,9 @@ function PrivateBookChapters() {
 	const privateBook = useChapterStore((s) => s.privateBook)
 
 	const bookId = privateBook.data?.id
-	const chapters = privateBook.data?.chapters
+	const chapters = privateBook.data?.chapters as unknown as
+		| { id: number; header?: string; name?: string }[]
+		| undefined
 
 	if (!bookId || !chapters) {
 		return null

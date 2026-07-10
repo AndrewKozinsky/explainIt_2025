@@ -1,32 +1,32 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { BookChapterLiteOutModel } from 'models/bookChapter/bookChapter.out.model'
 
-@ObjectType()
+const $ = bdConfig.BookPublic.dbFields
+
 export class BookPublicOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@Field(() => String, { nullable: true })
+	@ApiProperty(getApiPropertyOptions($.author))
 	author: null | string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.name))
 	name: string
 
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.note))
 	note: string
 
-	@Field(() => [String])
+	@ApiProperty(getApiPropertyOptions($.covers))
 	covers: string[]
 
-	@Field(() => String)
-	coverBackgroundColor: string
-
-	@Field(() => String)
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: string
 
-	@Field(() => Boolean)
-	freeToUse: boolean
-
-	@Field(() => [BookChapterLiteOutModel])
+	@ApiProperty({
+		description: 'Book chapters',
+		type: [BookChapterLiteOutModel],
+	})
 	chapters: BookChapterLiteOutModel[]
 }

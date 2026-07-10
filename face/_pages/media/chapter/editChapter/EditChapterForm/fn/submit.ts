@@ -1,6 +1,9 @@
 import { useCallback } from 'react'
-import { useBookChapter_Update } from '@/graphql'
-import { Book_GetDocument, Book_GetUserBooksDocument, BookChapter_GetDocument } from '@/graphql'
+import { useQueryClient } from '@tanstack/react-query'
+import { useBookChapterControllerUpdateBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
+import { getBookChapterControllerGetBookChapterQueryKey } from '@/shared/api/generated/book-chapter/book-chapter'
+import { getBookPrivateControllerGetUserBooksQueryKey } from '@/shared/api/generated/book-private/book-private'
+import { getBookPrivateControllerGetBookQueryKey } from '@/shared/api/generated/book-private/book-private'
 import { FormStatus, setErrorsToForm } from '@/utils/forms'
 import { useChapterStore } from '_pages/media/chapter/chapterStore'
 import { ChangeChapterFormData } from './form'
@@ -12,7 +15,8 @@ export function useGetOnUpdateChapterFormSubmit(
 ) {
 	const chapter = useChapterStore((s) => s.chapter)
 
-	const [updateChapter] = useBookChapter_Update({ refetchQueries: [Book_GetUserBooksDocument] })
+	const { mutateAsync: updateChapter } = useBookChapterControllerUpdateBookChapter()
+	const queryClient = useQueryClient()
 
 	return useCallback(
 		async function (formData: ChangeChapterFormData) {
@@ -21,34 +25,24 @@ export function useGetOnUpdateChapterFormSubmit(
 			setFormError(null)
 			setFormStatus('submitting')
 
+			const bookId = (chapter.data.book as unknown as { id: number }).id
+
 			try {
-				// Update chapter data
-				const { data, errors } = await updateChapter({
-					variables: {
-						input: {
-							id: chapter.data.id,
-							name: formData.name,
-							header: formData.header,
-							originalContent: formData.content ?? null,
-							note: formData.note,
-						},
+				await updateChapter({
+					id: chapter.data.id,
+					data: {
+						name: formData.name,
+						header: formData.header,
+						originalContent: formData.content ?? null,
+						note: formData.note,
 					},
-					refetchQueries: [
-						{
-							query: Book_GetDocument,
-							variables: { input: { id: chapter.data.book.id } },
-						},
-						{
-							query: BookChapter_GetDocument,
-							variables: { input: { id: chapter.data.id, bookType: 'private' } },
-						},
-					],
 				})
 
-				if (errors) {
-					setFormError('Не удалось сохранить книгу')
-					return
-				}
+				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetBookQueryKey(bookId) })
+				queryClient.invalidateQueries({
+					queryKey: getBookChapterControllerGetBookChapterQueryKey(chapter.data.id, { bookType: 'private' }),
+				})
 
 				setFormStatus('idle')
 			} catch (gqError: unknown) {
@@ -56,6 +50,6 @@ export function useGetOnUpdateChapterFormSubmit(
 				setFormStatus('idle')
 			}
 		},
-		[chapter.data, setFieldError, setFormError, setFormStatus, updateChapter],
+		[chapter.data, setFieldError, setFormError, setFormStatus, updateChapter, queryClient],
 	)
 }

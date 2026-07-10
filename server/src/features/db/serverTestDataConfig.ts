@@ -1,10 +1,10 @@
-export const serverTestDataConfig = {
+/*export const serverTestDataConfig = {
 	getUsersConfig(): UsersConfig {
 		return usersConfig
 	},
-}
+}*/
 
-export type UserWithUnconfirmedEmailConfig = {
+/*export type UserWithUnconfirmedEmailConfig = {
 	type: 'userWithUnconfirmedEmail'
 	// Initially user id is null.
 	// When he was created number was set here.
@@ -12,10 +12,10 @@ export type UserWithUnconfirmedEmailConfig = {
 	email: string
 	password: string
 	books?: UserBookConfig[]
-}
+}*/
 
 // User with confirmed email
-export type UserRegisteredWithCredentialsConfig = {
+/*export type UserRegisteredWithCredentialsConfig = {
 	type: 'userRegisteredWithCredentials'
 	// Initially user id is null.
 	// When he was created number was set here.
@@ -23,18 +23,18 @@ export type UserRegisteredWithCredentialsConfig = {
 	email: string
 	password: string
 	books?: UserBookConfig[]
-}
+}*/
 
-export type UserRegisteredWithOAuthConfig = {
+/*export type UserRegisteredWithOAuthConfig = {
 	type: 'userRegisteredWithOAuth'
 	// Initially user id is null.
 	// When he was created number was set here.
 	id: null | number
 	email: string
 	books?: UserBookConfig[]
-}
+}*/
 
-export type UserRegisteredWithCredentialsAndOAuthConfig = {
+/*export type UserRegisteredWithCredentialsAndOAuthConfig = {
 	type: 'userRegisteredWithCredentialsAndOAuth'
 	// Initially user id is null.
 	// When he was created number was set here.
@@ -42,33 +42,33 @@ export type UserRegisteredWithCredentialsAndOAuthConfig = {
 	email: string
 	password: string
 	books?: UserBookConfig[]
-}
+}*/
 
-type UserConfig =
-	| UserWithUnconfirmedEmailConfig
-	| UserRegisteredWithCredentialsConfig
-	| UserRegisteredWithOAuthConfig
-	| UserRegisteredWithCredentialsAndOAuthConfig
+// type UserConfig =
+// 	| UserWithUnconfirmedEmailConfig
+// 	| UserRegisteredWithCredentialsConfig
+// 	| UserRegisteredWithOAuthConfig
+// 	| UserRegisteredWithCredentialsAndOAuthConfig
 
-export type UserBookConfig = {
+/*export type UserBookConfig = {
 	id: null | number
 	author?: null | string
 	name?: null | string
 	note?: null | string
 	chapters?: UserBookChapterConfig[]
-}
+}*/
 
-export type UserBookChapterConfig = {
+/*export type UserBookChapterConfig = {
 	id: null | number
 	name?: null | string
 	header?: null | string
 	content?: null | string
 	note?: null | string
-}
+}*/
 
-export type UsersConfig = Record<string, UserConfig>
+// export type UsersConfig = Record<string, UserConfig>
 
-const usersConfig = {
+/*const usersConfig = {
 	// A user with unconfirmed email
 	user_1: {
 		type: 'userWithUnconfirmedEmail',
@@ -138,4 +138,4 @@ const usersConfig = {
 			},
 		],
 	},
-} satisfies UsersConfig
+} satisfies UsersConfig*/

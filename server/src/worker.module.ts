@@ -1,24 +1,24 @@
-import { BullModule } from '@nestjs/bullmq'
+// import { BullModule } from '@nestjs/bullmq'
 import { Module } from '@nestjs/common'
-import { CqrsModule } from '@nestjs/cqrs'
-import { DBRepository } from 'repo/db.repository'
-import { SentenceRepository } from 'repo/sentence.repository'
-import { SubtitleRepository } from 'repo/subtitle.repository'
-import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
-import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
-import { PrismaService } from 'db/prisma.service'
-import { ChargeSubtitlesGenerationHandler } from 'features/video/subtitlesGeneration/ChargeSubtitlesGeneration.command'
-import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
-import { UpdatePrivateVideoHandler } from 'features/video/UpdatePrivateVideo.command'
-import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
-import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
-import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
-import { QueueNames } from 'infrastructure/queues/queueNames'
+// import { CqrsModule } from '@nestjs/cqrs'
+// import { DBRepository } from 'repo/db.repository'
+// import { SentenceRepository } from 'repo/sentence.repository'
+// import { SubtitleRepository } from 'repo/subtitle.repository'
+// import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
+// import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+// import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
+// import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
+// import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+// import { PrismaService } from 'db/prisma.service'
+// import { ChargeSubtitlesGenerationHandler } from 'features/video/subtitlesGeneration/ChargeSubtitlesGeneration.command'
+// import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
+// import { UpdatePrivateVideoHandler } from 'features/video/UpdatePrivateVideo.command'
+// import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
+// import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
+// import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
+// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+// import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
+// import { QueueNames } from 'infrastructure/queues/queueNames'
 
 /**
  * Worker-side Nest app. Runs in a separate process (main.worker.ts).
@@ -35,32 +35,32 @@ import { QueueNames } from 'infrastructure/queues/queueNames'
  */
 @Module({
 	imports: [
-		CqrsModule,
-		MainConfigModule,
-		CloudRuS3Module,
-		DeepgramSttModule,
-		BullModule.forRootAsync({
+		// CqrsModule,
+		// MainConfigModule,
+		// CloudRuS3Module,
+		// DeepgramSttModule,
+		/*BullModule.forRootAsync({
 			imports: [MainConfigModule],
 			inject: [MainConfigService],
 			useFactory: (mainConfig: MainConfigService) => ({
 				connection: buildBullmqConnection(mainConfig),
 			}),
-		}),
-		BullModule.registerQueue({ name: QueueNames.SUBTITLES_GENERATION }),
+		}),*/
+		// BullModule.registerQueue({ name: QueueNames.SUBTITLES_GENERATION }),
 	],
 	providers: [
-		PrismaService,
-		DBRepository,
-		VideoPrivateRepository,
-		VideoPrivateQueryRepository,
-		UniversalPhraseQueryRepository,
-		SubtitleRepository,
-		SentenceRepository,
-		SubtitleSentenceInitRepository,
-		UserBalanceTransactionRepository,
-		UpdatePrivateVideoHandler,
-		ChargeSubtitlesGenerationHandler,
-		SubtitlesGenerationProcessor,
+		// PrismaService,
+		// DBRepository,
+		// VideoPrivateRepository,
+		// VideoPrivateQueryRepository,
+		// UniversalPhraseQueryRepository,
+		// SubtitleRepository,
+		// SentenceRepository,
+		// SubtitleSentenceInitRepository,
+		// UserBalanceTransactionRepository,
+		// UpdatePrivateVideoHandler,
+		// ChargeSubtitlesGenerationHandler,
+		// SubtitlesGenerationProcessor,
 	],
 })
 export class WorkerModule {}

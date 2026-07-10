@@ -1,6 +1,6 @@
-import { ActionButtonIcon } from 'ui/icons/buttonIcons/ActionButtonIcon'
 import { useRouter } from '@/i18n/routing'
-import Button from '@/ui/formRelated/buttons/Button/Button'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/ActionButtonIcon'
 
 type PublicBookInfoActionsProps = {
 	bookUrl: string

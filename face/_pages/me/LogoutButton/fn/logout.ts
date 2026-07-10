@@ -1,20 +1,28 @@
+'use client'
+
 import { useCallback } from 'react'
-import { useAuth_Logout } from '@/graphql'
-import { useUserStore } from '@/stores/userStore'
+import { useRouter } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import { useAuthControllerLogout } from '@/shared/api/generated/auth/auth'
+import { pageUrls, localizePath } from '@/utils/pageUrls'
 
 export function useGetLogout() {
-	const [logout] = useAuth_Logout()
+	const router = useRouter()
+	const locale = useLocale()
+	const { mutateAsync: logout } = useAuthControllerLogout()
 
 	return useCallback(
 		async function () {
-			logout()
-				.then(() => {
-					useUserStore.getState().setUser(null)
-				})
-				.catch((error: unknown) => {
-					console.error(error)
-				})
+			try {
+				await logout()
+				// No setUser(null) here — on the current page MePageLayout
+				// would react and call redirect(), conflicting with router.push().
+				// The new page will get user=null from the server.
+				router.push(localizePath(locale, pageUrls.main.path))
+			} catch (error: unknown) {
+				console.error(error)
+			}
 		},
-		[logout],
+		[logout, router, locale],
 	)
 }

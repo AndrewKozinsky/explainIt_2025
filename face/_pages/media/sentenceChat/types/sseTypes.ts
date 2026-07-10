@@ -1,5 +1,5 @@
 // Статусы сообщения ассистента (совпадают с серверной моделью SentenceChatMessageStatus).
-import { SentenceChatMessageOutModel } from 'graphql'
+import type { SentenceChatMessageOutModel } from '@/shared/api/generated/models'
 
 export type ChatMessageStatus = 'streaming' | 'completed' | 'canceled' | 'failed'
 
@@ -20,9 +20,10 @@ export type SseEvent = SseChunkEvent | SseDoneEvent
 
 // Локальное представление сообщения в UI. Расширяем серверную модель, чтобы было удобно
 // хранить promise-placeholder ассистент-сообщения до того, как мы узнали его реальный id.
-export type ChatUiMessage = Omit<SentenceChatMessageOutModel, 'role' | 'status'> & {
+export type ChatUiMessage = Omit<SentenceChatMessageOutModel, 'role' | 'status' | 'errorMessage'> & {
 	role: 'user' | 'assistant'
 	status: ChatMessageStatus
+	errorMessage: null | string
 	// true — это локальная streaming-заготовка, ещё не подтверждённая сервером.
 	isLocalPlaceholder?: boolean
 }

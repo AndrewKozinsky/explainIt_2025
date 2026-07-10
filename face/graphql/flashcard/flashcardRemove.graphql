@@ -1,3 +1,0 @@
-mutation Flashcard_remove($input: RemoveFlashcardInput!) {
-	flashcard_remove(input: $input)
-}

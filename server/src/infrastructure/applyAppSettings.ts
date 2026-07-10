@@ -1,4 +1,7 @@
+import * as fs from 'fs'
+import * as path from 'path'
 import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/common'
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { useContainer, ValidationError } from 'class-validator'
 import { RedisStore } from 'connect-redis'
 import * as cookieParser from 'cookie-parser'
@@ -18,6 +21,8 @@ export async function applyAppSettings(app: INestApplication) {
 	await setUpSession(app)
 
 	setUpGlobalPipes(app)
+
+	setUpSwagger(app)
 }
 
 async function setUpSession(app: INestApplication) {
@@ -78,4 +83,26 @@ function setUpGlobalPipes(app: INestApplication) {
 			},
 		}),
 	)
+}
+
+function setUpSwagger(app: INestApplication) {
+	const swaggerConfig = new DocumentBuilder()
+		.setTitle('ExplainIt API')
+		.setDescription('REST API for ExplainIt — language learning platform')
+		.setVersion('1.0')
+		.setOpenAPIVersion('3.1.0')
+		.addCookieAuth('connect.sid')
+		.build()
+
+	const document = SwaggerModule.createDocument(app, swaggerConfig)
+	SwaggerModule.setup('api/docs', app, document)
+
+	// Write OpenAPI spec to file for codegen (orval)
+	const mainConfig = app.get(MainConfigService)
+	const isProduction = ['serverdevelop', 'servermaster'].includes(mainConfig.get().mode!)
+	if (!isProduction) {
+		const outputPath = path.resolve(process.cwd(), 'openapi.json')
+		fs.writeFileSync(outputPath, JSON.stringify(document, null, 2), 'utf-8')
+		console.log('OpenAPI spec written to ' + outputPath)
+	}
 }

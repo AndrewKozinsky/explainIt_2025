@@ -1,104 +1,108 @@
-import { Field, Int, ObjectType } from '@nestjs/graphql'
+import { ApiProperty } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { SentencePhraseTranslationOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 import {
 	SentenceTranslationLiteOutModel,
 	SubtitleSentenceInitOutModel,
 } from 'models/videoPrivate/videoPrivateOut.model'
 
-@ObjectType()
-export class VideoPublicOutModel {
-	@Field(() => Int)
-	id: number
+const $ = bdConfig.VideoPublic.dbFields
+const $$ = bdConfig.VideoPublic.dtoProps
+const sentence$ = bdConfig.Sentence.dbFields
+const subtitle$ = bdConfig.Subtitle.dbFields
 
-	@Field(() => String)
-	name: string
-
-	@Field(() => Int)
-	year: number
-
-	@Field(() => String)
-	languageCode: string
-
-	@Field(() => String)
-	note: string
-
-	@Field(() => [String])
-	covers: string[]
-
-	@Field(() => String)
-	coverBackgroundColor: string
-
-	@Field(() => String)
-	originalContent: string
-
-	@Field(() => String)
-	processedContent: string
-
-	@Field(() => String)
-	contentType: 'text' | 'subtitles'
-
-	@Field(() => String)
-	fileName: string
-
-	@Field(() => String)
-	fileS3Key: string
-
-	@Field(() => String)
-	fileUrl: string
-
-	@Field(() => Boolean)
-	freeToUse: boolean
-
-	@Field(() => [VideoPublicSentenceOutModel], { nullable: true })
-	sentences: VideoPublicSentenceOutModel[] | null
-
-	@Field(() => [VideoPublicSubtitleOutModel], { nullable: true })
-	subtitles: VideoPublicSubtitleOutModel[] | null
-
-	@Field(() => [SubtitleSentenceInitOutModel], { nullable: true })
-	subtitleSentenceInit: SubtitleSentenceInitOutModel[] | null
-}
-
-@ObjectType()
 export class VideoPublicSentenceOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(sentence$.id))
 	id: number
 
-	@Field(() => [SentenceTranslationLiteOutModel], { nullable: true })
+	@ApiProperty({ description: 'Sentence translations', type: [SentenceTranslationLiteOutModel], nullable: true })
 	sentenceTranslations: SentenceTranslationLiteOutModel[] | null
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(sentence$.start_offset))
 	startOffset: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(sentence$.length))
 	length: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(sentence$.order_index))
 	orderIndex: number
 
-
-
-	@Field(() => [SentencePhraseTranslationOutModel], { nullable: true })
+	@ApiProperty({
+		description: 'Sentence phrase translations',
+		type: [SentencePhraseTranslationOutModel],
+		nullable: true,
+	})
 	sentencePhraseTranslations: SentencePhraseTranslationOutModel[] | null
 }
 
-@ObjectType()
 export class VideoPublicSubtitleOutModel {
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(subtitle$.id))
 	id: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(subtitle$.start_time_ms))
 	startTimeMs: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(subtitle$.end_time_ms))
 	endTimeMs: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(subtitle$.start_offset))
 	startOffset: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(subtitle$.length))
 	length: number
 
-	@Field(() => Int)
+	@ApiProperty(getApiPropertyOptions(subtitle$.order_index))
 	orderIndex: number
+}
+
+export class VideoPublicOutModel {
+	@ApiProperty(getApiPropertyOptions($.id))
+	id: number
+
+	@ApiProperty(getApiPropertyOptions($.name))
+	name: string
+
+	@ApiProperty(getApiPropertyOptions($.year))
+	year: number
+
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
+	languageCode: string
+
+	@ApiProperty(getApiPropertyOptions($.note))
+	note: string
+
+	@ApiProperty(getApiPropertyOptions($.covers))
+	covers: string[]
+
+	@ApiProperty(getApiPropertyOptions($.original_content))
+	originalContent: string
+
+	@ApiProperty(getApiPropertyOptions($.processed_content))
+	processedContent: string
+
+	@ApiProperty(getApiPropertyOptions($.content_type))
+	contentType: 'text' | 'subtitles'
+
+	@ApiProperty(getApiPropertyOptions($.file_name))
+	fileName: string
+
+	@ApiProperty(getApiPropertyOptions($.file_s3_key))
+	fileS3Key: string
+
+	@ApiProperty(getApiPropertyOptions($$.fileUrl))
+	fileUrl: string
+
+	@ApiProperty({ description: 'Sentences of the video', type: [VideoPublicSentenceOutModel], nullable: true })
+	sentences: VideoPublicSentenceOutModel[] | null
+
+	@ApiProperty({ description: 'Subtitles of the video', type: [VideoPublicSubtitleOutModel], nullable: true })
+	subtitles: VideoPublicSubtitleOutModel[] | null
+
+	@ApiProperty({
+		description: 'Subtitle sentence init mappings',
+		type: [SubtitleSentenceInitOutModel],
+		nullable: true,
+	})
+	subtitleSentenceInit: SubtitleSentenceInitOutModel[] | null
 }

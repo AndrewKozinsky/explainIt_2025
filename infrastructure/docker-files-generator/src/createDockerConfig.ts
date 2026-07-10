@@ -66,7 +66,7 @@ export function createDockerConfig(mode: Mode, region: Region): ConfigSchemaV37J
 				command: isDev ? 'npm run start:dev' : 'npm run start:prod',
 				container_name: 'explainserver' + mode,
 				depends_on: [postgresServiceName, nlpServiceName, redisServiceName],
-				environment: getServerEnvs(mode),
+				environment: getServerEnvs(mode, region),
 				env_file: ['docker/.env.' + mode],
 				ports: isDev ? ['3001:3001'] : undefined,
 			},
@@ -137,6 +137,7 @@ function getServerNetworks() {
 /**
  * Returns environment variables for Nginx
  * @param mode — тип конфигурации
+ * @param region — региональная версия
  */
 function getNginxEnvs(mode: Mode, region: Region) {
 	if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
@@ -160,17 +161,20 @@ function getNginxEnvs(mode: Mode, region: Region) {
 /**
  * Returns environment variables for Api
  * @param mode — тип конфигурации
+ * @param region — региональная версия
  */
-function getServerEnvs(mode: Mode) {
+function getServerEnvs(mode: Mode, region: Region) {
 	return {
 		MODE: mode,
 		PORT: 3001,
+		REGION: region,
 	}
 }
 
 /**
  * Returns environment variables for Face
  * @param mode — тип конфигурации
+ * @param region — региональная версия
  * @param region — региональная версия
  */
 function getFaceEnvs(mode: Mode, region: Region) {

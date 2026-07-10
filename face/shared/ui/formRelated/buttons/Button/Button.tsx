@@ -1,0 +1,56 @@
+'use client'
+
+import React, { ReactNode } from 'react'
+import cn from 'classnames'
+import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import Spinner from '../../../Spinner/Spinner'
+import { ButtonIcon } from './ButtonIcon'
+import './Button.scss'
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+	theme?: 'regular' | 'danger' | 'accent' | 'plain' | 'outline'
+	size?: 'small' | 'medium' | 'big'
+	children?: ReactNode
+	icon?: string | ReactNode
+	loading?: boolean
+	extraClass?: string
+	onClick?: () => void
+}
+
+function Button(props: ButtonProps) {
+	const {
+		theme = 'regular',
+		size = 'medium',
+		children,
+		icon,
+		loading = false,
+		extraClass,
+		onClick,
+		...restProps
+	} = props
+
+	if (!restProps.type) {
+		restProps.type = 'button'
+	}
+
+	const buttonClasses = ['button', `button--size-${size}`, !children && icon && 'button--icon-only']
+	const buttonType = restProps.type || 'button'
+
+	let disabled = (props.disabled || loading) ?? false
+
+	return (
+		<BaseButton
+			extraClass={cn(buttonClasses, extraClass)}
+			disabled={disabled}
+			theme={theme}
+			onClick={onClick}
+			type={buttonType}
+		>
+			<ButtonIcon icon={icon} disabled={disabled} />
+			{children}
+			{loading && <Spinner size='small' />}
+		</BaseButton>
+	)
+}
+
+export default Button

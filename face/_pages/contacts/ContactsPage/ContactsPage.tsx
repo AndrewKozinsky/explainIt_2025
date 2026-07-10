@@ -1,12 +1,12 @@
-import Header from 'ui/Header/Header'
-import { PageContentWrapper } from 'ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import { BreadCrumbs } from '@/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageWrapper } from '@/ui/pageRelated/PageWrapper/PageWrapper'
+import Header from '@/shared/ui/Header/Header'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 
 /** Страница контактов */
 function ContactsPage() {
 	return (
-		<PageWrapper top bottom>
+		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
 				<Header>Контакты</Header>

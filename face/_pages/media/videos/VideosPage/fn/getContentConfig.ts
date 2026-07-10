@@ -39,8 +39,8 @@ export function useGetContentConfig() {
 						const videoId = createMediaIdUrl(video.id, 'private')
 
 						return {
-							name: video.name,
-							subName: video.year,
+							name: video.name as unknown as string,
+							subName: video.year as unknown as number,
 							url: pageUrls.videos.video(videoId).watching.path,
 							actionUrl: pageUrls.videos.video(videoId).path,
 						}
@@ -49,14 +49,12 @@ export function useGetContentConfig() {
 						const videoId = createMediaIdUrl(video.id, 'public')
 
 						return {
-							name: video.name,
-							subName: video.year,
+							name: video.name as unknown as string,
+							subName: video.year as unknown as number,
 							url: pageUrls.videos.video(videoId).watching.path,
 							actionUrl: pageUrls.videos.video(videoId).path,
-							backgroundColor: video.coverBackgroundColor,
 							languageCode: video.languageCode as LanguageCode,
 							coverUrl: video.covers[0],
-							freeToUse: video.freeToUse,
 						}
 					}),
 				},

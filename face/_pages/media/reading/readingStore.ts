@@ -1,6 +1,6 @@
 import { produce } from 'immer'
 import { create } from 'zustand'
-import { BookChapterOutModel, BookPrivateOutModel, BookPublicOutModel } from '@/graphql'
+import type { BookChapterOutModel, BookPrivateOutModel, BookPublicOutModel } from '@/shared/api/generated/models'
 
 export const readingStoreValues: ReadingStoreValues = {
 	book: null as any as ReadingStore.BookData,

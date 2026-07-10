@@ -1,9 +1,9 @@
-import { spawn } from 'child_process'
+// import { spawn } from 'child_process'
 
 /**
  * Run a child process to completion and reject with stderr content if it exits non-zero.
  */
-function runProcess(cmd: string, args: string[]): Promise<{ stdout: string; stderr: string }> {
+/*function runProcess(cmd: string, args: string[]): Promise<{ stdout: string; stderr: string }> {
 	return new Promise((resolve, reject) => {
 		const child = spawn(cmd, args, { stdio: ['ignore', 'pipe', 'pipe'] })
 
@@ -21,12 +21,12 @@ function runProcess(cmd: string, args: string[]): Promise<{ stdout: string; stde
 			}
 		})
 	})
-}
+}*/
 
 /**
  * Probe video/audio duration in seconds using ffprobe.
  */
-export async function probeDurationSec(filePath: string): Promise<number> {
+/*export async function probeDurationSec(filePath: string): Promise<number> {
 	const { stdout } = await runProcess('ffprobe', [
 		'-v',
 		'error',
@@ -44,12 +44,12 @@ export async function probeDurationSec(filePath: string): Promise<number> {
 	}
 
 	return seconds
-}
+}*/
 
 /**
  * Extract a mono 16 kHz PCM WAV track suitable for Deepgram Nova-3 ASR.
  */
-export async function extractMonoWav16k(inputPath: string, outputWavPath: string): Promise<void> {
+/*export async function extractMonoWav16k(inputPath: string, outputWavPath: string): Promise<void> {
 	await runProcess('ffmpeg', [
 		'-y',
 		'-hide_banner',
@@ -66,4 +66,4 @@ export async function extractMonoWav16k(inputPath: string, outputWavPath: string
 		'wav',
 		outputWavPath,
 	])
-}
+}*/

@@ -1,12 +1,12 @@
 import { INestApplication } from '@nestjs/common'
 import { App } from 'supertest/types'
 import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
-import RouteNames from '../../src/infrastructure/routeNames'
+// import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
+// import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
 import { createApp } from '../utils/createApp'
 // import { queries } from '../../src/features/db/queries'
-import { aiTranslationChecker } from './aiTranslationChecker'
+// import { aiTranslationChecker } from './aiTranslationChecker'
 
 it('1', () => {
 	expect(2).toBe(2)

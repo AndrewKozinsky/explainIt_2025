@@ -8,10 +8,10 @@ export function useSetFieldValues(reset: (data: any) => void) {
 		if (!chapter) return
 
 		reset({
-			name: chapter.name ?? '',
-			header: chapter.header ?? '',
-			content: chapter.originalContent,
-			note: chapter.note ?? '',
+			name: (chapter.name as unknown as string) ?? '',
+			header: (chapter.header as unknown as string) ?? '',
+			content: (chapter.originalContent as unknown as string) ?? '',
+			note: (chapter.note as unknown as string) ?? '',
 		})
 	}, [chapter, reset])
 }

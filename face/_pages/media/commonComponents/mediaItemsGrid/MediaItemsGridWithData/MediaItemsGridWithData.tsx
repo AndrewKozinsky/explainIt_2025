@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ItemsGrid from 'ui/ItemsGrid/ItemsGrid'
-import LanguageSwitch from '@/ui/LanguageSwitch/LanguageSwitch'
+import ItemsGrid from '@/shared/ui/ItemsGrid/ItemsGrid'
+import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import MediaCard from '../MediaCard/MediaCard'
 import { MediaGridAddButton } from '../MediaGridAddButton/MediaGridAddButton'
 import { AddMediaButtonConfig, PrivateItem, PublicItem } from '../MediaItemsGrid/types'

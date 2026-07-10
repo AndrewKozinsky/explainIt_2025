@@ -1,12 +1,11 @@
 'use client'
 
-import { useUserStore } from '@/stores/userStore'
+import { useUser } from '@/shared/api/auth/UserProvider'
 
 const KOPECKS_TO_RUBLES = 100
 
 export function useBalanceDisplay() {
-	const user = useUserStore((state) => state.user)
-	const isLoading = useUserStore((state) => state.isLoading)
+	const user = useUser()
 
 	const balanceInKopecks = user?.balance ?? 0
 	const balanceInRubles = Math.floor(balanceInKopecks / KOPECKS_TO_RUBLES)
@@ -23,7 +22,6 @@ export function useBalanceDisplay() {
 	}
 
 	return {
-		isLoading,
 		balanceInKopecks,
 		formattedBalance: formatBalance(),
 		hasUser: !!user,

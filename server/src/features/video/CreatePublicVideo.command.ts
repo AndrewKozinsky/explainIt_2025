@@ -20,11 +20,9 @@ export type CreatePublicVideoInput = {
 	originalContent: string
 	languageCode: Language
 	covers: string[]
-	coverBackgroundColor: string
 	year: number
 	fileName: string
 	fileS3Key: string
-	freeToUse?: boolean
 }
 
 export class CreatePublicVideoCommand implements ICommand {
@@ -70,7 +68,6 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 					languageCode: createVideoInput.languageCode,
 					note: createVideoInput.note,
 					covers: createVideoInput.covers,
-					coverBackgroundColor: createVideoInput.coverBackgroundColor,
 					year: createVideoInput.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate!,
 					processedContent: preparedContentResult.processedContentForVideoUpdate!,
