@@ -17,22 +17,6 @@ export function ApiGetSentenceTranslation() {
 		}),
 		ApiBody({ type: GetSentenceTranslationInput }),
 		ApiResponse({ status: 200, description: 'OK', type: TranslateSentenceResultOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 401,
-			description: errorMessage.sentenceTranslation.anonymousUserCannotTranslate.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 403,
-			description: errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.unknownError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -44,22 +28,6 @@ export function ApiGetPhraseTranslation() {
 		}),
 		ApiBody({ type: GetPhraseTranslationInput }),
 		ApiResponse({ status: 200, description: 'OK', type: SentencePhraseTranslationOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 401,
-			description: errorMessage.sentenceTranslation.anonymousUserCannotTranslate.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 403,
-			description: errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.unknownError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -75,22 +43,6 @@ export function ApiGetPhraseTranslationsBySentence() {
 			description: 'OK',
 			type: [SentencePhraseTranslationOutModel],
 		}),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 401,
-			description: errorMessage.sentenceTranslation.anonymousUserCannotTranslate.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 403,
-			description: errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.unknownError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -102,22 +54,6 @@ export function ApiTranslateSentence() {
 		}),
 		ApiBody({ type: TranslateSentenceInput }),
 		ApiResponse({ status: 200, description: 'OK', type: TranslateSentenceResultOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 401,
-			description: errorMessage.sentenceTranslation.anonymousUserCannotTranslate.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 403,
-			description: errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.unknownError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -130,21 +66,5 @@ export function ApiTranslatePhrase() {
 		}),
 		ApiBody({ type: TranslatePhraseInput }),
 		ApiResponse({ status: 200, description: 'OK', type: SentencePhraseTranslationOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 401,
-			description: errorMessage.sentenceTranslation.anonymousUserCannotTranslate.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 403,
-			description: errorMessage.sentenceTranslation.userCannotAccessForeignPrivateMedia.errorMessageCode,
-		}),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.unknownError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }

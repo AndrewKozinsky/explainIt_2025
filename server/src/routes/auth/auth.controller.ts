@@ -2,6 +2,11 @@ import { Body, Controller, Get, HttpCode, HttpStatus, Post, Req, Res, UseGuards 
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request, Response } from 'express'
+import { ConfirmEmailInput } from 'routes/auth/inputs/confirmEmail.input'
+import { LoginInput } from 'routes/auth/inputs/login.input'
+import { LoginWithOAuthInput } from 'routes/auth/inputs/loginWithOAuth.input'
+import { RegisterUserInput } from 'routes/auth/inputs/registerUser.input'
+import { ResendConfirmationEmailInput } from 'routes/auth/inputs/resendConfirmationEmail.input'
 import { ConfirmEmailCommand } from 'features/auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from 'features/auth/CreateUserWithEmailAndPassword.command'
 import { GetUserByIdCommand } from 'features/auth/GetUserById.command'
@@ -12,11 +17,6 @@ import { ResendConfirmationEmailCommand } from 'features/auth/ResendConfirmation
 import { BrowserService } from 'infrastructure/browserService/browser.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { UserOutModel } from 'models/user/user.out.model'
-import { ConfirmEmailDto } from './dto/confirm-email.dto'
-import { LoginDto } from './dto/login.dto'
-import { LoginWithOAuthDto } from './dto/loginWithOAuth.dto'
-import { RegisterDto } from './dto/register.dto'
-import { ResendConfirmationEmailDto } from './dto/resend-confirmation-email.dto'
 import {
 	ApiLogin,
 	ApiGetMe,
@@ -38,7 +38,7 @@ export class AuthController {
 	@ApiLogin()
 	@HttpCode(HttpStatus.OK)
 	@Post('login')
-	async login(@Body() input: LoginDto, @Req() request: Request): Promise<UserOutModel> {
+	async login(@Body() input: LoginInput, @Req() request: Request): Promise<UserOutModel> {
 		const clientIP = this.browserService.getClientIP(request)
 		const clientName = this.browserService.getClientName(request)
 
@@ -48,21 +48,21 @@ export class AuthController {
 	@ApiRegister()
 	@HttpCode(HttpStatus.CREATED)
 	@Post('register')
-	async register(@Body() input: RegisterDto): Promise<UserOutModel> {
+	async register(@Body() input: RegisterUserInput): Promise<UserOutModel> {
 		return await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(input))
 	}
 
 	@ApiConfirmEmail()
 	@HttpCode(HttpStatus.OK)
 	@Post('confirm-email')
-	async confirmEmail(@Body() input: ConfirmEmailDto): Promise<boolean> {
+	async confirmEmail(@Body() input: ConfirmEmailInput): Promise<boolean> {
 		return await this.commandBus.execute(new ConfirmEmailCommand(input))
 	}
 
 	@ApiResendConfirmationEmail()
 	@HttpCode(HttpStatus.OK)
 	@Post('resend-confirmation-email')
-	async resendConfirmationEmail(@Body() input: ResendConfirmationEmailDto): Promise<boolean> {
+	async resendConfirmationEmail(@Body() input: ResendConfirmationEmailInput): Promise<boolean> {
 		return await this.commandBus.execute(new ResendConfirmationEmailCommand(input.email))
 	}
 
@@ -84,7 +84,7 @@ export class AuthController {
 	@ApiLoginWithOAuth()
 	@HttpCode(HttpStatus.OK)
 	@Post('login-with-oauth')
-	async loginWithOAuth(@Body() input: LoginWithOAuthDto, @Req() request: Request): Promise<UserOutModel> {
+	async loginWithOAuth(@Body() input: LoginWithOAuthInput, @Req() request: Request): Promise<UserOutModel> {
 		const clientIP = this.browserService.getClientIP(request)
 		const clientName = this.browserService.getClientName(request)
 

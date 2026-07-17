@@ -12,14 +12,12 @@ export async function generateSentencesAndSaveToDB(params: {
 	processedContent: string
 	languageCode: Language
 	bookChapterId?: number
-	videoPrivateId?: number
-	videoPublicId?: number
+	videoId?: number
 }) {
 	const hasBookChapterId = typeof params.bookChapterId === 'number'
-	const hasVideoPrivateId = typeof params.videoPrivateId === 'number'
-	const hasVideoPublicId = typeof params.videoPublicId === 'number'
+	const hasVideoId = typeof params.videoId === 'number'
 
-	const targetsCount = [hasBookChapterId, hasVideoPrivateId, hasVideoPublicId].filter(Boolean).length
+	const targetsCount = [hasBookChapterId, hasVideoId].filter(Boolean).length
 	if (targetsCount !== 1) {
 		throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 	}
@@ -44,8 +42,7 @@ export async function generateSentencesAndSaveToDB(params: {
 				startOffset,
 				length: sentence.length,
 				bookChapterId: params.bookChapterId,
-				videoPrivateId: params.videoPrivateId,
-				videoPublicId: params.videoPublicId,
+				videoId: params.videoId,
 				orderIndex: i,
 			})
 

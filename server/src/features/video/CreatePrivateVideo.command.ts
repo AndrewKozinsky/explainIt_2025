@@ -3,7 +3,8 @@ import { DBRepository } from 'repo/db.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { VideoQueryRepository } from 'repo/video/video.queryRepository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
@@ -11,9 +12,10 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { CreateVideoPrivateOutModel } from 'models/videoPrivate/createVideoPrivate.out.model'
+import { CreateVideoOutModel } from 'models/video/createVideo.out.model'
 
 export type CreatePrivateVideoInput = {
+	videoCollectionId: number
 	name?: null | string
 	originalContent?: null | string
 	fileSizeMb?: number
@@ -30,7 +32,8 @@ export class CreatePrivateVideoCommand implements ICommand {
 @CommandHandler(CreatePrivateVideoCommand)
 export class CreatePrivateVideoHandler extends VideoBase implements ICommandHandler<CreatePrivateVideoCommand> {
 	constructor(
-		private videoRepository: VideoPrivateRepository,
+		private videoRepository: VideoRepository,
+		private videoQueryRepository: VideoQueryRepository,
 		private sentenceRepository: SentenceRepository,
 		private subtitleRepository: SubtitleRepository,
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
@@ -40,7 +43,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 		super(mainConfig)
 	}
 
-	async execute(command: CreatePrivateVideoCommand): Promise<CreateVideoPrivateOutModel> {
+	async execute(command: CreatePrivateVideoCommand): Promise<CreateVideoOutModel> {
 		const { userId, createVideoInput } = command
 
 		const preparedContentResult = this.prepareTextContentForSaving({
@@ -51,9 +54,8 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 		const createdVideo = await this.dbRepository.wrapIntoPrismaTransaction({
 			executableCode: async () => {
 				const newVideo = await this.videoRepository.createVideo({
-					userId,
+					videoCollectionId: createVideoInput.videoCollectionId,
 					name: createVideoInput.name,
-					languageCode: createVideoInput.languageCode,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
@@ -67,7 +69,6 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 				if (preparedContentResult.processedContent !== null) {
 					if (preparedContentResult.subtitles) {
 						await this.saveSubtitlesSentencesAndInit({
-							videoType: 'private',
 							videoId: newVideo.id,
 							preparedContent: preparedContentResult.processedContent,
 							languageCode: createVideoInput.languageCode,
@@ -82,7 +83,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 							sentenceRepository: this.sentenceRepository,
 							processedContent: preparedContentResult.processedContent,
 							languageCode: createVideoInput.languageCode,
-							videoPrivateId: newVideo.id,
+							videoId: newVideo.id,
 						})
 					}
 				}
@@ -95,6 +96,11 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 			throw new CustomError(errorMessage.video.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
-		return createdVideo
+		const video = await this.videoQueryRepository.getCreateVideoById(createdVideo.id)
+		if (!video) {
+			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.InternalServerError_500)
+		}
+
+		return video
 	}
 }

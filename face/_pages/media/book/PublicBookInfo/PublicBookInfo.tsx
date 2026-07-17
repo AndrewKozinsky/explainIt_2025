@@ -5,9 +5,9 @@ import PublicBookChapters from '../PublicBookChapters/PublicBookChapters'
 import PublicBookContentInfo from '../PublicBookContentInfo/PublicBookContentInfo'
 
 export default function PublicBookInfo() {
-	const publicBook = useBookStore((s) => s.publicBook)
+	const book = useBookStore((s) => s.book)
 
-	if (!publicBook.data) {
+	if (!book.data || book.data.type !== 'public') {
 		return null
 	}
 

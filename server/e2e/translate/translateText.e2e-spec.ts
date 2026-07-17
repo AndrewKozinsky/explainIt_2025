@@ -49,7 +49,7 @@ describe.skip('Translate text (e2e)', () => {
 		})*/
 	})
 
-	it('should return 400 error for invalid input (empty text)', async () => {
+	it('should return 400 error for invalid inputs (empty text)', async () => {
 		const { mutation, variables } = queries.translate.translateText({
 			text: '',
 			targetLanguageCode: 'ru',

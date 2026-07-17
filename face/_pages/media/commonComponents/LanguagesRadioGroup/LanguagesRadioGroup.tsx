@@ -1,9 +1,9 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import { useLanguageControllerGetLanguages } from '@/shared/api/generated/language/language'
-import type { LanguageOutModel } from '@/shared/api/generated/models'
+import { LanguagesApi } from '@/entites/languages/repository/LanguagesApi'
+import { useFetchData } from '@/shared/hooks/useFetchData'
 import RadioGroup from '@/shared/ui/formRelated/RadioGroup/RadioGroup'
 
 type LanguagesRadioGroupProps = {
@@ -16,11 +16,10 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 	const { value, disabled, inputProps } = props
 	const { ref, ...restInputProps } = inputProps
 
-	const { data } = useLanguageControllerGetLanguages()
+	const api = useMemo(() => new LanguagesApi(), [])
+	const { data: languages } = useFetchData(() => api.getLanguages(), [api])
 
-	const languages = (data as unknown as LanguageOutModel[]) ?? []
-
-	const config = languages
+	const config = (languages ?? [])
 		.map((lang) => ({
 			name: lang.code,
 			label: lang.name,

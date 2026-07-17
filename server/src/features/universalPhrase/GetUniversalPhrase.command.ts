@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
+import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPhrase.queryRepository'
 import { Language } from 'utils/languages'
 import { normalizePhraseString } from 'utils/stringUtils'
 

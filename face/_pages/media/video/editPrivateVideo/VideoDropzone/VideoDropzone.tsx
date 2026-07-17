@@ -1,19 +1,19 @@
-import { useContext, useRef } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
-import {
-	useVideoPrivateControllerUpdateVideoPrivate,
-	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
-	getVideoPrivateControllerGetVideoPrivateQueryKey,
-} from '@/shared/api/generated/video-private/video-private'
-import type { UpdateVideoDtoLanguageCode, UpdateVideoPrivateOutModel } from '@/shared/api/generated/models'
-import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { useVideoStore } from '_pages/media/video/videoStore'
-import { getVideoDurationSec } from './fn/getVideoDurationSec'
+// import { useContext, useRef } from 'react'
+// import { useQueryClient } from '@tanstack/react-query'
+// import {
+// 	useVideoPrivateControllerUpdateVideoPrivate,
+// 	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
+// 	getVideoPrivateControllerGetVideoPrivateQueryKey,
+// } from '@/shared/api/generated/video-private/video-private'
+// import type { UpdateVideoDtoLanguageCode, UpdateVideoPrivateOutModel } from '@/shared/api/generated/models'
+// import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { useVideoStore } from '_pages/media/video/videoStore'
+// import { getVideoDurationSec } from './fn/getVideoDurationSec'
 
-const supportedVideoFormatsStr = 'MP4, WebM, OGG'
+// const supportedVideoFormatsStr = 'MP4, WebM, OGG'
 
-function VideoDropzone() {
+/*function VideoDropzone() {
 	const video = useVideoStore((s) => s.privateVideo.data)
 
 	const { notify } = useContext(NotificationContext)
@@ -79,6 +79,6 @@ function VideoDropzone() {
 			onUploadComplete={onUploadComplete}
 		/>
 	)
-}
+}*/
 
-export default VideoDropzone
+// export default VideoDropzone

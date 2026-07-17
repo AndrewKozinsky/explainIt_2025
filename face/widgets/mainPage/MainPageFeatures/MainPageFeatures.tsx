@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useRef } from 'react'
-import { filesUrls } from 'utils/filesUrls'
+import { filesUrls } from '@/shared/utils/filesUrls'
 import './MainPageFeatures.scss'
 import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 

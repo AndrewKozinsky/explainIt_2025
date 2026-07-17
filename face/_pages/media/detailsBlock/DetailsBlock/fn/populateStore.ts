@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
-import { LanguageCode } from 'utils/languages'
 import { useBookChapterControllerGetBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
-import type { BookChapterControllerGetBookChapterBookType } from '@/shared/api/generated/models'
 import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
 import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
+import { LanguageCode } from '@/shared/utils/languages'
 import { usePhraseStore, PreloadItem } from '@/stores/phraseStore'
 import { useReadingStore } from '_pages/media/reading/readingStore'
 import { useWatchingStore } from '_pages/media/watching/watchingStore'
@@ -17,13 +16,12 @@ export function usePopulateStore() {
 
 function useFetchChapterAndSetToStore() {
 	const chapterId = useDetailsStore((s) => s.chapterId)
-	const bookType = useReadingStore((s) => s.book?.type)
 	const languageCode = useDetailsStore((s) => s.languageCode)
 
 	const { data } = useBookChapterControllerGetBookChapter(
 		chapterId!,
 		{
-			bookType: (bookType || 'private') as BookChapterControllerGetBookChapterBookType,
+			bookType: 'private',
 			targetLanguageCode: 'ru',
 		},
 		{ query: { enabled: !!chapterId } },

@@ -1,4 +1,3 @@
-import { LanguageCode } from 'utils/languages'
 import { create } from 'zustand'
 import type {
 	UniversalPhraseOutModel,
@@ -11,6 +10,7 @@ import {
 } from '@/shared/api/generated/universal-phrase/universal-phrase'
 import { universalPhraseAudioControllerGetOrCreateAudio } from '@/shared/api/generated/universal-phrase-audio/universal-phrase-audio'
 import { universalPhraseTranscriptionControllerGetOrCreateTranscription } from '@/shared/api/generated/universal-phrase-transcription/universal-phrase-transcription'
+import { LanguageCode } from '@/shared/utils/languages'
 import { makePhraseKey } from './helpers'
 import { EntryData, PhraseData, PhraseResult, PhraseStore, PreloadItem } from './types'
 

@@ -1,5 +1,5 @@
-import { LanguageCode } from 'utils/languages'
 import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
+import { LanguageCode } from '@/shared/utils/languages'
 import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
 import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
 import './DictionaryFlashcard.scss'

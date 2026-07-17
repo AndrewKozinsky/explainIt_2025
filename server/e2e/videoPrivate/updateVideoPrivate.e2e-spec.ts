@@ -296,14 +296,14 @@ describe.skip('Update video private', () => {
 
 		const getVideoQuery = {
 			query: `
-				query GetVideoPrivate($input: GetPrivateVideoInput!) {
-					${RouteNames.VIDEO_PRIVATE.GET}(input: $input) {
+				query GetVideoPrivate($inputs: GetPrivateVideoInput!) {
+					${RouteNames.VIDEO_PRIVATE.GET}(inputs: $inputs) {
 						id
 						fileUrl
 						isFileUploaded
 					}
 				}`,
-			variables: { input: { id: createdVideo.id } },
+			variables: { inputs: { id: createdVideo.id } },
 		}
 
 		const [getVideoResponse] = await makeGraphQLReqWithTokens({
@@ -359,14 +359,14 @@ describe.skip('Update video private', () => {
 
 		const getVideoQuery = {
 			query: `
-				query GetVideoPrivate($input: GetPrivateVideoInput!) {
-					${RouteNames.VIDEO_PRIVATE.GET}(input: $input) {
+				query GetVideoPrivate($inputs: GetPrivateVideoInput!) {
+					${RouteNames.VIDEO_PRIVATE.GET}(inputs: $inputs) {
 						id
 						fileUrl
 						isFileUploaded
 					}
 				}`,
-			variables: { input: { id: createdVideo.id } },
+			variables: { inputs: { id: createdVideo.id } },
 		}
 
 		const [getVideoResponse] = await makeGraphQLReqWithTokens({

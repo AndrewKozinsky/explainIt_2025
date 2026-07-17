@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
+import { BookQueryRepository } from 'repo/book/book.queryRepository'
 
 export class GetUserBooksCommand implements ICommand {
 	constructor(public userId: number) {}
@@ -7,7 +7,7 @@ export class GetUserBooksCommand implements ICommand {
 
 @CommandHandler(GetUserBooksCommand)
 export class GetUserBooksHandler implements ICommandHandler<GetUserBooksCommand> {
-	constructor(private bookQueryRepository: BookPrivateQueryRepository) {}
+	constructor(private bookQueryRepository: BookQueryRepository) {}
 
 	async execute(command: GetUserBooksCommand) {
 		const { userId } = command

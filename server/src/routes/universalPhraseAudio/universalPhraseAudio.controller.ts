@@ -1,7 +1,7 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Post, Query, UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
-import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhraseAudio.queryRepository'
+import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhrase/universalPhraseAudio.queryRepository'
 import { GetOrCreateUniversalPhraseAudioCommand } from 'features/universalPhraseAudio/GetOrCreateAudioPronunciation.command'
 import { OptionalSessionUserGuard } from 'infrastructure/guards/optionalSessionUser.guard'
 import { UniversalAudioPronunciationOutModel } from 'models/audioPronunciation/audioPronunciation.out.model'

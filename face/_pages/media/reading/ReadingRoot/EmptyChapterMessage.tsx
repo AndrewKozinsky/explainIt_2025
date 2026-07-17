@@ -1,9 +1,9 @@
-import { useParams } from 'next/navigation'
-import { pageUrls } from 'utils/pageUrls'
-import { Link } from '@/i18n/routing'
-import './EmptyChapterMessage.scss'
+// import { useParams } from 'next/navigation'
+// import {pageUrls} from "@/shared/utils/pageUrls";
+// import { Link } from '@/i18n/routing'
+// import './EmptyChapterMessage.scss'
 
-function EmptyChapterMessage() {
+/*function EmptyChapterMessage() {
 	const bookIdInUrl = useParams().bookId as string
 	const chapterId = useParams().chapterId as string
 
@@ -17,6 +17,6 @@ function EmptyChapterMessage() {
 			</Link>
 		</div>
 	)
-}
+}*/
 
-export default EmptyChapterMessage
+// export default EmptyChapterMessage

@@ -16,7 +16,7 @@ export function removeBOM(text: string) {
  * These are subtitle formatting tags like {\an1} through {\an9} that control
  * text positioning on screen (1=bottom-left, 2=bottom-center, etc.).
  *
- * @param text - The input string potentially containing alignment tags
+ * @param text - The inputs string potentially containing alignment tags
  * @returns The string with all {\an1} through {\an9} tags removed
  *
  * @example
@@ -32,7 +32,7 @@ export function removeAlignmentTags(text: string) {
  * Strips "- " pattern at the beginning of each line, commonly used
  * for bullet points or dialogue markers in subtitles.
  *
- * @param text - The input multiline string
+ * @param text - The inputs multiline string
  * @returns The string with leading "- " removed from each line
  *
  * @example
@@ -47,7 +47,7 @@ export function removeLeadingDashes(text: string) {
  * Removes italic HTML tags from text.
  * Strips <i> and </i> tags commonly used for emphasis in subtitles.
  *
- * @param text - The input string potentially containing italic tags
+ * @param text - The inputs string potentially containing italic tags
  * @returns The string with all <i> and </i> tags removed
  *
  * @example

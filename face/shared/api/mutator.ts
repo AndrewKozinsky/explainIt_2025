@@ -6,7 +6,8 @@
  * in `data` instead of `error`. This mutator throws on non-ok responses
  * so React Query can catch the error and expose it via `isError` / `error`.
  *
- * Страница не упадёт: React Query ловит исключения из queryFn безопасно.
+ * Возвращает объект в формате { data, status, headers } — именно такой
+ * структуры ожидает Orval для генерации корректных типов ответа.
  */
 
 export class ApiError extends Error {
@@ -25,9 +26,40 @@ export async function customMutator<TResponse = unknown>(
 	url: string,
 	options?: RequestInit,
 ): Promise<TResponse> {
+	// When running on the server (Server Components), relative URLs need an absolute base.
+	// In Docker, the Next.js server cannot reach nginx via localhost — use the internal
+	// Docker hostname of the server container directly.
+	//
+	// We also forward the incoming request's cookies so that API calls during SSR
+	// include the user's session cookie — without this, the server-side fetch has no
+	// access to browser cookies and the API sees every request as unauthenticated.
+	if (typeof window === 'undefined' && url.startsWith('/')) {
+		const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://explainserverlocaldev:3001'
+		url = apiBase + url
+
+		try {
+			const { cookies } = await import('next/headers')
+			const cookieStore = await cookies()
+			const allCookies = cookieStore.getAll()
+			const cookieHeader = allCookies.map((c) => `${c.name}=${c.value}`).join('; ')
+			if (cookieHeader) {
+				options = {
+					...options,
+					headers: {
+						...options?.headers,
+						Cookie: cookieHeader,
+					},
+				}
+			}
+		} catch {
+			// Not inside a request context (e.g. generateStaticParams, build time).
+			// Proceed without cookies — the API will treat this as unauthenticated.
+		}
+	}
+
 	const res = await fetch(url, {
 		...options,
-		credentials: 'include', // Send session cookie
+		credentials: 'include', // Send session cookie (client-side)
 	})
 
 	if (!res.ok) {
@@ -40,10 +72,13 @@ export async function customMutator<TResponse = unknown>(
 		throw new ApiError(res.status, body)
 	}
 
-	// 204 No Content — nothing to parse
-	if (res.status === 204) {
-		return undefined as TResponse
-	}
+	// Orval expects the mutator to return { data, status, headers }.
+	// This contract must be kept so that generated response types match reality.
+	const data = res.status === 204 ? undefined : await res.json()
 
-	return res.json()
+	return {
+		data,
+		status: res.status,
+		headers: res.headers,
+	} as TResponse
 }

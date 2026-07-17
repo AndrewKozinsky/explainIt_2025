@@ -1,12 +1,12 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SubtitlesGenerationQueue } from 'infrastructure/queues/subtitlesGeneration.queue'
-import { VideoPrivateSubtitlesStatusOutModel } from 'models/videoPrivate/videoPrivateSubtitlesStatus.out.model'
+import { VideoSubtitlesStatusOutModel } from 'models/video/videoSubtitlesStatus.out.model'
 import { SubtitlesGenerationStatus } from 'prisma/generated/client'
 import { calculateSubtitlesGenerationPriceKopecks } from './calculateSubtitlesGenerationPriceKopecks'
 
@@ -20,13 +20,13 @@ export class GenerateSubtitlesCommand implements ICommand {
 @CommandHandler(GenerateSubtitlesCommand)
 export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSubtitlesCommand> {
 	constructor(
-		private videoRepository: VideoPrivateRepository,
+		private videoRepository: VideoRepository,
 		private subtitlesQueue: SubtitlesGenerationQueue,
 		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 		private mainConfig: MainConfigService,
 	) {}
 
-	async execute(command: GenerateSubtitlesCommand): Promise<VideoPrivateSubtitlesStatusOutModel> {
+	async execute(command: GenerateSubtitlesCommand): Promise<VideoSubtitlesStatusOutModel> {
 		const { userId, videoId } = command
 
 		const state = await this.videoRepository.getSubtitlesGenerationState(videoId)

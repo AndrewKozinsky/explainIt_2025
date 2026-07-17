@@ -27,8 +27,8 @@ import type {
 import type {
   BookChapterControllerGetBookChapterParams,
   BookChapterOutModel,
-  CreateBookChapterDto,
-  UpdateBookChapterDto
+  CreateBookChapterInput,
+  UpdateBookChapterInput
 } from '../models';
 
 import { customMutator } from '../../mutator';
@@ -58,34 +58,12 @@ export type bookChapterControllerGetBookChapterResponse200 = {
   status: 200
 }
 
-export type bookChapterControllerGetBookChapterResponse400 = {
-  data: void
-  status: 400
-}
-
-export type bookChapterControllerGetBookChapterResponse403 = {
-  data: void
-  status: 403
-}
-
-export type bookChapterControllerGetBookChapterResponse404 = {
-  data: void
-  status: 404
-}
-
-export type bookChapterControllerGetBookChapterResponse500 = {
-  data: void
-  status: 500
-}
-
 export type bookChapterControllerGetBookChapterResponseSuccess = (bookChapterControllerGetBookChapterResponse200) & {
   headers: Headers;
 };
-export type bookChapterControllerGetBookChapterResponseError = (bookChapterControllerGetBookChapterResponse400 | bookChapterControllerGetBookChapterResponse403 | bookChapterControllerGetBookChapterResponse404 | bookChapterControllerGetBookChapterResponse500) & {
-  headers: Headers;
-};
+;
 
-export type bookChapterControllerGetBookChapterResponse = (bookChapterControllerGetBookChapterResponseSuccess | bookChapterControllerGetBookChapterResponseError)
+export type bookChapterControllerGetBookChapterResponse = (bookChapterControllerGetBookChapterResponseSuccess)
 
 export const getBookChapterControllerGetBookChapterUrl = (id: number,
     params: BookChapterControllerGetBookChapterParams,) => {
@@ -131,7 +109,7 @@ export const getBookChapterControllerGetBookChapterQueryKey = (id: number,
     }
 
 
-export const getBookChapterControllerGetBookChapterQueryOptions = <TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = void>(id: number,
+export const getBookChapterControllerGetBookChapterQueryOptions = <TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = unknown>(id: number,
     params: BookChapterControllerGetBookChapterParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
@@ -151,10 +129,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type BookChapterControllerGetBookChapterQueryResult = NonNullable<Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>>
-export type BookChapterControllerGetBookChapterQueryError = void
+export type BookChapterControllerGetBookChapterQueryError = unknown
 
 
-export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = void>(
+export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = unknown>(
  id: number,
     params: BookChapterControllerGetBookChapterParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
@@ -165,7 +143,7 @@ export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnTyp
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = void>(
+export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = unknown>(
  id: number,
     params: BookChapterControllerGetBookChapterParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
@@ -176,7 +154,7 @@ export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnTyp
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = void>(
+export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = unknown>(
  id: number,
     params: BookChapterControllerGetBookChapterParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
@@ -185,7 +163,7 @@ export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnTyp
  * @summary Get book chapter
  */
 
-export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = void>(
+export function useBookChapterControllerGetBookChapter<TData = Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError = unknown>(
  id: number,
     params: BookChapterControllerGetBookChapterParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof bookChapterControllerGetBookChapter>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
@@ -208,39 +186,12 @@ export type bookChapterControllerUpdateBookChapterResponse200 = {
   status: 200
 }
 
-export type bookChapterControllerUpdateBookChapterResponse400 = {
-  data: void
-  status: 400
-}
-
-export type bookChapterControllerUpdateBookChapterResponse401 = {
-  data: void
-  status: 401
-}
-
-export type bookChapterControllerUpdateBookChapterResponse403 = {
-  data: void
-  status: 403
-}
-
-export type bookChapterControllerUpdateBookChapterResponse404 = {
-  data: void
-  status: 404
-}
-
-export type bookChapterControllerUpdateBookChapterResponse500 = {
-  data: void
-  status: 500
-}
-
 export type bookChapterControllerUpdateBookChapterResponseSuccess = (bookChapterControllerUpdateBookChapterResponse200) & {
   headers: Headers;
 };
-export type bookChapterControllerUpdateBookChapterResponseError = (bookChapterControllerUpdateBookChapterResponse400 | bookChapterControllerUpdateBookChapterResponse401 | bookChapterControllerUpdateBookChapterResponse403 | bookChapterControllerUpdateBookChapterResponse404 | bookChapterControllerUpdateBookChapterResponse500) & {
-  headers: Headers;
-};
+;
 
-export type bookChapterControllerUpdateBookChapterResponse = (bookChapterControllerUpdateBookChapterResponseSuccess | bookChapterControllerUpdateBookChapterResponseError)
+export type bookChapterControllerUpdateBookChapterResponse = (bookChapterControllerUpdateBookChapterResponseSuccess)
 
 export const getBookChapterControllerUpdateBookChapterUrl = (id: number,) => {
 
@@ -255,14 +206,14 @@ export const getBookChapterControllerUpdateBookChapterUrl = (id: number,) => {
  * @summary Update book chapter
  */
 export const bookChapterControllerUpdateBookChapter = async (id: number,
-    updateBookChapterDto: UpdateBookChapterDto, options?: RequestInit): Promise<bookChapterControllerUpdateBookChapterResponse> => {
+    updateBookChapterInput: UpdateBookChapterInput, options?: RequestInit): Promise<bookChapterControllerUpdateBookChapterResponse> => {
 
   return customMutator<bookChapterControllerUpdateBookChapterResponse>(getBookChapterControllerUpdateBookChapterUrl(id),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(updateBookChapterDto)
+    body: JSON.stringify(updateBookChapterInput)
   }
 );}
 
@@ -270,9 +221,9 @@ export const bookChapterControllerUpdateBookChapter = async (id: number,
 
 
 
-export const getBookChapterControllerUpdateBookChapterMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, TError,{id: number;data: UpdateBookChapterDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, TError,{id: number;data: UpdateBookChapterDto}, TContext> => {
+export const getBookChapterControllerUpdateBookChapterMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, TError,{id: number;data: UpdateBookChapterInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, TError,{id: number;data: UpdateBookChapterInput}, TContext> => {
 
 const mutationKey = ['bookChapterControllerUpdateBookChapter'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -284,7 +235,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, {id: number;data: UpdateBookChapterDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, {id: number;data: UpdateBookChapterInput}> = (props) => {
           const {id,data} = props ?? {};
 
           return  bookChapterControllerUpdateBookChapter(id,data,requestOptions)
@@ -298,18 +249,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type BookChapterControllerUpdateBookChapterMutationResult = NonNullable<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>>
-    export type BookChapterControllerUpdateBookChapterMutationBody = UpdateBookChapterDto
-    export type BookChapterControllerUpdateBookChapterMutationError = void
+    export type BookChapterControllerUpdateBookChapterMutationBody = UpdateBookChapterInput
+    export type BookChapterControllerUpdateBookChapterMutationError = unknown
 
     /**
  * @summary Update book chapter
  */
-export const useBookChapterControllerUpdateBookChapter = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, TError,{id: number;data: UpdateBookChapterDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useBookChapterControllerUpdateBookChapter = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>, TError,{id: number;data: UpdateBookChapterInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof bookChapterControllerUpdateBookChapter>>,
         TError,
-        {id: number;data: UpdateBookChapterDto},
+        {id: number;data: UpdateBookChapterInput},
         TContext
       > => {
       return useMutation(getBookChapterControllerUpdateBookChapterMutationOptions(options), queryClient);
@@ -319,39 +270,12 @@ export const useBookChapterControllerUpdateBookChapter = <TError = void,
   status: 200
 }
 
-export type bookChapterControllerDeleteBookChapterResponse400 = {
-  data: void
-  status: 400
-}
-
-export type bookChapterControllerDeleteBookChapterResponse401 = {
-  data: void
-  status: 401
-}
-
-export type bookChapterControllerDeleteBookChapterResponse403 = {
-  data: void
-  status: 403
-}
-
-export type bookChapterControllerDeleteBookChapterResponse404 = {
-  data: void
-  status: 404
-}
-
-export type bookChapterControllerDeleteBookChapterResponse500 = {
-  data: void
-  status: 500
-}
-
 export type bookChapterControllerDeleteBookChapterResponseSuccess = (bookChapterControllerDeleteBookChapterResponse200) & {
   headers: Headers;
 };
-export type bookChapterControllerDeleteBookChapterResponseError = (bookChapterControllerDeleteBookChapterResponse400 | bookChapterControllerDeleteBookChapterResponse401 | bookChapterControllerDeleteBookChapterResponse403 | bookChapterControllerDeleteBookChapterResponse404 | bookChapterControllerDeleteBookChapterResponse500) & {
-  headers: Headers;
-};
+;
 
-export type bookChapterControllerDeleteBookChapterResponse = (bookChapterControllerDeleteBookChapterResponseSuccess | bookChapterControllerDeleteBookChapterResponseError)
+export type bookChapterControllerDeleteBookChapterResponse = (bookChapterControllerDeleteBookChapterResponseSuccess)
 
 export const getBookChapterControllerDeleteBookChapterUrl = (id: number,) => {
 
@@ -380,7 +304,7 @@ export const bookChapterControllerDeleteBookChapter = async (id: number, options
 
 
 
-export const getBookChapterControllerDeleteBookChapterMutationOptions = <TError = void,
+export const getBookChapterControllerDeleteBookChapterMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerDeleteBookChapter>>, TError,{id: number}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerDeleteBookChapter>>, TError,{id: number}, TContext> => {
 
@@ -409,12 +333,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type BookChapterControllerDeleteBookChapterMutationResult = NonNullable<Awaited<ReturnType<typeof bookChapterControllerDeleteBookChapter>>>
 
-    export type BookChapterControllerDeleteBookChapterMutationError = void
+    export type BookChapterControllerDeleteBookChapterMutationError = unknown
 
     /**
  * @summary Delete book chapter
  */
-export const useBookChapterControllerDeleteBookChapter = <TError = void,
+export const useBookChapterControllerDeleteBookChapter = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerDeleteBookChapter>>, TError,{id: number}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof bookChapterControllerDeleteBookChapter>>,
@@ -429,39 +353,12 @@ export const useBookChapterControllerDeleteBookChapter = <TError = void,
   status: 201
 }
 
-export type bookChapterControllerCreateBookChapterResponse400 = {
-  data: void
-  status: 400
-}
-
-export type bookChapterControllerCreateBookChapterResponse401 = {
-  data: void
-  status: 401
-}
-
-export type bookChapterControllerCreateBookChapterResponse403 = {
-  data: void
-  status: 403
-}
-
-export type bookChapterControllerCreateBookChapterResponse404 = {
-  data: void
-  status: 404
-}
-
-export type bookChapterControllerCreateBookChapterResponse500 = {
-  data: void
-  status: 500
-}
-
 export type bookChapterControllerCreateBookChapterResponseSuccess = (bookChapterControllerCreateBookChapterResponse201) & {
   headers: Headers;
 };
-export type bookChapterControllerCreateBookChapterResponseError = (bookChapterControllerCreateBookChapterResponse400 | bookChapterControllerCreateBookChapterResponse401 | bookChapterControllerCreateBookChapterResponse403 | bookChapterControllerCreateBookChapterResponse404 | bookChapterControllerCreateBookChapterResponse500) & {
-  headers: Headers;
-};
+;
 
-export type bookChapterControllerCreateBookChapterResponse = (bookChapterControllerCreateBookChapterResponseSuccess | bookChapterControllerCreateBookChapterResponseError)
+export type bookChapterControllerCreateBookChapterResponse = (bookChapterControllerCreateBookChapterResponseSuccess)
 
 export const getBookChapterControllerCreateBookChapterUrl = () => {
 
@@ -475,14 +372,14 @@ export const getBookChapterControllerCreateBookChapterUrl = () => {
  * Creates a new chapter in a private or public book. If originalContent is provided, sentences will be auto-generated from it.
  * @summary Create book chapter
  */
-export const bookChapterControllerCreateBookChapter = async (createBookChapterDto: CreateBookChapterDto, options?: RequestInit): Promise<bookChapterControllerCreateBookChapterResponse> => {
+export const bookChapterControllerCreateBookChapter = async (createBookChapterInput: CreateBookChapterInput, options?: RequestInit): Promise<bookChapterControllerCreateBookChapterResponse> => {
 
   return customMutator<bookChapterControllerCreateBookChapterResponse>(getBookChapterControllerCreateBookChapterUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(createBookChapterDto)
+    body: JSON.stringify(createBookChapterInput)
   }
 );}
 
@@ -490,9 +387,9 @@ export const bookChapterControllerCreateBookChapter = async (createBookChapterDt
 
 
 
-export const getBookChapterControllerCreateBookChapterMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, TError,{data: CreateBookChapterDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, TError,{data: CreateBookChapterDto}, TContext> => {
+export const getBookChapterControllerCreateBookChapterMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, TError,{data: CreateBookChapterInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, TError,{data: CreateBookChapterInput}, TContext> => {
 
 const mutationKey = ['bookChapterControllerCreateBookChapter'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -504,7 +401,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, {data: CreateBookChapterDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, {data: CreateBookChapterInput}> = (props) => {
           const {data} = props ?? {};
 
           return  bookChapterControllerCreateBookChapter(data,requestOptions)
@@ -518,18 +415,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type BookChapterControllerCreateBookChapterMutationResult = NonNullable<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>>
-    export type BookChapterControllerCreateBookChapterMutationBody = CreateBookChapterDto
-    export type BookChapterControllerCreateBookChapterMutationError = void
+    export type BookChapterControllerCreateBookChapterMutationBody = CreateBookChapterInput
+    export type BookChapterControllerCreateBookChapterMutationError = unknown
 
     /**
  * @summary Create book chapter
  */
-export const useBookChapterControllerCreateBookChapter = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, TError,{data: CreateBookChapterDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useBookChapterControllerCreateBookChapter = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>, TError,{data: CreateBookChapterInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof bookChapterControllerCreateBookChapter>>,
         TError,
-        {data: CreateBookChapterDto},
+        {data: CreateBookChapterInput},
         TContext
       > => {
       return useMutation(getBookChapterControllerCreateBookChapterMutationOptions(options), queryClient);

@@ -33,8 +33,7 @@ export type SubtitleAvgAggregateOutputType = {
   start_offset: number | null
   length: number | null
   order_index: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  video_id: number | null
 }
 
 export type SubtitleSumAggregateOutputType = {
@@ -44,8 +43,7 @@ export type SubtitleSumAggregateOutputType = {
   start_offset: number | null
   length: number | null
   order_index: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  video_id: number | null
 }
 
 export type SubtitleMinAggregateOutputType = {
@@ -55,8 +53,7 @@ export type SubtitleMinAggregateOutputType = {
   start_offset: number | null
   length: number | null
   order_index: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  video_id: number | null
 }
 
 export type SubtitleMaxAggregateOutputType = {
@@ -66,8 +63,7 @@ export type SubtitleMaxAggregateOutputType = {
   start_offset: number | null
   length: number | null
   order_index: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  video_id: number | null
 }
 
 export type SubtitleCountAggregateOutputType = {
@@ -77,8 +73,7 @@ export type SubtitleCountAggregateOutputType = {
   start_offset: number
   length: number
   order_index: number
-  video_private_id: number
-  video_public_id: number
+  video_id: number
   _all: number
 }
 
@@ -90,8 +85,7 @@ export type SubtitleAvgAggregateInputType = {
   start_offset?: true
   length?: true
   order_index?: true
-  video_private_id?: true
-  video_public_id?: true
+  video_id?: true
 }
 
 export type SubtitleSumAggregateInputType = {
@@ -101,8 +95,7 @@ export type SubtitleSumAggregateInputType = {
   start_offset?: true
   length?: true
   order_index?: true
-  video_private_id?: true
-  video_public_id?: true
+  video_id?: true
 }
 
 export type SubtitleMinAggregateInputType = {
@@ -112,8 +105,7 @@ export type SubtitleMinAggregateInputType = {
   start_offset?: true
   length?: true
   order_index?: true
-  video_private_id?: true
-  video_public_id?: true
+  video_id?: true
 }
 
 export type SubtitleMaxAggregateInputType = {
@@ -123,8 +115,7 @@ export type SubtitleMaxAggregateInputType = {
   start_offset?: true
   length?: true
   order_index?: true
-  video_private_id?: true
-  video_public_id?: true
+  video_id?: true
 }
 
 export type SubtitleCountAggregateInputType = {
@@ -134,8 +125,7 @@ export type SubtitleCountAggregateInputType = {
   start_offset?: true
   length?: true
   order_index?: true
-  video_private_id?: true
-  video_public_id?: true
+  video_id?: true
   _all?: true
 }
 
@@ -232,8 +222,7 @@ export type SubtitleGroupByOutputType = {
   start_offset: number
   length: number
   order_index: number
-  video_private_id: number | null
-  video_public_id: number | null
+  video_id: number | null
   _count: SubtitleCountAggregateOutputType | null
   _avg: SubtitleAvgAggregateOutputType | null
   _sum: SubtitleSumAggregateOutputType | null
@@ -266,10 +255,8 @@ export type SubtitleWhereInput = {
   start_offset?: Prisma.IntFilter<"Subtitle"> | number
   length?: Prisma.IntFilter<"Subtitle"> | number
   order_index?: Prisma.IntFilter<"Subtitle"> | number
-  video_private_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
-  video_public_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
-  videoPrivate?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
-  videoPublic?: Prisma.XOR<Prisma.VideoPublicNullableScalarRelationFilter, Prisma.VideoPublicWhereInput> | null
+  video_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
+  video?: Prisma.XOR<Prisma.VideoNullableScalarRelationFilter, Prisma.VideoWhereInput> | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
 }
 
@@ -280,10 +267,8 @@ export type SubtitleOrderByWithRelationInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  video_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  videoPrivate?: Prisma.VideoPrivateOrderByWithRelationInput
-  videoPublic?: Prisma.VideoPublicOrderByWithRelationInput
+  video_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  video?: Prisma.VideoOrderByWithRelationInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitOrderByRelationAggregateInput
 }
 
@@ -297,10 +282,8 @@ export type SubtitleWhereUniqueInput = Prisma.AtLeast<{
   start_offset?: Prisma.IntFilter<"Subtitle"> | number
   length?: Prisma.IntFilter<"Subtitle"> | number
   order_index?: Prisma.IntFilter<"Subtitle"> | number
-  video_private_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
-  video_public_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
-  videoPrivate?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
-  videoPublic?: Prisma.XOR<Prisma.VideoPublicNullableScalarRelationFilter, Prisma.VideoPublicWhereInput> | null
+  video_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
+  video?: Prisma.XOR<Prisma.VideoNullableScalarRelationFilter, Prisma.VideoWhereInput> | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitListRelationFilter
 }, "id">
 
@@ -311,8 +294,7 @@ export type SubtitleOrderByWithAggregationInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  video_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  video_id?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.SubtitleCountOrderByAggregateInput
   _avg?: Prisma.SubtitleAvgOrderByAggregateInput
   _max?: Prisma.SubtitleMaxOrderByAggregateInput
@@ -330,8 +312,7 @@ export type SubtitleScalarWhereWithAggregatesInput = {
   start_offset?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
   length?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
   order_index?: Prisma.IntWithAggregatesFilter<"Subtitle"> | number
-  video_private_id?: Prisma.IntNullableWithAggregatesFilter<"Subtitle"> | number | null
-  video_public_id?: Prisma.IntNullableWithAggregatesFilter<"Subtitle"> | number | null
+  video_id?: Prisma.IntNullableWithAggregatesFilter<"Subtitle"> | number | null
 }
 
 export type SubtitleCreateInput = {
@@ -340,8 +321,7 @@ export type SubtitleCreateInput = {
   start_offset: number
   length: number
   order_index: number
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSubtitleInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSubtitleInput
+  video?: Prisma.VideoCreateNestedOneWithoutSubtitleInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSubtitleInput
 }
 
@@ -352,8 +332,7 @@ export type SubtitleUncheckedCreateInput = {
   start_offset: number
   length: number
   order_index: number
-  video_private_id?: number | null
-  video_public_id?: number | null
+  video_id?: number | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSubtitleInput
 }
 
@@ -363,8 +342,7 @@ export type SubtitleUpdateInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSubtitleNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutSubtitleNestedInput
+  video?: Prisma.VideoUpdateOneWithoutSubtitleNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSubtitleNestedInput
 }
 
@@ -375,8 +353,7 @@ export type SubtitleUncheckedUpdateInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSubtitleNestedInput
 }
 
@@ -387,8 +364,7 @@ export type SubtitleCreateManyInput = {
   start_offset: number
   length: number
   order_index: number
-  video_private_id?: number | null
-  video_public_id?: number | null
+  video_id?: number | null
 }
 
 export type SubtitleUpdateManyMutationInput = {
@@ -406,8 +382,7 @@ export type SubtitleUncheckedUpdateManyInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 export type SubtitleListRelationFilter = {
@@ -427,8 +402,7 @@ export type SubtitleCountOrderByAggregateInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
 }
 
 export type SubtitleAvgOrderByAggregateInput = {
@@ -438,8 +412,7 @@ export type SubtitleAvgOrderByAggregateInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
 }
 
 export type SubtitleMaxOrderByAggregateInput = {
@@ -449,8 +422,7 @@ export type SubtitleMaxOrderByAggregateInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
 }
 
 export type SubtitleMinOrderByAggregateInput = {
@@ -460,8 +432,7 @@ export type SubtitleMinOrderByAggregateInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
 }
 
 export type SubtitleSumOrderByAggregateInput = {
@@ -471,8 +442,7 @@ export type SubtitleSumOrderByAggregateInput = {
   start_offset?: Prisma.SortOrder
   length?: Prisma.SortOrder
   order_index?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
 }
 
 export type SubtitleScalarRelationFilter = {
@@ -480,87 +450,45 @@ export type SubtitleScalarRelationFilter = {
   isNot?: Prisma.SubtitleWhereInput
 }
 
-export type SubtitleCreateNestedManyWithoutVideoPrivateInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput> | Prisma.SubtitleCreateWithoutVideoPrivateInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput | Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPrivateInputEnvelope
+export type SubtitleCreateNestedManyWithoutVideoInput = {
+  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoInput, Prisma.SubtitleUncheckedCreateWithoutVideoInput> | Prisma.SubtitleCreateWithoutVideoInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoInput | Prisma.SubtitleCreateOrConnectWithoutVideoInput[]
+  createMany?: Prisma.SubtitleCreateManyVideoInputEnvelope
   connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
 }
 
-export type SubtitleUncheckedCreateNestedManyWithoutVideoPrivateInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput> | Prisma.SubtitleCreateWithoutVideoPrivateInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput | Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPrivateInputEnvelope
+export type SubtitleUncheckedCreateNestedManyWithoutVideoInput = {
+  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoInput, Prisma.SubtitleUncheckedCreateWithoutVideoInput> | Prisma.SubtitleCreateWithoutVideoInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoInput | Prisma.SubtitleCreateOrConnectWithoutVideoInput[]
+  createMany?: Prisma.SubtitleCreateManyVideoInputEnvelope
   connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
 }
 
-export type SubtitleUpdateManyWithoutVideoPrivateNestedInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput> | Prisma.SubtitleCreateWithoutVideoPrivateInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput | Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput[]
-  upsert?: Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPrivateInput | Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPrivateInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPrivateInputEnvelope
+export type SubtitleUpdateManyWithoutVideoNestedInput = {
+  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoInput, Prisma.SubtitleUncheckedCreateWithoutVideoInput> | Prisma.SubtitleCreateWithoutVideoInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoInput | Prisma.SubtitleCreateOrConnectWithoutVideoInput[]
+  upsert?: Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoInput | Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoInput[]
+  createMany?: Prisma.SubtitleCreateManyVideoInputEnvelope
   set?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
   disconnect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
   delete?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
   connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  update?: Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPrivateInput | Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPrivateInput[]
-  updateMany?: Prisma.SubtitleUpdateManyWithWhereWithoutVideoPrivateInput | Prisma.SubtitleUpdateManyWithWhereWithoutVideoPrivateInput[]
+  update?: Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoInput | Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoInput[]
+  updateMany?: Prisma.SubtitleUpdateManyWithWhereWithoutVideoInput | Prisma.SubtitleUpdateManyWithWhereWithoutVideoInput[]
   deleteMany?: Prisma.SubtitleScalarWhereInput | Prisma.SubtitleScalarWhereInput[]
 }
 
-export type SubtitleUncheckedUpdateManyWithoutVideoPrivateNestedInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput> | Prisma.SubtitleCreateWithoutVideoPrivateInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput | Prisma.SubtitleCreateOrConnectWithoutVideoPrivateInput[]
-  upsert?: Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPrivateInput | Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPrivateInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPrivateInputEnvelope
+export type SubtitleUncheckedUpdateManyWithoutVideoNestedInput = {
+  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoInput, Prisma.SubtitleUncheckedCreateWithoutVideoInput> | Prisma.SubtitleCreateWithoutVideoInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoInput | Prisma.SubtitleCreateOrConnectWithoutVideoInput[]
+  upsert?: Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoInput | Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoInput[]
+  createMany?: Prisma.SubtitleCreateManyVideoInputEnvelope
   set?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
   disconnect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
   delete?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
   connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  update?: Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPrivateInput | Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPrivateInput[]
-  updateMany?: Prisma.SubtitleUpdateManyWithWhereWithoutVideoPrivateInput | Prisma.SubtitleUpdateManyWithWhereWithoutVideoPrivateInput[]
-  deleteMany?: Prisma.SubtitleScalarWhereInput | Prisma.SubtitleScalarWhereInput[]
-}
-
-export type SubtitleCreateNestedManyWithoutVideoPublicInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPublicInput, Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput> | Prisma.SubtitleCreateWithoutVideoPublicInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput | Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPublicInputEnvelope
-  connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-}
-
-export type SubtitleUncheckedCreateNestedManyWithoutVideoPublicInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPublicInput, Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput> | Prisma.SubtitleCreateWithoutVideoPublicInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput | Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPublicInputEnvelope
-  connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-}
-
-export type SubtitleUpdateManyWithoutVideoPublicNestedInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPublicInput, Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput> | Prisma.SubtitleCreateWithoutVideoPublicInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput | Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput[]
-  upsert?: Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPublicInput | Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPublicInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPublicInputEnvelope
-  set?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  disconnect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  delete?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  update?: Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPublicInput | Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPublicInput[]
-  updateMany?: Prisma.SubtitleUpdateManyWithWhereWithoutVideoPublicInput | Prisma.SubtitleUpdateManyWithWhereWithoutVideoPublicInput[]
-  deleteMany?: Prisma.SubtitleScalarWhereInput | Prisma.SubtitleScalarWhereInput[]
-}
-
-export type SubtitleUncheckedUpdateManyWithoutVideoPublicNestedInput = {
-  create?: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPublicInput, Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput> | Prisma.SubtitleCreateWithoutVideoPublicInput[] | Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput | Prisma.SubtitleCreateOrConnectWithoutVideoPublicInput[]
-  upsert?: Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPublicInput | Prisma.SubtitleUpsertWithWhereUniqueWithoutVideoPublicInput[]
-  createMany?: Prisma.SubtitleCreateManyVideoPublicInputEnvelope
-  set?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  disconnect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  delete?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  connect?: Prisma.SubtitleWhereUniqueInput | Prisma.SubtitleWhereUniqueInput[]
-  update?: Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPublicInput | Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoPublicInput[]
-  updateMany?: Prisma.SubtitleUpdateManyWithWhereWithoutVideoPublicInput | Prisma.SubtitleUpdateManyWithWhereWithoutVideoPublicInput[]
+  update?: Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoInput | Prisma.SubtitleUpdateWithWhereUniqueWithoutVideoInput[]
+  updateMany?: Prisma.SubtitleUpdateManyWithWhereWithoutVideoInput | Prisma.SubtitleUpdateManyWithWhereWithoutVideoInput[]
   deleteMany?: Prisma.SubtitleScalarWhereInput | Prisma.SubtitleScalarWhereInput[]
 }
 
@@ -578,51 +506,49 @@ export type SubtitleUpdateOneRequiredWithoutSubtitleSentenceInitNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.SubtitleUpdateToOneWithWhereWithoutSubtitleSentenceInitInput, Prisma.SubtitleUpdateWithoutSubtitleSentenceInitInput>, Prisma.SubtitleUncheckedUpdateWithoutSubtitleSentenceInitInput>
 }
 
-export type SubtitleCreateWithoutVideoPrivateInput = {
+export type SubtitleCreateWithoutVideoInput = {
   start_time_ms: number
   end_time_ms: number
   start_offset: number
   length: number
   order_index: number
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSubtitleInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSubtitleInput
 }
 
-export type SubtitleUncheckedCreateWithoutVideoPrivateInput = {
+export type SubtitleUncheckedCreateWithoutVideoInput = {
   id?: number
   start_time_ms: number
   end_time_ms: number
   start_offset: number
   length: number
   order_index: number
-  video_public_id?: number | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSubtitleInput
 }
 
-export type SubtitleCreateOrConnectWithoutVideoPrivateInput = {
+export type SubtitleCreateOrConnectWithoutVideoInput = {
   where: Prisma.SubtitleWhereUniqueInput
-  create: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput>
+  create: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoInput, Prisma.SubtitleUncheckedCreateWithoutVideoInput>
 }
 
-export type SubtitleCreateManyVideoPrivateInputEnvelope = {
-  data: Prisma.SubtitleCreateManyVideoPrivateInput | Prisma.SubtitleCreateManyVideoPrivateInput[]
+export type SubtitleCreateManyVideoInputEnvelope = {
+  data: Prisma.SubtitleCreateManyVideoInput | Prisma.SubtitleCreateManyVideoInput[]
   skipDuplicates?: boolean
 }
 
-export type SubtitleUpsertWithWhereUniqueWithoutVideoPrivateInput = {
+export type SubtitleUpsertWithWhereUniqueWithoutVideoInput = {
   where: Prisma.SubtitleWhereUniqueInput
-  update: Prisma.XOR<Prisma.SubtitleUpdateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedUpdateWithoutVideoPrivateInput>
-  create: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedCreateWithoutVideoPrivateInput>
+  update: Prisma.XOR<Prisma.SubtitleUpdateWithoutVideoInput, Prisma.SubtitleUncheckedUpdateWithoutVideoInput>
+  create: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoInput, Prisma.SubtitleUncheckedCreateWithoutVideoInput>
 }
 
-export type SubtitleUpdateWithWhereUniqueWithoutVideoPrivateInput = {
+export type SubtitleUpdateWithWhereUniqueWithoutVideoInput = {
   where: Prisma.SubtitleWhereUniqueInput
-  data: Prisma.XOR<Prisma.SubtitleUpdateWithoutVideoPrivateInput, Prisma.SubtitleUncheckedUpdateWithoutVideoPrivateInput>
+  data: Prisma.XOR<Prisma.SubtitleUpdateWithoutVideoInput, Prisma.SubtitleUncheckedUpdateWithoutVideoInput>
 }
 
-export type SubtitleUpdateManyWithWhereWithoutVideoPrivateInput = {
+export type SubtitleUpdateManyWithWhereWithoutVideoInput = {
   where: Prisma.SubtitleScalarWhereInput
-  data: Prisma.XOR<Prisma.SubtitleUpdateManyMutationInput, Prisma.SubtitleUncheckedUpdateManyWithoutVideoPrivateInput>
+  data: Prisma.XOR<Prisma.SubtitleUpdateManyMutationInput, Prisma.SubtitleUncheckedUpdateManyWithoutVideoInput>
 }
 
 export type SubtitleScalarWhereInput = {
@@ -635,55 +561,7 @@ export type SubtitleScalarWhereInput = {
   start_offset?: Prisma.IntFilter<"Subtitle"> | number
   length?: Prisma.IntFilter<"Subtitle"> | number
   order_index?: Prisma.IntFilter<"Subtitle"> | number
-  video_private_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
-  video_public_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
-}
-
-export type SubtitleCreateWithoutVideoPublicInput = {
-  start_time_ms: number
-  end_time_ms: number
-  start_offset: number
-  length: number
-  order_index: number
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSubtitleInput
-  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitCreateNestedManyWithoutSubtitleInput
-}
-
-export type SubtitleUncheckedCreateWithoutVideoPublicInput = {
-  id?: number
-  start_time_ms: number
-  end_time_ms: number
-  start_offset: number
-  length: number
-  order_index: number
-  video_private_id?: number | null
-  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedCreateNestedManyWithoutSubtitleInput
-}
-
-export type SubtitleCreateOrConnectWithoutVideoPublicInput = {
-  where: Prisma.SubtitleWhereUniqueInput
-  create: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPublicInput, Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput>
-}
-
-export type SubtitleCreateManyVideoPublicInputEnvelope = {
-  data: Prisma.SubtitleCreateManyVideoPublicInput | Prisma.SubtitleCreateManyVideoPublicInput[]
-  skipDuplicates?: boolean
-}
-
-export type SubtitleUpsertWithWhereUniqueWithoutVideoPublicInput = {
-  where: Prisma.SubtitleWhereUniqueInput
-  update: Prisma.XOR<Prisma.SubtitleUpdateWithoutVideoPublicInput, Prisma.SubtitleUncheckedUpdateWithoutVideoPublicInput>
-  create: Prisma.XOR<Prisma.SubtitleCreateWithoutVideoPublicInput, Prisma.SubtitleUncheckedCreateWithoutVideoPublicInput>
-}
-
-export type SubtitleUpdateWithWhereUniqueWithoutVideoPublicInput = {
-  where: Prisma.SubtitleWhereUniqueInput
-  data: Prisma.XOR<Prisma.SubtitleUpdateWithoutVideoPublicInput, Prisma.SubtitleUncheckedUpdateWithoutVideoPublicInput>
-}
-
-export type SubtitleUpdateManyWithWhereWithoutVideoPublicInput = {
-  where: Prisma.SubtitleScalarWhereInput
-  data: Prisma.XOR<Prisma.SubtitleUpdateManyMutationInput, Prisma.SubtitleUncheckedUpdateManyWithoutVideoPublicInput>
+  video_id?: Prisma.IntNullableFilter<"Subtitle"> | number | null
 }
 
 export type SubtitleCreateWithoutSubtitleSentenceInitInput = {
@@ -692,8 +570,7 @@ export type SubtitleCreateWithoutSubtitleSentenceInitInput = {
   start_offset: number
   length: number
   order_index: number
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutSubtitleInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutSubtitleInput
+  video?: Prisma.VideoCreateNestedOneWithoutSubtitleInput
 }
 
 export type SubtitleUncheckedCreateWithoutSubtitleSentenceInitInput = {
@@ -703,8 +580,7 @@ export type SubtitleUncheckedCreateWithoutSubtitleSentenceInitInput = {
   start_offset: number
   length: number
   order_index: number
-  video_private_id?: number | null
-  video_public_id?: number | null
+  video_id?: number | null
 }
 
 export type SubtitleCreateOrConnectWithoutSubtitleSentenceInitInput = {
@@ -729,8 +605,7 @@ export type SubtitleUpdateWithoutSubtitleSentenceInitInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSubtitleNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutSubtitleNestedInput
+  video?: Prisma.VideoUpdateOneWithoutSubtitleNestedInput
 }
 
 export type SubtitleUncheckedUpdateWithoutSubtitleSentenceInitInput = {
@@ -740,90 +615,44 @@ export type SubtitleUncheckedUpdateWithoutSubtitleSentenceInitInput = {
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
-export type SubtitleCreateManyVideoPrivateInput = {
+export type SubtitleCreateManyVideoInput = {
   id?: number
   start_time_ms: number
   end_time_ms: number
   start_offset: number
   length: number
   order_index: number
-  video_public_id?: number | null
 }
 
-export type SubtitleUpdateWithoutVideoPrivateInput = {
+export type SubtitleUpdateWithoutVideoInput = {
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutSubtitleNestedInput
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSubtitleNestedInput
 }
 
-export type SubtitleUncheckedUpdateWithoutVideoPrivateInput = {
+export type SubtitleUncheckedUpdateWithoutVideoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSubtitleNestedInput
 }
 
-export type SubtitleUncheckedUpdateManyWithoutVideoPrivateInput = {
+export type SubtitleUncheckedUpdateManyWithoutVideoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
   start_offset?: Prisma.IntFieldUpdateOperationsInput | number
   length?: Prisma.IntFieldUpdateOperationsInput | number
   order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-}
-
-export type SubtitleCreateManyVideoPublicInput = {
-  id?: number
-  start_time_ms: number
-  end_time_ms: number
-  start_offset: number
-  length: number
-  order_index: number
-  video_private_id?: number | null
-}
-
-export type SubtitleUpdateWithoutVideoPublicInput = {
-  start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
-  end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
-  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  length?: Prisma.IntFieldUpdateOperationsInput | number
-  order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutSubtitleNestedInput
-  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUpdateManyWithoutSubtitleNestedInput
-}
-
-export type SubtitleUncheckedUpdateWithoutVideoPublicInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
-  end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
-  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  length?: Prisma.IntFieldUpdateOperationsInput | number
-  order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  SubtitleSentenceInit?: Prisma.SubtitleSentenceInitUncheckedUpdateManyWithoutSubtitleNestedInput
-}
-
-export type SubtitleUncheckedUpdateManyWithoutVideoPublicInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  start_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
-  end_time_ms?: Prisma.IntFieldUpdateOperationsInput | number
-  start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  length?: Prisma.IntFieldUpdateOperationsInput | number
-  order_index?: Prisma.IntFieldUpdateOperationsInput | number
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
 }
 
 
@@ -864,10 +693,8 @@ export type SubtitleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
-  videoPrivate?: boolean | Prisma.Subtitle$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Subtitle$videoPublicArgs<ExtArgs>
+  video_id?: boolean
+  video?: boolean | Prisma.Subtitle$videoArgs<ExtArgs>
   SubtitleSentenceInit?: boolean | Prisma.Subtitle$SubtitleSentenceInitArgs<ExtArgs>
   _count?: boolean | Prisma.SubtitleCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["subtitle"]>
@@ -879,10 +706,8 @@ export type SubtitleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exte
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
-  videoPrivate?: boolean | Prisma.Subtitle$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Subtitle$videoPublicArgs<ExtArgs>
+  video_id?: boolean
+  video?: boolean | Prisma.Subtitle$videoArgs<ExtArgs>
 }, ExtArgs["result"]["subtitle"]>
 
 export type SubtitleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -892,10 +717,8 @@ export type SubtitleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exte
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
-  videoPrivate?: boolean | Prisma.Subtitle$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Subtitle$videoPublicArgs<ExtArgs>
+  video_id?: boolean
+  video?: boolean | Prisma.Subtitle$videoArgs<ExtArgs>
 }, ExtArgs["result"]["subtitle"]>
 
 export type SubtitleSelectScalar = {
@@ -905,31 +728,26 @@ export type SubtitleSelectScalar = {
   start_offset?: boolean
   length?: boolean
   order_index?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
+  video_id?: boolean
 }
 
-export type SubtitleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "start_time_ms" | "end_time_ms" | "start_offset" | "length" | "order_index" | "video_private_id" | "video_public_id", ExtArgs["result"]["subtitle"]>
+export type SubtitleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "start_time_ms" | "end_time_ms" | "start_offset" | "length" | "order_index" | "video_id", ExtArgs["result"]["subtitle"]>
 export type SubtitleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  videoPrivate?: boolean | Prisma.Subtitle$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Subtitle$videoPublicArgs<ExtArgs>
+  video?: boolean | Prisma.Subtitle$videoArgs<ExtArgs>
   SubtitleSentenceInit?: boolean | Prisma.Subtitle$SubtitleSentenceInitArgs<ExtArgs>
   _count?: boolean | Prisma.SubtitleCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type SubtitleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  videoPrivate?: boolean | Prisma.Subtitle$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Subtitle$videoPublicArgs<ExtArgs>
+  video?: boolean | Prisma.Subtitle$videoArgs<ExtArgs>
 }
 export type SubtitleIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  videoPrivate?: boolean | Prisma.Subtitle$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Subtitle$videoPublicArgs<ExtArgs>
+  video?: boolean | Prisma.Subtitle$videoArgs<ExtArgs>
 }
 
 export type $SubtitlePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Subtitle"
   objects: {
-    videoPrivate: Prisma.$VideoPrivatePayload<ExtArgs> | null
-    videoPublic: Prisma.$VideoPublicPayload<ExtArgs> | null
+    video: Prisma.$VideoPayload<ExtArgs> | null
     SubtitleSentenceInit: Prisma.$SubtitleSentenceInitPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -939,8 +757,7 @@ export type $SubtitlePayload<ExtArgs extends runtime.Types.Extensions.InternalAr
     start_offset: number
     length: number
     order_index: number
-    video_private_id: number | null
-    video_public_id: number | null
+    video_id: number | null
   }, ExtArgs["result"]["subtitle"]>
   composites: {}
 }
@@ -1335,8 +1152,7 @@ readonly fields: SubtitleFieldRefs;
  */
 export interface Prisma__SubtitleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  videoPrivate<T extends Prisma.Subtitle$videoPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subtitle$videoPrivateArgs<ExtArgs>>): Prisma.Prisma__VideoPrivateClient<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  videoPublic<T extends Prisma.Subtitle$videoPublicArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subtitle$videoPublicArgs<ExtArgs>>): Prisma.Prisma__VideoPublicClient<runtime.Types.Result.GetResult<Prisma.$VideoPublicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  video<T extends Prisma.Subtitle$videoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subtitle$videoArgs<ExtArgs>>): Prisma.Prisma__VideoClient<runtime.Types.Result.GetResult<Prisma.$VideoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   SubtitleSentenceInit<T extends Prisma.Subtitle$SubtitleSentenceInitArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Subtitle$SubtitleSentenceInitArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitleSentenceInitPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1373,8 +1189,7 @@ export interface SubtitleFieldRefs {
   readonly start_offset: Prisma.FieldRef<"Subtitle", 'Int'>
   readonly length: Prisma.FieldRef<"Subtitle", 'Int'>
   readonly order_index: Prisma.FieldRef<"Subtitle", 'Int'>
-  readonly video_private_id: Prisma.FieldRef<"Subtitle", 'Int'>
-  readonly video_public_id: Prisma.FieldRef<"Subtitle", 'Int'>
+  readonly video_id: Prisma.FieldRef<"Subtitle", 'Int'>
 }
     
 
@@ -1776,41 +1591,22 @@ export type SubtitleDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inte
 }
 
 /**
- * Subtitle.videoPrivate
+ * Subtitle.video
  */
-export type Subtitle$videoPrivateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Subtitle$videoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the VideoPrivate
+   * Select specific fields to fetch from the Video
    */
-  select?: Prisma.VideoPrivateSelect<ExtArgs> | null
+  select?: Prisma.VideoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the VideoPrivate
+   * Omit specific fields from the Video
    */
-  omit?: Prisma.VideoPrivateOmit<ExtArgs> | null
+  omit?: Prisma.VideoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.VideoPrivateInclude<ExtArgs> | null
-  where?: Prisma.VideoPrivateWhereInput
-}
-
-/**
- * Subtitle.videoPublic
- */
-export type Subtitle$videoPublicArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the VideoPublic
-   */
-  select?: Prisma.VideoPublicSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the VideoPublic
-   */
-  omit?: Prisma.VideoPublicOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.VideoPublicInclude<ExtArgs> | null
-  where?: Prisma.VideoPublicWhereInput
+  include?: Prisma.VideoInclude<ExtArgs> | null
+  where?: Prisma.VideoWhereInput
 }
 
 /**

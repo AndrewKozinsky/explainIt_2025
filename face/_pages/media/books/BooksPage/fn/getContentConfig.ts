@@ -1,83 +1,56 @@
-import { useMemo } from 'react'
-import { LanguageCode } from 'utils/languages'
-import { localStorageManager } from 'utils/localStorageManager'
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import type { BookChapterLiteOutModel } from '@/shared/api/generated/models'
-import { useBooksStore } from '_pages/media/books/booksStore'
-import { MediaItemsGridConfig } from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
+import type { Book } from '@/entites/books/repository/BooksRepository'
+import type { LanguageCode } from '@/shared/utils/languages'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+import type {
+	MediaItemsGridConfig,
+	PrivateItem,
+	PublicItem,
+} from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
 
-export function useGetContentConfig() {
-	const privateBooks = useBooksStore((s) => s.privateBooks)
-	const publicBooks = useBooksStore((s) => s.publicBooks)
+/**
+ * Формирует конфиг для MediaItemsGrid из унифицированных книг.
+ * Чистая функция — не зависит от API, сторов или хуков.
+ */
+export function getContentConfig(books: Book[]): MediaItemsGridConfig {
+	const privateBooks = books.filter((book) => book.type === 'private')
+	const publicBooks = books.filter((book) => book.type === 'public')
 
-	return useMemo(
-		function (): {
-			loading: boolean
-			error: null | string
-			config: null | MediaItemsGridConfig
-		} {
-			const errorMessage = privateBooks.errorMessage || publicBooks.errorMessage
-			const isLoading = privateBooks.loading || publicBooks.loading
-
-			if (errorMessage) {
-				return {
-					loading: false,
-					error: errorMessage,
-					config: null,
-				}
-			} else if (isLoading) {
-				return {
-					loading: false,
-					error: null,
-					config: null,
-				}
-			}
-
-			return {
-				loading: false,
-				error: null,
-				config: {
-					privateItems: privateBooks.data.map((book) => {
-						const bookId = createMediaIdUrl(book.id, 'private')
-						const chapterId = resolveChapterId(
-							bookId,
-							book.chapters as unknown as BookChapterLiteOutModel[],
-						)
-
-						return {
-							name: book.name as unknown as string | null,
-							subName: book.author as unknown as string | null,
-							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
-							actionUrl: pageUrls.books.book(bookId).path,
-							coverUrl: book.coverUrl as unknown as string | undefined,
-						}
-					}),
-					publicItems: publicBooks.data.map((book) => {
-						const bookId = createMediaIdUrl(book.id, 'public')
-						const chapterId = resolveChapterId(bookId, book.chapters)
-
-						return {
-							name: book.name,
-							subName: book.author as unknown as string | null,
-							url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
-							actionUrl: pageUrls.books.book(bookId).path,
-							languageCode: book.languageCode as LanguageCode,
-							coverUrl: book.covers[0],
-						}
-					}),
-				},
-			}
-		},
-		[privateBooks, publicBooks],
-	)
+	return {
+		privateItems: privateBooks.map(toPrivateItem),
+		publicItems: publicBooks.map(toPublicItem),
+	}
 }
 
-function resolveChapterId(bookUrlId: string, chapters: { id: number }[]): number {
-	const savedChapterId = localStorageManager.lastBookChapter.get(bookUrlId)
+// ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-	if (savedChapterId !== null && chapters.some((c) => c.id === savedChapterId)) {
-		return savedChapterId
+function toPrivateItem(book: Book): PrivateItem {
+	const bookId = String(book.id)
+	const chapterId = resolveFirstChapterId(book)
+
+	return {
+		name: book.name,
+		subName: book.author,
+		url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
+		actionUrl: pageUrls.books.book(bookId).path,
+		coverUrl: book.coverUrl ?? undefined,
 	}
+}
 
-	return chapters[0].id
+function toPublicItem(book: Book): PublicItem {
+	const bookId = String(book.id)
+	const chapterId = resolveFirstChapterId(book)
+
+	return {
+		name: book.name ?? bookConfig.emptyBookName,
+		subName: book.author,
+		languageCode: (book.languageCode as LanguageCode) ?? 'en',
+		coverUrl: book.coverUrl ?? '',
+		url: pageUrls.books.book(bookId).chapter(chapterId).reading.path,
+		actionUrl: pageUrls.books.book(bookId).path,
+	}
+}
+
+function resolveFirstChapterId(book: Book): number {
+	return book.chapters[0]?.id ?? 0
 }

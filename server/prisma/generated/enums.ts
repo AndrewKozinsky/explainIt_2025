@@ -35,6 +35,14 @@ export const PaymentProviderName = {
 export type PaymentProviderName = (typeof PaymentProviderName)[keyof typeof PaymentProviderName]
 
 
+export const MediaType = {
+  public: 'public',
+  private: 'private'
+} as const
+
+export type MediaType = (typeof MediaType)[keyof typeof MediaType]
+
+
 export const LanguageCode = {
   en: 'en',
   es: 'es',

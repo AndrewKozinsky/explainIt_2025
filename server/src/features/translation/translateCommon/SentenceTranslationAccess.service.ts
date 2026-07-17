@@ -28,8 +28,8 @@ export class SentenceTranslationAccessService {
 			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
 		}
 
-		const isPublicBook = Boolean(sentenceDb.bookChapter?.book_public_id)
-		const isPublicVideo = Boolean(sentenceDb.video_public_id)
+		const isPublicBook = sentenceDb.bookChapter?.book?.type === 'public'
+		const isPublicVideo = Boolean(sentenceDb.video_id)
 		const isPublicMaterial = isPublicBook || isPublicVideo
 
 		if (isPublicMaterial) {
@@ -41,7 +41,7 @@ export class SentenceTranslationAccessService {
 		return await this.resolvePrivateMaterialAccess({
 			userId: input.userId,
 			privateBookOwnerId: sentenceDb.bookChapter?.book?.user_id ?? null,
-			privateVideoOwnerId: sentenceDb.videoPrivate?.user_id ?? null,
+			privateVideoOwnerId: sentenceDb.video?.video_collection?.user_id ?? null,
 		})
 	}
 

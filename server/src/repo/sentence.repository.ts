@@ -6,9 +6,8 @@ import { Prisma, Sentence } from 'prisma/generated/client'
 
 type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
 	include: {
-		bookChapter: { include: { book: true; book_public: true } }
-		videoPrivate: true
-		videoPublic: true
+		bookChapter: { include: { book: true } }
+		video: { include: { video_collection: true } }
 	}
 }>
 
@@ -21,9 +20,8 @@ export class SentenceRepository {
 		return await this.prisma.sentence.findUnique({
 			where: { id },
 			include: {
-				bookChapter: { include: { book: true, book_public: true } },
-				videoPrivate: true,
-				videoPublic: true,
+				bookChapter: { include: { book: true } },
+				video: { include: { video_collection: true } },
 			},
 		})
 	}
@@ -33,8 +31,7 @@ export class SentenceRepository {
 		startOffset: number
 		length: number
 		bookChapterId?: number
-		videoPrivateId?: number
-		videoPublicId?: number
+		videoId?: number
 		orderIndex: number
 	}) {
 		const newSentence = await this.prisma.sentence.create({
@@ -42,8 +39,7 @@ export class SentenceRepository {
 				start_offset: dto.startOffset,
 				length: dto.length,
 				book_chapter_id: dto.bookChapterId,
-				video_private_id: dto.videoPrivateId,
-				video_public_id: dto.videoPublicId,
+				video_id: dto.videoId,
 				order_index: dto.orderIndex,
 			},
 		})
@@ -61,42 +57,30 @@ export class SentenceRepository {
 	}
 
 	@CatchDbError()
-	async deleteByVideoPrivateId(videoPrivateId: number): Promise<number> {
+	async deleteByVideoId(videoId: number): Promise<number> {
 		const res = await this.prisma.sentence.deleteMany({
-			where: { video_private_id: videoPrivateId },
+			where: { video_id: videoId },
 		})
 
 		return res.count
 	}
-
-	/*@CatchDbError()
-	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
-		const res = await this.prisma.sentence.deleteMany({
-			where: { video_public_id: videoPublicId },
-		})
-
-		return res.count
-	}*/
 
 	@CatchDbError()
 	async getNeighborSentences(input: {
 		sentenceId: number
 		orderIndex: number
 		bookChapterId: null | number
-		videoPrivateId: null | number
-		videoPublicId: null | number
+		videoId: null | number
 		beforeSentences: number
 		afterSentences: number
 	}) {
 		const parentFilter: {
 			book_chapter_id?: number
-			video_private_id?: number
-			video_public_id?: number
+			video_id?: number
 		} = {}
 
 		if (input.bookChapterId !== null) parentFilter.book_chapter_id = input.bookChapterId
-		else if (input.videoPrivateId !== null) parentFilter.video_private_id = input.videoPrivateId
-		else if (input.videoPublicId !== null) parentFilter.video_public_id = input.videoPublicId
+		else if (input.videoId !== null) parentFilter.video_id = input.videoId
 
 		return this.prisma.sentence.findMany({
 			where: {

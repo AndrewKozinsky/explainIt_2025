@@ -57,24 +57,12 @@ export type universalPhraseControllerGetUniversalPhraseResponse200 = {
   status: 200
 }
 
-export type universalPhraseControllerGetUniversalPhraseResponse400 = {
-  data: void
-  status: 400
-}
-
-export type universalPhraseControllerGetUniversalPhraseResponse500 = {
-  data: void
-  status: 500
-}
-
 export type universalPhraseControllerGetUniversalPhraseResponseSuccess = (universalPhraseControllerGetUniversalPhraseResponse200) & {
   headers: Headers;
 };
-export type universalPhraseControllerGetUniversalPhraseResponseError = (universalPhraseControllerGetUniversalPhraseResponse400 | universalPhraseControllerGetUniversalPhraseResponse500) & {
-  headers: Headers;
-};
+;
 
-export type universalPhraseControllerGetUniversalPhraseResponse = (universalPhraseControllerGetUniversalPhraseResponseSuccess | universalPhraseControllerGetUniversalPhraseResponseError)
+export type universalPhraseControllerGetUniversalPhraseResponse = (universalPhraseControllerGetUniversalPhraseResponseSuccess)
 
 export const getUniversalPhraseControllerGetUniversalPhraseUrl = (params: UniversalPhraseControllerGetUniversalPhraseParams,) => {
   const normalizedParams = new URLSearchParams();
@@ -117,7 +105,7 @@ export const getUniversalPhraseControllerGetUniversalPhraseQueryKey = (params?: 
     }
 
 
-export const getUniversalPhraseControllerGetUniversalPhraseQueryOptions = <TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = void>(params: UniversalPhraseControllerGetUniversalPhraseParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getUniversalPhraseControllerGetUniversalPhraseQueryOptions = <TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = unknown>(params: UniversalPhraseControllerGetUniversalPhraseParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
@@ -136,10 +124,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type UniversalPhraseControllerGetUniversalPhraseQueryResult = NonNullable<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>>
-export type UniversalPhraseControllerGetUniversalPhraseQueryError = void
+export type UniversalPhraseControllerGetUniversalPhraseQueryError = unknown
 
 
-export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = void>(
+export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = unknown>(
  params: UniversalPhraseControllerGetUniversalPhraseParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>,
@@ -149,7 +137,7 @@ export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<R
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = void>(
+export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = unknown>(
  params: UniversalPhraseControllerGetUniversalPhraseParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>,
@@ -159,7 +147,7 @@ export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<R
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = void>(
+export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = unknown>(
  params: UniversalPhraseControllerGetUniversalPhraseParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
@@ -167,7 +155,7 @@ export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<R
  * @summary Get universal phrase
  */
 
-export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = void>(
+export function useUniversalPhraseControllerGetUniversalPhrase<TData = Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError = unknown>(
  params: UniversalPhraseControllerGetUniversalPhraseParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseControllerGetUniversalPhrase>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
@@ -189,24 +177,12 @@ export type universalPhraseControllerCreateUniversalPhraseResponse201 = {
   status: 201
 }
 
-export type universalPhraseControllerCreateUniversalPhraseResponse400 = {
-  data: void
-  status: 400
-}
-
-export type universalPhraseControllerCreateUniversalPhraseResponse500 = {
-  data: void
-  status: 500
-}
-
 export type universalPhraseControllerCreateUniversalPhraseResponseSuccess = (universalPhraseControllerCreateUniversalPhraseResponse201) & {
   headers: Headers;
 };
-export type universalPhraseControllerCreateUniversalPhraseResponseError = (universalPhraseControllerCreateUniversalPhraseResponse400 | universalPhraseControllerCreateUniversalPhraseResponse500) & {
-  headers: Headers;
-};
+;
 
-export type universalPhraseControllerCreateUniversalPhraseResponse = (universalPhraseControllerCreateUniversalPhraseResponseSuccess | universalPhraseControllerCreateUniversalPhraseResponseError)
+export type universalPhraseControllerCreateUniversalPhraseResponse = (universalPhraseControllerCreateUniversalPhraseResponseSuccess)
 
 export const getUniversalPhraseControllerCreateUniversalPhraseUrl = () => {
 
@@ -235,7 +211,7 @@ export const universalPhraseControllerCreateUniversalPhrase = async (createUnive
 
 
 
-export const getUniversalPhraseControllerCreateUniversalPhraseMutationOptions = <TError = void,
+export const getUniversalPhraseControllerCreateUniversalPhraseMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseControllerCreateUniversalPhrase>>, TError,{data: CreateUniversalPhraseInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof universalPhraseControllerCreateUniversalPhrase>>, TError,{data: CreateUniversalPhraseInput}, TContext> => {
 
@@ -264,12 +240,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type UniversalPhraseControllerCreateUniversalPhraseMutationResult = NonNullable<Awaited<ReturnType<typeof universalPhraseControllerCreateUniversalPhrase>>>
     export type UniversalPhraseControllerCreateUniversalPhraseMutationBody = CreateUniversalPhraseInput
-    export type UniversalPhraseControllerCreateUniversalPhraseMutationError = void
+    export type UniversalPhraseControllerCreateUniversalPhraseMutationError = unknown
 
     /**
  * @summary Create universal phrase
  */
-export const useUniversalPhraseControllerCreateUniversalPhrase = <TError = void,
+export const useUniversalPhraseControllerCreateUniversalPhrase = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseControllerCreateUniversalPhrase>>, TError,{data: CreateUniversalPhraseInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof universalPhraseControllerCreateUniversalPhrase>>,

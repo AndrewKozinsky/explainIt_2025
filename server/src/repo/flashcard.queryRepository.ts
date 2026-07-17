@@ -101,10 +101,8 @@ export class FlashcardQueryRepository {
 			phraseTranslation: db.phrase_translation,
 			phraseTranscription,
 			examples: this.decodeExamples(db.examples),
-			bookPrivateId: db.book_private_id,
-			bookPublicId: db.book_public_id,
-			videoPrivateId: db.video_private_id,
-			videoPublicId: db.video_public_id,
+			bookId: db.book_id,
+			videoId: db.video_id,
 			sentencePhraseTranslationId: db.sentence_phrase_translation_id,
 			createdAt: db.created_at.toISOString(),
 		}

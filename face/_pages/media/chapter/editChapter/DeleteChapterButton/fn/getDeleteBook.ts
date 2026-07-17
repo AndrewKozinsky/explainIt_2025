@@ -1,13 +1,13 @@
-import { useCallback, useContext, useState } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
-import { useRouter } from '@/i18n/routing'
-import { useBookChapterControllerDeleteBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
-import { getBookPrivateControllerGetUserBooksQueryKey } from '@/shared/api/generated/book-private/book-private'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
-import { useChapterStore } from '_pages/media/chapter/chapterStore'
+// import { useCallback, useContext, useState } from 'react'
+// import { useQueryClient } from '@tanstack/react-query'
+// import { useRouter } from '@/i18n/routing'
+// import { getBookControllerGetBooksQueryKey } from '@/shared/api/generated/book/book'
+// import { useBookChapterControllerDeleteBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { pageUrls } from '@/utils/pageUrls'
+// import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
-export function useGetDeleteBook() {
+/*export function useGetDeleteBook() {
 	const { notify } = useContext(NotificationContext)
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
@@ -18,10 +18,10 @@ export function useGetDeleteBook() {
 	const onDeleteChapterClick = useCallback(
 		async function () {
 			// Read fresh values from the store to avoid stale closures
-			const { chapter, privateBook } = useChapterStore.getState()
-			if (!chapter.data || !privateBook.data) return
+			const { chapter, book } = useChapterStore.getState()
+			if (!chapter.data || !book.data) return
 
-			const bookId = privateBook.data.id
+			const bookId = book.data.id
 			const chapterId = chapter.data.id
 
 			setStatus('loading')
@@ -29,12 +29,11 @@ export function useGetDeleteBook() {
 			try {
 				await deleteChapter({ id: chapterId })
 
-				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+				queryClient.invalidateQueries({ queryKey: getBookControllerGetBooksQueryKey() })
 
 				setStatus('idle')
 
-				const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-				router.push(pageUrls.books.book(bookIdInUrl).path)
+				router.push(pageUrls.books.book(bookId).path)
 			} catch {
 				notify({
 					type: 'error',
@@ -50,4 +49,4 @@ export function useGetDeleteBook() {
 		status,
 		onDeleteChapterClick,
 	}
-}
+}*/

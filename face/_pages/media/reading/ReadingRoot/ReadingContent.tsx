@@ -1,8 +1,8 @@
-import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
-import ChapterContent from '../ChapterContent/ChapterContent'
-import ReadingNavigation from '../ReadingNavigation/ReadingNavigation'
+// import DetailsBlock from '_pages/media/detailsBlock/DetailsBlock/DetailsBlock'
+// import ChapterContent from '../ChapterContent/ChapterContent'
+// import ReadingNavigation from '../ReadingNavigation/ReadingNavigation'
 
-function ReadingContent() {
+/*function ReadingContent() {
 	return (
 		<>
 			<div className='reading-root__content'>
@@ -14,6 +14,6 @@ function ReadingContent() {
 			<ReadingNavigation />
 		</>
 	)
-}
+}*/
 
-export default ReadingContent
+// export default ReadingContent

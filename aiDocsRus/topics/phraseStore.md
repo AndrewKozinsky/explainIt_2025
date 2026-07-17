@@ -18,7 +18,7 @@
 ```
 face/stores/phraseStore/
 ├── index.ts          — barrel, реэкспортирует публичное API
-├── types.ts          — все типы
+├── BooksRepository.ts          — все типы
 ├── helpers.ts        — утилита makePhraseKey
 └── phraseStore.ts    — Zustand-стор: resolvePhrase, ensureTranscription, ensureAudio, preload + все dedup-мапы
 ```
@@ -155,7 +155,7 @@ usePhraseStore.getState().preload(preloadItems)
 ### Стор
 - `face/stores/phraseStore/index.ts` — barrel: `usePhraseStore`, `makePhraseKey`, типы
 - `face/stores/phraseStore/phraseStore.ts` — Zustand-стор: `resolvePhrase`, `preload`, `ensureTranscription`, `ensureAudio`, `get` + dedup-мапы
-- `face/stores/phraseStore/types.ts` — `EntryData`, `PreloadItem`, `PhraseData`, `PhraseResult`, `PhraseStore`
+- `face/stores/phraseStore/BooksRepository.ts` — `EntryData`, `PreloadItem`, `PhraseData`, `PhraseResult`, `PhraseStore`
 - `face/stores/phraseStore/helpers.ts` — `makePhraseKey`
 
 ### UI-хуки

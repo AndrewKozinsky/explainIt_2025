@@ -18,7 +18,7 @@
 export class YandexTranslateService {
 	constructor(private mainConfig: MainConfigService) {}
 
-	async translateText(input: TranslateTextInput): Promise<TranslateTextResult> {
+	async translateText(inputs: TranslateTextInput): Promise<TranslateTextResult> {
 		const secretKey = this.mainConfig.get().yandexCloud.translate.secretKey
 		const folderId = this.mainConfig.get().yandexCloud.translate.folderId
 
@@ -26,8 +26,8 @@ export class YandexTranslateService {
 			const response = await axios.post<YandexTranslateApiResponse>(
 				'https://translate.api.cloud.yandex.net/translate/v2/translate',
 				{
-					texts: [input.text],
-					sourceLanguageCode: input.sourceLanguageCode,
+					texts: [inputs.text],
+					sourceLanguageCode: inputs.sourceLanguageCode,
 					folderId,
 				},
 				{
@@ -62,14 +62,14 @@ export class YandexTranslateService {
 }*/
 
 /*export interface YandexTranslateServiceI {
-	translateText(input: TranslateTextInput): Promise<TranslateTextResult>
+	translateText(inputs: TranslateTextInput): Promise<TranslateTextResult>
 }*/
 
 /*@Injectable()
 export class YandexTranslateServiceMock implements YandexTranslateServiceI {
-	async translateText(input: TranslateTextInput): Promise<TranslateTextResult> {
+	async translateText(inputs: TranslateTextInput): Promise<TranslateTextResult> {
 		return {
-			translatedText: input.text,
+			translatedText: inputs.text,
 		}
 	}
 }*/

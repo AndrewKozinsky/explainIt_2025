@@ -1,12 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
+import { DeleteBookChapterInput } from 'routes/bookChapter/inputs/deleteBookChapter.input'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-
-type DeleteBookChapterInput = {
-	id: number
-}
 
 export class DeleteBookChapterCommand implements ICommand {
 	constructor(
@@ -23,7 +20,6 @@ export class DeleteBookChapterHandler implements ICommandHandler<DeleteBookChapt
 		const { userId, deleteBookChapterInput } = command
 
 		const bookChapter = await this.bookChapterRepository.getBookChapter({
-			bookType: 'private',
 			id: deleteBookChapterInput.id,
 		})
 		if (!bookChapter) {

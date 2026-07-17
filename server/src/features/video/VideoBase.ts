@@ -10,7 +10,7 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { dryText, removeAlignmentTags, removeBOM, removeItalicTags, removeLeadingDashes } from '../mediaCommon'
 
-type FileDestinationType = 'privateVideo' | 'publicVideo'
+type FileDestinationType = 'video'
 type VideoTextContentType = 'text' | 'subtitles'
 
 export class VideoBase {
@@ -237,7 +237,6 @@ export class VideoBase {
 	}
 
 	protected async saveSubtitlesSentencesAndInit(dto: {
-		videoType: 'private' | 'public'
 		videoId: number
 		preparedContent: string
 		languageCode: Language
@@ -278,8 +277,7 @@ export class VideoBase {
 				startOffset,
 				length: sentenceText.length,
 				orderIndex: i,
-				videoPrivateId: dto.videoType === 'private' ? dto.videoId : undefined,
-				videoPublicId: dto.videoType === 'public' ? dto.videoId : undefined,
+				videoId: dto.videoId,
 			})
 
 			sentenceRanges.push({
@@ -300,8 +298,7 @@ export class VideoBase {
 				orderIndex: subtitle.orderIndex,
 				startOffset: subtitle.startOffset,
 				length: subtitle.length,
-				videoPrivateId: dto.videoType === 'private' ? dto.videoId : undefined,
-				videoPublicId: dto.videoType === 'public' ? dto.videoId : undefined,
+				videoId: dto.videoId,
 			})
 
 			const subtitleStart = subtitle.startOffset

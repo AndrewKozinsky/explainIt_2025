@@ -84,7 +84,7 @@ export class MainConfigService {
 				},
 			},
 			gemini: {
-				// Цены Google Gemini 2.5 Flash (public pricing): $0.30 / 1M input, $2.50 / 1M output.
+				// Цены Google Gemini 2.5 Flash (public pricing): $0.30 / 1M inputs, $2.50 / 1M output.
 				priceInRub: {
 					input: (oneDollarInRub * 0.3) / 1_000_000,
 					output: (oneDollarInRub * 2.5) / 1_000_000,

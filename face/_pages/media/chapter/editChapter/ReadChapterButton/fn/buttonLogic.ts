@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react'
-import { redirect } from 'next/navigation'
-import { useLocale } from 'next-intl'
-import { createMediaIdUrl, pageUrls, localizePath } from '@/utils/pageUrls'
-import { useChapterStore } from '_pages/media/chapter/chapterStore'
+// import { useCallback, useEffect, useState } from 'react'
+// import { redirect } from 'next/navigation'
+// import { useLocale } from 'next-intl'
+// import { pageUrls, localizePath } from '@/utils/pageUrls'
+// import { useChapterStore } from '_pages/media/chapter/chapterStore'
 
-export function useIsReadButtonDisabled() {
+/*export function useIsReadButtonDisabled() {
 	const chapter = useChapterStore((s) => s.chapter)
 	const [isReadButtonDisabled, setIsReadButtonDisabled] = useState(true)
 
@@ -18,10 +18,10 @@ export function useIsReadButtonDisabled() {
 	)
 
 	return isReadButtonDisabled
-}
+}*/
 
-export function useGetOnReadButtonClick() {
-	const book = useChapterStore((s) => s.privateBook.data)
+/*export function useGetOnReadButtonClick() {
+	const book = useChapterStore((s) => s.book.data)
 	const chapter = useChapterStore((s) => s.chapter)
 	const locale = useLocale()
 
@@ -30,9 +30,8 @@ export function useGetOnReadButtonClick() {
 			if (!book) return
 			if (!chapter.data) return
 
-			const bookIdInUrl = createMediaIdUrl(book.id, 'private')
-			redirect(localizePath(locale, pageUrls.books.book(bookIdInUrl).chapter(chapter.data.id).reading.path))
+			redirect(localizePath(locale, pageUrls.books.book(book.id).chapter(chapter.data.id).reading.path))
 		},
 		[book, chapter, locale],
 	)
-}
+}*/

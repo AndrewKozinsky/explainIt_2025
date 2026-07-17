@@ -1,12 +1,12 @@
-import { useRouter } from '@/i18n/routing'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/ActionButtonIcon'
+// import { useRouter } from '@/i18n/routing'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/ActionButtonIcon'
 
-type PublicBookInfoActionsProps = {
+/*type PublicBookInfoActionsProps = {
 	videoUrl: string
-}
+}*/
 
-function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
+/*function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 	const { videoUrl } = props
 
 	const router = useRouter()
@@ -23,6 +23,6 @@ function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 			</Button>
 		</div>
 	)
-}
+}*/
 
-export default PublicBookInfoActions
+// export default PublicBookInfoActions

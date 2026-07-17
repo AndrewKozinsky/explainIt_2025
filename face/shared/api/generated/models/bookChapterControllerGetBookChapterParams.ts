@@ -5,12 +5,12 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { BookChapterControllerGetBookChapterBookType } from './bookChapterControllerGetBookChapterBookType';
 
 export type BookChapterControllerGetBookChapterParams = {
 /**
- * Book type: public or private
+ * Book ID
+ * @minimum 1
  */
-bookType: BookChapterControllerGetBookChapterBookType;
+bookType: string;
 targetLanguageCode?: string | null;
 };

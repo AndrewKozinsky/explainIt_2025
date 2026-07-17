@@ -25,11 +25,11 @@ import type {
 } from '@tanstack/react-query';
 
 import type {
-  ConfirmEmailDto,
-  LoginDto,
-  LoginWithOAuthDto,
-  RegisterDto,
-  ResendConfirmationEmailDto,
+  ConfirmEmailInput,
+  LoginInput,
+  LoginWithOAuthInput,
+  RegisterUserInput,
+  ResendConfirmationEmailInput,
   UserOutModel
 } from '../models';
 
@@ -60,34 +60,12 @@ export type authControllerLoginResponse200 = {
   status: 200
 }
 
-export type authControllerLoginResponse400 = {
-  data: void
-  status: 400
-}
-
-export type authControllerLoginResponse403 = {
-  data: void
-  status: 403
-}
-
-export type authControllerLoginResponse404 = {
-  data: void
-  status: 404
-}
-
-export type authControllerLoginResponse500 = {
-  data: void
-  status: 500
-}
-
 export type authControllerLoginResponseSuccess = (authControllerLoginResponse200) & {
   headers: Headers;
 };
-export type authControllerLoginResponseError = (authControllerLoginResponse400 | authControllerLoginResponse403 | authControllerLoginResponse404 | authControllerLoginResponse500) & {
-  headers: Headers;
-};
+;
 
-export type authControllerLoginResponse = (authControllerLoginResponseSuccess | authControllerLoginResponseError)
+export type authControllerLoginResponse = (authControllerLoginResponseSuccess)
 
 export const getAuthControllerLoginUrl = () => {
 
@@ -101,14 +79,14 @@ export const getAuthControllerLoginUrl = () => {
  * Authenticates a user with email and password. On success, sets a session cookie.
  * @summary User login
  */
-export const authControllerLogin = async (loginDto: LoginDto, options?: RequestInit): Promise<authControllerLoginResponse> => {
+export const authControllerLogin = async (loginInput: LoginInput, options?: RequestInit): Promise<authControllerLoginResponse> => {
 
   return customMutator<authControllerLoginResponse>(getAuthControllerLoginUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(loginDto)
+    body: JSON.stringify(loginInput)
   }
 );}
 
@@ -116,9 +94,9 @@ export const authControllerLogin = async (loginDto: LoginDto, options?: RequestI
 
 
 
-export const getAuthControllerLoginMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLogin>>, TError,{data: LoginDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof authControllerLogin>>, TError,{data: LoginDto}, TContext> => {
+export const getAuthControllerLoginMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLogin>>, TError,{data: LoginInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof authControllerLogin>>, TError,{data: LoginInput}, TContext> => {
 
 const mutationKey = ['authControllerLogin'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -130,7 +108,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerLogin>>, {data: LoginDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerLogin>>, {data: LoginInput}> = (props) => {
           const {data} = props ?? {};
 
           return  authControllerLogin(data,requestOptions)
@@ -144,18 +122,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type AuthControllerLoginMutationResult = NonNullable<Awaited<ReturnType<typeof authControllerLogin>>>
-    export type AuthControllerLoginMutationBody = LoginDto
-    export type AuthControllerLoginMutationError = void
+    export type AuthControllerLoginMutationBody = LoginInput
+    export type AuthControllerLoginMutationError = unknown
 
     /**
  * @summary User login
  */
-export const useAuthControllerLogin = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLogin>>, TError,{data: LoginDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useAuthControllerLogin = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLogin>>, TError,{data: LoginInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof authControllerLogin>>,
         TError,
-        {data: LoginDto},
+        {data: LoginInput},
         TContext
       > => {
       return useMutation(getAuthControllerLoginMutationOptions(options), queryClient);
@@ -165,24 +143,12 @@ export const useAuthControllerLogin = <TError = void,
   status: 201
 }
 
-export type authControllerRegisterResponse400 = {
-  data: void
-  status: 400
-}
-
-export type authControllerRegisterResponse500 = {
-  data: void
-  status: 500
-}
-
 export type authControllerRegisterResponseSuccess = (authControllerRegisterResponse201) & {
   headers: Headers;
 };
-export type authControllerRegisterResponseError = (authControllerRegisterResponse400 | authControllerRegisterResponse500) & {
-  headers: Headers;
-};
+;
 
-export type authControllerRegisterResponse = (authControllerRegisterResponseSuccess | authControllerRegisterResponseError)
+export type authControllerRegisterResponse = (authControllerRegisterResponseSuccess)
 
 export const getAuthControllerRegisterUrl = () => {
 
@@ -194,19 +160,16 @@ export const getAuthControllerRegisterUrl = () => {
 
 /**
  * Register a user with email and password.
- * Possible errors:
- * **EMAIL_IS_NOT_CONFIRMED** — the user is already registered, but didn't confirm their email.
- * **EMAIL_IS_ALREADY_REGISTERED** — the user is already registered and confirmed their email.
  * @summary Register
  */
-export const authControllerRegister = async (registerDto: RegisterDto, options?: RequestInit): Promise<authControllerRegisterResponse> => {
+export const authControllerRegister = async (registerUserInput: RegisterUserInput, options?: RequestInit): Promise<authControllerRegisterResponse> => {
 
   return customMutator<authControllerRegisterResponse>(getAuthControllerRegisterUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(registerDto)
+    body: JSON.stringify(registerUserInput)
   }
 );}
 
@@ -214,9 +177,9 @@ export const authControllerRegister = async (registerDto: RegisterDto, options?:
 
 
 
-export const getAuthControllerRegisterMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerRegister>>, TError,{data: RegisterDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof authControllerRegister>>, TError,{data: RegisterDto}, TContext> => {
+export const getAuthControllerRegisterMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerRegister>>, TError,{data: RegisterUserInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof authControllerRegister>>, TError,{data: RegisterUserInput}, TContext> => {
 
 const mutationKey = ['authControllerRegister'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -228,7 +191,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerRegister>>, {data: RegisterDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerRegister>>, {data: RegisterUserInput}> = (props) => {
           const {data} = props ?? {};
 
           return  authControllerRegister(data,requestOptions)
@@ -242,18 +205,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type AuthControllerRegisterMutationResult = NonNullable<Awaited<ReturnType<typeof authControllerRegister>>>
-    export type AuthControllerRegisterMutationBody = RegisterDto
-    export type AuthControllerRegisterMutationError = void
+    export type AuthControllerRegisterMutationBody = RegisterUserInput
+    export type AuthControllerRegisterMutationError = unknown
 
     /**
  * @summary Register
  */
-export const useAuthControllerRegister = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerRegister>>, TError,{data: RegisterDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useAuthControllerRegister = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerRegister>>, TError,{data: RegisterUserInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof authControllerRegister>>,
         TError,
-        {data: RegisterDto},
+        {data: RegisterUserInput},
         TContext
       > => {
       return useMutation(getAuthControllerRegisterMutationOptions(options), queryClient);
@@ -263,24 +226,12 @@ export const useAuthControllerRegister = <TError = void,
   status: 200
 }
 
-export type authControllerConfirmEmailResponse400 = {
-  data: void
-  status: 400
-}
-
-export type authControllerConfirmEmailResponse500 = {
-  data: void
-  status: 500
-}
-
 export type authControllerConfirmEmailResponseSuccess = (authControllerConfirmEmailResponse200) & {
   headers: Headers;
 };
-export type authControllerConfirmEmailResponseError = (authControllerConfirmEmailResponse400 | authControllerConfirmEmailResponse500) & {
-  headers: Headers;
-};
+;
 
-export type authControllerConfirmEmailResponse = (authControllerConfirmEmailResponseSuccess | authControllerConfirmEmailResponseError)
+export type authControllerConfirmEmailResponse = (authControllerConfirmEmailResponseSuccess)
 
 export const getAuthControllerConfirmEmailUrl = () => {
 
@@ -294,14 +245,14 @@ export const getAuthControllerConfirmEmailUrl = () => {
  * Confirms user email using the confirmation code sent after registration.
  * @summary Confirm email
  */
-export const authControllerConfirmEmail = async (confirmEmailDto: ConfirmEmailDto, options?: RequestInit): Promise<authControllerConfirmEmailResponse> => {
+export const authControllerConfirmEmail = async (confirmEmailInput: ConfirmEmailInput, options?: RequestInit): Promise<authControllerConfirmEmailResponse> => {
 
   return customMutator<authControllerConfirmEmailResponse>(getAuthControllerConfirmEmailUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(confirmEmailDto)
+    body: JSON.stringify(confirmEmailInput)
   }
 );}
 
@@ -309,9 +260,9 @@ export const authControllerConfirmEmail = async (confirmEmailDto: ConfirmEmailDt
 
 
 
-export const getAuthControllerConfirmEmailMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerConfirmEmail>>, TError,{data: ConfirmEmailDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof authControllerConfirmEmail>>, TError,{data: ConfirmEmailDto}, TContext> => {
+export const getAuthControllerConfirmEmailMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerConfirmEmail>>, TError,{data: ConfirmEmailInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof authControllerConfirmEmail>>, TError,{data: ConfirmEmailInput}, TContext> => {
 
 const mutationKey = ['authControllerConfirmEmail'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -323,7 +274,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerConfirmEmail>>, {data: ConfirmEmailDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerConfirmEmail>>, {data: ConfirmEmailInput}> = (props) => {
           const {data} = props ?? {};
 
           return  authControllerConfirmEmail(data,requestOptions)
@@ -337,18 +288,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type AuthControllerConfirmEmailMutationResult = NonNullable<Awaited<ReturnType<typeof authControllerConfirmEmail>>>
-    export type AuthControllerConfirmEmailMutationBody = ConfirmEmailDto
-    export type AuthControllerConfirmEmailMutationError = void
+    export type AuthControllerConfirmEmailMutationBody = ConfirmEmailInput
+    export type AuthControllerConfirmEmailMutationError = unknown
 
     /**
  * @summary Confirm email
  */
-export const useAuthControllerConfirmEmail = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerConfirmEmail>>, TError,{data: ConfirmEmailDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useAuthControllerConfirmEmail = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerConfirmEmail>>, TError,{data: ConfirmEmailInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof authControllerConfirmEmail>>,
         TError,
-        {data: ConfirmEmailDto},
+        {data: ConfirmEmailInput},
         TContext
       > => {
       return useMutation(getAuthControllerConfirmEmailMutationOptions(options), queryClient);
@@ -358,19 +309,12 @@ export const useAuthControllerConfirmEmail = <TError = void,
   status: 200
 }
 
-export type authControllerResendConfirmationEmailResponse400 = {
-  data: void
-  status: 400
-}
-
 export type authControllerResendConfirmationEmailResponseSuccess = (authControllerResendConfirmationEmailResponse200) & {
   headers: Headers;
 };
-export type authControllerResendConfirmationEmailResponseError = (authControllerResendConfirmationEmailResponse400) & {
-  headers: Headers;
-};
+;
 
-export type authControllerResendConfirmationEmailResponse = (authControllerResendConfirmationEmailResponseSuccess | authControllerResendConfirmationEmailResponseError)
+export type authControllerResendConfirmationEmailResponse = (authControllerResendConfirmationEmailResponseSuccess)
 
 export const getAuthControllerResendConfirmationEmailUrl = () => {
 
@@ -384,14 +328,14 @@ export const getAuthControllerResendConfirmationEmailUrl = () => {
  * Resends the email confirmation message to the specified email address.
  * @summary Resend confirmation email
  */
-export const authControllerResendConfirmationEmail = async (resendConfirmationEmailDto: ResendConfirmationEmailDto, options?: RequestInit): Promise<authControllerResendConfirmationEmailResponse> => {
+export const authControllerResendConfirmationEmail = async (resendConfirmationEmailInput: ResendConfirmationEmailInput, options?: RequestInit): Promise<authControllerResendConfirmationEmailResponse> => {
 
   return customMutator<authControllerResendConfirmationEmailResponse>(getAuthControllerResendConfirmationEmailUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(resendConfirmationEmailDto)
+    body: JSON.stringify(resendConfirmationEmailInput)
   }
 );}
 
@@ -399,9 +343,9 @@ export const authControllerResendConfirmationEmail = async (resendConfirmationEm
 
 
 
-export const getAuthControllerResendConfirmationEmailMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, TError,{data: ResendConfirmationEmailDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, TError,{data: ResendConfirmationEmailDto}, TContext> => {
+export const getAuthControllerResendConfirmationEmailMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, TError,{data: ResendConfirmationEmailInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, TError,{data: ResendConfirmationEmailInput}, TContext> => {
 
 const mutationKey = ['authControllerResendConfirmationEmail'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -413,7 +357,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, {data: ResendConfirmationEmailDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, {data: ResendConfirmationEmailInput}> = (props) => {
           const {data} = props ?? {};
 
           return  authControllerResendConfirmationEmail(data,requestOptions)
@@ -427,18 +371,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type AuthControllerResendConfirmationEmailMutationResult = NonNullable<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>>
-    export type AuthControllerResendConfirmationEmailMutationBody = ResendConfirmationEmailDto
-    export type AuthControllerResendConfirmationEmailMutationError = void
+    export type AuthControllerResendConfirmationEmailMutationBody = ResendConfirmationEmailInput
+    export type AuthControllerResendConfirmationEmailMutationError = unknown
 
     /**
  * @summary Resend confirmation email
  */
-export const useAuthControllerResendConfirmationEmail = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, TError,{data: ResendConfirmationEmailDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useAuthControllerResendConfirmationEmail = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>, TError,{data: ResendConfirmationEmailInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof authControllerResendConfirmationEmail>>,
         TError,
-        {data: ResendConfirmationEmailDto},
+        {data: ResendConfirmationEmailInput},
         TContext
       > => {
       return useMutation(getAuthControllerResendConfirmationEmailMutationOptions(options), queryClient);
@@ -448,24 +392,12 @@ export const useAuthControllerResendConfirmationEmail = <TError = void,
   status: 200
 }
 
-export type authControllerLogoutResponse401 = {
-  data: void
-  status: 401
-}
-
-export type authControllerLogoutResponse500 = {
-  data: void
-  status: 500
-}
-
 export type authControllerLogoutResponseSuccess = (authControllerLogoutResponse200) & {
   headers: Headers;
 };
-export type authControllerLogoutResponseError = (authControllerLogoutResponse401 | authControllerLogoutResponse500) & {
-  headers: Headers;
-};
+;
 
-export type authControllerLogoutResponse = (authControllerLogoutResponseSuccess | authControllerLogoutResponseError)
+export type authControllerLogoutResponse = (authControllerLogoutResponseSuccess)
 
 export const getAuthControllerLogoutUrl = () => {
 
@@ -494,7 +426,7 @@ export const authControllerLogout = async ( options?: RequestInit): Promise<auth
 
 
 
-export const getAuthControllerLogoutMutationOptions = <TError = void,
+export const getAuthControllerLogoutMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLogout>>, TError,void, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof authControllerLogout>>, TError,void, TContext> => {
 
@@ -523,12 +455,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type AuthControllerLogoutMutationResult = NonNullable<Awaited<ReturnType<typeof authControllerLogout>>>
 
-    export type AuthControllerLogoutMutationError = void
+    export type AuthControllerLogoutMutationError = unknown
 
     /**
  * @summary Logout
  */
-export const useAuthControllerLogout = <TError = void,
+export const useAuthControllerLogout = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLogout>>, TError,void, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof authControllerLogout>>,
@@ -543,19 +475,12 @@ export const useAuthControllerLogout = <TError = void,
   status: 200
 }
 
-export type authControllerGetMeResponse401 = {
-  data: void
-  status: 401
-}
-
 export type authControllerGetMeResponseSuccess = (authControllerGetMeResponse200) & {
   headers: Headers;
 };
-export type authControllerGetMeResponseError = (authControllerGetMeResponse401) & {
-  headers: Headers;
-};
+;
 
-export type authControllerGetMeResponse = (authControllerGetMeResponseSuccess | authControllerGetMeResponseError)
+export type authControllerGetMeResponse = (authControllerGetMeResponseSuccess)
 
 export const getAuthControllerGetMeUrl = () => {
 
@@ -591,7 +516,7 @@ export const getAuthControllerGetMeQueryKey = () => {
     }
 
 
-export const getAuthControllerGetMeQueryOptions = <TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = void>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof authControllerGetMe>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getAuthControllerGetMeQueryOptions = <TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = unknown>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof authControllerGetMe>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
@@ -610,10 +535,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type AuthControllerGetMeQueryResult = NonNullable<Awaited<ReturnType<typeof authControllerGetMe>>>
-export type AuthControllerGetMeQueryError = void
+export type AuthControllerGetMeQueryError = unknown
 
 
-export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = void>(
+export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = unknown>(
   options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof authControllerGetMe>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof authControllerGetMe>>,
@@ -623,7 +548,7 @@ export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authCon
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = void>(
+export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = unknown>(
   options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof authControllerGetMe>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof authControllerGetMe>>,
@@ -633,7 +558,7 @@ export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authCon
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = void>(
+export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = unknown>(
   options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof authControllerGetMe>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
@@ -641,7 +566,7 @@ export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authCon
  * @summary Get current user
  */
 
-export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = void>(
+export function useAuthControllerGetMe<TData = Awaited<ReturnType<typeof authControllerGetMe>>, TError = unknown>(
   options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof authControllerGetMe>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
@@ -663,24 +588,12 @@ export type authControllerLoginWithOAuthResponse200 = {
   status: 200
 }
 
-export type authControllerLoginWithOAuthResponse400 = {
-  data: void
-  status: 400
-}
-
-export type authControllerLoginWithOAuthResponse500 = {
-  data: void
-  status: 500
-}
-
 export type authControllerLoginWithOAuthResponseSuccess = (authControllerLoginWithOAuthResponse200) & {
   headers: Headers;
 };
-export type authControllerLoginWithOAuthResponseError = (authControllerLoginWithOAuthResponse400 | authControllerLoginWithOAuthResponse500) & {
-  headers: Headers;
-};
+;
 
-export type authControllerLoginWithOAuthResponse = (authControllerLoginWithOAuthResponseSuccess | authControllerLoginWithOAuthResponseError)
+export type authControllerLoginWithOAuthResponse = (authControllerLoginWithOAuthResponseSuccess)
 
 export const getAuthControllerLoginWithOAuthUrl = () => {
 
@@ -694,14 +607,14 @@ export const getAuthControllerLoginWithOAuthUrl = () => {
  * Authenticates a user via OAuth provider (github, google, yandex). On success, sets a session cookie.
  * @summary OAuth login
  */
-export const authControllerLoginWithOAuth = async (loginWithOAuthDto: LoginWithOAuthDto, options?: RequestInit): Promise<authControllerLoginWithOAuthResponse> => {
+export const authControllerLoginWithOAuth = async (loginWithOAuthInput: LoginWithOAuthInput, options?: RequestInit): Promise<authControllerLoginWithOAuthResponse> => {
 
   return customMutator<authControllerLoginWithOAuthResponse>(getAuthControllerLoginWithOAuthUrl(),
   {
     ...options,
     method: 'POST',
     headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(loginWithOAuthDto)
+    body: JSON.stringify(loginWithOAuthInput)
   }
 );}
 
@@ -709,9 +622,9 @@ export const authControllerLoginWithOAuth = async (loginWithOAuthDto: LoginWithO
 
 
 
-export const getAuthControllerLoginWithOAuthMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, TError,{data: LoginWithOAuthDto}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, TError,{data: LoginWithOAuthDto}, TContext> => {
+export const getAuthControllerLoginWithOAuthMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, TError,{data: LoginWithOAuthInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, TError,{data: LoginWithOAuthInput}, TContext> => {
 
 const mutationKey = ['authControllerLoginWithOAuth'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -723,7 +636,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, {data: LoginWithOAuthDto}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, {data: LoginWithOAuthInput}> = (props) => {
           const {data} = props ?? {};
 
           return  authControllerLoginWithOAuth(data,requestOptions)
@@ -737,18 +650,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type AuthControllerLoginWithOAuthMutationResult = NonNullable<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>>
-    export type AuthControllerLoginWithOAuthMutationBody = LoginWithOAuthDto
-    export type AuthControllerLoginWithOAuthMutationError = void
+    export type AuthControllerLoginWithOAuthMutationBody = LoginWithOAuthInput
+    export type AuthControllerLoginWithOAuthMutationError = unknown
 
     /**
  * @summary OAuth login
  */
-export const useAuthControllerLoginWithOAuth = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, TError,{data: LoginWithOAuthDto}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useAuthControllerLoginWithOAuth = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof authControllerLoginWithOAuth>>, TError,{data: LoginWithOAuthInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof authControllerLoginWithOAuth>>,
         TError,
-        {data: LoginWithOAuthDto},
+        {data: LoginWithOAuthInput},
         TContext
       > => {
       return useMutation(getAuthControllerLoginWithOAuthMutationOptions(options), queryClient);

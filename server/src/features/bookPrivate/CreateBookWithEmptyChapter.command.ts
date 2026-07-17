@@ -1,9 +1,9 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
+import { BookQueryRepository } from 'repo/book/book.queryRepository'
 import { Language } from 'utils/languages'
-import { BookPrivateOutModel } from 'models/book/book.out.model'
+import { BookOutModel } from 'models/book/book.out.model'
 import { CreateBookChapterCommand } from '../bookChapter/CreateBookChapter.command'
-import { CreateBookCommand } from './CreateBook.command'
+import { CreatePrivateBookCommand } from './CreatePrivateBook.command'
 
 type CreateBookInput = {
 	author?: null | string
@@ -23,16 +23,16 @@ export class CreateBookWithEmptyChapterCommand implements ICommand {
 export class CreateBookWithEmptyChapterHandler implements ICommandHandler<CreateBookWithEmptyChapterCommand> {
 	constructor(
 		private commandBus: CommandBus,
-		private bookQueryRepository: BookPrivateQueryRepository,
+		private bookQueryRepository: BookQueryRepository,
 	) {}
 
 	async execute(command: CreateBookWithEmptyChapterCommand) {
 		const { userId, createBookInput } = command
 
-		const newBook: BookPrivateOutModel = await this.commandBus.execute(
-			new CreateBookCommand(userId, createBookInput),
+		const newBook: BookOutModel = await this.commandBus.execute(
+			new CreatePrivateBookCommand(userId, createBookInput),
 		)
-		await this.commandBus.execute(new CreateBookChapterCommand(userId, { bookType: 'private', bookId: newBook.id }))
+		await this.commandBus.execute(new CreateBookChapterCommand(userId, { bookId: newBook.id }))
 
 		return await this.bookQueryRepository.getBookById(newBook.id)
 	}

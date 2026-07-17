@@ -1,26 +1,26 @@
-import { create } from 'zustand'
-import type { BookChapterOutModel, BookPrivateOutModel } from '@/shared/api/generated/models'
+// import { create } from 'zustand'
+// import type { BookChapterOutModel, BookOutModel } from '@/shared/api/generated/models'
 
-export const chapterStoreValues: BooksStoreValues = {
-	privateBook: {
+/*export const chapterStoreValues: BooksStoreValues = {
+	book: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as BookPrivateOutModel,
+		data: null as any as BookOutModel,
 	},
 	chapter: {
 		loading: true,
 		errorMessage: null,
 		data: null as any as BookChapterOutModel,
 	},
-}
+}*/
 
-export const useChapterStore = create<ReadingStore>()((set) => {
+/*export const useChapterStore = create<ReadingStore>()((set) => {
 	return {
 		...chapterStoreValues,
-		updatePrivateBook: (book: BooksStore.PrivateBookData) => {
+		updateBook: (book: BooksStore.BookData) => {
 			set((state) => {
 				return {
-					privateBook: {
+					book: {
 						...book,
 					},
 				}
@@ -41,30 +41,30 @@ export const useChapterStore = create<ReadingStore>()((set) => {
 			})
 		},
 	}
-})
+})*/
 
-export type ReadingStore = BooksStoreValues & BooksStoreMethods
+// export type ReadingStore = BooksStoreValues & BooksStoreMethods
 
-export type BooksStoreValues = {
-	privateBook: BooksStore.PrivateBookData
+/*export type BooksStoreValues = {
+	book: BooksStore.BookData
 	chapter: BooksStore.ChapterData
-}
+}*/
 
-export namespace BooksStore {
-	export type PrivateBookData = {
+/*export namespace BooksStore {
+	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
-		data: BookPrivateOutModel
+		data: BookOutModel
 	}
 	export type ChapterData = {
 		loading: boolean
 		errorMessage: null | string
 		data: null | BookChapterOutModel
 	}
-}
+}*/
 
-type BooksStoreMethods = {
-	updatePrivateBook: (book: BooksStore.PrivateBookData) => void
+/*type BooksStoreMethods = {
+	updateBook: (book: BooksStore.BookData) => void
 	clearStore: () => void
 	updateChapter: (books: BooksStore.ChapterData) => void
-}
+}*/

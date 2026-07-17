@@ -1,17 +1,17 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
-import {
-	useVideoPrivateControllerGenerateSubtitles,
-	useVideoPrivateControllerGetSubtitlesStatus,
-	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
-	getVideoPrivateControllerGetVideoPrivateQueryKey,
-} from '@/shared/api/generated/video-private/video-private'
-import type { VideoPrivateSubtitlesStatusOutModel } from '@/shared/api/generated/models'
-import { VideoPrivateSubtitlesStatusOutModelStatus } from '@/shared/api/generated/models'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { useVideoStore } from '_pages/media/video/videoStore'
+// import { useCallback, useContext, useEffect, useState } from 'react'
+// import { useQueryClient } from '@tanstack/react-query'
+// import {
+// 	useVideoPrivateControllerGenerateSubtitles,
+// 	useVideoPrivateControllerGetSubtitlesStatus,
+// 	getVideoPrivateControllerGetUserVideosPrivateQueryKey,
+// 	getVideoPrivateControllerGetVideoPrivateQueryKey,
+// } from '@/shared/api/generated/video-private/video-private'
+// import type { VideoPrivateSubtitlesStatusOutModel } from '@/shared/api/generated/models'
+// import { VideoPrivateSubtitlesStatusOutModelStatus } from '@/shared/api/generated/models'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { useVideoStore } from '_pages/media/video/videoStore'
 
-export function useGenerateSubtitles() {
+/*export function useGenerateSubtitles() {
 	const { notify } = useContext(NotificationContext)
 	const video = useVideoStore((s) => s.privateVideo.data)
 	const [isPolling, setIsPolling] = useState(false)
@@ -84,4 +84,4 @@ export function useGenerateSubtitles() {
 		isGenerating,
 		generate,
 	}
-}
+}*/

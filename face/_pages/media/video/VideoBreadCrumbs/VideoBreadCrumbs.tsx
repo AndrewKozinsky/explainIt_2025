@@ -1,8 +1,8 @@
-import { pageUrls } from 'utils/pageUrls'
-import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import {pageUrls} from "@/shared/utils/pageUrls";
+// import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 
-function VideoBreadCrumbs() {
+/*function VideoBreadCrumbs() {
 	return <BreadCrumbs items={[pageUrls.videos]} />
-}
+}*/
 
-export default VideoBreadCrumbs
+// export default VideoBreadCrumbs

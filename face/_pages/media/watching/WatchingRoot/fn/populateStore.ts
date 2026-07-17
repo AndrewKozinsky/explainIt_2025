@@ -1,19 +1,19 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
-import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
-import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
-import { useWatchingStore } from '../../watchingStore'
-import { createPopulatedPlainText } from './createPopulatedPlainText'
-import { createPopulatedSubtitles } from './createPopulatedText'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
+// import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
+// import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+// import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
+// import { useWatchingStore } from '../../watchingStore'
+// import { createPopulatedPlainText } from './createPopulatedPlainText'
+// import { createPopulatedSubtitles } from './createPopulatedText'
 
-export function usePopulateWatchingStore() {
+/*export function usePopulateWatchingStore() {
 	useFetchVideoAndSetToStore()
 	usePopulatedTextAndSetToStore()
-}
+}*/
 
-function useFetchVideoAndSetToStore() {
+/*function useFetchVideoAndSetToStore() {
 	const urlVideoId = useParams().videoId as string
 	const videoType = getMediaTypeByUrlMediaId(urlVideoId)
 	const videoId = extractMediaIdFromUrlBookId(urlVideoId)
@@ -113,9 +113,9 @@ function useFetchVideoAndSetToStore() {
 			publicVideoLoading,
 		],
 	)
-}
+}*/
 
-function usePopulatedTextAndSetToStore() {
+/*function usePopulatedTextAndSetToStore() {
 	const video = useWatchingStore((s) => s.video)
 
 	useEffect(
@@ -135,4 +135,4 @@ function usePopulatedTextAndSetToStore() {
 		},
 		[video],
 	)
-}
+}*/

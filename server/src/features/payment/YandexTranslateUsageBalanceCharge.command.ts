@@ -7,7 +7,7 @@
 
 /*export class YandexTranslateUsageBalanceChargeCommand implements ICommand {
 	constructor(
-		public dto: {
+		public inputs: {
 			userId: number
 			symbolsCount: number
 		},
@@ -23,9 +23,9 @@ export class YandexTranslateUsageBalanceChargeHandler implements ICommandHandler
 	) {}
 
 	async execute(command: YandexTranslateUsageBalanceChargeCommand) {
-		const { userId } = command.dto
+		const { userId } = command.inputs
 
-		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.dto.symbolsCount)
+		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens(command.inputs.symbolsCount)
 
 		try {
 			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })

@@ -1,5 +1,5 @@
-import { getDeviceType } from 'utils/utils'
 import { create } from 'zustand'
+import { getDeviceType } from '@/shared/utils/utils'
 import { registerKeyboardListeners } from './listeners'
 
 export type SystemStoreValues = {

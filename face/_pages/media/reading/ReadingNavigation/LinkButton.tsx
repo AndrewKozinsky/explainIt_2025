@@ -1,13 +1,13 @@
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+// import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 
-type LinkButtonProps = {
+/*type LinkButtonProps = {
 	href: string
 	smallText?: null | string
 	text?: null | string
 	coverUrl?: null | string
-}
+}*/
 
-export function LinkButton(props: LinkButtonProps) {
+/*export function LinkButton(props: LinkButtonProps) {
 	const { href, smallText, text, coverUrl } = props
 
 	const withCover = !!coverUrl
@@ -22,4 +22,4 @@ export function LinkButton(props: LinkButtonProps) {
 			{text && <p className='reading-navigation__text'>{text}</p>}
 		</BaseButton>
 	)
-}
+}*/

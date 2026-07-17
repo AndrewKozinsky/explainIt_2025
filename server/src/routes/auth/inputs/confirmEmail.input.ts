@@ -3,5 +3,5 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 export class ConfirmEmailInput {
 	@DtoFieldDecorators('code', bdConfig.User.dbFields.email_confirmation_code, { required: true })
-		code: string
+	code: string
 }

@@ -22,7 +22,7 @@ export class HashAdapterService {
 
 	compare(str: string, hashedStr: string): boolean {
 		const [salt, storedHash] = hashedStr.split(':') // Split stored hash
-		const computedHash = this.generateHash(str, salt) // Hash the input string with stored salt
+		const computedHash = this.generateHash(str, salt) // Hash the inputs string with stored salt
 		return timingSafeEqual(Buffer.from(storedHash, 'hex'), Buffer.from(computedHash, 'hex'))
 	}
 }

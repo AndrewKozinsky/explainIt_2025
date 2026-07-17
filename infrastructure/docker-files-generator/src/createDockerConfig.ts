@@ -80,7 +80,7 @@ export function createDockerConfig(mode: Mode, region: Region): ConfigSchemaV37J
 				command: isDev ? 'npm run start:worker:dev' : 'npm run start:worker:prod',
 				container_name: 'explainserverworker' + mode,
 				depends_on: [postgresServiceName, redisServiceName, nlpServiceName],
-				environment: { MODE: mode, PORT: 3001 },
+				environment: getServerEnvs(mode, region),
 				env_file: ['docker/.env.' + mode],
 			},
 			[faceServiceName]: {

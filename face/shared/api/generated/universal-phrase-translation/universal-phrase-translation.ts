@@ -32,29 +32,12 @@ export type universalPhraseTranslationControllerGetOrCreateTranslationResponse20
   status: 201
 }
 
-export type universalPhraseTranslationControllerGetOrCreateTranslationResponse400 = {
-  data: void
-  status: 400
-}
-
-export type universalPhraseTranslationControllerGetOrCreateTranslationResponse404 = {
-  data: void
-  status: 404
-}
-
-export type universalPhraseTranslationControllerGetOrCreateTranslationResponse500 = {
-  data: void
-  status: 500
-}
-
 export type universalPhraseTranslationControllerGetOrCreateTranslationResponseSuccess = (universalPhraseTranslationControllerGetOrCreateTranslationResponse201) & {
   headers: Headers;
 };
-export type universalPhraseTranslationControllerGetOrCreateTranslationResponseError = (universalPhraseTranslationControllerGetOrCreateTranslationResponse400 | universalPhraseTranslationControllerGetOrCreateTranslationResponse404 | universalPhraseTranslationControllerGetOrCreateTranslationResponse500) & {
-  headers: Headers;
-};
+;
 
-export type universalPhraseTranslationControllerGetOrCreateTranslationResponse = (universalPhraseTranslationControllerGetOrCreateTranslationResponseSuccess | universalPhraseTranslationControllerGetOrCreateTranslationResponseError)
+export type universalPhraseTranslationControllerGetOrCreateTranslationResponse = (universalPhraseTranslationControllerGetOrCreateTranslationResponseSuccess)
 
 export const getUniversalPhraseTranslationControllerGetOrCreateTranslationUrl = () => {
 
@@ -83,7 +66,7 @@ export const universalPhraseTranslationControllerGetOrCreateTranslation = async 
 
 
 
-export const getUniversalPhraseTranslationControllerGetOrCreateTranslationMutationOptions = <TError = void,
+export const getUniversalPhraseTranslationControllerGetOrCreateTranslationMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseTranslationControllerGetOrCreateTranslation>>, TError,{data: GetOrCreateUniversalPhraseTranslationInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof universalPhraseTranslationControllerGetOrCreateTranslation>>, TError,{data: GetOrCreateUniversalPhraseTranslationInput}, TContext> => {
 
@@ -112,12 +95,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type UniversalPhraseTranslationControllerGetOrCreateTranslationMutationResult = NonNullable<Awaited<ReturnType<typeof universalPhraseTranslationControllerGetOrCreateTranslation>>>
     export type UniversalPhraseTranslationControllerGetOrCreateTranslationMutationBody = GetOrCreateUniversalPhraseTranslationInput
-    export type UniversalPhraseTranslationControllerGetOrCreateTranslationMutationError = void
+    export type UniversalPhraseTranslationControllerGetOrCreateTranslationMutationError = unknown
 
     /**
  * @summary Get or create phrase translation
  */
-export const useUniversalPhraseTranslationControllerGetOrCreateTranslation = <TError = void,
+export const useUniversalPhraseTranslationControllerGetOrCreateTranslation = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseTranslationControllerGetOrCreateTranslation>>, TError,{data: GetOrCreateUniversalPhraseTranslationInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof universalPhraseTranslationControllerGetOrCreateTranslation>>,

@@ -6,7 +6,7 @@ export type SentenceSourceInfo = {
 	bookName?: string
 	bookAuthor?: string
 	videoName?: string
-	videoYear?: number
+	videoYear?: number | undefined
 	/** Полный текст главы/субтитров, из которого берутся offsets предложений. */
 	wholeText: string
 }
@@ -42,8 +42,7 @@ export class SentenceChatContextBuilder {
 			sentenceId,
 			orderIndex: sentence.order_index,
 			bookChapterId: sentence.book_chapter_id,
-			videoPrivateId: sentence.video_private_id,
-			videoPublicId: sentence.video_public_id,
+			videoId: sentence.video_id,
 			beforeSentences: beforeCount,
 			afterSentences: afterCount,
 		})
@@ -75,7 +74,7 @@ export class SentenceChatContextBuilder {
 		sentence: NonNullable<Awaited<ReturnType<SentenceRepository['getSentenceDbById']>>>,
 	): null | SentenceSourceInfo {
 		if (sentence.bookChapter) {
-			const book = sentence.bookChapter.book_public ?? sentence.bookChapter.book
+			const book = sentence.bookChapter.book ?? sentence.bookChapter.book
 			return {
 				kind: 'book',
 				bookName: book?.name ?? undefined,
@@ -84,12 +83,12 @@ export class SentenceChatContextBuilder {
 			}
 		}
 
-		const video = sentence.videoPublic ?? sentence.videoPrivate
+		const video = sentence.video
 		if (video) {
 			return {
 				kind: 'video',
 				videoName: video.name ?? undefined,
-				videoYear: video.year ?? undefined,
+				videoYear: undefined,
 				wholeText: video.processed_content ?? video.original_content ?? '',
 			}
 		}

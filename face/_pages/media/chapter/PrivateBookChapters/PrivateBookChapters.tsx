@@ -1,13 +1,13 @@
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { useChapterStore } from '_pages/media/chapter/chapterStore'
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
-import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
+// import {pageUrls} from "@/shared/utils/pageUrls";
+// import { useChapterStore } from '_pages/media/chapter/chapterStore'
+// import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+// import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
 
-function PrivateBookChapters() {
-	const privateBook = useChapterStore((s) => s.privateBook)
+/*function PrivateBookChapters() {
+	const book = useChapterStore((s) => s.book)
 
-	const bookId = privateBook.data?.id
-	const chapters = privateBook.data?.chapters as unknown as
+	const bookId = book.data?.id
+	const chapters = book.data?.chapters as unknown as
 		| { id: number; header?: string; name?: string }[]
 		| undefined
 
@@ -16,16 +16,14 @@ function PrivateBookChapters() {
 	}
 
 	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-
 		return {
 			name: chapter.header ?? bookConfig.emptyChapterName,
 			subName: chapter.name,
-			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).path,
+			href: pageUrls.books.book(bookId).chapter(chapter.id).path,
 		}
 	})
 
 	return <ChaptersList chapters={chaptersConfig} />
-}
+}*/
 
-export default PrivateBookChapters
+// export default PrivateBookChapters

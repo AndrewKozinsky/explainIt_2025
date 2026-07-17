@@ -1,10 +1,10 @@
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
-import { useVideoStore } from '../../videoStore'
-import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
-import './PublicVideoContent.scss'
+// import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
+// import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
+// import { useVideoStore } from '../../videoStore'
+// import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
+// import './PublicVideoContent.scss'
 
-export default function PublicVideoContent() {
+/*export default function PublicVideoContent() {
 	const publicVideo = useVideoStore((s) => s.publicVideo)
 
 	if (!publicVideo.data) {
@@ -29,4 +29,4 @@ export default function PublicVideoContent() {
 			</div>
 		</div>
 	)
-}
+}*/

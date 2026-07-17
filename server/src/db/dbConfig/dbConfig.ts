@@ -87,10 +87,10 @@ export const bdConfig = {
 			UserBalanceTransaction: {
 				type: 'oneToMany',
 			},
-			BookPrivate: {
+			Book: {
 				type: 'oneToMany',
 			},
-			VideoPrivate: {
+			VideoCollection: {
 				type: 'oneToMany',
 			},
 			SentenceChatThread: {
@@ -217,9 +217,9 @@ export const bdConfig = {
 			},
 		},
 	},
-	BookPrivate: {
+	Book: {
 		dtoProps: {
-			fileName: {
+			coverFileName: {
 				type: 'string',
 				description: 'File name of the book cover',
 				required: false,
@@ -247,17 +247,25 @@ export const bdConfig = {
 		dbFields: {
 			id: {
 				type: 'index',
-				description: 'Book private ID',
+				description: 'Book ID',
 				example: 1,
+			},
+			type: {
+				type: 'enum',
+				enumName: 'MediaType',
+				variants: ['public', 'private'],
+				description: 'Media type: public or private',
+				example: 'private',
+				required: true,
 			},
 			user_id: {
 				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				foreignTable: 'User', // Name of the table that this column refers to
+				thisField: 'user_id',
+				foreignTable: 'User',
 				foreignField: 'id',
-				description: 'User ID who owns the book',
+				description: 'User ID who owns the book (null for public books)',
 				example: 1,
-				required: true,
+				required: false,
 			},
 			author: {
 				type: 'string',
@@ -286,30 +294,30 @@ export const bdConfig = {
 				description: 'Note about the book',
 				example: 'This book is great for learning new vocabulary',
 				required: false,
-				maxLength: 1000,
+				maxLength: 2000,
 			},
-			file_name: {
+			cover_file_name: {
 				type: 'string',
 				description: 'Name of the book cover file',
 				required: false,
 				maxLength: 200,
 				example: 'cover.jpg',
 			},
-			file_s3_key: {
+			cover_file_s3_key: {
 				type: 'string',
 				description: 'S3 key of the book cover',
 				required: false,
 				maxLength: 1000,
 				example: 'privateBooksDev/cover.jpg',
 			},
-			s3_provider_name: {
+			cover_file_s3_provider_name: {
 				type: 'enum',
 				enumName: 'S3ProviderName',
 				variants: s3ProviderName,
 				description: 'S3 provider name',
 				required: false,
 			},
-			is_file_uploaded: {
+			is_cover_file_uploaded: {
 				type: 'boolean',
 				default: false,
 				description: 'Is cover file was uploaded',
@@ -327,72 +335,8 @@ export const bdConfig = {
 			},
 		},
 	},
-	BookPublic: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-				description: 'Book public ID',
-				example: 1,
-			},
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				description: 'Language code of the book',
-				example: 'en',
-				required: true,
-			},
-			covers: {
-				type: 'array',
-				arrayItemType: 'string',
-				description: 'Covers of the book',
-				example: ['https://example.com/cover.jpg'],
-				required: true,
-			},
-			author: {
-				type: 'string',
-				description: 'Author of the book',
-				example: 'J.K. Rowling',
-				required: false,
-				maxLength: 255,
-			},
-			name: {
-				type: 'string',
-				description: 'Name of the book',
-				example: 'Harry Potter',
-				required: true,
-				maxLength: 255,
-			},
-			note: {
-				type: 'string',
-				description: 'Note about the book',
-				example: 'A young wizard discovers his magical heritage.',
-				required: true,
-				maxLength: 2000,
-			},
-			BookChapter: {
-				type: 'oneToMany',
-			},
-			Flashcard: {
-				type: 'oneToMany',
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-		},
-	},
 	BookChapter: {
-		dtoProps: {
-			bookType: {
-				type: 'enum',
-				enumName: 'BookType',
-				variants: ['public', 'private'],
-				description: 'Book type: public or private',
-				example: 'private',
-				required: true,
-			},
-		},
+		dtoProps: {},
 		dbFields: {
 			id: {
 				type: 'index',
@@ -401,17 +345,10 @@ export const bdConfig = {
 			},
 			book_id: {
 				type: 'manyToOne',
-				thisField: 'book_id', // Name of the column of this table that refers to another table
-				foreignTable: 'BookPrivate', // Name of the table that this column refers to
+				thisField: 'book_id',
+				foreignTable: 'Book',
 				foreignField: 'id',
-				required: false,
-			},
-			book_public_id: {
-				type: 'manyToOne',
-				thisField: 'book_public_id', // Name of the column of this table that refers to another table
-				foreignTable: 'BookPublic', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
+				required: true,
 			},
 			name: {
 				type: 'string',
@@ -455,7 +392,71 @@ export const bdConfig = {
 			},
 		},
 	},
-	VideoPrivate: {
+	VideoCollection: {
+		dtoProps: {
+			languageCode: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				description: 'Language code of the videos in the collection',
+				example: 'en',
+				required: false,
+			},
+		},
+		dbFields: {
+			id: {
+				type: 'index',
+				description: 'Video collection ID',
+				example: 1,
+			},
+			type: {
+				type: 'enum',
+				enumName: 'MediaType',
+				variants: ['public', 'private'],
+				description: 'Media type: public or private',
+				example: 'private',
+				required: true,
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				foreignTable: 'User',
+				foreignField: 'id',
+				description: 'User ID who owns the video collection (null for public collections)',
+				example: 1,
+				required: false,
+			},
+			name: {
+				type: 'string',
+				description: 'Name of the video collection',
+				example: 'English Course',
+				required: false,
+				maxLength: 255,
+			},
+			source_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				description: 'Language code of the videos in the collection',
+				example: 'en',
+				required: true,
+			},
+			note: {
+				type: 'string',
+				description: 'Note about the video collection',
+				example: 'A course for beginners',
+				required: false,
+				maxLength: 4000,
+			},
+			Video: {
+				type: 'oneToMany',
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	Video: {
 		dtoProps: {
 			fileName: {
 				type: 'string',
@@ -471,48 +472,56 @@ export const bdConfig = {
 				required: false,
 				maxLength: 50,
 			},
+			fileUrl: {
+				type: 'string',
+				description: 'Downloadable URL for the video file',
+				example: 'https://s3.example.com/video_dev/Zootopia-2016.mp4',
+				required: false,
+			},
+			uploadUrl: {
+				type: 'string',
+				description: 'Pre-signed S3 upload URL for the video file',
+				example: 'https://s3.example.com/presigned-url',
+				required: false,
+			},
 		},
 		dbFields: {
 			id: {
 				type: 'index',
-				description: 'Video private ID',
+				description: 'Video ID',
 				example: 1,
 			},
-			user_id: {
+			video_collection_id: {
 				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				foreignTable: 'User', // Name of the table that this column refers to
+				thisField: 'video_collection_id',
+				foreignTable: 'VideoCollection',
 				foreignField: 'id',
-				description: 'User ID who owns the book',
-				example: 1,
 				required: true,
 			},
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				description: 'Language code of the video',
-				example: 'en',
-				required: true,
-			},
-			year: {
-				type: 'number',
-				description: 'Year of video release',
-				example: 2024,
+			name: {
+				type: 'string',
+				description: 'Name of the video',
+				example: 'Zootopia',
 				required: false,
-				max: 2030,
-				min: 1900,
+				maxLength: 255,
+			},
+			note: {
+				type: 'string',
+				description: 'Note about the video',
+				example: 'A great animated movie about animals.',
+				required: false,
+				maxLength: 4000,
 			},
 			file_name: {
 				type: 'string',
-				description: 'Name of the video',
+				description: 'File name of the video file',
 				required: false,
 				maxLength: 200,
 				example: 'Zootopia-2016.mp4',
 			},
 			file_s3_key: {
 				type: 'string',
-				description: 'S3 key',
+				description: 'S3 key of the video file',
 				required: false,
 				maxLength: 1000,
 				example: 'video_dev/Zootopia-2016.mp4',
@@ -527,13 +536,13 @@ export const bdConfig = {
 			is_file_uploaded: {
 				type: 'boolean',
 				default: false,
-				description: 'Is file was uploaded',
+				description: 'Is video file was uploaded',
 				example: true,
 				required: false,
 			},
 			file_size_mb: {
 				type: 'number',
-				description: 'size of the file in megabytes',
+				description: 'Size of the video file in megabytes',
 				example: 100,
 				required: true,
 				default: 0,
@@ -544,16 +553,9 @@ export const bdConfig = {
 				example: 3600,
 				required: false,
 			},
-			name: {
-				type: 'string',
-				description: 'Name of the video',
-				example: 'Zootopia',
-				required: false,
-				maxLength: 255,
-			},
 			original_content: {
 				type: 'string',
-				description: 'Original subtitles or text of the video provided by user',
+				description: 'Original subtitles or text of the video',
 				example: 'Some original content.',
 				required: false,
 			},
@@ -624,118 +626,6 @@ export const bdConfig = {
 			},
 		},
 	},
-	VideoPublic: {
-		dtoProps: {
-			fileUrl: {
-				type: 'string',
-				description: 'Downloadable URL for the video file',
-				example: 'https://s3.example.com/video_dev/Zootopia-2016.mp4',
-				required: false,
-			},
-		},
-		dbFields: {
-			id: {
-				type: 'index',
-				description: 'Video public ID',
-				example: 1,
-			},
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				description: 'Language code of the video',
-				example: 'en',
-				required: true,
-			},
-			year: {
-				type: 'number',
-				description: 'Year of video release',
-				example: 2016,
-				required: true,
-				max: 2030,
-				min: 1900,
-			},
-			name: {
-				type: 'string',
-				description: 'Name of the video',
-				example: 'Zootopia',
-				required: true,
-				maxLength: 255,
-			},
-			file_name: {
-				type: 'string',
-				description: 'Name of the video',
-				required: true,
-				maxLength: 200,
-				example: 'Zootopia-2016.mp4',
-			},
-			file_s3_key: {
-				type: 'string',
-				description: 'S3 key',
-				required: true,
-				maxLength: 1000,
-				example: 'video_dev/Zootopia-2016.mp4',
-			},
-			s3_provider_name: {
-				type: 'enum',
-				enumName: 'S3ProviderName',
-				variants: s3ProviderName,
-				description: 'S3 provider name',
-				example: 'cloudru',
-				required: true,
-			},
-			note: {
-				type: 'string',
-				description: 'Note about the video',
-				example: 'A great animated movie about animals.',
-				required: true,
-				maxLength: 4000,
-			},
-			covers: {
-				type: 'array',
-				arrayItemType: 'string',
-				description: 'Covers of the video',
-				example: ['https://example.com/cover1.jpg'],
-				required: true,
-			},
-			original_content: {
-				type: 'string',
-				description: 'Original subtitles or text of the video provided by user',
-				example: 'In a city of anthropomorphic animals...',
-				required: true,
-			},
-			processed_content: {
-				type: 'string',
-				description: 'Processed subtitles or text of the video (flattened)',
-				example: 'In a city of anthropomorphic animals...',
-				required: true,
-			},
-			content_type: {
-				type: 'enum',
-				description: 'Type of content in the video: plain text or subtitles (SRT)',
-				example: 'subtitles',
-				required: true,
-				variants: ['text', 'subtitles'],
-				default: 'text',
-				enumName: 'VideoTextType',
-			},
-			Subtitle: {
-				type: 'oneToMany',
-			},
-			Sentence: {
-				type: 'oneToMany',
-			},
-			Flashcard: {
-				type: 'oneToMany',
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-			updated_at: {
-				type: 'updatedAt',
-			},
-		},
-	},
 	Sentence: {
 		dtoProps: {},
 		dbFields: {
@@ -752,19 +642,11 @@ export const bdConfig = {
 				foreignField: 'id',
 				required: false,
 			},
-			video_private_id: {
+			video_id: {
 				type: 'manyToOne',
-				thisField: 'video_private_id', // Name of the column of this table that refers to another table
-				relationField: 'videoPrivate',
-				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			video_public_id: {
-				type: 'manyToOne',
-				thisField: 'video_public_id',
-				relationField: 'videoPublic',
-				foreignTable: 'VideoPublic',
+				thisField: 'video_id',
+				relationField: 'video',
+				foreignTable: 'Video',
 				foreignField: 'id',
 				required: false,
 			},
@@ -995,19 +877,11 @@ export const bdConfig = {
 				example: 10,
 				required: true,
 			},
-			video_private_id: {
+			video_id: {
 				type: 'manyToOne',
-				thisField: 'video_private_id', // Name of the column of this table that refers to another table
-				relationField: 'videoPrivate',
-				foreignTable: 'VideoPrivate', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: false,
-			},
-			video_public_id: {
-				type: 'manyToOne',
-				thisField: 'video_public_id',
-				relationField: 'videoPublic',
-				foreignTable: 'VideoPublic',
+				thisField: 'video_id',
+				relationField: 'video',
+				foreignTable: 'Video',
 				foreignField: 'id',
 				required: false,
 			},
@@ -1383,38 +1257,20 @@ export const bdConfig = {
 				description: 'Snapshot of phrase usage examples (encoded as flat [text, translate, ...] pairs)',
 				required: true,
 			},
-			book_private_id: {
+			book_id: {
 				type: 'manyToOne',
-				thisField: 'book_private_id',
-				relationField: 'bookPrivate',
-				foreignTable: 'BookPrivate',
+				thisField: 'book_id',
+				relationField: 'book',
+				foreignTable: 'Book',
 				foreignField: 'id',
 				onDelete: 'SetNull',
 				required: false,
 			},
-			book_public_id: {
+			video_id: {
 				type: 'manyToOne',
-				thisField: 'book_public_id',
-				relationField: 'bookPublic',
-				foreignTable: 'BookPublic',
-				foreignField: 'id',
-				onDelete: 'SetNull',
-				required: false,
-			},
-			video_private_id: {
-				type: 'manyToOne',
-				thisField: 'video_private_id',
-				relationField: 'videoPrivate',
-				foreignTable: 'VideoPrivate',
-				foreignField: 'id',
-				onDelete: 'SetNull',
-				required: false,
-			},
-			video_public_id: {
-				type: 'manyToOne',
-				thisField: 'video_public_id',
-				relationField: 'videoPublic',
-				foreignTable: 'VideoPublic',
+				thisField: 'video_id',
+				relationField: 'video',
+				foreignTable: 'Video',
 				foreignField: 'id',
 				onDelete: 'SetNull',
 				required: false,

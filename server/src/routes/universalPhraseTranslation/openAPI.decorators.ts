@@ -12,15 +12,5 @@ export function ApiGetOrCreateTranslation() {
 		}),
 		ApiBody({ type: GetOrCreateUniversalPhraseTranslationInput }),
 		ApiResponse({ status: 201, description: 'Created', type: UniversalPhraseTranslationOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 404, description: errorMessage.universalPhrase.notFound.errorMessageCode }),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.universalPhraseTranslation.cannotParseLLmResponse.errorMessageCode,
-				errorMessage.universalPhraseTranslation.cannotGetTranslationFromLLM.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }

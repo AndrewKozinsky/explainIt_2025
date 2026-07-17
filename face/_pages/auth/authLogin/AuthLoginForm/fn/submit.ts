@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
 import { useAuthControllerLogin } from '@/shared/api/generated/auth/auth'
 import type { UserOutModel } from '@/shared/api/generated/models'
-import { useSetUser } from '@/shared/api/auth/UserProvider'
-import { FormStatus, setErrorsToForm } from '@/utils/forms'
+import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
 import { LoginFormData } from './form'
 
 export function useGetOnLoginFormSubmit(

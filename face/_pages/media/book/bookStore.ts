@@ -1,35 +1,21 @@
 import { create } from 'zustand'
-import type { BookPublicOutModel, BookPrivateOutModel } from '@/shared/api/generated/models'
+import type { Book } from '@/entites/books/repository/BooksRepository'
 
 export const bookStoreValues: BooksStoreValues = {
-	publicBook: {
+	book: {
 		loading: true,
 		errorMessage: null,
-		data: null as any as BookPublicOutModel,
-	},
-	privateBook: {
-		loading: true,
-		errorMessage: null,
-		data: null as any as BookPrivateOutModel,
+		data: null,
 	},
 }
 
 export const useBookStore = create<ReadingStore>()((set) => {
 	return {
 		...bookStoreValues,
-		updatePublicBook: (book: BooksStore.PublicBookData) => {
+		updateBook: (book: BooksStore.BookData) => {
 			set((state) => {
 				return {
-					publicBook: {
-						...book,
-					},
-				}
-			})
-		},
-		updatePrivateBook: (book: BooksStore.PrivateBookData) => {
-			set((state) => {
-				return {
-					privateBook: {
+					book: {
 						...book,
 					},
 				}
@@ -46,25 +32,18 @@ export const useBookStore = create<ReadingStore>()((set) => {
 export type ReadingStore = BooksStoreValues & BooksStoreMethods
 
 export type BooksStoreValues = {
-	publicBook: BooksStore.PublicBookData
-	privateBook: BooksStore.PrivateBookData
+	book: BooksStore.BookData
 }
 
 export namespace BooksStore {
-	export type PrivateBookData = {
+	export type BookData = {
 		loading: boolean
 		errorMessage: null | string
-		data: BookPrivateOutModel
-	}
-	export type PublicBookData = {
-		loading: boolean
-		errorMessage: null | string
-		data: BookPublicOutModel
+		data: null | Book
 	}
 }
 
 type BooksStoreMethods = {
-	updatePublicBook: (book: BooksStore.PublicBookData) => void
-	updatePrivateBook: (book: BooksStore.PrivateBookData) => void
+	updateBook: (book: BooksStore.BookData) => void
 	clearStore: () => void
 }

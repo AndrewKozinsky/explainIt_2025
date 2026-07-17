@@ -1,32 +1,20 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiOperation, ApiBody, ApiResponse, ApiCookieAuth } from '@nestjs/swagger'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ConfirmEmailInput } from 'routes/auth/inputs/confirmEmail.input'
+import { LoginInput } from 'routes/auth/inputs/login.input'
+import { LoginWithOAuthInput } from 'routes/auth/inputs/loginWithOAuth.input'
+import { RegisterUserInput } from 'routes/auth/inputs/registerUser.input'
+import { ResendConfirmationEmailInput } from 'routes/auth/inputs/resendConfirmationEmail.input'
 import { UserOutModel } from 'models/user/user.out.model'
-import { ConfirmEmailDto } from './dto/confirm-email.dto'
-import { LoginDto } from './dto/login.dto'
-import { LoginWithOAuthDto } from './dto/loginWithOAuth.dto'
-import { RegisterDto } from './dto/register.dto'
-import { ResendConfirmationEmailDto } from './dto/resend-confirmation-email.dto'
 
 export function ApiRegister() {
 	return applyDecorators(
 		ApiOperation({
 			summary: 'Register',
-			description: `Register a user with email and password.
-Possible errors:
-**${errorMessage.email.isNotConfirmed.errorMessageCode}** — the user is already registered, but didn't confirm their email.
-**${errorMessage.email.isAlreadyRegistered.errorMessageCode}** — the user is already registered and confirmed their email.`,
+			description: 'Register a user with email and password.',
 		}),
-		ApiBody({ type: RegisterDto }),
+		ApiBody({ type: RegisterUserInput }),
 		ApiResponse({ status: 201, description: 'Created', type: UserOutModel }),
-		ApiResponse({
-			status: 400,
-			description: [
-				errorMessage.email.isAlreadyRegistered.errorMessageCode,
-				errorMessage.email.isNotConfirmed.errorMessageCode,
-			].join(' | '),
-		}),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -36,13 +24,8 @@ export function ApiConfirmEmail() {
 			summary: 'Confirm email',
 			description: 'Confirms user email using the confirmation code sent after registration.',
 		}),
-		ApiBody({ type: ConfirmEmailDto }),
+		ApiBody({ type: ConfirmEmailInput }),
 		ApiResponse({ status: 200, description: 'OK' }),
-		ApiResponse({
-			status: 400,
-			description: `Validation error | ${errorMessage.email.confirmationCodeNotFound.errorMessageCode} | ${errorMessage.email.confirmationCodeIsExpired.errorMessageCode}`,
-		}),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -52,12 +35,8 @@ export function ApiResendConfirmationEmail() {
 			summary: 'Resend confirmation email',
 			description: 'Resends the email confirmation message to the specified email address.',
 		}),
-		ApiBody({ type: ResendConfirmationEmailDto }),
+		ApiBody({ type: ResendConfirmationEmailInput }),
 		ApiResponse({ status: 200, description: 'OK' }),
-		ApiResponse({
-			status: 400,
-			description: `Validation error | ${errorMessage.email.notFound.errorMessageCode} | ${errorMessage.email.isAlreadyConfirmed.errorMessageCode}`,
-		}),
 	)
 }
 
@@ -67,19 +46,8 @@ export function ApiLogin() {
 			summary: 'User login',
 			description: 'Authenticates a user with email and password. On success, sets a session cookie.',
 		}),
-		ApiBody({ type: LoginDto }),
+		ApiBody({ type: LoginInput }),
 		ApiResponse({ status: 200, description: 'OK', type: UserOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 403, description: errorMessage.email.isNotConfirmed.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.user.notFound.errorMessageCode }),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.noSessionObject.errorMessageCode,
-				errorMessage.cannotSaveSession.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -91,7 +59,6 @@ export function ApiGetMe() {
 		}),
 		ApiCookieAuth(),
 		ApiResponse({ status: 200, description: 'OK', type: UserOutModel }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
 	)
 }
 
@@ -103,8 +70,6 @@ export function ApiLogout() {
 		}),
 		ApiCookieAuth(),
 		ApiResponse({ status: 200, description: 'OK' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.cannotFinishSession.errorMessageCode }),
 	)
 }
 
@@ -115,20 +80,7 @@ export function ApiLoginWithOAuth() {
 			description:
 				'Authenticates a user via OAuth provider (github, google, yandex). On success, sets a session cookie.',
 		}),
-		ApiBody({ type: LoginWithOAuthDto }),
+		ApiBody({ type: LoginWithOAuthInput }),
 		ApiResponse({ status: 200, description: 'OK', type: UserOutModel }),
-		ApiResponse({
-			status: 400,
-			description: `Validation error | ${errorMessage.cannotGetAccessTokenForOAuthProvider.errorMessageCode}`,
-		}),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.cannotGetUserDataFromOAuthProvider.errorMessageCode,
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.noSessionObject.errorMessageCode,
-				errorMessage.cannotSaveSession.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }

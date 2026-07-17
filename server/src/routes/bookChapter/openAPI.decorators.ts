@@ -1,9 +1,9 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiOperation, ApiBody, ApiCookieAuth, ApiParam, ApiResponse } from '@nestjs/swagger'
+import { CreateBookChapterInput } from 'routes/bookChapter/inputs/createBookChapter.input'
+import { UpdateBookChapterInput } from 'routes/bookChapter/inputs/updateBookChapter.input'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
-import { CreateBookChapterDto } from './dto/create-book-chapter.dto'
-import { UpdateBookChapterDto } from './dto/update-book-chapter.dto'
 
 export function ApiCreateBookChapter() {
 	return applyDecorators(
@@ -13,19 +13,8 @@ export function ApiCreateBookChapter() {
 				'Creates a new chapter in a private or public book. If originalContent is provided, sentences will be auto-generated from it.',
 		}),
 		ApiCookieAuth(),
-		ApiBody({ type: CreateBookChapterDto }),
+		ApiBody({ type: CreateBookChapterInput }),
 		ApiResponse({ status: 201, description: 'Created', type: BookChapterOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.book.notFound.errorMessageCode }),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.bookChapter.notCreated.errorMessageCode,
-				errorMessage.unknownDbError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -38,19 +27,8 @@ export function ApiUpdateBookChapter() {
 		}),
 		ApiCookieAuth(),
 		ApiParam({ name: 'id', type: Number, description: 'Book chapter ID', example: 1 }),
-		ApiBody({ type: UpdateBookChapterDto }),
+		ApiBody({ type: UpdateBookChapterInput }),
 		ApiResponse({ status: 200, description: 'OK', type: BookChapterOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.bookChapter.notFound.errorMessageCode }),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.unknownError.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }
 
@@ -63,11 +41,6 @@ export function ApiDeleteBookChapter() {
 		ApiCookieAuth(),
 		ApiParam({ name: 'id', type: Number, description: 'Book chapter ID', example: 1 }),
 		ApiResponse({ status: 200, description: 'OK' }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.bookChapter.notFound.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownError.errorMessageCode }),
 	)
 }
 
@@ -80,9 +53,5 @@ export function ApiGetBookChapter() {
 		}),
 		ApiParam({ name: 'id', type: Number, description: 'Book chapter ID', example: 1 }),
 		ApiResponse({ status: 200, description: 'OK', type: BookChapterOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.bookChapter.notFound.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }

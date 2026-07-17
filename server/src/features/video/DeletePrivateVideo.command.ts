@@ -1,5 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -19,7 +19,7 @@ export class DeletePrivateVideoCommand implements ICommand {
 @CommandHandler(DeletePrivateVideoCommand)
 export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateVideoCommand> {
 	constructor(
-		private videoRepository: VideoPrivateRepository,
+		private videoRepository: VideoRepository,
 		private cloudRuS3Service: CloudRuS3Service,
 	) {}
 

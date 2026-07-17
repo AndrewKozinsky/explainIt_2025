@@ -1,10 +1,8 @@
-import { useCallback, useContext, useState } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
+import { useCallback, useContext, useMemo, useState } from 'react'
+import { BooksApi } from '@/entites/books/repository/BooksApi'
 import { useRouter } from '@/i18n/routing'
-import { useBookPrivateControllerDeleteBook } from '@/shared/api/generated/book-private/book-private'
-import { getBookPrivateControllerGetUserBooksQueryKey } from '@/shared/api/generated/book-private/book-private'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { pageUrls } from '@/utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { useBookStore } from '_pages/media/book/bookStore'
 
 export function useGetDeleteBook() {
@@ -12,20 +10,17 @@ export function useGetDeleteBook() {
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
-	const { mutateAsync: deleteBook } = useBookPrivateControllerDeleteBook()
-	const queryClient = useQueryClient()
+	const api = useMemo(() => new BooksApi(), [])
 
 	const onDeleteBookClick = useCallback(
 		async function () {
-			const book = useBookStore.getState().privateBook.data
+			const book = useBookStore.getState().book.data
 			if (!book) return
 
 			setStatus('loading')
 
 			try {
-				await deleteBook({ id: book.id })
-
-				queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
+				await api.deleteBook(book.id)
 
 				setStatus('idle')
 				router.push(pageUrls.books.path)
@@ -37,7 +32,7 @@ export function useGetDeleteBook() {
 				})
 			}
 		},
-		[deleteBook, notify, router, queryClient],
+		[api, notify, router],
 	)
 
 	return {

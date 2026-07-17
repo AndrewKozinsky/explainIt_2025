@@ -3,8 +3,8 @@ import { chapter_1 } from './chapter_1'
 import { chapter_2 } from './chapter_2'
 import { chapter_3 } from './chapter_3'
 
-export function theTransformationBookData(coversFolderName: string) {
-	const covers = ['theTransformation_1.jpg']
+export function theTransformationBookData(s3FolderName: string) {
+	const coverFileName = 'theTransformation_1.jpg'
 
 	return {
 		author: 'Franz Kafka',
@@ -17,7 +17,8 @@ export function theTransformationBookData(coversFolderName: string) {
 
 Уровень B1-B2.`,
 		languageCode: languages.de.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

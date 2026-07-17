@@ -17,8 +17,8 @@
 	let additionalTextClass = ''
 	if (exercisesBlock.analysis.status === ExercisesContextType.AnalysisStatus.visible) {
 		additionalTextClass = exercisesBlock.analysis.isTranslateCorrect
-			? 'eng-translate-input--green-text'
-			: 'eng-translate-input--red-text'
+			? 'eng-translate-inputs--green-text'
+			: 'eng-translate-inputs--red-text'
 	}
 
 	const onInput = useGetOnInput()
@@ -28,7 +28,7 @@
 
 	return (
 		<textarea
-			className={cn('eng-translate-input', additionalTextClass)}
+			className={cn('eng-translate-inputs', additionalTextClass)}
 			placeholder='Идёт перевод...'
 			onInput={onInput}
 			onKeyDown={(e) => onEnterKeyDown(e, checkTranslationOrMoveToAnotherExercise)}

@@ -1,11 +1,11 @@
-import { useParams } from 'next/navigation'
-import { pageUrls } from 'utils/pageUrls'
-import { getBookCoverUrl } from '_pages/media/reading/ReadingNavigation/fn/getBookCoverUrl'
-import { useReadingStore } from '../readingStore'
-import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
-import { LinkButton } from './LinkButton'
+// import { useParams } from 'next/navigation'
+// import {pageUrls} from "@/shared/utils/pageUrls";
+// import { getBookCoverUrl } from '_pages/media/reading/ReadingNavigation/fn/getBookCoverUrl'
+// import { useReadingStore } from '../readingStore'
+// import { useGetPrevAndNextChapters } from './fn/prevAndNextChapters'
+// import { LinkButton } from './LinkButton'
 
-export function BookLink() {
+/*export function BookLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const book = useReadingStore((s) => s.book.data)
 	const bookCoverUrl = getBookCoverUrl(book)
@@ -13,14 +13,14 @@ export function BookLink() {
 	return (
 		<LinkButton
 			href={pageUrls.books.book(bookIdInUrl).path}
-			smallText={book.author}
-			text={book.name}
+			smallText={book.author as unknown as string | null | undefined}
+			text={book.name as unknown as string | null | undefined}
 			coverUrl={bookCoverUrl}
 		/>
 	)
-}
+}*/
 
-export function PrevChapterLink() {
+/*export function PrevChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const prevChapter = useGetPrevAndNextChapters().prev
 
@@ -31,13 +31,13 @@ export function PrevChapterLink() {
 	return (
 		<LinkButton
 			href={pageUrls.books.book(bookIdInUrl).chapter(prevChapter.id).reading.path}
-			smallText={prevChapter.name}
-			text={prevChapter.header}
+			smallText={prevChapter.name as unknown as string | null | undefined}
+			text={prevChapter.header as unknown as string | null | undefined}
 		/>
 	)
-}
+}*/
 
-export function NextChapterLink() {
+/*export function NextChapterLink() {
 	const bookIdInUrl = useParams().bookId as string
 	const nextChapter = useGetPrevAndNextChapters().next
 
@@ -48,8 +48,8 @@ export function NextChapterLink() {
 	return (
 		<LinkButton
 			href={pageUrls.books.book(bookIdInUrl).chapter(nextChapter.id).reading.path}
-			smallText={nextChapter.name}
-			text={nextChapter.header}
+			smallText={nextChapter.name as unknown as string | null | undefined}
+			text={nextChapter.header as unknown as string | null | undefined}
 		/>
 	)
-}
+}*/

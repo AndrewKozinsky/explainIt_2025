@@ -1,10 +1,10 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { LanguageCode } from 'utils/languages'
 import { useLanguageControllerGetLanguages } from '@/shared/api/generated/language/language'
 import type { LanguageOutModel } from '@/shared/api/generated/models'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+import { LanguageCode } from '@/shared/utils/languages'
 import { useDictionaryStore } from '../dictionaryStore'
 
 function DictionaryLanguageSwitch() {

@@ -1,6 +1,6 @@
 import { createNavigation } from 'next-intl/navigation'
 import { defineRouting } from 'next-intl/routing'
-import { languageKeys } from '@/utils/languages'
+import { languageKeys } from '@/shared/utils/languages'
 
 export const routing = defineRouting({
 	locales: [...languageKeys],

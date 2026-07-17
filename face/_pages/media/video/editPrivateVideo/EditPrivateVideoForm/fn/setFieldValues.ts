@@ -1,11 +1,11 @@
-import { useEffect, useRef } from 'react'
-import { UseFormReset, UseFormSetValue } from 'react-hook-form'
-import type { VideoPrivateOutModel } from '@/shared/api/generated/models'
-import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
-import { useVideoStore } from '_pages/media/video/videoStore'
-import { ChangeVideoFormData } from '../fn/form'
+// import { useEffect, useRef } from 'react'
+// import { UseFormReset, UseFormSetValue } from 'react-hook-form'
+// import type { VideoPrivateOutModel } from '@/shared/api/generated/models'
+// import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+// import { useVideoStore } from '_pages/media/video/videoStore'
+// import { ChangeVideoFormData } from '../fn/form'
 
-export function useSetFieldValues(
+/*export function useSetFieldValues(
 	reset: UseFormReset<ChangeVideoFormData>,
 	setValue: UseFormSetValue<ChangeVideoFormData>,
 ) {
@@ -42,4 +42,4 @@ export function useSetFieldValues(
 		},
 		[video, reset, setValue],
 	)
-}
+}*/

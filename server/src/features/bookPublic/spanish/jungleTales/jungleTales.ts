@@ -8,8 +8,8 @@ import { chapter_6 } from './chapter_6'
 import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 
-export function jungleTalesBookData(coversFolderName: string) {
-	const covers = ['jungleTales_1.jpg']
+export function jungleTalesBookData(s3FolderName: string) {
+	const coverFileName = 'jungleTales_1.jpg'
 
 	return {
 		author: 'Horacio Quiroga',
@@ -26,7 +26,8 @@ export function jungleTalesBookData(coversFolderName: string) {
 
 Рекомендуемый уровень A2-B1`,
 		languageCode: languages.es.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

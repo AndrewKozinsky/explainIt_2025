@@ -20,10 +20,8 @@ export class FlashcardRepository {
 		phraseEndOffset: number
 		phraseTranslation: null | string
 		examples: SentencePhraseTranslationExampleServiceModel[]
-		bookPrivateId: null | number
-		bookPublicId: null | number
-		videoPrivateId: null | number
-		videoPublicId: null | number
+		bookId: null | number
+		videoId: null | number
 		sentencePhraseTranslationId: null | number
 	}): Promise<FlashcardServiceModel> {
 		const db = await this.prisma.flashcard.create({
@@ -37,10 +35,8 @@ export class FlashcardRepository {
 				phrase_end_offset: dto.phraseEndOffset,
 				phrase_translation: dto.phraseTranslation,
 				examples: this.encodeExamples(dto.examples),
-				book_private_id: dto.bookPrivateId,
-				book_public_id: dto.bookPublicId,
-				video_private_id: dto.videoPrivateId,
-				video_public_id: dto.videoPublicId,
+				book_id: dto.bookId,
+				video_id: dto.videoId,
 				sentence_phrase_translation_id: dto.sentencePhraseTranslationId,
 			},
 		})
@@ -112,10 +108,8 @@ export class FlashcardRepository {
 		phraseEndOffset: db.phrase_end_offset,
 		phraseTranslation: db.phrase_translation,
 		examples: this.decodeExamples(db.examples),
-		bookPrivateId: db.book_private_id,
-		bookPublicId: db.book_public_id,
-		videoPrivateId: db.video_private_id,
-		videoPublicId: db.video_public_id,
+		bookId: db.book_id,
+		videoId: db.video_id,
 		sentencePhraseTranslationId: db.sentence_phrase_translation_id,
 		createdAt: db.created_at,
 	})

@@ -152,22 +152,12 @@ OpenAPI-декораторы (`@ApiOperation`, `@ApiBody`, `@ApiResponse`) мн�
 ```typescript
 import { applyDecorators } from '@nestjs/common'
 import { ApiOperation, ApiBody, ApiResponse } from '@nestjs/swagger'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 
 export function ApiSomeAction() {
     return applyDecorators(
         ApiOperation({ summary: '...', description: '...' }),
         ApiBody({ type: SomeDto }),
         ApiResponse({ status: 200, description: 'OK', type: SomeOutModel }),
-        ApiResponse({ status: 400, description: 'Validation error' }),
-        ApiResponse({ status: 404, description: errorMessage.someEntity.notFound.errorMessageCode }),
-        ApiResponse({
-            status: 500,
-            description: [
-                errorMessage.unknownDbError.errorMessageCode,
-                errorMessage.unknownError.errorMessageCode,
-            ].join(' | '),
-        }),
     )
 }
 ```
@@ -209,26 +199,20 @@ export class SomeController {
    - По одному композитному декоратору на эндпоинт: `ApiLogin`, `ApiGetMe`, `ApiConfirmEmail`
    - `@UseGuards`, `@HttpCode`, `@Post`/`@Get` — остаются в контроллере, НЕ попадают в композитный декоратор
 5. **Пути маршрутов** — kebab-case (`'module-name'`, `'confirm-email'`). Глобальный префикс `api` уже настроен.
-6. **Коды ошибок в `@ApiResponse`.** В `description` указывается `errorMessageCode` — прямая ссылка на поле объекта из `errorMessage`, без промежуточных констант. Единственный источник кодов ошибок — `server/src/infrastructure/exceptions/errorMessage.ts`.
+6. **`@ApiResponse` — только успешные ответы.** В композитном декораторе указывается ТОЛЬКО успешный статус (200 или 201). Коды ошибок (400, 401, 403, 404, 500) НЕ добавляются в `@ApiResponse`.
+
+   **Почему:** Orval генерирует TypeScript-тип для каждого `@ApiResponse`. Если указать и 200, и 500 — получится union-тип, который требует сужения (`as unknown as SuccessType`) на клиенте при каждом вызове. С одним успешным ответом тип чистый.
+
+   **Как тогда обрабатываются ошибки:** Все ошибки проходят через `GlobalExceptionFilter` на сервере и выбрасываются на клиенте через `customMutator` как `ApiError`. `resolveError` извлекает `errorMessageCode` из тела ответа и резолвит в читаемый текст — единообразно для всех эндпоинтов.
 
    ```typescript
-   import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+   // Правильно — только успешный ответ
+   @ApiResponse({ status: 200, description: 'OK', type: SomeOutModel })
 
-   // Одна ошибка
-   @ApiResponse({ status: 404, description: errorMessage.user.notFound.errorMessageCode })
-
-   // Несколько ошибок на один статус — массив строк + join
-   @ApiResponse({
-       status: 500,
-       description: [
-           errorMessage.unknownDbError.errorMessageCode,
-           errorMessage.noSessionObject.errorMessageCode,
-           errorMessage.cannotSaveSession.errorMessageCode,
-       ].join(' | '),
-   })
+   // Неправильно — не надо добавлять коды ошибок
+   // @ApiResponse({ status: 404, description: '...' })
+   // @ApiResponse({ status: 500, description: '...' })
    ```
-
-   Validation error (400 от `ValidationPipe`) — единственный случай, когда можно писать человекочитаемый текст.
 
 #### Модуль
 

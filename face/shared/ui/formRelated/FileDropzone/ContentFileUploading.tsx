@@ -1,4 +1,4 @@
-import { filesUrls } from 'utils/filesUrls'
+import { filesUrls } from '@/shared/utils/filesUrls'
 
 type ContentFileUploadingProps = {
 	uploadedBytes: number

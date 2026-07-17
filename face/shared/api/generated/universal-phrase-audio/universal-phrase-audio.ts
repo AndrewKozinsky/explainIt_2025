@@ -57,24 +57,12 @@ export type universalPhraseAudioControllerGetAudioResponse200 = {
   status: 200
 }
 
-export type universalPhraseAudioControllerGetAudioResponse400 = {
-  data: void
-  status: 400
-}
-
-export type universalPhraseAudioControllerGetAudioResponse500 = {
-  data: void
-  status: 500
-}
-
 export type universalPhraseAudioControllerGetAudioResponseSuccess = (universalPhraseAudioControllerGetAudioResponse200) & {
   headers: Headers;
 };
-export type universalPhraseAudioControllerGetAudioResponseError = (universalPhraseAudioControllerGetAudioResponse400 | universalPhraseAudioControllerGetAudioResponse500) & {
-  headers: Headers;
-};
+;
 
-export type universalPhraseAudioControllerGetAudioResponse = (universalPhraseAudioControllerGetAudioResponseSuccess | universalPhraseAudioControllerGetAudioResponseError)
+export type universalPhraseAudioControllerGetAudioResponse = (universalPhraseAudioControllerGetAudioResponseSuccess)
 
 export const getUniversalPhraseAudioControllerGetAudioUrl = (params: UniversalPhraseAudioControllerGetAudioParams,) => {
   const normalizedParams = new URLSearchParams();
@@ -117,7 +105,7 @@ export const getUniversalPhraseAudioControllerGetAudioQueryKey = (params?: Unive
     }
 
 
-export const getUniversalPhraseAudioControllerGetAudioQueryOptions = <TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = void>(params: UniversalPhraseAudioControllerGetAudioParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getUniversalPhraseAudioControllerGetAudioQueryOptions = <TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = unknown>(params: UniversalPhraseAudioControllerGetAudioParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
@@ -136,10 +124,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type UniversalPhraseAudioControllerGetAudioQueryResult = NonNullable<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>>
-export type UniversalPhraseAudioControllerGetAudioQueryError = void
+export type UniversalPhraseAudioControllerGetAudioQueryError = unknown
 
 
-export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = void>(
+export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = unknown>(
  params: UniversalPhraseAudioControllerGetAudioParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>,
@@ -149,7 +137,7 @@ export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<Return
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = void>(
+export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = unknown>(
  params: UniversalPhraseAudioControllerGetAudioParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>,
@@ -159,7 +147,7 @@ export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<Return
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = void>(
+export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = unknown>(
  params: UniversalPhraseAudioControllerGetAudioParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
@@ -167,7 +155,7 @@ export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<Return
  * @summary Get audio pronunciation
  */
 
-export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = void>(
+export function useUniversalPhraseAudioControllerGetAudio<TData = Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError = unknown>(
  params: UniversalPhraseAudioControllerGetAudioParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
@@ -189,29 +177,12 @@ export type universalPhraseAudioControllerGetOrCreateAudioResponse201 = {
   status: 201
 }
 
-export type universalPhraseAudioControllerGetOrCreateAudioResponse400 = {
-  data: void
-  status: 400
-}
-
-export type universalPhraseAudioControllerGetOrCreateAudioResponse404 = {
-  data: void
-  status: 404
-}
-
-export type universalPhraseAudioControllerGetOrCreateAudioResponse500 = {
-  data: void
-  status: 500
-}
-
 export type universalPhraseAudioControllerGetOrCreateAudioResponseSuccess = (universalPhraseAudioControllerGetOrCreateAudioResponse201) & {
   headers: Headers;
 };
-export type universalPhraseAudioControllerGetOrCreateAudioResponseError = (universalPhraseAudioControllerGetOrCreateAudioResponse400 | universalPhraseAudioControllerGetOrCreateAudioResponse404 | universalPhraseAudioControllerGetOrCreateAudioResponse500) & {
-  headers: Headers;
-};
+;
 
-export type universalPhraseAudioControllerGetOrCreateAudioResponse = (universalPhraseAudioControllerGetOrCreateAudioResponseSuccess | universalPhraseAudioControllerGetOrCreateAudioResponseError)
+export type universalPhraseAudioControllerGetOrCreateAudioResponse = (universalPhraseAudioControllerGetOrCreateAudioResponseSuccess)
 
 export const getUniversalPhraseAudioControllerGetOrCreateAudioUrl = () => {
 
@@ -240,7 +211,7 @@ export const universalPhraseAudioControllerGetOrCreateAudio = async (createUnive
 
 
 
-export const getUniversalPhraseAudioControllerGetOrCreateAudioMutationOptions = <TError = void,
+export const getUniversalPhraseAudioControllerGetOrCreateAudioMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetOrCreateAudio>>, TError,{data: CreateUniversalPhraseAudioInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetOrCreateAudio>>, TError,{data: CreateUniversalPhraseAudioInput}, TContext> => {
 
@@ -269,12 +240,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type UniversalPhraseAudioControllerGetOrCreateAudioMutationResult = NonNullable<Awaited<ReturnType<typeof universalPhraseAudioControllerGetOrCreateAudio>>>
     export type UniversalPhraseAudioControllerGetOrCreateAudioMutationBody = CreateUniversalPhraseAudioInput
-    export type UniversalPhraseAudioControllerGetOrCreateAudioMutationError = void
+    export type UniversalPhraseAudioControllerGetOrCreateAudioMutationError = unknown
 
     /**
  * @summary Get or create audio pronunciation
  */
-export const useUniversalPhraseAudioControllerGetOrCreateAudio = <TError = void,
+export const useUniversalPhraseAudioControllerGetOrCreateAudio = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseAudioControllerGetOrCreateAudio>>, TError,{data: CreateUniversalPhraseAudioInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof universalPhraseAudioControllerGetOrCreateAudio>>,

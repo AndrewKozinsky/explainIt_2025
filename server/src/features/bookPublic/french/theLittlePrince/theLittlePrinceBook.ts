@@ -28,8 +28,8 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 import { dedication } from './dedication'
 
-export function theLittlePrinceBookData(coversFolderName: string) {
-	const covers = ['the_little_prince_cover_1.jpg']
+export function theLittlePrinceBookData(s3FolderName: string) {
+	const coverFileName = 'the_little_prince_cover_1.jpg'
 
 	return {
 		author: 'Antoine de Saint-Exupéry',
@@ -42,7 +42,8 @@ export function theLittlePrinceBookData(coversFolderName: string) {
 
 Уровень A2-B1.`,
 		languageCode: languages.fr.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

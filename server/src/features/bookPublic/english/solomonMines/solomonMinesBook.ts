@@ -21,8 +21,8 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 import { intro } from './intro'
 
-export function solomonMinesBookData(coversFolderName: string) {
-	const covers = ['king_solomon_mines_cover_1.jpg']
+export function solomonMinesBookData(s3FolderName: string) {
+	const coverFileName = 'king_solomon_mines_cover_1.jpg'
 
 	return {
 		author: 'Henry Rider Haggard',
@@ -41,7 +41,8 @@ export function solomonMinesBookData(coversFolderName: string) {
 
 Уровень B2-C1.`,
 		languageCode: languages.en.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

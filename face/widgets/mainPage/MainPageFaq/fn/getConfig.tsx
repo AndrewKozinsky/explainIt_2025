@@ -4,7 +4,7 @@ import FaqTypes from '@/shared/ui/FAQ/fn/faqTypes'
  * Принимает объект конфигурации для построения блока Вопросов и ответов и возвращает улученную версию.
  * @param config — объект конфигурации для построения блока Вопросов и ответов
  */
-export const config: wFaqTypes.Config = [
+export const config: FaqTypes.Config = [
 	{
 		question: {
 			type: 'plain',

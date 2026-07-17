@@ -11,8 +11,8 @@ import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
-export function processBookData(coversFolderName: string) {
-	const covers = ['process_1.jpg']
+export function processBookData(s3FolderName: string) {
+	const coverFileName = 'process_1.jpg'
 
 	return {
 		author: 'Franz Kafka',
@@ -29,7 +29,8 @@ export function processBookData(coversFolderName: string) {
 
 Уровень B2-С1.`,
 		languageCode: languages.de.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

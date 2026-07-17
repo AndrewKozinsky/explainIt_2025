@@ -32,29 +32,12 @@ export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionRespon
   status: 201
 }
 
-export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse400 = {
-  data: void
-  status: 400
-}
-
-export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse404 = {
-  data: void
-  status: 404
-}
-
-export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse500 = {
-  data: void
-  status: 500
-}
-
 export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponseSuccess = (universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse201) & {
   headers: Headers;
 };
-export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponseError = (universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse400 | universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse404 | universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse500) & {
-  headers: Headers;
-};
+;
 
-export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse = (universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponseSuccess | universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponseError)
+export type universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponse = (universalPhraseTranscriptionControllerGetOrCreateTranscriptionResponseSuccess)
 
 export const getUniversalPhraseTranscriptionControllerGetOrCreateTranscriptionUrl = () => {
 
@@ -83,7 +66,7 @@ export const universalPhraseTranscriptionControllerGetOrCreateTranscription = as
 
 
 
-export const getUniversalPhraseTranscriptionControllerGetOrCreateTranscriptionMutationOptions = <TError = void,
+export const getUniversalPhraseTranscriptionControllerGetOrCreateTranscriptionMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseTranscriptionControllerGetOrCreateTranscription>>, TError,{data: CreateUniversalPhraseTranscriptionInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof universalPhraseTranscriptionControllerGetOrCreateTranscription>>, TError,{data: CreateUniversalPhraseTranscriptionInput}, TContext> => {
 
@@ -112,12 +95,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type UniversalPhraseTranscriptionControllerGetOrCreateTranscriptionMutationResult = NonNullable<Awaited<ReturnType<typeof universalPhraseTranscriptionControllerGetOrCreateTranscription>>>
     export type UniversalPhraseTranscriptionControllerGetOrCreateTranscriptionMutationBody = CreateUniversalPhraseTranscriptionInput
-    export type UniversalPhraseTranscriptionControllerGetOrCreateTranscriptionMutationError = void
+    export type UniversalPhraseTranscriptionControllerGetOrCreateTranscriptionMutationError = unknown
 
     /**
  * @summary Get or create transcription
  */
-export const useUniversalPhraseTranscriptionControllerGetOrCreateTranscription = <TError = void,
+export const useUniversalPhraseTranscriptionControllerGetOrCreateTranscription = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof universalPhraseTranscriptionControllerGetOrCreateTranscription>>, TError,{data: CreateUniversalPhraseTranscriptionInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof universalPhraseTranscriptionControllerGetOrCreateTranscription>>,

@@ -2,14 +2,15 @@ import { BookChapterLiteServiceModel } from '../bookChapter/bookChapter.service.
 
 export type BookServiceModel = {
 	id: number
+	type: 'public' | 'private'
 	author: null | string
 	name: null | string
 	sourceLanguageCode: null | string
 	note: null | string
-	userId: number
-	fileName: null | string
-	fileS3Key: null | string
-	isFileUploaded: boolean
+	userId: null | number
+	coverFileName: null | string
+	coverFileS3Key: null | string
+	isCoverFileUploaded: boolean
 	chapters: BookChapterLiteServiceModel[]
 }
 

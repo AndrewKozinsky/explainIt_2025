@@ -1,8 +1,8 @@
-import { useMemo } from 'react'
-import type { BookChapterLiteOutModel } from '@/shared/api/generated/models'
-import { useReadingStore } from '../../readingStore'
+// import { useMemo } from 'react'
+// import type { BookChapterLiteOutModel } from '@/shared/api/generated/models'
+// import { useReadingStore } from '../../readingStore'
 
-export function useGetPrevAndNextChapters() {
+/*export function useGetPrevAndNextChapters() {
 	const book = useReadingStore((s) => s.book.data)
 	const currentChapterId = useReadingStore((s) => s.populatedChapter.id)
 
@@ -38,4 +38,4 @@ export function useGetPrevAndNextChapters() {
 		},
 		[book, currentChapterId],
 	)
-}
+}*/

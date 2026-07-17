@@ -1,23 +1,23 @@
-import { INestApplication } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
-import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-import RouteNames from '../../src/infrastructure/routeNames'
-import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReq } from '../makeGQReq'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword, welcomeBonusInKop } from '../utils/common'
-import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { INestApplication } from '@nestjs/common'
+// import { CommandBus } from '@nestjs/cqrs'
+// import { App } from 'supertest/types'
+// import { queries } from '../../src/features/db/queries'
+// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+// import RouteNames from '../../src/infrastructure/routeNames'
+// import { UserRepository } from '../../src/repo/user.repository'
+// import { makeGraphQLReq } from '../makeGQReq'
+// import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+// import { checkErrorResponse } from '../utils/checkErrorResp'
+// import { defUserEmail, defUserPassword, welcomeBonusInKop } from '../utils/common'
+// import { createApp } from '../utils/createApp'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Register user (e2e)', () => {
+/*describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -99,11 +99,11 @@ describe.skip('Register user (e2e)', () => {
 
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 
-		/*checkErrorResponse(createUserResp2, {
+		checkErrorResponse(createUserResp2, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.isNotConfirmed,
-		})*/
+		})
 	})
 
 	it('should return error if a user is already created and email is confirmed', async () => {
@@ -115,11 +115,11 @@ describe.skip('Register user (e2e)', () => {
 
 		const [createUserResp2] = await makeGraphQLReq(app, registerUserMutation)
 
-		/*checkErrorResponse(createUserResp2, {
+		checkErrorResponse(createUserResp2, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.isAlreadyRegistered,
-		})*/
+		})
 	})
 
 	it('should register a user if he has already registered with OAuth', async () => {
@@ -164,4 +164,4 @@ describe.skip('Register user (e2e)', () => {
 			balance: welcomeBonusInKop,
 		})
 	})
-})
+})*/

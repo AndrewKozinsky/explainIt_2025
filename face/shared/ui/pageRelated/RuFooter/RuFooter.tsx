@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from '@/i18n/routing'
-import { pageUrls } from '@/utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import './RuFooter.scss'
 
 function RuFooter() {

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { UseFormReset, UseFormSetValue } from 'react-hook-form'
-import { useBookPrivateControllerGetBook } from '@/shared/api/generated/book-private/book-private'
-import type { BookPrivateOutModel } from '@/shared/api/generated/models'
+import { BooksApi } from '@/entites/books/repository/BooksApi'
+import { useFetchData } from '@/shared/hooks/useFetchData'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { ChangeBookFormData } from './form'
 
@@ -9,14 +9,16 @@ export function useSetFieldValues(
 	reset: UseFormReset<ChangeBookFormData>,
 	setValue: UseFormSetValue<ChangeBookFormData>,
 ) {
-	const bookId = useBookStore((s) => s.privateBook.data?.id)
+	const bookId = useBookStore((s) => s.book.data?.id)
 	const prevBookIdRef = useRef<number | undefined>(undefined)
 
-	const { data } = useBookPrivateControllerGetBook(bookId!, {
-		query: { enabled: !!bookId },
-	})
+	const api = useMemo(() => new BooksApi(), [])
 
-	const book = data as unknown as BookPrivateOutModel | undefined
+	const { data: book } = useFetchData(async () => {
+		if (!bookId) return null
+
+		return api.getBook(bookId)
+	}, [api, bookId])
 
 	useEffect(
 		function () {
@@ -24,10 +26,10 @@ export function useSetFieldValues(
 
 			if (book.id !== prevBookIdRef.current) {
 				reset({
-					languageCode: (book.languageCode as unknown as string) ?? '',
-					author: (book.author as unknown as string) ?? '',
-					name: (book.name as unknown as string) ?? '',
-					note: (book.note as unknown as string) ?? '',
+					languageCode: book.languageCode ?? '',
+					author: book.author ?? '',
+					name: book.name ?? '',
+					note: book.note ?? '',
 				})
 				prevBookIdRef.current = book.id
 			}

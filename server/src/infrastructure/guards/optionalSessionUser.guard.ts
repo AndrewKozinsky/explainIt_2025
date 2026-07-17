@@ -1,16 +1,17 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common'
+import { Request } from 'express'
 import { UserRepository } from 'repo/user.repository'
-import { getRequestFromExecutionContext } from './getRequestFromExecutionContext'
 
 @Injectable()
 export class OptionalSessionUserGuard implements CanActivate {
 	constructor(private userRepository: UserRepository) {}
 
 	async canActivate(context: ExecutionContext) {
-		const request = getRequestFromExecutionContext(context)
+		const request = context.switchToHttp().getRequest<Request>()
 		request.user = null
 
 		const userId = request.session?.userId
+
 		if (!userId) {
 			return true
 		}

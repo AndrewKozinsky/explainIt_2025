@@ -3,22 +3,14 @@ import { useBookStore } from '_pages/media/book/bookStore'
 import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 
 export function useGetHeaderAndSubHeader() {
-	const publicBook = useBookStore((s) => s.publicBook)
-	const privateBook = useBookStore((s) => s.privateBook)
+	const book = useBookStore((s) => s.book)
 
 	return useMemo(
 		function () {
-			if (publicBook.data) {
+			if (book.data) {
 				return {
-					header: publicBook.data.name || bookConfig.emptyBookName,
-					subHeader: publicBook.data.author as unknown as string | null,
-				}
-			}
-
-			if (privateBook.data) {
-				return {
-					header: (privateBook.data.name as unknown as string) || bookConfig.emptyBookName,
-					subHeader: privateBook.data.author as unknown as string | null,
+					header: book.data.name || bookConfig.emptyBookName,
+					subHeader: book.data.author,
 				}
 			}
 
@@ -27,6 +19,6 @@ export function useGetHeaderAndSubHeader() {
 				subHeader: null,
 			}
 		},
-		[publicBook, privateBook],
+		[book],
 	)
 }

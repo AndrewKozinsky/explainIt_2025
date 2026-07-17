@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { filesUrls } from 'utils/filesUrls'
+import { filesUrls } from '@/shared/utils/filesUrls'
 import { useFlashCardButton } from './fn/useFlashCardButton'
 import './FlashCardButton.scss'
 

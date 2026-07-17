@@ -4,9 +4,8 @@ import { CqrsModule } from '@nestjs/cqrs'
 import { ScheduleModule } from '@nestjs/schedule'
 // import { Request, Response } from 'express'
 import { AuthModule } from 'routes/auth/auth.module'
+import { BookModule } from 'routes/book/book.module'
 import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
-import { BookModule } from 'routes/bookPrivate/book.module'
-import { BookPublicModule } from 'routes/bookPublic/bookPublic.module'
 import { DbModule } from 'routes/db/db.module'
 import { FlashcardModule } from 'routes/flashcard/flashcard.module'
 import { LanguageModule } from 'routes/language/language.module'
@@ -17,11 +16,11 @@ import { UniversalPhraseModule } from 'routes/universalPhrase/universalPhrase.mo
 import { UniversalPhraseAudioModule } from 'routes/universalPhraseAudio/universalPhraseAudio.module'
 import { UniversalPhraseTranscriptionModule } from 'routes/universalPhraseTranscription/universalPhraseTranscription.module'
 import { UniversalPhraseTranslationModule } from 'routes/universalPhraseTranslation/universalPhraseTranslation.module'
-import { VideoPrivateModule } from 'routes/videoPrivate/videoPrivate.module'
-import { VideoPublicModule } from 'routes/videoPublic/videoPublic.module'
+import { VideoModule } from 'routes/video/video.module'
+import { VideoCollectionModule } from 'routes/videoCollection/videoCollection.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
-// import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
+import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { EmailAdapterModule } from 'infrastructure/emailAdapter/email-adapter.module'
 import { GlobalExceptionFilter } from 'infrastructure/exceptions/global-exception.filter'
@@ -53,7 +52,7 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		// GigaChatModule,
 		OpenAIModule,
 		DeepSeekModule,
-		// DeepgramSttModule,
+		DeepgramSttModule,
 		GoogleGeminiModule,
 		GoogleTtsModule,
 		CloudRuS3Module,
@@ -67,10 +66,9 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		YooKassaModule,
 		WebhookModule,
 		BookModule,
-		BookPublicModule,
 		BookChapterModule,
-		VideoPrivateModule,
-		VideoPublicModule,
+		VideoModule,
+		VideoCollectionModule,
 		TranslateRouteModule,
 		SentenceChatModule,
 		UniversalPhraseModule,

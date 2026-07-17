@@ -387,11 +387,10 @@ export const ModelName = {
   User: 'User',
   UserBalanceTransaction: 'UserBalanceTransaction',
   Payment: 'Payment',
-  BookPrivate: 'BookPrivate',
-  BookPublic: 'BookPublic',
+  Book: 'Book',
   BookChapter: 'BookChapter',
-  VideoPrivate: 'VideoPrivate',
-  VideoPublic: 'VideoPublic',
+  VideoCollection: 'VideoCollection',
+  Video: 'Video',
   Sentence: 'Sentence',
   SentenceTranslation: 'SentenceTranslation',
   SentencePhraseTranslation: 'SentencePhraseTranslation',
@@ -419,7 +418,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "bookPrivate" | "bookPublic" | "bookChapter" | "videoPrivate" | "videoPublic" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "videoCollection" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -645,151 +644,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    BookPrivate: {
-      payload: Prisma.$BookPrivatePayload<ExtArgs>
-      fields: Prisma.BookPrivateFieldRefs
+    Book: {
+      payload: Prisma.$BookPayload<ExtArgs>
+      fields: Prisma.BookFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.BookPrivateFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload> | null
+          args: Prisma.BookFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.BookPrivateFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>
+          args: Prisma.BookFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>
         }
         findFirst: {
-          args: Prisma.BookPrivateFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload> | null
+          args: Prisma.BookFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.BookPrivateFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>
+          args: Prisma.BookFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>
         }
         findMany: {
-          args: Prisma.BookPrivateFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>[]
+          args: Prisma.BookFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>[]
         }
         create: {
-          args: Prisma.BookPrivateCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>
+          args: Prisma.BookCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>
         }
         createMany: {
-          args: Prisma.BookPrivateCreateManyArgs<ExtArgs>
+          args: Prisma.BookCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.BookPrivateCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>[]
+          args: Prisma.BookCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>[]
         }
         delete: {
-          args: Prisma.BookPrivateDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>
+          args: Prisma.BookDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>
         }
         update: {
-          args: Prisma.BookPrivateUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>
+          args: Prisma.BookUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>
         }
         deleteMany: {
-          args: Prisma.BookPrivateDeleteManyArgs<ExtArgs>
+          args: Prisma.BookDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.BookPrivateUpdateManyArgs<ExtArgs>
+          args: Prisma.BookUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.BookPrivateUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>[]
+          args: Prisma.BookUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>[]
         }
         upsert: {
-          args: Prisma.BookPrivateUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPrivatePayload>
+          args: Prisma.BookUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPayload>
         }
         aggregate: {
-          args: Prisma.BookPrivateAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBookPrivate>
+          args: Prisma.BookAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateBook>
         }
         groupBy: {
-          args: Prisma.BookPrivateGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookPrivateGroupByOutputType>[]
+          args: Prisma.BookGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BookGroupByOutputType>[]
         }
         count: {
-          args: Prisma.BookPrivateCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookPrivateCountAggregateOutputType> | number
-        }
-      }
-    }
-    BookPublic: {
-      payload: Prisma.$BookPublicPayload<ExtArgs>
-      fields: Prisma.BookPublicFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.BookPublicFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.BookPublicFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>
-        }
-        findFirst: {
-          args: Prisma.BookPublicFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.BookPublicFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>
-        }
-        findMany: {
-          args: Prisma.BookPublicFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>[]
-        }
-        create: {
-          args: Prisma.BookPublicCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>
-        }
-        createMany: {
-          args: Prisma.BookPublicCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.BookPublicCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>[]
-        }
-        delete: {
-          args: Prisma.BookPublicDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>
-        }
-        update: {
-          args: Prisma.BookPublicUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>
-        }
-        deleteMany: {
-          args: Prisma.BookPublicDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.BookPublicUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.BookPublicUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>[]
-        }
-        upsert: {
-          args: Prisma.BookPublicUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$BookPublicPayload>
-        }
-        aggregate: {
-          args: Prisma.BookPublicAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateBookPublic>
-        }
-        groupBy: {
-          args: Prisma.BookPublicGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookPublicGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.BookPublicCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.BookPublicCountAggregateOutputType> | number
+          args: Prisma.BookCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.BookCountAggregateOutputType> | number
         }
       }
     }
@@ -867,151 +792,151 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    VideoPrivate: {
-      payload: Prisma.$VideoPrivatePayload<ExtArgs>
-      fields: Prisma.VideoPrivateFieldRefs
+    VideoCollection: {
+      payload: Prisma.$VideoCollectionPayload<ExtArgs>
+      fields: Prisma.VideoCollectionFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.VideoPrivateFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+          args: Prisma.VideoCollectionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.VideoPrivateFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.VideoCollectionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
         }
         findFirst: {
-          args: Prisma.VideoPrivateFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload> | null
+          args: Prisma.VideoCollectionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.VideoPrivateFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.VideoCollectionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
         }
         findMany: {
-          args: Prisma.VideoPrivateFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+          args: Prisma.VideoCollectionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>[]
         }
         create: {
-          args: Prisma.VideoPrivateCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.VideoCollectionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
         }
         createMany: {
-          args: Prisma.VideoPrivateCreateManyArgs<ExtArgs>
+          args: Prisma.VideoCollectionCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.VideoPrivateCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+          args: Prisma.VideoCollectionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>[]
         }
         delete: {
-          args: Prisma.VideoPrivateDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.VideoCollectionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
         }
         update: {
-          args: Prisma.VideoPrivateUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.VideoCollectionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
         }
         deleteMany: {
-          args: Prisma.VideoPrivateDeleteManyArgs<ExtArgs>
+          args: Prisma.VideoCollectionDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.VideoPrivateUpdateManyArgs<ExtArgs>
+          args: Prisma.VideoCollectionUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.VideoPrivateUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>[]
+          args: Prisma.VideoCollectionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>[]
         }
         upsert: {
-          args: Prisma.VideoPrivateUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPrivatePayload>
+          args: Prisma.VideoCollectionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
         }
         aggregate: {
-          args: Prisma.VideoPrivateAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoPrivate>
+          args: Prisma.VideoCollectionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoCollection>
         }
         groupBy: {
-          args: Prisma.VideoPrivateGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateGroupByOutputType>[]
+          args: Prisma.VideoCollectionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoCollectionGroupByOutputType>[]
         }
         count: {
-          args: Prisma.VideoPrivateCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoPrivateCountAggregateOutputType> | number
+          args: Prisma.VideoCollectionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoCollectionCountAggregateOutputType> | number
         }
       }
     }
-    VideoPublic: {
-      payload: Prisma.$VideoPublicPayload<ExtArgs>
-      fields: Prisma.VideoPublicFieldRefs
+    Video: {
+      payload: Prisma.$VideoPayload<ExtArgs>
+      fields: Prisma.VideoFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.VideoPublicFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload> | null
+          args: Prisma.VideoFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.VideoPublicFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>
+          args: Prisma.VideoFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>
         }
         findFirst: {
-          args: Prisma.VideoPublicFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload> | null
+          args: Prisma.VideoFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.VideoPublicFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>
+          args: Prisma.VideoFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>
         }
         findMany: {
-          args: Prisma.VideoPublicFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>[]
+          args: Prisma.VideoFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>[]
         }
         create: {
-          args: Prisma.VideoPublicCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>
+          args: Prisma.VideoCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>
         }
         createMany: {
-          args: Prisma.VideoPublicCreateManyArgs<ExtArgs>
+          args: Prisma.VideoCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.VideoPublicCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>[]
+          args: Prisma.VideoCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>[]
         }
         delete: {
-          args: Prisma.VideoPublicDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>
+          args: Prisma.VideoDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>
         }
         update: {
-          args: Prisma.VideoPublicUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>
+          args: Prisma.VideoUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>
         }
         deleteMany: {
-          args: Prisma.VideoPublicDeleteManyArgs<ExtArgs>
+          args: Prisma.VideoDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.VideoPublicUpdateManyArgs<ExtArgs>
+          args: Prisma.VideoUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.VideoPublicUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>[]
+          args: Prisma.VideoUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>[]
         }
         upsert: {
-          args: Prisma.VideoPublicUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPublicPayload>
+          args: Prisma.VideoUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoPayload>
         }
         aggregate: {
-          args: Prisma.VideoPublicAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoPublic>
+          args: Prisma.VideoAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateVideo>
         }
         groupBy: {
-          args: Prisma.VideoPublicGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoPublicGroupByOutputType>[]
+          args: Prisma.VideoGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoGroupByOutputType>[]
         }
         count: {
-          args: Prisma.VideoPublicCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoPublicCountAggregateOutputType> | number
+          args: Prisma.VideoCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.VideoCountAggregateOutputType> | number
         }
       }
     }
@@ -1983,40 +1908,27 @@ export const PaymentScalarFieldEnum = {
 export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
 
 
-export const BookPrivateScalarFieldEnum = {
+export const BookScalarFieldEnum = {
   id: 'id',
+  type: 'type',
   user_id: 'user_id',
   author: 'author',
   name: 'name',
   source_language_code: 'source_language_code',
   note: 'note',
-  file_name: 'file_name',
-  file_s3_key: 'file_s3_key',
-  s3_provider_name: 's3_provider_name',
-  is_file_uploaded: 'is_file_uploaded',
+  cover_file_name: 'cover_file_name',
+  cover_file_s3_key: 'cover_file_s3_key',
+  cover_file_s3_provider_name: 'cover_file_s3_provider_name',
+  is_cover_file_uploaded: 'is_cover_file_uploaded',
   created_at: 'created_at'
 } as const
 
-export type BookPrivateScalarFieldEnum = (typeof BookPrivateScalarFieldEnum)[keyof typeof BookPrivateScalarFieldEnum]
-
-
-export const BookPublicScalarFieldEnum = {
-  id: 'id',
-  source_language_code: 'source_language_code',
-  covers: 'covers',
-  author: 'author',
-  name: 'name',
-  note: 'note',
-  created_at: 'created_at'
-} as const
-
-export type BookPublicScalarFieldEnum = (typeof BookPublicScalarFieldEnum)[keyof typeof BookPublicScalarFieldEnum]
+export type BookScalarFieldEnum = (typeof BookScalarFieldEnum)[keyof typeof BookScalarFieldEnum]
 
 
 export const BookChapterScalarFieldEnum = {
   id: 'id',
   book_id: 'book_id',
-  book_public_id: 'book_public_id',
   name: 'name',
   header: 'header',
   original_content: 'original_content',
@@ -2028,18 +1940,30 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const VideoPrivateScalarFieldEnum = {
+export const VideoCollectionScalarFieldEnum = {
   id: 'id',
+  type: 'type',
   user_id: 'user_id',
+  name: 'name',
   source_language_code: 'source_language_code',
-  year: 'year',
+  note: 'note',
+  created_at: 'created_at'
+} as const
+
+export type VideoCollectionScalarFieldEnum = (typeof VideoCollectionScalarFieldEnum)[keyof typeof VideoCollectionScalarFieldEnum]
+
+
+export const VideoScalarFieldEnum = {
+  id: 'id',
+  video_collection_id: 'video_collection_id',
+  name: 'name',
+  note: 'note',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
   s3_provider_name: 's3_provider_name',
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   file_duration_sec: 'file_duration_sec',
-  name: 'name',
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
@@ -2053,34 +1977,13 @@ export const VideoPrivateScalarFieldEnum = {
   updated_at: 'updated_at'
 } as const
 
-export type VideoPrivateScalarFieldEnum = (typeof VideoPrivateScalarFieldEnum)[keyof typeof VideoPrivateScalarFieldEnum]
-
-
-export const VideoPublicScalarFieldEnum = {
-  id: 'id',
-  source_language_code: 'source_language_code',
-  year: 'year',
-  name: 'name',
-  file_name: 'file_name',
-  file_s3_key: 'file_s3_key',
-  s3_provider_name: 's3_provider_name',
-  note: 'note',
-  covers: 'covers',
-  original_content: 'original_content',
-  processed_content: 'processed_content',
-  content_type: 'content_type',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type VideoPublicScalarFieldEnum = (typeof VideoPublicScalarFieldEnum)[keyof typeof VideoPublicScalarFieldEnum]
+export type VideoScalarFieldEnum = (typeof VideoScalarFieldEnum)[keyof typeof VideoScalarFieldEnum]
 
 
 export const SentenceScalarFieldEnum = {
   id: 'id',
   book_chapter_id: 'book_chapter_id',
-  video_private_id: 'video_private_id',
-  video_public_id: 'video_public_id',
+  video_id: 'video_id',
   start_offset: 'start_offset',
   length: 'length',
   order_index: 'order_index'
@@ -2125,8 +2028,7 @@ export const SubtitleScalarFieldEnum = {
   start_offset: 'start_offset',
   length: 'length',
   order_index: 'order_index',
-  video_private_id: 'video_private_id',
-  video_public_id: 'video_public_id'
+  video_id: 'video_id'
 } as const
 
 export type SubtitleScalarFieldEnum = (typeof SubtitleScalarFieldEnum)[keyof typeof SubtitleScalarFieldEnum]
@@ -2224,10 +2126,8 @@ export const FlashcardScalarFieldEnum = {
   phrase_end_offset: 'phrase_end_offset',
   phrase_translation: 'phrase_translation',
   examples: 'examples',
-  book_private_id: 'book_private_id',
-  book_public_id: 'book_public_id',
-  video_private_id: 'video_private_id',
-  video_public_id: 'video_public_id',
+  book_id: 'book_id',
+  video_id: 'video_id',
   sentence_phrase_translation_id: 'sentence_phrase_translation_id',
   created_at: 'created_at'
 } as const
@@ -2353,6 +2253,20 @@ export type EnumPaymentProviderNameFieldRefInput<$PrismaModel> = FieldRefInputTy
  * Reference to a field of type 'PaymentProviderName[]'
  */
 export type ListEnumPaymentProviderNameFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PaymentProviderName[]'>
+    
+
+
+/**
+ * Reference to a field of type 'MediaType'
+ */
+export type EnumMediaTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MediaType'>
+    
+
+
+/**
+ * Reference to a field of type 'MediaType[]'
+ */
+export type ListEnumMediaTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'MediaType[]'>
     
 
 
@@ -2594,11 +2508,10 @@ export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   userBalanceTransaction?: Prisma.UserBalanceTransactionOmit
   payment?: Prisma.PaymentOmit
-  bookPrivate?: Prisma.BookPrivateOmit
-  bookPublic?: Prisma.BookPublicOmit
+  book?: Prisma.BookOmit
   bookChapter?: Prisma.BookChapterOmit
-  videoPrivate?: Prisma.VideoPrivateOmit
-  videoPublic?: Prisma.VideoPublicOmit
+  videoCollection?: Prisma.VideoCollectionOmit
+  video?: Prisma.VideoOmit
   sentence?: Prisma.SentenceOmit
   sentenceTranslation?: Prisma.SentenceTranslationOmit
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationOmit

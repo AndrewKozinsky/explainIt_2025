@@ -1,6 +1,6 @@
 import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { BookRepository } from 'repo/book/book.repository'
 import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
-import { BookPublicRepository } from 'repo/bookPublic.repository'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
 import {
@@ -54,7 +54,7 @@ export class CreatePublicBooksCommand implements ICommand {
 export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBooksCommand> {
 	constructor(
 		private commandBus: CommandBus,
-		public bookPublicRepository: BookPublicRepository,
+		public bookRepository: BookRepository,
 		private bookChapterRepository: BookChapterRepository,
 		private mainConfig: MainConfigService,
 	) {}
@@ -64,7 +64,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 		const createdBooks = []
 
 		for (const data of booksData) {
-			const bookId = await this.getOrCreateBookOfNotExists(data.book)
+			const bookId = await this.getOrCreateBook(data.book)
 			createdBooks.push({
 				bookId,
 				chapters: data.chapters,
@@ -82,84 +82,84 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 			? 'publicBooksDev'
 			: 'publicBooks'
 
-		const coversFolderName = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
+		const s3FolderName = this.mainConfig.get().yandexCloud.s3.bucketUrl + '/' + folderName + '/'
 
 		return [
 			// English
 			{
-				book: wizardOfOzBookData(coversFolderName + 'english/'),
+				book: wizardOfOzBookData(s3FolderName + 'english/'),
 				chapters: wizardOfOzChapters,
 			},
 			{
-				book: solomonMinesBookData(coversFolderName + 'english/'),
+				book: solomonMinesBookData(s3FolderName + 'english/'),
 				chapters: solomonMinesChapters,
 			},
 			{
-				book: oliverTwistBookData(coversFolderName + 'english/'),
+				book: oliverTwistBookData(s3FolderName + 'english/'),
 				chapters: oliverTwistChapters,
 			},
 			{
-				book: aStudyInScarletPartOneBookData(coversFolderName + 'english/'),
+				book: aStudyInScarletPartOneBookData(s3FolderName + 'english/'),
 				chapters: aStudyInScarletPartOneChapters,
 			},
 			{
-				book: aStudyInScarletPartTwoBookData(coversFolderName + 'english/'),
+				book: aStudyInScarletPartTwoBookData(s3FolderName + 'english/'),
 				chapters: aStudyInScarletPartTwoChapters,
 			},
 			/*{
-				book: secretCluesBookData(coversFolderName + 'english/'),
+				book: secretCluesBookData(s3FolderName + 'english/'),
 				chapters: secretCluesChapters,
 			},*/
 			// German
 			{
-				book: littleRedRidingHoodBookData(coversFolderName + 'german/'),
+				book: littleRedRidingHoodBookData(s3FolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
 			},
 			{
-				book: theTransformationBookData(coversFolderName + 'german/'),
+				book: theTransformationBookData(s3FolderName + 'german/'),
 				chapters: theTransformationChapters,
 			},
 			{
-				book: processBookData(coversFolderName + 'german/'),
+				book: processBookData(s3FolderName + 'german/'),
 				chapters: processChapters,
 			},
 			// Spanish
 			{
-				book: jungleTalesBookData(coversFolderName + 'spanish/'),
+				book: jungleTalesBookData(s3FolderName + 'spanish/'),
 				chapters: jungleTalesChapters,
 			},
 			{
-				book: donQuixoteBookData(coversFolderName + 'spanish/'),
+				book: donQuixoteBookData(s3FolderName + 'spanish/'),
 				chapters: donQuixoteChapters,
 			},
 			// French
 			{
-				book: theLittlePrinceBookData(coversFolderName + 'french/'),
+				book: theLittlePrinceBookData(s3FolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
 			},
 			{
-				book: theCountOfMonteCristoBookData(coversFolderName + 'french/'),
+				book: theCountOfMonteCristoBookData(s3FolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
 			},
 			// Italian
 			{
-				book: heartBookData(coversFolderName + 'italian/'),
+				book: heartBookData(s3FolderName + 'italian/'),
 				chapters: heartChapters,
 			},
 			{
-				book: pinocchioBookData(coversFolderName + 'italian/'),
+				book: pinocchioBookData(s3FolderName + 'italian/'),
 				chapters: pinocchioChapters,
 			},
 			// Turkish
 			{
-				book: nasreddinHodjaStoriesBookData(coversFolderName + 'turkish/'),
+				book: nasreddinHodjaStoriesBookData(s3FolderName + 'turkish/'),
 				chapters: nasreddinHodjaStoriesChapters,
 			},
 		]
 	}
 
-	async getOrCreateBookOfNotExists(bookData: CreateBookPublicInput) {
-		const existingBook = await this.bookPublicRepository.getBook({ name: bookData.name, author: bookData.author })
+	async getOrCreateBook(bookData: CreateBookPublicInput) {
+		const existingBook = await this.bookRepository.getBook({ name: bookData.name, author: bookData.author })
 		if (existingBook) return existingBook.id
 
 		const book = await this.commandBus.execute(new CreatePublicBookCommand(bookData))
@@ -173,7 +173,6 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 	async createBookChaptersOfNotExists(bookId: number, chaptersData: ChapterData[]) {
 		for (const bookChapter of chaptersData) {
 			const existingBookChapter = await this.bookChapterRepository.getBookChapter({
-				bookType: 'public',
 				bookId,
 				name: bookChapter.name,
 				header: bookChapter.header,
@@ -184,7 +183,6 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 
 			await this.commandBus.execute(
 				new CreateBookChapterCommand(null, {
-					bookType: 'public',
 					bookId,
 					name: bookChapter.name,
 					header: bookChapter.header,

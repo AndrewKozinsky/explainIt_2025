@@ -260,8 +260,8 @@ export const bookChapterUtils = {
 		return delteBookChapterResp
 	},
 
-	/*async getBookChapters(input: { bookId: number; bookChapterRepository: BookChapterRepository }) {
-		return await input.bookChapterRepository.getBookChapterByBookId(input.bookId)
+	/*async getBookChapters(inputs: { bookId: number; bookChapterRepository: BookChapterRepository }) {
+		return await inputs.bookChapterRepository.getBookChapterByBookId(inputs.bookId)
 	},*/
 
 	async getBookChapter(input: {

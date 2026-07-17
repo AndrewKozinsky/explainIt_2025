@@ -33,15 +33,11 @@ export interface FlashcardOutModel {
   phraseTranscription?: FlashcardOutModelPhraseTranscription;
   /** Phrase usage examples */
   examples: SentencePhraseTranslationExampleOutModel[];
-  /** Private book ID (source) */
-  bookPrivateId: number | null;
-  /** Public book ID (source) */
-  bookPublicId: number | null;
+  /** Book ID (source) */
+  bookId: number | null;
   /** Private video ID (source) */
-  videoPrivateId: number | null;
+  videoId: number | null;
   /** Public video ID (source) */
-  videoPublicId: number | null;
-  /** Source phrase translation ID */
   sentencePhraseTranslationId: number | null;
   createdAt: string;
 }

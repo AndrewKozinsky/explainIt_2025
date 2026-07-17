@@ -1,4 +1,4 @@
-import { LanguageCode } from 'utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 
 export type MediaItemsGridConfig = {
 	privateItems: PrivateItem[]
@@ -20,10 +20,4 @@ export type PublicItem = {
 	coverUrl: string
 	url: string
 	actionUrl: string
-}
-
-export type AddMediaButtonConfig = {
-	onClick: () => void
-	loading: boolean
-	errorMessage: null | string
 }

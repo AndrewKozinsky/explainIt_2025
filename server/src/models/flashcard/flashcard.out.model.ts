@@ -37,17 +37,13 @@ export class FlashcardOutModel {
 	@ApiProperty({ description: 'Phrase usage examples', type: [SentencePhraseTranslationExampleOutModel] })
 	examples: SentencePhraseTranslationExampleOutModel[]
 
-	@ApiProperty({ description: 'Private book ID (source)', type: Number, nullable: true })
-	bookPrivateId: null | number
-
-	@ApiProperty({ description: 'Public book ID (source)', type: Number, nullable: true })
-	bookPublicId: null | number
+	@ApiProperty({ description: 'Book ID (source)', type: Number, nullable: true })
+	bookId: null | number
 
 	@ApiProperty({ description: 'Private video ID (source)', type: Number, nullable: true })
-	videoPrivateId: null | number
+	videoId: null | number
 
 	@ApiProperty({ description: 'Public video ID (source)', type: Number, nullable: true })
-	videoPublicId: null | number
 
 	@ApiProperty({ description: 'Source phrase translation ID', type: Number, nullable: true })
 	sentencePhraseTranslationId: null | number

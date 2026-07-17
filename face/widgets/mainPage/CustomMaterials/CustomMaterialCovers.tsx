@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import cn from 'classnames'
-import { filesUrls } from 'utils/filesUrls'
+import { filesUrls } from '@/shared/utils/filesUrls'
 
 const covers = filesUrls.mainPage.booksCovers
 const VISIBLE_DURATION = 3000 // How long the cover stays visible

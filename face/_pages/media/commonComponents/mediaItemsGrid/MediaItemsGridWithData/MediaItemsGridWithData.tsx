@@ -1,20 +1,21 @@
-import React, { useState } from 'react'
+'use client'
+
+import React, { ReactNode, useState } from 'react'
 import ItemsGrid from '@/shared/ui/ItemsGrid/ItemsGrid'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import MediaCard from '../MediaCard/MediaCard'
-import { MediaGridAddButton } from '../MediaGridAddButton/MediaGridAddButton'
-import { AddMediaButtonConfig, PrivateItem, PublicItem } from '../MediaItemsGrid/types'
+import { PrivateItem, PublicItem } from '../MediaItemsGrid/types'
 import './MediaItemsGridWithData.scss'
 
 type MediaItemsGridWithDataProps = {
 	privateItems: PrivateItem[]
 	publicItems: PublicItem[]
-	addMediaButtonConfig: AddMediaButtonConfig
+	addButton: ReactNode
 	defaultMediaName: string
 }
 
 function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
-	const { privateItems, publicItems, addMediaButtonConfig, defaultMediaName } = props
+	const { privateItems, publicItems, addButton, defaultMediaName } = props
 
 	const languages = publicItems.map((item) => item.languageCode)
 	const languagesSet = new Set(languages)
@@ -25,7 +26,7 @@ function MediaItemsGridWithData(props: MediaItemsGridWithDataProps) {
 		...privateItems.map((item) => (
 			<MediaCard type='private' key={item.url} {...item} defaultMediaName={defaultMediaName} />
 		)),
-		<MediaGridAddButton {...addMediaButtonConfig} />,
+		addButton,
 	]
 
 	return (

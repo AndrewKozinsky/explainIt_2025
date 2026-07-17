@@ -25,6 +25,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/sentenceChat.md` | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread |
 | `aiDocsRus/topics/universalPhraseTranslation.md` | перевод универсальной фразы, universal phrase translation, GetOrCreateUniversalPhraseTranslation |
 | `aiDocsRus/topics/phraseStore.md` | PhraseStore, usePhraseStore, resolvePhrase, phraseStore, транскрипция, transcription, озвучка, audio pronunciation, универсальная фраза, universal phrase, preload фраз |
+| `aiDocsRus/topics/clientRepositories.md` | репозиторий, repository, BooksRepository, BooksApi, useFetchData, resolveError, extractString, маппинг данных, клиентский API |
 | `aiDocsRus/topics/errorHandling.md` | ошибки, errorMessageCode, CustomError, extractErrorText, ApolloError, обработка ошибок, error handling |
 | `aiDocsRus/topics/videoPrivateSubtitlesGeneration.md` | генерация субтитров, Deepgram, ffmpeg, SRT, speech-to-text, автоматические субтитры |
 | `aiDocsRus/topics/restAndDtoDecorators.md` | REST, контроллер, controller, DTO, DtoFieldDecorators, декораторы, bdConfig, OpenAPI, Swagger, миграция с GraphQL, ApiProperty |

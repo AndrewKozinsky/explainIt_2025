@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { errorMessages } from 'utils/errorMessages'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
 import { useAuthControllerLoginWithOAuth } from '@/shared/api/generated/auth/auth'
-import type { UserOutModel, LoginWithOAuthDtoProviderType } from '@/shared/api/generated/models'
+import type { UserOutModel, LoginWithOAuthInputProviderType } from '@/shared/api/generated/models'
 import { ApiError } from '@/shared/api/mutator'
+import { errorMessages } from '@/shared/utils/errorMessages'
 
-export function useAuthorizeUser(providerType: LoginWithOAuthDtoProviderType) {
+export function useAuthorizeUser(providerType: LoginWithOAuthInputProviderType) {
 	const code = useSearchParams().get('code')!
 
 	const { mutateAsync: authorizeWithOAuth } = useAuthControllerLoginWithOAuth()

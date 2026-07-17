@@ -1,23 +1,22 @@
-// import { IsIn } from 'class-validator'
-// import { bdConfig } from 'db/dbConfig/dbConfig'
-// import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
-/*export class CreateBookChapterInput {
-	@IsIn(['public', 'private'], { message: 'Book type must be one of: public, private' })
+export class CreateBookChapterInput {
+	@DtoFieldDecorators('bookType', bdConfig.Book.dbFields.type)
 	bookType: 'public' | 'private'
 
-	@DtoFieldDecorators('id', bdConfig.BookPrivate.dbFields.id, { type: 'number', required: true, min: 1 })
+	@DtoFieldDecorators('bookId', bdConfig.Book.dbFields.id, { type: 'number', required: true, min: 1 })
 	bookId: number
 
 	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.name)
-	name: null | string
+	name?: null | string
 
-	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.header)
-	header: null | string
+	@DtoFieldDecorators('header', bdConfig.BookChapter.dbFields.header)
+	header?: null | string
 
-	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.original_content)
-	originalContent: null | string
+	@DtoFieldDecorators('originalContent', bdConfig.BookChapter.dbFields.original_content)
+	originalContent?: null | string
 
 	@DtoFieldDecorators('note', bdConfig.BookChapter.dbFields.note)
-	note: null | string
-}*/
+	note?: null | string
+}

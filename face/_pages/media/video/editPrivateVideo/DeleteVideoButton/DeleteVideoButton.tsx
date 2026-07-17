@@ -1,8 +1,8 @@
-import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
-import { useGetDeleteVideo } from './fn/getDeleteVideo'
+// import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+// import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+// import { useGetDeleteVideo } from './fn/getDeleteVideo'
 
-function DeleteVideoButton() {
+/*function DeleteVideoButton() {
 	const { onDeleteVideoClick, status } = useGetDeleteVideo()
 
 	return (
@@ -18,6 +18,6 @@ function DeleteVideoButton() {
 			}}
 		/>
 	)
-}
+}*/
 
-export default DeleteVideoButton
+// export default DeleteVideoButton

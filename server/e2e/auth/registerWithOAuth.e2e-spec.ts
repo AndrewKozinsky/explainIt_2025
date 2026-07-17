@@ -1,23 +1,23 @@
-import { INestApplication } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
-import { App } from 'supertest/types'
+// import { INestApplication } from '@nestjs/common'
+// import { CommandBus } from '@nestjs/cqrs'
+// import { App } from 'supertest/types'
 // import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 // import RouteNames from '../../src/infrastructure/routeNames'
-import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReq } from '../makeGQReq'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword, welcomeBonusInKop } from '../utils/common'
-import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { UserRepository } from '../../src/repo/user.repository'
+// import { makeGraphQLReq } from '../makeGQReq'
+// import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+// import { checkErrorResponse } from '../utils/checkErrorResp'
+// import { defUserEmail, defUserPassword, welcomeBonusInKop } from '../utils/common'
+// import { createApp } from '../utils/createApp'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Register user (e2e)', () => {
+/*describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -112,10 +112,10 @@ describe.skip('Register user (e2e)', () => {
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
 	})
 
-	/*it('register a user with email and password. Then register with OAuth twice', async () => {
+	it('register a user with email and password. Then register with OAuth twice', async () => {
 		// 1. Register the user with email and password
-		// const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
-		// await makeGraphQLReq(app, registerUserMutation)
+		const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
+		await makeGraphQLReq(app, registerUserMutation)
 
 		// 2. Register/login a user with OAuth for the first time
 		const { registerWithOAuthData: registerWithOAuthResp_1 } = await userUtils.loginUserWithOAuthSuccessfully({
@@ -158,17 +158,17 @@ describe.skip('Register user (e2e)', () => {
 			const userRowData_1 = await userRepository.getUserByEmail(defUserEmail)
 			userUtils.checkUserServiceResponseData(userRowData_1, rowUserExpectedData)
 		}
-	})*/
+	})
 
 	it('should not create a new user if OAuth provider returns wrong answer', async () => {
 		const registerWithOAuthResp = await userUtils.loginUserWithOAuthFail({ app })
 
 		// Check the returned object
-		/*checkErrorResponse(registerWithOAuthResp, {
+		checkErrorResponse(registerWithOAuthResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.cannotGetAccessTokenForOAuthProvider,
-		})*/
+		})
 
 		// Check that user does not exist in the database
 		const userInDatabase = await userRepository.getUserByEmail(defUserEmail)
@@ -177,18 +177,18 @@ describe.skip('Register user (e2e)', () => {
 
 	it('should not change an existed user if OAuth provider returns wrong answer', async () => {
 		// 1. Register the user with email and password
-		// const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
-		// await makeGraphQLReq(app, registerUserMutation)
+		const registerUserMutation = queries.auth.registerUser({ email: defUserEmail, password: defUserPassword })
+		await makeGraphQLReq(app, registerUserMutation)
 
 		// 2.A try to register the user with OAuth
 		const registerWithOAuthResp = await userUtils.loginUserWithOAuthFail({ app })
 
 		// 3. Check the returned object
-		/*checkErrorResponse(registerWithOAuthResp, {
+		checkErrorResponse(registerWithOAuthResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.cannotGetAccessTokenForOAuthProvider,
-		})*/
+		})
 
 		// 4. Check that user was not changed in the database
 		const userInDatabase = await userRepository.getUserByEmail(defUserEmail)
@@ -205,4 +205,4 @@ describe.skip('Register user (e2e)', () => {
 		// 5. Check that a confirmation letter was sent only once
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
 	})
-})
+})*/

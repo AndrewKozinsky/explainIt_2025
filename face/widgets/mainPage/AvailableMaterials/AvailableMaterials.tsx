@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { LanguageCode, languageKeys } from 'utils/languages'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+import { LanguageCode, languageKeys } from '@/shared/utils/languages'
 import BooksGrid from '../BooksGrid/BooksGrid'
 import './AvailableMaterials.scss'
 

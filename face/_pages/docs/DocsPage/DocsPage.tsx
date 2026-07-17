@@ -1,5 +1,5 @@
-import { pageUrls } from 'utils/pageUrls'
 import { Link } from '@/i18n/routing'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import './DocsPage.scss'
 
 function DocsPage() {

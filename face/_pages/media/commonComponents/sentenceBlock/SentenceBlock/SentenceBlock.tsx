@@ -1,5 +1,5 @@
-import { LanguageCode } from 'utils/languages'
 import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingStore'
+import { LanguageCode } from '@/shared/utils/languages'
 import PhraseDetails from '../PhraseDetails/PhraseDetails'
 import Sentence from '../Sentence/Sentence'
 import SentenceTranslation from '../sentenceTranslation/SentenceTranslation/SentenceTranslation'

@@ -1,68 +1,64 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import { useBookChapterControllerGetBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
-import { useBookPrivateControllerGetBook } from '@/shared/api/generated/book-private/book-private'
-import type { BookChapterOutModel, BookPrivateOutModel } from '@/shared/api/generated/models'
-import { useChapterStore } from '../../chapterStore'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { useBookControllerGetBook } from '@/shared/api/generated/book/book'
+// import { useBookChapterControllerGetBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
+// import type { BookChapterOutModel, BookOutModel } from '@/shared/api/generated/models'
+// import { useChapterStore } from '../../chapterStore'
 
 /** Наполняет Хранилище данными для начала работы */
-export function usePopulateChapterStore() {
+/*export function usePopulateChapterStore() {
 	useSetBookToStore()
 	useFetchChapterAndSetToStore()
 	useClearDataOnUnmount()
-}
+}*/
 
-function useSetBookToStore() {
+/*function useSetBookToStore() {
 	const bookIdInUrl = useParams().bookId as string
-	const bookType = getMediaTypeByUrlMediaId(bookIdInUrl)
-	const bookId = extractMediaIdFromUrlBookId(bookIdInUrl)
+	const bookId = parseInt(bookIdInUrl)
 
 	const {
-		data: privateBookData,
-		isError: privateBookIsError,
-		isLoading: privateBookLoading,
-	} = useBookPrivateControllerGetBook(bookId!, {
-		query: { enabled: bookType === 'private' && !!bookId },
+		data: bookData,
+		isError,
+		isLoading,
+	} = useBookControllerGetBook(bookId, {
+		query: { enabled: !isNaN(bookId) },
 	})
 
 	useEffect(
 		function () {
-			if (bookType !== 'private') return
+			const book = bookData as unknown as BookOutModel | undefined
 
-			const book = privateBookData as unknown as BookPrivateOutModel | undefined
-
-			if (privateBookLoading) {
-				useChapterStore.getState().updatePrivateBook({
+			if (isLoading) {
+				useChapterStore.getState().updateBook({
 					loading: true,
 					errorMessage: null,
-					data: null as any as BookPrivateOutModel,
+					data: null as any as BookOutModel,
 				})
-			} else if (privateBookIsError) {
-				useChapterStore.getState().updatePrivateBook({
+			} else if (isError) {
+				useChapterStore.getState().updateBook({
 					loading: false,
 					errorMessage: 'Не удалось загрузить книгу',
-					data: null as any as BookPrivateOutModel,
+					data: null as any as BookOutModel,
 				})
 			} else if (!book) {
-				useChapterStore.getState().updatePrivateBook({
+				useChapterStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
-					data: null as any as BookPrivateOutModel,
+					data: null as any as BookOutModel,
 				})
 			} else {
-				useChapterStore.getState().updatePrivateBook({
+				useChapterStore.getState().updateBook({
 					loading: false,
 					errorMessage: null,
 					data: book,
 				})
 			}
 		},
-		[bookType, privateBookData, privateBookIsError, privateBookLoading],
+		[bookData, isError, isLoading],
 	)
-}
+}*/
 
-function useFetchChapterAndSetToStore() {
+/*function useFetchChapterAndSetToStore() {
 	const chapterId = useParams().chapterId as string
 
 	const { data, isError, isLoading } = useBookChapterControllerGetBookChapter(
@@ -101,12 +97,12 @@ function useFetchChapterAndSetToStore() {
 		},
 		[data, isError, isLoading],
 	)
-}
+}*/
 
-function useClearDataOnUnmount() {
+/*function useClearDataOnUnmount() {
 	useEffect(function () {
 		return () => {
 			useChapterStore.getState().clearStore()
 		}
 	}, [])
-}
+}*/

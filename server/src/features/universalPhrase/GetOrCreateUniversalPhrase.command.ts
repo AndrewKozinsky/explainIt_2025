@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UniversalPhraseQueryRepository } from 'repo/universalPhrase.queryRepository'
-import { UniversalPhraseRepository } from 'repo/universalPhrase.repository'
+import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPhrase.queryRepository'
+import { UniversalPhraseRepository } from 'repo/universalPhrase/universalPhrase.repository'
 import { normalizePhraseString } from 'utils/stringUtils'
 import { LanguageCode } from 'prisma/generated/client'
 

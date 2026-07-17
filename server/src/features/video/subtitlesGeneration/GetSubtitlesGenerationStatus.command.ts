@@ -1,9 +1,9 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { VideoPrivateSubtitlesStatusOutModel } from 'models/videoPrivate/videoPrivateSubtitlesStatus.out.model'
+import { VideoSubtitlesStatusOutModel } from 'models/video/videoSubtitlesStatus.out.model'
 
 export class GetSubtitlesGenerationStatusCommand implements ICommand {
 	constructor(
@@ -14,9 +14,9 @@ export class GetSubtitlesGenerationStatusCommand implements ICommand {
 
 @CommandHandler(GetSubtitlesGenerationStatusCommand)
 export class GetSubtitlesGenerationStatusHandler implements ICommandHandler<GetSubtitlesGenerationStatusCommand> {
-	constructor(private videoRepository: VideoPrivateRepository) {}
+	constructor(private videoRepository: VideoRepository) {}
 
-	async execute(command: GetSubtitlesGenerationStatusCommand): Promise<VideoPrivateSubtitlesStatusOutModel> {
+	async execute(command: GetSubtitlesGenerationStatusCommand): Promise<VideoSubtitlesStatusOutModel> {
 		const { userId, videoId } = command
 
 		const state = await this.videoRepository.getSubtitlesGenerationState(videoId)

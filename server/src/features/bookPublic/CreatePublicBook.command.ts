@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookPublicQueryRepository } from 'repo/bookPublic.queryRepository'
-import { BookPublicRepository } from 'repo/bookPublic.repository'
+import { BookQueryRepository } from 'repo/book/book.queryRepository'
+import { BookRepository } from 'repo/book/book.repository'
 import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -10,7 +10,8 @@ export type CreateBookPublicInput = {
 	author?: string
 	name: string
 	note: string
-	covers: string[]
+	coverFileName: string
+	coverFileS3Key: string
 	languageCode: Language
 }
 
@@ -21,18 +22,18 @@ export class CreatePublicBookCommand implements ICommand {
 @CommandHandler(CreatePublicBookCommand)
 export class CreateBookPublicHandler implements ICommandHandler<CreatePublicBookCommand> {
 	constructor(
-		private bookPublicRepository: BookPublicRepository,
-		private bookPublicQueryRepository: BookPublicQueryRepository,
+		private bookRepository: BookRepository,
+		private bookQueryRepository: BookQueryRepository,
 	) {}
 
 	async execute(command: CreatePublicBookCommand) {
 		const { createBookInput } = command
 
-		const newBook = await this.bookPublicRepository.createBookPublic(createBookInput)
+		const newBook = await this.bookRepository.createBook({ type: 'public', ...createBookInput })
 		if (!newBook) {
 			throw new CustomError(errorMessage.book.notCreated, ErrorStatusCode.InternalServerError_500)
 		}
 
-		return await this.bookPublicQueryRepository.getPublicBookById(newBook.id)
+		return await this.bookQueryRepository.getBookById(newBook.id)
 	}
 }

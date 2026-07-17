@@ -1,5 +1,5 @@
 import React from 'react'
-import mainConfig from '@/сonsts/mainConfig'
+import mainConfig from '@/shared/сonsts/mainConfig'
 import GoogleTagManager from '../GoogleTagManager/GoogleTagManager'
 import '../style/global.scss'
 

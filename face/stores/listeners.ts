@@ -1,4 +1,4 @@
-import { isMacOS } from 'utils/utils'
+import { isMacOS } from '@/shared/utils/utils'
 
 type KeyboardListenersConfig = {
 	setIsCmdKeyPressed: (value: boolean) => void

@@ -1,25 +1,23 @@
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { useBookStore } from '_pages/media/book/bookStore'
 import { SummaryOfTheMedia } from '_pages/media/commonComponents/SummaryOfTheMedia/SummaryOfTheMedia'
 import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
 import './PublicBookContentInfo.scss'
 
 export default function PublicBookContentInfo() {
-	const publicBook = useBookStore((s) => s.publicBook)
+	const book = useBookStore((s) => s.book)
 
-	if (!publicBook.data) {
+	if (!book.data || book.data.type !== 'public') {
 		return null
 	}
 
-	const firstCoverImgUrl = publicBook.data?.covers?.[0]
-
-	const bookId = createMediaIdUrl(publicBook.data.id, 'public')
-	const firstChapterUrl = pageUrls.books.book(bookId).chapter(publicBook.data.chapters[0].id).reading.path
+	const coverUrl = book.data.coverUrl ?? undefined
+	const firstChapterUrl = pageUrls.books.book(book.data.id).chapter(book.data.chapters[0].id).reading.path
 
 	return (
 		<div className='public-book-info'>
-			{firstCoverImgUrl && <img className='public-book-info__cover' src={firstCoverImgUrl} alt='book cover' />}
-			<SummaryOfTheMedia text={publicBook.data.note} />
+			{coverUrl && <img className='public-book-info__cover' src={coverUrl} alt='book cover' />}
+			<SummaryOfTheMedia text={book.data.note ?? ''} />
 			<PublicBookInfoActions bookUrl={firstChapterUrl} />
 		</div>
 	)

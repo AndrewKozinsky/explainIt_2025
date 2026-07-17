@@ -3,8 +3,6 @@
 import React, { useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
-import { FormStatus } from 'utils/forms'
-import { pageUrls } from 'utils/pageUrls'
 import { Link } from '@/i18n/routing'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import FormError from '@/shared/ui/formRelated/FormError/FormError'
@@ -12,6 +10,8 @@ import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFie
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import InfoBlock from '@/shared/ui/InfoBlock/InfoBlock'
 import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
+import { FormStatus } from '@/shared/utils/forms'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { RegisterFormData, registerFormSchema, RegisterFormTest } from './fn/form'
 import { useGetOnRegisterFormSubmit } from './fn/submit'
 

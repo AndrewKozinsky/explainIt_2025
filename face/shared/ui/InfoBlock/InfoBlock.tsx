@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import { filesUrls } from 'utils/filesUrls'
+import { filesUrls } from '@/shared/utils/filesUrls'
 import './InfoBlock.scss'
 
 interface InfoBlockProps {

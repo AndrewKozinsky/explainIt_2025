@@ -52,8 +52,8 @@ import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
-export function oliverTwistBookData(coversFolderName: string) {
-	const covers = ['oliver_twist_cover_1.jpg']
+export function oliverTwistBookData(s3FolderName: string) {
+	const coverFileName = 'oliver_twist_cover_1.jpg'
 
 	return {
 		author: 'Charles Dickens',
@@ -74,7 +74,8 @@ export function oliverTwistBookData(coversFolderName: string) {
 
 Уровень B1-B2.`,
 		languageCode: languages.en.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

@@ -16,8 +16,6 @@ export function ApiGetAudio() {
 			type: UniversalAudioPronunciationOutModel,
 			nullable: true,
 		}),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -29,8 +27,5 @@ export function ApiGetOrCreateAudio() {
 		}),
 		ApiBody({ type: CreateUniversalPhraseAudioInput }),
 		ApiResponse({ status: 201, description: 'Created', type: UniversalAudioPronunciationOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 404, description: errorMessage.universalPhrase.notFound.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }

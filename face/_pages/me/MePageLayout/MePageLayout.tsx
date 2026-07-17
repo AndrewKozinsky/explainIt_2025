@@ -3,7 +3,7 @@
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { useUser } from '@/shared/api/auth/UserProvider'
-import { pageUrls, localizePath } from '@/utils/pageUrls'
+import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 type LLMPageLayoutProps = {
 	children: React.ReactNode

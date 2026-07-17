@@ -1,7 +1,7 @@
 import React from 'react'
-import { pageUrls } from 'utils/pageUrls'
 import { Link } from '@/i18n/routing'
 import { useUser } from '@/shared/api/auth/UserProvider'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
 function ChatInputWarningMessage() {
 	const user = useUser()

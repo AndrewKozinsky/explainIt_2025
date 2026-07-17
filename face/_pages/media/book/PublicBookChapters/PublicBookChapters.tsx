@@ -1,24 +1,22 @@
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import ChaptersList from '_pages/media/commonComponents/ChaptersList/ChaptersList'
 import { useBookStore } from '../bookStore'
 
 function PublicBookChapters() {
-	const publicBook = useBookStore((s) => s.publicBook)
+	const book = useBookStore((s) => s.book)
 
-	const bookId = publicBook.data?.id
-	const chapters = publicBook.data?.chapters
+	const bookId = book.data?.id
+	const chapters = book.data?.chapters
 
-	if (!bookId || !chapters) {
+	if (!bookId || !chapters || book.data?.type !== 'public') {
 		return null
 	}
 
 	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createMediaIdUrl(bookId, 'public')
-
 		return {
-			name: chapter.header as unknown as string | undefined,
-			subName: chapter.name as unknown as string | undefined,
-			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).reading.path,
+			name: chapter.header ?? undefined,
+			subName: chapter.name ?? undefined,
+			href: pageUrls.books.book(bookId).chapter(chapter.id).reading.path,
 		}
 	})
 

@@ -1,5 +1,5 @@
-import { LanguageCode } from 'utils/languages'
 import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
+import { LanguageCode } from '@/shared/utils/languages'
 import FlashCardButton from '../FlashCardButton/FlashCardButton'
 import './SentencePhraseTop.scss'
 

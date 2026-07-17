@@ -61,29 +61,12 @@ export type sentenceChatControllerGetThreadResponse200 = {
   status: 200
 }
 
-export type sentenceChatControllerGetThreadResponse400 = {
-  data: void
-  status: 400
-}
-
-export type sentenceChatControllerGetThreadResponse401 = {
-  data: void
-  status: 401
-}
-
-export type sentenceChatControllerGetThreadResponse500 = {
-  data: void
-  status: 500
-}
-
 export type sentenceChatControllerGetThreadResponseSuccess = (sentenceChatControllerGetThreadResponse200) & {
   headers: Headers;
 };
-export type sentenceChatControllerGetThreadResponseError = (sentenceChatControllerGetThreadResponse400 | sentenceChatControllerGetThreadResponse401 | sentenceChatControllerGetThreadResponse500) & {
-  headers: Headers;
-};
+;
 
-export type sentenceChatControllerGetThreadResponse = (sentenceChatControllerGetThreadResponseSuccess | sentenceChatControllerGetThreadResponseError)
+export type sentenceChatControllerGetThreadResponse = (sentenceChatControllerGetThreadResponseSuccess)
 
 export const getSentenceChatControllerGetThreadUrl = (params: SentenceChatControllerGetThreadParams,) => {
   const normalizedParams = new URLSearchParams();
@@ -126,7 +109,7 @@ export const getSentenceChatControllerGetThreadQueryKey = (params?: SentenceChat
     }
 
 
-export const getSentenceChatControllerGetThreadQueryOptions = <TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = void>(params: SentenceChatControllerGetThreadParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getSentenceChatControllerGetThreadQueryOptions = <TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = unknown>(params: SentenceChatControllerGetThreadParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
@@ -145,10 +128,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type SentenceChatControllerGetThreadQueryResult = NonNullable<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>>
-export type SentenceChatControllerGetThreadQueryError = void
+export type SentenceChatControllerGetThreadQueryError = unknown
 
 
-export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = void>(
+export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = unknown>(
  params: SentenceChatControllerGetThreadParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof sentenceChatControllerGetThread>>,
@@ -158,7 +141,7 @@ export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<ty
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = void>(
+export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = unknown>(
  params: SentenceChatControllerGetThreadParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof sentenceChatControllerGetThread>>,
@@ -168,7 +151,7 @@ export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<ty
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = void>(
+export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = unknown>(
  params: SentenceChatControllerGetThreadParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
@@ -176,7 +159,7 @@ export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<ty
  * @summary Get sentence chat thread
  */
 
-export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = void>(
+export function useSentenceChatControllerGetThread<TData = Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError = unknown>(
  params: SentenceChatControllerGetThreadParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof sentenceChatControllerGetThread>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
@@ -198,34 +181,12 @@ export type sentenceChatControllerCreateThreadResponse201 = {
   status: 201
 }
 
-export type sentenceChatControllerCreateThreadResponse400 = {
-  data: void
-  status: 400
-}
-
-export type sentenceChatControllerCreateThreadResponse401 = {
-  data: void
-  status: 401
-}
-
-export type sentenceChatControllerCreateThreadResponse404 = {
-  data: void
-  status: 404
-}
-
-export type sentenceChatControllerCreateThreadResponse500 = {
-  data: void
-  status: 500
-}
-
 export type sentenceChatControllerCreateThreadResponseSuccess = (sentenceChatControllerCreateThreadResponse201) & {
   headers: Headers;
 };
-export type sentenceChatControllerCreateThreadResponseError = (sentenceChatControllerCreateThreadResponse400 | sentenceChatControllerCreateThreadResponse401 | sentenceChatControllerCreateThreadResponse404 | sentenceChatControllerCreateThreadResponse500) & {
-  headers: Headers;
-};
+;
 
-export type sentenceChatControllerCreateThreadResponse = (sentenceChatControllerCreateThreadResponseSuccess | sentenceChatControllerCreateThreadResponseError)
+export type sentenceChatControllerCreateThreadResponse = (sentenceChatControllerCreateThreadResponseSuccess)
 
 export const getSentenceChatControllerCreateThreadUrl = () => {
 
@@ -254,7 +215,7 @@ export const sentenceChatControllerCreateThread = async (createSentenceChatThrea
 
 
 
-export const getSentenceChatControllerCreateThreadMutationOptions = <TError = void,
+export const getSentenceChatControllerCreateThreadMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof sentenceChatControllerCreateThread>>, TError,{data: CreateSentenceChatThreadInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof sentenceChatControllerCreateThread>>, TError,{data: CreateSentenceChatThreadInput}, TContext> => {
 
@@ -283,12 +244,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type SentenceChatControllerCreateThreadMutationResult = NonNullable<Awaited<ReturnType<typeof sentenceChatControllerCreateThread>>>
     export type SentenceChatControllerCreateThreadMutationBody = CreateSentenceChatThreadInput
-    export type SentenceChatControllerCreateThreadMutationError = void
+    export type SentenceChatControllerCreateThreadMutationError = unknown
 
     /**
  * @summary Create sentence chat thread
  */
-export const useSentenceChatControllerCreateThread = <TError = void,
+export const useSentenceChatControllerCreateThread = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof sentenceChatControllerCreateThread>>, TError,{data: CreateSentenceChatThreadInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof sentenceChatControllerCreateThread>>,
@@ -303,39 +264,12 @@ export const useSentenceChatControllerCreateThread = <TError = void,
   status: 201
 }
 
-export type sentenceChatControllerCreateUserMessageResponse400 = {
-  data: void
-  status: 400
-}
-
-export type sentenceChatControllerCreateUserMessageResponse401 = {
-  data: void
-  status: 401
-}
-
-export type sentenceChatControllerCreateUserMessageResponse403 = {
-  data: void
-  status: 403
-}
-
-export type sentenceChatControllerCreateUserMessageResponse404 = {
-  data: void
-  status: 404
-}
-
-export type sentenceChatControllerCreateUserMessageResponse500 = {
-  data: void
-  status: 500
-}
-
 export type sentenceChatControllerCreateUserMessageResponseSuccess = (sentenceChatControllerCreateUserMessageResponse201) & {
   headers: Headers;
 };
-export type sentenceChatControllerCreateUserMessageResponseError = (sentenceChatControllerCreateUserMessageResponse400 | sentenceChatControllerCreateUserMessageResponse401 | sentenceChatControllerCreateUserMessageResponse403 | sentenceChatControllerCreateUserMessageResponse404 | sentenceChatControllerCreateUserMessageResponse500) & {
-  headers: Headers;
-};
+;
 
-export type sentenceChatControllerCreateUserMessageResponse = (sentenceChatControllerCreateUserMessageResponseSuccess | sentenceChatControllerCreateUserMessageResponseError)
+export type sentenceChatControllerCreateUserMessageResponse = (sentenceChatControllerCreateUserMessageResponseSuccess)
 
 export const getSentenceChatControllerCreateUserMessageUrl = (threadId: number,) => {
 
@@ -365,7 +299,7 @@ export const sentenceChatControllerCreateUserMessage = async (threadId: number,
 
 
 
-export const getSentenceChatControllerCreateUserMessageMutationOptions = <TError = void,
+export const getSentenceChatControllerCreateUserMessageMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof sentenceChatControllerCreateUserMessage>>, TError,{threadId: number;data: CreateSentenceChatUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof sentenceChatControllerCreateUserMessage>>, TError,{threadId: number;data: CreateSentenceChatUserMessageInput}, TContext> => {
 
@@ -394,12 +328,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type SentenceChatControllerCreateUserMessageMutationResult = NonNullable<Awaited<ReturnType<typeof sentenceChatControllerCreateUserMessage>>>
     export type SentenceChatControllerCreateUserMessageMutationBody = CreateSentenceChatUserMessageInput
-    export type SentenceChatControllerCreateUserMessageMutationError = void
+    export type SentenceChatControllerCreateUserMessageMutationError = unknown
 
     /**
  * @summary Create user message in thread
  */
-export const useSentenceChatControllerCreateUserMessage = <TError = void,
+export const useSentenceChatControllerCreateUserMessage = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof sentenceChatControllerCreateUserMessage>>, TError,{threadId: number;data: CreateSentenceChatUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof sentenceChatControllerCreateUserMessage>>,

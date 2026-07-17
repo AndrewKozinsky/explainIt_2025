@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { pageUrls, localizePath } from 'utils/pageUrls'
 import { useUser } from '@/shared/api/auth/UserProvider'
+import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 export function useGetOnAddMediaButtonClick(onClick: () => void) {
 	const user = useUser()

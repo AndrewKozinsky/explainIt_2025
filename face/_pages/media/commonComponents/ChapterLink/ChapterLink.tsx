@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import BaseButton from '@/shared/ui/BaseButton/BaseButton'
-import { routesUtils } from '@/utils/routes'
+import { routesUtils } from '@/shared/utils/routes'
 import { bookConfig } from '_pages/media/commonComponents/bookConfig'
 import './ChapterLink.scss'
 

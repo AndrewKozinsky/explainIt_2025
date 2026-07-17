@@ -2,7 +2,7 @@
 //@use '@/styles/mixins' as mix;
 //@use '@/styles/text-inherit' as textInh;
 
-/*.eng-translate-input {
+/*.eng-translate-inputs {
 	width: 100%;
 	field-sizing: content;
 	@include textInh.paragraph-20();
@@ -16,10 +16,10 @@
 	}
 }*/
 
-/*.eng-translate-input--green-text {
+/*.eng-translate-inputs--green-text {
 	color: #008100;
 }*/
 
-/*.eng-translate-input--red-text {
+/*.eng-translate-inputs--red-text {
 	color: vars.$dangerColor-1;
 }*/

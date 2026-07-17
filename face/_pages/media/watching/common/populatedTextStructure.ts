@@ -1,4 +1,4 @@
-export namespace PopulatedTextStructure {
+/*export namespace PopulatedTextStructure {
 	export type Structure = {
 		sentences: Sentence[]
 	}
@@ -7,4 +7,4 @@ export namespace PopulatedTextStructure {
 		id: number
 		text: string
 	}
-}
+}*/

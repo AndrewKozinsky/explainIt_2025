@@ -1,29 +1,29 @@
-// import { createReadStream } from 'fs'
-// import { stat } from 'fs/promises'
-// import { Injectable, Logger } from '@nestjs/common'
-// import axios, { AxiosError } from 'axios'
-// import { Language } from 'utils/languages'
-// import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { createReadStream } from 'fs'
+import { stat } from 'fs/promises'
+import { Injectable, Logger } from '@nestjs/common'
+import axios, { AxiosError } from 'axios'
+import { Language } from 'utils/languages'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
-/*export type DeepgramUtterance = {
+export type DeepgramUtterance = {
 	start: number // seconds
 	end: number // seconds
 	transcript: string
 	words: DeepgramWord[]
-}*/
+}
 
-/*export type DeepgramWord = {
+export type DeepgramWord = {
 	start: number // seconds
 	end: number // seconds
 	word: string
-}*/
+}
 
-/*export type DeepgramTranscribeResult = {
+export type DeepgramTranscribeResult = {
 	durationSec: number
 	utterances: DeepgramUtterance[]
-}*/
+}
 
-/*type DeepgramListenResponse = {
+type DeepgramListenResponse = {
 	metadata?: { duration?: number }
 	results?: {
 		utterances?: Array<{
@@ -39,7 +39,7 @@
 			}>
 		}>
 	}
-}*/
+}
 
 /**
  * Thin client for Deepgram's Speech-to-Text (STT) Prerecorded API (Nova-3 model).
@@ -47,19 +47,18 @@
  * Intentionally scoped to STT only — if/when we start using other Deepgram products
  * (text-to-speech, speech intelligence), add them as separate services / modules.
  */
-// @Injectable()
-/*export class DeepgramSttService {
+@Injectable()
+export class DeepgramSttService {
 	private readonly logger = new Logger(DeepgramSttService.name)
 	// private readonly httpsAgent
 
-	constructor(private readonly mainConfig: MainConfigService) {
-	}
+	constructor(private readonly mainConfig: MainConfigService) {}
 
-	/!**
+	/**
 	 * Send a local audio file to Deepgram Nova-3 and return utterance-level segments
 	 * plus the total audio duration reported by Deepgram. The audio is streamed from
 	 * disk to keep memory flat for long recordings.
-	 *!/
+	 */
 	async transcribeFile(params: {
 		audioPath: string
 		languageCode: Language
@@ -145,4 +144,4 @@
 			utterances: utterances.filter((u) => u.transcript.length > 0),
 		}
 	}
-}*/
+}

@@ -1,7 +1,7 @@
-import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
-import { PopulatedTextStructure } from '../../common/populatedTextStructure'
+// import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
+// import { PopulatedTextStructure } from '../../common/populatedTextStructure'
 
-export function createPopulatedPlainText(
+/*export function createPopulatedPlainText(
 	videoData: VideoPrivateOutModel | VideoPublicOutModel,
 ): PopulatedTextStructure.Structure {
 	if (!videoData.processedContent || !videoData.sentences) {
@@ -24,4 +24,4 @@ export function createPopulatedPlainText(
 			}
 		}),
 	}
-}
+}*/

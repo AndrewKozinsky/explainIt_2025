@@ -29,7 +29,6 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 		const { userId, getBookChapterInput } = command
 
 		const bookChapter = await this.bookChapterRepository.getBookChapter({
-			bookType: getBookChapterInput.bookType,
 			id: getBookChapterInput.id,
 		})
 
@@ -42,7 +41,6 @@ export class GetBookChapterHandler implements ICommandHandler<GetBookChapterComm
 		}
 
 		const getBookChapter = await this.bookChapterRepository.getBookChapter({
-			bookType: getBookChapterInput.bookType,
 			id: getBookChapterInput.id,
 		})
 		if (!getBookChapter) {

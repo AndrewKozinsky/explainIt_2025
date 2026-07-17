@@ -15,15 +15,15 @@ import {
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
+import { CreateBookChapterInput } from 'routes/bookChapter/inputs/createBookChapter.input'
+import { GetBookChapterInput } from 'routes/bookChapter/inputs/getBookChapter.input'
+import { UpdateBookChapterInput } from 'routes/bookChapter/inputs/updateBookChapter.input'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
 import { DeleteBookChapterCommand } from 'features/bookChapter/DeleteBookChapter.command'
 import { GetBookChapterCommand } from 'features/bookChapter/GetBookChapter.command'
 import { UpdateBookChapterCommand } from 'features/bookChapter/UpdateBookChapter.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
-import { CreateBookChapterDto } from './dto/create-book-chapter.dto'
-import { GetBookChapterQueryDto } from './dto/get-book-chapter-query.dto'
-import { UpdateBookChapterDto } from './dto/update-book-chapter.dto'
 import {
 	ApiCreateBookChapter,
 	ApiDeleteBookChapter,
@@ -41,7 +41,7 @@ export class BookChapterController {
 	@Get(':id')
 	async getBookChapter(
 		@Param('id', ParseIntPipe) id: number,
-		@Query() query: GetBookChapterQueryDto,
+		@Query() query: GetBookChapterInput,
 		@Req() request: Request,
 	): Promise<BookChapterOutModel> {
 		const userId = request.session.userId
@@ -53,7 +53,7 @@ export class BookChapterController {
 	@HttpCode(HttpStatus.CREATED)
 	@Post()
 	async createBookChapter(
-		@Body() input: CreateBookChapterDto,
+		@Body() input: CreateBookChapterInput,
 		@Req() request: Request,
 	): Promise<BookChapterOutModel> {
 		const userId = request.session.userId!
@@ -66,7 +66,7 @@ export class BookChapterController {
 	@Post(':id')
 	async updateBookChapter(
 		@Param('id', ParseIntPipe) id: number,
-		@Body() input: UpdateBookChapterDto,
+		@Body() input: UpdateBookChapterInput,
 		@Req() request: Request,
 	): Promise<BookChapterOutModel> {
 		const userId = request.session.userId!
@@ -77,10 +77,7 @@ export class BookChapterController {
 	@UseGuards(CheckSessionCookieGuard)
 	@HttpCode(HttpStatus.OK)
 	@Delete(':id')
-	async deleteBookChapter(
-		@Param('id', ParseIntPipe) id: number,
-		@Req() request: Request,
-	): Promise<boolean> {
+	async deleteBookChapter(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Promise<boolean> {
 		const userId = request.session.userId!
 		return await this.commandBus.execute(new DeleteBookChapterCommand(userId, { id }))
 	}

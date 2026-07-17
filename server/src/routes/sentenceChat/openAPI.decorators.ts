@@ -1,6 +1,5 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiOperation, ApiBody, ApiResponse, ApiCookieAuth } from '@nestjs/swagger'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { SentenceChatMessageOutModel } from 'models/sentenceChat/sentenceChatMessage.out.model'
 import { SentenceChatThreadOutModel } from 'models/sentenceChat/sentenceChatThread.out.model'
 import { CreateSentenceChatThreadInput } from './inputs/createSentenceChatThread.input'
@@ -19,9 +18,6 @@ export function ApiGetThread() {
 			type: SentenceChatThreadOutModel,
 			nullable: true,
 		}),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -34,14 +30,6 @@ export function ApiCreateThread() {
 		ApiCookieAuth(),
 		ApiBody({ type: CreateSentenceChatThreadInput }),
 		ApiResponse({ status: 201, description: 'Created', type: SentenceChatThreadOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 400,
-			description: errorMessage.sentenceChat.threadAlreadyExists.errorMessageCode,
-		}),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.sentence.notFound.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -54,17 +42,5 @@ export function ApiCreateUserMessage() {
 		ApiCookieAuth(),
 		ApiBody({ type: CreateSentenceChatUserMessageInput }),
 		ApiResponse({ status: 201, description: 'Created', type: SentenceChatMessageOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 400,
-			description: [
-				errorMessage.sentenceChat.questionIsEmpty.errorMessageCode,
-				errorMessage.sentenceChat.previousAnswerNotReady.errorMessageCode,
-			].join(' | '),
-		}),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.sentenceChat.threadNotFound.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }

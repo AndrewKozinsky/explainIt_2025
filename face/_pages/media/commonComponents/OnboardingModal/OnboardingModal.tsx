@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { filesUrls } from 'utils/filesUrls'
-import { localStorageManager } from 'utils/localStorageManager'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import Modal from '@/shared/ui/Modal/Modal'
+import { filesUrls } from '@/shared/utils/filesUrls'
+import { localStorageManager } from '@/shared/utils/localStorageManager'
 import './OnboardingModal.scss'
 
 function OnboardingModal() {

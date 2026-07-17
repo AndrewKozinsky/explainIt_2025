@@ -1,4 +1,4 @@
-import { mainConfig } from '@/сonsts/mainConfig'
+import { mainConfig } from '@/shared/сonsts/mainConfig'
 import { LlmProvider } from '../../sentenceChatStore'
 
 export function getProviders(): LlmProvider[] {

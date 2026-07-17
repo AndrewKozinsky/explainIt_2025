@@ -24,8 +24,8 @@ import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
-export function wizardOfOzBookData(coversFolderName: string) {
-	const covers = ['wizard_of_oz_cover_1.jpg']
+export function wizardOfOzBookData(s3FolderName: string) {
+	const coverFileName = 'wizard_of_oz_cover_1.jpg'
 
 	return {
 		author: 'Lyman Frank Baum',
@@ -35,7 +35,8 @@ export function wizardOfOzBookData(coversFolderName: string) {
 Это одна из самых подходящих классических книг для перехода от адаптированных текстов к оригинальной литературе.
 Рекомендуемый уровень B1 (Intermediate)`,
 		languageCode: languages.en.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

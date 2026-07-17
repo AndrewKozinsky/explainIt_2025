@@ -1,13 +1,13 @@
-import { useCallback, useContext, useState } from 'react'
-import { useQueryClient } from '@tanstack/react-query'
-import { useRouter } from '@/i18n/routing'
-import { useVideoPrivateControllerDeleteVideoPrivate } from '@/shared/api/generated/video-private/video-private'
-import { getVideoPrivateControllerGetUserVideosPrivateQueryKey } from '@/shared/api/generated/video-private/video-private'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { pageUrls } from '@/utils/pageUrls'
-import { useVideoStore } from '_pages/media/video/videoStore'
+// import { useCallback, useContext, useState } from 'react'
+// import { useQueryClient } from '@tanstack/react-query'
+// import { useRouter } from '@/i18n/routing'
+// import { useVideoPrivateControllerDeleteVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+// import { getVideoPrivateControllerGetUserVideosPrivateQueryKey } from '@/shared/api/generated/video-private/video-private'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { pageUrls } from '@/utils/pageUrls'
+// import { useVideoStore } from '_pages/media/video/videoStore'
 
-export function useGetDeleteVideo() {
+/*export function useGetDeleteVideo() {
 	const { notify } = useContext(NotificationContext)
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
@@ -44,4 +44,4 @@ export function useGetDeleteVideo() {
 		status,
 		onDeleteVideoClick,
 	}
-}
+}*/

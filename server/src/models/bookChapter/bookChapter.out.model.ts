@@ -58,6 +58,6 @@ export class BookChapterOutModel {
 	@ApiProperty({ description: 'Sentences of the chapter', type: [SentenceOutModel], nullable: true })
 	sentences: null | SentenceOutModel[]
 
-	@ApiProperty({ description: 'Book that the chapter belongs to', type: BookLiteOutModel })
+	@ApiProperty({ description: 'Book that the chapter belongs to', type: () => BookLiteOutModel })
 	book: BookLiteOutModel
 }

@@ -30,8 +30,8 @@ import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
-export function donQuixoteBookData(coversFolderName: string) {
-	const covers = ['donQuixote_1.jpg']
+export function donQuixoteBookData(s3FolderName: string) {
+	const coverFileName = 'donQuixote_1.jpg'
 
 	return {
 		author: 'Miguel de Cervantes Saavedra',
@@ -48,7 +48,8 @@ export function donQuixoteBookData(coversFolderName: string) {
 
 Рекомендуемый уровень B1–B2 (Intermediate / Upper-Intermediate)`,
 		languageCode: languages.es.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 		coverBackgroundColor: '#a68a6a',
 	}
 }

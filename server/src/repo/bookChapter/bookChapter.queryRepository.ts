@@ -4,13 +4,12 @@ import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { BookChapterOutModel } from 'models/bookChapter/bookChapter.out.model'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { LanguageCode, Prisma } from 'prisma/generated/client'
-import { UniversalPhraseQueryRepository } from '../universalPhrase.queryRepository'
+import { UniversalPhraseQueryRepository } from '../universalPhrase/universalPhrase.queryRepository'
 import { mapSentencePhraseTranslations, mapSentenceTranslation } from './fn'
 
 type FullBookChapter = Prisma.BookChapterGetPayload<{
 	include: {
 		book: true
-		book_public: true
 		Sentence: {
 			include: {
 				SentenceTranslation: true
@@ -30,7 +29,6 @@ type UniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
 // Helper type: same as FullBookChapter but with non-nullable 'book' relation
 type FullBookChapterPrivate = Omit<FullBookChapter, 'book'> & {
 	book: NonNullable<FullBookChapter['book']>
-	book_public: NonNullable<FullBookChapter['book_public']>
 }
 
 @Injectable()
@@ -46,7 +44,6 @@ export class BookChapterQueryRepository {
 			where: { id },
 			include: {
 				book: true,
-				book_public: true,
 				Sentence: {
 					orderBy: { order_index: 'asc' },
 					include: {
@@ -68,7 +65,7 @@ export class BookChapterQueryRepository {
 		dbChapter: FullBookChapterPrivate,
 		targetLanguageCode?: string,
 	): Promise<BookChapterOutModel> {
-		const book = dbChapter.book_public ? dbChapter.book_public : dbChapter.book
+		const book = dbChapter.book
 		const sourceLanguageCode = book.source_language_code
 
 		// Collect all unique phrase texts from SentencePhraseTranslations and
@@ -101,7 +98,7 @@ export class BookChapterQueryRepository {
 				languageCode: sourceLanguageCode,
 				author: book.author,
 				note: book.note,
-				userId: dbChapter.book_public ? null : dbChapter.book.user_id,
+				userId: dbChapter.book.user_id,
 			},
 		}
 	}

@@ -150,8 +150,8 @@ import { chapter_99 } from './chapter_99'
 
 // https://www.aksehir.bel.tr/fikralar.pdf
 
-export function nasreddinHodjaStoriesBookData(coversFolderName: string) {
-	const covers = ['nasreddinHodjastories_1.jpg']
+export function nasreddinHodjaStoriesBookData(s3FolderName: string) {
+	const coverFileName = 'nasreddinHodjastories_1.jpg'
 
 	return {
 		name: 'Nasreddin Hoca hikâyeleri',
@@ -167,7 +167,8 @@ export function nasreddinHodjaStoriesBookData(coversFolderName: string) {
 
 Рекомендуемый уровень A2–B1`,
 		languageCode: languages.tr.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

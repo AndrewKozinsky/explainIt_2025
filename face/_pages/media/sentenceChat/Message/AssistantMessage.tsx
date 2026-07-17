@@ -1,4 +1,5 @@
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
 
 type UserMessageProps = {
 	content: string

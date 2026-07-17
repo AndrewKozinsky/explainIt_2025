@@ -12,10 +12,8 @@ export type FlashcardServiceModel = {
 	phraseEndOffset: number
 	phraseTranslation: null | string
 	examples: SentencePhraseTranslationExampleServiceModel[]
-	bookPrivateId: null | number
-	bookPublicId: null | number
-	videoPrivateId: null | number
-	videoPublicId: null | number
+	bookId: null | number
+	videoId: null | number
 	sentencePhraseTranslationId: null | number
 	createdAt: Date
 }

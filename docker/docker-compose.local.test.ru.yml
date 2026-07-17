@@ -73,6 +73,7 @@ services:
     environment:
       MODE: localtest
       PORT: 3001
+      REGION: ru
     env_file:
       - docker/.env.localtest
   explainfacelocaltest:

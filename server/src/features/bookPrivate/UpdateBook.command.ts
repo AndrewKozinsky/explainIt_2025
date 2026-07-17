@@ -1,13 +1,13 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { BookPrivateQueryRepository } from 'repo/bookPrivate.queryRepository'
-import { BookPrivateRepository } from 'repo/bookPrivate.repository'
+import { BookQueryRepository } from 'repo/book/book.queryRepository'
+import { BookRepository } from 'repo/book/book.repository'
 import { Language } from 'utils/languages'
 import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { BookPrivateOutModel } from 'models/book/book.out.model'
+import { BookOutModel } from 'models/book/book.out.model'
 
 type UpdateBookInput = {
 	id: number
@@ -15,9 +15,9 @@ type UpdateBookInput = {
 	name?: null | string
 	languageCode?: null | Language
 	note?: null | string
-	fileName?: null | string
+	coverFileName?: null | string
 	fileMimeType?: null | string
-	isFileUploaded?: boolean
+	isCoverFileUploaded?: boolean
 }
 
 export class UpdateBookCommand implements ICommand {
@@ -30,13 +30,13 @@ export class UpdateBookCommand implements ICommand {
 @CommandHandler(UpdateBookCommand)
 export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 	constructor(
-		private bookRepository: BookPrivateRepository,
-		private bookQueryRepository: BookPrivateQueryRepository,
+		private bookRepository: BookRepository,
+		private bookQueryRepository: BookQueryRepository,
 		private cloudRuS3Service: CloudRuS3Service,
 		private mainConfig: MainConfigService,
 	) {}
 
-	async execute(command: UpdateBookCommand): Promise<BookPrivateOutModel> {
+	async execute(command: UpdateBookCommand): Promise<BookOutModel> {
 		const { userId, updateBookInput } = command
 
 		const bookForUpdating = await this.bookQueryRepository.getBookById(updateBookInput.id)
@@ -48,19 +48,17 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
-		const { fileName, fileS3Key, isFileUploaded, uploadUrl } = await this.getUploadFileUrlAndFileDetails(
-			bookForUpdating,
-			updateBookInput,
-		)
+		const { coverFileName, coverFileS3Key, isCoverFileUploaded, uploadUrl } =
+			await this.getUploadFileUrlAndFileDetails(bookForUpdating, updateBookInput)
 
 		const book = await this.bookRepository.updateBookById(updateBookInput.id, {
 			author: updateBookInput.author,
 			name: updateBookInput.name,
 			languageCode: updateBookInput.languageCode,
 			note: updateBookInput.note,
-			fileName,
-			fileS3Key,
-			isFileUploaded,
+			coverFileName,
+			coverFileS3Key,
+			isCoverFileUploaded,
 		})
 
 		if (!book) {
@@ -76,63 +74,63 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 	}
 
 	private async getUploadFileUrlAndFileDetails(
-		bookForUpdating: { fileS3Key: null | string; isFileUploaded: boolean; fileName: null | string },
+		bookForUpdating: { coverFileS3Key: null | string; isCoverFileUploaded: boolean; coverFileName: null | string },
 		updateBookInput: UpdateBookInput,
 	): Promise<{
-		fileName: null | string
-		fileS3Key: null | string
-		isFileUploaded: boolean
+		coverFileName: null | string
+		coverFileS3Key: null | string
+		isCoverFileUploaded: boolean
 		uploadUrl: null | string
 	}> {
 		// Deleting the cover
-		if (updateBookInput.fileName === null || updateBookInput.isFileUploaded === false) {
-			if (bookForUpdating.isFileUploaded && bookForUpdating.fileS3Key) {
-				await this.cloudRuS3Service.deleteFile(bookForUpdating.fileS3Key)
+		if (updateBookInput.coverFileName === null || updateBookInput.isCoverFileUploaded === false) {
+			if (bookForUpdating.isCoverFileUploaded && bookForUpdating.coverFileS3Key) {
+				await this.cloudRuS3Service.deleteFile(bookForUpdating.coverFileS3Key)
 			}
 
 			return {
-				fileName: null,
-				fileS3Key: null,
-				isFileUploaded: false,
+				coverFileName: null,
+				coverFileS3Key: null,
+				isCoverFileUploaded: false,
 				uploadUrl: null,
 			}
 		}
 
 		// Confirm that the file has been uploaded
-		if (updateBookInput.isFileUploaded) {
+		if (updateBookInput.isCoverFileUploaded) {
 			return {
-				fileName: bookForUpdating.fileName,
-				fileS3Key: bookForUpdating.fileS3Key,
-				isFileUploaded: true,
+				coverFileName: bookForUpdating.coverFileName,
+				coverFileS3Key: bookForUpdating.coverFileS3Key,
+				isCoverFileUploaded: true,
 				uploadUrl: null,
 			}
 		}
 
 		// Generate upload URL for a new cover
-		if (updateBookInput.fileName && updateBookInput.fileMimeType && !bookForUpdating.isFileUploaded) {
-			const s3FileKey = this.createCoverFileUrl(updateBookInput.fileName)
+		if (updateBookInput.coverFileName && updateBookInput.fileMimeType && !bookForUpdating.isCoverFileUploaded) {
+			const s3FileKey = this.createCoverFileUrl(updateBookInput.coverFileName)
 			const uploadUrl = await this.cloudRuS3Service.createUploadUrl(s3FileKey, updateBookInput.fileMimeType)
 
 			return {
-				fileName: updateBookInput.fileName,
-				fileS3Key: s3FileKey,
-				isFileUploaded: false,
+				coverFileName: updateBookInput.coverFileName,
+				coverFileS3Key: s3FileKey,
+				isCoverFileUploaded: false,
 				uploadUrl,
 			}
 		}
 
 		return {
-			fileName: bookForUpdating.fileName,
-			fileS3Key: bookForUpdating.fileS3Key,
-			isFileUploaded: bookForUpdating.isFileUploaded,
+			coverFileName: bookForUpdating.coverFileName,
+			coverFileS3Key: bookForUpdating.coverFileS3Key,
+			isCoverFileUploaded: bookForUpdating.isCoverFileUploaded,
 			uploadUrl: null,
 		}
 	}
 
-	private createCoverFileUrl(fileName: string): string {
+	private createCoverFileUrl(coverFileName: string): string {
 		const isDevMode = ['localtest', 'localdev'].includes(this.mainConfig.get().mode!)
 		const folderName = isDevMode ? 'privateBooksDev' : 'privateBooks'
 
-		return `${folderName}/${crypto.randomUUID()}-${fileName}`
+		return `${folderName}/${crypto.randomUUID()}-${coverFileName}`
 	}
 }

@@ -21,15 +21,11 @@ export class AddFlashcardCommand implements ICommand {
 
 type DbSentenceWithRelations = NonNullable<Awaited<ReturnType<SentenceRepository['getSentenceDbById']>>>
 
-// Разрешённый источник предложения (книга или видео): какая FK будет у карточки,
-// язык фразы и полный текст источника, из которого будет нарезан снапшот предложения.
 type ResolvedSentenceSource = {
 	languageCode: LanguageCode
 	sourceFullText: string
-	bookPrivateId: null | number
-	bookPublicId: null | number
-	videoPrivateId: null | number
-	videoPublicId: null | number
+	bookId: null | number
+	videoId: null | number
 }
 
 @CommandHandler(AddFlashcardCommand)
@@ -69,6 +65,7 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			sentence.start_offset,
 			sentence.start_offset + sentence.length,
 		)
+
 		// phrase.phraseStartOffset / phraseEndOffset уже хранятся относительно текста предложения
 		// (см. SentencePhraseTranslation.phrase_start_offset — "Phrase start offset within the sentence text snapshot"),
 		// поэтому никакой дополнительной корректировки на sentence.start_offset делать не нужно.
@@ -91,10 +88,8 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 			phraseEndOffset,
 			phraseTranslation: phrase.translate,
 			examples: phrase.examples,
-			bookPrivateId: sentenceSource.bookPrivateId,
-			bookPublicId: sentenceSource.bookPublicId,
-			videoPrivateId: sentenceSource.videoPrivateId,
-			videoPublicId: sentenceSource.videoPublicId,
+			bookId: sentenceSource.bookId,
+			videoId: sentenceSource.videoId,
 			sentencePhraseTranslationId,
 		})
 
@@ -110,10 +105,8 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 	// для снапшота карточки.
 	private resolveSentenceSource(sentence: DbSentenceWithRelations, userId: number): ResolvedSentenceSource {
 		const emptySource: Omit<ResolvedSentenceSource, 'languageCode' | 'sourceFullText'> = {
-			bookPrivateId: null,
-			bookPublicId: null,
-			videoPrivateId: null,
-			videoPublicId: null,
+			bookId: null,
+			videoId: null,
 		}
 
 		if (sentence.bookChapter) {
@@ -122,48 +115,35 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 				sentence.bookChapter.original_content,
 			)
 
+			// bookChapter.book is now always present (single required FK)
 			if (sentence.bookChapter.book) {
-				this.assertOwner(sentence.bookChapter.book.user_id, userId)
-				return {
-					...emptySource,
-					bookPrivateId: sentence.bookChapter.book.id,
-					languageCode: sentence.bookChapter.book.source_language_code,
-					sourceFullText,
+				const book = sentence.bookChapter.book
+				// For private books, check ownership
+				if (book.type === 'private') {
+					this.assertOwner(book.user_id!, userId)
 				}
-			}
-
-			if (sentence.bookChapter.book_public) {
 				return {
 					...emptySource,
-					bookPublicId: sentence.bookChapter.book_public.id,
-					languageCode: sentence.bookChapter.book_public.source_language_code,
+					bookId: book.id,
+					languageCode: book.source_language_code,
 					sourceFullText,
 				}
 			}
 		}
 
-		if (sentence.videoPrivate) {
-			this.assertOwner(sentence.videoPrivate.user_id, userId)
-			return {
-				...emptySource,
-				videoPrivateId: sentence.videoPrivate.id,
-				languageCode: sentence.videoPrivate.source_language_code,
-				sourceFullText: this.pickFullText(
-					sentence.videoPrivate.processed_content,
-					sentence.videoPrivate.original_content,
-				),
+		if (sentence.video) {
+			const collection = sentence.video.video_collection
+			if (collection.user_id === null) {
+				throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 			}
-		}
 
-		if (sentence.videoPublic) {
+			this.assertOwner(collection.user_id, userId)
+
 			return {
 				...emptySource,
-				videoPublicId: sentence.videoPublic.id,
-				languageCode: sentence.videoPublic.source_language_code,
-				sourceFullText: this.pickFullText(
-					sentence.videoPublic.processed_content,
-					sentence.videoPublic.original_content,
-				),
+				videoId: sentence.video.id,
+				languageCode: collection.source_language_code,
+				sourceFullText: this.pickFullText(sentence.video.processed_content, sentence.video.original_content),
 			}
 		}
 

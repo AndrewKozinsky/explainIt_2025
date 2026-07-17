@@ -40,7 +40,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return error if input has incorrect values', async () => {
+	it('should return error if inputs has incorrect values', async () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('johnexample.com')
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
@@ -92,7 +92,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
 	})
 
-	it('should return success if input has correct values', async () => {
+	it('should return success if inputs has correct values', async () => {
 		const user = await userUtils.createUserWithUnconfirmedEmail({
 			app,
 			userRepository,

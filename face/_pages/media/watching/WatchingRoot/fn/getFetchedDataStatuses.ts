@@ -1,6 +1,6 @@
-import { useWatchingStore } from '../../watchingStore'
+// import { useWatchingStore } from '../../watchingStore'
 
-export function useGetFetchedDataStatuses() {
+/*export function useGetFetchedDataStatuses() {
 	const video = useWatchingStore((s) => s.video)
 	const plainText = useWatchingStore((s) => s.populatedPlainText)
 	const subtitles = useWatchingStore((s) => s.populatedSubtitles)
@@ -16,4 +16,4 @@ export function useGetFetchedDataStatuses() {
 		fetchedDataLoading,
 		fetchedDataErrorMessage,
 	}
-}
+}*/

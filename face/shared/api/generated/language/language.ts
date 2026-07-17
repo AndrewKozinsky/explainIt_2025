@@ -51,19 +51,12 @@ export type languageControllerGetLanguagesResponse200 = {
   status: 200
 }
 
-export type languageControllerGetLanguagesResponse500 = {
-  data: void
-  status: 500
-}
-
 export type languageControllerGetLanguagesResponseSuccess = (languageControllerGetLanguagesResponse200) & {
   headers: Headers;
 };
-export type languageControllerGetLanguagesResponseError = (languageControllerGetLanguagesResponse500) & {
-  headers: Headers;
-};
+;
 
-export type languageControllerGetLanguagesResponse = (languageControllerGetLanguagesResponseSuccess | languageControllerGetLanguagesResponseError)
+export type languageControllerGetLanguagesResponse = (languageControllerGetLanguagesResponseSuccess)
 
 export const getLanguageControllerGetLanguagesUrl = () => {
 
@@ -99,7 +92,7 @@ export const getLanguageControllerGetLanguagesQueryKey = () => {
     }
 
 
-export const getLanguageControllerGetLanguagesQueryOptions = <TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = void>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getLanguageControllerGetLanguagesQueryOptions = <TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = unknown>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
@@ -118,10 +111,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type LanguageControllerGetLanguagesQueryResult = NonNullable<Awaited<ReturnType<typeof languageControllerGetLanguages>>>
-export type LanguageControllerGetLanguagesQueryError = void
+export type LanguageControllerGetLanguagesQueryError = unknown
 
 
-export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = void>(
+export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = unknown>(
   options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof languageControllerGetLanguages>>,
@@ -131,7 +124,7 @@ export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typ
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = void>(
+export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = unknown>(
   options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof languageControllerGetLanguages>>,
@@ -141,7 +134,7 @@ export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typ
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = void>(
+export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = unknown>(
   options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
@@ -149,7 +142,7 @@ export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typ
  * @summary Get all languages
  */
 
-export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = void>(
+export function useLanguageControllerGetLanguages<TData = Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError = unknown>(
   options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof languageControllerGetLanguages>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {

@@ -1,25 +1,25 @@
-import { INestApplication } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
-import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
-import RouteNames from '../../src/infrastructure/routeNames'
-import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReqWithTokens } from '../makeGQReq'
-import { authUtils } from '../utils/authUtils'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword } from '../utils/common'
-import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { INestApplication } from '@nestjs/common'
+// import { CommandBus } from '@nestjs/cqrs'
+// import { App } from 'supertest/types'
+// import { queries } from '../../src/features/db/queries'
+// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+// import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
+// import RouteNames from '../../src/infrastructure/routeNames'
+// import { UserRepository } from '../../src/repo/user.repository'
+// import { makeGraphQLReqWithTokens } from '../makeGQReq'
+// import { authUtils } from '../utils/authUtils'
+// import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+// import { checkErrorResponse } from '../utils/checkErrorResp'
+// import { defUserEmail, defUserPassword } from '../utils/common'
+// import { createApp } from '../utils/createApp'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Get me (e2e)', () => {
+/*describe.skip('Get me (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -63,11 +63,11 @@ describe.skip('Get me (e2e)', () => {
 			sessionToken: null,
 		})
 
-		/*checkErrorResponse(getMeResp, {
+		checkErrorResponse(getMeResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
 			message: errorMessage.user.unauthorized,
-		})*/
+		})
 	})
 
 	it('should return a user if passed session token is valid', async () => {
@@ -108,10 +108,10 @@ describe.skip('Get me (e2e)', () => {
 			sessionToken: null,
 		})
 
-		/*checkErrorResponse(getMeResp, {
+		checkErrorResponse(getMeResp, {
 			code: 'Unauthorized',
 			statusCode: 401,
 			message: errorMessage.user.unauthorized,
-		})*/
+		})
 	})
-})
+})*/

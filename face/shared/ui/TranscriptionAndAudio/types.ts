@@ -1,4 +1,4 @@
-import { LanguageCode } from 'utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 
 export type TranscriptionAndAudioProps = {
 	phrase?: string

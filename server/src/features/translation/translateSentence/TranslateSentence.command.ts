@@ -180,8 +180,8 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 		const content =
 			sentence.bookChapter?.processed_content ??
-			sentence.videoPrivate?.processed_content ??
-			sentence.videoPublic?.processed_content
+			sentence.video?.processed_content ??
+			sentence.video?.processed_content
 
 		if (!content) {
 			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
@@ -199,8 +199,8 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 
 		const content =
 			sentence.bookChapter?.processed_content ??
-			sentence.videoPrivate?.processed_content ??
-			sentence.videoPublic?.processed_content
+			sentence.video?.processed_content ??
+			sentence.video?.processed_content
 
 		if (!content) {
 			throw new CustomError(errorMessage.sentence.notFound, ErrorStatusCode.NotFound_404)
@@ -210,8 +210,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			sentenceId,
 			orderIndex: sentence.order_index,
 			bookChapterId: sentence.book_chapter_id,
-			videoPrivateId: sentence.video_private_id,
-			videoPublicId: sentence.video_public_id,
+			videoId: sentence.video_id,
 			beforeSentences: 4,
 			afterSentences: 0,
 		})

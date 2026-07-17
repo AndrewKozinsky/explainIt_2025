@@ -1,6 +1,6 @@
-import { VideoPrivateSubtitlesStatusOutModelStatus } from '@/shared/api/generated/models'
+// import { VideoPrivateSubtitlesStatusOutModelStatus } from '@/shared/api/generated/models'
 
-export function getButtonText(status: VideoPrivateSubtitlesStatusOutModelStatus) {
+/*export function getButtonText(status: VideoPrivateSubtitlesStatusOutModelStatus) {
 	if (status === VideoPrivateSubtitlesStatusOutModelStatus.pending) {
 		return 'Ожидает обработки'
 	}
@@ -18,4 +18,4 @@ export function getButtonText(status: VideoPrivateSubtitlesStatusOutModelStatus)
 	}
 
 	return 'Сгенерировать субтитры'
-}
+}*/

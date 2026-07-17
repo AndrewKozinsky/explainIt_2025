@@ -1,7 +1,7 @@
 import React from 'react'
-import { filesUrls } from 'utils/filesUrls'
-import { pageUrls } from 'utils/pageUrls'
 import { Link } from '@/i18n/routing'
+import { filesUrls } from '@/shared/utils/filesUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import CustomMaterialCovers from './CustomMaterialCovers'
 import './CustomMaterials.scss'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { pageUrls } from '@/utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { AuthFormParent } from '../../common/AuthFormParent/AuthFormParent'
 import AuthLoginForm from '../AuthLoginForm/AuthLoginForm'
 

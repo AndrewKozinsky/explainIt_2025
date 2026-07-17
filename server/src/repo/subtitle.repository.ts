@@ -9,8 +9,7 @@ export class SubtitleRepository {
 
 	@CatchDbError()
 	async createSubtitle(dto: {
-		videoPrivateId?: number
-		videoPublicId?: number
+		videoId?: number
 		startTimeMs: number
 		endTimeMs: number
 		orderIndex: number
@@ -19,8 +18,7 @@ export class SubtitleRepository {
 	}) {
 		const subtitle = await this.prisma.subtitle.create({
 			data: {
-				video_private_id: dto.videoPrivateId,
-				video_public_id: dto.videoPublicId,
+				video_id: dto.videoId,
 				start_time_ms: dto.startTimeMs,
 				end_time_ms: dto.endTimeMs,
 				order_index: dto.orderIndex,
@@ -33,20 +31,12 @@ export class SubtitleRepository {
 	}
 
 	@CatchDbError()
-	async deleteByVideoPrivateId(videoPrivateId: number): Promise<number> {
+	async deleteByVideoId(videoId: number): Promise<number> {
 		const res = await this.prisma.subtitle.deleteMany({
-			where: { video_private_id: videoPrivateId },
+			where: { video_id: videoId },
 		})
 		return res.count
 	}
-
-	/*@CatchDbError()
-	async deleteByVideoPublicId(videoPublicId: number): Promise<number> {
-		const res = await this.prisma.subtitle.deleteMany({
-			where: { video_public_id: videoPublicId },
-		})
-		return res.count
-	}*/
 
 	mapDbSubtitleToServiceSubtitle(dbSubtitle: Subtitle) {
 		return {

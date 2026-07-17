@@ -1,26 +1,26 @@
-import React, { useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { Controller, useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import FormError from '@/shared/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import { FormStatus } from '@/utils/forms'
-import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
-import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
-import GenerateSubtitlesBlock from '_pages/media/video/editPrivateVideo/GenerateSubtitlesBlock/GenerateSubtitlesBlock'
-import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
-import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
-import VideoDropzone from '../VideoDropzone/VideoDropzone'
-import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
-import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
-import { useSetFieldValues } from './fn/setFieldValues'
-import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
-import './EditPrivateVideoForm.scss'
+// import React, { useState } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { Controller, useForm } from 'react-hook-form'
+// import * as yup from 'yup'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/shared/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
+// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+// import {FormStatus} from "@/shared/utils/forms";
+// import LanguagesRadioGroup from '_pages/media/commonComponents/LanguagesRadioGroup/LanguagesRadioGroup'
+// import MediaFormSurface from '_pages/media/commonComponents/MediaFormSurface/MediaFormSurface'
+// import GenerateSubtitlesBlock from '_pages/media/video/editPrivateVideo/GenerateSubtitlesBlock/GenerateSubtitlesBlock'
+// import DeleteVideoButton from '../DeleteVideoButton/DeleteVideoButton'
+// import FileNameAndDeleteFileButton from '../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
+// import VideoDropzone from '../VideoDropzone/VideoDropzone'
+// import WatchMovieButton from '../WatchMovieButton/WatchMovieButton'
+// import { ChangeVideoFormData, changeVideoFormSchema } from './fn/form'
+// import { useSetFieldValues } from './fn/setFieldValues'
+// import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
+// import './EditPrivateVideoForm.scss'
 
-export default function EditPrivateVideoForm() {
+/*export default function EditPrivateVideoForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -118,4 +118,4 @@ The survivors of the nuclear fire called the war Judgment Day.`,
 			</MediaFormSurface>
 		</form>
 	)
-}
+}*/

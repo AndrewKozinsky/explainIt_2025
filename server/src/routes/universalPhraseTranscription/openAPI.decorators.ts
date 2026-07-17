@@ -12,21 +12,5 @@ export function ApiGetOrCreateTranscription() {
 		}),
 		ApiBody({ type: CreateUniversalPhraseTranscriptionInput }),
 		ApiResponse({ status: 201, description: 'Created', type: TranscriptionOutModel }),
-		ApiResponse({
-			status: 400,
-			description: [
-				'Validation error',
-				errorMessage.universalTranscription.alreadyExists.errorMessageCode,
-				errorMessage.universalTranscription.languageNotSupported.errorMessageCode,
-			].join(' | '),
-		}),
-		ApiResponse({ status: 404, description: errorMessage.universalPhrase.notFound.errorMessageCode }),
-		ApiResponse({
-			status: 500,
-			description: [
-				errorMessage.unknownDbError.errorMessageCode,
-				errorMessage.universalTranscription.cannotGetTranscriptionFromLLM.errorMessageCode,
-			].join(' | '),
-		}),
 	)
 }

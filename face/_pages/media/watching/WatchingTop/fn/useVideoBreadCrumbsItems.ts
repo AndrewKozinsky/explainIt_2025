@@ -1,15 +1,15 @@
-import React from 'react'
-import { useParams } from 'next/navigation'
-import { pageUrls } from 'utils/pageUrls'
-import { videoConfig } from '_pages/media/commonComponents/videoConfig'
-import { useWatchingStore } from '_pages/media/watching/watchingStore'
+// import React from 'react'
+// import { useParams } from 'next/navigation'
+// import {pageUrls} from "@/shared/utils/pageUrls";
+// import { videoConfig } from '_pages/media/commonComponents/videoConfig'
+// import { useWatchingStore } from '_pages/media/watching/watchingStore'
 
-type BreadCrumbItem = {
+/*type BreadCrumbItem = {
 	name: string
 	path: string
-}
+}*/
 
-export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
+/*export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
 	const params = useParams() as { videoId?: string }
 	const urlVideoId = params.videoId!
 
@@ -22,4 +22,4 @@ export function useVideoBreadCrumbsItems(): BreadCrumbItem[] {
 
 		return [pageUrls.videos, { name: movieName, path: videoUrl.path }]
 	}, [urlVideoId, videoName])
-}
+}*/

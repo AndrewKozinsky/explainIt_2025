@@ -37,34 +37,12 @@ export type translateControllerGetSentenceTranslationResponse200 = {
   status: 200
 }
 
-export type translateControllerGetSentenceTranslationResponse400 = {
-  data: void
-  status: 400
-}
-
-export type translateControllerGetSentenceTranslationResponse401 = {
-  data: void
-  status: 401
-}
-
-export type translateControllerGetSentenceTranslationResponse403 = {
-  data: void
-  status: 403
-}
-
-export type translateControllerGetSentenceTranslationResponse500 = {
-  data: void
-  status: 500
-}
-
 export type translateControllerGetSentenceTranslationResponseSuccess = (translateControllerGetSentenceTranslationResponse200) & {
   headers: Headers;
 };
-export type translateControllerGetSentenceTranslationResponseError = (translateControllerGetSentenceTranslationResponse400 | translateControllerGetSentenceTranslationResponse401 | translateControllerGetSentenceTranslationResponse403 | translateControllerGetSentenceTranslationResponse500) & {
-  headers: Headers;
-};
+;
 
-export type translateControllerGetSentenceTranslationResponse = (translateControllerGetSentenceTranslationResponseSuccess | translateControllerGetSentenceTranslationResponseError)
+export type translateControllerGetSentenceTranslationResponse = (translateControllerGetSentenceTranslationResponseSuccess)
 
 export const getTranslateControllerGetSentenceTranslationUrl = () => {
 
@@ -93,7 +71,7 @@ export const translateControllerGetSentenceTranslation = async (getSentenceTrans
 
 
 
-export const getTranslateControllerGetSentenceTranslationMutationOptions = <TError = void,
+export const getTranslateControllerGetSentenceTranslationMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetSentenceTranslation>>, TError,{data: GetSentenceTranslationInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetSentenceTranslation>>, TError,{data: GetSentenceTranslationInput}, TContext> => {
 
@@ -122,12 +100,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type TranslateControllerGetSentenceTranslationMutationResult = NonNullable<Awaited<ReturnType<typeof translateControllerGetSentenceTranslation>>>
     export type TranslateControllerGetSentenceTranslationMutationBody = GetSentenceTranslationInput
-    export type TranslateControllerGetSentenceTranslationMutationError = void
+    export type TranslateControllerGetSentenceTranslationMutationError = unknown
 
     /**
  * @summary Get sentence translation
  */
-export const useTranslateControllerGetSentenceTranslation = <TError = void,
+export const useTranslateControllerGetSentenceTranslation = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetSentenceTranslation>>, TError,{data: GetSentenceTranslationInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof translateControllerGetSentenceTranslation>>,
@@ -142,34 +120,12 @@ export const useTranslateControllerGetSentenceTranslation = <TError = void,
   status: 200
 }
 
-export type translateControllerGetPhraseTranslationResponse400 = {
-  data: void
-  status: 400
-}
-
-export type translateControllerGetPhraseTranslationResponse401 = {
-  data: void
-  status: 401
-}
-
-export type translateControllerGetPhraseTranslationResponse403 = {
-  data: void
-  status: 403
-}
-
-export type translateControllerGetPhraseTranslationResponse500 = {
-  data: void
-  status: 500
-}
-
 export type translateControllerGetPhraseTranslationResponseSuccess = (translateControllerGetPhraseTranslationResponse200) & {
   headers: Headers;
 };
-export type translateControllerGetPhraseTranslationResponseError = (translateControllerGetPhraseTranslationResponse400 | translateControllerGetPhraseTranslationResponse401 | translateControllerGetPhraseTranslationResponse403 | translateControllerGetPhraseTranslationResponse500) & {
-  headers: Headers;
-};
+;
 
-export type translateControllerGetPhraseTranslationResponse = (translateControllerGetPhraseTranslationResponseSuccess | translateControllerGetPhraseTranslationResponseError)
+export type translateControllerGetPhraseTranslationResponse = (translateControllerGetPhraseTranslationResponseSuccess)
 
 export const getTranslateControllerGetPhraseTranslationUrl = () => {
 
@@ -198,7 +154,7 @@ export const translateControllerGetPhraseTranslation = async (getPhraseTranslati
 
 
 
-export const getTranslateControllerGetPhraseTranslationMutationOptions = <TError = void,
+export const getTranslateControllerGetPhraseTranslationMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetPhraseTranslation>>, TError,{data: GetPhraseTranslationInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetPhraseTranslation>>, TError,{data: GetPhraseTranslationInput}, TContext> => {
 
@@ -227,12 +183,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type TranslateControllerGetPhraseTranslationMutationResult = NonNullable<Awaited<ReturnType<typeof translateControllerGetPhraseTranslation>>>
     export type TranslateControllerGetPhraseTranslationMutationBody = GetPhraseTranslationInput
-    export type TranslateControllerGetPhraseTranslationMutationError = void
+    export type TranslateControllerGetPhraseTranslationMutationError = unknown
 
     /**
  * @summary Get phrase translation
  */
-export const useTranslateControllerGetPhraseTranslation = <TError = void,
+export const useTranslateControllerGetPhraseTranslation = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetPhraseTranslation>>, TError,{data: GetPhraseTranslationInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof translateControllerGetPhraseTranslation>>,
@@ -247,34 +203,12 @@ export const useTranslateControllerGetPhraseTranslation = <TError = void,
   status: 200
 }
 
-export type translateControllerGetPhraseTranslationsBySentenceResponse400 = {
-  data: void
-  status: 400
-}
-
-export type translateControllerGetPhraseTranslationsBySentenceResponse401 = {
-  data: void
-  status: 401
-}
-
-export type translateControllerGetPhraseTranslationsBySentenceResponse403 = {
-  data: void
-  status: 403
-}
-
-export type translateControllerGetPhraseTranslationsBySentenceResponse500 = {
-  data: void
-  status: 500
-}
-
 export type translateControllerGetPhraseTranslationsBySentenceResponseSuccess = (translateControllerGetPhraseTranslationsBySentenceResponse200) & {
   headers: Headers;
 };
-export type translateControllerGetPhraseTranslationsBySentenceResponseError = (translateControllerGetPhraseTranslationsBySentenceResponse400 | translateControllerGetPhraseTranslationsBySentenceResponse401 | translateControllerGetPhraseTranslationsBySentenceResponse403 | translateControllerGetPhraseTranslationsBySentenceResponse500) & {
-  headers: Headers;
-};
+;
 
-export type translateControllerGetPhraseTranslationsBySentenceResponse = (translateControllerGetPhraseTranslationsBySentenceResponseSuccess | translateControllerGetPhraseTranslationsBySentenceResponseError)
+export type translateControllerGetPhraseTranslationsBySentenceResponse = (translateControllerGetPhraseTranslationsBySentenceResponseSuccess)
 
 export const getTranslateControllerGetPhraseTranslationsBySentenceUrl = () => {
 
@@ -303,7 +237,7 @@ export const translateControllerGetPhraseTranslationsBySentence = async (getPhra
 
 
 
-export const getTranslateControllerGetPhraseTranslationsBySentenceMutationOptions = <TError = void,
+export const getTranslateControllerGetPhraseTranslationsBySentenceMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetPhraseTranslationsBySentence>>, TError,{data: GetPhraseTranslationsBySentenceInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetPhraseTranslationsBySentence>>, TError,{data: GetPhraseTranslationsBySentenceInput}, TContext> => {
 
@@ -332,12 +266,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type TranslateControllerGetPhraseTranslationsBySentenceMutationResult = NonNullable<Awaited<ReturnType<typeof translateControllerGetPhraseTranslationsBySentence>>>
     export type TranslateControllerGetPhraseTranslationsBySentenceMutationBody = GetPhraseTranslationsBySentenceInput
-    export type TranslateControllerGetPhraseTranslationsBySentenceMutationError = void
+    export type TranslateControllerGetPhraseTranslationsBySentenceMutationError = unknown
 
     /**
  * @summary Get all phrase translations by sentence
  */
-export const useTranslateControllerGetPhraseTranslationsBySentence = <TError = void,
+export const useTranslateControllerGetPhraseTranslationsBySentence = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerGetPhraseTranslationsBySentence>>, TError,{data: GetPhraseTranslationsBySentenceInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof translateControllerGetPhraseTranslationsBySentence>>,
@@ -352,34 +286,12 @@ export const useTranslateControllerGetPhraseTranslationsBySentence = <TError = v
   status: 200
 }
 
-export type translateControllerTranslateSentenceResponse400 = {
-  data: void
-  status: 400
-}
-
-export type translateControllerTranslateSentenceResponse401 = {
-  data: void
-  status: 401
-}
-
-export type translateControllerTranslateSentenceResponse403 = {
-  data: void
-  status: 403
-}
-
-export type translateControllerTranslateSentenceResponse500 = {
-  data: void
-  status: 500
-}
-
 export type translateControllerTranslateSentenceResponseSuccess = (translateControllerTranslateSentenceResponse200) & {
   headers: Headers;
 };
-export type translateControllerTranslateSentenceResponseError = (translateControllerTranslateSentenceResponse400 | translateControllerTranslateSentenceResponse401 | translateControllerTranslateSentenceResponse403 | translateControllerTranslateSentenceResponse500) & {
-  headers: Headers;
-};
+;
 
-export type translateControllerTranslateSentenceResponse = (translateControllerTranslateSentenceResponseSuccess | translateControllerTranslateSentenceResponseError)
+export type translateControllerTranslateSentenceResponse = (translateControllerTranslateSentenceResponseSuccess)
 
 export const getTranslateControllerTranslateSentenceUrl = () => {
 
@@ -408,7 +320,7 @@ export const translateControllerTranslateSentence = async (translateSentenceInpu
 
 
 
-export const getTranslateControllerTranslateSentenceMutationOptions = <TError = void,
+export const getTranslateControllerTranslateSentenceMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerTranslateSentence>>, TError,{data: TranslateSentenceInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof translateControllerTranslateSentence>>, TError,{data: TranslateSentenceInput}, TContext> => {
 
@@ -437,12 +349,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type TranslateControllerTranslateSentenceMutationResult = NonNullable<Awaited<ReturnType<typeof translateControllerTranslateSentence>>>
     export type TranslateControllerTranslateSentenceMutationBody = TranslateSentenceInput
-    export type TranslateControllerTranslateSentenceMutationError = void
+    export type TranslateControllerTranslateSentenceMutationError = unknown
 
     /**
  * @summary Translate sentence
  */
-export const useTranslateControllerTranslateSentence = <TError = void,
+export const useTranslateControllerTranslateSentence = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerTranslateSentence>>, TError,{data: TranslateSentenceInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof translateControllerTranslateSentence>>,
@@ -457,34 +369,12 @@ export const useTranslateControllerTranslateSentence = <TError = void,
   status: 200
 }
 
-export type translateControllerTranslatePhraseResponse400 = {
-  data: void
-  status: 400
-}
-
-export type translateControllerTranslatePhraseResponse401 = {
-  data: void
-  status: 401
-}
-
-export type translateControllerTranslatePhraseResponse403 = {
-  data: void
-  status: 403
-}
-
-export type translateControllerTranslatePhraseResponse500 = {
-  data: void
-  status: 500
-}
-
 export type translateControllerTranslatePhraseResponseSuccess = (translateControllerTranslatePhraseResponse200) & {
   headers: Headers;
 };
-export type translateControllerTranslatePhraseResponseError = (translateControllerTranslatePhraseResponse400 | translateControllerTranslatePhraseResponse401 | translateControllerTranslatePhraseResponse403 | translateControllerTranslatePhraseResponse500) & {
-  headers: Headers;
-};
+;
 
-export type translateControllerTranslatePhraseResponse = (translateControllerTranslatePhraseResponseSuccess | translateControllerTranslatePhraseResponseError)
+export type translateControllerTranslatePhraseResponse = (translateControllerTranslatePhraseResponseSuccess)
 
 export const getTranslateControllerTranslatePhraseUrl = () => {
 
@@ -513,7 +403,7 @@ export const translateControllerTranslatePhrase = async (translatePhraseInput: T
 
 
 
-export const getTranslateControllerTranslatePhraseMutationOptions = <TError = void,
+export const getTranslateControllerTranslatePhraseMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerTranslatePhrase>>, TError,{data: TranslatePhraseInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof translateControllerTranslatePhrase>>, TError,{data: TranslatePhraseInput}, TContext> => {
 
@@ -542,12 +432,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type TranslateControllerTranslatePhraseMutationResult = NonNullable<Awaited<ReturnType<typeof translateControllerTranslatePhrase>>>
     export type TranslateControllerTranslatePhraseMutationBody = TranslatePhraseInput
-    export type TranslateControllerTranslatePhraseMutationError = void
+    export type TranslateControllerTranslatePhraseMutationError = unknown
 
     /**
  * @summary Translate phrase
  */
-export const useTranslateControllerTranslatePhrase = <TError = void,
+export const useTranslateControllerTranslatePhrase = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof translateControllerTranslatePhrase>>, TError,{data: TranslatePhraseInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof translateControllerTranslatePhrase>>,

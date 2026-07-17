@@ -1,49 +1,45 @@
-import { useQueryClient } from '@tanstack/react-query'
-import { useBookPrivateControllerUpdateBook } from '@/shared/api/generated/book-private/book-private'
-import {
-	getBookPrivateControllerGetUserBooksQueryKey,
-	getBookPrivateControllerGetBookQueryKey,
-} from '@/shared/api/generated/book-private/book-private'
-import type { BookPrivateOutModel, UpdateBookDtoLanguageCode } from '@/shared/api/generated/models'
+import { useMemo } from 'react'
+import { BooksApi } from '@/entites/books/repository/BooksApi'
 import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
 import { useBookStore } from '_pages/media/book/bookStore'
 
 const supportedFormatsStr = 'JPG, JPEG, PNG, WebP, AVIF'
 
 function BookCoverDropzone() {
-	const book = useBookStore((s) => s.privateBook.data)
-	const { mutateAsync: updateBook } = useBookPrivateControllerUpdateBook()
-	const queryClient = useQueryClient()
+	const book = useBookStore((s) => s.book.data)
+	const api = useMemo(() => new BooksApi(), [])
 
 	const onGetUploadUrl = async (file: File): Promise<string | null> => {
 		if (!book) return null
 
-		const res = await updateBook({
-			id: book.id,
-			data: {
-				fileName: file.name,
-				fileMimeType: file.type,
-				languageCode: book.languageCode as unknown as UpdateBookDtoLanguageCode,
-			},
+		const updatedBook = await api.updateBook(book.id, {
+			coverFileName: file.name,
+			fileMimeType: file.type,
+			languageCode: book.languageCode,
 		})
 
-		const updatedBook = res as unknown as BookPrivateOutModel
-		return (updatedBook.uploadUrl as unknown as string) ?? null
+		useBookStore.getState().updateBook({
+			loading: false,
+			errorMessage: null,
+			data: updatedBook,
+		})
+
+		return updatedBook.uploadUrl
 	}
 
 	const onUploadComplete = async (): Promise<void> => {
 		if (!book) return
 
-		await updateBook({
-			id: book.id,
-			data: {
-				isFileUploaded: true,
-				languageCode: book.languageCode as unknown as UpdateBookDtoLanguageCode,
-			},
+		const updatedBook = await api.updateBook(book.id, {
+			isCoverFileUploaded: true,
+			languageCode: book.languageCode,
 		})
 
-		queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetUserBooksQueryKey() })
-		queryClient.invalidateQueries({ queryKey: getBookPrivateControllerGetBookQueryKey(book.id) })
+		useBookStore.getState().updateBook({
+			loading: false,
+			errorMessage: null,
+			data: updatedBook,
+		})
 	}
 
 	return (
@@ -56,7 +52,7 @@ function BookCoverDropzone() {
 				'image/avif': ['.avif'],
 			}}
 			supportedFormatsStr={supportedFormatsStr}
-			visible={book && !book.isFileUploaded}
+			visible={book ? book.isCoverFileUploaded !== true : false}
 			onGetUploadUrl={onGetUploadUrl}
 			onUploadComplete={onUploadComplete}
 		/>

@@ -38,7 +38,6 @@ export class UpdateBookChapterHandler implements ICommandHandler<UpdateBookChapt
 		const { userId, updateBookChapterInput } = command
 
 		const bookChapter = await this.bookChapterRepository.getBookChapter({
-			bookType: 'private',
 			id: updateBookChapterInput.id,
 		})
 		if (!bookChapter) {

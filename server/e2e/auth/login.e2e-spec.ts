@@ -1,22 +1,22 @@
-import { INestApplication } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
-import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-import RouteNames from '../../src/infrastructure/routeNames'
-import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReq } from '../makeGQReq'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword } from '../utils/common'
-import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { INestApplication } from '@nestjs/common'
+// import { CommandBus } from '@nestjs/cqrs'
+// import { App } from 'supertest/types'
+// import { queries } from '../../src/features/db/queries'
+// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+// import RouteNames from '../../src/infrastructure/routeNames'
+// import { UserRepository } from '../../src/repo/user.repository'
+// import { makeGraphQLReq } from '../makeGQReq'
+// import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+// import { checkErrorResponse } from '../utils/checkErrorResp'
+// import { defUserEmail, defUserPassword } from '../utils/common'
+// import { createApp } from '../utils/createApp'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('User login (e2e)', () => {
+/*describe.skip('User login (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
@@ -59,11 +59,11 @@ describe.skip('User login (e2e)', () => {
 		const loginQuery = queries.auth.login({ email: 'wrong@email.com', password: '123456' })
 		const [loginResp] = await makeGraphQLReq(app, loginQuery)
 
-		/*checkErrorResponse(loginResp, {
+		checkErrorResponse(loginResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.user.notFound,
-		})*/
+		})
 	})
 
 	it('should return error if email is not confirmed', async () => {
@@ -76,14 +76,14 @@ describe.skip('User login (e2e)', () => {
 		const loginQuery = queries.auth.login({ email: defUserEmail, password: defUserPassword })
 		const [loginResp] = await makeGraphQLReq(app, loginQuery)
 
-		/*checkErrorResponse(loginResp, {
+		checkErrorResponse(loginResp, {
 			code: 'Forbidden',
 			statusCode: 403,
 			message: errorMessage.email.isNotConfirmed,
-		})*/
+		})
 	})
 
-	it('should return 200 if dto has correct values and email is confirmed', async () => {
+	it('should return 200 if inputs has correct values and email is confirmed', async () => {
 		const user = await userUtils.createUserWithConfirmedEmail({
 			app,
 			userRepository,
@@ -105,12 +105,12 @@ describe.skip('User login (e2e)', () => {
 		const loginQuery = queries.auth.login({ email: defUserEmail, password: defUserPassword })
 		const [loginResp, loginRespCookies] = await makeGraphQLReq(app, loginQuery)
 
-		/*checkErrorResponse(loginResp, {
+		checkErrorResponse(loginResp, {
 			code: 'Not Found',
 			statusCode: 404,
 			message: errorMessage.user.notFound,
-		})*/
+		})
 
 		expect(loginRespCookies).toEqual({})
 	})
-})
+})*/

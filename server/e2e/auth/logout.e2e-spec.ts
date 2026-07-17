@@ -1,25 +1,25 @@
-import { INestApplication } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
-import { App } from 'supertest/types'
-import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
-import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
-import RouteNames from '../../src/infrastructure/routeNames'
-import { UserRepository } from '../../src/repo/user.repository'
-import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
-import { makeGraphQLReq, makeGraphQLReqWithTokens } from '../makeGQReq'
-import { authUtils } from '../utils/authUtils'
-import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { defUserEmail, defUserPassword } from '../utils/common'
-import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { INestApplication } from '@nestjs/common'
+// import { CommandBus } from '@nestjs/cqrs'
+// import { App } from 'supertest/types'
+// import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
+// import { queries } from '../../src/features/db/queries'
+// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
+// import RouteNames from '../../src/infrastructure/routeNames'
+// import { UserRepository } from '../../src/repo/user.repository'
+// import { OAuthProviderType } from '../../src/routes/auth/inputs/loginWithOAuth.input'
+// import { makeGraphQLReq, makeGraphQLReqWithTokens } from '../makeGQReq'
+// import { authUtils } from '../utils/authUtils'
+// import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
+// import { defUserEmail, defUserPassword } from '../utils/common'
+// import { createApp } from '../utils/createApp'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
 })
 
-describe.skip('Logout (e2e)', () => {
+/*describe.skip('Logout (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let emailAdapter: EmailAdapterService
@@ -102,4 +102,4 @@ describe.skip('Logout (e2e)', () => {
 		const expiredSessionTokenDate = new Date(expiredSessionToken.expires)
 		expect(+expiredSessionTokenDate <= +new Date()).toBe(true)
 	})
-})
+})*/

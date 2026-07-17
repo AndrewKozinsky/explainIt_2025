@@ -11,8 +11,6 @@ export function ApiGetUniversalPhrase() {
 			description: 'Get phrase with transcription and audio pronunciations by text and language.',
 		}),
 		ApiResponse({ status: 200, description: 'OK', type: UniversalPhraseOutModel, nullable: true }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -24,7 +22,5 @@ export function ApiCreateUniversalPhrase() {
 		}),
 		ApiBody({ type: CreateUniversalPhraseInput }),
 		ApiResponse({ status: 201, description: 'Created', type: UniversalPhraseOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }

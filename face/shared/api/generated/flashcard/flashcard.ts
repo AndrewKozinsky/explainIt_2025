@@ -58,29 +58,12 @@ export type flashcardControllerGetMyFlashcardsResponse200 = {
   status: 200
 }
 
-export type flashcardControllerGetMyFlashcardsResponse400 = {
-  data: void
-  status: 400
-}
-
-export type flashcardControllerGetMyFlashcardsResponse401 = {
-  data: void
-  status: 401
-}
-
-export type flashcardControllerGetMyFlashcardsResponse500 = {
-  data: void
-  status: 500
-}
-
 export type flashcardControllerGetMyFlashcardsResponseSuccess = (flashcardControllerGetMyFlashcardsResponse200) & {
   headers: Headers;
 };
-export type flashcardControllerGetMyFlashcardsResponseError = (flashcardControllerGetMyFlashcardsResponse400 | flashcardControllerGetMyFlashcardsResponse401 | flashcardControllerGetMyFlashcardsResponse500) & {
-  headers: Headers;
-};
+;
 
-export type flashcardControllerGetMyFlashcardsResponse = (flashcardControllerGetMyFlashcardsResponseSuccess | flashcardControllerGetMyFlashcardsResponseError)
+export type flashcardControllerGetMyFlashcardsResponse = (flashcardControllerGetMyFlashcardsResponseSuccess)
 
 export const getFlashcardControllerGetMyFlashcardsUrl = (params?: FlashcardControllerGetMyFlashcardsParams,) => {
   const normalizedParams = new URLSearchParams();
@@ -123,7 +106,7 @@ export const getFlashcardControllerGetMyFlashcardsQueryKey = (params?: Flashcard
     }
 
 
-export const getFlashcardControllerGetMyFlashcardsQueryOptions = <TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = void>(params?: FlashcardControllerGetMyFlashcardsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getFlashcardControllerGetMyFlashcardsQueryOptions = <TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = unknown>(params?: FlashcardControllerGetMyFlashcardsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
@@ -142,10 +125,10 @@ const {query: queryOptions, request: requestOptions} = options ?? {};
 }
 
 export type FlashcardControllerGetMyFlashcardsQueryResult = NonNullable<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>>
-export type FlashcardControllerGetMyFlashcardsQueryError = void
+export type FlashcardControllerGetMyFlashcardsQueryError = unknown
 
 
-export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = void>(
+export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = unknown>(
  params: undefined |  FlashcardControllerGetMyFlashcardsParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>,
@@ -155,7 +138,7 @@ export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = void>(
+export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = unknown>(
  params?: FlashcardControllerGetMyFlashcardsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>,
@@ -165,7 +148,7 @@ export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = void>(
+export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = unknown>(
  params?: FlashcardControllerGetMyFlashcardsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
@@ -173,7 +156,7 @@ export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType
  * @summary Get my flashcards
  */
 
-export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = void>(
+export function useFlashcardControllerGetMyFlashcards<TData = Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError = unknown>(
  params?: FlashcardControllerGetMyFlashcardsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof flashcardControllerGetMyFlashcards>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
@@ -195,39 +178,12 @@ export type flashcardControllerAddFlashcardResponse201 = {
   status: 201
 }
 
-export type flashcardControllerAddFlashcardResponse400 = {
-  data: void
-  status: 400
-}
-
-export type flashcardControllerAddFlashcardResponse401 = {
-  data: void
-  status: 401
-}
-
-export type flashcardControllerAddFlashcardResponse403 = {
-  data: void
-  status: 403
-}
-
-export type flashcardControllerAddFlashcardResponse404 = {
-  data: void
-  status: 404
-}
-
-export type flashcardControllerAddFlashcardResponse500 = {
-  data: void
-  status: 500
-}
-
 export type flashcardControllerAddFlashcardResponseSuccess = (flashcardControllerAddFlashcardResponse201) & {
   headers: Headers;
 };
-export type flashcardControllerAddFlashcardResponseError = (flashcardControllerAddFlashcardResponse400 | flashcardControllerAddFlashcardResponse401 | flashcardControllerAddFlashcardResponse403 | flashcardControllerAddFlashcardResponse404 | flashcardControllerAddFlashcardResponse500) & {
-  headers: Headers;
-};
+;
 
-export type flashcardControllerAddFlashcardResponse = (flashcardControllerAddFlashcardResponseSuccess | flashcardControllerAddFlashcardResponseError)
+export type flashcardControllerAddFlashcardResponse = (flashcardControllerAddFlashcardResponseSuccess)
 
 export const getFlashcardControllerAddFlashcardUrl = () => {
 
@@ -256,7 +212,7 @@ export const flashcardControllerAddFlashcard = async (addFlashcardInput: AddFlas
 
 
 
-export const getFlashcardControllerAddFlashcardMutationOptions = <TError = void,
+export const getFlashcardControllerAddFlashcardMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof flashcardControllerAddFlashcard>>, TError,{data: AddFlashcardInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof flashcardControllerAddFlashcard>>, TError,{data: AddFlashcardInput}, TContext> => {
 
@@ -285,12 +241,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type FlashcardControllerAddFlashcardMutationResult = NonNullable<Awaited<ReturnType<typeof flashcardControllerAddFlashcard>>>
     export type FlashcardControllerAddFlashcardMutationBody = AddFlashcardInput
-    export type FlashcardControllerAddFlashcardMutationError = void
+    export type FlashcardControllerAddFlashcardMutationError = unknown
 
     /**
  * @summary Add flashcard
  */
-export const useFlashcardControllerAddFlashcard = <TError = void,
+export const useFlashcardControllerAddFlashcard = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof flashcardControllerAddFlashcard>>, TError,{data: AddFlashcardInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof flashcardControllerAddFlashcard>>,
@@ -305,39 +261,12 @@ export const useFlashcardControllerAddFlashcard = <TError = void,
   status: 200
 }
 
-export type flashcardControllerRemoveFlashcardResponse400 = {
-  data: void
-  status: 400
-}
-
-export type flashcardControllerRemoveFlashcardResponse401 = {
-  data: void
-  status: 401
-}
-
-export type flashcardControllerRemoveFlashcardResponse403 = {
-  data: void
-  status: 403
-}
-
-export type flashcardControllerRemoveFlashcardResponse404 = {
-  data: void
-  status: 404
-}
-
-export type flashcardControllerRemoveFlashcardResponse500 = {
-  data: void
-  status: 500
-}
-
 export type flashcardControllerRemoveFlashcardResponseSuccess = (flashcardControllerRemoveFlashcardResponse200) & {
   headers: Headers;
 };
-export type flashcardControllerRemoveFlashcardResponseError = (flashcardControllerRemoveFlashcardResponse400 | flashcardControllerRemoveFlashcardResponse401 | flashcardControllerRemoveFlashcardResponse403 | flashcardControllerRemoveFlashcardResponse404 | flashcardControllerRemoveFlashcardResponse500) & {
-  headers: Headers;
-};
+;
 
-export type flashcardControllerRemoveFlashcardResponse = (flashcardControllerRemoveFlashcardResponseSuccess | flashcardControllerRemoveFlashcardResponseError)
+export type flashcardControllerRemoveFlashcardResponse = (flashcardControllerRemoveFlashcardResponseSuccess)
 
 export const getFlashcardControllerRemoveFlashcardUrl = () => {
 
@@ -366,7 +295,7 @@ export const flashcardControllerRemoveFlashcard = async (removeFlashcardInput: R
 
 
 
-export const getFlashcardControllerRemoveFlashcardMutationOptions = <TError = void,
+export const getFlashcardControllerRemoveFlashcardMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof flashcardControllerRemoveFlashcard>>, TError,{data: RemoveFlashcardInput}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof flashcardControllerRemoveFlashcard>>, TError,{data: RemoveFlashcardInput}, TContext> => {
 
@@ -395,12 +324,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type FlashcardControllerRemoveFlashcardMutationResult = NonNullable<Awaited<ReturnType<typeof flashcardControllerRemoveFlashcard>>>
     export type FlashcardControllerRemoveFlashcardMutationBody = RemoveFlashcardInput
-    export type FlashcardControllerRemoveFlashcardMutationError = void
+    export type FlashcardControllerRemoveFlashcardMutationError = unknown
 
     /**
  * @summary Remove flashcard
  */
-export const useFlashcardControllerRemoveFlashcard = <TError = void,
+export const useFlashcardControllerRemoveFlashcard = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof flashcardControllerRemoveFlashcard>>, TError,{data: RemoveFlashcardInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof flashcardControllerRemoveFlashcard>>,

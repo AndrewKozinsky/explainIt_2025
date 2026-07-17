@@ -38,8 +38,8 @@ import { chapter_9 } from './chapter_9'
 
 // https://www.gutenberg.org/files/52484/52484-h/52484-h.htm
 
-export function pinocchioBookData(coversFolderName: string) {
-	const covers = ['pinocchio_1.jpg']
+export function pinocchioBookData(s3FolderName: string) {
+	const coverFileName = 'pinocchio_1.jpg'
 
 	return {
 		author: 'Carlo Collodi',
@@ -54,7 +54,8 @@ export function pinocchioBookData(coversFolderName: string) {
 
 Уровень B1–B2.`,
 		languageCode: languages.it.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

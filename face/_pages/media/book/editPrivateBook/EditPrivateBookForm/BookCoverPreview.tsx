@@ -4,9 +4,9 @@ import DeleteBookCoverButton from './DeleteBookCoverButton/DeleteBookCoverButton
 import './BookCoverPreview.scss'
 
 function BookCoverPreview() {
-	const book = useBookStore((s) => s.privateBook.data)
+	const book = useBookStore((s) => s.book.data)
 
-	if (!book || !book.isFileUploaded || !book.coverUrl) {
+	if (!book || !book.isCoverFileUploaded || !book.coverUrl) {
 		return null
 	}
 

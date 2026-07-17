@@ -1,7 +1,7 @@
-import VideoPlayer from '../VideoPlayer/VideoPlayer'
-import { useWatchingStore } from '../watchingStore'
+// import VideoPlayer from '../VideoPlayer/VideoPlayer'
+// import { useWatchingStore } from '../watchingStore'
 
-export function VideoContainer() {
+/*export function VideoContainer() {
 	const videoData = useWatchingStore((s) => s.video!.data)
 
 	if (!videoData.fileUrl) {
@@ -13,4 +13,4 @@ export function VideoContainer() {
 			<VideoPlayer />
 		</div>
 	)
-}
+}*/

@@ -17,13 +17,13 @@ export function useInitStore() {
 			if (mediaType !== 'book') return
 
 			applySelectionToDetailsStore({
-				bookName: bookName ?? null,
-				bookAuthor: bookAuthor ?? null,
+				bookName: (bookName as unknown as string) ?? null,
+				bookAuthor: (bookAuthor as unknown as string) ?? null,
 				chapterId,
 				videoId: null,
 				videoName: null,
 				videoYear: null,
-				languageCode: bookLanguageCode ?? null,
+				languageCode: (bookLanguageCode as unknown as string) ?? null,
 			})
 		},
 		[bookAuthor, bookName, bookLanguageCode, mediaType, chapterId],
@@ -42,10 +42,10 @@ export function useInitStore() {
 				bookName: null,
 				bookAuthor: null,
 				chapterId: null,
-				videoName: videoName ?? null,
-				videoYear: videoYear ?? null,
+				videoName: (videoName as unknown as string) ?? null,
+				videoYear: (videoYear as unknown as string) ?? null,
 				videoId,
-				languageCode: videoLanguageCode ?? null,
+				languageCode: (videoLanguageCode as unknown as string) ?? null,
 			})
 		},
 		[videoName, videoYear, videoLanguageCode, mediaType, videoId],

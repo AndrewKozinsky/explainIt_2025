@@ -3,8 +3,8 @@ import { DBRepository } from 'repo/db.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
-import { VideoPublicQueryRepository } from 'repo/video/videoPublic.queryRepository'
-import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
+import { VideoQueryRepository } from 'repo/video/video.queryRepository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
@@ -12,15 +12,14 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { VideoPublicOutModel } from 'models/videoPublic/videoPublic.out.model'
+import { VideoOutModel } from 'models/video/video.out.model'
 
 export type CreatePublicVideoInput = {
+	videoCollectionId: number
 	name: string
 	note: string
 	originalContent: string
 	languageCode: Language
-	covers: string[]
-	year: number
 	fileName: string
 	fileS3Key: string
 }
@@ -32,8 +31,8 @@ export class CreatePublicVideoCommand implements ICommand {
 @CommandHandler(CreatePublicVideoCommand)
 export class CreatePublicVideoHandler extends VideoBase implements ICommandHandler<CreatePublicVideoCommand> {
 	constructor(
-		private videoRepository: VideoPublicRepository,
-		private videoQueryRepository: VideoPublicQueryRepository,
+		private videoRepository: VideoRepository,
+		private videoQueryRepository: VideoQueryRepository,
 		private sentenceRepository: SentenceRepository,
 		private subtitleRepository: SubtitleRepository,
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
@@ -43,7 +42,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 		super(mainConfig)
 	}
 
-	async execute(command: CreatePublicVideoCommand): Promise<VideoPublicOutModel> {
+	async execute(command: CreatePublicVideoCommand): Promise<VideoOutModel> {
 		const { createVideoInput } = command
 
 		const preparedContentResult = this.prepareTextContentForSaving({
@@ -64,11 +63,9 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 		const createdVideo = await this.dbRepository.wrapIntoPrismaTransaction({
 			executableCode: async () => {
 				const newVideo = await this.videoRepository.createVideo({
+					videoCollectionId: createVideoInput.videoCollectionId,
 					name: createVideoInput.name,
-					languageCode: createVideoInput.languageCode,
 					note: createVideoInput.note,
-					covers: createVideoInput.covers,
-					year: createVideoInput.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate!,
 					processedContent: preparedContentResult.processedContentForVideoUpdate!,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
@@ -84,7 +81,6 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 				if (preparedContentResult.processedContent !== null) {
 					if (preparedContentResult.subtitles) {
 						await this.saveSubtitlesSentencesAndInit({
-							videoType: 'public',
 							videoId: newVideo.id,
 							preparedContent: preparedContentResult.processedContent,
 							languageCode: createVideoInput.languageCode,
@@ -99,7 +95,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 							sentenceRepository: this.sentenceRepository,
 							processedContent: preparedContentResult.processedContent,
 							languageCode: createVideoInput.languageCode,
-							videoPublicId: newVideo.id,
+							videoId: newVideo.id,
 						})
 					}
 				}

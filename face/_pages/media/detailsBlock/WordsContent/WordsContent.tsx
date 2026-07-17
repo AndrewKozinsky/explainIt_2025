@@ -1,6 +1,6 @@
 import React from 'react'
-import { LanguageCode } from 'utils/languages'
 import { ChapterTextStructurePopulated } from '@/_pages/media/reading/readingStore'
+import { LanguageCode } from '@/shared/utils/languages'
 import SentencePhraseAnalyses from '_pages/media/commonComponents/sentenceBlock/phrase/SentencePhrasesAnalyses/SentencePhraseAnalyses'
 import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
 import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
@@ -34,14 +34,14 @@ export default WordsContent
 function ReadingDetailsBlock() {
 	const book = useReadingStore((s) => s.book?.data)
 
-	return <SentencePhraseAnalyses languageCode={book?.languageCode!} />
+	return <SentencePhraseAnalyses languageCode={book?.languageCode! as unknown as string} />
 }
 
 function WatchingDetailsBlock() {
 	const sentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
 	const languageCode = useWatchingStore((s) => s.video?.data.languageCode as LanguageCode)
-	const originalContent = useWatchingStore((s) => s.video?.data.processedContent)
+	const originalContent = useWatchingStore((s) => s.video?.data.processedContent) as unknown as string
 	const sentences = useWatchingStore((s) => s.video?.data.sentences)
 	const selectWord = useWatchingStore((s) => s.selectWord)
 

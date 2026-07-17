@@ -23,7 +23,7 @@
 export class YandexDictionaryService {
 	constructor(private mainConfig: MainConfigService) {}
 
-	async lookupWord(input: LookupWordInput): Promise<LookupWordResult> {
+	async lookupWord(inputs: LookupWordInput): Promise<LookupWordResult> {
 		const key = this.mainConfig.get().yandexCloud.dictionary.key
 
 		try {
@@ -32,9 +32,9 @@ export class YandexDictionaryService {
 				{
 					params: {
 						key,
-						text: input.text,
-						languageCode: input.directionOfTranslation ?? 'en-ru',
-						ui: input.ui ?? 'ru',
+						text: inputs.text,
+						languageCode: inputs.directionOfTranslation ?? 'en-ru',
+						ui: inputs.ui ?? 'ru',
 					},
 				},
 			)
@@ -73,18 +73,18 @@ export class YandexDictionaryService {
 }*/
 
 /*export interface YandexDictionaryServiceI {
-	lookupWord(input: LookupWordInput): Promise<LookupWordResult>
+	lookupWord(inputs: LookupWordInput): Promise<LookupWordResult>
 }*/
 
 /*@Injectable()
 export class YandexDictionaryServiceMock implements YandexDictionaryServiceI {
-	async lookupWord(input: LookupWordInput): Promise<LookupWordResult> {
+	async lookupWord(inputs: LookupWordInput): Promise<LookupWordResult> {
 		return {
 			head: {},
 			def: [
 				{
-					text: input.text,
-					tr: [{ text: input.text }],
+					text: inputs.text,
+					tr: [{ text: inputs.text }],
 				},
 			],
 		}

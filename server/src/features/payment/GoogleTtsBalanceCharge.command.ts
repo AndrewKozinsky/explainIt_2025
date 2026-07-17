@@ -7,7 +7,7 @@
 
 /*export class GoogleTtsBalanceChargeCommand implements ICommand {
 	constructor(
-		public dto: {
+		public inputs: {
 			userId: number
 			charsCount: number
 		},
@@ -22,7 +22,7 @@ export class GoogleTtsBalanceChargeHandler implements ICommandHandler<GoogleTtsB
 	) {}
 
 	async execute(command: GoogleTtsBalanceChargeCommand) {
-		const { userId, charsCount } = command.dto
+		const { userId, charsCount } = command.inputs
 
 		const amountInKopecks = this.calculateAmountInKopecks(charsCount)
 

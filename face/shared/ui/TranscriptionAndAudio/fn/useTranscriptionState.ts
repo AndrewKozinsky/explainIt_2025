@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from 'react'
-import { LanguageCode } from 'utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 import { usePhraseStore, EntryData } from '@/stores/phraseStore'
 import { TranscriptionState } from '../types'
 

@@ -7,8 +7,8 @@ import { chapter_5 } from './chapter_5'
 import { chapter_6 } from './chapter_6'
 import { chapter_7 } from './chapter_7'
 
-export function aStudyInScarletPartTwoBookData(coversFolderName: string) {
-	const covers = ['a_study_in_scarlet_part_two_cover_1.jpg']
+export function aStudyInScarletPartTwoBookData(s3FolderName: string) {
+	const coverFileName = 'a_study_in_scarlet_part_two_cover_1.jpg'
 
 	return {
 		author: 'Arthur Conan Doyle',
@@ -25,7 +25,8 @@ export function aStudyInScarletPartTwoBookData(coversFolderName: string) {
 
 Уровень B1–B2.`,
 		languageCode: languages.en.code,
-		covers: covers.map((cover) => coversFolderName + cover),
+		coverFileName: coverFileName,
+		coverFileS3Key: s3FolderName + coverFileName,
 	}
 }
 

@@ -31,10 +31,8 @@ export type FlashcardAvgAggregateOutputType = {
   user_id: number | null
   phrase_start_offset: number | null
   phrase_end_offset: number | null
-  book_private_id: number | null
-  book_public_id: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  book_id: number | null
+  video_id: number | null
   sentence_phrase_translation_id: number | null
 }
 
@@ -43,10 +41,8 @@ export type FlashcardSumAggregateOutputType = {
   user_id: number | null
   phrase_start_offset: number | null
   phrase_end_offset: number | null
-  book_private_id: number | null
-  book_public_id: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  book_id: number | null
+  video_id: number | null
   sentence_phrase_translation_id: number | null
 }
 
@@ -60,10 +56,8 @@ export type FlashcardMinAggregateOutputType = {
   phrase_start_offset: number | null
   phrase_end_offset: number | null
   phrase_translation: string | null
-  book_private_id: number | null
-  book_public_id: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  book_id: number | null
+  video_id: number | null
   sentence_phrase_translation_id: number | null
   created_at: Date | null
 }
@@ -78,10 +72,8 @@ export type FlashcardMaxAggregateOutputType = {
   phrase_start_offset: number | null
   phrase_end_offset: number | null
   phrase_translation: string | null
-  book_private_id: number | null
-  book_public_id: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  book_id: number | null
+  video_id: number | null
   sentence_phrase_translation_id: number | null
   created_at: Date | null
 }
@@ -97,10 +89,8 @@ export type FlashcardCountAggregateOutputType = {
   phrase_end_offset: number
   phrase_translation: number
   examples: number
-  book_private_id: number
-  book_public_id: number
-  video_private_id: number
-  video_public_id: number
+  book_id: number
+  video_id: number
   sentence_phrase_translation_id: number
   created_at: number
   _all: number
@@ -112,10 +102,8 @@ export type FlashcardAvgAggregateInputType = {
   user_id?: true
   phrase_start_offset?: true
   phrase_end_offset?: true
-  book_private_id?: true
-  book_public_id?: true
-  video_private_id?: true
-  video_public_id?: true
+  book_id?: true
+  video_id?: true
   sentence_phrase_translation_id?: true
 }
 
@@ -124,10 +112,8 @@ export type FlashcardSumAggregateInputType = {
   user_id?: true
   phrase_start_offset?: true
   phrase_end_offset?: true
-  book_private_id?: true
-  book_public_id?: true
-  video_private_id?: true
-  video_public_id?: true
+  book_id?: true
+  video_id?: true
   sentence_phrase_translation_id?: true
 }
 
@@ -141,10 +127,8 @@ export type FlashcardMinAggregateInputType = {
   phrase_start_offset?: true
   phrase_end_offset?: true
   phrase_translation?: true
-  book_private_id?: true
-  book_public_id?: true
-  video_private_id?: true
-  video_public_id?: true
+  book_id?: true
+  video_id?: true
   sentence_phrase_translation_id?: true
   created_at?: true
 }
@@ -159,10 +143,8 @@ export type FlashcardMaxAggregateInputType = {
   phrase_start_offset?: true
   phrase_end_offset?: true
   phrase_translation?: true
-  book_private_id?: true
-  book_public_id?: true
-  video_private_id?: true
-  video_public_id?: true
+  book_id?: true
+  video_id?: true
   sentence_phrase_translation_id?: true
   created_at?: true
 }
@@ -178,10 +160,8 @@ export type FlashcardCountAggregateInputType = {
   phrase_end_offset?: true
   phrase_translation?: true
   examples?: true
-  book_private_id?: true
-  book_public_id?: true
-  video_private_id?: true
-  video_public_id?: true
+  book_id?: true
+  video_id?: true
   sentence_phrase_translation_id?: true
   created_at?: true
   _all?: true
@@ -284,10 +264,8 @@ export type FlashcardGroupByOutputType = {
   phrase_end_offset: number
   phrase_translation: string | null
   examples: string[]
-  book_private_id: number | null
-  book_public_id: number | null
-  video_private_id: number | null
-  video_public_id: number | null
+  book_id: number | null
+  video_id: number | null
   sentence_phrase_translation_id: number | null
   created_at: Date
   _count: FlashcardCountAggregateOutputType | null
@@ -326,17 +304,13 @@ export type FlashcardWhereInput = {
   phrase_end_offset?: Prisma.IntFilter<"Flashcard"> | number
   phrase_translation?: Prisma.StringNullableFilter<"Flashcard"> | string | null
   examples?: Prisma.StringNullableListFilter<"Flashcard">
-  book_private_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  book_public_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  video_private_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  video_public_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
+  book_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
+  video_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
   sentence_phrase_translation_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
   created_at?: Prisma.DateTimeFilter<"Flashcard"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  bookPrivate?: Prisma.XOR<Prisma.BookPrivateNullableScalarRelationFilter, Prisma.BookPrivateWhereInput> | null
-  bookPublic?: Prisma.XOR<Prisma.BookPublicNullableScalarRelationFilter, Prisma.BookPublicWhereInput> | null
-  videoPrivate?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
-  videoPublic?: Prisma.XOR<Prisma.VideoPublicNullableScalarRelationFilter, Prisma.VideoPublicWhereInput> | null
+  book?: Prisma.XOR<Prisma.BookNullableScalarRelationFilter, Prisma.BookWhereInput> | null
+  video?: Prisma.XOR<Prisma.VideoNullableScalarRelationFilter, Prisma.VideoWhereInput> | null
   sentencePhraseTranslation?: Prisma.XOR<Prisma.SentencePhraseTranslationNullableScalarRelationFilter, Prisma.SentencePhraseTranslationWhereInput> | null
 }
 
@@ -351,17 +325,13 @@ export type FlashcardOrderByWithRelationInput = {
   phrase_end_offset?: Prisma.SortOrder
   phrase_translation?: Prisma.SortOrderInput | Prisma.SortOrder
   examples?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  book_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  video_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  book_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  video_id?: Prisma.SortOrderInput | Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
-  bookPrivate?: Prisma.BookPrivateOrderByWithRelationInput
-  bookPublic?: Prisma.BookPublicOrderByWithRelationInput
-  videoPrivate?: Prisma.VideoPrivateOrderByWithRelationInput
-  videoPublic?: Prisma.VideoPublicOrderByWithRelationInput
+  book?: Prisma.BookOrderByWithRelationInput
+  video?: Prisma.VideoOrderByWithRelationInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationOrderByWithRelationInput
 }
 
@@ -380,17 +350,13 @@ export type FlashcardWhereUniqueInput = Prisma.AtLeast<{
   phrase_end_offset?: Prisma.IntFilter<"Flashcard"> | number
   phrase_translation?: Prisma.StringNullableFilter<"Flashcard"> | string | null
   examples?: Prisma.StringNullableListFilter<"Flashcard">
-  book_private_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  book_public_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  video_private_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  video_public_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
+  book_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
+  video_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
   sentence_phrase_translation_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
   created_at?: Prisma.DateTimeFilter<"Flashcard"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
-  bookPrivate?: Prisma.XOR<Prisma.BookPrivateNullableScalarRelationFilter, Prisma.BookPrivateWhereInput> | null
-  bookPublic?: Prisma.XOR<Prisma.BookPublicNullableScalarRelationFilter, Prisma.BookPublicWhereInput> | null
-  videoPrivate?: Prisma.XOR<Prisma.VideoPrivateNullableScalarRelationFilter, Prisma.VideoPrivateWhereInput> | null
-  videoPublic?: Prisma.XOR<Prisma.VideoPublicNullableScalarRelationFilter, Prisma.VideoPublicWhereInput> | null
+  book?: Prisma.XOR<Prisma.BookNullableScalarRelationFilter, Prisma.BookWhereInput> | null
+  video?: Prisma.XOR<Prisma.VideoNullableScalarRelationFilter, Prisma.VideoWhereInput> | null
   sentencePhraseTranslation?: Prisma.XOR<Prisma.SentencePhraseTranslationNullableScalarRelationFilter, Prisma.SentencePhraseTranslationWhereInput> | null
 }, "id" | "user_id_sentence_phrase_translation_id">
 
@@ -405,10 +371,8 @@ export type FlashcardOrderByWithAggregationInput = {
   phrase_end_offset?: Prisma.SortOrder
   phrase_translation?: Prisma.SortOrderInput | Prisma.SortOrder
   examples?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  book_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  video_private_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  video_public_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  book_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  video_id?: Prisma.SortOrderInput | Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.FlashcardCountOrderByAggregateInput
@@ -432,10 +396,8 @@ export type FlashcardScalarWhereWithAggregatesInput = {
   phrase_end_offset?: Prisma.IntWithAggregatesFilter<"Flashcard"> | number
   phrase_translation?: Prisma.StringNullableWithAggregatesFilter<"Flashcard"> | string | null
   examples?: Prisma.StringNullableListFilter<"Flashcard">
-  book_private_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
-  book_public_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
-  video_private_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
-  video_public_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
+  book_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
+  video_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
   sentence_phrase_translation_id?: Prisma.IntNullableWithAggregatesFilter<"Flashcard"> | number | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Flashcard"> | Date | string
 }
@@ -451,10 +413,8 @@ export type FlashcardCreateInput = {
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutFlashcardInput
-  bookPrivate?: Prisma.BookPrivateCreateNestedOneWithoutFlashcardInput
-  bookPublic?: Prisma.BookPublicCreateNestedOneWithoutFlashcardInput
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutFlashcardInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutFlashcardInput
+  book?: Prisma.BookCreateNestedOneWithoutFlashcardInput
+  video?: Prisma.VideoCreateNestedOneWithoutFlashcardInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput
 }
 
@@ -469,10 +429,8 @@ export type FlashcardUncheckedCreateInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
+  video_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
@@ -488,10 +446,8 @@ export type FlashcardUpdateInput = {
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutFlashcardNestedInput
-  bookPrivate?: Prisma.BookPrivateUpdateOneWithoutFlashcardNestedInput
-  bookPublic?: Prisma.BookPublicUpdateOneWithoutFlashcardNestedInput
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutFlashcardNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutFlashcardNestedInput
+  book?: Prisma.BookUpdateOneWithoutFlashcardNestedInput
+  video?: Prisma.VideoUpdateOneWithoutFlashcardNestedInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput
 }
 
@@ -506,10 +462,8 @@ export type FlashcardUncheckedUpdateInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -525,10 +479,8 @@ export type FlashcardCreateManyInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
+  video_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
@@ -556,10 +508,8 @@ export type FlashcardUncheckedUpdateManyInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -590,10 +540,8 @@ export type FlashcardCountOrderByAggregateInput = {
   phrase_end_offset?: Prisma.SortOrder
   phrase_translation?: Prisma.SortOrder
   examples?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrder
-  book_public_id?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  book_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -603,10 +551,8 @@ export type FlashcardAvgOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrder
-  book_public_id?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  book_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrder
 }
 
@@ -620,10 +566,8 @@ export type FlashcardMaxOrderByAggregateInput = {
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
   phrase_translation?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrder
-  book_public_id?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  book_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -638,10 +582,8 @@ export type FlashcardMinOrderByAggregateInput = {
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
   phrase_translation?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrder
-  book_public_id?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  book_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -651,10 +593,8 @@ export type FlashcardSumOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   phrase_start_offset?: Prisma.SortOrder
   phrase_end_offset?: Prisma.SortOrder
-  book_private_id?: Prisma.SortOrder
-  book_public_id?: Prisma.SortOrder
-  video_private_id?: Prisma.SortOrder
-  video_public_id?: Prisma.SortOrder
+  book_id?: Prisma.SortOrder
+  video_id?: Prisma.SortOrder
   sentence_phrase_translation_id?: Prisma.SortOrder
 }
 
@@ -700,171 +640,87 @@ export type FlashcardUncheckedUpdateManyWithoutUserNestedInput = {
   deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
 }
 
-export type FlashcardCreateNestedManyWithoutBookPrivateInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPrivateInput, Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput> | Prisma.FlashcardCreateWithoutBookPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput | Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPrivateInputEnvelope
+export type FlashcardCreateNestedManyWithoutBookInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookInput, Prisma.FlashcardUncheckedCreateWithoutBookInput> | Prisma.FlashcardCreateWithoutBookInput[] | Prisma.FlashcardUncheckedCreateWithoutBookInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookInput | Prisma.FlashcardCreateOrConnectWithoutBookInput[]
+  createMany?: Prisma.FlashcardCreateManyBookInputEnvelope
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
 }
 
-export type FlashcardUncheckedCreateNestedManyWithoutBookPrivateInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPrivateInput, Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput> | Prisma.FlashcardCreateWithoutBookPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput | Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPrivateInputEnvelope
+export type FlashcardUncheckedCreateNestedManyWithoutBookInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookInput, Prisma.FlashcardUncheckedCreateWithoutBookInput> | Prisma.FlashcardCreateWithoutBookInput[] | Prisma.FlashcardUncheckedCreateWithoutBookInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookInput | Prisma.FlashcardCreateOrConnectWithoutBookInput[]
+  createMany?: Prisma.FlashcardCreateManyBookInputEnvelope
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
 }
 
-export type FlashcardUpdateManyWithoutBookPrivateNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPrivateInput, Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput> | Prisma.FlashcardCreateWithoutBookPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput | Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPrivateInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPrivateInputEnvelope
+export type FlashcardUpdateManyWithoutBookNestedInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookInput, Prisma.FlashcardUncheckedCreateWithoutBookInput> | Prisma.FlashcardCreateWithoutBookInput[] | Prisma.FlashcardUncheckedCreateWithoutBookInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookInput | Prisma.FlashcardCreateOrConnectWithoutBookInput[]
+  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutBookInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutBookInput[]
+  createMany?: Prisma.FlashcardCreateManyBookInputEnvelope
   set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPrivateInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPrivateInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutBookPrivateInput | Prisma.FlashcardUpdateManyWithWhereWithoutBookPrivateInput[]
+  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutBookInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutBookInput[]
+  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutBookInput | Prisma.FlashcardUpdateManyWithWhereWithoutBookInput[]
   deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
 }
 
-export type FlashcardUncheckedUpdateManyWithoutBookPrivateNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPrivateInput, Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput> | Prisma.FlashcardCreateWithoutBookPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput | Prisma.FlashcardCreateOrConnectWithoutBookPrivateInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPrivateInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPrivateInputEnvelope
+export type FlashcardUncheckedUpdateManyWithoutBookNestedInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookInput, Prisma.FlashcardUncheckedCreateWithoutBookInput> | Prisma.FlashcardCreateWithoutBookInput[] | Prisma.FlashcardUncheckedCreateWithoutBookInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookInput | Prisma.FlashcardCreateOrConnectWithoutBookInput[]
+  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutBookInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutBookInput[]
+  createMany?: Prisma.FlashcardCreateManyBookInputEnvelope
   set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPrivateInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPrivateInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutBookPrivateInput | Prisma.FlashcardUpdateManyWithWhereWithoutBookPrivateInput[]
+  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutBookInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutBookInput[]
+  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutBookInput | Prisma.FlashcardUpdateManyWithWhereWithoutBookInput[]
   deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
 }
 
-export type FlashcardCreateNestedManyWithoutBookPublicInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPublicInput, Prisma.FlashcardUncheckedCreateWithoutBookPublicInput> | Prisma.FlashcardCreateWithoutBookPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPublicInput | Prisma.FlashcardCreateOrConnectWithoutBookPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPublicInputEnvelope
+export type FlashcardCreateNestedManyWithoutVideoInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoInput, Prisma.FlashcardUncheckedCreateWithoutVideoInput> | Prisma.FlashcardCreateWithoutVideoInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoInput | Prisma.FlashcardCreateOrConnectWithoutVideoInput[]
+  createMany?: Prisma.FlashcardCreateManyVideoInputEnvelope
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
 }
 
-export type FlashcardUncheckedCreateNestedManyWithoutBookPublicInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPublicInput, Prisma.FlashcardUncheckedCreateWithoutBookPublicInput> | Prisma.FlashcardCreateWithoutBookPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPublicInput | Prisma.FlashcardCreateOrConnectWithoutBookPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPublicInputEnvelope
+export type FlashcardUncheckedCreateNestedManyWithoutVideoInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoInput, Prisma.FlashcardUncheckedCreateWithoutVideoInput> | Prisma.FlashcardCreateWithoutVideoInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoInput | Prisma.FlashcardCreateOrConnectWithoutVideoInput[]
+  createMany?: Prisma.FlashcardCreateManyVideoInputEnvelope
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
 }
 
-export type FlashcardUpdateManyWithoutBookPublicNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPublicInput, Prisma.FlashcardUncheckedCreateWithoutBookPublicInput> | Prisma.FlashcardCreateWithoutBookPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPublicInput | Prisma.FlashcardCreateOrConnectWithoutBookPublicInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPublicInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPublicInputEnvelope
+export type FlashcardUpdateManyWithoutVideoNestedInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoInput, Prisma.FlashcardUncheckedCreateWithoutVideoInput> | Prisma.FlashcardCreateWithoutVideoInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoInput | Prisma.FlashcardCreateOrConnectWithoutVideoInput[]
+  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoInput[]
+  createMany?: Prisma.FlashcardCreateManyVideoInputEnvelope
   set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPublicInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPublicInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutBookPublicInput | Prisma.FlashcardUpdateManyWithWhereWithoutBookPublicInput[]
+  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoInput[]
+  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutVideoInput | Prisma.FlashcardUpdateManyWithWhereWithoutVideoInput[]
   deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
 }
 
-export type FlashcardUncheckedUpdateManyWithoutBookPublicNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPublicInput, Prisma.FlashcardUncheckedCreateWithoutBookPublicInput> | Prisma.FlashcardCreateWithoutBookPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutBookPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutBookPublicInput | Prisma.FlashcardCreateOrConnectWithoutBookPublicInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPublicInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutBookPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyBookPublicInputEnvelope
+export type FlashcardUncheckedUpdateManyWithoutVideoNestedInput = {
+  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoInput, Prisma.FlashcardUncheckedCreateWithoutVideoInput> | Prisma.FlashcardCreateWithoutVideoInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoInput[]
+  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoInput | Prisma.FlashcardCreateOrConnectWithoutVideoInput[]
+  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoInput[]
+  createMany?: Prisma.FlashcardCreateManyVideoInputEnvelope
   set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
   connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPublicInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutBookPublicInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutBookPublicInput | Prisma.FlashcardUpdateManyWithWhereWithoutBookPublicInput[]
-  deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
-}
-
-export type FlashcardCreateNestedManyWithoutVideoPrivateInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput> | Prisma.FlashcardCreateWithoutVideoPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput | Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPrivateInputEnvelope
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-}
-
-export type FlashcardUncheckedCreateNestedManyWithoutVideoPrivateInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput> | Prisma.FlashcardCreateWithoutVideoPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput | Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPrivateInputEnvelope
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-}
-
-export type FlashcardUpdateManyWithoutVideoPrivateNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput> | Prisma.FlashcardCreateWithoutVideoPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput | Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPrivateInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPrivateInputEnvelope
-  set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPrivateInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPrivateInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutVideoPrivateInput | Prisma.FlashcardUpdateManyWithWhereWithoutVideoPrivateInput[]
-  deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
-}
-
-export type FlashcardUncheckedUpdateManyWithoutVideoPrivateNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput> | Prisma.FlashcardCreateWithoutVideoPrivateInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput | Prisma.FlashcardCreateOrConnectWithoutVideoPrivateInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPrivateInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPrivateInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPrivateInputEnvelope
-  set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPrivateInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPrivateInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutVideoPrivateInput | Prisma.FlashcardUpdateManyWithWhereWithoutVideoPrivateInput[]
-  deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
-}
-
-export type FlashcardCreateNestedManyWithoutVideoPublicInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPublicInput, Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput> | Prisma.FlashcardCreateWithoutVideoPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput | Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPublicInputEnvelope
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-}
-
-export type FlashcardUncheckedCreateNestedManyWithoutVideoPublicInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPublicInput, Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput> | Prisma.FlashcardCreateWithoutVideoPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput | Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPublicInputEnvelope
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-}
-
-export type FlashcardUpdateManyWithoutVideoPublicNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPublicInput, Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput> | Prisma.FlashcardCreateWithoutVideoPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput | Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPublicInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPublicInputEnvelope
-  set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPublicInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPublicInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutVideoPublicInput | Prisma.FlashcardUpdateManyWithWhereWithoutVideoPublicInput[]
-  deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
-}
-
-export type FlashcardUncheckedUpdateManyWithoutVideoPublicNestedInput = {
-  create?: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPublicInput, Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput> | Prisma.FlashcardCreateWithoutVideoPublicInput[] | Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput[]
-  connectOrCreate?: Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput | Prisma.FlashcardCreateOrConnectWithoutVideoPublicInput[]
-  upsert?: Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPublicInput | Prisma.FlashcardUpsertWithWhereUniqueWithoutVideoPublicInput[]
-  createMany?: Prisma.FlashcardCreateManyVideoPublicInputEnvelope
-  set?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  disconnect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  delete?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  connect?: Prisma.FlashcardWhereUniqueInput | Prisma.FlashcardWhereUniqueInput[]
-  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPublicInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoPublicInput[]
-  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutVideoPublicInput | Prisma.FlashcardUpdateManyWithWhereWithoutVideoPublicInput[]
+  update?: Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoInput | Prisma.FlashcardUpdateWithWhereUniqueWithoutVideoInput[]
+  updateMany?: Prisma.FlashcardUpdateManyWithWhereWithoutVideoInput | Prisma.FlashcardUpdateManyWithWhereWithoutVideoInput[]
   deleteMany?: Prisma.FlashcardScalarWhereInput | Prisma.FlashcardScalarWhereInput[]
 }
 
@@ -929,10 +785,8 @@ export type FlashcardCreateWithoutUserInput = {
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
   created_at?: Date | string
-  bookPrivate?: Prisma.BookPrivateCreateNestedOneWithoutFlashcardInput
-  bookPublic?: Prisma.BookPublicCreateNestedOneWithoutFlashcardInput
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutFlashcardInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutFlashcardInput
+  book?: Prisma.BookCreateNestedOneWithoutFlashcardInput
+  video?: Prisma.VideoCreateNestedOneWithoutFlashcardInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput
 }
 
@@ -946,10 +800,8 @@ export type FlashcardUncheckedCreateWithoutUserInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
+  video_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
@@ -994,15 +846,13 @@ export type FlashcardScalarWhereInput = {
   phrase_end_offset?: Prisma.IntFilter<"Flashcard"> | number
   phrase_translation?: Prisma.StringNullableFilter<"Flashcard"> | string | null
   examples?: Prisma.StringNullableListFilter<"Flashcard">
-  book_private_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  book_public_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  video_private_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
-  video_public_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
+  book_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
+  video_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
   sentence_phrase_translation_id?: Prisma.IntNullableFilter<"Flashcard"> | number | null
   created_at?: Prisma.DateTimeFilter<"Flashcard"> | Date | string
 }
 
-export type FlashcardCreateWithoutBookPrivateInput = {
+export type FlashcardCreateWithoutBookInput = {
   language_code: $Enums.LanguageCode
   sentence_text: string
   sentence_translation?: string | null
@@ -1013,13 +863,11 @@ export type FlashcardCreateWithoutBookPrivateInput = {
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutFlashcardInput
-  bookPublic?: Prisma.BookPublicCreateNestedOneWithoutFlashcardInput
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutFlashcardInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutFlashcardInput
+  video?: Prisma.VideoCreateNestedOneWithoutFlashcardInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput
 }
 
-export type FlashcardUncheckedCreateWithoutBookPrivateInput = {
+export type FlashcardUncheckedCreateWithoutBookInput = {
   id?: number
   user_id: number
   language_code: $Enums.LanguageCode
@@ -1030,40 +878,38 @@ export type FlashcardUncheckedCreateWithoutBookPrivateInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  video_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
 
-export type FlashcardCreateOrConnectWithoutBookPrivateInput = {
+export type FlashcardCreateOrConnectWithoutBookInput = {
   where: Prisma.FlashcardWhereUniqueInput
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPrivateInput, Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput>
+  create: Prisma.XOR<Prisma.FlashcardCreateWithoutBookInput, Prisma.FlashcardUncheckedCreateWithoutBookInput>
 }
 
-export type FlashcardCreateManyBookPrivateInputEnvelope = {
-  data: Prisma.FlashcardCreateManyBookPrivateInput | Prisma.FlashcardCreateManyBookPrivateInput[]
+export type FlashcardCreateManyBookInputEnvelope = {
+  data: Prisma.FlashcardCreateManyBookInput | Prisma.FlashcardCreateManyBookInput[]
   skipDuplicates?: boolean
 }
 
-export type FlashcardUpsertWithWhereUniqueWithoutBookPrivateInput = {
+export type FlashcardUpsertWithWhereUniqueWithoutBookInput = {
   where: Prisma.FlashcardWhereUniqueInput
-  update: Prisma.XOR<Prisma.FlashcardUpdateWithoutBookPrivateInput, Prisma.FlashcardUncheckedUpdateWithoutBookPrivateInput>
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPrivateInput, Prisma.FlashcardUncheckedCreateWithoutBookPrivateInput>
+  update: Prisma.XOR<Prisma.FlashcardUpdateWithoutBookInput, Prisma.FlashcardUncheckedUpdateWithoutBookInput>
+  create: Prisma.XOR<Prisma.FlashcardCreateWithoutBookInput, Prisma.FlashcardUncheckedCreateWithoutBookInput>
 }
 
-export type FlashcardUpdateWithWhereUniqueWithoutBookPrivateInput = {
+export type FlashcardUpdateWithWhereUniqueWithoutBookInput = {
   where: Prisma.FlashcardWhereUniqueInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateWithoutBookPrivateInput, Prisma.FlashcardUncheckedUpdateWithoutBookPrivateInput>
+  data: Prisma.XOR<Prisma.FlashcardUpdateWithoutBookInput, Prisma.FlashcardUncheckedUpdateWithoutBookInput>
 }
 
-export type FlashcardUpdateManyWithWhereWithoutBookPrivateInput = {
+export type FlashcardUpdateManyWithWhereWithoutBookInput = {
   where: Prisma.FlashcardScalarWhereInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateManyMutationInput, Prisma.FlashcardUncheckedUpdateManyWithoutBookPrivateInput>
+  data: Prisma.XOR<Prisma.FlashcardUpdateManyMutationInput, Prisma.FlashcardUncheckedUpdateManyWithoutBookInput>
 }
 
-export type FlashcardCreateWithoutBookPublicInput = {
+export type FlashcardCreateWithoutVideoInput = {
   language_code: $Enums.LanguageCode
   sentence_text: string
   sentence_translation?: string | null
@@ -1074,13 +920,11 @@ export type FlashcardCreateWithoutBookPublicInput = {
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutFlashcardInput
-  bookPrivate?: Prisma.BookPrivateCreateNestedOneWithoutFlashcardInput
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutFlashcardInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutFlashcardInput
+  book?: Prisma.BookCreateNestedOneWithoutFlashcardInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput
 }
 
-export type FlashcardUncheckedCreateWithoutBookPublicInput = {
+export type FlashcardUncheckedCreateWithoutVideoInput = {
   id?: number
   user_id: number
   language_code: $Enums.LanguageCode
@@ -1091,159 +935,35 @@ export type FlashcardUncheckedCreateWithoutBookPublicInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
 
-export type FlashcardCreateOrConnectWithoutBookPublicInput = {
+export type FlashcardCreateOrConnectWithoutVideoInput = {
   where: Prisma.FlashcardWhereUniqueInput
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPublicInput, Prisma.FlashcardUncheckedCreateWithoutBookPublicInput>
+  create: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoInput, Prisma.FlashcardUncheckedCreateWithoutVideoInput>
 }
 
-export type FlashcardCreateManyBookPublicInputEnvelope = {
-  data: Prisma.FlashcardCreateManyBookPublicInput | Prisma.FlashcardCreateManyBookPublicInput[]
+export type FlashcardCreateManyVideoInputEnvelope = {
+  data: Prisma.FlashcardCreateManyVideoInput | Prisma.FlashcardCreateManyVideoInput[]
   skipDuplicates?: boolean
 }
 
-export type FlashcardUpsertWithWhereUniqueWithoutBookPublicInput = {
+export type FlashcardUpsertWithWhereUniqueWithoutVideoInput = {
   where: Prisma.FlashcardWhereUniqueInput
-  update: Prisma.XOR<Prisma.FlashcardUpdateWithoutBookPublicInput, Prisma.FlashcardUncheckedUpdateWithoutBookPublicInput>
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutBookPublicInput, Prisma.FlashcardUncheckedCreateWithoutBookPublicInput>
+  update: Prisma.XOR<Prisma.FlashcardUpdateWithoutVideoInput, Prisma.FlashcardUncheckedUpdateWithoutVideoInput>
+  create: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoInput, Prisma.FlashcardUncheckedCreateWithoutVideoInput>
 }
 
-export type FlashcardUpdateWithWhereUniqueWithoutBookPublicInput = {
+export type FlashcardUpdateWithWhereUniqueWithoutVideoInput = {
   where: Prisma.FlashcardWhereUniqueInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateWithoutBookPublicInput, Prisma.FlashcardUncheckedUpdateWithoutBookPublicInput>
+  data: Prisma.XOR<Prisma.FlashcardUpdateWithoutVideoInput, Prisma.FlashcardUncheckedUpdateWithoutVideoInput>
 }
 
-export type FlashcardUpdateManyWithWhereWithoutBookPublicInput = {
+export type FlashcardUpdateManyWithWhereWithoutVideoInput = {
   where: Prisma.FlashcardScalarWhereInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateManyMutationInput, Prisma.FlashcardUncheckedUpdateManyWithoutBookPublicInput>
-}
-
-export type FlashcardCreateWithoutVideoPrivateInput = {
-  language_code: $Enums.LanguageCode
-  sentence_text: string
-  sentence_translation?: string | null
-  phrase: string
-  phrase_start_offset: number
-  phrase_end_offset: number
-  phrase_translation?: string | null
-  examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  created_at?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutFlashcardInput
-  bookPrivate?: Prisma.BookPrivateCreateNestedOneWithoutFlashcardInput
-  bookPublic?: Prisma.BookPublicCreateNestedOneWithoutFlashcardInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutFlashcardInput
-  sentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput
-}
-
-export type FlashcardUncheckedCreateWithoutVideoPrivateInput = {
-  id?: number
-  user_id: number
-  language_code: $Enums.LanguageCode
-  sentence_text: string
-  sentence_translation?: string | null
-  phrase: string
-  phrase_start_offset: number
-  phrase_end_offset: number
-  phrase_translation?: string | null
-  examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_public_id?: number | null
-  sentence_phrase_translation_id?: number | null
-  created_at?: Date | string
-}
-
-export type FlashcardCreateOrConnectWithoutVideoPrivateInput = {
-  where: Prisma.FlashcardWhereUniqueInput
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput>
-}
-
-export type FlashcardCreateManyVideoPrivateInputEnvelope = {
-  data: Prisma.FlashcardCreateManyVideoPrivateInput | Prisma.FlashcardCreateManyVideoPrivateInput[]
-  skipDuplicates?: boolean
-}
-
-export type FlashcardUpsertWithWhereUniqueWithoutVideoPrivateInput = {
-  where: Prisma.FlashcardWhereUniqueInput
-  update: Prisma.XOR<Prisma.FlashcardUpdateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedUpdateWithoutVideoPrivateInput>
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedCreateWithoutVideoPrivateInput>
-}
-
-export type FlashcardUpdateWithWhereUniqueWithoutVideoPrivateInput = {
-  where: Prisma.FlashcardWhereUniqueInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateWithoutVideoPrivateInput, Prisma.FlashcardUncheckedUpdateWithoutVideoPrivateInput>
-}
-
-export type FlashcardUpdateManyWithWhereWithoutVideoPrivateInput = {
-  where: Prisma.FlashcardScalarWhereInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateManyMutationInput, Prisma.FlashcardUncheckedUpdateManyWithoutVideoPrivateInput>
-}
-
-export type FlashcardCreateWithoutVideoPublicInput = {
-  language_code: $Enums.LanguageCode
-  sentence_text: string
-  sentence_translation?: string | null
-  phrase: string
-  phrase_start_offset: number
-  phrase_end_offset: number
-  phrase_translation?: string | null
-  examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  created_at?: Date | string
-  user: Prisma.UserCreateNestedOneWithoutFlashcardInput
-  bookPrivate?: Prisma.BookPrivateCreateNestedOneWithoutFlashcardInput
-  bookPublic?: Prisma.BookPublicCreateNestedOneWithoutFlashcardInput
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutFlashcardInput
-  sentencePhraseTranslation?: Prisma.SentencePhraseTranslationCreateNestedOneWithoutFlashcardInput
-}
-
-export type FlashcardUncheckedCreateWithoutVideoPublicInput = {
-  id?: number
-  user_id: number
-  language_code: $Enums.LanguageCode
-  sentence_text: string
-  sentence_translation?: string | null
-  phrase: string
-  phrase_start_offset: number
-  phrase_end_offset: number
-  phrase_translation?: string | null
-  examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  sentence_phrase_translation_id?: number | null
-  created_at?: Date | string
-}
-
-export type FlashcardCreateOrConnectWithoutVideoPublicInput = {
-  where: Prisma.FlashcardWhereUniqueInput
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPublicInput, Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput>
-}
-
-export type FlashcardCreateManyVideoPublicInputEnvelope = {
-  data: Prisma.FlashcardCreateManyVideoPublicInput | Prisma.FlashcardCreateManyVideoPublicInput[]
-  skipDuplicates?: boolean
-}
-
-export type FlashcardUpsertWithWhereUniqueWithoutVideoPublicInput = {
-  where: Prisma.FlashcardWhereUniqueInput
-  update: Prisma.XOR<Prisma.FlashcardUpdateWithoutVideoPublicInput, Prisma.FlashcardUncheckedUpdateWithoutVideoPublicInput>
-  create: Prisma.XOR<Prisma.FlashcardCreateWithoutVideoPublicInput, Prisma.FlashcardUncheckedCreateWithoutVideoPublicInput>
-}
-
-export type FlashcardUpdateWithWhereUniqueWithoutVideoPublicInput = {
-  where: Prisma.FlashcardWhereUniqueInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateWithoutVideoPublicInput, Prisma.FlashcardUncheckedUpdateWithoutVideoPublicInput>
-}
-
-export type FlashcardUpdateManyWithWhereWithoutVideoPublicInput = {
-  where: Prisma.FlashcardScalarWhereInput
-  data: Prisma.XOR<Prisma.FlashcardUpdateManyMutationInput, Prisma.FlashcardUncheckedUpdateManyWithoutVideoPublicInput>
+  data: Prisma.XOR<Prisma.FlashcardUpdateManyMutationInput, Prisma.FlashcardUncheckedUpdateManyWithoutVideoInput>
 }
 
 export type FlashcardCreateWithoutSentencePhraseTranslationInput = {
@@ -1257,10 +977,8 @@ export type FlashcardCreateWithoutSentencePhraseTranslationInput = {
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
   created_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutFlashcardInput
-  bookPrivate?: Prisma.BookPrivateCreateNestedOneWithoutFlashcardInput
-  bookPublic?: Prisma.BookPublicCreateNestedOneWithoutFlashcardInput
-  videoPrivate?: Prisma.VideoPrivateCreateNestedOneWithoutFlashcardInput
-  videoPublic?: Prisma.VideoPublicCreateNestedOneWithoutFlashcardInput
+  book?: Prisma.BookCreateNestedOneWithoutFlashcardInput
+  video?: Prisma.VideoCreateNestedOneWithoutFlashcardInput
 }
 
 export type FlashcardUncheckedCreateWithoutSentencePhraseTranslationInput = {
@@ -1274,10 +992,8 @@ export type FlashcardUncheckedCreateWithoutSentencePhraseTranslationInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
+  video_id?: number | null
   created_at?: Date | string
 }
 
@@ -1317,10 +1033,8 @@ export type FlashcardCreateManyUserInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
+  video_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
@@ -1335,10 +1049,8 @@ export type FlashcardUpdateWithoutUserInput = {
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  bookPrivate?: Prisma.BookPrivateUpdateOneWithoutFlashcardNestedInput
-  bookPublic?: Prisma.BookPublicUpdateOneWithoutFlashcardNestedInput
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutFlashcardNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutFlashcardNestedInput
+  book?: Prisma.BookUpdateOneWithoutFlashcardNestedInput
+  video?: Prisma.VideoUpdateOneWithoutFlashcardNestedInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput
 }
 
@@ -1352,10 +1064,8 @@ export type FlashcardUncheckedUpdateWithoutUserInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1370,15 +1080,13 @@ export type FlashcardUncheckedUpdateManyWithoutUserInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type FlashcardCreateManyBookPrivateInput = {
+export type FlashcardCreateManyBookInput = {
   id?: number
   user_id: number
   language_code: $Enums.LanguageCode
@@ -1389,14 +1097,12 @@ export type FlashcardCreateManyBookPrivateInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  video_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
 
-export type FlashcardUpdateWithoutBookPrivateInput = {
+export type FlashcardUpdateWithoutBookInput = {
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1407,13 +1113,11 @@ export type FlashcardUpdateWithoutBookPrivateInput = {
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutFlashcardNestedInput
-  bookPublic?: Prisma.BookPublicUpdateOneWithoutFlashcardNestedInput
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutFlashcardNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutFlashcardNestedInput
+  video?: Prisma.VideoUpdateOneWithoutFlashcardNestedInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput
 }
 
-export type FlashcardUncheckedUpdateWithoutBookPrivateInput = {
+export type FlashcardUncheckedUpdateWithoutBookInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1424,14 +1128,12 @@ export type FlashcardUncheckedUpdateWithoutBookPrivateInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type FlashcardUncheckedUpdateManyWithoutBookPrivateInput = {
+export type FlashcardUncheckedUpdateManyWithoutBookInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1442,14 +1144,12 @@ export type FlashcardUncheckedUpdateManyWithoutBookPrivateInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type FlashcardCreateManyBookPublicInput = {
+export type FlashcardCreateManyVideoInput = {
   id?: number
   user_id: number
   language_code: $Enums.LanguageCode
@@ -1460,14 +1160,12 @@ export type FlashcardCreateManyBookPublicInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
   sentence_phrase_translation_id?: number | null
   created_at?: Date | string
 }
 
-export type FlashcardUpdateWithoutBookPublicInput = {
+export type FlashcardUpdateWithoutVideoInput = {
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
   sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1478,13 +1176,11 @@ export type FlashcardUpdateWithoutBookPublicInput = {
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutFlashcardNestedInput
-  bookPrivate?: Prisma.BookPrivateUpdateOneWithoutFlashcardNestedInput
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutFlashcardNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutFlashcardNestedInput
+  book?: Prisma.BookUpdateOneWithoutFlashcardNestedInput
   sentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput
 }
 
-export type FlashcardUncheckedUpdateWithoutBookPublicInput = {
+export type FlashcardUncheckedUpdateWithoutVideoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1495,14 +1191,12 @@ export type FlashcardUncheckedUpdateWithoutBookPublicInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type FlashcardUncheckedUpdateManyWithoutBookPublicInput = {
+export type FlashcardUncheckedUpdateManyWithoutVideoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1513,151 +1207,7 @@ export type FlashcardUncheckedUpdateManyWithoutBookPublicInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type FlashcardCreateManyVideoPrivateInput = {
-  id?: number
-  user_id: number
-  language_code: $Enums.LanguageCode
-  sentence_text: string
-  sentence_translation?: string | null
-  phrase: string
-  phrase_start_offset: number
-  phrase_end_offset: number
-  phrase_translation?: string | null
-  examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_public_id?: number | null
-  sentence_phrase_translation_id?: number | null
-  created_at?: Date | string
-}
-
-export type FlashcardUpdateWithoutVideoPrivateInput = {
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
-  sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutFlashcardNestedInput
-  bookPrivate?: Prisma.BookPrivateUpdateOneWithoutFlashcardNestedInput
-  bookPublic?: Prisma.BookPublicUpdateOneWithoutFlashcardNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutFlashcardNestedInput
-  sentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput
-}
-
-export type FlashcardUncheckedUpdateWithoutVideoPrivateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
-  sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type FlashcardUncheckedUpdateManyWithoutVideoPrivateInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
-  sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type FlashcardCreateManyVideoPublicInput = {
-  id?: number
-  user_id: number
-  language_code: $Enums.LanguageCode
-  sentence_text: string
-  sentence_translation?: string | null
-  phrase: string
-  phrase_start_offset: number
-  phrase_end_offset: number
-  phrase_translation?: string | null
-  examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  sentence_phrase_translation_id?: number | null
-  created_at?: Date | string
-}
-
-export type FlashcardUpdateWithoutVideoPublicInput = {
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
-  sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneRequiredWithoutFlashcardNestedInput
-  bookPrivate?: Prisma.BookPrivateUpdateOneWithoutFlashcardNestedInput
-  bookPublic?: Prisma.BookPublicUpdateOneWithoutFlashcardNestedInput
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutFlashcardNestedInput
-  sentencePhraseTranslation?: Prisma.SentencePhraseTranslationUpdateOneWithoutFlashcardNestedInput
-}
-
-export type FlashcardUncheckedUpdateWithoutVideoPublicInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
-  sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-}
-
-export type FlashcardUncheckedUpdateManyWithoutVideoPublicInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  sentence_text?: Prisma.StringFieldUpdateOperationsInput | string
-  sentence_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  phrase?: Prisma.StringFieldUpdateOperationsInput | string
-  phrase_start_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
-  phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   sentence_phrase_translation_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1673,10 +1223,8 @@ export type FlashcardCreateManySentencePhraseTranslationInput = {
   phrase_end_offset: number
   phrase_translation?: string | null
   examples?: Prisma.FlashcardCreateexamplesInput | string[]
-  book_private_id?: number | null
-  book_public_id?: number | null
-  video_private_id?: number | null
-  video_public_id?: number | null
+  book_id?: number | null
+  video_id?: number | null
   created_at?: Date | string
 }
 
@@ -1691,10 +1239,8 @@ export type FlashcardUpdateWithoutSentencePhraseTranslationInput = {
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutFlashcardNestedInput
-  bookPrivate?: Prisma.BookPrivateUpdateOneWithoutFlashcardNestedInput
-  bookPublic?: Prisma.BookPublicUpdateOneWithoutFlashcardNestedInput
-  videoPrivate?: Prisma.VideoPrivateUpdateOneWithoutFlashcardNestedInput
-  videoPublic?: Prisma.VideoPublicUpdateOneWithoutFlashcardNestedInput
+  book?: Prisma.BookUpdateOneWithoutFlashcardNestedInput
+  video?: Prisma.VideoUpdateOneWithoutFlashcardNestedInput
 }
 
 export type FlashcardUncheckedUpdateWithoutSentencePhraseTranslationInput = {
@@ -1708,10 +1254,8 @@ export type FlashcardUncheckedUpdateWithoutSentencePhraseTranslationInput = {
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -1726,10 +1270,8 @@ export type FlashcardUncheckedUpdateManyWithoutSentencePhraseTranslationInput = 
   phrase_end_offset?: Prisma.IntFieldUpdateOperationsInput | number
   phrase_translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.FlashcardUpdateexamplesInput | string[]
-  book_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  book_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_private_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  video_public_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  book_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  video_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -1746,17 +1288,13 @@ export type FlashcardSelect<ExtArgs extends runtime.Types.Extensions.InternalArg
   phrase_end_offset?: boolean
   phrase_translation?: boolean
   examples?: boolean
-  book_private_id?: boolean
-  book_public_id?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
+  book_id?: boolean
+  video_id?: boolean
   sentence_phrase_translation_id?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  bookPrivate?: boolean | Prisma.Flashcard$bookPrivateArgs<ExtArgs>
-  bookPublic?: boolean | Prisma.Flashcard$bookPublicArgs<ExtArgs>
-  videoPrivate?: boolean | Prisma.Flashcard$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Flashcard$videoPublicArgs<ExtArgs>
+  book?: boolean | Prisma.Flashcard$bookArgs<ExtArgs>
+  video?: boolean | Prisma.Flashcard$videoArgs<ExtArgs>
   sentencePhraseTranslation?: boolean | Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>
 }, ExtArgs["result"]["flashcard"]>
 
@@ -1771,17 +1309,13 @@ export type FlashcardSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ext
   phrase_end_offset?: boolean
   phrase_translation?: boolean
   examples?: boolean
-  book_private_id?: boolean
-  book_public_id?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
+  book_id?: boolean
+  video_id?: boolean
   sentence_phrase_translation_id?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  bookPrivate?: boolean | Prisma.Flashcard$bookPrivateArgs<ExtArgs>
-  bookPublic?: boolean | Prisma.Flashcard$bookPublicArgs<ExtArgs>
-  videoPrivate?: boolean | Prisma.Flashcard$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Flashcard$videoPublicArgs<ExtArgs>
+  book?: boolean | Prisma.Flashcard$bookArgs<ExtArgs>
+  video?: boolean | Prisma.Flashcard$videoArgs<ExtArgs>
   sentencePhraseTranslation?: boolean | Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>
 }, ExtArgs["result"]["flashcard"]>
 
@@ -1796,17 +1330,13 @@ export type FlashcardSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ext
   phrase_end_offset?: boolean
   phrase_translation?: boolean
   examples?: boolean
-  book_private_id?: boolean
-  book_public_id?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
+  book_id?: boolean
+  video_id?: boolean
   sentence_phrase_translation_id?: boolean
   created_at?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  bookPrivate?: boolean | Prisma.Flashcard$bookPrivateArgs<ExtArgs>
-  bookPublic?: boolean | Prisma.Flashcard$bookPublicArgs<ExtArgs>
-  videoPrivate?: boolean | Prisma.Flashcard$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Flashcard$videoPublicArgs<ExtArgs>
+  book?: boolean | Prisma.Flashcard$bookArgs<ExtArgs>
+  video?: boolean | Prisma.Flashcard$videoArgs<ExtArgs>
   sentencePhraseTranslation?: boolean | Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>
 }, ExtArgs["result"]["flashcard"]>
 
@@ -1821,37 +1351,29 @@ export type FlashcardSelectScalar = {
   phrase_end_offset?: boolean
   phrase_translation?: boolean
   examples?: boolean
-  book_private_id?: boolean
-  book_public_id?: boolean
-  video_private_id?: boolean
-  video_public_id?: boolean
+  book_id?: boolean
+  video_id?: boolean
   sentence_phrase_translation_id?: boolean
   created_at?: boolean
 }
 
-export type FlashcardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "language_code" | "sentence_text" | "sentence_translation" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "phrase_translation" | "examples" | "book_private_id" | "book_public_id" | "video_private_id" | "video_public_id" | "sentence_phrase_translation_id" | "created_at", ExtArgs["result"]["flashcard"]>
+export type FlashcardOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "user_id" | "language_code" | "sentence_text" | "sentence_translation" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "phrase_translation" | "examples" | "book_id" | "video_id" | "sentence_phrase_translation_id" | "created_at", ExtArgs["result"]["flashcard"]>
 export type FlashcardInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  bookPrivate?: boolean | Prisma.Flashcard$bookPrivateArgs<ExtArgs>
-  bookPublic?: boolean | Prisma.Flashcard$bookPublicArgs<ExtArgs>
-  videoPrivate?: boolean | Prisma.Flashcard$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Flashcard$videoPublicArgs<ExtArgs>
+  book?: boolean | Prisma.Flashcard$bookArgs<ExtArgs>
+  video?: boolean | Prisma.Flashcard$videoArgs<ExtArgs>
   sentencePhraseTranslation?: boolean | Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>
 }
 export type FlashcardIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  bookPrivate?: boolean | Prisma.Flashcard$bookPrivateArgs<ExtArgs>
-  bookPublic?: boolean | Prisma.Flashcard$bookPublicArgs<ExtArgs>
-  videoPrivate?: boolean | Prisma.Flashcard$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Flashcard$videoPublicArgs<ExtArgs>
+  book?: boolean | Prisma.Flashcard$bookArgs<ExtArgs>
+  video?: boolean | Prisma.Flashcard$videoArgs<ExtArgs>
   sentencePhraseTranslation?: boolean | Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>
 }
 export type FlashcardIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
-  bookPrivate?: boolean | Prisma.Flashcard$bookPrivateArgs<ExtArgs>
-  bookPublic?: boolean | Prisma.Flashcard$bookPublicArgs<ExtArgs>
-  videoPrivate?: boolean | Prisma.Flashcard$videoPrivateArgs<ExtArgs>
-  videoPublic?: boolean | Prisma.Flashcard$videoPublicArgs<ExtArgs>
+  book?: boolean | Prisma.Flashcard$bookArgs<ExtArgs>
+  video?: boolean | Prisma.Flashcard$videoArgs<ExtArgs>
   sentencePhraseTranslation?: boolean | Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>
 }
 
@@ -1859,10 +1381,8 @@ export type $FlashcardPayload<ExtArgs extends runtime.Types.Extensions.InternalA
   name: "Flashcard"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
-    bookPrivate: Prisma.$BookPrivatePayload<ExtArgs> | null
-    bookPublic: Prisma.$BookPublicPayload<ExtArgs> | null
-    videoPrivate: Prisma.$VideoPrivatePayload<ExtArgs> | null
-    videoPublic: Prisma.$VideoPublicPayload<ExtArgs> | null
+    book: Prisma.$BookPayload<ExtArgs> | null
+    video: Prisma.$VideoPayload<ExtArgs> | null
     sentencePhraseTranslation: Prisma.$SentencePhraseTranslationPayload<ExtArgs> | null
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -1876,10 +1396,8 @@ export type $FlashcardPayload<ExtArgs extends runtime.Types.Extensions.InternalA
     phrase_end_offset: number
     phrase_translation: string | null
     examples: string[]
-    book_private_id: number | null
-    book_public_id: number | null
-    video_private_id: number | null
-    video_public_id: number | null
+    book_id: number | null
+    video_id: number | null
     sentence_phrase_translation_id: number | null
     created_at: Date
   }, ExtArgs["result"]["flashcard"]>
@@ -2277,10 +1795,8 @@ readonly fields: FlashcardFieldRefs;
 export interface Prisma__FlashcardClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-  bookPrivate<T extends Prisma.Flashcard$bookPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$bookPrivateArgs<ExtArgs>>): Prisma.Prisma__BookPrivateClient<runtime.Types.Result.GetResult<Prisma.$BookPrivatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  bookPublic<T extends Prisma.Flashcard$bookPublicArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$bookPublicArgs<ExtArgs>>): Prisma.Prisma__BookPublicClient<runtime.Types.Result.GetResult<Prisma.$BookPublicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  videoPrivate<T extends Prisma.Flashcard$videoPrivateArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$videoPrivateArgs<ExtArgs>>): Prisma.Prisma__VideoPrivateClient<runtime.Types.Result.GetResult<Prisma.$VideoPrivatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  videoPublic<T extends Prisma.Flashcard$videoPublicArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$videoPublicArgs<ExtArgs>>): Prisma.Prisma__VideoPublicClient<runtime.Types.Result.GetResult<Prisma.$VideoPublicPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  book<T extends Prisma.Flashcard$bookArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$bookArgs<ExtArgs>>): Prisma.Prisma__BookClient<runtime.Types.Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  video<T extends Prisma.Flashcard$videoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$videoArgs<ExtArgs>>): Prisma.Prisma__VideoClient<runtime.Types.Result.GetResult<Prisma.$VideoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   sentencePhraseTranslation<T extends Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Flashcard$sentencePhraseTranslationArgs<ExtArgs>>): Prisma.Prisma__SentencePhraseTranslationClient<runtime.Types.Result.GetResult<Prisma.$SentencePhraseTranslationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2321,10 +1837,8 @@ export interface FlashcardFieldRefs {
   readonly phrase_end_offset: Prisma.FieldRef<"Flashcard", 'Int'>
   readonly phrase_translation: Prisma.FieldRef<"Flashcard", 'String'>
   readonly examples: Prisma.FieldRef<"Flashcard", 'String[]'>
-  readonly book_private_id: Prisma.FieldRef<"Flashcard", 'Int'>
-  readonly book_public_id: Prisma.FieldRef<"Flashcard", 'Int'>
-  readonly video_private_id: Prisma.FieldRef<"Flashcard", 'Int'>
-  readonly video_public_id: Prisma.FieldRef<"Flashcard", 'Int'>
+  readonly book_id: Prisma.FieldRef<"Flashcard", 'Int'>
+  readonly video_id: Prisma.FieldRef<"Flashcard", 'Int'>
   readonly sentence_phrase_translation_id: Prisma.FieldRef<"Flashcard", 'Int'>
   readonly created_at: Prisma.FieldRef<"Flashcard", 'DateTime'>
 }
@@ -2728,79 +2242,41 @@ export type FlashcardDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Int
 }
 
 /**
- * Flashcard.bookPrivate
+ * Flashcard.book
  */
-export type Flashcard$bookPrivateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Flashcard$bookArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the BookPrivate
+   * Select specific fields to fetch from the Book
    */
-  select?: Prisma.BookPrivateSelect<ExtArgs> | null
+  select?: Prisma.BookSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the BookPrivate
+   * Omit specific fields from the Book
    */
-  omit?: Prisma.BookPrivateOmit<ExtArgs> | null
+  omit?: Prisma.BookOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.BookPrivateInclude<ExtArgs> | null
-  where?: Prisma.BookPrivateWhereInput
+  include?: Prisma.BookInclude<ExtArgs> | null
+  where?: Prisma.BookWhereInput
 }
 
 /**
- * Flashcard.bookPublic
+ * Flashcard.video
  */
-export type Flashcard$bookPublicArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type Flashcard$videoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the BookPublic
+   * Select specific fields to fetch from the Video
    */
-  select?: Prisma.BookPublicSelect<ExtArgs> | null
+  select?: Prisma.VideoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the BookPublic
+   * Omit specific fields from the Video
    */
-  omit?: Prisma.BookPublicOmit<ExtArgs> | null
+  omit?: Prisma.VideoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.BookPublicInclude<ExtArgs> | null
-  where?: Prisma.BookPublicWhereInput
-}
-
-/**
- * Flashcard.videoPrivate
- */
-export type Flashcard$videoPrivateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the VideoPrivate
-   */
-  select?: Prisma.VideoPrivateSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the VideoPrivate
-   */
-  omit?: Prisma.VideoPrivateOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.VideoPrivateInclude<ExtArgs> | null
-  where?: Prisma.VideoPrivateWhereInput
-}
-
-/**
- * Flashcard.videoPublic
- */
-export type Flashcard$videoPublicArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the VideoPublic
-   */
-  select?: Prisma.VideoPublicSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the VideoPublic
-   */
-  omit?: Prisma.VideoPublicOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.VideoPublicInclude<ExtArgs> | null
-  where?: Prisma.VideoPublicWhereInput
+  include?: Prisma.VideoInclude<ExtArgs> | null
+  where?: Prisma.VideoWhereInput
 }
 
 /**

@@ -1,7 +1,7 @@
 import React from 'react'
-import { LanguageCode, languages } from 'utils/languages'
 import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 import { RoundArrowWhiteIcon } from '@/shared/ui/icons/RoundArrowWhiteIcon'
+import { LanguageCode, languages } from '@/shared/utils/languages'
 import { BookData, useGetBooksData } from './fn/getBooks'
 import './BooksGrid.scss'
 

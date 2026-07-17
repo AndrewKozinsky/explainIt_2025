@@ -33,30 +33,25 @@ export type UserBalanceTransaction = Prisma.UserBalanceTransactionModel
  */
 export type Payment = Prisma.PaymentModel
 /**
- * Model BookPrivate
+ * Model Book
  * 
  */
-export type BookPrivate = Prisma.BookPrivateModel
-/**
- * Model BookPublic
- * 
- */
-export type BookPublic = Prisma.BookPublicModel
+export type Book = Prisma.BookModel
 /**
  * Model BookChapter
  * 
  */
 export type BookChapter = Prisma.BookChapterModel
 /**
- * Model VideoPrivate
+ * Model VideoCollection
  * 
  */
-export type VideoPrivate = Prisma.VideoPrivateModel
+export type VideoCollection = Prisma.VideoCollectionModel
 /**
- * Model VideoPublic
+ * Model Video
  * 
  */
-export type VideoPublic = Prisma.VideoPublicModel
+export type Video = Prisma.VideoModel
 /**
  * Model Sentence
  * 

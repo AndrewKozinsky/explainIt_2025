@@ -1,65 +1,48 @@
-import { useMemo } from 'react'
-import { LanguageCode } from 'utils/languages'
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { MediaItemsGridConfig } from '@/_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
-import { useVideosStore } from '../../videosStore'
+import type { VideoLite } from '@/entites/videos/repository/VideosRepository'
+import type { LanguageCode } from '@/shared/utils/languages'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import type {
+	MediaItemsGridConfig,
+	PrivateItem,
+	PublicItem,
+} from '_pages/media/commonComponents/mediaItemsGrid/MediaItemsGrid/types'
+import { videoConfig } from '_pages/media/commonComponents/videoConfig'
 
-export function useGetContentConfig() {
-	const privateVideos = useVideosStore((s) => s.privateVideos)
-	const publicVideos = useVideosStore((s) => s.publicVideos)
+/**
+ * Формирует конфиг для MediaItemsGrid из унифицированных видео.
+ * Чистая функция — не зависит от API, сторов или хуков.
+ */
+export function getContentConfig(videos: VideoLite[]): MediaItemsGridConfig {
+	const privateVideos = videos.filter((video) => video.type === 'private')
+	const publicVideos = videos.filter((video) => video.type === 'public')
 
-	return useMemo(
-		function (): {
-			loading: boolean
-			error: null | string
-			config: null | MediaItemsGridConfig
-		} {
-			const errorMessage = privateVideos.errorMessage || publicVideos.errorMessage
-			const isLoading = privateVideos.loading || publicVideos.loading
+	return {
+		privateItems: privateVideos.map(toPrivateItem),
+		publicItems: publicVideos.map(toPublicItem),
+	}
+}
 
-			if (errorMessage) {
-				return {
-					loading: false,
-					error: errorMessage,
-					config: null,
-				}
-			} else if (isLoading) {
-				return {
-					loading: false,
-					error: null,
-					config: null,
-				}
-			}
+function toPrivateItem(video: VideoLite): PrivateItem {
+	const videoId = String(video.id)
 
-			return {
-				loading: false,
-				error: null,
-				config: {
-					privateItems: privateVideos.data.map((video) => {
-						const videoId = createMediaIdUrl(video.id, 'private')
+	return {
+		name: video.name,
+		subName: null,
+		url: pageUrls.videos.video(videoId).watching.path,
+		actionUrl: pageUrls.videos.video(videoId).path,
+		coverUrl: video.coverUrl ?? undefined,
+	}
+}
 
-						return {
-							name: video.name as unknown as string,
-							subName: video.year as unknown as number,
-							url: pageUrls.videos.video(videoId).watching.path,
-							actionUrl: pageUrls.videos.video(videoId).path,
-						}
-					}),
-					publicItems: publicVideos.data.map((video) => {
-						const videoId = createMediaIdUrl(video.id, 'public')
+function toPublicItem(video: VideoLite): PublicItem {
+	const videoId = String(video.id)
 
-						return {
-							name: video.name as unknown as string,
-							subName: video.year as unknown as number,
-							url: pageUrls.videos.video(videoId).watching.path,
-							actionUrl: pageUrls.videos.video(videoId).path,
-							languageCode: video.languageCode as LanguageCode,
-							coverUrl: video.covers[0],
-						}
-					}),
-				},
-			}
-		},
-		[privateVideos, publicVideos],
-	)
+	return {
+		name: video.name ?? videoConfig.newVideoEmptyName,
+		subName: null,
+		languageCode: (video.languageCode as LanguageCode) ?? 'en',
+		coverUrl: video.coverUrl ?? '',
+		url: pageUrls.videos.video(videoId).watching.path,
+		actionUrl: pageUrls.videos.video(videoId).path,
+	}
 }

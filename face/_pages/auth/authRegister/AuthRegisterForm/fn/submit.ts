@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useAuthControllerRegister } from '@/shared/api/generated/auth/auth'
 import type { UserOutModel } from '@/shared/api/generated/models'
-import { FormStatus, setErrorsToForm } from '@/utils/forms'
+import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
 import { RegisterFormData } from './form'
 
 export function useGetOnRegisterFormSubmit(

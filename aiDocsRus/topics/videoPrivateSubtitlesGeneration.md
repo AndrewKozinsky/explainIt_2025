@@ -323,7 +323,7 @@ docker compose -f docker-compose.local.dev.yml --env-file .env.localdev up --bui
 - `server/src/infrastructure/deepgramStt/deepgramStt.module.ts`.
 - `server/src/infrastructure/queues/queues.module.ts` — BullMQ registration.
 - `server/src/infrastructure/queues/subtitlesGeneration.queue.ts` — enqueue service.
-- `server/src/infrastructure/queues/subtitlesGeneration.types.ts` — job types.
+- `server/src/infrastructure/queues/subtitlesGeneration.BooksRepository.ts` — job types.
 - `server/src/infrastructure/queues/queueNames.ts`.
 - `server/src/worker.module.ts` — worker Nest module.
 - `server/src/main.worker.ts` — worker entrypoint.

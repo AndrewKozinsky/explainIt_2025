@@ -3,8 +3,8 @@ import { DBRepository } from 'repo/db.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
-import { VideoPrivateQueryRepository } from 'repo/video/videoPrivate.queryRepository'
-import { VideoPrivateRepository } from 'repo/video/videoPrivate.repository'
+import { VideoQueryRepository } from 'repo/video/video.queryRepository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { Language } from 'utils/languages'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
@@ -13,13 +13,12 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { UpdateVideoPrivateOutModel } from 'models/videoPrivate/updateVideoPrivate.out.model'
-import { VideoPrivateLiteOutModel } from 'models/videoPrivate/videoPrivateLiteOut.model'
+import { UpdateVideoOutModel } from 'models/video/updateVideo.out.model'
+import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 
 export type UpdatePrivateVideoInput = {
 	id: number
 	name?: null | string
-	languageCode?: null | Language
 	originalContent?: null | string
 	fileName?: null | string
 	fileMimeType?: null | string
@@ -38,8 +37,8 @@ export class UpdatePrivateVideoCommand implements ICommand {
 @CommandHandler(UpdatePrivateVideoCommand)
 export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHandler<UpdatePrivateVideoCommand> {
 	constructor(
-		private videoRepository: VideoPrivateRepository,
-		private videoQueryRepository: VideoPrivateQueryRepository,
+		private videoRepository: VideoRepository,
+		private videoQueryRepository: VideoQueryRepository,
 		private subtitleRepository: SubtitleRepository,
 		private sentenceRepository: SentenceRepository,
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
@@ -50,17 +49,7 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		super(mainConfig)
 	}
 
-	/**
-	 * Updates a private video owned by the user.
-	 *
-	 * Responsibilities:
-	 * - validates access (video exists + ownership)
-	 * - computes file upload/delete actions
-	 * - prepares text content (plain text or SRT)
-	 * - rebuilds related text data (subtitles/sentences/init) when needed
-	 * - persists fields to DB and returns GraphQL output model
-	 */
-	async execute(command: UpdatePrivateVideoCommand): Promise<UpdateVideoPrivateOutModel> {
+	async execute(command: UpdatePrivateVideoCommand): Promise<UpdateVideoOutModel> {
 		const { userId, updateVideoInput } = command
 
 		const videoForUpdating = await this.videoQueryRepository.getVideoById(updateVideoInput.id)
@@ -83,24 +72,22 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		})
 
 		if (preparedContentResult.shouldUpdateRelatedTextData) {
-			const effectiveLanguageCode = updateVideoInput.languageCode ?? videoForUpdating.languageCode
+			const effectiveLanguageCode = videoForUpdating.languageCode as Language | null
 
 			if (preparedContentResult.processedContent !== null && !effectiveLanguageCode) {
 				throw new CustomError(errorMessage.nlp.languageRequired, ErrorStatusCode.BadRequest_400)
 			}
 
 			await this.updateVideoTextData({
-				videoType: 'private',
 				videoId: updateVideoInput.id,
 				processedContent: preparedContentResult.processedContent,
-				languageCode: effectiveLanguageCode as null | Language,
+				languageCode: effectiveLanguageCode,
 				subtitles: preparedContentResult.subtitles,
 			})
 		}
 
 		const updatedVideo = await this.videoRepository.updateVideoById(updateVideoInput.id, {
 			name: updateVideoInput.name,
-			languageCode: updateVideoInput.languageCode,
 			originalContent: preparedContentResult.originalContentForVideoUpdate,
 			processedContent: preparedContentResult.processedContentForVideoUpdate,
 			contentType: preparedContentResult.contentTypeForVideoUpdate,
@@ -117,14 +104,21 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		}
 
 		return {
-			...updatedVideo,
-			languageCode: updatedVideo.languageCode,
+			id: updatedVideo.id,
+			videoCollectionId: updatedVideo.videoCollectionId,
+			name: updatedVideo.name,
+			languageCode: videoForUpdating.languageCode as Language | null,
+			originalContent: updatedVideo.originalContent,
+			processedContent: updatedVideo.processedContent,
+			contentType: updatedVideo.contentType,
+			userId: videoForUpdating.userId,
 			uploadUrl,
+			fileSizeMb: updatedVideo.fileSizeMb,
+			fileDurationSec: updatedVideo.fileDurationSec,
 		}
 	}
 
 	private async updateVideoTextData(dto: {
-		videoType: 'private'
 		videoId: number
 		processedContent: null | string
 		languageCode: null | Language
@@ -138,9 +132,9 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 	}) {
 		await this.dbRepository.wrapIntoPrismaTransaction({
 			executableCode: async () => {
-				await this.subtitleSentenceInitRepository.deleteByVideoPrivateId(dto.videoId)
-				await this.subtitleRepository.deleteByVideoPrivateId(dto.videoId)
-				await this.sentenceRepository.deleteByVideoPrivateId(dto.videoId)
+				await this.subtitleSentenceInitRepository.deleteByVideoId(dto.videoId)
+				await this.subtitleRepository.deleteByVideoId(dto.videoId)
+				await this.sentenceRepository.deleteByVideoId(dto.videoId)
 
 				if (dto.processedContent === null) return
 
@@ -150,7 +144,6 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 
 				if (dto.subtitles) {
 					await this.saveSubtitlesSentencesAndInit({
-						videoType: 'private',
 						videoId: dto.videoId,
 						preparedContent: dto.processedContent,
 						languageCode: dto.languageCode,
@@ -167,22 +160,14 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 					sentenceRepository: this.sentenceRepository,
 					processedContent: dto.processedContent,
 					languageCode: dto.languageCode,
-					videoPrivateId: dto.videoId,
+					videoId: dto.videoId,
 				})
 			},
 		})
 	}
 
-	/**
-	 * Computes file-related fields (name/s3Key/url/isUploaded) and a pre-signed upload URL.
-	 *
-	 * Handles:
-	 * - file deletion request (`fileName === null` or `isFileUploaded === false`)
-	 * - file marked as uploaded (`isFileUploaded === true`)
-	 * - upload URL generation when a file is being attached for the first time
-	 */
 	async getUploadFileUrlAndFileDetails(
-		videoForUpdating: VideoPrivateLiteOutModel,
+		videoForUpdating: VideoLiteOutModel,
 		updateVideoInput: UpdatePrivateVideoInput,
 	): Promise<{
 		fileName: null | string
@@ -190,7 +175,6 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 		isFileUploaded: boolean
 		uploadUrl: null | string
 	}> {
-		// If tries to delete the file, so delete it
 		if (updateVideoInput.fileName === null || updateVideoInput.isFileUploaded === false) {
 			if (videoForUpdating.isFileUploaded && videoForUpdating.fileS3Key) {
 				await this.cloudRuS3Service.deleteFile(videoForUpdating.fileS3Key)
@@ -204,7 +188,6 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 			}
 		}
 
-		// If report that the file has been downloaded.
 		if (updateVideoInput.isFileUploaded) {
 			return {
 				fileName: videoForUpdating.fileName,
@@ -214,13 +197,12 @@ export class UpdatePrivateVideoHandler extends VideoBase implements ICommandHand
 			}
 		}
 
-		// Put file name and mime type
 		if (updateVideoInput.fileName && updateVideoInput.fileMimeType && !videoForUpdating.isFileUploaded) {
 			const { s3FileKey, uploadUrl } = await this.prepareFileKeyAndUploadUrl(
 				{
 					fileName: updateVideoInput.fileName,
 					fileMimeType: updateVideoInput.fileMimeType,
-					fileDestinationType: 'privateVideo',
+					fileDestinationType: 'video',
 				},
 				this.cloudRuS3Service,
 			)

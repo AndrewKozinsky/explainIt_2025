@@ -1,8 +1,8 @@
-import { LanguageCode } from 'utils/languages'
 import type {
 	GetOrCreateUniversalPhraseTranslationInput,
 	UniversalPhraseTranslationOutModel,
 } from '@/shared/api/generated/models'
+import { LanguageCode } from '@/shared/utils/languages'
 import { usePhraseStore } from '@/stores/phraseStore'
 import { makeCacheKey, usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 import { isAbortError } from './isAbortError'

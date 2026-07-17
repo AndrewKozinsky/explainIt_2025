@@ -3,12 +3,15 @@ import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { BookChapterLiteOutModel } from '../bookChapter/bookChapter.out.model'
 
-const $ = bdConfig.BookPrivate.dbFields
-const $$ = bdConfig.BookPrivate.dtoProps
+const $ = bdConfig.Book.dbFields
+const $$ = bdConfig.Book.dtoProps
 
-export class BookPrivateOutModel {
+export class BookOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
+
+	@ApiProperty(getApiPropertyOptions($.type))
+	type: 'public' | 'private'
 
 	@ApiProperty(getApiPropertyOptions($.author))
 	author: string | null
@@ -23,37 +26,32 @@ export class BookPrivateOutModel {
 	note: null | string
 
 	@ApiProperty(getApiPropertyOptions($.user_id))
-	userId: number
+	userId: null | number
 
 	@ApiProperty(getApiPropertyOptions($$.coverUrl))
 	coverUrl: null | string
 
-	@ApiProperty(getApiPropertyOptions($.file_name))
-	fileName: null | string
+	@ApiProperty(getApiPropertyOptions($.cover_file_name))
+	coverFileName: null | string
 
-	@ApiProperty(getApiPropertyOptions($.file_s3_key))
-	fileS3Key: null | string
+	@ApiProperty(getApiPropertyOptions($.cover_file_s3_key))
+	coverFileS3Key: null | string
 
-	@ApiProperty(getApiPropertyOptions($.is_file_uploaded))
-	isFileUploaded: boolean
+	@ApiProperty(getApiPropertyOptions($.is_cover_file_uploaded))
+	isCoverFileUploaded: boolean
 
 	@ApiProperty(getApiPropertyOptions($$.uploadUrl))
 	uploadUrl: null | string
 
-	@ApiProperty({ description: 'Book chapters', type: [BookChapterLiteOutModel] })
+	@ApiProperty({ description: 'Book chapters', type: () => BookChapterLiteOutModel, isArray: true })
 	chapters: BookChapterLiteOutModel[]
 }
 
 export class BookLiteOutModel {
 	id: number
-
 	author: null | string
-
 	name: null | string
-
 	languageCode: null | string
-
 	note: null | string
-
 	userId: null | number
 }

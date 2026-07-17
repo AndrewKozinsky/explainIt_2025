@@ -1,18 +1,18 @@
-import { useEffect } from 'react'
-import { useParams } from 'next/navigation'
-import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
-import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
-import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
-import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
-import { useVideoStore } from '_pages/media/video/videoStore'
+// import { useEffect } from 'react'
+// import { useParams } from 'next/navigation'
+// import { extractMediaIdFromUrlBookId, getMediaTypeByUrlMediaId } from 'utils/pageUrls'
+// import { useVideoPrivateControllerGetVideoPrivate } from '@/shared/api/generated/video-private/video-private'
+// import { useVideoPublicControllerGetVideoPublic } from '@/shared/api/generated/video-public/video-public'
+// import type { VideoPrivateOutModel, VideoPublicOutModel } from '@/shared/api/generated/models'
+// import { useVideoStore } from '_pages/media/video/videoStore'
 
 /** Наполняет Хранилище данными для начала работы */
-export function usePopulateVideoStore() {
+/*export function usePopulateVideoStore() {
 	useSetVideoToStore()
 	useClearDataOnUnmount()
-}
+}*/
 
-function useSetVideoToStore() {
+/*function useSetVideoToStore() {
 	const videoIdInUrl = useParams().videoId as string
 	const videoType = getMediaTypeByUrlMediaId(videoIdInUrl)
 	const videoId = extractMediaIdFromUrlBookId(videoIdInUrl)
@@ -102,12 +102,12 @@ function useSetVideoToStore() {
 		},
 		[videoType, publicVideoData, publicVideoIsError, publicVideoLoading],
 	)
-}
+}*/
 
-function useClearDataOnUnmount() {
+/*function useClearDataOnUnmount() {
 	useEffect(function () {
 		return () => {
 			useVideoStore.getState().clearStore()
 		}
 	}, [])
-}
+}*/

@@ -1,7 +1,7 @@
-import { LanguageCode } from 'utils/languages'
-import { createMediaIdUrl, pageUrls } from 'utils/pageUrls'
-import { useBookPublicControllerGetBooks } from '@/shared/api/generated/book-public/book-public'
-import type { BookPublicOutModel } from '@/shared/api/generated/models'
+import { useBookControllerGetBooks } from '@/shared/api/generated/book/book'
+import type { BookOutModel } from '@/shared/api/generated/models'
+import { LanguageCode } from '@/shared/utils/languages'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
 export type BookData = {
 	id: number
@@ -13,7 +13,7 @@ export type BookData = {
 }
 
 export function useGetBooksData(currentLanguage: LanguageCode) {
-	const { data, error, isLoading } = useBookPublicControllerGetBooks()
+	const { data, error, isLoading } = useBookControllerGetBooks()
 
 	if (isLoading) {
 		return {
@@ -35,23 +35,23 @@ export function useGetBooksData(currentLanguage: LanguageCode) {
 		}
 	}
 
+	const books = (data as unknown as { data: BookOutModel[] }).data
+
 	return {
 		loading: false,
 		errorMessage: null,
-		data: (data as unknown as BookPublicOutModel[])
+		data: books
 			.filter((book) => {
-				return (book.languageCode as LanguageCode) === currentLanguage
+				return book.type === 'public' && (book.languageCode as unknown as LanguageCode) === currentLanguage
 			})
 			.map((book) => {
-				const bookIdInUrl = createMediaIdUrl(book.id, 'public')
-
 				return {
 					id: book.id,
-					cover: book.covers[0],
-					url: pageUrls.books.book(bookIdInUrl).path,
-					author: book.author || '',
-					name: book.name,
-					languageCode: book.languageCode as LanguageCode,
+					cover: book.coverUrl as unknown as string,
+					url: pageUrls.books.book(book.id).path,
+					author: (book.author as unknown as string) || '',
+					name: book.name as unknown as string,
+					languageCode: book.languageCode as unknown as LanguageCode,
 				}
 			}) as BookData[],
 	}

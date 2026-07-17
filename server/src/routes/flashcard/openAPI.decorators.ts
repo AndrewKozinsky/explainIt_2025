@@ -13,9 +13,6 @@ export function ApiGetMyFlashcards() {
 		}),
 		ApiCookieAuth(),
 		ApiResponse({ status: 200, description: 'OK', type: [FlashcardOutModel] }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -28,24 +25,6 @@ export function ApiAddFlashcard() {
 		ApiCookieAuth(),
 		ApiBody({ type: AddFlashcardInput }),
 		ApiResponse({ status: 201, description: 'Created', type: FlashcardOutModel }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({
-			status: 400,
-			description: [
-				errorMessage.flashcard.alreadyExists.errorMessageCode,
-				errorMessage.flashcard.sourceLanguageNotFound.errorMessageCode,
-			].join(' | '),
-		}),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({
-			status: 404,
-			description: [
-				errorMessage.flashcard.sourcePhraseNotFound.errorMessageCode,
-				errorMessage.flashcard.sourceSentenceNotFound.errorMessageCode,
-			].join(' | '),
-		}),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }
 
@@ -58,10 +37,5 @@ export function ApiRemoveFlashcard() {
 		ApiCookieAuth(),
 		ApiBody({ type: RemoveFlashcardInput }),
 		ApiResponse({ status: 200, description: 'OK' }),
-		ApiResponse({ status: 400, description: 'Validation error' }),
-		ApiResponse({ status: 401, description: errorMessage.user.unauthorized.errorMessageCode }),
-		ApiResponse({ status: 403, description: errorMessage.user.isNotOwner.errorMessageCode }),
-		ApiResponse({ status: 404, description: errorMessage.flashcard.notFound.errorMessageCode }),
-		ApiResponse({ status: 500, description: errorMessage.unknownDbError.errorMessageCode }),
 	)
 }

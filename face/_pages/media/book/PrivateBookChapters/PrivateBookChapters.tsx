@@ -1,26 +1,23 @@
-import type { BookChapterLiteOutModel } from '@/shared/api/generated/models'
-import { createMediaIdUrl, pageUrls } from '@/utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { bookConfig } from '../../commonComponents/bookConfig'
 import ChaptersList from '../../commonComponents/ChaptersList/ChaptersList'
 import { useBookStore } from '../bookStore'
 
 function PrivateBookChapters() {
-	const privateBook = useBookStore((s) => s.privateBook)
+	const book = useBookStore((s) => s.book)
 
-	const bookId = privateBook.data?.id
-	const chapters = privateBook.data?.chapters as unknown as BookChapterLiteOutModel[] | undefined
+	const bookId = book.data?.id
+	const chapters = book.data?.chapters
 
-	if (!bookId || !chapters) {
+	if (!bookId || !chapters || book.data?.type !== 'private') {
 		return null
 	}
 
 	const chaptersConfig = chapters.map((chapter) => {
-		const bookIdInUrl = createMediaIdUrl(bookId, 'private')
-
 		return {
-			name: (chapter.header as unknown as string) ?? bookConfig.emptyChapterName,
-			subName: chapter.name as unknown as string | undefined,
-			href: pageUrls.books.book(bookIdInUrl).chapter(chapter.id).path,
+			name: chapter.header ?? bookConfig.emptyChapterName,
+			subName: chapter.name ?? undefined,
+			href: pageUrls.books.book(bookId).chapter(chapter.id).path,
 		}
 	})
 

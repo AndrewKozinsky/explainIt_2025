@@ -2,13 +2,13 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
-import { VideoPublicRepository } from 'repo/video/videoPublic.repository'
+import { VideoRepository } from 'repo/video/video.repository'
 import { Language } from 'utils/languages'
 import { PrismaService } from 'db/prisma.service'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { Prisma } from 'prisma/generated/client'
+import { LanguageCode, Prisma } from 'prisma/generated/client'
 import { charadeSubs } from './publicVideosSubtitles/charadeSubs'
 import { hisGirlFridaySubs } from './publicVideosSubtitles/hisGirlFridaySubs'
 
@@ -20,7 +20,7 @@ export class CreatePublicVideosCommand implements ICommand {
 export class CreatePublicVideosHandler extends VideoBase implements ICommandHandler<CreatePublicVideosCommand> {
 	constructor(
 		private prisma: PrismaService,
-		private videoPublicRepository: VideoPublicRepository,
+		private videoRepository: VideoRepository,
 		private sentenceRepository: SentenceRepository,
 		private subtitleRepository: SubtitleRepository,
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
@@ -31,11 +31,12 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 
 	async execute() {
 		const videosData = this.getVideosData()
+		const collectionByLang = new Map<string, number>()
 
 		for (let i = 0; i < videosData.length; i++) {
 			const videoData = videosData[i]
 
-			const existingVideo = await this.prisma.videoPublic.findFirst({
+			const existingVideo = await this.prisma.video.findFirst({
 				where: {
 					file_s3_key: videoData.file_s3_key,
 				},
@@ -61,14 +62,18 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 				continue
 			}
 
-			let newVideo: Awaited<ReturnType<VideoPublicRepository['createVideo']>>
+			const collectionId = await this.getOrCreateCollection(
+				collectionByLang,
+				videoData.languageCode,
+				videoData.name,
+			)
+
+			let newVideo: Awaited<ReturnType<VideoRepository['createVideo']>>
 			try {
-				newVideo = await this.videoPublicRepository.createVideo({
+				newVideo = await this.videoRepository.createVideo({
+					videoCollectionId: collectionId,
 					name: videoData.name,
-					languageCode: videoData.languageCode as Language,
 					note: videoData.note,
-					covers: videoData.covers,
-					year: videoData.year,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
@@ -86,7 +91,6 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 			if (preparedContentResult.processedContent !== null) {
 				if (preparedContentResult.subtitles) {
 					await this.saveSubtitlesSentencesAndInit({
-						videoType: 'public',
 						videoId: newVideo.id,
 						preparedContent: preparedContentResult.processedContent,
 						languageCode: videoData.languageCode as Language,
@@ -101,11 +105,38 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 						sentenceRepository: this.sentenceRepository,
 						processedContent: preparedContentResult.processedContent,
 						languageCode: videoData.languageCode as Language,
-						videoPublicId: newVideo.id,
+						videoId: newVideo.id,
 					})
 				}
 			}
 		}
+	}
+
+	private async getOrCreateCollection(
+		collectionByLang: Map<string, number>,
+		lang: string,
+		name: string,
+	): Promise<number> {
+		if (collectionByLang.has(lang)) return collectionByLang.get(lang)!
+
+		const existing = await this.prisma.videoCollection.findFirst({
+			where: { type: 'public', source_language_code: lang as LanguageCode, name },
+			select: { id: true },
+		})
+		if (existing) {
+			collectionByLang.set(lang, existing.id)
+			return existing.id
+		}
+
+		const created = await this.prisma.videoCollection.create({
+			data: {
+				type: 'public',
+				source_language_code: lang as LanguageCode,
+				name,
+			},
+		})
+		collectionByLang.set(lang, created.id)
+		return created.id
 	}
 
 	getVideosData(): {
@@ -136,7 +167,7 @@ export class CreatePublicVideosHandler extends VideoBase implements ICommandHand
 Речь чёткая и спокойная, актёры говорят естественно и без постоянных перебиваний. Стандартный разговорный английский. Много повседневной лексики (отношения, деньги, доверие, опасность). У Audrey Hepburn и Cary Grant очень ясная, «учебная» речь.
 Уровень B1-B2.`,
 				fileName: 'Charade (1963).mp4',
-				file_s3_key: folderName + '/english/Charade (1963).mp4', // privateVideoDev/4adf6f8e-d299-49f5-b144-7171402e6c8a-test.mp4
+				file_s3_key: folderName + '/english/Charade (1963).mp4',
 				originalContent: charadeSubs,
 				covers: [
 					coversFolderName + 'english/charade_1.jpg',

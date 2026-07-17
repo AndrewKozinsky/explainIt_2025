@@ -1,19 +1,19 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import MediaItemsGridWithData from '../MediaItemsGridWithData/MediaItemsGridWithData'
-import { AddMediaButtonConfig, MediaItemsGridConfig } from './types'
+import { MediaItemsGridConfig } from './types'
 
 export type MediaItemsGridProps = {
 	loading: boolean
 	error: null | string
 	config: null | MediaItemsGridConfig
-	addMediaButtonConfig: AddMediaButtonConfig
+	addButton: ReactNode
 	defaultMediaName: string
 }
 
 function MediaItemsGrid(props: MediaItemsGridProps) {
-	const { loading, error, config, addMediaButtonConfig, defaultMediaName } = props
+	const { loading, error, config, addButton, defaultMediaName } = props
 
 	if (loading) {
 		return <Spinner size='small' />
@@ -31,7 +31,7 @@ function MediaItemsGrid(props: MediaItemsGridProps) {
 		<MediaItemsGridWithData
 			privateItems={config?.privateItems || []}
 			publicItems={config?.publicItems || []}
-			addMediaButtonConfig={addMediaButtonConfig}
+			addButton={addButton}
 			defaultMediaName={defaultMediaName}
 		/>
 	)

@@ -1,4 +1,4 @@
-import { pageUrls } from '@/utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { MainMenuLink } from '../MainMenuLink'
 import './MainMenu.scss'
 

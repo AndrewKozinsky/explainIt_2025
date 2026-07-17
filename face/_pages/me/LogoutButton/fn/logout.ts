@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { useAuthControllerLogout } from '@/shared/api/generated/auth/auth'
-import { pageUrls, localizePath } from '@/utils/pageUrls'
+import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 export function useGetLogout() {
 	const router = useRouter()

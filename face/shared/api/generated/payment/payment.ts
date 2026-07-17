@@ -32,29 +32,12 @@ export type paymentControllerTopUpBalanceWithYooKassaResponse200 = {
   status: 200
 }
 
-export type paymentControllerTopUpBalanceWithYooKassaResponse400 = {
-  data: void
-  status: 400
-}
-
-export type paymentControllerTopUpBalanceWithYooKassaResponse401 = {
-  data: void
-  status: 401
-}
-
-export type paymentControllerTopUpBalanceWithYooKassaResponse500 = {
-  data: void
-  status: 500
-}
-
 export type paymentControllerTopUpBalanceWithYooKassaResponseSuccess = (paymentControllerTopUpBalanceWithYooKassaResponse200) & {
   headers: Headers;
 };
-export type paymentControllerTopUpBalanceWithYooKassaResponseError = (paymentControllerTopUpBalanceWithYooKassaResponse400 | paymentControllerTopUpBalanceWithYooKassaResponse401 | paymentControllerTopUpBalanceWithYooKassaResponse500) & {
-  headers: Headers;
-};
+;
 
-export type paymentControllerTopUpBalanceWithYooKassaResponse = (paymentControllerTopUpBalanceWithYooKassaResponseSuccess | paymentControllerTopUpBalanceWithYooKassaResponseError)
+export type paymentControllerTopUpBalanceWithYooKassaResponse = (paymentControllerTopUpBalanceWithYooKassaResponseSuccess)
 
 export const getPaymentControllerTopUpBalanceWithYooKassaUrl = () => {
 
@@ -83,7 +66,7 @@ export const paymentControllerTopUpBalanceWithYooKassa = async (topUpBalanceWith
 
 
 
-export const getPaymentControllerTopUpBalanceWithYooKassaMutationOptions = <TError = void,
+export const getPaymentControllerTopUpBalanceWithYooKassaMutationOptions = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof paymentControllerTopUpBalanceWithYooKassa>>, TError,{data: TopUpBalanceWithYooKassaDto}, TContext>, request?: SecondParameter<typeof customMutator>}
 ): UseMutationOptions<Awaited<ReturnType<typeof paymentControllerTopUpBalanceWithYooKassa>>, TError,{data: TopUpBalanceWithYooKassaDto}, TContext> => {
 
@@ -112,12 +95,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type PaymentControllerTopUpBalanceWithYooKassaMutationResult = NonNullable<Awaited<ReturnType<typeof paymentControllerTopUpBalanceWithYooKassa>>>
     export type PaymentControllerTopUpBalanceWithYooKassaMutationBody = TopUpBalanceWithYooKassaDto
-    export type PaymentControllerTopUpBalanceWithYooKassaMutationError = void
+    export type PaymentControllerTopUpBalanceWithYooKassaMutationError = unknown
 
     /**
  * @summary Top up balance with YooKassa
  */
-export const usePaymentControllerTopUpBalanceWithYooKassa = <TError = void,
+export const usePaymentControllerTopUpBalanceWithYooKassa = <TError = unknown,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof paymentControllerTopUpBalanceWithYooKassa>>, TError,{data: TopUpBalanceWithYooKassaDto}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
         Awaited<ReturnType<typeof paymentControllerTopUpBalanceWithYooKassa>>,

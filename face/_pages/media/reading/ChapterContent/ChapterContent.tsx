@@ -1,9 +1,9 @@
-import { LanguageCode } from 'utils/languages'
-import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
-import { useReadingStore } from '_pages/media/reading/readingStore'
-import './ChapterContent.scss'
+// import { LanguageCode } from 'utils/languages'
+// import SentenceBlock from '_pages/media/commonComponents/sentenceBlock/SentenceBlock/SentenceBlock'
+// import { useReadingStore } from '_pages/media/reading/readingStore'
+// import './ChapterContent.scss'
 
-function ChapterContent() {
+/*function ChapterContent() {
 	const populatedChapter = useReadingStore((state) => state.populatedChapter)
 	const selection = useReadingStore((state) => state.selection)
 	const selectWord = useReadingStore((state) => state.selectWord)
@@ -19,13 +19,13 @@ function ChapterContent() {
 						selectedSentenceId={selection.sentenceId}
 						selectedWordId={selection.wordId}
 						selectWord={selectWord}
-						languageCode={book?.languageCode! as LanguageCode}
+						languageCode={book?.languageCode! as unknown as LanguageCode}
 						environmentColor='white'
 					/>
 				)
 			})}
 		</div>
 	)
-}
+}*/
 
-export default ChapterContent
+// export default ChapterContent

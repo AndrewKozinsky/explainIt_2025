@@ -1,7 +1,7 @@
-import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
-import './ReadingNavigation.scss'
+// import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
+// import './ReadingNavigation.scss'
 
-function ReadingNavigation() {
+/*function ReadingNavigation() {
 	return (
 		<div className='reading-navigation'>
 			<div className='reading-navigation__auto-height' />
@@ -12,6 +12,6 @@ function ReadingNavigation() {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default ReadingNavigation
+// export default ReadingNavigation

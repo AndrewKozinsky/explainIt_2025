@@ -1,31 +1,28 @@
-'use client'
-
-import { pageUrls } from 'utils/pageUrls'
+import { VideosApi } from '@/entites/videos/repository/VideosApi'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { fetchData } from '@/shared/utils/fetchData'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
 import { videoConfig } from '_pages/media/commonComponents/videoConfig'
 import MediaItemsGrid from '../../commonComponents/mediaItemsGrid/MediaItemsGrid/MediaItemsGrid'
-import { useGetContentConfig } from './fn/getContentConfig'
-import { useGetAddVideoConfig } from './fn/getOnAddVideoClick'
-import { usePopulateVideosStore } from './fn/populateVideosStore'
+import { AddVideoButtonWrapper } from '../AddVideoButtonWrapper/AddVideoButtonWrapper'
+import { getContentConfig } from './fn/getContentConfig'
 
-function VideosPage() {
-	usePopulateVideosStore()
+export default async function VideosPage() {
+	const api = new VideosApi()
+	const { error, data } = await fetchData(() => api.getVideos())
 
-	const contentConfig = useGetContentConfig()
-	const addVideoConfig = useGetAddVideoConfig()
+	const config = data ? getContentConfig(data) : null
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.videos.name}>
 			<MediaItemsGrid
-				loading={contentConfig.loading}
-				error={contentConfig.error}
-				config={contentConfig.config}
-				addMediaButtonConfig={addVideoConfig}
+				loading={false}
+				error={error}
+				config={config}
+				addButton={<AddVideoButtonWrapper />}
 				defaultMediaName={videoConfig.newVideoEmptyName}
 			/>
 		</MediaPageContentWrapper>
 	)
 }
-
-export default VideosPage
