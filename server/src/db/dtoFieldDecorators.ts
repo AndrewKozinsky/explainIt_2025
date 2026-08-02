@@ -44,17 +44,17 @@ export function DtoFieldDecorators(
 	// --- class-validator decorators ---
 	if (updatedFieldConf.type === 'index') {
 		decorators.push(Type(() => Number)) // Converts string to number
-		decorators.push(IsNumber())
+		decorators.push(IsNumber({}, { message: serializeErrorMessage(errorMessage.mustBeNumber) }))
 	}
 	if (updatedFieldConf.type === 'manyToOne') {
 		decorators.push(Type(() => Number)) // Converts string to number
-		decorators.push(IsNumber())
+		decorators.push(IsNumber({}, { message: serializeErrorMessage(errorMessage.mustBeNumber) }))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
 	}
 	if (updatedFieldConf.type === 'string') {
-		decorators.push(IsString({ message: name + ' must be a string' }))
+		decorators.push(IsString({ message: serializeErrorMessage(errorMessage.mustBeString(name)) }))
 		decorators.push(Trim())
 
 		if (updatedFieldConf.minLength) {
@@ -74,11 +74,11 @@ export function DtoFieldDecorators(
 		}
 
 		if (updatedFieldConf.match) {
-			const errMessage = updatedFieldConf.matchErrorMessage
-				? updatedFieldConf.matchErrorMessage
-				: name + ' does not match'
-
-			decorators.push(Matches(updatedFieldConf.match, { message: errMessage }))
+			decorators.push(
+				Matches(updatedFieldConf.match, {
+					message: serializeErrorMessage(errorMessage.stringDoesNotMatch(name)),
+				}),
+			)
 		}
 
 		if (!updatedFieldConf.required) {
@@ -86,8 +86,8 @@ export function DtoFieldDecorators(
 		}
 	}
 	if (updatedFieldConf.type === 'enum') {
-		decorators.push(IsString({ message: name + ' must be a string' }))
-		decorators.push(IsIn(updatedFieldConf.variants, { message: name + ' must be a valid enum value' }))
+		decorators.push(IsString({ message: serializeErrorMessage(errorMessage.mustBeString(name)) }))
+		decorators.push(IsIn(updatedFieldConf.variants, { message: serializeErrorMessage(errorMessage.mustBeEnumValue(name)) }))
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
@@ -115,7 +115,7 @@ export function DtoFieldDecorators(
 	}
 	if (updatedFieldConf.type === 'number') {
 		decorators.push(Type(() => Number)) // Converts string to number
-		decorators.push(IsNumber())
+		decorators.push(IsNumber({}, { message: serializeErrorMessage(errorMessage.mustBeNumber) }))
 
 		if (updatedFieldConf.min) {
 			decorators.push(
@@ -152,7 +152,7 @@ export function DtoFieldDecorators(
 				return value
 			}),
 		)
-		decorators.push(IsBoolean({ message: name + ' must be a boolean' }))
+		decorators.push(IsBoolean({ message: serializeErrorMessage(errorMessage.mustBeBoolean(name)) }))
 	}
 	if (updatedFieldConf.type === 'array') {
 		let errMessage = serializeErrorMessage(errorMessage.mustBeArray(name))
@@ -168,7 +168,7 @@ export function DtoFieldDecorators(
 		decorators.push(IsArray({ message: errMessage }))
 
 		if (updatedFieldConf.arrayItemType === 'string') {
-			decorators.push(IsString({ each: true }))
+			decorators.push(IsString({ each: true, message: serializeErrorMessage(errorMessage.mustBeString(name)) }))
 		}
 
 		if (!updatedFieldConf.required) {
@@ -211,6 +211,24 @@ export function getApiPropertyOptions(fieldConf: Record<string, any>) {
 	}
 	if (fieldConf.max !== undefined) {
 		options.maximum = fieldConf.max
+	}
+
+	const typeMap: Record<string, string> = {
+		string: 'string',
+		email: 'string',
+		enum: 'string',
+		dateString: 'string',
+		dateTime: 'string',
+		timeString: 'string',
+		number: 'number',
+		index: 'number',
+		uuidIndex: 'number',
+		boolean: 'boolean',
+		array: 'array',
+	}
+
+	if (fieldConf.type && typeMap[fieldConf.type]) {
+		options.type = typeMap[fieldConf.type]
 	}
 
 	return options

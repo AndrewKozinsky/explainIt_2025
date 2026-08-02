@@ -1,6 +1,6 @@
 import { Content, GoogleGenAI } from '@google/genai'
 import { Injectable } from '@nestjs/common'
-import { GoogleGeminiModels } from 'types/googleGeminiModels'
+import { GoogleGeminiModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'

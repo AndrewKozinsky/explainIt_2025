@@ -24,7 +24,7 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
 export function theCountOfMonteCristoBookData(s3FolderName: string) {
-	const coverFileName = 'the_count_of_monte_cristo_cover_1.jpg'
+	const coverFileName = 'the_count_of_monte_cristo.jpg'
 
 	return {
 		author: 'Alexandre Dumas',

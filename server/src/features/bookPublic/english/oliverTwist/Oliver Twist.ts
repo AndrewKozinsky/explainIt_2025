@@ -53,7 +53,7 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
 export function oliverTwistBookData(s3FolderName: string) {
-	const coverFileName = 'oliver_twist_cover_1.jpg'
+	const coverFileName = 'oliver_twist.jpg'
 
 	return {
 		author: 'Charles Dickens',

@@ -1,10 +1,10 @@
 import { INestApplication } from '@nestjs/common'
 import { z } from 'zod'
-import { queries } from '../../src/features/db/queries'
+// import { queries } from '../../src/features/db/queries'
 // import { BookChapterRepository } from '../../src/repo/bookChapter.repository'
 import { makeGraphQLReqWithTokens } from '../makeGQReq'
 
-export const bookChapterUtils = {
+/*export const bookChapterUtils = {
 	checkBookChapterOutResp(
 		bookChapter: any,
 		checks?: {
@@ -260,9 +260,9 @@ export const bookChapterUtils = {
 		return delteBookChapterResp
 	},
 
-	/*async getBookChapters(inputs: { bookId: number; bookChapterRepository: BookChapterRepository }) {
+	async getBookChapters(inputs: { bookId: number; bookChapterRepository: BookChapterRepository }) {
 		return await inputs.bookChapterRepository.getBookChapterByBookId(inputs.bookId)
-	},*/
+	},
 
 	async getBookChapter(input: {
 		app: INestApplication
@@ -292,4 +292,4 @@ export const bookChapterUtils = {
 So she was confused.
 White Rabbit ran by her.`
 	},
-}
+}*/

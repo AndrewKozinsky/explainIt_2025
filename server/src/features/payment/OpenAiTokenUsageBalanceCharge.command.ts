@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { OpenAIModels } from 'types/openAIModels'
+import { OpenAIModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'

@@ -2,7 +2,7 @@ import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 
 export function secretCluesBookData(s3FolderName: string) {
-	const coverFileName = 'secretClues_cover_1.jpg'
+	const coverFileName = 'secretClues.jpg'
 
 	return {
 		author: 'Fiona Kelly',

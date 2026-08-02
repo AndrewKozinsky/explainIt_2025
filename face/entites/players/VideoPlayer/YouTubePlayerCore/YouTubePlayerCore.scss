@@ -1,0 +1,18 @@
+// ⸻ Контейнер для YouTube iframe ⸻
+
+.video-root__youtube-container {
+	position: relative;
+	width: 100%;
+	max-height: 100%;
+	// Вертикальное центрирование внутри flex-родителя (.video-root)
+	margin-top: auto;
+	margin-bottom: auto;
+
+	iframe {
+		position: absolute;
+		inset: 0;
+		width: 100% !important;
+		height: 100% !important;
+		border: 0;
+	}
+}

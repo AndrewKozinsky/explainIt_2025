@@ -1,8 +1,7 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { useLocale } from 'next-intl'
-import { universalPhraseTranslationControllerGetOrCreateTranslation } from '@/shared/api/generated/universal-phrase-translation/universal-phrase-translation'
-import type { GetOrCreateUniversalPhraseTranslationInput, UniversalPhraseTranslationOutModel } from '@/shared/api/generated/models'
-import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { useDetailsStore } from '@/entites/detailsBlock/detailsStore'
+import { PhraseTranslationApi } from '@/entites/phraseTranslation/repository/PhraseTranslationApi'
 import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 import { createFetchTranslation } from './createFetchTranslation'
 import { useRetryEffect } from './useRetryEffect'
@@ -20,13 +19,7 @@ export function usePhraseTranslation() {
 
 	const abortRef = useRef<AbortController | null>(null)
 
-	const mutateTranslation = useCallback(
-		async (input: GetOrCreateUniversalPhraseTranslationInput, options?: RequestInit) => {
-			const response = await universalPhraseTranslationControllerGetOrCreateTranslation(input, options)
-			return response as unknown as UniversalPhraseTranslationOutModel
-		},
-		[],
-	)
+	const translationRepository = useMemo(() => new PhraseTranslationApi(), [])
 
 	// Функция перевода — создаётся один раз, значения читает через геттеры
 	const fetchTranslation = useMemo(
@@ -34,10 +27,10 @@ export function usePhraseTranslation() {
 			createFetchTranslation({
 				getSourceLang: () => useDetailsStore.getState().languageCode ?? '',
 				getTargetLang: () => locale,
-				mutateTranslation,
+				translationRepository,
 				getAbortSignal: () => abortRef.current?.signal,
 			}),
-		[locale, mutateTranslation],
+		[locale, translationRepository],
 	)
 
 	// Эффекты

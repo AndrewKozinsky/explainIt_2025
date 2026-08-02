@@ -17,8 +17,8 @@ import { UniversalPhraseAudioModule } from 'routes/universalPhraseAudio/universa
 import { UniversalPhraseTranscriptionModule } from 'routes/universalPhraseTranscription/universalPhraseTranscription.module'
 import { UniversalPhraseTranslationModule } from 'routes/universalPhraseTranslation/universalPhraseTranslation.module'
 import { VideoModule } from 'routes/video/video.module'
-import { VideoCollectionModule } from 'routes/videoCollection/videoCollection.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
+import { YoutubeRouteModule } from 'routes/youtube/youtube.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
@@ -39,6 +39,7 @@ import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.
 // import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
 // import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTranslate.module'
 import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
+import { YoutubeModule } from 'infrastructure/youtube/youtube.module'
 
 @Module({
 	imports: [
@@ -68,7 +69,8 @@ import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 		BookModule,
 		BookChapterModule,
 		VideoModule,
-		VideoCollectionModule,
+		YoutubeModule,
+		YoutubeRouteModule,
 		TranslateRouteModule,
 		SentenceChatModule,
 		UniversalPhraseModule,

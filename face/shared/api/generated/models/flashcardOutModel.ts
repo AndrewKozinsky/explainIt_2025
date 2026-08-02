@@ -5,9 +5,6 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { FlashcardOutModelPhraseTranscription } from './flashcardOutModelPhraseTranscription';
-import type { FlashcardOutModelPhraseTranslation } from './flashcardOutModelPhraseTranslation';
-import type { FlashcardOutModelSentenceTranslation } from './flashcardOutModelSentenceTranslation';
 import type { SentencePhraseTranslationExampleOutModel } from './sentencePhraseTranslationExampleOutModel';
 
 export interface FlashcardOutModel {
@@ -17,7 +14,7 @@ export interface FlashcardOutModel {
   /** Snapshot of the sentence text */
   sentenceText: string;
   /** Snapshot of the sentence translation */
-  sentenceTranslation?: FlashcardOutModelSentenceTranslation;
+  sentenceTranslation?: string | null;
   /**
      * Snapshot of the phrase
      * @maxLength 500
@@ -28,9 +25,9 @@ export interface FlashcardOutModel {
   /** Phrase end offset within the sentence text snapshot */
   phraseEndOffset: number;
   /** Snapshot of the phrase translation */
-  phraseTranslation?: FlashcardOutModelPhraseTranslation;
+  phraseTranslation?: string | null;
   /** Snapshot of the phrase transcription */
-  phraseTranscription?: FlashcardOutModelPhraseTranscription;
+  phraseTranscription?: string | null;
   /** Phrase usage examples */
   examples: SentencePhraseTranslationExampleOutModel[];
   /** Book ID (source) */

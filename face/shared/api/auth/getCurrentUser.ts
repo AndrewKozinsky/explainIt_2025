@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import type { UserOutModel } from '@/shared/api/generated/models'
+import type { UserModel } from '@/entites/auth/repository/AuthRepository'
 
 /**
  * Fetches the current user on the server side by forwarding the session cookie
@@ -16,7 +16,7 @@ import type { UserOutModel } from '@/shared/api/generated/models'
 
 const API_INTERNAL_URL = getApiInternalUrl()
 
-export async function getCurrentUser(): Promise<UserOutModel | null> {
+export async function getCurrentUser(): Promise<UserModel | null> {
 	const cookieStore = await cookies()
 	const sessionCookie = cookieStore.get('session')
 

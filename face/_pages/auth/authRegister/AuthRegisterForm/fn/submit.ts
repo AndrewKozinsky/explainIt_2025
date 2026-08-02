@@ -1,7 +1,8 @@
-import { useCallback } from 'react'
-import { useAuthControllerRegister } from '@/shared/api/generated/auth/auth'
-import type { UserOutModel } from '@/shared/api/generated/models'
-import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+import { useCallback, useMemo } from 'react'
+import { AuthService } from '@/entites/auth/AuthService'
+import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { FormStatus } from '@/shared/utils/forms'
 import { RegisterFormData } from './form'
 
 export function useGetOnRegisterFormSubmit(
@@ -10,25 +11,37 @@ export function useGetOnRegisterFormSubmit(
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 	setFormSuccess: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const { mutateAsync: registerUser } = useAuthControllerRegister()
+	const service = useMemo(() => new AuthService(new AuthApi()), [])
+	const { mutate: registerUser } = useAsyncMutation((input: { email: string; password: string }) =>
+		service.register(input),
+	)
 
 	return useCallback(
 		async function (formData: RegisterFormData) {
 			setFormError(null)
 			setFormStatus('submitting')
 
-			try {
-				const response = await registerUser({ data: { email: formData.email, password: formData.password } })
-				const user = response as unknown as UserOutModel
+			const result = await registerUser({ email: formData.email, password: formData.password })
 
-				setFormStatus('success')
-				setFormSuccess('На почту ' + user.email + ' отправлено письмо с кодом подтверждения.')
-			} catch (gqError: unknown) {
-				setErrorsToForm(gqError, setFieldError, setFormError)
+			if (result.error) {
+				setFormError(result.error)
 				setFormStatus('idle')
+				return
 			}
 
-			setFormStatus('idle')
+			if (result.errors) {
+				result.errors.forEach(({ field, messages }) => {
+					setFieldError(field as keyof RegisterFormData, {
+						type: 'manual',
+						message: messages.join(', '),
+					})
+				})
+				setFormStatus('hasErrors')
+				return
+			}
+
+			setFormStatus('success')
+			setFormSuccess('На почту ' + result.data.email + ' отправлено письмо с кодом подтверждения.')
 		},
 		[registerUser, setFieldError, setFormError, setFormStatus, setFormSuccess],
 	)

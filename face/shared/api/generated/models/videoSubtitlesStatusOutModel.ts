@@ -5,20 +5,20 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { VideoSubtitlesStatusOutModelError } from './videoSubtitlesStatusOutModelError';
+import type { VideoSubtitlesStatusOutModelErrorCode } from './videoSubtitlesStatusOutModelErrorCode';
 import type { VideoSubtitlesStatusOutModelJobId } from './videoSubtitlesStatusOutModelJobId';
-import type { VideoSubtitlesStatusOutModelStartedAt } from './videoSubtitlesStatusOutModelStartedAt';
+import type { VideoSubtitlesStatusOutModelSource } from './videoSubtitlesStatusOutModelSource';
 import type { VideoSubtitlesStatusOutModelStatus } from './videoSubtitlesStatusOutModelStatus';
 
 export interface VideoSubtitlesStatusOutModel {
   /** Video ID */
   videoId: number;
-  /** Current status of subtitles generation */
+  /** Who created the subtitles */
+  source: VideoSubtitlesStatusOutModelSource;
+  /** Current status of subtitles processing */
   status: VideoSubtitlesStatusOutModelStatus;
-  /** Error message if generation failed */
-  error: VideoSubtitlesStatusOutModelError;
-  /** ISO timestamp when generation started */
-  startedAt: VideoSubtitlesStatusOutModelStartedAt;
-  /** BullMQ job ID of the generation task */
+  /** Machine-readable error code if processing failed */
+  errorCode: VideoSubtitlesStatusOutModelErrorCode;
+  /** BullMQ job ID of the subtitles task */
   jobId: VideoSubtitlesStatusOutModelJobId;
 }

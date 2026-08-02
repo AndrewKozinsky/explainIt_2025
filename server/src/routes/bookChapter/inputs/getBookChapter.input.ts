@@ -2,7 +2,7 @@ import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 export class GetBookChapterInput {
-	@DtoFieldDecorators('bookType', bdConfig.Book.dbFields.id)
+	@DtoFieldDecorators('bookType', bdConfig.Book.dbFields.type)
 	bookType: 'public' | 'private'
 
 	@DtoFieldDecorators('targetLanguageCode', bdConfig.SentenceTranslation.dbFields.target_language_code, {

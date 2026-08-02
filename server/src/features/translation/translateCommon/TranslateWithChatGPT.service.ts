@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { OpenAIModels } from 'types/openAIModels'
+import { OpenAIModels } from 'types/AIModels'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 import { LanguageCode } from 'prisma/generated/enums'
 import {

@@ -5,7 +5,6 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { SentenceChatMessageOutModelErrorMessage } from './sentenceChatMessageOutModelErrorMessage';
 
 export interface SentenceChatMessageOutModel {
   /** Sentence chat message ID */
@@ -19,7 +18,7 @@ export interface SentenceChatMessageOutModel {
   /** Lifecycle status of the message (mostly relevant for assistant messages) */
   status: string;
   /** Error description if status is failed */
-  errorMessage?: SentenceChatMessageOutModelErrorMessage;
+  errorMessage?: string | null;
   createdAt: string;
   updatedAt: string;
 }

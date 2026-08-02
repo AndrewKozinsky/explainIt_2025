@@ -33,7 +33,7 @@ import { chapter_9 } from './chapter_9'
 // https://www.livrosgratis.com.br/ler-livro-online-99606/cuore
 
 export function heartBookData(s3FolderName: string) {
-	const coverFileName = 'heart_1.jpg'
+	const coverFileName = 'heart.jpg'
 
 	return {
 		author: 'Edmondo De Amicis',

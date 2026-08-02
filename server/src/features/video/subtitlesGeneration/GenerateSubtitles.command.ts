@@ -1,14 +1,11 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SubtitlesGenerationQueue } from 'infrastructure/queues/subtitlesGeneration.queue'
 import { VideoSubtitlesStatusOutModel } from 'models/video/videoSubtitlesStatus.out.model'
-import { SubtitlesGenerationStatus } from 'prisma/generated/client'
-import { calculateSubtitlesGenerationPriceKopecks } from './calculateSubtitlesGenerationPriceKopecks'
+import { SubtitlesStatus } from 'prisma/generated/client'
 
 export class GenerateSubtitlesCommand implements ICommand {
 	constructor(
@@ -22,30 +19,32 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 	constructor(
 		private videoRepository: VideoRepository,
 		private subtitlesQueue: SubtitlesGenerationQueue,
-		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
-		private mainConfig: MainConfigService,
 	) {}
 
 	async execute(command: GenerateSubtitlesCommand): Promise<VideoSubtitlesStatusOutModel> {
 		const { userId, videoId } = command
 
-		const state = await this.videoRepository.getSubtitlesGenerationState(videoId)
+		const state = await this.videoRepository.getSubtitlesState(videoId)
 
 		if (!state) {
 			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}
+
 		if (state.userId !== userId) {
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
+
 		if (!state.isFileUploaded || !state.fileS3Key) {
 			throw new CustomError(errorMessage.video.subtitlesGenerationFileNotUploaded, ErrorStatusCode.BadRequest_400)
 		}
+
 		if (!state.languageCode) {
 			throw new CustomError(
 				errorMessage.video.subtitlesGenerationLanguageRequired,
 				ErrorStatusCode.BadRequest_400,
 			)
 		}
+
 		if (!state.fileDurationSec) {
 			throw new CustomError(
 				errorMessage.video.subtitlesGenerationDurationRequired,
@@ -53,23 +52,8 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 			)
 		}
 
-		const { pricePerSecondInKopecks } = this.mainConfig.get().deepgram
-		const { asrMarkupMultiplier } = this.mainConfig.get().generateSubtitles
-
-		const amountInKopecks = calculateSubtitlesGenerationPriceKopecks({
-			durationSec: state.fileDurationSec,
-			pricePerSecondInKopecks,
-			asrMarkupMultiplier,
-		})
-
-		// Ensure user has enough balance before transitioning to pending
-		await this.userBalanceTransactionRepository.ensureCanChargeOrThrow({
-			userId,
-			minBalanceInKopecks: amountInKopecks,
-		})
-
 		// Atomic transition: idle/done/failed -> pending. Guards against parallel runs.
-		const transitioned = await this.videoRepository.tryStartSubtitlesGeneration(videoId, userId)
+		const transitioned = await this.videoRepository.tryStartSubtitlesProcessing(videoId, userId)
 		if (!transitioned) {
 			throw new CustomError(errorMessage.video.subtitlesGenerationAlreadyRunning, ErrorStatusCode.BadRequest_400)
 		}
@@ -77,32 +61,24 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 		let jobId: string
 
 		try {
-			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
-			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.pending, {
-				chargeKopecks: amountInKopecks,
-			})
-			jobId = await this.subtitlesQueue.enqueue({ videoId, userId })
+			jobId = await this.subtitlesQueue.enqueue({ videoId, userId, source: 'userUpload' })
 		} catch (err) {
-			if (await this.videoRepository.tryMarkSubtitlesGenerationRefunded(videoId)) {
-				await this.userBalanceTransactionRepository.createRefund({ userId, amountInKopecks })
-			}
-
-			await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.failed, {
-				error: err instanceof Error ? err.message : 'Failed to enqueue subtitles generation job',
+			await this.videoRepository.setSubtitlesStatus(videoId, SubtitlesStatus.failed, {
+				errorCode: 'QUEUE_ENQUEUE_FAILED',
 			})
 
 			throw err
 		}
 
-		await this.videoRepository.setSubtitlesGenerationStatus(videoId, SubtitlesGenerationStatus.pending, {
+		await this.videoRepository.setSubtitlesStatus(videoId, SubtitlesStatus.pending, {
 			jobId,
 		})
 
 		return {
 			videoId,
-			status: SubtitlesGenerationStatus.pending,
-			error: null,
-			startedAt: new Date().toISOString(),
+			source: 'user',
+			status: SubtitlesStatus.pending,
+			errorCode: null,
 			jobId,
 		}
 	}

@@ -4,7 +4,7 @@ import { chapter_2 } from './chapter_2'
 import { chapter_3 } from './chapter_3'
 
 export function theTransformationBookData(s3FolderName: string) {
-	const coverFileName = 'theTransformation_1.jpg'
+	const coverFileName = 'theTransformation.jpg'
 
 	return {
 		author: 'Franz Kafka',

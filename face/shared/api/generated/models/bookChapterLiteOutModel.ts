@@ -5,9 +5,6 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { BookChapterLiteOutModelHeader } from './bookChapterLiteOutModelHeader';
-import type { BookChapterLiteOutModelName } from './bookChapterLiteOutModelName';
-import type { BookChapterLiteOutModelNote } from './bookChapterLiteOutModelNote';
 
 export interface BookChapterLiteOutModel {
   /** Book chapter ID */
@@ -18,16 +15,16 @@ export interface BookChapterLiteOutModel {
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
      */
-  name?: BookChapterLiteOutModelName;
+  name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
      */
-  header?: BookChapterLiteOutModelHeader;
+  header?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
      */
-  note?: BookChapterLiteOutModelNote;
+  note?: string | null;
 }

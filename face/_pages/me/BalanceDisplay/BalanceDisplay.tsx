@@ -1,6 +1,5 @@
 'use client'
 
-import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import { useBalanceDisplay } from './fn/useBalanceDisplay'
 import './BalanceDisplay.scss'
 

@@ -52,7 +52,7 @@ export function mapSentencePhraseTranslations(
 			translate: pt.translate,
 			examples,
 			status: pt.status,
-			errorMessage: pt.error_message,
+			errorCode: pt.error_code,
 			createdAt: pt.created_at.toISOString(),
 			updatedAt: pt.updated_at.toISOString(),
 			flashcardId: null,

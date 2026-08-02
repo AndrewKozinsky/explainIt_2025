@@ -3,9 +3,6 @@ import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 export class CreateVideoInput {
-	@DtoFieldDecorators('videoCollectionId', bdConfig.Video.dbFields.video_collection_id)
-	videoCollectionId: number
-
 	@DtoFieldDecorators('name', bdConfig.Video.dbFields.name)
 	name?: null | string
 
@@ -22,6 +19,6 @@ export class CreateVideoInput {
 	})
 	fileDurationSec?: number
 
-	@DtoFieldDecorators('languageCode', bdConfig.VideoCollection.dbFields.source_language_code)
+	@DtoFieldDecorators('languageCode', bdConfig.Video.dbFields.source_language_code)
 	languageCode: Language
 }

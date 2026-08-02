@@ -25,7 +25,7 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
 export function wizardOfOzBookData(s3FolderName: string) {
-	const coverFileName = 'wizard_of_oz_cover_1.jpg'
+	const coverFileName = 'wizard_of_oz.jpg'
 
 	return {
 		author: 'Lyman Frank Baum',

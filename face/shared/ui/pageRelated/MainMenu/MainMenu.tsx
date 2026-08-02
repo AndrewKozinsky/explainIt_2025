@@ -13,6 +13,9 @@ export function MainMenu() {
 					<MainMenuLink linkData={{ name: pageUrls.videos.name, path: pageUrls.videos.path }} />
 				</li>
 				<li>
+					<MainMenuLink linkData={{ name: pageUrls.youtube.name, path: pageUrls.youtube.path }} />
+				</li>
+				<li>
 					<MainMenuLink linkData={{ name: pageUrls.dictionary.name, path: pageUrls.dictionary.path }} />
 				</li>
 				{/*<li>

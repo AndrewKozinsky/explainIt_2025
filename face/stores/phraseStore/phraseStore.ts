@@ -1,15 +1,10 @@
 import { create } from 'zustand'
+import { PhraseApi } from '@/entites/phrase/repository/PhraseApi'
 import type {
-	UniversalPhraseOutModel,
-	TranscriptionOutModel,
-	UniversalAudioPronunciationOutModel,
-} from '@/shared/api/generated/models'
-import {
-	universalPhraseControllerGetUniversalPhrase,
-	universalPhraseControllerCreateUniversalPhrase,
-} from '@/shared/api/generated/universal-phrase/universal-phrase'
-import { universalPhraseAudioControllerGetOrCreateAudio } from '@/shared/api/generated/universal-phrase-audio/universal-phrase-audio'
-import { universalPhraseTranscriptionControllerGetOrCreateTranscription } from '@/shared/api/generated/universal-phrase-transcription/universal-phrase-transcription'
+	PhraseModel,
+	TranscriptionModel,
+	AudioPronunciationModel,
+} from '@/entites/phrase/repository/PhraseRepository'
 import { LanguageCode } from '@/shared/utils/languages'
 import { makePhraseKey } from './helpers'
 import { EntryData, PhraseData, PhraseResult, PhraseStore, PreloadItem } from './types'
@@ -17,6 +12,8 @@ import { EntryData, PhraseData, PhraseResult, PhraseStore, PreloadItem } from '.
 const phraseRequestCache = new Map<string, Promise<PhraseResult>>()
 const transcriptionRequests = new Map<string, Promise<void>>()
 const audioRequests = new Map<string, Promise<void>>()
+
+const phraseApi = new PhraseApi()
 
 export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 	function setEntry(key: string, patch: Partial<EntryData>) {
@@ -58,18 +55,32 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 		return newEntry
 	}
 
-	function savePhraseToEntry(key: string, phraseData: PhraseData) {
-		const transcriptionIpa = phraseData.transcription?.ipa ?? null
-		const audioUrl = phraseData.audioPronunciation?.audioUrl ?? null
+	function savePhraseFromModel(key: string, model: PhraseModel) {
+		const transcriptionIpa = model.transcription?.ipa ?? null
+		const audioUrl = model.audioPronunciation?.audioUrl ?? null
 
 		setEntry(key, {
-			phraseId: phraseData.id,
+			phraseId: model.id,
 			phraseStatus: 'ready',
 			transcription: transcriptionIpa,
 			transcriptionStatus: transcriptionIpa ? 'ready' : 'idle',
 			audioUrl: audioUrl,
 			audioStatus: audioUrl ? 'ready' : 'idle',
 		})
+	}
+
+	function buildPhraseDataFromEntry(entry: EntryData, phrase: string, languageCode: LanguageCode): PhraseData {
+		return {
+			id: entry.phraseId!,
+			text: phrase,
+			sourceLanguageCode: languageCode,
+			transcription: entry.transcription
+				? { id: 0, universalPhraseId: entry.phraseId!, ipa: entry.transcription, pinyin: null }
+				: null,
+			audioPronunciation: entry.audioUrl
+				? { id: 0, universalPhraseId: entry.phraseId!, audioUrl: entry.audioUrl }
+				: null,
+		}
 	}
 
 	return {
@@ -83,17 +94,7 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 			if (entry && entry.phraseStatus === 'ready' && entry.phraseId !== null) {
 				return {
 					ok: true,
-					data: {
-						id: entry.phraseId,
-						text: phrase,
-						sourceLanguageCode: languageCode,
-						transcription: entry.transcription
-							? { id: 0, universalPhraseId: entry.phraseId, ipa: entry.transcription, pinyin: null }
-							: null,
-						audioPronunciation: entry.audioUrl
-							? { id: 0, universalPhraseId: entry.phraseId, audioUrl: entry.audioUrl }
-							: null,
-					},
+					data: buildPhraseDataFromEntry(entry, phrase, languageCode),
 				}
 			}
 
@@ -105,34 +106,17 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 				ensureEntry(key, phrase, languageCode)
 				setEntry(key, { phraseStatus: 'loading' })
 
-				try {
-					const response = await universalPhraseControllerGetUniversalPhrase({
-						text: phrase,
-						sourceLanguageCode: languageCode,
-					})
+				const result = await phraseApi.resolvePhrase(phrase, languageCode)
 
-					const data = response as unknown as UniversalPhraseOutModel | null
-					if (data) {
-						savePhraseToEntry(key, data as unknown as PhraseData)
-						return { ok: true, data: data as unknown as PhraseData }
-					}
-				} catch {
-					// fall through to create
+				if (result.error || result.errors) {
+					setEntry(key, { phraseStatus: 'error' })
+					return { ok: false }
 				}
 
-				try {
-					const response = await universalPhraseControllerCreateUniversalPhrase({
-						text: phrase,
-						sourceLanguageCode: languageCode,
-					})
-
-					const data = response as unknown as UniversalPhraseOutModel
-					if (data) {
-						savePhraseToEntry(key, data as unknown as PhraseData)
-						return { ok: true, data: data as unknown as PhraseData }
-					}
-				} catch {
-					// fall through to failure
+				const model = result.data
+				if (model) {
+					savePhraseFromModel(key, model)
+					return { ok: true, data: model as unknown as PhraseData }
 				}
 
 				setEntry(key, { phraseStatus: 'error' })
@@ -219,20 +203,18 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 				}
 
 				// Create transcription
-				try {
-					const transcriptionResult = await universalPhraseTranscriptionControllerGetOrCreateTranscription({
-						universalPhraseId: updated.phraseId!,
-					})
+				const result = await phraseApi.getOrCreateTranscription(updated.phraseId!)
 
-					const transcription = transcriptionResult as unknown as TranscriptionOutModel
-					const ipa = transcription?.ipa ?? null
-					setEntry(key, {
-						transcription: ipa as string | null,
-						transcriptionStatus: 'ready',
-					})
-				} catch {
+				if (result.error || result.errors) {
 					setEntry(key, { transcriptionStatus: 'error' })
+					return
 				}
+
+				const transcription: TranscriptionModel = result.data
+				setEntry(key, {
+					transcription: transcription.ipa,
+					transcriptionStatus: 'ready',
+				})
 			})()
 
 			transcriptionRequests.set(key, promise)
@@ -276,20 +258,19 @@ export const usePhraseStore = create<PhraseStore>()(function (set, get) {
 				setEntry(key, { audioStatus: 'loading' })
 
 				// Create audio
-				try {
-					const audioResult = await universalPhraseAudioControllerGetOrCreateAudio({
-						universalPhraseId: updated.phraseId!,
-					})
+				const result = await phraseApi.getOrCreateAudio(updated.phraseId!)
 
-					const audio = audioResult as unknown as UniversalAudioPronunciationOutModel
-					const audioUrl = audio?.audioUrl ?? null
-					setEntry(key, {
-						audioUrl,
-						audioStatus: audioUrl ? 'ready' : 'error',
-					})
-				} catch {
+				if (result.error || result.errors) {
 					setEntry(key, { audioStatus: 'error' })
+					return
 				}
+
+				const audio: AudioPronunciationModel = result.data
+				const audioUrl = audio.audioUrl
+				setEntry(key, {
+					audioUrl,
+					audioStatus: audioUrl ? 'ready' : 'error',
+				})
 			})()
 
 			audioRequests.set(key, promise)

@@ -6,7 +6,7 @@ export type UniversalPhraseTranslationServiceModel = {
 	targetLanguageCode: LanguageCode
 	translation: null | UniversalPhraseTranslationData
 	status: UniversalPhraseTranslationStatus
-	errorMessage: null | string
+	errorCode: null | string
 	nonExistentWord: boolean
 	createdAt: Date
 }

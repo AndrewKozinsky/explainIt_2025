@@ -1,7 +1,7 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { AIProviderName } from 'types/AIModels'
 import { GetOrCreateUniversalPhraseTranslationCommand } from 'features/universalPhraseTranslation/GetOrCreateUniversalPhraseTranslation.command'
 import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -25,7 +25,7 @@ export class UniversalPhraseTranslationController {
 				phraseText: input.phraseText,
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode as LanguageCode,
-				provider: input.provider as TranslationProviderName,
+				provider: input.provider as AIProviderName,
 			}),
 		)
 	}

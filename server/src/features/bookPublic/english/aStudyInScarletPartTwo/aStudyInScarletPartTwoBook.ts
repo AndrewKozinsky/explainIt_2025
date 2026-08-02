@@ -8,7 +8,7 @@ import { chapter_6 } from './chapter_6'
 import { chapter_7 } from './chapter_7'
 
 export function aStudyInScarletPartTwoBookData(s3FolderName: string) {
-	const coverFileName = 'a_study_in_scarlet_part_two_cover_1.jpg'
+	const coverFileName = 'a_study_in_scarlet_part_two.jpg'
 
 	return {
 		author: 'Arthur Conan Doyle',

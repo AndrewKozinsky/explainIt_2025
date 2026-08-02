@@ -1,12 +1,12 @@
 import { Injectable } from '@nestjs/common'
 import OpenAI from 'openai'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { DeepSeekModels, AIProviderName } from 'types/AIModels'
 import { DeepSeekService } from 'infrastructure/deepSeek/deepSeek.service'
 import { LlmGenerateInput, LlmGenerateOutput, LlmMessage, LlmProvider, LlmStreamInput } from './LlmProvider.interface'
 
 @Injectable()
 export class DeepSeekLlmProvider implements LlmProvider {
-	readonly name: TranslationProviderName = 'deepseek'
+	readonly name: AIProviderName = 'deepseek'
 
 	constructor(private deepSeekService: DeepSeekService) {}
 
@@ -15,6 +15,7 @@ export class DeepSeekLlmProvider implements LlmProvider {
 
 		const response = await this.deepSeekService.generateText({
 			messages,
+			model: input.model ?? DeepSeekModels.Flash,
 			responseFormat: input.responseFormat
 				? input.responseFormat === 'json_object'
 					? { type: 'json_object' }
@@ -36,6 +37,7 @@ export class DeepSeekLlmProvider implements LlmProvider {
 
 		const chunks = this.deepSeekService.generateTextStreamChunks({
 			messages,
+			model: input.model ?? DeepSeekModels.Flash,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
 			lowPriority: input.lowPriority,

@@ -65,6 +65,7 @@
     "uuid": "^13.0.0",
     "winston": "^3.19.0",
     "winston-loki": "^6.1.4",
+    "youtube-dl-exec": "^3.1.9",
     "zod": "^4.3.6"
   },
   "devDependencies": {

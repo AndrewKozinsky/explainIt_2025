@@ -69,8 +69,8 @@ export class UniversalPhraseTranslationOutModel {
 	@ApiProperty(getApiPropertyOptions($.status))
 	status: string
 
-	@ApiProperty(getApiPropertyOptions($.error_message))
-	errorMessage: null | string
+	@ApiProperty(getApiPropertyOptions($.error_code))
+	errorCode: null | string
 
 	@ApiProperty(getApiPropertyOptions($.non_existent_word))
 	nonExistentWord: boolean

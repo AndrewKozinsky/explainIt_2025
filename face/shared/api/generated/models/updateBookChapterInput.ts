@@ -5,31 +5,27 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { UpdateBookChapterInputHeader } from './updateBookChapterInputHeader';
-import type { UpdateBookChapterInputName } from './updateBookChapterInputName';
-import type { UpdateBookChapterInputNote } from './updateBookChapterInputNote';
-import type { UpdateBookChapterInputOriginalContent } from './updateBookChapterInputOriginalContent';
 
 export interface UpdateBookChapterInput {
   /**
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
      */
-  name?: UpdateBookChapterInputName;
+  name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
      */
-  header?: UpdateBookChapterInputHeader;
+  header?: string | null;
   /**
      * Original content of the chapter
      * @maxLength 900000
      */
-  originalContent?: UpdateBookChapterInputOriginalContent;
+  originalContent?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
      */
-  note?: UpdateBookChapterInputNote;
+  note?: string | null;
 }

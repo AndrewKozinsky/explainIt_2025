@@ -42,7 +42,7 @@ export type UniversalPhraseTranslationMinAggregateOutputType = {
   target_language_code: $Enums.LanguageCode | null
   translation: string | null
   status: $Enums.UniversalPhraseTranslationStatus | null
-  error_message: string | null
+  error_code: string | null
   non_existent_word: boolean | null
   created_at: Date | null
 }
@@ -53,7 +53,7 @@ export type UniversalPhraseTranslationMaxAggregateOutputType = {
   target_language_code: $Enums.LanguageCode | null
   translation: string | null
   status: $Enums.UniversalPhraseTranslationStatus | null
-  error_message: string | null
+  error_code: string | null
   non_existent_word: boolean | null
   created_at: Date | null
 }
@@ -64,7 +64,7 @@ export type UniversalPhraseTranslationCountAggregateOutputType = {
   target_language_code: number
   translation: number
   status: number
-  error_message: number
+  error_code: number
   non_existent_word: number
   created_at: number
   _all: number
@@ -87,7 +87,7 @@ export type UniversalPhraseTranslationMinAggregateInputType = {
   target_language_code?: true
   translation?: true
   status?: true
-  error_message?: true
+  error_code?: true
   non_existent_word?: true
   created_at?: true
 }
@@ -98,7 +98,7 @@ export type UniversalPhraseTranslationMaxAggregateInputType = {
   target_language_code?: true
   translation?: true
   status?: true
-  error_message?: true
+  error_code?: true
   non_existent_word?: true
   created_at?: true
 }
@@ -109,7 +109,7 @@ export type UniversalPhraseTranslationCountAggregateInputType = {
   target_language_code?: true
   translation?: true
   status?: true
-  error_message?: true
+  error_code?: true
   non_existent_word?: true
   created_at?: true
   _all?: true
@@ -207,7 +207,7 @@ export type UniversalPhraseTranslationGroupByOutputType = {
   target_language_code: $Enums.LanguageCode
   translation: string | null
   status: $Enums.UniversalPhraseTranslationStatus
-  error_message: string | null
+  error_code: string | null
   non_existent_word: boolean
   created_at: Date
   _count: UniversalPhraseTranslationCountAggregateOutputType | null
@@ -241,7 +241,7 @@ export type UniversalPhraseTranslationWhereInput = {
   target_language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhraseTranslation"> | $Enums.LanguageCode
   translation?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFilter<"UniversalPhraseTranslation"> | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
   non_existent_word?: Prisma.BoolFilter<"UniversalPhraseTranslation"> | boolean
   created_at?: Prisma.DateTimeFilter<"UniversalPhraseTranslation"> | Date | string
   universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
@@ -253,7 +253,7 @@ export type UniversalPhraseTranslationOrderByWithRelationInput = {
   target_language_code?: Prisma.SortOrder
   translation?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrderInput | Prisma.SortOrder
+  error_code?: Prisma.SortOrderInput | Prisma.SortOrder
   non_existent_word?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   universal_phrase?: Prisma.UniversalPhraseOrderByWithRelationInput
@@ -269,7 +269,7 @@ export type UniversalPhraseTranslationWhereUniqueInput = Prisma.AtLeast<{
   target_language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhraseTranslation"> | $Enums.LanguageCode
   translation?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFilter<"UniversalPhraseTranslation"> | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
   non_existent_word?: Prisma.BoolFilter<"UniversalPhraseTranslation"> | boolean
   created_at?: Prisma.DateTimeFilter<"UniversalPhraseTranslation"> | Date | string
   universal_phrase?: Prisma.XOR<Prisma.UniversalPhraseScalarRelationFilter, Prisma.UniversalPhraseWhereInput>
@@ -281,7 +281,7 @@ export type UniversalPhraseTranslationOrderByWithAggregationInput = {
   target_language_code?: Prisma.SortOrder
   translation?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrderInput | Prisma.SortOrder
+  error_code?: Prisma.SortOrderInput | Prisma.SortOrder
   non_existent_word?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UniversalPhraseTranslationCountOrderByAggregateInput
@@ -300,7 +300,7 @@ export type UniversalPhraseTranslationScalarWhereWithAggregatesInput = {
   target_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"UniversalPhraseTranslation"> | $Enums.LanguageCode
   translation?: Prisma.StringNullableWithAggregatesFilter<"UniversalPhraseTranslation"> | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusWithAggregatesFilter<"UniversalPhraseTranslation"> | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.StringNullableWithAggregatesFilter<"UniversalPhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableWithAggregatesFilter<"UniversalPhraseTranslation"> | string | null
   non_existent_word?: Prisma.BoolWithAggregatesFilter<"UniversalPhraseTranslation"> | boolean
   created_at?: Prisma.DateTimeWithAggregatesFilter<"UniversalPhraseTranslation"> | Date | string
 }
@@ -309,7 +309,7 @@ export type UniversalPhraseTranslationCreateInput = {
   target_language_code: $Enums.LanguageCode
   translation?: string | null
   status?: $Enums.UniversalPhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   non_existent_word?: boolean
   created_at?: Date | string
   universal_phrase: Prisma.UniversalPhraseCreateNestedOneWithoutUniversalPhraseTranslationInput
@@ -321,7 +321,7 @@ export type UniversalPhraseTranslationUncheckedCreateInput = {
   target_language_code: $Enums.LanguageCode
   translation?: string | null
   status?: $Enums.UniversalPhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   non_existent_word?: boolean
   created_at?: Date | string
 }
@@ -330,7 +330,7 @@ export type UniversalPhraseTranslationUpdateInput = {
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   universal_phrase?: Prisma.UniversalPhraseUpdateOneRequiredWithoutUniversalPhraseTranslationNestedInput
@@ -342,7 +342,7 @@ export type UniversalPhraseTranslationUncheckedUpdateInput = {
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -353,7 +353,7 @@ export type UniversalPhraseTranslationCreateManyInput = {
   target_language_code: $Enums.LanguageCode
   translation?: string | null
   status?: $Enums.UniversalPhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   non_existent_word?: boolean
   created_at?: Date | string
 }
@@ -362,7 +362,7 @@ export type UniversalPhraseTranslationUpdateManyMutationInput = {
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -373,7 +373,7 @@ export type UniversalPhraseTranslationUncheckedUpdateManyInput = {
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -399,7 +399,7 @@ export type UniversalPhraseTranslationCountOrderByAggregateInput = {
   target_language_code?: Prisma.SortOrder
   translation?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrder
+  error_code?: Prisma.SortOrder
   non_existent_word?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -415,7 +415,7 @@ export type UniversalPhraseTranslationMaxOrderByAggregateInput = {
   target_language_code?: Prisma.SortOrder
   translation?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrder
+  error_code?: Prisma.SortOrder
   non_existent_word?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -426,7 +426,7 @@ export type UniversalPhraseTranslationMinOrderByAggregateInput = {
   target_language_code?: Prisma.SortOrder
   translation?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrder
+  error_code?: Prisma.SortOrder
   non_existent_word?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -486,7 +486,7 @@ export type UniversalPhraseTranslationCreateWithoutUniversal_phraseInput = {
   target_language_code: $Enums.LanguageCode
   translation?: string | null
   status?: $Enums.UniversalPhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   non_existent_word?: boolean
   created_at?: Date | string
 }
@@ -496,7 +496,7 @@ export type UniversalPhraseTranslationUncheckedCreateWithoutUniversal_phraseInpu
   target_language_code: $Enums.LanguageCode
   translation?: string | null
   status?: $Enums.UniversalPhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   non_existent_word?: boolean
   created_at?: Date | string
 }
@@ -536,7 +536,7 @@ export type UniversalPhraseTranslationScalarWhereInput = {
   target_language_code?: Prisma.EnumLanguageCodeFilter<"UniversalPhraseTranslation"> | $Enums.LanguageCode
   translation?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFilter<"UniversalPhraseTranslation"> | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableFilter<"UniversalPhraseTranslation"> | string | null
   non_existent_word?: Prisma.BoolFilter<"UniversalPhraseTranslation"> | boolean
   created_at?: Prisma.DateTimeFilter<"UniversalPhraseTranslation"> | Date | string
 }
@@ -546,7 +546,7 @@ export type UniversalPhraseTranslationCreateManyUniversal_phraseInput = {
   target_language_code: $Enums.LanguageCode
   translation?: string | null
   status?: $Enums.UniversalPhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   non_existent_word?: boolean
   created_at?: Date | string
 }
@@ -555,7 +555,7 @@ export type UniversalPhraseTranslationUpdateWithoutUniversal_phraseInput = {
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -565,7 +565,7 @@ export type UniversalPhraseTranslationUncheckedUpdateWithoutUniversal_phraseInpu
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -575,7 +575,7 @@ export type UniversalPhraseTranslationUncheckedUpdateManyWithoutUniversal_phrase
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   translation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.EnumUniversalPhraseTranslationStatusFieldUpdateOperationsInput | $Enums.UniversalPhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   non_existent_word?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -588,7 +588,7 @@ export type UniversalPhraseTranslationSelect<ExtArgs extends runtime.Types.Exten
   target_language_code?: boolean
   translation?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   non_existent_word?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
@@ -600,7 +600,7 @@ export type UniversalPhraseTranslationSelectCreateManyAndReturn<ExtArgs extends 
   target_language_code?: boolean
   translation?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   non_existent_word?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
@@ -612,7 +612,7 @@ export type UniversalPhraseTranslationSelectUpdateManyAndReturn<ExtArgs extends 
   target_language_code?: boolean
   translation?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   non_existent_word?: boolean
   created_at?: boolean
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
@@ -624,12 +624,12 @@ export type UniversalPhraseTranslationSelectScalar = {
   target_language_code?: boolean
   translation?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   non_existent_word?: boolean
   created_at?: boolean
 }
 
-export type UniversalPhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "target_language_code" | "translation" | "status" | "error_message" | "non_existent_word" | "created_at", ExtArgs["result"]["universalPhraseTranslation"]>
+export type UniversalPhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "universal_phrase_id" | "target_language_code" | "translation" | "status" | "error_code" | "non_existent_word" | "created_at", ExtArgs["result"]["universalPhraseTranslation"]>
 export type UniversalPhraseTranslationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   universal_phrase?: boolean | Prisma.UniversalPhraseDefaultArgs<ExtArgs>
 }
@@ -651,7 +651,7 @@ export type $UniversalPhraseTranslationPayload<ExtArgs extends runtime.Types.Ext
     target_language_code: $Enums.LanguageCode
     translation: string | null
     status: $Enums.UniversalPhraseTranslationStatus
-    error_message: string | null
+    error_code: string | null
     non_existent_word: boolean
     created_at: Date
   }, ExtArgs["result"]["universalPhraseTranslation"]>
@@ -1083,7 +1083,7 @@ export interface UniversalPhraseTranslationFieldRefs {
   readonly target_language_code: Prisma.FieldRef<"UniversalPhraseTranslation", 'LanguageCode'>
   readonly translation: Prisma.FieldRef<"UniversalPhraseTranslation", 'String'>
   readonly status: Prisma.FieldRef<"UniversalPhraseTranslation", 'UniversalPhraseTranslationStatus'>
-  readonly error_message: Prisma.FieldRef<"UniversalPhraseTranslation", 'String'>
+  readonly error_code: Prisma.FieldRef<"UniversalPhraseTranslation", 'String'>
   readonly non_existent_word: Prisma.FieldRef<"UniversalPhraseTranslation", 'Boolean'>
   readonly created_at: Prisma.FieldRef<"UniversalPhraseTranslation", 'DateTime'>
 }

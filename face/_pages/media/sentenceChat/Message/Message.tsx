@@ -1,6 +1,6 @@
-import AssistantMessage from '_pages/media/sentenceChat/Message/AssistantMessage'
-import GenerationIsCancelled from '_pages/media/sentenceChat/Message/GenerationIsCancelled'
 import { ChatUiMessage } from '../types/sseTypes'
+import AssistantMessage from './AssistantMessage'
+import GenerationIsCancelled from './GenerationIsCancelled'
 import UserMessage from './UserMessage'
 import './Message.scss'
 

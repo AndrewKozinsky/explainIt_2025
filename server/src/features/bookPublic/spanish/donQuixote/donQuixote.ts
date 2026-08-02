@@ -31,7 +31,7 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
 export function donQuixoteBookData(s3FolderName: string) {
-	const coverFileName = 'donQuixote_1.jpg'
+	const coverFileName = 'donQuixote.jpg'
 
 	return {
 		author: 'Miguel de Cervantes Saavedra',

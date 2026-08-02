@@ -1,6 +1,10 @@
+export type SubtitlesJobSource = 'userUpload' | 'youTube'
+
 export type SubtitlesGenerationJobData = {
 	videoId: number
-	userId: number
+	source: SubtitlesJobSource
+	/** User ID who initiated the job. Undefined for YouTube videos (public). */
+	userId?: number
 }
 
 export type SubtitlesGenerationJobResult = {

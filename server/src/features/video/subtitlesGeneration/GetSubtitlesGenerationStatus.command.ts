@@ -19,7 +19,7 @@ export class GetSubtitlesGenerationStatusHandler implements ICommandHandler<GetS
 	async execute(command: GetSubtitlesGenerationStatusCommand): Promise<VideoSubtitlesStatusOutModel> {
 		const { userId, videoId } = command
 
-		const state = await this.videoRepository.getSubtitlesGenerationState(videoId)
+		const state = await this.videoRepository.getSubtitlesState(videoId)
 		if (!state) {
 			throw new CustomError(errorMessage.video.notFound, ErrorStatusCode.NotFound_404)
 		}
@@ -29,9 +29,9 @@ export class GetSubtitlesGenerationStatusHandler implements ICommandHandler<GetS
 
 		return {
 			videoId,
+			source: state.source,
 			status: state.status,
-			error: state.error,
-			startedAt: state.startedAt ? state.startedAt.toISOString() : null,
+			errorCode: state.errorCode,
 			jobId: state.jobId,
 		}
 	}

@@ -1,4 +1,4 @@
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { AiModel, AIProviderName } from 'types/AIModels'
 
 // Нейтральный формат сообщения — единый для всех провайдеров.
 // Совместим с OpenAI SDK (де-факто стандарт).
@@ -11,6 +11,8 @@ export type LlmMessage = {
 
 export type LlmGenerateInput = {
 	messages: LlmMessage[]
+	/** Model override. If omitted, the provider's default is used. */
+	model?: AiModel
 	responseFormat?: 'text' | 'json_object'
 	reasoningEffort?: 'low' | 'medium' | 'high'
 	lowPriority?: boolean
@@ -26,6 +28,8 @@ export type LlmGenerateOutput = {
 
 export type LlmStreamInput = {
 	messages: LlmMessage[]
+	/** Model override. If omitted, the provider's default is used. */
+	model?: AiModel
 	abortSignal?: AbortSignal
 	onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
 	lowPriority?: boolean
@@ -34,7 +38,7 @@ export type LlmStreamInput = {
 // ---- Интерфейс провайдера ----
 
 export interface LlmProvider {
-	readonly name: TranslationProviderName
+	readonly name: AIProviderName
 
 	/** Синхронная генерация (перевод, транскрипция, извлечение грамматики). */
 	generate(input: LlmGenerateInput): Promise<LlmGenerateOutput>
@@ -46,9 +50,9 @@ export interface LlmProvider {
 // ---- Входные типы с указанием провайдера (для LlmAdapterService) ----
 
 export type LlmGenerateWithProvider = LlmGenerateInput & {
-	provider: TranslationProviderName
+	provider: AIProviderName
 }
 
 export type LlmStreamWithProvider = LlmStreamInput & {
-	provider: TranslationProviderName
+	provider: AIProviderName
 }

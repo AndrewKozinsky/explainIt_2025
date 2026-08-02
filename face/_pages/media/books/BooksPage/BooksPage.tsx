@@ -1,28 +1,28 @@
+import { BooksService } from '@/entites/books/BooksService'
 import { BooksApi } from '@/entites/books/repository/BooksApi'
+import PublicBooksList from '@/entites/books/ui/PublicBooksList/PublicBooksList'
+import MediaPageContentWrapper from '@/entites/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { fetchData } from '@/shared/utils/fetchData'
+import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
-import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import MediaItemsGrid from '../../commonComponents/mediaItemsGrid/MediaItemsGrid/MediaItemsGrid'
-import { AddBookButtonWrapper } from '../AddBookButtonWrapper/AddBookButtonWrapper'
-import { getContentConfig } from './fn/getContentConfig'
+import { PrivateBooksListWithAdd } from '_pages/media/books/PrivateBooksListWithAdd/PrivateBooksListWithAdd'
+import './BooksPage.scss'
 
 export default async function BooksPage() {
-	const api = new BooksApi()
-	const { error, data } = await fetchData(() => api.getBooks())
+	const booksService = new BooksService(new BooksApi())
+	const { error, errors, data: allBooks } = await booksService.getBooks()
 
-	const config = data ? getContentConfig(data) : null
+	if (error || errors) {
+		return <ErrorMessage text={error ?? errorMessages.unknownServerError} />
+	}
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.books.name}>
-			<MediaItemsGrid
-				loading={false}
-				error={error}
-				config={config}
-				addButton={<AddBookButtonWrapper />}
-				defaultMediaName={bookConfig.emptyBookName}
-			/>
+			<div className='books-page'>
+				<PrivateBooksListWithAdd books={allBooks.private} />
+				<PublicBooksList books={allBooks.public} />
+			</div>
 		</MediaPageContentWrapper>
 	)
 }

@@ -6,57 +6,52 @@
  * OpenAPI spec version: 1.0
  */
 import type { SubtitleSentenceInitOutModel } from './subtitleSentenceInitOutModel';
-import type { VideoOutModelCoverFileName } from './videoOutModelCoverFileName';
-import type { VideoOutModelCoverFileS3Key } from './videoOutModelCoverFileS3Key';
-import type { VideoOutModelCoverUrl } from './videoOutModelCoverUrl';
-import type { VideoOutModelFileDurationSec } from './videoOutModelFileDurationSec';
-import type { VideoOutModelFileName } from './videoOutModelFileName';
-import type { VideoOutModelFileS3Key } from './videoOutModelFileS3Key';
 import type { VideoOutModelFileUrl } from './videoOutModelFileUrl';
-import type { VideoOutModelLanguageCode } from './videoOutModelLanguageCode';
-import type { VideoOutModelName } from './videoOutModelName';
-import type { VideoOutModelNote } from './videoOutModelNote';
-import type { VideoOutModelOriginalContent } from './videoOutModelOriginalContent';
-import type { VideoOutModelProcessedContent } from './videoOutModelProcessedContent';
-import type { VideoOutModelUserId } from './videoOutModelUserId';
+import type { VideoOutModelSubtitlesErrorCode } from './videoOutModelSubtitlesErrorCode';
+import type { VideoOutModelSubtitlesStatus } from './videoOutModelSubtitlesStatus';
 import type { VideoSentenceOutModel } from './videoSentenceOutModel';
 import type { VideoSubtitleOutModel } from './videoSubtitleOutModel';
 
 export interface VideoOutModel {
   /** Video ID */
   id: number;
-  /** Video type: public or private */
+  /** Media type: public or private */
   type: string;
-  /** User ID (null for public videos) */
-  userId: VideoOutModelUserId;
+  /** User ID */
+  userId: number;
   /**
      * Name of the video
      * @maxLength 255
      */
-  name?: VideoOutModelName;
+  name?: string | null;
   /** Language code of the video */
-  languageCode?: VideoOutModelLanguageCode;
+  languageCode?: string | null;
+  /**
+     * YouTube video ID for videos hosted on YouTube
+     * @maxLength 20
+     */
+  youtubeVideoId?: string | null;
   /**
      * Note about the video
      * @maxLength 4000
      */
-  note?: VideoOutModelNote;
+  note?: string | null;
   /** Original subtitles or text of the video */
-  originalContent?: VideoOutModelOriginalContent;
+  originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */
-  processedContent?: VideoOutModelProcessedContent;
+  processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
   /**
      * File name of the video file
      * @maxLength 200
      */
-  fileName?: VideoOutModelFileName;
+  fileName?: string | null;
   /**
      * S3 key of the video file
      * @maxLength 1000
      */
-  fileS3Key?: VideoOutModelFileS3Key;
+  fileS3Key?: string | null;
   /** Pre-signed URL for downloading the video file from S3 */
   fileUrl: VideoOutModelFileUrl;
   /** Is video file was uploaded */
@@ -64,25 +59,35 @@ export interface VideoOutModel {
   /** Size of the video file in megabytes */
   fileSizeMb?: number | null;
   /** Duration of the uploaded video file in seconds */
-  fileDurationSec?: VideoOutModelFileDurationSec;
-  /** URL to the video cover image */
-  coverUrl: VideoOutModelCoverUrl;
+  fileDurationSec?: number | null;
+  /** Aspect ratio in CSS format, e.g. "1280 / 720". Only for YouTube videos. */
+  ratio?: string;
   /**
      * Name of the video cover file
      * @maxLength 200
      */
-  coverFileName?: VideoOutModelCoverFileName;
+  coverFileName?: string | null;
   /**
      * S3 key of the video cover
      * @maxLength 1000
      */
-  coverFileS3Key?: VideoOutModelCoverFileS3Key;
+  coverFileS3Key?: string | null;
   /** Is cover file was uploaded */
-  isCoverFileUploaded: boolean;
+  isCoverFileUploaded?: boolean | null;
+  /** URL to the cover image of the video */
+  coverUrl?: string | null;
+  /** Pre-signed S3 upload URL for the video cover */
+  uploadCoverUrl?: string | null;
   /** Sentences extracted from the video content */
   sentences: VideoSentenceOutModel[] | null;
   /** Subtitles parsed from the video content */
   subtitles: VideoSubtitleOutModel[] | null;
   /** Mapping between subtitles and sentences */
   subtitleSentenceInit: SubtitleSentenceInitOutModel[] | null;
+  /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
+  subtitlesSource: string;
+  /** Status of subtitles processing */
+  subtitlesStatus: VideoOutModelSubtitlesStatus;
+  /** Error code if subtitles processing failed */
+  subtitlesErrorCode: VideoOutModelSubtitlesErrorCode;
 }

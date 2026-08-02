@@ -5,55 +5,50 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { VideoLiteOutModelCoverFileName } from './videoLiteOutModelCoverFileName';
-import type { VideoLiteOutModelCoverFileS3Key } from './videoLiteOutModelCoverFileS3Key';
-import type { VideoLiteOutModelCoverUrl } from './videoLiteOutModelCoverUrl';
-import type { VideoLiteOutModelFileDurationSec } from './videoLiteOutModelFileDurationSec';
-import type { VideoLiteOutModelFileName } from './videoLiteOutModelFileName';
-import type { VideoLiteOutModelFileS3Key } from './videoLiteOutModelFileS3Key';
 import type { VideoLiteOutModelFileUrl } from './videoLiteOutModelFileUrl';
-import type { VideoLiteOutModelLanguageCode } from './videoLiteOutModelLanguageCode';
-import type { VideoLiteOutModelName } from './videoLiteOutModelName';
-import type { VideoLiteOutModelNote } from './videoLiteOutModelNote';
-import type { VideoLiteOutModelOriginalContent } from './videoLiteOutModelOriginalContent';
-import type { VideoLiteOutModelProcessedContent } from './videoLiteOutModelProcessedContent';
-import type { VideoLiteOutModelUserId } from './videoLiteOutModelUserId';
+import type { VideoLiteOutModelSubtitlesErrorCode } from './videoLiteOutModelSubtitlesErrorCode';
+import type { VideoLiteOutModelSubtitlesStatus } from './videoLiteOutModelSubtitlesStatus';
 
 export interface VideoLiteOutModel {
   /** Video ID */
   id: number;
-  /** Video type: public or private */
+  /** Media type: public or private */
   type: string;
-  /** User ID (null for public videos) */
-  userId: VideoLiteOutModelUserId;
+  /** User ID */
+  userId: number;
   /**
      * Name of the video
      * @maxLength 255
      */
-  name?: VideoLiteOutModelName;
+  name?: string | null;
   /** Language code of the video */
-  languageCode?: VideoLiteOutModelLanguageCode;
+  languageCode?: string | null;
+  /**
+     * YouTube video ID for videos hosted on YouTube
+     * @maxLength 20
+     */
+  youtubeVideoId?: string | null;
   /**
      * Note about the video
      * @maxLength 4000
      */
-  note?: VideoLiteOutModelNote;
+  note?: string | null;
   /** Original subtitles or text of the video */
-  originalContent?: VideoLiteOutModelOriginalContent;
+  originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */
-  processedContent?: VideoLiteOutModelProcessedContent;
+  processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
   /**
      * File name of the video file
      * @maxLength 200
      */
-  fileName?: VideoLiteOutModelFileName;
+  fileName?: string | null;
   /**
      * S3 key of the video file
      * @maxLength 1000
      */
-  fileS3Key?: VideoLiteOutModelFileS3Key;
+  fileS3Key?: string | null;
   /** Pre-signed URL for downloading the video file from S3 */
   fileUrl: VideoLiteOutModelFileUrl;
   /** Is video file was uploaded */
@@ -61,19 +56,27 @@ export interface VideoLiteOutModel {
   /** Size of the video file in megabytes */
   fileSizeMb?: number | null;
   /** Duration of the uploaded video file in seconds */
-  fileDurationSec?: VideoLiteOutModelFileDurationSec;
-  /** URL to the video cover image */
-  coverUrl: VideoLiteOutModelCoverUrl;
+  fileDurationSec?: number | null;
   /**
      * Name of the video cover file
      * @maxLength 200
      */
-  coverFileName?: VideoLiteOutModelCoverFileName;
+  coverFileName?: string | null;
   /**
      * S3 key of the video cover
      * @maxLength 1000
      */
-  coverFileS3Key?: VideoLiteOutModelCoverFileS3Key;
+  coverFileS3Key?: string | null;
   /** Is cover file was uploaded */
-  isCoverFileUploaded: boolean;
+  isCoverFileUploaded?: boolean | null;
+  /** URL to the cover image of the video */
+  coverUrl?: string | null;
+  /** Pre-signed S3 upload URL for the video cover */
+  uploadCoverUrl?: string | null;
+  /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
+  subtitlesSource: string;
+  /** Status of subtitles processing */
+  subtitlesStatus: VideoLiteOutModelSubtitlesStatus;
+  /** Error code if subtitles processing failed */
+  subtitlesErrorCode: VideoLiteOutModelSubtitlesErrorCode;
 }

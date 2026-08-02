@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { errorMessages } from '@/shared/utils/errorMessages'
+import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 
 export const registerFormSchema = yup
 	.object({

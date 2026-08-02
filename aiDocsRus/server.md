@@ -21,11 +21,9 @@
 Таблица User — данные пользователя
 Таблица UserBalanceTransaction — транзакции баланса пользователя
 Таблица Payment — оплаты пользователя
-Таблица BookPrivate — личные книги
-Таблица BookPublic — публичные книги
+Таблица Book — книги
 Таблица BookChapter — главы книг
-Таблица VideoPrivate — личные фильмы
-Таблица VideoPublic — публичные фильмы
+Таблица Video — фильмы
 Таблица Sentence — предложения из глав книг и субтитров фильмов
 Таблица SentenceTranslation — переводы предложений из глав книг и субтитров фильмов
 Таблица SentencePhraseTranslation — переводы фраз из глав книг и субтитров фильмов
@@ -82,7 +80,7 @@ Repository methods may return DB-shaped data or service models.
 Examples:
 
 - `server/src/repo/bookChapter.queryRepository.ts`
-- `server/src/repo/videoPrivate.queryRepository.ts`
+- `server/src/repo/video.queryRepository.ts`
 
 Use query repositories for data already prepared for the client, usually mapped to `OutModel`.
 

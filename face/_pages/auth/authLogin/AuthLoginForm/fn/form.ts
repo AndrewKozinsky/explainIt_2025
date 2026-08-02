@@ -1,5 +1,5 @@
 import * as yup from 'yup'
-import { errorMessages } from '@/shared/utils/errorMessages'
+import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 
 export const loginFormSchema = yup
 	.object({
@@ -9,11 +9,3 @@ export const loginFormSchema = yup
 	.required()
 
 export type LoginFormData = yup.InferType<typeof loginFormSchema>
-
-export const LoginFormTest = {
-	form: { id: 'form' },
-	emailField: { id: 'email-field' },
-	passwordField: { id: 'password-field' },
-	submitButton: { id: 'submit-button' },
-	failMessage: { id: 'fail-message' },
-}

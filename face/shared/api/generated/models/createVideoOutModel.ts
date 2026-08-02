@@ -5,29 +5,34 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { CreateVideoOutModelName } from './createVideoOutModelName';
-import type { CreateVideoOutModelOriginalContent } from './createVideoOutModelOriginalContent';
-import type { CreateVideoOutModelProcessedContent } from './createVideoOutModelProcessedContent';
-import type { CreateVideoOutModelUserId } from './createVideoOutModelUserId';
 
 export interface CreateVideoOutModel {
   /** Video ID */
   id: number;
-  /** Video type: public or private */
+  /** Media type: public or private */
   type: string;
   /**
      * Name of the video
      * @maxLength 255
      */
-  name?: CreateVideoOutModelName;
+  name?: string | null;
   /** Language code of the video */
   languageCode?: string | null;
   /** Original subtitles or text of the video */
-  originalContent?: CreateVideoOutModelOriginalContent;
+  originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */
-  processedContent?: CreateVideoOutModelProcessedContent;
+  processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
   /** User ID */
-  userId: CreateVideoOutModelUserId;
+  userId: number;
+  /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
+  subtitlesSource: string;
+  /** Status of subtitles processing */
+  subtitlesStatus: string;
+  /**
+     * Machine-readable error code if status is failed
+     * @maxLength 200
+     */
+  subtitlesErrorCode?: string | null;
 }

@@ -44,7 +44,7 @@ export class CloudRuS3Service {
 		return await getSignedUrl(
 			this.s3,
 			new GetObjectCommand({
-				Bucket: 'explain',
+				Bucket: this.mainConfig.get().cloudRu.s3.bucketName,
 				Key: key,
 			}),
 			{ expiresIn: 60 * 60 * 6 }, // 6 часов

@@ -41,7 +41,7 @@ export class SentenceTranslationAccessService {
 		return await this.resolvePrivateMaterialAccess({
 			userId: input.userId,
 			privateBookOwnerId: sentenceDb.bookChapter?.book?.user_id ?? null,
-			privateVideoOwnerId: sentenceDb.video?.video_collection?.user_id ?? null,
+			privateVideoOwnerId: sentenceDb.video?.user_id ?? null,
 		})
 	}
 

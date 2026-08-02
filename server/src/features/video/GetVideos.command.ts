@@ -13,6 +13,11 @@ export class GetVideosHandler implements ICommandHandler<GetVideosCommand> {
 	async execute(command: GetVideosCommand): Promise<VideoLiteOutModel[]> {
 		const { userId } = command
 
-		return this.videoQueryRepository.getVideos(userId)
+		const [publicVideos, privateVideos] = await Promise.all([
+			this.videoQueryRepository.getPublicVideos(),
+			userId ? this.videoQueryRepository.getPrivateVideos(userId) : [],
+		])
+
+		return [...publicVideos, ...privateVideos]
 	}
 }

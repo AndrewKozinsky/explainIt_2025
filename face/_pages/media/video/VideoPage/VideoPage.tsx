@@ -1,23 +1,51 @@
-'use client'
+import { MediaPageClient } from '@/entites/detailsBlock/SelectionProvider/MediaPageClient'
+import { VideosApi } from '@/entites/videos/repository/VideosApi'
+import { VideosService } from '@/entites/videos/VideosService'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import { getHeader } from './fn/getHeader'
+import VideoClientWrapper from './VideoClientWrapper'
 
-// import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-// import PrivateVideoContent from '_pages/media/video/PrivateVideoContent/PrivateVideoContent'
-// import PublicVideoContent from '../publicVideoContent/PublicVideoContent/PublicVideoContent'
-// import VideoBreadCrumbs from '../VideoBreadCrumbs/VideoBreadCrumbs'
-// import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-// import { usePopulateVideoStore } from './fn/populateVideoStore'
+type VideoRootProps = {
+	videoId: number | string
+}
 
-function VideoPage() {
-	// usePopulateVideoStore()
-	// const { header, subHeader } = useGetHeaderAndSubHeader()
+async function VideoPage(props: VideoRootProps) {
+	const { videoId } = props
 
-	/*return (
-		<MediaPageContentWrapper breadCrumbs={<VideoBreadCrumbs />} header={header} subHeader={subHeader}>
-			<PublicVideoContent />
-			<PrivateVideoContent />
-		</MediaPageContentWrapper>
-	)*/
-	return <p>VideoPage</p>
+	const videosService = new VideosService(new VideosApi())
+	const { error: videoError, data: videoData } = await videosService.getVideo(videoId)
+
+	if (videoError) {
+		return <ErrorMessage text={videoError} />
+	}
+
+	const { header } = getHeader(videoData)
+
+	return (
+		<MediaPageClient
+			breadCrumbsConfig={[{ name: pageUrls.videos.name, path: pageUrls.videos.path }]}
+			header={header}
+			leftBlock={
+				<VideoClientWrapper
+					languageCode={videoData.languageCode}
+					contentType={videoData.contentType}
+					plainSentences={videoData.plainSentences}
+					subtitles={videoData.subtitles}
+					fileUrl={videoData.fileUrl ?? ''}
+					videoId={videoData.id}
+					subtitlesStatus={videoData.subtitlesStatus}
+					subtitlesErrorCode={videoData.subtitlesErrorCode}
+				/>
+			}
+			detailsBlockMetadata={{
+				videoId: videoData.id,
+				videoName: videoData.name,
+				languageCode: videoData.languageCode,
+				sentences: videoData.plainSentences,
+			}}
+		/>
+	)
 }
 
 export default VideoPage

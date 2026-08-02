@@ -1,28 +1,28 @@
+import MediaPageContentWrapper from '@/entites/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
 import { VideosApi } from '@/entites/videos/repository/VideosApi'
+import PublicVideosList from '@/entites/videos/ui/PublicVideosList/PublicVideosList'
+import { VideosService } from '@/entites/videos/VideosService'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { fetchData } from '@/shared/utils/fetchData'
+import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import { videoConfig } from '_pages/media/commonComponents/videoConfig'
-import MediaItemsGrid from '../../commonComponents/mediaItemsGrid/MediaItemsGrid/MediaItemsGrid'
-import { AddVideoButtonWrapper } from '../AddVideoButtonWrapper/AddVideoButtonWrapper'
-import { getContentConfig } from './fn/getContentConfig'
+import { PrivateVideosListWithAdd } from '_pages/media/videos/PrivateVideoListWithAdd/PrivateVideoListWithAdd'
+import './VideosPage.scss'
 
 export default async function VideosPage() {
-	const api = new VideosApi()
-	const { error, data } = await fetchData(() => api.getVideos())
+	const videosService = new VideosService(new VideosApi())
+	const { error, errors, data: allVideos } = await videosService.getVideos()
 
-	const config = data ? getContentConfig(data) : null
+	if (error || errors) {
+		return <ErrorMessage text={error ?? errorMessages.unknownServerError} />
+	}
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.videos.name}>
-			<MediaItemsGrid
-				loading={false}
-				error={error}
-				config={config}
-				addButton={<AddVideoButtonWrapper />}
-				defaultMediaName={videoConfig.newVideoEmptyName}
-			/>
+			<div className='videos-page'>
+				<PrivateVideosListWithAdd videos={allVideos.private} />
+				<PublicVideosList videos={allVideos.public} />
+			</div>
 		</MediaPageContentWrapper>
 	)
 }

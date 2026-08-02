@@ -22,10 +22,7 @@ export class ApiError extends Error {
 	}
 }
 
-export async function customMutator<TResponse = unknown>(
-	url: string,
-	options?: RequestInit,
-): Promise<TResponse> {
+export async function customMutator<TResponse = unknown>(url: string, options?: RequestInit): Promise<TResponse> {
 	// When running on the server (Server Components), relative URLs need an absolute base.
 	// In Docker, the Next.js server cannot reach nginx via localhost — use the internal
 	// Docker hostname of the server container directly.
@@ -74,7 +71,11 @@ export async function customMutator<TResponse = unknown>(
 
 	// Orval expects the mutator to return { data, status, headers }.
 	// This contract must be kept so that generated response types match reality.
-	const data = res.status === 204 ? undefined : await res.json()
+	//
+	// .catch(() => null) handles empty response bodies — NestJS Express adapter
+	// calls res.send() (no args) for null/undefined controller return values,
+	// which sends an empty body that JSON.parse rejects as SyntaxError.
+	const data = res.status === 204 ? undefined : await res.json().catch(() => null)
 
 	return {
 		data,

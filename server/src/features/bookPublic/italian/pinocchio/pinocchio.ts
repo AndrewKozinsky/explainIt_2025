@@ -39,7 +39,7 @@ import { chapter_9 } from './chapter_9'
 // https://www.gutenberg.org/files/52484/52484-h/52484-h.htm
 
 export function pinocchioBookData(s3FolderName: string) {
-	const coverFileName = 'pinocchio_1.jpg'
+	const coverFileName = 'pinocchio.jpg'
 
 	return {
 		author: 'Carlo Collodi',

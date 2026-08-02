@@ -9,7 +9,7 @@ import { chapter_7 } from './chapter_7'
 import { chapter_8 } from './chapter_8'
 
 export function jungleTalesBookData(s3FolderName: string) {
-	const coverFileName = 'jungleTales_1.jpg'
+	const coverFileName = 'jungleTales.jpg'
 
 	return {
 		author: 'Horacio Quiroga',

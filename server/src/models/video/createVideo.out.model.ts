@@ -9,17 +9,14 @@ export class CreateVideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.id))
-	videoCollectionId: number
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.type))
+	@ApiProperty(getApiPropertyOptions($.type))
 	type: 'public' | 'private'
 
 	@ApiProperty(getApiPropertyOptions($.name))
 	name: null | string
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dtoProps.languageCode))
-	languageCode: Language
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
+	languageCode: string
 
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
@@ -32,4 +29,13 @@ export class CreateVideoOutModel {
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.User.dbFields.id))
 	userId: null | number
+
+	@ApiProperty(getApiPropertyOptions($.subtitles_source))
+	subtitlesSource: string
+
+	@ApiProperty(getApiPropertyOptions($.subtitles_status))
+	subtitlesStatus: string
+
+	@ApiProperty(getApiPropertyOptions($.subtitles_error_code))
+	subtitlesErrorCode: null | string
 }

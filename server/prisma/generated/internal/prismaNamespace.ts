@@ -389,7 +389,6 @@ export const ModelName = {
   Payment: 'Payment',
   Book: 'Book',
   BookChapter: 'BookChapter',
-  VideoCollection: 'VideoCollection',
   Video: 'Video',
   Sentence: 'Sentence',
   SentenceTranslation: 'SentenceTranslation',
@@ -418,7 +417,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "videoCollection" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "flashcard"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -789,80 +788,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.BookChapterCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.BookChapterCountAggregateOutputType> | number
-        }
-      }
-    }
-    VideoCollection: {
-      payload: Prisma.$VideoCollectionPayload<ExtArgs>
-      fields: Prisma.VideoCollectionFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.VideoCollectionFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.VideoCollectionFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
-        }
-        findFirst: {
-          args: Prisma.VideoCollectionFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.VideoCollectionFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
-        }
-        findMany: {
-          args: Prisma.VideoCollectionFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>[]
-        }
-        create: {
-          args: Prisma.VideoCollectionCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
-        }
-        createMany: {
-          args: Prisma.VideoCollectionCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.VideoCollectionCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>[]
-        }
-        delete: {
-          args: Prisma.VideoCollectionDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
-        }
-        update: {
-          args: Prisma.VideoCollectionUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
-        }
-        deleteMany: {
-          args: Prisma.VideoCollectionDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.VideoCollectionUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.VideoCollectionUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>[]
-        }
-        upsert: {
-          args: Prisma.VideoCollectionUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$VideoCollectionPayload>
-        }
-        aggregate: {
-          args: Prisma.VideoCollectionAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateVideoCollection>
-        }
-        groupBy: {
-          args: Prisma.VideoCollectionGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoCollectionGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.VideoCollectionCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.VideoCollectionCountAggregateOutputType> | number
         }
       }
     }
@@ -1940,24 +1865,14 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const VideoCollectionScalarFieldEnum = {
+export const VideoScalarFieldEnum = {
   id: 'id',
   type: 'type',
   user_id: 'user_id',
   name: 'name',
+  note: 'note',
   source_language_code: 'source_language_code',
-  note: 'note',
-  created_at: 'created_at'
-} as const
-
-export type VideoCollectionScalarFieldEnum = (typeof VideoCollectionScalarFieldEnum)[keyof typeof VideoCollectionScalarFieldEnum]
-
-
-export const VideoScalarFieldEnum = {
-  id: 'id',
-  video_collection_id: 'video_collection_id',
-  name: 'name',
-  note: 'note',
+  youtube_video_id: 'youtube_video_id',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
   s3_provider_name: 's3_provider_name',
@@ -1967,12 +1882,14 @@ export const VideoScalarFieldEnum = {
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
-  subtitles_generation_status: 'subtitles_generation_status',
-  subtitles_generation_error: 'subtitles_generation_error',
-  subtitles_generation_started_at: 'subtitles_generation_started_at',
-  subtitles_generation_job_id: 'subtitles_generation_job_id',
-  subtitles_generation_charge_kopecks: 'subtitles_generation_charge_kopecks',
-  subtitles_generation_refunded_at: 'subtitles_generation_refunded_at',
+  cover_file_name: 'cover_file_name',
+  cover_file_s3_key: 'cover_file_s3_key',
+  cover_file_s3_provider_name: 'cover_file_s3_provider_name',
+  is_cover_file_uploaded: 'is_cover_file_uploaded',
+  subtitles_source: 'subtitles_source',
+  subtitles_status: 'subtitles_status',
+  subtitles_error_code: 'subtitles_error_code',
+  subtitles_job_id: 'subtitles_job_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -2013,7 +1930,7 @@ export const SentencePhraseTranslationScalarFieldEnum = {
   translate: 'translate',
   examples: 'examples',
   status: 'status',
-  error_message: 'error_message',
+  error_code: 'error_code',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -2082,7 +1999,7 @@ export const UniversalPhraseTranslationScalarFieldEnum = {
   target_language_code: 'target_language_code',
   translation: 'translation',
   status: 'status',
-  error_message: 'error_message',
+  error_code: 'error_code',
   non_existent_word: 'non_existent_word',
   created_at: 'created_at'
 } as const
@@ -2313,16 +2230,30 @@ export type ListEnumVideoTextTypeFieldRefInput<$PrismaModel> = FieldRefInputType
 
 
 /**
- * Reference to a field of type 'SubtitlesGenerationStatus'
+ * Reference to a field of type 'SubtitlesSource'
  */
-export type EnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesGenerationStatus'>
+export type EnumSubtitlesSourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesSource'>
     
 
 
 /**
- * Reference to a field of type 'SubtitlesGenerationStatus[]'
+ * Reference to a field of type 'SubtitlesSource[]'
  */
-export type ListEnumSubtitlesGenerationStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesGenerationStatus[]'>
+export type ListEnumSubtitlesSourceFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesSource[]'>
+    
+
+
+/**
+ * Reference to a field of type 'SubtitlesStatus'
+ */
+export type EnumSubtitlesStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'SubtitlesStatus[]'
+ */
+export type ListEnumSubtitlesStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SubtitlesStatus[]'>
     
 
 
@@ -2510,7 +2441,6 @@ export type GlobalOmitConfig = {
   payment?: Prisma.PaymentOmit
   book?: Prisma.BookOmit
   bookChapter?: Prisma.BookChapterOmit
-  videoCollection?: Prisma.VideoCollectionOmit
   video?: Prisma.VideoOmit
   sentence?: Prisma.SentenceOmit
   sentenceTranslation?: Prisma.SentenceTranslationOmit

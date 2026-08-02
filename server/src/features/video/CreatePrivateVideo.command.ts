@@ -6,6 +6,7 @@ import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.reposi
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { Language } from 'utils/languages'
+import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
@@ -15,7 +16,6 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { CreateVideoOutModel } from 'models/video/createVideo.out.model'
 
 export type CreatePrivateVideoInput = {
-	videoCollectionId: number
 	name?: null | string
 	originalContent?: null | string
 	fileSizeMb?: number
@@ -51,11 +51,24 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 			previousProcessedContent: null,
 		})
 
+		// Pre-compute sentences OUTSIDE the transaction to avoid keeping
+		// the DB transaction open during the external NLP HTTP call.
+		let preComputedSentences: string[] | undefined
+		if (preparedContentResult.processedContent) {
+			preComputedSentences = await divideTextIntoSentences({
+				mainConfigService: this.mainConfig,
+				text: preparedContentResult.processedContent,
+				languageCode: createVideoInput.languageCode,
+			})
+		}
+
 		const createdVideo = await this.dbRepository.wrapIntoPrismaTransaction({
 			executableCode: async () => {
 				const newVideo = await this.videoRepository.createVideo({
-					videoCollectionId: createVideoInput.videoCollectionId,
+					type: 'private',
+					userId,
 					name: createVideoInput.name,
+					sourceLanguageCode: createVideoInput.languageCode,
 					originalContent: preparedContentResult.originalContentForVideoUpdate,
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
@@ -66,7 +79,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 					throw new CustomError(errorMessage.video.notCreated, ErrorStatusCode.InternalServerError_500)
 				}
 
-				if (preparedContentResult.processedContent !== null) {
+				if (preparedContentResult.processedContent !== null && preComputedSentences) {
 					if (preparedContentResult.subtitles) {
 						await this.saveSubtitlesSentencesAndInit({
 							videoId: newVideo.id,
@@ -76,6 +89,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 							sentenceRepository: this.sentenceRepository,
 							subtitleRepository: this.subtitleRepository,
 							subtitleSentenceInitRepository: this.subtitleSentenceInitRepository,
+							preComputedSentences,
 						})
 					} else {
 						await generateSentencesAndSaveToDB({
@@ -84,6 +98,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 							processedContent: preparedContentResult.processedContent,
 							languageCode: createVideoInput.languageCode,
 							videoId: newVideo.id,
+							preComputedSentences,
 						})
 					}
 				}

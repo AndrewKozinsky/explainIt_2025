@@ -1,14 +1,14 @@
 # Автоматическая генерация субтитров для приватных видео
 
 ## Что делает функционал
-Пользователь загружает приватное видео (`VideoPrivate`) и может запустить автоматическую генерацию субтитров. Сервер ставит задачу в очередь, отдельный worker скачивает видео из S3, извлекает аудио через `ffmpeg`, отправляет его в Deepgram Nova-3 Speech-to-Text, собирает SRT и сохраняет его как текст субтитров видео.
+Пользователь загружает видео (`Video`) и может запустить автоматическую генерацию субтитров. Сервер ставит задачу в очередь, отдельный worker скачивает видео из S3, извлекает аудио через `ffmpeg`, отправляет его в Deepgram Nova-3 Speech-to-Text, собирает SRT и сохраняет его как текст субтитров видео.
 
-Функционал работает **только для приватных видео**. Публичные видео (`VideoPublic`) не участвуют в этом пайплайне.
+Функционал работает **только для приватных видео**. Публичные видео (`Video`) не участвуют в этом пайплайне.
 
 Результат сохраняется в те же поля и связи, что и при ручной загрузке SRT:
-- `VideoPrivate.original_content` — сгенерированный SRT;
-- `VideoPrivate.processed_content` — очищенный текст субтитров;
-- `VideoPrivate.content_type = 'subtitles'`;
+- `Video.original_content` — сгенерированный SRT;
+- `Video.processed_content` — очищенный текст субтитров;
+- `Video.content_type = 'subtitles'`;
 - `Subtitle`, `Sentence`, `SubtitleSentenceInit` — пересозданные связи субтитров и предложений.
 
 ## Пользовательский поток
@@ -24,7 +24,7 @@
 
 ## Доменная модель
 
-### Новые поля `VideoPrivate`
+### Новые поля `Video`
 
 - `subtitles_generation_status` — статус жизненного цикла генерации.
 - `subtitles_generation_error` — текст ошибки последней неудачной попытки.
@@ -47,7 +47,7 @@
 
 ### GraphQL API
 
-- **Mutation** `video_private_generate_subtitles(input: { videoId })` → `VideoPrivateSubtitlesStatusOutModel`. Запускает генерацию субтитров для приватного видео.
+- **Mutation** `video_private_generate_subtitles(input: { videoId })` → `VideoSubtitlesStatusOutModel`. Запускает генерацию субтитров для приватного видео.
 - **Query** `video_private_get_subtitles_generation_status(input: { videoId })` → `VideoPrivateSubtitlesStatusOutModel`. Возвращает текущий статус генерации.
 
 Обе ручки требуют авторизации через `CheckSessionCookieGuard`. Мутация сама рассчитывает предварительную стоимость по сохранённой длительности видео и списывает её перед постановкой задачи в очередь.
@@ -77,7 +77,7 @@
 10. Сохраняет сумму списания в `subtitles_generation_charge_kopecks`.
 11. Ставит задачу в BullMQ через `SubtitlesGenerationQueue.enqueue`.
 12. Сохраняет `jobId` в `VideoPrivate`.
-13. Возвращает `VideoPrivateSubtitlesStatusOutModel`.
+13. Возвращает `VideoSubtitlesStatusOutModel`.
 
 Атомарный переход защищает от параллельных запусков: если статус уже `pending` или `processing`, повторный запуск не пройдёт.
 
@@ -86,7 +86,7 @@
 1. Загружает состояние генерации.
 2. Проверяет существование видео.
 3. Проверяет владельца.
-4. Возвращает `VideoPrivateSubtitlesStatusOutModel`.
+4. Возвращает `VideoSubtitlesStatusOutModel`.
 
 #### `ChargeSubtitlesGenerationHandler`
 
@@ -134,7 +134,7 @@ Worker запускается из `server/src/main.worker.ts` через `NestF
 8. Извлекает аудио через `ffmpeg` в WAV: mono, 16 kHz.
 9. Отправляет WAV в `DeepgramSttService.transcribeFile`.
 10. Получает `utterances` и собирает SRT через `buildSrtFromUtterances`.
-11. Вызывает `UpdatePrivateVideoCommand` с `originalContent = srt`.
+11. Вызывает `UpdateVideoCommand` с `originalContent = srt`.
 12. Ставит статус `done`.
 13. В `finally` удаляет временную папку.
 

@@ -7,6 +7,6 @@
  */
 
 /**
- * BullMQ job ID of the generation task
+ * BullMQ job ID of the subtitles task
  */
 export type VideoSubtitlesStatusOutModelJobId = { [key: string]: unknown } | null;

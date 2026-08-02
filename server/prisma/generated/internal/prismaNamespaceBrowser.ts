@@ -56,7 +56,6 @@ export const ModelName = {
   Payment: 'Payment',
   Book: 'Book',
   BookChapter: 'BookChapter',
-  VideoCollection: 'VideoCollection',
   Video: 'Video',
   Sentence: 'Sentence',
   SentenceTranslation: 'SentenceTranslation',
@@ -161,24 +160,14 @@ export const BookChapterScalarFieldEnum = {
 export type BookChapterScalarFieldEnum = (typeof BookChapterScalarFieldEnum)[keyof typeof BookChapterScalarFieldEnum]
 
 
-export const VideoCollectionScalarFieldEnum = {
+export const VideoScalarFieldEnum = {
   id: 'id',
   type: 'type',
   user_id: 'user_id',
   name: 'name',
+  note: 'note',
   source_language_code: 'source_language_code',
-  note: 'note',
-  created_at: 'created_at'
-} as const
-
-export type VideoCollectionScalarFieldEnum = (typeof VideoCollectionScalarFieldEnum)[keyof typeof VideoCollectionScalarFieldEnum]
-
-
-export const VideoScalarFieldEnum = {
-  id: 'id',
-  video_collection_id: 'video_collection_id',
-  name: 'name',
-  note: 'note',
+  youtube_video_id: 'youtube_video_id',
   file_name: 'file_name',
   file_s3_key: 'file_s3_key',
   s3_provider_name: 's3_provider_name',
@@ -188,12 +177,14 @@ export const VideoScalarFieldEnum = {
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
-  subtitles_generation_status: 'subtitles_generation_status',
-  subtitles_generation_error: 'subtitles_generation_error',
-  subtitles_generation_started_at: 'subtitles_generation_started_at',
-  subtitles_generation_job_id: 'subtitles_generation_job_id',
-  subtitles_generation_charge_kopecks: 'subtitles_generation_charge_kopecks',
-  subtitles_generation_refunded_at: 'subtitles_generation_refunded_at',
+  cover_file_name: 'cover_file_name',
+  cover_file_s3_key: 'cover_file_s3_key',
+  cover_file_s3_provider_name: 'cover_file_s3_provider_name',
+  is_cover_file_uploaded: 'is_cover_file_uploaded',
+  subtitles_source: 'subtitles_source',
+  subtitles_status: 'subtitles_status',
+  subtitles_error_code: 'subtitles_error_code',
+  subtitles_job_id: 'subtitles_job_id',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -234,7 +225,7 @@ export const SentencePhraseTranslationScalarFieldEnum = {
   translate: 'translate',
   examples: 'examples',
   status: 'status',
-  error_message: 'error_message',
+  error_code: 'error_code',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
@@ -303,7 +294,7 @@ export const UniversalPhraseTranslationScalarFieldEnum = {
   target_language_code: 'target_language_code',
   translation: 'translation',
   status: 'status',
-  error_message: 'error_message',
+  error_code: 'error_code',
   non_existent_word: 'non_existent_word',
   created_at: 'created_at'
 } as const

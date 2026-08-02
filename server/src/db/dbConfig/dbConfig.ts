@@ -90,7 +90,7 @@ export const bdConfig = {
 			Book: {
 				type: 'oneToMany',
 			},
-			VideoCollection: {
+			Video: {
 				type: 'oneToMany',
 			},
 			SentenceChatThread: {
@@ -392,70 +392,6 @@ export const bdConfig = {
 			},
 		},
 	},
-	VideoCollection: {
-		dtoProps: {
-			languageCode: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				description: 'Language code of the videos in the collection',
-				example: 'en',
-				required: false,
-			},
-		},
-		dbFields: {
-			id: {
-				type: 'index',
-				description: 'Video collection ID',
-				example: 1,
-			},
-			type: {
-				type: 'enum',
-				enumName: 'MediaType',
-				variants: ['public', 'private'],
-				description: 'Media type: public or private',
-				example: 'private',
-				required: true,
-			},
-			user_id: {
-				type: 'manyToOne',
-				thisField: 'user_id',
-				foreignTable: 'User',
-				foreignField: 'id',
-				description: 'User ID who owns the video collection (null for public collections)',
-				example: 1,
-				required: false,
-			},
-			name: {
-				type: 'string',
-				description: 'Name of the video collection',
-				example: 'English Course',
-				required: false,
-				maxLength: 255,
-			},
-			source_language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				description: 'Language code of the videos in the collection',
-				example: 'en',
-				required: true,
-			},
-			note: {
-				type: 'string',
-				description: 'Note about the video collection',
-				example: 'A course for beginners',
-				required: false,
-				maxLength: 4000,
-			},
-			Video: {
-				type: 'oneToMany',
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-		},
-	},
 	Video: {
 		dtoProps: {
 			fileName: {
@@ -484,6 +420,30 @@ export const bdConfig = {
 				example: 'https://s3.example.com/presigned-url',
 				required: false,
 			},
+			coverFileName: {
+				type: 'string',
+				description: 'File name of the video cover',
+				required: false,
+				maxLength: 255,
+			},
+			coverFileMimeType: {
+				type: 'string',
+				description: 'File Mime Type of the video cover',
+				required: false,
+				maxLength: 50,
+			},
+			coverUrl: {
+				type: 'string',
+				description: 'URL to the cover image of the video',
+				example: 'https://s3.example.com/privateVideoCoversDev/cover.jpg',
+				required: false,
+			},
+			uploadCoverUrl: {
+				type: 'string',
+				description: 'Pre-signed S3 upload URL for the video cover',
+				example: 'https://s3.example.com/presigned-url',
+				required: false,
+			},
 		},
 		dbFields: {
 			id: {
@@ -491,12 +451,22 @@ export const bdConfig = {
 				description: 'Video ID',
 				example: 1,
 			},
-			video_collection_id: {
-				type: 'manyToOne',
-				thisField: 'video_collection_id',
-				foreignTable: 'VideoCollection',
-				foreignField: 'id',
+			type: {
+				type: 'enum',
+				enumName: 'MediaType',
+				variants: ['public', 'private'],
+				description: 'Media type: public or private',
+				example: 'private',
 				required: true,
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				foreignTable: 'User',
+				foreignField: 'id',
+				description: 'User ID who owns the video (null for public videos)',
+				example: 1,
+				required: false,
 			},
 			name: {
 				type: 'string',
@@ -511,6 +481,22 @@ export const bdConfig = {
 				example: 'A great animated movie about animals.',
 				required: false,
 				maxLength: 4000,
+			},
+			source_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				description: 'Language code of the video',
+				example: 'en',
+				required: true,
+			},
+			youtube_video_id: {
+				type: 'string',
+				description: 'YouTube video ID for videos hosted on YouTube',
+				required: false,
+				unique: true,
+				maxLength: 20,
+				example: 'dQw4w9WgXcQ',
 			},
 			file_name: {
 				type: 'string',
@@ -574,40 +560,61 @@ export const bdConfig = {
 				default: 'text',
 				enumName: 'VideoTextType',
 			},
-			subtitles_generation_status: {
-				type: 'enum',
-				description: 'Status of automatic subtitles generation from the uploaded video file',
-				required: true,
-				variants: ['idle', 'pending', 'processing', 'done', 'failed'],
-				default: 'idle',
-				enumName: 'SubtitlesGenerationStatus',
-			},
-			subtitles_generation_error: {
+			cover_file_name: {
 				type: 'string',
-				description: 'Error message of the last failed subtitles generation attempt',
+				description: 'Name of the video cover file',
+				required: false,
+				maxLength: 200,
+				example: 'charade.jpg',
+			},
+			cover_file_s3_key: {
+				type: 'string',
+				description: 'S3 key of the video cover',
 				required: false,
 				maxLength: 1000,
+				example: 'publicVideoCovers/english/charade.jpg',
 			},
-			subtitles_generation_started_at: {
-				type: 'dateTime',
-				description: 'When the current subtitles generation job started',
+			cover_file_s3_provider_name: {
+				type: 'enum',
+				enumName: 'S3ProviderName',
+				variants: s3ProviderName,
+				description: 'S3 provider name',
 				required: false,
 			},
-			subtitles_generation_job_id: {
+			is_cover_file_uploaded: {
+				type: 'boolean',
+				default: false,
+				description: 'Is cover file was uploaded',
+				example: true,
+				required: true,
+			},
+			subtitles_source: {
+				type: 'enum',
+				enumName: 'SubtitlesSource',
+				variants: ['user', 'youTube', 'llm'],
+				default: 'user',
+				description: 'Who created the subtitles: user-uploaded, from YouTube, or LLM-generated',
+				required: true,
+			},
+			subtitles_status: {
+				type: 'enum',
+				enumName: 'SubtitlesStatus',
+				variants: ['idle', 'pending', 'processing', 'done', 'failed'],
+				default: 'idle',
+				description: 'Status of subtitles processing',
+				required: true,
+			},
+			subtitles_error_code: {
 				type: 'string',
-				description: 'BullMQ job id of the current subtitles generation task',
+				description: 'Machine-readable error code if status is failed',
 				required: false,
 				maxLength: 200,
 			},
-			subtitles_generation_charge_kopecks: {
-				type: 'number',
-				description: 'Amount charged upfront for the current subtitles generation attempt',
+			subtitles_job_id: {
+				type: 'string',
+				description: 'BullMQ job id of the current subtitles task',
 				required: false,
-			},
-			subtitles_generation_refunded_at: {
-				type: 'dateTime',
-				description: 'When the upfront subtitles generation charge was refunded',
-				required: false,
+				maxLength: 200,
 			},
 			Subtitle: {
 				type: 'oneToMany',
@@ -823,7 +830,7 @@ export const bdConfig = {
 				variants: ['pending', 'ready', 'error'],
 				enumName: 'SentencePhraseTranslationStatus',
 			},
-			error_message: {
+			error_code: {
 				type: 'string',
 				required: false,
 			},
@@ -1080,9 +1087,9 @@ export const bdConfig = {
 				default: 'pending',
 				enumName: 'UniversalPhraseTranslationStatus',
 			},
-			error_message: {
+			error_code: {
 				type: 'string',
-				description: 'Error message if status is error',
+				description: 'Error code if status is error',
 				required: false,
 			},
 			non_existent_word: {
@@ -1290,3 +1297,14 @@ export const bdConfig = {
 		},
 	},
 } satisfies BdConfig.Root
+
+export const dtoConfig = {
+	language_code: {
+		type: 'enum' as const,
+		enumName: 'LanguageCode',
+		variants: languagesArr,
+		description: 'Language code',
+		example: 'en',
+		required: true,
+	},
+}

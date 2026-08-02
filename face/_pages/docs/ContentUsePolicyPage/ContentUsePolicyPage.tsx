@@ -2,8 +2,6 @@ import React from 'react'
 import styles from '../doc.module.scss'
 
 const ContentUsePolicyPage: React.FC = () => {
-	const lastUpdated = '18 октября 2025 г.'
-
 	return (
 		<div className={styles['doc-page']}>
 			<h1>Политика использования контента</h1>

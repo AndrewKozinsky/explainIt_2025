@@ -28,7 +28,6 @@ type DbSentenceWithInit = Sentence & {
 type DbSubtitleWithInit = Subtitle & { SubtitleSentenceInit?: SubtitleSentenceInit[] }
 
 type DbVideoWithRelations = Video & {
-	video_collection?: { type: string; user_id: number | null; source_language_code: string }
 	Sentence?: DbSentenceWithInit[]
 	Subtitle?: DbSubtitleWithInit[]
 }
@@ -53,7 +52,6 @@ export class VideoQueryRepository {
 		const video = await this.prisma.video.findUnique({
 			where: { id },
 			include: {
-				video_collection: true,
 				Sentence: {
 					orderBy: { order_index: 'asc' },
 					include: {
@@ -77,16 +75,56 @@ export class VideoQueryRepository {
 	}
 
 	@CatchDbError()
-	async getVideos(userId?: number) {
-		const where: Prisma.VideoWhereInput = {
-			video_collection: {
-				OR: [{ type: 'public' as const }, ...(userId ? [{ user_id: userId, type: 'private' as const }] : [])],
+	async getVideoByYoutubeId(youtubeVideoId: string) {
+		const video = await this.prisma.video.findUnique({
+			where: { youtube_video_id: youtubeVideoId },
+			include: {
+				Sentence: {
+					orderBy: { order_index: 'asc' },
+					include: {
+						SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } },
+						SentenceTranslation: { orderBy: { created_at: 'asc' } },
+						SentencePhraseTranslation: { orderBy: { created_at: 'asc' } },
+					},
+				},
+				Subtitle: {
+					orderBy: { order_index: 'asc' },
+					include: { SubtitleSentenceInit: { orderBy: { start_offset: 'asc' } } },
+				},
 			},
+		})
+
+		if (!video) {
+			return null
 		}
 
+		return this.mapDbVideoToOutVideo(video)
+	}
+
+	@CatchDbError()
+	async getPublicVideos() {
 		const videos = await this.prisma.video.findMany({
-			where,
-			include: { video_collection: true },
+			where: { type: 'public', youtube_video_id: null },
+			orderBy: { created_at: 'asc' },
+		})
+
+		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+	}
+
+	@CatchDbError()
+	async getPrivateVideos(userId: number) {
+		const videos = await this.prisma.video.findMany({
+			where: { type: 'private', user_id: userId },
+			orderBy: { created_at: 'asc' },
+		})
+
+		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+	}
+
+	@CatchDbError()
+	async getYoutubeVideos() {
+		const videos = await this.prisma.video.findMany({
+			where: { youtube_video_id: { not: null } },
 			orderBy: { created_at: 'asc' },
 		})
 
@@ -97,7 +135,6 @@ export class VideoQueryRepository {
 	async getCreateVideoById(id: number) {
 		const video = await this.prisma.video.findUnique({
 			where: { id },
-			include: { video_collection: true },
 		})
 
 		if (!video) {
@@ -107,33 +144,34 @@ export class VideoQueryRepository {
 		return this.mapDbVideoToCreateOutVideo(video)
 	}
 
-	async mapDbVideoToCreateOutVideo(
-		dbVideo: Video & { video_collection?: { type: string; user_id: number | null; source_language_code: string } },
-	): Promise<CreateVideoOutModel> {
+	async mapDbVideoToCreateOutVideo(dbVideo: Video): Promise<CreateVideoOutModel> {
 		return {
 			id: dbVideo.id,
-			videoCollectionId: dbVideo.video_collection_id,
-			type: (dbVideo.video_collection?.type as 'public' | 'private') ?? 'public',
+			type: dbVideo.type as 'public' | 'private',
 			name: dbVideo.name,
-			languageCode: (dbVideo.video_collection?.source_language_code as CreateVideoOutModel['languageCode']) ?? 'en',
+			languageCode: dbVideo.source_language_code as CreateVideoOutModel['languageCode'],
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			userId: dbVideo.video_collection?.user_id ?? null,
+			userId: dbVideo.user_id ?? null,
+			subtitlesSource: dbVideo.subtitles_source,
+			subtitlesStatus: dbVideo.subtitles_status,
+			subtitlesErrorCode: dbVideo.subtitles_error_code,
 		}
 	}
 
-	async mapDbVideoToLiteOutVideo(
-		dbVideo: Video & { video_collection?: { type: string; user_id: number | null; source_language_code: string } },
-	): Promise<VideoLiteOutModel> {
+	async mapDbVideoToLiteOutVideo(dbVideo: Video): Promise<VideoLiteOutModel> {
 		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
+		const coverUrl = dbVideo.cover_file_s3_key
+			? await this.cloudRuS3Service.getFileUrl(dbVideo.cover_file_s3_key)
+			: null
 
 		return {
 			id: dbVideo.id,
-			videoCollectionId: dbVideo.video_collection_id,
-			type: (dbVideo.video_collection?.type as 'public' | 'private') ?? 'public',
+			type: dbVideo.type as 'public' | 'private',
 			name: dbVideo.name,
-			languageCode: dbVideo.video_collection?.source_language_code ?? null,
+			languageCode: dbVideo.source_language_code,
+			youtubeVideoId: dbVideo.youtube_video_id,
 			note: dbVideo.note,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
@@ -142,21 +180,32 @@ export class VideoQueryRepository {
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			userId: dbVideo.video_collection?.user_id ?? null,
+			userId: dbVideo.user_id ?? null,
 			fileSizeMb: dbVideo.file_size_mb,
 			fileDurationSec: dbVideo.file_duration_sec,
+			coverFileName: dbVideo.cover_file_name,
+			coverFileS3Key: dbVideo.cover_file_s3_key,
+			isCoverFileUploaded: dbVideo.is_cover_file_uploaded,
+			coverUrl,
+			uploadCoverUrl: null,
+			subtitlesSource: dbVideo.subtitles_source,
+			subtitlesStatus: dbVideo.subtitles_status,
+			subtitlesErrorCode: dbVideo.subtitles_error_code,
 		}
 	}
 
 	async mapDbVideoToOutVideo(dbVideo: DbVideoWithRelations): Promise<VideoOutModel> {
 		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
+		const coverUrl = dbVideo.cover_file_s3_key
+			? await this.cloudRuS3Service.getFileUrl(dbVideo.cover_file_s3_key)
+			: null
 
 		const base: Omit<VideoOutModel, 'sentences' | 'subtitles' | 'subtitleSentenceInit'> = {
 			id: dbVideo.id,
-			videoCollectionId: dbVideo.video_collection_id,
-			type: (dbVideo.video_collection?.type as 'public' | 'private') ?? 'public',
+			type: dbVideo.type as 'public' | 'private',
 			name: dbVideo.name,
-			languageCode: dbVideo.video_collection?.source_language_code ?? null,
+			languageCode: dbVideo.source_language_code,
+			youtubeVideoId: dbVideo.youtube_video_id,
 			note: dbVideo.note,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
@@ -165,9 +214,17 @@ export class VideoQueryRepository {
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
-			userId: dbVideo.video_collection?.user_id ?? null,
+			userId: dbVideo.user_id ?? null,
 			fileSizeMb: dbVideo.file_size_mb,
 			fileDurationSec: dbVideo.file_duration_sec,
+			coverFileName: dbVideo.cover_file_name,
+			coverFileS3Key: dbVideo.cover_file_s3_key,
+			isCoverFileUploaded: dbVideo.is_cover_file_uploaded,
+			coverUrl,
+			uploadCoverUrl: null,
+			subtitlesSource: dbVideo.subtitles_source,
+			subtitlesStatus: dbVideo.subtitles_status,
+			subtitlesErrorCode: dbVideo.subtitles_error_code,
 		}
 
 		const universalPhraseByText = await this.buildUniversalPhraseMap(dbVideo)
@@ -193,10 +250,7 @@ export class VideoQueryRepository {
 			return new Map()
 		}
 
-		const sourceLanguageCode = dbVideo.video_collection?.source_language_code
-		if (!sourceLanguageCode) {
-			return new Map()
-		}
+		const sourceLanguageCode = dbVideo.source_language_code
 
 		const dbPhrases = await this.prisma.universalPhrase.findMany({
 			where: {

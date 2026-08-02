@@ -151,7 +151,7 @@ import { chapter_99 } from './chapter_99'
 // https://www.aksehir.bel.tr/fikralar.pdf
 
 export function nasreddinHodjaStoriesBookData(s3FolderName: string) {
-	const coverFileName = 'nasreddinHodjastories_1.jpg'
+	const coverFileName = 'nasreddinHodjastories.jpg'
 
 	return {
 		name: 'Nasreddin Hoca hikâyeleri',

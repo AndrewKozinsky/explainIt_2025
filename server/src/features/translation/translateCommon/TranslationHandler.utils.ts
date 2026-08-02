@@ -39,20 +39,6 @@ export async function ensureModeIsAllowedOrThrow(input: {
 	)
 }
 
-export async function ensureCanChargeBalanceOrThrow(input: {
-	access: SentenceTranslationAccess
-	userId: null | number
-	userBalanceTransactionRepository: UserBalanceTransactionRepository
-	mainConfigService: MainConfigService
-}) {
-	if (input.access.createMode === 'chargeBalance' && input.userId) {
-		await input.userBalanceTransactionRepository.ensureCanChargeOrThrow({
-			userId: input.userId,
-			minBalanceInKopecks: 5,
-		})
-	}
-}
-
 export async function chargeAfterTranslationIfNeeded(input: {
 	userId: null | number
 	chargeAfterTranslation: boolean

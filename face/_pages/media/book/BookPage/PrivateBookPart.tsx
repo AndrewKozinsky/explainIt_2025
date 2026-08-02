@@ -1,0 +1,104 @@
+'use client'
+
+import { useState, useMemo, useCallback } from 'react'
+import { EditPrivateBookAndChapters } from '@/entites/book/ui/EditPrivateBookAndChapters/EditPrivateBookAndChapters'
+import { BooksService } from '@/entites/books/BooksService'
+import { BooksApi } from '@/entites/books/repository/BooksApi'
+import type { BookModel } from '@/entites/books/repository/BooksRepository'
+import { ChaptersService } from '@/entites/chapter/ChaptersService'
+import { ChaptersApi } from '@/entites/chapter/repository/ChaptersApi'
+import ChaptersList from '@/entites/media/ui/ChaptersList/ChaptersList'
+import MediaContentWrapper from '@/entites/media/ui/MediaContentWrapper/MediaContentWrapper'
+import { getBookChaptersLinksConfig } from './fn/getBookChaptersLinksConfig'
+
+type PrivateBookPartProps = {
+	book: BookModel
+}
+
+export default function PrivateBookPart(props: PrivateBookPartProps) {
+	const { book: initialBook } = props
+	const [currentBook, setCurrentBook] = useState<BookModel>(initialBook)
+
+	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
+	const chaptersService = useMemo(() => new ChaptersService(new ChaptersApi()), [])
+
+	// Обновление только текстовых полей книги (не трогает обложку)
+	const handleBookUpdated = useCallback(function (updatedBook: BookModel) {
+		setCurrentBook(function (prev) {
+			return {
+				...prev,
+				author: updatedBook.author,
+				name: updatedBook.name,
+				languageCode: updatedBook.languageCode,
+			}
+		})
+	}, [])
+
+	// Обновление обложки (замена всей книги)
+	const handleCoverUpdated = useCallback(function (updatedBook: BookModel) {
+		setCurrentBook(updatedBook)
+	}, [])
+
+	const handleAddChapter = useCallback(
+		async function () {
+			const result = await chaptersService.createChapter({
+				bookId: currentBook.id,
+				bookType: 'private',
+			})
+
+			if (result.error || result.errors || !result.data) return
+
+			const bookResult = await booksService.getBook(currentBook.id)
+			if (bookResult.data) {
+				setCurrentBook(bookResult.data)
+			}
+		},
+		[currentBook.id, chaptersService, booksService],
+	)
+
+	const handleChapterDeleted = useCallback(function (chapterId: number) {
+		setCurrentBook(function (prev) {
+			return {
+				...prev,
+				chapters: prev.chapters.filter(function (ch) {
+					return ch.id !== chapterId
+				}),
+			}
+		})
+	}, [])
+
+	const handleChapterUpdated = useCallback(
+		async function () {
+			const bookResult = await booksService.getBook(currentBook.id)
+			if (bookResult.data) {
+				setCurrentBook(bookResult.data)
+			}
+		},
+		[currentBook.id, booksService],
+	)
+
+	if (currentBook.type !== 'private') {
+		return null
+	}
+
+	const chaptersConfig = getBookChaptersLinksConfig(currentBook)
+
+	return (
+		<MediaContentWrapper
+			list={
+				<div className='book-page__right-menu'>
+					<ChaptersList chapters={chaptersConfig} extraClass='book-page__chapters-list' />
+				</div>
+			}
+		>
+			<EditPrivateBookAndChapters
+				book={currentBook}
+				onBookUpdated={handleBookUpdated}
+				onCoverUpdated={handleCoverUpdated}
+				onAddChapter={handleAddChapter}
+				onChapterDeleted={handleChapterDeleted}
+				onChapterUpdated={handleChapterUpdated}
+			/>
+		</MediaContentWrapper>
+	)
+}

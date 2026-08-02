@@ -1,8 +1,7 @@
-import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { OpenAIModels } from 'types/openAIModels'
+import { AIProviderName } from 'types/AIModels'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
@@ -11,14 +10,8 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { LanguageCode } from 'prisma/generated/enums'
-import {
-	chargeAfterTranslationIfNeeded,
-	ensureCanChargeBalanceOrThrow,
-	ensureModeIsAllowedOrThrow,
-} from '../translateCommon/TranslationHandler.utils'
-import { TranslationProviderName } from '../translateCommon/TranslationProvider.types'
+import { ensureModeIsAllowedOrThrow } from '../translateCommon/TranslationHandler.utils'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 
 export type TranslateSentenceInput = {
@@ -47,9 +40,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		private sentenceRepository: SentenceRepository,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
-		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
-		private mainConfigService: MainConfigService,
-		private commandBus: CommandBus,
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
@@ -87,18 +77,12 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				videoYear: command.input.videoYear,
 			})
 
-			const finalizedTranslation = translationResult.fullText.trim()
+			const finalizedTranslation = translationResult.trim()
 
 			if (!finalizedTranslation) {
 				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslation.id)
 				throw new CustomError(errorMessage.unknownOpenAIError, ErrorStatusCode.InternalServerError_500)
 			}
-
-			await this.chargeAfterTranslationIfNeeded({
-				userId: command.input.userId,
-				chargeAfterTranslation: preparedInput.createMode === 'chargeBalance',
-				usage: translationResult.usage,
-			})
 
 			await this.saveFinalTranslation({
 				sentenceTranslationId: draftSentenceTranslation.id,
@@ -133,8 +117,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		contextText: string
 		sourceLanguageCode: LanguageCode
 		lowPriority: boolean
-		provider: TranslationProviderName
-		createMode: SentenceTranslationAccess['createMode']
+		provider: AIProviderName
 	}> {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: input.userId,
@@ -142,7 +125,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		})
 
 		await this.ensureCanCreateNewTranslationOrThrow({
-			userId: input.userId,
 			access,
 		})
 
@@ -155,12 +137,11 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			lowPriority: true,
 			provider: this.getProviderName(),
-			createMode: access.createMode,
 		}
 	}
 
-	private getProviderName(): TranslationProviderName {
-		return 'gemini'
+	private getProviderName(): AIProviderName {
+		return 'deepseek'
 	}
 
 	private async createDraftSentenceTranslation(input: { sentenceId: number; targetLanguageCode: LanguageCode }) {
@@ -224,7 +205,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async generateSentenceTranslation(input: {
-		provider: TranslationProviderName
+		provider: AIProviderName
 		text: string
 		contextText: string
 		sourceLanguageCode: LanguageCode
@@ -234,10 +215,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): Promise<{
-		fullText: string
-		usage: Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage']
-	}> {
+	}): Promise<string> {
 		const systemPrompt = buildSentenceTranslationPrompt({
 			sourceLanguageCode: input.sourceLanguageCode,
 			targetLanguageCode: input.targetLanguageCode,
@@ -257,47 +235,12 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			lowPriority: input.lowPriority,
 		})
 
-		return {
-			fullText: result.content,
-			usage: this.buildUsage(input.provider, result.inputTokens, result.outputTokens, input.lowPriority),
-		}
-	}
-
-	private buildUsage(
-		provider: TranslationProviderName,
-		inputTokens: number,
-		outputTokens: number,
-		lowPriority: boolean,
-	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
-		if (provider === 'chatgpt') {
-			return {
-				provider: 'chatgpt',
-				inputTokens,
-				outputTokens,
-				model: OpenAIModels.Standard,
-				lowPriority,
-			}
-		}
-
-		return { provider, inputTokens, outputTokens }
+		return result.content
 	}
 
 	private async saveFinalTranslation(input: { sentenceTranslationId: number; translation: string }) {
 		await this.sentenceTranslationRepository.updateSentenceTranslationById(input.sentenceTranslationId, {
 			translation: input.translation,
-		})
-	}
-
-	private async chargeAfterTranslationIfNeeded(input: {
-		userId: null | number
-		chargeAfterTranslation: boolean
-		usage: Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage']
-	}) {
-		return chargeAfterTranslationIfNeeded({
-			userId: input.userId,
-			chargeAfterTranslation: input.chargeAfterTranslation,
-			usage: input.usage,
-			commandBus: this.commandBus,
 		})
 	}
 
@@ -310,21 +253,11 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		}
 	}
 
-	private async ensureCanCreateNewTranslationOrThrow(input: {
-		userId: null | number
-		access: SentenceTranslationAccess
-	}) {
+	private async ensureCanCreateNewTranslationOrThrow(input: { access: SentenceTranslationAccess }) {
 		await ensureModeIsAllowedOrThrow({
 			mode: input.access.createMode,
 			deniedReason: input.access.createDeniedReason,
 			actionType: 'create',
-		})
-
-		await ensureCanChargeBalanceOrThrow({
-			access: input.access,
-			userId: input.userId,
-			userBalanceTransactionRepository: this.userBalanceTransactionRepository,
-			mainConfigService: this.mainConfigService,
 		})
 	}
 }

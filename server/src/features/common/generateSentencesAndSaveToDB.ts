@@ -13,6 +13,7 @@ export async function generateSentencesAndSaveToDB(params: {
 	languageCode: Language
 	bookChapterId?: number
 	videoId?: number
+	preComputedSentences?: string[]
 }) {
 	const hasBookChapterId = typeof params.bookChapterId === 'number'
 	const hasVideoId = typeof params.videoId === 'number'
@@ -23,11 +24,13 @@ export async function generateSentencesAndSaveToDB(params: {
 	}
 
 	try {
-		const sentences = await divideTextIntoSentences({
-			mainConfigService: params.mainConfigService,
-			text: params.processedContent,
-			languageCode: params.languageCode,
-		})
+		const sentences =
+			params.preComputedSentences ??
+			(await divideTextIntoSentences({
+				mainConfigService: params.mainConfigService,
+				text: params.processedContent,
+				languageCode: params.languageCode,
+			}))
 
 		let cursor = 0
 

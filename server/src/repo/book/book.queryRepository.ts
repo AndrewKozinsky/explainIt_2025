@@ -49,6 +49,8 @@ export class BookQueryRepository {
 			include: { BookChapter: { orderBy: { id: 'asc' } } },
 		})
 
+		console.log(Promise.all(books.map((book) => this.mapDbBookToOutBook(book))))
+
 		return Promise.all(books.map((book) => this.mapDbBookToOutBook(book)))
 	}
 

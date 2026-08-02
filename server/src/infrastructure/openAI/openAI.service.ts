@@ -6,7 +6,7 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
-import { OpenAIModels } from 'types/openAIModels'
+import { OpenAIModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'

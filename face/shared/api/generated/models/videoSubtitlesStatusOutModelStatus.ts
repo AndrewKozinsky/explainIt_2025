@@ -7,7 +7,7 @@
  */
 
 /**
- * Current status of subtitles generation
+ * Current status of subtitles processing
  */
 export type VideoSubtitlesStatusOutModelStatus = typeof VideoSubtitlesStatusOutModelStatus[keyof typeof VideoSubtitlesStatusOutModelStatus];
 

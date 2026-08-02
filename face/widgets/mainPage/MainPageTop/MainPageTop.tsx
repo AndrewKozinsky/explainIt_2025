@@ -12,7 +12,7 @@ function MainPageTop() {
 				<BaseButton
 					theme='accent'
 					extraClass='main-page-top__button main-page-top__button--accent'
-					href={pageUrls.books.book('p1').chapter(1).reading.path}
+					href={pageUrls.books.book('p1').chapter(1).path}
 				>
 					<RoundArrowWhiteIcon />
 					Попробовать

@@ -1,8 +1,9 @@
-import { useCallback } from 'react'
+import { useCallback, useMemo } from 'react'
+import { AuthService } from '@/entites/auth/AuthService'
+import { AuthApi } from '@/entites/auth/repository/AuthApi'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
-import { useAuthControllerLogin } from '@/shared/api/generated/auth/auth'
-import type { UserOutModel } from '@/shared/api/generated/models'
-import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { FormStatus } from '@/shared/utils/forms'
 import { LoginFormData } from './form'
 
 export function useGetOnLoginFormSubmit(
@@ -10,7 +11,8 @@ export function useGetOnLoginFormSubmit(
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const { mutateAsync: loginUser } = useAuthControllerLogin()
+	const service = useMemo(() => new AuthService(new AuthApi()), [])
+	const { mutate: loginUser } = useAsyncMutation((input: { email: string; password: string }) => service.login(input))
 	const setUser = useSetUser()
 
 	return useCallback(
@@ -18,16 +20,27 @@ export function useGetOnLoginFormSubmit(
 			setFormError(null)
 			setFormStatus('submitting')
 
-			try {
-				const response = await loginUser({ data: { email: formData.email, password: formData.password } })
-				const user = response as unknown as UserOutModel
+			const result = await loginUser({ email: formData.email, password: formData.password })
 
-				setUser(user)
-				setFormStatus('success')
-			} catch (gqError: unknown) {
-				setErrorsToForm(gqError, setFieldError, setFormError)
+			if (result.error) {
+				setFormError(result.error)
 				setFormStatus('idle')
+				return
 			}
+
+			if (result.errors) {
+				result.errors.forEach(({ field, messages }) => {
+					setFieldError(field as keyof LoginFormData, {
+						type: 'manual',
+						message: messages.join(', '),
+					})
+				})
+				setFormStatus('hasErrors')
+				return
+			}
+
+			setUser(result.data as Parameters<typeof setUser>[0])
+			setFormStatus('success')
 		},
 		[loginUser, setUser, setFieldError, setFormError, setFormStatus],
 	)

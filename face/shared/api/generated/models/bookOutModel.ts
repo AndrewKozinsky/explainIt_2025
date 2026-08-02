@@ -6,56 +6,48 @@
  * OpenAPI spec version: 1.0
  */
 import type { BookChapterLiteOutModel } from './bookChapterLiteOutModel';
-import type { BookOutModelAuthor } from './bookOutModelAuthor';
-import type { BookOutModelCoverFileName } from './bookOutModelCoverFileName';
-import type { BookOutModelCoverFileS3Key } from './bookOutModelCoverFileS3Key';
-import type { BookOutModelCoverUrl } from './bookOutModelCoverUrl';
-import type { BookOutModelLanguageCode } from './bookOutModelLanguageCode';
-import type { BookOutModelName } from './bookOutModelName';
-import type { BookOutModelNote } from './bookOutModelNote';
-import type { BookOutModelUploadUrl } from './bookOutModelUploadUrl';
 import type { BookOutModelUserId } from './bookOutModelUserId';
 
 export interface BookOutModel {
   /** Book ID */
   id: number;
-  /** Book type: public or private */
+  /** Media type: public or private */
   type: string;
   /**
      * Author of the book
      * @maxLength 255
      */
-  author?: BookOutModelAuthor;
+  author?: string | null;
   /**
      * Name of the book
      * @maxLength 255
      */
-  name?: BookOutModelName;
+  name?: string | null;
   /** Language code of the book */
-  languageCode?: BookOutModelLanguageCode;
+  languageCode?: string | null;
   /**
      * Note about the book
      * @maxLength 2000
      */
-  note?: BookOutModelNote;
+  note?: string | null;
   /** User ID who owns the book (null for public books) */
   userId?: BookOutModelUserId;
   /** URL to the book cover image */
-  coverUrl?: BookOutModelCoverUrl;
+  coverUrl?: string | null;
   /**
      * Name of the book cover file
      * @maxLength 200
      */
-  coverFileName?: BookOutModelCoverFileName;
+  coverFileName?: string | null;
   /**
      * S3 key of the book cover
      * @maxLength 1000
      */
-  coverFileS3Key?: BookOutModelCoverFileS3Key;
+  coverFileS3Key?: string | null;
   /** Is cover file was uploaded */
   isCoverFileUploaded?: boolean | null;
   /** Pre-signed S3 upload URL for the book cover */
-  uploadUrl?: BookOutModelUploadUrl;
+  uploadUrl?: string | null;
   /** Book chapters */
   chapters: BookChapterLiteOutModel[];
 }

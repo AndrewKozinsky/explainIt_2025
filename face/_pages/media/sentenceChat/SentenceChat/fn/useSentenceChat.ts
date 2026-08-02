@@ -1,13 +1,11 @@
 import { useCallback, useEffect, useRef } from 'react'
-import type { SentenceChatThreadOutModel, SentenceChatMessageOutModel } from '@/shared/api/generated/models'
-import {
-	useSentenceChatControllerCreateThread,
-	useSentenceChatControllerCreateUserMessage,
-} from '@/shared/api/generated/sentence-chat/sentence-chat'
+import { SentenceChatApi } from '@/entites/sentenceChat/repository/SentenceChatApi'
 import { useSentenceChatStore } from '../../sentenceChatStore'
 import { ChatMessageStatus, ChatUiMessage } from '../../types/sseTypes'
 import { openAssistantStream } from './openAssistantStream'
 import { useLoadChatThread } from './useLoadChatThread'
+
+const sentenceChatApi = new SentenceChatApi()
 
 export type UseSentenceChatReturn = {
 	messages: ChatUiMessage[]
@@ -23,11 +21,7 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 	const { threadId, messages, isLoadingThread, isGenerating, threadError, llmProvider } = store
 
 	const eventSourceRef = useRef<null | EventSource>(null)
-	// Локальный id для streaming-плейсхолдера (до получения финального id от сервера).
 	const placeholderIdRef = useRef<number>(-1)
-
-	const { mutateAsync: createThread } = useSentenceChatControllerCreateThread()
-	const { mutateAsync: createUserMessage } = useSentenceChatControllerCreateUserMessage()
 
 	const closeStream = useCallback(function () {
 		eventSourceRef.current?.close()
@@ -75,44 +69,36 @@ export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 
 			store.updateStore({ threadError: null })
 
-			try {
-				let activeThreadId = threadId
+			let activeThreadId = threadId
 
-				if (activeThreadId === null) {
-					const res = await createThread({ data: { sentenceId } })
-					const thread = res as unknown as SentenceChatThreadOutModel
-					if (!thread?.id) {
-						throw new Error('Не удалось создать тред')
-					}
-
-					activeThreadId = thread.id
-					store.updateStore({ threadId: activeThreadId })
+			if (activeThreadId === null) {
+				const res = await sentenceChatApi.createThread(sentenceId)
+				if (res.error || res.errors) {
+					store.updateStore({ threadError: 'Ошибка отправки вопроса' })
+					return
 				}
-
-				const userRes = await createUserMessage({
-					threadId: activeThreadId,
-					data: { threadId: activeThreadId, question: trimmed },
-				})
-				const userMessage = userRes as unknown as SentenceChatMessageOutModel
-				if (!userMessage?.id) {
-					throw new Error('Не удалось отправить сообщение')
-				}
-
-				store.appendMessage({
-					...userMessage,
-					role: userMessage.role as 'user' | 'assistant',
-					status: userMessage.status as ChatMessageStatus,
-					errorMessage: userMessage.errorMessage as unknown as null | string,
-				})
-
-				startAssistantStream(activeThreadId)
-			} catch {
-				store.updateStore({
-					threadError: 'Ошибка отправки вопроса',
-				})
+				const thread = res.data
+				activeThreadId = thread.id
+				store.updateStore({ threadId: activeThreadId })
 			}
+
+			const userRes = await sentenceChatApi.createUserMessage(activeThreadId, trimmed)
+			if (userRes.error || userRes.errors) {
+				store.updateStore({ threadError: 'Ошибка отправки вопроса' })
+				return
+			}
+			const userMessage = userRes.data
+
+			store.appendMessage({
+				...userMessage,
+				role: userMessage.role as 'user' | 'assistant',
+				status: userMessage.status as ChatMessageStatus,
+				errorMessage: userMessage.errorMessage,
+			})
+
+			startAssistantStream(activeThreadId)
 		},
-		[createThread, createUserMessage, isGenerating, startAssistantStream, threadId, store],
+		[isGenerating, startAssistantStream, threadId, store],
 	)
 
 	const cancelGeneration = useCallback(

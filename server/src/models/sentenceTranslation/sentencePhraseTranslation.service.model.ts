@@ -15,7 +15,7 @@ export type SentencePhraseTranslationServiceModel = {
 	translate: null | string
 	examples: SentencePhraseTranslationExampleServiceModel[]
 	status: 'pending' | 'ready' | 'error'
-	errorMessage: null | string
+	errorCode: null | string
 	createdAt: Date
 	updatedAt: Date
 	flashcardId: null | number

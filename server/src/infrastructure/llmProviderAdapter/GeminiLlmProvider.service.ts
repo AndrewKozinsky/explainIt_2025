@@ -1,13 +1,12 @@
 import { Content } from '@google/genai'
 import { Injectable } from '@nestjs/common'
-import { GoogleGeminiModels } from 'types/googleGeminiModels'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { GoogleGeminiModels, AIProviderName } from 'types/AIModels'
 import { GoogleGeminiService } from 'infrastructure/googleGemini/googleGemini.service'
 import { LlmGenerateInput, LlmGenerateOutput, LlmMessage, LlmProvider, LlmStreamInput } from './LlmProvider.interface'
 
 @Injectable()
 export class GeminiLlmProvider implements LlmProvider {
-	readonly name: TranslationProviderName = 'gemini'
+	readonly name: AIProviderName = 'deepseek'
 
 	constructor(private googleGeminiService: GoogleGeminiService) {}
 
@@ -17,7 +16,7 @@ export class GeminiLlmProvider implements LlmProvider {
 		const response = await this.googleGeminiService.generateText({
 			contents,
 			systemInstruction,
-			model: GoogleGeminiModels.Flash,
+			model: (input.model as GoogleGeminiModels) ?? GoogleGeminiModels.Flash,
 		})
 
 		return {
@@ -33,7 +32,7 @@ export class GeminiLlmProvider implements LlmProvider {
 		const chunks = this.googleGeminiService.generateTextStreamChunks({
 			contents,
 			systemInstruction,
-			model: GoogleGeminiModels.Flash,
+			model: (input.model as GoogleGeminiModels) ?? GoogleGeminiModels.Flash,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
 		})

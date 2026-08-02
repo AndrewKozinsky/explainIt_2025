@@ -1,47 +1,36 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
+import { AuthService } from '@/entites/auth/AuthService'
+import { AuthApi } from '@/entites/auth/repository/AuthApi'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
-import { useAuthControllerLoginWithOAuth } from '@/shared/api/generated/auth/auth'
-import type { UserOutModel, LoginWithOAuthInputProviderType } from '@/shared/api/generated/models'
-import { ApiError } from '@/shared/api/mutator'
-import { errorMessages } from '@/shared/utils/errorMessages'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
-export function useAuthorizeUser(providerType: LoginWithOAuthInputProviderType) {
+export function useAuthorizeUser(providerType: string) {
 	const code = useSearchParams().get('code')!
 
-	const { mutateAsync: authorizeWithOAuth } = useAuthControllerLoginWithOAuth()
 	const setUser = useSetUser()
+
+	const service = useMemo(() => new AuthService(new AuthApi()), [])
+	const { mutate: authorizeWithOAuth } = useAsyncMutation((input: { providerType: string; code: string }) =>
+		service.loginWithOAuth(input),
+	)
 
 	const [authorizationStatus, setAuthorizationStatus] = useState<'loading' | 'error' | 'success'>('loading')
 	const [error, setError] = useState<null | string>(null)
 
 	useEffect(
 		function () {
-			authorizeWithOAuth({
-				data: {
-					providerType,
-					code,
-				},
-			})
-				.then((response) => {
-					const user = response as unknown as UserOutModel
-					setUser(user)
-					setAuthorizationStatus('success')
-				})
-				.catch((error: unknown) => {
-					console.log(error)
-					if (
-						error instanceof ApiError &&
-						error.body &&
-						typeof error.body === 'object' &&
-						'message' in error.body
-					) {
-						setError((error.body as { message: string }).message)
-					} else {
-						setError(errorMessages.unknownErrorWhileAuth)
-					}
+			authorizeWithOAuth({ providerType, code }).then((result) => {
+				if (result.error) {
+					console.log(result.error)
+					setError(result.error)
 					setAuthorizationStatus('error')
-				})
+					return
+				}
+
+				setUser(result.data as Parameters<typeof setUser>[0])
+				setAuthorizationStatus('success')
+			})
 		},
 		[authorizeWithOAuth, code, providerType, setUser],
 	)

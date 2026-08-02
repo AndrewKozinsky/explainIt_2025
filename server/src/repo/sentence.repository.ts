@@ -7,7 +7,7 @@ import { Prisma, Sentence } from 'prisma/generated/client'
 type DbSentenceWithRelations = Prisma.SentenceGetPayload<{
 	include: {
 		bookChapter: { include: { book: true } }
-		video: { include: { video_collection: true } }
+		video: true
 	}
 }>
 
@@ -21,7 +21,7 @@ export class SentenceRepository {
 			where: { id },
 			include: {
 				bookChapter: { include: { book: true } },
-				video: { include: { video_collection: true } },
+				video: true,
 			},
 		})
 	}

@@ -28,5 +28,6 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/clientRepositories.md` | репозиторий, repository, BooksRepository, BooksApi, useFetchData, resolveError, extractString, маппинг данных, клиентский API |
 | `aiDocsRus/topics/errorHandling.md` | ошибки, errorMessageCode, CustomError, extractErrorText, ApolloError, обработка ошибок, error handling |
 | `aiDocsRus/topics/videoPrivateSubtitlesGeneration.md` | генерация субтитров, Deepgram, ffmpeg, SRT, speech-to-text, автоматические субтитры |
+| `aiDocsRus/topics/youtube.md` | YouTube, ютуб, youtube, YouTube Data API, youtube videos, поиск видео, GetYoutubeVideos |
 | `aiDocsRus/topics/restAndDtoDecorators.md` | REST, контроллер, controller, DTO, DtoFieldDecorators, декораторы, bdConfig, OpenAPI, Swagger, миграция с GraphQL, ApiProperty |
 | `aiDocsRus/topics/openapiCodegen.md` | Orval, генерация клиентских функций, OpenAPI, React Query, orval, codegen, npm run orval, mutator, shared/api |

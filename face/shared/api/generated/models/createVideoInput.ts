@@ -5,17 +5,15 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { CreateVideoInputName } from './createVideoInputName';
-import type { CreateVideoInputOriginalContent } from './createVideoInputOriginalContent';
 
 export interface CreateVideoInput {
   /**
      * Name of the video
      * @maxLength 255
      */
-  name?: CreateVideoInputName;
+  name?: string | null;
   /** Original subtitles or text of the video */
-  originalContent?: CreateVideoInputOriginalContent;
+  originalContent?: string | null;
   /** Size of the video file in megabytes */
   fileSizeMb?: number | null;
   /** Duration of the uploaded video file in seconds */

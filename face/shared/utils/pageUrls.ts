@@ -53,6 +53,16 @@ export const pageUrls = {
 			},
 		},
 	},
+	youtube: {
+		name: 'YouTube',
+		path: '/youtube',
+		video(videoId: string | number) {
+			return {
+				name: 'Видео',
+				path: '/youtube/' + videoId,
+			}
+		},
+	},
 	books: {
 		name: 'Книги',
 		path: '/books',
@@ -64,11 +74,6 @@ export const pageUrls = {
 					return {
 						name: 'Книга',
 						path: '/books/' + bookId + '/' + chapterId,
-						reading: {
-							segment: 'reading',
-							name: 'Чтение главы',
-							path: '/books/' + bookId + '/' + chapterId + '/reading',
-						},
 					}
 				},
 			}
@@ -77,15 +82,12 @@ export const pageUrls = {
 	videos: {
 		name: 'Фильмы',
 		path: '/videos',
-		video(videoId: string | number) {
+		video(videoId: string | number, withDetails?: boolean) {
+			const detailsParam = withDetails ? '?details' : ''
+
 			return {
-				name: 'Фильм',
-				path: '/videos/' + videoId,
-				watching: {
-					segment: 'watching',
-					name: 'Просмотр фильма',
-					path: '/videos/' + videoId + '/watching',
-				},
+				name: 'Видео',
+				path: '/videos/' + videoId + detailsParam,
 			}
 		},
 	},

@@ -132,17 +132,17 @@ export class AddFlashcardHandler implements ICommandHandler<AddFlashcardCommand,
 		}
 
 		if (sentence.video) {
-			const collection = sentence.video.video_collection
-			if (collection.user_id === null) {
+			const video = sentence.video
+			if (video.user_id === null) {
 				throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 			}
 
-			this.assertOwner(collection.user_id, userId)
+			this.assertOwner(video.user_id, userId)
 
 			return {
 				...emptySource,
 				videoId: sentence.video.id,
-				languageCode: collection.source_language_code,
+				languageCode: sentence.video.source_language_code,
 				sourceFullText: this.pickFullText(sentence.video.processed_content, sentence.video.original_content),
 			}
 		}

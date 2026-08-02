@@ -8,8 +8,7 @@
 
 export type BookChapterControllerGetBookChapterParams = {
 /**
- * Book ID
- * @minimum 1
+ * Media type: public or private
  */
 bookType: string;
 targetLanguageCode?: string | null;

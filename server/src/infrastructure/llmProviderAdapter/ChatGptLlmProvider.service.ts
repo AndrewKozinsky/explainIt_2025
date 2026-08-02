@@ -1,13 +1,12 @@
 import { Injectable } from '@nestjs/common'
 import OpenAI from 'openai'
-import { OpenAIModels } from 'types/openAIModels'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { OpenAIModels, AIProviderName } from 'types/AIModels'
 import { OpenAIService } from 'infrastructure/openAI/openAI.service'
 import { LlmGenerateInput, LlmGenerateOutput, LlmMessage, LlmProvider, LlmStreamInput } from './LlmProvider.interface'
 
 @Injectable()
 export class ChatGptLlmProvider implements LlmProvider {
-	readonly name: TranslationProviderName = 'chatgpt'
+	readonly name: AIProviderName = 'chatgpt'
 
 	constructor(private openAIService: OpenAIService) {}
 
@@ -16,7 +15,7 @@ export class ChatGptLlmProvider implements LlmProvider {
 
 		const response = await this.openAIService.generateText({
 			messages,
-			model: OpenAIModels.Standard,
+			model: (input.model as OpenAIModels) ?? OpenAIModels.Standard,
 			responseFormat: input.responseFormat
 				? input.responseFormat === 'json_object'
 					? { type: 'json_object' }
@@ -38,7 +37,7 @@ export class ChatGptLlmProvider implements LlmProvider {
 
 		const chunks = this.openAIService.generateTextStreamChunks({
 			messages,
-			model: OpenAIModels.Standard,
+			model: (input.model as OpenAIModels) ?? OpenAIModels.Standard,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
 			lowPriority: input.lowPriority,

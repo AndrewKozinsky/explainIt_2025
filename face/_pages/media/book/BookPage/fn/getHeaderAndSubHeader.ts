@@ -1,24 +1,9 @@
-import { useMemo } from 'react'
-import { useBookStore } from '_pages/media/book/bookStore'
-import { bookConfig } from '_pages/media/commonComponents/bookConfig'
+import { bookConfig } from '@/entites/books/lib/bookConfig'
+import { BookModel } from '@/entites/books/repository/BooksRepository'
 
-export function useGetHeaderAndSubHeader() {
-	const book = useBookStore((s) => s.book)
-
-	return useMemo(
-		function () {
-			if (book.data) {
-				return {
-					header: book.data.name || bookConfig.emptyBookName,
-					subHeader: book.data.author,
-				}
-			}
-
-			return {
-				header: '',
-				subHeader: null,
-			}
-		},
-		[book],
-	)
+export function getHeaderAndSubHeader(bookData: BookModel) {
+	return {
+		header: bookData.name || bookConfig.emptyBookName,
+		subHeader: bookData.author,
+	}
 }

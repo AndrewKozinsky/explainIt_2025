@@ -40,7 +40,7 @@ export class UniversalPhraseTranslationRepository {
 				target_language_code: input.targetLanguageCode,
 				translation: null,
 				status: 'pending',
-				error_message: null,
+				error_code: null,
 				non_existent_word: false,
 			},
 		})
@@ -58,7 +58,7 @@ export class UniversalPhraseTranslationRepository {
 			data: {
 				translation: JSON.stringify(translation),
 				status: 'ready',
-				error_message: null,
+				error_code: null,
 				non_existent_word: false,
 			},
 		})
@@ -73,7 +73,7 @@ export class UniversalPhraseTranslationRepository {
 			data: {
 				translation: null,
 				status: 'ready',
-				error_message: null,
+				error_code: null,
 				non_existent_word: true,
 			},
 		})
@@ -82,12 +82,12 @@ export class UniversalPhraseTranslationRepository {
 	}
 
 	@CatchDbError()
-	async updateToError(id: number, errorMessage: string): Promise<UniversalPhraseTranslationServiceModel> {
+	async updateToError(id: number, errorCode: string): Promise<UniversalPhraseTranslationServiceModel> {
 		const db = await this.prisma.universalPhraseTranslation.update({
 			where: { id },
 			data: {
 				status: 'error',
-				error_message: errorMessage,
+				error_code: errorCode,
 			},
 		})
 
@@ -107,7 +107,7 @@ export class UniversalPhraseTranslationRepository {
 			targetLanguageCode: db.target_language_code,
 			translation,
 			status: db.status,
-			errorMessage: db.error_message,
+			errorCode: db.error_code,
 			nonExistentWord: db.non_existent_word,
 			createdAt: db.created_at,
 		}

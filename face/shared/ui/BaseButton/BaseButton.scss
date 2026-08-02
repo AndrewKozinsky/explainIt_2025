@@ -44,7 +44,7 @@
 .base-button--outline {
 	border-color: vars.$grayColor-2;
 
-	&:hover {
+	&:hover:not(:disabled) {
 		border-color: vars.$grayColor-4;
 	}
 

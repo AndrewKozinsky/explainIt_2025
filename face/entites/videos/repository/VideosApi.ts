@@ -1,6 +1,17 @@
+import {
+	mapType,
+	mapContentType,
+	mapSubtitlesSource,
+	mapToVideoLite,
+	mapVideoOutModelToVideoModel,
+} from '@/entites/videoBase/repository/BaseVideosApi'
+import type { SubtitlesStatusModelType } from '@/entites/videoBase/repository/BaseVideosRepository'
 import type {
-	VideoLiteOutModel,
-	VideoOutModel,
+	VideoLiteModel,
+	VideoModel,
+	SubtitlesStatusModel,
+} from '@/entites/videoBase/repository/BaseVideosRepository'
+import type {
 	CreateVideoOutModel,
 	UpdateVideoOutModel,
 	VideoSubtitlesStatusOutModel,
@@ -17,166 +28,131 @@ import {
 	videoControllerGetSubtitlesStatus,
 } from '@/shared/api/generated/video/video'
 import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
-import type {
-	VideoLite,
-	Video,
-	SubtitlesStatus,
-	VideosRepository,
-	CreateVideoInput,
-	UpdateVideoInput,
-} from './VideosRepository'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { LanguageCode } from '@/shared/utils/languages'
+import type { VideosRepository, CreateVideoInput, UpdateVideoInput } from './VideosRepository'
 
 /**
  * Реализация VideosRepository через REST API.
  * Внутри использует Orval-сгенерированные функции, снаружи отдаёт унифицированные типы.
- *
- * ## Обработка ошибок
- *
- * Методы НЕ содержат try/catch. Вместо этого они полагаются на цепочку:
- *
- * ```
- * Сервер (ошибка)
- *   → GlobalExceptionFilter формирует JSON с errorMessageCode
- *   → customMutator видит !res.ok и выбрасывает ApiError
- *   → метод НЕ ловит — ошибка прокидывается наверх
- *   → useFetchData / useAsyncMutation ловит в try/catch
- *   → resolveError извлекает errorMessageCode → читаемый текст
- *   → Компонент получает { error: "Видео не найдено." }
- * ```
  */
 export class VideosApi implements VideosRepository {
-	async getVideos(): Promise<VideoLite[]> {
-		const response = await videoControllerGetVideos()
-
-		return response.data.map(mapToVideoLite)
+	async getVideos(): Promise<ApiResult<VideoLiteModel[]>> {
+		return executeApiCall(
+			() => videoControllerGetVideos(),
+			(data) => data.map(mapToVideoLite),
+		)
 	}
 
-	async getVideo(id: number): Promise<Video> {
-		const response = await videoControllerGetVideo(id)
-
-		return mapToVideo(response.data)
+	async getVideo(id: number): Promise<ApiResult<VideoModel>> {
+		return executeApiCall(
+			() => videoControllerGetVideo(id),
+			(data) => mapVideoOutModelToVideoModel(data),
+		)
 	}
 
-	async createVideo(input: CreateVideoInput): Promise<VideoLite> {
-		const response = await videoControllerCreateVideo(input as unknown as OrvalCreateVideoInput)
-
-		return mapCreateVideoOutToVideoLite(response.data)
+	async createVideo(input: CreateVideoInput): Promise<ApiResult<VideoLiteModel>> {
+		return executeApiCall(
+			() => videoControllerCreateVideo(input as unknown as OrvalCreateVideoInput),
+			(data) => mapCreateVideoOutToVideoLite(data),
+		)
 	}
 
-	async updateVideo(id: number, input: UpdateVideoInput): Promise<VideoLite> {
-		const response = await videoControllerUpdateVideo(id, input as unknown as OrvalUpdateVideoInput)
-
-		return mapUpdateVideoOutToVideoLite(response.data)
+	async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
+		return executeApiCall(
+			() => videoControllerUpdateVideo(id, input as unknown as OrvalUpdateVideoInput),
+			(data) => mapUpdateVideoOutToVideoLite(data),
+		)
 	}
 
-	async deleteVideo(id: number): Promise<void> {
-		await videoControllerDeleteVideo(id)
+	async deleteVideo(id: number): Promise<ApiResult<void>> {
+		return executeApiCall(() => videoControllerDeleteVideo(id))
 	}
 
-	async generateSubtitles(id: number): Promise<SubtitlesStatus> {
-		const response = await videoControllerGenerateSubtitles(id)
-
-		return mapToSubtitlesStatus(response.data)
+	async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+		return executeApiCall(
+			() => videoControllerGenerateSubtitles(id),
+			(data) => mapToSubtitlesStatus(data),
+		)
 	}
 
-	async getSubtitlesStatus(id: number): Promise<SubtitlesStatus> {
-		const response = await videoControllerGetSubtitlesStatus(id)
-
-		return mapToSubtitlesStatus(response.data)
+	async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+		return executeApiCall(
+			() => videoControllerGetSubtitlesStatus(id),
+			(data) => mapToSubtitlesStatus(data),
+		)
 	}
 }
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-function mapToVideoLite(raw: VideoLiteOutModel): VideoLite {
+function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: mapType(raw.type),
 		name: extractString(raw.name),
-		languageCode: extractString(raw.languageCode),
-		note: extractString(raw.note),
-		originalContent: extractString(raw.originalContent),
-		processedContent: extractString(raw.processedContent),
-		contentType: raw.contentType,
-		fileName: extractString(raw.fileName),
-		fileS3Key: extractString(raw.fileS3Key),
-		fileUrl: extractString(raw.fileUrl),
-		isFileUploaded: extractBoolean(raw.isFileUploaded),
-		fileSizeMb: extractNumber(raw.fileSizeMb),
-		fileDurationSec: extractNumber(raw.fileDurationSec),
-		coverUrl: extractString(raw.coverUrl),
-		coverFileName: extractString(raw.coverFileName),
-		coverFileS3Key: extractString(raw.coverFileS3Key),
-		isCoverFileUploaded: raw.isCoverFileUploaded,
-		userId: extractNumber(raw.userId),
-	}
-}
-
-function mapToVideo(raw: VideoOutModel): Video {
-	return {
-		...mapToVideoLite(raw),
-		subtitlesStatus: null,
-	}
-}
-
-function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLite {
-	return {
-		id: raw.id,
-		type: mapType(raw.type),
-		name: extractString(raw.name),
-		languageCode: extractString(raw.languageCode),
+		languageCode: extractString(raw.languageCode) as LanguageCode,
+		youtubeVideoId: null,
 		note: null,
 		originalContent: extractString(raw.originalContent),
 		processedContent: extractString(raw.processedContent),
-		contentType: raw.contentType,
+		contentType: mapContentType(raw.contentType),
 		fileName: null,
 		fileS3Key: null,
 		fileUrl: null,
 		isFileUploaded: null,
 		fileSizeMb: null,
 		fileDurationSec: null,
-		coverUrl: null,
+		userId: extractNumber(raw.userId),
 		coverFileName: null,
 		coverFileS3Key: null,
 		isCoverFileUploaded: false,
-		userId: extractNumber(raw.userId),
+		coverUrl: null,
+		uploadCoverUrl: null,
+		subtitlesSource: null,
+		subtitlesStatus: 'idle',
+		subtitlesErrorCode: null,
+		ratio: null,
 	}
 }
 
-function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLite {
+function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: 'private',
 		name: extractString(raw.name),
-		languageCode: extractString(raw.languageCode),
+		languageCode: extractString(raw.languageCode) as LanguageCode,
+		youtubeVideoId: null,
 		note: null,
 		originalContent: extractString(raw.originalContent),
 		processedContent: extractString(raw.processedContent),
-		contentType: raw.contentType,
+		contentType: mapContentType(raw.contentType),
 		fileName: null,
 		fileS3Key: null,
 		fileUrl: extractString(raw.uploadUrl),
 		isFileUploaded: null,
 		fileSizeMb: extractNumber(raw.fileSizeMb),
 		fileDurationSec: extractNumber(raw.fileDurationSec),
-		coverUrl: null,
+		userId: extractNumber(raw.userId),
 		coverFileName: null,
 		coverFileS3Key: null,
 		isCoverFileUploaded: false,
-		userId: extractNumber(raw.userId),
+		coverUrl: null,
+		uploadCoverUrl: extractString(raw.uploadCoverUrl),
+		subtitlesSource: null,
+		subtitlesStatus: 'idle',
+		subtitlesErrorCode: null,
+		ratio: null,
 	}
 }
 
-function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatus {
+function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatusModel {
 	return {
 		videoId: raw.videoId,
-		status: extractString(raw.status),
-		error: extractString(raw.error),
-		startedAt: extractString(raw.startedAt),
+		source: mapSubtitlesSource(extractString(raw.source)),
+		status: extractString(raw.status) as SubtitlesStatusModelType,
+		errorCode: extractString(raw.errorCode),
 		jobId: extractString(raw.jobId),
 	}
-}
-
-function mapType(raw: string): VideoLite['type'] {
-	return raw === 'public' || raw === 'private' ? raw : 'private'
 }

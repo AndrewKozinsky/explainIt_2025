@@ -1,11 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { useAuthControllerConfirmEmail } from '@/shared/api/generated/auth/auth'
+import { AuthService } from '@/entites/auth/AuthService'
+import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
 export type ConfirmationStatus = 'loading' | 'success' | 'error'
 
 export function useConfirmEmail() {
-	const { mutateAsync: confirmEmail } = useAuthControllerConfirmEmail()
+	const service = useMemo(() => new AuthService(new AuthApi()), [])
+	const { mutate: confirmEmail } = useAsyncMutation((input: { code: string }) => service.confirmEmail(input))
 
 	const [confirmationStatus, setConfirmationStatus] = useState<ConfirmationStatus>('loading')
 
@@ -19,14 +22,14 @@ export function useConfirmEmail() {
 				return
 			}
 
-			confirmEmail({ data: { code: confirmationCode } })
-				.then(function () {
-					setConfirmationStatus('success')
-				})
-				.catch(function (err) {
-					console.log(err)
+			confirmEmail({ code: confirmationCode }).then(function (result) {
+				if (result.error) {
+					console.log(result.error)
 					setConfirmationStatus('error')
-				})
+					return
+				}
+				setConfirmationStatus('success')
+			})
 		},
 		[confirmationCode, confirmEmail],
 	)

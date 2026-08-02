@@ -25,4 +25,20 @@ export class UpdateVideoInput {
 
 	@DtoFieldDecorators('fileDurationSec', bdConfig.Video.dbFields.file_duration_sec)
 	fileDurationSec?: number
+
+	@DtoFieldDecorators('languageCode', bdConfig.Video.dbFields.source_language_code, {
+		required: false,
+	})
+	languageCode?: Language
+
+	@DtoFieldDecorators('coverFileName', bdConfig.Video.dtoProps.coverFileName)
+	coverFileName?: null | string
+
+	@DtoFieldDecorators('coverFileMimeType', bdConfig.Video.dtoProps.coverFileMimeType)
+	coverFileMimeType?: null | string
+
+	@DtoFieldDecorators('isCoverFileUploaded', bdConfig.Video.dbFields.is_cover_file_uploaded, {
+		required: false,
+	})
+	isCoverFileUploaded?: boolean
 }

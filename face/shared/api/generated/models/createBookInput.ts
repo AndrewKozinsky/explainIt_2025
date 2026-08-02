@@ -5,26 +5,23 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { CreateBookInputAuthor } from './createBookInputAuthor';
-import type { CreateBookInputName } from './createBookInputName';
-import type { CreateBookInputNote } from './createBookInputNote';
 
 export interface CreateBookInput {
   /**
      * Author of the book
      * @maxLength 255
      */
-  author?: CreateBookInputAuthor;
+  author?: string | null;
   /**
      * Name of the book
      * @maxLength 255
      */
-  name?: CreateBookInputName;
+  name?: string | null;
   /**
      * Note about the book
      * @maxLength 2000
      */
-  note?: CreateBookInputNote;
+  note?: string | null;
   /** Language code of the book */
   languageCode: string;
 }

@@ -29,7 +29,7 @@ import { chapter_9 } from './chapter_9'
 import { dedication } from './dedication'
 
 export function theLittlePrinceBookData(s3FolderName: string) {
-	const coverFileName = 'the_little_prince_cover_1.jpg'
+	const coverFileName = 'the_little_prince.jpg'
 
 	return {
 		author: 'Antoine de Saint-Exupéry',

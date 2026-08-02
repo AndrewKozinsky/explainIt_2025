@@ -1,5 +1,5 @@
 // Статусы сообщения ассистента (совпадают с серверной моделью SentenceChatMessageStatus).
-import type { SentenceChatMessageOutModel } from '@/shared/api/generated/models'
+import type { SentenceChatMessageModel } from '@/entites/sentenceChat/repository/SentenceChatRepository'
 
 export type ChatMessageStatus = 'streaming' | 'completed' | 'canceled' | 'failed'
 
@@ -20,7 +20,7 @@ export type SseEvent = SseChunkEvent | SseDoneEvent
 
 // Локальное представление сообщения в UI. Расширяем серверную модель, чтобы было удобно
 // хранить promise-placeholder ассистент-сообщения до того, как мы узнали его реальный id.
-export type ChatUiMessage = Omit<SentenceChatMessageOutModel, 'role' | 'status' | 'errorMessage'> & {
+export type ChatUiMessage = Omit<SentenceChatMessageModel, 'role' | 'status' | 'errorMessage'> & {
 	role: 'user' | 'assistant'
 	status: ChatMessageStatus
 	errorMessage: null | string

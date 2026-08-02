@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { AIProviderName } from 'types/AIModels'
 import { ChatGptLlmProvider } from './ChatGptLlmProvider.service'
 import { DeepSeekLlmProvider } from './DeepSeekLlmProvider.service'
 import { GeminiLlmProvider } from './GeminiLlmProvider.service'
@@ -16,7 +16,7 @@ import { LlmGenerateOutput, LlmGenerateWithProvider, LlmProvider, LlmStreamWithP
  */
 @Injectable()
 export class LlmAdapterService {
-	private providerMap: Record<TranslationProviderName, LlmProvider>
+	private providerMap: Record<AIProviderName, LlmProvider>
 
 	constructor(gemini: GeminiLlmProvider, chatGpt: ChatGptLlmProvider, deepSeek: DeepSeekLlmProvider) {
 		this.providerMap = {

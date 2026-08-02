@@ -23,7 +23,7 @@ export class SentencePhraseTranslationOutModel {
 
 	status: 'pending' | 'ready' | 'error'
 
-	errorMessage: null | string
+	errorCode: null | string
 
 	createdAt: string
 

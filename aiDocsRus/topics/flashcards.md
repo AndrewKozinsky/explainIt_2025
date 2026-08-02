@@ -55,7 +55,7 @@
 Последовательность в `execute`:
 1. Загружает `SentencePhraseTranslation` по `id`; если нет — `sourcePhraseNotFound`.
 2. Проверяет, что у пользователя ещё нет карточки с таким `sentence_phrase_translation_id`; иначе — `alreadyExists`.
-3. Загружает `Sentence` со связями (`bookChapter` + `book`/`book_public`, `videoPrivate`, `videoPublic`).
+3. Загружает `Sentence` со связями (`bookChapter` + `book`/`book_public`, `video`).
 4. Вызывает приватный `resolveSentenceSource(sentence, userId)`, который:
     - определяет, к какому материалу относится предложение;
     - для приватных (`BookPrivate`, `VideoPrivate`) проверяет владельца (`userIsNotOwner`);

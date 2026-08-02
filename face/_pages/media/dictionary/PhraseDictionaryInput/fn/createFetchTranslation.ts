@@ -1,7 +1,4 @@
-import type {
-	GetOrCreateUniversalPhraseTranslationInput,
-	UniversalPhraseTranslationOutModel,
-} from '@/shared/api/generated/models'
+import type { PhraseTranslationRepository } from '@/entites/phraseTranslation/repository/PhraseTranslationRepository'
 import { LanguageCode } from '@/shared/utils/languages'
 import { usePhraseStore } from '@/stores/phraseStore'
 import { makeCacheKey, usePhraseDictionaryStore } from '../../phraseDictionaryStore'
@@ -12,11 +9,8 @@ type FetchTranslationDeps = {
 	getSourceLang: () => string
 	/** Getter — всегда возвращает актуальный targetLanguageCode (locale) */
 	getTargetLang: () => string
-	/** Функция вызова REST-мутации перевода */
-	mutateTranslation: (
-		input: GetOrCreateUniversalPhraseTranslationInput,
-		options?: RequestInit,
-	) => Promise<UniversalPhraseTranslationOutModel>
+	/** Репозиторий переводов */
+	translationRepository: PhraseTranslationRepository
 	/** Getter — всегда возвращает актуальный AbortSignal */
 	getAbortSignal: () => AbortSignal | undefined
 }
@@ -25,11 +19,11 @@ type FetchTranslationDeps = {
  * Создаёт функцию `fetchTranslation`, которая:
  * 1. Проверяет кэш
  * 2. Получает/создаёт UniversalPhrase через resolvePhrase
- * 3. Запрашивает перевод через REST-мутацию
+ * 3. Запрашивает перевод через репозиторий
  * 4. Обрабатывает результат: перевод / несуществующее слово / ошибка
  */
 export function createFetchTranslation(deps: FetchTranslationDeps) {
-	const { getSourceLang, getTargetLang, mutateTranslation, getAbortSignal } = deps
+	const { getSourceLang, getTargetLang, translationRepository, getAbortSignal } = deps
 
 	return async function fetchTranslation(phraseText: string): Promise<void> {
 		const sourceLang = getSourceLang()
@@ -61,40 +55,45 @@ export function createFetchTranslation(deps: FetchTranslationDeps) {
 
 			const phraseData = phraseResult.data
 
-			// 2. Запрашиваем перевод по universalPhraseId
-			const result = await mutateTranslation(
+			// 2. Запрашиваем перевод по universalPhraseId через репозиторий
+			const result = await translationRepository.getOrCreateTranslation(
 				{
 					universalPhraseId: phraseData.id,
 					targetLanguageCode: targetLang,
-					provider: 'gemini',
+					provider: 'deepseek',
 				},
-				{
-					signal: getAbortSignal(),
-				},
+				getAbortSignal(),
 			)
 
-			if (!result) {
-				usePhraseDictionaryStore.getState().setError('Неизвестная ошибка сервера.')
-				return
-			}
-
-			if (result.status === 'error' || result.errorMessage) {
+			if (result.error || result.errors) {
 				usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
 				return
 			}
 
-			if (result.nonExistentWord) {
+			const translation = result.data
+
+			if (!translation) {
+				usePhraseDictionaryStore.getState().setError('Неизвестная ошибка сервера.')
+				return
+			}
+
+			if (translation.status === 'error' || translation.errorMessage) {
+				usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
+				return
+			}
+
+			if (translation.nonExistentWord) {
 				usePhraseDictionaryStore.getState().setNonExistentWord()
 				return
 			}
 
-			if (result.translation) {
-				usePhraseDictionaryStore.getState().setCachedTranslation(cacheKey, result.translation)
+			if (translation.translation) {
+				usePhraseDictionaryStore.getState().setCachedTranslation(cacheKey, translation.translation)
 				usePhraseDictionaryStore
 					.getState()
 					.setTranslationResult(
-						result.translation,
-						result.transcription ?? null,
+						translation.translation,
+						translation.transcription ?? null,
 						phraseData.audioPronunciation?.audioUrl ?? null,
 					)
 			} else {

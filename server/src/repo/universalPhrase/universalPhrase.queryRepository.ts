@@ -57,11 +57,11 @@ export class UniversalPhraseQueryRepository {
 	async mapDbUniversalPhraseToOutModel(dbPhrase: UniversalPhraseWithRelations): Promise<UniversalPhraseOutModel> {
 		const transcription = dbPhrase.UniversalTranscription
 			? {
-				id: dbPhrase.UniversalTranscription.id,
-				universalPhraseId: dbPhrase.UniversalTranscription.universal_phrase_id,
-				ipa: dbPhrase.UniversalTranscription.ipa,
-				pinyin: dbPhrase.UniversalTranscription.pinyin,
-			}
+					id: dbPhrase.UniversalTranscription.id,
+					universalPhraseId: dbPhrase.UniversalTranscription.universal_phrase_id,
+					ipa: dbPhrase.UniversalTranscription.ipa,
+					pinyin: dbPhrase.UniversalTranscription.pinyin,
+				}
 			: null
 
 		const dbAudioPronunciation = dbPhrase.UniversalAudioPronunciation

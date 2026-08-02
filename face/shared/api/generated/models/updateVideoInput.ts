@@ -5,36 +5,43 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { UpdateVideoInputFileMimeType } from './updateVideoInputFileMimeType';
-import type { UpdateVideoInputFileName } from './updateVideoInputFileName';
-import type { UpdateVideoInputLanguageCode } from './updateVideoInputLanguageCode';
-import type { UpdateVideoInputName } from './updateVideoInputName';
-import type { UpdateVideoInputOriginalContent } from './updateVideoInputOriginalContent';
 
 export interface UpdateVideoInput {
   /**
      * Name of the video
      * @maxLength 255
      */
-  name?: UpdateVideoInputName;
-  /** Language code of the video */
-  languageCode?: UpdateVideoInputLanguageCode;
+  name?: string | null;
   /** Original subtitles or text of the video */
-  originalContent?: UpdateVideoInputOriginalContent;
+  originalContent?: string | null;
   /**
      * File name of the video
      * @maxLength 255
      */
-  fileName?: UpdateVideoInputFileName;
+  fileName?: string | null;
   /**
      * File Mime Type of the video
      * @maxLength 50
      */
-  fileMimeType?: UpdateVideoInputFileMimeType;
+  fileMimeType?: string | null;
   /** Is video file was uploaded */
   isFileUploaded?: boolean | null;
   /** Size of the video file in megabytes */
   fileSizeMb?: number | null;
   /** Duration of the uploaded video file in seconds */
   fileDurationSec?: number | null;
+  /** Language code of the video */
+  languageCode?: string | null;
+  /**
+     * File name of the video cover
+     * @maxLength 255
+     */
+  coverFileName?: string | null;
+  /**
+     * File Mime Type of the video cover
+     * @maxLength 50
+     */
+  coverFileMimeType?: string | null;
+  /** Is cover file was uploaded */
+  isCoverFileUploaded?: boolean | null;
 }

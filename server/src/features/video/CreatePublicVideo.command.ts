@@ -6,6 +6,7 @@ import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.reposi
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { Language } from 'utils/languages'
+import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
@@ -13,15 +14,17 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { VideoOutModel } from 'models/video/video.out.model'
+import { SubtitlesStatus } from 'prisma/generated/client'
 
 export type CreatePublicVideoInput = {
-	videoCollectionId: number
 	name: string
 	note: string
 	originalContent: string
 	languageCode: Language
 	fileName: string
 	fileS3Key: string
+	coverFileName?: string
+	coverFileS3Key?: string
 }
 
 export class CreatePublicVideoCommand implements ICommand {
@@ -60,25 +63,40 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 			throw new CustomError(errorMessage.video.notCreated, ErrorStatusCode.BadRequest_400)
 		}
 
+		// Pre-compute sentences OUTSIDE the transaction to avoid keeping
+		// the DB transaction open during the external NLP HTTP call.
+		let preComputedSentences: string[] | undefined
+		if (preparedContentResult.processedContent) {
+			preComputedSentences = await divideTextIntoSentences({
+				mainConfigService: this.mainConfig,
+				text: preparedContentResult.processedContent,
+				languageCode: createVideoInput.languageCode,
+			})
+		}
+
 		const createdVideo = await this.dbRepository.wrapIntoPrismaTransaction({
 			executableCode: async () => {
 				const newVideo = await this.videoRepository.createVideo({
-					videoCollectionId: createVideoInput.videoCollectionId,
+					type: 'public',
 					name: createVideoInput.name,
 					note: createVideoInput.note,
+					sourceLanguageCode: createVideoInput.languageCode,
 					originalContent: preparedContentResult.originalContentForVideoUpdate!,
 					processedContent: preparedContentResult.processedContentForVideoUpdate!,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
 					fileName: createVideoInput.fileName,
 					fileS3Key: createVideoInput.fileS3Key,
 					s3ProviderName: 'cloudRu',
+					coverFileName: createVideoInput.coverFileName,
+					coverFileS3Key: createVideoInput.coverFileS3Key,
+					subtitlesStatus: SubtitlesStatus.done,
 				})
 
 				if (!newVideo) {
 					throw new CustomError(errorMessage.video.notCreated, ErrorStatusCode.InternalServerError_500)
 				}
 
-				if (preparedContentResult.processedContent !== null) {
+				if (preparedContentResult.processedContent !== null && preComputedSentences) {
 					if (preparedContentResult.subtitles) {
 						await this.saveSubtitlesSentencesAndInit({
 							videoId: newVideo.id,
@@ -88,6 +106,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 							sentenceRepository: this.sentenceRepository,
 							subtitleRepository: this.subtitleRepository,
 							subtitleSentenceInitRepository: this.subtitleSentenceInitRepository,
+							preComputedSentences,
 						})
 					} else {
 						await generateSentencesAndSaveToDB({
@@ -96,6 +115,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 							processedContent: preparedContentResult.processedContent,
 							languageCode: createVideoInput.languageCode,
 							videoId: newVideo.id,
+							preComputedSentences,
 						})
 					}
 				}

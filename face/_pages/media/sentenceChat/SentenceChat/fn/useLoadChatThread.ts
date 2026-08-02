@@ -1,52 +1,55 @@
-import { useEffect } from 'react'
-import type { SentenceChatThreadOutModel } from '@/shared/api/generated/models'
-import { sentenceChatControllerGetThread } from '@/shared/api/generated/sentence-chat/sentence-chat'
+import { useEffect, useRef } from 'react'
+import { SentenceChatApi } from '@/entites/sentenceChat/repository/SentenceChatApi'
 import { useSentenceChatStore } from '../../sentenceChatStore'
 import { ChatMessageStatus } from '../../types/sseTypes'
 
+const sentenceChatApi = new SentenceChatApi()
+
 export function useLoadChatThread(input: { sentenceId: number; closeStream: () => void }): void {
 	const { sentenceId, closeStream } = input
+
+	const apiRef = useRef(sentenceChatApi)
+	const { getThread } = apiRef.current
 
 	useEffect(
 		function () {
 			let cancelled = false
 			useSentenceChatStore.getState().clearStoreData()
 
-			sentenceChatControllerGetThread({ sentenceId })
-				.then(function (res) {
-					if (cancelled) return
+			getThread(sentenceId).then(function (result) {
+				if (cancelled) return
 
-					const thread = res as unknown as SentenceChatThreadOutModel | null
-					if (thread) {
-						useSentenceChatStore.getState().setThreadMessages({
-							threadId: thread.id,
-							messages: thread.messages.map(function (m) {
-								return {
-									...m,
-									role: m.role as 'user' | 'assistant',
-									status: m.status as ChatMessageStatus,
-									errorMessage: m.errorMessage as unknown as null | string,
-								}
-							}),
-						})
-					} else {
-						useSentenceChatStore.getState().updateStore({ isLoadingThread: false })
-					}
-				})
-				.catch(function () {
-					if (cancelled) return
-
+				if (result.error || result.errors) {
 					useSentenceChatStore.getState().updateStore({
 						threadError: 'Не удалось загрузить историю чата',
 						isLoadingThread: false,
 					})
-				})
+					return
+				}
+
+				const thread = result.data
+				if (thread) {
+					useSentenceChatStore.getState().setThreadMessages({
+						threadId: thread.id,
+						messages: thread.messages.map(function (m) {
+							return {
+								...m,
+								role: m.role as 'user' | 'assistant',
+								status: m.status as ChatMessageStatus,
+								errorMessage: m.errorMessage,
+							}
+						}),
+					})
+				} else {
+					useSentenceChatStore.getState().updateStore({ isLoadingThread: false })
+				}
+			})
 
 			return function () {
 				cancelled = true
 				closeStream()
 			}
 		},
-		[sentenceId, closeStream],
+		[sentenceId, closeStream, getThread],
 	)
 }

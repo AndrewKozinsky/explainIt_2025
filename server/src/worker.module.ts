@@ -6,27 +6,29 @@ import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPhrase.queryRepository'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
-import { ChargeSubtitlesGenerationHandler } from 'features/video/subtitlesGeneration/ChargeSubtitlesGeneration.command'
 import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
-import { UpdatePrivateVideoHandler } from 'features/video/UpdatePrivateVideo.command'
+import { UpdateVideoHandler } from 'features/video/UpdateVideo.command'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
+import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
+import { GoogleGeminiModule } from 'infrastructure/googleGemini/googleGemini.module'
+import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
+import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 
 /**
  * Worker-side Nest app. Runs in a separate process (main.worker.ts).
  *
  * Wires exactly what the subtitles generation processor needs:
  *   - Shared BullMQ connection + queue registration
- *   - CQRS + reused handlers (UpdatePrivateVideoCommand for SRT persistence,
- *     ChargeSubtitlesGenerationCommand for balance write-off)
+ *   - CQRS + reused handlers (UpdateVideoCommand for SRT persistence)
  *   - Prisma + all repos those handlers touch
  *   - CloudRuS3 (S3 download) + Deepgram STT (ASR)
  *
@@ -37,6 +39,10 @@ import { QueueNames } from 'infrastructure/queues/queueNames'
 	imports: [
 		CqrsModule,
 		MainConfigModule,
+		DeepSeekModule,
+		GoogleGeminiModule,
+		OpenAIModule,
+		LlmProviderModule,
 		CloudRuS3Module,
 		DeepgramSttModule,
 		BullModule.forRootAsync({
@@ -57,9 +63,8 @@ import { QueueNames } from 'infrastructure/queues/queueNames'
 		SubtitleRepository,
 		SentenceRepository,
 		SubtitleSentenceInitRepository,
-		UserBalanceTransactionRepository,
-		UpdatePrivateVideoHandler,
-		ChargeSubtitlesGenerationHandler,
+		UpdateVideoHandler,
+		YoutubeService,
 		SubtitlesGenerationProcessor,
 	],
 })

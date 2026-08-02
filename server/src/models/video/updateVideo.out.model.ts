@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Language } from 'utils/languages'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
@@ -9,14 +8,11 @@ export class UpdateVideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.id))
-	videoCollectionId: number
-
 	@ApiProperty(getApiPropertyOptions($.name))
 	name: null | string
 
-	@ApiProperty(getApiPropertyOptions({ ...bdConfig.VideoCollection.dtoProps.languageCode, required: true }))
-	languageCode: null | Language
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
+	languageCode: string
 
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
@@ -32,6 +28,9 @@ export class UpdateVideoOutModel {
 
 	@ApiProperty({ description: 'Pre-signed URL for uploading the video file to S3', example: 'https://...' })
 	uploadUrl: string | null
+
+	@ApiProperty({ description: 'Pre-signed URL for uploading the video cover to S3', example: 'https://...' })
+	uploadCoverUrl: string | null
 
 	@ApiProperty(getApiPropertyOptions($.file_size_mb))
 	fileSizeMb: null | number

@@ -1,22 +1,40 @@
-'use client'
+import { BooksService } from '@/entites/books/BooksService'
+import { BooksApi } from '@/entites/books/repository/BooksApi'
+import MediaPageContentWrapper from '@/entites/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import PublicBookPart from '_pages/media/book/BookPage/PublicBookPart'
+import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+import PrivateBookPart from './PrivateBookPart'
+import './BookPage.scss'
 
-import MediaPageContentWrapper from '_pages/media/commonComponents/MediaPageContentWrapper/MediaPageContentWrapper'
-import BooksBreadCrumbs from '../BooksBreadCrumbs/BooksBreadCrumbs'
-import PrivateBookInfo from '../PrivateBookInfo/PrivateBookInfo'
-import PublicBookInfo from '../PublicBookInfo/PublicBookInfo'
-import { useGetHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-import { usePopulateBookStore } from './fn/populateBooksStore'
+type Props = {
+	bookId: string
+}
 
-function BookPage() {
-	usePopulateBookStore()
-	const { header, subHeader } = useGetHeaderAndSubHeader()
+export default async function BookPage({ bookId }: Props) {
+	const booksService = new BooksService(new BooksApi())
+	const { error, data: book } = await booksService.getBook(Number(bookId))
+
+	if (error) {
+		return <ErrorMessage text={error} />
+	}
+
+	if (!book) {
+		return <ErrorMessage text='Книга не найдена' />
+	}
+
+	const { header, subHeader } = getHeaderAndSubHeader(book)
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BooksBreadCrumbs />} header={header} subHeader={subHeader}>
-			<PublicBookInfo />
-			<PrivateBookInfo />
+		<MediaPageContentWrapper
+			breadCrumbs={<BreadCrumbs items={[pageUrls.books]} />}
+			header={header}
+			subHeader={subHeader}
+		>
+			<PublicBookPart book={book} />
+			<PrivateBookPart book={book} />
 		</MediaPageContentWrapper>
 	)
 }
-
-export default BookPage

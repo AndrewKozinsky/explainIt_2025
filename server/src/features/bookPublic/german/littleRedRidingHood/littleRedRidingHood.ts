@@ -2,7 +2,7 @@ import { languages } from 'utils/languages'
 import { chapter_1 } from './chapter_1'
 
 export function littleRedRidingHoodBookData(s3FolderName: string) {
-	const coverFileName = 'littleRedRidingHood_1.jpg'
+	const coverFileName = 'littleRedRidingHood.jpg'
 
 	return {
 		author: 'Brüder Grimm',

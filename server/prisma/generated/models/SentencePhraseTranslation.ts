@@ -49,7 +49,7 @@ export type SentencePhraseTranslationMinAggregateOutputType = {
   phrase_end_offset: number | null
   translate: string | null
   status: $Enums.SentencePhraseTranslationStatus | null
-  error_message: string | null
+  error_code: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -63,7 +63,7 @@ export type SentencePhraseTranslationMaxAggregateOutputType = {
   phrase_end_offset: number | null
   translate: string | null
   status: $Enums.SentencePhraseTranslationStatus | null
-  error_message: string | null
+  error_code: string | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -78,7 +78,7 @@ export type SentencePhraseTranslationCountAggregateOutputType = {
   translate: number
   examples: number
   status: number
-  error_message: number
+  error_code: number
   created_at: number
   updated_at: number
   _all: number
@@ -108,7 +108,7 @@ export type SentencePhraseTranslationMinAggregateInputType = {
   phrase_end_offset?: true
   translate?: true
   status?: true
-  error_message?: true
+  error_code?: true
   created_at?: true
   updated_at?: true
 }
@@ -122,7 +122,7 @@ export type SentencePhraseTranslationMaxAggregateInputType = {
   phrase_end_offset?: true
   translate?: true
   status?: true
-  error_message?: true
+  error_code?: true
   created_at?: true
   updated_at?: true
 }
@@ -137,7 +137,7 @@ export type SentencePhraseTranslationCountAggregateInputType = {
   translate?: true
   examples?: true
   status?: true
-  error_message?: true
+  error_code?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -239,7 +239,7 @@ export type SentencePhraseTranslationGroupByOutputType = {
   translate: string | null
   examples: string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message: string | null
+  error_code: string | null
   created_at: Date
   updated_at: Date
   _count: SentencePhraseTranslationCountAggregateOutputType | null
@@ -277,7 +277,7 @@ export type SentencePhraseTranslationWhereInput = {
   translate?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
   examples?: Prisma.StringNullableListFilter<"SentencePhraseTranslation">
   status?: Prisma.EnumSentencePhraseTranslationStatusFilter<"SentencePhraseTranslation"> | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
@@ -294,7 +294,7 @@ export type SentencePhraseTranslationOrderByWithRelationInput = {
   translate?: Prisma.SortOrderInput | Prisma.SortOrder
   examples?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrderInput | Prisma.SortOrder
+  error_code?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   sentence?: Prisma.SentenceOrderByWithRelationInput
@@ -314,7 +314,7 @@ export type SentencePhraseTranslationWhereUniqueInput = Prisma.AtLeast<{
   translate?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
   examples?: Prisma.StringNullableListFilter<"SentencePhraseTranslation">
   status?: Prisma.EnumSentencePhraseTranslationStatusFilter<"SentencePhraseTranslation"> | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   sentence?: Prisma.XOR<Prisma.SentenceScalarRelationFilter, Prisma.SentenceWhereInput>
@@ -331,7 +331,7 @@ export type SentencePhraseTranslationOrderByWithAggregationInput = {
   translate?: Prisma.SortOrderInput | Prisma.SortOrder
   examples?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrderInput | Prisma.SortOrder
+  error_code?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.SentencePhraseTranslationCountOrderByAggregateInput
@@ -354,7 +354,7 @@ export type SentencePhraseTranslationScalarWhereWithAggregatesInput = {
   translate?: Prisma.StringNullableWithAggregatesFilter<"SentencePhraseTranslation"> | string | null
   examples?: Prisma.StringNullableListFilter<"SentencePhraseTranslation">
   status?: Prisma.EnumSentencePhraseTranslationStatusWithAggregatesFilter<"SentencePhraseTranslation"> | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.StringNullableWithAggregatesFilter<"SentencePhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableWithAggregatesFilter<"SentencePhraseTranslation"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"SentencePhraseTranslation"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"SentencePhraseTranslation"> | Date | string
 }
@@ -367,7 +367,7 @@ export type SentencePhraseTranslationCreateInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   sentence: Prisma.SentenceCreateNestedOneWithoutSentencePhraseTranslationInput
@@ -384,7 +384,7 @@ export type SentencePhraseTranslationUncheckedCreateInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutSentencePhraseTranslationInput
@@ -398,7 +398,7 @@ export type SentencePhraseTranslationUpdateInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentencePhraseTranslationNestedInput
@@ -415,7 +415,7 @@ export type SentencePhraseTranslationUncheckedUpdateInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutSentencePhraseTranslationNestedInput
@@ -431,7 +431,7 @@ export type SentencePhraseTranslationCreateManyInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -444,7 +444,7 @@ export type SentencePhraseTranslationUpdateManyMutationInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -459,7 +459,7 @@ export type SentencePhraseTranslationUncheckedUpdateManyInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -492,7 +492,7 @@ export type SentencePhraseTranslationCountOrderByAggregateInput = {
   translate?: Prisma.SortOrder
   examples?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrder
+  error_code?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -513,7 +513,7 @@ export type SentencePhraseTranslationMaxOrderByAggregateInput = {
   phrase_end_offset?: Prisma.SortOrder
   translate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrder
+  error_code?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -527,7 +527,7 @@ export type SentencePhraseTranslationMinOrderByAggregateInput = {
   phrase_end_offset?: Prisma.SortOrder
   translate?: Prisma.SortOrder
   status?: Prisma.SortOrder
-  error_message?: Prisma.SortOrder
+  error_code?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -623,7 +623,7 @@ export type SentencePhraseTranslationCreateWithoutSentenceInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutSentencePhraseTranslationInput
@@ -638,7 +638,7 @@ export type SentencePhraseTranslationUncheckedCreateWithoutSentenceInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutSentencePhraseTranslationInput
@@ -683,7 +683,7 @@ export type SentencePhraseTranslationScalarWhereInput = {
   translate?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
   examples?: Prisma.StringNullableListFilter<"SentencePhraseTranslation">
   status?: Prisma.EnumSentencePhraseTranslationStatusFilter<"SentencePhraseTranslation"> | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
+  error_code?: Prisma.StringNullableFilter<"SentencePhraseTranslation"> | string | null
   created_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"SentencePhraseTranslation"> | Date | string
 }
@@ -696,7 +696,7 @@ export type SentencePhraseTranslationCreateWithoutFlashcardInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   sentence: Prisma.SentenceCreateNestedOneWithoutSentencePhraseTranslationInput
@@ -712,7 +712,7 @@ export type SentencePhraseTranslationUncheckedCreateWithoutFlashcardInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -741,7 +741,7 @@ export type SentencePhraseTranslationUpdateWithoutFlashcardInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   sentence?: Prisma.SentenceUpdateOneRequiredWithoutSentencePhraseTranslationNestedInput
@@ -757,7 +757,7 @@ export type SentencePhraseTranslationUncheckedUpdateWithoutFlashcardInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -771,7 +771,7 @@ export type SentencePhraseTranslationCreateManySentenceInput = {
   translate?: string | null
   examples?: Prisma.SentencePhraseTranslationCreateexamplesInput | string[]
   status: $Enums.SentencePhraseTranslationStatus
-  error_message?: string | null
+  error_code?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
@@ -784,7 +784,7 @@ export type SentencePhraseTranslationUpdateWithoutSentenceInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Flashcard?: Prisma.FlashcardUpdateManyWithoutSentencePhraseTranslationNestedInput
@@ -799,7 +799,7 @@ export type SentencePhraseTranslationUncheckedUpdateWithoutSentenceInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutSentencePhraseTranslationNestedInput
@@ -814,7 +814,7 @@ export type SentencePhraseTranslationUncheckedUpdateManyWithoutSentenceInput = {
   translate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   examples?: Prisma.SentencePhraseTranslationUpdateexamplesInput | string[]
   status?: Prisma.EnumSentencePhraseTranslationStatusFieldUpdateOperationsInput | $Enums.SentencePhraseTranslationStatus
-  error_message?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -860,7 +860,7 @@ export type SentencePhraseTranslationSelect<ExtArgs extends runtime.Types.Extens
   translate?: boolean
   examples?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   created_at?: boolean
   updated_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -878,7 +878,7 @@ export type SentencePhraseTranslationSelectCreateManyAndReturn<ExtArgs extends r
   translate?: boolean
   examples?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   created_at?: boolean
   updated_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -894,7 +894,7 @@ export type SentencePhraseTranslationSelectUpdateManyAndReturn<ExtArgs extends r
   translate?: boolean
   examples?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   created_at?: boolean
   updated_at?: boolean
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
@@ -910,12 +910,12 @@ export type SentencePhraseTranslationSelectScalar = {
   translate?: boolean
   examples?: boolean
   status?: boolean
-  error_message?: boolean
+  error_code?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type SentencePhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "target_language_code" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "translate" | "examples" | "status" | "error_message" | "created_at" | "updated_at", ExtArgs["result"]["sentencePhraseTranslation"]>
+export type SentencePhraseTranslationOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "sentence_id" | "target_language_code" | "phrase" | "phrase_start_offset" | "phrase_end_offset" | "translate" | "examples" | "status" | "error_code" | "created_at" | "updated_at", ExtArgs["result"]["sentencePhraseTranslation"]>
 export type SentencePhraseTranslationInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   sentence?: boolean | Prisma.SentenceDefaultArgs<ExtArgs>
   Flashcard?: boolean | Prisma.SentencePhraseTranslation$FlashcardArgs<ExtArgs>
@@ -944,7 +944,7 @@ export type $SentencePhraseTranslationPayload<ExtArgs extends runtime.Types.Exte
     translate: string | null
     examples: string[]
     status: $Enums.SentencePhraseTranslationStatus
-    error_message: string | null
+    error_code: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["sentencePhraseTranslation"]>
@@ -1381,7 +1381,7 @@ export interface SentencePhraseTranslationFieldRefs {
   readonly translate: Prisma.FieldRef<"SentencePhraseTranslation", 'String'>
   readonly examples: Prisma.FieldRef<"SentencePhraseTranslation", 'String[]'>
   readonly status: Prisma.FieldRef<"SentencePhraseTranslation", 'SentencePhraseTranslationStatus'>
-  readonly error_message: Prisma.FieldRef<"SentencePhraseTranslation", 'String'>
+  readonly error_code: Prisma.FieldRef<"SentencePhraseTranslation", 'String'>
   readonly created_at: Prisma.FieldRef<"SentencePhraseTranslation", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"SentencePhraseTranslation", 'DateTime'>
 }

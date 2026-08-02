@@ -5,11 +5,6 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { BookChapterOutModelHeader } from './bookChapterOutModelHeader';
-import type { BookChapterOutModelName } from './bookChapterOutModelName';
-import type { BookChapterOutModelNote } from './bookChapterOutModelNote';
-import type { BookChapterOutModelOriginalContent } from './bookChapterOutModelOriginalContent';
-import type { BookChapterOutModelProcessedContent } from './bookChapterOutModelProcessedContent';
 import type { BookLiteOutModel } from './bookLiteOutModel';
 import type { SentenceOutModel } from './sentenceOutModel';
 
@@ -20,25 +15,25 @@ export interface BookChapterOutModel {
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
      */
-  name?: BookChapterOutModelName;
+  name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
      */
-  header?: BookChapterOutModelHeader;
+  header?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
      */
-  note?: BookChapterOutModelNote;
+  note?: string | null;
   /**
      * Original content of the chapter
      * @maxLength 900000
      */
-  originalContent?: BookChapterOutModelOriginalContent;
+  originalContent?: string | null;
   /** Processed content of the chapter (flattened) */
-  processedContent?: BookChapterOutModelProcessedContent;
+  processedContent?: string | null;
   /** Sentences of the chapter */
   sentences: SentenceOutModel[] | null;
   /** Book that the chapter belongs to */

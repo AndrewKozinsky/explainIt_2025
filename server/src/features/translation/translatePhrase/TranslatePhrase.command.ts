@@ -1,21 +1,14 @@
-import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { OpenAIModels } from 'types/openAIModels'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { AIProviderName } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentencePhraseTranslationServiceModel } from 'models/sentenceTranslation/sentencePhraseTranslation.service.model'
 import { LanguageCode } from 'prisma/generated/enums'
 import { SentenceTranslationAccessService } from '../translateCommon/SentenceTranslationAccess.service'
-import {
-	chargeAfterTranslationIfNeeded,
-	ensureCanChargeBalanceOrThrow,
-	ensureModeIsAllowedOrThrow,
-} from '../translateCommon/TranslationHandler.utils'
+import { ensureModeIsAllowedOrThrow } from '../translateCommon/TranslationHandler.utils'
 import { buildPhraseTranslationPrompt } from './buildPhraseTranslationPrompt'
 import { parsePhraseTranslationResult } from './parsePhraseTranslationResult'
 
@@ -44,11 +37,8 @@ export class TranslatePhraseCommand implements ICommand {
 export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCommand> {
 	constructor(
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
-		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
-		private mainConfigService: MainConfigService,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
 		private llmAdapter: LlmAdapterService,
-		private commandBus: CommandBus,
 	) {}
 
 	async execute(command: TranslatePhraseCommand): Promise<TranslatePhraseResult> {
@@ -63,13 +53,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 			mode: access.createMode,
 			deniedReason: access.createDeniedReason,
 			actionType: 'create',
-		})
-
-		await ensureCanChargeBalanceOrThrow({
-			access,
-			userId: command.input.userId,
-			userBalanceTransactionRepository: this.userBalanceTransactionRepository,
-			mainConfigService: this.mainConfigService,
 		})
 
 		const pendingPhrase = await this.ensurePendingPhraseRow(command.input)
@@ -113,23 +96,21 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				translate: parsed.translate,
 				examples: parsed.examples,
 				status: 'ready',
-				errorMessage: null,
-			})
-
-			await chargeAfterTranslationIfNeeded({
-				userId: command.input.userId,
-				chargeAfterTranslation: access.createMode === 'chargeBalance',
-				usage: this.buildUsage(provider, generated.inputTokens, generated.outputTokens),
-				commandBus: this.commandBus,
+				errorCode: null,
 			})
 
 			return savedPhrase
 		} catch (error) {
-			const message = error instanceof Error ? error.message : serializeErrorMessage(errorMessage.unknownError)
+			const errorCode =
+				error instanceof CustomError
+					? error.errorMessage.code
+					: error instanceof Error
+						? error.message
+						: errorMessage.unknownError.code
 
 			await this.sentencePhraseTranslationRepository.updatePhraseById(pendingPhrase.id, {
 				status: 'error',
-				errorMessage: message,
+				errorCode,
 			})
 
 			if (error instanceof CustomError) {
@@ -226,12 +207,12 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		}
 	}
 
-	private getProviderName(): TranslationProviderName {
-		return 'gemini'
+	private getProviderName(): AIProviderName {
+		return 'deepseek'
 	}
 
 	private async generatePhraseTranslation(input: {
-		provider: TranslationProviderName
+		provider: AIProviderName
 		text: string
 		selectedWord: string
 		selectedWordStartOffset: number
@@ -270,23 +251,5 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 			inputTokens: result.inputTokens,
 			outputTokens: result.outputTokens,
 		}
-	}
-
-	private buildUsage(
-		providerName: TranslationProviderName,
-		inputTokens: number,
-		outputTokens: number,
-	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
-		if (providerName === 'chatgpt') {
-			return {
-				provider: 'chatgpt',
-				inputTokens,
-				outputTokens,
-				model: OpenAIModels.Standard,
-				lowPriority: true,
-			}
-		}
-
-		return { provider: providerName, inputTokens, outputTokens }
 	}
 }

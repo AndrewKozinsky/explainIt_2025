@@ -22,7 +22,7 @@ import { GetVideoCommand } from 'features/video/GetVideo.command'
 import { GetVideosCommand } from 'features/video/GetVideos.command'
 import { GenerateSubtitlesCommand } from 'features/video/subtitlesGeneration/GenerateSubtitles.command'
 import { GetSubtitlesGenerationStatusCommand } from 'features/video/subtitlesGeneration/GetSubtitlesGenerationStatus.command'
-import { UpdatePrivateVideoCommand } from 'features/video/UpdatePrivateVideo.command'
+import { UpdateVideoCommand } from 'features/video/UpdateVideo.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { CreateVideoOutModel } from 'models/video/createVideo.out.model'
 import { UpdateVideoOutModel } from 'models/video/updateVideo.out.model'
@@ -79,7 +79,7 @@ export class VideoController {
 		@Req() request: Request,
 	): Promise<UpdateVideoOutModel> {
 		const userId = request.session.userId!
-		return await this.commandBus.execute(new UpdatePrivateVideoCommand(userId, { id, ...input }))
+		return await this.commandBus.execute(new UpdateVideoCommand(userId, { id, ...input }))
 	}
 
 	@ApiDeleteVideo()

@@ -1,7 +1,9 @@
 'use client'
 
-import { useState } from 'react'
-import { usePaymentControllerTopUpBalanceWithYooKassa } from '@/shared/api/generated/payment/payment'
+import { useMemo, useState } from 'react'
+import { PaymentService } from '@/entites/payment/PaymentService'
+import { PaymentApi } from '@/entites/payment/repository/PaymentApi'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
 const RUBLES_TO_KOPECKS = 100
 
@@ -9,9 +11,12 @@ export function useBalanceTopUpForm() {
 	const [amountInRubles, setAmountInRubles] = useState('')
 	const [formError, setFormError] = useState<null | string>(null)
 
-	const { mutateAsync: topUpBalance, isPending: loading } = usePaymentControllerTopUpBalanceWithYooKassa()
+	const service = useMemo(() => new PaymentService(new PaymentApi()), [])
+	const { loading, mutate: topUpBalance } = useAsyncMutation((input: { amountInKopecks: number }) =>
+		service.topUpBalance(input),
+	)
 
-	function handleSubmit(event: React.FormEvent) {
+	async function handleSubmit(event: React.FormEvent) {
 		event.preventDefault()
 		setFormError(null)
 
@@ -23,17 +28,16 @@ export function useBalanceTopUpForm() {
 
 		const amountInKopecks = rubles * RUBLES_TO_KOPECKS
 
-		topUpBalance({ data: { amountInKopecks } })
-			.then((response) => {
-				// NestJS returns the model directly, not wrapped in { data, status }
-				const confirmationUrl = (response as unknown as { confirmationUrl: string }).confirmationUrl
-				if (confirmationUrl) {
-					window.location.href = confirmationUrl
-				}
-			})
-			.catch((error: unknown) => {
-				setFormError(error instanceof Error ? error.message : 'Произошла ошибка при создании платежа')
-			})
+		const result = await topUpBalance({ amountInKopecks })
+
+		if (result.error) {
+			setFormError(result.error)
+			return
+		}
+
+		if (result.data?.confirmationUrl) {
+			window.location.href = result.data.confirmationUrl
+		}
 	}
 
 	function handleAmountChange(event: React.ChangeEvent<HTMLInputElement>) {

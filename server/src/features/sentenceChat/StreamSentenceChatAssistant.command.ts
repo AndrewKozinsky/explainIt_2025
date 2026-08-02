@@ -4,9 +4,8 @@ import { Observable, Subscriber } from 'rxjs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
-import { OpenAIModels } from 'types/openAIModels'
+import { OpenAIModels, AIProviderName } from 'types/AIModels'
 import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -27,7 +26,7 @@ const HISTORY_LIMIT = 8
 export type StreamSentenceChatAssistantInput = {
 	userId: number
 	threadId: number
-	provider: TranslationProviderName
+	provider: AIProviderName
 }
 
 type TokenUsage = { inputTokens: number; outputTokens: number }
@@ -269,7 +268,7 @@ export class StreamSentenceChatAssistantCommand {
 			abortController: null | AbortController
 		},
 		prompt: PromptPayload,
-		provider: TranslationProviderName,
+		provider: AIProviderName,
 	): Promise<void> {
 		const stream = this.llmAdapter.stream({
 			provider,
@@ -340,11 +339,7 @@ export class StreamSentenceChatAssistantCommand {
 		}
 	}
 
-	private async chargeTokenUsage(
-		userId: number,
-		usage: null | TokenUsage,
-		provider: TranslationProviderName,
-	): Promise<void> {
+	private async chargeTokenUsage(userId: number, usage: null | TokenUsage, provider: AIProviderName): Promise<void> {
 		if (!usage || (usage.inputTokens <= 0 && usage.outputTokens <= 0)) return
 
 		try {
@@ -360,7 +355,7 @@ export class StreamSentenceChatAssistantCommand {
 	}
 
 	private buildProviderUsage(
-		provider: TranslationProviderName,
+		provider: AIProviderName,
 		usage: TokenUsage,
 	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
 		if (provider === 'chatgpt') {

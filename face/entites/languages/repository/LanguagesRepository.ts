@@ -1,8 +1,10 @@
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+
 /**
  * Унифицированный тип языка.
  * Компоненты работают только с этим типом — он не зависит от API.
  */
-export type Language = {
+export type LanguageModel = {
 	/** Название языка (на родном языке) */
 	name: string
 	/** Название языка на английском */
@@ -21,5 +23,5 @@ export type Language = {
  */
 export type LanguagesRepository = {
 	/** Получить список доступных языков */
-	getLanguages(): Promise<Language[]>
+	getLanguages(): Promise<ApiResult<LanguageModel[]>>
 }

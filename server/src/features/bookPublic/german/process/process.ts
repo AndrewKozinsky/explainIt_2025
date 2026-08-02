@@ -12,7 +12,7 @@ import { chapter_8 } from './chapter_8'
 import { chapter_9 } from './chapter_9'
 
 export function processBookData(s3FolderName: string) {
-	const coverFileName = 'process_1.jpg'
+	const coverFileName = 'process.jpg'
 
 	return {
 		author: 'Franz Kafka',

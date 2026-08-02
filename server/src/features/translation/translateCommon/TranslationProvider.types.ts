@@ -1,7 +1,5 @@
-import { OpenAIModels } from 'types/openAIModels'
+import { OpenAIModels, AIProviderName } from 'types/AIModels'
 import { LanguageCode } from 'prisma/generated/enums'
-
-export type TranslationProviderName = 'deepseek' | 'chatgpt' | 'gemini'
 
 export type TranslationProviderUsage =
 	| {
@@ -46,7 +44,7 @@ export type BuildPhrasePromptFn = (input: {
 }) => string
 
 export interface SentenceTranslationProvider {
-	readonly providerName: TranslationProviderName
+	readonly providerName: AIProviderName
 	translate(
 		input: {
 			text: string
@@ -64,7 +62,7 @@ export interface SentenceTranslationProvider {
 }
 
 export interface PhraseTranslationProvider {
-	readonly providerName: TranslationProviderName
+	readonly providerName: AIProviderName
 	translatePhrase(
 		input: {
 			text: string

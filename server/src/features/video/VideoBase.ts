@@ -250,14 +250,17 @@ export class VideoBase {
 		sentenceRepository: SentenceRepository
 		subtitleRepository: SubtitleRepository
 		subtitleSentenceInitRepository: SubtitleSentenceInitRepository
+		preComputedSentences?: string[]
 	}) {
 		type SentenceRange = { id: number; start: number; end: number }
 
-		const sentences = await divideTextIntoSentences({
-			mainConfigService: this.mainConfig,
-			text: dto.preparedContent,
-			languageCode: dto.languageCode,
-		})
+		const sentences =
+			dto.preComputedSentences ??
+			(await divideTextIntoSentences({
+				mainConfigService: this.mainConfig,
+				text: dto.preparedContent,
+				languageCode: dto.languageCode,
+			}))
 
 		const sentenceRanges: SentenceRange[] = []
 		let cursor = 0

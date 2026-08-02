@@ -2,12 +2,16 @@
  * Унифицированный тип книги.
  * Компоненты работают только с этим типом — он не зависит от API.
  */
-export type Book = {
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { LanguageCode } from '@/shared/utils/languages'
+import type { BookChapterLiteModel } from '../../chapter/repository/ChaptersRepository'
+
+export type BookModel = {
 	id: number
 	type: 'public' | 'private'
 	name: null | string
 	author: null | string
-	languageCode: null | string
+	languageCode: LanguageCode
 	note: null | string
 	userId: null | number
 	coverUrl: null | string
@@ -15,18 +19,7 @@ export type Book = {
 	coverFileS3Key: null | string
 	isCoverFileUploaded: null | boolean
 	uploadUrl: null | string
-	chapters: BookChapterLite[]
-}
-
-/**
- * Унифицированный тип главы книги (лайт-версия, без контента).
- */
-export type BookChapterLite = {
-	id: number
-	bookId: number
-	name: null | string
-	header: null | string
-	note: null | string
+	chapters: BookChapterLiteModel[]
 }
 
 /**
@@ -37,26 +30,6 @@ export type CreateBookInput = {
 	author: null | string
 	note: null | string
 	languageCode: string
-}
-
-/**
- * Унифицированный тип главы книги.
- */
-export type BookChapter = {
-	id: number
-	name: null | string
-	header: null | string
-	note: null | string
-	originalContent: null | string
-	processedContent: null | string
-}
-
-/**
- * Унифицированный тип для создания главы книги.
- */
-export type CreateBookChapterInput = {
-	bookId: number
-	bookType: string
 }
 
 /**
@@ -83,20 +56,17 @@ export type UpdateBookInput = {
  */
 export type BooksRepository = {
 	/** Получить все книги (публичные + приватные пользователя) */
-	getBooks(): Promise<Book[]>
+	getBooks(): Promise<ApiResult<BookModel[]>>
 
-	/** Получить одну книгу по ID */
-	getBook(id: number): Promise<Book>
+	/** Получить одну книгу по ID. null — книга не найдена. */
+	getBook(id: number): Promise<ApiResult<null | BookModel>>
 
 	/** Создать приватную книгу с пустой первой главой */
-	createBook(input: CreateBookInput): Promise<Book>
+	createBook(input: CreateBookInput): Promise<ApiResult<BookModel>>
 
 	/** Обновить приватную книгу */
-	updateBook(id: number, input: UpdateBookInput): Promise<Book>
+	updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>>
 
 	/** Удалить приватную книгу */
-	deleteBook(id: number): Promise<void>
-
-	/** Создать главу в приватной книге */
-	createChapter(input: CreateBookChapterInput): Promise<BookChapter>
+	deleteBook(id: number): Promise<ApiResult<void>>
 }

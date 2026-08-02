@@ -43,11 +43,6 @@ export type Book = Prisma.BookModel
  */
 export type BookChapter = Prisma.BookChapterModel
 /**
- * Model VideoCollection
- * 
- */
-export type VideoCollection = Prisma.VideoCollectionModel
-/**
  * Model Video
  * 
  */

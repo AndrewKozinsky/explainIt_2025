@@ -96,7 +96,7 @@ export class SentencePhraseTranslationRepository {
 				translate: null,
 				examples: [],
 				status: 'pending',
-				error_message: null,
+				error_code: null,
 			},
 		})
 
@@ -113,7 +113,7 @@ export class SentencePhraseTranslationRepository {
 			translate?: null | string
 			examples?: SentencePhraseTranslationExampleServiceModel[]
 			status?: 'pending' | 'ready' | 'error'
-			errorMessage?: null | string
+			errorCode?: null | string
 		},
 	) {
 		const data: Prisma.SentencePhraseTranslationUpdateInput = {
@@ -126,7 +126,7 @@ export class SentencePhraseTranslationRepository {
 		if (dto.translate !== undefined) data.translate = dto.translate
 		if (dto.examples !== undefined) data.examples = this.encodeExamples(dto.examples)
 		if (dto.status !== undefined) data.status = dto.status
-		if (dto.errorMessage !== undefined) data.error_message = dto.errorMessage
+		if (dto.errorCode !== undefined) data.error_code = dto.errorCode
 
 		const db = await this.prisma.sentencePhraseTranslation.update({
 			where: { id },
@@ -166,7 +166,7 @@ export class SentencePhraseTranslationRepository {
 			translate: db.translate,
 			examples,
 			status: db.status,
-			errorMessage: db.error_message,
+			errorCode: db.error_code,
 			createdAt: db.created_at,
 			updatedAt: db.updated_at,
 			flashcardId: null,

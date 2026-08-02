@@ -255,7 +255,7 @@ export type UserWhereInput = {
   Payment?: Prisma.PaymentListRelationFilter
   UserBalanceTransaction?: Prisma.UserBalanceTransactionListRelationFilter
   Book?: Prisma.BookListRelationFilter
-  VideoCollection?: Prisma.VideoCollectionListRelationFilter
+  Video?: Prisma.VideoListRelationFilter
   SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
   Flashcard?: Prisma.FlashcardListRelationFilter
 }
@@ -273,7 +273,7 @@ export type UserOrderByWithRelationInput = {
   Payment?: Prisma.PaymentOrderByRelationAggregateInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionOrderByRelationAggregateInput
   Book?: Prisma.BookOrderByRelationAggregateInput
-  VideoCollection?: Prisma.VideoCollectionOrderByRelationAggregateInput
+  Video?: Prisma.VideoOrderByRelationAggregateInput
   SentenceChatThread?: Prisma.SentenceChatThreadOrderByRelationAggregateInput
   Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
@@ -294,7 +294,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   Payment?: Prisma.PaymentListRelationFilter
   UserBalanceTransaction?: Prisma.UserBalanceTransactionListRelationFilter
   Book?: Prisma.BookListRelationFilter
-  VideoCollection?: Prisma.VideoCollectionListRelationFilter
+  Video?: Prisma.VideoListRelationFilter
   SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
   Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id" | "email">
@@ -343,7 +343,7 @@ export type UserCreateInput = {
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
@@ -361,7 +361,7 @@ export type UserUncheckedCreateInput = {
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
@@ -378,7 +378,7 @@ export type UserUpdateInput = {
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
@@ -396,7 +396,7 @@ export type UserUncheckedUpdateInput = {
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -560,20 +560,20 @@ export type UserUpdateOneWithoutBookNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutBookInput, Prisma.UserUpdateWithoutBookInput>, Prisma.UserUncheckedUpdateWithoutBookInput>
 }
 
-export type UserCreateNestedOneWithoutVideoCollectionInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutVideoCollectionInput, Prisma.UserUncheckedCreateWithoutVideoCollectionInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutVideoCollectionInput
+export type UserCreateNestedOneWithoutVideoInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutVideoInput, Prisma.UserUncheckedCreateWithoutVideoInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutVideoInput
   connect?: Prisma.UserWhereUniqueInput
 }
 
-export type UserUpdateOneWithoutVideoCollectionNestedInput = {
-  create?: Prisma.XOR<Prisma.UserCreateWithoutVideoCollectionInput, Prisma.UserUncheckedCreateWithoutVideoCollectionInput>
-  connectOrCreate?: Prisma.UserCreateOrConnectWithoutVideoCollectionInput
-  upsert?: Prisma.UserUpsertWithoutVideoCollectionInput
+export type UserUpdateOneWithoutVideoNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutVideoInput, Prisma.UserUncheckedCreateWithoutVideoInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutVideoInput
+  upsert?: Prisma.UserUpsertWithoutVideoInput
   disconnect?: Prisma.UserWhereInput | boolean
   delete?: Prisma.UserWhereInput | boolean
   connect?: Prisma.UserWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutVideoCollectionInput, Prisma.UserUpdateWithoutVideoCollectionInput>, Prisma.UserUncheckedUpdateWithoutVideoCollectionInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutVideoInput, Prisma.UserUpdateWithoutVideoInput>, Prisma.UserUncheckedUpdateWithoutVideoInput>
 }
 
 export type UserCreateNestedOneWithoutSentenceChatThreadInput = {
@@ -615,7 +615,7 @@ export type UserCreateWithoutUserBalanceTransactionInput = {
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
@@ -632,7 +632,7 @@ export type UserUncheckedCreateWithoutUserBalanceTransactionInput = {
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
@@ -664,7 +664,7 @@ export type UserUpdateWithoutUserBalanceTransactionInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
@@ -681,7 +681,7 @@ export type UserUncheckedUpdateWithoutUserBalanceTransactionInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -697,7 +697,7 @@ export type UserCreateWithoutPaymentInput = {
   created_at?: Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
@@ -714,7 +714,7 @@ export type UserUncheckedCreateWithoutPaymentInput = {
   created_at?: Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
@@ -746,7 +746,7 @@ export type UserUpdateWithoutPaymentInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
@@ -763,7 +763,7 @@ export type UserUncheckedUpdateWithoutPaymentInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
@@ -779,7 +779,7 @@ export type UserCreateWithoutBookInput = {
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
@@ -796,7 +796,7 @@ export type UserUncheckedCreateWithoutBookInput = {
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
@@ -828,7 +828,7 @@ export type UserUpdateWithoutBookInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
@@ -845,12 +845,12 @@ export type UserUncheckedUpdateWithoutBookInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
-export type UserCreateWithoutVideoCollectionInput = {
+export type UserCreateWithoutVideoInput = {
   email: string
   password?: string | null
   email_confirmation_code?: string | null
@@ -866,7 +866,7 @@ export type UserCreateWithoutVideoCollectionInput = {
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
-export type UserUncheckedCreateWithoutVideoCollectionInput = {
+export type UserUncheckedCreateWithoutVideoInput = {
   id?: number
   email: string
   password?: string | null
@@ -883,23 +883,23 @@ export type UserUncheckedCreateWithoutVideoCollectionInput = {
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
-export type UserCreateOrConnectWithoutVideoCollectionInput = {
+export type UserCreateOrConnectWithoutVideoInput = {
   where: Prisma.UserWhereUniqueInput
-  create: Prisma.XOR<Prisma.UserCreateWithoutVideoCollectionInput, Prisma.UserUncheckedCreateWithoutVideoCollectionInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutVideoInput, Prisma.UserUncheckedCreateWithoutVideoInput>
 }
 
-export type UserUpsertWithoutVideoCollectionInput = {
-  update: Prisma.XOR<Prisma.UserUpdateWithoutVideoCollectionInput, Prisma.UserUncheckedUpdateWithoutVideoCollectionInput>
-  create: Prisma.XOR<Prisma.UserCreateWithoutVideoCollectionInput, Prisma.UserUncheckedCreateWithoutVideoCollectionInput>
+export type UserUpsertWithoutVideoInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutVideoInput, Prisma.UserUncheckedUpdateWithoutVideoInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutVideoInput, Prisma.UserUncheckedCreateWithoutVideoInput>
   where?: Prisma.UserWhereInput
 }
 
-export type UserUpdateToOneWithWhereWithoutVideoCollectionInput = {
+export type UserUpdateToOneWithWhereWithoutVideoInput = {
   where?: Prisma.UserWhereInput
-  data: Prisma.XOR<Prisma.UserUpdateWithoutVideoCollectionInput, Prisma.UserUncheckedUpdateWithoutVideoCollectionInput>
+  data: Prisma.XOR<Prisma.UserUpdateWithoutVideoInput, Prisma.UserUncheckedUpdateWithoutVideoInput>
 }
 
-export type UserUpdateWithoutVideoCollectionInput = {
+export type UserUpdateWithoutVideoInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -915,7 +915,7 @@ export type UserUpdateWithoutVideoCollectionInput = {
   Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
-export type UserUncheckedUpdateWithoutVideoCollectionInput = {
+export type UserUncheckedUpdateWithoutVideoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   email?: Prisma.StringFieldUpdateOperationsInput | string
   password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -944,7 +944,7 @@ export type UserCreateWithoutSentenceChatThreadInput = {
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutUserInput
 }
 
@@ -961,7 +961,7 @@ export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -993,7 +993,7 @@ export type UserUpdateWithoutSentenceChatThreadInput = {
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutUserNestedInput
 }
 
@@ -1010,7 +1010,7 @@ export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1026,7 +1026,7 @@ export type UserCreateWithoutFlashcardInput = {
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
 }
 
@@ -1043,7 +1043,7 @@ export type UserUncheckedCreateWithoutFlashcardInput = {
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
 }
 
@@ -1075,7 +1075,7 @@ export type UserUpdateWithoutFlashcardInput = {
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
 }
 
@@ -1092,7 +1092,7 @@ export type UserUncheckedUpdateWithoutFlashcardInput = {
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
-  VideoCollection?: Prisma.VideoCollectionUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
 }
 
@@ -1105,7 +1105,7 @@ export type UserCountOutputType = {
   Payment: number
   UserBalanceTransaction: number
   Book: number
-  VideoCollection: number
+  Video: number
   SentenceChatThread: number
   Flashcard: number
 }
@@ -1114,7 +1114,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   Payment?: boolean | UserCountOutputTypeCountPaymentArgs
   UserBalanceTransaction?: boolean | UserCountOutputTypeCountUserBalanceTransactionArgs
   Book?: boolean | UserCountOutputTypeCountBookArgs
-  VideoCollection?: boolean | UserCountOutputTypeCountVideoCollectionArgs
+  Video?: boolean | UserCountOutputTypeCountVideoArgs
   SentenceChatThread?: boolean | UserCountOutputTypeCountSentenceChatThreadArgs
   Flashcard?: boolean | UserCountOutputTypeCountFlashcardArgs
 }
@@ -1153,8 +1153,8 @@ export type UserCountOutputTypeCountBookArgs<ExtArgs extends runtime.Types.Exten
 /**
  * UserCountOutputType without action
  */
-export type UserCountOutputTypeCountVideoCollectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.VideoCollectionWhereInput
+export type UserCountOutputTypeCountVideoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.VideoWhereInput
 }
 
 /**
@@ -1185,7 +1185,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   UserBalanceTransaction?: boolean | Prisma.User$UserBalanceTransactionArgs<ExtArgs>
   Book?: boolean | Prisma.User$BookArgs<ExtArgs>
-  VideoCollection?: boolean | Prisma.User$VideoCollectionArgs<ExtArgs>
+  Video?: boolean | Prisma.User$VideoArgs<ExtArgs>
   SentenceChatThread?: boolean | Prisma.User$SentenceChatThreadArgs<ExtArgs>
   Flashcard?: boolean | Prisma.User$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1232,7 +1232,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   UserBalanceTransaction?: boolean | Prisma.User$UserBalanceTransactionArgs<ExtArgs>
   Book?: boolean | Prisma.User$BookArgs<ExtArgs>
-  VideoCollection?: boolean | Prisma.User$VideoCollectionArgs<ExtArgs>
+  Video?: boolean | Prisma.User$VideoArgs<ExtArgs>
   SentenceChatThread?: boolean | Prisma.User$SentenceChatThreadArgs<ExtArgs>
   Flashcard?: boolean | Prisma.User$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
@@ -1246,7 +1246,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     Payment: Prisma.$PaymentPayload<ExtArgs>[]
     UserBalanceTransaction: Prisma.$UserBalanceTransactionPayload<ExtArgs>[]
     Book: Prisma.$BookPayload<ExtArgs>[]
-    VideoCollection: Prisma.$VideoCollectionPayload<ExtArgs>[]
+    Video: Prisma.$VideoPayload<ExtArgs>[]
     SentenceChatThread: Prisma.$SentenceChatThreadPayload<ExtArgs>[]
     Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
@@ -1657,7 +1657,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   Payment<T extends Prisma.User$PaymentArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$PaymentArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   UserBalanceTransaction<T extends Prisma.User$UserBalanceTransactionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$UserBalanceTransactionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserBalanceTransactionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Book<T extends Prisma.User$BookArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BookArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  VideoCollection<T extends Prisma.User$VideoCollectionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$VideoCollectionArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VideoCollectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  Video<T extends Prisma.User$VideoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$VideoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SentenceChatThread<T extends Prisma.User$SentenceChatThreadArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$SentenceChatThreadArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentenceChatThreadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Flashcard<T extends Prisma.User$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -2163,27 +2163,27 @@ export type User$BookArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs 
 }
 
 /**
- * User.VideoCollection
+ * User.Video
  */
-export type User$VideoCollectionArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type User$VideoArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the VideoCollection
+   * Select specific fields to fetch from the Video
    */
-  select?: Prisma.VideoCollectionSelect<ExtArgs> | null
+  select?: Prisma.VideoSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the VideoCollection
+   * Omit specific fields from the Video
    */
-  omit?: Prisma.VideoCollectionOmit<ExtArgs> | null
+  omit?: Prisma.VideoOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.VideoCollectionInclude<ExtArgs> | null
-  where?: Prisma.VideoCollectionWhereInput
-  orderBy?: Prisma.VideoCollectionOrderByWithRelationInput | Prisma.VideoCollectionOrderByWithRelationInput[]
-  cursor?: Prisma.VideoCollectionWhereUniqueInput
+  include?: Prisma.VideoInclude<ExtArgs> | null
+  where?: Prisma.VideoWhereInput
+  orderBy?: Prisma.VideoOrderByWithRelationInput | Prisma.VideoOrderByWithRelationInput[]
+  cursor?: Prisma.VideoWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.VideoCollectionScalarFieldEnum | Prisma.VideoCollectionScalarFieldEnum[]
+  distinct?: Prisma.VideoScalarFieldEnum | Prisma.VideoScalarFieldEnum[]
 }
 
 /**

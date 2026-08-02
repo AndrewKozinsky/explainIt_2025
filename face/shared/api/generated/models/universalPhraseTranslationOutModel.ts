@@ -7,7 +7,6 @@
  */
 import type { TranscriptionOutModel } from './transcriptionOutModel';
 import type { UniversalPhraseTranslationDataOutModel } from './universalPhraseTranslationDataOutModel';
-import type { UniversalPhraseTranslationOutModelErrorMessage } from './universalPhraseTranslationOutModelErrorMessage';
 
 export interface UniversalPhraseTranslationOutModel {
   /** Universal phrase translation ID */
@@ -19,8 +18,8 @@ export interface UniversalPhraseTranslationOutModel {
   translation: UniversalPhraseTranslationDataOutModel | null;
   /** Status of translation generation */
   status: string;
-  /** Error message if status is error */
-  errorMessage?: UniversalPhraseTranslationOutModelErrorMessage;
+  /** Error code if status is error */
+  errorCode?: string | null;
   /** Flag indicating that the word/phrase does not exist in the source language */
   nonExistentWord: boolean;
   createdAt: string;

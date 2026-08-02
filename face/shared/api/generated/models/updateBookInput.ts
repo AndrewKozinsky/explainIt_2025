@@ -5,41 +5,35 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { UpdateBookInputAuthor } from './updateBookInputAuthor';
-import type { UpdateBookInputCoverFileName } from './updateBookInputCoverFileName';
-import type { UpdateBookInputFileMimeType } from './updateBookInputFileMimeType';
-import type { UpdateBookInputLanguageCode } from './updateBookInputLanguageCode';
-import type { UpdateBookInputName } from './updateBookInputName';
-import type { UpdateBookInputNote } from './updateBookInputNote';
 
 export interface UpdateBookInput {
   /**
      * Author of the book
      * @maxLength 255
      */
-  author?: UpdateBookInputAuthor;
+  author?: string | null;
   /**
      * Name of the book
      * @maxLength 255
      */
-  name?: UpdateBookInputName;
+  name?: string | null;
   /** Language code of the book */
-  languageCode?: UpdateBookInputLanguageCode;
+  languageCode?: string | null;
   /**
      * Note about the book
      * @maxLength 2000
      */
-  note?: UpdateBookInputNote;
+  note?: string | null;
   /**
      * File name of the book cover
      * @maxLength 255
      */
-  coverFileName?: UpdateBookInputCoverFileName;
+  coverFileName?: string | null;
   /**
      * File Mime Type of the book cover
      * @maxLength 50
      */
-  fileMimeType?: UpdateBookInputFileMimeType;
+  fileMimeType?: string | null;
   /** Is cover file was uploaded */
   isCoverFileUploaded?: boolean | null;
 }

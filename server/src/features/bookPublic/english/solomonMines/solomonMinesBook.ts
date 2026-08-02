@@ -22,7 +22,7 @@ import { chapter_9 } from './chapter_9'
 import { intro } from './intro'
 
 export function solomonMinesBookData(s3FolderName: string) {
-	const coverFileName = 'king_solomon_mines_cover_1.jpg'
+	const coverFileName = 'king_solomon_mines.jpg'
 
 	return {
 		author: 'Henry Rider Haggard',

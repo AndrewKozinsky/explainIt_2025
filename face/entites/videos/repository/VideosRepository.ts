@@ -1,46 +1,26 @@
-/**
- * Унифицированный тип видео (лайт-версия, для списка).
- * Компоненты работают только с этим типом — он не зависит от API.
- */
-export type VideoLite = {
-	id: number
-	type: 'public' | 'private'
-	name: null | string
-	languageCode: null | string
-	note: null | string
-	originalContent: null | string
-	processedContent: null | string
-	contentType: string
-	fileName: null | string
-	fileS3Key: null | string
-	fileUrl: null | string
-	isFileUploaded: null | boolean
-	fileSizeMb: null | number
-	fileDurationSec: null | number
-	coverUrl: null | string
-	coverFileName: null | string
-	coverFileS3Key: null | string
-	isCoverFileUploaded: boolean
-	userId: null | number
+import type {
+	VideoContentType,
+	VideoLiteModel,
+	VideoModel,
+	VideoSubtitlesModel,
+	SubtitlesSourceModelType,
+	SubtitlesStatusModelType,
+	SubtitlesStatusModel,
+} from '@/entites/videoBase/repository/BaseVideosRepository'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+
+// Реэкспорт общих типов для обратной совместимости
+export type {
+	VideoContentType,
+	VideoLiteModel,
+	VideoModel,
+	VideoSubtitlesModel,
+	SubtitlesSourceModelType,
+	SubtitlesStatusModelType,
+	SubtitlesStatusModel,
 }
 
-/**
- * Унифицированный тип видео (полная версия, с субтитрами и предложениями).
- */
-export type Video = VideoLite & {
-	subtitlesStatus: null | SubtitlesStatus
-}
-
-/**
- * Статус генерации субтитров.
- */
-export type SubtitlesStatus = {
-	videoId: number
-	status: null | string
-	error: null | string
-	startedAt: null | string
-	jobId: null | string
-}
+// ─── Специфичные типы для CRUD-операций с видео ──────────────────────────────
 
 /**
  * Унифицированный тип для создания видео.
@@ -57,15 +37,20 @@ export type CreateVideoInput = {
  * Унифицированный тип для обновления видео.
  */
 export type UpdateVideoInput = {
-	name: null | string
-	languageCode: null | string
-	originalContent: null | string
-	fileName: null | string
-	fileMimeType: null | string
-	isFileUploaded: null | boolean
-	fileSizeMb: null | number
-	fileDurationSec: null | number
+	name?: null | string
+	originalContent?: null | string
+	languageCode?: string
+	fileName?: null | string
+	fileMimeType?: null | string
+	isFileUploaded?: null | boolean
+	fileSizeMb?: null | number
+	fileDurationSec?: null | number
+	coverFileName?: null | string
+	coverFileMimeType?: null | string
+	isCoverFileUploaded?: null | boolean
 }
+
+// ─── Интерфейс репозитория ───────────────────────────────────────────────────
 
 /**
  * Репозиторий видео — абстракция над серверным API.
@@ -77,23 +62,23 @@ export type UpdateVideoInput = {
  */
 export type VideosRepository = {
 	/** Получить все видео (публичные + приватные пользователя) */
-	getVideos(): Promise<VideoLite[]>
+	getVideos(): Promise<ApiResult<VideoLiteModel[]>>
 
 	/** Получить видео по ID с полной информацией */
-	getVideo(id: number): Promise<Video>
+	getVideo(id: string | number): Promise<ApiResult<VideoModel>>
 
 	/** Создать приватное видео */
-	createVideo(input: CreateVideoInput): Promise<VideoLite>
+	createVideo(input: CreateVideoInput): Promise<ApiResult<VideoLiteModel>>
 
 	/** Обновить приватное видео */
-	updateVideo(id: number, input: UpdateVideoInput): Promise<VideoLite>
+	updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>>
 
 	/** Удалить приватное видео */
-	deleteVideo(id: number): Promise<void>
+	deleteVideo(id: number): Promise<ApiResult<void>>
 
 	/** Запустить генерацию субтитров для загруженного видео */
-	generateSubtitles(id: number): Promise<SubtitlesStatus>
+	generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>>
 
 	/** Получить статус генерации субтитров */
-	getSubtitlesStatus(id: number): Promise<SubtitlesStatus>
+	getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>>
 }

@@ -59,7 +59,7 @@ export class UniversalPhraseTranslationQueryRepository {
 			targetLanguageCode: db.target_language_code,
 			translation,
 			status: db.status,
-			errorMessage: db.error_message,
+			errorCode: db.error_code,
 			nonExistentWord: db.non_existent_word,
 			createdAt: db.created_at.toISOString(),
 			transcription,

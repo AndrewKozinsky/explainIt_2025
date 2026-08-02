@@ -3,15 +3,13 @@ import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
 const $ = bdConfig.Video.dbFields
+const $$ = bdConfig.Video.dtoProps
 
 export class VideoLiteOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.id))
-	videoCollectionId: number
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.type))
+	@ApiProperty(getApiPropertyOptions($.type))
 	type: 'public' | 'private'
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.User.dbFields.id))
@@ -20,8 +18,11 @@ export class VideoLiteOutModel {
 	@ApiProperty(getApiPropertyOptions($.name))
 	name: string | null
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dtoProps.languageCode))
-	languageCode: null | string
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
+	languageCode: string
+
+	@ApiProperty(getApiPropertyOptions($.youtube_video_id))
+	youtubeVideoId: null | string
 
 	@ApiProperty(getApiPropertyOptions($.note))
 	note: string | null
@@ -52,4 +53,35 @@ export class VideoLiteOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
 	fileDurationSec: null | number
+
+	@ApiProperty(getApiPropertyOptions($.cover_file_name))
+	coverFileName: string | null
+
+	@ApiProperty(getApiPropertyOptions($.cover_file_s3_key))
+	coverFileS3Key: string | null
+
+	@ApiProperty(getApiPropertyOptions($.is_cover_file_uploaded))
+	isCoverFileUploaded: boolean
+
+	@ApiProperty(getApiPropertyOptions($$.coverUrl))
+	coverUrl: string | null
+
+	@ApiProperty(getApiPropertyOptions($$.uploadCoverUrl))
+	uploadCoverUrl: string | null
+
+	@ApiProperty({
+		description: 'Who created the subtitles: user-uploaded, from YouTube, or LLM-generated',
+		example: 'user',
+	})
+	subtitlesSource: string
+
+	@ApiProperty({
+		description: 'Status of subtitles processing',
+		enum: ['idle', 'pending', 'processing', 'done', 'failed'],
+		example: 'done',
+	})
+	subtitlesStatus: string
+
+	@ApiProperty({ description: 'Error code if subtitles processing failed', example: null, nullable: true })
+	subtitlesErrorCode: null | string
 }

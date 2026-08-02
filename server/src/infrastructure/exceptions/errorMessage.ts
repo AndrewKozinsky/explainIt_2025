@@ -37,6 +37,7 @@ export const errorMessage = {
 	cannotGetUserDataFromOAuthProvider: { code: 'CANNOT_GET_USER_DATA_FROM_OAUTH_PROVIDER' }, // Не получилось получить данные о пользователе у поставщика OAuth.
 
 	// NUMBERS
+	mustBeNumber: { code: 'MUST_BE_NUMBER' }, // Должно быть числом.
 	minNum(num: number) {
 		return { code: 'MIN_NUM', minNumber: num } // Минимальное число: ${num}
 	},
@@ -47,6 +48,12 @@ export const errorMessage = {
 	// STRINGS
 	mustBeString(name: string) {
 		return { code: 'MUST_BE_STRING', fieldName: name } // ${name} должен быть строкой.
+	},
+	mustBeBoolean(name: string) {
+		return { code: 'MUST_BE_BOOLEAN', fieldName: name } // ${name} должен быть boolean.
+	},
+	stringDoesNotMatch(name: string) {
+		return { code: 'STRING_DOES_NOT_MATCH', fieldName: name } // ${name} не соответствует формату.
 	},
 	minCharacters(num: number) {
 		return { code: 'MIN_CHARACTERS', minNumber: num } // Минимальное количество символов: ${num}
@@ -67,6 +74,9 @@ export const errorMessage = {
 	},
 	mustBeArrayOfMongoDBStrings(name: string) {
 		return { code: 'MUST_BE_ARRAY_OF_MONGODB_STRINGS', fieldName: name } // ${name} должен быть массивом строк mongoId.
+	},
+	mustBeEnumValue(name: string) {
+		return { code: 'MUST_BE_ENUM_VALUE', fieldName: name } // ${name} должен быть валидным значением enum.
 	},
 
 	// MICK
@@ -94,10 +104,6 @@ export const errorMessage = {
 
 	sentence: {
 		notFound: { code: 'SENTENCE_NOT_FOUND' }, // Предложение не найдено.
-	},
-
-	videoCollection: {
-		notFound: { code: 'VIDEO_COLLECTION_NOT_FOUND' }, // Коллекция видео не найдена.
 	},
 
 	video: {
@@ -166,24 +172,15 @@ export const errorMessage = {
 			code: 'UNIVERSAL_PHRASE_TRANSLATION_CANNOT_GET_TRANSLATION_FROM_LLM',
 		},
 	},
+	youtube: {
+		apiRequestFailed: { code: 'YOUTUBE_API_REQUEST_FAILED' }, // Не удалось выполнить запрос к YouTube API.
+		quotaExceeded: { code: 'YOUTUBE_QUOTA_EXCEEDED' }, // Квота YouTube API исчерпана.
+		languageNotSupported: { code: 'YOUTUBE_LANGUAGE_NOT_SUPPORTED' }, // Язык не поддерживается для поиска видео на YouTube.
+		videoNotFound: { code: 'YOUTUBE_VIDEO_NOT_FOUND' }, // Видео с указанным ID не найдено на YouTube.
+		audioDownloadFailed: { code: 'YOUTUBE_AUDIO_DOWNLOAD_FAILED' }, // Не удалось скачать аудио с YouTube.
+	},
 } satisfies Record<string, any>
 
 export function serializeErrorMessage(errorMessage: ErrorMessage) {
 	return JSON.stringify(errorMessage)
-}
-
-export function parseErrorMessage(errorMessage: unknown) {
-	if (typeof errorMessage !== 'string') {
-		return errorMessage
-	}
-
-	try {
-		const parsedErrorMessage = JSON.parse(errorMessage)
-
-		if (typeof parsedErrorMessage === 'object' && !!parsedErrorMessage && 'code' in parsedErrorMessage) {
-			return parsedErrorMessage
-		}
-	} catch {}
-
-	return errorMessage
 }

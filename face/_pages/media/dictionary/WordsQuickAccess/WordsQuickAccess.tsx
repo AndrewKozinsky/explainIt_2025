@@ -1,4 +1,3 @@
-import React from 'react'
 import WordsButtonList from '_pages/media/commonComponents/WordsButtonList/WordsButtonList'
 import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'

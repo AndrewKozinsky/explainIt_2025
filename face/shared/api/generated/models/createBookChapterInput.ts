@@ -5,13 +5,9 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { CreateBookChapterInputHeader } from './createBookChapterInputHeader';
-import type { CreateBookChapterInputName } from './createBookChapterInputName';
-import type { CreateBookChapterInputNote } from './createBookChapterInputNote';
-import type { CreateBookChapterInputOriginalContent } from './createBookChapterInputOriginalContent';
 
 export interface CreateBookChapterInput {
-  /** Book type: public or private */
+  /** Media type: public or private */
   bookType: string;
   /**
      * Book ID
@@ -22,21 +18,21 @@ export interface CreateBookChapterInput {
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
      */
-  name?: CreateBookChapterInputName;
+  name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
      */
-  header?: CreateBookChapterInputHeader;
+  header?: string | null;
   /**
      * Original content of the chapter
      * @maxLength 900000
      */
-  originalContent?: CreateBookChapterInputOriginalContent;
+  originalContent?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
      */
-  note?: CreateBookChapterInputNote;
+  note?: string | null;
 }

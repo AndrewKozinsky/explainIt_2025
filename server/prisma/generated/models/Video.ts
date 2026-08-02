@@ -28,25 +28,26 @@ export type AggregateVideo = {
 
 export type VideoAvgAggregateOutputType = {
   id: number | null
-  video_collection_id: number | null
+  user_id: number | null
   file_size_mb: number | null
   file_duration_sec: number | null
-  subtitles_generation_charge_kopecks: number | null
 }
 
 export type VideoSumAggregateOutputType = {
   id: number | null
-  video_collection_id: number | null
+  user_id: number | null
   file_size_mb: number | null
   file_duration_sec: number | null
-  subtitles_generation_charge_kopecks: number | null
 }
 
 export type VideoMinAggregateOutputType = {
   id: number | null
-  video_collection_id: number | null
+  type: $Enums.MediaType | null
+  user_id: number | null
   name: string | null
   note: string | null
+  source_language_code: $Enums.LanguageCode | null
+  youtube_video_id: string | null
   file_name: string | null
   file_s3_key: string | null
   s3_provider_name: $Enums.S3ProviderName | null
@@ -56,21 +57,26 @@ export type VideoMinAggregateOutputType = {
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType | null
-  subtitles_generation_status: $Enums.SubtitlesGenerationStatus | null
-  subtitles_generation_error: string | null
-  subtitles_generation_started_at: Date | null
-  subtitles_generation_job_id: string | null
-  subtitles_generation_charge_kopecks: number | null
-  subtitles_generation_refunded_at: Date | null
+  cover_file_name: string | null
+  cover_file_s3_key: string | null
+  cover_file_s3_provider_name: $Enums.S3ProviderName | null
+  is_cover_file_uploaded: boolean | null
+  subtitles_source: $Enums.SubtitlesSource | null
+  subtitles_status: $Enums.SubtitlesStatus | null
+  subtitles_error_code: string | null
+  subtitles_job_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
 
 export type VideoMaxAggregateOutputType = {
   id: number | null
-  video_collection_id: number | null
+  type: $Enums.MediaType | null
+  user_id: number | null
   name: string | null
   note: string | null
+  source_language_code: $Enums.LanguageCode | null
+  youtube_video_id: string | null
   file_name: string | null
   file_s3_key: string | null
   s3_provider_name: $Enums.S3ProviderName | null
@@ -80,21 +86,26 @@ export type VideoMaxAggregateOutputType = {
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType | null
-  subtitles_generation_status: $Enums.SubtitlesGenerationStatus | null
-  subtitles_generation_error: string | null
-  subtitles_generation_started_at: Date | null
-  subtitles_generation_job_id: string | null
-  subtitles_generation_charge_kopecks: number | null
-  subtitles_generation_refunded_at: Date | null
+  cover_file_name: string | null
+  cover_file_s3_key: string | null
+  cover_file_s3_provider_name: $Enums.S3ProviderName | null
+  is_cover_file_uploaded: boolean | null
+  subtitles_source: $Enums.SubtitlesSource | null
+  subtitles_status: $Enums.SubtitlesStatus | null
+  subtitles_error_code: string | null
+  subtitles_job_id: string | null
   created_at: Date | null
   updated_at: Date | null
 }
 
 export type VideoCountAggregateOutputType = {
   id: number
-  video_collection_id: number
+  type: number
+  user_id: number
   name: number
   note: number
+  source_language_code: number
+  youtube_video_id: number
   file_name: number
   file_s3_key: number
   s3_provider_name: number
@@ -104,12 +115,14 @@ export type VideoCountAggregateOutputType = {
   original_content: number
   processed_content: number
   content_type: number
-  subtitles_generation_status: number
-  subtitles_generation_error: number
-  subtitles_generation_started_at: number
-  subtitles_generation_job_id: number
-  subtitles_generation_charge_kopecks: number
-  subtitles_generation_refunded_at: number
+  cover_file_name: number
+  cover_file_s3_key: number
+  cover_file_s3_provider_name: number
+  is_cover_file_uploaded: number
+  subtitles_source: number
+  subtitles_status: number
+  subtitles_error_code: number
+  subtitles_job_id: number
   created_at: number
   updated_at: number
   _all: number
@@ -118,25 +131,26 @@ export type VideoCountAggregateOutputType = {
 
 export type VideoAvgAggregateInputType = {
   id?: true
-  video_collection_id?: true
+  user_id?: true
   file_size_mb?: true
   file_duration_sec?: true
-  subtitles_generation_charge_kopecks?: true
 }
 
 export type VideoSumAggregateInputType = {
   id?: true
-  video_collection_id?: true
+  user_id?: true
   file_size_mb?: true
   file_duration_sec?: true
-  subtitles_generation_charge_kopecks?: true
 }
 
 export type VideoMinAggregateInputType = {
   id?: true
-  video_collection_id?: true
+  type?: true
+  user_id?: true
   name?: true
   note?: true
+  source_language_code?: true
+  youtube_video_id?: true
   file_name?: true
   file_s3_key?: true
   s3_provider_name?: true
@@ -146,21 +160,26 @@ export type VideoMinAggregateInputType = {
   original_content?: true
   processed_content?: true
   content_type?: true
-  subtitles_generation_status?: true
-  subtitles_generation_error?: true
-  subtitles_generation_started_at?: true
-  subtitles_generation_job_id?: true
-  subtitles_generation_charge_kopecks?: true
-  subtitles_generation_refunded_at?: true
+  cover_file_name?: true
+  cover_file_s3_key?: true
+  cover_file_s3_provider_name?: true
+  is_cover_file_uploaded?: true
+  subtitles_source?: true
+  subtitles_status?: true
+  subtitles_error_code?: true
+  subtitles_job_id?: true
   created_at?: true
   updated_at?: true
 }
 
 export type VideoMaxAggregateInputType = {
   id?: true
-  video_collection_id?: true
+  type?: true
+  user_id?: true
   name?: true
   note?: true
+  source_language_code?: true
+  youtube_video_id?: true
   file_name?: true
   file_s3_key?: true
   s3_provider_name?: true
@@ -170,21 +189,26 @@ export type VideoMaxAggregateInputType = {
   original_content?: true
   processed_content?: true
   content_type?: true
-  subtitles_generation_status?: true
-  subtitles_generation_error?: true
-  subtitles_generation_started_at?: true
-  subtitles_generation_job_id?: true
-  subtitles_generation_charge_kopecks?: true
-  subtitles_generation_refunded_at?: true
+  cover_file_name?: true
+  cover_file_s3_key?: true
+  cover_file_s3_provider_name?: true
+  is_cover_file_uploaded?: true
+  subtitles_source?: true
+  subtitles_status?: true
+  subtitles_error_code?: true
+  subtitles_job_id?: true
   created_at?: true
   updated_at?: true
 }
 
 export type VideoCountAggregateInputType = {
   id?: true
-  video_collection_id?: true
+  type?: true
+  user_id?: true
   name?: true
   note?: true
+  source_language_code?: true
+  youtube_video_id?: true
   file_name?: true
   file_s3_key?: true
   s3_provider_name?: true
@@ -194,12 +218,14 @@ export type VideoCountAggregateInputType = {
   original_content?: true
   processed_content?: true
   content_type?: true
-  subtitles_generation_status?: true
-  subtitles_generation_error?: true
-  subtitles_generation_started_at?: true
-  subtitles_generation_job_id?: true
-  subtitles_generation_charge_kopecks?: true
-  subtitles_generation_refunded_at?: true
+  cover_file_name?: true
+  cover_file_s3_key?: true
+  cover_file_s3_provider_name?: true
+  is_cover_file_uploaded?: true
+  subtitles_source?: true
+  subtitles_status?: true
+  subtitles_error_code?: true
+  subtitles_job_id?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -293,9 +319,12 @@ export type VideoGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalAr
 
 export type VideoGroupByOutputType = {
   id: number
-  video_collection_id: number
+  type: $Enums.MediaType
+  user_id: number | null
   name: string | null
   note: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id: string | null
   file_name: string | null
   file_s3_key: string | null
   s3_provider_name: $Enums.S3ProviderName | null
@@ -305,12 +334,14 @@ export type VideoGroupByOutputType = {
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType
-  subtitles_generation_status: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error: string | null
-  subtitles_generation_started_at: Date | null
-  subtitles_generation_job_id: string | null
-  subtitles_generation_charge_kopecks: number | null
-  subtitles_generation_refunded_at: Date | null
+  cover_file_name: string | null
+  cover_file_s3_key: string | null
+  cover_file_s3_provider_name: $Enums.S3ProviderName | null
+  is_cover_file_uploaded: boolean
+  subtitles_source: $Enums.SubtitlesSource
+  subtitles_status: $Enums.SubtitlesStatus
+  subtitles_error_code: string | null
+  subtitles_job_id: string | null
   created_at: Date
   updated_at: Date
   _count: VideoCountAggregateOutputType | null
@@ -340,9 +371,12 @@ export type VideoWhereInput = {
   OR?: Prisma.VideoWhereInput[]
   NOT?: Prisma.VideoWhereInput | Prisma.VideoWhereInput[]
   id?: Prisma.IntFilter<"Video"> | number
-  video_collection_id?: Prisma.IntFilter<"Video"> | number
+  type?: Prisma.EnumMediaTypeFilter<"Video"> | $Enums.MediaType
+  user_id?: Prisma.IntNullableFilter<"Video"> | number | null
   name?: Prisma.StringNullableFilter<"Video"> | string | null
   note?: Prisma.StringNullableFilter<"Video"> | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"Video"> | $Enums.LanguageCode
+  youtube_video_id?: Prisma.StringNullableFilter<"Video"> | string | null
   file_name?: Prisma.StringNullableFilter<"Video"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"Video"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"Video"> | $Enums.S3ProviderName | null
@@ -352,15 +386,17 @@ export type VideoWhereInput = {
   original_content?: Prisma.StringNullableFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"Video"> | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFilter<"Video"> | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.StringNullableFilter<"Video"> | string | null
-  subtitles_generation_started_at?: Prisma.DateTimeNullableFilter<"Video"> | Date | string | null
-  subtitles_generation_job_id?: Prisma.StringNullableFilter<"Video"> | string | null
-  subtitles_generation_charge_kopecks?: Prisma.IntNullableFilter<"Video"> | number | null
-  subtitles_generation_refunded_at?: Prisma.DateTimeNullableFilter<"Video"> | Date | string | null
+  cover_file_name?: Prisma.StringNullableFilter<"Video"> | string | null
+  cover_file_s3_key?: Prisma.StringNullableFilter<"Video"> | string | null
+  cover_file_s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"Video"> | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFilter<"Video"> | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFilter<"Video"> | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFilter<"Video"> | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.StringNullableFilter<"Video"> | string | null
+  subtitles_job_id?: Prisma.StringNullableFilter<"Video"> | string | null
   created_at?: Prisma.DateTimeFilter<"Video"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Video"> | Date | string
-  video_collection?: Prisma.XOR<Prisma.VideoCollectionScalarRelationFilter, Prisma.VideoCollectionWhereInput>
+  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   Subtitle?: Prisma.SubtitleListRelationFilter
   Sentence?: Prisma.SentenceListRelationFilter
   Flashcard?: Prisma.FlashcardListRelationFilter
@@ -368,9 +404,12 @@ export type VideoWhereInput = {
 
 export type VideoOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
+  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  youtube_video_id?: Prisma.SortOrderInput | Prisma.SortOrder
   file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -380,15 +419,17 @@ export type VideoOrderByWithRelationInput = {
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   content_type?: Prisma.SortOrder
-  subtitles_generation_status?: Prisma.SortOrder
-  subtitles_generation_error?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_started_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_job_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_refunded_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  cover_file_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  cover_file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  cover_file_s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_cover_file_uploaded?: Prisma.SortOrder
+  subtitles_source?: Prisma.SortOrder
+  subtitles_status?: Prisma.SortOrder
+  subtitles_error_code?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtitles_job_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
-  video_collection?: Prisma.VideoCollectionOrderByWithRelationInput
+  user?: Prisma.UserOrderByWithRelationInput
   Subtitle?: Prisma.SubtitleOrderByRelationAggregateInput
   Sentence?: Prisma.SentenceOrderByRelationAggregateInput
   Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
@@ -396,12 +437,15 @@ export type VideoOrderByWithRelationInput = {
 
 export type VideoWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  youtube_video_id?: string
   AND?: Prisma.VideoWhereInput | Prisma.VideoWhereInput[]
   OR?: Prisma.VideoWhereInput[]
   NOT?: Prisma.VideoWhereInput | Prisma.VideoWhereInput[]
-  video_collection_id?: Prisma.IntFilter<"Video"> | number
+  type?: Prisma.EnumMediaTypeFilter<"Video"> | $Enums.MediaType
+  user_id?: Prisma.IntNullableFilter<"Video"> | number | null
   name?: Prisma.StringNullableFilter<"Video"> | string | null
   note?: Prisma.StringNullableFilter<"Video"> | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"Video"> | $Enums.LanguageCode
   file_name?: Prisma.StringNullableFilter<"Video"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"Video"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"Video"> | $Enums.S3ProviderName | null
@@ -411,25 +455,30 @@ export type VideoWhereUniqueInput = Prisma.AtLeast<{
   original_content?: Prisma.StringNullableFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"Video"> | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFilter<"Video"> | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.StringNullableFilter<"Video"> | string | null
-  subtitles_generation_started_at?: Prisma.DateTimeNullableFilter<"Video"> | Date | string | null
-  subtitles_generation_job_id?: Prisma.StringNullableFilter<"Video"> | string | null
-  subtitles_generation_charge_kopecks?: Prisma.IntNullableFilter<"Video"> | number | null
-  subtitles_generation_refunded_at?: Prisma.DateTimeNullableFilter<"Video"> | Date | string | null
+  cover_file_name?: Prisma.StringNullableFilter<"Video"> | string | null
+  cover_file_s3_key?: Prisma.StringNullableFilter<"Video"> | string | null
+  cover_file_s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"Video"> | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFilter<"Video"> | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFilter<"Video"> | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFilter<"Video"> | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.StringNullableFilter<"Video"> | string | null
+  subtitles_job_id?: Prisma.StringNullableFilter<"Video"> | string | null
   created_at?: Prisma.DateTimeFilter<"Video"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Video"> | Date | string
-  video_collection?: Prisma.XOR<Prisma.VideoCollectionScalarRelationFilter, Prisma.VideoCollectionWhereInput>
+  user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   Subtitle?: Prisma.SubtitleListRelationFilter
   Sentence?: Prisma.SentenceListRelationFilter
   Flashcard?: Prisma.FlashcardListRelationFilter
-}, "id">
+}, "id" | "youtube_video_id">
 
 export type VideoOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
+  user_id?: Prisma.SortOrderInput | Prisma.SortOrder
   name?: Prisma.SortOrderInput | Prisma.SortOrder
   note?: Prisma.SortOrderInput | Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  youtube_video_id?: Prisma.SortOrderInput | Prisma.SortOrder
   file_name?: Prisma.SortOrderInput | Prisma.SortOrder
   file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -439,12 +488,14 @@ export type VideoOrderByWithAggregationInput = {
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   content_type?: Prisma.SortOrder
-  subtitles_generation_status?: Prisma.SortOrder
-  subtitles_generation_error?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_started_at?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_job_id?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrderInput | Prisma.SortOrder
-  subtitles_generation_refunded_at?: Prisma.SortOrderInput | Prisma.SortOrder
+  cover_file_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  cover_file_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  cover_file_s3_provider_name?: Prisma.SortOrderInput | Prisma.SortOrder
+  is_cover_file_uploaded?: Prisma.SortOrder
+  subtitles_source?: Prisma.SortOrder
+  subtitles_status?: Prisma.SortOrder
+  subtitles_error_code?: Prisma.SortOrderInput | Prisma.SortOrder
+  subtitles_job_id?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.VideoCountOrderByAggregateInput
@@ -459,9 +510,12 @@ export type VideoScalarWhereWithAggregatesInput = {
   OR?: Prisma.VideoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.VideoScalarWhereWithAggregatesInput | Prisma.VideoScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Video"> | number
-  video_collection_id?: Prisma.IntWithAggregatesFilter<"Video"> | number
+  type?: Prisma.EnumMediaTypeWithAggregatesFilter<"Video"> | $Enums.MediaType
+  user_id?: Prisma.IntNullableWithAggregatesFilter<"Video"> | number | null
   name?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   note?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
+  source_language_code?: Prisma.EnumLanguageCodeWithAggregatesFilter<"Video"> | $Enums.LanguageCode
+  youtube_video_id?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   file_name?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableWithAggregatesFilter<"Video"> | $Enums.S3ProviderName | null
@@ -471,19 +525,24 @@ export type VideoScalarWhereWithAggregatesInput = {
   original_content?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeWithAggregatesFilter<"Video"> | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusWithAggregatesFilter<"Video"> | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
-  subtitles_generation_started_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Video"> | Date | string | null
-  subtitles_generation_job_id?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
-  subtitles_generation_charge_kopecks?: Prisma.IntNullableWithAggregatesFilter<"Video"> | number | null
-  subtitles_generation_refunded_at?: Prisma.DateTimeNullableWithAggregatesFilter<"Video"> | Date | string | null
+  cover_file_name?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
+  cover_file_s3_key?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
+  cover_file_s3_provider_name?: Prisma.EnumS3ProviderNameNullableWithAggregatesFilter<"Video"> | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolWithAggregatesFilter<"Video"> | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceWithAggregatesFilter<"Video"> | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusWithAggregatesFilter<"Video"> | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
+  subtitles_job_id?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"Video"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"Video"> | Date | string
 }
 
 export type VideoCreateInput = {
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -493,15 +552,17 @@ export type VideoCreateInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
-  video_collection: Prisma.VideoCollectionCreateNestedOneWithoutVideoInput
+  user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
@@ -509,9 +570,12 @@ export type VideoCreateInput = {
 
 export type VideoUncheckedCreateInput = {
   id?: number
-  video_collection_id: number
+  type: $Enums.MediaType
+  user_id?: number | null
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -521,12 +585,14 @@ export type VideoUncheckedCreateInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
@@ -535,8 +601,11 @@ export type VideoUncheckedCreateInput = {
 }
 
 export type VideoUpdateInput = {
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -546,15 +615,17 @@ export type VideoUpdateInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  video_collection?: Prisma.VideoCollectionUpdateOneRequiredWithoutVideoNestedInput
+  user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
@@ -562,9 +633,12 @@ export type VideoUpdateInput = {
 
 export type VideoUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  video_collection_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -574,12 +648,14 @@ export type VideoUncheckedUpdateInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
@@ -589,9 +665,12 @@ export type VideoUncheckedUpdateInput = {
 
 export type VideoCreateManyInput = {
   id?: number
-  video_collection_id: number
+  type: $Enums.MediaType
+  user_id?: number | null
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -601,19 +680,24 @@ export type VideoCreateManyInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type VideoUpdateManyMutationInput = {
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -623,21 +707,26 @@ export type VideoUpdateManyMutationInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type VideoUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  video_collection_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -647,12 +736,14 @@ export type VideoUncheckedUpdateManyInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -669,9 +760,12 @@ export type VideoOrderByRelationAggregateInput = {
 
 export type VideoCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  youtube_video_id?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrder
@@ -681,29 +775,33 @@ export type VideoCountOrderByAggregateInput = {
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
-  subtitles_generation_status?: Prisma.SortOrder
-  subtitles_generation_error?: Prisma.SortOrder
-  subtitles_generation_started_at?: Prisma.SortOrder
-  subtitles_generation_job_id?: Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrder
-  subtitles_generation_refunded_at?: Prisma.SortOrder
+  cover_file_name?: Prisma.SortOrder
+  cover_file_s3_key?: Prisma.SortOrder
+  cover_file_s3_provider_name?: Prisma.SortOrder
+  is_cover_file_uploaded?: Prisma.SortOrder
+  subtitles_source?: Prisma.SortOrder
+  subtitles_status?: Prisma.SortOrder
+  subtitles_error_code?: Prisma.SortOrder
+  subtitles_job_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
 export type VideoAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   file_duration_sec?: Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrder
 }
 
 export type VideoMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  youtube_video_id?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrder
@@ -713,21 +811,26 @@ export type VideoMaxOrderByAggregateInput = {
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
-  subtitles_generation_status?: Prisma.SortOrder
-  subtitles_generation_error?: Prisma.SortOrder
-  subtitles_generation_started_at?: Prisma.SortOrder
-  subtitles_generation_job_id?: Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrder
-  subtitles_generation_refunded_at?: Prisma.SortOrder
+  cover_file_name?: Prisma.SortOrder
+  cover_file_s3_key?: Prisma.SortOrder
+  cover_file_s3_provider_name?: Prisma.SortOrder
+  is_cover_file_uploaded?: Prisma.SortOrder
+  subtitles_source?: Prisma.SortOrder
+  subtitles_status?: Prisma.SortOrder
+  subtitles_error_code?: Prisma.SortOrder
+  subtitles_job_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
 export type VideoMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  type?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   note?: Prisma.SortOrder
+  source_language_code?: Prisma.SortOrder
+  youtube_video_id?: Prisma.SortOrder
   file_name?: Prisma.SortOrder
   file_s3_key?: Prisma.SortOrder
   s3_provider_name?: Prisma.SortOrder
@@ -737,22 +840,23 @@ export type VideoMinOrderByAggregateInput = {
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
-  subtitles_generation_status?: Prisma.SortOrder
-  subtitles_generation_error?: Prisma.SortOrder
-  subtitles_generation_started_at?: Prisma.SortOrder
-  subtitles_generation_job_id?: Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrder
-  subtitles_generation_refunded_at?: Prisma.SortOrder
+  cover_file_name?: Prisma.SortOrder
+  cover_file_s3_key?: Prisma.SortOrder
+  cover_file_s3_provider_name?: Prisma.SortOrder
+  is_cover_file_uploaded?: Prisma.SortOrder
+  subtitles_source?: Prisma.SortOrder
+  subtitles_status?: Prisma.SortOrder
+  subtitles_error_code?: Prisma.SortOrder
+  subtitles_job_id?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
 
 export type VideoSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  video_collection_id?: Prisma.SortOrder
+  user_id?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   file_duration_sec?: Prisma.SortOrder
-  subtitles_generation_charge_kopecks?: Prisma.SortOrder
 }
 
 export type VideoNullableScalarRelationFilter = {
@@ -760,45 +864,45 @@ export type VideoNullableScalarRelationFilter = {
   isNot?: Prisma.VideoWhereInput | null
 }
 
-export type VideoCreateNestedManyWithoutVideo_collectionInput = {
-  create?: Prisma.XOR<Prisma.VideoCreateWithoutVideo_collectionInput, Prisma.VideoUncheckedCreateWithoutVideo_collectionInput> | Prisma.VideoCreateWithoutVideo_collectionInput[] | Prisma.VideoUncheckedCreateWithoutVideo_collectionInput[]
-  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutVideo_collectionInput | Prisma.VideoCreateOrConnectWithoutVideo_collectionInput[]
-  createMany?: Prisma.VideoCreateManyVideo_collectionInputEnvelope
+export type VideoCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.VideoCreateWithoutUserInput, Prisma.VideoUncheckedCreateWithoutUserInput> | Prisma.VideoCreateWithoutUserInput[] | Prisma.VideoUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutUserInput | Prisma.VideoCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.VideoCreateManyUserInputEnvelope
   connect?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
 }
 
-export type VideoUncheckedCreateNestedManyWithoutVideo_collectionInput = {
-  create?: Prisma.XOR<Prisma.VideoCreateWithoutVideo_collectionInput, Prisma.VideoUncheckedCreateWithoutVideo_collectionInput> | Prisma.VideoCreateWithoutVideo_collectionInput[] | Prisma.VideoUncheckedCreateWithoutVideo_collectionInput[]
-  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutVideo_collectionInput | Prisma.VideoCreateOrConnectWithoutVideo_collectionInput[]
-  createMany?: Prisma.VideoCreateManyVideo_collectionInputEnvelope
+export type VideoUncheckedCreateNestedManyWithoutUserInput = {
+  create?: Prisma.XOR<Prisma.VideoCreateWithoutUserInput, Prisma.VideoUncheckedCreateWithoutUserInput> | Prisma.VideoCreateWithoutUserInput[] | Prisma.VideoUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutUserInput | Prisma.VideoCreateOrConnectWithoutUserInput[]
+  createMany?: Prisma.VideoCreateManyUserInputEnvelope
   connect?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
 }
 
-export type VideoUpdateManyWithoutVideo_collectionNestedInput = {
-  create?: Prisma.XOR<Prisma.VideoCreateWithoutVideo_collectionInput, Prisma.VideoUncheckedCreateWithoutVideo_collectionInput> | Prisma.VideoCreateWithoutVideo_collectionInput[] | Prisma.VideoUncheckedCreateWithoutVideo_collectionInput[]
-  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutVideo_collectionInput | Prisma.VideoCreateOrConnectWithoutVideo_collectionInput[]
-  upsert?: Prisma.VideoUpsertWithWhereUniqueWithoutVideo_collectionInput | Prisma.VideoUpsertWithWhereUniqueWithoutVideo_collectionInput[]
-  createMany?: Prisma.VideoCreateManyVideo_collectionInputEnvelope
+export type VideoUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoCreateWithoutUserInput, Prisma.VideoUncheckedCreateWithoutUserInput> | Prisma.VideoCreateWithoutUserInput[] | Prisma.VideoUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutUserInput | Prisma.VideoCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.VideoUpsertWithWhereUniqueWithoutUserInput | Prisma.VideoUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.VideoCreateManyUserInputEnvelope
   set?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
   disconnect?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
   delete?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
   connect?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
-  update?: Prisma.VideoUpdateWithWhereUniqueWithoutVideo_collectionInput | Prisma.VideoUpdateWithWhereUniqueWithoutVideo_collectionInput[]
-  updateMany?: Prisma.VideoUpdateManyWithWhereWithoutVideo_collectionInput | Prisma.VideoUpdateManyWithWhereWithoutVideo_collectionInput[]
+  update?: Prisma.VideoUpdateWithWhereUniqueWithoutUserInput | Prisma.VideoUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.VideoUpdateManyWithWhereWithoutUserInput | Prisma.VideoUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.VideoScalarWhereInput | Prisma.VideoScalarWhereInput[]
 }
 
-export type VideoUncheckedUpdateManyWithoutVideo_collectionNestedInput = {
-  create?: Prisma.XOR<Prisma.VideoCreateWithoutVideo_collectionInput, Prisma.VideoUncheckedCreateWithoutVideo_collectionInput> | Prisma.VideoCreateWithoutVideo_collectionInput[] | Prisma.VideoUncheckedCreateWithoutVideo_collectionInput[]
-  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutVideo_collectionInput | Prisma.VideoCreateOrConnectWithoutVideo_collectionInput[]
-  upsert?: Prisma.VideoUpsertWithWhereUniqueWithoutVideo_collectionInput | Prisma.VideoUpsertWithWhereUniqueWithoutVideo_collectionInput[]
-  createMany?: Prisma.VideoCreateManyVideo_collectionInputEnvelope
+export type VideoUncheckedUpdateManyWithoutUserNestedInput = {
+  create?: Prisma.XOR<Prisma.VideoCreateWithoutUserInput, Prisma.VideoUncheckedCreateWithoutUserInput> | Prisma.VideoCreateWithoutUserInput[] | Prisma.VideoUncheckedCreateWithoutUserInput[]
+  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutUserInput | Prisma.VideoCreateOrConnectWithoutUserInput[]
+  upsert?: Prisma.VideoUpsertWithWhereUniqueWithoutUserInput | Prisma.VideoUpsertWithWhereUniqueWithoutUserInput[]
+  createMany?: Prisma.VideoCreateManyUserInputEnvelope
   set?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
   disconnect?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
   delete?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
   connect?: Prisma.VideoWhereUniqueInput | Prisma.VideoWhereUniqueInput[]
-  update?: Prisma.VideoUpdateWithWhereUniqueWithoutVideo_collectionInput | Prisma.VideoUpdateWithWhereUniqueWithoutVideo_collectionInput[]
-  updateMany?: Prisma.VideoUpdateManyWithWhereWithoutVideo_collectionInput | Prisma.VideoUpdateManyWithWhereWithoutVideo_collectionInput[]
+  update?: Prisma.VideoUpdateWithWhereUniqueWithoutUserInput | Prisma.VideoUpdateWithWhereUniqueWithoutUserInput[]
+  updateMany?: Prisma.VideoUpdateManyWithWhereWithoutUserInput | Prisma.VideoUpdateManyWithWhereWithoutUserInput[]
   deleteMany?: Prisma.VideoScalarWhereInput | Prisma.VideoScalarWhereInput[]
 }
 
@@ -810,12 +914,12 @@ export type EnumVideoTextTypeFieldUpdateOperationsInput = {
   set?: $Enums.VideoTextType
 }
 
-export type EnumSubtitlesGenerationStatusFieldUpdateOperationsInput = {
-  set?: $Enums.SubtitlesGenerationStatus
+export type EnumSubtitlesSourceFieldUpdateOperationsInput = {
+  set?: $Enums.SubtitlesSource
 }
 
-export type NullableDateTimeFieldUpdateOperationsInput = {
-  set?: Date | string | null
+export type EnumSubtitlesStatusFieldUpdateOperationsInput = {
+  set?: $Enums.SubtitlesStatus
 }
 
 export type VideoCreateNestedOneWithoutSentenceInput = {
@@ -866,9 +970,12 @@ export type VideoUpdateOneWithoutFlashcardNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.VideoUpdateToOneWithWhereWithoutFlashcardInput, Prisma.VideoUpdateWithoutFlashcardInput>, Prisma.VideoUncheckedUpdateWithoutFlashcardInput>
 }
 
-export type VideoCreateWithoutVideo_collectionInput = {
+export type VideoCreateWithoutUserInput = {
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -878,12 +985,14 @@ export type VideoCreateWithoutVideo_collectionInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
@@ -891,10 +1000,13 @@ export type VideoCreateWithoutVideo_collectionInput = {
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
-export type VideoUncheckedCreateWithoutVideo_collectionInput = {
+export type VideoUncheckedCreateWithoutUserInput = {
   id?: number
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -904,12 +1016,14 @@ export type VideoUncheckedCreateWithoutVideo_collectionInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
@@ -917,30 +1031,30 @@ export type VideoUncheckedCreateWithoutVideo_collectionInput = {
   Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoInput
 }
 
-export type VideoCreateOrConnectWithoutVideo_collectionInput = {
+export type VideoCreateOrConnectWithoutUserInput = {
   where: Prisma.VideoWhereUniqueInput
-  create: Prisma.XOR<Prisma.VideoCreateWithoutVideo_collectionInput, Prisma.VideoUncheckedCreateWithoutVideo_collectionInput>
+  create: Prisma.XOR<Prisma.VideoCreateWithoutUserInput, Prisma.VideoUncheckedCreateWithoutUserInput>
 }
 
-export type VideoCreateManyVideo_collectionInputEnvelope = {
-  data: Prisma.VideoCreateManyVideo_collectionInput | Prisma.VideoCreateManyVideo_collectionInput[]
+export type VideoCreateManyUserInputEnvelope = {
+  data: Prisma.VideoCreateManyUserInput | Prisma.VideoCreateManyUserInput[]
   skipDuplicates?: boolean
 }
 
-export type VideoUpsertWithWhereUniqueWithoutVideo_collectionInput = {
+export type VideoUpsertWithWhereUniqueWithoutUserInput = {
   where: Prisma.VideoWhereUniqueInput
-  update: Prisma.XOR<Prisma.VideoUpdateWithoutVideo_collectionInput, Prisma.VideoUncheckedUpdateWithoutVideo_collectionInput>
-  create: Prisma.XOR<Prisma.VideoCreateWithoutVideo_collectionInput, Prisma.VideoUncheckedCreateWithoutVideo_collectionInput>
+  update: Prisma.XOR<Prisma.VideoUpdateWithoutUserInput, Prisma.VideoUncheckedUpdateWithoutUserInput>
+  create: Prisma.XOR<Prisma.VideoCreateWithoutUserInput, Prisma.VideoUncheckedCreateWithoutUserInput>
 }
 
-export type VideoUpdateWithWhereUniqueWithoutVideo_collectionInput = {
+export type VideoUpdateWithWhereUniqueWithoutUserInput = {
   where: Prisma.VideoWhereUniqueInput
-  data: Prisma.XOR<Prisma.VideoUpdateWithoutVideo_collectionInput, Prisma.VideoUncheckedUpdateWithoutVideo_collectionInput>
+  data: Prisma.XOR<Prisma.VideoUpdateWithoutUserInput, Prisma.VideoUncheckedUpdateWithoutUserInput>
 }
 
-export type VideoUpdateManyWithWhereWithoutVideo_collectionInput = {
+export type VideoUpdateManyWithWhereWithoutUserInput = {
   where: Prisma.VideoScalarWhereInput
-  data: Prisma.XOR<Prisma.VideoUpdateManyMutationInput, Prisma.VideoUncheckedUpdateManyWithoutVideo_collectionInput>
+  data: Prisma.XOR<Prisma.VideoUpdateManyMutationInput, Prisma.VideoUncheckedUpdateManyWithoutUserInput>
 }
 
 export type VideoScalarWhereInput = {
@@ -948,9 +1062,12 @@ export type VideoScalarWhereInput = {
   OR?: Prisma.VideoScalarWhereInput[]
   NOT?: Prisma.VideoScalarWhereInput | Prisma.VideoScalarWhereInput[]
   id?: Prisma.IntFilter<"Video"> | number
-  video_collection_id?: Prisma.IntFilter<"Video"> | number
+  type?: Prisma.EnumMediaTypeFilter<"Video"> | $Enums.MediaType
+  user_id?: Prisma.IntNullableFilter<"Video"> | number | null
   name?: Prisma.StringNullableFilter<"Video"> | string | null
   note?: Prisma.StringNullableFilter<"Video"> | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFilter<"Video"> | $Enums.LanguageCode
+  youtube_video_id?: Prisma.StringNullableFilter<"Video"> | string | null
   file_name?: Prisma.StringNullableFilter<"Video"> | string | null
   file_s3_key?: Prisma.StringNullableFilter<"Video"> | string | null
   s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"Video"> | $Enums.S3ProviderName | null
@@ -960,19 +1077,24 @@ export type VideoScalarWhereInput = {
   original_content?: Prisma.StringNullableFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"Video"> | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFilter<"Video"> | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.StringNullableFilter<"Video"> | string | null
-  subtitles_generation_started_at?: Prisma.DateTimeNullableFilter<"Video"> | Date | string | null
-  subtitles_generation_job_id?: Prisma.StringNullableFilter<"Video"> | string | null
-  subtitles_generation_charge_kopecks?: Prisma.IntNullableFilter<"Video"> | number | null
-  subtitles_generation_refunded_at?: Prisma.DateTimeNullableFilter<"Video"> | Date | string | null
+  cover_file_name?: Prisma.StringNullableFilter<"Video"> | string | null
+  cover_file_s3_key?: Prisma.StringNullableFilter<"Video"> | string | null
+  cover_file_s3_provider_name?: Prisma.EnumS3ProviderNameNullableFilter<"Video"> | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFilter<"Video"> | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFilter<"Video"> | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFilter<"Video"> | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.StringNullableFilter<"Video"> | string | null
+  subtitles_job_id?: Prisma.StringNullableFilter<"Video"> | string | null
   created_at?: Prisma.DateTimeFilter<"Video"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"Video"> | Date | string
 }
 
 export type VideoCreateWithoutSentenceInput = {
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -982,24 +1104,29 @@ export type VideoCreateWithoutSentenceInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
-  video_collection: Prisma.VideoCollectionCreateNestedOneWithoutVideoInput
+  user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateWithoutSentenceInput = {
   id?: number
-  video_collection_id: number
+  type: $Enums.MediaType
+  user_id?: number | null
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -1009,12 +1136,14 @@ export type VideoUncheckedCreateWithoutSentenceInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
@@ -1038,8 +1167,11 @@ export type VideoUpdateToOneWithWhereWithoutSentenceInput = {
 }
 
 export type VideoUpdateWithoutSentenceInput = {
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1049,24 +1181,29 @@ export type VideoUpdateWithoutSentenceInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  video_collection?: Prisma.VideoCollectionUpdateOneRequiredWithoutVideoNestedInput
+  user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateWithoutSentenceInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  video_collection_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1076,12 +1213,14 @@ export type VideoUncheckedUpdateWithoutSentenceInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
@@ -1089,8 +1228,11 @@ export type VideoUncheckedUpdateWithoutSentenceInput = {
 }
 
 export type VideoCreateWithoutSubtitleInput = {
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -1100,24 +1242,29 @@ export type VideoCreateWithoutSubtitleInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
-  video_collection: Prisma.VideoCollectionCreateNestedOneWithoutVideoInput
+  user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
   Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateWithoutSubtitleInput = {
   id?: number
-  video_collection_id: number
+  type: $Enums.MediaType
+  user_id?: number | null
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -1127,12 +1274,14 @@ export type VideoUncheckedCreateWithoutSubtitleInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoInput
@@ -1156,8 +1305,11 @@ export type VideoUpdateToOneWithWhereWithoutSubtitleInput = {
 }
 
 export type VideoUpdateWithoutSubtitleInput = {
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1167,24 +1319,29 @@ export type VideoUpdateWithoutSubtitleInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  video_collection?: Prisma.VideoCollectionUpdateOneRequiredWithoutVideoNestedInput
+  user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
   Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateWithoutSubtitleInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  video_collection_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1194,12 +1351,14 @@ export type VideoUncheckedUpdateWithoutSubtitleInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoNestedInput
@@ -1207,8 +1366,11 @@ export type VideoUncheckedUpdateWithoutSubtitleInput = {
 }
 
 export type VideoCreateWithoutFlashcardInput = {
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -1218,24 +1380,29 @@ export type VideoCreateWithoutFlashcardInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
-  video_collection: Prisma.VideoCollectionCreateNestedOneWithoutVideoInput
+  user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateWithoutFlashcardInput = {
   id?: number
-  video_collection_id: number
+  type: $Enums.MediaType
+  user_id?: number | null
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -1245,12 +1412,14 @@ export type VideoUncheckedCreateWithoutFlashcardInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
@@ -1274,8 +1443,11 @@ export type VideoUpdateToOneWithWhereWithoutFlashcardInput = {
 }
 
 export type VideoUpdateWithoutFlashcardInput = {
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1285,24 +1457,29 @@ export type VideoUpdateWithoutFlashcardInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  video_collection?: Prisma.VideoCollectionUpdateOneRequiredWithoutVideoNestedInput
+  user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateWithoutFlashcardInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  video_collection_id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
+  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1312,22 +1489,27 @@ export type VideoUncheckedUpdateWithoutFlashcardInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoNestedInput
 }
 
-export type VideoCreateManyVideo_collectionInput = {
+export type VideoCreateManyUserInput = {
   id?: number
+  type: $Enums.MediaType
   name?: string | null
   note?: string | null
+  source_language_code: $Enums.LanguageCode
+  youtube_video_id?: string | null
   file_name?: string | null
   file_s3_key?: string | null
   s3_provider_name?: $Enums.S3ProviderName | null
@@ -1337,19 +1519,24 @@ export type VideoCreateManyVideo_collectionInput = {
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
-  subtitles_generation_status?: $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: string | null
-  subtitles_generation_started_at?: Date | string | null
-  subtitles_generation_job_id?: string | null
-  subtitles_generation_charge_kopecks?: number | null
-  subtitles_generation_refunded_at?: Date | string | null
+  cover_file_name?: string | null
+  cover_file_s3_key?: string | null
+  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: $Enums.SubtitlesSource
+  subtitles_status?: $Enums.SubtitlesStatus
+  subtitles_error_code?: string | null
+  subtitles_job_id?: string | null
   created_at?: Date | string
   updated_at?: Date | string
 }
 
-export type VideoUpdateWithoutVideo_collectionInput = {
+export type VideoUpdateWithoutUserInput = {
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1359,12 +1546,14 @@ export type VideoUpdateWithoutVideo_collectionInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
@@ -1372,10 +1561,13 @@ export type VideoUpdateWithoutVideo_collectionInput = {
   Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
-export type VideoUncheckedUpdateWithoutVideo_collectionInput = {
+export type VideoUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1385,12 +1577,14 @@ export type VideoUncheckedUpdateWithoutVideo_collectionInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
@@ -1398,10 +1592,13 @@ export type VideoUncheckedUpdateWithoutVideo_collectionInput = {
   Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoNestedInput
 }
 
-export type VideoUncheckedUpdateManyWithoutVideo_collectionInput = {
+export type VideoUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
+  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
   name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   note?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
+  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
@@ -1411,12 +1608,14 @@ export type VideoUncheckedUpdateManyWithoutVideo_collectionInput = {
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  subtitles_generation_status?: Prisma.EnumSubtitlesGenerationStatusFieldUpdateOperationsInput | $Enums.SubtitlesGenerationStatus
-  subtitles_generation_error?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_started_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-  subtitles_generation_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_generation_charge_kopecks?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  subtitles_generation_refunded_at?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
+  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
+  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
+  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1472,9 +1671,12 @@ export type VideoCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types
 
 export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  video_collection_id?: boolean
+  type?: boolean
+  user_id?: boolean
   name?: boolean
   note?: boolean
+  source_language_code?: boolean
+  youtube_video_id?: boolean
   file_name?: boolean
   file_s3_key?: boolean
   s3_provider_name?: boolean
@@ -1484,15 +1686,17 @@ export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
-  subtitles_generation_status?: boolean
-  subtitles_generation_error?: boolean
-  subtitles_generation_started_at?: boolean
-  subtitles_generation_job_id?: boolean
-  subtitles_generation_charge_kopecks?: boolean
-  subtitles_generation_refunded_at?: boolean
+  cover_file_name?: boolean
+  cover_file_s3_key?: boolean
+  cover_file_s3_provider_name?: boolean
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: boolean
+  subtitles_status?: boolean
+  subtitles_error_code?: boolean
+  subtitles_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
-  video_collection?: boolean | Prisma.VideoCollectionDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.Video$userArgs<ExtArgs>
   Subtitle?: boolean | Prisma.Video$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.Video$SentenceArgs<ExtArgs>
   Flashcard?: boolean | Prisma.Video$FlashcardArgs<ExtArgs>
@@ -1501,9 +1705,12 @@ export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
 
 export type VideoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  video_collection_id?: boolean
+  type?: boolean
+  user_id?: boolean
   name?: boolean
   note?: boolean
+  source_language_code?: boolean
+  youtube_video_id?: boolean
   file_name?: boolean
   file_s3_key?: boolean
   s3_provider_name?: boolean
@@ -1513,22 +1720,27 @@ export type VideoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
-  subtitles_generation_status?: boolean
-  subtitles_generation_error?: boolean
-  subtitles_generation_started_at?: boolean
-  subtitles_generation_job_id?: boolean
-  subtitles_generation_charge_kopecks?: boolean
-  subtitles_generation_refunded_at?: boolean
+  cover_file_name?: boolean
+  cover_file_s3_key?: boolean
+  cover_file_s3_provider_name?: boolean
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: boolean
+  subtitles_status?: boolean
+  subtitles_error_code?: boolean
+  subtitles_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
-  video_collection?: boolean | Prisma.VideoCollectionDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.Video$userArgs<ExtArgs>
 }, ExtArgs["result"]["video"]>
 
 export type VideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  video_collection_id?: boolean
+  type?: boolean
+  user_id?: boolean
   name?: boolean
   note?: boolean
+  source_language_code?: boolean
+  youtube_video_id?: boolean
   file_name?: boolean
   file_s3_key?: boolean
   s3_provider_name?: boolean
@@ -1538,22 +1750,27 @@ export type VideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
-  subtitles_generation_status?: boolean
-  subtitles_generation_error?: boolean
-  subtitles_generation_started_at?: boolean
-  subtitles_generation_job_id?: boolean
-  subtitles_generation_charge_kopecks?: boolean
-  subtitles_generation_refunded_at?: boolean
+  cover_file_name?: boolean
+  cover_file_s3_key?: boolean
+  cover_file_s3_provider_name?: boolean
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: boolean
+  subtitles_status?: boolean
+  subtitles_error_code?: boolean
+  subtitles_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
-  video_collection?: boolean | Prisma.VideoCollectionDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.Video$userArgs<ExtArgs>
 }, ExtArgs["result"]["video"]>
 
 export type VideoSelectScalar = {
   id?: boolean
-  video_collection_id?: boolean
+  type?: boolean
+  user_id?: boolean
   name?: boolean
   note?: boolean
+  source_language_code?: boolean
+  youtube_video_id?: boolean
   file_name?: boolean
   file_s3_key?: boolean
   s3_provider_name?: boolean
@@ -1563,44 +1780,49 @@ export type VideoSelectScalar = {
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
-  subtitles_generation_status?: boolean
-  subtitles_generation_error?: boolean
-  subtitles_generation_started_at?: boolean
-  subtitles_generation_job_id?: boolean
-  subtitles_generation_charge_kopecks?: boolean
-  subtitles_generation_refunded_at?: boolean
+  cover_file_name?: boolean
+  cover_file_s3_key?: boolean
+  cover_file_s3_provider_name?: boolean
+  is_cover_file_uploaded?: boolean
+  subtitles_source?: boolean
+  subtitles_status?: boolean
+  subtitles_error_code?: boolean
+  subtitles_job_id?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "video_collection_id" | "name" | "note" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "file_duration_sec" | "original_content" | "processed_content" | "content_type" | "subtitles_generation_status" | "subtitles_generation_error" | "subtitles_generation_started_at" | "subtitles_generation_job_id" | "subtitles_generation_charge_kopecks" | "subtitles_generation_refunded_at" | "created_at" | "updated_at", ExtArgs["result"]["video"]>
+export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "user_id" | "name" | "note" | "source_language_code" | "youtube_video_id" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "file_duration_sec" | "original_content" | "processed_content" | "content_type" | "cover_file_name" | "cover_file_s3_key" | "cover_file_s3_provider_name" | "is_cover_file_uploaded" | "subtitles_source" | "subtitles_status" | "subtitles_error_code" | "subtitles_job_id" | "created_at" | "updated_at", ExtArgs["result"]["video"]>
 export type VideoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  video_collection?: boolean | Prisma.VideoCollectionDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.Video$userArgs<ExtArgs>
   Subtitle?: boolean | Prisma.Video$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.Video$SentenceArgs<ExtArgs>
   Flashcard?: boolean | Prisma.Video$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.VideoCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type VideoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  video_collection?: boolean | Prisma.VideoCollectionDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.Video$userArgs<ExtArgs>
 }
 export type VideoIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  video_collection?: boolean | Prisma.VideoCollectionDefaultArgs<ExtArgs>
+  user?: boolean | Prisma.Video$userArgs<ExtArgs>
 }
 
 export type $VideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Video"
   objects: {
-    video_collection: Prisma.$VideoCollectionPayload<ExtArgs>
+    user: Prisma.$UserPayload<ExtArgs> | null
     Subtitle: Prisma.$SubtitlePayload<ExtArgs>[]
     Sentence: Prisma.$SentencePayload<ExtArgs>[]
     Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    video_collection_id: number
+    type: $Enums.MediaType
+    user_id: number | null
     name: string | null
     note: string | null
+    source_language_code: $Enums.LanguageCode
+    youtube_video_id: string | null
     file_name: string | null
     file_s3_key: string | null
     s3_provider_name: $Enums.S3ProviderName | null
@@ -1610,12 +1832,14 @@ export type $VideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     original_content: string | null
     processed_content: string | null
     content_type: $Enums.VideoTextType
-    subtitles_generation_status: $Enums.SubtitlesGenerationStatus
-    subtitles_generation_error: string | null
-    subtitles_generation_started_at: Date | null
-    subtitles_generation_job_id: string | null
-    subtitles_generation_charge_kopecks: number | null
-    subtitles_generation_refunded_at: Date | null
+    cover_file_name: string | null
+    cover_file_s3_key: string | null
+    cover_file_s3_provider_name: $Enums.S3ProviderName | null
+    is_cover_file_uploaded: boolean
+    subtitles_source: $Enums.SubtitlesSource
+    subtitles_status: $Enums.SubtitlesStatus
+    subtitles_error_code: string | null
+    subtitles_job_id: string | null
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["video"]>
@@ -2012,7 +2236,7 @@ readonly fields: VideoFieldRefs;
  */
 export interface Prisma__VideoClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  video_collection<T extends Prisma.VideoCollectionDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.VideoCollectionDefaultArgs<ExtArgs>>): Prisma.Prisma__VideoCollectionClient<runtime.Types.Result.GetResult<Prisma.$VideoCollectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  user<T extends Prisma.Video$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   Subtitle<T extends Prisma.Video$SubtitleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$SubtitleArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitlePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Sentence<T extends Prisma.Video$SentenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$SentenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Flashcard<T extends Prisma.Video$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -2046,9 +2270,12 @@ export interface Prisma__VideoClient<T, Null = never, ExtArgs extends runtime.Ty
  */
 export interface VideoFieldRefs {
   readonly id: Prisma.FieldRef<"Video", 'Int'>
-  readonly video_collection_id: Prisma.FieldRef<"Video", 'Int'>
+  readonly type: Prisma.FieldRef<"Video", 'MediaType'>
+  readonly user_id: Prisma.FieldRef<"Video", 'Int'>
   readonly name: Prisma.FieldRef<"Video", 'String'>
   readonly note: Prisma.FieldRef<"Video", 'String'>
+  readonly source_language_code: Prisma.FieldRef<"Video", 'LanguageCode'>
+  readonly youtube_video_id: Prisma.FieldRef<"Video", 'String'>
   readonly file_name: Prisma.FieldRef<"Video", 'String'>
   readonly file_s3_key: Prisma.FieldRef<"Video", 'String'>
   readonly s3_provider_name: Prisma.FieldRef<"Video", 'S3ProviderName'>
@@ -2058,12 +2285,14 @@ export interface VideoFieldRefs {
   readonly original_content: Prisma.FieldRef<"Video", 'String'>
   readonly processed_content: Prisma.FieldRef<"Video", 'String'>
   readonly content_type: Prisma.FieldRef<"Video", 'VideoTextType'>
-  readonly subtitles_generation_status: Prisma.FieldRef<"Video", 'SubtitlesGenerationStatus'>
-  readonly subtitles_generation_error: Prisma.FieldRef<"Video", 'String'>
-  readonly subtitles_generation_started_at: Prisma.FieldRef<"Video", 'DateTime'>
-  readonly subtitles_generation_job_id: Prisma.FieldRef<"Video", 'String'>
-  readonly subtitles_generation_charge_kopecks: Prisma.FieldRef<"Video", 'Int'>
-  readonly subtitles_generation_refunded_at: Prisma.FieldRef<"Video", 'DateTime'>
+  readonly cover_file_name: Prisma.FieldRef<"Video", 'String'>
+  readonly cover_file_s3_key: Prisma.FieldRef<"Video", 'String'>
+  readonly cover_file_s3_provider_name: Prisma.FieldRef<"Video", 'S3ProviderName'>
+  readonly is_cover_file_uploaded: Prisma.FieldRef<"Video", 'Boolean'>
+  readonly subtitles_source: Prisma.FieldRef<"Video", 'SubtitlesSource'>
+  readonly subtitles_status: Prisma.FieldRef<"Video", 'SubtitlesStatus'>
+  readonly subtitles_error_code: Prisma.FieldRef<"Video", 'String'>
+  readonly subtitles_job_id: Prisma.FieldRef<"Video", 'String'>
   readonly created_at: Prisma.FieldRef<"Video", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"Video", 'DateTime'>
 }
@@ -2464,6 +2693,25 @@ export type VideoDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Interna
    * Limit how many Videos to delete.
    */
   limit?: number
+}
+
+/**
+ * Video.user
+ */
+export type Video$userArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the User
+   */
+  select?: Prisma.UserSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the User
+   */
+  omit?: Prisma.UserOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null
+  where?: Prisma.UserWhereInput
 }
 
 /**

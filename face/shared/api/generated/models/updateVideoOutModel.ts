@@ -5,14 +5,8 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { UpdateVideoOutModelFileDurationSec } from './updateVideoOutModelFileDurationSec';
-import type { UpdateVideoOutModelFileSizeMb } from './updateVideoOutModelFileSizeMb';
-import type { UpdateVideoOutModelLanguageCode } from './updateVideoOutModelLanguageCode';
-import type { UpdateVideoOutModelName } from './updateVideoOutModelName';
-import type { UpdateVideoOutModelOriginalContent } from './updateVideoOutModelOriginalContent';
-import type { UpdateVideoOutModelProcessedContent } from './updateVideoOutModelProcessedContent';
+import type { UpdateVideoOutModelUploadCoverUrl } from './updateVideoOutModelUploadCoverUrl';
 import type { UpdateVideoOutModelUploadUrl } from './updateVideoOutModelUploadUrl';
-import type { UpdateVideoOutModelUserId } from './updateVideoOutModelUserId';
 
 export interface UpdateVideoOutModel {
   /** Video ID */
@@ -21,21 +15,23 @@ export interface UpdateVideoOutModel {
      * Name of the video
      * @maxLength 255
      */
-  name?: UpdateVideoOutModelName;
+  name?: string | null;
   /** Language code of the video */
-  languageCode?: UpdateVideoOutModelLanguageCode;
+  languageCode?: string | null;
   /** Original subtitles or text of the video */
-  originalContent?: UpdateVideoOutModelOriginalContent;
+  originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */
-  processedContent?: UpdateVideoOutModelProcessedContent;
+  processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
   /** User ID */
-  userId: UpdateVideoOutModelUserId;
+  userId: number;
   /** Pre-signed URL for uploading the video file to S3 */
   uploadUrl: UpdateVideoOutModelUploadUrl;
+  /** Pre-signed URL for uploading the video cover to S3 */
+  uploadCoverUrl: UpdateVideoOutModelUploadCoverUrl;
   /** Size of the video file in megabytes */
-  fileSizeMb?: UpdateVideoOutModelFileSizeMb;
+  fileSizeMb?: number | null;
   /** Duration of the uploaded video file in seconds */
-  fileDurationSec?: UpdateVideoOutModelFileDurationSec;
+  fileDurationSec?: number | null;
 }

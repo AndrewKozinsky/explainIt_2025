@@ -1,70 +1,57 @@
 import { create } from 'zustand'
-import type { VideoPublicOutModel, VideoPrivateOutModel } from '@/shared/api/generated/models'
+import { PlayerCommand } from '@/entites/players/VideoPlayer/fn/types'
 
-export const videoStoreValues: VideoStoreValues = {
-	publicVideo: {
-		loading: true,
-		errorMessage: null,
-		data: null as any as VideoPublicOutModel,
-	},
-	privateVideo: {
-		loading: true,
-		errorMessage: null,
-		data: null as any as VideoPrivateOutModel,
+export type VideoStoreValues = {
+	player: {
+		currentTime: number
+		duration: number
+		paused: boolean
+		command: null | PlayerCommand
+	}
+}
+
+export type VideoStoreMethods = {
+	// clearStoreData: () => void
+	setPlayerState: (state: Partial<VideoStoreValues['player']>) => void
+	sendPlayerCommand: (command: PlayerCommand) => void
+}
+
+export type VideoStore = VideoStoreValues & VideoStoreMethods
+
+const videoStoreValues: VideoStoreValues = {
+	player: {
+		currentTime: 0,
+		duration: 0,
+		paused: true,
+		command: null,
 	},
 }
 
-export const useVideoStore = create<ReadingStore>()((set) => {
+export const useVideoStore = create<VideoStore>()((set) => {
 	return {
 		...videoStoreValues,
-		updatePublicVideo: (video: VideoStore.PublicVideoData) => {
+		/*clearStoreData: () => {
+			set(videoStoreValues)
+		},*/
+		setPlayerState(playerState) {
 			set((state) => {
 				return {
-					publicVideo: {
-						...video,
+					player: {
+						...state.player,
+						...playerState,
 					},
 				}
 			})
 		},
-		updatePrivateVideo: (video: VideoStore.PrivateVideoData) => {
+		sendPlayerCommand(command) {
 			set((state) => {
 				return {
-					privateVideo: {
-						...video,
+					player: {
+						...state.player,
+						command,
 					},
 				}
-			})
-		},
-		clearStore: () => {
-			set((state) => {
-				return videoStoreValues
 			})
 		},
 	}
 })
-
-export type ReadingStore = VideoStoreValues & VideoStoreMethods
-
-export type VideoStoreValues = {
-	publicVideo: VideoStore.PublicVideoData
-	privateVideo: VideoStore.PrivateVideoData
-}
-
-export namespace VideoStore {
-	export type PrivateVideoData = {
-		loading: boolean
-		errorMessage: null | string
-		data: VideoPrivateOutModel
-	}
-	export type PublicVideoData = {
-		loading: boolean
-		errorMessage: null | string
-		data: VideoPublicOutModel
-	}
-}
-
-type VideoStoreMethods = {
-	updatePublicVideo: (video: VideoStore.PublicVideoData) => void
-	updatePrivateVideo: (video: VideoStore.PrivateVideoData) => void
-	clearStore: () => void
-}

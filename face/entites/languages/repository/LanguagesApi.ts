@@ -1,6 +1,7 @@
 import { languageControllerGetLanguages } from '@/shared/api/generated/language/language'
 import type { LanguageOutModel } from '@/shared/api/generated/models'
-import type { Language, LanguagesRepository } from './LanguagesRepository'
+import { ApiResult, executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageModel, LanguagesRepository } from './LanguagesRepository'
 
 /**
  * Реализация LanguagesRepository через REST API.
@@ -21,17 +22,17 @@ import type { Language, LanguagesRepository } from './LanguagesRepository'
  * ```
  */
 export class LanguagesApi implements LanguagesRepository {
-	async getLanguages(): Promise<Language[]> {
-		const response = await languageControllerGetLanguages()
-
-		// При ошибке customMutator выбрасывает ApiError, сюда попадаем только при успехе.
-		return response.data.map(mapToLanguage)
+	async getLanguages(): Promise<ApiResult<LanguageModel[]>> {
+		return executeApiCall(
+			() => languageControllerGetLanguages(),
+			(data) => data.map(mapToLanguage),
+		)
 	}
 }
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-function mapToLanguage(raw: LanguageOutModel): Language {
+function mapToLanguage(raw: LanguageOutModel): LanguageModel {
 	return {
 		name: raw.name,
 		nameEng: raw.nameEng,

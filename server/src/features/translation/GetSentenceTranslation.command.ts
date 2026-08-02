@@ -34,7 +34,7 @@ export class GetSentenceTranslationHandler implements ICommandHandler<GetSentenc
 		// Все эти проверки может даже можно убрать позже...
 		const isPublicBookChapter = sentence.bookChapter?.book?.type === 'public'
 		const isOwnerOfPrivateBook = sentence.bookChapter?.book?.user_id === userId
-		const isOwnerOfVideo = sentence.video?.video_collection?.user_id === userId
+		const isOwnerOfVideo = sentence.video?.user_id === userId
 
 		if (!isPublicBookChapter && !isOwnerOfPrivateBook && !isOwnerOfVideo) {
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)

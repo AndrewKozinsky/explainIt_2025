@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { offsetsFromWordIds } from '_pages/media/detailsBlock/DetailsBlock/fn/wordSegmentation'
-import { useDetailsStore } from '_pages/media/detailsBlock/detailsStore'
+import { offsetsFromWordIds } from '@/entites/detailsBlock/DetailsBlock/fn/wordSegmentation'
+import { useDetailsStore } from '@/entites/detailsBlock/detailsStore'
 import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 
 type UseWordClickEffectParams = {

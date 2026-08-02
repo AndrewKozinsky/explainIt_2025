@@ -4,6 +4,7 @@ import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { SentencePhraseTranslationOutModel } from 'models/sentenceTranslation/sentencePhraseTranslation.out.model'
 
 const $ = bdConfig.Video.dbFields
+const $$ = bdConfig.Video.dtoProps
 const sentence$ = bdConfig.Sentence.dbFields
 const subtitle$ = bdConfig.Subtitle.dbFields
 
@@ -80,10 +81,7 @@ export class VideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.id))
-	videoCollectionId: number
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.VideoCollection.dbFields.type))
+	@ApiProperty(getApiPropertyOptions($.type))
 	type: 'public' | 'private'
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.User.dbFields.id))
@@ -92,8 +90,11 @@ export class VideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.name))
 	name: string | null
 
-	@ApiProperty({ description: 'Language code of the video', example: 'en', nullable: true })
-	languageCode: null | string
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
+	languageCode: string
+
+	@ApiProperty(getApiPropertyOptions($.youtube_video_id))
+	youtubeVideoId: null | string
 
 	@ApiProperty(getApiPropertyOptions($.note))
 	note: string | null
@@ -126,6 +127,28 @@ export class VideoOutModel {
 	fileDurationSec: null | number
 
 	@ApiProperty({
+		description: 'Aspect ratio in CSS format, e.g. "1280 / 720". Only for YouTube videos.',
+		example: '1280 / 720',
+		required: false,
+	})
+	ratio?: string
+
+	@ApiProperty(getApiPropertyOptions($.cover_file_name))
+	coverFileName: string | null
+
+	@ApiProperty(getApiPropertyOptions($.cover_file_s3_key))
+	coverFileS3Key: string | null
+
+	@ApiProperty(getApiPropertyOptions($.is_cover_file_uploaded))
+	isCoverFileUploaded: boolean
+
+	@ApiProperty(getApiPropertyOptions($$.coverUrl))
+	coverUrl: string | null
+
+	@ApiProperty(getApiPropertyOptions($$.uploadCoverUrl))
+	uploadCoverUrl: string | null
+
+	@ApiProperty({
 		description: 'Sentences extracted from the video content',
 		type: [VideoSentenceOutModel],
 		nullable: true,
@@ -145,4 +168,20 @@ export class VideoOutModel {
 		nullable: true,
 	})
 	subtitleSentenceInit: SubtitleSentenceInitOutModel[] | null
+
+	@ApiProperty({
+		description: 'Who created the subtitles: user-uploaded, from YouTube, or LLM-generated',
+		example: 'user',
+	})
+	subtitlesSource: string
+
+	@ApiProperty({
+		description: 'Status of subtitles processing',
+		enum: ['idle', 'pending', 'processing', 'done', 'failed'],
+		example: 'done',
+	})
+	subtitlesStatus: string
+
+	@ApiProperty({ description: 'Error code if subtitles processing failed', example: null, nullable: true })
+	subtitlesErrorCode: null | string
 }

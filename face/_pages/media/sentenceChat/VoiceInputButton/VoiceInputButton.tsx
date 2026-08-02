@@ -3,7 +3,7 @@ import { useLocale } from 'next-intl'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import MicButtonIcon from '@/shared/ui/icons/buttonIcons/MicButtonIcon'
 import StopRecordingButtonIcon from '@/shared/ui/icons/buttonIcons/StopRecordingButtonIcon'
-import ChatRoundButton from '_pages/media/sentenceChat/ChatRoundButton/ChatRoundButton'
+import ChatRoundButton from '../ChatRoundButton/ChatRoundButton'
 import { startRecognition, stopRecognition } from './fn/recognition'
 import './VoiceInputButton.scss'
 

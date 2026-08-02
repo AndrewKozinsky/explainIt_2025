@@ -5,8 +5,6 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { TranscriptionOutModelIpa } from './transcriptionOutModelIpa';
-import type { TranscriptionOutModelPinyin } from './transcriptionOutModelPinyin';
 
 export interface TranscriptionOutModel {
   /** Universal transcription ID */
@@ -17,10 +15,10 @@ export interface TranscriptionOutModel {
      * IPA transcription
      * @maxLength 500
      */
-  ipa?: TranscriptionOutModelIpa;
+  ipa?: string | null;
   /**
      * Pinyin transcription (for Chinese)
      * @maxLength 500
      */
-  pinyin?: TranscriptionOutModelPinyin;
+  pinyin?: string | null;
 }

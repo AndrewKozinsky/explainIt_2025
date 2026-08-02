@@ -10,7 +10,7 @@ type DbSentenceTranslationWithSentence = Prisma.SentenceTranslationGetPayload<{
 		sentence: {
 			include: {
 				bookChapter: { include: { book: true } }
-				video: { include: { video_collection: true } }
+				video: true
 			}
 		}
 	}
@@ -28,7 +28,7 @@ export class SentenceTranslationRepository {
 				sentence: {
 					include: {
 						bookChapter: { include: { book: true } },
-						video: { include: { video_collection: true } },
+						video: true,
 					},
 				},
 			},

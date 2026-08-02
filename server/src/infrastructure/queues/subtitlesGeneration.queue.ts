@@ -16,12 +16,13 @@ export class SubtitlesGenerationQueue {
 	) {}
 
 	/**
-	 * Enqueue a subtitles generation job for the given private video.
+	 * Enqueue a subtitles generation job.
 	 * A per-video jobId (with a timestamp suffix to allow manual retries after FAILED status)
 	 * prevents duplicate queuing for the same concurrent request.
 	 */
 	async enqueue(data: SubtitlesGenerationJobData): Promise<string> {
-		const jobId = `video-private-${data.videoId}-${Date.now()}`
+		const prefix = data.source === 'youTube' ? 'video-youtube' : 'video-s3'
+		const jobId = `${prefix}-${data.videoId}-${Date.now()}`
 		await this.queue.add(SUBTITLES_GENERATION_JOB_NAME, data, { jobId })
 
 		return jobId

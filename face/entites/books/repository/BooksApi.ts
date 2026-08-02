@@ -5,90 +5,62 @@ import {
 	bookControllerUpdateBook,
 	bookControllerDeleteBook,
 } from '@/shared/api/generated/book/book'
-import { bookChapterControllerCreateBookChapter } from '@/shared/api/generated/book-chapter/book-chapter'
 import type {
 	BookOutModel,
-	BookChapterLiteOutModel,
-	BookChapterOutModel,
 	CreateBookInput as OrvalCreateBookInput,
-	CreateBookChapterInput as OrvalCreateBookChapterInput,
 	UpdateBookInput as OrvalUpdateBookInput,
 } from '@/shared/api/generated/models'
 import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
-import type {
-	Book,
-	BookChapter,
-	BookChapterLite,
-	BooksRepository,
-	CreateBookInput,
-	CreateBookChapterInput,
-	UpdateBookInput,
-} from './BooksRepository'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { LanguageCode } from '@/shared/utils/languages'
+import { mapToChapterLite } from '../../chapter/repository/ChaptersApi'
+import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './BooksRepository'
 
 /**
  * Реализация BooksRepository через REST API.
- * Внутри использует Orval-сгенерированные функции, снаружи отдаёт унифицированные типы.
- *
- * ## Обработка ошибок
- *
- * Методы НЕ содержат try/catch. Вместо этого они полагаются на цепочку:
- *
- * ```
- * Сервер (ошибка)
- *   → GlobalExceptionFilter формирует JSON с errorMessageCode
- *   → customMutator видит !res.ok и выбрасывает ApiError
- *   → метод НЕ ловит — ошибка прокидывается наверх
- *   → useFetchData / useAsyncMutation ловит в try/catch
- *   → resolveError извлекает errorMessageCode → читаемый текст
- *   → Компонент получает { error: "Книга не найдена." }
- * ```
  */
 export class BooksApi implements BooksRepository {
-	async getBooks(): Promise<Book[]> {
-		const response = await bookControllerGetBooks()
-
-		// При ошибке customMutator выбрасывает ApiError, сюда попадаем только при успехе.
-		return response.data.map(mapToBook)
+	async getBooks(): Promise<ApiResult<BookModel[]>> {
+		return executeApiCall(
+			() => bookControllerGetBooks(),
+			(data) => data.map(mapToBook),
+		)
 	}
 
-	async createBook(input: CreateBookInput): Promise<Book> {
-		const response = await bookControllerCreateBook(input as unknown as OrvalCreateBookInput)
-
-		return mapToBook(response.data)
+	async createBook(input: CreateBookInput): Promise<ApiResult<BookModel>> {
+		return executeApiCall(
+			() => bookControllerCreateBook(input as unknown as OrvalCreateBookInput),
+			(data) => mapToBook(data),
+		)
 	}
 
-	async getBook(id: number): Promise<Book> {
-		const response = await bookControllerGetBook(id)
-
-		return mapToBook(response.data)
+	async getBook(id: number): Promise<ApiResult<null | BookModel>> {
+		return executeApiCall(
+			() => bookControllerGetBook(id),
+			(data) => (data === null ? null : mapToBook(data)),
+		)
 	}
 
-	async updateBook(id: number, input: UpdateBookInput): Promise<Book> {
-		const response = await bookControllerUpdateBook(id, input as unknown as OrvalUpdateBookInput)
-
-		return mapToBook(response.data)
+	async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
+		return executeApiCall(
+			() => bookControllerUpdateBook(id, input as unknown as OrvalUpdateBookInput),
+			(data) => mapToBook(data),
+		)
 	}
 
-	async deleteBook(id: number): Promise<void> {
-		await bookControllerDeleteBook(id)
-	}
-
-	async createChapter(input: CreateBookChapterInput): Promise<BookChapter> {
-		const response = await bookChapterControllerCreateBookChapter(input as unknown as OrvalCreateBookChapterInput)
-
-		return mapToChapter(response.data)
+	async deleteBook(id: number): Promise<ApiResult<void>> {
+		return executeApiCall(() => bookControllerDeleteBook(id))
 	}
 }
 
-// ─── Приватные мапперы ─────────────────────────────────────────────────────
-
-function mapToBook(raw: BookOutModel): Book {
+function mapToBook(raw: BookOutModel): BookModel {
 	return {
 		id: raw.id,
 		type: mapType(raw.type),
 		name: extractString(raw.name),
 		author: extractString(raw.author),
-		languageCode: extractString(raw.languageCode),
+		languageCode: extractString(raw.languageCode) as LanguageCode,
 		note: extractString(raw.note),
 		userId: extractNumber(raw.userId),
 		coverUrl: extractString(raw.coverUrl),
@@ -100,27 +72,6 @@ function mapToBook(raw: BookOutModel): Book {
 	}
 }
 
-function mapToChapterLite(raw: BookChapterLiteOutModel): BookChapterLite {
-	return {
-		id: raw.id,
-		bookId: raw.bookId,
-		name: extractString(raw.name),
-		header: extractString(raw.header),
-		note: extractString(raw.note),
-	}
-}
-
-function mapToChapter(raw: BookChapterOutModel): BookChapter {
-	return {
-		id: raw.id,
-		name: extractString(raw.name),
-		header: extractString(raw.header),
-		note: extractString(raw.note),
-		originalContent: extractString(raw.originalContent),
-		processedContent: extractString(raw.processedContent),
-	}
-}
-
-function mapType(raw: string): Book['type'] {
+function mapType(raw: string): BookModel['type'] {
 	return raw === 'public' || raw === 'private' ? raw : 'private'
 }

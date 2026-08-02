@@ -2,10 +2,10 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 import { UniversalPhraseRepository } from 'repo/universalPhrase/universalPhrase.repository'
 import { UniversalPhraseTranslationQueryRepository } from 'repo/universalPhrase/universalPhraseTranslation.queryRepository'
 import { UniversalPhraseTranslationRepository } from 'repo/universalPhrase/universalPhraseTranslation.repository'
-import { TranslationProviderName } from 'features/translation/translateCommon/TranslationProvider.types'
+import { AIProviderName } from 'types/AIModels'
 import { GetOrCreateUniversalPhraseCommand } from 'features/universalPhrase/GetOrCreateUniversalPhrase.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
@@ -18,7 +18,7 @@ export type GetOrCreateUniversalPhraseTranslationInput = {
 	phraseText?: string
 	sourceLanguageCode?: string
 	targetLanguageCode: LanguageCode
-	provider: TranslationProviderName
+	provider: AIProviderName
 }
 
 export type GetOrCreateUniversalPhraseTranslationResult = UniversalPhraseTranslationOutModel
@@ -127,10 +127,14 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 
 			return (await this.universalPhraseTranslationQueryRepository.getById(translationId))!
 		} catch (error) {
-			const errorMessageText =
-				error instanceof Error ? error.message : serializeErrorMessage(errorMessage.unknownError)
+			const errorCode =
+				error instanceof CustomError
+					? error.errorMessage.code
+					: error instanceof Error
+						? error.message
+						: errorMessage.unknownError.code
 
-			await this.universalPhraseTranslationRepository.updateToError(translationId, errorMessageText)
+			await this.universalPhraseTranslationRepository.updateToError(translationId, errorCode)
 
 			if (error instanceof CustomError) {
 				throw error

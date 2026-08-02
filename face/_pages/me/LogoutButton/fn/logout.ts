@@ -1,27 +1,31 @@
 'use client'
 
-import { useCallback } from 'react'
+import { useMemo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { useAuthControllerLogout } from '@/shared/api/generated/auth/auth'
+import { AuthService } from '@/entites/auth/AuthService'
+import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 export function useGetLogout() {
 	const router = useRouter()
 	const locale = useLocale()
-	const { mutateAsync: logout } = useAuthControllerLogout()
+
+	const service = useMemo(() => new AuthService(new AuthApi()), [])
+	const { mutate: logout } = useAsyncMutation(() => service.logout())
 
 	return useCallback(
 		async function () {
-			try {
-				await logout()
-				// No setUser(null) here — on the current page MePageLayout
-				// would react and call redirect(), conflicting with router.push().
-				// The new page will get user=null from the server.
-				router.push(localizePath(locale, pageUrls.main.path))
-			} catch (error: unknown) {
-				console.error(error)
+			const result = await logout(undefined)
+			if (result.error) {
+				console.error(result.error)
+				return
 			}
+			// No setUser(null) here — on the current page MePageLayout
+			// would react and call redirect(), conflicting with router.push().
+			// The new page will get user=null from the server.
+			router.push(localizePath(locale, pageUrls.main.path))
 		},
 		[logout, router, locale],
 	)

@@ -5,7 +5,6 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { TranslateSentenceInputSourceLanguageCode } from './translateSentenceInputSourceLanguageCode';
 
 export interface TranslateSentenceInput {
   sentenceId: number;
@@ -14,7 +13,7 @@ export interface TranslateSentenceInput {
      * @minLength 2
      * @maxLength 2
      */
-  sourceLanguageCode?: TranslateSentenceInputSourceLanguageCode;
+  sourceLanguageCode?: string | null;
   targetLanguageCode?: string | null;
   /** Name of the book */
   bookName?: string | null;
@@ -23,5 +22,5 @@ export interface TranslateSentenceInput {
   /** Name of the video */
   videoName?: string | null;
   /** Year of video release */
-  videoYear?: string | null;
+  videoYear?: number | null;
 }
