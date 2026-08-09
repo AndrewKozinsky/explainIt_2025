@@ -8,9 +8,7 @@ import { SentenceTranslationRepository } from 'repo/sentenceTranslation.reposito
 import { UserRepository } from 'repo/user.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
-import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
-import { GeminiTokenUsageBalanceChargeHandler } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
-import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
+import { TokenUsageBalanceChargeHandler } from 'features/payment/TokenUsageBalanceCharge.command'
 import { SentenceTranslationAccessService } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
 import { TranslatePhraseHandler } from 'features/translation/translatePhrase/TranslatePhrase.command'
 import { TranslateSentenceHandler } from 'features/translation/translateSentence/TranslateSentence.command'
@@ -22,9 +20,7 @@ const services = [PrismaService, SentenceTranslationAccessService]
 const commandHandlers = [
 	TranslateSentenceHandler,
 	TranslatePhraseHandler,
-	OpenAiTokenUsageBalanceChargeHandler,
-	DeepSeekTokenUsageBalanceChargeHandler,
-	GeminiTokenUsageBalanceChargeHandler,
+	TokenUsageBalanceChargeHandler,
 ]
 const repositories = [
 	SentenceRepository,

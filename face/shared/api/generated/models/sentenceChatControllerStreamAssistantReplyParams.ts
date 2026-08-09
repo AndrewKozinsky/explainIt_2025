@@ -7,5 +7,5 @@
  */
 
 export type SentenceChatControllerStreamAssistantReplyParams = {
-provider: string;
+model: string;
 };

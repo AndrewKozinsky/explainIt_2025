@@ -14,6 +14,8 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { CueWithOffset } from 'infrastructure/subtitles/subtitles.types'
+import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
 import { UpdateVideoOutModel } from 'models/video/updateVideo.out.model'
 import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 
@@ -33,6 +35,9 @@ export type UpdateVideoInput = {
 	subtitlesSource?: 'user' | 'youTube' | 'llm'
 	subtitlesStatus?: 'idle' | 'pending' | 'processing' | 'done' | 'failed'
 	subtitlesErrorCode?: null | string
+	proficiencyLevel?: null | number
+	topic?: null | string
+	learnabilityScore?: null | number
 }
 
 export class UpdateVideoCommand implements ICommand {
@@ -53,8 +58,9 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 		private dbRepository: DBRepository,
 		private cloudRuS3Service: CloudRuS3Service,
 		mainConfig: MainConfigService,
+		subtitlesService: SubtitlesService,
 	) {
-		super(mainConfig)
+		super(mainConfig, subtitlesService)
 	}
 
 	async execute(command: UpdateVideoCommand): Promise<UpdateVideoOutModel> {
@@ -136,6 +142,9 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			...(updateVideoInput.subtitlesErrorCode !== undefined
 				? { subtitlesErrorCode: updateVideoInput.subtitlesErrorCode }
 				: {}),
+			proficiencyLevel: updateVideoInput.proficiencyLevel,
+			topic: updateVideoInput.topic,
+			learnabilityScore: updateVideoInput.learnabilityScore,
 		})
 
 		if (!updatedVideo) {
@@ -146,6 +155,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			id: updatedVideo.id,
 			name: updatedVideo.name,
 			languageCode: updatedVideo.sourceLanguageCode as Language,
+			proficiencyLevel: updatedVideo.proficiencyLevel,
 			originalContent: updatedVideo.originalContent,
 			processedContent: updatedVideo.processedContent,
 			contentType: updatedVideo.contentType,
@@ -153,6 +163,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			uploadUrl,
 			uploadCoverUrl,
 			fileSizeMb: updatedVideo.fileSizeMb,
+			durationSec: updatedVideo.durationSec,
 			fileDurationSec: updatedVideo.fileDurationSec,
 		}
 	}
@@ -161,13 +172,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 		videoId: number
 		processedContent: null | string
 		languageCode: null | Language
-		subtitles?: Array<{
-			startTimeMs: number
-			endTimeMs: number
-			startOffset: number
-			length: number
-			orderIndex: number
-		}>
+		subtitles?: CueWithOffset[]
 		preComputedSentences?: string[]
 	}) {
 		await this.dbRepository.wrapIntoPrismaTransaction({

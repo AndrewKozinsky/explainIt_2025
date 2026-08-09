@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useDetailsStore } from '@/entites/detailsBlock/detailsStore'
+import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
 
 export function useCurrentWords(): { sentenceWords: string[]; phrase: string | null } {
 	const getCurrentWords = useDetailsStore((s) => s.getCurrentWords)

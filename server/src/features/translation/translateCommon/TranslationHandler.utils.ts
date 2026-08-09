@@ -1,12 +1,8 @@
 import { CommandBus } from '@nestjs/cqrs'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { DeepSeekTokenUsageBalanceChargeCommand } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
-import { GeminiTokenUsageBalanceChargeCommand } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
-import { OpenAiTokenUsageBalanceChargeCommand } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
+import { TokenUsageBalanceChargeCommand } from 'features/payment/TokenUsageBalanceCharge.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { SentenceTranslationAccess } from './SentenceTranslationAccess.service'
 import { TranslationProviderUsage } from './TranslationProvider.types'
 
@@ -49,33 +45,13 @@ export async function chargeAfterTranslationIfNeeded(input: {
 		return
 	}
 
-	if (input.usage.provider === 'deepseek') {
-		await input.commandBus.execute(
-			new DeepSeekTokenUsageBalanceChargeCommand({
-				userId: input.userId,
-				inputTokens: input.usage.inputTokens,
-				outputTokens: input.usage.outputTokens,
-			}),
-		)
-
-		return
-	} else if (input.usage.provider === 'chatgpt') {
-		await input.commandBus.execute(
-			new OpenAiTokenUsageBalanceChargeCommand({
-				userId: input.userId,
-				aiModelName: input.usage.model,
-				inputTokens: input.usage.inputTokens,
-				outputTokens: input.usage.outputTokens,
-				lowPriority: input.usage.lowPriority,
-			}),
-		)
-	} else if (input.usage.provider === 'gemini') {
-		await input.commandBus.execute(
-			new GeminiTokenUsageBalanceChargeCommand({
-				userId: input.userId,
-				inputTokens: input.usage.inputTokens,
-				outputTokens: input.usage.outputTokens,
-			}),
-		)
-	}
+	await input.commandBus.execute(
+		new TokenUsageBalanceChargeCommand({
+			userId: input.userId,
+			aiModelName: input.usage.model,
+			inputTokens: input.usage.inputTokens,
+			outputTokens: input.usage.outputTokens,
+			lowPriority: input.usage.lowPriority,
+		}),
+	)
 }

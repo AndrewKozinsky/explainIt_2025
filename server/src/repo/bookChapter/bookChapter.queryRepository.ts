@@ -97,7 +97,7 @@ export class BookChapterQueryRepository {
 				name: book.name,
 				languageCode: sourceLanguageCode,
 				author: book.author,
-				note: book.note,
+				about: book.about,
 				userId: dbChapter.book.user_id,
 			},
 		}

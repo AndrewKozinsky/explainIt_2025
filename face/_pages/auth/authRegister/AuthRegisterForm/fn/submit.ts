@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react'
-import { AuthService } from '@/entites/auth/AuthService'
-import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
 import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 import { FormStatus } from '@/shared/utils/forms'
 import { RegisterFormData } from './form'

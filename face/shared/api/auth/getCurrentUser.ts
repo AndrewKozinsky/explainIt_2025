@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import type { UserModel } from '@/entites/auth/repository/AuthRepository'
+import type { UserModel } from '@/entities/auth/repository/AuthRepository'
 
 /**
  * Fetches the current user on the server side by forwarding the session cookie

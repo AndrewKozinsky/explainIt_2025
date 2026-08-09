@@ -20,6 +20,6 @@ export interface YoutubeVideoOutModel {
   thumbnailUrl: string;
   /** View count */
   viewCount: number;
-  /** Video duration in ISO 8601 format */
-  duration: string;
+  /** Video duration in seconds */
+  durationSec: number;
 }

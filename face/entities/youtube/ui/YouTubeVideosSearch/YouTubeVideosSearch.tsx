@@ -1,0 +1,60 @@
+'use client'
+
+import React, { useMemo, useState } from 'react'
+import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
+import YouTubeSearch from '@/entities/youtube/ui/YouTubeSearch/YouTubeSearch'
+import YouTubeVideosCenterWrapper from '@/entities/youtube/ui/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
+import { getConfig } from '@/entities/youtube/ui/YouTubeVideosList/fn/getConfig'
+import YouTubeVideosList from '@/entities/youtube/ui/YouTubeVideosList/YouTubeVideosList'
+import { YoutubeService } from '@/entities/youtube/YoutubeService'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import Spinner from '@/shared/ui/Spinner/Spinner'
+import { useYouTubeVideos } from '_pages/media/youTubeVideos/YouTubeVideosPage/fn/setupYouTubeDeps'
+import './YouTubeVideosSearch.scss'
+
+function YouTubeVideosSearch() {
+	const youtubeService = useMemo(function () {
+		return new YoutubeService(new YoutubeApi())
+	}, [])
+
+	const [query, setQuery] = useState('')
+
+	const { loading, videos, error, hasMore, hasSearched, search, loadMore } = useYouTubeVideos(youtubeService, query)
+
+	return (
+		<div className='youtube-videos-search'>
+			<YouTubeSearch query={query} onQueryChange={setQuery} onSearch={search} loading={loading} />
+
+			{error && (
+				<YouTubeVideosCenterWrapper>
+					<ErrorMessage text={error} />
+				</YouTubeVideosCenterWrapper>
+			)}
+
+			{loading && (
+				<YouTubeVideosCenterWrapper>
+					<Spinner size='small' />
+				</YouTubeVideosCenterWrapper>
+			)}
+
+			{!loading && videos.length > 0 && <YouTubeVideosList items={getConfig(videos)} />}
+
+			{!loading && hasMore && (
+				<YouTubeVideosCenterWrapper>
+					<Button onClick={loadMore} disabled={loading} loading={loading}>
+						Загрузить ещё
+					</Button>
+				</YouTubeVideosCenterWrapper>
+			)}
+
+			{hasSearched && !loading && !error && videos.length === 0 && (
+				<YouTubeVideosCenterWrapper>
+					<ErrorMessage text='Видео не найдены.' />
+				</YouTubeVideosCenterWrapper>
+			)}
+		</div>
+	)
+}
+
+export default YouTubeVideosSearch

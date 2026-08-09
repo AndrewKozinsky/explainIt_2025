@@ -3,7 +3,7 @@ import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { TranscriptionOutModel } from 'models/transcription/transcription.out.model'
 import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
-import { UniversalPhraseTranslationData } from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
+import { TranslationBlock } from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
 import { Prisma } from 'prisma/generated/client'
 
 type TranslationWithPhraseAndTranscription = Prisma.UniversalPhraseTranslationGetPayload<{
@@ -38,10 +38,10 @@ export class UniversalPhraseTranslationQueryRepository {
 	}
 
 	private mapDbToOut(db: TranslationWithPhraseAndTranscription): UniversalPhraseTranslationOutModel {
-		let translation: null | UniversalPhraseTranslationData = null
+		let translation: null | TranslationBlock[] = null
 
 		if (db.translation) {
-			translation = JSON.parse(db.translation) as UniversalPhraseTranslationData
+			translation = JSON.parse(db.translation) as TranslationBlock[]
 		}
 
 		const transcription: TranscriptionOutModel | null = db.universal_phrase?.UniversalTranscription

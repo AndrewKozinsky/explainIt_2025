@@ -18,6 +18,8 @@ export interface UpdateVideoOutModel {
   name?: string | null;
   /** Language code of the video */
   languageCode?: string | null;
+  /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
+  proficiencyLevel?: number | null;
   /** Original subtitles or text of the video */
   originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */
@@ -32,6 +34,8 @@ export interface UpdateVideoOutModel {
   uploadCoverUrl: UpdateVideoOutModelUploadCoverUrl;
   /** Size of the video file in megabytes */
   fileSizeMb?: number | null;
+  /** Duration of the video in seconds (from YouTube metadata or ffprobe) */
+  durationSec: number;
   /** Duration of the uploaded video file in seconds */
   fileDurationSec?: number | null;
 }

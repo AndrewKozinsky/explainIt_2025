@@ -9,7 +9,7 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 export type CreateBookPublicInput = {
 	author?: string
 	name: string
-	note: string
+	about: string
 	coverFileName: string
 	coverFileS3Key: string
 	languageCode: Language

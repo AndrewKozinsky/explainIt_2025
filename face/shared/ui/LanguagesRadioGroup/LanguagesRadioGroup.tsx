@@ -1,11 +1,10 @@
 'use client'
 
-import React, { useMemo } from 'react'
+import React from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { UseFormRegisterReturn } from 'react-hook-form'
-import { LanguagesService } from '@/entites/languages/LanguagesService'
-import { LanguagesApi } from '@/entites/languages/repository/LanguagesApi'
+import { languageQueries } from '@/entities/languages/LanguagesQueryFacade'
 import RadioGroup from '@/shared/ui/formRelated/RadioGroup/RadioGroup'
-import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
 
 type LanguagesRadioGroupProps = {
 	value?: string
@@ -17,8 +16,7 @@ function LanguagesRadioGroup(props: LanguagesRadioGroupProps) {
 	const { value, disabled, inputProps } = props
 	const { ref, ...restInputProps } = inputProps
 
-	const service = useMemo(() => new LanguagesService(new LanguagesApi()), [])
-	const { data: languages } = useFetchData(() => service.getLanguages(), [service])
+	const { data: languages } = useQuery(languageQueries.getLanguages())
 
 	const config = (languages ?? [])
 		.map((lang) => ({

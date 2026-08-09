@@ -32,13 +32,6 @@ type DbVideoWithRelations = Video & {
 	Subtitle?: DbSubtitleWithInit[]
 }
 
-type UniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
-	include: {
-		UniversalTranscription: true
-		UniversalAudioPronunciation: true
-	}
-}>
-
 @Injectable()
 export class VideoQueryRepository {
 	constructor(
@@ -122,10 +115,39 @@ export class VideoQueryRepository {
 	}
 
 	@CatchDbError()
-	async getYoutubeVideos() {
+	async getSavedYoutubeVideos(filters?: {
+		maxDurationSec?: number
+		minDurationSec?: number
+		proficiencyLevel?: number
+		topic?: string
+		languageCode?: LanguageCode
+	}) {
+		const where: Prisma.VideoWhereInput = {
+			youtube_video_id: { not: null },
+		}
+
+		if (filters?.minDurationSec !== undefined || filters?.maxDurationSec !== undefined) {
+			where.duration_sec = {}
+			if (filters?.minDurationSec !== undefined) {
+				;(where.duration_sec as Prisma.IntFilter).gte = filters.minDurationSec
+			}
+			if (filters?.maxDurationSec !== undefined) {
+				;(where.duration_sec as Prisma.IntFilter).lte = filters.maxDurationSec
+			}
+		}
+		if (filters?.proficiencyLevel !== undefined) {
+			where.proficiency_level = filters.proficiencyLevel
+		}
+		if (filters?.topic !== undefined) {
+			where.topic = filters.topic
+		}
+		if (filters?.languageCode !== undefined) {
+			where.source_language_code = filters.languageCode
+		}
+
 		const videos = await this.prisma.video.findMany({
-			where: { youtube_video_id: { not: null } },
-			orderBy: { created_at: 'asc' },
+			where,
+			orderBy: { learnability_score: { sort: 'desc', nulls: 'last' } },
 		})
 
 		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
@@ -150,6 +172,7 @@ export class VideoQueryRepository {
 			type: dbVideo.type as 'public' | 'private',
 			name: dbVideo.name,
 			languageCode: dbVideo.source_language_code as CreateVideoOutModel['languageCode'],
+			proficiencyLevel: dbVideo.proficiency_level,
 			originalContent: dbVideo.original_content,
 			processedContent: dbVideo.processed_content,
 			contentType: dbVideo.content_type,
@@ -161,18 +184,19 @@ export class VideoQueryRepository {
 	}
 
 	async mapDbVideoToLiteOutVideo(dbVideo: Video): Promise<VideoLiteOutModel> {
-		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
-		const coverUrl = dbVideo.cover_file_s3_key
-			? await this.cloudRuS3Service.getFileUrl(dbVideo.cover_file_s3_key)
-			: null
+		const [fileUrl, coverUrl] = await Promise.all([
+			this.resolveFileUrl(dbVideo.file_s3_key),
+			this.resolveCoverUrl(dbVideo.cover_file_s3_key, dbVideo.cover_url),
+		])
 
 		return {
 			id: dbVideo.id,
 			type: dbVideo.type as 'public' | 'private',
 			name: dbVideo.name,
+			proficiencyLevel: dbVideo.proficiency_level ?? null,
 			languageCode: dbVideo.source_language_code,
 			youtubeVideoId: dbVideo.youtube_video_id,
-			note: dbVideo.note,
+			about: dbVideo.about,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
@@ -182,6 +206,7 @@ export class VideoQueryRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id ?? null,
 			fileSizeMb: dbVideo.file_size_mb,
+			durationSec: dbVideo.duration_sec,
 			fileDurationSec: dbVideo.file_duration_sec,
 			coverFileName: dbVideo.cover_file_name,
 			coverFileS3Key: dbVideo.cover_file_s3_key,
@@ -195,18 +220,19 @@ export class VideoQueryRepository {
 	}
 
 	async mapDbVideoToOutVideo(dbVideo: DbVideoWithRelations): Promise<VideoOutModel> {
-		const fileUrl = dbVideo.file_s3_key ? await this.cloudRuS3Service.getFileUrl(dbVideo.file_s3_key) : null
-		const coverUrl = dbVideo.cover_file_s3_key
-			? await this.cloudRuS3Service.getFileUrl(dbVideo.cover_file_s3_key)
-			: null
+		const [fileUrl, coverUrl] = await Promise.all([
+			this.resolveFileUrl(dbVideo.file_s3_key),
+			this.resolveCoverUrl(dbVideo.cover_file_s3_key, dbVideo.cover_url),
+		])
 
 		const base: Omit<VideoOutModel, 'sentences' | 'subtitles' | 'subtitleSentenceInit'> = {
 			id: dbVideo.id,
 			type: dbVideo.type as 'public' | 'private',
 			name: dbVideo.name,
+			proficiencyLevel: dbVideo.proficiency_level ?? null,
 			languageCode: dbVideo.source_language_code,
 			youtubeVideoId: dbVideo.youtube_video_id,
-			note: dbVideo.note,
+			about: dbVideo.about,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
@@ -216,6 +242,7 @@ export class VideoQueryRepository {
 			contentType: dbVideo.content_type,
 			userId: dbVideo.user_id ?? null,
 			fileSizeMb: dbVideo.file_size_mb,
+			durationSec: dbVideo.duration_sec,
 			fileDurationSec: dbVideo.file_duration_sec,
 			coverFileName: dbVideo.cover_file_name,
 			coverFileS3Key: dbVideo.cover_file_s3_key,
@@ -232,6 +259,22 @@ export class VideoQueryRepository {
 		const result = attachVideoTextRelations({ base, dbVideo, universalPhraseByText })
 
 		return result
+	}
+
+	private async resolveFileUrl(fileS3Key: string | null): Promise<string | null> {
+		return fileS3Key ? await this.cloudRuS3Service.getFileUrl(fileS3Key) : null
+	}
+
+	/**
+	 * Resolve cover URL: S3 presigned URL takes priority,
+	 * falls back to stored URL (e.g. YouTube thumbnail).
+	 */
+	private async resolveCoverUrl(coverFileS3Key: string | null, coverUrl: string | null): Promise<string | null> {
+		if (coverFileS3Key) {
+			return await this.cloudRuS3Service.getFileUrl(coverFileS3Key)
+		}
+
+		return coverUrl ?? null
 	}
 
 	private async buildUniversalPhraseMap(

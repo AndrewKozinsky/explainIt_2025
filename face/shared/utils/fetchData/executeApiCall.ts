@@ -1,4 +1,5 @@
 import { ApiError } from '@/shared/api/mutator'
+import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
 import { resolveError, resolveErrorByCode } from '@/shared/utils/fetchData/resolveError'
 
 /**
@@ -53,6 +54,10 @@ export async function executeApiCall<TRaw, TMapped = TRaw>(
 
 		return { error: null, errors: null, data }
 	} catch (e) {
+		if (isAbortError(e)) {
+			throw e
+		}
+
 		return handleApiError<TMapped>(e)
 	}
 }
@@ -84,7 +89,6 @@ export async function executeApiCall<TRaw, TMapped = TRaw>(
  */
 function handleApiError<T>(e: unknown): ApiResult<T> {
 	const emptyData = null as unknown as T
-	console.log(e)
 
 	if (!(e instanceof ApiError)) {
 		return { error: 'Неизвестная ошибка сервера.', errors: null, data: emptyData }

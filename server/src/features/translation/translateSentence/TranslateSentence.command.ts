@@ -1,7 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
-import { AIProviderName } from 'types/AIModels'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
@@ -65,7 +64,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			draftSentenceTranslationId = draftSentenceTranslation.id
 
 			const translationResult = await this.generateSentenceTranslation({
-				provider: preparedInput.provider,
 				text: preparedInput.text,
 				contextText: preparedInput.contextText,
 				sourceLanguageCode: preparedInput.sourceLanguageCode,
@@ -117,7 +115,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		contextText: string
 		sourceLanguageCode: LanguageCode
 		lowPriority: boolean
-		provider: AIProviderName
 	}> {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: input.userId,
@@ -136,12 +133,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			contextText,
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			lowPriority: true,
-			provider: this.getProviderName(),
 		}
-	}
-
-	private getProviderName(): AIProviderName {
-		return 'deepseek'
 	}
 
 	private async createDraftSentenceTranslation(input: { sentenceId: number; targetLanguageCode: LanguageCode }) {
@@ -205,7 +197,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 	}
 
 	private async generateSentenceTranslation(input: {
-		provider: AIProviderName
 		text: string
 		contextText: string
 		sourceLanguageCode: LanguageCode
@@ -227,7 +218,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		})
 
 		const result = await this.llmAdapter.generate({
-			provider: input.provider,
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: input.text },

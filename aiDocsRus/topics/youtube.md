@@ -104,7 +104,7 @@ YouTube Data API требует параметр `q` (поисковый зап�
 Ключи из `errorMessage.youtube`:
 
 - `apiRequestFailed` — не удалось выполнить запрос к YouTube API (сетевые ошибки, 4xx/5xx кроме 403).
-- `quotaExceeded` — квота YouTube API исчерпана (HTTP 403). Дневная квота по умолчанию — 10 000 единиц. Один вызов `getVideos` тратит ~103 единицы (search + videos + channels).
+- `quotaExceeded` — квота YouTube API исчерпана (HTTP 403). Дневная квота по умолчанию — 10 000 единиц. Один вызов `getYouTubeVideos` тратит ~103 единицы (search + videos + channels).
 - `languageNotSupported` — переданный `languageCode` отсутствует в `utils/languages`.
 
 ## Пагинация

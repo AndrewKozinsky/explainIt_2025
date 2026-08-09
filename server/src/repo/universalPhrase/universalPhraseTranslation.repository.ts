@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import {
-	UniversalPhraseTranslationData,
+	TranslationBlock,
 	UniversalPhraseTranslationServiceModel,
 } from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
 import { LanguageCode, UniversalPhraseTranslation } from 'prisma/generated/client'
@@ -49,10 +49,7 @@ export class UniversalPhraseTranslationRepository {
 	}
 
 	@CatchDbError()
-	async updateToReady(
-		id: number,
-		translation: UniversalPhraseTranslationData,
-	): Promise<UniversalPhraseTranslationServiceModel> {
+	async updateToReady(id: number, translation: TranslationBlock[]): Promise<UniversalPhraseTranslationServiceModel> {
 		const db = await this.prisma.universalPhraseTranslation.update({
 			where: { id },
 			data: {
@@ -95,10 +92,10 @@ export class UniversalPhraseTranslationRepository {
 	}
 
 	private mapDbToService(db: UniversalPhraseTranslation): UniversalPhraseTranslationServiceModel {
-		let translation: null | UniversalPhraseTranslationData = null
+		let translation: null | TranslationBlock[] = null
 
 		if (db.translation) {
-			translation = JSON.parse(db.translation) as UniversalPhraseTranslationData
+			translation = JSON.parse(db.translation) as TranslationBlock[]
 		}
 
 		return {

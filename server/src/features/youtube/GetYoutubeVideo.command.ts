@@ -20,7 +20,7 @@ export class GetYoutubeVideoHandler implements ICommandHandler<GetYoutubeVideoCo
 			channelLogoUrl: result.channelLogoUrl,
 			thumbnailUrl: result.thumbnailUrl,
 			viewCount: result.viewCount,
-			duration: result.duration,
+			durationSec: result.durationSec,
 		}
 	}
 }

@@ -13,7 +13,7 @@ function ErrorMessage(props: LoadingMessageProps) {
 	}
 
 	return (
-		<div className='error-message' data-testid='exercise-error-analysis-block'>
+		<div className='error-message'>
 			<ErrorIcon extraClass='error-message__icon' />
 			{text}
 		</div>

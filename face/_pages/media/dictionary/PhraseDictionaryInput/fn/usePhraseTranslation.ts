@@ -1,14 +1,14 @@
 import { useCallback, useMemo, useRef } from 'react'
 import { useLocale } from 'next-intl'
-import { useDetailsStore } from '@/entites/detailsBlock/detailsStore'
-import { PhraseTranslationApi } from '@/entites/phraseTranslation/repository/PhraseTranslationApi'
+import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import type { LanguageCode } from '@/shared/utils/languages'
 import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 import { createFetchTranslation } from './createFetchTranslation'
 import { useRetryEffect } from './useRetryEffect'
 import { useWordClickEffect } from './useWordClickEffect'
 
 /**
- * Управляет запросом перевода фразы: resolvePhrase → кэш → API-вызов перевода.
+ * Управляет запросом перевода фразы: getPhrase → кэш → getTranslation.
  * Также следит за:
  * - currentWordId — при клике на слово авто-запрашивает перевод
  * - retryTrigger — кнопка «Повторить» в PhraseDictionaryError
@@ -19,18 +19,15 @@ export function usePhraseTranslation() {
 
 	const abortRef = useRef<AbortController | null>(null)
 
-	const translationRepository = useMemo(() => new PhraseTranslationApi(), [])
-
 	// Функция перевода — создаётся один раз, значения читает через геттеры
 	const fetchTranslation = useMemo(
 		() =>
 			createFetchTranslation({
-				getSourceLang: () => useDetailsStore.getState().languageCode ?? '',
+				getSourceLang: () => useDetailsStore.getState().languageCode as LanguageCode,
 				getTargetLang: () => locale,
-				translationRepository,
 				getAbortSignal: () => abortRef.current?.signal,
 			}),
-		[locale, translationRepository],
+		[locale],
 	)
 
 	// Эффекты

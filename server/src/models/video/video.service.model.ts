@@ -3,7 +3,7 @@ export type VideoServiceModel = {
 	type: 'public' | 'private'
 	userId: null | number
 	name: null | string
-	note: null | string
+	about: null | string
 	sourceLanguageCode: string
 	youtubeVideoId: null | string
 	fileUrl: null | string
@@ -13,12 +13,17 @@ export type VideoServiceModel = {
 	processedContent: null | string
 	contentType: 'text' | 'subtitles'
 	fileSizeMb: number
+	durationSec: number
 	fileDurationSec: null | number
 	coverFileName: null | string
 	coverFileS3Key: null | string
 	isCoverFileUploaded: boolean
+	coverUrl: null | string
 	subtitlesSource: string
 	subtitlesStatus: string
 	subtitlesErrorCode: null | string
 	subtitlesJobId: null | string
+	proficiencyLevel: null | number
+	topic: null | string
+	learnabilityScore: null | number
 }

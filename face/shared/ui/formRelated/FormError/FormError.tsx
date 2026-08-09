@@ -10,11 +10,7 @@ function FormError(props: FormErrorProps) {
 
 	if (!text) return null
 
-	return (
-		<p className='form-error' data-testid={dataTestId}>
-			{text}
-		</p>
-	)
+	return <p className='form-error'>{text}</p>
 }
 
 export default FormError

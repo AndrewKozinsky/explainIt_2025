@@ -79,15 +79,33 @@ export class MainConfigService {
 			deepSeek: {
 				apiKey: enVariables.deepSeek.apiKey,
 				priceInRub: {
-					input: (oneDollarInRub * 0.28) / 1_000_000, // 110 рублей за доллар * количество долларов на вход / количество токенов
-					output: (oneDollarInRub * 0.42) / 1_000_000, // 110 рублей за доллар * количество долларов на выход / количество токенов
+					// DeepSeek-V4 Flash: $0.28 / 1M input, $0.42 / 1M output (значения-заглушки, требуют уточнения)
+					flash: {
+						input: (oneDollarInRub * 0.28) / 1_000_000,
+						output: (oneDollarInRub * 0.42) / 1_000_000,
+					},
+					// DeepSeek-V4 Pro: значения-заглушки, требуют уточнения
+					pro: {
+						input: (oneDollarInRub * 0.55) / 1_000_000,
+						output: (oneDollarInRub * 1.1) / 1_000_000,
+					},
 				},
 			},
 			gemini: {
-				// Цены Google Gemini 2.5 Flash (public pricing): $0.30 / 1M inputs, $2.50 / 1M output.
+				// Цены Google Gemini (public pricing), значения-заглушки — требуют уточнения
 				priceInRub: {
-					input: (oneDollarInRub * 0.3) / 1_000_000,
-					output: (oneDollarInRub * 2.5) / 1_000_000,
+					flashLite: {
+						input: (oneDollarInRub * 0.075) / 1_000_000,
+						output: (oneDollarInRub * 0.3) / 1_000_000,
+					},
+					flash: {
+						input: (oneDollarInRub * 0.3) / 1_000_000,
+						output: (oneDollarInRub * 2.5) / 1_000_000,
+					},
+					pro: {
+						input: (oneDollarInRub * 1.25) / 1_000_000,
+						output: (oneDollarInRub * 10.0) / 1_000_000,
+					},
 				},
 			},
 			deepgram: {

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { AuthService } from '@/entites/auth/AuthService'
-import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
 import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
 export type ConfirmationStatus = 'loading' | 'success' | 'error'

@@ -47,12 +47,7 @@ export class BookChapterRepository {
 	}
 
 	@CatchDbError()
-	async getBookChapter(input: {
-		id?: number
-		bookId?: number
-		name?: null | string
-		header?: null | string
-	}) {
+	async getBookChapter(input: { id?: number; bookId?: number; name?: null | string; header?: null | string }) {
 		const where: Prisma.BookChapterWhereInput = {}
 		if (input.id) where.id = input.id
 		if (input.name) where.name = input.name
@@ -117,9 +112,7 @@ export class BookChapterRepository {
 		})
 	}
 
-	mapDbBookChapterToServiceBook(
-		dbBookChapter: BookChapterWithBookNotNull,
-	): BookChapterServiceModel {
+	mapDbBookChapterToServiceBook(dbBookChapter: BookChapterWithBookNotNull): BookChapterServiceModel {
 		const book = dbBookChapter.book
 
 		return {
@@ -141,7 +134,7 @@ export class BookChapterRepository {
 				name: book.name,
 				author: book.author,
 				languageCode: book.source_language_code,
-				note: book.note,
+				about: book.about,
 				userId: book.user_id,
 			},
 		}

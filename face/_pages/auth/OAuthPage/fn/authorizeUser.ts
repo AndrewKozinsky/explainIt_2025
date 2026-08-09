@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { AuthService } from '@/entites/auth/AuthService'
-import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
 import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 

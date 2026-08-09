@@ -4,7 +4,7 @@ export type UniversalPhraseTranslationServiceModel = {
 	id: number
 	universalPhraseId: number
 	targetLanguageCode: LanguageCode
-	translation: null | UniversalPhraseTranslationData
+	translation: null | TranslationBlock[]
 	status: UniversalPhraseTranslationStatus
 	errorCode: null | string
 	nonExistentWord: boolean
@@ -12,29 +12,46 @@ export type UniversalPhraseTranslationServiceModel = {
 }
 
 /**
- * Структура результата перевода фразы через LLM.
- * Соответствует JSON-ответу из промпта.
+ * Корневой тип — массив блоков, формирующих статью-объяснение.
+ * На верхнем уровне могут быть любые типы блоков.
  */
-export type UniversalPhraseTranslationData = {
-	coreIdea: string
-	usageGroups: UsageGroup[]
-	similarWords: null | string
-	commonMistakes: null | string
-	patterns: null | PatternItem[]
+export type TranslationBlock = BlockBlock | UseCaseBlock | PaperBlock | ExampleBlock | PhrasesButtonsBlock | TextBlock
+
+/** Секция с заголовком и вложенными блоками */
+export type BlockBlock = {
+	type: 'block'
+	header: string
+	children: TranslationBlock[]
 }
 
-export type UsageGroup = {
-	title: string
-	explain: string
-	examples: TranslationExample[]
+/** Сценарий употребления с заголовком и вложенными блоками */
+export type UseCaseBlock = {
+	type: 'useCase'
+	header: string
+	children: TranslationBlock[]
 }
 
-export type TranslationExample = {
+/** Визуальная обёртка-карточка */
+export type PaperBlock = {
+	type: 'paper'
+	children: TranslationBlock[]
+}
+
+/** Пример предложения с переводом */
+export type ExampleBlock = {
+	type: 'example'
 	sentence: string
-	translate: string
+	translation: string
 }
 
-export type PatternItem = {
-	phrase: string
-	translate: string
+/** Кнопки фраз (только текст, без перевода) */
+export type PhrasesButtonsBlock = {
+	type: 'phrasesButtons'
+	labels: string[]
+}
+
+/** Текст в формате Markdown */
+export type TextBlock = {
+	type: 'text'
+	text: string
 }

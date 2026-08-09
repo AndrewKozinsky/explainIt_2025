@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo } from 'react'
-import { YoutubeApi } from '@/entites/youTubeVideos/repository/YoutubeApi'
-import { YoutubeService } from '@/entites/youTubeVideos/YoutubeService'
+import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
+import { YoutubeService } from '@/entities/youtube/YoutubeService'
 import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
 
 /**

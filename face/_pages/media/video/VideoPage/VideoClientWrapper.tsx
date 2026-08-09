@@ -1,17 +1,17 @@
 'use client'
 
 import { useRef } from 'react'
-import type { SelectionProps } from '@/entites/detailsBlock/SelectionProvider/MediaPageClient'
-import { SentenceModel } from '@/entites/media/repository/SentenceTypes'
-import VideoPlayer from '@/entites/players/VideoPlayer/VideoPlayer'
-import type { VideoPlayerHandle } from '@/entites/players/VideoPlayer/VideoPlayer'
-import SentencesOrSubtitles from '@/entites/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
-import SubtitlesGuard from '@/entites/video/ui/SubtitlesGuard/SubtitlesGuard'
+import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
+import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
+import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
 import {
 	SubtitlesStatusModelType,
 	VideoContentType,
 	VideoSubtitlesModel,
-} from '@/entites/videos/repository/VideosRepository'
+} from '@/entities/video/repository/VideosRepository'
+import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
 import { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'

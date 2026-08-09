@@ -6,6 +6,7 @@ import {
 	ResponseFormatText,
 	ReasoningEffort,
 } from 'openai/resources'
+import { DeepSeekModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -30,7 +31,7 @@ export class DeepSeekService {
 		lowPriority?: boolean
 	}) {
 		const response = await this.deepseek.chat.completions.create({
-			model: input.model ?? 'deepseek-chat',
+			model: input.model ?? DeepSeekModels.Flash,
 			messages: input.messages,
 			response_format: input.responseFormat ?? {
 				type: 'text',
@@ -58,7 +59,7 @@ export class DeepSeekService {
 	}): AsyncGenerator<string, void, void> {
 		const stream = await this.deepseek.chat.completions.create(
 			{
-				model: input.model ?? 'deepseek-chat',
+				model: input.model ?? DeepSeekModels.Flash,
 				messages: input.messages,
 				response_format: {
 					type: 'text',

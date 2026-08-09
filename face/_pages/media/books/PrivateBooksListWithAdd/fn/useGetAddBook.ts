@@ -3,9 +3,9 @@
 import { useCallback, useContext, useMemo } from 'react'
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { BooksService } from '@/entites/books/BooksService'
-import { BooksApi } from '@/entites/books/repository/BooksApi'
-import type { BookModel } from '@/entites/books/repository/BooksRepository'
+import { BooksService } from '@/entities/book/BooksService'
+import { BooksApi } from '@/entities/book/repository/BooksApi'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
 import { useRouter } from '@/i18n/routing'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
@@ -40,7 +40,7 @@ export function useGetAddBook(): () => Promise<ApiResult<BookModel>> {
 			const result = await booksService.createBook({
 				name: null,
 				author: null,
-				note: null,
+				about: null,
 				languageCode: 'en',
 			})
 

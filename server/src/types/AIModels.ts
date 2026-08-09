@@ -18,3 +18,14 @@ export enum GoogleGeminiModels {
 }
 
 export type AiModel = OpenAIModels | DeepSeekModels | GoogleGeminiModels
+
+export function getProviderFromModel(model: AiModel): AIProviderName {
+	if (Object.values(OpenAIModels).includes(model as OpenAIModels)) return 'chatgpt'
+	if (Object.values(DeepSeekModels).includes(model as DeepSeekModels)) return 'deepseek'
+	if (Object.values(GoogleGeminiModels).includes(model as GoogleGeminiModels)) return 'gemini'
+
+	throw new Error(`Unknown LLM model: ${model}`)
+}
+
+/** Модель по умолчанию, когда model не указана. */
+export const DEFAULT_AI_MODEL: AiModel = DeepSeekModels.Flash

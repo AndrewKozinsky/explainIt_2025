@@ -14,6 +14,9 @@ export class UpdateVideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: string
 
+	@ApiProperty(getApiPropertyOptions($.proficiency_level))
+	proficiencyLevel: null | number
+
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
 
@@ -34,6 +37,9 @@ export class UpdateVideoOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.file_size_mb))
 	fileSizeMb: null | number
+
+	@ApiProperty(getApiPropertyOptions($.duration_sec))
+	durationSec: number
 
 	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
 	fileDurationSec: null | number

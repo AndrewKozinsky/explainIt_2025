@@ -46,13 +46,3 @@ export interface LlmProvider {
 	/** Потоковая генерация (чат, SSE). */
 	stream(input: LlmStreamInput): AsyncGenerator<string, void, void>
 }
-
-// ---- Входные типы с указанием провайдера (для LlmAdapterService) ----
-
-export type LlmGenerateWithProvider = LlmGenerateInput & {
-	provider: AIProviderName
-}
-
-export type LlmStreamWithProvider = LlmStreamInput & {
-	provider: AIProviderName
-}

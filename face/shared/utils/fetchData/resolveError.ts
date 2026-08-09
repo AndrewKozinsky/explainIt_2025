@@ -9,7 +9,7 @@ import { serverErrorMessagesByCode, errorMessages, ServerErrorMessage } from './
  *
  * **CustomError** (бизнес-ошибки):
  * ```
- * { message: '{"errorMessageCode":"BOOK_NOT_FOUND"}', code: 'NOT_FOUND', statusCode: 404 }
+ * { message: '{"code":"BOOK_NOT_FOUND"}', code: 'NOT_FOUND', statusCode: 404 }
  * ```
  * `message` — JSON-строка с `errorMessageCode`. Код резолвится
  * через `serverErrorMessagesByCode` в читаемый текст.
@@ -41,13 +41,14 @@ function extractErrorCode(body: unknown): null | string {
 
 	const bodyObj = body as Record<string, unknown>
 
-	// CustomError: message — JSON-строка вида '{"errorMessageCode":"BOOK_NOT_FOUND"}'
+	// CustomError: message — JSON-строка вида '{"code":"BOOK_NOT_FOUND"}'
 	const message = bodyObj.message
+
 	if (typeof message === 'string') {
 		try {
 			const parsed = JSON.parse(message)
-			if (typeof parsed?.errorMessageCode === 'string') {
-				return parsed.errorMessageCode
+			if (typeof parsed?.code === 'string') {
+				return parsed.code
 			}
 		} catch {
 			// message — не JSON, продолжаем

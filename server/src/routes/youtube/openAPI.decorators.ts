@@ -1,7 +1,30 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiOperation, ApiParam, ApiQuery, ApiResponse } from '@nestjs/swagger'
+import { bdConfig } from 'db/dbConfig/dbConfig'
+import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { VideoOutModel } from 'models/video/video.out.model'
+import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 import { YoutubeVideosOutModel } from 'models/youtube/youtubeVideo.out.model'
+
+export function ApiGetYoutubeTopics() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Get the list of video topic categories',
+			description:
+				'Returns the fixed list of topic categories used for classifying YouTube videos. ' +
+				'These are the same topics returned by the video metadata analysis.',
+		}),
+		ApiResponse({
+			status: 200,
+			description: 'List of video topic categories',
+			schema: {
+				type: 'array',
+				items: { type: 'string' },
+				example: ['Travel & Geography', 'Technology & Science', 'Language Learning'],
+			},
+		}),
+	)
+}
 
 export function ApiGetYoutubeVideoById() {
 	return applyDecorators(
@@ -26,12 +49,12 @@ export function ApiGetYoutubeVideoById() {
 	)
 }
 
-export function ApiGetYoutubeVideos() {
+export function ApiGetYoutubeSearch() {
 	return applyDecorators(
 		ApiOperation({
-			summary: 'Get YouTube videos',
+			summary: 'Search YouTube videos via YouTube Data API',
 			description:
-				'Returns a paginated list of YouTube videos. ' +
+				'Returns a paginated list of YouTube videos from YouTube Data API. ' +
 				'Use nextPageToken from the response to fetch the next page. ' +
 				'The limit parameter controls how many videos are returned per page (1–50).',
 		}),
@@ -48,6 +71,41 @@ export function ApiGetYoutubeVideos() {
 			example: 'CAUQAA',
 		}),
 		ApiResponse({ status: 200, description: 'OK', type: YoutubeVideosOutModel }),
+	)
+}
+
+export function ApiGetSavedYoutubeVideos() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Get saved YouTube videos with filters',
+			description:
+				'Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. ' +
+				'Results are sorted by learnability score (highest first).',
+		}),
+		ApiQuery({
+			name: 'maxDurationSec',
+			...getApiPropertyOptions(bdConfig.Video.dbFields.duration_sec),
+			required: false,
+		}),
+		ApiQuery({
+			name: 'minDurationSec',
+			...getApiPropertyOptions(bdConfig.Video.dbFields.duration_sec),
+			required: false,
+		}),
+		ApiQuery({
+			name: 'proficiencyLevel',
+			...getApiPropertyOptions(bdConfig.Video.dbFields.proficiency_level),
+		}),
+		ApiQuery({
+			name: 'topic',
+			...getApiPropertyOptions(bdConfig.Video.dbFields.topic),
+		}),
+		ApiQuery({
+			name: 'languageCode',
+			...getApiPropertyOptions(bdConfig.Video.dbFields.source_language_code),
+			required: false,
+		}),
+		ApiResponse({ status: 200, description: 'OK', type: [VideoLiteOutModel] }),
 	)
 }
 

@@ -13,6 +13,7 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
 import { CreateVideoOutModel } from 'models/video/createVideo.out.model'
 
 export type CreatePrivateVideoInput = {
@@ -20,6 +21,7 @@ export type CreatePrivateVideoInput = {
 	originalContent?: null | string
 	fileSizeMb?: number
 	languageCode: Language
+	durationSec: number
 }
 
 export class CreatePrivateVideoCommand implements ICommand {
@@ -39,8 +41,9 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
 		private dbRepository: DBRepository,
 		mainConfig: MainConfigService,
+		subtitlesService: SubtitlesService,
 	) {
-		super(mainConfig)
+		super(mainConfig, subtitlesService)
 	}
 
 	async execute(command: CreatePrivateVideoCommand): Promise<CreateVideoOutModel> {
@@ -73,6 +76,7 @@ export class CreatePrivateVideoHandler extends VideoBase implements ICommandHand
 					processedContent: preparedContentResult.processedContentForVideoUpdate,
 					contentType: preparedContentResult.contentTypeForVideoUpdate,
 					fileSizeMb: createVideoInput.fileSizeMb,
+					durationSec: createVideoInput.durationSec,
 				})
 
 				if (!newVideo) {

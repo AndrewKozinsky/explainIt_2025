@@ -1,18 +1,18 @@
 import { Injectable } from '@nestjs/common'
-import { AIProviderName } from 'types/AIModels'
+import { AIProviderName, getProviderFromModel, DEFAULT_AI_MODEL } from 'types/AIModels'
 import { ChatGptLlmProvider } from './ChatGptLlmProvider.service'
 import { DeepSeekLlmProvider } from './DeepSeekLlmProvider.service'
 import { GeminiLlmProvider } from './GeminiLlmProvider.service'
-import { LlmGenerateOutput, LlmGenerateWithProvider, LlmProvider, LlmStreamWithProvider } from './LlmProvider.interface'
+import { LlmGenerateInput, LlmGenerateOutput, LlmProvider, LlmStreamInput } from './LlmProvider.interface'
 
 /**
  * Единый фасад для вызова любого LLM-провайдера.
  *
- * Использование:
- *   llmAdapter.generate({ provider: 'chatgpt', messages: [...] })
- *   llmAdapter.stream({ provider: 'gemini', messages: [...] })
+ * Провайдер определяется из model (enum). Если model не указана — по умолчанию DeepSeek.
  *
- * Сам выбирает нужный адаптер и делегирует ему вызов.
+ * Использование:
+ *   llmAdapter.generate({ model: OpenAIModels.Standard, messages: [...] })
+ *   llmAdapter.generate({ messages: [...] })  // DeepSeek по умолчанию
  */
 @Injectable()
 export class LlmAdapterService {
@@ -26,12 +26,14 @@ export class LlmAdapterService {
 		}
 	}
 
-	async generate(input: LlmGenerateWithProvider): Promise<LlmGenerateOutput> {
-		return this.providerMap[input.provider].generate(input)
+	async generate(input: LlmGenerateInput): Promise<LlmGenerateOutput> {
+		const provider = getProviderFromModel(input.model ?? DEFAULT_AI_MODEL)
+		return this.providerMap[provider].generate(input)
 	}
 
-	async *stream(input: LlmStreamWithProvider): AsyncGenerator<string, void, void> {
-		for await (const chunk of this.providerMap[input.provider].stream(input)) {
+	async *stream(input: LlmStreamInput): AsyncGenerator<string, void, void> {
+		const provider = getProviderFromModel(input.model ?? DEFAULT_AI_MODEL)
+		for await (const chunk of this.providerMap[provider].stream(input)) {
 			yield chunk
 		}
 	}

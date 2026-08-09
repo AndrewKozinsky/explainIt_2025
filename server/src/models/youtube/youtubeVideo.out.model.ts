@@ -23,8 +23,8 @@ export class YoutubeVideoOutModel {
 	@ApiProperty({ description: 'View count', example: 1542000 })
 	viewCount: number
 
-	@ApiProperty({ description: 'Video duration in ISO 8601 format', example: 'PT2M30S' })
-	duration: string
+	@ApiProperty({ description: 'Video duration in seconds', example: 150 })
+	durationSec: number
 }
 
 export class YoutubeVideosOutModel {

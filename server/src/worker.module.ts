@@ -9,6 +9,8 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPh
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
+import { S3SubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/S3SubtitlesStrategy'
+import { YoutubeSubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/YoutubeSubtitlesStrategy'
 import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
 import { UpdateVideoHandler } from 'features/video/UpdateVideo.command'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
@@ -21,6 +23,7 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
+import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 
 /**
@@ -45,6 +48,7 @@ import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 		LlmProviderModule,
 		CloudRuS3Module,
 		DeepgramSttModule,
+		SubtitlesModule,
 		BullModule.forRootAsync({
 			imports: [MainConfigModule],
 			inject: [MainConfigService],
@@ -65,6 +69,8 @@ import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 		SubtitleSentenceInitRepository,
 		UpdateVideoHandler,
 		YoutubeService,
+		S3SubtitlesStrategy,
+		YoutubeSubtitlesStrategy,
 		SubtitlesGenerationProcessor,
 	],
 })

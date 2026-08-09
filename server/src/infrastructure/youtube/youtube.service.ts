@@ -1,6 +1,7 @@
 import { Readable } from 'stream'
 import { Injectable } from '@nestjs/common'
 import axios from 'axios'
+import { parseIso8601Duration } from 'utils/parseIso8601Duration'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -48,7 +49,7 @@ export class YoutubeService {
 				details.snippet.thumbnails.default?.url ??
 				'',
 			viewCount: details.statistics.viewCount ? Number(details.statistics.viewCount) : 0,
-			duration: details.contentDetails.duration ?? '',
+			durationSec: parseIso8601Duration(details.contentDetails.duration ?? '') ?? 0,
 			defaultAudioLanguage: details.snippet.defaultAudioLanguage ?? null,
 			ratio: `${details.player?.embedWidth ?? 1280} / ${details.player?.embedHeight ?? 720}`,
 		}
@@ -192,7 +193,7 @@ export class YoutubeService {
 					snippet.thumbnails.default?.url ??
 					'',
 				viewCount: details?.statistics.viewCount ? Number(details.statistics.viewCount) : 0,
-				duration: details?.contentDetails.duration ?? '',
+				durationSec: parseIso8601Duration(details?.contentDetails.duration ?? '') ?? 0,
 				defaultAudioLanguage: details?.snippet.defaultAudioLanguage ?? null,
 				ratio: `${details?.player?.embedWidth ?? 1280} / ${details?.player?.embedHeight ?? 720}`,
 			}

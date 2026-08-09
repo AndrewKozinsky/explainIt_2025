@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { SentenceChatApi } from '@/entites/sentenceChat/repository/SentenceChatApi'
+import { SentenceChatApi } from '@/entities/sentenceChat/repository/SentenceChatApi'
 import { useSentenceChatStore } from '../../sentenceChatStore'
 import { ChatMessageStatus } from '../../types/sseTypes'
 

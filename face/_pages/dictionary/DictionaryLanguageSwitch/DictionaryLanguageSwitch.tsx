@@ -1,16 +1,14 @@
 'use client'
 
-import React, { useEffect, useMemo } from 'react'
-import { LanguagesService } from '@/entites/languages/LanguagesService'
-import { LanguagesApi } from '@/entites/languages/repository/LanguagesApi'
+import React, { useEffect } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { languageQueries } from '@/entities/languages/LanguagesQueryFacade'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
-import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
 import { LanguageCode } from '@/shared/utils/languages'
 import { useDictionaryStore } from '../dictionaryStore'
 
 function DictionaryLanguageSwitch() {
-	const service = useMemo(() => new LanguagesService(new LanguagesApi()), [])
-	const { data } = useFetchData(() => service.getLanguages(), [service])
+	const { data } = useQuery(languageQueries.getLanguages())
 
 	const currentLang = useDictionaryStore((state) => state.currentLang)
 	const setCurrentLang = useDictionaryStore((state) => state.setCurrentLang)

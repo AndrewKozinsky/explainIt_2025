@@ -17,6 +17,6 @@ export interface GetOrCreateUniversalPhraseTranslationInput {
   /** Language code of the book or video */
   sourceLanguageCode?: string | null;
   targetLanguageCode: string;
-  /** LLM provider name */
-  provider?: string | null;
+  /** LLM model (enum). Если не указана — DeepSeek по умолчанию. */
+  model?: string | null;
 }

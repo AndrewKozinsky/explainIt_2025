@@ -38,7 +38,13 @@ export class CreateYoutubeVideoHandler implements ICommandHandler<CreateYoutubeV
 		const languageCode = this.resolveLanguageCode(youTubeData.defaultAudioLanguage)
 
 		// 4. Create video (handles race with parallel requests)
-		const created = await this.createVideoSafe(command.videoId, youTubeData.title, languageCode)
+		const created = await this.createVideoSafe(
+			command.videoId,
+			youTubeData.title,
+			languageCode,
+			youTubeData.durationSec,
+			youTubeData.thumbnailUrl,
+		)
 
 		// 5. Enqueue subtitles fetching (do NOT block response)
 		try {
@@ -69,13 +75,21 @@ export class CreateYoutubeVideoHandler implements ICommandHandler<CreateYoutubeV
 	 * Creates a video record. If a parallel request already created it
 	 * (P2002 unique constraint on youtube_video_id), returns the existing row.
 	 */
-	private async createVideoSafe(videoId: string, title: string, languageCode: LanguageCode): Promise<{ id: number }> {
+	private async createVideoSafe(
+		videoId: string,
+		title: string,
+		languageCode: LanguageCode,
+		durationSec: number,
+		coverUrl: string,
+	): Promise<{ id: number }> {
 		try {
 			return await this.videoRepository.createVideo({
 				type: 'public',
 				name: title,
 				sourceLanguageCode: languageCode,
 				youtubeVideoId: videoId,
+				durationSec,
+				coverUrl,
 				subtitlesSource: 'youTube',
 				subtitlesStatus: 'pending',
 			})

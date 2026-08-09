@@ -1,5 +1,5 @@
-import { bookConfig } from '@/entites/books/lib/bookConfig'
-import { BookChapterModel } from '@/entites/chapter/repository/ChaptersRepository'
+import { bookConfig } from '@/entities/book/lib/bookConfig'
+import { BookChapterModel } from '@/entities/chapter/repository/ChaptersRepository'
 
 export function getHeaderAndSubHeader(chapterData: BookChapterModel) {
 	return {

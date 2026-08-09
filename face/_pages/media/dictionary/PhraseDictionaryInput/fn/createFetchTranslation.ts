@@ -1,29 +1,26 @@
-import type { PhraseTranslationRepository } from '@/entites/phraseTranslation/repository/PhraseTranslationRepository'
-import { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseStore } from '@/stores/phraseStore'
-import { makeCacheKey, usePhraseDictionaryStore } from '../../phraseDictionaryStore'
-import { isAbortError } from './isAbortError'
+import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
+import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
+import type { LanguageCode } from '@/shared/utils/languages'
+import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 
 type FetchTranslationDeps = {
 	/** Getter — всегда возвращает актуальный sourceLanguageCode */
-	getSourceLang: () => string
+	getSourceLang: () => LanguageCode
 	/** Getter — всегда возвращает актуальный targetLanguageCode (locale) */
 	getTargetLang: () => string
-	/** Репозиторий переводов */
-	translationRepository: PhraseTranslationRepository
 	/** Getter — всегда возвращает актуальный AbortSignal */
 	getAbortSignal: () => AbortSignal | undefined
 }
 
 /**
  * Создаёт функцию `fetchTranslation`, которая:
- * 1. Проверяет кэш
- * 2. Получает/создаёт UniversalPhrase через resolvePhrase
- * 3. Запрашивает перевод через репозиторий
+ * 1. Проверяет кэш UniversalPhraseService
+ * 2. Получает/создаёт UniversalPhrase через universalPhraseService.getPhrase
+ * 3. Запрашивает перевод через universalPhraseService.getTranslation
  * 4. Обрабатывает результат: перевод / несуществующее слово / ошибка
  */
 export function createFetchTranslation(deps: FetchTranslationDeps) {
-	const { getSourceLang, getTargetLang, translationRepository, getAbortSignal } = deps
+	const { getSourceLang, getTargetLang, getAbortSignal } = deps
 
 	return async function fetchTranslation(phraseText: string): Promise<void> {
 		const sourceLang = getSourceLang()
@@ -31,74 +28,68 @@ export function createFetchTranslation(deps: FetchTranslationDeps) {
 
 		if (!sourceLang || !phraseText.trim()) return
 
-		const cacheKey = makeCacheKey(phraseText.trim(), sourceLang, targetLang)
-
-		// Проверяем кэш перевода
-		const cached = usePhraseDictionaryStore.getState().getCachedTranslation(cacheKey)
-		if (cached) {
-			usePhraseDictionaryStore.getState().setTranslationResult(cached, null, null)
+		// Проверяем кэш UniversalPhraseService
+		const phraseEntry = universalPhraseService.getState(phraseText.trim(), sourceLang)
+		const cachedTranslation = phraseEntry?.translations[targetLang]
+		if (cachedTranslation?.status === 'ready' && cachedTranslation.data) {
+			usePhraseDictionaryStore.getState().setTranslationResult(cachedTranslation.data, null, null)
 			return
 		}
 
 		usePhraseDictionaryStore.getState().setStatusLoading()
 
 		try {
-			// 1. Получаем или создаём UniversalPhrase (стор сам кэширует и дедуплицирует)
-			const phraseResult = await usePhraseStore
-				.getState()
-				.resolvePhrase(phraseText.trim(), sourceLang as LanguageCode)
+			// 1. Получаем или создаём UniversalPhrase (сервис сам кэширует и дедуплицирует)
+			const phraseResult = await universalPhraseService.getPhrase(phraseText.trim(), sourceLang)
 
 			if (!phraseResult.ok) {
-				usePhraseDictionaryStore.getState().setError('Не удалось найти или создать фразу.')
+				usePhraseDictionaryStore.getState().setError(phraseResult.errorMessage)
 				return
 			}
 
 			const phraseData = phraseResult.data
 
-			// 2. Запрашиваем перевод по universalPhraseId через репозиторий
-			const result = await translationRepository.getOrCreateTranslation(
-				{
-					universalPhraseId: phraseData.id,
-					targetLanguageCode: targetLang,
-					provider: 'deepseek',
-				},
+			// 2. Запрашиваем перевод через сервис
+			const translationResult = await universalPhraseService.getTranslation(
+				phraseText.trim(),
+				sourceLang,
+				targetLang,
 				getAbortSignal(),
 			)
 
-			if (result.error || result.errors) {
-				usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
+			if (!translationResult.ok) {
+				// Сервис возвращает ошибку в том числе для nonExistentWord
+				// Проверяем состояние entry чтобы различить nonExistentWord
+				const entry = universalPhraseService.getState(phraseText.trim(), sourceLang)
+				const translationEntry = entry?.translations[targetLang]
+
+				if (translationEntry?.errorMessage === 'Слово не найдено.') {
+					usePhraseDictionaryStore.getState().setNonExistentWord()
+					return
+				}
+
+				usePhraseDictionaryStore.getState().setError(translationResult.errorMessage)
 				return
 			}
 
-			const translation = result.data
+			const translationData = translationResult.data
 
-			if (!translation) {
-				usePhraseDictionaryStore.getState().setError('Неизвестная ошибка сервера.')
-				return
-			}
+			// Транскрипция и озвучка могли прийти вместе с ответами — читаем из кеша сервиса
+			const entry = universalPhraseService.getState(phraseText.trim(), sourceLang)
+			const transcriptionFromEntry = entry?.transcription ?? null
+			const audioUrl = phraseData.audioPronunciation?.audioUrl ?? null
 
-			if (translation.status === 'error' || translation.errorMessage) {
-				usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
-				return
-			}
+			const transcriptionModel =
+				transcriptionFromEntry !== null
+					? {
+							id: 0,
+							universalPhraseId: phraseData.id,
+							ipa: transcriptionFromEntry.ipa,
+							pinyin: transcriptionFromEntry.pinyin,
+						}
+					: null
 
-			if (translation.nonExistentWord) {
-				usePhraseDictionaryStore.getState().setNonExistentWord()
-				return
-			}
-
-			if (translation.translation) {
-				usePhraseDictionaryStore.getState().setCachedTranslation(cacheKey, translation.translation)
-				usePhraseDictionaryStore
-					.getState()
-					.setTranslationResult(
-						translation.translation,
-						translation.transcription ?? null,
-						phraseData.audioPronunciation?.audioUrl ?? null,
-					)
-			} else {
-				usePhraseDictionaryStore.getState().setError('Перевод не был получен.')
-			}
+			usePhraseDictionaryStore.getState().setTranslationResult(translationData, transcriptionModel, audioUrl)
 		} catch (error: unknown) {
 			if (isAbortError(error)) return
 			usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')

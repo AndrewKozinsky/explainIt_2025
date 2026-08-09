@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import type { UserModel } from '@/entites/auth/repository/AuthRepository'
+import type { UserModel } from '@/entities/auth/repository/AuthRepository'
 
 /** Must match getAuthControllerGetMeQueryKey() from generated/auth/auth.ts */
 const getMeQueryKey = ['/api/auth/me'] as const

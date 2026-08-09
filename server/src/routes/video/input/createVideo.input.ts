@@ -14,6 +14,9 @@ export class CreateVideoInput {
 	})
 	fileSizeMb?: number
 
+	@DtoFieldDecorators('durationSec', bdConfig.Video.dbFields.duration_sec)
+	durationSec: number
+
 	@DtoFieldDecorators('fileDurationSec', bdConfig.Video.dbFields.file_duration_sec, {
 		required: false,
 	})

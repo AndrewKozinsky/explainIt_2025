@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import type { TranscriptionModel } from '@/entites/phrase/repository/PhraseRepository'
-import type { PhraseTranslationDataModel } from '@/entites/phraseTranslation/repository/PhraseTranslationRepository'
+import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
+import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 // import { LlmProvider } from '_pages/media/sentenceChat/sentenceChatStore'
 
 export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
@@ -12,9 +12,7 @@ export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	error: null,
 	nonExistentWord: false,
 	sourceLanguageCode: null,
-	// targetLanguageCode: 'ru',
 	// provider: 'deepseek',
-	cache: {},
 	retryTrigger: 0,
 }
 
@@ -43,14 +41,6 @@ export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set
 		setStatusLoading: () => {
 			set({ status: 'loading', error: null, nonExistentWord: false })
 		},
-		getCachedTranslation: (key: string): null | PhraseTranslationDataModel => {
-			return get().cache[key] || null
-		},
-		setCachedTranslation: (key: string, translation: PhraseTranslationDataModel) => {
-			set((state) => ({
-				cache: { ...state.cache, [key]: translation },
-			}))
-		},
 		triggerRetry: () => {
 			set({ retryTrigger: get().retryTrigger + 1 })
 		},
@@ -59,10 +49,6 @@ export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set
 		},*/
 	}
 })
-
-export function makeCacheKey(text: string, sourceLang: string, targetLang: string): string {
-	return `${text}:${sourceLang}:${targetLang}`
-}
 
 export type TranslationStatus = 'idle' | 'loading' | 'ready' | 'error'
 
@@ -77,9 +63,7 @@ export type PhraseDictionaryStoreValues = {
 	error: null | string
 	nonExistentWord: boolean
 	sourceLanguageCode: null | string
-	// targetLanguageCode: string
 	// provider: LlmProvider
-	cache: Record<string, PhraseTranslationDataModel>
 	retryTrigger: number
 }
 
@@ -94,8 +78,5 @@ export type PhraseDictionaryStoreMethods = {
 	setError: (error: string) => void
 	setNonExistentWord: () => void
 	setStatusLoading: () => void
-	getCachedTranslation: (key: string) => null | PhraseTranslationDataModel
-	setCachedTranslation: (key: string, translation: PhraseTranslationDataModel) => void
 	triggerRetry: () => void
-	// reset: () => void
 }

@@ -90,22 +90,22 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: wizardOfOzBookData(s3FolderName + 'english/'),
 				chapters: wizardOfOzChapters,
 			},
-			/*{
+			{
 				book: solomonMinesBookData(s3FolderName + 'english/'),
 				chapters: solomonMinesChapters,
-			},*/
-			/*{
+			},
+			{
 				book: oliverTwistBookData(s3FolderName + 'english/'),
 				chapters: oliverTwistChapters,
-			},*/
-			/*{
+			},
+			{
 				book: aStudyInScarletPartOneBookData(s3FolderName + 'english/'),
 				chapters: aStudyInScarletPartOneChapters,
-			},*/
-			/*{
+			},
+			{
 				book: aStudyInScarletPartTwoBookData(s3FolderName + 'english/'),
 				chapters: aStudyInScarletPartTwoChapters,
-			},*/
+			},
 			/*{
 				book: secretCluesBookData(s3FolderName + 'english/'),
 				chapters: secretCluesChapters,
@@ -115,41 +115,41 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: littleRedRidingHoodBookData(s3FolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
 			},
-			/*{
+			{
 				book: theTransformationBookData(s3FolderName + 'german/'),
 				chapters: theTransformationChapters,
-			},*/
-			/*{
+			},
+			{
 				book: processBookData(s3FolderName + 'german/'),
 				chapters: processChapters,
-			},*/
+			},
 			// Spanish
 			{
 				book: jungleTalesBookData(s3FolderName + 'spanish/'),
 				chapters: jungleTalesChapters,
 			},
-			/*{
+			{
 				book: donQuixoteBookData(s3FolderName + 'spanish/'),
 				chapters: donQuixoteChapters,
-			},*/
+			},
 			// French
 			{
 				book: theLittlePrinceBookData(s3FolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
 			},
-			/*{
+			{
 				book: theCountOfMonteCristoBookData(s3FolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
-			},*/
+			},
 			// Italian
 			{
 				book: heartBookData(s3FolderName + 'italian/'),
 				chapters: heartChapters,
 			},
-			/*{
+			{
 				book: pinocchioBookData(s3FolderName + 'italian/'),
 				chapters: pinocchioChapters,
-			},*/
+			},
 			// Turkish
 			{
 				book: nasreddinHodjaStoriesBookData(s3FolderName + 'turkish/'),

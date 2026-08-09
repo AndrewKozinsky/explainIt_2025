@@ -1,14 +1,14 @@
 'use client'
 
 import { useState, useMemo, useCallback } from 'react'
-import { EditPrivateBookAndChapters } from '@/entites/book/ui/EditPrivateBookAndChapters/EditPrivateBookAndChapters'
-import { BooksService } from '@/entites/books/BooksService'
-import { BooksApi } from '@/entites/books/repository/BooksApi'
-import type { BookModel } from '@/entites/books/repository/BooksRepository'
-import { ChaptersService } from '@/entites/chapter/ChaptersService'
-import { ChaptersApi } from '@/entites/chapter/repository/ChaptersApi'
-import ChaptersList from '@/entites/media/ui/ChaptersList/ChaptersList'
-import MediaContentWrapper from '@/entites/media/ui/MediaContentWrapper/MediaContentWrapper'
+import { BooksService } from '@/entities/book/BooksService'
+import { BooksApi } from '@/entities/book/repository/BooksApi'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import { EditPrivateBookAndChapters } from '@/entities/book/ui/EditPrivateBookAndChapters/EditPrivateBookAndChapters'
+import { ChaptersService } from '@/entities/chapter/ChaptersService'
+import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
+import ChaptersList from '@/entities/media/ui/ChaptersList/ChaptersList'
+import MediaContentWrapper from '@/entities/media/ui/MediaContentWrapper/MediaContentWrapper'
 import { getBookChaptersLinksConfig } from './fn/getBookChaptersLinksConfig'
 
 type PrivateBookPartProps = {

@@ -18,10 +18,10 @@ export interface CreateBookInput {
      */
   name?: string | null;
   /**
-     * Note about the book
+     * Text about the book
      * @maxLength 2000
      */
-  note?: string | null;
+  about?: string | null;
   /** Language code of the book */
   languageCode: string;
 }

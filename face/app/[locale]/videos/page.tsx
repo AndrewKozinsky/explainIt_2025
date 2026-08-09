@@ -1,4 +1,4 @@
-import VideosPage from '_pages/media/videos/VideosPage/VideosPage'
+import VideosPage from '@/entities/video/ui/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
 
 export default async function Page() {
 	return <VideosPage />

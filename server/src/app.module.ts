@@ -34,6 +34,7 @@ import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { QueuesModule } from 'infrastructure/queues/queues.module'
 import { RedisModule } from 'infrastructure/redis/redis.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
+import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 import { TelegramModule } from 'infrastructure/telegram/telegram.module'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
 // import { YandexDictionaryModule } from 'infrastructure/yandexDictionary/yandexDictionary.module'
@@ -54,6 +55,7 @@ import { YoutubeModule } from 'infrastructure/youtube/youtube.module'
 		OpenAIModule,
 		DeepSeekModule,
 		DeepgramSttModule,
+		SubtitlesModule,
 		GoogleGeminiModule,
 		GoogleTtsModule,
 		CloudRuS3Module,

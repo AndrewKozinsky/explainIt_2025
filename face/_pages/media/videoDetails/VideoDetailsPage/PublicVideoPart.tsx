@@ -1,5 +1,5 @@
-import MediaFullInfoContent from '@/entites/media/ui/MediaFullInfoContent/MediaFullInfoContent'
-import { VideoLiteModel } from '@/entites/videos/repository/VideosRepository'
+import MediaFullInfoContent from '@/entities/media/ui/MediaFullInfoContent/MediaFullInfoContent'
+import { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
 import { pageUrls } from '@/shared/utils/pageUrls'
 
 type PublicVideoPartProps = {
@@ -16,7 +16,7 @@ function PublicVideoPart(props: PublicVideoPartProps) {
 	return (
 		<MediaFullInfoContent
 			firstChapterUrl={pageUrls.videos.video(video.id).path}
-			textContent={video.note}
+			textContent={video.about}
 			coverUrl={video.coverUrl}
 			actionButtonLabel='Смотреть'
 		/>

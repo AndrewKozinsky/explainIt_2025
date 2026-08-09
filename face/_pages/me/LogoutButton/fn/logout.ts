@@ -3,8 +3,8 @@
 import { useMemo, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { AuthService } from '@/entites/auth/AuthService'
-import { AuthApi } from '@/entites/auth/repository/AuthApi'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
 import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 

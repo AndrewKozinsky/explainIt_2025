@@ -5,50 +5,6 @@ import { TranscriptionOutModel } from 'models/transcription/transcription.out.mo
 
 const $ = bdConfig.UniversalPhraseTranslation.dbFields
 
-export class TranslationExampleOutModel {
-	@ApiProperty({ description: 'Example sentence in target language', type: String })
-	sentence: string
-
-	@ApiProperty({ description: 'Translation of the example sentence', type: String })
-	translate: string
-}
-
-export class UsageGroupOutModel {
-	@ApiProperty({ description: 'Usage group title', type: String })
-	title: string
-
-	@ApiProperty({ description: 'Explanation of the usage group', type: String })
-	explain: string
-
-	@ApiProperty({ description: 'Examples for this usage group', type: [TranslationExampleOutModel] })
-	examples: TranslationExampleOutModel[]
-}
-
-export class PatternItemOutModel {
-	@ApiProperty({ description: 'Pattern phrase', type: String })
-	phrase: string
-
-	@ApiProperty({ description: 'Translation of the pattern', type: String })
-	translate: string
-}
-
-export class UniversalPhraseTranslationDataOutModel {
-	@ApiProperty({ description: 'Core idea of the phrase', type: String })
-	coreIdea: string
-
-	@ApiProperty({ description: 'Usage groups with examples', type: [UsageGroupOutModel] })
-	usageGroups: UsageGroupOutModel[]
-
-	@ApiProperty({ description: 'Similar words or phrases', type: String, nullable: true })
-	similarWords: null | string
-
-	@ApiProperty({ description: 'Common mistakes when using this phrase', type: String, nullable: true })
-	commonMistakes: null | string
-
-	@ApiProperty({ description: 'Grammatical patterns', type: [PatternItemOutModel], nullable: true })
-	patterns: null | PatternItemOutModel[]
-}
-
 export class UniversalPhraseTranslationOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
@@ -60,11 +16,12 @@ export class UniversalPhraseTranslationOutModel {
 	targetLanguageCode: string
 
 	@ApiProperty({
-		description: 'Translation result from LLM',
-		type: UniversalPhraseTranslationDataOutModel,
+		description: 'Translation result from LLM — array of typed blocks',
+		type: 'object',
+		additionalProperties: true,
 		nullable: true,
 	})
-	translation: null | UniversalPhraseTranslationDataOutModel
+	translation: null | object
 
 	@ApiProperty(getApiPropertyOptions($.status))
 	status: string

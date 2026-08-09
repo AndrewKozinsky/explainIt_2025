@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import './Switcher.scss'
+import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 
 export type SwitcherItem = {
 	text: string
@@ -43,11 +44,13 @@ function SwitcherButton(props: SwitcherButtonProps) {
 	const { item } = props
 
 	return (
-		<button
-			className={cn('switcher__button', item.isCurrent && 'switcher__button--current')}
+		<BaseButton
+			extraClass={cn('switcher__button', item.isCurrent && 'switcher__button--current')}
 			onClick={item.onClick}
+			theme='plain'
+			disabled={item.isCurrent}
 		>
 			{item.text}
-		</button>
+		</BaseButton>
 	)
 }

@@ -1,6 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
+import type { ProficiencyLevel } from 'utils/proficiencyLevel'
 
 const $ = bdConfig.Video.dbFields
 const $$ = bdConfig.Video.dtoProps
@@ -21,11 +22,14 @@ export class VideoLiteOutModel {
 	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: string
 
+	@ApiProperty(getApiPropertyOptions($.proficiency_level))
+	proficiencyLevel: null | number
+
 	@ApiProperty(getApiPropertyOptions($.youtube_video_id))
 	youtubeVideoId: null | string
 
-	@ApiProperty(getApiPropertyOptions($.note))
-	note: string | null
+	@ApiProperty(getApiPropertyOptions($.about))
+	about: string | null
 
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
@@ -50,6 +54,9 @@ export class VideoLiteOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.file_size_mb))
 	fileSizeMb: number
+
+	@ApiProperty(getApiPropertyOptions($.duration_sec))
+	durationSec: number
 
 	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
 	fileDurationSec: null | number

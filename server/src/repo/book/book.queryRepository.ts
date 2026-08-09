@@ -76,7 +76,7 @@ export class BookQueryRepository {
 			type: dbBook.type,
 			author: dbBook.author,
 			name: dbBook.name,
-			note: dbBook.note,
+			about: dbBook.about,
 			userId: dbBook.user_id,
 			languageCode: dbBook.source_language_code,
 			coverUrl,

@@ -22,8 +22,8 @@ export class BookOutModel {
 	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: null | string
 
-	@ApiProperty(getApiPropertyOptions($.note))
-	note: null | string
+	@ApiProperty(getApiPropertyOptions($.about))
+	about: null | string
 
 	@ApiProperty(getApiPropertyOptions($.user_id))
 	userId: null | number
@@ -52,6 +52,6 @@ export class BookLiteOutModel {
 	author: null | string
 	name: null | string
 	languageCode: null | string
-	note: null | string
+	about: null | string
 	userId: null | number
 }

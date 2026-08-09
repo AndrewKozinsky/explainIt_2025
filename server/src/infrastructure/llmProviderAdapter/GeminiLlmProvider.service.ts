@@ -6,7 +6,7 @@ import { LlmGenerateInput, LlmGenerateOutput, LlmMessage, LlmProvider, LlmStream
 
 @Injectable()
 export class GeminiLlmProvider implements LlmProvider {
-	readonly name: AIProviderName = 'deepseek'
+	readonly name: AIProviderName = 'gemini'
 
 	constructor(private googleGeminiService: GoogleGeminiService) {}
 
@@ -59,7 +59,7 @@ export class GeminiLlmProvider implements LlmProvider {
 		})
 
 		// Gemini требует непустой contents. Если передали только system-сообщение,
-		// дублируем его как user — повторяет поведение старого TranslateWithGemini.
+		// дублируем его как user.
 		if (contents.length === 0 && systemMessage) {
 			contents = [{ role: 'user', parts: [{ text: systemMessage.content }] }]
 		}

@@ -13,7 +13,7 @@ export function PageWrapper(props: PageWrapperProps) {
 	const { withTop = false, withBottom = false, children } = props
 
 	return (
-		<div className='page-wrapper' data-testid='page-wrapper'>
+		<div className='page-wrapper'>
 			{withTop && (
 				<header className='page-wrapper__top'>
 					<Bar />

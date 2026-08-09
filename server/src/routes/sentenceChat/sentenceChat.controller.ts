@@ -17,7 +17,7 @@ import { CommandBus, QueryBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
 import { Observable } from 'rxjs'
-import { AIProviderName } from 'types/AIModels'
+import { AiModel } from 'types/AIModels'
 import { CreateSentenceChatThreadCommand } from 'features/sentenceChat/CreateSentenceChatThread.command'
 import { CreateSentenceChatUserMessageCommand } from 'features/sentenceChat/CreateSentenceChatUserMessage.command'
 import { GetSentenceChatThreadQuery } from 'features/sentenceChat/GetSentenceChatThread.query'
@@ -93,13 +93,13 @@ export class SentenceChatController {
 	@Sse('threads/:threadId/assistant-stream')
 	streamAssistantReply(
 		@Param('threadId', ParseIntPipe) threadId: number,
-		@Query('provider') provider: AIProviderName,
+		@Query('model') model: AiModel,
 		@Req() request: Request,
 	): Observable<MessageEvent> {
 		return this.streamSentenceChatAssistantCommand.execute({
 			userId: request.user!.id,
 			threadId,
-			provider: provider ?? 'deepseek',
+			model,
 		})
 	}
 }

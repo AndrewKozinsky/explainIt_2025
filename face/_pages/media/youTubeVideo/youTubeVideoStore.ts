@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { PlayerCommand } from '@/entites/players/VideoPlayer/fn/types'
+import type { PlayerCommand } from '@/entities/players/VideoPlayer/fn/types'
 
 type YouTubeVideoStoreValues = {
 	player: {

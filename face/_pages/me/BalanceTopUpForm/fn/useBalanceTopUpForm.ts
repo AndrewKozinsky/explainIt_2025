@@ -1,8 +1,8 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { PaymentService } from '@/entites/payment/PaymentService'
-import { PaymentApi } from '@/entites/payment/repository/PaymentApi'
+import { PaymentService } from '@/entities/payment/PaymentService'
+import { PaymentApi } from '@/entities/payment/repository/PaymentApi'
 import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
 const RUBLES_TO_KOPECKS = 100

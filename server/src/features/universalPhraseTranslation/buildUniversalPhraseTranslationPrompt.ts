@@ -8,7 +8,8 @@ type BuildUniversalPhraseTranslationPromptInput = {
 
 /**
  * Строит промпт для перевода и объяснения фразы через LLM.
- * Адаптирует язык учителя и ученика под переданную языковую пару.
+ * LLM получает набор типизированных блоков и семантические гайдлайны —
+ * она сама решает, какие блоки использовать для конкретного слова.
  */
 export function buildUniversalPhraseTranslationPrompt(input: BuildUniversalPhraseTranslationPromptInput): string {
 	const sourceLanguage = languages[input.sourceLanguageCode].nameEng
@@ -18,8 +19,8 @@ export function buildUniversalPhraseTranslationPrompt(input: BuildUniversalPhras
 
 The goal is not just to give a translation, but to help the user feel how the word/phrase is used in ${sourceLanguage}. Write clearly, without academic style. Examples should be natural, modern, and useful for a ${sourceLanguage} learner.
 
-Return only valid JSON. Do not use Markdown blocks like \`\`\`json.
-Do not add any text outside the JSON.
+Return only a valid JSON array of blocks. Do not use Markdown blocks like \`\`\`json.
+Do not add any text outside the JSON array.
 All keys and strings must be in double quotes.
 Do not include transcription, pronunciation guides, or phonetic notation in any form.
 Do not use IPA, pinyin, or any other transcription systems.
@@ -28,44 +29,89 @@ If the word/phrase "${input.phrase}" does NOT exist in ${sourceLanguage} (it is 
 
 {"nonExistentWord": true}
 
-If the word/phrase DOES exist, return the following structure:
+If the word/phrase DOES exist, return an array of blocks: [{...}, {...}, ...]
 
+The root of the response is a JSON array — any block type can appear at the top level.
+
+Available block types:
+
+---
+
+**block** — A titled section.
+Use for major topics: core idea, similar words, common mistakes, patterns, etc.
 {
-  "coreIdea": string,
-  "usageGroups": [
-    {
-      "title": string,
-      "explain": string,
-      "examples": [
-        {
-          "sentence": string,
-          "translate": string
-        }
-      ]
-    }
-  ],
-  "similarWords": null || string,
-  "commonMistakes": null || string,
-  "patterns": null || [
-    {
-      "phrase": string,
-      "translate": string
-    }
-  ]
+  "type": "block",
+  "header": "Section title",
+  "children": [...]  // any blocks — text, useCase, paper, example, phrasesButtons, etc.
 }
 
-Rules:
+---
 
-coreIdea — information that gives the key to understanding the main idea and purpose of the word/phrase. If the word translates obviously — one line with translation and essence. If the word has a nuance that doesn't exist in ${targetLanguage}, or it's easy to confuse — explain in more detail. Markdown is allowed.
+**useCase** — A single usage scenario or meaning of the word.
+Use when the word has distinct meanings or usage scenarios. Each useCase captures one scenario. The header names the scenario (e.g. "Процесс употребления жидкости", "Употребление алкоголя").
+Typical children: a text block explaining this scenario, then a paper block wrapping example blocks.
+If the word has only one meaning — use 1 useCase. If multiple — 1 useCase per meaning.
+{
+  "type": "useCase",
+  "header": "Scenario name",
+  "children": [...]
+}
 
-usageGroups — array of main usage scenarios. If the word has no really different usages, create only one usageGroup. In each usageGroup:
-title — name of the usage scenario.
-explain — explanation revealing the usage scenario of the word.
-examples — array of examples revealing the usage scenario.
+---
 
-similarWords — fill in if similar words help understand nuance, frequency, style, or usage boundaries. Otherwise return null. Markdown is allowed.
+**paper** — A visual card wrapper. Does not add semantic meaning — purely for visual grouping.
+Use to wrap examples inside a useCase, or to highlight important information.
+{
+  "type": "paper",
+  "children": [...]
+}
 
-commonMistakes — fill in if there are typical or important mistakes by ${targetLanguage} speakers. Otherwise return null. Markdown is allowed.
+---
 
-patterns — array of typical constructions with this word. Fill only if it's really necessary to tell about it for understanding the word.`
+**example** — A single example sentence with its translation.
+Use inside a paper block within a useCase. The sentence should use the explained word naturally.
+{
+  "type": "example",
+  "sentence": "Example sentence in ${sourceLanguage}",
+  "translation": "Translation in ${targetLanguage}"
+}
+
+---
+
+**phrasesButtons** — A row of clickable phrase/pattern labels.
+Use for typical constructions, collocations, or patterns with this word (e.g. "be drinking", "go drinking").
+Do NOT include translations in labels — just the phrase/pattern text.
+{
+  "type": "phrasesButtons",
+  "labels": ["phrase1", "phrase2"]
+}
+
+---
+
+**text** — A paragraph of text. Supports Markdown formatting.
+Use for explanations, descriptions, similar words sections, common mistakes sections — any prose content.
+{
+  "type": "text",
+  "text": "Your markdown text here..."
+}
+
+---
+
+Semantic guidelines — YOU decide the structure based on the word:
+
+- Explain the core idea. If the word translates obviously — a short text block. If there's a nuance that doesn't exist in ${targetLanguage}, or the word is easily confused — explain in more detail. Use a text block (optionally wrapped in a block with a relevant header).
+
+- If the word has one or more distinct usage scenarios — create useCase blocks. Each useCase should contain:
+  * A text block explaining this particular usage scenario
+  * A paper block wrapping one or more example blocks
+
+- Add a block with header about similar words ONLY if similar words help explain nuance, frequency, style, or boundaries. Use a text block inside.
+
+- Add a block with header about common mistakes ONLY if there are typical or important mistakes by ${targetLanguage}-speaking users. Use a text block inside.
+
+- Add phrasesButtons for typical constructions or patterns ONLY if they are genuinely useful for understanding and using the word.
+
+- Do NOT include sections that aren't needed. If the word is simple and has no common mistakes or similar words — skip those sections.
+
+- Never use transcription, pronunciation guides, IPA, pinyin, or any phonetic notation in any form.`
 }

@@ -1,5 +1,5 @@
-import type { BookModel } from '@/entites/books/repository/BooksRepository'
-import type { BookChapterModel } from '@/entites/chapter/repository/ChaptersRepository'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import type { BookChapterModel } from '@/entities/chapter/repository/ChaptersRepository'
 import { pageUrls } from '@/shared/utils/pageUrls'
 
 export function getMediaNavigationData(book: BookModel, chapter: BookChapterModel) {

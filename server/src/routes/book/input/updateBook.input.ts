@@ -14,8 +14,8 @@ export class UpdateBookInput {
 	})
 	languageCode?: null | Language
 
-	@DtoFieldDecorators('note', bdConfig.Book.dbFields.note)
-	note?: null | string
+	@DtoFieldDecorators('note', bdConfig.Book.dbFields.about)
+	about?: null | string
 
 	@DtoFieldDecorators('coverFileName', bdConfig.Book.dtoProps.coverFileName)
 	coverFileName?: null | string

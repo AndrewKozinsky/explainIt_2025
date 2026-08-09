@@ -1,4 +1,4 @@
-import { useDetailsStore } from '@/entites/detailsBlock/detailsStore'
+import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
 import DictionaryPhraseTranscription from '../DictionaryPhraseTranscription/DictionaryPhraseTranscription'
 import PhraseDictionaryError from '../PhraseDictionaryError/PhraseDictionaryError'
 import PhraseDictionaryInput from '../PhraseDictionaryInput/PhraseDictionaryInput'

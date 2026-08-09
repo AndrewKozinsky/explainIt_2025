@@ -85,7 +85,6 @@ export class GetOrCreateUniversalPhraseTranscriptionHandler implements ICommandH
 		const userPrompt = `Provide the IPA transcription for the word "${word}" in language "${languageCode}".`
 
 		const response = await this.llmAdapter.generate({
-			provider: 'deepseek',
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: userPrompt },

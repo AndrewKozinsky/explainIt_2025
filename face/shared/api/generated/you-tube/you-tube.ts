@@ -25,8 +25,10 @@ import type {
 } from '@tanstack/react-query';
 
 import type {
+  VideoLiteOutModel,
   VideoOutModel,
-  YoutubeControllerGetVideosParams,
+  YoutubeControllerGetSavedVideosParams,
+  YoutubeControllerGetYouTubeVideosParams,
   YoutubeVideosOutModel
 } from '../models';
 
@@ -52,19 +54,19 @@ const withQueryKey = <T extends object, K>(query: T, queryKey: K): T & { queryKe
   return result;
 };
 
-export type youtubeControllerGetVideosResponse200 = {
+export type youtubeControllerGetYouTubeVideosResponse200 = {
   data: YoutubeVideosOutModel
   status: 200
 }
 
-export type youtubeControllerGetVideosResponseSuccess = (youtubeControllerGetVideosResponse200) & {
+export type youtubeControllerGetYouTubeVideosResponseSuccess = (youtubeControllerGetYouTubeVideosResponse200) & {
   headers: Headers;
 };
 ;
 
-export type youtubeControllerGetVideosResponse = (youtubeControllerGetVideosResponseSuccess)
+export type youtubeControllerGetYouTubeVideosResponse = (youtubeControllerGetYouTubeVideosResponseSuccess)
 
-export const getYoutubeControllerGetVideosUrl = (params: YoutubeControllerGetVideosParams,) => {
+export const getYoutubeControllerGetYouTubeVideosUrl = (params: YoutubeControllerGetYouTubeVideosParams,) => {
   const normalizedParams = new URLSearchParams();
 
   Object.entries(params || {}).forEach(([key, value]) => {
@@ -76,16 +78,16 @@ export const getYoutubeControllerGetVideosUrl = (params: YoutubeControllerGetVid
 
   const stringifiedParams = normalizedParams.toString();
 
-  return stringifiedParams.length > 0 ? `/api/youtube?${stringifiedParams}` : `/api/youtube`
+  return stringifiedParams.length > 0 ? `/api/youtube/search?${stringifiedParams}` : `/api/youtube/search`
 }
 
 /**
- * Returns a paginated list of YouTube videos. Use nextPageToken from the response to fetch the next page. The limit parameter controls how many videos are returned per page (1–50).
- * @summary Get YouTube videos
+ * Returns a paginated list of YouTube videos from YouTube Data API. Use nextPageToken from the response to fetch the next page. The limit parameter controls how many videos are returned per page (1–50).
+ * @summary Search YouTube videos via YouTube Data API
  */
-export const youtubeControllerGetVideos = async (params: YoutubeControllerGetVideosParams, options?: RequestInit): Promise<youtubeControllerGetVideosResponse> => {
+export const youtubeControllerGetYouTubeVideos = async (params: YoutubeControllerGetYouTubeVideosParams, options?: RequestInit): Promise<youtubeControllerGetYouTubeVideosResponse> => {
 
-  return customMutator<youtubeControllerGetVideosResponse>(getYoutubeControllerGetVideosUrl(params),
+  return customMutator<youtubeControllerGetYouTubeVideosResponse>(getYoutubeControllerGetYouTubeVideosUrl(params),
   {
     ...options,
     method: 'GET'
@@ -98,69 +100,302 @@ export const youtubeControllerGetVideos = async (params: YoutubeControllerGetVid
 
 
 
-export const getYoutubeControllerGetVideosQueryKey = (params?: YoutubeControllerGetVideosParams,) => {
+export const getYoutubeControllerGetYouTubeVideosQueryKey = (params?: YoutubeControllerGetYouTubeVideosParams,) => {
     return [
-    `/api/youtube`, ...(params ? [params] : [])
+    `/api/youtube/search`, ...(params ? [params] : [])
     ] as const;
     }
 
 
-export const getYoutubeControllerGetVideosQueryOptions = <TData = Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError = unknown>(params: YoutubeControllerGetVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getYoutubeControllerGetYouTubeVideosQueryOptions = <TData = Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError = unknown>(params: YoutubeControllerGetYouTubeVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getYoutubeControllerGetVideosQueryKey(params);
+  const queryKey =  queryOptions?.queryKey ?? getYoutubeControllerGetYouTubeVideosQueryKey(params);
 
 
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof youtubeControllerGetVideos>>> = ({ signal }) => youtubeControllerGetVideos(params, { signal, ...requestOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>> = ({ signal }) => youtubeControllerGetYouTubeVideos(params, { signal, ...requestOptions });
 
 
 
 
 
-   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
 }
 
-export type YoutubeControllerGetVideosQueryResult = NonNullable<Awaited<ReturnType<typeof youtubeControllerGetVideos>>>
-export type YoutubeControllerGetVideosQueryError = unknown
+export type YoutubeControllerGetYouTubeVideosQueryResult = NonNullable<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>>
+export type YoutubeControllerGetYouTubeVideosQueryError = unknown
 
 
-export function useYoutubeControllerGetVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError = unknown>(
- params: YoutubeControllerGetVideosParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError, TData>> & Pick<
+export function useYoutubeControllerGetYouTubeVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError = unknown>(
+ params: YoutubeControllerGetYouTubeVideosParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
-          Awaited<ReturnType<typeof youtubeControllerGetVideos>>,
+          Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>,
           TError,
-          Awaited<ReturnType<typeof youtubeControllerGetVideos>>
+          Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>
         > , 'initialData'
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useYoutubeControllerGetVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError = unknown>(
- params: YoutubeControllerGetVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError, TData>> & Pick<
+export function useYoutubeControllerGetYouTubeVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError = unknown>(
+ params: YoutubeControllerGetYouTubeVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
-          Awaited<ReturnType<typeof youtubeControllerGetVideos>>,
+          Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>,
           TError,
-          Awaited<ReturnType<typeof youtubeControllerGetVideos>>
+          Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>
         > , 'initialData'
       >, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useYoutubeControllerGetVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError = unknown>(
- params: YoutubeControllerGetVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export function useYoutubeControllerGetYouTubeVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError = unknown>(
+ params: YoutubeControllerGetYouTubeVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
 /**
- * @summary Get YouTube videos
+ * @summary Search YouTube videos via YouTube Data API
  */
 
-export function useYoutubeControllerGetVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError = unknown>(
- params: YoutubeControllerGetVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export function useYoutubeControllerGetYouTubeVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError = unknown>(
+ params: YoutubeControllerGetYouTubeVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetYouTubeVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
 
-  const queryOptions = getYoutubeControllerGetVideosQueryOptions(params,options)
+  const queryOptions = getYoutubeControllerGetYouTubeVideosQueryOptions(params,options)
+
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+
+export type youtubeControllerGetSavedVideosResponse200 = {
+  data: VideoLiteOutModel[]
+  status: 200
+}
+
+export type youtubeControllerGetSavedVideosResponseSuccess = (youtubeControllerGetSavedVideosResponse200) & {
+  headers: Headers;
+};
+;
+
+export type youtubeControllerGetSavedVideosResponse = (youtubeControllerGetSavedVideosResponseSuccess)
+
+export const getYoutubeControllerGetSavedVideosUrl = (params?: YoutubeControllerGetSavedVideosParams,) => {
+  const normalizedParams = new URLSearchParams();
+
+  Object.entries(params || {}).forEach(([key, value]) => {
+
+    if (value !== undefined) {
+      normalizedParams.append(key, value === null ? 'null' : String(value))
+    }
+  });
+
+  const stringifiedParams = normalizedParams.toString();
+
+  return stringifiedParams.length > 0 ? `/api/youtube/saved?${stringifiedParams}` : `/api/youtube/saved`
+}
+
+/**
+ * Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. Results are sorted by learnability score (highest first).
+ * @summary Get saved YouTube videos with filters
+ */
+export const youtubeControllerGetSavedVideos = async (params?: YoutubeControllerGetSavedVideosParams, options?: RequestInit): Promise<youtubeControllerGetSavedVideosResponse> => {
+
+  return customMutator<youtubeControllerGetSavedVideosResponse>(getYoutubeControllerGetSavedVideosUrl(params),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getYoutubeControllerGetSavedVideosQueryKey = (params?: YoutubeControllerGetSavedVideosParams,) => {
+    return [
+    `/api/youtube/saved`, ...(params ? [params] : [])
+    ] as const;
+    }
+
+
+export const getYoutubeControllerGetSavedVideosQueryOptions = <TData = Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError = unknown>(params?: YoutubeControllerGetSavedVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getYoutubeControllerGetSavedVideosQueryKey(params);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>> = ({ signal }) => youtubeControllerGetSavedVideos(params, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+}
+
+export type YoutubeControllerGetSavedVideosQueryResult = NonNullable<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>>
+export type YoutubeControllerGetSavedVideosQueryError = unknown
+
+
+export function useYoutubeControllerGetSavedVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError = unknown>(
+ params: undefined |  YoutubeControllerGetSavedVideosParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>,
+          TError,
+          Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useYoutubeControllerGetSavedVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError = unknown>(
+ params?: YoutubeControllerGetSavedVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>,
+          TError,
+          Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useYoutubeControllerGetSavedVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError = unknown>(
+ params?: YoutubeControllerGetSavedVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+/**
+ * @summary Get saved YouTube videos with filters
+ */
+
+export function useYoutubeControllerGetSavedVideos<TData = Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError = unknown>(
+ params?: YoutubeControllerGetSavedVideosParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetSavedVideos>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
+
+  const queryOptions = getYoutubeControllerGetSavedVideosQueryOptions(params,options)
+
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+
+export type youtubeControllerGetVideoTopicsResponse200 = {
+  data: string[]
+  status: 200
+}
+
+export type youtubeControllerGetVideoTopicsResponseSuccess = (youtubeControllerGetVideoTopicsResponse200) & {
+  headers: Headers;
+};
+;
+
+export type youtubeControllerGetVideoTopicsResponse = (youtubeControllerGetVideoTopicsResponseSuccess)
+
+export const getYoutubeControllerGetVideoTopicsUrl = () => {
+
+
+
+
+  return `/api/youtube/topics`
+}
+
+/**
+ * Returns the fixed list of topic categories used for classifying YouTube videos. These are the same topics returned by the video metadata analysis.
+ * @summary Get the list of video topic categories
+ */
+export const youtubeControllerGetVideoTopics = async ( options?: RequestInit): Promise<youtubeControllerGetVideoTopicsResponse> => {
+
+  return customMutator<youtubeControllerGetVideoTopicsResponse>(getYoutubeControllerGetVideoTopicsUrl(),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getYoutubeControllerGetVideoTopicsQueryKey = () => {
+    return [
+    `/api/youtube/topics`
+    ] as const;
+    }
+
+
+export const getYoutubeControllerGetVideoTopicsQueryOptions = <TData = Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError = unknown>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getYoutubeControllerGetVideoTopicsQueryKey();
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>> = ({ signal }) => youtubeControllerGetVideoTopics({ signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+}
+
+export type YoutubeControllerGetVideoTopicsQueryResult = NonNullable<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>>
+export type YoutubeControllerGetVideoTopicsQueryError = unknown
+
+
+export function useYoutubeControllerGetVideoTopics<TData = Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError = unknown>(
+  options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>,
+          TError,
+          Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useYoutubeControllerGetVideoTopics<TData = Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError = unknown>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>,
+          TError,
+          Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useYoutubeControllerGetVideoTopics<TData = Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError = unknown>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+/**
+ * @summary Get the list of video topic categories
+ */
+
+export function useYoutubeControllerGetVideoTopics<TData = Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError = unknown>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetVideoTopics>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
+
+  const queryOptions = getYoutubeControllerGetVideoTopicsQueryOptions(options)
 
   const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
 

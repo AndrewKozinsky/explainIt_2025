@@ -80,7 +80,7 @@ export const pageUrls = {
 		},
 	},
 	videos: {
-		name: 'Фильмы',
+		name: 'Видео',
 		path: '/videos',
 		video(videoId: string | number, withDetails?: boolean) {
 			const detailsParam = withDetails ? '?details' : ''

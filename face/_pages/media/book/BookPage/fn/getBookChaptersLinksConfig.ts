@@ -1,5 +1,5 @@
-import { bookConfig } from '@/entites/books/lib/bookConfig'
-import { BookModel } from '@/entites/books/repository/BooksRepository'
+import { bookConfig } from '@/entities/book/lib/bookConfig'
+import { BookModel } from '@/entities/book/repository/BooksRepository'
 import { pageUrls } from '@/shared/utils/pageUrls'
 
 export function getBookChaptersLinksConfig(book: BookModel) {

@@ -18,6 +18,9 @@ export class CreateVideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: string
 
+	@ApiProperty(getApiPropertyOptions($.proficiency_level))
+	proficiencyLevel: null | number
+
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
 

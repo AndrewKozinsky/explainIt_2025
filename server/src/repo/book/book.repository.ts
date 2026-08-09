@@ -17,7 +17,7 @@ export class BookRepository {
 		userId?: null | number
 		author?: null | string
 		name?: null | string
-		note?: null | string
+		about?: null | string
 		languageCode: Language
 		coverFileName?: null | string
 		coverFileS3Key?: null | string
@@ -28,7 +28,7 @@ export class BookRepository {
 				author: dto.author,
 				name: dto.name,
 				source_language_code: dto.languageCode,
-				note: dto.note,
+				about: dto.about,
 				user_id: dto.userId ?? null,
 				cover_file_name: dto.coverFileName,
 				cover_file_s3_key: dto.coverFileS3Key,
@@ -47,7 +47,7 @@ export class BookRepository {
 			author?: null | string
 			name?: null | string
 			languageCode?: null | Language
-			note?: null | string
+			about?: null | string
 			coverFileName?: null | string
 			coverFileS3Key?: null | string
 			isCoverFileUploaded?: boolean
@@ -58,7 +58,7 @@ export class BookRepository {
 			data: {
 				author: dto.author,
 				name: dto.name,
-				note: dto.note,
+				about: dto.about,
 				...(dto.languageCode ? { source_language_code: dto.languageCode } : {}),
 				cover_file_name: dto.coverFileName,
 				cover_file_s3_key: dto.coverFileS3Key,
@@ -117,7 +117,7 @@ export class BookRepository {
 			author: dbBook.author,
 			name: dbBook.name,
 			sourceLanguageCode: dbBook.source_language_code,
-			note: dbBook.note,
+			about: dbBook.about,
 			userId: dbBook.user_id,
 			coverFileName: dbBook.cover_file_name,
 			coverFileS3Key: dbBook.cover_file_s3_key,

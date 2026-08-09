@@ -1,5 +1,5 @@
-import { VideoLiteModel } from '@/entites/videos/repository/VideosRepository'
-import { videoConfig } from '@/entites/videos/videoConfig'
+import { videoConfig } from '@/entities/video/lib/videoConfig'
+import { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
 
 export function getHeaderAndSubHeader(videoCollection: VideoLiteModel) {
 	return {

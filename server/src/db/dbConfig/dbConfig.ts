@@ -289,9 +289,9 @@ export const bdConfig = {
 				example: 'en',
 				required: true,
 			},
-			note: {
+			about: {
 				type: 'string',
-				description: 'Note about the book',
+				description: 'Text about the book',
 				example: 'This book is great for learning new vocabulary',
 				required: false,
 				maxLength: 2000,
@@ -475,9 +475,9 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			note: {
+			about: {
 				type: 'string',
-				description: 'Note about the video',
+				description: 'Text about the video',
 				example: 'A great animated movie about animals.',
 				required: false,
 				maxLength: 4000,
@@ -530,6 +530,13 @@ export const bdConfig = {
 				type: 'number',
 				description: 'Size of the video file in megabytes',
 				example: 100,
+				required: true,
+				default: 0,
+			},
+			duration_sec: {
+				type: 'number',
+				description: 'Duration of the video in seconds (from YouTube metadata or ffprobe)',
+				example: 3600,
 				required: true,
 				default: 0,
 			},
@@ -588,6 +595,13 @@ export const bdConfig = {
 				example: true,
 				required: true,
 			},
+			cover_url: {
+				type: 'string',
+				description: 'URL of the cover image (e.g. YouTube thumbnail or direct link)',
+				required: false,
+				maxLength: 2000,
+				example: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+			},
 			subtitles_source: {
 				type: 'enum',
 				enumName: 'SubtitlesSource',
@@ -615,6 +629,22 @@ export const bdConfig = {
 				description: 'BullMQ job id of the current subtitles task',
 				required: false,
 				maxLength: 200,
+			},
+			proficiency_level: {
+				type: 'number',
+				description: 'CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2',
+				required: false,
+			},
+			topic: {
+				type: 'string',
+				description: 'Predefined topic category (e.g. Travel & Geography)',
+				required: false,
+				maxLength: 100,
+			},
+			learnability_score: {
+				type: 'number',
+				description: 'How suitable the video is for language learners (1-10)',
+				required: false,
 			},
 			Subtitle: {
 				type: 'oneToMany',
@@ -1044,9 +1074,9 @@ export const bdConfig = {
 	// Перевод фразы из UniversalPhrase на конкретный язык через LLM
 	UniversalPhraseTranslation: {
 		dtoProps: {
-			provider: {
+			model: {
 				type: 'string',
-				description: 'LLM provider name',
+				description: 'LLM model (enum). Если не указана — DeepSeek по умолчанию.',
 				required: false,
 			},
 		},

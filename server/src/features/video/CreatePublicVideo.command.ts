@@ -13,18 +13,20 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
 import { VideoOutModel } from 'models/video/video.out.model'
 import { SubtitlesStatus } from 'prisma/generated/client'
 
 export type CreatePublicVideoInput = {
 	name: string
-	note: string
+	about: string
 	originalContent: string
 	languageCode: Language
 	fileName: string
 	fileS3Key: string
 	coverFileName?: string
 	coverFileS3Key?: string
+	durationSec: number
 }
 
 export class CreatePublicVideoCommand implements ICommand {
@@ -41,8 +43,9 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
 		private dbRepository: DBRepository,
 		mainConfig: MainConfigService,
+		subtitlesService: SubtitlesService,
 	) {
-		super(mainConfig)
+		super(mainConfig, subtitlesService)
 	}
 
 	async execute(command: CreatePublicVideoCommand): Promise<VideoOutModel> {
@@ -79,7 +82,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 				const newVideo = await this.videoRepository.createVideo({
 					type: 'public',
 					name: createVideoInput.name,
-					note: createVideoInput.note,
+					about: createVideoInput.about,
 					sourceLanguageCode: createVideoInput.languageCode,
 					originalContent: preparedContentResult.originalContentForVideoUpdate!,
 					processedContent: preparedContentResult.processedContentForVideoUpdate!,
@@ -87,6 +90,7 @@ export class CreatePublicVideoHandler extends VideoBase implements ICommandHandl
 					fileName: createVideoInput.fileName,
 					fileS3Key: createVideoInput.fileS3Key,
 					s3ProviderName: 'cloudRu',
+					durationSec: createVideoInput.durationSec,
 					coverFileName: createVideoInput.coverFileName,
 					coverFileS3Key: createVideoInput.coverFileS3Key,
 					subtitlesStatus: SubtitlesStatus.done,

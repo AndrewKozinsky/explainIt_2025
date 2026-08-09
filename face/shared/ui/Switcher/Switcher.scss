@@ -6,8 +6,8 @@
 	position: relative;
 	gap: .2rem;
 	background-color: vars.$grayColor-2;
-	padding: .2rem;
-	border-radius: vars.$radius-1;
+	padding: .3rem;
+	border-radius: .8rem;
 }
 
 .switcher--fit {
@@ -46,27 +46,27 @@
 }
 
 .switcher__button {
+	font-size: 1.5rem;
+	line-height: 1.9rem;
+	color: vars.$grayColor-6;
 	background-color: transparent;
-	cursor: pointer;
-	padding: .4rem 1rem;
-	border-width: 0;
+	padding: .5rem 1rem;
 	border-radius: vars.$radius-1;
 
-	&:hover {
+	&:hover, &:focus {
 		color: vars.$textColor;
-		background-color: vars.$grayColor-3;
-	}
-
-	&:focus {
-		outline: none;
 	}
 }
 
-.switcher__button--current, .switcher__button--current:hover {
+.switcher__button--current, .switcher__button--current:disabled {
 	color: vars.$textColor;
 	background-color: white;
-	cursor: default;
 	box-shadow:
 		0 1px 0 rgba(0, 0, 0, .05),
 		0 0 2px rgba(0, 0, 0, .15);
+
+	&:hover {
+		color: vars.$textColor;
+		background-color: white;
+	}
 }

@@ -8,9 +8,7 @@ import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository
 import { UserRepository } from 'repo/user.repository'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
-import { DeepSeekTokenUsageBalanceChargeHandler } from 'features/payment/DeepSeekTokenUsageBalanceCharge.command'
-import { GeminiTokenUsageBalanceChargeHandler } from 'features/payment/GeminiTokenUsageBalanceCharge.command'
-import { OpenAiTokenUsageBalanceChargeHandler } from 'features/payment/OpenAiTokenUsageBalanceCharge.command'
+import { TokenUsageBalanceChargeHandler } from 'features/payment/TokenUsageBalanceCharge.command'
 import { ActiveSentenceChatGenerationRegistry } from 'features/sentenceChat/ActiveSentenceChatGenerationRegistry.service'
 import { CreateSentenceChatThreadHandler } from 'features/sentenceChat/CreateSentenceChatThread.command'
 import { CreateSentenceChatUserMessageHandler } from 'features/sentenceChat/CreateSentenceChatUserMessage.command'
@@ -32,9 +30,7 @@ const handlers = [
 	GetSentenceChatThreadHandler,
 	CreateSentenceChatThreadHandler,
 	CreateSentenceChatUserMessageHandler,
-	GeminiTokenUsageBalanceChargeHandler,
-	OpenAiTokenUsageBalanceChargeHandler,
-	DeepSeekTokenUsageBalanceChargeHandler,
+	TokenUsageBalanceChargeHandler,
 ]
 
 const repositories = [

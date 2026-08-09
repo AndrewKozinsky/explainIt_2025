@@ -6,7 +6,7 @@ export type BookServiceModel = {
 	author: null | string
 	name: null | string
 	sourceLanguageCode: null | string
-	note: null | string
+	about: null | string
 	userId: null | number
 	coverFileName: null | string
 	coverFileS3Key: null | string
@@ -19,6 +19,6 @@ export type BookLiteServiceModel = {
 	author: string | null
 	name: string | null
 	languageCode: null | string
-	note: string | null
+	about: string | null
 	userId: null | number
 }

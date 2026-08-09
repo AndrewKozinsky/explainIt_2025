@@ -20,10 +20,10 @@ export interface UpdateBookInput {
   /** Language code of the book */
   languageCode?: string | null;
   /**
-     * Note about the book
+     * Text about the book
      * @maxLength 2000
      */
-  note?: string | null;
+  about?: string | null;
   /**
      * File name of the book cover
      * @maxLength 255

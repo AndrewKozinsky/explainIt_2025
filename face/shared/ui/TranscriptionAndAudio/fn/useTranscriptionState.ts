@@ -1,54 +1,49 @@
-import { useEffect, useMemo } from 'react'
+import { useEffect, useState } from 'react'
+import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
 import { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseStore, EntryData } from '@/stores/phraseStore'
 import { TranscriptionState } from '../types'
 
 type UseTranscriptionStateInput = {
 	phrase?: string
 	languageCode?: LanguageCode
 	propTranscription?: string | null
-	storeEntry?: EntryData
-	store: typeof usePhraseStore
 }
 
 export function useTranscriptionState(input: UseTranscriptionStateInput): TranscriptionState | null | undefined {
-	const { phrase, languageCode, propTranscription, storeEntry, store } = input
+	const { phrase, languageCode, propTranscription } = input
 
 	const transcriptionExplicitlyProvided = typeof propTranscription === 'string'
 
-	const effectiveTranscription: TranscriptionState | null | undefined = useMemo(
-		function () {
-			if (transcriptionExplicitlyProvided) {
-				return { status: 'ready', transcription: propTranscription ?? null }
-			}
+	const [state, setState] = useState<TranscriptionState | null>(() => {
+		if (transcriptionExplicitlyProvided) {
+			return { status: 'ready', transcription: propTranscription ?? null }
+		}
 
-			if (!storeEntry) return null
-
-			if (storeEntry.transcriptionStatus === 'loading') return { status: 'loading' }
-			if (storeEntry.transcriptionStatus === 'error') return { status: 'error' }
-			if (storeEntry.transcriptionStatus === 'ready') {
-				return { status: 'ready', transcription: storeEntry.transcription }
-			}
-
-			return null
-		},
-		[propTranscription, storeEntry],
-	)
+		return null
+	})
 
 	useEffect(
 		function () {
 			if (transcriptionExplicitlyProvided) return
 			if (!phrase || !languageCode) return
 
-			const entry = store.getState().get(phrase, languageCode)
-			if (entry && (entry.transcriptionStatus === 'ready' || entry.transcriptionStatus === 'loading')) {
-				return
-			}
+			setState({ status: 'loading' })
 
-			store.getState().ensureTranscription(phrase, languageCode)
+			universalPhraseService.getTranscription(phrase, languageCode).then(function (result) {
+				if (result.ok) {
+					setState({ status: 'ready', transcription: result.data.ipa })
+				} else {
+					setState({ status: 'error' })
+				}
+			})
 		},
-		[phrase, languageCode, transcriptionExplicitlyProvided, storeEntry?.transcriptionStatus, store],
+		[phrase, languageCode, transcriptionExplicitlyProvided],
 	)
 
-	return effectiveTranscription
+	// Если транскрипция явно передана, возвращаем её без загрузки
+	if (transcriptionExplicitlyProvided) {
+		return { status: 'ready', transcription: propTranscription ?? null }
+	}
+
+	return state
 }

@@ -12,19 +12,18 @@ import { VideoController } from 'routes/video/video.controller'
 import { PrismaService } from 'db/prisma.service'
 import { CreatePrivateVideoHandler } from 'features/video/CreatePrivateVideo.command'
 import { CreatePublicVideoHandler } from 'features/video/CreatePublicVideo.command'
-import { CreatePublicVideosHandler } from 'features/video/CreatePublicVideos.command'
 import { DeletePrivateVideoHandler } from 'features/video/DeletePrivateVideo.command'
 import { GetVideoHandler } from 'features/video/GetVideo.command'
 import { GetVideosHandler } from 'features/video/GetVideos.command'
 import { StartGenerateSubtitlesHandler } from 'features/video/subtitlesGeneration/GenerateSubtitles.command'
 import { GetSubtitlesGenerationStatusHandler } from 'features/video/subtitlesGeneration/GetSubtitlesGenerationStatus.command'
 import { UpdateVideoHandler } from 'features/video/UpdateVideo.command'
+import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 
 const services = [PrismaService]
 const commandHandlers = [
 	CreatePrivateVideoHandler,
 	CreatePublicVideoHandler,
-	CreatePublicVideosHandler,
 	UpdateVideoHandler,
 	DeletePrivateVideoHandler,
 	GetVideosHandler,
@@ -44,7 +43,7 @@ const repositories = [
 ]
 
 @Module({
-	imports: [CqrsModule],
+	imports: [CqrsModule, SubtitlesModule],
 	controllers: [VideoController],
 	providers: [...services, ...commandHandlers, ...repositories],
 })

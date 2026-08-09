@@ -110,7 +110,8 @@ export type YoutubeVideoData = {
 	channelLogoUrl: null | string
 	thumbnailUrl: string
 	viewCount: number
-	duration: string
+	/** Длительность в секундах, распарсенная из ISO 8601 */
+	durationSec: number
 	defaultAudioLanguage: null | string
 	/** Соотношение сторон в CSS-формате: "1280 / 720" */
 	ratio: string

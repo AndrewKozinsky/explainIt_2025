@@ -93,11 +93,14 @@ export class VideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.source_language_code))
 	languageCode: string
 
+	@ApiProperty(getApiPropertyOptions($.proficiency_level))
+	proficiencyLevel: null | number
+
 	@ApiProperty(getApiPropertyOptions($.youtube_video_id))
 	youtubeVideoId: null | string
 
-	@ApiProperty(getApiPropertyOptions($.note))
-	note: string | null
+	@ApiProperty(getApiPropertyOptions($.about))
+	about: string | null
 
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: string | null
@@ -122,6 +125,9 @@ export class VideoOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.file_size_mb))
 	fileSizeMb: number
+
+	@ApiProperty(getApiPropertyOptions($.duration_sec))
+	durationSec: number
 
 	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
 	fileDurationSec: null | number

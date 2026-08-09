@@ -2,7 +2,7 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 import { UniversalPhraseRepository } from 'repo/universalPhrase/universalPhrase.repository'
 import { UniversalPhraseTranslationQueryRepository } from 'repo/universalPhrase/universalPhraseTranslation.queryRepository'
 import { UniversalPhraseTranslationRepository } from 'repo/universalPhrase/universalPhraseTranslation.repository'
-import { AIProviderName } from 'types/AIModels'
+import { AiModel } from 'types/AIModels'
 import { GetOrCreateUniversalPhraseCommand } from 'features/universalPhrase/GetOrCreateUniversalPhrase.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -18,7 +18,8 @@ export type GetOrCreateUniversalPhraseTranslationInput = {
 	phraseText?: string
 	sourceLanguageCode?: string
 	targetLanguageCode: LanguageCode
-	provider: AIProviderName
+	/** Если не указана — адаптер использует DeepSeek по умолчанию. */
+	model?: AiModel
 }
 
 export type GetOrCreateUniversalPhraseTranslationResult = UniversalPhraseTranslationOutModel
@@ -40,7 +41,7 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 	async execute(
 		command: GetOrCreateUniversalPhraseTranslationCommand,
 	): Promise<GetOrCreateUniversalPhraseTranslationResult> {
-		const { universalPhraseId, phraseText, sourceLanguageCode, targetLanguageCode, provider } = command.input
+		const { universalPhraseId, phraseText, sourceLanguageCode, targetLanguageCode, model } = command.input
 
 		// 1. Получаем universalPhraseId (get-or-create если передан текст)
 		let resolvedPhraseId: number
@@ -99,7 +100,7 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 			})
 
 			const llmResponse = await this.llmAdapter.generate({
-				provider,
+				model,
 				messages: [
 					{ role: 'system', content: systemPrompt },
 					{ role: 'user', content: sourcePhrase.sentenceText },

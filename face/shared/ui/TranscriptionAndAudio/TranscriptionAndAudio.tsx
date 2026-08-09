@@ -3,7 +3,6 @@ import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 import { ErrorIcon } from '@/shared/ui/icons/ErrorIcon'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import { canLanguageHaveTranscription } from '@/shared/utils/languages'
-import { usePhraseStore, makePhraseKey } from '@/stores/phraseStore'
 import { useAudioPlayback } from './fn/useAudioPlayback'
 import { useTranscriptionState } from './fn/useTranscriptionState'
 import PauseIcon from './PauseIcon'
@@ -21,26 +20,16 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 		transcription: propTranscription,
 	} = props
 
-	const phraseStore = usePhraseStore
-	const key = phrase && languageCode ? makePhraseKey(phrase, languageCode) : null
-	const storeEntry = phraseStore(function (s) {
-		return key ? s.entries[key] : undefined
-	})
-
 	const effectiveTranscription = useTranscriptionState({
 		phrase,
 		languageCode,
 		propTranscription,
-		storeEntry,
-		store: phraseStore,
 	})
 
 	const { audioStatus, isPlaying, handleClick, showAudioIcon } = useAudioPlayback({
 		phrase,
 		languageCode,
 		propAudioUrl,
-		storeEntry,
-		store: phraseStore,
 	})
 
 	if (languageCode && !canLanguageHaveTranscription(languageCode)) return null

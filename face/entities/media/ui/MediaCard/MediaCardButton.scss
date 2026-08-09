@@ -1,0 +1,52 @@
+@use '@/styles/variables' as vars;
+
+.media-card-button {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	border-radius: vars.$radius-1;
+}
+
+.media-card-button__cover {
+	aspect-ratio: 2 / 1.2;
+	background-size: cover;
+	background-position: center;
+}
+
+.media-card-button__text-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: .2rem;
+	padding: 1rem;
+}
+
+.media-card-button__proficiency {
+	display: inline-block;
+	align-self: flex-start;
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+	color: white;
+	font-weight: 500;
+	background-color: #6D6D6C;
+	padding: .2rem .6rem;
+	border-radius: 5rem;
+}
+
+.media-card-button__name {
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+	font-weight: 400;
+}
+
+.media-card-button__sub-name {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	opacity: .6;
+}
+
+.media-card-button__duration {
+	font-size: 1.2rem;
+	line-height: 1.6rem;
+	opacity: .5;
+	padding: 0 1rem 1rem;
+}

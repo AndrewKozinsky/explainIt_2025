@@ -1,6 +1,5 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
-import { AIProviderName } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -59,11 +58,8 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 
 		const sourceLanguageCode = command.input.sourceLanguageCode ?? 'en'
 
-		const provider = this.getProviderName()
-
 		try {
 			const generated = await this.generatePhraseTranslation({
-				provider,
 				text: command.input.text,
 				selectedWord: command.input.selectedWord,
 				selectedWordStartOffset: command.input.selectedWordStartOffset,
@@ -207,12 +203,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		}
 	}
 
-	private getProviderName(): AIProviderName {
-		return 'deepseek'
-	}
-
 	private async generatePhraseTranslation(input: {
-		provider: AIProviderName
 		text: string
 		selectedWord: string
 		selectedWordStartOffset: number
@@ -238,7 +229,6 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		})
 
 		const result = await this.llmAdapter.generate({
-			provider: input.provider,
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: input.text },

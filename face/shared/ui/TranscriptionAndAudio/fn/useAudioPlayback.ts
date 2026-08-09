@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
 import { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseStore, EntryData } from '@/stores/phraseStore'
 
 type AudioViewStatus = 'idle' | 'loading' | 'error'
 
@@ -8,8 +8,6 @@ type UseAudioPlaybackInput = {
 	phrase?: string
 	languageCode?: LanguageCode
 	propAudioUrl?: string | null
-	storeEntry?: EntryData
-	store: typeof usePhraseStore
 }
 
 type UseAudioPlaybackResult = {
@@ -20,18 +18,21 @@ type UseAudioPlaybackResult = {
 }
 
 export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlaybackResult {
-	const { phrase, languageCode, propAudioUrl, storeEntry, store } = input
+	const { phrase, languageCode, propAudioUrl } = input
 
 	const audioRef = useRef<HTMLAudioElement | null>(null)
 	const [isPlaying, setIsPlaying] = useState(false)
+	const [audioUrl, setAudioUrl] = useState<string | null>(null)
+	const [audioLoading, setAudioLoading] = useState(false)
+	const [audioError, setAudioError] = useState(false)
 
-	const resolvedAudioUrl: string | null = propAudioUrl ?? storeEntry?.audioUrl ?? null
+	const resolvedAudioUrl: string | null = propAudioUrl ?? audioUrl ?? null
 
 	const audioStatus: AudioViewStatus = resolvedAudioUrl
 		? 'idle'
-		: storeEntry?.audioStatus === 'loading'
+		: audioLoading
 			? 'loading'
-			: storeEntry?.audioStatus === 'error'
+			: audioError
 				? 'error'
 				: 'idle'
 
@@ -46,10 +47,19 @@ export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlayback
 			let url = resolvedAudioUrl
 
 			if (!url && phrase && languageCode) {
-				await store.getState().ensureAudio(phrase, languageCode)
+				setAudioLoading(true)
+				setAudioError(false)
 
-				const updated = store.getState().get(phrase, languageCode)
-				url = updated?.audioUrl ?? null
+				const result = await universalPhraseService.getAudio(phrase, languageCode)
+				setAudioLoading(false)
+
+				if (result.ok) {
+					url = result.data.audioUrl
+					setAudioUrl(url)
+				} else {
+					setAudioError(true)
+					return
+				}
 			}
 
 			if (!url) return
@@ -65,12 +75,15 @@ export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlayback
 			await audioRef.current.play()
 			setIsPlaying(true)
 		},
-		[isPlaying, resolvedAudioUrl, phrase, languageCode, store],
+		[isPlaying, resolvedAudioUrl, phrase, languageCode],
 	)
 
 	useEffect(
 		function () {
 			setIsPlaying(false)
+			setAudioUrl(null)
+			setAudioLoading(false)
+			setAudioError(false)
 
 			if (audioRef.current) {
 				audioRef.current.pause()
@@ -89,7 +102,8 @@ export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlayback
 
 	const hasAudio = propAudioUrl !== undefined || resolvedAudioUrl !== null || !!(phrase && languageCode)
 
-	const showAudioIcon = hasAudio || (storeEntry !== undefined && storeEntry.audioStatus !== 'idle')
+	// Если есть проп audioUrl — не показываем иконку пока не уверены, что аудио существует
+	const showAudioIcon = hasAudio || audioLoading
 
 	return {
 		audioStatus,

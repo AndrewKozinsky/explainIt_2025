@@ -9,8 +9,8 @@ export class CreateBookInput {
 	@DtoFieldDecorators('name', bdConfig.Book.dbFields.name)
 	name?: null | string
 
-	@DtoFieldDecorators('note', bdConfig.Book.dbFields.note)
-	note?: null | string
+	@DtoFieldDecorators('note', bdConfig.Book.dbFields.about)
+	about?: null | string
 
 	@DtoFieldDecorators('languageCode', bdConfig.Book.dbFields.source_language_code)
 	languageCode: Language

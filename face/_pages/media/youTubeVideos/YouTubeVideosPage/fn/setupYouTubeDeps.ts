@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { YoutubeVideoModel } from '@/entites/youTubeVideos/YoutubeService'
-import { YoutubeService } from '@/entites/youTubeVideos/YoutubeService'
+import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
+import { YoutubeService } from '@/entities/youtube/YoutubeService'
 
 export function useYouTubeVideos(youtubeService: YoutubeService, query: string) {
 	const [loading, setLoading] = useState(false)

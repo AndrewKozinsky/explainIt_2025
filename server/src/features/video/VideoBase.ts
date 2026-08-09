@@ -8,13 +8,18 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
+import { CueWithOffset } from 'infrastructure/subtitles/subtitles.types'
 import { dryText, removeAlignmentTags, removeBOM, removeItalicTags, removeLeadingDashes } from '../mediaCommon'
 
 type FileDestinationType = 'video'
 type VideoTextContentType = 'text' | 'subtitles'
 
 export class VideoBase {
-	constructor(protected mainConfig: MainConfigService) {}
+	constructor(
+		protected mainConfig: MainConfigService,
+		protected subtitlesService: SubtitlesService,
+	) {}
 
 	protected async prepareFileKeyAndUploadUrl(
 		params: {
@@ -42,103 +47,6 @@ export class VideoBase {
 		return `${folderName}/${crypto.randomUUID()}-${input.fileName}`
 	}
 
-	protected isLikelySrt(text: string): boolean {
-		if (!text.includes('-->')) return false
-		return /\d{2}:\d{2}:\d{2}(?:[,.]\d{1,3})?\s*-->\s*\d{2}:\d{2}:\d{2}(?:[,.]\d{1,3})?/.test(text)
-	}
-
-	protected parseSrtToPreparedContent(srt: string): {
-		preparedContent: string
-		subtitles: Array<{
-			startTimeMs: number
-			endTimeMs: number
-			startOffset: number
-			length: number
-			orderIndex: number
-		}>
-	} {
-		const normalized = srt.replace(/\r\n?/g, '\n').trim()
-		const blocks = normalized.split(/\n{2,}/)
-
-		const subtitles: Array<{
-			startTimeMs: number
-			endTimeMs: number
-			startOffset: number
-			length: number
-			orderIndex: number
-		}> = []
-
-		let preparedContent = ''
-		let globalOffset = 0
-		let orderIndex = 0
-
-		for (const block of blocks) {
-			const lines = block
-				.split('\n')
-				.map((l) => l.trim())
-				.filter((l) => l.length > 0)
-			if (lines.length < 2) continue
-
-			let timeLineIndex = 0
-			if (/^\d+$/.test(lines[0])) {
-				timeLineIndex = 1
-			}
-
-			const timeLine = lines[timeLineIndex]
-			const match = timeLine.match(
-				/(\d{2}:\d{2}:\d{2}(?:[,.]\d{1,3})?)\s*-->\s*(\d{2}:\d{2}:\d{2}(?:[,.]\d{1,3})?)/,
-			)
-			if (!match) continue
-
-			const startTimeMs = this.parseSrtTimeToMs(match[1])
-			const endTimeMs = this.parseSrtTimeToMs(match[2])
-
-			const textLines = lines.slice(timeLineIndex + 1)
-			const cueText = dryText(textLines.join(' '))
-			if (!cueText) continue
-
-			if (preparedContent.length > 0 && !preparedContent.endsWith(' ')) {
-				preparedContent += ' '
-				globalOffset += 1
-			}
-
-			const startOffset = globalOffset
-			preparedContent += cueText
-			globalOffset += cueText.length
-
-			subtitles.push({
-				startTimeMs,
-				endTimeMs,
-				startOffset,
-				length: cueText.length,
-				orderIndex,
-			})
-			orderIndex++
-		}
-
-		if (subtitles.length === 0) {
-			throw new CustomError(errorMessage.invalidSrtFormat, ErrorStatusCode.BadRequest_400)
-		}
-
-		return { preparedContent: preparedContent.trim(), subtitles }
-	}
-
-	private parseSrtTimeToMs(time: string): number {
-		const t = time.replace(',', '.')
-		const match = t.match(/^(\d{2}):(\d{2}):(\d{2})(?:\.(\d{1,3}))?$/)
-		if (!match) {
-			throw new CustomError(errorMessage.invalidSrtTimeFormat, ErrorStatusCode.BadRequest_400)
-		}
-
-		const hours = Number(match[1])
-		const minutes = Number(match[2])
-		const seconds = Number(match[3])
-		const msPart = match[4] ?? '0'
-		const ms = Number(msPart.padEnd(3, '0'))
-
-		return hours * 3_600_000 + minutes * 60_000 + seconds * 1_000 + ms
-	}
-
 	protected prepareTextContentForSaving(dto: {
 		originalContent: undefined | null | string
 		previousProcessedContent: undefined | null | string
@@ -148,13 +56,7 @@ export class VideoBase {
 		processedContentForVideoUpdate: undefined | null | string
 		contentTypeForVideoUpdate: undefined | VideoTextContentType
 		processedContent: null | string
-		subtitles?: Array<{
-			startTimeMs: number
-			endTimeMs: number
-			startOffset: number
-			length: number
-			orderIndex: number
-		}>
+		subtitles?: CueWithOffset[]
 	} {
 		if (dto.originalContent === undefined) {
 			return {
@@ -192,10 +94,15 @@ export class VideoBase {
 			}
 		}
 
-		if (this.isLikelySrt(trimmed)) {
-			const { preparedContent, subtitles } = this.parseSrtToPreparedContent(trimmed)
+		if (this.subtitlesService.isLikelySrt(trimmed)) {
+			const cues = this.subtitlesService.stringToSrtStructure(trimmed)
+			if (!cues) {
+				throw new CustomError(errorMessage.invalidSrtFormat, ErrorStatusCode.BadRequest_400)
+			}
 
-			if (preparedContent === dto.previousProcessedContent) {
+			const { plainText, cues: subtitles } = this.subtitlesService.cuesToPlainText(cues)
+
+			if (plainText === dto.previousProcessedContent) {
 				return {
 					shouldUpdateRelatedTextData: false,
 					originalContentForVideoUpdate: undefined,
@@ -208,9 +115,9 @@ export class VideoBase {
 			return {
 				shouldUpdateRelatedTextData: true,
 				originalContentForVideoUpdate: trimmed,
-				processedContentForVideoUpdate: preparedContent,
+				processedContentForVideoUpdate: plainText,
 				contentTypeForVideoUpdate: 'subtitles',
-				processedContent: preparedContent,
+				processedContent: plainText,
 				subtitles,
 			}
 		}
@@ -240,13 +147,7 @@ export class VideoBase {
 		videoId: number
 		preparedContent: string
 		languageCode: Language
-		subtitles: Array<{
-			startTimeMs: number
-			endTimeMs: number
-			startOffset: number
-			length: number
-			orderIndex: number
-		}>
+		subtitles: CueWithOffset[]
 		sentenceRepository: SentenceRepository
 		subtitleRepository: SubtitleRepository
 		subtitleSentenceInitRepository: SubtitleSentenceInitRepository

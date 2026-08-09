@@ -1,5 +1,5 @@
 // Статусы сообщения ассистента (совпадают с серверной моделью SentenceChatMessageStatus).
-import type { SentenceChatMessageModel } from '@/entites/sentenceChat/repository/SentenceChatRepository'
+import type { SentenceChatMessageModel } from '@/entities/sentenceChat/repository/SentenceChatRepository'
 
 export type ChatMessageStatus = 'streaming' | 'completed' | 'canceled' | 'failed'
 

@@ -7,7 +7,7 @@ export function secretCluesBookData(s3FolderName: string) {
 	return {
 		author: 'Fiona Kelly',
 		name: 'Secret clues',
-		note: `Рассказ ведётся
+		about: `Рассказ ведётся
 
 
 Уровень B1-B2.`,

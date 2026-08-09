@@ -10,51 +10,32 @@
 
 Если LLM определяет, что такого слова не существует в языке — возвращается флаг `nonExistentWord: true`.
 
-Результат перевода — структурированный JSON с:
-- **coreIdea** — главная идея и назначение слова/фразы
-- **usageGroups** — сценарии употребления с примерами
-- **similarWords** — похожие слова (если помогают понять оттенок)
-- **commonMistakes** — типичные ошибки (если есть)
-- **patterns** — типовые конструкции с этим словом (если нужно)
+Результат перевода — массив типизированных блоков (`TranslationBlock[]`). LLM сама решает, какие блоки использовать для конкретного слова. Клиент рендерит каждый блок через соответствующий компонент.
+
+Доступные типы блоков:
+- **block** — секция с заголовком и вложенными блоками
+- **useCase** — сценарий употребления (с нумерацией и заголовком)
+- **paper** — визуальная обёртка-карточка
+- **example** — пример предложения с переводом
+- **phrasesButtons** — кнопки фраз/конструкций (только текст, клиент отправляет по клику)
+- **text** — Markdown-текст
 
 ## Как работает сервер
 
-### GraphQL API
+### REST API
 
-```graphql
-mutation {
-  universal_phrase_translation_get_or_create(input: {
-    universalPhraseId: 1       # опционально — если фраза уже есть
-    phraseText: "life"         # опционально — текст фразы для авто-создания
-    sourceLanguageCode: "en"   # опционально — язык фразы для авто-создания
-    targetLanguageCode: "ru"
-    provider: "gemini"
-  }) {
-    id
-    universalPhraseId
-    targetLanguageCode
-    translation {
-      coreIdea
-      usageGroups {
-        title
-        explain
-        examples {
-          sentence
-          translate
-        }
-      }
-      similarWords
-      commonMistakes
-      patterns {
-        phrase
-        translate
-      }
-    }
-    status
-    errorMessage
-    nonExistentWord
-    createdAt
-  }
+```
+POST /universal-phrase-translation
+```
+
+Тело запроса:
+```json
+{
+  "universalPhraseId": 1,
+  "phraseText": "life",
+  "sourceLanguageCode": "en",
+  "targetLanguageCode": "ru",
+  "model": "gemini"
 }
 ```
 
@@ -63,11 +44,74 @@ mutation {
 - `phraseText` — текст фразы для автоматического поиска/создания `UniversalPhrase` (опциональный)
 - `sourceLanguageCode` — язык исходной фразы (опциональный, нужен вместе с `phraseText`)
 - `targetLanguageCode` — язык, на который нужно перевести (из enum `LanguageCode`: `ru`, `en`, `es`, `fr`, `de`, `it`, `tr`)
-- `provider` — LLM-провайдер: `deepseek`, `chatgpt` или `gemini`
+- `model` — LLM-провайдер: `deepseek`, `chatgpt` или `gemini`
+
+Пример ответа:
+```json
+{
+  "id": 1,
+  "universalPhraseId": 42,
+  "targetLanguageCode": "ru",
+  "translation": [
+    {
+      "type": "block",
+      "header": "Ключевая идея",
+      "children": [
+        {
+          "type": "text",
+          "text": "Drinking — это ing-форма глагола to drink (пить)..."
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "header": "Сценарии употребления",
+      "children": [
+        {
+          "type": "useCase",
+          "header": "Процесс употребления жидкости",
+          "children": [
+            { "type": "text", "text": "Здесь drinking переводится как «питьё»..." },
+            {
+              "type": "paper",
+              "children": [
+                {
+                  "type": "example",
+                  "sentence": "Drinking enough water is important.",
+                  "translation": "Употребление достаточного количества воды важно."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "block",
+      "header": "Похожие слова",
+      "children": [
+        { "type": "text", "text": "drink — глагол «пить» и существительное «напиток»..." }
+      ]
+    },
+    {
+      "type": "block",
+      "header": "Типовые конструкции",
+      "children": [
+        { "type": "phrasesButtons", "labels": ["be drinking", "go drinking"] }
+      ]
+    }
+  ],
+  "status": "ready",
+  "errorCode": null,
+  "nonExistentWord": false,
+  "createdAt": "2025-01-01T00:00:00.000Z",
+  "transcription": null
+}
+```
 
 ### Схема обработки (CQRS)
 
-`UniversalPhraseTranslationResolver` вызывает `GetOrCreateUniversalPhraseTranslationCommand`:
+`UniversalPhraseTranslationController` вызывает `GetOrCreateUniversalPhraseTranslationCommand`:
 
 1. **Определение universalPhraseId**:
    - Если передан `universalPhraseId` → получение фразы через `findByIdWithRelations`. Если не найдена → `UNIVERSAL_PHRASE_NOT_FOUND`.
@@ -76,13 +120,13 @@ mutation {
 2. **Поиск существующего перевода** — по `(universalPhraseId, targetLanguageCode)`. Если найден со статусом `ready` — сразу возвращает.
 3. **Создание pending-записи** — в `UniversalPhraseTranslation`.
 4. **Запрос к LLM** — через `LlmAdapterService.generate()`:
-   - Промпт строится функцией `buildUniversalPhraseTranslationPrompt` — адаптируется под языковую пару (source → target)
-   - Промпт инструктирует LLM быть учителем языка, объяснять значение ясно и доступно
+   - Промпт строится функцией `buildUniversalPhraseTranslationPrompt` — описывает типы блоков и семантические гайдлайны
+   - Промпт инструктирует LLM быть учителем языка, самостоятельно выбирать подходящие блоки
    - **Запрещено**: транскрипция, произношение, фонетическая нотация (IPA, пиньинь и т.д.)
    - **Несуществующие слова**: если слово не существует в языке → вернуть `{"nonExistentWord": true}`
-   - Ответ ожидается строго в JSON (без markdown-обёрток)
-5. **Парсинг ответа** — `parseUniversalPhraseTranslationResult` возвращает discriminated union:
-   - `{ type: 'translation', data }` — успешный перевод
+   - Ответ ожидается строго в JSON-массиве блоков (без markdown-обёрток)
+5. **Парсинг ответа** — `parseUniversalPhraseTranslationResult` с рекурсивной валидацией блоков:
+   - `{ type: 'translation', data: TranslationBlock[] }` — успешный перевод
    - `{ type: 'nonExistentWord' }` — слово не существует
    - `{ type: 'invalid' }` — не удалось разобрать ответ
 6. **Сохранение**:
@@ -114,7 +158,7 @@ mutation {
 | `id` | `Int` | Первичный ключ |
 | `universal_phrase_id` | `Int` | Связь с `UniversalPhrase` (Cascade) |
 | `target_language_code` | `LanguageCode` | Язык перевода |
-| `translation` | `String?` | JSON с результатом перевода |
+| `translation` | `String?` | JSON с массивом блоков |
 | `status` | `UniversalPhraseTranslationStatus` | `pending` / `ready` / `error` |
 | `error_message` | `String?` | Текст ошибки при статусе `error` |
 | `non_existent_word` | `Boolean` | Флаг: LLM определила, что такого слова не существует (default `false`) |
@@ -129,23 +173,42 @@ pending | ready | error
 
 ## Структура ответа (JSON в поле translation)
 
+`translation` — это `TranslationBlock[] | null`. Массив на верхнем уровне, может содержать любые типы блоков.
+
 ```ts
-type UniversalPhraseTranslationData = {
-    coreIdea: string
-    usageGroups: {
-        title: string
-        explain: string
-        examples: {
-            sentence: string
-            translate: string
-        }[]
-    }[]
-    similarWords: null | string
-    commonMistakes: null | string
-    patterns: null | {
-        phrase: string
-        translate: string
-    }[]
+type TranslationBlock = BlockBlock | UseCaseBlock | PaperBlock | ExampleBlock | PhrasesButtonsBlock | TextBlock
+
+type BlockBlock = {
+    type: 'block'
+    header: string
+    children: TranslationBlock[]
+}
+
+type UseCaseBlock = {
+    type: 'useCase'
+    header: string
+    children: TranslationBlock[]
+}
+
+type PaperBlock = {
+    type: 'paper'
+    children: TranslationBlock[]
+}
+
+type ExampleBlock = {
+    type: 'example'
+    sentence: string
+    translation: string
+}
+
+type PhrasesButtonsBlock = {
+    type: 'phrasesButtons'
+    labels: string[]
+}
+
+type TextBlock = {
+    type: 'text'
+    text: string  // Markdown allowed
 }
 ```
 
@@ -153,30 +216,33 @@ type UniversalPhraseTranslationData = {
 
 ## Клиентская часть
 
-### Компонент PhraseDictionary
+### Компонент PhraseTranslationResult
 
-Расположение: `face/_pages/media/dictionary/PhraseDictionary/`
+Расположение: `face/_pages/media/dictionary/PhraseTranslationResult/`
 
 ```
-PhraseDictionary/
-├── PhraseDictionary.tsx          # корневой компонент
-├── PhraseDictionary.scss         # стили раскладки
-├── PhraseInput.tsx               # поле ввода фразы
-├── PhraseInput.scss              # стили поля ввода
-├── PhraseTranslationResult.tsx   # компонент отображения перевода
-├── PhraseTranslationResult.scss  # стили результата
-├── phraseDictionaryStore.ts      # Zustand-стор с кэшем
-└── fn/
-    └── usePhraseTranslation.ts   # логика: resolvePhrase → кэш → API → AbortController
+PhraseTranslationResult/
+├── PhraseTranslationResult.tsx  # компонентный реестр + BlockTree
+└── PhraseTranslationResult.scss # стили блоков
 ```
+
+**Компонентный реестр** — каждому типу блока соответствует свой React-компонент:
+- `BlockRenderer` — секция с заголовком + рекурсивный рендеринг детей
+- `UseCaseRenderer` — нумерованный сценарий употребления
+- `PaperRenderer` — визуальная обёртка-карточка
+- `ExampleRenderer` — предложение + перевод
+- `PhrasesButtonsRenderer` — кнопки фраз (по клику устанавливают текст в поле ввода)
+- `TextRenderer` — `<StyledMarkdown content={block.text} />`
+
+**BlockTree** — рекурсивная точка входа. Итерирует по массиву блоков и для каждого вызывает соответствующий компонент из реестра по `block.type`.
 
 **Логика работы:**
 1. Пользователь вводит фразу и нажимает Enter
 2. Либо кликает по слову в режиме чтения — `currentWordId` из `useDetailsStore` → извлечение текста → авто-запрос
 3. Сначала вызывается `resolvePhrase` (общий кэш с транскрипцией/озвучкой) — получает `universalPhraseId`
-4. Затем мутация `universal_phrase_translation_get_or_create` с `universalPhraseId`
+4. Затем запрос `POST /universal-phrase-translation` с `universalPhraseId`
 5. Результат:
-   - `translation` → `PhraseTranslationResult` (coreIdea/similarWords/commonMistakes через StyledMarkdown)
+   - `translation` (массив блоков) → `PhraseTranslationResult` рендерит через `BlockTree`
    - `nonExistentWord` → сообщение "Такого слова не существует"
    - `error` → `ErrorMessage`
 
@@ -186,31 +252,30 @@ PhraseDictionary/
 
 ### Команда и бизнес-логика
 - `server/src/features/universalPhraseTranslation/GetOrCreateUniversalPhraseTranslation.command.ts` — CQRS-команда get-or-create (с авто-созданием UniversalPhrase и обработкой nonExistentWord)
-- `server/src/features/universalPhraseTranslation/buildUniversalPhraseTranslationPrompt.ts` — построение промпта (без транскрипции, с поддержкой nonExistentWord)
-- `server/src/features/universalPhraseTranslation/parseUniversalPhraseTranslationResult.ts` — парсинг и валидация JSON-ответа (discriminated union: translation | nonExistentWord | invalid)
+- `server/src/features/universalPhraseTranslation/buildUniversalPhraseTranslationPrompt.ts` — построение промпта с описанием блоков и семантическими гайдлайнами
+- `server/src/features/universalPhraseTranslation/parseUniversalPhraseTranslationResult.ts` — парсинг и рекурсивная валидация блоков (discriminated union: translation | nonExistentWord | invalid)
 
 ### Маршрут
-- `server/src/routes/universalPhraseTranslation/universalPhraseTranslation.resolver.ts` — GraphQL-резолвер
+- `server/src/routes/universalPhraseTranslation/universalPhraseTranslation.controller.ts` — REST-контроллер
 - `server/src/routes/universalPhraseTranslation/universalPhraseTranslation.module.ts` — NestJS-модуль
 - `server/src/routes/universalPhraseTranslation/inputs/getOrCreateUniversalPhraseTranslation.input.ts` — входной DTO (universalPhraseId опциональный, phraseText/sourceLanguageCode опциональные)
-- `server/src/routes/universalPhraseTranslation/resolverDescriptions.ts` — описания резолверов
 
 ### Репозитории
-- `server/src/repo/universalPhraseTranslation.repository.ts` — бизнес-операции (createPending, updateToReady, updateToNonExistentWord, updateToError, findByPhraseIdAndTargetLang)
-- `server/src/repo/universalPhraseTranslation.queryRepository.ts` — запросы для клиента (getById с маппингом в OutModel)
-- `server/src/repo/universalPhrase.repository.ts` — операции с UniversalPhrase (createUniversalPhrase, findOrCreate, findBySentenceTextAndLang с нормализацией)
-- `server/src/repo/universalPhrase.queryRepository.ts` — запросы UniversalPhrase (getUniversalPhraseByTextAndLang с нормализацией)
+- `server/src/repo/universalPhrase/universalPhraseTranslation.repository.ts` — бизнес-операции (createPending, updateToReady, updateToNonExistentWord, updateToError, findByPhraseIdAndTargetLang)
+- `server/src/repo/universalPhrase/universalPhraseTranslation.queryRepository.ts` — запросы для клиента (getById с маппингом в OutModel)
+- `server/src/repo/universalPhrase/universalPhrase.repository.ts` — операции с UniversalPhrase (createUniversalPhrase, findOrCreate, findBySentenceTextAndLang с нормализацией)
+- `server/src/repo/universalPhrase/universalPhrase.queryRepository.ts` — запросы UniversalPhrase (getUniversalPhraseByTextAndLang с нормализацией)
 
 ### Модели
-- `server/src/models/universalPhraseTranslation/universalPhraseTranslation.service.model.ts` — сервисная модель, тип `UniversalPhraseTranslationData` и `nonExistentWord: boolean`
-- `server/src/models/universalPhraseTranslation/universalPhraseTranslation.out.model.ts` — GraphQL OutModel с `nonExistentWord: Boolean`
+- `server/src/models/universalPhraseTranslation/universalPhraseTranslation.service.model.ts` — сервисная модель, типы `TranslationBlock` и `nonExistentWord: boolean`
+- `server/src/models/universalPhraseTranslation/universalPhraseTranslation.out.model.ts` — OpenAPI OutModel с `translation` как generic JSON
 
 ### Клиент
-- `face/_pages/media/dictionary/PhraseDictionary/PhraseDictionary.tsx` — корневой компонент
-- `face/_pages/media/dictionary/PhraseDictionary/fn/usePhraseTranslation.ts` — хук с логикой запроса
-- `face/_pages/media/dictionary/PhraseDictionary/phraseDictionaryStore.ts` — Zustand-стор с кэшем
+- `face/_pages/media/dictionary/PhraseTranslationResult/PhraseTranslationResult.tsx` — компонентный реестр + BlockTree
+- `../../face/entities/universalPhrase/repository/PhraseTranslationRepository.ts` — клиентские типы блоков
+- `../../face/entities/universalPhrase/repository/PhraseTranslationApi.ts` — API-маппер
+- `face/_pages/media/dictionary/PhraseDictionaryInput/fn/createFetchTranslation.ts` — логика запроса перевода
 - `face/stores/phraseStore/resolvePhrase.ts` — общий модуль get-or-create фразы с кэшем
-- `face/graphql/universalPhraseTranslation/universalPhraseTranslationGetOrCreate.graphql` — GraphQL-мутация
 
 ### Инфраструктура
 - `server/src/infrastructure/llmProviderAdapter/LlmAdapter.service.ts` — фасад для вызова LLM-провайдеров

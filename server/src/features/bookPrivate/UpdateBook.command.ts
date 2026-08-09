@@ -14,7 +14,7 @@ type UpdateBookInput = {
 	author?: null | string
 	name?: null | string
 	languageCode?: null | Language
-	note?: null | string
+	about?: null | string
 	coverFileName?: null | string
 	fileMimeType?: null | string
 	isCoverFileUploaded?: boolean
@@ -55,7 +55,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 			author: updateBookInput.author,
 			name: updateBookInput.name,
 			languageCode: updateBookInput.languageCode,
-			note: updateBookInput.note,
+			about: updateBookInput.about,
 			coverFileName,
 			coverFileS3Key,
 			isCoverFileUploaded,

@@ -1,7 +1,7 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
-import { AIProviderName } from 'types/AIModels'
+import { AiModel } from 'types/AIModels'
 import { GetOrCreateUniversalPhraseTranslationCommand } from 'features/universalPhraseTranslation/GetOrCreateUniversalPhraseTranslation.command'
 import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -19,14 +19,16 @@ export class UniversalPhraseTranslationController {
 	async getOrCreateTranslation(
 		@Body() input: GetOrCreateUniversalPhraseTranslationInput,
 	): Promise<UniversalPhraseTranslationOutModel> {
-		return await this.commandBus.execute(
+		const result = await this.commandBus.execute(
 			new GetOrCreateUniversalPhraseTranslationCommand({
 				universalPhraseId: input.universalPhraseId,
 				phraseText: input.phraseText,
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode as LanguageCode,
-				provider: input.provider as AIProviderName,
+				model: input.model as AiModel,
 			}),
 		)
+
+		return result
 	}
 }

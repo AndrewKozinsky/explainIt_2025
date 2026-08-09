@@ -1,9 +1,8 @@
-import { useEffect, useMemo } from 'react'
-import { FlashcardApi } from '@/entites/flashcard/repository/FlashcardApi'
-import type { FlashcardModel } from '@/entites/flashcard/repository/FlashcardRepository'
-import { PhraseApi } from '@/entites/phrase/repository/PhraseApi'
-import type { PhraseModel } from '@/entites/phrase/repository/PhraseRepository'
-import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
+import { useEffect } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
+import type { FlashcardModel } from '@/entities/flashcard/FlashcardService'
+import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
 import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
 
 function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {
@@ -19,30 +18,22 @@ export function usePopulateDictionaryStore() {
 	const setFlashcards = useDictionaryStore((state) => state.setFlashcards)
 	const setIsFlashcardsLoading = useDictionaryStore((state) => state.setIsFlashcardsLoading)
 	const setGetFlashcardsErrorMessage = useDictionaryStore((state) => state.setGetFlashcardsErrorMessage)
-
-	const flashcardApi = useMemo(() => new FlashcardApi(), [])
-	const phraseApi = useMemo(() => new PhraseApi(), [])
-
-	const { loading, error, data } = useFetchData(
-		() =>
-			flashcardApi.getMyFlashcards(
-				currentLang ? { languageCode: currentLang } : undefined,
-			),
-		[flashcardApi, currentLang],
-		{ enabled: !!currentLang },
-	)
+	const { data, error, isLoading } = useQuery({
+		...flashcardQueries.getMyFlashcards(currentLang ? { languageCode: currentLang } : undefined),
+		enabled: !!currentLang,
+	})
 
 	useEffect(() => {
-		setIsFlashcardsLoading(loading)
-	}, [loading, setIsFlashcardsLoading])
+		setIsFlashcardsLoading(isLoading)
+	}, [isLoading, setIsFlashcardsLoading])
 
 	useEffect(() => {
-		setGetFlashcardsErrorMessage(error ? error : '')
+		setGetFlashcardsErrorMessage(error instanceof Error ? error.message : '')
 	}, [error, setGetFlashcardsErrorMessage])
 
 	useEffect(() => {
 		if (!data) {
-			if (!loading && !error) {
+			if (!isLoading && !error) {
 				setFlashcards([])
 				setIsFlashcardsLoading(false)
 			}
@@ -60,13 +51,10 @@ export function usePopulateDictionaryStore() {
 						let phraseAudioUrl = ''
 						let phraseTranscription = flashcard.phraseTranscription ?? ''
 
-						const phraseResult = await phraseApi.resolvePhrase(
-							flashcard.phrase,
-							flashcard.languageCode ?? '',
-						)
+						const phraseResult = await universalPhraseService.getPhrase(flashcard.phrase, currentLang)
 
-						if (phraseResult.data) {
-							const phrase: PhraseModel = phraseResult.data
+						if (phraseResult.ok) {
+							const phrase = phraseResult.data
 							phraseAudioUrl = phrase.audioPronunciation?.audioUrl ?? ''
 							phraseTranscription =
 								flashcard.phraseTranscription ??
@@ -116,5 +104,5 @@ export function usePopulateDictionaryStore() {
 		return () => {
 			isCancelled = true
 		}
-	}, [currentLang, data, loading, error, setFlashcards, setGetFlashcardsErrorMessage, setIsFlashcardsLoading, phraseApi])
+	}, [currentLang, data, isLoading, error, setFlashcards, setGetFlashcardsErrorMessage, setIsFlashcardsLoading])
 }

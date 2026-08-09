@@ -4,7 +4,7 @@ import { Observable, Subscriber } from 'rxjs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
-import { OpenAIModels, AIProviderName } from 'types/AIModels'
+import { AiModel, OpenAIModels, DeepSeekModels } from 'types/AIModels'
 import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -26,7 +26,8 @@ const HISTORY_LIMIT = 8
 export type StreamSentenceChatAssistantInput = {
 	userId: number
 	threadId: number
-	provider: AIProviderName
+	/** Если не указана — адаптер использует DeepSeek по умолчанию. */
+	model?: AiModel
 }
 
 type TokenUsage = { inputTokens: number; outputTokens: number }
@@ -129,7 +130,7 @@ export class StreamSentenceChatAssistantCommand {
 
 			state.abortController = this.activeGenerationRegistry.register(input.userId, assistantMessage.id)
 
-			await this.streamChunksToSubscriber(subscriber, state, prompt, input.provider)
+			await this.streamChunksToSubscriber(subscriber, state, prompt, input.model)
 
 			await this.finalize(input, subscriber, state, {
 				status: state.aborted ? 'canceled' : 'completed',
@@ -268,10 +269,10 @@ export class StreamSentenceChatAssistantCommand {
 			abortController: null | AbortController
 		},
 		prompt: PromptPayload,
-		provider: AIProviderName,
+		model?: AiModel,
 	): Promise<void> {
 		const stream = this.llmAdapter.stream({
-			provider,
+			model,
 			messages: prompt.messages,
 			abortSignal: state.abortController?.signal,
 			onUsage: (u) => {
@@ -308,7 +309,8 @@ export class StreamSentenceChatAssistantCommand {
 			errorText: opts.errorText,
 		})
 
-		await this.chargeTokenUsage(input.userId, state.usage, input.provider)
+		const model: AiModel = input.model ?? DeepSeekModels.Flash
+		await this.chargeTokenUsage(input.userId, state.usage, model)
 
 		if (state.assistantMessageId !== null) {
 			this.activeGenerationRegistry.unregister(state.assistantMessageId)
@@ -339,14 +341,14 @@ export class StreamSentenceChatAssistantCommand {
 		}
 	}
 
-	private async chargeTokenUsage(userId: number, usage: null | TokenUsage, provider: AIProviderName): Promise<void> {
+	private async chargeTokenUsage(userId: number, usage: null | TokenUsage, model: AiModel): Promise<void> {
 		if (!usage || (usage.inputTokens <= 0 && usage.outputTokens <= 0)) return
 
 		try {
 			await chargeAfterTranslationIfNeeded({
 				userId,
 				chargeAfterTranslation: true,
-				usage: this.buildProviderUsage(provider, usage),
+				usage: this.buildProviderUsage(model, usage),
 				commandBus: this.commandBus,
 			})
 		} catch (error) {
@@ -355,23 +357,16 @@ export class StreamSentenceChatAssistantCommand {
 	}
 
 	private buildProviderUsage(
-		provider: AIProviderName,
+		model: AiModel,
 		usage: TokenUsage,
 	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
-		if (provider === 'chatgpt') {
-			return {
-				provider: 'chatgpt',
-				inputTokens: usage.inputTokens,
-				outputTokens: usage.outputTokens,
-				model: OpenAIModels.Standard,
-				lowPriority: false,
-			}
-		}
-
 		return {
-			provider,
+			model,
 			inputTokens: usage.inputTokens,
 			outputTokens: usage.outputTokens,
+			...(model === OpenAIModels.Standard || model === OpenAIModels.Mini || model === OpenAIModels.Nano
+				? { lowPriority: false }
+				: {}),
 		}
 	}
 
