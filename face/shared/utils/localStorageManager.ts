@@ -1,3 +1,5 @@
+import { LanguageCode } from '@/shared/utils/languages'
+
 /**
  * Централизованный доступ к localStorage.
  *
@@ -166,6 +168,35 @@ export const localStorageManager = {
 	},
 
 	/**
+	 * Последний выбранный язык в списке публичных книг.
+	 *
+	 * Ключ: `lastBookLanguage`.
+	 */
+	lastBookLanguage: {
+		/**
+		 * Возвращает сохранённый код языка.
+		 *
+		 * @returns код языка или `null`, если запись отсутствует
+		 */
+		get(): LanguageCode | null {
+			if (typeof window === 'undefined') return null
+
+			const raw = window.localStorage.getItem(LAST_BOOK_LANGUAGE_KEY) as LanguageCode
+			return raw || null
+		},
+
+		/**
+		 * Сохраняет код языка.
+		 *
+		 * @param languageCode — код языка (например `"en"`, `"ru"`)
+		 */
+		set(languageCode: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_BOOK_LANGUAGE_KEY, languageCode)
+		},
+	},
+
+	/**
 	 * OAuth CSRF-токен.
 	 *
 	 * Ключ: `latestCSRFToken`.
@@ -220,6 +251,10 @@ const ONBOARDING_KEY = 'hideOnboardingModal'
 // ── oauth helpers ──────────────────────────────────────────────────────────
 
 const OAUTH_CSRF_KEY = 'latestCSRFToken'
+
+// ── lastBookLanguage helpers ───────────────────────────────────────────────
+
+const LAST_BOOK_LANGUAGE_KEY = 'lastBookLanguage'
 
 // ── lastMediaTab helpers ───────────────────────────────────────────────────
 

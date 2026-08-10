@@ -1,10 +1,12 @@
 // 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import { BookModel } from '@/entities/book/repository/BooksRepository'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+import { LanguageCode } from '@/shared/utils/languages'
+import { localStorageManager } from '@/shared/utils/localStorageManager'
 import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
 import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
 import { getConfig } from './fn/getConfig'
@@ -19,13 +21,18 @@ function PublicBooksList(props: PublicBooksList) {
 
 	const languages = books.map((item) => item.languageCode)
 	const languagesSet = new Set(languages)
-	const [currentLang, setCurrentLang] = useState(languages[0])
+	const [currentLang, setCurrentLang] = useState(() => localStorageManager.lastBookLanguage.get() ?? languages[0])
 
 	useEffect(() => {
 		if (!currentLang && languages.length > 0) {
 			setCurrentLang(languages[0])
 		}
 	}, [languages, currentLang])
+
+	const handleLanguageChange = useCallback((lang: LanguageCode) => {
+		setCurrentLang(lang)
+		localStorageManager.lastBookLanguage.set(lang)
+	}, [])
 
 	const config = getConfig(books, currentLang)
 
@@ -34,7 +41,7 @@ function PublicBooksList(props: PublicBooksList) {
 			<LanguageSwitch
 				languages={Array.from(languagesSet)}
 				currentLang={currentLang}
-				onChange={(lang) => setCurrentLang(lang)}
+				onChange={handleLanguageChange}
 			/>
 			<ItemsGrid>
 				{config.map((book) => {
