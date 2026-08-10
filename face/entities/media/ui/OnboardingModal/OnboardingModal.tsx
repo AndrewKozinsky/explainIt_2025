@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import React, { useState, useEffect } from 'react'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import Modal from '@/shared/ui/Modal/Modal'
-import { filesUrls } from '@/shared/utils/filesUrls'
-import { localStorageManager } from '@/shared/utils/localStorageManager'
-import './OnboardingModal.scss'
+// import React, { useState, useEffect } from 'react'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import Modal from '@/shared/ui/Modal/Modal'
+// import { filesUrls } from '@/shared/utils/filesUrls'
+// import { localStorageManager } from '@/shared/utils/localStorageManager'
+// import './OnboardingModal.scss'
 
-function OnboardingModal() {
+/*function OnboardingModal() {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	useEffect(() => {
@@ -42,6 +42,6 @@ function OnboardingModal() {
 			</div>
 		</Modal>
 	)
-}
+}*/
 
-export default OnboardingModal
+// export default OnboardingModal

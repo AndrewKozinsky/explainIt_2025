@@ -1,8 +1,8 @@
-import WordsButtonList from '_pages/media/commonComponents/WordsButtonList/WordsButtonList'
-import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
-import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
+// import WordsButtonList from '_pages/media/commonComponents/WordsButtonList/WordsButtonList'
+// import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
+// import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 
-function WordsQuickAccess() {
+/*function WordsQuickAccess() {
 	const { handleSubmit } = usePhraseTranslation()
 
 	function handleWordAppend(word: string) {
@@ -18,6 +18,6 @@ function WordsQuickAccess() {
 	}
 
 	return <WordsButtonList onWordClick={handleWordAppend} onPhraseClick={handlePhraseReplace} />
-}
+}*/
 
-export default WordsQuickAccess
+// export default WordsQuickAccess

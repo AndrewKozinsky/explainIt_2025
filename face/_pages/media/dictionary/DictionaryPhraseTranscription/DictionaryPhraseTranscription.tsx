@@ -1,10 +1,10 @@
-import React from 'react'
-import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
-import { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
-import './DictionaryPhraseTranscription.scss'
+// import React from 'react'
+// import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
+// import './DictionaryPhraseTranscription.scss'
 
-function DictionaryPhraseTranscription() {
+/*function DictionaryPhraseTranscription() {
 	const transcription = usePhraseDictionaryStore((s) => s.transcription)
 	const audioUrl = usePhraseDictionaryStore((s) => s.audioUrl)
 	const phrase = usePhraseDictionaryStore((s) => s.inputText)
@@ -25,6 +25,6 @@ function DictionaryPhraseTranscription() {
 			/>
 		</div>
 	)
-}
+}*/
 
-export default DictionaryPhraseTranscription
+// export default DictionaryPhraseTranscription

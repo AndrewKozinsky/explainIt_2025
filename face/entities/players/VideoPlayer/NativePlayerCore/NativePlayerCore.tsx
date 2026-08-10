@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import { useRef } from 'react'
-import { usePlayerController } from '../fn/controller'
-import { usePlayerControl } from '../fn/playerControl'
-import VideoProgress from '../VideoProgress'
+// import { useRef } from 'react'
+// import { usePlayerController } from '../fn/controller'
+// import { usePlayerControl } from '../fn/playerControl'
+// import VideoProgress from '../VideoProgress'
 
 // ── Props ──────────────────────────────────────────────────────────────
 
-type NativePlayerCoreProps = {
+/*type NativePlayerCoreProps = {
 	fileUrl: string
 	initialTime?: number
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>
@@ -18,11 +18,11 @@ type NativePlayerCoreProps = {
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
 	saveProgress: (seconds: number) => void
-}
+}*/
 
 // ── Компонент ──────────────────────────────────────────────────────────
 
-function NativePlayerCore(props: NativePlayerCoreProps) {
+/*function NativePlayerCore(props: NativePlayerCoreProps) {
 	const {
 		fileUrl,
 		initialTime,
@@ -81,6 +81,6 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 			<VideoProgress />
 		</div>
 	)
-}
+}*/
 
-export default NativePlayerCore
+// export default NativePlayerCore

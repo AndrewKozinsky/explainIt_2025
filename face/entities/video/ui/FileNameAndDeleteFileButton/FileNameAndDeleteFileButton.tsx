@@ -1,14 +1,14 @@
-import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButton'
-import './FileNameAndDeleteFileButton.scss'
+// import DeleteVideoFileButton from '../DeleteVideoFileButton/DeleteVideoFileButton'
+// import './FileNameAndDeleteFileButton.scss'
 
-type FileNameAndDeleteFileButtonProps = {
+/*type FileNameAndDeleteFileButtonProps = {
 	fileUrl: string | null
 	isFileUploaded: boolean | null
 	videoId: number
 	onFileDeleted: () => void
-}
+}*/
 
-function FileNameAndDeleteFileButton(props: FileNameAndDeleteFileButtonProps) {
+/*function FileNameAndDeleteFileButton(props: FileNameAndDeleteFileButtonProps) {
 	const { fileUrl, isFileUploaded, videoId, onFileDeleted } = props
 
 	if (!isFileUploaded || !fileUrl) {
@@ -21,6 +21,6 @@ function FileNameAndDeleteFileButton(props: FileNameAndDeleteFileButtonProps) {
 			<DeleteVideoFileButton videoId={videoId} onDeleted={onFileDeleted} />
 		</div>
 	)
-}
+}*/
 
-export default FileNameAndDeleteFileButton
+// export default FileNameAndDeleteFileButton

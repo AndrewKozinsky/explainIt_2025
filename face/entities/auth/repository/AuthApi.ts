@@ -1,27 +1,27 @@
-import {
-	authControllerConfirmEmail,
-	authControllerLogin,
-	authControllerLoginWithOAuth,
-	authControllerLogout,
-	authControllerRegister,
-} from '@/shared/api/generated/auth/auth'
-import type { UserOutModel } from '@/shared/api/generated/models'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import type {
-	AuthRepository,
-	ConfirmEmailInput,
-	LoginInput,
-	LoginWithOAuthInput,
-	LoginWithOAuthResult,
-	RegisterInput,
-} from './AuthRepository'
+// import {
+// 	authControllerConfirmEmail,
+// 	authControllerLogin,
+// 	authControllerLoginWithOAuth,
+// 	authControllerLogout,
+// 	authControllerRegister,
+// } from '@/shared/api/generated/auth/auth'
+// import type { UserOutModel } from '@/shared/api/generated/models'
+// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import type {
+// 	AuthRepository,
+// 	ConfirmEmailInput,
+// 	LoginInput,
+// 	LoginWithOAuthInput,
+// 	LoginWithOAuthResult,
+// 	RegisterInput,
+// } from './AuthRepository'
 
 /**
  * Реализация AuthRepository через REST API.
  * Внутри использует Orval-сгенерированные функции, снаружи отдаёт унифицированные типы.
  */
-export class AuthApi implements AuthRepository {
+/*export class AuthApi implements AuthRepository {
 	async register(input: RegisterInput): Promise<ApiResult<LoginWithOAuthResult>> {
 		return executeApiCall(
 			() => authControllerRegister(input as Parameters<typeof authControllerRegister>[0]),
@@ -52,15 +52,15 @@ export class AuthApi implements AuthRepository {
 	async logout(): Promise<ApiResult<void>> {
 		return executeApiCall(() => authControllerLogout())
 	}
-}
+}*/
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-function mapToUser(raw: UserOutModel): LoginWithOAuthResult {
+/*function mapToUser(raw: UserOutModel): LoginWithOAuthResult {
 	return {
 		id: raw.id,
 		email: raw.email,
 		isUserConfirmed: raw.isUserConfirmed,
 		balance: raw.balance,
 	}
-}
+}*/

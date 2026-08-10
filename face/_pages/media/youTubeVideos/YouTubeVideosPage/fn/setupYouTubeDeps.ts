@@ -1,8 +1,8 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
-import { YoutubeService } from '@/entities/youtube/YoutubeService'
+// import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+// import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
+// import { YoutubeService } from '@/entities/youtube/YoutubeService'
 
-export function useYouTubeVideos(youtubeService: YoutubeService, query: string) {
+/*export function useYouTubeVideos(youtubeService: YoutubeService, query: string) {
 	const [loading, setLoading] = useState(false)
 	const [videos, setVideos] = useState<YoutubeVideoModel[]>([])
 	const [error, setError] = useState<null | string>(null)
@@ -87,4 +87,4 @@ export function useYouTubeVideos(youtubeService: YoutubeService, query: string) 
 		},
 		[loading, videos, error, nextPageToken, hasSearched, search, loadMore],
 	)
-}
+}*/

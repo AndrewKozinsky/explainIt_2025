@@ -1,7 +1,7 @@
-import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
-import './MediaNavigation.scss'
+// import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
+// import './MediaNavigation.scss'
 
-type MediaNavigationProps = {
+/*type MediaNavigationProps = {
 	bookLink: {
 		href: string
 		text?: null | string
@@ -18,8 +18,9 @@ type MediaNavigationProps = {
 		text?: null | string
 		smallText?: null | string
 	}
-}
+}*/
 
+/*
 function MediaNavigation(props: MediaNavigationProps) {
 	const { bookLink, prevChapterLink, nextChapterLink } = props
 
@@ -34,5 +35,6 @@ function MediaNavigation(props: MediaNavigationProps) {
 		</div>
 	)
 }
+*/
 
-export default MediaNavigation
+// export default MediaNavigation

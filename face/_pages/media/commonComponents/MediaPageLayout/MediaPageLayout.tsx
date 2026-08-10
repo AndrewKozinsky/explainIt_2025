@@ -1,10 +1,10 @@
-import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
+// import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 
-type VideosPageLayoutProps = {
+/*type VideosPageLayoutProps = {
 	children: React.ReactNode
-}
+}*/
 
-function MediaPageLayout(props: VideosPageLayoutProps) {
+/*function MediaPageLayout(props: VideosPageLayoutProps) {
 	const { children } = props
 
 	return (
@@ -12,6 +12,6 @@ function MediaPageLayout(props: VideosPageLayoutProps) {
 			{children}
 		</PageWrapper>
 	)
-}
+}*/
 
-export default MediaPageLayout
+// export default MediaPageLayout

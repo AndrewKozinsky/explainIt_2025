@@ -7,21 +7,21 @@
 
 // ── Состояния плеера ────────────────────────────────────────────────────
 
-export const YouTubePlayerState = {
+/*export const YouTubePlayerState = {
 	UNSTARTED: -1,
 	ENDED: 0,
 	PLAYING: 1,
 	PAUSED: 2,
 	BUFFERING: 3,
 	CUED: 5,
-} as const
+} as const*/
 
 // Тип: значения перечисления
-export type YouTubePlayerStateValue = (typeof YouTubePlayerState)[keyof typeof YouTubePlayerState]
+// export type YouTubePlayerStateValue = (typeof YouTubePlayerState)[keyof typeof YouTubePlayerState]
 
 // ── Интерфейс YouTube-плеера ─────────────────────────────────────────────
 
-export interface YouTubePlayer {
+/*export interface YouTubePlayer {
 	playVideo(): void
 	pauseVideo(): void
 	seekTo(seconds: number, allowSeekAhead: boolean): void
@@ -33,11 +33,11 @@ export interface YouTubePlayer {
 	getVolume(): number
 	getPlayerState(): number
 	destroy(): void
-}
+}*/
 
 // ── Опции создания плеера ───────────────────────────────────────────────
 
-export interface YouTubePlayerOptions {
+/*export interface YouTubePlayerOptions {
 	videoId: string
 	width?: string | number
 	height?: string | number
@@ -54,11 +54,11 @@ export interface YouTubePlayerOptions {
 		onStateChange?: (event: { target: YouTubePlayer; data: number }) => void
 		onError?: (event: { target: YouTubePlayer; data: number }) => void
 	}
-}
+}*/
 
 // ── Глобальные типы ─────────────────────────────────────────────────────
 
-declare global {
+/*declare global {
 	interface Window {
 		YT?: {
 			Player: new (elementId: string | HTMLElement, options: YouTubePlayerOptions) => YouTubePlayer
@@ -66,11 +66,11 @@ declare global {
 		}
 		onYouTubeIframeAPIReady?: () => void
 	}
-}
+}*/
 
 // ── Загрузчик API ───────────────────────────────────────────────────────
 
-let apiLoadPromise: Promise<void> | null = null
+// let apiLoadPromise: Promise<void> | null = null
 
 /**
  * Загружает YouTube IFrame Player API.
@@ -81,7 +81,7 @@ let apiLoadPromise: Promise<void> | null = null
  *
  * На сервере (SSR) сразу резолвится, не добавляя тег <script>.
  */
-export function loadYouTubeIframeApi(): Promise<void> {
+/*export function loadYouTubeIframeApi(): Promise<void> {
 	if (typeof window === 'undefined') return Promise.resolve()
 
 	// Уже загружен
@@ -111,4 +111,4 @@ export function loadYouTubeIframeApi(): Promise<void> {
 	})
 
 	return apiLoadPromise
-}
+}*/

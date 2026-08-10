@@ -1,29 +1,29 @@
-'use client'
+// 'use client'
 
-import React, { useCallback, useEffect, useMemo, useState } from 'react'
-import type { VideoLiteModel } from '@/entities/video/lib/types'
-import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
-import YouTubeVideosCenterWrapper from '@/entities/youtube/ui/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
-import YouTubeVideosList, { type YouTubeVideoCardData } from '@/entities/youtube/ui/YouTubeVideosList/YouTubeVideosList'
-import { YoutubeService } from '@/entities/youtube/YoutubeService'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import Select from '@/shared/ui/formRelated/Select/Select'
-import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
-import Spinner from '@/shared/ui/Spinner/Spinner'
-import Switcher from '@/shared/ui/Switcher/Switcher'
-import { type LanguageCode, languageKeys } from '@/shared/utils/languages'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import {
-	type DurationKey,
-	getDurationFilter,
-	getDurationSwitcherItems,
-	type ProficiencyKey,
-	getProficiencyFilter,
-	getProficiencySwitcherItems,
-} from './fn/getFilterConfig'
-import './YouTubeVideosSaved.scss'
+// import React, { useCallback, useEffect, useMemo, useState } from 'react'
+// import type { VideoLiteModel } from '@/entities/video/lib/types'
+// import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
+// import YouTubeVideosCenterWrapper from '@/entities/youtube/ui/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
+// import YouTubeVideosList, { type YouTubeVideoCardData } from '@/entities/youtube/ui/YouTubeVideosList/YouTubeVideosList'
+// import { YoutubeService } from '@/entities/youtube/YoutubeService'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import Select from '@/shared/ui/formRelated/Select/Select'
+// import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+// import Spinner from '@/shared/ui/Spinner/Spinner'
+// import Switcher from '@/shared/ui/Switcher/Switcher'
+// import { type LanguageCode, languageKeys } from '@/shared/utils/languages'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import {
+// 	type DurationKey,
+// 	getDurationFilter,
+// 	getDurationSwitcherItems,
+// 	type ProficiencyKey,
+// 	getProficiencyFilter,
+// 	getProficiencySwitcherItems,
+// } from './fn/getFilterConfig'
+// import './YouTubeVideosSaved.scss'
 
-function YouTubeVideosSaved() {
+/*function YouTubeVideosSaved() {
 	const youtubeService = useMemo(function () {
 		return new YoutubeService(new YoutubeApi())
 	}, [])
@@ -136,11 +136,11 @@ function YouTubeVideosSaved() {
 			{!loading && !error && videos.length > 0 && <YouTubeVideosList items={mapToYouTubeVideoCardData(videos)} />}
 		</div>
 	)
-}
+}*/
 
-export default YouTubeVideosSaved
+// export default YouTubeVideosSaved
 
-function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
+/*function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
 	return videos.map(function (video) {
 		return {
 			id: video.id,
@@ -151,4 +151,4 @@ function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardDa
 			proficiencyLevel: video.proficiencyLevel,
 		}
 	})
-}
+}*/

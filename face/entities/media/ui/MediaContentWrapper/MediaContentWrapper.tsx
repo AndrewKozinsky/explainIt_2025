@@ -1,11 +1,11 @@
-import './MediaContentWrapper.scss'
+// import './MediaContentWrapper.scss'
 
-type MediaFullInfoProps = {
+/*type MediaFullInfoProps = {
 	children?: React.ReactNode
 	list: React.ReactNode
-}
+}*/
 
-export default function MediaContentWrapper(props: MediaFullInfoProps) {
+/*export default function MediaContentWrapper(props: MediaFullInfoProps) {
 	const { children, list } = props
 
 	return (
@@ -14,4 +14,4 @@ export default function MediaContentWrapper(props: MediaFullInfoProps) {
 			<aside className='media-full-info__menu'>{list}</aside>
 		</div>
 	)
-}
+}*/

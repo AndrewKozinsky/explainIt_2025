@@ -1,26 +1,26 @@
-import {
-	bookControllerGetBooks,
-	bookControllerCreateBook,
-	bookControllerGetBook,
-	bookControllerUpdateBook,
-	bookControllerDeleteBook,
-} from '@/shared/api/generated/book/book'
-import type {
-	BookOutModel,
-	CreateBookInput as OrvalCreateBookInput,
-	UpdateBookInput as OrvalUpdateBookInput,
-} from '@/shared/api/generated/models'
-import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import { LanguageCode } from '@/shared/utils/languages'
-import { mapToChapterLite } from '../../chapter/repository/ChaptersApi'
-import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './BooksRepository'
+// import {
+// 	bookControllerGetBooks,
+// 	bookControllerCreateBook,
+// 	bookControllerGetBook,
+// 	bookControllerUpdateBook,
+// 	bookControllerDeleteBook,
+// } from '@/shared/api/generated/book/book'
+// import type {
+// 	BookOutModel,
+// 	CreateBookInput as OrvalCreateBookInput,
+// 	UpdateBookInput as OrvalUpdateBookInput,
+// } from '@/shared/api/generated/models'
+// import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
+// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import { mapToChapterLite } from '../../chapter/repository/ChaptersApi'
+// import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './BooksRepository'
 
 /**
  * Реализация BooksRepository через REST API.
  */
-export class BooksApi implements BooksRepository {
+/*export class BooksApi implements BooksRepository {
 	async getBooks(): Promise<ApiResult<BookModel[]>> {
 		return executeApiCall(
 			() => bookControllerGetBooks(),
@@ -52,9 +52,9 @@ export class BooksApi implements BooksRepository {
 	async deleteBook(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => bookControllerDeleteBook(id))
 	}
-}
+}*/
 
-function mapToBook(raw: BookOutModel): BookModel {
+/*function mapToBook(raw: BookOutModel): BookModel {
 	return {
 		id: raw.id,
 		type: mapType(raw.type),
@@ -70,8 +70,8 @@ function mapToBook(raw: BookOutModel): BookModel {
 		uploadUrl: extractString(raw.uploadUrl),
 		chapters: (raw.chapters ?? []).map(mapToChapterLite),
 	}
-}
+}*/
 
-function mapType(raw: string): BookModel['type'] {
+/*function mapType(raw: string): BookModel['type'] {
 	return raw === 'public' || raw === 'private' ? raw : 'private'
-}
+}*/

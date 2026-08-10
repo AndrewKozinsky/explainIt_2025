@@ -1,9 +1,9 @@
-import React from 'react'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import { AuthFormParent } from '../../common/AuthFormParent/AuthFormParent'
-import AuthRegisterForm from '../AuthRegisterForm/AuthRegisterForm'
+// import React from 'react'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import { AuthFormParent } from '../../common/AuthFormParent/AuthFormParent'
+// import AuthRegisterForm from '../AuthRegisterForm/AuthRegisterForm'
 
-function AuthRegisterPage() {
+/*function AuthRegisterPage() {
 	return (
 		<AuthFormParent
 			pageTitle={pageUrls.auth.register.name}
@@ -11,6 +11,6 @@ function AuthRegisterPage() {
 			afterFormLinks={[pageUrls.auth.login]}
 		/>
 	)
-}
+}*/
 
-export default AuthRegisterPage
+// export default AuthRegisterPage

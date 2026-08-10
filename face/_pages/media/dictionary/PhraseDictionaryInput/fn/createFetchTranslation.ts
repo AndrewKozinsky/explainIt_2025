@@ -1,16 +1,16 @@
-import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
-import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
-import type { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
+// import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
+// import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
+// import type { LanguageCode } from '@/shared/utils/languages'
+// import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 
-type FetchTranslationDeps = {
-	/** Getter — всегда возвращает актуальный sourceLanguageCode */
+/*type FetchTranslationDeps = {
+	/!** Getter — всегда возвращает актуальный sourceLanguageCode *!/
 	getSourceLang: () => LanguageCode
-	/** Getter — всегда возвращает актуальный targetLanguageCode (locale) */
+	/!** Getter — всегда возвращает актуальный targetLanguageCode (locale) *!/
 	getTargetLang: () => string
-	/** Getter — всегда возвращает актуальный AbortSignal */
+	/!** Getter — всегда возвращает актуальный AbortSignal *!/
 	getAbortSignal: () => AbortSignal | undefined
-}
+}*/
 
 /**
  * Создаёт функцию `fetchTranslation`, которая:
@@ -19,7 +19,7 @@ type FetchTranslationDeps = {
  * 3. Запрашивает перевод через universalPhraseService.getTranslation
  * 4. Обрабатывает результат: перевод / несуществующее слово / ошибка
  */
-export function createFetchTranslation(deps: FetchTranslationDeps) {
+/*export function createFetchTranslation(deps: FetchTranslationDeps) {
 	const { getSourceLang, getTargetLang, getAbortSignal } = deps
 
 	return async function fetchTranslation(phraseText: string): Promise<void> {
@@ -95,4 +95,4 @@ export function createFetchTranslation(deps: FetchTranslationDeps) {
 			usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
 		}
 	}
-}
+}*/

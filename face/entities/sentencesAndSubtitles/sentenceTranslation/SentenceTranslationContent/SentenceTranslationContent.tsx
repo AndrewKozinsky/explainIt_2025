@@ -1,13 +1,13 @@
-type SentenceTranslationContentProps = {
+/*type SentenceTranslationContentProps = {
 	translationText: string
-}
+}*/
 
-function SentenceTranslationContent(props: SentenceTranslationContentProps) {
+/*function SentenceTranslationContent(props: SentenceTranslationContentProps) {
 	if (!props.translationText) {
 		return null
 	}
 
 	return <>{props.translationText}</>
-}
+}*/
 
-export default SentenceTranslationContent
+// export default SentenceTranslationContent

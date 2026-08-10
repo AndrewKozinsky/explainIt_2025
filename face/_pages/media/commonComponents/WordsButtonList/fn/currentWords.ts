@@ -1,7 +1,7 @@
-import { useMemo } from 'react'
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+// import { useMemo } from 'react'
+// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
 
-export function useCurrentWords(): { sentenceWords: string[]; phrase: string | null } {
+/*export function useCurrentWords(): { sentenceWords: string[]; phrase: string | null } {
 	const getCurrentWords = useDetailsStore((s) => s.getCurrentWords)
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
@@ -9,4 +9,4 @@ export function useCurrentWords(): { sentenceWords: string[]; phrase: string | n
 	const sentences = useDetailsStore((s) => s.sentences)
 
 	return useMemo(() => getCurrentWords(), [currentSentenceId, currentSentenceText, languageCode, sentences])
-}
+}*/

@@ -1,40 +1,40 @@
-import type {
-	CreateVideoOutModel,
-	UpdateVideoOutModel,
-	VideoSubtitlesStatusOutModel,
-	CreateVideoInput as OrvalCreateVideoInput,
-	UpdateVideoInput as OrvalUpdateVideoInput,
-} from '@/shared/api/generated/models'
-import {
-	videoControllerGetVideos,
-	videoControllerGetVideo,
-	videoControllerCreateVideo,
-	videoControllerUpdateVideo,
-	videoControllerDeleteVideo,
-	videoControllerGenerateSubtitles,
-	videoControllerGetSubtitlesStatus,
-} from '@/shared/api/generated/video/video'
-import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import { LanguageCode } from '@/shared/utils/languages'
-import {
-	mapType,
-	mapContentType,
-	mapSubtitlesSource,
-	mapProficiencyLevel,
-	mapToVideoLite,
-	mapVideoOutModelToVideoModel,
-} from '../lib/mappers'
-import type { VideosRepository, CreateVideoInput, UpdateVideoInput } from './VideosRepository'
-import type { VideoLiteModel, VideoModel, SubtitlesStatusModel } from '../lib/types'
-import type { SubtitlesStatusModelType } from '../lib/types'
+// import type {
+// 	CreateVideoOutModel,
+// 	UpdateVideoOutModel,
+// 	VideoSubtitlesStatusOutModel,
+// 	CreateVideoInput as OrvalCreateVideoInput,
+// 	UpdateVideoInput as OrvalUpdateVideoInput,
+// } from '@/shared/api/generated/models'
+// import {
+// 	videoControllerGetVideos,
+// 	videoControllerGetVideo,
+// 	videoControllerCreateVideo,
+// 	videoControllerUpdateVideo,
+// 	videoControllerDeleteVideo,
+// 	videoControllerGenerateSubtitles,
+// 	videoControllerGetSubtitlesStatus,
+// } from '@/shared/api/generated/video/video'
+// import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
+// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import {
+// 	mapType,
+// 	mapContentType,
+// 	mapSubtitlesSource,
+// 	mapProficiencyLevel,
+// 	mapToVideoLite,
+// 	mapVideoOutModelToVideoModel,
+// } from '../lib/mappers'
+// import type { VideosRepository, CreateVideoInput, UpdateVideoInput } from './VideosRepository'
+// import type { VideoLiteModel, VideoModel, SubtitlesStatusModel } from '../lib/types'
+// import type { SubtitlesStatusModelType } from '../lib/types'
 
 /**
  * Реализация VideosRepository через REST API.
  * Внутри использует Orval-сгенерированные функции, снаружи отдаёт унифицированные типы.
  */
-export class VideosApi implements VideosRepository {
+/*export class VideosApi implements VideosRepository {
 	async getVideos(): Promise<ApiResult<VideoLiteModel[]>> {
 		return executeApiCall(
 			() => videoControllerGetVideos(),
@@ -80,11 +80,11 @@ export class VideosApi implements VideosRepository {
 			(data) => mapToSubtitlesStatus(data),
 		)
 	}
-}
+}*/
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel {
+/*function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: mapType(raw.type),
@@ -114,9 +114,9 @@ function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel 
 		subtitlesErrorCode: null,
 		ratio: null,
 	}
-}
+}*/
 
-function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel {
+/*function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: 'private',
@@ -146,9 +146,9 @@ function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel 
 		subtitlesErrorCode: null,
 		ratio: null,
 	}
-}
+}*/
 
-function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatusModel {
+/*function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatusModel {
 	return {
 		videoId: raw.videoId,
 		source: mapSubtitlesSource(extractString(raw.source)),
@@ -156,4 +156,4 @@ function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatu
 		errorCode: extractString(raw.errorCode),
 		jobId: extractString(raw.jobId),
 	}
-}
+}*/

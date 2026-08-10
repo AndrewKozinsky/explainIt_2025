@@ -1,12 +1,12 @@
-import { useEffect } from 'react'
-import { useLocale } from 'next-intl'
-import { makePhraseId, SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import { translateApi } from '@/entities/translate/repository/TranslateApi'
-import { mapPhraseTranslationToStatus } from './fetchSentenceTranslation'
-import { findSentenceEntry } from './selectors'
-import { offsetsFromWordIds } from './wordSegmentation'
+// import { useEffect } from 'react'
+// import { useLocale } from 'next-intl'
+// import { makePhraseId, SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+// import { translateApi } from '@/entities/translate/repository/TranslateApi'
+// import { mapPhraseTranslationToStatus } from './fetchSentenceTranslation'
+// import { findSentenceEntry } from './selectors'
+// import { offsetsFromWordIds } from './wordSegmentation'
 
-export function useFetchCurrentPhraseTranslation() {
+/*export function useFetchCurrentPhraseTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 	const currentWordId = useDetailsStore((s) => s.currentWordId)
@@ -113,9 +113,9 @@ export function useFetchCurrentPhraseTranslation() {
 		},
 		[retryFetchPhraseQueue],
 	)
-}
+}*/
 
-type RunFetchForPhraseInput = {
+/*type RunFetchForPhraseInput = {
 	sentenceId: number
 	sentenceText: string
 	phraseId: string
@@ -126,9 +126,9 @@ type RunFetchForPhraseInput = {
 	videoName: null | string
 	languageCode: null | string
 	targetLanguageCode: string
-}
+}*/
 
-async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
+/*async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 	try {
 		const phrase = await getOrCreatePhraseTranslation(input)
 		// console.log({ phrase })
@@ -148,9 +148,9 @@ async function runFetchForPhrase(input: RunFetchForPhraseInput): Promise<void> {
 			},
 		})
 	}
-}
+}*/
 
-async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhraseType> {
+/*async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Promise<SentencePhraseType> {
 	const existingResult = await translateApi.getPhraseTranslation({
 		sentenceId: input.sentenceId,
 		targetLanguageCode: input.targetLanguageCode,
@@ -189,4 +189,4 @@ async function getOrCreatePhraseTranslation(input: RunFetchForPhraseInput): Prom
 		sentenceText: input.sentenceText,
 		languageCode: input.languageCode,
 	})
-}
+}*/

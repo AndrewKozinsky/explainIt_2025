@@ -1,12 +1,12 @@
-import { Link } from '@/i18n/routing'
-import './MediaCardActionButton.scss'
+// import { Link } from '@/i18n/routing'
+// import './MediaCardActionButton.scss'
 
-type MediaCardButtonProps = {
+/*type MediaCardButtonProps = {
 	url: string
 	children: React.ReactNode
-}
+}*/
 
-function MediaCardActionButton(props: MediaCardButtonProps) {
+/*function MediaCardActionButton(props: MediaCardButtonProps) {
 	const { url, children } = props
 
 	return (
@@ -14,6 +14,6 @@ function MediaCardActionButton(props: MediaCardButtonProps) {
 			{children}
 		</Link>
 	)
-}
+}*/
 
-export default MediaCardActionButton
+// export default MediaCardActionButton

@@ -1,16 +1,16 @@
-import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import { getHeader } from './fn/getHeader'
-import VideoClientWrapper from './VideoClientWrapper'
+// import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+// import { VideosApi } from '@/entities/video/repository/VideosApi'
+// import { VideosService } from '@/entities/video/VideosService'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import { getHeader } from './fn/getHeader'
+// import VideoClientWrapper from './VideoClientWrapper'
 
-type VideoRootProps = {
+/*type VideoRootProps = {
 	videoId: number | string
-}
+}*/
 
-async function VideoPage(props: VideoRootProps) {
+/*async function VideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
 	const videosService = new VideosService(new VideosApi())
@@ -46,6 +46,6 @@ async function VideoPage(props: VideoRootProps) {
 			}}
 		/>
 	)
-}
+}*/
 
-export default VideoPage
+// export default VideoPage

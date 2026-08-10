@@ -1,9 +1,9 @@
-import { useContext, useCallback, useMemo, useState } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { useContext, useCallback, useMemo, useState } from 'react'
+// import { VideosApi } from '@/entities/video/repository/VideosApi'
+// import { VideosService } from '@/entities/video/VideosService'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-export function useDeleteVideoFile(videoId: number, onDeleted: () => void) {
+/*export function useDeleteVideoFile(videoId: number, onDeleted: () => void) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -34,4 +34,4 @@ export function useDeleteVideoFile(videoId: number, onDeleted: () => void) {
 		status,
 		onDeleteClick,
 	}
-}
+}*/

@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import { useMemo, useState } from 'react'
-import { PaymentService } from '@/entities/payment/PaymentService'
-import { PaymentApi } from '@/entities/payment/repository/PaymentApi'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+// import { useMemo, useState } from 'react'
+// import { PaymentService } from '@/entities/payment/PaymentService'
+// import { PaymentApi } from '@/entities/payment/repository/PaymentApi'
+// import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
-const RUBLES_TO_KOPECKS = 100
+// const RUBLES_TO_KOPECKS = 100
 
-export function useBalanceTopUpForm() {
+/*export function useBalanceTopUpForm() {
 	const [amountInRubles, setAmountInRubles] = useState('')
 	const [formError, setFormError] = useState<null | string>(null)
 
@@ -55,4 +55,4 @@ export function useBalanceTopUpForm() {
 		handleSubmit,
 		handleAmountChange,
 	}
-}
+}*/

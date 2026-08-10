@@ -1,9 +1,9 @@
-import { useCallback, useMemo } from 'react'
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
-import type { BookModel } from '@/entities/book/repository/BooksRepository'
+// import { useCallback, useMemo } from 'react'
+// import { BooksService } from '@/entities/book/BooksService'
+// import { BooksApi } from '@/entities/book/repository/BooksApi'
+// import type { BookModel } from '@/entities/book/repository/BooksRepository'
 
-export function useCoverUpload(bookId: number, languageCode: string | null, onCoverUpdated: (book: BookModel) => void) {
+/*export function useCoverUpload(bookId: number, languageCode: string | null, onCoverUpdated: (book: BookModel) => void) {
 	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
 
 	const onGetUploadUrl = useCallback(
@@ -33,4 +33,4 @@ export function useCoverUpload(bookId: number, languageCode: string | null, onCo
 	)
 
 	return { onGetUploadUrl, onUploadComplete }
-}
+}*/

@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
-import { useDetailsStore } from '../../detailsStore'
+// import { useEffect } from 'react'
+// import { useDetailsStore } from '../../detailsStore'
 
-type ApplySelectionInput = {
+/*type ApplySelectionInput = {
 	selectedSentenceId: null | number
 	selectedWordId: null | number
-}
+}*/
 
 /**
  * При изменении выделения (клик по слову в левом блоке) обновляет
@@ -13,7 +13,7 @@ type ApplySelectionInput = {
  * sentenceText ищется в detailsStore.sentences (заполняется через usePopulateStore).
  * Больше не зависит от readingStore/videoStore — данные приходят через пропсы.
  */
-export function useApplySelection(input: ApplySelectionInput): void {
+/*export function useApplySelection(input: ApplySelectionInput): void {
 	const { selectedSentenceId, selectedWordId } = input
 
 	const sentences = useDetailsStore((s) => s.sentences)
@@ -35,4 +35,4 @@ export function useApplySelection(input: ApplySelectionInput): void {
 		},
 		[selectedSentenceId, selectedWordId, sentences],
 	)
-}
+}*/

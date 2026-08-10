@@ -1,13 +1,13 @@
-import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import SentencePhrase from '../SentencePhrase/SentencePhrase'
-import './SentencePhraseAnalyses.scss'
+// import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
+// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+// import SentencePhrase from '../SentencePhrase/SentencePhrase'
+// import './SentencePhraseAnalyses.scss'
 
-type SentencePhraseAnalysesProps = {
+/*type SentencePhraseAnalysesProps = {
 	languageCode: string
-}
+}*/
 
-function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
+/*function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 	const { languageCode } = props
 
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
@@ -41,6 +41,6 @@ function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default SentencePhraseAnalyses
+// export default SentencePhraseAnalyses

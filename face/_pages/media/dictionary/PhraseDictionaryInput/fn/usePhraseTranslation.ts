@@ -1,11 +1,11 @@
-import { useCallback, useMemo, useRef } from 'react'
-import { useLocale } from 'next-intl'
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import type { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
-import { createFetchTranslation } from './createFetchTranslation'
-import { useRetryEffect } from './useRetryEffect'
-import { useWordClickEffect } from './useWordClickEffect'
+// import { useCallback, useMemo, useRef } from 'react'
+// import { useLocale } from 'next-intl'
+// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+// import type { LanguageCode } from '@/shared/utils/languages'
+// import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
+// import { createFetchTranslation } from './createFetchTranslation'
+// import { useRetryEffect } from './useRetryEffect'
+// import { useWordClickEffect } from './useWordClickEffect'
 
 /**
  * Управляет запросом перевода фразы: getPhrase → кэш → getTranslation.
@@ -13,7 +13,7 @@ import { useWordClickEffect } from './useWordClickEffect'
  * - currentWordId — при клике на слово авто-запрашивает перевод
  * - retryTrigger — кнопка «Повторить» в PhraseDictionaryError
  */
-export function usePhraseTranslation() {
+/*export function usePhraseTranslation() {
 	const locale = useLocale()
 	const languageCode = useDetailsStore((s) => s.languageCode)
 
@@ -49,4 +49,4 @@ export function usePhraseTranslation() {
 	)
 
 	return { handleSubmit }
-}
+}*/

@@ -1,7 +1,7 @@
-import React from 'react'
-import styles from '../doc.module.scss'
+// import React from 'react'
+// import styles from '../doc.module.scss'
 
-const ContentUsePolicyPage: React.FC = () => {
+/*const ContentUsePolicyPage: React.FC = () => {
 	return (
 		<div className={styles['doc-page']}>
 			<h1>Политика использования контента</h1>
@@ -175,6 +175,6 @@ const ContentUsePolicyPage: React.FC = () => {
 			</p>
 		</div>
 	)
-}
+}*/
 
-export default ContentUsePolicyPage
+// export default ContentUsePolicyPage

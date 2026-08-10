@@ -1,17 +1,17 @@
-import { useRef, useContext, useCallback, useMemo } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
-import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { getVideoDurationSec } from '@/shared/utils/getVideoDurationSec'
+// import { useRef, useContext, useCallback, useMemo } from 'react'
+// import { VideosApi } from '@/entities/video/repository/VideosApi'
+// import { VideosService } from '@/entities/video/VideosService'
+// import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { getVideoDurationSec } from '@/shared/utils/getVideoDurationSec'
 
-type VideoDropzoneProps = {
+/*type VideoDropzoneProps = {
 	videoId: number
 	isFileUploaded: boolean | null
 	onFileUpdated: () => void
-}
+}*/
 
-function VideoDropzone(props: VideoDropzoneProps) {
+/*function VideoDropzone(props: VideoDropzoneProps) {
 	const { videoId, isFileUploaded, onFileUpdated } = props
 
 	const { notify } = useContext(NotificationContext)
@@ -70,6 +70,6 @@ function VideoDropzone(props: VideoDropzoneProps) {
 			onUploadComplete={onUploadComplete}
 		/>
 	)
-}
+}*/
 
-export default VideoDropzone
+// export default VideoDropzone

@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from '@/i18n/routing'
-import styles from '../doc.module.scss'
+// import React from 'react'
+// import { Link } from '@/i18n/routing'
+// import styles from '../doc.module.scss'
 
-const OfferPage: React.FC = () => {
+/*const OfferPage: React.FC = () => {
 	const lastUpdated = '18 октября 2025 г.'
 
 	return (
@@ -285,6 +285,6 @@ const OfferPage: React.FC = () => {
 			<p>Действующая версия всегда доступна на Сайте.</p>
 		</div>
 	)
-}
+}*/
 
-export default OfferPage
+// export default OfferPage

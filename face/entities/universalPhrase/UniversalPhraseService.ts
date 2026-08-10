@@ -1,50 +1,50 @@
-import { PhraseApi } from '@/entities/phrase/repository/PhraseApi'
-import type {
-	AudioPronunciationModel,
-	PhraseModel,
-	TranscriptionModel,
-} from '@/entities/phrase/repository/PhraseRepository'
-import { PhraseTranslationApi } from '@/entities/universalPhrase/repository/PhraseTranslationApi'
-import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-import { DeepSeekModels } from '@/shared/api/AIModels'
-import { LanguageCode } from '@/shared/utils/languages'
+// import { PhraseApi } from '@/entities/phrase/repository/PhraseApi'
+// import type {
+// 	AudioPronunciationModel,
+// 	PhraseModel,
+// 	TranscriptionModel,
+// } from '@/entities/phrase/repository/PhraseRepository'
+// import { PhraseTranslationApi } from '@/entities/universalPhrase/repository/PhraseTranslationApi'
+// import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+// import { DeepSeekModels } from '@/shared/api/AIModels'
+// import { LanguageCode } from '@/shared/utils/languages'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-export type EntryStatus = 'idle' | 'loading' | 'ready' | 'error'
+// export type EntryStatus = 'idle' | 'loading' | 'ready' | 'error'
 
-export type ServiceResult<T> = { ok: true; data: T } | { ok: false; errorMessage: string }
+// export type ServiceResult<T> = { ok: true; data: T } | { ok: false; errorMessage: string }
 
-export type TranscriptionData = {
+/*export type TranscriptionData = {
 	ipa: string | null
 	pinyin: string | null
-}
+}*/
 
-export type AudioData = {
+/*export type AudioData = {
 	audioUrl: string
-}
+}*/
 
-export type PhraseData = {
+/*export type PhraseData = {
 	id: number
 	text: string
 	sourceLanguageCode: string
 	transcription: TranscriptionData | null
 	audioPronunciation: AudioData | null
-}
+}*/
 
-export type PreloadItem = {
+/*export type PreloadItem = {
 	phrase: string
 	languageCode: LanguageCode
 	transcription?: string
 	audioUrl?: string | null
-}
+}*/
 
-export type TranslationEntryData = {
+/*export type TranslationEntryData = {
 	data: PhraseTranslationDataModel | null
 	status: EntryStatus
 	errorMessage: string | null
-}
-
+}*/
+/*
 export type PhraseEntry = {
 	phrase: string
 	languageCode: LanguageCode
@@ -61,11 +61,11 @@ export type PhraseEntry = {
 	audioErrorMessage: string | null
 
 	translations: Record<string, TranslationEntryData>
-}
+}*/
 
 // ─── Service ──────────────────────────────────────────────────────────────────
 
-export class UniversalPhraseService {
+/*export class UniversalPhraseService {
 	#entries = new Map<string, PhraseEntry>()
 
 	#phraseRequests = new Map<string, Promise<ServiceResult<PhraseData>>>()
@@ -452,15 +452,15 @@ export class UniversalPhraseService {
 			}
 		}
 	}
-}
+}*/
 
 // ─── Singleton ────────────────────────────────────────────────────────────────
 
-export const universalPhraseService = new UniversalPhraseService()
+// export const universalPhraseService = new UniversalPhraseService()
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-function buildPhraseData(entry: PhraseEntry): PhraseData {
+/*function buildPhraseData(entry: PhraseEntry): PhraseData {
 	return {
 		id: entry.phraseId!,
 		text: entry.phrase,
@@ -468,32 +468,32 @@ function buildPhraseData(entry: PhraseEntry): PhraseData {
 		transcription: entry.transcription,
 		audioPronunciation: entry.audioUrl ? { audioUrl: entry.audioUrl } : null,
 	}
-}
+}*/
 
-function mapModelToTranscriptionData(model: TranscriptionModel): TranscriptionData {
+/*function mapModelToTranscriptionData(model: TranscriptionModel): TranscriptionData {
 	return {
 		ipa: model.ipa,
 		pinyin: model.pinyin,
 	}
-}
+}*/
 
-function createEmptyTranslationEntry(): TranslationEntryData {
+/*function createEmptyTranslationEntry(): TranslationEntryData {
 	return {
 		data: null,
 		status: 'idle',
 		errorMessage: null,
 	}
-}
+}*/
 
-export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
+/*export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
 	return `${languageCode}:${phrase.trim().toLocaleLowerCase()}`
-}
+}*/
 
-function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {
+/*function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {
 	return `${makePhraseKey(phrase, sourceLanguageCode)}:${targetLanguageCode}`
-}
+}*/
 
-function createEmptyEntry(phrase: string, languageCode: LanguageCode): PhraseEntry {
+/*function createEmptyEntry(phrase: string, languageCode: LanguageCode): PhraseEntry {
 	return {
 		phrase,
 		languageCode,
@@ -508,4 +508,4 @@ function createEmptyEntry(phrase: string, languageCode: LanguageCode): PhraseEnt
 		audioErrorMessage: null,
 		translations: {},
 	}
-}
+}*/

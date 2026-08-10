@@ -1,23 +1,23 @@
-'use client'
+// 'use client'
 
-import { useRef } from 'react'
-import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
-import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
-import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
-import {
-	SubtitlesStatusModelType,
-	VideoContentType,
-	VideoSubtitlesModel,
-} from '@/entities/video/repository/VideosRepository'
-import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
-import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
-import { LanguageCode } from '@/shared/utils/languages'
-import { localStorageManager } from '@/shared/utils/localStorageManager'
-import { useVideoStore } from '../videoStore'
+// import { useRef } from 'react'
+// import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+// import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+// import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
+// import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
+// import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
+// import {
+// 	SubtitlesStatusModelType,
+// 	VideoContentType,
+// 	VideoSubtitlesModel,
+// } from '@/entities/video/repository/VideosRepository'
+// import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
+// import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import { localStorageManager } from '@/shared/utils/localStorageManager'
+// import { useVideoStore } from '../videoStore'
 
-type VideoClientWrapperProps = SelectionProps & {
+/*type VideoClientWrapperProps = SelectionProps & {
 	languageCode: LanguageCode
 	contentType: VideoContentType
 	plainSentences: null | SentenceModel[]
@@ -26,9 +26,9 @@ type VideoClientWrapperProps = SelectionProps & {
 	videoId: number
 	subtitlesStatus: SubtitlesStatusModelType
 	subtitlesErrorCode: null | string
-}
+}*/
 
-function VideoClientWrapper(props: VideoClientWrapperProps) {
+/*function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const {
 		languageCode,
 		contentType,
@@ -74,6 +74,6 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 			</SubtitlesGuard>
 		</VideoWithSubtitles>
 	)
-}
+}*/
 
-export default VideoClientWrapper
+// export default VideoClientWrapper

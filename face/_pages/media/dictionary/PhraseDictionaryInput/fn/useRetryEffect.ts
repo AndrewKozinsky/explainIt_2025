@@ -1,20 +1,20 @@
-import { useEffect, useRef } from 'react'
-import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
+// import { useEffect, useRef } from 'react'
+// import { usePhraseDictionaryStore } from '../../phraseDictionaryStore'
 
-type UseRetryEffectParams = {
-	/** Функция перевода */
+/*type UseRetryEffectParams = {
+	/!** Функция перевода *!/
 	fetchTranslation: (text: string) => void
-	/** Текущий languageCode */
+	/!** Текущий languageCode *!/
 	languageCode: string | null
-	/** Ref к AbortController */
+	/!** Ref к AbortController *!/
 	abortRef: React.MutableRefObject<AbortController | null>
-}
+}*/
 
 /**
  * Следит за `retryTrigger` в сторе.
  * При инкременте (кнопка «Повторить») заново запускает перевод текущего текста.
  */
-export function useRetryEffect({ fetchTranslation, languageCode, abortRef }: UseRetryEffectParams) {
+/*export function useRetryEffect({ fetchTranslation, languageCode, abortRef }: UseRetryEffectParams) {
 	const retryTrigger = usePhraseDictionaryStore((s) => s.retryTrigger)
 	const retryTriggerRef = useRef(retryTrigger)
 
@@ -34,4 +34,4 @@ export function useRetryEffect({ fetchTranslation, languageCode, abortRef }: Use
 		},
 		[retryTrigger, fetchTranslation, languageCode, abortRef],
 	)
-}
+}*/

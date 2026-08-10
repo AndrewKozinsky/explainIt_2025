@@ -1,4 +1,4 @@
-export type PlayerCommand =
+/*export type PlayerCommand =
 	| { type: 'PLAY' }
 	| { type: 'PAUSE' }
 	| { type: 'SET_TIME'; time: number }
@@ -8,4 +8,4 @@ export type PlayerCommand =
 	| { type: 'STOP_FORWARD_HOLD' }
 	| { type: 'START_REVERSE_SEEK'; rate: number }
 	| { type: 'STOP_REVERSE_SEEK' }
-	| { type: 'SET_VOLUME'; volume: number }
+	| { type: 'SET_VOLUME'; volume: number }*/

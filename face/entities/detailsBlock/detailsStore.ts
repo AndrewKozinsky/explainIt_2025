@@ -1,9 +1,9 @@
-import { produce } from 'immer'
-import { create } from 'zustand'
-import type { LanguageCode } from '@/shared/utils/languages'
-import { segmentSentence } from './DetailsBlock/fn/wordSegmentation'
+// import { produce } from 'immer'
+// import { create } from 'zustand'
+// import type { LanguageCode } from '@/shared/utils/languages'
+// import { segmentSentence } from './DetailsBlock/fn/wordSegmentation'
 
-export const detailsStoreValues: DetailsStoreValues = {
+/*export const detailsStoreValues: DetailsStoreValues = {
 	bookName: null,
 	bookAuthor: null,
 	videoName: null,
@@ -15,9 +15,9 @@ export const detailsStoreValues: DetailsStoreValues = {
 	sentences: [],
 	retryFetchSentenceTranslationQueue: [],
 	retryFetchPhraseQueue: [],
-}
+}*/
 
-export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
+/*export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 	return {
 		...detailsStoreValues,
 		clearStoreData: () => {
@@ -222,13 +222,13 @@ export const useDetailsStore = create<DetailsStoreNext>()((set, get) => {
 			return { sentenceWords, phrase }
 		},
 	}
-})
+})*/
 
-export function makePhraseId(): string {
+/*export function makePhraseId(): string {
 	return 'p_' + Math.random().toString(36).slice(2) + '_' + Date.now().toString(36)
-}
+}*/
 
-function sameWordIds(a: number[], b: number[]): boolean {
+/*function sameWordIds(a: number[], b: number[]): boolean {
 	if (a.length !== b.length) return false
 
 	for (let i = 0; i < a.length; i++) {
@@ -236,11 +236,11 @@ function sameWordIds(a: number[], b: number[]): boolean {
 	}
 
 	return true
-}
+}*/
 
-export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
+// export type DetailsStoreNext = DetailsStoreValues & DetailsStoreMethods
 
-export type DetailsSentenceEntry = {
+/*export type DetailsSentenceEntry = {
 	sentenceId: number
 	sentenceText: string
 	selectedPhraseId: string | null
@@ -248,17 +248,17 @@ export type DetailsSentenceEntry = {
 		translation: SentenceTranslation
 		phrases: SentencePhraseType[]
 	}
-}
+}*/
 
-export type SentenceTranslation = {
+/*export type SentenceTranslation = {
 	text: string
 	loading: boolean
 	error: null | string
 	translation: null | string
 	visible: boolean
-}
+}*/
 
-export type SentencePhraseType = {
+/*export type SentencePhraseType = {
 	// id фразы предложения генерируется на клиенте потому что запрос на сервер на создание фразы идёт после того, как фраза создаётся в Хранилище
 	randomGeneratedPhraseId: string
 	// Id фразы из предложения, созданной на сервере
@@ -271,28 +271,28 @@ export type SentencePhraseType = {
 	error: null | string
 	translation: null | string
 	examples: PhraseExample[]
-}
+}*/
 
-export type PhraseExample = {
+/*export type PhraseExample = {
 	text: string
 	translate: string
-}
+}*/
 
-export type RetryFetchSentenceTranslationQueueItem = {
+/*export type RetryFetchSentenceTranslationQueueItem = {
 	sentenceId: number
 	sentenceText: string
-}
+}*/
 
-export type RetryFetchPhraseQueueItem = {
+/*export type RetryFetchPhraseQueueItem = {
 	sentenceId: number
 	randomGeneratedPhraseId: string
 	wordIds: number[]
 	sentenceText: string
-}
+}*/
 
-export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
+// export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
 
-export type DetailsStoreValues = {
+/*export type DetailsStoreValues = {
 	bookName: null | string
 	bookAuthor: null | string
 	videoName: null | string
@@ -304,9 +304,9 @@ export type DetailsStoreValues = {
 	sentences: DetailsSentenceEntry[]
 	retryFetchSentenceTranslationQueue: RetryFetchSentenceTranslationQueueItem[]
 	retryFetchPhraseQueue: RetryFetchPhraseQueueItem[]
-}
+}*/
 
-export type DetailsStoreMethods = {
+/*export type DetailsStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DetailsStoreValues>) => void
 	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
@@ -328,4 +328,4 @@ export type DetailsStoreMethods = {
 	retrySentenceTranslation: (sentenceId: number) => void
 	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
 	getCurrentWords: () => { sentenceWords: string[]; phrase: string | null }
-}
+}*/

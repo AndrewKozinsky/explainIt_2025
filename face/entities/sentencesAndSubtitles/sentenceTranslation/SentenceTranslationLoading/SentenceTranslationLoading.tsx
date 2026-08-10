@@ -1,13 +1,13 @@
-type SentenceTranslationLoadingProps = {
+/*type SentenceTranslationLoadingProps = {
 	loading: boolean
-}
+}*/
 
-function SentenceTranslationLoading(props: SentenceTranslationLoadingProps) {
+/*function SentenceTranslationLoading(props: SentenceTranslationLoadingProps) {
 	if (!props.loading) {
 		return null
 	}
 
 	return <span />
-}
+}*/
 
-export default SentenceTranslationLoading
+// export default SentenceTranslationLoading

@@ -1,15 +1,15 @@
-import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
-import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
-import MediaCardActionButton from '../MediaCardActionButton/MediaCardActionButton'
-import './MediaCardWrapper.scss'
+// import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
+// import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
+// import MediaCardActionButton from '../MediaCardActionButton/MediaCardActionButton'
+// import './MediaCardWrapper.scss'
 
-type MediaCardProps = {
+/*type MediaCardProps = {
 	type: 'edit' | 'info'
 	actionUrl: string
 	children: React.ReactNode
-}
+}*/
 
-function MediaCardWrapper(props: MediaCardProps) {
+/*function MediaCardWrapper(props: MediaCardProps) {
 	const { type, actionUrl, children } = props
 
 	return (
@@ -27,6 +27,6 @@ function MediaCardWrapper(props: MediaCardProps) {
 			{children}
 		</div>
 	)
-}
+}*/
 
-export default MediaCardWrapper
+// export default MediaCardWrapper

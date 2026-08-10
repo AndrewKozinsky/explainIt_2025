@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import { useRouter } from '@/i18n/routing'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/ActionButtonIcon'
+// import { useRouter } from '@/i18n/routing'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/ActionButtonIcon'
 
-type PublicBookInfoActionsProps = {
+/*type PublicBookInfoActionsProps = {
 	label: string
 	buttonUrl: string
-}
+}*/
 
-function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
+/*function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 	const { label, buttonUrl } = props
 
 	const router = useRouter()
@@ -25,6 +25,6 @@ function PublicBookInfoActions(props: PublicBookInfoActionsProps) {
 			</Button>
 		</div>
 	)
-}
+}*/
 
-export default PublicBookInfoActions
+// export default PublicBookInfoActions

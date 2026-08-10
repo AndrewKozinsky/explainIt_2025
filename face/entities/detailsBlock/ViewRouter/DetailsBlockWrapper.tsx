@@ -1,12 +1,12 @@
-import cn from 'classnames'
-import { useDetailsStore } from '../detailsStore'
-import DialogContent from '../DialogContent/DialogContent'
-import DictionaryContent from '../DictionaryContent/DictionaryContent'
-import InfoViewSwitcher from '../InfoViewSwitcher'
-import WordsContent from '../WordsContent/WordsContent'
-import './DetailsBlockWrapper.scss'
+// import cn from 'classnames'
+// import { useDetailsStore } from '../detailsStore'
+// import DialogContent from '../DialogContent/DialogContent'
+// import DictionaryContent from '../DictionaryContent/DictionaryContent'
+// import InfoViewSwitcher from '../InfoViewSwitcher'
+// import WordsContent from '../WordsContent/WordsContent'
+// import './DetailsBlockWrapper.scss'
 
-function DetailsBlockWrapper() {
+/*function DetailsBlockWrapper() {
 	const sentenceId = useDetailsStore((store) => store.currentSentenceId)
 
 	if (!sentenceId) {
@@ -29,18 +29,18 @@ function DetailsBlockWrapper() {
 			</div>
 		</ContentWrapper>
 	)
-}
+}*/
 
-export default DetailsBlockWrapper
+// export default DetailsBlockWrapper
 
 // ------------
 
-type ContentWrapperProps = {
+/*type ContentWrapperProps = {
 	center?: boolean
 	children: React.ReactNode
-}
+}*/
 
-function ContentWrapper(props: ContentWrapperProps) {
+/*function ContentWrapper(props: ContentWrapperProps) {
 	const { center, children } = props
 
 	return (
@@ -48,8 +48,8 @@ function ContentWrapper(props: ContentWrapperProps) {
 			<div className={cn(!center && 'details-block-wrapper__scroll')}>{children}</div>
 		</div>
 	)
-}
+}*/
 
-function InfoText({ children }: { children: React.ReactNode }) {
+/*function InfoText({ children }: { children: React.ReactNode }) {
 	return <p className='details-block-wrapper__text'>{children}</p>
-}
+}*/

@@ -1,6 +1,6 @@
-import type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from './repository/PaymentRepository'
+// import type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from './repository/PaymentRepository'
 
-export type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from './repository/PaymentRepository'
+// export type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from './repository/PaymentRepository'
 
 /**
  * Сервис платежей — прослойка между компонентами и репозиторием.
@@ -12,6 +12,7 @@ export type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from '.
  *
  * Компоненты зависят от этого сервиса, а не от конкретной реализации API.
  */
+/*
 export class PaymentService {
 	private paymentRepository: PaymentRepository
 
@@ -19,8 +20,9 @@ export class PaymentService {
 		this.paymentRepository = paymentRepository
 	}
 
-	/** Пополнить баланс через YooKassa */
+	/!** Пополнить баланс через YooKassa *!/
 	async topUpBalance(input: TopUpBalanceInput) {
 		return this.paymentRepository.topUpBalance(input)
 	}
 }
+*/

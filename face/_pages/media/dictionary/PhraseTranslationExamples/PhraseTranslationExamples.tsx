@@ -1,11 +1,11 @@
-import React from 'react'
-import './PhraseTranslationExamples.scss'
+// import React from 'react'
+// import './PhraseTranslationExamples.scss'
 
-type PhraseTranslationExampleProps = {
+/*type PhraseTranslationExampleProps = {
 	config: { sentence: string; translate: string }[]
-}
+}*/
 
-function PhraseTranslationExamples(props: PhraseTranslationExampleProps) {
+/*function PhraseTranslationExamples(props: PhraseTranslationExampleProps) {
 	const { config } = props
 
 	if (!config.length) return null
@@ -22,6 +22,6 @@ function PhraseTranslationExamples(props: PhraseTranslationExampleProps) {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default PhraseTranslationExamples
+// export default PhraseTranslationExamples

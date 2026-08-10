@@ -1,13 +1,13 @@
-import { PhraseExample } from '@/entities/detailsBlock/detailsStore'
-import './SentencePhraseExample.scss'
+// import { PhraseExample } from '@/entities/detailsBlock/detailsStore'
+// import './SentencePhraseExample.scss'
 
-function SentencePhraseExample({ example }: { example: PhraseExample }) {
+/*function SentencePhraseExample({ example }: { example: PhraseExample }) {
 	return (
 		<div className='sentence-phrase-example'>
 			<p className='sentence-phrase-example__text'>{example.text}</p>
 			<p className='sentence-phrase-example__translate'>{example.translate}</p>
 		</div>
 	)
-}
+}*/
 
-export default SentencePhraseExample
+// export default SentencePhraseExample

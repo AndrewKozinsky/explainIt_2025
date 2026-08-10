@@ -1,31 +1,31 @@
-import React, { useState, useMemo, useEffect } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import { ChaptersService } from '@/entities/chapter/ChaptersService'
-import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
-import type { BookChapterLiteModel } from '@/entities/chapter/repository/ChaptersRepository'
-import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import FormError from '@/shared/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import { FormStatus } from '@/shared/utils/forms'
-import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
-import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
-import { ChangeChapterFormData, changeChapterFormSchema } from './fn/form'
-import { useSetFieldValues } from './fn/setFieldValues'
-import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
-import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
+// import React, { useState, useMemo, useEffect } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { useForm } from 'react-hook-form'
+// import * as yup from 'yup'
+// import { ChaptersService } from '@/entities/chapter/ChaptersService'
+// import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
+// import type { BookChapterLiteModel } from '@/entities/chapter/repository/ChaptersRepository'
+// import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/shared/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+// import { FormStatus } from '@/shared/utils/forms'
+// import DeleteChapterButton from '../DeleteChapterButton/DeleteChapterButton'
+// import ReadChapterButton from '../ReadChapterButton/ReadChapterButton'
+// import { ChangeChapterFormData, changeChapterFormSchema } from './fn/form'
+// import { useSetFieldValues } from './fn/setFieldValues'
+// import { useGetOnUpdateChapterFormSubmit } from './fn/submit'
+// import YouWillLosePhrasesWarning from './YouWillLosePhrasesWarning'
 
-type EditChapterFormProps = {
+/*type EditChapterFormProps = {
 	chapterLite: BookChapterLiteModel
 	bookId: number
 	onChapterUpdated: () => void
 	onChapterDeleted: (chapterId: number) => void
-}
+}*/
 
-export default function EditChapterForm(props: EditChapterFormProps) {
+/*export default function EditChapterForm(props: EditChapterFormProps) {
 	const { chapterLite, bookId, onChapterUpdated, onChapterDeleted } = props
 
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
@@ -177,4 +177,4 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 			</MediaFormSurface>
 		</form>
 	)
-}
+}*/

@@ -1,7 +1,7 @@
-import Script from 'next/script'
-import { gtmNoscriptSrc, gtmScriptStr } from './fn/gtmCode'
+// import Script from 'next/script'
+// import { gtmNoscriptSrc, gtmScriptStr } from './fn/gtmCode'
 
-function GoogleTagManager() {
+/*function GoogleTagManager() {
 	return (
 		<>
 			<Script id='gtm' strategy='afterInteractive'>
@@ -12,6 +12,6 @@ function GoogleTagManager() {
 			</noscript>
 		</>
 	)
-}
+}*/
 
-export default GoogleTagManager
+// export default GoogleTagManager

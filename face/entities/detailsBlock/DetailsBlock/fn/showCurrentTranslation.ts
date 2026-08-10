@@ -1,8 +1,8 @@
-import { useEffect } from 'react'
-import { produce } from 'immer'
-import { useDetailsStore, DetailsStoreNext } from '../../detailsStore'
+// import { useEffect } from 'react'
+// import { produce } from 'immer'
+// import { useDetailsStore, DetailsStoreNext } from '../../detailsStore'
 
-export function useShowCurrentTranslation() {
+/*export function useShowCurrentTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 
 	useEffect(
@@ -20,4 +20,4 @@ export function useShowCurrentTranslation() {
 		},
 		[currentSentenceId],
 	)
-}
+}*/

@@ -1,17 +1,17 @@
-import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import VideoDetailsBreadCrumbs from '../VideoDetailsBreadCrumbs/VideoBreadCrumbs'
-import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-import PrivateVideoPart from './PrivateVideoPart'
-import PublicVideoPart from './PublicVideoPart'
+// import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
+// import { VideosApi } from '@/entities/video/repository/VideosApi'
+// import { VideosService } from '@/entities/video/VideosService'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import VideoDetailsBreadCrumbs from '../VideoDetailsBreadCrumbs/VideoBreadCrumbs'
+// import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+// import PrivateVideoPart from './PrivateVideoPart'
+// import PublicVideoPart from './PublicVideoPart'
 
-type Props = {
+/*type Props = {
 	videoId: number | string
-}
+}*/
 
-export default async function VideoDetailsPage({ videoId }: Props) {
+/*export default async function VideoDetailsPage({ videoId }: Props) {
 	const videosService = new VideosService(new VideosApi())
 	const { error, data: video } = await videosService.getVideo(videoId)
 
@@ -31,4 +31,4 @@ export default async function VideoDetailsPage({ videoId }: Props) {
 			<PrivateVideoPart video={video} />
 		</MediaPageContentWrapper>
 	)
-}
+}*/

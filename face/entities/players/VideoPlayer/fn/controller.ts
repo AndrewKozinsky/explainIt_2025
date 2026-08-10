@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react'
-import { usePlayerContext } from '../PlayerContext'
+// import { useEffect, useRef } from 'react'
+// import { usePlayerContext } from '../PlayerContext'
 
-export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement | null>) {
+/*export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement | null>) {
 	const command = usePlayerContext().command
 	const reverseSeekIntervalIdRef = useRef<null | ReturnType<typeof setInterval>>(null)
 	const reverseSeekWasPlayingRef = useRef(false)
@@ -108,4 +108,4 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 
 		executeCommand(video, stopReverseSeekIfActive, stopForwardHoldIfActive)
 	}, [command, playerRef])
-}
+}*/

@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
-import { UseFormReset } from 'react-hook-form'
-import { BookChapterLiteModel } from '@/entities/chapter/repository/ChaptersRepository'
-import { ChangeChapterFormData } from './form'
+// import { useEffect, useRef } from 'react'
+// import { UseFormReset } from 'react-hook-form'
+// import { BookChapterLiteModel } from '@/entities/chapter/repository/ChaptersRepository'
+// import { ChangeChapterFormData } from './form'
 
-export function useSetFieldValues(
+/*export function useSetFieldValues(
 	chapterLite: BookChapterLiteModel,
 	originalContent: string | null,
 	reset: UseFormReset<ChangeChapterFormData>,
@@ -24,4 +24,4 @@ export function useSetFieldValues(
 		},
 		[chapterLite, originalContent, reset],
 	)
-}
+}*/

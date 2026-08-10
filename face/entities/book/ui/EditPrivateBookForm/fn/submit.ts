@@ -1,11 +1,11 @@
-import { useCallback, useMemo } from 'react'
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
-import type { BookModel, UpdateBookInput } from '@/entities/book/repository/BooksRepository'
-import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
-import { ChangeBookFormData } from './form'
+// import { useCallback, useMemo } from 'react'
+// import { BooksService } from '@/entities/book/BooksService'
+// import { BooksApi } from '@/entities/book/repository/BooksApi'
+// import type { BookModel, UpdateBookInput } from '@/entities/book/repository/BooksRepository'
+// import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+// import { ChangeBookFormData } from './form'
 
-export function useGetOnUpdateBookFormSubmit(
+/*export function useGetOnUpdateBookFormSubmit(
 	book: BookModel,
 	onBookUpdated: (book: BookModel) => void,
 	setFieldError: (field: keyof ChangeBookFormData, params: any) => void,
@@ -46,4 +46,4 @@ export function useGetOnUpdateBookFormSubmit(
 		},
 		[book.id, booksService, onBookUpdated, setFieldError, setFormError, setFormStatus],
 	)
-}
+}*/

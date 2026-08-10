@@ -1,8 +1,8 @@
-import type { BookModel } from '@/entities/book/repository/BooksRepository'
-import type { BookChapterModel } from '@/entities/chapter/repository/ChaptersRepository'
-import { pageUrls } from '@/shared/utils/pageUrls'
+// import type { BookModel } from '@/entities/book/repository/BooksRepository'
+// import type { BookChapterModel } from '@/entities/chapter/repository/ChaptersRepository'
+// import { pageUrls } from '@/shared/utils/pageUrls'
 
-export function getMediaNavigationData(book: BookModel, chapter: BookChapterModel) {
+/*export function getMediaNavigationData(book: BookModel, chapter: BookChapterModel) {
 	const bookId = book.id.toString()
 	const chapters = book.chapters ?? []
 
@@ -32,4 +32,4 @@ export function getMediaNavigationData(book: BookModel, chapter: BookChapterMode
 				}
 			: undefined,
 	}
-}
+}*/

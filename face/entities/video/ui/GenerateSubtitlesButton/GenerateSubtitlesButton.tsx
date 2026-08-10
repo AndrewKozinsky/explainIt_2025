@@ -1,16 +1,16 @@
-import React from 'react'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { getButtonText } from './fn/getButtonText'
-import { useGenerateSubtitles } from './fn/useGenerateSubtitles'
-import './GenerateSubtitlesButton.scss'
+// import React from 'react'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import { getButtonText } from './fn/getButtonText'
+// import { useGenerateSubtitles } from './fn/useGenerateSubtitles'
+// import './GenerateSubtitlesButton.scss'
 
-type GenerateSubtitlesButtonProps = {
+/*type GenerateSubtitlesButtonProps = {
 	videoId: number
 	disabled?: boolean
-}
+}*/
 
-function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
+/*function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
 	const { videoId, disabled } = props
 	const { status, generationError, isGenerating, generate } = useGenerateSubtitles(videoId)
 
@@ -24,6 +24,6 @@ function GenerateSubtitlesButton(props: GenerateSubtitlesButtonProps) {
 			{status === 'failed' && generationError && <ErrorMessage text={generationError ?? null} />}
 		</div>
 	)
-}
+}*/
 
-export default GenerateSubtitlesButton
+// export default GenerateSubtitlesButton

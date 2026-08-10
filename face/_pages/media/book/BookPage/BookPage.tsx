@@ -1,19 +1,19 @@
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
-import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import PublicBookPart from '_pages/media/book/BookPage/PublicBookPart'
-import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-import PrivateBookPart from './PrivateBookPart'
-import './BookPage.scss'
+// import { BooksService } from '@/entities/book/BooksService'
+// import { BooksApi } from '@/entities/book/repository/BooksApi'
+// import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import PublicBookPart from '_pages/media/book/BookPage/PublicBookPart'
+// import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+// import PrivateBookPart from './PrivateBookPart'
+// import './BookPage.scss'
 
-type Props = {
+/*type Props = {
 	bookId: string
-}
+}*/
 
-export default async function BookPage({ bookId }: Props) {
+/*export default async function BookPage({ bookId }: Props) {
 	const booksService = new BooksService(new BooksApi())
 	const { error, data: book } = await booksService.getBook(Number(bookId))
 
@@ -37,4 +37,4 @@ export default async function BookPage({ bookId }: Props) {
 			<PrivateBookPart book={book} />
 		</MediaPageContentWrapper>
 	)
-}
+}*/

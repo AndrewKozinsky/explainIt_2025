@@ -1,7 +1,7 @@
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
-import './MediaCardButton.scss'
+// import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+// import './MediaCardButton.scss'
 
-type MediaCardProps = {
+/*type MediaCardProps = {
 	name?: null | string
 	subName?: null | number | string
 	proficiencyLevel?: null | string
@@ -9,9 +9,9 @@ type MediaCardProps = {
 	url: string
 	coverUrl?: null | string
 	defaultMediaName: string
-}
+}*/
 
-function MediaCardButton(props: MediaCardProps) {
+/*function MediaCardButton(props: MediaCardProps) {
 	const { name, subName, proficiencyLevel, duration, url, coverUrl, defaultMediaName } = props
 
 	return (
@@ -28,6 +28,6 @@ function MediaCardButton(props: MediaCardProps) {
 			{duration && <p className='media-card-button__duration'>{duration}</p>}
 		</BaseButton>
 	)
-}
+}*/
 
-export default MediaCardButton
+// export default MediaCardButton

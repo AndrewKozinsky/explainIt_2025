@@ -1,7 +1,7 @@
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import PhraseDictionary from '_pages/media/dictionary/PhraseDictionary/PhraseDictionary'
+// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+// import PhraseDictionary from '_pages/media/dictionary/PhraseDictionary/PhraseDictionary'
 
-function DictionaryContent() {
+/*function DictionaryContent() {
 	const currentInfoView = useDetailsStore((store) => store.currentInfoView)
 
 	if (currentInfoView !== 'dictionary') {
@@ -9,6 +9,6 @@ function DictionaryContent() {
 	}
 
 	return <PhraseDictionary />
-}
+}*/
 
-export default DictionaryContent
+// export default DictionaryContent

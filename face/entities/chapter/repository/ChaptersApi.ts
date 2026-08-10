@@ -1,33 +1,33 @@
-import { mapRawSentencesToModels } from '@/entities/media/repository/SentenceMappers'
-import {
-	bookChapterControllerCreateBookChapter,
-	bookChapterControllerGetBookChapter,
-	bookChapterControllerUpdateBookChapter,
-	bookChapterControllerDeleteBookChapter,
-} from '@/shared/api/generated/book-chapter/book-chapter'
-import type {
-	BookChapterLiteOutModel,
-	BookChapterOutModel,
-	CreateBookChapterInput as OrvalCreateBookChapterInput,
-	UpdateBookChapterInput as OrvalUpdateBookChapterInput,
-} from '@/shared/api/generated/models'
-import { extractString } from '@/shared/utils/extractors'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import type {
-	BookChapterModel,
-	BookChapterLiteModel,
-	ChaptersRepository,
-	CreateBookChapterInput,
-	UpdateChapterInput,
-} from './ChaptersRepository'
+// import { mapRawSentencesToModels } from '@/entities/media/repository/SentenceMappers'
+// import {
+// 	bookChapterControllerCreateBookChapter,
+// 	bookChapterControllerGetBookChapter,
+// 	bookChapterControllerUpdateBookChapter,
+// 	bookChapterControllerDeleteBookChapter,
+// } from '@/shared/api/generated/book-chapter/book-chapter'
+// import type {
+// 	BookChapterLiteOutModel,
+// 	BookChapterOutModel,
+// 	CreateBookChapterInput as OrvalCreateBookChapterInput,
+// 	UpdateBookChapterInput as OrvalUpdateBookChapterInput,
+// } from '@/shared/api/generated/models'
+// import { extractString } from '@/shared/utils/extractors'
+// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import type {
+// 	BookChapterModel,
+// 	BookChapterLiteModel,
+// 	ChaptersRepository,
+// 	CreateBookChapterInput,
+// 	UpdateChapterInput,
+// } from './ChaptersRepository'
 
-export { mapToChapterLite, mapToChapter }
+// export { mapToChapterLite, mapToChapter }
 
 /**
  * Реализация ChaptersRepository через REST API.
  */
-export class ChaptersApi implements ChaptersRepository {
+/*export class ChaptersApi implements ChaptersRepository {
 	async createChapter(input: CreateBookChapterInput): Promise<ApiResult<BookChapterModel>> {
 		return executeApiCall(
 			() => bookChapterControllerCreateBookChapter(input as unknown as OrvalCreateBookChapterInput),
@@ -52,9 +52,9 @@ export class ChaptersApi implements ChaptersRepository {
 	async deleteChapter(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => bookChapterControllerDeleteBookChapter(id))
 	}
-}
+}*/
 
-function mapToChapterLite(raw: BookChapterLiteOutModel): BookChapterLiteModel {
+/*function mapToChapterLite(raw: BookChapterLiteOutModel): BookChapterLiteModel {
 	return {
 		id: raw.id,
 		bookId: raw.bookId,
@@ -62,9 +62,9 @@ function mapToChapterLite(raw: BookChapterLiteOutModel): BookChapterLiteModel {
 		header: extractString(raw.header),
 		note: extractString(raw.note),
 	}
-}
+}*/
 
-function mapToChapter(raw: BookChapterOutModel): BookChapterModel {
+/*function mapToChapter(raw: BookChapterOutModel): BookChapterModel {
 	const processedContent = extractString(raw.processedContent)
 
 	return {
@@ -79,4 +79,4 @@ function mapToChapter(raw: BookChapterOutModel): BookChapterModel {
 			raw.sentences as unknown as Record<string, unknown>[] | null,
 		),
 	}
-}
+}*/

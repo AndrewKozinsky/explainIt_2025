@@ -1,15 +1,15 @@
-import { SummaryOfMedia } from '@/entities/media/ui/SummaryOfMedia/SummaryOfMedia'
-import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
-import './MediaFullInfoContent.scss'
+// import { SummaryOfMedia } from '@/entities/media/ui/SummaryOfMedia/SummaryOfMedia'
+// import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
+// import './MediaFullInfoContent.scss'
 
-type MediaFullInfoContentProps = {
+/*type MediaFullInfoContentProps = {
 	coverUrl?: null | string
 	firstChapterUrl: string
 	textContent?: null | string
 	actionButtonLabel: string
-}
+}*/
 
-export default function MediaFullInfoContent(props: MediaFullInfoContentProps) {
+/*export default function MediaFullInfoContent(props: MediaFullInfoContentProps) {
 	const { coverUrl, firstChapterUrl, textContent, actionButtonLabel } = props
 
 	return (
@@ -19,4 +19,4 @@ export default function MediaFullInfoContent(props: MediaFullInfoContentProps) {
 			<PublicBookInfoActions buttonUrl={firstChapterUrl} label={actionButtonLabel} />
 		</div>
 	)
-}
+}*/

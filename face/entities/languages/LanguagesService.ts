@@ -1,7 +1,7 @@
-import { LanguagesApi } from './repository/LanguagesApi'
-import type { LanguagesRepository } from './repository/LanguagesRepository'
+// import { LanguagesApi } from './repository/LanguagesApi'
+// import type { LanguagesRepository } from './repository/LanguagesRepository'
 
-export type { LanguageModel, LanguagesRepository } from './repository/LanguagesRepository'
+// export type { LanguageModel, LanguagesRepository } from './repository/LanguagesRepository'
 
 /**
  * Сервис языков — прослойка между компонентами и репозиторием.
@@ -13,18 +13,18 @@ export type { LanguageModel, LanguagesRepository } from './repository/LanguagesR
  *
  * Компоненты зависят от этого сервиса, а не от конкретной реализации API.
  */
-export class LanguagesService {
+/*export class LanguagesService {
 	private languagesRepository: LanguagesRepository
 
 	constructor(languagesRepository: LanguagesRepository) {
 		this.languagesRepository = languagesRepository
 	}
 
-	/** Получить список доступных языков */
+	/!** Получить список доступных языков *!/
 	async getLanguages() {
 		return this.languagesRepository.getLanguages()
 	}
-}
+}*/
 
 /** Готовый экземпляр сервиса с реальным API */
-export const languagesService = new LanguagesService(new LanguagesApi())
+// export const languagesService = new LanguagesService(new LanguagesApi())

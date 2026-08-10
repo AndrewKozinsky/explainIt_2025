@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import { useRef } from 'react'
-import { getTouchTapHandlers } from './getTouchTapHandlers'
+// import { useRef } from 'react'
+// import { getTouchTapHandlers } from './getTouchTapHandlers'
 
-type UseWordSelectHandlersInput = {
+/*type UseWordSelectHandlersInput = {
 	deviceType: string
 	thresholdPx: number
 	onSelect: () => void
-}
+}*/
 
-function useWordSelectHandlers(input: UseWordSelectHandlersInput) {
+/*function useWordSelectHandlers(input: UseWordSelectHandlersInput) {
 	const { deviceType, thresholdPx, onSelect } = input
 
 	const touchStartPosRef = useRef<{ x: number; y: number } | null>(null)
@@ -28,6 +28,6 @@ function useWordSelectHandlers(input: UseWordSelectHandlersInput) {
 	}
 
 	return { onClick, onTouchStart, onTouchMove, onTouchEnd, onTouchCancel }
-}
+}*/
 
-export { useWordSelectHandlers }
+// export { useWordSelectHandlers }

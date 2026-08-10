@@ -1,14 +1,14 @@
-import { SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import './SentencePhraseError.scss'
+// import { SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import './SentencePhraseError.scss'
 
-type SentencePhraseErrorProps = {
+/*type SentencePhraseErrorProps = {
 	phraseAnalysis: SentencePhraseType
 	sentenceId: number
-}
+}*/
 
-function SentencePhraseError(props: SentencePhraseErrorProps) {
+/*function SentencePhraseError(props: SentencePhraseErrorProps) {
 	const { phraseAnalysis, sentenceId } = props
 
 	if (!phraseAnalysis) {
@@ -33,6 +33,6 @@ function SentencePhraseError(props: SentencePhraseErrorProps) {
 			</Button>
 		</div>
 	)
-}
+}*/
 
-export default SentencePhraseError
+// export default SentencePhraseError

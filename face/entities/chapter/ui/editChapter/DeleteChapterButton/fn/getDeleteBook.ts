@@ -1,9 +1,9 @@
-import { useCallback, useContext, useState, useMemo } from 'react'
-import { ChaptersService } from '@/entities/chapter/ChaptersService'
-import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { useCallback, useContext, useState, useMemo } from 'react'
+// import { ChaptersService } from '@/entities/chapter/ChaptersService'
+// import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-export function useGetDeleteChapter(chapterId: number, onChapterDeleted: () => void) {
+/*export function useGetDeleteChapter(chapterId: number, onChapterDeleted: () => void) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -43,4 +43,4 @@ export function useGetDeleteChapter(chapterId: number, onChapterDeleted: () => v
 		status,
 		onDeleteChapterClick,
 	}
-}
+}*/

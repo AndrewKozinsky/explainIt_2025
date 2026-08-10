@@ -1,17 +1,17 @@
-'use client'
+// 'use client'
 
-import { useCallback, useEffect, useRef } from 'react'
-import { usePlayerControl } from '../fn/playerControl'
-import { useYouTubeController } from './useYouTubeController'
-import { loadYouTubeIframeApi, YouTubePlayerState } from './youTubeIframeApi'
-import type { YouTubePlayer } from './youTubeIframeApi'
-import './YouTubePlayerCore.scss'
+// import { useCallback, useEffect, useRef } from 'react'
+// import { usePlayerControl } from '../fn/playerControl'
+// import { useYouTubeController } from './useYouTubeController'
+// import { loadYouTubeIframeApi, YouTubePlayerState } from './youTubeIframeApi'
+// import type { YouTubePlayer } from './youTubeIframeApi'
+// import './YouTubePlayerCore.scss'
 
 // ── Props ──────────────────────────────────────────────────────────────
 
-type YouTubePlayerCoreProps = {
+/*type YouTubePlayerCoreProps = {
 	youTubeVideoId: string
-	/** Соотношение сторон в CSS-формате, например "1280 / 720". По умолчанию "16 / 9". */
+	/!** Соотношение сторон в CSS-формате, например "1280 / 720". По умолчанию "16 / 9". *!/
 	ratio?: string
 	initialTime?: number
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>
@@ -22,16 +22,16 @@ type YouTubePlayerCoreProps = {
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
 	saveProgress: (seconds: number) => void
-}
+}*/
 
 // ── Константы ──────────────────────────────────────────────────────────
 
 /** Интервал опроса getCurrentTime() во время воспроизведения */
-const TIME_POLL_INTERVAL = 250
+// const TIME_POLL_INTERVAL = 250
 
 // ── Компонент ──────────────────────────────────────────────────────────
 
-function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
+/*function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 	const {
 		youTubeVideoId,
 		ratio,
@@ -194,6 +194,6 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 			<div className='video-root__youtube-container' ref={containerRef} style={{ aspectRatio }} />
 		</div>
 	)
-}
+}*/
 
-export default YouTubePlayerCore
+// export default YouTubePlayerCore

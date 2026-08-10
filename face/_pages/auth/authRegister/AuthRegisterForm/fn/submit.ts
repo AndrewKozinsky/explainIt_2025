@@ -1,11 +1,11 @@
-import { useCallback, useMemo } from 'react'
-import { AuthService } from '@/entities/auth/AuthService'
-import { AuthApi } from '@/entities/auth/repository/AuthApi'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
-import { FormStatus } from '@/shared/utils/forms'
-import { RegisterFormData } from './form'
+// import { useCallback, useMemo } from 'react'
+// import { AuthService } from '@/entities/auth/AuthService'
+// import { AuthApi } from '@/entities/auth/repository/AuthApi'
+// import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+// import { FormStatus } from '@/shared/utils/forms'
+// import { RegisterFormData } from './form'
 
-export function useGetOnRegisterFormSubmit(
+/*export function useGetOnRegisterFormSubmit(
 	setFieldError: (field: keyof RegisterFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -45,4 +45,4 @@ export function useGetOnRegisterFormSubmit(
 		},
 		[registerUser, setFieldError, setFormError, setFormStatus, setFormSuccess],
 	)
-}
+}*/

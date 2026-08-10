@@ -1,13 +1,13 @@
-import { useCallback } from 'react'
-import { redirect } from 'next/navigation'
-import { useLocale } from 'next-intl'
-import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+// import { useCallback } from 'react'
+// import { redirect } from 'next/navigation'
+// import { useLocale } from 'next-intl'
+// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
-export function useIsWatchButtonDisabled(hasContent?: boolean, hasFile?: boolean) {
+/*export function useIsWatchButtonDisabled(hasContent?: boolean, hasFile?: boolean) {
 	return !hasFile || !hasContent
-}
+}*/
 
-export function useGetOnWatchButtonClick(videoId: number) {
+/*export function useGetOnWatchButtonClick(videoId: number) {
 	const locale = useLocale()
 
 	return useCallback(
@@ -16,4 +16,4 @@ export function useGetOnWatchButtonClick(videoId: number) {
 		},
 		[videoId, locale],
 	)
-}
+}*/

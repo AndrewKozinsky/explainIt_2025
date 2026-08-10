@@ -1,17 +1,17 @@
-'use client'
+// 'use client'
 
-import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import { getHeader } from './fn/getHeader'
-import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
-import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
+// import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import { getHeader } from './fn/getHeader'
+// import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
+// import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
 
-type VideoRootProps = {
+/*type VideoRootProps = {
 	videoId: string
-}
+}*/
 
-function YouTubeVideoPage(props: VideoRootProps) {
+/*function YouTubeVideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
 	const { error, video } = useYouTubeVideoData(videoId)
@@ -54,6 +54,6 @@ function YouTubeVideoPage(props: VideoRootProps) {
 			}}
 		/>
 	)
-}
+}*/
 
-export default YouTubeVideoPage
+// export default YouTubeVideoPage

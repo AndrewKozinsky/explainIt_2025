@@ -1,16 +1,16 @@
-'use client'
+// 'use client'
 
-import { useState } from 'react'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import { BigPlusIcon } from '@/shared/ui/icons/BigPlusIcon'
-import Spinner from '@/shared/ui/Spinner/Spinner'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import './MediaGridAddButton.scss'
+// import { useState } from 'react'
+// import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import { BigPlusIcon } from '@/shared/ui/icons/BigPlusIcon'
+// import Spinner from '@/shared/ui/Spinner/Spinner'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import './MediaGridAddButton.scss'
 
-type MediaGridAddButtonProps = {
+/*type MediaGridAddButtonProps = {
 	addAction: () => Promise<ApiResult<unknown>>
-}
+}*/
 
 /**
  * Кнопка добавления элемента в медиа-грид.
@@ -21,7 +21,7 @@ type MediaGridAddButtonProps = {
  * - {@link Spinner} — во время выполнения `addAction`
  * - {@link ErrorMessage} — если `addAction` вернул ошибку
  */
-export function MediaGridAddButton(props: MediaGridAddButtonProps) {
+/*export function MediaGridAddButton(props: MediaGridAddButtonProps) {
 	const { addAction } = props
 
 	const [loading, setLoading] = useState(false)
@@ -54,4 +54,4 @@ export function MediaGridAddButton(props: MediaGridAddButtonProps) {
 			{content}
 		</BaseButton>
 	)
-}
+}*/

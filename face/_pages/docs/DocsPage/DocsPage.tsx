@@ -1,8 +1,8 @@
-import { Link } from '@/i18n/routing'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import './DocsPage.scss'
+// import { Link } from '@/i18n/routing'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import './DocsPage.scss'
 
-function DocsPage() {
+/*function DocsPage() {
 	const pagesConfig = [pageUrls.docs.privacyPolicy, pageUrls.docs.offer, pageUrls.docs.contentUsePolicy]
 
 	return (
@@ -16,6 +16,6 @@ function DocsPage() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default DocsPage
+// export default DocsPage

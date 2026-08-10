@@ -1,9 +1,9 @@
-'use client'
+// 'use client'
 
-import { useBalanceDisplay } from './fn/useBalanceDisplay'
-import './BalanceDisplay.scss'
+// import { useBalanceDisplay } from './fn/useBalanceDisplay'
+// import './BalanceDisplay.scss'
 
-function BalanceDisplay() {
+/*function BalanceDisplay() {
 	const { formattedBalance, hasUser } = useBalanceDisplay()
 
 	if (!hasUser) {
@@ -16,6 +16,6 @@ function BalanceDisplay() {
 			<span className='balance-display__value'>{formattedBalance}</span>
 		</div>
 	)
-}
+}*/
 
-export default BalanceDisplay
+// export default BalanceDisplay

@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo } from 'react'
-import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
-import { YoutubeService } from '@/entities/youtube/YoutubeService'
-import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
+// import { useCallback, useEffect, useMemo } from 'react'
+// import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
+// import { YoutubeService } from '@/entities/youtube/YoutubeService'
+// import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
 
 /**
  * Загружает данные YouTube-видео и опрашивает сервер, пока генерируются субтитры.
@@ -13,7 +13,7 @@ import { useFetchData } from '@/shared/utils/fetchData/useFetchData'
  *
  * @returns { loading, error, video } — video обновляется реактивно при получении новых данных
  */
-export function useYouTubeVideoData(videoId: string) {
+/*export function useYouTubeVideoData(videoId: string) {
 	const youtubeService = useMemo(function () {
 		return new YoutubeService(new YoutubeApi())
 	}, [])
@@ -42,4 +42,4 @@ export function useYouTubeVideoData(videoId: string) {
 		loading,
 		error,
 	}
-}
+}*/

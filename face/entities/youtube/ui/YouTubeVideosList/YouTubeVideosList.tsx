@@ -1,11 +1,11 @@
-'use client'
+// 'use client'
 
-import React from 'react'
-import MediaCardButton from '@/entities/media/ui/MediaCard/MediaCardButton'
-import { videoConfig } from '@/entities/video/lib/videoConfig'
-import ItemsGrid from '@/shared/ui/ItemsGrid/ItemsGrid'
+// import React from 'react'
+// import MediaCardButton from '@/entities/media/ui/MediaCard/MediaCardButton'
+// import { videoConfig } from '@/entities/video/lib/videoConfig'
+// import ItemsGrid from '@/shared/ui/ItemsGrid/ItemsGrid'
 
-export type YouTubeVideoCardData = {
+/*export type YouTubeVideoCardData = {
 	id: number | string
 	name: string | null
 	subName?: string | null
@@ -13,13 +13,13 @@ export type YouTubeVideoCardData = {
 	duration: string | null
 	coverUrl: string | null
 	url: string
-}
+}*/
 
-type YouTubeVideosListProps = {
+/*type YouTubeVideosListProps = {
 	items: YouTubeVideoCardData[]
-}
+}*/
 
-function YouTubeVideosList(props: YouTubeVideosListProps) {
+/*function YouTubeVideosList(props: YouTubeVideosListProps) {
 	const { items } = props
 
 	return (
@@ -40,6 +40,6 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 			})}
 		</ItemsGrid>
 	)
-}
+}*/
 
-export default YouTubeVideosList
+// export default YouTubeVideosList

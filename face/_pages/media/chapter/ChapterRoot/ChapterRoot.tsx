@@ -1,21 +1,21 @@
-import { BooksService } from '@/entities/book/BooksService'
-import { bookConfig } from '@/entities/book/lib/bookConfig'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
-import { ChaptersService } from '@/entities/chapter/ChaptersService'
-import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
-import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
-import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-import { getMediaNavigationData } from './fn/getMediaNavigationData'
+// import { BooksService } from '@/entities/book/BooksService'
+// import { bookConfig } from '@/entities/book/lib/bookConfig'
+// import { BooksApi } from '@/entities/book/repository/BooksApi'
+// import { ChaptersService } from '@/entities/chapter/ChaptersService'
+// import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
+// import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+// import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
+// import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+// import { getMediaNavigationData } from './fn/getMediaNavigationData'
 
-type ChapterRootProps = {
+/*type ChapterRootProps = {
 	chapterId: number | string
 	bookId: number | string
-}
+}*/
 
-async function ChapterRoot(props: ChapterRootProps) {
+/*async function ChapterRoot(props: ChapterRootProps) {
 	const { chapterId, bookId } = props
 
 	const booksService = new BooksService(new BooksApi())
@@ -60,6 +60,6 @@ async function ChapterRoot(props: ChapterRootProps) {
 			mediaNavigation={mediaNavigation}
 		/>
 	)
-}
+}*/
 
-export default ChapterRoot
+// export default ChapterRoot

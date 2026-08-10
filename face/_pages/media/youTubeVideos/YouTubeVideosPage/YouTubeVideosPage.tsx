@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import React from 'react'
-import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
-import PrivateVideosListWithAdd from '@/entities/video/ui/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
-import YouTubeVideosSaved from '@/entities/youtube/ui/YouTubeVideosSaved/YouTubeVideosSaved'
-import YouTubeVideosSearch from '@/entities/youtube/ui/YouTubeVideosSearch/YouTubeVideosSearch'
-import YouTubeVideosTabs from '@/entities/youtube/ui/YouTubeVideosTabs/YouTubeVideosTabs'
-import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { pageUrls } from '@/shared/utils/pageUrls'
+// import React from 'react'
+// import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
+// import PrivateVideosListWithAdd from '@/entities/video/ui/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
+// import YouTubeVideosSaved from '@/entities/youtube/ui/YouTubeVideosSaved/YouTubeVideosSaved'
+// import YouTubeVideosSearch from '@/entities/youtube/ui/YouTubeVideosSearch/YouTubeVideosSearch'
+// import YouTubeVideosTabs from '@/entities/youtube/ui/YouTubeVideosTabs/YouTubeVideosTabs'
+// import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { pageUrls } from '@/shared/utils/pageUrls'
 
-function YouTubeVideosPage() {
+/*function YouTubeVideosPage() {
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.youtube.name}>
 			<YouTubeVideosTabs
@@ -19,6 +19,6 @@ function YouTubeVideosPage() {
 			/>
 		</MediaPageContentWrapper>
 	)
-}
+}*/
 
-export default YouTubeVideosPage
+// export default YouTubeVideosPage

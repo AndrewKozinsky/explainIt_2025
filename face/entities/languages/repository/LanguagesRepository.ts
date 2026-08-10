@@ -1,17 +1,17 @@
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 
 /**
  * Унифицированный тип языка.
  * Компоненты работают только с этим типом — он не зависит от API.
  */
-export type LanguageModel = {
-	/** Название языка (на родном языке) */
+/*export type LanguageModel = {
+	/!** Название языка (на родном языке) *!/
 	name: string
-	/** Название языка на английском */
+	/!** Название языка на английском *!/
 	nameEng: string
-	/** Код языка (ISO) */
+	/!** Код языка (ISO) *!/
 	code: string
-}
+}*/
 
 /**
  * Репозиторий языков — абстракция над серверным API.
@@ -21,7 +21,7 @@ export type LanguageModel = {
  * выбрасывает исключение, которое {@link resolveError} преобразует
  * в читаемый текст.
  */
-export type LanguagesRepository = {
-	/** Получить список доступных языков */
+/*export type LanguagesRepository = {
+	/!** Получить список доступных языков *!/
 	getLanguages(): Promise<ApiResult<LanguageModel[]>>
-}
+}*/

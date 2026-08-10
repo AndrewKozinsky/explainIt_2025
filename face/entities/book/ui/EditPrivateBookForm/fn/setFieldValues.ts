@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
-import { UseFormReset } from 'react-hook-form'
-import { BookModel } from '@/entities/book/repository/BooksRepository'
-import { ChangeBookFormData } from './form'
+// import { useEffect, useRef } from 'react'
+// import { UseFormReset } from 'react-hook-form'
+// import { BookModel } from '@/entities/book/repository/BooksRepository'
+// import { ChangeBookFormData } from './form'
 
-export function useSetFieldValues(book: BookModel, reset: UseFormReset<ChangeBookFormData>) {
+/*export function useSetFieldValues(book: BookModel, reset: UseFormReset<ChangeBookFormData>) {
 	const prevBookIdRef = useRef<number | undefined>(undefined)
 
 	useEffect(
@@ -20,4 +20,4 @@ export function useSetFieldValues(book: BookModel, reset: UseFormReset<ChangeBoo
 		},
 		[book, reset],
 	)
-}
+}*/

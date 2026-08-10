@@ -1,14 +1,14 @@
-import { create } from 'zustand'
-import { LanguageCode } from '@/shared/utils/languages'
+// import { create } from 'zustand'
+// import { LanguageCode } from '@/shared/utils/languages'
 
-export const dictionaryStoreValues: DictionaryStoreValues = {
+/*export const dictionaryStoreValues: DictionaryStoreValues = {
 	currentLang: 'en',
 	flashcards: [],
 	isFlashcardsLoading: false,
 	getFlashcardsErrorMessage: '',
-}
+}*/
 
-export const useDictionaryStore = create<DictionaryStore>()((set) => {
+/*export const useDictionaryStore = create<DictionaryStore>()((set) => {
 	return {
 		...dictionaryStoreValues,
 		clearStoreData: () => {
@@ -30,21 +30,21 @@ export const useDictionaryStore = create<DictionaryStore>()((set) => {
 			set({ flashcards })
 		},
 	}
-})
+})*/
 
-export type DictionaryStore = DictionaryStoreValues & DictionaryStoreMethods
+// export type DictionaryStore = DictionaryStoreValues & DictionaryStoreMethods
 
-export type DictionaryFlashcardExample = {
+/*export type DictionaryFlashcardExample = {
 	text: string
 	translate: string
-}
+}*/
 
-export type DictionaryFlashcardSentencePart = {
+/*export type DictionaryFlashcardSentencePart = {
 	type: 'text' | 'phrase'
 	value: string
-}
+}*/
 
-export type DictionaryFlashcardData = {
+/*export type DictionaryFlashcardData = {
 	id: number
 	languageCode: string
 	sentenceText: DictionaryFlashcardSentencePart[]
@@ -56,20 +56,20 @@ export type DictionaryFlashcardData = {
 	phraseTranscription: string
 	phraseAudioUrl: string
 	examples: DictionaryFlashcardExample[]
-}
+}*/
 
-export type DictionaryStoreValues = {
+/*export type DictionaryStoreValues = {
 	currentLang: LanguageCode
 	flashcards: DictionaryFlashcardData[]
 	isFlashcardsLoading: boolean
 	getFlashcardsErrorMessage: string
-}
+}*/
 
-export type DictionaryStoreMethods = {
+/*export type DictionaryStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (store: Partial<DictionaryStoreValues>) => void
 	setCurrentLang: (currentLang: LanguageCode) => void
 	setFlashcards: (flashcards: DictionaryFlashcardData[]) => void
 	setIsFlashcardsLoading: (isFlashcardsLoading: boolean) => void
 	setGetFlashcardsErrorMessage: (getFlashcardsErrorMessage: string) => void
-}
+}*/

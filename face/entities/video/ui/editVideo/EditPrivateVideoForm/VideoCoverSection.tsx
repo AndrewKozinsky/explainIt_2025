@@ -1,16 +1,16 @@
-import React from 'react'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import VideoCoverDropzone from './VideoCoverDropzone'
-import VideoCoverPreview from './VideoCoverPreview'
+// import React from 'react'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import VideoCoverDropzone from './VideoCoverDropzone'
+// import VideoCoverPreview from './VideoCoverPreview'
 
-type VideoCoverSectionProps = {
+/*type VideoCoverSectionProps = {
 	coverUrl: string | null
 	videoId: number
 	isCoverFileUploaded: boolean | null
 	onCoverUpdated: (video: VideoLiteModel) => void
-}
+}*/
 
-function VideoCoverSection(props: VideoCoverSectionProps) {
+/*function VideoCoverSection(props: VideoCoverSectionProps) {
 	const { coverUrl, videoId, isCoverFileUploaded, onCoverUpdated } = props
 
 	if (coverUrl) {
@@ -24,6 +24,6 @@ function VideoCoverSection(props: VideoCoverSectionProps) {
 			onCoverUpdated={onCoverUpdated}
 		/>
 	)
-}
+}*/
 
-export default React.memo(VideoCoverSection)
+// export default React.memo(VideoCoverSection)

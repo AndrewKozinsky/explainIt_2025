@@ -1,19 +1,19 @@
-'use client'
+// 'use client'
 
-import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import SentenceBlock from '@/entities/sentencesAndSubtitles/SentenceBlock/SentenceBlock'
-import { LanguageCode } from '@/shared/utils/languages'
-import './Sentences.scss'
+// import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+// import SentenceBlock from '@/entities/sentencesAndSubtitles/SentenceBlock/SentenceBlock'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import './Sentences.scss'
 
-type ChapterContentProps = {
+/*type ChapterContentProps = {
 	languageCode: LanguageCode
 	sentences: SentenceModel[]
 	selectedSentenceId?: null | number
 	selectedWordId?: null | number
 	selectWord?: (input: { sentenceId: number; wordId: number }) => void
-}
+}*/
 
-function Sentences(props: ChapterContentProps) {
+/*function Sentences(props: ChapterContentProps) {
 	const { languageCode, sentences, selectedSentenceId = null, selectedWordId = null, selectWord = () => {} } = props
 
 	return (
@@ -33,6 +33,6 @@ function Sentences(props: ChapterContentProps) {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default Sentences
+// export default Sentences

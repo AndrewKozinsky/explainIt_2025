@@ -1,7 +1,7 @@
-import SentencePhraseAnalyses from '@/entities/sentencesAndSubtitles/phrase/SentencePhrasesAnalyses/SentencePhraseAnalyses'
-import { useDetailsStore } from '../detailsStore'
+// import SentencePhraseAnalyses from '@/entities/sentencesAndSubtitles/phrase/SentencePhrasesAnalyses/SentencePhraseAnalyses'
+// import { useDetailsStore } from '../detailsStore'
 
-function WordsContent() {
+/*function WordsContent() {
 	const currentInfoView = useDetailsStore((store) => store.currentInfoView)
 	const languageCode = useDetailsStore((store) => store.languageCode)
 
@@ -10,6 +10,6 @@ function WordsContent() {
 	}
 
 	return <SentencePhraseAnalyses languageCode={languageCode!} />
-}
+}*/
 
-export default WordsContent
+// export default WordsContent

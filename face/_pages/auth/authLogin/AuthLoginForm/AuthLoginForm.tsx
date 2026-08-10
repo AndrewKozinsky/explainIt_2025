@@ -1,21 +1,21 @@
-'use client'
+// 'use client'
 
-import React, { useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { redirect } from 'next/navigation'
-import { useLocale } from 'next-intl'
-import { useForm } from 'react-hook-form'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import FormError from '@/shared/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
-import { FormStatus } from '@/shared/utils/forms'
-import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
-import { LoginFormData, loginFormSchema } from './fn/form'
-import { useGetOnLoginFormSubmit } from './fn/submit'
+// import React, { useState } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { redirect } from 'next/navigation'
+// import { useLocale } from 'next-intl'
+// import { useForm } from 'react-hook-form'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/shared/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+// import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
+// import { FormStatus } from '@/shared/utils/forms'
+// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+// import { LoginFormData, loginFormSchema } from './fn/form'
+// import { useGetOnLoginFormSubmit } from './fn/submit'
 
-function AuthLoginForm() {
+/*function AuthLoginForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 	const locale = useLocale()
@@ -65,6 +65,6 @@ function AuthLoginForm() {
 			</form>
 		</div>
 	)
-}
+}*/
 
-export default AuthLoginForm
+// export default AuthLoginForm

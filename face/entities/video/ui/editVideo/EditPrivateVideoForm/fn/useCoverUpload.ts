@@ -1,9 +1,9 @@
-import { useCallback, useMemo } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { VideosService } from '@/entities/video/VideosService'
+// import { useCallback, useMemo } from 'react'
+// import { VideosApi } from '@/entities/video/repository/VideosApi'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import { VideosService } from '@/entities/video/VideosService'
 
-export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
+/*export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
 	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	const onGetUploadUrl = useCallback(
@@ -38,4 +38,4 @@ export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLit
 	)
 
 	return { onGetUploadUrl, onUploadComplete }
-}
+}*/
