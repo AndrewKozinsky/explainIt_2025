@@ -1,6 +1,7 @@
 import { BooksApi } from '@/entities/book/repository/BooksApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
+import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
+export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput }
 
 /**
  * Сервис книг — прослойка между компонентами и репозиторием.
@@ -14,7 +15,7 @@ export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } fro
  */
 export class BooksService {
 	/** Поддерживаемые форматы файлов обложки */
-	/*static readonly supportedCoverFormats = {
+	static readonly supportedCoverFormats = {
 		accept: {
 			'image/jpeg': ['.jpg', '.jpeg'],
 			'image/png': ['.png'],
@@ -22,7 +23,7 @@ export class BooksService {
 			'image/avif': ['.avif'],
 		},
 		description: 'JPG, JPEG, PNG, WebP, AVIF',
-	}*/
+	}
 
 	private booksRepository: BooksRepository
 
