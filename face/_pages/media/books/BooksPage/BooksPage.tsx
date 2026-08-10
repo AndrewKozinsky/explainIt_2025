@@ -11,27 +11,23 @@ import PublicBooksList from '@/widgets/book/PublicBooksList/PublicBooksList'
 import { useBooksPageTabs } from './fn/useBooksPageTabs'
 
 export default function BooksPage() {
-	const { data: allBooks, isLoading } = useQuery(booksQueries.getBooks())
+	const { data: allBooks } = useQuery(booksQueries.getBooks())
 
 	const { defaultTab, onTabChange } = useBooksPageTabs()
-
-	if (isLoading || !allBooks) {
-		return (
-			<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.books.name}>
-				<div />
-			</MediaPageContentWrapper>
-		)
-	}
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.books.name}>
 			<MediaPageContentTabs
 				tabs={[
-					{ key: 'library', label: 'Библиотека', content: <PublicBooksList books={allBooks.public} /> },
+					{
+						key: 'library',
+						label: 'Библиотека',
+						content: <PublicBooksList books={allBooks?.public ?? []} />,
+					},
 					{
 						key: 'private',
 						label: 'Мои книги',
-						content: <PrivateBooksListWithAdd books={allBooks.private} />,
+						content: <PrivateBooksListWithAdd books={allBooks?.private ?? []} />,
 					},
 				]}
 				defaultTab={defaultTab}

@@ -1,6 +1,6 @@
 // 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import { BookModel } from '@/entities/book/repository/BooksRepository'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
@@ -20,6 +20,12 @@ function PublicBooksList(props: PublicBooksList) {
 	const languages = books.map((item) => item.languageCode)
 	const languagesSet = new Set(languages)
 	const [currentLang, setCurrentLang] = useState(languages[0])
+
+	useEffect(() => {
+		if (!currentLang && languages.length > 0) {
+			setCurrentLang(languages[0])
+		}
+	}, [languages, currentLang])
 
 	const config = getConfig(books, currentLang)
 
