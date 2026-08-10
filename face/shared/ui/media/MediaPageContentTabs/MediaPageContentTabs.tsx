@@ -4,53 +4,33 @@ import React, { useState } from 'react'
 import Switcher, { type SwitcherItem } from '@/shared/ui/Switcher/Switcher'
 import './MediaPageContentTabs.scss'
 
-type YouTubeVideosTabsProps = {
-	youtubeSlot: React.ReactNode
-	savedVideosSlot: React.ReactNode
-	userVideosSlot: React.ReactNode
+export type TabConfig = {
+	key: string
+	label: string
+	content: React.ReactNode
 }
 
-type TabKey = 'saved' | 'youtube' | 'user'
+type MediaPageContentTabsProps = {
+	tabs: TabConfig[]
+	defaultTab?: string
+	onTabChange?: (tabKey: string) => void
+}
 
-function MediaPageContentTabs(props: YouTubeVideosTabsProps) {
-	const { youtubeSlot, savedVideosSlot, userVideosSlot } = props
+function MediaPageContentTabs(props: MediaPageContentTabsProps) {
+	const { tabs, defaultTab, onTabChange } = props
 
-	const [activeTab, setActiveTab] = useState<TabKey>('saved')
+	const [activeTab, setActiveTab] = useState<string>(defaultTab ?? tabs[0]?.key ?? '')
 
-	const switcherItems: SwitcherItem[] = [
-		{
-			text: 'Подборка',
-			onClick: function () {
-				setActiveTab('saved')
-			},
-			isCurrent: activeTab === 'saved',
+	const switcherItems: SwitcherItem[] = tabs.map((tab) => ({
+		text: tab.label,
+		onClick: function () {
+			setActiveTab(tab.key)
+			onTabChange?.(tab.key)
 		},
-		{
-			text: 'Поиск',
-			onClick: function () {
-				setActiveTab('youtube')
-			},
-			isCurrent: activeTab === 'youtube',
-		},
-		{
-			text: 'Ваши видео',
-			onClick: function () {
-				setActiveTab('user')
-			},
-			isCurrent: activeTab === 'user',
-		},
-	]
+		isCurrent: activeTab === tab.key,
+	}))
 
-	const tabContent = (function () {
-		switch (activeTab) {
-			case 'saved':
-				return savedVideosSlot
-			case 'youtube':
-				return youtubeSlot
-			case 'user':
-				return userVideosSlot
-		}
-	})()
+	const tabContent = tabs.find((tab) => tab.key === activeTab)?.content ?? null
 
 	return (
 		<div className='media-page-content-tabs'>

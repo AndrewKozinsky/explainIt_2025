@@ -134,6 +134,38 @@ export const localStorageManager = {
 	},
 
 	/**
+	 * Последняя открытая вкладка на медиа-страницах.
+	 *
+	 * Ключ: `lastMediaTab:<pageKey>`.
+	 * `pageKey` — уникальный идентификатор страницы (например `"books"`, `"youtube"`).
+	 */
+	lastMediaTab: {
+		/**
+		 * Возвращает ключ последней открытой вкладки.
+		 *
+		 * @param pageKey — уникальный ключ страницы
+		 * @returns ключ вкладки или `null`, если запись отсутствует
+		 */
+		get(pageKey: string): string | null {
+			if (typeof window === 'undefined') return null
+
+			const raw = window.localStorage.getItem(lastMediaTabKey(pageKey))
+			return raw || null
+		},
+
+		/**
+		 * Сохраняет ключ последней открытой вкладки.
+		 *
+		 * @param pageKey — уникальный ключ страницы
+		 * @param tabKey — ключ вкладки
+		 */
+		set(pageKey: string, tabKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(lastMediaTabKey(pageKey), tabKey)
+		},
+	},
+
+	/**
 	 * OAuth CSRF-токен.
 	 *
 	 * Ключ: `latestCSRFToken`.
@@ -188,6 +220,12 @@ const ONBOARDING_KEY = 'hideOnboardingModal'
 // ── oauth helpers ──────────────────────────────────────────────────────────
 
 const OAUTH_CSRF_KEY = 'latestCSRFToken'
+
+// ── lastMediaTab helpers ───────────────────────────────────────────────────
+
+function lastMediaTabKey(pageKey: string) {
+	return `lastMediaTab:${pageKey}`
+}
 
 // ── videoProgress helpers ──────────────────────────────────────────────────
 
