@@ -1,6 +1,6 @@
 import cn from 'classnames'
-import './Switcher.scss'
 import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import './Switcher.scss'
 
 export type SwitcherItem = {
 	text: string

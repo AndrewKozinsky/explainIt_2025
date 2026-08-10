@@ -1,18 +1,18 @@
-// 'use client'
+'use client'
 
-// import React, { useState } from 'react'
-// import Switcher, { type SwitcherItem } from '@/shared/ui/Switcher/Switcher'
-// import './YouTubeVideosTabs.scss'
+import React, { useState } from 'react'
+import Switcher, { type SwitcherItem } from '@/shared/ui/Switcher/Switcher'
+import './MediaPageContentTabs.scss'
 
-/*type YouTubeVideosTabsProps = {
+type YouTubeVideosTabsProps = {
 	youtubeSlot: React.ReactNode
 	savedVideosSlot: React.ReactNode
 	userVideosSlot: React.ReactNode
-}*/
+}
 
-// type TabKey = 'saved' | 'youtube' | 'user'
+type TabKey = 'saved' | 'youtube' | 'user'
 
-/*function YouTubeVideosTabs(props: YouTubeVideosTabsProps) {
+function MediaPageContentTabs(props: YouTubeVideosTabsProps) {
 	const { youtubeSlot, savedVideosSlot, userVideosSlot } = props
 
 	const [activeTab, setActiveTab] = useState<TabKey>('saved')
@@ -53,11 +53,11 @@
 	})()
 
 	return (
-		<div className='youtube-videos-tabs'>
+		<div className='media-page-content-tabs'>
 			<Switcher type='fit' orientation='horizontal' items={switcherItems} widePaddings />
 			{tabContent}
 		</div>
 	)
-}*/
+}
 
-// export default YouTubeVideosTabs
+export default MediaPageContentTabs
