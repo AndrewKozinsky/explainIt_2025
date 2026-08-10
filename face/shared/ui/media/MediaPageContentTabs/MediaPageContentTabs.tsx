@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import Switcher, { type SwitcherItem } from '@/shared/ui/Switcher/Switcher'
 import './MediaPageContentTabs.scss'
 
@@ -20,6 +20,12 @@ function MediaPageContentTabs(props: MediaPageContentTabsProps) {
 	const { tabs, defaultTab, onTabChange } = props
 
 	const [activeTab, setActiveTab] = useState<string>(defaultTab ?? tabs[0]?.key ?? '')
+
+	useLayoutEffect(() => {
+		if (defaultTab) {
+			setActiveTab(defaultTab)
+		}
+	}, [defaultTab])
 
 	const switcherItems: SwitcherItem[] = tabs.map((tab) => ({
 		text: tab.label,
