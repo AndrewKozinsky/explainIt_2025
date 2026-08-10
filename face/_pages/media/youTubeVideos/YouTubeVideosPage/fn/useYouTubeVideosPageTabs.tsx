@@ -10,12 +10,8 @@ export const YOUTUBE_TABS: TabConfig[] = [
 	{ key: 'user', label: 'Мои видео', content: <p /> },
 ]
 
-export function getDefaultYouTubeTab(): string {
-	return localStorageManager.lastMediaTab.get(YOUTUBE_PAGE_STORAGE_KEY) ?? YOUTUBE_TABS[0].key
-}
-
 export function useYouTubeVideosPageTabs() {
-	const [defaultTab, setDefaultTab] = useState<string>(() => getDefaultYouTubeTab())
+	const [defaultTab, setDefaultTab] = useState<string>(YOUTUBE_TABS[0].key)
 
 	useLayoutEffect(() => {
 		const saved = localStorageManager.lastMediaTab.get(YOUTUBE_PAGE_STORAGE_KEY)

@@ -1,9 +1,9 @@
-// import type {
-// 	SentenceModel,
-// 	SentenceTranslationModel,
-// 	SentencePhraseTranslationModel,
-// 	SentencePhraseTranslationExampleModel,
-// } from './SentenceTypes'
+import type {
+	SentenceModel,
+	SentenceTranslationModel,
+	SentencePhraseTranslationModel,
+	SentencePhraseTranslationExampleModel,
+} from './SentenceTypes'
 
 /**
  * Маппит сырые предложения с сервера в унифицированные {@link SentenceModel}.
@@ -13,7 +13,7 @@
  * @param processedContent — полный обработанный текст главы/видео
  * @param rawSentences — сырой массив предложений с сервера
  */
-/*export function mapRawSentencesToModels(
+export function mapRawSentencesToModels(
 	processedContent: string,
 	rawSentences: Record<string, unknown>[] | null | undefined,
 ): SentenceModel[] | null {
@@ -34,7 +34,7 @@
 				: null,
 		}
 	})
-}*/
+}
 
 /**
  * Маппит сырые предложения видео в унифицированные {@link SentenceModel}.
@@ -72,15 +72,15 @@
 	})
 }*/
 
-/*export function mapToSentenceTranslation(raw: Record<string, unknown>): SentenceTranslationModel {
+export function mapToSentenceTranslation(raw: Record<string, unknown>): SentenceTranslationModel {
 	return {
 		id: raw.id as number,
 		sentenceId: raw.sentenceId as number,
 		translation: raw.translation as string,
 	}
-}*/
+}
 
-/*export function mapToSentencePhraseTranslation(raw: Record<string, unknown>): SentencePhraseTranslationModel {
+export function mapToSentencePhraseTranslation(raw: Record<string, unknown>): SentencePhraseTranslationModel {
 	return {
 		id: raw.id as number,
 		sentenceId: raw.sentenceId as number,
@@ -93,11 +93,11 @@
 		errorMessage: (raw.errorMessage as string) ?? null,
 		flashcardId: (raw.flashcardId as number) ?? null,
 	}
-}*/
+}
 
-/*export function mapToExample(raw: Record<string, unknown>): SentencePhraseTranslationExampleModel {
+export function mapToExample(raw: Record<string, unknown>): SentencePhraseTranslationExampleModel {
 	return {
 		text: raw.text as string,
 		translate: raw.translate as string,
 	}
-}*/
+}

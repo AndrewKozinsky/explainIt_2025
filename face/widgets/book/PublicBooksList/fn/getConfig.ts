@@ -1,8 +1,8 @@
-// import { BookModel } from '@/entities/book/repository/BooksRepository'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import { pageUrls } from '@/shared/utils/pageUrls'
+import { BookModel } from '@/entities/book/repository/BooksRepository'
+import { LanguageCode } from '@/shared/utils/languages'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
-/*export function getConfig(booksData: BookModel[], currentLang: LanguageCode) {
+export function getConfig(booksData: BookModel[], currentLang: LanguageCode) {
 	return booksData
 		.filter((bookData) => bookData.languageCode === currentLang)
 		.map((bookData) => {
@@ -17,8 +17,8 @@
 				actionUrl: pageUrls.books.book(bookData.id).path,
 			}
 		})
-}*/
+}
 
-/*function resolveFirstChapterId(book: BookModel): number {
+function resolveFirstChapterId(book: BookModel): number {
 	return book.chapters[0]?.id ?? 0
-}*/
+}

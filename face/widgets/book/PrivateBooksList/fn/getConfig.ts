@@ -1,7 +1,7 @@
-// import { BookModel } from '@/entities/book/repository/BooksRepository'
-// import { pageUrls } from '@/shared/utils/pageUrls'
+import { BookModel } from '@/entities/book/repository/BooksRepository'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
-/*export function getConfig(booksData: BookModel[]) {
+export function getConfig(booksData: BookModel[]) {
 	return booksData.map((bookData) => {
 		const chapterId = resolveFirstChapterId(bookData)
 
@@ -14,8 +14,8 @@
 			actionUrl: pageUrls.books.book(bookData.id).path,
 		}
 	})
-}*/
+}
 
-/*function resolveFirstChapterId(book: BookModel): number {
+function resolveFirstChapterId(book: BookModel): number {
 	return book.chapters[0]?.id ?? 0
-}*/
+}

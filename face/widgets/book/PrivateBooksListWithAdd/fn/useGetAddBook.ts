@@ -1,16 +1,16 @@
-// 'use client'
+'use client'
 
-// import { useCallback, useContext, useMemo } from 'react'
-// import { redirect } from 'next/navigation'
-// import { useLocale } from 'next-intl'
-// import { BooksService } from '@/entities/book/BooksService'
-// import { BooksApi } from '@/entities/book/repository/BooksApi'
-// import type { BookModel } from '@/entities/book/repository/BooksRepository'
-// import { useRouter } from '@/i18n/routing'
-// import { useUser } from '@/shared/api/auth/UserProvider'
-// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+import { useCallback, useContext, useMemo } from 'react'
+import { redirect } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import { booksService, BooksService } from '@/entities/book/BooksService'
+import { BooksApi } from '@/entities/book/repository/BooksApi'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import { useRouter } from '@/i18n/routing'
+import { useUser } from '@/shared/api/auth/UserProvider'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 /**
  * Хук для создания новой приватной книги.
@@ -23,13 +23,11 @@
  *
  * @returns `() => Promise<ApiResult<Book>>` — обработчик для {@link MediaGridAddButton}
  */
-/*export function useGetAddBook(): () => Promise<ApiResult<BookModel>> {
+export function useGetAddBook(): () => Promise<ApiResult<BookModel>> {
 	const router = useRouter()
 	const { notify } = useContext(NotificationContext)
 	const user = useUser()
 	const locale = useLocale()
-
-	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
 
 	const handleAdd = useCallback(
 		async function (): Promise<ApiResult<BookModel>> {
@@ -66,4 +64,4 @@
 	)
 
 	return handleAdd
-}*/
+}

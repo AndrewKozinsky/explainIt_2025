@@ -1,7 +1,6 @@
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
-
-// export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
+import { BooksApi } from '@/entities/book/repository/BooksApi'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
 
 /**
  * Сервис книг — прослойка между компонентами и репозиторием.
@@ -13,9 +12,9 @@
  *
  * Компоненты зависят от этого сервиса, а не от конкретной реализации API.
  */
-/*export class BooksService {
-	/!** Поддерживаемые форматы файлов обложки *!/
-	static readonly supportedCoverFormats = {
+export class BooksService {
+	/** Поддерживаемые форматы файлов обложки */
+	/*static readonly supportedCoverFormats = {
 		accept: {
 			'image/jpeg': ['.jpg', '.jpeg'],
 			'image/png': ['.png'],
@@ -23,7 +22,7 @@
 			'image/avif': ['.avif'],
 		},
 		description: 'JPG, JPEG, PNG, WebP, AVIF',
-	}
+	}*/
 
 	private booksRepository: BooksRepository
 
@@ -31,7 +30,7 @@
 		this.booksRepository = booksRepository
 	}
 
-	/!** Получить публичные и личные книги, разделённые по типу *!/
+	/** Получить публичные и личные книги, разделённые по типу */
 	async getBooks(): Promise<ApiResult<{ public: BookModel[]; private: BookModel[] }>> {
 		const result = await this.booksRepository.getBooks()
 
@@ -53,31 +52,31 @@
 		}
 	}
 
-	/!** Получить одну книгу по ID. null — книга не найдена. *!/
-	async getBook(id: number): Promise<ApiResult<null | BookModel>> {
+	/** Получить одну книгу по ID. null — книга не найдена. */
+	/*async getBook(id: number): Promise<ApiResult<null | BookModel>> {
 		return this.booksRepository.getBook(id)
-	}
+	}*/
 
-	/!** Создать приватную книгу с пустой первой главой *!/
+	/** Создать приватную книгу с пустой первой главой */
 	async createBook(input: CreateBookInput): Promise<ApiResult<BookModel>> {
 		return this.booksRepository.createBook(input)
 	}
 
-	/!** Удалить личную книгу *!/
-	async deleteBook(id: number): Promise<ApiResult<void>> {
+	/** Удалить личную книгу */
+	/*async deleteBook(id: number): Promise<ApiResult<void>> {
 		return this.booksRepository.deleteBook(id)
-	}
+	}*/
 
-	/!** Обновить приватную книгу *!/
-	async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
+	/** Обновить приватную книгу */
+	/*async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
 		return this.booksRepository.updateBook(id, input)
-	}
+	}*/
 
-	/!**
+	/**
 	 * Запросить pre-signed URL для загрузки обложки.
 	 * Обновляет метаданные обложки в книге и возвращает URL для загрузки файла в S3.
-	 *!/
-	async requestCoverUploadUrl(
+	 */
+	/*async requestCoverUploadUrl(
 		bookId: number,
 		fileName: string,
 		fileMimeType: string,
@@ -88,13 +87,15 @@
 			fileMimeType: fileMimeType,
 			languageCode: languageCode,
 		})
-	}
+	}*/
 
-	/!** Подтвердить завершение загрузки обложки *!/
-	async confirmCoverUpload(bookId: number, languageCode: string | null): Promise<ApiResult<BookModel>> {
+	/** Подтвердить завершение загрузки обложки */
+	/*async confirmCoverUpload(bookId: number, languageCode: string | null): Promise<ApiResult<BookModel>> {
 		return this.booksRepository.updateBook(bookId, {
 			isCoverFileUploaded: true,
 			languageCode: languageCode,
 		})
-	}
-}*/
+	}*/
+}
+
+export const booksService = new BooksService(new BooksApi())
