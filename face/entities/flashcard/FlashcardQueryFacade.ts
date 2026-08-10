@@ -1,12 +1,12 @@
-// import { queryOptions, type QueryClient } from '@tanstack/react-query'
-// import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
-// import { flashcardService } from './FlashcardService'
-// import type {
-// 	AddFlashcardInput,
-// 	FlashcardService,
-// 	GetMyFlashcardsParams,
-// 	RemoveFlashcardInput,
-// } from './FlashcardService'
+import { queryOptions, type QueryClient } from '@tanstack/react-query'
+import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
+import { flashcardService } from './FlashcardService'
+import type {
+	AddFlashcardInput,
+	FlashcardService,
+	GetMyFlashcardsParams,
+	RemoveFlashcardInput,
+} from './FlashcardService'
 
 /**
  * Ключи кэша серверных данных флеш-карточек.
@@ -15,11 +15,11 @@
  * хранить независимые списки для разных языков и инвалидировать их одним
  * префиксом `all` после любой мутации.
  */
-/*export const flashcardQueryKeys = {
+export const flashcardQueryKeys = {
 	all: ['flashcards'] as const,
 	list: (params?: GetMyFlashcardsParams) =>
 		[...flashcardQueryKeys.all, 'list', { languageCode: params?.languageCode ?? null }] as const,
-}*/
+}
 
 /**
  * Адаптер между доменным сервисом и TanStack Query.
@@ -27,7 +27,7 @@
  * В кэш попадают `FlashcardModel`, а не DTO OpenAPI: все источники данных
  * продолжают соответствовать контракту `FlashcardRepository`.
  */
-/*export class FlashcardQueryFacade {
+export class FlashcardQueryFacade {
 	constructor(private readonly service: FlashcardService) {}
 
 	getMyFlashcards(params?: GetMyFlashcardsParams) {
@@ -54,6 +54,6 @@
 	invalidateMyFlashcards(queryClient: QueryClient) {
 		return queryClient.invalidateQueries({ queryKey: flashcardQueryKeys.all })
 	}
-}*/
+}
 
-// export const flashcardQueries = new FlashcardQueryFacade(flashcardService)
+export const flashcardQueries = new FlashcardQueryFacade(flashcardService)
