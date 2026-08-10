@@ -1,13 +1,13 @@
-// import React from 'react'
-// import mainConfig from '@/shared/сonsts/mainConfig'
-// import GoogleTagManager from '../GoogleTagManager/GoogleTagManager'
-// import '../style/global.scss'
+import React from 'react'
+import mainConfig from '@/shared/сonsts/mainConfig'
+import GoogleTagManager from '../GoogleTagManager/GoogleTagManager'
+import '../style/global.scss'
 
-/*type MainPageLayoutProps = {
+type MainPageLayoutProps = {
 	children: React.ReactNode
-}*/
+}
 
-/*function MainPageLayout(props: MainPageLayoutProps) {
+function MainPageLayout(props: MainPageLayoutProps) {
 	const { children } = props
 
 	return (
@@ -16,6 +16,6 @@
 			{children}
 		</>
 	)
-}*/
+}
 
-// export default MainPageLayout
+export default MainPageLayout

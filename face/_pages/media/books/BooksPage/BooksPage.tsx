@@ -9,20 +9,21 @@
 // import { PrivateBooksListWithAdd } from '_pages/media/books/PrivateBooksListWithAdd/PrivateBooksListWithAdd'
 // import './BooksPage.scss'
 
-/*export default async function BooksPage() {
-	const booksService = new BooksService(new BooksApi())
-	const { error, errors, data: allBooks } = await booksService.getBooks()
+export default async function BooksPage() {
+	// const booksService = new BooksService(new BooksApi())
+	// const { error, errors, data: allBooks } = await booksService.getBooks()
 
-	if (error || errors) {
+	/*if (error || errors) {
 		return <ErrorMessage text={error ?? errorMessages.unknownServerError} />
-	}
+	}*/
 
-	return (
+	/*return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.books.name}>
 			<div className='books-page'>
 				<PrivateBooksListWithAdd books={allBooks.private} />
 				<PublicBooksList books={allBooks.public} />
 			</div>
 		</MediaPageContentWrapper>
-	)
-}*/
+	)*/
+	return null
+}

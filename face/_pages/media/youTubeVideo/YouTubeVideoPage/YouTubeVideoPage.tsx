@@ -7,14 +7,14 @@
 // import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
 // import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
 
-/*type VideoRootProps = {
+type VideoRootProps = {
 	videoId: string
-}*/
+}
 
-/*function YouTubeVideoPage(props: VideoRootProps) {
+function YouTubeVideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
-	const { error, video } = useYouTubeVideoData(videoId)
+	/*const { error, video } = useYouTubeVideoData(videoId)
 
 	if (error) {
 		return <ErrorMessage text={error} />
@@ -24,9 +24,9 @@
 		return null
 	}
 
-	const { header } = getHeader(video)
+	const { header } = getHeader(video)*/
 
-	return (
+	/*return (
 		<MediaPageClient
 			breadCrumbsConfig={[pageUrls.youtube]}
 			header={header}
@@ -53,7 +53,8 @@
 				sentences: video.plainSentences,
 			}}
 		/>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default YouTubeVideoPage
+export default YouTubeVideoPage
