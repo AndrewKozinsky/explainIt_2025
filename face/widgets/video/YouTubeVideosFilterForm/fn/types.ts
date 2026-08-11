@@ -4,4 +4,5 @@ import type { DurationKey } from '@/widgets/video/YouTubeVideosFilterForm/YouTub
 export type YouTubeVideosFilterValues = {
 	languageCode: LanguageCode | undefined
 	durationKey: DurationKey
+	topicKey: string
 }

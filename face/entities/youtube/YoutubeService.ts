@@ -1,12 +1,13 @@
 // import type { VideoModel } from '@/entities/video/repository/VideosRepository'
 // import type { VideoLiteModel } from '@/entities/video/lib/types'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import type {
-// 	GetSavedYoutubeVideosParams,
-// 	GetYoutubeVideosParams,
-// 	YoutubeRepository,
-// 	YoutubeVideosResultModel,
-// } from './repository/YoutubeRepository'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { YoutubeApi } from './repository/YoutubeApi'
+import type {
+	// 	GetSavedYoutubeVideosParams,
+	// 	GetYoutubeVideosParams,
+	YoutubeRepository,
+	// 	YoutubeVideosResultModel,
+} from './repository/YoutubeRepository'
 
 // export type {
 // 	GetSavedYoutubeVideosParams,
@@ -25,35 +26,38 @@
  *
  * Компоненты зависят от этого сервиса, а не от конкретной реализации API.
  */
-/*export class YoutubeService {
+export class YoutubeService {
 	private youtubeRepository: YoutubeRepository
 
 	constructor(youtubeRepository: YoutubeRepository) {
 		this.youtubeRepository = youtubeRepository
 	}
 
-	/!** Получить список видео с YouTube по языку и поисковому запросу *!/
-	async getVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>> {
+	/** Получить список видео с YouTube по языку и поисковому запросу */
+	/*async getVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>> {
 		return this.youtubeRepository.searchYouTubeVideos(params)
-	}
+	}*/
 
-	/!** Получить данные одного видео с YouTube по его ID *!/
-	async getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>> {
+	/** Получить данные одного видео с YouTube по его ID */
+	/*async getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>> {
 		return this.youtubeRepository.getVideoById(videoId)
-	}
+	}*/
 
-	/!** Сохранить YouTube-видео в БД для привязки субтитров и переводов *!/
-	async getOrCreateVideo(videoId: string): Promise<ApiResult<VideoModel>> {
+	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
+	/*async getOrCreateVideo(videoId: string): Promise<ApiResult<VideoModel>> {
 		return this.youtubeRepository.getOrCreateYouTubeVideo(videoId)
-	}
+	}*/
 
-	/!** Получить сохранённые YouTube-видео с фильтрами *!/
-	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
+	/** Получить сохранённые YouTube-видео с фильтрами */
+	/*async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
 		return this.youtubeRepository.getSavedVideos(params)
-	}
+	}*/
 
-	/!** Получить список категорий (тем) видео *!/
+	/** Получить список категорий (тем) видео */
 	async getVideoTopics(): Promise<ApiResult<string[]>> {
 		return this.youtubeRepository.getVideoTopics()
 	}
-}*/
+}
+
+/** Готовый экземпляр сервиса с реальным API */
+export const youtubeService = new YoutubeService(new YoutubeApi())

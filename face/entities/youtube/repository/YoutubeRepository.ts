@@ -1,5 +1,5 @@
 // import type { VideoLiteModel, VideoModel } from '@/entities/video/lib/types'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 
 /** Унифицированный тип результата поиска видео. */
 /*export type YoutubeVideosResultModel = {
@@ -46,15 +46,15 @@
  * выбрасывает исключение, которое {@link resolveError} преобразует
  * в читаемый текст.
  */
-/*export type YoutubeRepository = {
-	/!** Получить список видео с YouTube по языку и поисковому запросу *!/
-	searchYouTubeVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>>
-	/!** Получить данные одного видео с YouTube по его ID *!/
-	getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>>
-	/!** Сохранить YouTube-видео в БД для привязки субтитров и переводов *!/
-	getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>>
-	/!** Получить сохранённые YouTube-видео с фильтрами *!/
-	getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>>
-	/!** Получить список категорий (тем) видео *!/
+export type YoutubeRepository = {
+	/** Получить список видео с YouTube по языку и поисковому запросу */
+	// searchYouTubeVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>>
+	/** Получить данные одного видео с YouTube по его ID */
+	// getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>>
+	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
+	// getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>>
+	/** Получить сохранённые YouTube-видео с фильтрами */
+	// getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>>
+	/** Получить список категорий (тем) видео */
 	getVideoTopics(): Promise<ApiResult<string[]>>
-}*/
+}

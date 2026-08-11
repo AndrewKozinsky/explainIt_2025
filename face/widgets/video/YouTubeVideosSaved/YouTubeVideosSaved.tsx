@@ -27,6 +27,7 @@ import type { YouTubeVideosFilterValues } from '@/widgets/video/YouTubeVideosFil
 import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
 import useDurationFilter from './fn/useDurationFilter'
 import useLanguageFilter from './fn/useLanguageFilter'
+import useTopicFilter from './fn/useTopicFilter'
 
 function YouTubeVideosSaved() {
 	// const [loading, setLoading] = useState(true)
@@ -38,18 +39,22 @@ function YouTubeVideosSaved() {
 	// const [topics, setTopics] = useState<string[]>([])
 	const { languageCode, setLanguageCode } = useLanguageFilter()
 	const { durationKey, setDurationKey } = useDurationFilter()
+	const { topicKey, topics, setTopicKey } = useTopicFilter()
 
 	const filterValues: YouTubeVideosFilterValues = useMemo(
 		function () {
-			return { languageCode, durationKey }
+			return { languageCode, durationKey, topicKey }
 		},
-		[languageCode, durationKey],
+		[languageCode, durationKey, topicKey],
 	)
 
 	function handleFilterChange(values: YouTubeVideosFilterValues) {
 		setLanguageCode(values.languageCode)
 		setDurationKey(values.durationKey)
+		setTopicKey(values.topicKey)
 	}
+
+	return <YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
 
 	/*const fetchSavedVideos = useCallback(
 		async function () {
@@ -145,7 +150,6 @@ function YouTubeVideosSaved() {
 			{!loading && !error && videos.length > 0 && <YouTubeVideosList items={mapToYouTubeVideoCardData(videos)} />}
 		</div>
 	)*/
-	return <YouTubeVideosFilterForm values={filterValues} onChange={handleFilterChange} />
 }
 
 export default YouTubeVideosSaved
