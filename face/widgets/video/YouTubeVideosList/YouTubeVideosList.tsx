@@ -54,8 +54,9 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 				return (
 					<MediaCardButton
 						key={item.id}
-						name={item.name}
-						subName={item.subName}
+						title={item.name}
+						subTitle={item.subName}
+						theme={item.theme}
 						proficiencyLevel={item.proficiencyLevel}
 						duration={item.duration}
 						coverUrl={item.coverUrl}

@@ -2,8 +2,9 @@ import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 import './MediaCardButton.scss'
 
 type MediaCardProps = {
-	name?: null | string
-	subName?: null | number | string
+	title?: null | string
+	subTitle?: null | number | string
+	theme?: null | string
 	proficiencyLevel?: null | string
 	duration?: null | string
 	url: string
@@ -12,20 +13,32 @@ type MediaCardProps = {
 }
 
 function MediaCardButton(props: MediaCardProps) {
-	const { name, subName, proficiencyLevel, duration, url, coverUrl, defaultMediaName } = props
+	const { title, subTitle, theme, proficiencyLevel, duration, url, coverUrl, defaultMediaName } = props
 
 	return (
 		<BaseButton href={url} extraClass='media-card-button' theme='outline'>
-			<div
-				className='media-card-button__cover'
-				style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}
-			></div>
-			<div className='media-card-button__text-wrapper'>
-				{proficiencyLevel && <span className='media-card-button__proficiency'>{proficiencyLevel}</span>}
-				{<p className='media-card-button__name'>{name ?? defaultMediaName}</p>}
-				{subName && <p className='media-card-button__sub-name'>{subName}</p>}
+			<div className='media-card-button__cover' style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}>
+				<div className='media-card-button__cover-shelf'>
+					{theme ? <span className='media-card-button__brick'>{theme}</span> : <span />}
+					{(proficiencyLevel || duration) && (
+						<>
+							{proficiencyLevel && (
+								<span className='media-card-button__brick media-card-button__brick-black'>
+									{proficiencyLevel}
+									{proficiencyLevel && duration && (
+										<span className='media-card-button__brick-divider' />
+									)}
+									{duration}
+								</span>
+							)}
+						</>
+					)}
+				</div>
 			</div>
-			{duration && <p className='media-card-button__duration'>{duration}</p>}
+			<div className='media-card-button__text-wrapper'>
+				{<p className='media-card-button__title'>{title ?? defaultMediaName}</p>}
+				{subTitle && <p className='media-card-button__sub-title'>{subTitle}</p>}
+			</div>
 		</BaseButton>
 	)
 }

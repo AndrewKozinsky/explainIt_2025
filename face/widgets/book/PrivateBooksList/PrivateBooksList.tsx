@@ -26,8 +26,8 @@ function PrivateBooksList(props: PrivateBooksListProps) {
 				return (
 					<MediaCardWrapper type='edit' key={book.id} actionUrl={pageUrls.books.book(book.id).path}>
 						<MediaCardButton
-							name={book.name}
-							subName={book.subName}
+							title={book.name}
+							subTitle={book.subName}
 							url={book.url}
 							coverUrl={book.coverUrl}
 							defaultMediaName={bookConfig.emptyBookName}

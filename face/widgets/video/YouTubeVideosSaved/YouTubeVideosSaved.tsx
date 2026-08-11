@@ -34,7 +34,7 @@ function YouTubeVideosSaved() {
 	}
 
 	return (
-		<div>
+		<div className='youtube-videos-saved'>
 			<YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
 			<YouTubeVideosList items={items} loading={loading} error={errorText} />
 		</div>

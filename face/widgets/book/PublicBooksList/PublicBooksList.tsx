@@ -48,8 +48,8 @@ function PublicBooksList(props: PublicBooksList) {
 					return (
 						<MediaCardWrapper type='info' key={book.id} actionUrl={book.actionUrl}>
 							<MediaCardButton
-								name={book.name}
-								subName={book.subName}
+								title={book.name}
+								subTitle={book.subName}
 								url={book.url}
 								coverUrl={book.coverUrl}
 								defaultMediaName={bookConfig.emptyBookName}
