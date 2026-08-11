@@ -1,4 +1,4 @@
-import { LanguageCode } from '@/shared/utils/languages'
+import { LanguageCode, languages } from '@/shared/utils/languages'
 
 /**
  * Централизованный доступ к localStorage.
@@ -172,17 +172,19 @@ export const localStorageManager = {
 	 *
 	 * Ключ: `lastBookLanguage`.
 	 */
-	lastBookLanguage: {
+	lastLanguage: {
 		/**
 		 * Возвращает сохранённый код языка.
 		 *
-		 * @returns код языка или `null`, если запись отсутствует
+		 * @returns код языка, по умолчанию `"en"`
 		 */
-		get(): LanguageCode | null {
-			if (typeof window === 'undefined') return null
+		get(): LanguageCode {
+			const defaultValue = languages.en.code as LanguageCode
 
-			const raw = window.localStorage.getItem(LAST_BOOK_LANGUAGE_KEY) as LanguageCode
-			return raw || null
+			if (typeof window === 'undefined') return defaultValue
+
+			const raw = window.localStorage.getItem(LAST_LANGUAGE_KEY) as LanguageCode
+			return raw || defaultValue
 		},
 
 		/**
@@ -192,7 +194,7 @@ export const localStorageManager = {
 		 */
 		set(languageCode: string) {
 			if (typeof window === 'undefined') return
-			window.localStorage.setItem(LAST_BOOK_LANGUAGE_KEY, languageCode)
+			window.localStorage.setItem(LAST_LANGUAGE_KEY, languageCode)
 		},
 	},
 
@@ -252,9 +254,9 @@ const ONBOARDING_KEY = 'hideOnboardingModal'
 
 const OAUTH_CSRF_KEY = 'latestCSRFToken'
 
-// ── lastBookLanguage helpers ───────────────────────────────────────────────
+// ── lastLanguage helpers ───────────────────────────────────────────────
 
-const LAST_BOOK_LANGUAGE_KEY = 'lastBookLanguage'
+const LAST_LANGUAGE_KEY = 'lastLanguage'
 
 // ── lastMediaTab helpers ───────────────────────────────────────────────────
 

@@ -1,7 +1,6 @@
 'use client'
 
 // import React from 'react'
-import YouTubeVideosSaved from '@/entities/youtube/ui/YouTubeVideosSaved/YouTubeVideosSaved'
 import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPageContentTabs'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 // import PrivateVideosListWithAdd from '@/entities/video/ui/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
@@ -9,6 +8,7 @@ import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/M
 // import YouTubeVideosTabs from '@/entities/youtube/ui/YouTubeVideosTabs/YouTubeVideosTabs'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
+import YouTubeVideosSaved from '@/widgets/video/YouTubeVideosSaved/YouTubeVideosSaved'
 import { useYouTubeVideosPageTabs } from './fn/useYouTubeVideosPageTabs'
 
 export default function YouTubeVideosPage() {

@@ -1,6 +1,7 @@
-// 'use client'
+'use client'
 
-// import React, { useCallback, useEffect, useMemo, useState } from 'react'
+import React from 'react'
+// import { useCallback, useEffect, useMemo } from 'react'
 // import type { VideoLiteModel } from '@/entities/video/lib/types'
 // import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
 // import YouTubeVideosCenterWrapper from '@/entities/youtube/ui/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
@@ -22,8 +23,8 @@
 // 	getProficiencySwitcherItems,
 // } from './fn/getFilterConfig'
 // import './YouTubeVideosSaved.scss'
-
 import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
+import useYouTubeVideosFilter from './fn/useYouTubeVideosFilter'
 
 function YouTubeVideosSaved() {
 	// const [loading, setLoading] = useState(true)
@@ -33,7 +34,8 @@ function YouTubeVideosSaved() {
 	// const [proficiencyKey, setProficiencyKey] = useState<ProficiencyKey>('')
 	// const [topicKey, setTopicKey] = useState('')
 	// const [topics, setTopics] = useState<string[]>([])
-	// const [languageCode, setLanguageCode] = useState<LanguageCode | undefined>(undefined)
+	const { filterValues, handleFilterChange } = useYouTubeVideosFilter()
+
 	/*const fetchSavedVideos = useCallback(
 		async function () {
 			setLoading(true)
@@ -128,7 +130,7 @@ function YouTubeVideosSaved() {
 			{!loading && !error && videos.length > 0 && <YouTubeVideosList items={mapToYouTubeVideoCardData(videos)} />}
 		</div>
 	)*/
-	return <YouTubeVideosFilterForm />
+	return <YouTubeVideosFilterForm values={filterValues} onChange={handleFilterChange} />
 }
 
 export default YouTubeVideosSaved

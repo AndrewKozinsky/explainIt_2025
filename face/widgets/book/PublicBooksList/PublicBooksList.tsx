@@ -21,7 +21,7 @@ function PublicBooksList(props: PublicBooksList) {
 
 	const languages = books.map((item) => item.languageCode)
 	const languagesSet = new Set(languages)
-	const [currentLang, setCurrentLang] = useState(() => localStorageManager.lastBookLanguage.get() ?? languages[0])
+	const [currentLang, setCurrentLang] = useState(() => localStorageManager.lastLanguage.get() ?? languages[0])
 
 	useEffect(() => {
 		if (!currentLang && languages.length > 0) {
@@ -31,7 +31,7 @@ function PublicBooksList(props: PublicBooksList) {
 
 	const handleLanguageChange = useCallback((lang: LanguageCode) => {
 		setCurrentLang(lang)
-		localStorageManager.lastBookLanguage.set(lang)
+		localStorageManager.lastLanguage.set(lang)
 	}, [])
 
 	const config = getConfig(books, currentLang)
