@@ -25,6 +25,7 @@ import React, { useMemo } from 'react'
 // import './YouTubeVideosSaved.scss'
 import type { YouTubeVideosFilterValues } from '@/widgets/video/YouTubeVideosFilterForm/fn/types'
 import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
+import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
 import useDurationFilter from './fn/useDurationFilter'
 import useLanguageFilter from './fn/useLanguageFilter'
 import useProficiencyFilter from './fn/useProficiencyFilter'
@@ -56,8 +57,6 @@ function YouTubeVideosSaved() {
 		setTopicKey(values.topicKey)
 		setProficiencyKey(values.proficiencyKey)
 	}
-
-	return <YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
 
 	/*const fetchSavedVideos = useCallback(
 		async function () {
@@ -109,50 +108,13 @@ function YouTubeVideosSaved() {
 			return { value: topic, label: topic }
 		}),
 	]*/
-	/*return (
-		<div className='youtube-videos-saved'>
-			<div className='youtube-videos-saved__filters'>
-				<Switcher type='fit' orientation='horizontal' items={durationItems} />
-				<Switcher type='fit' orientation='horizontal' items={proficiencyItems} />
-				<Select
-					options={topicOptions}
-					selectProps={{
-						value: topicKey,
-						onChange: function (e) {
-							setTopicKey(e.target.value)
-						},
-					}}
-				/>
-				<LanguageSwitch
-					languages={languageKeys}
-					currentLang={languageCode as LanguageCode}
-					onChange={function (lang) {
-						setLanguageCode(lang === languageCode ? undefined : lang)
-					}}
-				/>
-			</div>
 
-			{loading && (
-				<YouTubeVideosCenterWrapper>
-					<Spinner size='small' />
-				</YouTubeVideosCenterWrapper>
-			)}
-
-			{!loading && error && (
-				<YouTubeVideosCenterWrapper>
-					<ErrorMessage text={error} />
-				</YouTubeVideosCenterWrapper>
-			)}
-
-			{!loading && !error && videos.length === 0 && (
-				<YouTubeVideosCenterWrapper>
-					<ErrorMessage text='Нет видео по заданным критериям' />
-				</YouTubeVideosCenterWrapper>
-			)}
-
-			{!loading && !error && videos.length > 0 && <YouTubeVideosList items={mapToYouTubeVideoCardData(videos)} />}
+	return (
+		<div>
+			<YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
+			<YouTubeVideosList items={mapToYouTubeVideoCardData(videos)} />
 		</div>
-	)*/
+	)
 }
 
 export default YouTubeVideosSaved
