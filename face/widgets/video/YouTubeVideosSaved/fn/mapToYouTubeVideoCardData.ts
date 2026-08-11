@@ -7,6 +7,7 @@ export function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVide
 		return {
 			id: video.id,
 			name: video.name,
+			theme: video.topic,
 			duration: video.duration,
 			coverUrl: video.coverUrl,
 			url: video.youtubeVideoId ? pageUrls.youtube.video(video.youtubeVideoId).path : '',

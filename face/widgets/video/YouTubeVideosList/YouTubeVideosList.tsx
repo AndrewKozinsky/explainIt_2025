@@ -9,6 +9,7 @@ export type YouTubeVideoCardData = {
 	id: number | string
 	name: string | null
 	subName?: string | null
+	theme?: string | null
 	proficiencyLevel?: string | null
 	duration: string | null
 	coverUrl: string | null

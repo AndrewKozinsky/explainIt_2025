@@ -71,6 +71,7 @@ export type VideoLiteModel = {
 	proficiencyLevel: null | ProficiencyLevel
 	youtubeVideoId: null | string
 	about: null | string
+	topic: null | string
 	originalContent: null | string
 	processedContent: null | string
 	contentType: VideoContentType

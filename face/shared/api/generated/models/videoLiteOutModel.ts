@@ -35,6 +35,11 @@ export interface VideoLiteOutModel {
      * @maxLength 4000
      */
   about?: string | null;
+  /**
+     * Predefined topic category (e.g. Travel & Geography)
+     * @maxLength 100
+     */
+  topic?: string | null;
   /** Original subtitles or text of the video */
   originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */

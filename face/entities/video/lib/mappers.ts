@@ -29,6 +29,7 @@ export function mapToVideoLite(raw: VideoLiteOutModel): VideoLiteModel {
 		proficiencyLevel: mapProficiencyLevel((raw as unknown as Record<string, unknown>).proficiencyLevel),
 		youtubeVideoId: extractString(raw.youtubeVideoId),
 		about: extractString(raw.about),
+		topic: extractString((raw as unknown as Record<string, unknown>).topic),
 		originalContent: extractString(raw.originalContent),
 		processedContent: extractString(raw.processedContent),
 		contentType: mapContentType(raw.contentType),

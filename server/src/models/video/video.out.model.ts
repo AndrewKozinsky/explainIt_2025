@@ -102,6 +102,9 @@ export class VideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.about))
 	about: string | null
 
+	@ApiProperty(getApiPropertyOptions($.topic))
+	topic: string | null
+
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: string | null
 

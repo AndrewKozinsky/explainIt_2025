@@ -1,7 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
-import type { ProficiencyLevel } from 'utils/proficiencyLevel'
 
 const $ = bdConfig.Video.dbFields
 const $$ = bdConfig.Video.dtoProps
@@ -30,6 +29,9 @@ export class VideoLiteOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.about))
 	about: string | null
+
+	@ApiProperty(getApiPropertyOptions($.topic))
+	topic: string | null
 
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
