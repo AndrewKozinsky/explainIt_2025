@@ -1,20 +1,20 @@
 // import type { VideoModel } from '@/entities/video/repository/VideosRepository'
-// import type { VideoLiteModel } from '@/entities/video/lib/types'
+import type { VideoLiteModel } from '@/entities/video/lib/types'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { YoutubeApi } from './repository/YoutubeApi'
 import type {
-	// 	GetSavedYoutubeVideosParams,
-	// 	GetYoutubeVideosParams,
+	GetSavedYoutubeVideosParams,
+	GetYoutubeVideosParams,
 	YoutubeRepository,
-	// 	YoutubeVideosResultModel,
+	YoutubeVideosResultModel,
 } from './repository/YoutubeRepository'
 
-// export type {
-// 	GetSavedYoutubeVideosParams,
-// 	GetYoutubeVideosParams,
-// 	YoutubeVideoModel,
-// 	YoutubeVideosResultModel,
-// } from './repository/YoutubeRepository'
+export type {
+	GetSavedYoutubeVideosParams,
+	GetYoutubeVideosParams,
+	// 	YoutubeVideoModel,
+	// 	YoutubeVideosResultModel,
+} from './repository/YoutubeRepository'
 
 /**
  * Сервис YouTube — прослойка между компонентами и репозиторием.
@@ -34,9 +34,9 @@ export class YoutubeService {
 	}
 
 	/** Получить список видео с YouTube по языку и поисковому запросу */
-	/*async getVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>> {
+	async getVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>> {
 		return this.youtubeRepository.searchYouTubeVideos(params)
-	}*/
+	}
 
 	/** Получить данные одного видео с YouTube по его ID */
 	/*async getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>> {
@@ -49,9 +49,9 @@ export class YoutubeService {
 	}*/
 
 	/** Получить сохранённые YouTube-видео с фильтрами */
-	/*async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
+	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
 		return this.youtubeRepository.getSavedVideos(params)
-	}*/
+	}
 
 	/** Получить список категорий (тем) видео */
 	async getVideoTopics(): Promise<ApiResult<string[]>> {

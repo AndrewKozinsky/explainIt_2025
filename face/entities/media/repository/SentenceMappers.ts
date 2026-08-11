@@ -42,7 +42,7 @@ export function mapRawSentencesToModels(
  * `sentenceTranslations` (массив), а не `sentenceTranslation` (один объект).
  * Берёт первый элемент массива как перевод предложения.
  */
-/*export function mapVideoSentencesToModels(
+export function mapVideoSentencesToModels(
 	processedContent: string,
 	rawSentences: Record<string, unknown>[] | null | undefined,
 ): SentenceModel[] | null {
@@ -70,7 +70,7 @@ export function mapRawSentencesToModels(
 				: null,
 		}
 	})
-}*/
+}
 
 export function mapToSentenceTranslation(raw: Record<string, unknown>): SentenceTranslationModel {
 	return {

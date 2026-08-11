@@ -1,25 +1,26 @@
-// import { mapVideoSentencesToModels } from '@/entities/media/repository/SentenceMappers'
-// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import { getSentenceStructure } from '@/entities/sentencesAndSubtitles/Sentence/fn/getSentenceStructure'
-// import type { VideoLiteOutModel, VideoOutModel } from '@/shared/api/generated/models'
-// import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import { formatDurationSec } from '@/shared/utils/time'
-// import type {
-// 	VideoContentType,
-// 	VideoLiteModel,
-// 	VideoModel,
-// 	VideoSubtitlesModel,
-// 	SubtitlesSourceModelType,
-// 	SubtitlesStatusModelType,
-// } from './types'
+import { mapVideoSentencesToModels } from '@/entities/media/repository/SentenceMappers'
+import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { getSentenceStructure } from '@/entities/sentencesAndSubtitles/Sentence/fn/getSentenceStructure'
+import { PROFICIENCY_MAP, ProficiencyLevel } from '@/shared/api/ff'
+import type { VideoLiteOutModel, VideoOutModel } from '@/shared/api/generated/models'
+import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
+import { LanguageCode } from '@/shared/utils/languages'
+import { formatDurationSec } from '@/shared/utils/time'
+import type {
+	VideoContentType,
+	VideoLiteModel,
+	VideoModel,
+	VideoSubtitlesModel,
+	SubtitlesSourceModelType,
+	SubtitlesStatusModelType,
+} from './types'
 
 // ─── Мапперы моделей ─────────────────────────────────────────────────────────
 
 /**
  * Маппит {@link VideoLiteOutModel} (лайт-ответ API) в унифицированный {@link VideoLiteModel}.
  */
-/*export function mapToVideoLite(raw: VideoLiteOutModel): VideoLiteModel {
+export function mapToVideoLite(raw: VideoLiteOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: mapType(raw.type),
@@ -49,28 +50,28 @@
 		subtitlesErrorCode: extractString(raw.subtitlesErrorCode) ?? null,
 		ratio: null,
 	}
-}*/
+}
 
 /**
  * Маппит {@link VideoOutModel} (полный ответ API) в унифицированный {@link VideoModel}.
  * Использует {@link mapToVideoLite} для базовых полей и дополняет populated-предложениями
  * и субтитрами через {@link createPopulatedPlainText} и {@link createPopulatedSubtitles}.
  */
-/*export function mapVideoOutModelToVideoModel(raw: VideoOutModel): VideoModel {
+export function mapVideoOutModelToVideoModel(raw: VideoOutModel): VideoModel {
 	return {
 		...mapToVideoLite(raw),
 		ratio: extractString(raw.ratio) ?? null,
 		plainSentences: createPopulatedPlainText(raw),
 		subtitles: createPopulatedSubtitles(raw),
 	}
-}*/
+}
 
 // ─── Populated-текст ─────────────────────────────────────────────────────────
 
 /**
  * Создаёт populated-предложения (plainSentences) из сырых данных VideoOutModel.
  */
-/*export function createPopulatedPlainText(videoData: VideoOutModel): SentenceModel[] {
+export function createPopulatedPlainText(videoData: VideoOutModel): SentenceModel[] {
 	if (!videoData.processedContent || !videoData.sentences) {
 		return []
 	}
@@ -79,12 +80,12 @@
 	const sortedSentences = [...videoData.sentences].sort((a, b) => a.orderIndex - b.orderIndex)
 
 	return mapVideoSentencesToModels(text, sortedSentences as unknown as Record<string, unknown>[]) ?? []
-}*/
+}
 
 /**
  * Создаёт populated-субтитры (subtitles) из сырых данных VideoOutModel.
  */
-/*export function createPopulatedSubtitles(videoData: VideoOutModel): VideoSubtitlesModel.Structure {
+export function createPopulatedSubtitles(videoData: VideoOutModel): VideoSubtitlesModel.Structure {
 	if (
 		!videoData.processedContent ||
 		!videoData.sentences ||
@@ -174,11 +175,11 @@
 		sentences,
 		playingSubtitleOrSpeechlessBarId: 0,
 	}
-}*/
+}
 
 // ─── Приватные хелперы ───────────────────────────────────────────────────────
 
-/*function msToTimeCode(ms: number): string {
+function msToTimeCode(ms: number): string {
 	const total = Math.max(0, Math.floor(ms))
 	const hours = Math.floor(total / 3_600_000)
 	const minutes = Math.floor((total % 3_600_000) / 60_000)
@@ -191,26 +192,26 @@
 	const mmm = String(millis).padStart(3, '0')
 
 	return `${hh}:${mm}:${ss},${mmm}`
-}*/
+}
 
-/*function countWords(text: string): number {
+function countWords(text: string): number {
 	return getSentenceStructure(text).filter((p) => p.isWord).length
-}*/
+}
 
 // ─── Общие мапперы полей ─────────────────────────────────────────────────────
 
-/*export function mapType(raw: string): VideoLiteModel['type'] {
+export function mapType(raw: string): VideoLiteModel['type'] {
 	return raw === 'public' || raw === 'private' ? raw : 'private'
-}*/
+}
 
-/*export function mapContentType(raw: string): VideoContentType {
+export function mapContentType(raw: string): VideoContentType {
 	return raw === 'subtitles' ? 'subtitles' : 'text'
-}*/
+}
 
-/*export function mapSubtitlesSource(raw: null | string): null | SubtitlesSourceModelType {
+export function mapSubtitlesSource(raw: null | string): null | SubtitlesSourceModelType {
 	if (raw === 'user' || raw === 'youTube' || raw === 'llm') return raw
 	return null
-}*/
+}
 
 export function mapProficiencyLevel(raw: unknown): null | ProficiencyLevel {
 	if (typeof raw !== 'number' || raw < 1 || raw > 6) return null
