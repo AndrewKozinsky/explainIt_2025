@@ -1,5 +1,6 @@
 import cn from 'classnames'
 import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import './Switcher.scss'
 
 export type SwitcherItem = {
@@ -9,6 +10,7 @@ export type SwitcherItem = {
 }
 
 type SwitcherProps = {
+	label?: string
 	type: 'fit' | 'block'
 	orientation: 'horizontal' | 'vertical'
 	widePaddings?: boolean
@@ -16,21 +18,23 @@ type SwitcherProps = {
 }
 
 function Switcher(props: SwitcherProps) {
-	const { type, orientation, widePaddings, items } = props
+	const { label, type, orientation, widePaddings, items } = props
 
 	return (
-		<div
-			className={cn(
-				'switcher',
-				'switcher--' + orientation,
-				'switcher--' + type,
-				widePaddings && 'switcher--wide-paddings',
-			)}
-		>
-			{items.map((item, i) => {
-				return <SwitcherButton item={item} key={i} />
-			})}
-		</div>
+		<LabelWithField label={label}>
+			<div
+				className={cn(
+					'switcher',
+					'switcher--' + orientation,
+					'switcher--' + type,
+					widePaddings && 'switcher--wide-paddings',
+				)}
+			>
+				{items.map((item, i) => {
+					return <SwitcherButton item={item} key={i} />
+				})}
+			</div>
+		</LabelWithField>
 	)
 }
 

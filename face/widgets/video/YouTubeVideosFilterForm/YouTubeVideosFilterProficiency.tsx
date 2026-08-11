@@ -1,9 +1,9 @@
-import React from 'react'
-import Select, { type DropdownOption } from '@/shared/ui/formRelated/Select/Select'
+import React, { useMemo } from 'react'
+import Switcher, { type SwitcherItem } from '@/shared/ui/Switcher/Switcher'
 
 export type ProficiencyKey = '' | '1' | '2' | '3' | '4' | '5' | '6'
 
-const PROFICIENCY_OPTIONS: DropdownOption[] = [
+const PROFICIENCY_OPTIONS: { value: ProficiencyKey; label: string }[] = [
 	{ value: '', label: 'Любой' },
 	{ value: '1', label: 'A1' },
 	{ value: '2', label: 'A2' },
@@ -21,18 +21,22 @@ type YouTubeVideosFilterProficiencyProps = {
 function YouTubeVideosFilterProficiency(props: YouTubeVideosFilterProficiencyProps) {
 	const { proficiencyKey, onChange } = props
 
-	return (
-		<Select
-			label='Уровень'
-			options={PROFICIENCY_OPTIONS}
-			selectProps={{
-				value: proficiencyKey,
-				onChange: function (e) {
-					onChange(e.target.value as ProficiencyKey)
-				},
-			}}
-		/>
+	const items: SwitcherItem[] = useMemo(
+		function () {
+			return PROFICIENCY_OPTIONS.map(function (option) {
+				return {
+					text: option.label,
+					onClick: function () {
+						onChange(option.value)
+					},
+					isCurrent: proficiencyKey === option.value,
+				}
+			})
+		},
+		[proficiencyKey, onChange],
 	)
+
+	return <Switcher label='Уровень' type='fit' orientation='horizontal' items={items} />
 }
 
 export default YouTubeVideosFilterProficiency

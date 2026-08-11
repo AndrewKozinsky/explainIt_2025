@@ -29,17 +29,17 @@ function YouTubeVideosFilterForm(props: YouTubeVideosFilterFormProps) {
 					onChange({ ...values, durationKey })
 				}}
 			/>
+			<YouTubeVideosFilterProficiency
+				proficiencyKey={values.proficiencyKey}
+				onChange={function (proficiencyKey) {
+					onChange({ ...values, proficiencyKey })
+				}}
+			/>
 			<YouTubeVideosFilterTopic
 				topicKey={values.topicKey}
 				topics={topics}
 				onChange={function (topicKey) {
 					onChange({ ...values, topicKey })
-				}}
-			/>
-			<YouTubeVideosFilterProficiency
-				proficiencyKey={values.proficiencyKey}
-				onChange={function (proficiencyKey) {
-					onChange({ ...values, proficiencyKey })
 				}}
 			/>
 		</div>
