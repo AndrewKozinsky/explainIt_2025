@@ -23,21 +23,18 @@
 // } from './fn/getFilterConfig'
 // import './YouTubeVideosSaved.scss'
 
-/*function YouTubeVideosSaved() {
-	const youtubeService = useMemo(function () {
-		return new YoutubeService(new YoutubeApi())
-	}, [])
+import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
 
-	const [loading, setLoading] = useState(true)
-	const [videos, setVideos] = useState<VideoLiteModel[]>([])
-	const [error, setError] = useState<null | string>(null)
-	const [durationKey, setDurationKey] = useState<DurationKey>('')
-	const [proficiencyKey, setProficiencyKey] = useState<ProficiencyKey>('')
-	const [topicKey, setTopicKey] = useState('')
-	const [topics, setTopics] = useState<string[]>([])
-	const [languageCode, setLanguageCode] = useState<LanguageCode | undefined>(undefined)
-
-	const fetchSavedVideos = useCallback(
+function YouTubeVideosSaved() {
+	// const [loading, setLoading] = useState(true)
+	// const [videos, setVideos] = useState<VideoLiteModel[]>([])
+	// const [error, setError] = useState<null | string>(null)
+	// const [durationKey, setDurationKey] = useState<DurationKey>('')
+	// const [proficiencyKey, setProficiencyKey] = useState<ProficiencyKey>('')
+	// const [topicKey, setTopicKey] = useState('')
+	// const [topics, setTopics] = useState<string[]>([])
+	// const [languageCode, setLanguageCode] = useState<LanguageCode | undefined>(undefined)
+	/*const fetchSavedVideos = useCallback(
 		async function () {
 			setLoading(true)
 			setError(null)
@@ -62,16 +59,14 @@
 			setLoading(false)
 		},
 		[youtubeService, durationKey, proficiencyKey, topicKey, languageCode],
-	)
-
-	useEffect(
+	)*/
+	/*useEffect(
 		function () {
 			void fetchSavedVideos()
 		},
 		[fetchSavedVideos],
-	)
-
-	useEffect(
+	)*/
+	/*useEffect(
 		function () {
 			void youtubeService.getVideoTopics().then(function (result) {
 				if (!result.error && !result.errors) {
@@ -80,19 +75,16 @@
 			})
 		},
 		[youtubeService],
-	)
-
-	const durationItems = getDurationSwitcherItems(durationKey, setDurationKey)
-	const proficiencyItems = getProficiencySwitcherItems(proficiencyKey, setProficiencyKey)
-
-	const topicOptions = [
+	)*/
+	// const durationItems = getDurationSwitcherItems(durationKey, setDurationKey)
+	// const proficiencyItems = getProficiencySwitcherItems(proficiencyKey, setProficiencyKey)
+	/*const topicOptions = [
 		{ value: '', label: 'Любая' },
 		...topics.map(function (topic) {
 			return { value: topic, label: topic }
 		}),
-	]
-
-	return (
+	]*/
+	/*return (
 		<div className='youtube-videos-saved'>
 			<div className='youtube-videos-saved__filters'>
 				<Switcher type='fit' orientation='horizontal' items={durationItems} />
@@ -135,10 +127,11 @@
 
 			{!loading && !error && videos.length > 0 && <YouTubeVideosList items={mapToYouTubeVideoCardData(videos)} />}
 		</div>
-	)
-}*/
+	)*/
+	return <YouTubeVideosFilterForm />
+}
 
-// export default YouTubeVideosSaved
+export default YouTubeVideosSaved
 
 /*function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
 	return videos.map(function (video) {

@@ -1,0 +1,11 @@
+@use '@/styles/variables' as vars;
+
+.youtube-videos-filter-form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 2rem;
+	padding: 1rem 0;
+	border: 1px solid vars.$grayColor-1;
+	border-left: none;
+	border-right: none;
+}
