@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import React, { useMemo } from 'react'
 // import { useCallback, useEffect, useMemo } from 'react'
 // import type { VideoLiteModel } from '@/entities/video/lib/types'
 // import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
@@ -23,8 +23,10 @@ import React from 'react'
 // 	getProficiencySwitcherItems,
 // } from './fn/getFilterConfig'
 // import './YouTubeVideosSaved.scss'
+import type { YouTubeVideosFilterValues } from '@/widgets/video/YouTubeVideosFilterForm/fn/types'
 import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
-import useYouTubeVideosFilter from './fn/useYouTubeVideosFilter'
+import useDurationFilter from './fn/useDurationFilter'
+import useLanguageFilter from './fn/useLanguageFilter'
 
 function YouTubeVideosSaved() {
 	// const [loading, setLoading] = useState(true)
@@ -34,7 +36,20 @@ function YouTubeVideosSaved() {
 	// const [proficiencyKey, setProficiencyKey] = useState<ProficiencyKey>('')
 	// const [topicKey, setTopicKey] = useState('')
 	// const [topics, setTopics] = useState<string[]>([])
-	const { filterValues, handleFilterChange } = useYouTubeVideosFilter()
+	const { languageCode, setLanguageCode } = useLanguageFilter()
+	const { durationKey, setDurationKey } = useDurationFilter()
+
+	const filterValues: YouTubeVideosFilterValues = useMemo(
+		function () {
+			return { languageCode, durationKey }
+		},
+		[languageCode, durationKey],
+	)
+
+	function handleFilterChange(values: YouTubeVideosFilterValues) {
+		setLanguageCode(values.languageCode)
+		setDurationKey(values.durationKey)
+	}
 
 	/*const fetchSavedVideos = useCallback(
 		async function () {
