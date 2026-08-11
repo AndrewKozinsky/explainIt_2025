@@ -27,6 +27,7 @@ import type { YouTubeVideosFilterValues } from '@/widgets/video/YouTubeVideosFil
 import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
 import useDurationFilter from './fn/useDurationFilter'
 import useLanguageFilter from './fn/useLanguageFilter'
+import useProficiencyFilter from './fn/useProficiencyFilter'
 import useTopicFilter from './fn/useTopicFilter'
 
 function YouTubeVideosSaved() {
@@ -40,18 +41,20 @@ function YouTubeVideosSaved() {
 	const { languageCode, setLanguageCode } = useLanguageFilter()
 	const { durationKey, setDurationKey } = useDurationFilter()
 	const { topicKey, topics, setTopicKey } = useTopicFilter()
+	const { proficiencyKey, setProficiencyKey } = useProficiencyFilter()
 
 	const filterValues: YouTubeVideosFilterValues = useMemo(
 		function () {
-			return { languageCode, durationKey, topicKey }
+			return { languageCode, durationKey, topicKey, proficiencyKey }
 		},
-		[languageCode, durationKey, topicKey],
+		[languageCode, durationKey, topicKey, proficiencyKey],
 	)
 
 	function handleFilterChange(values: YouTubeVideosFilterValues) {
 		setLanguageCode(values.languageCode)
 		setDurationKey(values.durationKey)
 		setTopicKey(values.topicKey)
+		setProficiencyKey(values.proficiencyKey)
 	}
 
 	return <YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
