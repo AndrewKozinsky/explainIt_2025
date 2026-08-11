@@ -168,6 +168,87 @@ export const localStorageManager = {
 	},
 
 	/**
+	 * Последний выбранный фильтр длительности видео.
+	 *
+	 * Ключ: `lastVideoDuration`.
+	 */
+	lastDuration: {
+		/**
+		 * Возвращает сохранённый ключ длительности.
+		 *
+		 * @returns ключ длительности, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_DURATION_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ длительности.
+		 *
+		 * @param durationKey — ключ длительности (например `""`, `"0-5"`, `"5-15"`)
+		 */
+		set(durationKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_DURATION_KEY, durationKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный фильтр уровня владения языком.
+	 *
+	 * Ключ: `lastVideoProficiency`.
+	 */
+	lastProficiency: {
+		/**
+		 * Возвращает сохранённый ключ уровня.
+		 *
+		 * @returns ключ уровня, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_PROFICIENCY_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ уровня.
+		 *
+		 * @param proficiencyKey — ключ уровня (например `""`, `"1"`, `"2"`)
+		 */
+		set(proficiencyKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_PROFICIENCY_KEY, proficiencyKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный фильтр темы видео.
+	 *
+	 * Ключ: `lastVideoTopic`.
+	 */
+	lastTopic: {
+		/**
+		 * Возвращает сохранённый ключ темы.
+		 *
+		 * @returns ключ темы, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_TOPIC_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ темы.
+		 *
+		 * @param topicKey — ключ темы
+		 */
+		set(topicKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_TOPIC_KEY, topicKey)
+		},
+	},
+
+	/**
 	 * Последний выбранный язык в списке публичных книг.
 	 *
 	 * Ключ: `lastBookLanguage`.
@@ -257,6 +338,10 @@ const OAUTH_CSRF_KEY = 'latestCSRFToken'
 // ── lastLanguage helpers ───────────────────────────────────────────────
 
 const LAST_LANGUAGE_KEY = 'lastLanguage'
+
+const LAST_VIDEO_DURATION_KEY = 'lastVideoDuration'
+const LAST_VIDEO_PROFICIENCY_KEY = 'lastVideoProficiency'
+const LAST_VIDEO_TOPIC_KEY = 'lastVideoTopic'
 
 // ── lastMediaTab helpers ───────────────────────────────────────────────────
 
