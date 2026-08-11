@@ -17,10 +17,12 @@ export type YouTubeVideoCardData = {
 
 type YouTubeVideosListProps = {
 	items: YouTubeVideoCardData[]
+	loading: boolean
+	error: string | null
 }
 
 function YouTubeVideosList(props: YouTubeVideosListProps) {
-	const { items } = props
+	const { items, loading, error } = props
 
 	if (loading) {
 		return (
@@ -38,7 +40,7 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 		)
 	}
 
-	if (videos.length === 0) {
+	if (items.length === 0) {
 		return (
 			<YouTubeVideosCenterWrapper>
 				<ErrorMessage text='Нет видео по заданным критериям' />

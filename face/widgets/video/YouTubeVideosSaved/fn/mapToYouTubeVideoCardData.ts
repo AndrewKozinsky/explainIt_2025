@@ -1,0 +1,16 @@
+import type { VideoLiteModel } from '@/entities/video/lib/types'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
+
+export function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
+	return videos.map(function (video) {
+		return {
+			id: video.id,
+			name: video.name,
+			duration: video.duration,
+			coverUrl: video.coverUrl,
+			url: video.youtubeVideoId ? pageUrls.youtube.video(video.youtubeVideoId).path : '',
+			proficiencyLevel: video.proficiencyLevel,
+		}
+	})
+}
