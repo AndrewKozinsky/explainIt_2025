@@ -10,11 +10,10 @@ type YouTubeSearchBarProps = {
 	onQueryChange: (value: string) => void
 	onSearch: () => void
 	loading: boolean
-	autoSearch?: boolean
 }
 
 function YouTubeSearch(props: YouTubeSearchBarProps) {
-	const { query, onQueryChange, onSearch, loading, autoSearch } = props
+	const { query, onQueryChange, onSearch, loading } = props
 
 	const isEmptyQuery = !query.trim()
 	const isSearchDisabled = isEmptyQuery || loading
@@ -24,7 +23,6 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 
 	useEffect(
 		function () {
-			if (!autoSearch) return
 			if (!query.trim()) return
 
 			const timer = setTimeout(function () {
@@ -35,7 +33,7 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 				clearTimeout(timer)
 			}
 		},
-		[autoSearch, query],
+		[query],
 	)
 
 	function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
