@@ -9,6 +9,7 @@ export type TextInputProps = {
 	block?: boolean
 	label?: string
 	error?: null | string
+	size?: 'small' | 'medium' | 'big'
 	inputProps?: React.InputHTMLAttributes<HTMLInputElement>
 	textareaProps?: React.TextareaHTMLAttributes<HTMLTextAreaElement>
 	maxCharacters?: number
@@ -16,7 +17,7 @@ export type TextInputProps = {
 }
 
 function TextInput(props: TextInputProps) {
-	const { block, label, error, inputProps, textareaProps, maxCharacters, currentText } = props
+	const { block, label, error, size = 'medium', inputProps, textareaProps, maxCharacters, currentText } = props
 
 	throwErrorIfWrongProps(props)
 
@@ -24,8 +25,10 @@ function TextInput(props: TextInputProps) {
 
 	return (
 		<LabelWithField label={label} disabled={disabled} block={block}>
-			{inputProps && <input className='text-input__input' {...inputProps} />}
-			{textareaProps && <textarea className='text-input__input' {...textareaProps} />}
+			{inputProps && <input className={`text-input__input text-input__input--size-${size}`} {...inputProps} />}
+			{textareaProps && (
+				<textarea className={`text-input__input text-input__input--size-${size}`} {...textareaProps} />
+			)}
 			{maxCharacters && <MaxCharactersCounter maxCharacters={maxCharacters} text={currentText} />}
 			<FieldError text={error} />
 		</LabelWithField>
