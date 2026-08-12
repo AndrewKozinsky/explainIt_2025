@@ -56,12 +56,7 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 			{items.map(function (videoData) {
 				if (videoData.durationSeconds > 60 * 60) {
 					return (
-						<MediaCardLongVideo
-							key={videoData.id}
-							title={videoData.name}
-							duration={videoData.duration}
-							url={videoData.url}
-						/>
+						<MediaCardLongVideo key={videoData.id} title={videoData.name} duration={videoData.duration} />
 					)
 				}
 

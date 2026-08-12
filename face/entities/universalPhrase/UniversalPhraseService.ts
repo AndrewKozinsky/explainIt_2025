@@ -20,9 +20,9 @@ export type TranscriptionData = {
 	pinyin: string | null
 }
 
-/*export type AudioData = {
+export type AudioData = {
 	audioUrl: string
-}*/
+}
 
 export type PhraseData = {
 	id: number
