@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import './YouTubeSearch.scss'
@@ -17,24 +16,6 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 
 	const isEmptyQuery = !query.trim()
 	const isSearchDisabled = isEmptyQuery || loading
-
-	const onSearchRef = useRef(onSearch)
-	onSearchRef.current = onSearch
-
-	useEffect(
-		function () {
-			if (!query.trim()) return
-
-			const timer = setTimeout(function () {
-				onSearchRef.current()
-			}, 500)
-
-			return function () {
-				clearTimeout(timer)
-			}
-		},
-		[query],
-	)
 
 	function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
 		if (e.key === 'Enter' && !isSearchDisabled) {
