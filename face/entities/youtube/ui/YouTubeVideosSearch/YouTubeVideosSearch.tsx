@@ -1,26 +1,24 @@
 'use client'
 
-// import React, { useMemo, useState } from 'react'
+import React, { useMemo, useState } from 'react'
 // import { YoutubeApi } from '@/entities/youtube/repository/YoutubeApi'
 import YouTubeSearch from '@/entities/youtube/ui/YouTubeSearch/YouTubeSearch'
 // import YouTubeVideosCenterWrapper from '@/entities/youtube/ui/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 // import { getConfig } from '@/entities/youtube/ui/YouTubeVideosList/fn/getConfig'
 // import YouTubeVideosList from '@/entities/youtube/ui/YouTubeVideosList/YouTubeVideosList'
-import { youtubeService } from '@/entities/youtube/YoutubeService'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import Spinner from '@/shared/ui/Spinner/Spinner'
-// import { useYouTubeVideos } from '_pages/media/youTubeVideos/YouTubeVideosPage/fn/setupYouTubeDeps'
+import { useYouTubeVideos } from '_pages/media/youTubeVideos/YouTubeVideosPage/fn/setupYouTubeDeps'
 import './YouTubeVideosSearch.scss'
+import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
 
 function YouTubeVideosSearch() {
 	const [query, setQuery] = useState('')
 
-	const { loading, videos, error, hasMore, hasSearched, search, loadMore } = useYouTubeVideos(youtubeService, query)
+	const { loading, videos, error, hasMore, hasSearched, search, loadMore } = useYouTubeVideos(query)
 
 	return (
 		<div className='youtube-videos-search'>
 			<YouTubeSearch query={query} onQueryChange={setQuery} onSearch={search} loading={loading} />
+			<YouTubeVideosList items={videos} loading={loading} error={error} />
 
 			{/*{error && (
 				<YouTubeVideosCenterWrapper>

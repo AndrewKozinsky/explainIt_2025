@@ -1,90 +1,70 @@
-// import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-// import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
-// import { YoutubeService } from '@/entities/youtube/YoutubeService'
+import { useCallback, useMemo, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
+import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
+import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
 
-/*export function useYouTubeVideos(youtubeService: YoutubeService, query: string) {
-	const [loading, setLoading] = useState(false)
-	const [videos, setVideos] = useState<YoutubeVideoModel[]>([])
-	const [error, setError] = useState<null | string>(null)
-	const [nextPageToken, setNextPageToken] = useState<null | string>(null)
+/**
+ * Хук для поиска YouTube-видео с пагинацией.
+ * Использует {@link youtubeQueries.getVideos} — фасад над TanStack Query.
+ */
+export function useYouTubeVideos(query: string) {
+	const [searchQuery, setSearchQuery] = useState('')
+	const [pageToken, setPageToken] = useState<string | undefined>(undefined)
+	const [allVideos, setAllVideos] = useState<YoutubeVideoModel[]>([])
 	const [hasSearched, setHasSearched] = useState(false)
-	const paramsRef = useRef({ query })
 
-	// Обновляем ref при изменении languageCode или query, чтобы loadMore
-	// всегда использовал актуальные параметры даже без пересоздания колбэка
-	useEffect(
+	const { data, isLoading, error } = useQuery({
+		...youtubeQueries.getVideos({ query: searchQuery, limit: 20, pageToken }),
+		enabled: !!searchQuery,
+	})
+
+	const search = useCallback(
 		function () {
-			paramsRef.current = { query }
+			setSearchQuery(query)
+			setPageToken(undefined)
+			setAllVideos([])
+			setHasSearched(true)
 		},
 		[query],
 	)
 
-	const fetchVideos = useCallback(
-		async function (q: string, pageToken?: string) {
-			setLoading(true)
-			setError(null)
-
-			const result = await youtubeService.getVideos({
-				query: q,
-				limit: 20,
-				pageToken,
-			})
-
-			if (result.error || result.errors) {
-				setError(result.error ?? 'Неизвестная ошибка')
-				if (!pageToken) {
-					setVideos([])
-					setHasSearched(true)
-				}
-				setLoading(false)
-				return
-			}
-
-			const data = result.data
-
-			if (pageToken) {
-				setVideos(function (prev) {
-					return [...prev, ...data.videos]
-				})
-			} else {
-				setVideos(data.videos)
-			}
-
-			setNextPageToken(data.nextPageToken)
-			setHasSearched(true)
-			setLoading(false)
-		},
-		[youtubeService],
-	)
-
-	const search = useCallback(
-		function () {
-			fetchVideos(query)
-		},
-		[query, fetchVideos],
-	)
-
 	const loadMore = useCallback(
 		function () {
-			if (nextPageToken && !loading) {
-				fetchVideos(paramsRef.current.query, nextPageToken)
+			if (data?.nextPageToken && !isLoading) {
+				setPageToken(data.nextPageToken)
 			}
 		},
-		[nextPageToken, loading, fetchVideos],
+		[data?.nextPageToken, isLoading],
+	)
+
+	const videos = useMemo(
+		function () {
+			if (!data) return allVideos
+			return pageToken ? [...allVideos, ...data.videos] : data.videos
+		},
+		[data, pageToken, allVideos],
+	)
+
+	const errorText = useMemo(
+		function () {
+			if (!error) return null
+			return error instanceof Error ? error.message : 'Неизвестная ошибка'
+		},
+		[error],
 	)
 
 	return useMemo(
 		function () {
 			return {
-				loading,
+				loading: isLoading,
 				videos,
-				error,
-				hasMore: nextPageToken !== null,
+				error: errorText,
+				hasMore: data?.nextPageToken !== null && data?.nextPageToken !== undefined,
 				hasSearched,
 				search,
 				loadMore,
 			}
 		},
-		[loading, videos, error, nextPageToken, hasSearched, search, loadMore],
+		[isLoading, videos, errorText, data?.nextPageToken, hasSearched, search, loadMore],
 	)
-}*/
+}

@@ -12,7 +12,7 @@ import type {
 export type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
-	// 	YoutubeVideoModel,
+	YoutubeVideoModel,
 	// 	YoutubeVideosResultModel,
 } from './repository/YoutubeRepository'
 
