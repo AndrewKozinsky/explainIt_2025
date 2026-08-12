@@ -2,6 +2,21 @@ import { useCallback, useMemo, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
 import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
+
+function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
+	return videos.map(function (video) {
+		return {
+			id: video.videoId,
+			name: video.title,
+			subName: video.channelName,
+			duration: video.duration,
+			coverUrl: video.thumbnailUrl,
+			url: pageUrls.youtube.video(video.videoId).path,
+		}
+	})
+}
 
 /**
  * Хук для поиска YouTube-видео с пагинацией.
@@ -37,10 +52,10 @@ export function useYouTubeVideos(query: string) {
 		[data?.nextPageToken, isLoading],
 	)
 
-	const videos = useMemo(
+	const videos = useMemo<YouTubeVideoCardData[]>(
 		function () {
-			if (!data) return allVideos
-			return pageToken ? [...allVideos, ...data.videos] : data.videos
+			if (!data) return mapToCardData(allVideos)
+			return pageToken ? [...mapToCardData(allVideos), ...mapToCardData(data.videos)] : mapToCardData(data.videos)
 		},
 		[data, pageToken, allVideos],
 	)

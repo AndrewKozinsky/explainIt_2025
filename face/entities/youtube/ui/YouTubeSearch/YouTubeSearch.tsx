@@ -1,6 +1,5 @@
 'use client'
 
-// import React from 'react'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import './YouTubeSearch.scss'
@@ -27,13 +26,14 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 	return (
 		<div className='youtube-search'>
 			<TextInput
+				block
 				inputProps={{
 					value: query,
 					onChange: function (e) {
 						onQueryChange(e.target.value)
 					},
 					onKeyDown: handleKeyDown,
-					placeholder: 'Поиск видео...',
+					placeholder: 'Название или адрес видео на youtube.com',
 				}}
 			/>
 			<Button theme='outline' onClick={onSearch} disabled={isSearchDisabled} loading={loading}>

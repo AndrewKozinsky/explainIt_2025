@@ -2,8 +2,9 @@
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
-	// Нельзя везде ставить width: 100% потому что это растягивает поля ввода на всю ширину.
-	//width: 100%;
+}
+.label-with-field--block {
+	width: 100%;
 }
 
 .label-with-field__label {

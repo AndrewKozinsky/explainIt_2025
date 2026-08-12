@@ -11,7 +11,7 @@ import './YouTubeVideosSearch.scss'
 function YouTubeVideosSearch() {
 	const [query, setQuery] = useState('')
 
-	const { loading, videos, error, hasMore, hasSearched, search, loadMore } = useYouTubeVideos(query)
+	const { loading, videos, error, hasMore, search, loadMore } = useYouTubeVideos(query)
 
 	return (
 		<div className='youtube-videos-search'>

@@ -6,6 +6,7 @@ import MaxCharactersCounter from './MaxCharactersCounter'
 import './TextInput.scss'
 
 export type TextInputProps = {
+	block?: boolean
 	label?: string
 	error?: null | string
 	inputProps?: React.InputHTMLAttributes<HTMLInputElement>
@@ -15,14 +16,14 @@ export type TextInputProps = {
 }
 
 function TextInput(props: TextInputProps) {
-	const { label, error, inputProps, textareaProps, maxCharacters, currentText } = props
+	const { block, label, error, inputProps, textareaProps, maxCharacters, currentText } = props
 
 	throwErrorIfWrongProps(props)
 
 	const disabled = inputProps?.disabled || textareaProps?.disabled
 
 	return (
-		<LabelWithField label={label} disabled={disabled}>
+		<LabelWithField label={label} disabled={disabled} block={block}>
 			{inputProps && <input className='text-input__input' {...inputProps} />}
 			{textareaProps && <textarea className='text-input__input' {...textareaProps} />}
 			{maxCharacters && <MaxCharactersCounter maxCharacters={maxCharacters} text={currentText} />}
