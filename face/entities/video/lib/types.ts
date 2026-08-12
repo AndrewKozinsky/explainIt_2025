@@ -81,7 +81,7 @@ export type VideoLiteModel = {
 	isFileUploaded: null | boolean
 	fileSizeMb: null | number
 	duration: null | string
-	fileDurationSec: null | number
+	durationSeconds: number
 	ratio: null | string
 	userId: null | number
 	coverFileName: null | string

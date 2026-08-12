@@ -3,6 +3,7 @@ import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
+import MediaCardLongVideo from '@/widgets/media/MediaCardLongVideo/MediaCardLongVideo'
 import YouTubeVideosCenterWrapper from '../YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 
 export type YouTubeVideoCardData = {
@@ -53,6 +54,22 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 	return (
 		<ItemsGrid>
 			{items.map(function (videoData) {
+				if (videoData.durationSeconds > 60 * 60) {
+					return (
+						<MediaCardLongVideo
+							key={videoData.id}
+							title={videoData.name}
+							subTitle={videoData.subName}
+							theme={videoData.theme}
+							proficiencyLevel={videoData.proficiencyLevel}
+							duration={videoData.duration}
+							coverUrl={videoData.coverUrl}
+							url={videoData.url}
+							defaultMediaName={videoConfig.newVideoEmptyName}
+						/>
+					)
+				}
+
 				return (
 					<MediaCardButton
 						key={videoData.id}

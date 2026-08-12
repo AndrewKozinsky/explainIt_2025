@@ -14,7 +14,6 @@ type MediaCardProps = {
 
 function MediaCardButton(props: MediaCardProps) {
 	const { title, subTitle, theme, proficiencyLevel, duration, url, coverUrl, defaultMediaName } = props
-	console.log(duration)
 
 	return (
 		<BaseButton href={url} extraClass='media-card-button' theme='outline'>
