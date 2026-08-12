@@ -39,7 +39,7 @@ export function mapToVideoLite(raw: VideoLiteOutModel): VideoLiteModel {
 		isFileUploaded: extractBoolean(raw.isFileUploaded),
 		fileSizeMb: extractNumber(raw.fileSizeMb),
 		duration: raw.durationSec ? formatDurationSec(raw.durationSec) : null,
-		durationSeconds: extractNumber(raw.durationSec),
+		durationSeconds: extractNumber(raw.durationSec)!,
 		userId: extractNumber(raw.userId),
 		coverFileName: extractString(raw.coverFileName),
 		coverFileS3Key: extractString(raw.coverFileS3Key),

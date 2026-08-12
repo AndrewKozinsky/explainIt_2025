@@ -19,7 +19,8 @@ export type YoutubeVideoModel = {
 	channelLogoUrl: null | string
 	thumbnailUrl: string
 	viewCount: number
-	duration: null | string
+	duration: string
+	durationSeconds: number
 }
 
 /** Параметры запроса списка видео. */

@@ -85,6 +85,7 @@ function mapToYoutubeVideo(raw: YoutubeVideoOutModel): YoutubeVideoModel {
 		channelLogoUrl: extractString(raw.channelLogoUrl),
 		thumbnailUrl: raw.thumbnailUrl,
 		viewCount: raw.viewCount,
-		duration: raw.durationSec ? formatDurationSec(raw.durationSec) : null,
+		duration: formatDurationSec(raw.durationSec),
+		durationSeconds: raw.durationSec,
 	}
 }
