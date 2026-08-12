@@ -1,18 +1,18 @@
-// 'use client'
+'use client'
 
 // import React from 'react'
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-// import './YouTubeSearch.scss'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import './YouTubeSearch.scss'
 
-/*type YouTubeSearchBarProps = {
+type YouTubeSearchBarProps = {
 	query: string
 	onQueryChange: (value: string) => void
 	onSearch: () => void
 	loading: boolean
-}*/
+}
 
-/*function YouTubeSearch(props: YouTubeSearchBarProps) {
+function YouTubeSearch(props: YouTubeSearchBarProps) {
 	const { query, onQueryChange, onSearch, loading } = props
 
 	const isEmptyQuery = !query.trim()
@@ -41,6 +41,6 @@
 			</Button>
 		</div>
 	)
-}*/
+}
 
-// export default YouTubeSearch
+export default YouTubeSearch

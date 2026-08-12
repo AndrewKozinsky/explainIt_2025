@@ -1,7 +1,7 @@
-// import { languageControllerGetLanguages } from '@/shared/api/generated/language/language'
-// import type { LanguageOutModel } from '@/shared/api/generated/models'
-// import { ApiResult, executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-// import type { LanguageModel, LanguagesRepository } from './LanguagesRepository'
+import { languageControllerGetLanguages } from '@/shared/api/generated/language/language'
+import type { LanguageOutModel } from '@/shared/api/generated/models'
+import { ApiResult, executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageModel, LanguagesRepository } from './LanguagesRepository'
 
 /**
  * Реализация LanguagesRepository через REST API.
@@ -21,21 +21,21 @@
  *   → Компонент получает { error: "…" }
  * ```
  */
-/*export class LanguagesApi implements LanguagesRepository {
+export class LanguagesApi implements LanguagesRepository {
 	async getLanguages(): Promise<ApiResult<LanguageModel[]>> {
 		return executeApiCall(
 			() => languageControllerGetLanguages(),
 			(data) => data.map(mapToLanguage),
 		)
 	}
-}*/
+}
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-/*function mapToLanguage(raw: LanguageOutModel): LanguageModel {
+function mapToLanguage(raw: LanguageOutModel): LanguageModel {
 	return {
 		name: raw.name,
 		nameEng: raw.nameEng,
 		code: raw.code,
 	}
-}*/
+}

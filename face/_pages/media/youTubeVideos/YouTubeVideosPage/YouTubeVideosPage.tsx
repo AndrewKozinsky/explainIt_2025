@@ -1,10 +1,9 @@
 'use client'
 
-// import React from 'react'
+import YouTubeVideosSearch from '@/entities/youtube/ui/YouTubeVideosSearch/YouTubeVideosSearch'
 import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPageContentTabs'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 // import PrivateVideosListWithAdd from '@/entities/video/ui/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
-// import YouTubeVideosSearch from '@/entities/youtube/ui/YouTubeVideosSearch/YouTubeVideosSearch'
 // import YouTubeVideosTabs from '@/entities/youtube/ui/YouTubeVideosTabs/YouTubeVideosTabs'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -19,7 +18,7 @@ export default function YouTubeVideosPage() {
 			<MediaPageContentTabs
 				tabs={[
 					{ key: 'saved', label: 'Подборка', content: <YouTubeVideosSaved /> },
-					{ key: 'youtube', label: 'Поиск', content: <p /> },
+					{ key: 'youtube', label: 'Поиск', content: <YouTubeVideosSearch /> },
 					{ key: 'user', label: 'Мои видео', content: <p /> },
 				]}
 				defaultTab={defaultTab}
@@ -27,7 +26,7 @@ export default function YouTubeVideosPage() {
 			/>
 			{/*<YouTubeVideosTabs
 				savedVideosSlot={<YouTubeVideosSaved />}
-				youtubeSlot={<YouTubeVideosSearch />}
+				youtubeSlot={}
 				userVideosSlot={<PrivateVideosListWithAdd />}
 			/>*/}
 		</MediaPageContentWrapper>

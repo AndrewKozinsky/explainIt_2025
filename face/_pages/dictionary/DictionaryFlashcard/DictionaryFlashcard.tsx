@@ -1,12 +1,12 @@
 // import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
 // import { LanguageCode } from '@/shared/utils/languages'
-// import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
+import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
 // import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
 // import './DictionaryFlashcard.scss'
 
-/*type DictionaryFlashcardProps = {
+type DictionaryFlashcardProps = {
 	flashcard: DictionaryFlashcardData
-}*/
+}
 
 /*export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
