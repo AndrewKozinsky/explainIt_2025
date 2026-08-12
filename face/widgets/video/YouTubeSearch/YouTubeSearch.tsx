@@ -54,6 +54,7 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 					},
 					onKeyDown: handleKeyDown,
 					placeholder: 'Название или адрес видео на youtube.com',
+					autoFocus: true,
 				}}
 			/>
 			<Button theme='outline' size='big' onClick={onSearch} disabled={isSearchDisabled} loading={loading}>

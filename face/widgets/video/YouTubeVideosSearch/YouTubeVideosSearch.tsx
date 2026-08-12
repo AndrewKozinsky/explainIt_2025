@@ -12,7 +12,7 @@ import './YouTubeVideosSearch.scss'
 function YouTubeVideosSearch() {
 	const [query, setQuery] = useState('')
 
-	const { loading, videos, error, hasMore, search, loadMore } = useYouTubeVideos(query)
+	const { loading, videos, error, hasMore, hasSearched, search, loadMore } = useYouTubeVideos(query)
 
 	function handleHintSelect(text: string) {
 		setQuery(text)
@@ -23,7 +23,7 @@ function YouTubeVideosSearch() {
 		<div className='youtube-videos-search'>
 			<YouTubeSearch query={query} onQueryChange={setQuery} onSearch={search} loading={loading} />
 			<YouTubeVideoNameHints onSelect={handleHintSelect} />
-			<YouTubeVideosList items={videos} loading={loading} error={error} />
+			{hasSearched && <YouTubeVideosList items={videos} loading={loading} error={error} />}
 			{!loading && hasMore && (
 				<YouTubeVideosCenterWrapper>
 					<Button onClick={loadMore} disabled={loading} loading={loading}>
