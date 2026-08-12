@@ -14,10 +14,15 @@ function YouTubeVideosSearch() {
 
 	const { loading, videos, error, hasMore, search, loadMore } = useYouTubeVideos(query)
 
+	function handleHintSelect(text: string) {
+		setQuery(text)
+		search(text)
+	}
+
 	return (
 		<div className='youtube-videos-search'>
 			<YouTubeSearch query={query} onQueryChange={setQuery} onSearch={search} loading={loading} />
-			<YouTubeVideoNameHints />
+			<YouTubeVideoNameHints onSelect={handleHintSelect} />
 			<YouTubeVideosList items={videos} loading={loading} error={error} />
 			{!loading && hasMore && (
 				<YouTubeVideosCenterWrapper>

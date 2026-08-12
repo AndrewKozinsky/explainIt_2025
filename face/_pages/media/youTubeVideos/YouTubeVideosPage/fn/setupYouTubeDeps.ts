@@ -34,8 +34,8 @@ export function useYouTubeVideos(query: string) {
 	})
 
 	const search = useCallback(
-		function () {
-			setSearchQuery(query)
+		function (searchText?: string) {
+			setSearchQuery(searchText ?? query)
 			setPageToken(undefined)
 			setAllVideos([])
 			setHasSearched(true)
