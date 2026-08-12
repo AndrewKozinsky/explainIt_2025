@@ -9,12 +9,12 @@
 // import PrivateBookPart from './PrivateBookPart'
 // import './BookPage.scss'
 
-/*type Props = {
+type Props = {
 	bookId: string
-}*/
+}
 
-/*export default async function BookPage({ bookId }: Props) {
-	const booksService = new BooksService(new BooksApi())
+export default async function BookPage({ bookId }: Props) {
+	/*const booksService = new BooksService(new BooksApi())
 	const { error, data: book } = await booksService.getBook(Number(bookId))
 
 	if (error) {
@@ -36,5 +36,6 @@
 			<PublicBookPart book={book} />
 			<PrivateBookPart book={book} />
 		</MediaPageContentWrapper>
-	)
-}*/
+	)*/
+	return null
+}

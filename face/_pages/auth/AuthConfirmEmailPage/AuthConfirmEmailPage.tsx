@@ -8,8 +8,8 @@
 // import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 // import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
 
-/*function AuthConfirmEmailPage() {
-	const confirmationStatus = useConfirmEmail()
+function AuthConfirmEmailPage() {
+	/*const confirmationStatus = useConfirmEmail()
 	const locale = useLocale()
 
 	const contentMapper: Record<Exclude<ConfirmationStatus, 'success'>, React.ReactNode> = {
@@ -21,7 +21,8 @@
 		redirect(localizePath(locale, pageUrls.auth.login.path))
 	}
 
-	return contentMapper[confirmationStatus]
-}*/
+	return contentMapper[confirmationStatus]*/
+	return null
+}
 
-// export default AuthConfirmEmailPage
+export default AuthConfirmEmailPage

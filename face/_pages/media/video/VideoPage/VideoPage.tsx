@@ -6,12 +6,12 @@
 // import { getHeader } from './fn/getHeader'
 // import VideoClientWrapper from './VideoClientWrapper'
 
-/*type VideoRootProps = {
+type VideoRootProps = {
 	videoId: number | string
-}*/
+}
 
-/*async function VideoPage(props: VideoRootProps) {
-	const { videoId } = props
+async function VideoPage(props: VideoRootProps) {
+	/*const { videoId } = props
 
 	const videosService = new VideosService(new VideosApi())
 	const { error: videoError, data: videoData } = await videosService.getVideo(videoId)
@@ -45,7 +45,8 @@
 				sentences: videoData.plainSentences,
 			}}
 		/>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default VideoPage
+export default VideoPage

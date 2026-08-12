@@ -7,12 +7,12 @@
 // import PrivateVideoPart from './PrivateVideoPart'
 // import PublicVideoPart from './PublicVideoPart'
 
-/*type Props = {
+type Props = {
 	videoId: number | string
-}*/
+}
 
-/*export default async function VideoDetailsPage({ videoId }: Props) {
-	const videosService = new VideosService(new VideosApi())
+export default async function VideoDetailsPage({ videoId }: Props) {
+	/*const videosService = new VideosService(new VideosApi())
 	const { error, data: video } = await videosService.getVideo(videoId)
 
 	if (error) {
@@ -30,5 +30,6 @@
 			<PublicVideoPart video={video} />
 			<PrivateVideoPart video={video} />
 		</MediaPageContentWrapper>
-	)
-}*/
+	)*/
+	return null
+}

@@ -1,36 +1,36 @@
-// import { PhraseApi } from '@/entities/phrase/repository/PhraseApi'
-// import type {
-// 	AudioPronunciationModel,
-// 	PhraseModel,
-// 	TranscriptionModel,
-// } from '@/entities/phrase/repository/PhraseRepository'
+import { PhraseApi } from '@/entities/phrase/repository/PhraseApi'
+import type {
+	AudioPronunciationModel,
+	PhraseModel,
+	TranscriptionModel,
+} from '@/entities/phrase/repository/PhraseRepository'
 // import { PhraseTranslationApi } from '@/entities/universalPhrase/repository/PhraseTranslationApi'
-// import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 // import { DeepSeekModels } from '@/shared/api/AIModels'
-// import { LanguageCode } from '@/shared/utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-// export type EntryStatus = 'idle' | 'loading' | 'ready' | 'error'
+export type EntryStatus = 'idle' | 'loading' | 'ready' | 'error'
 
-// export type ServiceResult<T> = { ok: true; data: T } | { ok: false; errorMessage: string }
+export type ServiceResult<T> = { ok: true; data: T } | { ok: false; errorMessage: string }
 
-/*export type TranscriptionData = {
+export type TranscriptionData = {
 	ipa: string | null
 	pinyin: string | null
-}*/
+}
 
 /*export type AudioData = {
 	audioUrl: string
 }*/
 
-/*export type PhraseData = {
+export type PhraseData = {
 	id: number
 	text: string
 	sourceLanguageCode: string
 	transcription: TranscriptionData | null
 	audioPronunciation: AudioData | null
-}*/
+}
 
 /*export type PreloadItem = {
 	phrase: string
@@ -39,12 +39,12 @@
 	audioUrl?: string | null
 }*/
 
-/*export type TranslationEntryData = {
+export type TranslationEntryData = {
 	data: PhraseTranslationDataModel | null
 	status: EntryStatus
 	errorMessage: string | null
-}*/
-/*
+}
+
 export type PhraseEntry = {
 	phrase: string
 	languageCode: LanguageCode
@@ -61,20 +61,20 @@ export type PhraseEntry = {
 	audioErrorMessage: string | null
 
 	translations: Record<string, TranslationEntryData>
-}*/
+}
 
 // ─── Service ──────────────────────────────────────────────────────────────────
 
-/*export class UniversalPhraseService {
+export class UniversalPhraseService {
 	#entries = new Map<string, PhraseEntry>()
 
 	#phraseRequests = new Map<string, Promise<ServiceResult<PhraseData>>>()
 	#transcriptionRequests = new Map<string, Promise<ServiceResult<TranscriptionData>>>()
 	#audioRequests = new Map<string, Promise<ServiceResult<AudioData>>>()
-	#translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
+	// #translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
 
 	#phraseApi = new PhraseApi()
-	#translationApi = new PhraseTranslationApi()
+	// #translationApi = new PhraseTranslationApi()
 
 	// ─── getPhrase ────────────────────────────────────────────────────────
 
@@ -283,7 +283,7 @@ export type PhraseEntry = {
 
 	// ─── getTranslation ───────────────────────────────────────────────────
 
-	async getTranslation(
+	/*async getTranslation(
 		phrase: string,
 		sourceLanguageCode: LanguageCode,
 		targetLanguageCode: string,
@@ -311,9 +311,9 @@ export type PhraseEntry = {
 		} finally {
 			this.#translationRequests.delete(translationKey)
 		}
-	}
+	}*/
 
-	async #executeGetTranslation(
+	/*async #executeGetTranslation(
 		phraseKey: string,
 		phrase: string,
 		sourceLanguageCode: LanguageCode,
@@ -390,13 +390,13 @@ export type PhraseEntry = {
 		translationEntry.status = 'error'
 		translationEntry.errorMessage = 'Перевод не был получен.'
 		return { ok: false, errorMessage: translationEntry.errorMessage }
-	}
+	}*/
 
 	// ─── getState (синхронное чтение) ─────────────────────────────────────
 
-	getState(phrase: string, languageCode: LanguageCode): PhraseEntry | undefined {
+	/*getState(phrase: string, languageCode: LanguageCode): PhraseEntry | undefined {
 		return this.#entries.get(makePhraseKey(phrase, languageCode))
-	}
+	}*/
 
 	// ─── ensureEntry ──────────────────────────────────────────────────────
 
@@ -410,17 +410,17 @@ export type PhraseEntry = {
 		return entry
 	}
 
-	#ensureTranslationEntry(entry: PhraseEntry, targetLanguageCode: string): TranslationEntryData {
+	/*#ensureTranslationEntry(entry: PhraseEntry, targetLanguageCode: string): TranslationEntryData {
 		if (!entry.translations[targetLanguageCode]) {
 			entry.translations[targetLanguageCode] = createEmptyTranslationEntry()
 		}
 
 		return entry.translations[targetLanguageCode]
-	}
+	}*/
 
 	// ─── preload ──────────────────────────────────────────────────────────
 
-	preload(items: PreloadItem[]): void {
+	/*preload(items: PreloadItem[]): void {
 		for (const item of items) {
 			const key = makePhraseKey(item.phrase, item.languageCode)
 			const existing = this.#entries.get(key)
@@ -451,16 +451,16 @@ export type PhraseEntry = {
 				this.#entries.set(key, entry)
 			}
 		}
-	}
-}*/
+	}*/
+}
 
 // ─── Singleton ────────────────────────────────────────────────────────────────
 
-// export const universalPhraseService = new UniversalPhraseService()
+export const universalPhraseService = new UniversalPhraseService()
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
-/*function buildPhraseData(entry: PhraseEntry): PhraseData {
+function buildPhraseData(entry: PhraseEntry): PhraseData {
 	return {
 		id: entry.phraseId!,
 		text: entry.phrase,
@@ -468,14 +468,14 @@ export type PhraseEntry = {
 		transcription: entry.transcription,
 		audioPronunciation: entry.audioUrl ? { audioUrl: entry.audioUrl } : null,
 	}
-}*/
+}
 
-/*function mapModelToTranscriptionData(model: TranscriptionModel): TranscriptionData {
+function mapModelToTranscriptionData(model: TranscriptionModel): TranscriptionData {
 	return {
 		ipa: model.ipa,
 		pinyin: model.pinyin,
 	}
-}*/
+}
 
 /*function createEmptyTranslationEntry(): TranslationEntryData {
 	return {
@@ -485,15 +485,15 @@ export type PhraseEntry = {
 	}
 }*/
 
-/*export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
+export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
 	return `${languageCode}:${phrase.trim().toLocaleLowerCase()}`
-}*/
+}
 
 /*function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {
 	return `${makePhraseKey(phrase, sourceLanguageCode)}:${targetLanguageCode}`
 }*/
 
-/*function createEmptyEntry(phrase: string, languageCode: LanguageCode): PhraseEntry {
+function createEmptyEntry(phrase: string, languageCode: LanguageCode): PhraseEntry {
 	return {
 		phrase,
 		languageCode,
@@ -508,4 +508,4 @@ export type PhraseEntry = {
 		audioErrorMessage: null,
 		translations: {},
 	}
-}*/
+}

@@ -32,12 +32,12 @@
 }*/
 
 /** Унифицированная модель пользователя — не зависит от API. */
-/*export type UserModel = {
+export type UserModel = {
 	id: number
 	email: string
 	isUserConfirmed: boolean
 	balance: number
-}*/
+}
 
 /**
  * Репозиторий аутентификации — абстракция над серверным API.

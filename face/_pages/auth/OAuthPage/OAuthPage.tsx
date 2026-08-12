@@ -8,12 +8,12 @@
 // import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 // import { useAuthorizeUser } from './fn/authorizeUser'
 
-/*type OAuthPageProps = {
+type OAuthPageProps = {
 	providerType: string
-}*/
+}
 
-/*function OAuthPage(props: OAuthPageProps) {
-	const { providerType } = props
+function OAuthPage(props: OAuthPageProps) {
+	/*const { providerType } = props
 
 	const { authorizationStatus, error } = useAuthorizeUser(providerType)
 	const locale = useLocale()
@@ -24,7 +24,8 @@
 		return <ErrorMessage text={error} />
 	}
 
-	redirect(localizePath(locale, pageUrls.books.path))
-}*/
+	redirect(localizePath(locale, pageUrls.books.path))*/
+	return null
+}
 
-// export default OAuthPage
+export default OAuthPage

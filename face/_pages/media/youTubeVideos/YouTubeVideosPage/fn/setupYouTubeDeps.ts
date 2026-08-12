@@ -11,6 +11,7 @@ function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
 			id: video.videoId,
 			name: video.title,
 			duration: video.duration,
+			durationSeconds: video.durationSeconds,
 			coverUrl: video.thumbnailUrl,
 			url: pageUrls.youtube.video(video.videoId).path,
 		}

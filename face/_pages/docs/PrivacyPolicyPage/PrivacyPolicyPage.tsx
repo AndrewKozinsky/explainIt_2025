@@ -1,8 +1,8 @@
-// import React from 'react'
-// import { Link } from '@/i18n/routing'
-// import styles from '../doc.module.scss'
+import React from 'react'
+import { Link } from '@/i18n/routing'
+import styles from '../doc.module.scss'
 
-/*const PrivacyPolicyPage: React.FC = () => {
+const PrivacyPolicyPage: React.FC = () => {
 	const lastUpdated = '18 октября 2025 г.'
 
 	return (
@@ -213,6 +213,6 @@
 			</p>
 		</div>
 	)
-}*/
+}
 
-// export default PrivacyPolicyPage
+export default PrivacyPolicyPage

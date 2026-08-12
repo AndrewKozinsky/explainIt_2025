@@ -1,20 +1,20 @@
 @use '@/styles/variables' as vars;
 
 .media-card-button {
-	display: block;
-	overflow: hidden;
-	width: 100%;
-	border-radius: vars.$radius-1;
+	//display: block;
+	//overflow: hidden;
+	//width: 100%;
+	//border-radius: vars.$radius-1;
 }
 
-.media-card-button__cover {
+/*.media-card-button__cover {
 	position: relative;
 	aspect-ratio: 2 / 1.2;
 	background-size: cover;
 	background-position: center;
-}
+}*/
 
-.media-card-button__cover-shelf {
+/*.media-card-button__cover-shelf {
 	position: absolute;
 	bottom: 0;
 	display: flex;
@@ -22,8 +22,9 @@
 	width: 100%;
 	box-sizing: border-box;
 	padding: 1rem;
-}
-.media-card-button__brick {
+}*/
+
+/*.media-card-button__brick {
 	display: flex;
 	gap: 5px;
 	font-size: 1.4rem;
@@ -33,30 +34,27 @@
 	backdrop-filter: blur(10px);
 	padding: 2px 7px;
 	border-radius: vars.$radius-1;
-}
-.media-card-button__brick-black {
-	background-color: vars.$textColor;
-}
-.media-card-button__brick-divider {
-	width: 1px;
-	background-color: rgba(255, 255, 255, .1);
-}
+}*/
 
-.media-card-button__text-wrapper {
+/*.media-card-button__brick-black {
+	background-color: vars.$textColor;
+}*/
+
+/*.media-card-button__text-wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: .2rem;
 	padding: 1rem;
-}
+}*/
 
-.media-card-button__title {
+/*.media-card-button__title {
 	font-size: 1.8rem;
 	line-height: 2.4rem;
 	font-weight: 400;
-}
+}*/
 
-.media-card-button__sub-title {
+/*.media-card-button__sub-title {
 	font-size: 1.4rem;
 	line-height: 1.8rem;
 	opacity: .6;
-}
+}*/

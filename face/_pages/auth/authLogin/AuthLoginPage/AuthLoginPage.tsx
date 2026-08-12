@@ -3,14 +3,15 @@
 // import { AuthFormParent } from '../../common/AuthFormParent/AuthFormParent'
 // import AuthLoginForm from '../AuthLoginForm/AuthLoginForm'
 
-/*function AuthLoginPage() {
-	return (
+function AuthLoginPage() {
+	/*return (
 		<AuthFormParent
 			pageTitle={pageUrls.auth.login.name}
 			form={<AuthLoginForm />}
 			afterFormLinks={[pageUrls.auth.register]}
 		/>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default AuthLoginPage
+export default AuthLoginPage

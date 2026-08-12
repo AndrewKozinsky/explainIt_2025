@@ -8,17 +8,16 @@
 // import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 // import { useGetAddVideo } from './fn/useGetAddVideo'
 
-/*
 function PrivateVideosListWithAdd() {
-	const { data: allVideos, error } = useQuery(videoQueries.getVideos())
+	/*const { data: allVideos, error } = useQuery(videoQueries.getVideos())
 	const addVideo = useGetAddVideo()
 
 	if (error) {
 		return <ErrorMessage text={errorMessages.unknownServerError} />
 	}
 
-	return <PrivateVideosList videos={allVideos?.private ?? []} addVideo={addVideo} />
+	return <PrivateVideosList videos={allVideos?.private ?? []} addVideo={addVideo} />*/
+	return null
 }
-*/
 
-// export default PrivateVideosListWithAdd
+export default PrivateVideosListWithAdd

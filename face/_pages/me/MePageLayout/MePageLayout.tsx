@@ -5,21 +5,21 @@
 // import { useUser } from '@/shared/api/auth/UserProvider'
 // import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
-/*type LLMPageLayoutProps = {
+type LLMPageLayoutProps = {
 	children: React.ReactNode
-}*/
+}
 
-/*function MePageLayout(props: LLMPageLayoutProps) {
+function MePageLayout(props: LLMPageLayoutProps) {
 	const { children } = props
 
-	const user = useUser()
-	const locale = useLocale()
+	// const user = useUser()
+	// const locale = useLocale()
 
-	if (!user) {
+	/*if (!user) {
 		redirect(localizePath(locale, pageUrls.auth.login.path))
-	}
+	}*/
 
 	return children
-}*/
+}
 
-// export default MePageLayout
+export default MePageLayout

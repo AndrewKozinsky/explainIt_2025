@@ -10,13 +10,13 @@
 // import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 // import { getMediaNavigationData } from './fn/getMediaNavigationData'
 
-/*type ChapterRootProps = {
+type ChapterRootProps = {
 	chapterId: number | string
 	bookId: number | string
-}*/
+}
 
-/*async function ChapterRoot(props: ChapterRootProps) {
-	const { chapterId, bookId } = props
+async function ChapterRoot(props: ChapterRootProps) {
+	/*const { chapterId, bookId } = props
 
 	const booksService = new BooksService(new BooksApi())
 	const { error: bookError, data: book } = await booksService.getBook(Number(bookId))
@@ -42,9 +42,9 @@
 
 	const { header, subHeader } = getHeaderAndSubHeader(chapter)
 	const breadCrumbsConfig = getChapterBreadCrumbsConfig(bookId.toString(), book.name ?? bookConfig.emptyBookName)
-	const mediaNavigation = getMediaNavigationData(book, chapter)
+	const mediaNavigation = getMediaNavigationData(book, chapter)*/
 
-	return (
+	/*return (
 		<MediaPageClient
 			breadCrumbsConfig={breadCrumbsConfig}
 			header={header}
@@ -59,7 +59,8 @@
 			}}
 			mediaNavigation={mediaNavigation}
 		/>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default ChapterRoot
+export default ChapterRoot

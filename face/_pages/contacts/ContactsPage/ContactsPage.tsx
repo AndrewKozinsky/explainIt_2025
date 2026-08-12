@@ -4,8 +4,8 @@
 // import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 
 /** Страница контактов */
-/*function ContactsPage() {
-	return (
+function ContactsPage() {
+	/*return (
 		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
@@ -23,7 +23,8 @@
 				</p>
 			</PageContentWrapper>
 		</PageWrapper>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default ContactsPage
+export default ContactsPage

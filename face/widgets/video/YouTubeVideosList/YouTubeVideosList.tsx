@@ -12,7 +12,7 @@ export type YouTubeVideoCardData = {
 	subName?: string | null
 	theme?: string | null
 	proficiencyLevel?: string | null
-	duration: string | null
+	duration: string
 	durationSeconds: number
 	coverUrl: string | null
 	url: string
@@ -59,13 +59,8 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 						<MediaCardLongVideo
 							key={videoData.id}
 							title={videoData.name}
-							subTitle={videoData.subName}
-							theme={videoData.theme}
-							proficiencyLevel={videoData.proficiencyLevel}
 							duration={videoData.duration}
-							coverUrl={videoData.coverUrl}
 							url={videoData.url}
-							defaultMediaName={videoConfig.newVideoEmptyName}
 						/>
 					)
 				}

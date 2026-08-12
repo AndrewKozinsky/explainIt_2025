@@ -4,8 +4,8 @@
 // import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 // import MePageContent from '_pages/me/MePageContent/MePageContent'
 
-/*function MePage() {
-	return (
+function MePage() {
+	/*return (
 		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
@@ -13,7 +13,8 @@
 				<MePageContent />
 			</PageContentWrapper>
 		</PageWrapper>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default MePage
+export default MePage
