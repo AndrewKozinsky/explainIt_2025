@@ -1,6 +1,6 @@
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import type { LanguageCode } from '@/shared/utils/languages'
 import { ProficiencyLevel } from '@/shared/api/ff'
+import type { LanguageCode } from '@/shared/utils/languages'
 
 // ─── Типы из Prisma (server/prisma/schema.prisma) ────────────────────────────
 

@@ -10,7 +10,6 @@ function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
 		return {
 			id: video.videoId,
 			name: video.title,
-			subName: video.channelName,
 			duration: video.duration,
 			coverUrl: video.thumbnailUrl,
 			url: pageUrls.youtube.video(video.videoId).path,
@@ -55,6 +54,7 @@ export function useYouTubeVideos(query: string) {
 	const videos = useMemo<YouTubeVideoCardData[]>(
 		function () {
 			if (!data) return mapToCardData(allVideos)
+
 			return pageToken ? [...mapToCardData(allVideos), ...mapToCardData(data.videos)] : mapToCardData(data.videos)
 		},
 		[data, pageToken, allVideos],

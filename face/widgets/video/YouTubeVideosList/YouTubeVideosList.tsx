@@ -12,6 +12,7 @@ export type YouTubeVideoCardData = {
 	theme?: string | null
 	proficiencyLevel?: string | null
 	duration: string | null
+	durationSeconds: number
 	coverUrl: string | null
 	url: string
 }
@@ -51,17 +52,17 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 
 	return (
 		<ItemsGrid>
-			{items.map(function (item) {
+			{items.map(function (videoData) {
 				return (
 					<MediaCardButton
-						key={item.id}
-						title={item.name}
-						subTitle={item.subName}
-						theme={item.theme}
-						proficiencyLevel={item.proficiencyLevel}
-						duration={item.duration}
-						coverUrl={item.coverUrl}
-						url={item.url}
+						key={videoData.id}
+						title={videoData.name}
+						subTitle={videoData.subName}
+						theme={videoData.theme}
+						proficiencyLevel={videoData.proficiencyLevel}
+						duration={videoData.duration}
+						coverUrl={videoData.coverUrl}
+						url={videoData.url}
 						defaultMediaName={videoConfig.newVideoEmptyName}
 					/>
 				)

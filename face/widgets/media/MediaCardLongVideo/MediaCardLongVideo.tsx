@@ -1,5 +1,5 @@
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import './MediaCardButton.scss'
+import './MediaCardLongVideo.scss'
 
 type MediaCardProps = {
 	title?: null | string
@@ -12,7 +12,7 @@ type MediaCardProps = {
 	defaultMediaName: string
 }
 
-function MediaCardButton(props: MediaCardProps) {
+function MediaCardLongVideo(props: MediaCardProps) {
 	const { title, subTitle, theme, proficiencyLevel, duration, url, coverUrl, defaultMediaName } = props
 	console.log(duration)
 
@@ -38,4 +38,4 @@ function MediaCardButton(props: MediaCardProps) {
 	)
 }
 
-export default MediaCardButton
+export default MediaCardLongVideo
