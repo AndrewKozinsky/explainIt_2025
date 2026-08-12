@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import { BigPlusIcon } from '@/shared/ui/icons/BigPlusIcon'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'

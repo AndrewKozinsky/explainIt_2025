@@ -1,8 +1,9 @@
 'use client'
 
 import React, { useState } from 'react'
-import YouTubeSearch from '@/entities/youtube/ui/YouTubeSearch/YouTubeSearch'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import YouTubeSearch from '@/widgets/video/YouTubeSearch/YouTubeSearch'
+import YouTubeVideoNameHints from '@/widgets/video/YouTubeVideoNameHints/YouTubeVideoNameHints'
 import YouTubeVideosCenterWrapper from '@/widgets/video/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
 import { useYouTubeVideos } from '_pages/media/youTubeVideos/YouTubeVideosPage/fn/setupYouTubeDeps'
@@ -16,6 +17,7 @@ function YouTubeVideosSearch() {
 	return (
 		<div className='youtube-videos-search'>
 			<YouTubeSearch query={query} onQueryChange={setQuery} onSearch={search} loading={loading} />
+			<YouTubeVideoNameHints />
 			<YouTubeVideosList items={videos} loading={loading} error={error} />
 			{!loading && hasMore && (
 				<YouTubeVideosCenterWrapper>

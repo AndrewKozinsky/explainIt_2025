@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import './Switcher.scss'
 

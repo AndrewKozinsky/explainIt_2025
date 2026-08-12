@@ -27,6 +27,7 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 		<div className='youtube-search'>
 			<TextInput
 				block
+				size='big'
 				inputProps={{
 					value: query,
 					onChange: function (e) {
@@ -36,7 +37,7 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 					placeholder: 'Название или адрес видео на youtube.com',
 				}}
 			/>
-			<Button theme='outline' onClick={onSearch} disabled={isSearchDisabled} loading={loading}>
+			<Button theme='outline' size='big' onClick={onSearch} disabled={isSearchDisabled} loading={loading}>
 				Найти
 			</Button>
 		</div>

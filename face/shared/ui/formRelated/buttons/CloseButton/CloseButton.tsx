@@ -1,6 +1,6 @@
 import React from 'react'
 import cn from 'classnames'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import { CloseIcon } from '@/shared/ui/icons/CloseIcon'
 import './CloseButton.scss'
 

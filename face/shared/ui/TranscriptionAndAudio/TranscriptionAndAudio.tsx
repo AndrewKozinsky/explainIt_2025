@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import { ErrorIcon } from '@/shared/ui/icons/ErrorIcon'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import { canLanguageHaveTranscription } from '@/shared/utils/languages'

@@ -2,7 +2,7 @@
 
 import React, { ReactNode } from 'react'
 import cn from 'classnames'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import Spinner from '../../../Spinner/Spinner'
 import { ButtonIcon } from './ButtonIcon'
 import './Button.scss'
