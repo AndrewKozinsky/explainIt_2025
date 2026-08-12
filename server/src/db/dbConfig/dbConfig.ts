@@ -540,12 +540,6 @@ export const bdConfig = {
 				required: true,
 				default: 0,
 			},
-			file_duration_sec: {
-				type: 'number',
-				description: 'Duration of the uploaded video file in seconds',
-				example: 3600,
-				required: false,
-			},
 			original_content: {
 				type: 'string',
 				description: 'Original subtitles or text of the video',

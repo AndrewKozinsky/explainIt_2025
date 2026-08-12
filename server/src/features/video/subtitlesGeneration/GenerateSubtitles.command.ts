@@ -45,7 +45,7 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 			)
 		}
 
-		if (!state.fileDurationSec) {
+		if (!state.durationSec) {
 			throw new CustomError(
 				errorMessage.video.subtitlesGenerationDurationRequired,
 				ErrorStatusCode.BadRequest_400,

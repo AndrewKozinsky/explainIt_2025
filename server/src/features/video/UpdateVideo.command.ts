@@ -27,7 +27,7 @@ export type UpdateVideoInput = {
 	fileMimeType?: null | string
 	isFileUploaded?: boolean
 	fileSizeMb?: number
-	fileDurationSec?: number
+	durationSec?: number
 	languageCode?: Language
 	coverFileName?: null | string
 	coverFileMimeType?: null | string
@@ -129,7 +129,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			s3ProviderName: fileS3Key ? 'cloudRu' : null,
 			isFileUploaded,
 			fileSizeMb: updateVideoInput.fileSizeMb,
-			fileDurationSec: updateVideoInput.fileDurationSec,
+			durationSec: updateVideoInput.durationSec,
 			coverFileName,
 			coverFileS3Key,
 			isCoverFileUploaded,
@@ -164,7 +164,6 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			uploadCoverUrl,
 			fileSizeMb: updatedVideo.fileSizeMb,
 			durationSec: updatedVideo.durationSec,
-			fileDurationSec: updatedVideo.fileDurationSec,
 		}
 	}
 

@@ -35,7 +35,5 @@ export interface UpdateVideoOutModel {
   /** Size of the video file in megabytes */
   fileSizeMb?: number | null;
   /** Duration of the video in seconds (from YouTube metadata or ffprobe) */
-  durationSec: number;
-  /** Duration of the uploaded video file in seconds */
-  fileDurationSec?: number | null;
+  durationSec?: number | null;
 }

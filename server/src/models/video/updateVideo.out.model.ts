@@ -40,7 +40,4 @@ export class UpdateVideoOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.duration_sec))
 	durationSec: number
-
-	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
-	fileDurationSec: null | number
 }

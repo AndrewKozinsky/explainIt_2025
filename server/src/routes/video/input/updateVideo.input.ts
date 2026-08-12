@@ -23,8 +23,10 @@ export class UpdateVideoInput {
 	})
 	fileSizeMb?: number
 
-	@DtoFieldDecorators('fileDurationSec', bdConfig.Video.dbFields.file_duration_sec)
-	fileDurationSec?: number
+	@DtoFieldDecorators('durationSec', bdConfig.Video.dbFields.duration_sec, {
+		required: false,
+	})
+	durationSec?: number
 
 	@DtoFieldDecorators('languageCode', bdConfig.Video.dbFields.source_language_code, {
 		required: false,
