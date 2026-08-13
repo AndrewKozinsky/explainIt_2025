@@ -4,7 +4,7 @@
 // import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 // import { pageUrls } from '@/shared/utils/pageUrls'
 // import { getHeader } from './fn/getHeader'
-// import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
+import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
 // import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
 
 type VideoRootProps = {
@@ -14,9 +14,9 @@ type VideoRootProps = {
 function YouTubeVideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
-	/*const { error, video } = useYouTubeVideoData(videoId)
+	// const { error, video } = useYouTubeVideoData(videoId)
 
-	if (error) {
+	/*if (error) {
 		return <ErrorMessage text={error} />
 	}
 

@@ -1,5 +1,5 @@
-// import type { VideoModel } from '@/entities/video/repository/VideosRepository'
 import type { VideoLiteModel } from '@/entities/video/lib/types'
+import type { VideoModel } from '@/entities/video/repository/VideosRepository'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { YoutubeApi } from './repository/YoutubeApi'
 import type {
@@ -44,9 +44,9 @@ export class YoutubeService {
 	}*/
 
 	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
-	/*async getOrCreateVideo(videoId: string): Promise<ApiResult<VideoModel>> {
+	async getOrCreateVideo(videoId: string): Promise<ApiResult<VideoModel>> {
 		return this.youtubeRepository.getOrCreateYouTubeVideo(videoId)
-	}*/
+	}
 
 	/** Получить сохранённые YouTube-видео с фильтрами */
 	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {

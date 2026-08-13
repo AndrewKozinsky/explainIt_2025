@@ -1,4 +1,3 @@
-// import { BooksService } from '@/entities/book/BooksService'
 // import { bookConfig } from '@/entities/book/lib/bookConfig'
 // import { BooksApi } from '@/entities/book/repository/BooksApi'
 // import { ChaptersService } from '@/entities/chapter/ChaptersService'
@@ -9,6 +8,7 @@
 // import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 // import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 // import { getMediaNavigationData } from './fn/getMediaNavigationData'
+import { booksService } from '@/entities/book/BooksService'
 
 type ChapterRootProps = {
 	chapterId: number | string
@@ -16,13 +16,11 @@ type ChapterRootProps = {
 }
 
 async function ChapterRoot(props: ChapterRootProps) {
-	/*const { chapterId, bookId } = props
+	const { chapterId, bookId } = props
 
-	const booksService = new BooksService(new BooksApi())
 	const { error: bookError, data: book } = await booksService.getBook(Number(bookId))
 
-	const chaptersService = new ChaptersService(new ChaptersApi())
-	const { error: chapterError, data: chapter } = await chaptersService.getChapter(Number(chapterId))
+	/*const { error: chapterError, data: chapter } = await chaptersService.getChapter(Number(chapterId))
 
 	if (bookError) {
 		return <ErrorMessage text={bookError} />

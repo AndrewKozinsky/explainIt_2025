@@ -53,7 +53,7 @@ export type YoutubeRepository = {
 	/** Получить данные одного видео с YouTube по его ID */
 	// getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>>
 	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
-	// getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>>
+	getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>>
 	/** Получить сохранённые YouTube-видео с фильтрами */
 	getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>>
 	/** Получить список категорий (тем) видео */

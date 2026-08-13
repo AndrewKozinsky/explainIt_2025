@@ -8,7 +8,7 @@ import type {
 	YoutubeVideosOutModel,
 } from '@/shared/api/generated/models'
 import {
-	// 	youtubeControllerCreateVideo,
+	youtubeControllerCreateVideo,
 	youtubeControllerGetSavedVideos,
 	// 	youtubeControllerGetVideoById,
 	youtubeControllerGetVideoTopics,
@@ -45,12 +45,12 @@ export class YoutubeApi implements YoutubeRepository {
 		)
 	}*/
 
-	/*async getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>> {
+	async getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>> {
 		return executeApiCall(
 			() => youtubeControllerCreateVideo(videoId),
 			(data) => mapVideoOutModelToVideoModel(data),
 		)
-	}*/
+	}
 
 	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
 		return executeApiCall(
