@@ -1,22 +1,22 @@
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type {
-	// 	VideoContentType,
+	VideoContentType,
 	VideoLiteModel,
 	VideoModel,
-	// 	VideoSubtitlesModel,
+	VideoSubtitlesModel,
 	// 	SubtitlesSourceModelType,
-	// 	SubtitlesStatusModelType,
+	SubtitlesStatusModelType,
 	SubtitlesStatusModel,
 } from '../lib/types'
 
 // Реэкспорт общих типов для обратной совместимости
 export type {
-	// 	VideoContentType,
+	VideoContentType,
 	VideoLiteModel,
 	VideoModel,
-	// 	VideoSubtitlesModel,
+	VideoSubtitlesModel,
 	// 	SubtitlesSourceModelType,
-	// 	SubtitlesStatusModelType,
+	SubtitlesStatusModelType,
 	SubtitlesStatusModel,
 }
 

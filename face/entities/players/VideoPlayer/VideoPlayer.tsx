@@ -1,25 +1,25 @@
 // 'use client'
 
-// import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react'
-// import NativePlayerCore from './NativePlayerCore/NativePlayerCore'
-// import { PlayerContext } from './PlayerContext'
-// import YouTubePlayerCore from './YouTubePlayerCore/YouTubePlayerCore'
-// import './VideoPlayer.scss'
-// import type { PlayerCommand } from './fn/types'
-// import type { PlayerContextValue } from './PlayerContext'
+import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react'
+import NativePlayerCore from './NativePlayerCore/NativePlayerCore'
+import { PlayerContext } from './PlayerContext'
+import YouTubePlayerCore from './YouTubePlayerCore/YouTubePlayerCore'
+import type { PlayerCommand } from './fn/types'
+import type { PlayerContextValue } from './PlayerContext'
+import './VideoPlayer.scss'
 
 // ── Public API ────────────────────────────────────────────────────────
 
-/*export type VideoPlayerHandle = {
+export type VideoPlayerHandle = {
 	sendCommand: (command: PlayerCommand) => void
-}*/
+}
 
-/*type VideoPlayerProps = {
-	/!** URL видеофайла (S3). Если передан — используется нативный <video> *!/
+type VideoPlayerProps = {
+	/** URL видеофайла (S3). Если передан — используется нативный <video> */
 	fileUrl?: string
-	/!** ID видео на YouTube. Если передан — используется YouTube IFrame Player *!/
+	/** ID видео на YouTube. Если передан — используется YouTube IFrame Player */
 	youTubeVideoId?: string
-	/!** Соотношение сторон плеера в CSS-формате "1280 / 720" (из YouTube Data API) *!/
+	/** Соотношение сторон плеера в CSS-формате "1280 / 720" (из YouTube Data API) */
 	ratio?: string
 	videoId?: number
 	initialTime?: number
@@ -27,11 +27,11 @@
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
 	onProgressSave?: (videoId: number, seconds: number) => void
-}*/
+}
 
 // ── Общие пропсы для обоих Core-компонентов ──────────────────────────
 
-/*type CommonCoreProps = {
+type CommonCoreProps = {
 	initialTime?: number
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>
 	onTimeUpdate?: (currentTime: number) => void
@@ -41,11 +41,11 @@
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
 	saveProgress: (seconds: number) => void
-}*/
+}
 
 // ── Компонент-обёртка ────────────────────────────────────────────────
 
-/*const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function VideoPlayer(props, ref) {
+const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function VideoPlayer(props, ref) {
 	const {
 		fileUrl,
 		youTubeVideoId,
@@ -127,6 +127,6 @@
 			{youTubeVideoId && <YouTubePlayerCore youTubeVideoId={youTubeVideoId} ratio={ratio} {...commonProps} />}
 		</PlayerContext.Provider>
 	)
-})*/
+})
 
-// export default VideoPlayer
+export default VideoPlayer

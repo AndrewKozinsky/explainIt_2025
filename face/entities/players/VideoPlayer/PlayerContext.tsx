@@ -1,19 +1,19 @@
-// 'use client'
+'use client'
 
-// import { createContext, useContext } from 'react'
-// import type { PlayerCommand } from './fn/types'
+import { createContext, useContext } from 'react'
+import type { PlayerCommand } from './fn/types'
 
-/*export type PlayerContextValue = {
+export type PlayerContextValue = {
 	currentTime: number
 	duration: number
 	paused: boolean
 	command: PlayerCommand | null
 	sendCommand: (command: PlayerCommand) => void
-}*/
+}
 
-// export const PlayerContext = createContext<PlayerContextValue | null>(null)
+export const PlayerContext = createContext<PlayerContextValue | null>(null)
 
-/*export function usePlayerContext() {
+export function usePlayerContext() {
 	const ctx = useContext(PlayerContext)
 
 	if (!ctx) {
@@ -21,4 +21,4 @@
 	}
 
 	return ctx
-}*/
+}

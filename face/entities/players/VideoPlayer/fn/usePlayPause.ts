@@ -1,9 +1,9 @@
-// import { useEffect, useMemo } from 'react'
-// import { useGetHotKeysHandler } from '@/shared/utils/hotKeysHandler'
-// import { usePlayerContext } from '../PlayerContext'
-// import type { PlayerCommand } from './types'
+import { useEffect, useMemo } from 'react'
+import { useGetHotKeysHandler } from '@/shared/utils/hotKeysHandler'
+import { usePlayerContext } from '../PlayerContext'
+import type { PlayerCommand } from './types'
 
-/*export function usePlayPause(
+export function usePlayPause(
 	playerWrapperRef: React.RefObject<HTMLDivElement | null>,
 	getPlayerWrapperPressArea: (wrapper: HTMLDivElement, clientX: number) => 'left' | 'center' | 'right',
 ) {
@@ -37,4 +37,4 @@
 			wrapper.removeEventListener('pointerup', handlePointerUp)
 		}
 	}, [playerWrapperRef, sendCommand, nextCommand, getPlayerWrapperPressArea])
-}*/
+}

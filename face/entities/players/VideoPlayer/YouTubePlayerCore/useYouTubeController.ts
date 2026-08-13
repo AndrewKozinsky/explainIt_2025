@@ -1,8 +1,8 @@
-// 'use client'
+'use client'
 
-// import { RefObject, useEffect, useRef } from 'react'
-// import { usePlayerContext } from '../PlayerContext'
-// import type { YouTubePlayer } from './youTubeIframeApi'
+import { RefObject, useEffect, useRef } from 'react'
+import { usePlayerContext } from '../PlayerContext'
+import type { YouTubePlayer } from './youTubeIframeApi'
 
 /**
  * Исполняет {@link PlayerCommand} из плеерного контекста через YouTube IFrame API.
@@ -13,7 +13,7 @@
  * Обратный перемот (START_REVERSE_SEEK) реализован через периодический
  * seekTo, так как YouTube API не поддерживает реверсное воспроизведение.
  */
-/*export function useYouTubeController(playerRef: RefObject<YouTubePlayer | null>) {
+export function useYouTubeController(playerRef: RefObject<YouTubePlayer | null>) {
 	const command = usePlayerContext().command
 
 	const reverseSeekIntervalIdRef = useRef<null | ReturnType<typeof setInterval>>(null)
@@ -105,4 +105,4 @@
 				break
 		}
 	}, [command, playerRef])
-}*/
+}
