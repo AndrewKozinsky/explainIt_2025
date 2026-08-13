@@ -1,40 +1,40 @@
-// import type {
-// 	CreateVideoOutModel,
-// 	UpdateVideoOutModel,
-// 	VideoSubtitlesStatusOutModel,
-// 	CreateVideoInput as OrvalCreateVideoInput,
-// 	UpdateVideoInput as OrvalUpdateVideoInput,
-// } from '@/shared/api/generated/models'
-// import {
-// 	videoControllerGetVideos,
-// 	videoControllerGetVideo,
-// 	videoControllerCreateVideo,
-// 	videoControllerUpdateVideo,
-// 	videoControllerDeleteVideo,
-// 	videoControllerGenerateSubtitles,
-// 	videoControllerGetSubtitlesStatus,
-// } from '@/shared/api/generated/video/video'
-// import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
-// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import {
-// 	mapType,
-// 	mapContentType,
-// 	mapSubtitlesSource,
-// 	mapProficiencyLevel,
-// 	mapToVideoLite,
-// 	mapVideoOutModelToVideoModel,
-// } from '../lib/mappers'
-// import type { VideosRepository, CreateVideoInput, UpdateVideoInput } from './VideosRepository'
-// import type { VideoLiteModel, VideoModel, SubtitlesStatusModel } from '../lib/types'
+import type {
+	CreateVideoOutModel,
+	// 	UpdateVideoOutModel,
+	// 	VideoSubtitlesStatusOutModel,
+	CreateVideoInput as OrvalCreateVideoInput,
+	// 	UpdateVideoInput as OrvalUpdateVideoInput,
+} from '@/shared/api/generated/models'
+import {
+	videoControllerGetVideos,
+	// 	videoControllerGetVideo,
+	videoControllerCreateVideo,
+	// 	videoControllerUpdateVideo,
+	// 	videoControllerDeleteVideo,
+	// 	videoControllerGenerateSubtitles,
+	// 	videoControllerGetSubtitlesStatus,
+} from '@/shared/api/generated/video/video'
+import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { LanguageCode } from '@/shared/utils/languages'
+import {
+	mapType,
+	mapContentType,
+	// 	mapSubtitlesSource,
+	mapProficiencyLevel,
+	mapToVideoLite,
+	mapVideoOutModelToVideoModel,
+} from '../lib/mappers'
+import type { VideosRepository, CreateVideoInput, UpdateVideoInput } from './VideosRepository'
+import type { VideoLiteModel, VideoModel, SubtitlesStatusModel } from '../lib/types'
 // import type { SubtitlesStatusModelType } from '../lib/types'
 
 /**
  * Реализация VideosRepository через REST API.
  * Внутри использует Orval-сгенерированные функции, снаружи отдаёт унифицированные типы.
  */
-/*export class VideosApi implements VideosRepository {
+export class VideosApi implements VideosRepository {
 	async getVideos(): Promise<ApiResult<VideoLiteModel[]>> {
 		return executeApiCall(
 			() => videoControllerGetVideos(),
@@ -42,12 +42,12 @@
 		)
 	}
 
-	async getVideo(id: number): Promise<ApiResult<VideoModel>> {
+	/*async getVideo(id: number): Promise<ApiResult<VideoModel>> {
 		return executeApiCall(
 			() => videoControllerGetVideo(id),
 			(data) => mapVideoOutModelToVideoModel(data),
 		)
-	}
+	}*/
 
 	async createVideo(input: CreateVideoInput): Promise<ApiResult<VideoLiteModel>> {
 		return executeApiCall(
@@ -56,35 +56,35 @@
 		)
 	}
 
-	async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
+	/*async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
 		return executeApiCall(
 			() => videoControllerUpdateVideo(id, input as unknown as OrvalUpdateVideoInput),
 			(data) => mapUpdateVideoOutToVideoLite(data),
 		)
-	}
+	}*/
 
-	async deleteVideo(id: number): Promise<ApiResult<void>> {
+	/*async deleteVideo(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => videoControllerDeleteVideo(id))
-	}
+	}*/
 
-	async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+	/*async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
 		return executeApiCall(
 			() => videoControllerGenerateSubtitles(id),
 			(data) => mapToSubtitlesStatus(data),
 		)
-	}
+	}*/
 
-	async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+	/*async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
 		return executeApiCall(
 			() => videoControllerGetSubtitlesStatus(id),
 			(data) => mapToSubtitlesStatus(data),
 		)
-	}
-}*/
+	}*/
+}
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
 
-/*function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel {
+function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: mapType(raw.type),
@@ -101,8 +101,9 @@
 		fileUrl: null,
 		isFileUploaded: null,
 		fileSizeMb: null,
+		topic: null,
 		duration: null,
-		fileDurationSec: null,
+		durationSeconds: 0,
 		userId: extractNumber(raw.userId),
 		coverFileName: null,
 		coverFileS3Key: null,
@@ -114,7 +115,7 @@
 		subtitlesErrorCode: null,
 		ratio: null,
 	}
-}*/
+}
 
 /*function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel {
 	return {
