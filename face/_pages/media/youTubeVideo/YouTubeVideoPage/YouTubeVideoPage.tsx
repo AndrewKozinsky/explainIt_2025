@@ -14,7 +14,7 @@ type VideoRootProps = {
 function YouTubeVideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
-	// const { error, video } = useYouTubeVideoData(videoId)
+	const { error, video } = useYouTubeVideoData(videoId)
 
 	/*if (error) {
 		return <ErrorMessage text={error} />

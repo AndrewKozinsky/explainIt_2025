@@ -5,17 +5,18 @@
 // import { pageUrls } from '@/shared/utils/pageUrls'
 // import { getHeader } from './fn/getHeader'
 // import VideoClientWrapper from './VideoClientWrapper'
+import { videosService } from '@/entities/video/VideosService'
 
 type VideoRootProps = {
 	videoId: number | string
 }
 
 async function VideoPage(props: VideoRootProps) {
-	/*const { videoId } = props
+	const { videoId } = props
 
 	const { error: videoError, data: videoData } = await videosService.getVideo(videoId)
 
-	if (videoError) {
+	/*if (videoError) {
 		return <ErrorMessage text={videoError} />
 	}
 
