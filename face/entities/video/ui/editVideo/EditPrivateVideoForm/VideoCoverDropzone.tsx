@@ -27,6 +27,7 @@ function VideoCoverDropzone(props: VideoCoverDropzoneProps) {
 
 	return (
 		<FileDropzone
+			block
 			label='Обложка'
 			accept={supportedCoverFormats.accept}
 			supportedFormatsStr={supportedCoverFormats.description}

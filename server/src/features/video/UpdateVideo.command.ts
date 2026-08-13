@@ -156,6 +156,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			name: updatedVideo.name,
 			languageCode: updatedVideo.sourceLanguageCode as Language,
 			proficiencyLevel: updatedVideo.proficiencyLevel,
+			topic: updatedVideo.topic,
 			originalContent: updatedVideo.originalContent,
 			processedContent: updatedVideo.processedContent,
 			contentType: updatedVideo.contentType,

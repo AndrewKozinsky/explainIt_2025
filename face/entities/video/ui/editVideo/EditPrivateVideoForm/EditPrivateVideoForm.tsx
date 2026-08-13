@@ -178,6 +178,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 						inputProps={register('languageCode')}
 					/>
 					<TextInput
+						block
 						label='Название'
 						error={errors.name?.message}
 						inputProps={{
@@ -198,7 +199,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 						videoId={video.id}
 						onFileUpdated={onVideoUpdated}
 					/>
-					<LabelWithField label='Субтитры или текст'>
+					<LabelWithField label='Субтитры или текст' block>
 						<div className='edit-private-video-form__subtitles-container'>
 							<TextInput
 								error={errors.content?.message}

@@ -59,6 +59,7 @@ function VideoDropzone(props: VideoDropzoneProps) {
 
 	return (
 		<FileDropzone
+			block
 			label='Файл с фильмом'
 			accept={VideosService.supportedVideoFormats.accept}
 			supportedFormatsStr={VideosService.supportedVideoFormats.description}

@@ -20,6 +20,11 @@ export interface UpdateVideoOutModel {
   languageCode?: string | null;
   /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
   proficiencyLevel?: number | null;
+  /**
+     * Predefined topic category (e.g. Travel & Geography)
+     * @maxLength 100
+     */
+  topic?: string | null;
   /** Original subtitles or text of the video */
   originalContent?: string | null;
   /** Processed subtitles or text of the video (flattened) */

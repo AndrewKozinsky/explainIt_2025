@@ -136,7 +136,7 @@ function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel 
 		fileSizeMb: extractNumber(raw.fileSizeMb),
 		duration: null,
 		durationSeconds: extractNumber(raw.durationSec)!,
-		topic: raw.topic,
+		topic: extractString(raw.topic),
 		userId: extractNumber(raw.userId),
 		coverFileName: null,
 		coverFileS3Key: null,
