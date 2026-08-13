@@ -1,10 +1,7 @@
-import { queryOptions } from '@tanstack/react-query'
+import { queryOptions, type QueryClient } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { youtubeService, YoutubeService } from './YoutubeService'
-import type {
-	GetSavedYoutubeVideosParams,
-	GetYoutubeVideosParams,
-} from './repository/YoutubeRepository'
+import type { GetSavedYoutubeVideosParams, GetYoutubeVideosParams } from './repository/YoutubeRepository'
 
 /**
  * Ключи кэша серверных данных YouTube.
@@ -43,6 +40,13 @@ export class YoutubeQueryFacade {
 			queryKey: youtubeQueryKeys.savedVideos(params),
 			queryFn: () => unwrapApiResult(this.service.getSavedVideos(params)),
 		})
+	}
+
+	getOrCreateVideo(queryClient: QueryClient) {
+		return {
+			mutationFn: (videoId: string) => unwrapApiResult(this.service.getOrCreateVideo(videoId)),
+			onSuccess: () => queryClient.invalidateQueries({ queryKey: youtubeQueryKeys.all }),
+		}
 	}
 }
 
