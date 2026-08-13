@@ -4,7 +4,6 @@
 // import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 // import { pageUrls } from '@/shared/utils/pageUrls'
 // import { getHeader } from './fn/getHeader'
-// import VideoClientWrapper from './VideoClientWrapper'
 import { videosService } from '@/entities/video/VideosService'
 
 type VideoRootProps = {

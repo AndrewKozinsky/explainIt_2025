@@ -11,11 +11,11 @@ import type { DetailsBlockMediaMetadata } from '../DetailsBlock/DetailsBlock'
  * Врапперы принимают их как опциональные — значения будут добавлены
  * через cloneElement при рендеринге на клиенте.
  */
-/*export type SelectionProps = {
+export type SelectionProps = {
 	selectedSentenceId?: number | null
 	selectedWordId?: number | null
 	selectWord?: (input: { sentenceId: number; wordId: number }) => void
-}*/
+}
 
 type MediaPageClientProps = {
 	breadCrumbsConfig: { name: string; path: string }[]

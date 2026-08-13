@@ -6,7 +6,7 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 import { getHeader } from './fn/getHeader'
 import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
-// import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
+import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
 
 type VideoRootProps = {
 	videoId: string
@@ -39,6 +39,7 @@ function YouTubeVideoPage(props: VideoRootProps) {
 					contentType={video.contentType}
 					plainSentences={video.plainSentences}
 					subtitles={video.subtitles}
+					fileUrl={video.fileUrl ?? ''}
 					youTubeVideoId={video.youtubeVideoId ?? ''}
 					videoId={video.id}
 					ratio={video.ratio}

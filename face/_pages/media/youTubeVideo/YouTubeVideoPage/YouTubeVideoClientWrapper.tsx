@@ -1,40 +1,38 @@
-// 'use client'
+'use client'
 
-// import { useRef } from 'react'
-// import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-// import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
-// import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
-// import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
-// import {
-// 	SubtitlesStatusModelType,
-// 	VideoContentType,
-// 	VideoSubtitlesModel,
-// } from '@/entities/video/repository/VideosRepository'
-// import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
-// import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import { localStorageManager } from '@/shared/utils/localStorageManager'
-// import { useYouTubeVideoStore } from '../youTubeVideoStore'
+import { useRef } from 'react'
+import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
+import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
+import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
+import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
+import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
+import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
+import type { LanguageCode } from '@/shared/utils/languages'
+import { localStorageManager } from '@/shared/utils/localStorageManager'
+import { useYouTubeVideoStore } from '../youTubeVideoStore'
 
-/*type VideoClientWrapperProps = SelectionProps & {
+type VideoClientWrapperProps = SelectionProps & {
 	languageCode: LanguageCode
 	contentType: VideoContentType
 	plainSentences: null | SentenceModel[]
 	subtitles: null | VideoSubtitlesModel.Structure
-	youTubeVideoId: string
+	fileUrl?: string
+	youTubeVideoId?: string
 	videoId: number
 	ratio?: null | string
 	subtitlesStatus: SubtitlesStatusModelType
 	subtitlesErrorCode: null | string
-}*/
+}
 
-/*function YouTubeVideoClientWrapper(props: VideoClientWrapperProps) {
+function YouTubeVideoClientWrapper(props: VideoClientWrapperProps) {
 	const {
 		languageCode,
 		contentType,
 		plainSentences,
 		subtitles,
+		fileUrl,
 		youTubeVideoId,
 		videoId,
 		ratio,
@@ -54,6 +52,7 @@
 		<VideoWithSubtitles>
 			<VideoPlayer
 				ref={playerRef}
+				fileUrl={fileUrl}
 				youTubeVideoId={youTubeVideoId}
 				videoId={videoId}
 				initialTime={localStorageManager.videoProgress.get(videoId)}
@@ -77,6 +76,6 @@
 			</SubtitlesGuard>
 		</VideoWithSubtitles>
 	)
-}*/
+}
 
-// export default YouTubeVideoClientWrapper
+export default YouTubeVideoClientWrapper
