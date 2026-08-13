@@ -1,14 +1,12 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
 import { useSearchParams } from 'next/navigation'
-import { AuthService } from '@/entities/auth/AuthService'
-import { AuthApi } from '@/entities/auth/repository/AuthApi'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { authQueries } from '@/entities/auth/AuthQueryFacade'
 
 export type ConfirmationStatus = 'loading' | 'success' | 'error'
 
 export function useConfirmEmail() {
-	const service = useMemo(() => new AuthService(new AuthApi()), [])
-	const { mutate: confirmEmail } = useAsyncMutation((input: { code: string }) => service.confirmEmail(input))
+	const { mutateAsync: confirmEmail } = useMutation(authQueries.confirmEmail())
 
 	const [confirmationStatus, setConfirmationStatus] = useState<ConfirmationStatus>('loading')
 

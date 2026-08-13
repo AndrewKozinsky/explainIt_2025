@@ -1,8 +1,7 @@
-import { useCallback, useMemo } from 'react'
-import { AuthService } from '@/entities/auth/AuthService'
-import { AuthApi } from '@/entities/auth/repository/AuthApi'
+import { useCallback } from 'react'
+import { useMutation } from '@tanstack/react-query'
+import { authQueries } from '@/entities/auth/AuthQueryFacade'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 import { FormStatus } from '@/shared/utils/forms'
 import { LoginFormData } from './form'
 
@@ -11,8 +10,7 @@ export function useGetOnLoginFormSubmit(
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const service = useMemo(() => new AuthService(new AuthApi()), [])
-	const { mutate: loginUser } = useAsyncMutation((input: { email: string; password: string }) => service.login(input))
+	const { mutateAsync: loginUser } = useMutation(authQueries.login())
 	const setUser = useSetUser()
 
 	return useCallback(
@@ -39,7 +37,7 @@ export function useGetOnLoginFormSubmit(
 				return
 			}
 
-			setUser(result.data as Parameters<typeof setUser>[0])
+			setUser(result.data)
 			setFormStatus('success')
 		},
 		[loginUser, setUser, setFieldError, setFormError, setFormStatus],
