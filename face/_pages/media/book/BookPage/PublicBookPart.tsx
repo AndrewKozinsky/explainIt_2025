@@ -1,14 +1,14 @@
-// import { BookModel } from '@/entities/book/repository/BooksRepository'
-// import ChaptersList from '@/entities/media/ui/ChaptersList/ChaptersList'
-// import MediaContentWrapper from '@/entities/media/ui/MediaContentWrapper/MediaContentWrapper'
-// import MediaFullInfoContent from '@/entities/media/ui/MediaFullInfoContent/MediaFullInfoContent'
-// import { getBookChaptersLinksConfig } from '_pages/media/book/BookPage/fn/getBookChaptersLinksConfig'
+import { BookModel } from '@/entities/book/repository/BooksRepository'
+import ChaptersList from '@/entities/media/ui/ChaptersList/ChaptersList'
+import MediaContentWrapper from '@/entities/media/ui/MediaContentWrapper/MediaContentWrapper'
+import MediaFullInfoContent from '@/entities/media/ui/MediaFullInfoContent/MediaFullInfoContent'
+import { getBookChaptersLinksConfig } from '_pages/media/book/BookPage/fn/getBookChaptersLinksConfig'
 
-/*type PublicBookPartProps = {
+type PublicBookPartProps = {
 	book: BookModel
-}*/
+}
 
-/*function PublicBookPart(props: PublicBookPartProps) {
+function PublicBookPart(props: PublicBookPartProps) {
 	const { book } = props
 
 	if (book.type !== 'public') {
@@ -34,6 +34,6 @@
 			/>
 		</MediaContentWrapper>
 	)
-}*/
+}
 
-// export default PublicBookPart
+export default PublicBookPart

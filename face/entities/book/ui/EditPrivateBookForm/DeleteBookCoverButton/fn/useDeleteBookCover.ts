@@ -1,13 +1,10 @@
-// import { useContext, useCallback, useMemo, useState } from 'react'
-// import { BooksService } from '@/entities/book/BooksService'
-// import { BooksApi } from '@/entities/book/repository/BooksApi'
-// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { useContext, useCallback, useState } from 'react'
+import { booksService } from '@/entities/book/BooksService'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-/*export function useDeleteBookCover(bookId: number) {
+export function useDeleteBookCover(bookId: number) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-
-	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
 
 	const onDeleteClick = useCallback(async () => {
 		setStatus('loading')
@@ -33,4 +30,4 @@
 		status,
 		onDeleteClick,
 	}
-}*/
+}

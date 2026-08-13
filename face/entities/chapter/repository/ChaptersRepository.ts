@@ -2,12 +2,12 @@ import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 
 // Реэкспорт для обратной совместимости
-/*export type {
+export type {
 	SentenceTranslationModel,
 	SentencePhraseTranslationExampleModel,
 	SentencePhraseTranslationModel,
 	SentenceModel,
-} from '@/entities/media/repository/SentenceTypes'*/
+} from '@/entities/media/repository/SentenceTypes'
 
 /**
  * Унифицированный тип главы книги (лайт-версия, без контента).

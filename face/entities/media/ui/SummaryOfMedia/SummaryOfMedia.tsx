@@ -1,10 +1,10 @@
-// import './SummaryOfMedia.scss'
+import './SummaryOfMedia.scss'
 
-/*type SummaryOfTheMediaProps = {
+type SummaryOfTheMediaProps = {
 	text: string
-}*/
+}
 
-/*export function SummaryOfMedia(props: SummaryOfTheMediaProps) {
+export function SummaryOfMedia(props: SummaryOfTheMediaProps) {
 	const { text } = props
 
 	const paragraphs = text.split(/\r?\n+/).filter((paragraph) => paragraph.trim().length)
@@ -16,4 +16,4 @@
 			))}
 		</div>
 	)
-}*/
+}

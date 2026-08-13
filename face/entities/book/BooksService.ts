@@ -54,9 +54,9 @@ export class BooksService {
 	}
 
 	/** Получить одну книгу по ID. null — книга не найдена. */
-	/*async getBook(id: number): Promise<ApiResult<null | BookModel>> {
+	async getBook(id: number): Promise<ApiResult<null | BookModel>> {
 		return this.booksRepository.getBook(id)
-	}*/
+	}
 
 	/** Создать приватную книгу с пустой первой главой */
 	async createBook(input: CreateBookInput): Promise<ApiResult<BookModel>> {
@@ -64,20 +64,20 @@ export class BooksService {
 	}
 
 	/** Удалить личную книгу */
-	/*async deleteBook(id: number): Promise<ApiResult<void>> {
+	async deleteBook(id: number): Promise<ApiResult<void>> {
 		return this.booksRepository.deleteBook(id)
-	}*/
+	}
 
 	/** Обновить приватную книгу */
-	/*async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
+	async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
 		return this.booksRepository.updateBook(id, input)
-	}*/
+	}
 
 	/**
 	 * Запросить pre-signed URL для загрузки обложки.
 	 * Обновляет метаданные обложки в книге и возвращает URL для загрузки файла в S3.
 	 */
-	/*async requestCoverUploadUrl(
+	async requestCoverUploadUrl(
 		bookId: number,
 		fileName: string,
 		fileMimeType: string,
@@ -88,15 +88,15 @@ export class BooksService {
 			fileMimeType: fileMimeType,
 			languageCode: languageCode,
 		})
-	}*/
+	}
 
 	/** Подтвердить завершение загрузки обложки */
-	/*async confirmCoverUpload(bookId: number, languageCode: string | null): Promise<ApiResult<BookModel>> {
+	async confirmCoverUpload(bookId: number, languageCode: string | null): Promise<ApiResult<BookModel>> {
 		return this.booksRepository.updateBook(bookId, {
 			isCoverFileUploaded: true,
 			languageCode: languageCode,
 		})
-	}*/
+	}
 }
 
 export const booksService = new BooksService(new BooksApi())

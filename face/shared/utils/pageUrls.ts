@@ -56,10 +56,12 @@ export const pageUrls = {
 	youtube: {
 		name: 'YouTube',
 		path: '/youtube',
-		video(videoId: string | number) {
+		video(videoId: string | number, withDetails?: boolean) {
+			const detailsParam = withDetails ? '?details' : ''
+
 			return {
 				name: 'Видео',
-				path: '/youtube/' + videoId,
+				path: '/youtube/' + videoId + detailsParam,
 			}
 		},
 	},

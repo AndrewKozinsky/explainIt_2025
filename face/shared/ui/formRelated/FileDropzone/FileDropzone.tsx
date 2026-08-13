@@ -6,6 +6,7 @@ import { FileDropzoneStatus, useFileDropzone } from './fn/useFileDropzone'
 import './FileDropzone.scss'
 
 export type FileDropzoneProps = {
+	block?: boolean
 	label: string
 	accept: Record<string, string[]>
 	supportedFormatsStr: string
@@ -15,7 +16,7 @@ export type FileDropzoneProps = {
 }
 
 function FileDropzone(props: FileDropzoneProps) {
-	const { label, accept, supportedFormatsStr, visible, onGetUploadUrl, onUploadComplete } = props
+	const { block, label, accept, supportedFormatsStr, visible, onGetUploadUrl, onUploadComplete } = props
 
 	const { getRootProps, getInputProps, inputStatus, uploadedBytes, totalBytes, fileName } = useFileDropzone({
 		accept,
@@ -34,7 +35,7 @@ function FileDropzone(props: FileDropzoneProps) {
 		inputStatus === FileDropzoneStatus.FILE_UPLOADING || inputStatus === FileDropzoneStatus.FILE_SELECTED
 
 	return (
-		<LabelWithField label={label}>
+		<LabelWithField label={label} block={block}>
 			<div {...getRootProps()} className='file-dropzone__wrapper'>
 				<input {...getInputProps()} />
 				{isIdleStatus && <ContentIdle supportedFormatsStr={supportedFormatsStr} />}

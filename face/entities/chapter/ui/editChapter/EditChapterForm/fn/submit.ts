@@ -1,12 +1,11 @@
-// import { useCallback, useMemo } from 'react'
-// import { UseFormReset } from 'react-hook-form'
-// import { ChaptersService } from '@/entities/chapter/ChaptersService'
-// import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
-// import type { UpdateChapterInput } from '@/entities/chapter/repository/ChaptersRepository'
-// import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
-// import { ChangeChapterFormData } from './form'
+import { useCallback } from 'react'
+import { UseFormReset } from 'react-hook-form'
+import { chaptersService } from '@/entities/chapter/ChaptersService'
+import type { UpdateChapterInput } from '@/entities/chapter/repository/ChaptersRepository'
+import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+import { ChangeChapterFormData } from './form'
 
-/*export function useGetOnUpdateChapterFormSubmit(
+export function useGetOnUpdateChapterFormSubmit(
 	chapterId: number,
 	resetForm: UseFormReset<ChangeChapterFormData>,
 	onChapterUpdated: () => void,
@@ -14,8 +13,6 @@
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const chaptersService = useMemo(() => new ChaptersService(new ChaptersApi()), [])
-
 	return useCallback(
 		async function (formData: ChangeChapterFormData) {
 			setFormError(null)
@@ -45,6 +42,6 @@
 				setFormStatus('idle')
 			}
 		},
-		[chapterId, chaptersService, resetForm, onChapterUpdated, setFieldError, setFormError, setFormStatus],
+		[chapterId, resetForm, onChapterUpdated, setFieldError, setFormError, setFormStatus],
 	)
-}*/
+}

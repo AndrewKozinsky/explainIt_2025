@@ -1,5 +1,3 @@
-// 'use client'
-
 import { useQuery } from '@tanstack/react-query'
 import { videoQueries } from '@/entities/video/VideosQueryFacade'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'

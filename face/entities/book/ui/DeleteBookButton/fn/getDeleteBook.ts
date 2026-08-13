@@ -1,16 +1,14 @@
-// import { useCallback, useContext, useMemo, useState } from 'react'
-// import { BooksService } from '@/entities/book/BooksService'
-// import { BooksApi } from '@/entities/book/repository/BooksApi'
-// import { useRouter } from '@/i18n/routing'
-// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-// import { pageUrls } from '@/shared/utils/pageUrls'
+import { useCallback, useContext, useMemo, useState } from 'react'
+import { booksService, BooksService } from '@/entities/book/BooksService'
+import { BooksApi } from '@/entities/book/repository/BooksApi'
+import { useRouter } from '@/i18n/routing'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
-/*export function useGetDeleteBook(bookId: number) {
+export function useGetDeleteBook(bookId: number) {
 	const { notify } = useContext(NotificationContext)
 	const router = useRouter()
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-
-	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
 
 	const onDeleteBookClick = useCallback(
 		async function () {
@@ -37,4 +35,4 @@
 		status,
 		onDeleteBookClick,
 	}
-}*/
+}

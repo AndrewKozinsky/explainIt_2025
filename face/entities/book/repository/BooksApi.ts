@@ -35,21 +35,23 @@ export class BooksApi implements BooksRepository {
 		)
 	}
 
-	/*async getBook(id: number): Promise<ApiResult<null | BookModel>> {
+	async getBook(id: number): Promise<ApiResult<null | BookModel>> {
 		return executeApiCall(
 			() => bookControllerGetBook(id),
 			(data) => (data === null ? null : mapToBook(data)),
 		)
-	}*/
-	/*async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
+	}
+
+	async updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>> {
 		return executeApiCall(
 			() => bookControllerUpdateBook(id, input as unknown as OrvalUpdateBookInput),
 			(data) => mapToBook(data),
 		)
-	}*/
-	/*async deleteBook(id: number): Promise<ApiResult<void>> {
+	}
+
+	async deleteBook(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => bookControllerDeleteBook(id))
-	}*/
+	}
 }
 
 function mapToBook(raw: BookOutModel): BookModel {

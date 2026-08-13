@@ -1,8 +1,8 @@
-// import { bookConfig } from '@/entities/book/lib/bookConfig'
-// import { BookModel } from '@/entities/book/repository/BooksRepository'
-// import { pageUrls } from '@/shared/utils/pageUrls'
+import { bookConfig } from '@/entities/book/lib/bookConfig'
+import { BookModel } from '@/entities/book/repository/BooksRepository'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
-/*export function getBookChaptersLinksConfig(book: BookModel) {
+export function getBookChaptersLinksConfig(book: BookModel) {
 	return book.chapters.map((chapter) => {
 		return {
 			name: chapter.header || chapter.name || bookConfig.emptyChapterName,
@@ -10,4 +10,4 @@
 			href: pageUrls.books.book(book.id).chapter(chapter.id).path,
 		}
 	})
-}*/
+}
