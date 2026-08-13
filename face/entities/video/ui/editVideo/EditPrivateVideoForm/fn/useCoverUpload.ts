@@ -1,11 +1,8 @@
-// import { useCallback, useMemo } from 'react'
-// import { VideosApi } from '@/entities/video/repository/VideosApi'
-// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-// import { VideosService } from '@/entities/video/VideosService'
+import { useCallback } from 'react'
+import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+import { videosService } from '@/entities/video/VideosService'
 
-/*export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
-
+export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
 			const result = await videosService.updateVideo(videoId, {
@@ -21,7 +18,7 @@
 
 			return result.data.uploadCoverUrl
 		},
-		[videoId, videosService, onCoverUpdated],
+		[videoId, onCoverUpdated],
 	)
 
 	const onUploadComplete = useCallback(
@@ -34,8 +31,8 @@
 				onCoverUpdated(result.data)
 			}
 		},
-		[videoId, videosService, onCoverUpdated],
+		[videoId, onCoverUpdated],
 	)
 
 	return { onGetUploadUrl, onUploadComplete }
-}*/
+}

@@ -1,16 +1,16 @@
-// import React from 'react'
-// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-// import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
-// import { useCoverUpload } from './fn/useCoverUpload'
+import React from 'react'
+import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
+import { useCoverUpload } from './fn/useCoverUpload'
 
-/*type VideoCoverDropzoneProps = {
+type VideoCoverDropzoneProps = {
 	videoId: number
 	isCoverFileUploaded: boolean | null
 	onCoverUpdated: (video: VideoLiteModel) => void
-}*/
+}
 
 /** Поддерживаемые форматы файлов обложки */
-/*const supportedCoverFormats = {
+const supportedCoverFormats = {
 	accept: {
 		'image/jpeg': ['.jpg', '.jpeg'],
 		'image/png': ['.png'],
@@ -18,9 +18,9 @@
 		'image/avif': ['.avif'],
 	},
 	description: 'JPG, JPEG, PNG, WebP, AVIF',
-}*/
+}
 
-/*function VideoCoverDropzone(props: VideoCoverDropzoneProps) {
+function VideoCoverDropzone(props: VideoCoverDropzoneProps) {
 	const { videoId, isCoverFileUploaded, onCoverUpdated } = props
 
 	const { onGetUploadUrl, onUploadComplete } = useCoverUpload(videoId, onCoverUpdated)
@@ -35,6 +35,6 @@
 			onUploadComplete={onUploadComplete}
 		/>
 	)
-}*/
+}
 
-// export default VideoCoverDropzone
+export default VideoCoverDropzone

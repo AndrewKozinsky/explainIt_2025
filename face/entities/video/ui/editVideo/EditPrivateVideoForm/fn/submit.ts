@@ -1,11 +1,10 @@
-// import { useCallback, useMemo } from 'react'
-// import { VideosApi } from '@/entities/video/repository/VideosApi'
-// import type { UpdateVideoInput } from '@/entities/video/repository/VideosRepository'
-// import { VideosService } from '@/entities/video/VideosService'
-// import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
-// import { EditPrivateVideoFormData } from './form'
+import { useCallback } from 'react'
+import type { UpdateVideoInput } from '@/entities/video/repository/VideosRepository'
+import { videosService } from '@/entities/video/VideosService'
+import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+import { EditPrivateVideoFormData } from './form'
 
-/*export function useGetOnUpdateVideoFormSubmit(
+export function useGetOnUpdateVideoFormSubmit(
 	videoId: number,
 	reset: (formData: EditPrivateVideoFormData) => void,
 	onSaved: () => void,
@@ -13,8 +12,6 @@
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
-
 	return useCallback(
 		async function (formData: EditPrivateVideoFormData) {
 			setFormError(null)
@@ -46,6 +43,6 @@
 				setFormStatus('idle')
 			}
 		},
-		[videoId, videosService, reset, onSaved, setFieldError, setFormError, setFormStatus],
+		[videoId, reset, onSaved, setFieldError, setFormError, setFormStatus],
 	)
-}*/
+}

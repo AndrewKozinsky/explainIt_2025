@@ -13,7 +13,6 @@ type VideoRootProps = {
 async function VideoPage(props: VideoRootProps) {
 	/*const { videoId } = props
 
-	const videosService = new VideosService(new VideosApi())
 	const { error: videoError, data: videoData } = await videosService.getVideo(videoId)
 
 	if (videoError) {

@@ -1,16 +1,16 @@
-// import React from 'react'
-// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-// import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
-// import DeleteVideoCoverButton from './DeleteVideoCoverButton/DeleteVideoCoverButton'
-// import './VideoCoverPreview.scss'
+import React from 'react'
+import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
+import DeleteVideoCoverButton from './DeleteVideoCoverButton/DeleteVideoCoverButton'
+import './VideoCoverPreview.scss'
 
-/*type VideoCoverPreviewProps = {
+type VideoCoverPreviewProps = {
 	coverUrl: string
 	videoId: number
 	onCoverUpdated: (video: VideoLiteModel) => void
-}*/
+}
 
-/*function VideoCoverPreview(props: VideoCoverPreviewProps) {
+function VideoCoverPreview(props: VideoCoverPreviewProps) {
 	const { coverUrl, videoId, onCoverUpdated } = props
 
 	const style = coverUrl ? { backgroundImage: `url(${coverUrl})` } : undefined
@@ -22,6 +22,6 @@
 			</div>
 		</LabelWithField>
 	)
-}*/
+}
 
-// export default React.memo(VideoCoverPreview)
+export default React.memo(VideoCoverPreview)

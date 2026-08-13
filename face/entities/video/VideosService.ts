@@ -1,21 +1,21 @@
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { VideosApi } from './repository/VideosApi'
 import type {
-	// 	VideoModel,
+	VideoModel,
 	VideoLiteModel,
-	// 	SubtitlesStatusModel,
+	SubtitlesStatusModel,
 	VideosRepository,
 	CreateVideoInput,
-	// 	UpdateVideoInput,
+	UpdateVideoInput,
 } from './repository/VideosRepository'
 //
 export type {
-	// 	VideoModel,
+	VideoModel,
 	VideoLiteModel,
-	// 	SubtitlesStatusModel,
+	SubtitlesStatusModel,
 	VideosRepository,
 	CreateVideoInput,
-	// 	UpdateVideoInput,
+	UpdateVideoInput,
 } from './repository/VideosRepository'
 
 /**
@@ -68,9 +68,9 @@ export class VideosService {
 	}
 
 	/** Получить полные данные видео (с субтитрами) */
-	/*async getVideo(id: string | number): Promise<ApiResult<VideoModel>> {
+	async getVideo(id: string | number): Promise<ApiResult<VideoModel>> {
 		return this.videosRepository.getVideo(id)
-	}*/
+	}
 
 	/** Создать новое видео в коллекции */
 	async createVideo(input: CreateVideoInput): Promise<ApiResult<VideoLiteModel>> {
@@ -78,30 +78,30 @@ export class VideosService {
 	}
 
 	/** Обновить видео */
-	/*async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
+	async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
 		return this.videosRepository.updateVideo(id, input)
-	}*/
+	}
 
 	/** Удалить видео */
-	/*async deleteVideo(id: number): Promise<ApiResult<void>> {
+	async deleteVideo(id: number): Promise<ApiResult<void>> {
 		return this.videosRepository.deleteVideo(id)
-	}*/
+	}
 
 	/** Запустить генерацию субтитров */
-	/*async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+	async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
 		return this.videosRepository.generateSubtitles(id)
-	}*/
+	}
 
 	/** Получить статус генерации субтитров */
-	/*async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+	async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
 		return this.videosRepository.getSubtitlesStatus(id)
-	}*/
+	}
 
 	/**
 	 * Запросить pre-signed URL для загрузки видео-файла.
 	 * Обновляет метаданные файла и возвращает URL для загрузки в S3.
 	 */
-	/*async requestVideoUploadUrl(
+	async requestVideoUploadUrl(
 		videoId: number,
 		fileName: string,
 		fileMimeType: string,
@@ -114,15 +114,15 @@ export class VideosService {
 			fileSizeMb: fileSizeMb,
 			fileDurationSec: fileDurationSec,
 		})
-	}*/
+	}
 
 	/** Подтвердить завершение загрузки видео-файла */
-	/*async confirmVideoUpload(videoId: number, fileDurationSec: number): Promise<ApiResult<VideoLiteModel>> {
+	async confirmVideoUpload(videoId: number, fileDurationSec: number): Promise<ApiResult<VideoLiteModel>> {
 		return this.videosRepository.updateVideo(videoId, {
 			isFileUploaded: true,
 			fileDurationSec: fileDurationSec,
 		})
-	}*/
+	}
 }
 
 /** Готовый экземпляр сервиса с реальным API */

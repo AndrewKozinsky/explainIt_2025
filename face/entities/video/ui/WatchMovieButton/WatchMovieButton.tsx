@@ -1,13 +1,13 @@
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { useGetOnWatchButtonClick, useIsWatchButtonDisabled } from './fn/buttonLogic'
 
-/*type WatchVideoButtonProps = {
+type WatchVideoButtonProps = {
 	videoId: number
 	hasContent?: boolean
 	hasFile?: boolean
-}*/
+}
 
-/*function WatchVideoButton(props: WatchVideoButtonProps) {
+function WatchVideoButton(props: WatchVideoButtonProps) {
 	const { videoId, hasContent, hasFile } = props
 
 	const isButtonDisabled = useIsWatchButtonDisabled(hasContent, hasFile)
@@ -18,6 +18,6 @@
 			Смотреть
 		</Button>
 	)
-}*/
+}
 
-// export default WatchVideoButton
+export default WatchVideoButton

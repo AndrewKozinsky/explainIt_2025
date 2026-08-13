@@ -1,13 +1,13 @@
-// import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
-// import { useGetDeleteVideo } from './fn/getDeleteVideo'
+import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+import { useGetDeleteVideo } from './fn/getDeleteVideo'
 
-/*type DeleteVideoButtonProps = {
+type DeleteVideoButtonProps = {
 	videoId: number
 	onVideoDeleted: () => void
-}*/
+}
 
-/*function DeleteVideoButton(props: DeleteVideoButtonProps) {
+function DeleteVideoButton(props: DeleteVideoButtonProps) {
 	const { videoId, onVideoDeleted } = props
 
 	const { status, onDeleteClick } = useGetDeleteVideo(videoId, onVideoDeleted)
@@ -25,6 +25,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteVideoButton
+export default DeleteVideoButton

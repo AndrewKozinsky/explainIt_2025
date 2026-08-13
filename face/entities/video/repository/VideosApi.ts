@@ -1,18 +1,18 @@
 import type {
 	CreateVideoOutModel,
-	// 	UpdateVideoOutModel,
-	// 	VideoSubtitlesStatusOutModel,
+	UpdateVideoOutModel,
+	VideoSubtitlesStatusOutModel,
 	CreateVideoInput as OrvalCreateVideoInput,
-	// 	UpdateVideoInput as OrvalUpdateVideoInput,
+	UpdateVideoInput as OrvalUpdateVideoInput,
 } from '@/shared/api/generated/models'
 import {
 	videoControllerGetVideos,
-	// 	videoControllerGetVideo,
+	videoControllerGetVideo,
 	videoControllerCreateVideo,
-	// 	videoControllerUpdateVideo,
-	// 	videoControllerDeleteVideo,
-	// 	videoControllerGenerateSubtitles,
-	// 	videoControllerGetSubtitlesStatus,
+	videoControllerUpdateVideo,
+	videoControllerDeleteVideo,
+	videoControllerGenerateSubtitles,
+	videoControllerGetSubtitlesStatus,
 } from '@/shared/api/generated/video/video'
 import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
@@ -21,14 +21,14 @@ import { LanguageCode } from '@/shared/utils/languages'
 import {
 	mapType,
 	mapContentType,
-	// 	mapSubtitlesSource,
+	mapSubtitlesSource,
 	mapProficiencyLevel,
 	mapToVideoLite,
 	mapVideoOutModelToVideoModel,
 } from '../lib/mappers'
 import type { VideosRepository, CreateVideoInput, UpdateVideoInput } from './VideosRepository'
 import type { VideoLiteModel, VideoModel, SubtitlesStatusModel } from '../lib/types'
-// import type { SubtitlesStatusModelType } from '../lib/types'
+import type { SubtitlesStatusModelType } from '../lib/types'
 
 /**
  * Реализация VideosRepository через REST API.
@@ -42,12 +42,12 @@ export class VideosApi implements VideosRepository {
 		)
 	}
 
-	/*async getVideo(id: number): Promise<ApiResult<VideoModel>> {
+	async getVideo(id: number): Promise<ApiResult<VideoModel>> {
 		return executeApiCall(
 			() => videoControllerGetVideo(id),
 			(data) => mapVideoOutModelToVideoModel(data),
 		)
-	}*/
+	}
 
 	async createVideo(input: CreateVideoInput): Promise<ApiResult<VideoLiteModel>> {
 		return executeApiCall(
@@ -56,30 +56,30 @@ export class VideosApi implements VideosRepository {
 		)
 	}
 
-	/*async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
+	async updateVideo(id: number, input: UpdateVideoInput): Promise<ApiResult<VideoLiteModel>> {
 		return executeApiCall(
 			() => videoControllerUpdateVideo(id, input as unknown as OrvalUpdateVideoInput),
 			(data) => mapUpdateVideoOutToVideoLite(data),
 		)
-	}*/
+	}
 
-	/*async deleteVideo(id: number): Promise<ApiResult<void>> {
+	async deleteVideo(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => videoControllerDeleteVideo(id))
-	}*/
+	}
 
-	/*async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+	async generateSubtitles(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
 		return executeApiCall(
 			() => videoControllerGenerateSubtitles(id),
 			(data) => mapToSubtitlesStatus(data),
 		)
-	}*/
+	}
 
-	/*async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
+	async getSubtitlesStatus(id: number): Promise<ApiResult<SubtitlesStatusModel>> {
 		return executeApiCall(
 			() => videoControllerGetSubtitlesStatus(id),
 			(data) => mapToSubtitlesStatus(data),
 		)
-	}*/
+	}
 }
 
 // ─── Приватные мапперы ─────────────────────────────────────────────────────
@@ -117,7 +117,7 @@ function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel 
 	}
 }
 
-/*function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel {
+function mapUpdateVideoOutToVideoLite(raw: UpdateVideoOutModel): VideoLiteModel {
 	return {
 		id: raw.id,
 		type: 'private',
@@ -135,7 +135,8 @@ function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel 
 		isFileUploaded: null,
 		fileSizeMb: extractNumber(raw.fileSizeMb),
 		duration: null,
-		fileDurationSec: extractNumber(raw.fileDurationSec),
+		durationSeconds: extractNumber(raw.durationSec)!,
+		topic: raw.topic,
 		userId: extractNumber(raw.userId),
 		coverFileName: null,
 		coverFileS3Key: null,
@@ -147,9 +148,9 @@ function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel 
 		subtitlesErrorCode: null,
 		ratio: null,
 	}
-}*/
+}
 
-/*function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatusModel {
+function mapToSubtitlesStatus(raw: VideoSubtitlesStatusOutModel): SubtitlesStatusModel {
 	return {
 		videoId: raw.videoId,
 		source: mapSubtitlesSource(extractString(raw.source)),
@@ -157,4 +158,4 @@ function mapCreateVideoOutToVideoLite(raw: CreateVideoOutModel): VideoLiteModel 
 		errorCode: extractString(raw.errorCode),
 		jobId: extractString(raw.jobId),
 	}
-}*/
+}

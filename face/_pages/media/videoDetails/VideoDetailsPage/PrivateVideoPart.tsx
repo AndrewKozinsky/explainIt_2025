@@ -1,24 +1,21 @@
-// 'use client'
+'use client'
 
-// import { useState, useMemo, useCallback } from 'react'
-// import { redirect } from 'next/navigation'
-// import { useLocale } from 'next-intl'
-// import { VideosApi } from '@/entities/video/repository/VideosApi'
-// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-// import EditPrivateVideoForm from '@/entities/video/ui/editVideo/EditPrivateVideoForm/EditPrivateVideoForm'
-// import { VideosService } from '@/entities/video/VideosService'
-// import { localizePath, pageUrls } from '@/shared/utils/pageUrls'
+import { useState, useCallback } from 'react'
+import { redirect } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+import EditPrivateVideoForm from '@/entities/video/ui/editVideo/EditPrivateVideoForm/EditPrivateVideoForm'
+import { videosService } from '@/entities/video/VideosService'
+import { localizePath, pageUrls } from '@/shared/utils/pageUrls'
 
-/*type PrivateVideoPartProps = {
+type PrivateVideoPartProps = {
 	video: VideoLiteModel
-}*/
+}
 
-/*export default function PrivateVideoPart(props: PrivateVideoPartProps) {
+export default function PrivateVideoPart(props: PrivateVideoPartProps) {
 	const { video: initialVideo } = props
 	const locale = useLocale()
 	const [currentVideo, setCurrentVideo] = useState<VideoLiteModel>(initialVideo)
-
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	const handleVideoUpdated = useCallback(
 		async function () {
@@ -62,4 +59,4 @@
 			onVideoDeleted={handleVideoDeleted}
 		/>
 	)
-}*/
+}

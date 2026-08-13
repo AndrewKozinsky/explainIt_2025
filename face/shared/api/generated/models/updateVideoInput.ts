@@ -44,4 +44,22 @@ export interface UpdateVideoInput {
   coverFileMimeType?: string | null;
   /** Is cover file was uploaded */
   isCoverFileUploaded?: boolean | null;
+  /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
+  subtitlesSource?: string | null;
+  /** Status of subtitles processing */
+  subtitlesStatus?: string | null;
+  /**
+     * Machine-readable error code if status is failed
+     * @maxLength 200
+     */
+  subtitlesErrorCode?: string | null;
+  /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
+  proficiencyLevel?: number | null;
+  /**
+     * Predefined topic category (e.g. Travel & Geography)
+     * @maxLength 100
+     */
+  topic?: string | null;
+  /** How suitable the video is for language learners (1-10) */
+  learnabilityScore?: number | null;
 }

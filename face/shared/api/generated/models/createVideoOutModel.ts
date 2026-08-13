@@ -29,9 +29,9 @@ export interface CreateVideoOutModel {
   /** User ID */
   userId: number;
   /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
-  subtitlesSource: string;
+  subtitlesSource?: string | null;
   /** Status of subtitles processing */
-  subtitlesStatus: string;
+  subtitlesStatus?: string | null;
   /**
      * Machine-readable error code if status is failed
      * @maxLength 200

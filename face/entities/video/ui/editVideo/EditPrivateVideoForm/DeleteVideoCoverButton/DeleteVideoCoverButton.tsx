@@ -1,14 +1,14 @@
-// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-// import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
-// import { useDeleteVideoCover } from './useDeleteVideoCover'
+import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+import { useDeleteVideoCover } from './useDeleteVideoCover'
 
-/*type DeleteVideoCoverButtonProps = {
+type DeleteVideoCoverButtonProps = {
 	videoId: number
 	onDeleted: (video: VideoLiteModel) => void
-}*/
+}
 
-/*function DeleteVideoCoverButton(props: DeleteVideoCoverButtonProps) {
+function DeleteVideoCoverButton(props: DeleteVideoCoverButtonProps) {
 	const { videoId, onDeleted } = props
 
 	const { status, onDeleteClick } = useDeleteVideoCover(videoId, onDeleted)
@@ -25,6 +25,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteVideoCoverButton
+export default DeleteVideoCoverButton

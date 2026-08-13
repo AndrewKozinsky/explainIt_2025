@@ -60,7 +60,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 			mediaNavigation={mediaNavigation}
 		/>
 	)*/
-	return null
+	return <p>123</p>
 }
 
 export default ChapterRoot

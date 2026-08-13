@@ -1,4 +1,4 @@
-/*export function getButtonText(status: string | null): string {
+export function getButtonText(status: string | null): string {
 	if (status === 'pending') {
 		return 'Ожидает обработки'
 	}
@@ -16,4 +16,4 @@
 	}
 
 	return 'Сгенерировать субтитры'
-}*/
+}

@@ -1,16 +1,14 @@
-// import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-// import { VideosApi } from '@/entities/video/repository/VideosApi'
-// import { VideosService } from '@/entities/video/VideosService'
-// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { VideosApi } from '@/entities/video/repository/VideosApi'
+import { videosService, VideosService } from '@/entities/video/VideosService'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-/*export function useGenerateSubtitles(videoId: number) {
+export function useGenerateSubtitles(videoId: number) {
 	const { notify } = useContext(NotificationContext)
 	const [isPolling, setIsPolling] = useState(false)
 	const [status, setStatus] = useState<string | null>(null)
 	const [generationError, setGenerationError] = useState<string | null>(null)
 	const [isGenerating, setIsGenerating] = useState(false)
-
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	// Poll subtitles status
 	useEffect(
@@ -39,7 +37,7 @@
 				clearInterval(interval)
 			}
 		},
-		[isPolling, videoId, videosService],
+		[isPolling, videoId],
 	)
 
 	const generate = useCallback(
@@ -73,7 +71,7 @@
 				setIsGenerating(false)
 			}
 		},
-		[videoId, videosService, notify],
+		[videoId, notify],
 	)
 
 	return {
@@ -82,4 +80,4 @@
 		isGenerating,
 		generate,
 	}
-}*/
+}

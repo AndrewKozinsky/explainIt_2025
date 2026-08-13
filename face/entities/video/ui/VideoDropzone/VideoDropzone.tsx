@@ -1,23 +1,20 @@
-// import { useRef, useContext, useCallback, useMemo } from 'react'
-// import { VideosApi } from '@/entities/video/repository/VideosApi'
-// import { VideosService } from '@/entities/video/VideosService'
-// import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
-// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-// import { getVideoDurationSec } from '@/shared/utils/getVideoDurationSec'
+import { useRef, useContext, useCallback } from 'react'
+import { videosService, VideosService } from '@/entities/video/VideosService'
+import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { getVideoDurationSec } from '@/shared/utils/getVideoDurationSec'
 
-/*type VideoDropzoneProps = {
+type VideoDropzoneProps = {
 	videoId: number
 	isFileUploaded: boolean | null
 	onFileUpdated: () => void
-}*/
+}
 
-/*function VideoDropzone(props: VideoDropzoneProps) {
+function VideoDropzone(props: VideoDropzoneProps) {
 	const { videoId, isFileUploaded, onFileUpdated } = props
 
 	const { notify } = useContext(NotificationContext)
 	const fileDurationSecRef = useRef<number>(0)
-
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
@@ -49,7 +46,7 @@
 			// Pre-signed URL comes back as fileUrl from the update response
 			return result.data.fileUrl
 		},
-		[videoId, videosService, notify],
+		[videoId, notify],
 	)
 
 	const onUploadComplete = useCallback(
@@ -57,7 +54,7 @@
 			await videosService.confirmVideoUpload(videoId, fileDurationSecRef.current)
 			onFileUpdated()
 		},
-		[videoId, videosService, onFileUpdated],
+		[videoId, onFileUpdated],
 	)
 
 	return (
@@ -70,6 +67,6 @@
 			onUploadComplete={onUploadComplete}
 		/>
 	)
-}*/
+}
 
-// export default VideoDropzone
+export default VideoDropzone
