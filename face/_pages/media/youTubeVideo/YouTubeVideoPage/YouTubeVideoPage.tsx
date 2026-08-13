@@ -1,8 +1,8 @@
 'use client'
 
-// import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import { pageUrls } from '@/shared/utils/pageUrls'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { getHeader } from './fn/getHeader'
 import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
@@ -29,7 +29,7 @@ function YouTubeVideoPage(props: VideoRootProps) {
 
 	const { header } = getHeader(video)
 
-	/*return (
+	return (
 		<MediaPageClient
 			breadCrumbsConfig={[pageUrls.youtube]}
 			header={header}
@@ -56,8 +56,7 @@ function YouTubeVideoPage(props: VideoRootProps) {
 				sentences: video.plainSentences,
 			}}
 		/>
-	)*/
-	return null
+	)
 }
 
 export default YouTubeVideoPage

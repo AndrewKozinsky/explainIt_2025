@@ -2,9 +2,9 @@ import { booksService } from '@/entities/book/BooksService'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 // import { BooksApi } from '@/entities/book/repository/BooksApi'
 // import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
-// import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-// import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
 import { chaptersService } from '@/entities/chapter/ChaptersService'
+import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
@@ -42,7 +42,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 	const breadCrumbsConfig = getChapterBreadCrumbsConfig(bookId.toString(), book.name ?? bookConfig.emptyBookName)
 	const mediaNavigation = getMediaNavigationData(book, chapter)
 
-	/*return (
+	return (
 		<MediaPageClient
 			breadCrumbsConfig={breadCrumbsConfig}
 			header={header}
@@ -57,8 +57,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 			}}
 			mediaNavigation={mediaNavigation}
 		/>
-	)*/
-	return <p>123</p>
+	)
 }
 
 export default ChapterRoot

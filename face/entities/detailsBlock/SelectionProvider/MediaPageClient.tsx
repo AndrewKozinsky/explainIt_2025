@@ -1,10 +1,10 @@
 // 'use client'
 
-// import { cloneElement, useCallback, useState } from 'react'
-// import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
-// import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
-// import DetailsBlock from '../DetailsBlock/DetailsBlock'
-// import type { DetailsBlockMediaMetadata } from '../DetailsBlock/DetailsBlock'
+import { cloneElement, useCallback, useState } from 'react'
+import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
+import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
+import DetailsBlock from '../DetailsBlock/DetailsBlock'
+import type { DetailsBlockMediaMetadata } from '../DetailsBlock/DetailsBlock'
 
 /**
  * Пропсы выделения, которые MediaPageClient пробрасывает в leftBlock.
@@ -17,14 +17,14 @@
 	selectWord?: (input: { sentenceId: number; wordId: number }) => void
 }*/
 
-/*type MediaPageClientProps = {
+type MediaPageClientProps = {
 	breadCrumbsConfig: { name: string; path: string }[]
 	header?: React.ReactNode
 	subHeader?: null | string
 	leftBlock: React.ReactElement
 	mediaNavigation?: React.ComponentProps<typeof MediaNavigation>
 	detailsBlockMetadata: DetailsBlockMediaMetadata
-}*/
+}
 
 /**
  * Клиентская прослойка для страниц медиа:
@@ -35,7 +35,7 @@
  * Серверные страницы (ChapterRoot, VideoPage) передают leftBlock как ReactElement
  * (сериализуемый), а MediaPageClient доинжектит selection-пропсы на клиенте.
  */
-/*export function MediaPageClient(props: MediaPageClientProps) {
+export function MediaPageClient(props: MediaPageClientProps) {
 	const { breadCrumbsConfig, header, subHeader, leftBlock, mediaNavigation, detailsBlockMetadata } = props
 
 	const [selectedSentenceId, setSelectedSentenceId] = useState<number | null>(null)
@@ -68,4 +68,4 @@
 			mediaNavigation={mediaNavigation}
 		/>
 	)
-}*/
+}
