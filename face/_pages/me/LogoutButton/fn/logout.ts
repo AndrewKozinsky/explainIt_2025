@@ -1,14 +1,14 @@
-// 'use client'
+'use client'
 
-// import { useMemo, useCallback } from 'react'
-// import { useRouter } from 'next/navigation'
-// import { useLocale } from 'next-intl'
-// import { AuthService } from '@/entities/auth/AuthService'
-// import { AuthApi } from '@/entities/auth/repository/AuthApi'
-// import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
-// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+import { useMemo, useCallback } from 'react'
+import { useRouter } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
-/*export function useGetLogout() {
+export function useGetLogout() {
 	const router = useRouter()
 	const locale = useLocale()
 
@@ -29,4 +29,4 @@
 		},
 		[logout, router, locale],
 	)
-}*/
+}

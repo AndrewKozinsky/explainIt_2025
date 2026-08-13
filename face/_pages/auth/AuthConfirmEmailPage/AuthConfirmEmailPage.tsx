@@ -1,15 +1,15 @@
-// 'use client'
+'use client'
 
-// import React from 'react'
-// import { redirect } from 'next/navigation'
-// import { useLocale } from 'next-intl'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import Spinner from '@/shared/ui/Spinner/Spinner'
-// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
-// import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
+import React from 'react'
+import { redirect } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Spinner from '@/shared/ui/Spinner/Spinner'
+import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
 
 function AuthConfirmEmailPage() {
-	/*const confirmationStatus = useConfirmEmail()
+	const confirmationStatus = useConfirmEmail()
 	const locale = useLocale()
 
 	const contentMapper: Record<Exclude<ConfirmationStatus, 'success'>, React.ReactNode> = {
@@ -21,8 +21,7 @@ function AuthConfirmEmailPage() {
 		redirect(localizePath(locale, pageUrls.auth.login.path))
 	}
 
-	return contentMapper[confirmationStatus]*/
-	return null
+	return contentMapper[confirmationStatus]
 }
 
 export default AuthConfirmEmailPage

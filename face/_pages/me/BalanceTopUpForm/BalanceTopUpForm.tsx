@@ -1,11 +1,11 @@
-// 'use client'
+'use client'
 
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import FormError from '@/shared/ui/formRelated/FormError/FormError'
-// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-// import { useBalanceTopUpForm } from './fn/useBalanceTopUpForm'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import FormError from '@/shared/ui/formRelated/FormError/FormError'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import { useBalanceTopUpForm } from './fn/useBalanceTopUpForm'
 
-/*function BalanceTopUpForm() {
+function BalanceTopUpForm() {
 	const { amountInRubles, formError, loading, handleSubmit, handleAmountChange } = useBalanceTopUpForm()
 
 	return (
@@ -26,6 +26,6 @@
 			<FormError text={formError} />
 		</form>
 	)
-}*/
+}
 
-// export default BalanceTopUpForm
+export default BalanceTopUpForm

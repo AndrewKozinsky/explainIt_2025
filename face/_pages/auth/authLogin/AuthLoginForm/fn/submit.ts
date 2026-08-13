@@ -1,12 +1,12 @@
-// import { useCallback, useMemo } from 'react'
-// import { AuthService } from '@/entities/auth/AuthService'
-// import { AuthApi } from '@/entities/auth/repository/AuthApi'
-// import { useSetUser } from '@/shared/api/auth/UserProvider'
-// import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
-// import { FormStatus } from '@/shared/utils/forms'
-// import { LoginFormData } from './form'
+import { useCallback, useMemo } from 'react'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { FormStatus } from '@/shared/utils/forms'
+import { LoginFormData } from './form'
 
-/*export function useGetOnLoginFormSubmit(
+export function useGetOnLoginFormSubmit(
 	setFieldError: (field: keyof LoginFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -44,4 +44,4 @@
 		},
 		[loginUser, setUser, setFieldError, setFormError, setFormStatus],
 	)
-}*/
+}

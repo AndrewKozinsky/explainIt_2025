@@ -1,11 +1,11 @@
-// import { useEffect, useMemo, useState } from 'react'
-// import { useSearchParams } from 'next/navigation'
-// import { AuthService } from '@/entities/auth/AuthService'
-// import { AuthApi } from '@/entities/auth/repository/AuthApi'
-// import { useSetUser } from '@/shared/api/auth/UserProvider'
-// import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { useEffect, useMemo, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { AuthService } from '@/entities/auth/AuthService'
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
-/*export function useAuthorizeUser(providerType: string) {
+export function useAuthorizeUser(providerType: string) {
 	const code = useSearchParams().get('code')!
 
 	const setUser = useSetUser()
@@ -36,4 +36,4 @@
 	)
 
 	return { authorizationStatus, error }
-}*/
+}

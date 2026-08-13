@@ -1,19 +1,17 @@
-// 'use client'
+'use client'
 
-// import { useMemo, useState } from 'react'
-// import { PaymentService } from '@/entities/payment/PaymentService'
-// import { PaymentApi } from '@/entities/payment/repository/PaymentApi'
-// import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { useState } from 'react'
+import { paymentService, PaymentService } from '@/entities/payment/PaymentService'
+import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
-// const RUBLES_TO_KOPECKS = 100
+const RUBLES_TO_KOPECKS = 100
 
-/*export function useBalanceTopUpForm() {
+export function useBalanceTopUpForm() {
 	const [amountInRubles, setAmountInRubles] = useState('')
 	const [formError, setFormError] = useState<null | string>(null)
 
-	const service = useMemo(() => new PaymentService(new PaymentApi()), [])
 	const { loading, mutate: topUpBalance } = useAsyncMutation((input: { amountInKopecks: number }) =>
-		service.topUpBalance(input),
+		paymentService.topUpBalance(input),
 	)
 
 	async function handleSubmit(event: React.FormEvent) {
@@ -55,4 +53,4 @@
 		handleSubmit,
 		handleAmountChange,
 	}
-}*/
+}

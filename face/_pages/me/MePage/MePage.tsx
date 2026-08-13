@@ -1,11 +1,11 @@
-// import Header from '@/shared/ui/Header/Header'
-// import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-// import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
-// import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
-// import MePageContent from '_pages/me/MePageContent/MePageContent'
+import Header from '@/shared/ui/Header/Header'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
+import MePageContent from '_pages/me/MePageContent/MePageContent'
 
 function MePage() {
-	/*return (
+	return (
 		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
@@ -13,8 +13,7 @@ function MePage() {
 				<MePageContent />
 			</PageContentWrapper>
 		</PageWrapper>
-	)*/
-	return null
+	)
 }
 
 export default MePage

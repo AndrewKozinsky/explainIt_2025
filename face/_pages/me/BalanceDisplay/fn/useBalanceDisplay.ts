@@ -1,10 +1,10 @@
-// 'use client'
+'use client'
 
-// import { useUser } from '@/shared/api/auth/UserProvider'
+import { useUser } from '@/shared/api/auth/UserProvider'
 
-// const KOPECKS_TO_RUBLES = 100
+const KOPECKS_TO_RUBLES = 100
 
-/*export function useBalanceDisplay() {
+export function useBalanceDisplay() {
 	const user = useUser()
 
 	const balanceInKopecks = user?.balance ?? 0
@@ -26,4 +26,4 @@
 		formattedBalance: formatBalance(),
 		hasUser: !!user,
 	}
-}*/
+}
