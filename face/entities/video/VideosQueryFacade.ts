@@ -12,6 +12,7 @@ import type { VideosService as VideosServiceType } from './VideosService'
 export const videoQueryKeys = {
 	all: ['videos'] as const,
 	list: () => [...videoQueryKeys.all, 'list'] as const,
+	detail: (id: number) => [...videoQueryKeys.all, 'detail', id] as const,
 }
 
 /**
@@ -27,6 +28,13 @@ export class VideosQueryFacade {
 		return queryOptions({
 			queryKey: videoQueryKeys.list(),
 			queryFn: () => unwrapApiResult(this.service.getVideos()),
+		})
+	}
+
+	getVideo(id: number) {
+		return queryOptions({
+			queryKey: videoQueryKeys.detail(id),
+			queryFn: () => unwrapApiResult(this.service.getVideo(id)),
 		})
 	}
 

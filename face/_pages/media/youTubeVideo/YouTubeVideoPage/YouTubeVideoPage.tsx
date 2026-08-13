@@ -1,9 +1,10 @@
-// 'use client'
+'use client'
 
 // import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 // import { pageUrls } from '@/shared/utils/pageUrls'
-// import { getHeader } from './fn/getHeader'
+import { getHeader } from './fn/getHeader'
+import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useYouTubeVideoData } from './fn/useYouTubeVideoData'
 // import YouTubeVideoClientWrapper from './YouTubeVideoClientWrapper'
 
@@ -14,9 +15,11 @@ type VideoRootProps = {
 function YouTubeVideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
-	const { error, video } = useYouTubeVideoData(videoId)
+	const { video, refetch, error } = useYouTubeVideoData(videoId)
 
-	/*if (error) {
+	usePollVideoSubtitlesStatus(video?.subtitlesStatus, refetch)
+
+	if (error) {
 		return <ErrorMessage text={error} />
 	}
 
@@ -24,7 +27,7 @@ function YouTubeVideoPage(props: VideoRootProps) {
 		return null
 	}
 
-	const { header } = getHeader(video)*/
+	const { header } = getHeader(video)
 
 	/*return (
 		<MediaPageClient

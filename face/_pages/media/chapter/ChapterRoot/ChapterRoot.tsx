@@ -1,14 +1,14 @@
-// import { bookConfig } from '@/entities/book/lib/bookConfig'
+import { booksService } from '@/entities/book/BooksService'
+import { bookConfig } from '@/entities/book/lib/bookConfig'
 // import { BooksApi } from '@/entities/book/repository/BooksApi'
-// import { ChaptersService } from '@/entities/chapter/ChaptersService'
 // import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
 // import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
 // import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
-// import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-// import { getMediaNavigationData } from './fn/getMediaNavigationData'
-import { booksService } from '@/entities/book/BooksService'
+import { chaptersService } from '@/entities/chapter/ChaptersService'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
+import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+import { getMediaNavigationData } from './fn/getMediaNavigationData'
 
 type ChapterRootProps = {
 	chapterId: number | string
@@ -20,7 +20,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 
 	const { error: bookError, data: book } = await booksService.getBook(Number(bookId))
 
-	/*const { error: chapterError, data: chapter } = await chaptersService.getChapter(Number(chapterId))
+	const { error: chapterError, data: chapter } = await chaptersService.getChapter(Number(chapterId))
 
 	if (bookError) {
 		return <ErrorMessage text={bookError} />
@@ -40,7 +40,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 
 	const { header, subHeader } = getHeaderAndSubHeader(chapter)
 	const breadCrumbsConfig = getChapterBreadCrumbsConfig(bookId.toString(), book.name ?? bookConfig.emptyBookName)
-	const mediaNavigation = getMediaNavigationData(book, chapter)*/
+	const mediaNavigation = getMediaNavigationData(book, chapter)
 
 	/*return (
 		<MediaPageClient
