@@ -9,7 +9,7 @@ import { Language } from 'utils/languages'
 import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -56,7 +56,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 		private sentenceRepository: SentenceRepository,
 		private subtitleSentenceInitRepository: SubtitleSentenceInitRepository,
 		private dbRepository: DBRepository,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 		mainConfig: MainConfigService,
 		subtitlesService: SubtitlesService,
 	) {
@@ -230,7 +230,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 		// Deleting the cover
 		if (updateVideoInput.coverFileName === null || updateVideoInput.isCoverFileUploaded === false) {
 			if (videoForUpdating.isCoverFileUploaded && videoForUpdating.coverFileS3Key) {
-				await this.cloudRuS3Service.deleteFile(videoForUpdating.coverFileS3Key)
+				await this.cloudflareS3Service.deleteFile(videoForUpdating.coverFileS3Key)
 			}
 
 			return {
@@ -258,7 +258,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 			!videoForUpdating.isCoverFileUploaded
 		) {
 			const s3FileKey = this.createCoverFileUrl(updateVideoInput.coverFileName, videoForUpdating.type)
-			const uploadCoverUrl = await this.cloudRuS3Service.createUploadUrl(
+			const uploadCoverUrl = await this.cloudflareS3Service.createUploadUrl(
 				s3FileKey,
 				updateVideoInput.coverFileMimeType,
 			)
@@ -298,7 +298,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 	}> {
 		if (updateVideoInput.fileName === null || updateVideoInput.isFileUploaded === false) {
 			if (videoForUpdating.isFileUploaded && videoForUpdating.fileS3Key) {
-				await this.cloudRuS3Service.deleteFile(videoForUpdating.fileS3Key)
+				await this.cloudflareS3Service.deleteFile(videoForUpdating.fileS3Key)
 			}
 
 			return {
@@ -325,7 +325,7 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 					fileMimeType: updateVideoInput.fileMimeType,
 					fileDestinationType: 'video',
 				},
-				this.cloudRuS3Service,
+				this.cloudflareS3Service,
 			)
 
 			return {

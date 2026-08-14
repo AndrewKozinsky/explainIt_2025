@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoRepository } from 'repo/video/video.repository'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -20,7 +20,7 @@ export class DeletePrivateVideoCommand implements ICommand {
 export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateVideoCommand> {
 	constructor(
 		private videoRepository: VideoRepository,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 	) {}
 
 	async execute(command: DeletePrivateVideoCommand) {
@@ -37,7 +37,7 @@ export class DeletePrivateVideoHandler implements ICommandHandler<DeletePrivateV
 
 		if (video.fileS3Key) {
 			try {
-				await this.cloudRuS3Service.deleteFile(video.fileS3Key)
+				await this.cloudflareS3Service.deleteFile(video.fileS3Key)
 			} catch {
 				throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 			}

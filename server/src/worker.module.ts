@@ -13,7 +13,7 @@ import { S3SubtitlesStrategy } from 'features/video/subtitlesGeneration/strategi
 import { YoutubeSubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/YoutubeSubtitlesStrategy'
 import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
 import { UpdateVideoHandler } from 'features/video/UpdateVideo.command'
-import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
+import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
 import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { GoogleGeminiModule } from 'infrastructure/googleGemini/googleGemini.module'
@@ -33,7 +33,7 @@ import { YoutubeService } from 'infrastructure/youtube/youtube.service'
  *   - Shared BullMQ connection + queue registration
  *   - CQRS + reused handlers (UpdateVideoCommand for SRT persistence)
  *   - Prisma + all repos those handlers touch
- *   - CloudRuS3 (S3 download) + Deepgram STT (ASR)
+ *   - CloudflareS3 (S3 download) + Deepgram STT (ASR)
  *
  * AppModule is intentionally NOT imported: GraphQL/Express/Apollo would try
  * to boot an HTTP server on start, which the worker doesn't need.
@@ -46,7 +46,7 @@ import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 		GoogleGeminiModule,
 		OpenAIModule,
 		LlmProviderModule,
-		CloudRuS3Module,
+		CloudflareS3Module,
 		DeepgramSttModule,
 		SubtitlesModule,
 		BullModule.forRootAsync({

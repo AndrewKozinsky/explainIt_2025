@@ -5,7 +5,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Job } from 'bullmq'
 import { VideoRepository } from 'repo/video/video.repository'
 import { UpdateVideoCommand } from 'features/video/UpdateVideo.command'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { DeepgramSttService } from 'infrastructure/deepgramStt/deepgramStt.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
@@ -30,7 +30,7 @@ export class S3SubtitlesStrategy {
 
 	constructor(
 		private readonly videoRepository: VideoRepository,
-		private readonly cloudRuS3Service: CloudRuS3Service,
+		private readonly cloudflareS3Service: CloudflareS3Service,
 		private readonly deepgramSttService: DeepgramSttService,
 		private readonly subtitlesService: SubtitlesService,
 		private readonly mainConfig: MainConfigService,
@@ -70,7 +70,7 @@ export class S3SubtitlesStrategy {
 
 			this.logger.log(`Job ${job.id}: downloading S3 key ${state.fileS3Key}`)
 
-			await downloadS3ObjectToFile(this.cloudRuS3Service, this.mainConfig, state.fileS3Key, videoPath)
+			await downloadS3ObjectToFile(this.cloudflareS3Service, this.mainConfig, state.fileS3Key, videoPath)
 
 			this.logger.log(`Job ${job.id}: probing duration`)
 			const durationSec = await probeDurationSec(videoPath)

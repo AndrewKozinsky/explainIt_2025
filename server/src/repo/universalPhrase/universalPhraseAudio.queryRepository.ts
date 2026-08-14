@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UniversalAudioPronunciationOutModel } from 'models/audioPronunciation/audioPronunciation.out.model'
 import { UniversalAudioPronunciation } from 'prisma/generated/client'
@@ -9,7 +9,7 @@ import { UniversalAudioPronunciation } from 'prisma/generated/client'
 export class UniversalPhraseAudioQueryRepository {
 	constructor(
 		private prisma: PrismaService,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 	) {}
 
 	@CatchDbError()
@@ -32,7 +32,7 @@ export class UniversalPhraseAudioQueryRepository {
 		return {
 			id: dbAudio.id,
 			universalPhraseId: dbAudio.universal_phrase_id,
-			audioUrl: await this.cloudRuS3Service.getFileUrl(dbAudio.s3_key),
+			audioUrl: await this.cloudflareS3Service.getFileUrl(dbAudio.s3_key),
 		}
 	}
 }

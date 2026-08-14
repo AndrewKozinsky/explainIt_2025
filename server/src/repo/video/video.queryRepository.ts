@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { attachVideoTextRelations } from 'repo/video/attachVideoTextRelations'
 import { PrismaService } from 'db/prisma.service'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { CreateVideoOutModel } from 'models/video/createVideo.out.model'
@@ -36,7 +36,7 @@ type DbVideoWithRelations = Video & {
 export class VideoQueryRepository {
 	constructor(
 		private prisma: PrismaService,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
 
@@ -262,7 +262,7 @@ export class VideoQueryRepository {
 	}
 
 	private async resolveFileUrl(fileS3Key: string | null): Promise<string | null> {
-		return fileS3Key ? await this.cloudRuS3Service.getFileUrl(fileS3Key) : null
+		return fileS3Key ? await this.cloudflareS3Service.getFileUrl(fileS3Key) : null
 	}
 
 	/**
@@ -271,7 +271,7 @@ export class VideoQueryRepository {
 	 */
 	private async resolveCoverUrl(coverFileS3Key: string | null, coverUrl: string | null): Promise<string | null> {
 		if (coverFileS3Key) {
-			return await this.cloudRuS3Service.getFileUrl(coverFileS3Key)
+			return await this.cloudflareS3Service.getFileUrl(coverFileS3Key)
 		}
 
 		return coverUrl ?? null

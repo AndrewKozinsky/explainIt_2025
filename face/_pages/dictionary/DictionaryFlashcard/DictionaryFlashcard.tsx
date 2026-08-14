@@ -1,14 +1,14 @@
-// import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
-// import { LanguageCode } from '@/shared/utils/languages'
+import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
+import { LanguageCode } from '@/shared/utils/languages'
 import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
-// import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
-// import './DictionaryFlashcard.scss'
+import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
+import './DictionaryFlashcard.scss'
 
 type DictionaryFlashcardProps = {
 	flashcard: DictionaryFlashcardData
 }
 
-/*export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
+export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -21,9 +21,9 @@ type DictionaryFlashcardProps = {
 			<DeleteFlashcardButton flashcardId={flashcard.id} />
 		</div>
 	)
-}*/
+}
 
-/*function Sentence(props: DictionaryFlashcardProps) {
+function Sentence(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -41,9 +41,9 @@ type DictionaryFlashcardProps = {
 			<p className='dictionary-flashcard__sentence-translate'>{flashcard.sentenceTranslation}</p>
 		</div>
 	)
-}*/
+}
 
-/*function Phrase(props: DictionaryFlashcardProps) {
+function Phrase(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -59,7 +59,7 @@ type DictionaryFlashcardProps = {
 			{flashcard.phraseTranslation}
 		</p>
 	)
-}*/
+}
 
 function Examples(props: DictionaryFlashcardProps) {
 	const { flashcard } = props

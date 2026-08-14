@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { BookQueryRepository } from 'repo/book/book.queryRepository'
 import { BookRepository } from 'repo/book/book.repository'
 import { Language } from 'utils/languages'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -32,7 +32,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 	constructor(
 		private bookRepository: BookRepository,
 		private bookQueryRepository: BookQueryRepository,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 		private mainConfig: MainConfigService,
 	) {}
 
@@ -85,7 +85,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 		// Deleting the cover
 		if (updateBookInput.coverFileName === null || updateBookInput.isCoverFileUploaded === false) {
 			if (bookForUpdating.isCoverFileUploaded && bookForUpdating.coverFileS3Key) {
-				await this.cloudRuS3Service.deleteFile(bookForUpdating.coverFileS3Key)
+				await this.cloudflareS3Service.deleteFile(bookForUpdating.coverFileS3Key)
 			}
 
 			return {
@@ -109,7 +109,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 		// Generate upload URL for a new cover
 		if (updateBookInput.coverFileName && updateBookInput.fileMimeType && !bookForUpdating.isCoverFileUploaded) {
 			const s3FileKey = this.createCoverFileUrl(updateBookInput.coverFileName)
-			const uploadUrl = await this.cloudRuS3Service.createUploadUrl(s3FileKey, updateBookInput.fileMimeType)
+			const uploadUrl = await this.cloudflareS3Service.createUploadUrl(s3FileKey, updateBookInput.fileMimeType)
 
 			return {
 				coverFileName: updateBookInput.coverFileName,

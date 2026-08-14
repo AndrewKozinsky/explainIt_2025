@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { BookOutModel } from 'models/book/book.out.model'
 import { Prisma } from 'prisma/generated/client'
@@ -11,7 +11,7 @@ type BookWithChapters = Prisma.BookGetPayload<{ include: { BookChapter: true } }
 export class BookQueryRepository {
 	constructor(
 		private prisma: PrismaService,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 	) {}
 
 	@CatchDbError()
@@ -68,7 +68,7 @@ export class BookQueryRepository {
 
 	async mapDbBookToOutBook(dbBook: BookWithChapters): Promise<BookOutModel> {
 		const coverUrl = dbBook.cover_file_s3_key
-			? await this.cloudRuS3Service.getFileUrl(dbBook.cover_file_s3_key)
+			? await this.cloudflareS3Service.getFileUrl(dbBook.cover_file_s3_key)
 			: null
 
 		return {
