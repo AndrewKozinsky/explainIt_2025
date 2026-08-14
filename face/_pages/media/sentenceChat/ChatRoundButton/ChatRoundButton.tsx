@@ -1,15 +1,15 @@
-// import React from 'react'
-// import cn from 'classnames'
-// import './ChatRoundButton.scss'
+import React from 'react'
+import cn from 'classnames'
+import './ChatRoundButton.scss'
 
-/*type RoundButtonProps = {
+type RoundButtonProps = {
 	icon: React.ReactNode
 	disabled: boolean
 	onClick: () => void
 	color?: 'blue' | 'red'
-}*/
+}
 
-/*function ChatRoundButton(props: RoundButtonProps) {
+function ChatRoundButton(props: RoundButtonProps) {
 	const { icon, disabled, onClick, color } = props
 
 	return (
@@ -26,6 +26,6 @@
 			{icon}
 		</button>
 	)
-}*/
+}
 
-// export default ChatRoundButton
+export default ChatRoundButton

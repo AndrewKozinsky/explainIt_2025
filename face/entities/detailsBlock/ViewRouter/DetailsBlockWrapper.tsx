@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { useDetailsStore } from '../detailsStore'
-// import DialogContent from '../DialogContent/DialogContent'
+import DialogContent from '../DialogContent/DialogContent'
 // import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
 // import WordsContent from '../WordsContent/WordsContent'
@@ -25,7 +25,7 @@ function DetailsBlockWrapper() {
 			<div className='details-block-wrapper__content'>
 				{/*<DictionaryContent />*/}
 				{/*<WordsContent />*/}
-				{/*<DialogContent />*/}
+				<DialogContent />
 			</div>
 		</ContentWrapper>
 	)

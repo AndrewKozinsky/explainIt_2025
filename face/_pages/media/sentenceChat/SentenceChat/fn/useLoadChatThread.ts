@@ -1,11 +1,11 @@
-// import { useEffect, useRef } from 'react'
-// import { SentenceChatApi } from '@/entities/sentenceChat/repository/SentenceChatApi'
-// import { useSentenceChatStore } from '../../sentenceChatStore'
-// import { ChatMessageStatus } from '../../types/sseTypes'
+import { useEffect, useRef } from 'react'
+import { SentenceChatApi } from '@/entities/sentenceChat/repository/SentenceChatApi'
+import { useSentenceChatStore } from '../../sentenceChatStore'
+import { ChatMessageStatus } from '../../types/sseTypes'
 
-// const sentenceChatApi = new SentenceChatApi()
+const sentenceChatApi = new SentenceChatApi()
 
-/*export function useLoadChatThread(input: { sentenceId: number; closeStream: () => void }): void {
+export function useLoadChatThread(input: { sentenceId: number; closeStream: () => void }): void {
 	const { sentenceId, closeStream } = input
 
 	const apiRef = useRef(sentenceChatApi)
@@ -52,4 +52,4 @@
 		},
 		[sentenceId, closeStream, getThread],
 	)
-}*/
+}

@@ -19,6 +19,7 @@ import { UniversalPhraseTranslationModule } from 'routes/universalPhraseTranslat
 import { VideoModule } from 'routes/video/video.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
 import { YoutubeRouteModule } from 'routes/youtube/youtube.module'
+import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
 import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
@@ -59,6 +60,7 @@ import { YoutubeModule } from 'infrastructure/youtube/youtube.module'
 		GoogleGeminiModule,
 		GoogleTtsModule,
 		CloudRuS3Module,
+		CloudflareS3Module,
 		YandexCloudS3Module,
 		// YandexDictionaryModule,
 		// YandexTranslateModule,

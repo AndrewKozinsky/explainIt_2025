@@ -1,26 +1,26 @@
-// import type {
-// 	CreateSentenceChatThreadInput,
-// 	CreateSentenceChatUserMessageInput,
-// 	SentenceChatMessageOutModel,
-// 	SentenceChatThreadOutModel,
-// } from '@/shared/api/generated/models'
-// import {
-// 	sentenceChatControllerCreateThread,
-// 	sentenceChatControllerCreateUserMessage,
-// 	sentenceChatControllerGetThread,
-// } from '@/shared/api/generated/sentence-chat/sentence-chat'
-// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import type {
-// 	SentenceChatMessageModel,
-// 	SentenceChatRepository,
-// 	SentenceChatThreadModel,
-// } from './SentenceChatRepository'
+import type {
+	CreateSentenceChatThreadInput,
+	CreateSentenceChatUserMessageInput,
+	SentenceChatMessageOutModel,
+	SentenceChatThreadOutModel,
+} from '@/shared/api/generated/models'
+import {
+	sentenceChatControllerCreateThread,
+	sentenceChatControllerCreateUserMessage,
+	sentenceChatControllerGetThread,
+} from '@/shared/api/generated/sentence-chat/sentence-chat'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type {
+	SentenceChatMessageModel,
+	SentenceChatRepository,
+	SentenceChatThreadModel,
+} from './SentenceChatRepository'
 
 /**
  * Реализация SentenceChatRepository через REST API.
  */
-/*export class SentenceChatApi implements SentenceChatRepository {
+export class SentenceChatApi implements SentenceChatRepository {
 	async getThread(sentenceId: number): Promise<ApiResult<SentenceChatThreadModel | null>> {
 		return executeApiCall(
 			() => sentenceChatControllerGetThread({ sentenceId }),
@@ -45,11 +45,13 @@
 			(data) => mapToMessage(data),
 		)
 	}
-}*/
+}
+
+export const sentenceChatApi = new SentenceChatApi()
 
 // ─── Mappers ────────────────────────────────────────────────────────────────
 
-/*function mapToThread(raw: SentenceChatThreadOutModel): SentenceChatThreadModel {
+function mapToThread(raw: SentenceChatThreadOutModel): SentenceChatThreadModel {
 	return {
 		id: raw.id,
 		sentenceId: raw.sentenceId,
@@ -57,9 +59,9 @@
 		createdAt: raw.createdAt,
 		updatedAt: raw.updatedAt,
 	}
-}*/
+}
 
-/*function mapToMessage(raw: SentenceChatMessageOutModel): SentenceChatMessageModel {
+function mapToMessage(raw: SentenceChatMessageOutModel): SentenceChatMessageModel {
 	return {
 		id: raw.id,
 		threadId: raw.threadId,
@@ -70,4 +72,4 @@
 		createdAt: raw.createdAt,
 		updatedAt: raw.updatedAt,
 	}
-}*/
+}

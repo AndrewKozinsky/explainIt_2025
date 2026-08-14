@@ -1,9 +1,9 @@
-// import React from 'react'
-// import { Link } from '@/i18n/routing'
-// import { useUser } from '@/shared/api/auth/UserProvider'
-// import { pageUrls } from '@/shared/utils/pageUrls'
+import React from 'react'
+import { Link } from '@/i18n/routing'
+import { useUser } from '@/shared/api/auth/UserProvider'
+import { pageUrls } from '@/shared/utils/pageUrls'
 
-/*function ChatInputWarningMessage() {
+function ChatInputWarningMessage() {
 	const user = useUser()
 	const hasBalance = (user?.balance ?? 0) > 0
 
@@ -38,6 +38,6 @@
 	}
 
 	return <p className='chat-input__warning-message'>{warningMessage}</p>
-}*/
+}
 
-// export default ChatInputWarningMessage
+export default ChatInputWarningMessage

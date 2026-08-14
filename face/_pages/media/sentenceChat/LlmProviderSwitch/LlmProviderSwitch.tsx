@@ -1,14 +1,14 @@
-// import { useUser } from '@/shared/api/auth/UserProvider'
-// import { useSentenceChatStore } from '../sentenceChatStore'
-// import { getProviders } from './fn/llmProviders'
-// import LLMProviderButton from './LLMProviderButton'
-// import './LlmProviderSwitch.scss'
+import { useUser } from '@/shared/api/auth/UserProvider'
+import { useSentenceChatStore } from '../sentenceChatStore'
+import { getProviders } from './fn/llmProviders'
+import LLMProviderButton from './LLMProviderButton'
+import './LlmProviderSwitch.scss'
 
-/*type LlmProviderSwitchProps = {
+type LlmProviderSwitchProps = {
 	smallIcons: boolean
-}*/
+}
 
-/*function LlmProviderSwitch(props: LlmProviderSwitchProps) {
+function LlmProviderSwitch(props: LlmProviderSwitchProps) {
 	const { smallIcons } = props
 
 	const user = useUser()
@@ -34,6 +34,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default LlmProviderSwitch
+export default LlmProviderSwitch

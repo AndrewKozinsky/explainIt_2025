@@ -1,5 +1,5 @@
-// import { LlmProvider } from '../../sentenceChatStore'
+import { LlmProvider } from '../../sentenceChatStore'
 
-/*export function getProviders(): LlmProvider[] {
+export function getProviders(): LlmProvider[] {
 	return ['deepseek', 'gemini', 'chatgpt']
-}*/
+}

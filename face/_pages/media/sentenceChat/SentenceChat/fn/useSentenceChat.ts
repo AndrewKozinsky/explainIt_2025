@@ -1,22 +1,20 @@
-// import { useCallback, useEffect, useRef } from 'react'
-// import { SentenceChatApi } from '@/entities/sentenceChat/repository/SentenceChatApi'
-// import { useSentenceChatStore } from '../../sentenceChatStore'
-// import { ChatMessageStatus, ChatUiMessage } from '../../types/sseTypes'
-// import { openAssistantStream } from './openAssistantStream'
-// import { useLoadChatThread } from './useLoadChatThread'
+import { useCallback, useEffect, useRef } from 'react'
+import { sentenceChatApi } from '@/entities/sentenceChat/repository/SentenceChatApi'
+import { useSentenceChatStore } from '../../sentenceChatStore'
+import { ChatMessageStatus, ChatUiMessage } from '../../types/sseTypes'
+import { openAssistantStream } from './openAssistantStream'
+import { useLoadChatThread } from './useLoadChatThread'
 
-// const sentenceChatApi = new SentenceChatApi()
-
-/*export type UseSentenceChatReturn = {
+export type UseSentenceChatReturn = {
 	messages: ChatUiMessage[]
 	isLoadingThread: boolean
 	isGenerating: boolean
 	threadError: null | string
 	sendQuestion: (question: string) => Promise<void>
 	cancelGeneration: () => void
-}*/
+}
 
-/*export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
+export function useSentenceChat(sentenceId: number): UseSentenceChatReturn {
 	const store = useSentenceChatStore()
 	const { threadId, messages, isLoadingThread, isGenerating, threadError, llmProvider } = store
 
@@ -129,4 +127,4 @@
 		sendQuestion,
 		cancelGeneration,
 	}
-}*/
+}
