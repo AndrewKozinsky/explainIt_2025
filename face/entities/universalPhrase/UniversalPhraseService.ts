@@ -2,9 +2,14 @@ import { PhraseApi } from '@/entities/phrase/repository/PhraseApi'
 import type {
 	AudioPronunciationModel,
 	PhraseModel,
+	PhraseRepository,
 	TranscriptionModel,
 } from '@/entities/phrase/repository/PhraseRepository'
-import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+import { PhraseTranslationApi } from '@/entities/universalPhrase/repository/PhraseTranslationApi'
+import type {
+	PhraseTranslationDataModel,
+	PhraseTranslationRepository,
+} from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import { DeepSeekModels } from '@/shared/api/AIModels'
 import { LanguageCode } from '@/shared/utils/languages'
 
@@ -72,7 +77,13 @@ export class UniversalPhraseService {
 	#audioRequests = new Map<string, Promise<ServiceResult<AudioData>>>()
 	#translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
 
-	#phraseApi = new PhraseApi()
+	phraseRepository: PhraseRepository
+	phraseTranslationRepository: PhraseTranslationRepository
+
+	constructor(phraseRepository: PhraseRepository, phraseTranslationRepository: PhraseTranslationRepository) {
+		this.phraseRepository = phraseRepository
+		this.phraseTranslationRepository = phraseTranslationRepository
+	}
 
 	// ─── getPhrase ────────────────────────────────────────────────────────
 
@@ -109,7 +120,7 @@ export class UniversalPhraseService {
 		entry.phraseStatus = 'loading'
 		entry.phraseErrorMessage = null
 
-		const result = await this.#phraseApi.resolvePhrase(phrase, languageCode)
+		const result = await this.phraseRepository.resolvePhrase(phrase, languageCode)
 
 		if (result.error || result.errors) {
 			entry.phraseStatus = 'error'
@@ -194,7 +205,7 @@ export class UniversalPhraseService {
 		updated.transcriptionStatus = 'loading'
 		updated.transcriptionErrorMessage = null
 
-		const result = await this.#phraseApi.getOrCreateTranscription(updated.phraseId!)
+		const result = await this.phraseRepository.getOrCreateTranscription(updated.phraseId!)
 
 		if (result.error || result.errors) {
 			updated.transcriptionStatus = 'error'
@@ -258,7 +269,7 @@ export class UniversalPhraseService {
 		updated.audioStatus = 'loading'
 		updated.audioErrorMessage = null
 
-		const result = await this.#phraseApi.getOrCreateAudio(updated.phraseId!)
+		const result = await this.phraseRepository.getOrCreateAudio(updated.phraseId!)
 
 		if (result.error || result.errors) {
 			updated.audioStatus = 'error'
@@ -337,7 +348,7 @@ export class UniversalPhraseService {
 		translationEntry.status = 'loading'
 		translationEntry.errorMessage = null
 
-		const result = await this.#translationApi.getOrCreateTranslation(
+		const result = await this.phraseTranslationRepository.getOrCreateTranslation(
 			{
 				universalPhraseId: updated.phraseId!,
 				targetLanguageCode,
@@ -454,7 +465,7 @@ export class UniversalPhraseService {
 
 // ─── Singleton ────────────────────────────────────────────────────────────────
 
-export const universalPhraseService = new UniversalPhraseService()
+export const universalPhraseService = new UniversalPhraseService(new PhraseApi(), new PhraseTranslationApi())
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
