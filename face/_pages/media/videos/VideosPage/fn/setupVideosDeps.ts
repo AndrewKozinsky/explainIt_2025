@@ -13,7 +13,7 @@ function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
 			duration: video.duration,
 			durationSeconds: video.durationSeconds,
 			coverUrl: video.thumbnailUrl,
-			url: pageUrls.youtube.video(video.videoId).path,
+			url: pageUrls.videos.video(video.videoId).path,
 		}
 	})
 }

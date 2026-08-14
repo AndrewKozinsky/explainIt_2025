@@ -1,8 +1,8 @@
-// import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
-// import Switcher from '@/shared/ui/Switcher/Switcher'
-// import { useDetailsStore } from './detailsStore'
+import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
+import Switcher from '@/shared/ui/Switcher/Switcher'
+import { useDetailsStore } from './detailsStore'
 
-/*function InfoViewSwitcher() {
+function InfoViewSwitcher() {
 	const currentInfoView = useDetailsStore((store) => store.currentInfoView)
 	const setActiveInfoView = useDetailsStore((store) => store.setActiveInfoView)
 
@@ -34,6 +34,6 @@
 			)}
 		</ContainerWidthObserver>
 	)
-}*/
+}
 
-// export default InfoViewSwitcher
+export default InfoViewSwitcher

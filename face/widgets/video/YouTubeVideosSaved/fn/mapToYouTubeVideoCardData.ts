@@ -11,7 +11,7 @@ export function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVide
 			duration: video.duration!,
 			durationSeconds: video.durationSeconds,
 			coverUrl: video.coverUrl,
-			url: video.youtubeVideoId ? pageUrls.youtube.video(video.youtubeVideoId).path : '',
+			url: video.youtubeVideoId ? pageUrls.videos.video(video.youtubeVideoId).path : '',
 			proficiencyLevel: video.proficiencyLevel,
 		}
 	})

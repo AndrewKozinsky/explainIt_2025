@@ -23,7 +23,7 @@ function useYouTubeVideosSearch() {
 		// Проверка на каждой смене значения — покрывает и вставку из буфера обмена.
 		const videoId = extractYouTubeVideoId(value)
 		if (videoId) {
-			router.push(pageUrls.youtube.video(videoId).path)
+			router.push(pageUrls.videos.video(videoId).path)
 		}
 	}
 

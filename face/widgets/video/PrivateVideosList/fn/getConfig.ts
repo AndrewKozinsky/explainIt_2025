@@ -8,8 +8,8 @@ export function getConfig(videosData: VideoLiteModel[]) {
 			name: video.name,
 			subName: null as null,
 			coverUrl: null as null | string,
-			url: pageUrls.youtube.video(video.id).path,
-			actionUrl: pageUrls.youtube.video(video.id, true).path,
+			url: pageUrls.videos.video(video.id).path,
+			actionUrl: pageUrls.videos.video(video.id, true).path,
 		}
 	})
 }

@@ -13,7 +13,7 @@ export default function VideosPage() {
 	const { defaultTab, onTabChange } = useVideosPageTabs()
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.youtube.name}>
+		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.videos.name}>
 			<MediaPageContentTabs
 				tabs={[
 					{ key: 'saved', label: 'Подборка', content: <YouTubeVideosSaved /> },

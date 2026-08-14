@@ -1,15 +1,15 @@
-// import { useEffect } from 'react'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import { useDetailsStore } from '../../detailsStore'
+import { useEffect } from 'react'
+import { LanguageCode } from '@/shared/utils/languages'
+import { useDetailsStore } from '../../detailsStore'
 
-/*type ApplySelectionInput = {
+type ApplySelectionInput = {
 	bookName?: null | string
 	bookAuthor?: null | string
 	videoName?: null | string
 	languageCode?: null | LanguageCode
-}*/
+}
 
-/*export function useInitStore(input: ApplySelectionInput) {
+export function useInitStore(input: ApplySelectionInput) {
 	const store = useDetailsStore.getState()
 
 	useEffect(
@@ -23,4 +23,4 @@
 		},
 		[input.bookName, input.videoName],
 	)
-}*/
+}

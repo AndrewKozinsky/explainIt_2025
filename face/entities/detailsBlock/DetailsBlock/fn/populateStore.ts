@@ -1,7 +1,7 @@
-// import { useEffect } from 'react'
-// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import { useDetailsStore, makePhraseId, DetailsSentenceEntry, SentencePhraseType } from '../../detailsStore'
-// import { wordIdsFromOffsets } from './wordSegmentation'
+import { useEffect } from 'react'
+import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { useDetailsStore, makePhraseId, DetailsSentenceEntry, SentencePhraseType } from '../../detailsStore'
+import { wordIdsFromOffsets } from './wordSegmentation'
 
 /**
  * Принимает готовые {@link SentenceModel} (полученные страницей с сервера),
@@ -10,7 +10,7 @@
  * Больше не ходит на сервер — страницы передают уже загруженные данные.
  * Это позволяет подменять источник данных при тестировании.
  */
-/*export function usePopulateStore(sentences: SentenceModel[] | null | undefined, languageCode: null | string): void {
+export function usePopulateStore(sentences: SentenceModel[] | null | undefined, languageCode: null | string): void {
 	const store = useDetailsStore.getState()
 
 	useEffect(
@@ -23,9 +23,9 @@
 		},
 		[sentences, languageCode],
 	)
-}*/
+}
 
-/*function mapSentenceModelsToEntries(sentences: SentenceModel[], languageCode: null | string): DetailsSentenceEntry[] {
+function mapSentenceModelsToEntries(sentences: SentenceModel[], languageCode: null | string): DetailsSentenceEntry[] {
 	return sentences.map((sentence) => {
 		const translation = sentence.sentenceTranslation?.translation ?? null
 
@@ -49,9 +49,9 @@
 			},
 		}
 	})
-}*/
+}
 
-/*function mapSentencePhrases(input: {
+function mapSentencePhrases(input: {
 	phraseTranslations: NonNullable<SentenceModel['sentencePhraseTranslations']>
 	sentenceText: string
 	languageCode: null | string
@@ -74,4 +74,4 @@
 		translation: pt.translate ?? null,
 		examples: pt.examples ?? [],
 	}))
-}*/
+}

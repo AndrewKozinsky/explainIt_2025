@@ -31,7 +31,7 @@ function VideoPage(props: VideoRootProps) {
 
 	return (
 		<MediaPageClient
-			breadCrumbsConfig={[pageUrls.youtube]}
+			breadCrumbsConfig={[pageUrls.videos]}
 			header={header}
 			leftBlock={
 				<VideoClientWrapper
