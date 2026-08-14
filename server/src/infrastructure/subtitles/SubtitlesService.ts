@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common'
-import { DeepSeekModels } from 'types/AIModels'
+import { DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
 import { DeepgramUtterance, DeepgramWord } from 'infrastructure/deepgramStt/deepgramStt.service'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { CueWithOffset, SubtitleCue } from './subtitles.types'
@@ -243,7 +243,7 @@ export class SubtitlesService {
 	 */
 	private async groupWordsToSentences(wordTimings: WordTiming[]): Promise<SentenceBoundary[]> {
 		const llmResult = await this.llmAdapter.generate({
-			model: DeepSeekModels.Flash,
+			model: DEFAULT_FLASH_AI_MODEL,
 			responseFormat: 'json_object',
 			messages: [
 				{ role: 'system', content: WORDS_TO_SENTENCES_SYSTEM_PROMPT },

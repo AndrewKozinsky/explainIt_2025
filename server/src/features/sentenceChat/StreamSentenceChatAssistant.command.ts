@@ -3,7 +3,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Observable, Subscriber } from 'rxjs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
-import { AiModel, OpenAIModels, DeepSeekModels } from 'types/AIModels'
+import { AiModel, OpenAIModels, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
 import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -286,7 +286,7 @@ export class StreamSentenceChatAssistantCommand {
 			errorText: opts.errorText,
 		})
 
-		const model: AiModel = input.model ?? DeepSeekModels.Flash
+		const model: AiModel = input.model ?? DEFAULT_FLASH_AI_MODEL
 		await this.chargeTokenUsage(input.userId, state.usage, model)
 
 		if (state.assistantMessageId !== null) {

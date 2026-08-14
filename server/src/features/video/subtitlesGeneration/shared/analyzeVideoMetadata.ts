@@ -1,5 +1,5 @@
 import { Logger } from '@nestjs/common'
-import { DeepSeekModels } from 'types/AIModels'
+import { DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
 import { VIDEO_TOPICS } from 'utils/videoTopics'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
@@ -82,7 +82,7 @@ export async function analyzeVideoMetadata(
 	let rawJson: string
 	try {
 		const result = await llmAdapter.generate({
-			model: DeepSeekModels.Flash,
+			model: DEFAULT_FLASH_AI_MODEL,
 			responseFormat: 'json_object',
 			messages: [
 				{ role: 'system', content: SYSTEM_PROMPT },

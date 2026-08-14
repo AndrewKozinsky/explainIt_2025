@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { AIProviderName, getProviderFromModel, DEFAULT_AI_MODEL } from 'types/AIModels'
+import { AIProviderName, getProviderFromModel, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
 import { ChatGptLlmProvider } from './ChatGptLlmProvider.service'
 import { DeepSeekLlmProvider } from './DeepSeekLlmProvider.service'
 import { GeminiLlmProvider } from './GeminiLlmProvider.service'
@@ -27,12 +27,12 @@ export class LlmAdapterService {
 	}
 
 	async generate(input: LlmGenerateInput): Promise<LlmGenerateOutput> {
-		const provider = getProviderFromModel(input.model ?? DEFAULT_AI_MODEL)
+		const provider = getProviderFromModel(input.model ?? DEFAULT_FLASH_AI_MODEL)
 		return this.providerMap[provider].generate(input)
 	}
 
 	async *stream(input: LlmStreamInput): AsyncGenerator<string, void, void> {
-		const provider = getProviderFromModel(input.model ?? DEFAULT_AI_MODEL)
+		const provider = getProviderFromModel(input.model ?? DEFAULT_FLASH_AI_MODEL)
 		for await (const chunk of this.providerMap[provider].stream(input)) {
 			yield chunk
 		}
