@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useRef } from 'react'
+import { RefObject, useCallback, useEffect, useRef } from 'react'
 import { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 
 type UseSubtitlesPlaybackDomSyncParams = {
@@ -43,6 +43,24 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 		didInitialAutoScrollRef.current = false
 	}, [subtitles])
 
+	// Принудительно скроллит указанный субтитр под видео без проверок видимости.
+	// Используется при клике на слово — нужно показать субтитр, к которому относится слово.
+	const scrollToSubtitle = useCallback(
+		(subtitleId: number) => {
+			const container = containerRef.current
+			if (!container) return
+
+			autoScrollToCurrent({
+				container,
+				subtitleId,
+				bottomThresholdPx,
+				topPaddingPx,
+				forceAlignBelowVideo: true,
+			})
+		},
+		[containerRef, bottomThresholdPx, topPaddingPx],
+	)
+
 	useEffect(() => {
 		if (!subtitles?.length) {
 			return
@@ -76,7 +94,7 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 
 			autoScrollToCurrent({
 				container,
-				currentSubtitleId: nextId,
+				subtitleId: nextId,
 				bottomThresholdPx,
 				topPaddingPx,
 				forceAlignBelowVideo: !didInitialAutoScrollRef.current,
@@ -106,6 +124,8 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 		// Отдельная очистка на каждом ре-рендере не нужна и только создаёт
 		// лишние DOM-запросы на каждом кадре.
 	}, [currentTime, bottomThresholdPx, containerRef, subtitles, topPaddingPx])
+
+	return { scrollToSubtitle }
 }
 
 /**
@@ -174,29 +194,25 @@ function binarySearchSubtitleIdx(subtitles: VideoSubtitlesModel.Structure['subti
 }
 
 /**
- * Скроллит контейнер так, чтобы текущий элемент был видим, но без "дёрганий".
+ * Скроллит контейнер так, чтобы целевой субтитр оказался сразу под видео.
  *
- * Видимая область под видео делится на две половины:
- * 1. Первая видимая часть (верхняя половина) — безопасная зона.
- *    Если субтитр здесь — скролл не происходит.
- * 2. Вторая видимая часть (нижняя половина) — triggers scroll.
+ * Скролл происходит, если субтитр вышел за пределы видимой области под видео:
+ * выше нижней границы видео или ниже нижнего края контейнера/окна. Если
+ * субтитр целиком виден в этой области — скролл не нужен.
  *
- * В любом случае скролл выравнивает субтитр к верху безопасной зоны
- * (сразу под видео).
- *
- * При первом автоскролле (forceAlignBelowVideo=true) — принудительно
- * ставит субтитр ниже видео без проверок.
+ * При forceAlignBelowVideo=true скролл выполняется безусловно (например,
+ * при первом автоскролле или клике на слово).
  */
 function autoScrollToCurrent(params: {
 	container: HTMLElement
-	currentSubtitleId: number
+	subtitleId: number
 	bottomThresholdPx: number
 	topPaddingPx: number
 	forceAlignBelowVideo: boolean
 }) {
-	const { container, currentSubtitleId, bottomThresholdPx, topPaddingPx, forceAlignBelowVideo } = params
+	const { container, subtitleId, bottomThresholdPx, topPaddingPx, forceAlignBelowVideo } = params
 
-	const currentEl = container.querySelector(`#subtitle-${currentSubtitleId}`) as HTMLElement | null
+	const currentEl = container.querySelector(`#subtitle-${subtitleId}`) as HTMLElement | null
 	if (!currentEl) return
 
 	const scrollContainer = getScrollableParent(container) ?? getScrollableParent(currentEl)
@@ -215,14 +231,10 @@ function autoScrollToCurrent(params: {
 
 	const videoBottom = getStickyVideoBottomPx(container)
 	const visibleTop = Math.max(containerRect.top, videoBottom)
-	const visibleHeight = containerRect.bottom - visibleTop
 
 	const safeTop = visibleTop + topPaddingPx
-	// Середина видимой области субтитров — граница между первой и второй половинами.
-	const safeBottom = visibleTop + visibleHeight / 2
-
 	const isAboveSafe = elRect.top < safeTop
-	const isBelowSafe = elRect.bottom > safeBottom
+	const isBelowSafe = elRect.bottom > containerRect.bottom
 
 	if (!forceAlignBelowVideo && !isAboveSafe && !isBelowSafe) {
 		return
@@ -266,14 +278,10 @@ function scrollWindowToReveal(params: {
 	const elRect = currentEl.getBoundingClientRect()
 
 	const videoBottom = getStickyVideoBottomPx(currentEl)
-	const visibleHeight = (window.innerHeight || 0) - videoBottom
-
 	const safeTop = videoBottom + topPaddingPx
-	// Середина видимой области субтитров — граница между первой и второй половинами.
-	const safeBottom = videoBottom + visibleHeight / 2
 
 	const isAboveSafe = elRect.top < safeTop
-	const isBelowSafe = elRect.bottom > safeBottom
+	const isBelowSafe = elRect.bottom > (window.innerHeight || 0)
 
 	if (!forceAlignBelowVideo && !isAboveSafe && !isBelowSafe) return
 
