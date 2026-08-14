@@ -1,12 +1,12 @@
-// import { useEffect } from 'react'
-// import { useLocale } from 'next-intl'
-// import { makePhraseId, SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-// import { translateApi } from '@/entities/translate/repository/TranslateApi'
-// import { PhraseTranslationModel } from '@/entities/translate/repository/TranslateRepository'
-// import { findSentenceEntry } from './selectors'
-// import { wordIdsFromOffsets } from './wordSegmentation'
+import { useEffect } from 'react'
+import { useLocale } from 'next-intl'
+import { makePhraseId, SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import { translateApi } from '@/entities/translate/repository/TranslateApi'
+import { PhraseTranslationModel } from '@/entities/translate/repository/TranslateRepository'
+import { findSentenceEntry } from './selectors'
+import { wordIdsFromOffsets } from './wordSegmentation'
 
-/*export function useFetchCurrentSentenceTranslation() {
+export function useFetchCurrentSentenceTranslation() {
 	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
 	const currentSentenceText = useDetailsStore((s) => s.currentSentenceText)
 	const retryFetchSentenceTranslationQueue = useDetailsStore((s) => s.retryFetchSentenceTranslationQueue)
@@ -64,9 +64,9 @@
 		},
 		[currentSentenceId],
 	)
-}*/
+}
 
-/*type RunFetchForSentenceInput = {
+type RunFetchForSentenceInput = {
 	sentenceId: number
 	sentenceText: string
 	bookName: null | string
@@ -74,9 +74,9 @@
 	videoName: null | string
 	languageCode: null | string
 	targetLanguageCode: string
-}*/
+}
 
-/*async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<void> {
+async function runFetchForSentence(input: RunFetchForSentenceInput): Promise<void> {
 	const store = useDetailsStore.getState()
 
 	store.insertLoadingSentence({
@@ -104,9 +104,9 @@
 
 		throw error
 	}
-}*/
+}
 
-/*async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Promise<void> {
+async function seedPhraseTranslationsCache(input: RunFetchForSentenceInput): Promise<void> {
 	try {
 		const result = await translateApi.getPhraseTranslationsBySentence({
 			sentenceId: input.sentenceId,
@@ -129,9 +129,9 @@
 	} catch {
 		// Кеш фраз — некритичная подсказка, ошибки игнорируем
 	}
-}*/
+}
 
-/*export function mapPhraseTranslationToStatus(input: {
+export function mapPhraseTranslationToStatus(input: {
 	phraseTranslation: PhraseTranslationModel
 	sentenceText: string
 	languageCode: null | string
@@ -159,9 +159,9 @@
 			translate: example.translate ?? '',
 		})),
 	}
-}*/
+}
 
-/*async function fetchSentenceTranslation(input: RunFetchForSentenceInput): Promise<string> {
+async function fetchSentenceTranslation(input: RunFetchForSentenceInput): Promise<string> {
 	const result = await translateApi.translateSentence({
 		sentenceId: input.sentenceId,
 		targetLanguageCode: input.targetLanguageCode,
@@ -175,4 +175,4 @@
 	}
 
 	return result.data.translation
-}*/
+}

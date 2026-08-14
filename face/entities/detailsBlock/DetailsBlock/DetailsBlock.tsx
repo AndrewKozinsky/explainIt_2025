@@ -2,13 +2,13 @@ import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { LanguageCode } from '@/shared/utils/languages'
 import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
-// import { useClearDataOnUnmount } from './fn/clearDataOnUnmount'
-// import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
-// import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
+import { useClearDataOnUnmount } from './fn/clearDataOnUnmount'
+import { useFetchCurrentPhraseTranslation } from './fn/fetchPhraseTranslation'
+import { useFetchCurrentSentenceTranslation } from './fn/fetchSentenceTranslation'
 import { useInitStore } from './fn/initStore'
 import { usePopulateStore } from './fn/populateStore'
-// import { useApplySelection } from './fn/setSentenceIdAndWordId'
-// import { useShowCurrentTranslation } from './fn/showCurrentTranslation'
+import { useApplySelection } from './fn/setSentenceIdAndWordId'
+import { useShowCurrentTranslation } from './fn/showCurrentTranslation'
 import './DetailsBlock.scss'
 
 /** Метаданные о медиа, раньше брались из Zustand-хранилищ страниц через useInitStore */
@@ -31,11 +31,11 @@ type DetailsBlockProps = DetailsBlockMediaMetadata & {
 function DetailsBlock(props: DetailsBlockProps) {
 	useInitStore(props)
 	usePopulateStore(props.sentences, props.languageCode ?? null)
-	// useShowCurrentTranslation()
-	// useApplySelection(props)
-	// useFetchCurrentSentenceTranslation()
-	// useFetchCurrentPhraseTranslation()
-	// useClearDataOnUnmount()
+	useShowCurrentTranslation()
+	useApplySelection(props)
+	useFetchCurrentSentenceTranslation()
+	useFetchCurrentPhraseTranslation()
+	useClearDataOnUnmount()
 
 	return (
 		<ViewportSyncedHeight extraClass='details-block'>

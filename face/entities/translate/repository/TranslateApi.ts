@@ -1,34 +1,34 @@
-// import type {
-// 	TranslateSentenceInput as OrvalTranslateSentenceInput,
-// 	TranslateSentenceResultOutModel,
-// 	GetPhraseTranslationsBySentenceInput as OrvalGetPhraseTranslationsBySentenceInput,
-// 	GetPhraseTranslationInput as OrvalGetPhraseTranslationInput,
-// 	TranslatePhraseInput as OrvalTranslatePhraseInput,
-// 	SentencePhraseTranslationOutModel,
-// } from '@/shared/api/generated/models'
-// import {
-// 	translateControllerTranslateSentence,
-// 	translateControllerGetPhraseTranslationsBySentence,
-// 	translateControllerGetPhraseTranslation,
-// 	translateControllerTranslatePhrase,
-// } from '@/shared/api/generated/translate/translate'
-// import { extractString, extractNumber } from '@/shared/utils/extractors'
-// import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import type {
-// 	TranslateRepository,
-// 	TranslateSentenceInput,
-// 	TranslateSentenceResultModel,
-// 	GetPhraseTranslationsBySentenceInput,
-// 	GetPhraseTranslationInput,
-// 	TranslatePhraseInput,
-// 	PhraseTranslationModel,
-// } from './TranslateRepository'
+import type {
+	TranslateSentenceInput as OrvalTranslateSentenceInput,
+	TranslateSentenceResultOutModel,
+	GetPhraseTranslationsBySentenceInput as OrvalGetPhraseTranslationsBySentenceInput,
+	GetPhraseTranslationInput as OrvalGetPhraseTranslationInput,
+	TranslatePhraseInput as OrvalTranslatePhraseInput,
+	SentencePhraseTranslationOutModel,
+} from '@/shared/api/generated/models'
+import {
+	translateControllerTranslateSentence,
+	translateControllerGetPhraseTranslationsBySentence,
+	translateControllerGetPhraseTranslation,
+	translateControllerTranslatePhrase,
+} from '@/shared/api/generated/translate/translate'
+import { extractString, extractNumber } from '@/shared/utils/extractors'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type {
+	TranslateRepository,
+	TranslateSentenceInput,
+	TranslateSentenceResultModel,
+	GetPhraseTranslationsBySentenceInput,
+	GetPhraseTranslationInput,
+	TranslatePhraseInput,
+	PhraseTranslationModel,
+} from './TranslateRepository'
 
 /**
  * Реализация TranslateRepository через REST API.
  */
-/*export class TranslateApi implements TranslateRepository {
+export class TranslateApi implements TranslateRepository {
 	async translateSentence(input: TranslateSentenceInput): Promise<ApiResult<TranslateSentenceResultModel>> {
 		const orvalInput: OrvalTranslateSentenceInput = {
 			sentenceId: input.sentenceId,
@@ -90,23 +90,23 @@
 			(data) => mapToPhraseTranslation(data),
 		)
 	}
-}*/
+}
 
 /**
  * Экземпляр TranslateApi для использования в компонентах.
  */
-// export const translateApi = new TranslateApi()
+export const translateApi = new TranslateApi()
 
 // ─── Мапперы ─────────────────────────────────────────────────────────────────
 
-/*function mapToTranslateSentenceResult(raw: TranslateSentenceResultOutModel): TranslateSentenceResultModel {
+function mapToTranslateSentenceResult(raw: TranslateSentenceResultOutModel): TranslateSentenceResultModel {
 	return {
 		sentenceId: extractNumber(raw.sentenceId) ?? 0,
 		translation: extractString(raw.translation) ?? '',
 	}
-}*/
+}
 
-/*function mapToPhraseTranslation(raw: SentencePhraseTranslationOutModel): PhraseTranslationModel {
+function mapToPhraseTranslation(raw: SentencePhraseTranslationOutModel): PhraseTranslationModel {
 	const r = raw as Record<string, unknown>
 
 	return {
@@ -118,12 +118,12 @@
 		translation: extractString(r.translate),
 		examples: mapToExamples(r.examples),
 	}
-}*/
+}
 
-/*function mapToExamples(raw: unknown): PhraseTranslationModel['examples'] {
+function mapToExamples(raw: unknown): PhraseTranslationModel['examples'] {
 	if (!Array.isArray(raw)) return []
 	return raw.map((item: Record<string, unknown>) => ({
 		text: extractString(item.text) ?? '',
 		translate: extractString(item.translate) ?? '',
 	}))
-}*/
+}
