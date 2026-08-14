@@ -182,6 +182,9 @@ export class MainConfigService {
 			billing: {
 				// Наценка за каждый перевод пользователя
 				translationMarkupMultiplier: 2,
+				// Глобальный выключатель списания баланса. При false баланс не списывается
+				// ни у одного пользователя (все переводы/генерации становятся бесплатными).
+				chargingEnabled: false,
 			},
 			// Grafana Loki
 			// loki: enVariables.loki,

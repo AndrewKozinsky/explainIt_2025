@@ -27,6 +27,9 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 	) {}
 
 	async execute(command: TokenUsageBalanceChargeCommand) {
+		// Списание баланса полностью отключено — не начисляем стоимость ни одному пользователю.
+		if (!this.mainConfig.get().billing.chargingEnabled) return
+
 		const { userId, aiModelName, inputTokens, outputTokens, lowPriority } = command.dto
 
 		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens({

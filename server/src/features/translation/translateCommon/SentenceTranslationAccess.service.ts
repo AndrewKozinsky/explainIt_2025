@@ -33,9 +33,7 @@ export class SentenceTranslationAccessService {
 		const isPublicMaterial = isPublicBook || isPublicVideo
 
 		if (isPublicMaterial) {
-			return this.resolvePublicMaterialAccess({
-				userId: input.userId,
-			})
+			return this.resolvePublicMaterialAccess()
 		}
 
 		return await this.resolvePrivateMaterialAccess({
@@ -45,11 +43,7 @@ export class SentenceTranslationAccessService {
 		})
 	}
 
-	private async resolvePublicMaterialAccess(input: { userId: null | number }): Promise<SentenceTranslationAccess> {
-		if (!input.userId) {
-			return this.createForbiddenAccess('anonymousNonFreeToUse')
-		}
-
+	private async resolvePublicMaterialAccess(): Promise<SentenceTranslationAccess> {
 		return this.createUnlimitedAccess()
 	}
 

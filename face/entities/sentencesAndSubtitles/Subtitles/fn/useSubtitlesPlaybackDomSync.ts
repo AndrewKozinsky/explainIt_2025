@@ -5,7 +5,6 @@ type UseSubtitlesPlaybackDomSyncParams = {
 	containerRef: RefObject<HTMLElement | null>
 	subtitles: VideoSubtitlesModel.Structure['subtitles']
 	currentTime: number
-	bottomThresholdPx?: number
 	topPaddingPx?: number
 }
 
@@ -22,11 +21,10 @@ type UseSubtitlesPlaybackDomSyncParams = {
  * @param params.containerRef - контейнер со списком субтитров
  * @param params.subtitles - массив субтитров/пауз (в порядке воспроизведения)
  * @param params.currentTime - текущее время плеера в секундах
- * @param params.bottomThresholdPx - насколько близко к низу считать "не видно"
  * @param params.topPaddingPx - отступ сверху при автоскролле
  */
 export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
-	const { containerRef, subtitles, currentTime, bottomThresholdPx = 40, topPaddingPx = 20 } = params
+	const { containerRef, subtitles, currentTime, topPaddingPx = 20 } = params
 
 	const currentSubtitleIdxRef = useRef(0)
 	const currentSubtitleIdRef = useRef<number | null>(null)
@@ -53,12 +51,11 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			autoScrollToCurrent({
 				container,
 				subtitleId,
-				bottomThresholdPx,
 				topPaddingPx,
 				forceAlignBelowVideo: true,
 			})
 		},
-		[containerRef, bottomThresholdPx, topPaddingPx],
+		[containerRef, topPaddingPx],
 	)
 
 	useEffect(() => {
@@ -95,7 +92,6 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			autoScrollToCurrent({
 				container,
 				subtitleId: nextId,
-				bottomThresholdPx,
 				topPaddingPx,
 				forceAlignBelowVideo: !didInitialAutoScrollRef.current,
 			})
@@ -123,7 +119,7 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 		// Классы --current переключаются в applyCurrent при смене субтитра.
 		// Отдельная очистка на каждом ре-рендере не нужна и только создаёт
 		// лишние DOM-запросы на каждом кадре.
-	}, [currentTime, bottomThresholdPx, containerRef, subtitles, topPaddingPx])
+	}, [currentTime, containerRef, subtitles, topPaddingPx])
 
 	return { scrollToSubtitle }
 }
@@ -206,11 +202,10 @@ function binarySearchSubtitleIdx(subtitles: VideoSubtitlesModel.Structure['subti
 function autoScrollToCurrent(params: {
 	container: HTMLElement
 	subtitleId: number
-	bottomThresholdPx: number
 	topPaddingPx: number
 	forceAlignBelowVideo: boolean
 }) {
-	const { container, subtitleId, bottomThresholdPx, topPaddingPx, forceAlignBelowVideo } = params
+	const { container, subtitleId, topPaddingPx, forceAlignBelowVideo } = params
 
 	const currentEl = container.querySelector(`#subtitle-${subtitleId}`) as HTMLElement | null
 	if (!currentEl) return
@@ -219,7 +214,6 @@ function autoScrollToCurrent(params: {
 	if (!scrollContainer) {
 		scrollWindowToReveal({
 			currentEl,
-			bottomThresholdPx,
 			topPaddingPx,
 			forceAlignBelowVideo,
 		})
@@ -267,13 +261,8 @@ function getScrollableParent(element: HTMLElement | null) {
 	return null
 }
 
-function scrollWindowToReveal(params: {
-	currentEl: HTMLElement
-	bottomThresholdPx: number
-	topPaddingPx: number
-	forceAlignBelowVideo: boolean
-}) {
-	const { currentEl, bottomThresholdPx, topPaddingPx, forceAlignBelowVideo } = params
+function scrollWindowToReveal(params: { currentEl: HTMLElement; topPaddingPx: number; forceAlignBelowVideo: boolean }) {
+	const { currentEl, topPaddingPx, forceAlignBelowVideo } = params
 
 	const elRect = currentEl.getBoundingClientRect()
 
