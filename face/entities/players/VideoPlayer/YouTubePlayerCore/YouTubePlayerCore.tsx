@@ -60,7 +60,7 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 
 	// ── Controller: выполнение команд из PlayerContext ─────────────────
 
-	useYouTubeController(playerRef)
+	useYouTubeController(playerRef, { setCurrentTime, onTimeUpdate })
 
 	// ── Player controls: клавиатура + pointer-жесты ───────────────────
 

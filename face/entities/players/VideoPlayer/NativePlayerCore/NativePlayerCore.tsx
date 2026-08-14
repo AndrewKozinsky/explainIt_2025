@@ -46,18 +46,20 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 
 	// ── Рендер ──────────────────────────────────────────────────────────
 
+	function syncTime(currentTime: number) {
+		setCurrentTime(currentTime)
+		onTimeUpdate?.(currentTime)
+		saveProgress(currentTime)
+	}
+
 	return (
 		<div className='video-root' ref={playerWrapperRef}>
 			<video
 				src={fileUrl}
 				className='video-root__video'
 				ref={playerRef}
-				onTimeUpdate={(e) => {
-					const currentTime = e.currentTarget.currentTime
-					setCurrentTime(currentTime)
-					onTimeUpdate?.(currentTime)
-					saveProgress(currentTime)
-				}}
+				onTimeUpdate={(e) => syncTime(e.currentTarget.currentTime)}
+				onSeeked={(e) => syncTime(e.currentTarget.currentTime)}
 				onLoadedMetadata={(e) => {
 					const duration = e.currentTarget.duration
 					setDuration(duration)
