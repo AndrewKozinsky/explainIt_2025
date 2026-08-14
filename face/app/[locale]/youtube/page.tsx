@@ -1,5 +1,5 @@
-import YouTubeVideosPage from '_pages/media/youTubeVideos/YouTubeVideosPage/YouTubeVideosPage'
+import VideosPage from '_pages/media/videos/VideosPage/VideosPage'
 
 export default async function Page() {
-	return <YouTubeVideosPage />
+	return <VideosPage />
 }

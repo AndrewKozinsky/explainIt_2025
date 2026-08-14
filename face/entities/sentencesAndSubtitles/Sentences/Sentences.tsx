@@ -1,7 +1,7 @@
-// 'use client'
+'use client'
 
 import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import SentenceBlock from '@/entities/sentencesAndSubtitles/SentenceBlock/SentenceBlock'
+import SentenceBlock from '@/entities/sentencesAndSubtitles/SentenceBlock/SentenceBlock'
 import { LanguageCode } from '@/shared/utils/languages'
 import './Sentences.scss'
 
@@ -18,7 +18,7 @@ function Sentences(props: ChapterContentProps) {
 
 	return (
 		<div className='sentences'>
-			{/*{sentences.map((sentence) => {
+			{sentences.map((sentence) => {
 				return (
 					<SentenceBlock
 						key={sentence.id}
@@ -30,7 +30,7 @@ function Sentences(props: ChapterContentProps) {
 						environmentColor='white'
 					/>
 				)
-			})}*/}
+			})}
 		</div>
 	)
 }

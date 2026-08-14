@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useRouter } from '@/i18n/routing'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import { extractYouTubeVideoId } from '@/shared/utils/youtube'
-import { useYouTubeVideos } from '_pages/media/youTubeVideos/YouTubeVideosPage/fn/setupYouTubeDeps'
+import { useYouTubeVideos } from '_pages/media/videos/VideosPage/fn/setupVideosDeps'
 
 /**
  * Хук-оркестратор страницы поиска YouTube-видео.

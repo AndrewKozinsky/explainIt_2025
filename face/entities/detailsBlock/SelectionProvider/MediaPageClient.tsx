@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 import { cloneElement, useCallback, useState } from 'react'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'

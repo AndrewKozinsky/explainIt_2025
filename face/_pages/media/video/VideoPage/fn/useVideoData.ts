@@ -23,7 +23,7 @@ function isYouTubeVideoId(videoId: string): boolean {
  *
  * @returns { video, loading, error, refetch } — refetch перезапрашивает данные активного источника
  */
-export function useYouTubeVideoData(videoId: string) {
+export function useVideoData(videoId: string) {
 	const queryClient = useQueryClient()
 
 	const isYouTube = isYouTubeVideoId(videoId)

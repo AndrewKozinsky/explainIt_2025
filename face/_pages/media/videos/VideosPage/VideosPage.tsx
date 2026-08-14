@@ -7,10 +7,10 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 import PrivateVideosListWithAdd from '@/widgets/video/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
 import YouTubeVideosSaved from '@/widgets/video/YouTubeVideosSaved/YouTubeVideosSaved'
 import YouTubeVideosSearch from '@/widgets/video/YouTubeVideosSearch/YouTubeVideosSearch'
-import { useYouTubeVideosPageTabs } from './fn/useYouTubeVideosPageTabs'
+import { useVideosPageTabs } from './fn/useVideosPageTabs'
 
-export default function YouTubeVideosPage() {
-	const { defaultTab, onTabChange } = useYouTubeVideosPageTabs()
+export default function VideosPage() {
+	const { defaultTab, onTabChange } = useVideosPageTabs()
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.youtube.name}>

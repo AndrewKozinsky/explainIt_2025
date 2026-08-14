@@ -1,14 +1,14 @@
-// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import './SentenceTranslationError.scss'
+import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import './SentenceTranslationError.scss'
 
-/*type SentenceTranslationErrorProps = {
+type SentenceTranslationErrorProps = {
 	sentenceId: number
 	error: null | string
-}*/
+}
 
-/*function SentenceTranslationError(props: SentenceTranslationErrorProps) {
+function SentenceTranslationError(props: SentenceTranslationErrorProps) {
 	const { sentenceId, error } = props
 
 	if (!error) {
@@ -29,6 +29,6 @@
 			</Button>
 		</div>
 	)
-}*/
+}
 
-// export default SentenceTranslationError
+export default SentenceTranslationError

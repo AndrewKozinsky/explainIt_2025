@@ -1,8 +1,8 @@
 import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
+import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
 import { VideoContentType, VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 import { LanguageCode } from '@/shared/utils/languages'
-// import Subtitles from '../Subtitles/Subtitles'
+import Subtitles from '../Subtitles/Subtitles'
 import './SentencesOrSubtitles.scss'
 
 type TextSideProps = {
@@ -31,7 +31,7 @@ function SentencesOrSubtitles(props: TextSideProps) {
 	return (
 		<div className='watching-text-side'>
 			<div className='watching-text-side__content'>
-				{/*{contentType === 'text' && plainSentences && (
+				{contentType === 'text' && plainSentences && (
 					<Sentences
 						sentences={plainSentences}
 						selectedSentenceId={selectedSentenceId}
@@ -39,8 +39,8 @@ function SentencesOrSubtitles(props: TextSideProps) {
 						selectWord={selectWord}
 						languageCode={languageCode}
 					/>
-				)}*/}
-				{/*{contentType === 'subtitles' && subtitles?.subtitles && (
+				)}
+				{contentType === 'subtitles' && subtitles?.subtitles && (
 					<Subtitles
 						subtitles={subtitles.subtitles}
 						currentTime={currentTime}
@@ -49,7 +49,7 @@ function SentencesOrSubtitles(props: TextSideProps) {
 						selectWord={selectWord}
 						languageCode={languageCode}
 					/>
-				)}*/}
+				)}
 			</div>
 		</div>
 	)

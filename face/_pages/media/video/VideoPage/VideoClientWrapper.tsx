@@ -11,7 +11,7 @@ import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
 import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
-import { useYouTubeVideoStore } from '../youTubeVideoStore'
+import { useYouTubeVideoStore } from '../videoStore'
 
 type VideoClientWrapperProps = SelectionProps & {
 	languageCode: LanguageCode
@@ -26,7 +26,7 @@ type VideoClientWrapperProps = SelectionProps & {
 	subtitlesErrorCode: null | string
 }
 
-function YouTubeVideoClientWrapper(props: VideoClientWrapperProps) {
+function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const {
 		languageCode,
 		contentType,
@@ -78,4 +78,4 @@ function YouTubeVideoClientWrapper(props: VideoClientWrapperProps) {
 	)
 }
 
-export default YouTubeVideoClientWrapper
+export default VideoClientWrapper

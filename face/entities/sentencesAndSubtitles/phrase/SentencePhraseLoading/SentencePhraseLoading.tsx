@@ -1,11 +1,11 @@
-// import { SentencePhraseType } from '@/entities/detailsBlock/detailsStore'
-// import './SentencePhraseLoading.scss'
+import { SentencePhraseType } from '@/entities/detailsBlock/detailsStore'
+import './SentencePhraseLoading.scss'
 
-/*type SentencePhraseLoadingProps = {
+type SentencePhraseLoadingProps = {
 	phraseAnalysis: SentencePhraseType
-}*/
+}
 
-/*function SentencePhrase(props: SentencePhraseLoadingProps) {
+function SentencePhrase(props: SentencePhraseLoadingProps) {
 	const { phraseAnalysis } = props
 
 	if (!phraseAnalysis) {
@@ -23,6 +23,6 @@
 	}
 
 	return null
-}*/
+}
 
-// export default SentencePhrase
+export default SentencePhrase

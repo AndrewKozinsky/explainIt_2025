@@ -1,13 +1,13 @@
-// import { RefObject, useEffect, useRef } from 'react'
-// import { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
+import { RefObject, useEffect, useRef } from 'react'
+import { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 
-/*type UseSubtitlesPlaybackDomSyncParams = {
+type UseSubtitlesPlaybackDomSyncParams = {
 	containerRef: RefObject<HTMLElement | null>
 	subtitles: VideoSubtitlesModel.Structure['subtitles']
 	currentTime: number
 	bottomThresholdPx?: number
 	topPaddingPx?: number
-}*/
+}
 
 /**
  * Синхронизирует UI списка субтитров с текущим временем плеера, не вызывая
@@ -25,7 +25,7 @@
  * @param params.bottomThresholdPx - насколько близко к низу считать "не видно"
  * @param params.topPaddingPx - отступ сверху при автоскролле
  */
-/*export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
+export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
 	const { containerRef, subtitles, currentTime, bottomThresholdPx = 40, topPaddingPx = 20 } = params
 
 	const currentSubtitleIdxRef = useRef(0)
@@ -106,7 +106,7 @@
 		// Отдельная очистка на каждом ре-рендере не нужна и только создаёт
 		// лишние DOM-запросы на каждом кадре.
 	}, [currentTime, bottomThresholdPx, containerRef, subtitles, topPaddingPx])
-}*/
+}
 
 /**
  * Быстро находит индекс блока (subtitle/speechlessBar), соответствующего времени.
@@ -115,7 +115,7 @@
  * - Постепенное движение вперёд/назад: линейный скан на несколько шагов.
  * - Перемотка (большой скачок): бинарный поиск O(log n).
  */
-/*function findCurrentSubtitleIdx(params: {
+function findCurrentSubtitleIdx(params: {
 	subtitles: VideoSubtitlesModel.Structure['subtitles']
 	timeSeconds: number
 	currentIdx: number
@@ -151,13 +151,13 @@
 	}
 
 	return idx
-}*/
+}
 
 /**
  * Бинарный поиск первого блока, у которого toSeconds >= timeSeconds.
  * Используется при перемотке — O(log n) вместо линейного O(n).
  */
-/*function binarySearchSubtitleIdx(subtitles: VideoSubtitlesModel.Structure['subtitles'], timeSeconds: number): number {
+function binarySearchSubtitleIdx(subtitles: VideoSubtitlesModel.Structure['subtitles'], timeSeconds: number): number {
 	let lo = 0
 	let hi = subtitles.length - 1
 
@@ -171,7 +171,7 @@
 	}
 
 	return lo
-}*/
+}
 
 /**
  * Скроллит контейнер так, чтобы текущий элемент был видим, но без "дёрганий".
@@ -187,7 +187,7 @@
  * При первом автоскролле (forceAlignBelowVideo=true) — принудительно
  * ставит субтитр ниже видео без проверок.
  */
-/*function autoScrollToCurrent(params: {
+function autoScrollToCurrent(params: {
 	container: HTMLElement
 	currentSubtitleId: number
 	bottomThresholdPx: number
@@ -230,13 +230,13 @@
 
 	const delta = elRect.top - safeTop
 	scrollContainer.scrollTo({ top: scrollContainer.scrollTop + delta, behavior: 'smooth' })
-}*/
+}
 
 /**
  * Ищет ближайшего родителя со скроллом по оси Y.
  * Возвращает `null`, если подходящего контейнера нет.
  */
-/*function getScrollableParent(element: HTMLElement | null) {
+function getScrollableParent(element: HTMLElement | null) {
 	let el: HTMLElement | null = element
 
 	while (el) {
@@ -253,9 +253,9 @@
 	}
 
 	return null
-}*/
+}
 
-/*function scrollWindowToReveal(params: {
+function scrollWindowToReveal(params: {
 	currentEl: HTMLElement
 	bottomThresholdPx: number
 	topPaddingPx: number
@@ -279,9 +279,9 @@
 
 	const delta = elRect.top - safeTop
 	window.scrollBy({ top: delta, behavior: 'smooth' })
-}*/
+}
 
-/*function getStickyVideoBottomPx(fromEl: HTMLElement): number {
+function getStickyVideoBottomPx(fromEl: HTMLElement): number {
 	const doc = fromEl.ownerDocument ?? document
 	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
 	const videoEl =
@@ -296,4 +296,4 @@
 	if (rect.bottom <= 0 || rect.top >= (window.innerHeight || 0)) return 0
 
 	return Math.max(0, Math.min(window.innerHeight || 0, rect.bottom))
-}*/
+}

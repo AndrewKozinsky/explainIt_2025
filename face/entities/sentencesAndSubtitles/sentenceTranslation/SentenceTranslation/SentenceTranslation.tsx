@@ -1,17 +1,17 @@
-// import cn from 'classnames'
-// import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
-// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-// import SentenceTranslationContent from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationContent/SentenceTranslationContent'
-// import SentenceTranslationError from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationError/SentenceTranslationError'
-// import SentenceTranslationLoading from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationLoading/SentenceTranslationLoading'
-// import './SentenceTranslation.scss'
+import cn from 'classnames'
+import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
+import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import SentenceTranslationContent from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationContent/SentenceTranslationContent'
+import SentenceTranslationError from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationError/SentenceTranslationError'
+import SentenceTranslationLoading from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationLoading/SentenceTranslationLoading'
+import './SentenceTranslation.scss'
 
-/*type SentenceTranslationProps = {
+type SentenceTranslationProps = {
 	sentenceId: number
 	bgColor: 'white' | 'gray'
-}*/
+}
 
-/*function SentenceTranslation(props: SentenceTranslationProps) {
+function SentenceTranslation(props: SentenceTranslationProps) {
 	const { sentenceId, bgColor } = props
 
 	const sentenceEntry = useDetailsStore(function (s) {
@@ -39,6 +39,6 @@
 			<SentenceTranslationContent translationText={translationText} />
 		</p>
 	)
-}*/
+}
 
-// export default SentenceTranslation
+export default SentenceTranslation

@@ -1,13 +1,13 @@
-// import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
-// import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-// import SentencePhrase from '../phrase/SentencePhrase/SentencePhrase'
+import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
+import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import SentencePhrase from '../phrase/SentencePhrase/SentencePhrase'
 
-/*type PhraseDetailsProps = {
+type PhraseDetailsProps = {
 	sentenceId: number
 	languageCode: string
-}*/
+}
 
-/*function PhraseDetails(props: PhraseDetailsProps) {
+function PhraseDetails(props: PhraseDetailsProps) {
 	const { sentenceId, languageCode } = props
 
 	const coveringPhrase = useDetailsStore(function (store) {
@@ -22,6 +22,6 @@
 	}
 
 	return <SentencePhrase phraseAnalysis={coveringPhrase} sentenceId={sentenceId} languageCode={languageCode} />
-}*/
+}
 
-// export default PhraseDetails
+export default PhraseDetails

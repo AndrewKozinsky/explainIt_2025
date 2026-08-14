@@ -1,5 +1,5 @@
+import VideoPage from '_pages/media/video/VideoPage/VideoPage'
 import VideoDetailsPage from '_pages/media/videoDetails/VideoDetailsPage/VideoDetailsPage'
-import YouTubeVideoPage from '_pages/media/youTubeVideo/YouTubeVideoPage/YouTubeVideoPage'
 
 export default async function Page({
 	params,
@@ -16,5 +16,5 @@ export default async function Page({
 		return <VideoDetailsPage videoId={videoId} />
 	}
 
-	return <YouTubeVideoPage videoId={videoId} />
+	return <VideoPage videoId={videoId} />
 }

@@ -1,21 +1,21 @@
-// import { useRef } from 'react'
-// import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
-// import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
-// import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
-// import './Subtitles.scss'
+import { useRef } from 'react'
+import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
+import { LanguageCode } from '@/shared/utils/languages'
+import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
+import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
+import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
+import './Subtitles.scss'
 
-/*type SubtitlesContentProps = {
+type SubtitlesContentProps = {
 	subtitles: (VideoSubtitlesModel.Subtitle | VideoSubtitlesModel.SpeechlessBar)[]
 	currentTime: number
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: LanguageCode
-}*/
+}
 
-/*function Subtitles(props: SubtitlesContentProps) {
+function Subtitles(props: SubtitlesContentProps) {
 	const { subtitles, currentTime, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
 	const containerRef = useRef<HTMLDivElement | null>(null)
 
@@ -41,6 +41,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default Subtitles
+export default Subtitles

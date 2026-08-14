@@ -3,7 +3,7 @@ import { localStorageManager } from '@/shared/utils/localStorageManager'
 
 export const YOUTUBE_PAGE_STORAGE_KEY = 'youtube'
 
-export function useYouTubeVideosPageTabs() {
+export function useVideosPageTabs() {
 	const [defaultTab, setDefaultTab] = useState<string>('saved')
 
 	useLayoutEffect(() => {
