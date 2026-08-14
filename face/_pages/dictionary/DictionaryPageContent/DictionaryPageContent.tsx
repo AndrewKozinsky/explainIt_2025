@@ -1,12 +1,12 @@
-// 'use client'
+'use client'
 
-// import React from 'react'
-// import DictionaryFlashcardsList from '../DictionaryFlashcardsList/DictionaryFlashcardsList'
-// import DictionaryLanguageSwitch from '../DictionaryLanguageSwitch/DictionaryLanguageSwitch'
-// import { usePopulateDictionaryStore } from './fn/usePopulateDictionaryStore'
-// import './DictionaryPageContent.scss'
+import React from 'react'
+import DictionaryFlashcardsList from '../DictionaryFlashcardsList/DictionaryFlashcardsList'
+import DictionaryLanguageSwitch from '../DictionaryLanguageSwitch/DictionaryLanguageSwitch'
+import { usePopulateDictionaryStore } from './fn/usePopulateDictionaryStore'
+import './DictionaryPageContent.scss'
 
-/*function DictionaryPageContent() {
+function DictionaryPageContent() {
 	usePopulateDictionaryStore()
 
 	return (
@@ -15,6 +15,6 @@
 			<DictionaryFlashcardsList />
 		</div>
 	)
-}*/
+}
 
-// export default DictionaryPageContent
+export default DictionaryPageContent

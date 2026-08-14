@@ -1,14 +1,14 @@
-// import { create } from 'zustand'
-// import { LanguageCode } from '@/shared/utils/languages'
+import { create } from 'zustand'
+import { LanguageCode } from '@/shared/utils/languages'
 
 export const dictionaryStoreValues: DictionaryStoreValues = {
-	// currentLang: 'en',
+	currentLang: 'en',
 	flashcards: [],
-	// isFlashcardsLoading: false,
-	// getFlashcardsErrorMessage: '',
+	isFlashcardsLoading: false,
+	getFlashcardsErrorMessage: '',
 }
 
-/*export const useDictionaryStore = create<DictionaryStore>()((set) => {
+export const useDictionaryStore = create<DictionaryStore>()((set) => {
 	return {
 		...dictionaryStoreValues,
 		clearStoreData: () => {
@@ -30,7 +30,7 @@ export const dictionaryStoreValues: DictionaryStoreValues = {
 			set({ flashcards })
 		},
 	}
-})*/
+})
 
 export type DictionaryStore = DictionaryStoreValues & DictionaryStoreMethods
 
@@ -39,37 +39,37 @@ export type DictionaryFlashcardExample = {
 	translate: string
 }
 
-/*export type DictionaryFlashcardSentencePart = {
+export type DictionaryFlashcardSentencePart = {
 	type: 'text' | 'phrase'
 	value: string
-}*/
+}
 
 export type DictionaryFlashcardData = {
-	// id: number
-	// languageCode: string
-	// sentenceText: DictionaryFlashcardSentencePart[]
-	// sentenceTranslation: string
-	// phrase: string
-	// phraseStartOffset: number
-	// phraseEndOffset: number
-	// phraseTranslation: string
-	// phraseTranscription: string
-	// phraseAudioUrl: string
+	id: number
+	languageCode: string
+	sentenceText: DictionaryFlashcardSentencePart[]
+	sentenceTranslation: string
+	phrase: string
+	phraseStartOffset: number
+	phraseEndOffset: number
+	phraseTranslation: string
+	phraseTranscription: string
+	phraseAudioUrl: string
 	examples: DictionaryFlashcardExample[]
 }
 
 export type DictionaryStoreValues = {
-	// currentLang: LanguageCode
+	currentLang: LanguageCode
 	flashcards: DictionaryFlashcardData[]
-	// isFlashcardsLoading: boolean
-	// getFlashcardsErrorMessage: string
+	isFlashcardsLoading: boolean
+	getFlashcardsErrorMessage: string
 }
 
 export type DictionaryStoreMethods = {
-	// clearStoreData: () => void
-	// updateStore: (store: Partial<DictionaryStoreValues>) => void
-	// setCurrentLang: (currentLang: LanguageCode) => void
-	// setFlashcards: (flashcards: DictionaryFlashcardData[]) => void
-	// setIsFlashcardsLoading: (isFlashcardsLoading: boolean) => void
-	// setGetFlashcardsErrorMessage: (getFlashcardsErrorMessage: string) => void
+	clearStoreData: () => void
+	updateStore: (store: Partial<DictionaryStoreValues>) => void
+	setCurrentLang: (currentLang: LanguageCode) => void
+	setFlashcards: (flashcards: DictionaryFlashcardData[]) => void
+	setIsFlashcardsLoading: (isFlashcardsLoading: boolean) => void
+	setGetFlashcardsErrorMessage: (getFlashcardsErrorMessage: string) => void
 }
