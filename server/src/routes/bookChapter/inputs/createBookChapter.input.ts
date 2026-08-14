@@ -5,7 +5,7 @@ export class CreateBookChapterInput {
 	@DtoFieldDecorators('bookType', bdConfig.Book.dbFields.type)
 	bookType: 'public' | 'private'
 
-	@DtoFieldDecorators('bookId', bdConfig.Book.dbFields.id, { type: 'number', required: true, min: 1 })
+	@DtoFieldDecorators('bookId', bdConfig.Book.dbFields.id)
 	bookId: number
 
 	@DtoFieldDecorators('name', bdConfig.BookChapter.dbFields.name)

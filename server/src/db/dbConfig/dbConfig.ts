@@ -495,6 +495,7 @@ export const bdConfig = {
 				description: 'YouTube video ID for videos hosted on YouTube',
 				required: false,
 				unique: true,
+				minLength: 11,
 				maxLength: 20,
 				example: 'dQw4w9WgXcQ',
 			},
