@@ -17,7 +17,7 @@ function VideoPage(props: VideoRootProps) {
 
 	const { video, refetch, error } = useVideoData(videoId)
 
-	usePollVideoSubtitlesStatus(video?.subtitlesStatus, refetch)
+	usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
 	if (error) {
 		return <ErrorMessage text={error} />

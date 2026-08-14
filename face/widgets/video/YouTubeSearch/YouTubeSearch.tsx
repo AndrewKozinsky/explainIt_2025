@@ -38,7 +38,7 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 					autoFocus: true,
 				}}
 			/>
-			<Button theme='outline' size='big' onClick={onSearch} disabled={isSearchDisabled} loading={loading}>
+			<Button theme='outline' size='big' onClick={() => onSearch()} disabled={isSearchDisabled} loading={loading}>
 				Найти
 			</Button>
 		</div>

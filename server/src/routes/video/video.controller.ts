@@ -104,14 +104,11 @@ export class VideoController {
 	}
 
 	@ApiGetSubtitlesStatus()
-	@UseGuards(CheckSessionCookieGuard)
 	@HttpCode(HttpStatus.OK)
 	@Get(':id/subtitles-status')
 	async getSubtitlesStatus(
 		@Param('id', ParseIntPipe) id: number,
-		@Req() request: Request,
 	): Promise<VideoSubtitlesStatusOutModel> {
-		const userId = request.session.userId!
-		return await this.commandBus.execute(new GetSubtitlesGenerationStatusCommand(userId, id))
+		return await this.commandBus.execute(new GetSubtitlesGenerationStatusCommand(id))
 	}
 }
