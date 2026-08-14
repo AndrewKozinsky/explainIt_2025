@@ -1,10 +1,10 @@
-// import React from 'react'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
-// import './PhraseDictionaryError.scss'
+import React from 'react'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
+import './PhraseDictionaryError.scss'
 
-/*function PhraseDictionaryError() {
+function PhraseDictionaryError() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const error = usePhraseDictionaryStore((s) => s.error)
 
@@ -26,6 +26,6 @@
 			</Button>
 		</div>
 	)
-}*/
+}
 
-// export default PhraseDictionaryError
+export default PhraseDictionaryError

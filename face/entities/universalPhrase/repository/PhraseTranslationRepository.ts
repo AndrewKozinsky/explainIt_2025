@@ -1,11 +1,11 @@
-// import type { AiModel } from '@/shared/api/AIModels'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import type { TranscriptionModel } from '../../phrase/repository/PhraseRepository'
+import type { AiModel } from '@/shared/api/AIModels'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { TranscriptionModel } from '../../phrase/repository/PhraseRepository'
 
 /**
  * Унифицированная модель перевода фразы — не зависит от API.
  */
-/*export type PhraseTranslationModel = {
+export type PhraseTranslationModel = {
 	id: number
 	universalPhraseId: number | null
 	targetLanguageCode: string
@@ -15,7 +15,7 @@
 	nonExistentWord: boolean
 	createdAt: string
 	transcription: TranscriptionModel | null
-}*/
+}
 
 export type TranslationStatus = 'pending' | 'ready' | 'error'
 
@@ -75,22 +75,22 @@ export type TextBlockModel = {
 /**
  * Входные данные для запроса перевода.
  */
-/*export type GetOrCreateTranslationInput = {
+export type GetOrCreateTranslationInput = {
 	universalPhraseId?: number | null
 	phraseText?: string | null
 	sourceLanguageCode?: string | null
 	targetLanguageCode: string
 	model?: AiModel | null
-}*/
+}
 
 /**
  * Репозиторий переводов фраз — абстракция над серверным API.
  * Компоненты зависят от этого интерфейса, а не от конкретной реализации.
  */
-/*export type PhraseTranslationRepository = {
-	/!** Получить или создать перевод фразы *!/
+export type PhraseTranslationRepository = {
+	/** Получить или создать перевод фразы */
 	getOrCreateTranslation(
 		input: GetOrCreateTranslationInput,
 		signal?: AbortSignal,
 	): Promise<ApiResult<PhraseTranslationModel>>
-}*/
+}

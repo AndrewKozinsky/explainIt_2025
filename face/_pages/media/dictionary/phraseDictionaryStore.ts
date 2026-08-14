@@ -1,9 +1,9 @@
-// import { create } from 'zustand'
-// import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
-// import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-// import { LlmProvider } from '_pages/media/sentenceChat/sentenceChatStore'
+import { create } from 'zustand'
+import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
+import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+import { LlmProvider } from '_pages/media/sentenceChat/sentenceChatStore'
 
-/*export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
+export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	inputText: '',
 	status: 'idle',
 	translation: null,
@@ -14,9 +14,9 @@
 	sourceLanguageCode: null,
 	// provider: 'deepseek',
 	retryTrigger: 0,
-}*/
+}
 
-/*export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set, get) => {
+export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set, get) => {
 	return {
 		...phraseDictionaryStoreValues,
 		setInputText: (text: string) => {
@@ -44,17 +44,17 @@
 		triggerRetry: () => {
 			set({ retryTrigger: get().retryTrigger + 1 })
 		},
-		/!*reset: () => {
+		/*reset: () => {
 			set(phraseDictionaryStoreValues)
-		},*!/
+		},*/
 	}
-})*/
+})
 
-// export type TranslationStatus = 'idle' | 'loading' | 'ready' | 'error'
+export type TranslationStatus = 'idle' | 'loading' | 'ready' | 'error'
 
-// export type PhraseDictionaryStoreNext = PhraseDictionaryStoreValues & PhraseDictionaryStoreMethods
+export type PhraseDictionaryStoreNext = PhraseDictionaryStoreValues & PhraseDictionaryStoreMethods
 
-/*export type PhraseDictionaryStoreValues = {
+export type PhraseDictionaryStoreValues = {
 	inputText: string
 	status: TranslationStatus
 	translation: null | PhraseTranslationDataModel
@@ -65,9 +65,9 @@
 	sourceLanguageCode: null | string
 	// provider: LlmProvider
 	retryTrigger: number
-}*/
+}
 
-/*export type PhraseDictionaryStoreMethods = {
+export type PhraseDictionaryStoreMethods = {
 	setInputText: (text: string) => void
 	setSourceLanguageCode: (code: string) => void
 	setTranslationResult: (
@@ -79,4 +79,4 @@
 	setNonExistentWord: () => void
 	setStatusLoading: () => void
 	triggerRetry: () => void
-}*/
+}

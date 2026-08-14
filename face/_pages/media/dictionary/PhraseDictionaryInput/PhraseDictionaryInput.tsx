@@ -1,9 +1,9 @@
-// import React from 'react'
-// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-// import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
-// import { usePhraseTranslation } from './fn/usePhraseTranslation'
+import React from 'react'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
+import { usePhraseTranslation } from './fn/usePhraseTranslation'
 
-/*function PhraseDictionaryInput() {
+function PhraseDictionaryInput() {
 	const { handleSubmit } = usePhraseTranslation()
 
 	const inputText = usePhraseDictionaryStore((s) => s.inputText)
@@ -23,6 +23,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default PhraseDictionaryInput
+export default PhraseDictionaryInput

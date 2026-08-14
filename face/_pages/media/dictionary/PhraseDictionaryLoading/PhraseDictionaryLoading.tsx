@@ -1,7 +1,7 @@
-// import React from 'react'
-// import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
+import React from 'react'
+import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
 
-/*function PhraseDictionaryLoading() {
+function PhraseDictionaryLoading() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 
 	if (status !== 'loading') {
@@ -9,6 +9,6 @@
 	}
 
 	return <div className='phrase-dictionary__status'>Загрузка перевода...</div>
-}*/
+}
 
-// export default PhraseDictionaryLoading
+export default PhraseDictionaryLoading

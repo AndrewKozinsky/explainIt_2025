@@ -4,9 +4,8 @@ import type {
 	PhraseModel,
 	TranscriptionModel,
 } from '@/entities/phrase/repository/PhraseRepository'
-// import { PhraseTranslationApi } from '@/entities/universalPhrase/repository/PhraseTranslationApi'
 import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-// import { DeepSeekModels } from '@/shared/api/AIModels'
+import { DeepSeekModels } from '@/shared/api/AIModels'
 import { LanguageCode } from '@/shared/utils/languages'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -32,12 +31,12 @@ export type PhraseData = {
 	audioPronunciation: AudioData | null
 }
 
-/*export type PreloadItem = {
+export type PreloadItem = {
 	phrase: string
 	languageCode: LanguageCode
 	transcription?: string
 	audioUrl?: string | null
-}*/
+}
 
 export type TranslationEntryData = {
 	data: PhraseTranslationDataModel | null
@@ -71,10 +70,9 @@ export class UniversalPhraseService {
 	#phraseRequests = new Map<string, Promise<ServiceResult<PhraseData>>>()
 	#transcriptionRequests = new Map<string, Promise<ServiceResult<TranscriptionData>>>()
 	#audioRequests = new Map<string, Promise<ServiceResult<AudioData>>>()
-	// #translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
+	#translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
 
 	#phraseApi = new PhraseApi()
-	// #translationApi = new PhraseTranslationApi()
 
 	// ─── getPhrase ────────────────────────────────────────────────────────
 
@@ -283,7 +281,7 @@ export class UniversalPhraseService {
 
 	// ─── getTranslation ───────────────────────────────────────────────────
 
-	/*async getTranslation(
+	async getTranslation(
 		phrase: string,
 		sourceLanguageCode: LanguageCode,
 		targetLanguageCode: string,
@@ -311,9 +309,9 @@ export class UniversalPhraseService {
 		} finally {
 			this.#translationRequests.delete(translationKey)
 		}
-	}*/
+	}
 
-	/*async #executeGetTranslation(
+	async #executeGetTranslation(
 		phraseKey: string,
 		phrase: string,
 		sourceLanguageCode: LanguageCode,
@@ -390,13 +388,13 @@ export class UniversalPhraseService {
 		translationEntry.status = 'error'
 		translationEntry.errorMessage = 'Перевод не был получен.'
 		return { ok: false, errorMessage: translationEntry.errorMessage }
-	}*/
+	}
 
 	// ─── getState (синхронное чтение) ─────────────────────────────────────
 
-	/*getState(phrase: string, languageCode: LanguageCode): PhraseEntry | undefined {
+	getState(phrase: string, languageCode: LanguageCode): PhraseEntry | undefined {
 		return this.#entries.get(makePhraseKey(phrase, languageCode))
-	}*/
+	}
 
 	// ─── ensureEntry ──────────────────────────────────────────────────────
 
@@ -410,17 +408,17 @@ export class UniversalPhraseService {
 		return entry
 	}
 
-	/*#ensureTranslationEntry(entry: PhraseEntry, targetLanguageCode: string): TranslationEntryData {
+	#ensureTranslationEntry(entry: PhraseEntry, targetLanguageCode: string): TranslationEntryData {
 		if (!entry.translations[targetLanguageCode]) {
 			entry.translations[targetLanguageCode] = createEmptyTranslationEntry()
 		}
 
 		return entry.translations[targetLanguageCode]
-	}*/
+	}
 
 	// ─── preload ──────────────────────────────────────────────────────────
 
-	/*preload(items: PreloadItem[]): void {
+	preload(items: PreloadItem[]): void {
 		for (const item of items) {
 			const key = makePhraseKey(item.phrase, item.languageCode)
 			const existing = this.#entries.get(key)
@@ -451,7 +449,7 @@ export class UniversalPhraseService {
 				this.#entries.set(key, entry)
 			}
 		}
-	}*/
+	}
 }
 
 // ─── Singleton ────────────────────────────────────────────────────────────────
@@ -477,21 +475,21 @@ function mapModelToTranscriptionData(model: TranscriptionModel): TranscriptionDa
 	}
 }
 
-/*function createEmptyTranslationEntry(): TranslationEntryData {
+function createEmptyTranslationEntry(): TranslationEntryData {
 	return {
 		data: null,
 		status: 'idle',
 		errorMessage: null,
 	}
-}*/
+}
 
 export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
 	return `${languageCode}:${phrase.trim().toLocaleLowerCase()}`
 }
 
-/*function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {
+function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {
 	return `${makePhraseKey(phrase, sourceLanguageCode)}:${targetLanguageCode}`
-}*/
+}
 
 function createEmptyEntry(phrase: string, languageCode: LanguageCode): PhraseEntry {
 	return {
