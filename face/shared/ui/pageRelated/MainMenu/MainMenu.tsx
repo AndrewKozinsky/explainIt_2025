@@ -12,9 +12,9 @@ export function MainMenu() {
 				<li>
 					<MainMenuLink linkData={{ name: pageUrls.books.name, path: pageUrls.books.path }} />
 				</li>
-				<li>
+				{/*<li>
 					<MainMenuLink linkData={{ name: pageUrls.dictionary.name, path: pageUrls.dictionary.path }} />
-				</li>
+				</li>*/}
 				<li>
 					<MainMenuLink linkData={pageUrls.contacts} />
 				</li>

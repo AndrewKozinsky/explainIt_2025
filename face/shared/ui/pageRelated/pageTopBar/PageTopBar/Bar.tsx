@@ -13,8 +13,8 @@ function Bar() {
 				<MainMenu />
 			</div>
 			<div className='page-bar__right'>
-				<LanguageSwitcher />
-				<AuthButtons />
+				{/*<LanguageSwitcher />*/}
+				{/*<AuthButtons />*/}
 			</div>
 		</div>
 	)

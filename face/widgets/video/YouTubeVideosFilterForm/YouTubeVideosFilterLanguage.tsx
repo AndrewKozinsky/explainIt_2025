@@ -10,12 +10,9 @@ type YouTubeVideosFilterLanguageProps = {
 function YouTubeVideosFilterLanguage(props: YouTubeVideosFilterLanguageProps) {
 	const { languageCode, onChange } = props
 
-	const options: DropdownOption[] = [
-		{ value: '', label: 'Все языки' },
-		...languageKeys.map(function (key) {
-			return { value: key, label: languages[key].name }
-		}),
-	]
+	const options: DropdownOption[] = languageKeys.map(function (key) {
+		return { value: key, label: languages[key].name }
+	})
 
 	return (
 		<Select
