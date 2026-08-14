@@ -26,17 +26,22 @@ type SentenceBoundary = {
  * от начала видео). Возвращает границы предложений — единственная семантическая
  * задача; все таймкоды уже предоставлены.
  */
-const WORDS_TO_SENTENCES_SYSTEM_PROMPT = `You are a precise subtitle formatter. Group words with timestamps into sentences.
+const WORDS_TO_SENTENCES_SYSTEM_PROMPT = `You are a precise subtitle formatter. Group words with timestamps into grammatically correct sentences.
 
 INPUT: JSON array of {"w": "word_or_punctuation", "t": start_milliseconds}
 
 RULES:
-1. Group consecutive words into grammatically complete sentences using punctuation (. ! ?) and meaning as boundaries.
+1. Group consecutive words into complete sentences, using punctuation (. ! ?) and meaning as boundaries. Aim for one sentence per subtitle. Keep sentences reasonably short: if a sentence would exceed ~12 words, split it at a natural pause or meaning boundary.
 2. For each sentence set:
    - "startMs" = the "t" value of the sentence's FIRST word
    - "endMs" = the "t" value of the sentence's LAST word + 300 ms
-3. "text" = all words joined with spaces. Preserve original wording and punctuation exactly.
-4. If punctuation is missing at sentence boundaries, infer them from meaning.
+3. Rebuild "text" as clean, correctly punctuated prose:
+   - Join words with single spaces.
+   - Capitalize the first letter of each sentence.
+   - Apply correct capitalization for the input language (e.g. the pronoun "I" and proper nouns in English).
+   - Restore contractions and apostrophes where they belong (e.g. "im" -> "I'm", "dont" -> "don't", "youre" -> "you're").
+   - End every sentence with a terminal punctuation mark (. ! ?).
+4. The input is typically lowercase with no punctuation. Infer correct capitalization and punctuation from meaning. Do not paraphrase, add, or remove words — only fix casing, spacing, contractions, and punctuation.
 
 OUTPUT: valid JSON only, no explanations:
 {"sentences": [{"startMs": 400, "endMs": 4480, "text": "When did recognizing rights become something radical?"}, ...]}`
@@ -192,9 +197,9 @@ export class SubtitlesService {
 	 * в формат SRT.
 	 *
 	 * Пайплайн внутри:
-	 * 1. Извлекает пословные тайминги из VTT
-	 * 2. Группирует слова в предложения через LLM (DeepSeek)
-	 * 3. Устраняет перекрытия и зазоры между предложениями
+	 * 1. Извлекает пословные тайминги из VTT и очищает их от мусора (HTML-entities, маркеры `[Music]`)
+	 * 2. Группирует слова в предложения через LLM (DeepSeek), нормализуя регистр и пунктуацию
+	 * 3. Детерминированно дочищает текст и устраняет перекрытия/зазоры между предложениями
 	 * 4. Форматирует в SRT
 	 *
 	 * Бросает ошибку, если LLM не смог обработать — вызывающий код решает,
@@ -222,7 +227,11 @@ export class SubtitlesService {
 		)
 
 		const parsed = JSON.parse(llmResult.content) as { sentences: SentenceBoundary[] }
-		const sentences = normalizeSentenceEndTimes(parsed.sentences)
+		const sentences = normalizeSentenceEndTimes(
+			parsed.sentences
+				.map((s) => ({ ...s, text: normalizeSentenceText(s.text) }))
+				.filter((s) => s.text.length > 0),
+		)
 		const srt = buildSrtFromSentences(sentences)
 
 		this.logger.log(`Built SRT with ${sentences.length} sentence(s) from YouTube VTT`)
@@ -332,6 +341,7 @@ function isSentenceEndingWord(word: string): boolean {
  * 4. The first word(s) use the block start time; each subsequent segment
  *    inherits the preceding timestamp.
  * 5. Strip `<c>` / `</c>` styling tags.
+ * 6. Clean each word token: decode HTML entities and drop bracketed annotations.
  */
 function parseVttToWordTimings(vtt: string): WordTiming[] {
 	const words: WordTiming[] = []
@@ -384,7 +394,9 @@ function parseVttToWordTimings(vtt: string): WordTiming[] {
 				.split(/\s+/)
 				.filter((w) => w.length > 0)
 			for (const word of textWords) {
-				words.push({ word, startMs: currentMs })
+				const clean = cleanWordToken(word)
+				if (clean === null) continue
+				words.push({ word: clean, startMs: currentMs })
 			}
 		}
 	}
@@ -394,6 +406,55 @@ function parseVttToWordTimings(vtt: string): WordTiming[] {
 
 function hmsToMs(h: string, m: string, s: string, ms: string): number {
 	return Number(h) * 3_600_000 + Number(m) * 60_000 + Number(s) * 1_000 + Number(ms)
+}
+
+/** Common named HTML entities found in YouTube VTT (e.g. `&nbsp;` inside music markers). */
+const HTML_ENTITIES: Record<string, string> = {
+	nbsp: ' ',
+	amp: '&',
+	lt: '<',
+	gt: '>',
+}
+
+/**
+ * Decode HTML entities (`&nbsp;`, `&amp;`, numeric `&#123;`) into plain text.
+ * Unknown entities are left unchanged.
+ */
+function decodeHtmlEntities(text: string): string {
+	return text.replace(/&(#x?[0-9a-fA-F]+|[a-zA-Z]+);/g, (match, entity: string) => {
+		if (entity[0] === '#') {
+			const isHex = entity[1] === 'x' || entity[1] === 'X'
+			const code = Number.parseInt(entity.slice(isHex ? 2 : 1), isHex ? 16 : 10)
+			if (Number.isNaN(code) || code < 0 || code > 0x10ffff) return match
+			return String.fromCodePoint(code)
+		}
+		return HTML_ENTITIES[entity] ?? match
+	})
+}
+
+/**
+ * Clean a single word token extracted from YouTube VTT.
+ *
+ * Drops YouTube's bracketed annotations (`[Music]`, `[Applause]`, `[ __ ]`,
+ * `[&nbsp;__&nbsp;]`) which carry no speech, and decodes HTML entities in the
+ * remaining text. Returns `null` when the token has no speech content.
+ */
+function cleanWordToken(rawWord: string): string | null {
+	const decoded = decodeHtmlEntities(rawWord)
+
+	// A token that is entirely a bracketed annotation carries no speech.
+	if (decoded.startsWith('[') && decoded.endsWith(']')) return null
+
+	// Defensive: strip any bracket annotations glued to real words.
+	const cleaned = decoded
+		.replace(/\[.*?]/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim()
+
+	// Drop tokens with no letter or digit (leftover `[`, `]`, `__`, punctuation).
+	if (!/[A-Za-zÀ-ÖØ-öø-ÿ0-9]/.test(cleaned)) return null
+
+	return cleaned
 }
 
 // ─── Private: buildSrtFromSentences helpers ─────────────────────────────────
@@ -443,4 +504,30 @@ function normalizeSentenceEndTimes(sentences: SentenceBoundary[]): SentenceBound
 		}
 		return { ...s, endMs }
 	})
+}
+
+/**
+ * Deterministic safety net for sentence text returned by the LLM.
+ *
+ * The LLM normalizes casing and punctuation, but this guarantees the basics
+ * even when the LLM misses: flatten whitespace, strip any bracket annotations
+ * that slipped through, capitalize the first letter, and ensure a terminal
+ * punctuation mark.
+ */
+function normalizeSentenceText(text: string): string {
+	let t = text
+		.replace(/\[.*?]/g, ' ')
+		.replace(/[\r\n]+/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim()
+
+	if (!t) return t
+
+	t = t.charAt(0).toUpperCase() + t.slice(1)
+
+	if (!/[.!?…]["'”’)]*$/.test(t)) {
+		t += '.'
+	}
+
+	return t
 }
