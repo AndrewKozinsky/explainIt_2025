@@ -212,6 +212,36 @@ export class SubtitlesService {
 		const wordTimings = parseVttToWordTimings(vttContent)
 		this.logger.log(`Extracted ${wordTimings.length} word timings from YouTube VTT`)
 
+		const chunks = splitWordTimingsIntoChunks(wordTimings)
+		if (chunks.length > 1) {
+			this.logger.log(
+				`Splitting ${wordTimings.length} word timings into ${chunks.length} LLM chunks ` +
+					`(max ${MAX_WORDS_PER_CHUNK} words per chunk)`,
+			)
+		}
+
+		const sentences: SentenceBoundary[] = []
+		for (const chunk of chunks) {
+			sentences.push(...(await this.groupWordsToSentences(chunk)))
+		}
+
+		const normalized = normalizeSentenceEndTimes(
+			sentences.map((s) => ({ ...s, text: normalizeSentenceText(s.text) })).filter((s) => s.text.length > 0),
+		)
+		const srt = buildSrtFromSentences(normalized)
+
+		this.logger.log(`Built SRT with ${normalized.length} sentence(s) from YouTube VTT`)
+		return srt
+	}
+
+	/**
+	 * Группирует пословные тайминги одного чанка в предложения через LLM.
+	 *
+	 * Возвращает сырые границы предложений в том порядке, в котором их вернул
+	 * LLM (порядок по времени). Нормализация текста и таймкодов выполняется
+	 * позже, уже по объединённому списку всех чанков.
+	 */
+	private async groupWordsToSentences(wordTimings: WordTiming[]): Promise<SentenceBoundary[]> {
 		const llmResult = await this.llmAdapter.generate({
 			model: DeepSeekModels.Flash,
 			responseFormat: 'json_object',
@@ -227,15 +257,7 @@ export class SubtitlesService {
 		)
 
 		const parsed = JSON.parse(llmResult.content) as { sentences: SentenceBoundary[] }
-		const sentences = normalizeSentenceEndTimes(
-			parsed.sentences
-				.map((s) => ({ ...s, text: normalizeSentenceText(s.text) }))
-				.filter((s) => s.text.length > 0),
-		)
-		const srt = buildSrtFromSentences(sentences)
-
-		this.logger.log(`Built SRT with ${sentences.length} sentence(s) from YouTube VTT`)
-		return srt
+		return parsed.sentences
 	}
 
 	// ─── Private: SRT time parsing / formatting ──────────────────────────────
@@ -455,6 +477,72 @@ function cleanWordToken(rawWord: string): string | null {
 	if (!/[A-Za-zÀ-ÖØ-öø-ÿ0-9]/.test(cleaned)) return null
 
 	return cleaned
+}
+
+// ─── Private: chunking word timings for the LLM ─────────────────────────────
+
+/**
+ * Максимум слов на один LLM-вызов при конвертации YouTube VTT → SRT.
+ *
+ * Видео ~10 минут — это примерно 1500 слов и надёжно разбирается одним вызовом.
+ * Более длинные видео нарезаются на чанки не больше этого размера; каждый разрез
+ * делается по самой большой паузе между словами в хвостовом окне, поэтому он
+ * редко попадает в середину предложения. Значение подобрано эмпирически и легко
+ * тюнится после замера реального качества на длинных роликах.
+ */
+const MAX_WORDS_PER_CHUNK = 2500
+
+/**
+ * На сколько слов от жёсткого лимита отступаем назад в поисках хорошей паузы.
+ * Задаёт минимальный размер чанка: MAX_WORDS_PER_CHUNK − LOOKBACK_WORDS.
+ */
+const LOOKBACK_WORDS = 400
+
+/**
+ * Нарезает плоский список пословных таймингов на чанки для LLM.
+ *
+ * Правила:
+ * - Если слов не больше {@link MAX_WORDS_PER_CHUNK} — возвращает один чанк
+ *   (текущее поведение для коротких видео).
+ * - Иначе каждый чанк имеет длину в диапазоне [MAX − LOOKBACK, MAX] слов.
+ * - Точку разреза ищем в хвостовом окне последних {@link LOOKBACK_WORDS} слов
+ *   и выбираем границу с самой большой паузой между словами — это почти всегда
+ *   конец мысли/предложения, а не середина.
+ */
+function splitWordTimingsIntoChunks(wordTimings: WordTiming[]): WordTiming[][] {
+	if (wordTimings.length <= MAX_WORDS_PER_CHUNK) return [wordTimings]
+
+	const chunks: WordTiming[][] = []
+	let start = 0
+
+	while (start < wordTimings.length) {
+		const hardEnd = Math.min(start + MAX_WORDS_PER_CHUNK, wordTimings.length)
+
+		// Последний чанк — берём остаток целиком, разрезать не нужно.
+		if (hardEnd >= wordTimings.length) {
+			chunks.push(wordTimings.slice(start))
+			break
+		}
+
+		// Выбираем разрез в окне [hardEnd − LOOKBACK_WORDS, hardEnd]:
+		// границу с самой большой паузой между соседними словами.
+		// `start + 1` гарантирует прогресс, даже если константы изменят.
+		const lookbackStart = Math.max(start + 1, hardEnd - LOOKBACK_WORDS)
+		let cut = hardEnd
+		let bestGap = Number.NEGATIVE_INFINITY
+		for (let k = lookbackStart; k <= hardEnd; k++) {
+			const gap = wordTimings[k].startMs - wordTimings[k - 1].startMs
+			if (gap > bestGap) {
+				bestGap = gap
+				cut = k
+			}
+		}
+
+		chunks.push(wordTimings.slice(start, cut))
+		start = cut
+	}
+
+	return chunks
 }
 
 // ─── Private: buildSrtFromSentences helpers ─────────────────────────────────
