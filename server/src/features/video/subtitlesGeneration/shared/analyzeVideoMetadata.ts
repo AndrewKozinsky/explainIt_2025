@@ -30,18 +30,76 @@ const CEFR_TO_NUMBER: Record<string, number> = {
 	C2: 6,
 }
 
-const SYSTEM_PROMPT = `You are an expert in educational content analysis for language learners. Analyze the provided video transcript excerpt and return a JSON object with metadata about the video.
+const SYSTEM_PROMPT = `You are an expert in CEFR-based language assessment and educational content analysis.
 
-The transcript may be TRUNCATED — markers like "[... MIDDLE SECTION OMITTED ...]" indicate where content was removed for length. Do NOT treat omissions as incoherence; evaluate based on the available text.
+Analyze the provided video transcript excerpt and return a JSON object with metadata about the video.
+The transcript may be TRUNCATED — markers like "[... MIDDLE SECTION OMITTED ...]" indicate where content was removed for length. Do NOT treat omissions as incoherence or use them as evidence of language difficulty.
+
+IMPORTANT:
+The transcript may contain automatic speech recognition (ASR) errors, missing punctuation, duplicated words, incorrectly recognized words, or unintelligible fragments. Ignore obvious transcription errors when evaluating the language level. Do not interpret corrupted or nonsensical text as evidence of advanced vocabulary or grammar.
 
 RULES:
-- "language": ISO 639-1 code of the language spoken (e.g. "en", "es", "fr", "de", "it", "tr", "ru")
-- "cefrLevel": one of A1, A2, B1, B2, C1, C2 — the language proficiency level required to comfortably understand this content
+- "language": ISO 639-1 code of the primary language spoken in the transcript (e.g. "en", "es", "fr", "de", "it", "pt", "ru", "tr")
+- "cefrLevel": one of A1, A2, B1, B2, C1, C2
 - "topics": 1-2 categories that best describe the video subject, chosen EXACTLY from this list:
   ${VIDEO_TOPICS.join(', ')}
-- "learnabilityScore": integer 1-10. How useful this video is for language learners. Higher = clear articulation, structured thoughts, useful frequent vocabulary, real-world applicable language. Lower = excessive slang, filler words, rambling, outdated/obscure language, poorly structured sentences.
+- "learnabilityScore": integer 1-10. How useful this video is for language learners. Higher = clear articulation, useful and relatively common vocabulary, natural language, coherent speech, and language applicable to real-world communication. Lower = excessive slang, heavy use of fillers, mumbling, fragmented speech, obscure vocabulary, highly specialized terminology, or poor audio/transcription quality.
 
-Return ONLY valid JSON, no explanations:
+CEFR LEVEL:
+The CEFR level must describe the linguistic complexity of the language used in the transcript, NOT the intellectual difficulty of the subject.
+
+Evaluate primarily:
+- vocabulary frequency and sophistication;
+- grammatical complexity;
+- sentence structure;
+- variety of grammatical constructions;
+- idioms, fixed expressions, and colloquial language;
+- how much implicit or nuanced meaning is expressed through language.
+
+Do NOT assign a higher level simply because:
+- the topic is intellectually difficult or specialized;
+- the speakers are talking about complex ideas;
+- the video comes from a movie, TV show, documentary, lecture, or news program;
+- the speech is fast;
+- the speakers have accents;
+- the transcript contains proper names;
+- cultural knowledge is required to fully understand the situation;
+- the transcript contains ASR errors, missing words, or corrupted fragments.
+
+Use the following general CEFR guidelines:
+
+A1:
+Very basic, highly frequent vocabulary and simple grammatical structures. Short sentences and basic statements, questions, and everyday expressions.
+
+A2:
+Common everyday vocabulary and mostly simple grammatical structures. Short or moderately short sentences used for familiar situations, routine communication, and basic descriptions.
+
+B1:
+Generally familiar vocabulary with some less frequent words and expressions. A mixture of simple and moderately complex sentences, several common grammatical structures, and natural conversational language. The learner may encounter some unfamiliar expressions but can understand the overall meaning from context.
+
+B2:
+Clearly more complex sentence structures and a broader vocabulary. Frequent use of subordinate clauses, varied grammatical constructions, idiomatic or less predictable expressions, and more precise ways of expressing ideas. The language may require substantial knowledge beyond everyday communication.
+
+C1:
+Advanced and sophisticated language. Complex syntax, precise and varied vocabulary, nuanced meanings, frequent idiomatic or figurative expressions, and subtle distinctions in meaning. The language is significantly more demanding than ordinary everyday communication.
+
+C2:
+Exceptionally sophisticated and precise language. Very complex syntax, highly nuanced expression, rare or specialized vocabulary, subtle rhetorical or stylistic distinctions, and language that would be challenging even for highly proficient learners. C2 should be assigned only when there is clear evidence of this level of linguistic sophistication.
+
+IMPORTANT CALIBRATION RULES:
+- Do not assign C1 or C2 unless the transcript contains clear linguistic evidence supporting an advanced level.
+- Ordinary native-speaker conversation is NOT automatically C1 or C2.
+- A transcript consisting mainly of short, everyday conversational sentences should normally be classified as A2 or B1, even if the speakers are native speakers.
+- A few difficult words or idiomatic expressions are not sufficient to classify the entire transcript as B2, C1, or C2.
+- Judge the overall linguistic level of the transcript rather than its most difficult individual sentence.
+- When the transcript contains mixed levels, choose the level that best represents the majority of the language.
+- When uncertain between two adjacent levels, choose the lower level unless there is clear evidence that the higher level is consistently present.
+- Do not confuse "native-like" with "C2". Native speakers routinely use simple A2/B1 language in everyday conversations.
+- Consider the intended learner's ability to understand the language itself, rather than whether they would understand every cultural reference or every detail of the conversation.
+
+Return ONLY valid JSON, with no explanations or markdown.
+
+Example:
 {"language":"en","cefrLevel":"B1","topics":["Technology & Science"],"learnabilityScore":7}`
 
 const MAX_SAMPLE_CHARS = 3000
@@ -80,6 +138,7 @@ export async function analyzeVideoMetadata(
 
 	// 3. Call LLM
 	let rawJson: string
+
 	try {
 		const result = await llmAdapter.generate({
 			model: DEFAULT_FLASH_AI_MODEL,
@@ -89,11 +148,13 @@ export async function analyzeVideoMetadata(
 				{ role: 'user', content: sample },
 			],
 		})
+
 		rawJson = result.content
 		logger.log(`Metadata analysis done (input=${result.inputTokens} tokens, output=${result.outputTokens} tokens)`)
 	} catch (err) {
 		const message = err instanceof Error ? err.message : String(err)
 		logger.warn(`LLM call failed for metadata analysis: ${message}`)
+
 		return null
 	}
 

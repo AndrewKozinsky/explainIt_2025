@@ -20,7 +20,7 @@ export function PageWrapper(props: PageWrapperProps) {
 				</header>
 			)}
 			<div className='page-wrapper__middle'>{children}</div>
-			{/*{withBottom && <RuFooter />}*/}
+			{withBottom && <RuFooter />}
 		</div>
 	)
 }
