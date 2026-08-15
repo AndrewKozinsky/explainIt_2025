@@ -1,10 +1,10 @@
-import type { VideoLiteModel } from '@/entities/video/lib/types'
 import type { VideoModel } from '@/entities/video/repository/VideosRepository'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { YoutubeApi } from './repository/YoutubeApi'
 import type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
+	SavedVideosPage,
 	YoutubeRepository,
 	YoutubeVideosResultModel,
 } from './repository/YoutubeRepository'
@@ -43,7 +43,7 @@ export class YoutubeService {
 	}
 
 	/** Получить сохранённые YouTube-видео с фильтрами */
-	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
+	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>> {
 		return this.youtubeRepository.getSavedVideos(params)
 	}
 

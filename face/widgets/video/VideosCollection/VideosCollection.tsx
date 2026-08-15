@@ -26,7 +26,7 @@ function VideosCollection() {
 		[languageCode, durationKey, topicKey, proficiencyKey, sortKey],
 	)
 
-	const { items, loading, errorText } = useGetSavedVideos(filterValues)
+	const { items, loading, loadingMore, hasMore, loadMore, errorText } = useGetSavedVideos(filterValues)
 
 	function handleFilterChange(values: YouTubeVideosFilterValues) {
 		setLanguageCode(values.languageCode)
@@ -39,7 +39,14 @@ function VideosCollection() {
 	return (
 		<div className='videos-collection'>
 			<YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
-			<YouTubeVideosList items={items} loading={loading} error={errorText} />
+			<YouTubeVideosList
+				items={items}
+				loading={loading}
+				loadingMore={loadingMore}
+				hasMore={hasMore}
+				onLoadMore={loadMore}
+				error={errorText}
+			/>
 		</div>
 	)
 }

@@ -1,5 +1,6 @@
 import { videoConfig } from '@/entities/video/lib/videoConfig'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import InfiniteScrollTrigger from '@/shared/ui/InfiniteScrollTrigger/InfiniteScrollTrigger'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
@@ -21,11 +22,14 @@ export type YouTubeVideoCardData = {
 type YouTubeVideosListProps = {
 	items: YouTubeVideoCardData[]
 	loading: boolean
+	loadingMore?: boolean
+	hasMore?: boolean
+	onLoadMore?: () => void
 	error: string | null
 }
 
 function YouTubeVideosList(props: YouTubeVideosListProps) {
-	const { items, loading, error } = props
+	const { items, loading, loadingMore = false, hasMore = false, onLoadMore, error } = props
 
 	if (loading) {
 		return (
@@ -52,29 +56,42 @@ function YouTubeVideosList(props: YouTubeVideosListProps) {
 	}
 
 	return (
-		<ItemsGrid>
-			{items.map(function (videoData) {
-				if (videoData.durationSeconds > 60 * 60) {
-					return (
-						<MediaCardLongVideo key={videoData.id} title={videoData.name} duration={videoData.duration} />
-					)
-				}
+		<>
+			<ItemsGrid>
+				{items.map(function (videoData) {
+					if (videoData.durationSeconds > 60 * 60) {
+						return (
+							<MediaCardLongVideo
+								key={videoData.id}
+								title={videoData.name}
+								duration={videoData.duration}
+							/>
+						)
+					}
 
-				return (
-					<MediaCardButton
-						key={videoData.id}
-						title={videoData.name}
-						subTitle={videoData.subName}
-						theme={videoData.theme}
-						proficiencyLevel={videoData.proficiencyLevel}
-						duration={videoData.duration}
-						coverUrl={videoData.coverUrl}
-						url={videoData.url}
-						defaultMediaName={videoConfig.newVideoEmptyName}
-					/>
-				)
-			})}
-		</ItemsGrid>
+					return (
+						<MediaCardButton
+							key={videoData.id}
+							title={videoData.name}
+							subTitle={videoData.subName}
+							theme={videoData.theme}
+							proficiencyLevel={videoData.proficiencyLevel}
+							duration={videoData.duration}
+							coverUrl={videoData.coverUrl}
+							url={videoData.url}
+							defaultMediaName={videoConfig.newVideoEmptyName}
+						/>
+					)
+				})}
+			</ItemsGrid>
+			{onLoadMore ? (
+				<InfiniteScrollTrigger
+					onTrigger={onLoadMore}
+					enabled={hasMore && !loadingMore}
+					isLoading={loadingMore}
+				/>
+			) : null}
+		</>
 	)
 }
 

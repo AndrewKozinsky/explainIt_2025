@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { useQuery } from '@tanstack/react-query'
+import { useInfiniteQuery } from '@tanstack/react-query'
 import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
 import type { YouTubeVideosFilterValues } from '@/widgets/video/VideosFilterForm/fn/types'
 import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
@@ -9,6 +9,9 @@ import { mapToYouTubeVideoCardData } from './mapToYouTubeVideoCardData'
 type UseSavedVideosResult = {
 	items: YouTubeVideoCardData[]
 	loading: boolean
+	loadingMore: boolean
+	hasMore: boolean
+	loadMore: () => void
 	errorText: string | null
 }
 
@@ -20,19 +23,38 @@ export function useGetSavedVideos(filterValues: YouTubeVideosFilterValues): UseS
 		[filterValues],
 	)
 
-	const { data: videos = [], isLoading, error } = useQuery(youtubeQueries.getSavedVideos(params))
+	const { data, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage, error } = useInfiniteQuery(
+		youtubeQueries.getSavedVideosInfinite(params),
+	)
+
+	const items: YouTubeVideoCardData[] = useMemo(
+		function () {
+			if (!data) return []
+
+			return data.pages.flatMap(function (page) {
+				return mapToYouTubeVideoCardData(page.items)
+			})
+		},
+		[data],
+	)
 
 	const errorText: string | null = useMemo(
 		function () {
-			if (!error) return null
+			// Показываем ошибку только при первой загрузке, чтобы не скрывать
+			// уже накопленные страницы при сбое догрузки.
+			if (!error || data) return null
+
 			return error instanceof Error ? error.message : 'Неизвестная ошибка'
 		},
-		[error],
+		[error, data],
 	)
 
 	return {
-		items: mapToYouTubeVideoCardData(videos),
+		items,
 		loading: isLoading,
+		loadingMore: isFetchingNextPage,
+		hasMore: hasNextPage,
+		loadMore: fetchNextPage,
 		errorText,
 	}
 }

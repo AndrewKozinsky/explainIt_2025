@@ -1,5 +1,5 @@
 import { mapToVideoLite, mapVideoOutModelToVideoModel } from '@/entities/video/lib/mappers'
-import type { VideoLiteModel, VideoModel } from '@/entities/video/lib/types'
+import type { VideoModel } from '@/entities/video/lib/types'
 import type {
 	SavedYoutubeVideosPageOutModel,
 	YoutubeControllerGetSavedVideosParams as OrvalGetSavedVideosParams,
@@ -20,6 +20,7 @@ import { formatDurationSec } from '@/shared/utils/time'
 import type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
+	SavedVideosPage,
 	YoutubeVideoModel,
 	YoutubeVideosResultModel,
 	YoutubeRepository,
@@ -44,16 +45,16 @@ export class YoutubeApi implements YoutubeRepository {
 		)
 	}
 
-	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
+	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>> {
 		return executeApiCall(
-			() =>
-				youtubeControllerGetSavedVideos({
-					...params,
-					// Пока запрашиваем только первую страницу.
-					page: 1,
-					pageSize: 20,
-				} as OrvalGetSavedVideosParams),
-			(data: SavedYoutubeVideosPageOutModel) => data.items.map(mapToVideoLite),
+			() => youtubeControllerGetSavedVideos(params as OrvalGetSavedVideosParams),
+			(data: SavedYoutubeVideosPageOutModel) => ({
+				items: data.items.map(mapToVideoLite),
+				page: data.page,
+				pageSize: data.pageSize,
+				total: data.total,
+				totalPages: data.totalPages,
+			}),
 		)
 	}
 

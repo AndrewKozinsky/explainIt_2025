@@ -1,7 +1,10 @@
-import { queryOptions, type QueryClient } from '@tanstack/react-query'
+import { infiniteQueryOptions, queryOptions, type QueryClient } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { youtubeService, YoutubeService } from './YoutubeService'
 import type { GetSavedYoutubeVideosParams, GetYoutubeVideosParams } from './repository/YoutubeRepository'
+
+/** Количество сохранённых видео на одной странице. */
+const SAVED_VIDEOS_PAGE_SIZE = 12
 
 /**
  * Ключи кэша серверных данных YouTube.
@@ -35,10 +38,15 @@ export class YoutubeQueryFacade {
 		})
 	}
 
-	getSavedVideos(params: GetSavedYoutubeVideosParams) {
-		return queryOptions({
+	getSavedVideosInfinite(params: GetSavedYoutubeVideosParams) {
+		return infiniteQueryOptions({
 			queryKey: youtubeQueryKeys.savedVideos(params),
-			queryFn: () => unwrapApiResult(this.service.getSavedVideos(params)),
+			initialPageParam: 1,
+			queryFn: ({ pageParam }) =>
+				unwrapApiResult(
+					this.service.getSavedVideos({ ...params, page: pageParam, pageSize: SAVED_VIDEOS_PAGE_SIZE }),
+				),
+			getNextPageParam: (lastPage) => (lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined),
 		})
 	}
 
