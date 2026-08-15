@@ -8,6 +8,7 @@ import type {
 	TextBlockModel,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
+import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import './PhraseTranslationResult.scss'
 
@@ -105,11 +106,19 @@ function ExampleRenderer({ block }: { block: ExampleBlockModel }) {
 
 function PhrasesButtonsRenderer({ block }: { block: PhrasesButtonsBlockModel }) {
 	const setInputText = usePhraseDictionaryStore((s) => s.setInputText)
+	const { handleSubmit } = usePhraseTranslation()
 
 	return (
 		<div className='translation-phrases-buttons'>
 			{block.labels.map((label) => (
-				<button key={label} className='translation-phrases-button' onClick={() => setInputText(label)}>
+				<button
+					key={label}
+					className='translation-phrases-button'
+					onClick={() => {
+						setInputText(label)
+						handleSubmit()
+					}}
+				>
 					{label}
 				</button>
 			))}
