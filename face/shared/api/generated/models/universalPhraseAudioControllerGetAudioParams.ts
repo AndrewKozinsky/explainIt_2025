@@ -9,6 +9,7 @@
 export type UniversalPhraseAudioControllerGetAudioParams = {
 /**
  * Universal phrase ID
+ * @minimum 1
  */
 universalPhraseId: number;
 };

@@ -7,7 +7,10 @@
  */
 
 export interface GetOrCreateUniversalPhraseTranslationInput {
-  /** Universal phrase ID */
+  /**
+     * Universal phrase ID
+     * @minimum 1
+     */
   universalPhraseId?: number | null;
   /**
      * Word, phrase or sentence in foreign language

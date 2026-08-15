@@ -7,6 +7,9 @@
  */
 
 export interface CreateUniversalPhraseAudioInput {
-  /** Universal phrase ID */
+  /**
+     * Universal phrase ID
+     * @minimum 1
+     */
   universalPhraseId: number;
 }

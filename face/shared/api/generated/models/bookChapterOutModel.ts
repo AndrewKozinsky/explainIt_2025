@@ -9,7 +9,10 @@ import type { BookLiteOutModel } from './bookLiteOutModel';
 import type { SentenceOutModel } from './sentenceOutModel';
 
 export interface BookChapterOutModel {
-  /** Book chapter ID */
+  /**
+     * Book chapter ID
+     * @minimum 1
+     */
   id: number;
   /**
      * Name of the chapter. For example: Chapter 1.

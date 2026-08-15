@@ -7,6 +7,9 @@
  */
 
 export interface RemoveFlashcardInput {
-  /** Flashcard ID */
+  /**
+     * Flashcard ID
+     * @minimum 1
+     */
   flashcardId: number;
 }

@@ -9,10 +9,16 @@ import type { TranscriptionOutModel } from './transcriptionOutModel';
 import type { UniversalPhraseTranslationOutModelTranslation } from './universalPhraseTranslationOutModelTranslation';
 
 export interface UniversalPhraseTranslationOutModel {
-  /** Universal phrase translation ID */
+  /**
+     * Universal phrase translation ID
+     * @minimum 1
+     */
   id: number;
-  /** Universal phrase ID */
-  universalPhraseId?: number | null;
+  /**
+     * Universal phrase ID
+     * @minimum 1
+     */
+  universalPhraseId: number;
   targetLanguageCode: string;
   /** Translation result from LLM — array of typed blocks */
   translation: UniversalPhraseTranslationOutModelTranslation;

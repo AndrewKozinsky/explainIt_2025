@@ -7,9 +7,15 @@
  */
 
 export interface SentenceChatMessageOutModel {
-  /** Sentence chat message ID */
+  /**
+     * Sentence chat message ID
+     * @minimum 1
+     */
   id: number;
-  /** Sentence chat thread ID */
+  /**
+     * Sentence chat thread ID
+     * @minimum 1
+     */
   threadId: number;
   /** Who sent this message */
   role: string;

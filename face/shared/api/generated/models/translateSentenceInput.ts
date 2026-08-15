@@ -14,7 +14,7 @@ export interface TranslateSentenceInput {
      * @maxLength 2
      */
   sourceLanguageCode?: string | null;
-  targetLanguageCode?: string | null;
+  targetLanguageCode: string;
   /** Name of the book */
   bookName?: string | null;
   /** Author of the book */

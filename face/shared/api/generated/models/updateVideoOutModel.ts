@@ -9,7 +9,10 @@ import type { UpdateVideoOutModelUploadCoverUrl } from './updateVideoOutModelUpl
 import type { UpdateVideoOutModelUploadUrl } from './updateVideoOutModelUploadUrl';
 
 export interface UpdateVideoOutModel {
-  /** Video ID */
+  /**
+     * Video ID
+     * @minimum 1
+     */
   id: number;
   /**
      * Name of the video
@@ -17,7 +20,7 @@ export interface UpdateVideoOutModel {
      */
   name?: string | null;
   /** Language code of the video */
-  languageCode?: string | null;
+  languageCode: string;
   /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
   proficiencyLevel?: number | null;
   /**
@@ -31,14 +34,17 @@ export interface UpdateVideoOutModel {
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
-  /** User ID */
+  /**
+     * User ID
+     * @minimum 1
+     */
   userId: number;
   /** Pre-signed URL for uploading the video file to S3 */
   uploadUrl: UpdateVideoOutModelUploadUrl;
   /** Pre-signed URL for uploading the video cover to S3 */
   uploadCoverUrl: UpdateVideoOutModelUploadCoverUrl;
   /** Size of the video file in megabytes */
-  fileSizeMb?: number | null;
+  fileSizeMb: number;
   /** Duration of the video in seconds (from YouTube metadata or ffprobe) */
-  durationSec?: number | null;
+  durationSec: number;
 }

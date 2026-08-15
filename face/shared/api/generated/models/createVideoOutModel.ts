@@ -7,7 +7,10 @@
  */
 
 export interface CreateVideoOutModel {
-  /** Video ID */
+  /**
+     * Video ID
+     * @minimum 1
+     */
   id: number;
   /** Media type: public or private */
   type: string;
@@ -17,7 +20,7 @@ export interface CreateVideoOutModel {
      */
   name?: string | null;
   /** Language code of the video */
-  languageCode?: string | null;
+  languageCode: string;
   /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
   proficiencyLevel?: number | null;
   /** Original subtitles or text of the video */
@@ -26,12 +29,15 @@ export interface CreateVideoOutModel {
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
-  /** User ID */
+  /**
+     * User ID
+     * @minimum 1
+     */
   userId: number;
   /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
-  subtitlesSource?: string | null;
+  subtitlesSource: string;
   /** Status of subtitles processing */
-  subtitlesStatus?: string | null;
+  subtitlesStatus: string;
   /**
      * Machine-readable error code if status is failed
      * @maxLength 200

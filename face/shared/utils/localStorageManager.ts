@@ -249,6 +249,33 @@ export const localStorageManager = {
 	},
 
 	/**
+	 * Последний выбранный фильтр сортировки видео.
+	 *
+	 * Ключ: `lastVideoSort`.
+	 */
+	lastSort: {
+		/**
+		 * Возвращает сохранённый ключ сортировки.
+		 *
+		 * @returns ключ сортировки, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_SORT_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ сортировки.
+		 *
+		 * @param sortKey — ключ сортировки (например `""`, `"created_at"`, `"learnability_score"`)
+		 */
+		set(sortKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_SORT_KEY, sortKey)
+		},
+	},
+
+	/**
 	 * Последний выбранный язык в списке публичных книг.
 	 *
 	 * Ключ: `lastBookLanguage`.
@@ -342,6 +369,7 @@ const LAST_LANGUAGE_KEY = 'lastLanguage'
 const LAST_VIDEO_DURATION_KEY = 'lastVideoDuration'
 const LAST_VIDEO_PROFICIENCY_KEY = 'lastVideoProficiency'
 const LAST_VIDEO_TOPIC_KEY = 'lastVideoTopic'
+const LAST_VIDEO_SORT_KEY = 'lastVideoSort'
 
 // ── lastMediaTab helpers ───────────────────────────────────────────────────
 

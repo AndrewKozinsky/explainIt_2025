@@ -1,8 +1,9 @@
 import React from 'react'
-import YouTubeVideosFilterDuration from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterDuration'
-import YouTubeVideosFilterLanguage from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterLanguage'
-import YouTubeVideosFilterProficiency from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterProficiency'
-import YouTubeVideosFilterTopic from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterTopic'
+import VideosFilterSort from '@/widgets/video/VideosFilterForm/VideosFilterSort'
+import YouTubeVideosFilterDuration from '@/widgets/video/VideosFilterForm/YouTubeVideosFilterDuration'
+import YouTubeVideosFilterLanguage from '@/widgets/video/VideosFilterForm/YouTubeVideosFilterLanguage'
+import YouTubeVideosFilterProficiency from '@/widgets/video/VideosFilterForm/YouTubeVideosFilterProficiency'
+import YouTubeVideosFilterTopic from '@/widgets/video/VideosFilterForm/YouTubeVideosFilterTopic'
 import type { YouTubeVideosFilterValues } from './fn/types'
 import './YouTubeVideosFilterForm.scss'
 
@@ -40,6 +41,12 @@ function YouTubeVideosFilterForm(props: YouTubeVideosFilterFormProps) {
 				topics={topics}
 				onChange={function (topicKey) {
 					onChange({ ...values, topicKey })
+				}}
+			/>
+			<VideosFilterSort
+				sortKey={values.sortKey}
+				onChange={function (sortKey) {
+					onChange({ ...values, sortKey })
 				}}
 			/>
 		</div>

@@ -8,9 +8,12 @@
 import type { SentencePhraseTranslationExampleOutModel } from './sentencePhraseTranslationExampleOutModel';
 
 export interface FlashcardOutModel {
-  /** Flashcard ID */
+  /**
+     * Flashcard ID
+     * @minimum 1
+     */
   id: number;
-  languageCode?: string | null;
+  languageCode: string;
   /** Snapshot of the sentence text */
   sentenceText: string;
   /** Snapshot of the sentence translation */

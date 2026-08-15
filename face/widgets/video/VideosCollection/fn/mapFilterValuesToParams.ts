@@ -1,5 +1,5 @@
 import type { GetSavedYoutubeVideosParams } from '@/entities/youtube/YoutubeService'
-import type { YouTubeVideosFilterValues } from '@/widgets/video/YouTubeVideosFilterForm/fn/types'
+import type { YouTubeVideosFilterValues } from '@/widgets/video/VideosFilterForm/fn/types'
 
 const DURATION_TO_SECONDS: Record<string, { minDurationSec?: number; maxDurationSec?: number }> = {
 	'': {},
@@ -17,5 +17,7 @@ export function mapFilterValuesToParams(values: YouTubeVideosFilterValues): GetS
 		proficiencyLevel: values.proficiencyKey ? Number(values.proficiencyKey) : undefined,
 		topic: values.topicKey || undefined,
 		languageCode: values.languageCode,
+		sortBy: values.sortKey || undefined,
+		sortDirection: values.sortKey ? 'desc' : undefined,
 	}
 }

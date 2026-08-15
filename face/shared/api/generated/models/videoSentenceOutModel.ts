@@ -9,7 +9,10 @@ import type { SentencePhraseTranslationOutModel } from './sentencePhraseTranslat
 import type { SentenceTranslationLiteOutModel } from './sentenceTranslationLiteOutModel';
 
 export interface VideoSentenceOutModel {
-  /** Sentence ID */
+  /**
+     * Sentence ID
+     * @minimum 1
+     */
   id: number;
   /** Sentence translations */
   sentenceTranslations: SentenceTranslationLiteOutModel[] | null;

@@ -37,6 +37,8 @@ export type GetSavedYoutubeVideosParams = {
 	proficiencyLevel?: number
 	topic?: string
 	languageCode?: string
+	sortBy?: 'created_at' | 'learnability_score'
+	sortDirection?: 'asc' | 'desc'
 }
 
 /**

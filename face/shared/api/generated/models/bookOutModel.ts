@@ -9,7 +9,10 @@ import type { BookChapterLiteOutModel } from './bookChapterLiteOutModel';
 import type { BookOutModelUserId } from './bookOutModelUserId';
 
 export interface BookOutModel {
-  /** Book ID */
+  /**
+     * Book ID
+     * @minimum 1
+     */
   id: number;
   /** Media type: public or private */
   type: string;
@@ -24,7 +27,7 @@ export interface BookOutModel {
      */
   name?: string | null;
   /** Language code of the book */
-  languageCode?: string | null;
+  languageCode: string;
   /**
      * Text about the book
      * @maxLength 2000
@@ -45,7 +48,7 @@ export interface BookOutModel {
      */
   coverFileS3Key?: string | null;
   /** Is cover file was uploaded */
-  isCoverFileUploaded?: boolean | null;
+  isCoverFileUploaded: boolean;
   /** Pre-signed S3 upload URL for the book cover */
   uploadUrl?: string | null;
   /** Book chapters */

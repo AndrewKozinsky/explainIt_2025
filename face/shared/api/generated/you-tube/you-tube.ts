@@ -202,7 +202,7 @@ export const getYoutubeControllerGetSavedVideosUrl = (params?: YoutubeController
 }
 
 /**
- * Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. Results are sorted by learnability score (highest first).
+ * Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. Optionally sorted by creation date or learnability score via sortBy and sortDirection.
  * @summary Get saved YouTube videos with filters
  */
 export const youtubeControllerGetSavedVideos = async (params?: YoutubeControllerGetSavedVideosParams, options?: RequestInit): Promise<youtubeControllerGetSavedVideosResponse> => {

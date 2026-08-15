@@ -7,9 +7,15 @@
  */
 
 export interface UniversalAudioPronunciationOutModel {
-  /** Universal audio pronunciation ID */
+  /**
+     * Universal audio pronunciation ID
+     * @minimum 1
+     */
   id: number;
-  /** Universal phrase ID */
+  /**
+     * Universal phrase ID
+     * @minimum 1
+     */
   universalPhraseId: number;
   /** Audio file URL */
   audioUrl: string;

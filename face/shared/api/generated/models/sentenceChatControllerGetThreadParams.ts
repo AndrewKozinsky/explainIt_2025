@@ -9,6 +9,7 @@
 export type SentenceChatControllerGetThreadParams = {
 /**
  * Sentence ID
+ * @minimum 1
  */
 sentenceId: number;
 };

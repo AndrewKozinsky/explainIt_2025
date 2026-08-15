@@ -1,13 +1,14 @@
 'use client'
 
 import React, { useMemo } from 'react'
-import type { YouTubeVideosFilterValues } from '@/widgets/video/YouTubeVideosFilterForm/fn/types'
-import YouTubeVideosFilterForm from '@/widgets/video/YouTubeVideosFilterForm/YouTubeVideosFilterForm'
+import type { YouTubeVideosFilterValues } from '@/widgets/video/VideosFilterForm/fn/types'
+import YouTubeVideosFilterForm from '@/widgets/video/VideosFilterForm/YouTubeVideosFilterForm'
 import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
 import useDurationFilter from './fn/useDurationFilter'
 import { useGetSavedVideos } from './fn/useGetSavedVideos'
 import useLanguageFilter from './fn/useLanguageFilter'
 import useProficiencyFilter from './fn/useProficiencyFilter'
+import useSortFilter from './fn/useSortFilter'
 import useTopicFilter from './fn/useTopicFilter'
 import './VideosCollection.scss'
 
@@ -16,12 +17,13 @@ function VideosCollection() {
 	const { durationKey, setDurationKey } = useDurationFilter()
 	const { topicKey, topics, setTopicKey } = useTopicFilter()
 	const { proficiencyKey, setProficiencyKey } = useProficiencyFilter()
+	const { sortKey, setSortKey } = useSortFilter()
 
 	const filterValues: YouTubeVideosFilterValues = useMemo(
 		function () {
-			return { languageCode, durationKey, topicKey, proficiencyKey }
+			return { languageCode, durationKey, topicKey, proficiencyKey, sortKey }
 		},
-		[languageCode, durationKey, topicKey, proficiencyKey],
+		[languageCode, durationKey, topicKey, proficiencyKey, sortKey],
 	)
 
 	const { items, loading, errorText } = useGetSavedVideos(filterValues)
@@ -31,6 +33,7 @@ function VideosCollection() {
 		setDurationKey(values.durationKey)
 		setTopicKey(values.topicKey)
 		setProficiencyKey(values.proficiencyKey)
+		setSortKey(values.sortKey)
 	}
 
 	return (

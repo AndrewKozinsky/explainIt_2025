@@ -8,9 +8,15 @@
 import type { SentenceChatMessageOutModel } from './sentenceChatMessageOutModel';
 
 export interface SentenceChatThreadOutModel {
-  /** Sentence chat thread ID */
+  /**
+     * Sentence chat thread ID
+     * @minimum 1
+     */
   id: number;
-  /** Sentence ID */
+  /**
+     * Sentence ID
+     * @minimum 1
+     */
   sentenceId: number;
   /** Chat messages in the thread */
   messages: SentenceChatMessageOutModel[];

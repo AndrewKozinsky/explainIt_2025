@@ -7,7 +7,10 @@
  */
 
 export interface VideoSubtitleOutModel {
-  /** Subtitle ID */
+  /**
+     * Subtitle ID
+     * @minimum 1
+     */
   id: number;
   /** Start time of subtitle in milliseconds */
   startTimeMs: number;

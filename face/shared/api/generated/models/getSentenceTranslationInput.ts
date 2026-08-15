@@ -8,5 +8,5 @@
 
 export interface GetSentenceTranslationInput {
   sentenceId: number;
-  targetLanguageCode?: string | null;
+  targetLanguageCode: string;
 }
