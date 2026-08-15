@@ -6,7 +6,7 @@ import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPa
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { PrivateBooksListWithAdd } from '@/widgets/book/PrivateBooksListWithAdd/PrivateBooksListWithAdd'
+// import { PrivateBooksListWithAdd } from '@/widgets/book/PrivateBooksListWithAdd/PrivateBooksListWithAdd'
 import PublicBooksList from '@/widgets/book/PublicBooksList/PublicBooksList'
 import { useBooksPageTabs } from './fn/useBooksPageTabs'
 

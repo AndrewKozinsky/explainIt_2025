@@ -16,6 +16,11 @@ export type LlmGenerateInput = {
 	responseFormat?: 'text' | 'json_object'
 	reasoningEffort?: 'low' | 'medium' | 'high'
 	lowPriority?: boolean
+	/**
+	 * Максимальное время ожидания ответа от LLM в миллисекундах.
+	 * Если не указано — используется LlmAdapterService.GENERATE_TIMEOUT_MS.
+	 */
+	timeoutMs?: number
 }
 
 export type LlmGenerateOutput = {

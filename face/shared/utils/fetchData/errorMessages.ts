@@ -46,6 +46,7 @@ export const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolve
 	CANNOT_FINISH_SESSION: 'Не удалось завершить сессию.',
 	UNKNOWN_DB_ERROR: 'Неизвестная ошибка в базе данных.',
 	UNKNOWN_OPENAI_ERROR: 'Неизвестная ошибка при запросе в LLM.',
+	LLM_TIMEOUT: 'Превышено время ожидания ответа от ИИ. Попробуйте ещё раз.',
 	UNKNOWN_ERROR: 'Неизвестная ошибка сервера.',
 	CANNOT_SAVE_SESSION: 'Невозможно сохранить сессию',
 	ONLY_DEV_MODE: 'Работает только в режиме разработки.',
