@@ -1,4 +1,4 @@
-import WordsButtonList from '_pages/media/commonComponents/WordsButtonList/WordsButtonList'
+import WordsButtonList from '@/entities/WordsButtonList/WordsButtonList'
 import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 

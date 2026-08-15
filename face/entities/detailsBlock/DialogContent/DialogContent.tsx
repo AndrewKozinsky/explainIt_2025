@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import SentenceChat from '_pages/media/sentenceChat/SentenceChat/SentenceChat'
+import SentenceChat from '@/entities/sentenceChat/ui/SentenceChat/SentenceChat'
 
 function DialogContent() {
 	const sentenceId = useDetailsStore((s) => s.currentSentenceId)

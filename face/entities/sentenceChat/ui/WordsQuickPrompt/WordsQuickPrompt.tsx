@@ -1,5 +1,5 @@
 import React from 'react'
-import WordsButtonList from '_pages/media/commonComponents/WordsButtonList/WordsButtonList'
+import WordsButtonList from '@/entities/WordsButtonList/WordsButtonList'
 import { useSentenceChatStore } from '../sentenceChatStore'
 
 function WordsQuickPrompt() {
