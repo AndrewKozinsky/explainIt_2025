@@ -24,11 +24,11 @@ function InfoViewSwitcher() {
 							onClick: () => setActiveInfoView('words'),
 							isCurrent: currentInfoView === 'words',
 						},
-						{
+						/*{
 							text: 'Диалог',
 							onClick: () => setActiveInfoView('ai_dialog'),
 							isCurrent: currentInfoView === 'ai_dialog',
-						},
+						},*/
 					]}
 				/>
 			)}
