@@ -11,6 +11,8 @@ export class GetSavedYoutubeVideosCommand implements ICommand {
 			proficiencyLevel?: number
 			topic?: string
 			languageCode?: LanguageCode
+			sortBy?: 'created_at' | 'learnability_score'
+			sortDirection?: 'asc' | 'desc'
 		},
 	) {}
 }

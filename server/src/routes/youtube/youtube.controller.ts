@@ -45,6 +45,8 @@ export class YoutubeController {
 				proficiencyLevel: query.proficiencyLevel,
 				topic: query.topic,
 				languageCode: query.languageCode,
+				sortBy: query.sortBy,
+				sortDirection: query.sortDirection,
 			}),
 		)
 	}

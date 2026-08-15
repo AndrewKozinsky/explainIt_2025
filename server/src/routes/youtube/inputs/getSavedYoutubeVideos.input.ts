@@ -23,4 +23,10 @@ export class GetSavedYoutubeVideosInput {
 		required: false,
 	})
 	languageCode?: LanguageCode
+
+	@DtoFieldDecorators('sortBy', bdConfig.Video.dtoProps.sortBy)
+	sortBy?: 'created_at' | 'learnability_score'
+
+	@DtoFieldDecorators('sortDirection', bdConfig.Video.dtoProps.sortDirection)
+	sortDirection?: 'asc' | 'desc'
 }

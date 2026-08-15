@@ -80,7 +80,7 @@ export function ApiGetSavedYoutubeVideos() {
 			summary: 'Get saved YouTube videos with filters',
 			description:
 				'Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. ' +
-				'Results are sorted by learnability score (highest first).',
+				'Optionally sorted by creation date or learnability score via sortBy and sortDirection.',
 		}),
 		ApiQuery({
 			name: 'maxDurationSec',
@@ -104,6 +104,14 @@ export function ApiGetSavedYoutubeVideos() {
 			name: 'languageCode',
 			...getApiPropertyOptions(bdConfig.Video.dbFields.source_language_code),
 			required: false,
+		}),
+		ApiQuery({
+			name: 'sortBy',
+			...getApiPropertyOptions(bdConfig.Video.dtoProps.sortBy),
+		}),
+		ApiQuery({
+			name: 'sortDirection',
+			...getApiPropertyOptions(bdConfig.Video.dtoProps.sortDirection),
 		}),
 		ApiResponse({ status: 200, description: 'OK', type: [VideoLiteOutModel] }),
 	)

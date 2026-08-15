@@ -444,6 +444,22 @@ export const bdConfig = {
 				example: 'https://s3.example.com/presigned-url',
 				required: false,
 			},
+			sortBy: {
+				type: 'enum',
+				enumName: 'VideoSortBy',
+				variants: ['created_at', 'learnability_score'],
+				description: 'Field to sort saved YouTube videos by. If omitted, results are not sorted',
+				example: 'learnability_score',
+				required: false,
+			},
+			sortDirection: {
+				type: 'enum',
+				enumName: 'SortDirection',
+				variants: ['asc', 'desc'],
+				description: 'Sort direction. Defaults to "desc" when sortBy is provided',
+				example: 'desc',
+				required: false,
+			},
 		},
 		dbFields: {
 			id: {

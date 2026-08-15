@@ -121,6 +121,8 @@ export class VideoQueryRepository {
 		proficiencyLevel?: number
 		topic?: string
 		languageCode?: LanguageCode
+		sortBy?: 'created_at' | 'learnability_score'
+		sortDirection?: 'asc' | 'desc'
 	}) {
 		const where: Prisma.VideoWhereInput = {
 			youtube_video_id: { not: null },
@@ -147,10 +149,27 @@ export class VideoQueryRepository {
 
 		const videos = await this.prisma.video.findMany({
 			where,
-			orderBy: { learnability_score: { sort: 'desc', nulls: 'last' } },
+			orderBy: this.buildSavedVideosOrderBy(filters),
 		})
 
 		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+	}
+
+	private buildSavedVideosOrderBy(filters?: {
+		sortBy?: 'created_at' | 'learnability_score'
+		sortDirection?: 'asc' | 'desc'
+	}): Prisma.VideoOrderByWithRelationInput | undefined {
+		if (filters?.sortBy === undefined) {
+			return undefined
+		}
+
+		const direction = filters.sortDirection ?? 'desc'
+
+		if (filters.sortBy === 'created_at') {
+			return { created_at: direction }
+		}
+
+		return { learnability_score: { sort: direction, nulls: 'last' } }
 	}
 
 	@CatchDbError()
