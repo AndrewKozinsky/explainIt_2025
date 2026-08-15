@@ -78,6 +78,7 @@ export const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolve
 	UNIVERSAL_TRANSCRIPTION_NOT_CREATED: 'Не удалось создать транскрипцию.',
 	UNIVERSAL_TRANSCRIPTION_ALREADY_EXISTS: 'Транскрипция для этой фразы уже существует.',
 	UNIVERSAL_TRANSCRIPTION_CANNOT_GET_TRANSCRIPTION_FROM_LLM: 'Не удалось получить транскрипцию от LLM.',
+	UNIVERSAL_TRANSCRIPTION_LANGUAGE_NOT_SUPPORTED: 'Транскрипция не поддерживается для этого языка.',
 	SENTENCE_CHAT_QUESTION_IS_EMPTY: 'Текст вопроса пустой.',
 	SENTENCE_CHAT_GENERATION_ALREADY_ACTIVE:
 		'У вас уже есть активная генерация ответа. Дождитесь её завершения или отмените.',
@@ -100,6 +101,11 @@ export const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolve
 	UNIVERSAL_PHRASE_TRANSLATION_NOT_FOUND: 'Перевод фразы не найден.',
 	UNIVERSAL_PHRASE_TRANSLATION_CANNOT_PARSE_LLM_RESPONSE: 'Не удалось разобрать ответ LLM.',
 	UNIVERSAL_PHRASE_TRANSLATION_CANNOT_GET_TRANSLATION_FROM_LLM: 'Не удалось получить перевод от LLM.',
+	YOUTUBE_API_REQUEST_FAILED: 'Не удалось выполнить запрос к YouTube API.',
+	YOUTUBE_QUOTA_EXCEEDED: 'Квота YouTube API исчерпана.',
+	YOUTUBE_LANGUAGE_NOT_SUPPORTED: 'Язык не поддерживается для поиска видео на YouTube.',
+	YOUTUBE_VIDEO_NOT_FOUND: 'Видео с указанным ID не найдено на YouTube.',
+	YOUTUBE_AUDIO_DOWNLOAD_FAILED: 'Не удалось скачать аудио с YouTube.',
 	VALIDATION_FAILED: 'Ошибка валидации.',
 }
 export const errorMessages = {
