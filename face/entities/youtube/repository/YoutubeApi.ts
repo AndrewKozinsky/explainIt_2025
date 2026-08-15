@@ -1,7 +1,7 @@
 import { mapToVideoLite, mapVideoOutModelToVideoModel } from '@/entities/video/lib/mappers'
 import type { VideoLiteModel, VideoModel } from '@/entities/video/lib/types'
 import type {
-	VideoLiteOutModel,
+	SavedYoutubeVideosPageOutModel,
 	YoutubeControllerGetSavedVideosParams as OrvalGetSavedVideosParams,
 	YoutubeControllerGetYouTubeVideosParams as OrvalSearchVideosParams,
 	YoutubeVideoOutModel,
@@ -10,7 +10,6 @@ import type {
 import {
 	youtubeControllerCreateVideo,
 	youtubeControllerGetSavedVideos,
-	// 	youtubeControllerGetVideoById,
 	youtubeControllerGetVideoTopics,
 	youtubeControllerGetYouTubeVideos,
 } from '@/shared/api/generated/you-tube/you-tube'
@@ -38,13 +37,6 @@ export class YoutubeApi implements YoutubeRepository {
 		)
 	}
 
-	/*async getVideoById(videoId: string) {
-		return executeApiCall(
-			() => youtubeControllerGetVideoById(videoId),
-			(data) => (data ? mapVideoOutModelToVideoModel(data) : null),
-		)
-	}*/
-
 	async getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>> {
 		return executeApiCall(
 			() => youtubeControllerCreateVideo(videoId),
@@ -54,8 +46,14 @@ export class YoutubeApi implements YoutubeRepository {
 
 	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
 		return executeApiCall(
-			() => youtubeControllerGetSavedVideos(params as OrvalGetSavedVideosParams),
-			(data: VideoLiteOutModel[]) => data.map(mapToVideoLite),
+			() =>
+				youtubeControllerGetSavedVideos({
+					...params,
+					// Пока запрашиваем только первую страницу.
+					page: 1,
+					pageSize: 20,
+				} as OrvalGetSavedVideosParams),
+			(data: SavedYoutubeVideosPageOutModel) => data.items.map(mapToVideoLite),
 		)
 	}
 

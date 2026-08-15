@@ -13,7 +13,6 @@ export type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
 	YoutubeVideoModel,
-	// 	YoutubeVideosResultModel,
 } from './repository/YoutubeRepository'
 
 /**
@@ -37,11 +36,6 @@ export class YoutubeService {
 	async getVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>> {
 		return this.youtubeRepository.searchYouTubeVideos(params)
 	}
-
-	/** Получить данные одного видео с YouTube по его ID */
-	/*async getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>> {
-		return this.youtubeRepository.getVideoById(videoId)
-	}*/
 
 	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
 	async getOrCreateVideo(videoId: string): Promise<ApiResult<VideoModel>> {

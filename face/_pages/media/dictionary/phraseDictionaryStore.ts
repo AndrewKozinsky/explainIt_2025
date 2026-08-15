@@ -1,7 +1,6 @@
 import { create } from 'zustand'
 import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
 import { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-import { LlmProvider } from '_pages/media/sentenceChat/sentenceChatStore'
 
 export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	inputText: '',
