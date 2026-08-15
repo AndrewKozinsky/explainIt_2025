@@ -8,6 +8,17 @@
 
 export type YoutubeControllerGetSavedVideosParams = {
 /**
+ * Page number (1-based)
+ * @minimum 1
+ */
+page?: number | null;
+/**
+ * Number of items per page
+ * @minimum 1
+ * @maximum 100
+ */
+pageSize?: number | null;
+/**
  * Duration of the video in seconds (from YouTube metadata or ffprobe)
  */
 maxDurationSec?: number;

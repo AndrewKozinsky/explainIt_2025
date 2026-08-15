@@ -37,6 +37,7 @@ export * from './loginWithOAuthInputProviderType';
 export * from './registerUserInput';
 export * from './removeFlashcardInput';
 export * from './resendConfirmationEmailInput';
+export * from './savedYoutubeVideosPageOutModel';
 export * from './sentenceChatControllerGetThreadParams';
 export * from './sentenceChatControllerStreamAssistantReply200';
 export * from './sentenceChatControllerStreamAssistantReplyParams';

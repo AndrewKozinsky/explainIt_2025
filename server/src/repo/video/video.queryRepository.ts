@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { attachVideoTextRelations } from 'repo/video/attachVideoTextRelations'
+import { Paginated, PaginationParams } from 'types/pagination'
+import { buildPage, toPrismaPagination } from 'utils/pagination'
 import { PrismaService } from 'db/prisma.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
@@ -115,15 +117,18 @@ export class VideoQueryRepository {
 	}
 
 	@CatchDbError()
-	async getSavedYoutubeVideos(filters?: {
-		maxDurationSec?: number
-		minDurationSec?: number
-		proficiencyLevel?: number
-		topic?: string
-		languageCode?: LanguageCode
-		sortBy?: 'created_at' | 'learnability_score'
-		sortDirection?: 'asc' | 'desc'
-	}) {
+	async getSavedYoutubeVideos(
+		filters?: {
+			maxDurationSec?: number
+			minDurationSec?: number
+			proficiencyLevel?: number
+			topic?: string
+			languageCode?: LanguageCode
+			sortBy?: 'created_at' | 'learnability_score'
+			sortDirection?: 'asc' | 'desc'
+		},
+		pagination?: PaginationParams,
+	): Promise<Paginated<VideoLiteOutModel>> {
 		const where: Prisma.VideoWhereInput = {
 			youtube_video_id: { not: null },
 		}
@@ -147,29 +152,39 @@ export class VideoQueryRepository {
 			where.source_language_code = filters.languageCode
 		}
 
-		const videos = await this.prisma.video.findMany({
-			where,
-			orderBy: this.buildSavedVideosOrderBy(filters),
-		})
+		const orderBy = this.buildSavedVideosOrderBy(filters)
+		const resolvedPagination = pagination ?? { page: 1, pageSize: 20 }
 
-		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+		const [total, videos] = await Promise.all([
+			this.prisma.video.count({ where }),
+			this.prisma.video.findMany({
+				where,
+				orderBy,
+				...toPrismaPagination(resolvedPagination),
+			}),
+		])
+
+		const items = await Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+
+		return buildPage(items, total, resolvedPagination)
 	}
 
 	private buildSavedVideosOrderBy(filters?: {
 		sortBy?: 'created_at' | 'learnability_score'
 		sortDirection?: 'asc' | 'desc'
-	}): Prisma.VideoOrderByWithRelationInput | undefined {
-		if (filters?.sortBy === undefined) {
-			return undefined
+	}): Prisma.VideoOrderByWithRelationInput[] {
+		const direction = filters?.sortDirection ?? 'desc'
+
+		if (filters?.sortBy === 'learnability_score') {
+			return [{ learnability_score: { sort: direction, nulls: 'last' } }, { id: direction }]
 		}
 
-		const direction = filters.sortDirection ?? 'desc'
-
-		if (filters.sortBy === 'created_at') {
-			return { created_at: direction }
+		if (filters?.sortBy === 'created_at') {
+			return [{ created_at: direction }, { id: direction }]
 		}
 
-		return { learnability_score: { sort: direction, nulls: 'last' } }
+		// Stable default order is required for skip/take pagination to be deterministic.
+		return [{ created_at: 'desc' }, { id: 'desc' }]
 	}
 
 	@CatchDbError()
