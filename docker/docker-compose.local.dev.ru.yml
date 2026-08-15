@@ -6,7 +6,6 @@ services:
       - explainpostgreslocaldev
       - explainserverlocaldev
       - explainfacelocaldev
-      - explainhelplocaldev
     ports:
       - 80:80
     volumes:
@@ -93,20 +92,6 @@ services:
     environment:
       MODE: localdev
       NEXT_PUBLIC_REGION: ru
-  explainhelplocaldev:
-    build:
-      context: help/
-      dockerfile: Dockerfile.dev
-    restart: unless-stopped
-    volumes:
-      - ./help:/app
-      - /app/node_modules
-    command: npm run dev
-    container_name: explainhelplocaldev
-    environment:
-      MODE: localdev
-    ports:
-      - 3002:3000
   explainnlplocaldev:
     build:
       context: nlp/

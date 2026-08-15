@@ -1,101 +1,118 @@
-import { ConfigSchemaV37Json } from './types/ConfigSchemaV37Json'
+import { ConfigSchemaV37Json } from "./types/ConfigSchemaV37Json";
 
 export enum Mode {
-	localTest = 'localtest',
-	localDev = 'localdev',
-	localCheckServer = 'localcheckserver',
-	serverDevelop = 'serverdevelop',
-	serverMaster = 'servermaster',
+  localTest = "localtest",
+  localDev = "localdev",
+  localCheckServer = "localcheckserver",
+  serverDevelop = "serverdevelop",
+  serverMaster = "servermaster",
 }
 
-export type Region = 'ru' | 'intl'
+export type Region = "ru" | "intl";
 
 /**
  * Возвращает объект конфигурации docker-compose для разработки, проверки развёртывания на сервере и для сервера
  * @param mode — тип работы
  * @param region — региональная версия (ru или intl)
  */
-export function createDockerConfig(mode: Mode, region: Region): ConfigSchemaV37Json {
-	const isDev = [Mode.localTest, Mode.localDev].includes(mode)
+export function createDockerConfig(
+  mode: Mode,
+  region: Region,
+): ConfigSchemaV37Json {
+  const isDev = [Mode.localTest, Mode.localDev].includes(mode);
 
-	const nginxServiceName = 'explainnginx' + mode
-	const postgresServiceName = 'explainpostgres' + mode
-	const redisServiceName = 'explainredis' + mode
-	const serverServiceName = 'explainserver' + mode
-	const serverWorkerServiceName = 'explainserverworker' + mode
-	const faceServiceName = 'explainface' + mode
-	const helpServiceName = 'explainhelp' + mode
-	const nlpServiceName = 'explainnlp' + mode
+  const nginxServiceName = "explainnginx" + mode;
+  const postgresServiceName = "explainpostgres" + mode;
+  const redisServiceName = "explainredis" + mode;
+  const serverServiceName = "explainserver" + mode;
+  const serverWorkerServiceName = "explainserverworker" + mode;
+  const faceServiceName = "explainface" + mode;
+  // const helpServiceName = 'explainhelp' + mode
+  const nlpServiceName = "explainnlp" + mode;
 
-	return {
-		services: {
-			[nginxServiceName]: {
-				image: 'nginx:1.19.7-alpine',
-				container_name: 'explainnginx' + mode,
-				depends_on: [postgresServiceName, serverServiceName, faceServiceName, helpServiceName],
-				ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(mode) ? ['80:80'] : undefined,
-				volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
-				environment: getNginxEnvs(mode, region),
-			},
-			[postgresServiceName]: {
-				image: 'postgres:16.2',
-				restart: 'unless-stopped',
-				container_name: 'explainpostgres' + mode,
-				ports: getPostgresPort(mode),
-				environment: getPostgresEnvs(),
-				env_file: ['docker/.env.' + mode],
-				volumes: ['pgdata:/var/lib/postgresql/data'],
-			},
-			[redisServiceName]: {
-				image: 'redis:7.4.4',
-				restart: 'unless-stopped',
-				container_name: 'explainredis' + mode,
-				ports: getRedisPort(mode),
-				env_file:['docker/.env.' + mode],
-				volumes: ['redis_data:/data'],
-			},
-			[serverServiceName]: {
-				build: {
-					context: 'server/',
-					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
-				},
-				restart: 'unless-stopped',
-				volumes: isDev
-					? ['./server/src:/app/src', './server/e2e:/app/e2e']
-					: [],
-				command: isDev ? 'npm run start:dev' : 'npm run start:prod',
-				container_name: 'explainserver' + mode,
-				depends_on: [postgresServiceName, nlpServiceName, redisServiceName],
-				environment: getServerEnvs(mode, region),
-				env_file: ['docker/.env.' + mode],
-				ports: isDev ? ['3001:3001'] : undefined,
-			},
-			[serverWorkerServiceName]: {
-				build: {
-					context: 'server/',
-					dockerfile: isDev ? 'Dockerfile.worker.dev' : 'Dockerfile.worker.server',
-				},
-				restart: 'unless-stopped',
-				volumes: isDev ? ['./server/src:/app/src'] : undefined,
-				command: isDev ? 'npm run start:worker:dev' : 'npm run start:worker:prod',
-				container_name: 'explainserverworker' + mode,
-				depends_on: [postgresServiceName, redisServiceName, nlpServiceName],
-				environment: getServerEnvs(mode, region),
-				env_file: ['docker/.env.' + mode],
-			},
-			[faceServiceName]: {
-				build: {
-					context: 'face/',
-					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
-				},
-				restart: 'unless-stopped',
-				volumes: isDev ? ['./face:/app', '/app/node_modules', './face:/public'] : [],
-				command: isDev ? 'npm run dev' : 'npm run start',
-				container_name: 'explainface' + mode,
-				depends_on: [postgresServiceName, serverServiceName],
-				environment: getFaceEnvs(mode, region),
-			},
-			[helpServiceName]: {
+  return {
+    services: {
+      [nginxServiceName]: {
+        image: "nginx:1.19.7-alpine",
+        container_name: "explainnginx" + mode,
+        depends_on: [
+          postgresServiceName,
+          serverServiceName,
+          faceServiceName /*helpServiceName*/,
+        ],
+        ports: [Mode.localTest, Mode.localDev, Mode.localCheckServer].includes(
+          mode,
+        )
+          ? ["80:80"]
+          : undefined,
+        volumes: [`./nginx/nginx.conf.${mode}:/etc/nginx/nginx.conf`],
+        environment: getNginxEnvs(mode, region),
+      },
+      [postgresServiceName]: {
+        image: "postgres:16.2",
+        restart: "unless-stopped",
+        container_name: "explainpostgres" + mode,
+        ports: getPostgresPort(mode),
+        environment: getPostgresEnvs(),
+        env_file: ["docker/.env." + mode],
+        volumes: ["pgdata:/var/lib/postgresql/data"],
+      },
+      [redisServiceName]: {
+        image: "redis:7.4.4",
+        restart: "unless-stopped",
+        container_name: "explainredis" + mode,
+        ports: getRedisPort(mode),
+        env_file: ["docker/.env." + mode],
+        volumes: ["redis_data:/data"],
+      },
+      [serverServiceName]: {
+        build: {
+          context: "server/",
+          dockerfile: isDev ? "Dockerfile.dev" : "Dockerfile.server",
+        },
+        restart: "unless-stopped",
+        volumes: isDev
+          ? ["./server/src:/app/src", "./server/e2e:/app/e2e"]
+          : [],
+        command: isDev ? "npm run start:dev" : "npm run start:prod",
+        container_name: "explainserver" + mode,
+        depends_on: [postgresServiceName, nlpServiceName, redisServiceName],
+        environment: getServerEnvs(mode, region),
+        env_file: ["docker/.env." + mode],
+        ports: isDev ? ["3001:3001"] : undefined,
+      },
+      [serverWorkerServiceName]: {
+        build: {
+          context: "server/",
+          dockerfile: isDev
+            ? "Dockerfile.worker.dev"
+            : "Dockerfile.worker.server",
+        },
+        restart: "unless-stopped",
+        volumes: isDev ? ["./server/src:/app/src"] : undefined,
+        command: isDev
+          ? "npm run start:worker:dev"
+          : "npm run start:worker:prod",
+        container_name: "explainserverworker" + mode,
+        depends_on: [postgresServiceName, redisServiceName, nlpServiceName],
+        environment: getServerEnvs(mode, region),
+        env_file: ["docker/.env." + mode],
+      },
+      [faceServiceName]: {
+        build: {
+          context: "face/",
+          dockerfile: isDev ? "Dockerfile.dev" : "Dockerfile.server",
+        },
+        restart: "unless-stopped",
+        volumes: isDev
+          ? ["./face:/app", "/app/node_modules", "./face:/public"]
+          : [],
+        command: isDev ? "npm run dev" : "npm run start",
+        container_name: "explainface" + mode,
+        depends_on: [postgresServiceName, serverServiceName],
+        environment: getFaceEnvs(mode, region),
+      },
+      /*[helpServiceName]: {
 				build: {
 					context: 'help/',
 					dockerfile: isDev ? 'Dockerfile.dev' : 'Dockerfile.server',
@@ -106,32 +123,33 @@ export function createDockerConfig(mode: Mode, region: Region): ConfigSchemaV37J
 				container_name: 'explainhelp' + mode,
 				environment: { MODE: mode },
 				ports: isDev ? ['3002:3000'] : undefined,
-			},
-			[nlpServiceName]: {
-				build: {
-					context: 'nlp/',
-					dockerfile: 'Dockerfile',
-				},
-				ports: getNLPPort(mode)
-			},
-		},
-		networks: mode === Mode.serverDevelop || mode === Mode.serverMaster
-			? getServerNetworks()
-			: undefined,
-		volumes: {
-			pgdata: {},
-			redis_data: {}
-		}
-	}
+			},*/
+      [nlpServiceName]: {
+        build: {
+          context: "nlp/",
+          dockerfile: "Dockerfile",
+        },
+        ports: getNLPPort(mode),
+      },
+    },
+    networks:
+      mode === Mode.serverDevelop || mode === Mode.serverMaster
+        ? getServerNetworks()
+        : undefined,
+    volumes: {
+      pgdata: {},
+      redis_data: {},
+    },
+  };
 }
 
 function getServerNetworks() {
-	return {
-		default: {
-			external: true,
-			name: 'nginx-proxy',
-		},
-	}
+  return {
+    default: {
+      external: true,
+      name: "nginx-proxy",
+    },
+  };
 }
 
 /**
@@ -140,22 +158,27 @@ function getServerNetworks() {
  * @param region — региональная версия
  */
 function getNginxEnvs(mode: Mode, region: Region) {
-	if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
-		const isIntl = region === 'intl'
+  if (mode === Mode.serverDevelop || mode === Mode.serverMaster) {
+    const isIntl = region === "intl";
 
-		const domain = mode === Mode.serverDevelop
-			? (isIntl ? 'dev.immersia.site' : 'dev.explainit.ru')
-			: (isIntl ? 'immersia.site' : 'explainit.ru')
+    const domain =
+      mode === Mode.serverDevelop
+        ? isIntl
+          ? "dev.immersia.site"
+          : "dev.explainit.ru"
+        : isIntl
+          ? "immersia.site"
+          : "explainit.ru";
 
-		const domains = `${domain},www.${domain}`
+    const domains = `${domain},www.${domain}`;
 
-		return {
-			VIRTUAL_HOST: domains,
-			LETSENCRYPT_HOST: domains,
-		}
-	}
+    return {
+      VIRTUAL_HOST: domains,
+      LETSENCRYPT_HOST: domains,
+    };
+  }
 
-	return undefined
+  return undefined;
 }
 
 /**
@@ -164,11 +187,11 @@ function getNginxEnvs(mode: Mode, region: Region) {
  * @param region — региональная версия
  */
 function getServerEnvs(mode: Mode, region: Region) {
-	return {
-		MODE: mode,
-		PORT: 3001,
-		REGION: region,
-	}
+  return {
+    MODE: mode,
+    PORT: 3001,
+    REGION: region,
+  };
 }
 
 /**
@@ -178,50 +201,50 @@ function getServerEnvs(mode: Mode, region: Region) {
  * @param region — региональная версия
  */
 function getFaceEnvs(mode: Mode, region: Region) {
-	return { MODE: mode, NEXT_PUBLIC_REGION: region }
+  return { MODE: mode, NEXT_PUBLIC_REGION: region };
 }
 
 /** Returns environment variables for Postgres  */
 function getPostgresEnvs() {
-	return {
-		POSTGRES_DB: '${POSTGRES_DB}',
-		POSTGRES_USER: '${POSTGRES_USER}',
-		POSTGRES_PASSWORD: '${POSTGRES_PASSWORD}',
-	}
+  return {
+    POSTGRES_DB: "${POSTGRES_DB}",
+    POSTGRES_USER: "${POSTGRES_USER}",
+    POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}",
+  };
 }
 
 function getPostgresPort(mode: Mode) {
-	const portMapper: Record<Mode, [string]> = {
-		[Mode.localTest]: ['5443:5432'],
-		[Mode.localDev]: ['5443:5432'],
-		[Mode.localCheckServer]: ['5445:5432'],
-		[Mode.serverDevelop]: ['5446:5432'],
-		[Mode.serverMaster]: ['5447:5432'],
-	}
+  const portMapper: Record<Mode, [string]> = {
+    [Mode.localTest]: ["5443:5432"],
+    [Mode.localDev]: ["5443:5432"],
+    [Mode.localCheckServer]: ["5445:5432"],
+    [Mode.serverDevelop]: ["5446:5432"],
+    [Mode.serverMaster]: ["5447:5432"],
+  };
 
-	return portMapper[mode]
+  return portMapper[mode];
 }
 
 function getRedisPort(mode: Mode) {
-	const portMapper: Record<Mode, [string]> = {
-		[Mode.localTest]: ['6380:6379'],
-		[Mode.localDev]: ['6381:6379'],
-		[Mode.localCheckServer]: ['6382:6379'],
-		[Mode.serverDevelop]: ['6383:6379'],
-		[Mode.serverMaster]: ['6384:6379'],
-	}
+  const portMapper: Record<Mode, [string]> = {
+    [Mode.localTest]: ["6380:6379"],
+    [Mode.localDev]: ["6381:6379"],
+    [Mode.localCheckServer]: ["6382:6379"],
+    [Mode.serverDevelop]: ["6383:6379"],
+    [Mode.serverMaster]: ["6384:6379"],
+  };
 
-	return portMapper[mode]
+  return portMapper[mode];
 }
 
 function getNLPPort(mode: Mode) {
-	const portMapper: Record<Mode, [string]> = {
-		[Mode.localTest]: ['8000:8000'],
-		[Mode.localDev]: ['8001:8000'],
-		[Mode.localCheckServer]: ['8002:8000'],
-		[Mode.serverDevelop]: ['8003:8000'],
-		[Mode.serverMaster]: ['8004:8000'],
-	}
+  const portMapper: Record<Mode, [string]> = {
+    [Mode.localTest]: ["8000:8000"],
+    [Mode.localDev]: ["8001:8000"],
+    [Mode.localCheckServer]: ["8002:8000"],
+    [Mode.serverDevelop]: ["8003:8000"],
+    [Mode.serverMaster]: ["8004:8000"],
+  };
 
-	return portMapper[mode]
+  return portMapper[mode];
 }
