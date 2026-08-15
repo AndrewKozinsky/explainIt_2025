@@ -1,5 +1,5 @@
 import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
-import PhraseDictionary from '_pages/media/dictionary/PhraseDictionary/PhraseDictionary'
+import { PhraseDictionary } from '@/widgets/dictionary'
 
 function DictionaryContent() {
 	const currentInfoView = useDetailsStore((store) => store.currentInfoView)

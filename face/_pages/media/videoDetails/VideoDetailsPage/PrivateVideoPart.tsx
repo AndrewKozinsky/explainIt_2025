@@ -24,21 +24,18 @@ export default function PrivateVideoPart(props: PrivateVideoPartProps) {
 				setCurrentVideo(result.data)
 			}
 		},
-		[currentVideo.id, videosService],
+		[currentVideo.id],
 	)
 
-	const handleCoverUpdated = useCallback(
-		async function (updatedVideo: VideoLiteModel) {
-			// Рефетчим с сервера чтобы получить свежий coverUrl
-			const result = await videosService.getVideo(updatedVideo.id)
-			if (result.data) {
-				setCurrentVideo(result.data)
-			} else {
-				setCurrentVideo(updatedVideo)
-			}
-		},
-		[videosService],
-	)
+	const handleCoverUpdated = useCallback(async function (updatedVideo: VideoLiteModel) {
+		// Рефетчим с сервера чтобы получить свежий coverUrl
+		const result = await videosService.getVideo(updatedVideo.id)
+		if (result.data) {
+			setCurrentVideo(result.data)
+		} else {
+			setCurrentVideo(updatedVideo)
+		}
+	}, [])
 
 	const handleVideoDeleted = useCallback(
 		function (_videoId: number) {

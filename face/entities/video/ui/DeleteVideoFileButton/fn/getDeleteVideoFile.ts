@@ -25,7 +25,7 @@ export function useDeleteVideoFile(videoId: number, onDeleted: () => void) {
 
 		onDeleted()
 		setStatus('idle')
-	}, [videoId, videosService, onDeleted, notify])
+	}, [videoId, onDeleted, notify])
 
 	return {
 		status,

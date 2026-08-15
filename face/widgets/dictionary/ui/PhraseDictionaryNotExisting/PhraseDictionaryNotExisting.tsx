@@ -1,5 +1,5 @@
 import React from 'react'
-import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
+import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 
 function PhraseDictionaryNotExisting() {
 	const status = usePhraseDictionaryStore((s) => s.status)

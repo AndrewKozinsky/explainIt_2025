@@ -1,5 +1,3 @@
-// import { BooksService } from '@/entities/book/BooksService'
-// import { BooksApi } from '@/entities/book/repository/BooksApi'
 import { booksService } from '@/entities/book/BooksService'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'

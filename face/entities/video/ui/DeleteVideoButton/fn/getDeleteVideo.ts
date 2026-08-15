@@ -15,7 +15,7 @@ export function useGetDeleteVideo(videoId: number, onDeleted: () => void) {
 		}
 
 		onDeleted()
-	}, [videoId, videosService, onDeleted])
+	}, [videoId, onDeleted])
 
 	return {
 		status,

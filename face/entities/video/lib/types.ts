@@ -1,5 +1,5 @@
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import { ProficiencyLevel } from '@/shared/api/ff'
+import { ProficiencyLevel } from '@/shared/api/proficiencyLevel'
 import type { LanguageCode } from '@/shared/utils/languages'
 
 // ─── Типы из Prisma (server/prisma/schema.prisma) ────────────────────────────

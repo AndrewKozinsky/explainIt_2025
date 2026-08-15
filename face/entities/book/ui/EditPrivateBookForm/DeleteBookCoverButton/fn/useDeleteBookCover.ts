@@ -24,7 +24,7 @@ export function useDeleteBookCover(bookId: number) {
 		}
 
 		setStatus('idle')
-	}, [bookId, booksService, notify])
+	}, [bookId, notify])
 
 	return {
 		status,

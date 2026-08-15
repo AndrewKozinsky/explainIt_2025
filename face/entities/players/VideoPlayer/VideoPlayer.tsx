@@ -1,5 +1,3 @@
-// 'use client'
-
 import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import NativePlayerCore from './NativePlayerCore/NativePlayerCore'
 import { PlayerContext } from './PlayerContext'

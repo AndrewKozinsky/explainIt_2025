@@ -1,7 +1,7 @@
 import React from 'react'
 import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
 import { LanguageCode } from '@/shared/utils/languages'
-import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
+import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 import './DictionaryPhraseTranscription.scss'
 
 function DictionaryPhraseTranscription() {

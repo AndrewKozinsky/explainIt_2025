@@ -1,6 +1,5 @@
-import { useCallback, useContext, useEffect, useMemo, useState } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { videosService, VideosService } from '@/entities/video/VideosService'
+import { useCallback, useContext, useEffect, useState } from 'react'
+import { videosService } from '@/entities/video/VideosService'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
 export function useGenerateSubtitles(videoId: number) {

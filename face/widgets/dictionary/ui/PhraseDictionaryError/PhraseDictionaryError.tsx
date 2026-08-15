@@ -1,7 +1,7 @@
 import React from 'react'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { usePhraseDictionaryStore } from '_pages/media/dictionary/phraseDictionaryStore'
+import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 import './PhraseDictionaryError.scss'
 
 function PhraseDictionaryError() {

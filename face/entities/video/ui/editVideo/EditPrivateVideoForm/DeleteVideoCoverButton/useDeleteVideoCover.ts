@@ -29,7 +29,7 @@ export function useDeleteVideoCover(videoId: number, onDeleted: (video: VideoLit
 		}
 
 		setStatus('idle')
-	}, [videoId, videosService, onDeleted, notify])
+	}, [videoId, onDeleted, notify])
 
 	return {
 		status,

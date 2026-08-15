@@ -1,7 +1,5 @@
 import { booksService } from '@/entities/book/BooksService'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
-// import { BooksApi } from '@/entities/book/repository/BooksApi'
-// import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
 import { chaptersService } from '@/entities/chapter/ChaptersService'
 import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
 import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
