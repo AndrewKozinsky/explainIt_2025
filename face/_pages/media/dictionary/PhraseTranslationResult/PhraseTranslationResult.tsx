@@ -1,3 +1,4 @@
+import { createContext, useContext } from 'react'
 import type {
 	TranslationBlockModel,
 	BlockBlockModel,
@@ -44,7 +45,25 @@ function BlockTree({ blocks }: { blocks: TranslationBlockModel[] }) {
 
 // ─── PhraseTranslationResult ─────────────────────────────────────────────────
 
-let useCaseCounter = 0
+const UseCaseNumbersContext = createContext<WeakMap<TranslationBlockModel, number> | null>(null)
+
+function numberUseCases(blocks: TranslationBlockModel[]): WeakMap<TranslationBlockModel, number> {
+	const numbers = new WeakMap<TranslationBlockModel, number>()
+	let counter = 0
+
+	const visit = (list: TranslationBlockModel[]) => {
+		for (const block of list) {
+			if (block.type === 'useCase') {
+				counter += 1
+				numbers.set(block, counter)
+			}
+			if ('children' in block) visit(block.children)
+		}
+	}
+
+	visit(blocks)
+	return numbers
+}
 
 function PhraseTranslationResult() {
 	const status = usePhraseDictionaryStore((s) => s.status)
@@ -52,11 +71,13 @@ function PhraseTranslationResult() {
 
 	if (status !== 'ready' || !translation || !Array.isArray(translation) || translation.length === 0) return null
 
-	useCaseCounter = 0
+	const useCaseNumbers = numberUseCases(translation)
 
 	return (
 		<div className='phrase-translation-result'>
-			<BlockTree blocks={translation} />
+			<UseCaseNumbersContext.Provider value={useCaseNumbers}>
+				<BlockTree blocks={translation} />
+			</UseCaseNumbersContext.Provider>
 		</div>
 	)
 }
@@ -73,8 +94,8 @@ function BlockRenderer({ block }: { block: BlockBlockModel }) {
 }
 
 function UseCaseRenderer({ block }: { block: UseCaseBlockModel }) {
-	useCaseCounter++
-	const number = useCaseCounter
+	const useCaseNumbers = useContext(UseCaseNumbersContext)
+	const number = useCaseNumbers?.get(block)
 
 	return (
 		<div className='translation-use-case'>
