@@ -9,9 +9,9 @@ import { useGetSavedVideos } from './fn/useGetSavedVideos'
 import useLanguageFilter from './fn/useLanguageFilter'
 import useProficiencyFilter from './fn/useProficiencyFilter'
 import useTopicFilter from './fn/useTopicFilter'
-import './YouTubeVideosSaved.scss'
+import './VideosCollection.scss'
 
-function YouTubeVideosSaved() {
+function VideosCollection() {
 	const { languageCode, setLanguageCode } = useLanguageFilter()
 	const { durationKey, setDurationKey } = useDurationFilter()
 	const { topicKey, topics, setTopicKey } = useTopicFilter()
@@ -34,11 +34,11 @@ function YouTubeVideosSaved() {
 	}
 
 	return (
-		<div className='youtube-videos-saved'>
+		<div className='videos-collection'>
 			<YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
 			<YouTubeVideosList items={items} loading={loading} error={errorText} />
 		</div>
 	)
 }
 
-export default YouTubeVideosSaved
+export default VideosCollection

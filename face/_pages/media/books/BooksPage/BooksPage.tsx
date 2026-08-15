@@ -24,11 +24,11 @@ export default function BooksPage() {
 						label: 'Библиотека',
 						content: <PublicBooksList books={allBooks?.public ?? []} />,
 					},
-					{
+					/*{
 						key: 'private',
 						label: 'Мои книги',
 						content: <PrivateBooksListWithAdd books={allBooks?.private ?? []} />,
-					},
+					},*/
 				]}
 				defaultTab={defaultTab}
 				onTabChange={onTabChange}
