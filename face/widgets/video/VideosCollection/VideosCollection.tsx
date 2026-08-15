@@ -12,7 +12,14 @@ import useSortFilter from './fn/useSortFilter'
 import useTopicFilter from './fn/useTopicFilter'
 import './VideosCollection.scss'
 
-function VideosCollection() {
+type VideosCollectionProps = {
+	/** Подгружать следующие страницы при прокрутке списка */
+	withInfiniteScroll?: boolean
+}
+
+function VideosCollection(props: VideosCollectionProps) {
+	const { withInfiniteScroll = true } = props
+
 	const { languageCode, setLanguageCode } = useLanguageFilter()
 	const { durationKey, setDurationKey } = useDurationFilter()
 	const { topicKey, topics, setTopicKey } = useTopicFilter()
@@ -44,7 +51,7 @@ function VideosCollection() {
 				loading={loading}
 				loadingMore={loadingMore}
 				hasMore={hasMore}
-				onLoadMore={loadMore}
+				onLoadMore={withInfiniteScroll ? loadMore : undefined}
 				error={errorText}
 			/>
 		</div>

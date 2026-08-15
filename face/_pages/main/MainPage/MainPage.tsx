@@ -10,7 +10,7 @@ function MainPage() {
 			<main className='main-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
 				<MainPageTop />
-				<VideosCollection />
+				<VideosCollection withInfiniteScroll={false} />
 				<MainPageFaq />
 			</main>
 		</PageWrapper>
