@@ -1,23 +1,31 @@
-import WordsButtonList from '@/entities/WordsButtonList/WordsButtonList'
-import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
+import './WordsQuickAccess.scss'
 
-function WordsQuickAccess() {
-	const { handleSubmit } = usePhraseTranslation()
+type WordsQuickAccessProps = {
+	words: string[]
+}
 
-	function handleWordAppend(word: string) {
-		const currentText = usePhraseDictionaryStore.getState().inputText
-		const newText = currentText.trim() ? `${currentText} ${word}` : word
-		usePhraseDictionaryStore.getState().setInputText(newText)
-		handleSubmit()
+function WordsQuickAccess(props: WordsQuickAccessProps) {
+	const { words } = props
+
+	if (words.length === 0) {
+		return null
 	}
 
-	function handlePhraseReplace(phraseText: string) {
-		usePhraseDictionaryStore.getState().setInputText(phraseText)
-		handleSubmit()
+	function handleClick(word: string) {
+		usePhraseDictionaryStore.getState().setInputText(word)
 	}
 
-	return <WordsButtonList onWordClick={handleWordAppend} onPhraseClick={handlePhraseReplace} />
+	return (
+		<div className='words-quick-access'>
+			{words.map((word, index) => (
+				<Button key={`${word}-${index}`} size='small' theme='outline' onClick={() => handleClick(word)}>
+					{word}
+				</Button>
+			))}
+		</div>
+	)
 }
 
 export default WordsQuickAccess

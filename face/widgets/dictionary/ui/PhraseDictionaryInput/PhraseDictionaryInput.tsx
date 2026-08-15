@@ -1,12 +1,13 @@
-import React from 'react'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
-import { usePhraseTranslation } from './fn/usePhraseTranslation'
 
 function PhraseDictionaryInput() {
-	const { handleSubmit } = usePhraseTranslation()
-
 	const inputText = usePhraseDictionaryStore((s) => s.inputText)
+
+	function handleSubmit() {
+		void fetchDictionaryArticle(inputText)
+	}
 
 	return (
 		<TextInput

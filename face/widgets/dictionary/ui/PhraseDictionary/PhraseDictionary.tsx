@@ -1,4 +1,4 @@
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import { LanguageCode } from '@/shared/utils/languages'
 import DictionaryPhraseTranscription from '../DictionaryPhraseTranscription/DictionaryPhraseTranscription'
 import PhraseDictionaryError from '../PhraseDictionaryError/PhraseDictionaryError'
 import PhraseDictionaryInput from '../PhraseDictionaryInput/PhraseDictionaryInput'
@@ -6,18 +6,27 @@ import PhraseDictionaryLoading from '../PhraseDictionaryLoading/PhraseDictionary
 import PhraseDictionaryNotExisting from '../PhraseDictionaryNotExisting/PhraseDictionaryNotExisting'
 import PhraseTranslationResult from '../PhraseTranslationResult/PhraseTranslationResult'
 import WordsQuickAccess from '../WordsQuickAccess/WordsQuickAccess'
+import { useInitStore } from './fn/useInitStore'
+import { useObservePhrase } from './fn/useObservePhrase'
+import { useRetryEffect } from './fn/useRetryEffect'
 import './PhraseDictionary.scss'
 
-function PhraseDictionary() {
-	const languageCode = useDetailsStore((s) => s.languageCode)
+type PhraseDictionaryProps = {
+	languageCode: LanguageCode
+	phrase?: string
+	words: string[]
+}
 
-	if (!languageCode) {
-		return null
-	}
+function PhraseDictionary(props: PhraseDictionaryProps) {
+	const { languageCode, phrase, words } = props
+
+	useInitStore(languageCode)
+	useObservePhrase(phrase)
+	useRetryEffect()
 
 	return (
 		<div className='phrase-dictionary'>
-			<WordsQuickAccess />
+			<WordsQuickAccess words={words} />
 			<PhraseDictionaryInput />
 			<DictionaryPhraseTranscription />
 			<PhraseDictionaryLoading />

@@ -1,4 +1,3 @@
-import React from 'react'
 import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 
 function PhraseDictionaryLoading() {

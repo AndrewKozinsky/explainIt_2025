@@ -1,4 +1,5 @@
 import { createContext, useContext } from 'react'
+import type { ComponentType } from 'react'
 import type {
 	TranslationBlockModel,
 	BlockBlockModel,
@@ -9,13 +10,13 @@ import type {
 	TextBlockModel,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
-import { usePhraseTranslation } from '../PhraseDictionaryInput/fn/usePhraseTranslation'
+import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import './PhraseTranslationResult.scss'
 
 // ─── Component Registry ──────────────────────────────────────────────────────
 
-type BlockComponent<P extends TranslationBlockModel = TranslationBlockModel> = React.ComponentType<{
+type BlockComponent<P extends TranslationBlockModel = TranslationBlockModel> = ComponentType<{
 	block: P
 	index: number
 }>
@@ -127,7 +128,6 @@ function ExampleRenderer({ block }: { block: ExampleBlockModel }) {
 
 function PhrasesButtonsRenderer({ block }: { block: PhrasesButtonsBlockModel }) {
 	const setInputText = usePhraseDictionaryStore((s) => s.setInputText)
-	const { handleSubmit } = usePhraseTranslation()
 
 	return (
 		<div className='translation-phrases-buttons'>
@@ -137,7 +137,7 @@ function PhrasesButtonsRenderer({ block }: { block: PhrasesButtonsBlockModel }) 
 					className='translation-phrases-button'
 					onClick={() => {
 						setInputText(label)
-						handleSubmit()
+						void fetchDictionaryArticle(label)
 					}}
 				>
 					{label}
