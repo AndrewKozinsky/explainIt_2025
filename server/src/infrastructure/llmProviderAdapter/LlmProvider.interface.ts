@@ -18,7 +18,7 @@ export type LlmGenerateInput = {
 	lowPriority?: boolean
 	/**
 	 * Максимальное время ожидания ответа от LLM в миллисекундах.
-	 * Если не указано — используется LlmAdapterService.GENERATE_TIMEOUT_MS.
+	 * Если не указано — используется LlmAdapterService.GENERATE_TIMEOUT_MS (очень большой дефолт).
 	 */
 	timeoutMs?: number
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { AIProviderName, getProviderFromModel, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
-import { withTimeout } from 'utils/withTimeout'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { withTimeout } from 'utils/withTimeout'
 import { ChatGptLlmProvider } from './ChatGptLlmProvider.service'
 import { DeepSeekLlmProvider } from './DeepSeekLlmProvider.service'
 import { GeminiLlmProvider } from './GeminiLlmProvider.service'
@@ -21,13 +21,14 @@ import { LlmGenerateInput, LlmGenerateOutput, LlmProvider, LlmStreamInput } from
 @Injectable()
 export class LlmAdapterService {
 	/**
-	 * Дефолтный таймаут синхронной генерации.
+	 * Дефолтный таймаут синхронной генерации — намеренно очень большой.
 	 *
-	 * Должен быть заметно меньше proxy_read_timeout nginx (60с по умолчанию),
-	 * чтобы в случае зависшего LLM успела сработать обработка ошибки
-	 * (CustomError → GlobalExceptionFilter) и ответ дошёл до клиента до 504.
+	 * Фоновые задачи (например, генерация субтитров) могут идти долго, и клиент
+	 * их не ждёт, поэтому по умолчанию запрос к LLM не должен обрываться.
+	 * Там, где нужен жёсткий лимит (например, синхронный перевод фразы, который
+	 * должен уложиться в proxy_read_timeout nginx) — передаётся явный timeoutMs.
 	 */
-	private static readonly GENERATE_TIMEOUT_MS = 55_000
+	private static readonly GENERATE_TIMEOUT_MS = 60 * 60 * 1000 // 1 час
 
 	private providerMap: Record<AIProviderName, LlmProvider>
 
