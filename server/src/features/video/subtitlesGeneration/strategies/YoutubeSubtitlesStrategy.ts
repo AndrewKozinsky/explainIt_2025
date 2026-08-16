@@ -188,8 +188,13 @@ export class YoutubeSubtitlesStrategy {
 
 		try {
 			const srt = await this.subtitlesService.convertYouTubeSubtitlesToSrt(youtubeSubtitles.content)
-			this.logger.log(`Job ${jobId}: built SRT via LLM`)
 
+			if (!srt.trim() || !this.subtitlesService.isLikelySrt(srt)) {
+				this.logger.warn(`Job ${jobId}: YouTube VTT produced no usable SRT, falling back to Deepgram`)
+				return null
+			}
+
+			this.logger.log(`Job ${jobId}: built SRT from YouTube VTT`)
 			return srt
 		} catch (llmError) {
 			this.logger.warn(

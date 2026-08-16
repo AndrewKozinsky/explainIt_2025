@@ -11,3 +11,13 @@ export function normalizeSentence(text: string): string {
 export function normalizePhraseString(text: string): string {
 	return normalizeSentence(text).toLowerCase()
 }
+
+/**
+ * Схлопывает текст в одну строку: убирает переносы строк и лишние пробелы.
+ */
+export function dryText(text: string): string {
+	return text
+		.replace(/[\r\n]+/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim()
+}
