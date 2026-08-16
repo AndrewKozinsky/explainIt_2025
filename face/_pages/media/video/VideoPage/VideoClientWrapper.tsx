@@ -7,7 +7,7 @@ import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
 import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
 import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
 import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
-import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
+import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
 import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
@@ -62,7 +62,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 				onPlayStateChange={(p) => setPlayerState({ paused: p })}
 				onProgressSave={(id, seconds) => localStorageManager.videoProgress.set(id, seconds)}
 			/>
-			<SubtitlesGuard subtitlesStatus={subtitlesStatus} subtitlesErrorCode={subtitlesErrorCode}>
+			<SubtitlesStatusRouter subtitlesStatus={subtitlesStatus} subtitlesErrorCode={subtitlesErrorCode}>
 				<SentencesOrSubtitles
 					languageCode={languageCode}
 					currentTime={currentTime}
@@ -73,7 +73,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 					plainSentences={plainSentences}
 					subtitles={subtitles}
 				/>
-			</SubtitlesGuard>
+			</SubtitlesStatusRouter>
 		</VideoWithSubtitles>
 	)
 }
