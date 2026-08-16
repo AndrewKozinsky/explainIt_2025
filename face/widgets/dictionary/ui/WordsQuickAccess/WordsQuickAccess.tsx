@@ -1,4 +1,5 @@
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import './WordsQuickAccess.scss'
 
@@ -15,6 +16,7 @@ function WordsQuickAccess(props: WordsQuickAccessProps) {
 
 	function handleClick(word: string) {
 		usePhraseDictionaryStore.getState().setInputText(word)
+		fetchDictionaryArticle(word)
 	}
 
 	return (
