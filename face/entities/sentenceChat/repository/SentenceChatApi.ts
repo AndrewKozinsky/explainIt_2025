@@ -47,6 +47,8 @@ export class SentenceChatApi implements SentenceChatRepository {
 	}
 }
 
+export const sentenceChatApi = new SentenceChatApi()
+
 // ─── Mappers ────────────────────────────────────────────────────────────────
 
 function mapToThread(raw: SentenceChatThreadOutModel): SentenceChatThreadModel {

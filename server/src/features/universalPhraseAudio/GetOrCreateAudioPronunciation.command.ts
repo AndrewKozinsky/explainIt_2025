@@ -3,7 +3,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPhrase.queryRepository'
 import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhrase/universalPhraseAudio.queryRepository'
 import { UniversalPhraseAudioRepository } from 'repo/universalPhrase/universalPhraseAudio.repository'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -23,7 +23,7 @@ export class GetOrCreateUniversalPhraseAudioHandler implements ICommandHandler<G
 		private audioQueryRepository: UniversalPhraseAudioQueryRepository,
 		private audioRepository: UniversalPhraseAudioRepository,
 		private googleTtsService: GoogleTtsService,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 		private mainConfig: MainConfigService,
 	) {}
 
@@ -46,7 +46,7 @@ export class GetOrCreateUniversalPhraseAudioHandler implements ICommandHandler<G
 		)
 
 		const s3Key = this.buildS3Key(phrase.sourceLanguageCode as LanguageCode)
-		await this.cloudRuS3Service.uploadFile(s3Key, audioBuffer, 'audio/ogg')
+		await this.cloudflareS3Service.uploadFile(s3Key, audioBuffer, 'audio/ogg')
 
 		await this.audioRepository.createAudio({
 			universalPhraseId,

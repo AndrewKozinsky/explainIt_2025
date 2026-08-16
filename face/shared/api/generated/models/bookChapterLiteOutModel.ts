@@ -7,7 +7,10 @@
  */
 
 export interface BookChapterLiteOutModel {
-  /** Book chapter ID */
+  /**
+     * Book chapter ID
+     * @minimum 1
+     */
   id: number;
   /** Book ID */
   bookId: number;

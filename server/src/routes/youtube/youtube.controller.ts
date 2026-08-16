@@ -9,8 +9,8 @@ import { CreateYoutubeVideoCommand } from 'features/youtube/CreateYoutubeVideo.c
 import { GetSavedYoutubeVideosCommand } from 'features/youtube/GetSavedYoutubeVideos.command'
 import { GetVideoByYoutubeIdCommand } from 'features/youtube/GetVideoByYoutubeId.command'
 import { GetYoutubeVideosCommand } from 'features/youtube/GetYoutubeVideos.command'
+import { SavedYoutubeVideosPageOutModel } from 'models/video/savedYoutubeVideosPage.out.model'
 import { VideoOutModel } from 'models/video/video.out.model'
-import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 import { YoutubeVideosOutModel } from 'models/youtube/youtubeVideo.out.model'
 import {
 	ApiGetYoutubeVideoById,
@@ -37,15 +37,23 @@ export class YoutubeController {
 	@ApiGetSavedYoutubeVideos()
 	@HttpCode(HttpStatus.OK)
 	@Get('saved')
-	async getSavedVideos(@Query() query: GetSavedYoutubeVideosInput): Promise<VideoLiteOutModel[]> {
+	async getSavedVideos(@Query() query: GetSavedYoutubeVideosInput): Promise<SavedYoutubeVideosPageOutModel> {
 		return await this.commandBus.execute(
-			new GetSavedYoutubeVideosCommand({
-				maxDurationSec: query.maxDurationSec,
-				minDurationSec: query.minDurationSec,
-				proficiencyLevel: query.proficiencyLevel,
-				topic: query.topic,
-				languageCode: query.languageCode,
-			}),
+			new GetSavedYoutubeVideosCommand(
+				{
+					maxDurationSec: query.maxDurationSec,
+					minDurationSec: query.minDurationSec,
+					proficiencyLevel: query.proficiencyLevel,
+					topic: query.topic,
+					languageCode: query.languageCode,
+					sortBy: query.sortBy,
+					sortDirection: query.sortDirection,
+				},
+				{
+					page: query.page ?? 1,
+					pageSize: query.pageSize ?? 20,
+				},
+			),
 		)
 	}
 

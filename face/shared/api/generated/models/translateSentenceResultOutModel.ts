@@ -7,7 +7,10 @@
  */
 
 export interface TranslateSentenceResultOutModel {
-  /** Sentence ID */
+  /**
+     * Sentence ID
+     * @minimum 1
+     */
   sentenceId: number;
   /** Translation of the sentence */
   translation: string;

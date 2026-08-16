@@ -19,7 +19,7 @@ jobs:
 
       - name: Deploy to Russian develop server
         run: |
-          ssh -o StrictHostKeyChecking=no root@185.170.10.212 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@163.5.157.14 << 'EOF'
             cd ~/sites/explain_dev
 
             git checkout develop

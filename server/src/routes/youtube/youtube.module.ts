@@ -5,11 +5,11 @@ import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateYoutubeVideoHandler } from 'features/youtube/CreateYoutubeVideo.command'
+import { GetSavedYoutubeVideosHandler } from 'features/youtube/GetSavedYoutubeVideos.command'
 import { GetVideoByYoutubeIdHandler } from 'features/youtube/GetVideoByYoutubeId.command'
 import { GetYoutubeVideoHandler } from 'features/youtube/GetYoutubeVideo.command'
 import { GetYoutubeVideosHandler } from 'features/youtube/GetYoutubeVideos.command'
-import { GetSavedYoutubeVideosHandler } from 'features/youtube/GetSavedYoutubeVideos.command'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { SubtitlesGenerationQueue } from 'infrastructure/queues/subtitlesGeneration.queue'
 import { YoutubeController } from './youtube.controller'
 
@@ -21,7 +21,7 @@ import { YoutubeController } from './youtube.controller'
 		VideoRepository,
 		VideoQueryRepository,
 		UniversalPhraseQueryRepository,
-		CloudRuS3Service,
+		CloudflareS3Service,
 		SubtitlesGenerationQueue,
 		GetYoutubeVideoHandler,
 		GetYoutubeVideosHandler,

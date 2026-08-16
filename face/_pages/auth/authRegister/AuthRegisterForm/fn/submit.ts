@@ -1,7 +1,6 @@
-import { useCallback, useMemo } from 'react'
-import { AuthService } from '@/entities/auth/AuthService'
-import { AuthApi } from '@/entities/auth/repository/AuthApi'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { useCallback } from 'react'
+import { useMutation } from '@tanstack/react-query'
+import { authQueries } from '@/entities/auth/AuthQueryFacade'
 import { FormStatus } from '@/shared/utils/forms'
 import { RegisterFormData } from './form'
 
@@ -11,10 +10,7 @@ export function useGetOnRegisterFormSubmit(
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 	setFormSuccess: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const service = useMemo(() => new AuthService(new AuthApi()), [])
-	const { mutate: registerUser } = useAsyncMutation((input: { email: string; password: string }) =>
-		service.register(input),
-	)
+	const { mutateAsync: registerUser } = useMutation(authQueries.register())
 
 	return useCallback(
 		async function (formData: RegisterFormData) {

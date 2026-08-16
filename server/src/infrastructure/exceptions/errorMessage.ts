@@ -179,6 +179,9 @@ export const errorMessage = {
 		videoNotFound: { code: 'YOUTUBE_VIDEO_NOT_FOUND' }, // Видео с указанным ID не найдено на YouTube.
 		audioDownloadFailed: { code: 'YOUTUBE_AUDIO_DOWNLOAD_FAILED' }, // Не удалось скачать аудио с YouTube.
 	},
+	llm: {
+		llmTimeout: { code: 'LLM_TIMEOUT' }, // Превышено время ожидания ответа от LLM.
+	},
 } satisfies Record<string, any>
 
 export function serializeErrorMessage(errorMessage: ErrorMessage) {

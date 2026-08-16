@@ -17,6 +17,9 @@ export class UpdateVideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.proficiency_level))
 	proficiencyLevel: null | number
 
+	@ApiProperty(getApiPropertyOptions($.topic))
+	topic: null | string
+
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: null | string
 
@@ -40,7 +43,4 @@ export class UpdateVideoOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.duration_sec))
 	durationSec: number
-
-	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
-	fileDurationSec: null | number
 }

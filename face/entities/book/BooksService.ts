@@ -1,7 +1,7 @@
+import { BooksApi } from '@/entities/book/repository/BooksApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
-
-export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
+export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput }
 
 /**
  * Сервис книг — прослойка между компонентами и репозиторием.
@@ -98,3 +98,5 @@ export class BooksService {
 		})
 	}
 }
+
+export const booksService = new BooksService(new BooksApi())

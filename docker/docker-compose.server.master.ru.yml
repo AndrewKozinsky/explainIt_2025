@@ -6,7 +6,6 @@ services:
       - explainpostgresservermaster
       - explainserverservermaster
       - explainfaceservermaster
-      - explainhelpservermaster
     volumes:
       - ./nginx/nginx.conf.servermaster:/etc/nginx/nginx.conf
     environment:
@@ -68,6 +67,7 @@ services:
     environment:
       MODE: servermaster
       PORT: 3001
+      REGION: ru
     env_file:
       - docker/.env.servermaster
   explainfaceservermaster:
@@ -84,15 +84,6 @@ services:
     environment:
       MODE: servermaster
       NEXT_PUBLIC_REGION: ru
-  explainhelpservermaster:
-    build:
-      context: help/
-      dockerfile: Dockerfile.server
-    restart: unless-stopped
-    command: npm run start
-    container_name: explainhelpservermaster
-    environment:
-      MODE: servermaster
   explainnlpservermaster:
     build:
       context: nlp/

@@ -40,8 +40,8 @@
 
 .switcher--wide-paddings {
 	.switcher__button {
-		padding-left: 3rem;
-		padding-right: 3rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
 	}
 }
 
@@ -50,7 +50,7 @@
 	line-height: 1.9rem;
 	color: vars.$grayColor-6;
 	background-color: transparent;
-	padding: .5rem 1rem;
+	padding: .5rem .7rem .6rem .7rem;
 	border-radius: vars.$radius-1;
 
 	&:hover, &:focus {

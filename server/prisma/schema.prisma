@@ -96,7 +96,6 @@ model Video {
 	is_file_uploaded	Boolean?	@default(false)
 	file_size_mb	Int	@default(0)
 	duration_sec	Int	@default(0)
-	file_duration_sec	Int?
 	original_content	String?
 	processed_content	String?
 	content_type	VideoTextType	@default(text)

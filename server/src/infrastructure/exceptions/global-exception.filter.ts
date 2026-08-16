@@ -1,5 +1,7 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, Inject } from '@nestjs/common'
+import { ArgumentsHost, Catch, ExceptionFilter, HttpException } from '@nestjs/common'
 import { Response } from 'express'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { CustomError } from './customErrors'
 
 @Catch()
@@ -25,6 +27,8 @@ export class GlobalExceptionFilter implements ExceptionFilter {
 			return
 		}
 
-		response.status(500).json({ message: 'Internal server error', statusCode: 500 })
+		response
+			.status(500)
+			.json({ message: errorMessage.unknownDbError, statusCode: ErrorStatusCode.InternalServerError_500 })
 	}
 }

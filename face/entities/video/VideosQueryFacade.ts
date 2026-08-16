@@ -1,8 +1,8 @@
 import { queryOptions, type QueryClient } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { videosService } from './VideosService'
-import type { VideosService as VideosServiceType } from './VideosService'
 import type { CreateVideoInput } from './repository/VideosRepository'
+import type { VideosService as VideosServiceType } from './VideosService'
 
 /**
  * Ключи кэша серверных данных видео.
@@ -12,6 +12,7 @@ import type { CreateVideoInput } from './repository/VideosRepository'
 export const videoQueryKeys = {
 	all: ['videos'] as const,
 	list: () => [...videoQueryKeys.all, 'list'] as const,
+	detail: (id: number) => [...videoQueryKeys.all, 'detail', id] as const,
 }
 
 /**
@@ -30,10 +31,16 @@ export class VideosQueryFacade {
 		})
 	}
 
+	getVideo(id: number) {
+		return queryOptions({
+			queryKey: videoQueryKeys.detail(id),
+			queryFn: () => unwrapApiResult(this.service.getVideo(id)),
+		})
+	}
+
 	createVideo(queryClient: QueryClient) {
 		return {
-			mutationFn: (input: CreateVideoInput) =>
-				unwrapApiResult(this.service.createVideo(input)),
+			mutationFn: (input: CreateVideoInput) => unwrapApiResult(this.service.createVideo(input)),
 			onSuccess: () => queryClient.invalidateQueries({ queryKey: videoQueryKeys.all }),
 		}
 	}

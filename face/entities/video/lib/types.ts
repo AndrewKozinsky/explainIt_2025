@@ -1,4 +1,5 @@
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { ProficiencyLevel } from '@/shared/api/proficiencyLevel'
 import type { LanguageCode } from '@/shared/utils/languages'
 
 // ─── Типы из Prisma (server/prisma/schema.prisma) ────────────────────────────
@@ -67,9 +68,10 @@ export type VideoLiteModel = {
 	name: null | string
 	languageCode: LanguageCode
 	/** Уровень владения языком: A1, A2, B1, B2, C1, C2 (сервер присылает числа 1–6) */
-	proficiencyLevel: null | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'
+	proficiencyLevel: null | ProficiencyLevel
 	youtubeVideoId: null | string
 	about: null | string
+	topic: null | string
 	originalContent: null | string
 	processedContent: null | string
 	contentType: VideoContentType
@@ -79,7 +81,7 @@ export type VideoLiteModel = {
 	isFileUploaded: null | boolean
 	fileSizeMb: null | number
 	duration: null | string
-	fileDurationSec: null | number
+	durationSeconds: number
 	ratio: null | string
 	userId: null | number
 	coverFileName: null | string

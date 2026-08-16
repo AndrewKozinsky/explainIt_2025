@@ -7,6 +7,9 @@
  */
 
 export interface AddFlashcardInput {
-  /** Sentence phrase translation ID */
+  /**
+     * Sentence phrase translation ID
+     * @minimum 1
+     */
   sentencePhraseTranslationId: number;
 }

@@ -17,11 +17,6 @@ export class CreateVideoInput {
 	@DtoFieldDecorators('durationSec', bdConfig.Video.dbFields.duration_sec)
 	durationSec: number
 
-	@DtoFieldDecorators('fileDurationSec', bdConfig.Video.dbFields.file_duration_sec, {
-		required: false,
-	})
-	fileDurationSec?: number
-
 	@DtoFieldDecorators('languageCode', bdConfig.Video.dbFields.source_language_code)
 	languageCode: Language
 }

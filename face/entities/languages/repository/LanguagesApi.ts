@@ -15,8 +15,7 @@ import type { LanguageModel, LanguagesRepository } from './LanguagesRepository'
  * Сервер (ошибка)
  *   → GlobalExceptionFilter формирует JSON с errorMessageCode
  *   → customMutator видит !res.ok и выбрасывает ApiError
- *   → метод НЕ ловит — ошибка прокидывается наверх
- *   → useFetchData / useAsyncMutation ловит в try/catch
+ *   → executeApiCall ловит ApiError и возвращает ApiResult { error / errors }
  *   → resolveError извлекает errorMessageCode → читаемый текст
  *   → Компонент получает { error: "…" }
  * ```

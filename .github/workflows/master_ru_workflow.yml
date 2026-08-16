@@ -2,7 +2,7 @@ name: Deploy to the master server (Russia)
 on:
   push:
     branches:
-      - master
+      - _master
 
 jobs:
   deploy:
@@ -19,7 +19,7 @@ jobs:
 
       - name: Deploy to Russian production server
         run: |
-          ssh -o StrictHostKeyChecking=no root@185.170.10.212 << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@163.5.157.14 << 'EOF'
             cd ~/sites/explain
 
             git checkout master

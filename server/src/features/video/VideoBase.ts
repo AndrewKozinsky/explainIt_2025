@@ -3,7 +3,7 @@ import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { Language } from 'utils/languages'
 import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -27,13 +27,13 @@ export class VideoBase {
 			fileMimeType: string
 			fileDestinationType: FileDestinationType
 		},
-		cloudRuS3Service: CloudRuS3Service,
+		cloudflareS3Service: CloudflareS3Service,
 	) {
 		const s3FileKey = this.createVideoFileUrl({
 			fileName: params.fileName,
 			fileDestinationType: params.fileDestinationType,
 		})
-		const uploadUrl = await cloudRuS3Service.createUploadUrl(s3FileKey, params.fileMimeType)
+		const uploadUrl = await cloudflareS3Service.createUploadUrl(s3FileKey, params.fileMimeType)
 
 		return { s3FileKey, uploadUrl }
 	}

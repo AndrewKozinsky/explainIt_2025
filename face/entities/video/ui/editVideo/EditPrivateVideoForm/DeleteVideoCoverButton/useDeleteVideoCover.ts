@@ -1,14 +1,11 @@
-import { useContext, useCallback, useMemo, useState } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
+import { useContext, useCallback, useState } from 'react'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { VideosService } from '@/entities/video/VideosService'
+import { videosService } from '@/entities/video/VideosService'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
 export function useDeleteVideoCover(videoId: number, onDeleted: (video: VideoLiteModel) => void) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	const onDeleteClick = useCallback(async () => {
 		setStatus('loading')
@@ -32,7 +29,7 @@ export function useDeleteVideoCover(videoId: number, onDeleted: (video: VideoLit
 		}
 
 		setStatus('idle')
-	}, [videoId, videosService, onDeleted, notify])
+	}, [videoId, onDeleted, notify])
 
 	return {
 		status,

@@ -167,6 +167,14 @@ export class MainConfigService {
 					tenantId: enVariables.cloudRu.s3.tenantId,
 				},
 			},
+			cloudflareR2: {
+				s3: {
+					accountId: enVariables.cloudflareR2.s3.accountId,
+					accessKeyId: enVariables.cloudflareR2.s3.accessKeyId,
+					secretAccessKey: enVariables.cloudflareR2.s3.secretAccessKey,
+					bucketName: enVariables.cloudflareR2.s3.bucketName,
+				},
+			},
 			// Python container with NLP service
 			nlp: {
 				containerUrl: `http://explainnlp${enVariables.mode}:8000`,
@@ -174,6 +182,9 @@ export class MainConfigService {
 			billing: {
 				// Наценка за каждый перевод пользователя
 				translationMarkupMultiplier: 2,
+				// Глобальный выключатель списания баланса. При false баланс не списывается
+				// ни у одного пользователя (все переводы/генерации становятся бесплатными).
+				chargingEnabled: false,
 			},
 			// Grafana Loki
 			// loki: enVariables.loki,
@@ -262,6 +273,14 @@ export class MainConfigService {
 				secretKey: this.configService.get<string>('CLOUD_RU_SECRET_KEY') as string,
 				s3: {
 					tenantId: this.configService.get<string>('CLOUD_RU_S3_TENANT_ID') as string,
+				},
+			},
+			cloudflareR2: {
+				s3: {
+					accountId: this.configService.get<string>('CLOUDFLARE_S3_ACCOUNT_ID') as string,
+					accessKeyId: this.configService.get<string>('CLOUDFLARE_S3_ACCESS_KEY_ID') as string,
+					secretAccessKey: this.configService.get<string>('CLOUDFLARE_S3_SECRET_ACCESS_KEY') as string,
+					bucketName: this.configService.get<string>('CLOUDFLARE_S3_BUCKET_NAME') as string,
 				},
 			},
 			/*loki: {

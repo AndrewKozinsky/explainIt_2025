@@ -102,6 +102,9 @@ export class VideoOutModel {
 	@ApiProperty(getApiPropertyOptions($.about))
 	about: string | null
 
+	@ApiProperty(getApiPropertyOptions($.topic))
+	topic: string | null
+
 	@ApiProperty(getApiPropertyOptions($.original_content))
 	originalContent: string | null
 
@@ -128,9 +131,6 @@ export class VideoOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.duration_sec))
 	durationSec: number
-
-	@ApiProperty(getApiPropertyOptions($.file_duration_sec))
-	fileDurationSec: null | number
 
 	@ApiProperty({
 		description: 'Aspect ratio in CSS format, e.g. "1280 / 720". Only for YouTube videos.',

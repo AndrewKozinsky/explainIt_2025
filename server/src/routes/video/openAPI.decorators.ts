@@ -78,7 +78,6 @@ export function ApiGetSubtitlesStatus() {
 			description:
 				'Returns the current status of subtitles generation for a private video. Poll this endpoint to track progress after starting generation.',
 		}),
-		ApiCookieAuth(),
 		ApiParam({ name: 'id', type: Number, description: 'Video ID', example: 1 }),
 		ApiResponse({ status: 200, description: 'OK', type: VideoSubtitlesStatusOutModel }),
 	)

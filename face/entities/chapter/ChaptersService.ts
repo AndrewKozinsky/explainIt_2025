@@ -1,3 +1,4 @@
+import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type {
 	BookChapterModel,
@@ -47,3 +48,5 @@ export class ChaptersService {
 		return this.chaptersRepository.deleteChapter(id)
 	}
 }
+
+export const chaptersService = new ChaptersService(new ChaptersApi())

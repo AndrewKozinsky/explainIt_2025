@@ -1,28 +1,38 @@
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
-import PublicBooksList from '@/entities/book/ui/PublicBooksList/PublicBooksList'
-import MediaPageContentWrapper from '@/entities/media/ui/MediaPageContentWrapper/MediaPageContentWrapper'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+'use client'
+
+import { useQuery } from '@tanstack/react-query'
+import { booksQueries } from '@/entities/book/BooksQueryFacade'
+import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPageContentTabs'
+import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { PrivateBooksListWithAdd } from '_pages/media/books/PrivateBooksListWithAdd/PrivateBooksListWithAdd'
-import './BooksPage.scss'
+// import { PrivateBooksListWithAdd } from '@/widgets/book/PrivateBooksListWithAdd/PrivateBooksListWithAdd'
+import PublicBooksList from '@/widgets/book/PublicBooksList/PublicBooksList'
+import { useBooksPageTabs } from './fn/useBooksPageTabs'
 
-export default async function BooksPage() {
-	const booksService = new BooksService(new BooksApi())
-	const { error, errors, data: allBooks } = await booksService.getBooks()
+export default function BooksPage() {
+	const { data: allBooks } = useQuery(booksQueries.getBooks())
 
-	if (error || errors) {
-		return <ErrorMessage text={error ?? errorMessages.unknownServerError} />
-	}
+	const { defaultTab, onTabChange } = useBooksPageTabs()
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.books.name}>
-			<div className='books-page'>
-				<PrivateBooksListWithAdd books={allBooks.private} />
-				<PublicBooksList books={allBooks.public} />
-			</div>
+			<MediaPageContentTabs
+				tabs={[
+					{
+						key: 'library',
+						label: 'Библиотека',
+						content: <PublicBooksList books={allBooks?.public ?? []} />,
+					},
+					/*{
+						key: 'private',
+						label: 'Мои книги',
+						content: <PrivateBooksListWithAdd books={allBooks?.private ?? []} />,
+					},*/
+				]}
+				defaultTab={defaultTab}
+				onTabChange={onTabChange}
+			/>
 		</MediaPageContentWrapper>
 	)
 }

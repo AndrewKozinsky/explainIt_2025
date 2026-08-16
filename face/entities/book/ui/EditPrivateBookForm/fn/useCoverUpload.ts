@@ -1,11 +1,8 @@
 import { useCallback, useMemo } from 'react'
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
+import { booksService } from '@/entities/book/BooksService'
 import type { BookModel } from '@/entities/book/repository/BooksRepository'
 
 export function useCoverUpload(bookId: number, languageCode: string | null, onCoverUpdated: (book: BookModel) => void) {
-	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
-
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
 			const result = await booksService.requestCoverUploadUrl(bookId, file.name, file.type, languageCode)
@@ -18,7 +15,7 @@ export function useCoverUpload(bookId: number, languageCode: string | null, onCo
 
 			return result.data.uploadUrl
 		},
-		[bookId, languageCode, booksService, onCoverUpdated],
+		[bookId, languageCode, onCoverUpdated],
 	)
 
 	const onUploadComplete = useCallback(
@@ -29,7 +26,7 @@ export function useCoverUpload(bookId: number, languageCode: string | null, onCo
 				onCoverUpdated(result.data)
 			}
 		},
-		[bookId, languageCode, booksService, onCoverUpdated],
+		[bookId, languageCode, onCoverUpdated],
 	)
 
 	return { onGetUploadUrl, onUploadComplete }

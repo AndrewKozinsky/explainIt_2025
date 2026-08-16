@@ -2,6 +2,7 @@ import { mapVideoSentencesToModels } from '@/entities/media/repository/SentenceM
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 import { getSentenceStructure } from '@/entities/sentencesAndSubtitles/Sentence/fn/getSentenceStructure'
 import type { VideoLiteOutModel, VideoOutModel } from '@/shared/api/generated/models'
+import { PROFICIENCY_MAP, ProficiencyLevel } from '@/shared/api/proficiencyLevel'
 import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
 import { LanguageCode } from '@/shared/utils/languages'
 import { formatDurationSec } from '@/shared/utils/time'
@@ -28,6 +29,7 @@ export function mapToVideoLite(raw: VideoLiteOutModel): VideoLiteModel {
 		proficiencyLevel: mapProficiencyLevel((raw as unknown as Record<string, unknown>).proficiencyLevel),
 		youtubeVideoId: extractString(raw.youtubeVideoId),
 		about: extractString(raw.about),
+		topic: extractString((raw as unknown as Record<string, unknown>).topic),
 		originalContent: extractString(raw.originalContent),
 		processedContent: extractString(raw.processedContent),
 		contentType: mapContentType(raw.contentType),
@@ -37,7 +39,7 @@ export function mapToVideoLite(raw: VideoLiteOutModel): VideoLiteModel {
 		isFileUploaded: extractBoolean(raw.isFileUploaded),
 		fileSizeMb: extractNumber(raw.fileSizeMb),
 		duration: raw.durationSec ? formatDurationSec(raw.durationSec) : null,
-		fileDurationSec: extractNumber(raw.fileDurationSec),
+		durationSeconds: extractNumber(raw.durationSec)!,
 		userId: extractNumber(raw.userId),
 		coverFileName: extractString(raw.coverFileName),
 		coverFileS3Key: extractString(raw.coverFileS3Key),
@@ -212,16 +214,7 @@ export function mapSubtitlesSource(raw: null | string): null | SubtitlesSourceMo
 	return null
 }
 
-const PROFICIENCY_MAP: Record<number, 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2'> = {
-	1: 'A1',
-	2: 'A2',
-	3: 'B1',
-	4: 'B2',
-	5: 'C1',
-	6: 'C2',
-}
-
-export function mapProficiencyLevel(raw: unknown): null | 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | 'C2' {
+export function mapProficiencyLevel(raw: unknown): null | ProficiencyLevel {
 	if (typeof raw !== 'number' || raw < 1 || raw > 6) return null
 	return PROFICIENCY_MAP[raw] ?? null
 }

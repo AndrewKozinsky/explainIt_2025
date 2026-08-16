@@ -47,7 +47,6 @@ export class VideoRepository {
 				file_s3_key: dto.fileS3Key,
 				file_size_mb: dto.fileSizeMb ?? 0,
 				duration_sec: dto.durationSec,
-				file_duration_sec: dto.fileDurationSec,
 				cover_file_name: dto.coverFileName,
 				cover_file_s3_key: dto.coverFileS3Key,
 				cover_file_s3_provider_name: dto.coverFileS3Key ? 'cloudRu' : null,
@@ -77,7 +76,6 @@ export class VideoRepository {
 			contentType?: 'text' | 'subtitles'
 			fileSizeMb?: number
 			durationSec?: null | number
-			fileDurationSec?: number
 			coverFileName?: null | string
 			coverFileS3Key?: null | string
 			isCoverFileUploaded?: boolean
@@ -109,7 +107,6 @@ export class VideoRepository {
 				content_type: dto.contentType,
 				file_size_mb: dto.fileSizeMb,
 				...(dto.durationSec !== undefined && dto.durationSec !== null ? { duration_sec: dto.durationSec } : {}),
-				file_duration_sec: dto.fileDurationSec,
 				cover_file_name: dto.coverFileName,
 				cover_file_s3_key: dto.coverFileS3Key,
 				cover_file_s3_provider_name: dto.coverFileS3Key ? 'cloudRu' : null,
@@ -205,7 +202,7 @@ export class VideoRepository {
 				user_id: true,
 				is_file_uploaded: true,
 				file_s3_key: true,
-				file_duration_sec: true,
+				duration_sec: true,
 				source_language_code: true,
 				youtube_video_id: true,
 				subtitles_source: true,
@@ -222,7 +219,7 @@ export class VideoRepository {
 			youtubeVideoId: video.youtube_video_id,
 			isFileUploaded: video.is_file_uploaded,
 			fileS3Key: video.file_s3_key,
-			fileDurationSec: video.file_duration_sec,
+			durationSec: video.duration_sec,
 			source: video.subtitles_source,
 			status: video.subtitles_status,
 			errorCode: video.subtitles_error_code,
@@ -247,7 +244,6 @@ export class VideoRepository {
 			contentType: dbVideo.content_type,
 			fileSizeMb: dbVideo.file_size_mb,
 			durationSec: dbVideo.duration_sec,
-			fileDurationSec: dbVideo.file_duration_sec,
 			coverFileName: dbVideo.cover_file_name,
 			coverFileS3Key: dbVideo.cover_file_s3_key,
 			isCoverFileUploaded: dbVideo.is_cover_file_uploaded,

@@ -82,6 +82,7 @@ export default function EditBookForm(props: EditBookFormProps) {
 						)}
 					/>
 					<TextInput
+						block
 						label='Автор'
 						error={errors.author?.message}
 						inputProps={{
@@ -91,6 +92,7 @@ export default function EditBookForm(props: EditBookFormProps) {
 						}}
 					/>
 					<TextInput
+						block
 						label='Название'
 						error={errors.name?.message}
 						inputProps={{

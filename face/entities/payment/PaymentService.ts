@@ -1,4 +1,5 @@
-import type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from './repository/PaymentRepository'
+import { PaymentApi } from '@/entities/payment/repository/PaymentApi'
+import type { PaymentRepository, TopUpBalanceInput } from './repository/PaymentRepository'
 
 export type { PaymentRepository, TopUpBalanceInput, TopUpBalanceResult } from './repository/PaymentRepository'
 
@@ -24,3 +25,5 @@ export class PaymentService {
 		return this.paymentRepository.topUpBalance(input)
 	}
 }
+
+export const paymentService = new PaymentService(new PaymentApi())

@@ -7,9 +7,15 @@
  */
 
 export interface TranscriptionOutModel {
-  /** Universal transcription ID */
+  /**
+     * Universal transcription ID
+     * @minimum 1
+     */
   id: number;
-  /** Universal phrase ID */
+  /**
+     * Universal phrase ID
+     * @minimum 1
+     */
   universalPhraseId: number;
   /**
      * IPA transcription

@@ -14,7 +14,6 @@ export type VideoServiceModel = {
 	contentType: 'text' | 'subtitles'
 	fileSizeMb: number
 	durationSec: number
-	fileDurationSec: null | number
 	coverFileName: null | string
 	coverFileS3Key: null | string
 	isCoverFileUploaded: boolean

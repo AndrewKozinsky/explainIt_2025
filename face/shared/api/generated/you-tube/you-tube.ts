@@ -25,7 +25,7 @@ import type {
 } from '@tanstack/react-query';
 
 import type {
-  VideoLiteOutModel,
+  SavedYoutubeVideosPageOutModel,
   VideoOutModel,
   YoutubeControllerGetSavedVideosParams,
   YoutubeControllerGetYouTubeVideosParams,
@@ -175,7 +175,7 @@ export function useYoutubeControllerGetYouTubeVideos<TData = Awaited<ReturnType<
 
 
 export type youtubeControllerGetSavedVideosResponse200 = {
-  data: VideoLiteOutModel[]
+  data: SavedYoutubeVideosPageOutModel
   status: 200
 }
 
@@ -202,7 +202,7 @@ export const getYoutubeControllerGetSavedVideosUrl = (params?: YoutubeController
 }
 
 /**
- * Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. Results are sorted by learnability score (highest first).
+ * Returns a paginated list of saved YouTube videos from the database, filtered by duration, proficiency level, and topic. Optionally sorted by creation date or learnability score via sortBy and sortDirection. Paginated via page (1-based) and pageSize (default 20, max 100).
  * @summary Get saved YouTube videos with filters
  */
 export const youtubeControllerGetSavedVideos = async (params?: YoutubeControllerGetSavedVideosParams, options?: RequestInit): Promise<youtubeControllerGetSavedVideosResponse> => {

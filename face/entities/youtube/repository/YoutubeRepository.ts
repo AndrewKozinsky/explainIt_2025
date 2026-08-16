@@ -19,7 +19,8 @@ export type YoutubeVideoModel = {
 	channelLogoUrl: null | string
 	thumbnailUrl: string
 	viewCount: number
-	duration: null | string
+	duration: string
+	durationSeconds: number
 }
 
 /** Параметры запроса списка видео. */
@@ -31,11 +32,24 @@ export type GetYoutubeVideosParams = {
 
 /** Параметры запроса сохранённых видео. */
 export type GetSavedYoutubeVideosParams = {
+	page?: number
+	pageSize?: number
 	maxDurationSec?: number
 	minDurationSec?: number
 	proficiencyLevel?: number
 	topic?: string
 	languageCode?: string
+	sortBy?: 'created_at' | 'learnability_score'
+	sortDirection?: 'asc' | 'desc'
+}
+
+/** Одна страница сохранённых видео вместе с метаданными пагинации. */
+export type SavedVideosPage = {
+	items: VideoLiteModel[]
+	page: number
+	pageSize: number
+	total: number
+	totalPages: number
 }
 
 /**
@@ -50,11 +64,11 @@ export type YoutubeRepository = {
 	/** Получить список видео с YouTube по языку и поисковому запросу */
 	searchYouTubeVideos(params: GetYoutubeVideosParams): Promise<ApiResult<YoutubeVideosResultModel>>
 	/** Получить данные одного видео с YouTube по его ID */
-	getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>>
+	// getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>>
 	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
 	getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>>
 	/** Получить сохранённые YouTube-видео с фильтрами */
-	getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>>
+	getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>>
 	/** Получить список категорий (тем) видео */
 	getVideoTopics(): Promise<ApiResult<string[]>>
 }

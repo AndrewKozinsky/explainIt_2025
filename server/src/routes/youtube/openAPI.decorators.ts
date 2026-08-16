@@ -1,9 +1,10 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiOperation, ApiParam, ApiQuery, ApiResponse } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
+import { paginationFields } from 'db/dbConfig/pagination'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
+import { SavedYoutubeVideosPageOutModel } from 'models/video/savedYoutubeVideosPage.out.model'
 import { VideoOutModel } from 'models/video/video.out.model'
-import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 import { YoutubeVideosOutModel } from 'models/youtube/youtubeVideo.out.model'
 
 export function ApiGetYoutubeTopics() {
@@ -79,8 +80,9 @@ export function ApiGetSavedYoutubeVideos() {
 		ApiOperation({
 			summary: 'Get saved YouTube videos with filters',
 			description:
-				'Returns saved YouTube videos from the database, filtered by duration, proficiency level, and topic. ' +
-				'Results are sorted by learnability score (highest first).',
+				'Returns a paginated list of saved YouTube videos from the database, filtered by duration, proficiency level, and topic. ' +
+				'Optionally sorted by creation date or learnability score via sortBy and sortDirection. ' +
+				'Paginated via page (1-based) and pageSize (default 20, max 100).',
 		}),
 		ApiQuery({
 			name: 'maxDurationSec',
@@ -105,7 +107,23 @@ export function ApiGetSavedYoutubeVideos() {
 			...getApiPropertyOptions(bdConfig.Video.dbFields.source_language_code),
 			required: false,
 		}),
-		ApiResponse({ status: 200, description: 'OK', type: [VideoLiteOutModel] }),
+		ApiQuery({
+			name: 'sortBy',
+			...getApiPropertyOptions(bdConfig.Video.dtoProps.sortBy),
+		}),
+		ApiQuery({
+			name: 'sortDirection',
+			...getApiPropertyOptions(bdConfig.Video.dtoProps.sortDirection),
+		}),
+		ApiQuery({
+			name: 'page',
+			...getApiPropertyOptions(paginationFields.page),
+		}),
+		ApiQuery({
+			name: 'pageSize',
+			...getApiPropertyOptions(paginationFields.pageSize),
+		}),
+		ApiResponse({ status: 200, description: 'OK', type: SavedYoutubeVideosPageOutModel }),
 	)
 }
 

@@ -12,7 +12,7 @@ import InfoBlock from '@/shared/ui/InfoBlock/InfoBlock'
 import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
 import { FormStatus } from '@/shared/utils/forms'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { RegisterFormData, registerFormSchema, RegisterFormTest } from './fn/form'
+import { RegisterFormData, registerFormSchema } from './fn/form'
 import { useGetOnRegisterFormSubmit } from './fn/submit'
 
 function AuthRegisterForm() {

@@ -30,7 +30,7 @@
 - `subtitles_generation_error` — текст ошибки последней неудачной попытки.
 - `subtitles_generation_started_at` — время запуска текущей/последней задачи.
 - `subtitles_generation_job_id` — id BullMQ job.
-- `file_duration_sec` — длительность загруженного видео в секундах, используется для предварительного расчёта стоимости.
+- `duration_sec` — длительность видео в секундах, используется для предварительного расчёта стоимости.
 - `subtitles_generation_charge_kopecks` — сумма, списанная перед запуском текущей попытки генерации.
 - `subtitles_generation_refunded_at` — время возврата предоплаты, если генерация завершилась ошибкой.
 
@@ -201,7 +201,7 @@ ceil(durationSec * deepgram.pricePerSecondInKopecks * generateSubtitles.asrMarku
 - наценка: `2x`;
 - лимит видео: 2 часа.
 
-Длительность берётся из `VideoPrivate.file_duration_sec`, которую клиент сохраняет при загрузке видео.
+Длительность берётся из `Video.duration_sec`, которую клиент сохраняет при создании/загрузке видео.
 
 ## Как работает клиент
 

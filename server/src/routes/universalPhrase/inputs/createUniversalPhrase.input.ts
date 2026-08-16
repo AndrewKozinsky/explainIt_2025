@@ -3,12 +3,9 @@ import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 
 export class CreateUniversalPhraseInput {
-	@DtoFieldDecorators('text', bdConfig.UniversalPhrase.dbFields.text, { type: 'string', required: true })
+	@DtoFieldDecorators('text', bdConfig.UniversalPhrase.dbFields.text)
 	text: string
 
-	@DtoFieldDecorators('sourceLanguageCode', bdConfig.UniversalPhrase.dbFields.source_language_code, {
-		type: 'enum',
-		required: true,
-	})
+	@DtoFieldDecorators('sourceLanguageCode', bdConfig.UniversalPhrase.dbFields.source_language_code)
 	sourceLanguageCode: Language
 }

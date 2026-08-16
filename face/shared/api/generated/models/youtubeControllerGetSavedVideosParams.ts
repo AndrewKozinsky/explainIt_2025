@@ -8,13 +8,24 @@
 
 export type YoutubeControllerGetSavedVideosParams = {
 /**
- * Duration of the video in seconds (from YouTube metadata or ffprobe)
+ * Page number (1-based)
+ * @minimum 1
  */
-maxDurationSec?: number | null;
+page?: number | null;
+/**
+ * Number of items per page
+ * @minimum 1
+ * @maximum 100
+ */
+pageSize?: number | null;
 /**
  * Duration of the video in seconds (from YouTube metadata or ffprobe)
  */
-minDurationSec?: number | null;
+maxDurationSec?: number;
+/**
+ * Duration of the video in seconds (from YouTube metadata or ffprobe)
+ */
+minDurationSec?: number;
 /**
  * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
  */
@@ -27,5 +38,13 @@ topic?: string | null;
 /**
  * Language code of the video
  */
-languageCode?: string | null;
+languageCode?: string;
+/**
+ * Field to sort saved YouTube videos by. If omitted, results are not sorted
+ */
+sortBy?: string | null;
+/**
+ * Sort direction. Defaults to "desc" when sortBy is provided
+ */
+sortDirection?: string | null;
 };

@@ -6,7 +6,6 @@ services:
       - explainpostgresserverdevelop
       - explainserverserverdevelop
       - explainfaceserverdevelop
-      - explainhelpserverdevelop
     volumes:
       - ./nginx/nginx.conf.serverdevelop:/etc/nginx/nginx.conf
     environment:
@@ -68,6 +67,7 @@ services:
     environment:
       MODE: serverdevelop
       PORT: 3001
+      REGION: ru
     env_file:
       - docker/.env.serverdevelop
   explainfaceserverdevelop:
@@ -84,15 +84,6 @@ services:
     environment:
       MODE: serverdevelop
       NEXT_PUBLIC_REGION: ru
-  explainhelpserverdevelop:
-    build:
-      context: help/
-      dockerfile: Dockerfile.server
-    restart: unless-stopped
-    command: npm run start
-    container_name: explainhelpserverdevelop
-    environment:
-      MODE: serverdevelop
   explainnlpserverdevelop:
     build:
       context: nlp/

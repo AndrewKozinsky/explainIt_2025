@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import MediaPageLayout from '_pages/media/commonComponents/MediaPageLayout/MediaPageLayout'
+import MediaPageLayout from '@/shared/ui/media/MediaPageLayout/MediaPageLayout'
 
 type LayoutProps = {
 	children: ReactNode

@@ -1,11 +1,8 @@
-import { useCallback, useMemo, useState } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
+import { useCallback, useState } from 'react'
+import { videosService } from '@/entities/video/VideosService'
 
 export function useGetDeleteVideo(videoId: number, onDeleted: () => void) {
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
-
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	const onDeleteClick = useCallback(async () => {
 		setStatus('loading')
@@ -18,7 +15,7 @@ export function useGetDeleteVideo(videoId: number, onDeleted: () => void) {
 		}
 
 		onDeleted()
-	}, [videoId, videosService, onDeleted])
+	}, [videoId, onDeleted])
 
 	return {
 		status,

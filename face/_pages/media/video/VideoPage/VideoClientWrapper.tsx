@@ -2,28 +2,26 @@
 
 import { useRef } from 'react'
 import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
 import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
 import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
-import {
-	SubtitlesStatusModelType,
-	VideoContentType,
-	VideoSubtitlesModel,
-} from '@/entities/video/repository/VideosRepository'
+import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
 import SubtitlesGuard from '@/entities/video/ui/SubtitlesGuard/SubtitlesGuard'
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
-import { LanguageCode } from '@/shared/utils/languages'
+import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
-import { useVideoStore } from '../videoStore'
+import { useYouTubeVideoStore } from '../videoStore'
 
 type VideoClientWrapperProps = SelectionProps & {
 	languageCode: LanguageCode
 	contentType: VideoContentType
 	plainSentences: null | SentenceModel[]
 	subtitles: null | VideoSubtitlesModel.Structure
-	fileUrl: string
+	fileUrl?: string
+	youTubeVideoId?: string
 	videoId: number
+	ratio?: null | string
 	subtitlesStatus: SubtitlesStatusModelType
 	subtitlesErrorCode: null | string
 }
@@ -35,7 +33,9 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 		plainSentences,
 		subtitles,
 		fileUrl,
+		youTubeVideoId,
 		videoId,
+		ratio,
 		subtitlesStatus,
 		subtitlesErrorCode,
 		selectedSentenceId = null,
@@ -45,16 +45,18 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 
 	const playerRef = useRef<VideoPlayerHandle>(null)
 
-	const currentTime = useVideoStore((state) => state.player.currentTime)
-	const setPlayerState = useVideoStore((state) => state.setPlayerState)
+	const currentTime = useYouTubeVideoStore((state) => state.player.currentTime)
+	const setPlayerState = useYouTubeVideoStore((state) => state.setPlayerState)
 
 	return (
 		<VideoWithSubtitles>
 			<VideoPlayer
 				ref={playerRef}
 				fileUrl={fileUrl}
+				youTubeVideoId={youTubeVideoId}
 				videoId={videoId}
 				initialTime={localStorageManager.videoProgress.get(videoId)}
+				ratio={ratio ?? undefined}
 				onTimeUpdate={(t) => setPlayerState({ currentTime: t })}
 				onDurationChange={(d) => setPlayerState({ duration: d })}
 				onPlayStateChange={(p) => setPlayerState({ paused: p })}
@@ -63,11 +65,11 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 			<SubtitlesGuard subtitlesStatus={subtitlesStatus} subtitlesErrorCode={subtitlesErrorCode}>
 				<SentencesOrSubtitles
 					languageCode={languageCode}
-					contentType={contentType}
 					currentTime={currentTime}
 					selectedSentenceId={selectedSentenceId}
 					selectedWordId={selectedWordId}
 					selectWord={selectWord}
+					contentType={contentType}
 					plainSentences={plainSentences}
 					subtitles={subtitles}
 				/>

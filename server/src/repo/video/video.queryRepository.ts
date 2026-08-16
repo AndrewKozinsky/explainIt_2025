@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { attachVideoTextRelations } from 'repo/video/attachVideoTextRelations'
+import { Paginated, PaginationParams } from 'types/pagination'
+import { buildPage, toPrismaPagination } from 'utils/pagination'
 import { PrismaService } from 'db/prisma.service'
-import { CloudRuS3Service } from 'infrastructure/cloudRuS3/cloudRuS3.service'
+import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UniversalPhraseOutModel } from 'models/universalPhrase/universalPhrase.out.model'
 import { CreateVideoOutModel } from 'models/video/createVideo.out.model'
@@ -36,7 +38,7 @@ type DbVideoWithRelations = Video & {
 export class VideoQueryRepository {
 	constructor(
 		private prisma: PrismaService,
-		private cloudRuS3Service: CloudRuS3Service,
+		private cloudflareS3Service: CloudflareS3Service,
 		private universalPhraseQueryRepo: UniversalPhraseQueryRepository,
 	) {}
 
@@ -115,13 +117,18 @@ export class VideoQueryRepository {
 	}
 
 	@CatchDbError()
-	async getSavedYoutubeVideos(filters?: {
-		maxDurationSec?: number
-		minDurationSec?: number
-		proficiencyLevel?: number
-		topic?: string
-		languageCode?: LanguageCode
-	}) {
+	async getSavedYoutubeVideos(
+		filters?: {
+			maxDurationSec?: number
+			minDurationSec?: number
+			proficiencyLevel?: number
+			topic?: string
+			languageCode?: LanguageCode
+			sortBy?: 'created_at' | 'learnability_score'
+			sortDirection?: 'asc' | 'desc'
+		},
+		pagination?: PaginationParams,
+	): Promise<Paginated<VideoLiteOutModel>> {
 		const where: Prisma.VideoWhereInput = {
 			youtube_video_id: { not: null },
 		}
@@ -145,12 +152,39 @@ export class VideoQueryRepository {
 			where.source_language_code = filters.languageCode
 		}
 
-		const videos = await this.prisma.video.findMany({
-			where,
-			orderBy: { learnability_score: { sort: 'desc', nulls: 'last' } },
-		})
+		const orderBy = this.buildSavedVideosOrderBy(filters)
+		const resolvedPagination = pagination ?? { page: 1, pageSize: 20 }
 
-		return Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+		const [total, videos] = await Promise.all([
+			this.prisma.video.count({ where }),
+			this.prisma.video.findMany({
+				where,
+				orderBy,
+				...toPrismaPagination(resolvedPagination),
+			}),
+		])
+
+		const items = await Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
+
+		return buildPage(items, total, resolvedPagination)
+	}
+
+	private buildSavedVideosOrderBy(filters?: {
+		sortBy?: 'created_at' | 'learnability_score'
+		sortDirection?: 'asc' | 'desc'
+	}): Prisma.VideoOrderByWithRelationInput[] {
+		const direction = filters?.sortDirection ?? 'desc'
+
+		if (filters?.sortBy === 'learnability_score') {
+			return [{ learnability_score: { sort: direction, nulls: 'last' } }, { id: direction }]
+		}
+
+		if (filters?.sortBy === 'created_at') {
+			return [{ created_at: direction }, { id: direction }]
+		}
+
+		// Stable default order is required for skip/take pagination to be deterministic.
+		return [{ created_at: 'desc' }, { id: 'desc' }]
 	}
 
 	@CatchDbError()
@@ -197,6 +231,7 @@ export class VideoQueryRepository {
 			languageCode: dbVideo.source_language_code,
 			youtubeVideoId: dbVideo.youtube_video_id,
 			about: dbVideo.about,
+			topic: dbVideo.topic,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
@@ -207,7 +242,6 @@ export class VideoQueryRepository {
 			userId: dbVideo.user_id ?? null,
 			fileSizeMb: dbVideo.file_size_mb,
 			durationSec: dbVideo.duration_sec,
-			fileDurationSec: dbVideo.file_duration_sec,
 			coverFileName: dbVideo.cover_file_name,
 			coverFileS3Key: dbVideo.cover_file_s3_key,
 			isCoverFileUploaded: dbVideo.is_cover_file_uploaded,
@@ -233,6 +267,7 @@ export class VideoQueryRepository {
 			languageCode: dbVideo.source_language_code,
 			youtubeVideoId: dbVideo.youtube_video_id,
 			about: dbVideo.about,
+			topic: dbVideo.topic,
 			fileName: dbVideo.file_name,
 			fileS3Key: dbVideo.file_s3_key,
 			fileUrl,
@@ -243,7 +278,6 @@ export class VideoQueryRepository {
 			userId: dbVideo.user_id ?? null,
 			fileSizeMb: dbVideo.file_size_mb,
 			durationSec: dbVideo.duration_sec,
-			fileDurationSec: dbVideo.file_duration_sec,
 			coverFileName: dbVideo.cover_file_name,
 			coverFileS3Key: dbVideo.cover_file_s3_key,
 			isCoverFileUploaded: dbVideo.is_cover_file_uploaded,
@@ -262,7 +296,7 @@ export class VideoQueryRepository {
 	}
 
 	private async resolveFileUrl(fileS3Key: string | null): Promise<string | null> {
-		return fileS3Key ? await this.cloudRuS3Service.getFileUrl(fileS3Key) : null
+		return fileS3Key ? await this.cloudflareS3Service.getFileUrl(fileS3Key) : null
 	}
 
 	/**
@@ -271,7 +305,7 @@ export class VideoQueryRepository {
 	 */
 	private async resolveCoverUrl(coverFileS3Key: string | null, coverUrl: string | null): Promise<string | null> {
 		if (coverFileS3Key) {
-			return await this.cloudRuS3Service.getFileUrl(coverFileS3Key)
+			return await this.cloudflareS3Service.getFileUrl(coverFileS3Key)
 		}
 
 		return coverUrl ?? null

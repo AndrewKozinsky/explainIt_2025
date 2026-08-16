@@ -7,6 +7,9 @@
  */
 
 export interface CreateSentenceChatThreadInput {
-  /** Sentence ID */
+  /**
+     * Sentence ID
+     * @minimum 1
+     */
   sentenceId: number;
 }

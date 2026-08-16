@@ -2,8 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
-import { ChaptersService } from '@/entities/chapter/ChaptersService'
-import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
+import { chaptersService } from '@/entities/chapter/ChaptersService'
 import type { BookChapterLiteModel } from '@/entities/chapter/repository/ChaptersRepository'
 import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
@@ -33,8 +32,6 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 	const [originalContent, setOriginalContent] = useState<string | null>(null)
 	const [isLoadingChapter, setIsLoadingChapter] = useState(true)
 
-	const chaptersService = useMemo(() => new ChaptersService(new ChaptersApi()), [])
-
 	useEffect(
 		function () {
 			let cancelled = false
@@ -58,7 +55,7 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 				cancelled = true
 			}
 		},
-		[chapterLite.id, chaptersService],
+		[chapterLite.id],
 	)
 
 	const {
@@ -139,6 +136,7 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 			>
 				<FormFieldsWrapper gap='big'>
 					<TextInput
+						block
 						label='Номер'
 						error={errors.name?.message}
 						inputProps={{
@@ -148,6 +146,7 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 						}}
 					/>
 					<TextInput
+						block
 						label='Заголовок'
 						error={errors.header?.message}
 						inputProps={{
@@ -157,6 +156,7 @@ export default function EditChapterForm(props: EditChapterFormProps) {
 						}}
 					/>
 					<TextInput
+						block
 						label='Текст'
 						error={errors.content?.message}
 						textareaProps={{

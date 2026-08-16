@@ -57,16 +57,12 @@ export type UpdateBookInput = {
 export type BooksRepository = {
 	/** Получить все книги (публичные + приватные пользователя) */
 	getBooks(): Promise<ApiResult<BookModel[]>>
-
 	/** Получить одну книгу по ID. null — книга не найдена. */
 	getBook(id: number): Promise<ApiResult<null | BookModel>>
-
 	/** Создать приватную книгу с пустой первой главой */
 	createBook(input: CreateBookInput): Promise<ApiResult<BookModel>>
-
 	/** Обновить приватную книгу */
 	updateBook(id: number, input: UpdateBookInput): Promise<ApiResult<BookModel>>
-
 	/** Удалить приватную книгу */
 	deleteBook(id: number): Promise<ApiResult<void>>
 }

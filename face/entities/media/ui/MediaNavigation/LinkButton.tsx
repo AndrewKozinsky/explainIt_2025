@@ -1,4 +1,4 @@
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 
 type LinkButtonProps = {
 	href: string

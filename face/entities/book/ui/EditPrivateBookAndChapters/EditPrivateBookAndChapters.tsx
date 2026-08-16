@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react'
 import type { BookModel } from '@/entities/book/repository/BooksRepository'
 import EditChapterForm from '@/entities/chapter/ui/editChapter/EditChapterForm/EditChapterForm'

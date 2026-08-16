@@ -1,48 +1,60 @@
+'use client'
+
 import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import { getHeader } from './fn/getHeader'
+import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
+import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
 
 type VideoRootProps = {
-	videoId: number | string
+	videoId: string
 }
 
-async function VideoPage(props: VideoRootProps) {
+function VideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
-	const videosService = new VideosService(new VideosApi())
-	const { error: videoError, data: videoData } = await videosService.getVideo(videoId)
+	const { video, refetch, error } = useVideoData(videoId)
 
-	if (videoError) {
-		return <ErrorMessage text={videoError} />
+	usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
+
+	if (error) {
+		return <ErrorMessage text={error} />
 	}
 
-	const { header } = getHeader(videoData)
+	if (!video) {
+		return null
+	}
+
+	const { header } = getHeader(video)
 
 	return (
 		<MediaPageClient
-			breadCrumbsConfig={[{ name: pageUrls.videos.name, path: pageUrls.videos.path }]}
+			breadCrumbsConfig={[pageUrls.videos]}
 			header={header}
 			leftBlock={
 				<VideoClientWrapper
-					languageCode={videoData.languageCode}
-					contentType={videoData.contentType}
-					plainSentences={videoData.plainSentences}
-					subtitles={videoData.subtitles}
-					fileUrl={videoData.fileUrl ?? ''}
-					videoId={videoData.id}
-					subtitlesStatus={videoData.subtitlesStatus}
-					subtitlesErrorCode={videoData.subtitlesErrorCode}
+					languageCode={video.languageCode}
+					contentType={video.contentType}
+					plainSentences={video.plainSentences}
+					subtitles={video.subtitles}
+					fileUrl={video.fileUrl ?? ''}
+					youTubeVideoId={video.youtubeVideoId ?? ''}
+					videoId={video.id}
+					ratio={video.ratio}
+					subtitlesStatus={video.subtitlesStatus}
+					subtitlesErrorCode={video.subtitlesErrorCode}
 				/>
 			}
 			detailsBlockMetadata={{
-				videoId: videoData.id,
-				videoName: videoData.name,
-				languageCode: videoData.languageCode,
-				sentences: videoData.plainSentences,
+				bookName: null,
+				bookAuthor: null,
+				chapterId: null,
+				videoId: video.id,
+				videoName: video.name,
+				languageCode: video.languageCode,
+				sentences: video.plainSentences,
 			}}
 		/>
 	)

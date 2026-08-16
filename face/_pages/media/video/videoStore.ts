@@ -1,7 +1,7 @@
 import { create } from 'zustand'
-import { PlayerCommand } from '@/entities/players/VideoPlayer/fn/types'
+import type { PlayerCommand } from '@/entities/players/VideoPlayer/fn/types'
 
-export type VideoStoreValues = {
+type YouTubeVideoStoreValues = {
 	player: {
 		currentTime: number
 		duration: number
@@ -10,15 +10,16 @@ export type VideoStoreValues = {
 	}
 }
 
-export type VideoStoreMethods = {
-	// clearStoreData: () => void
-	setPlayerState: (state: Partial<VideoStoreValues['player']>) => void
+type YouTubeVideoStoreMethods = {
+	setPlayerState: (state: Partial<YouTubeVideoStoreValues['player']>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 }
 
-export type VideoStore = VideoStoreValues & VideoStoreMethods
+type VideoStore = YouTubeVideoStoreValues & YouTubeVideoStoreMethods
 
-const videoStoreValues: VideoStoreValues = {
+// ⸻ Defaults ⸻
+
+const defaults: YouTubeVideoStoreValues = {
 	player: {
 		currentTime: 0,
 		duration: 0,
@@ -27,31 +28,24 @@ const videoStoreValues: VideoStoreValues = {
 	},
 }
 
-export const useVideoStore = create<VideoStore>()((set) => {
-	return {
-		...videoStoreValues,
-		/*clearStoreData: () => {
-			set(videoStoreValues)
-		},*/
-		setPlayerState(playerState) {
-			set((state) => {
-				return {
-					player: {
-						...state.player,
-						...playerState,
-					},
-				}
-			})
-		},
-		sendPlayerCommand(command) {
-			set((state) => {
-				return {
-					player: {
-						...state.player,
-						command,
-					},
-				}
-			})
-		},
-	}
-})
+// ⸻ Store ⸻
+
+export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
+	...defaults,
+	setPlayerState(playerState) {
+		set((state) => ({
+			player: {
+				...state.player,
+				...playerState,
+			},
+		}))
+	},
+	sendPlayerCommand(command) {
+		set((state) => ({
+			player: {
+				...state.player,
+				command,
+			},
+		}))
+	},
+}))

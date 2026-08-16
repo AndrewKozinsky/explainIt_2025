@@ -7,7 +7,10 @@
  */
 
 export interface CreateSentenceChatUserMessageInput {
-  /** Sentence chat thread ID */
+  /**
+     * Sentence chat thread ID
+     * @minimum 1
+     */
   threadId: number;
   /** Markdown-formatted message content */
   question: string;

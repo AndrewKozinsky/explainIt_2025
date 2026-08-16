@@ -444,6 +444,22 @@ export const bdConfig = {
 				example: 'https://s3.example.com/presigned-url',
 				required: false,
 			},
+			sortBy: {
+				type: 'enum',
+				enumName: 'VideoSortBy',
+				variants: ['created_at', 'learnability_score'],
+				description: 'Field to sort saved YouTube videos by. If omitted, results are not sorted',
+				example: 'learnability_score',
+				required: false,
+			},
+			sortDirection: {
+				type: 'enum',
+				enumName: 'SortDirection',
+				variants: ['asc', 'desc'],
+				description: 'Sort direction. Defaults to "desc" when sortBy is provided',
+				example: 'desc',
+				required: false,
+			},
 		},
 		dbFields: {
 			id: {
@@ -495,6 +511,7 @@ export const bdConfig = {
 				description: 'YouTube video ID for videos hosted on YouTube',
 				required: false,
 				unique: true,
+				minLength: 11,
 				maxLength: 20,
 				example: 'dQw4w9WgXcQ',
 			},
@@ -539,12 +556,6 @@ export const bdConfig = {
 				example: 3600,
 				required: true,
 				default: 0,
-			},
-			file_duration_sec: {
-				type: 'number',
-				description: 'Duration of the uploaded video file in seconds',
-				example: 3600,
-				required: false,
 			},
 			original_content: {
 				type: 'string',

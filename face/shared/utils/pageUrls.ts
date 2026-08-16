@@ -53,16 +53,6 @@ export const pageUrls = {
 			},
 		},
 	},
-	youtube: {
-		name: 'YouTube',
-		path: '/youtube',
-		video(videoId: string | number) {
-			return {
-				name: 'Видео',
-				path: '/youtube/' + videoId,
-			}
-		},
-	},
 	books: {
 		name: 'Книги',
 		path: '/books',

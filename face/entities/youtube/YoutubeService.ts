@@ -1,9 +1,10 @@
 import type { VideoModel } from '@/entities/video/repository/VideosRepository'
-import type { VideoLiteModel } from '@/entities/video/lib/types'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { YoutubeApi } from './repository/YoutubeApi'
 import type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
+	SavedVideosPage,
 	YoutubeRepository,
 	YoutubeVideosResultModel,
 } from './repository/YoutubeRepository'
@@ -12,7 +13,6 @@ export type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
 	YoutubeVideoModel,
-	YoutubeVideosResultModel,
 } from './repository/YoutubeRepository'
 
 /**
@@ -37,18 +37,13 @@ export class YoutubeService {
 		return this.youtubeRepository.searchYouTubeVideos(params)
 	}
 
-	/** Получить данные одного видео с YouTube по его ID */
-	async getVideoById(videoId: string): Promise<ApiResult<null | VideoModel>> {
-		return this.youtubeRepository.getVideoById(videoId)
-	}
-
 	/** Сохранить YouTube-видео в БД для привязки субтитров и переводов */
 	async getOrCreateVideo(videoId: string): Promise<ApiResult<VideoModel>> {
 		return this.youtubeRepository.getOrCreateYouTubeVideo(videoId)
 	}
 
 	/** Получить сохранённые YouTube-видео с фильтрами */
-	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
+	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>> {
 		return this.youtubeRepository.getSavedVideos(params)
 	}
 
@@ -57,3 +52,6 @@ export class YoutubeService {
 		return this.youtubeRepository.getVideoTopics()
 	}
 }
+
+/** Готовый экземпляр сервиса с реальным API */
+export const youtubeService = new YoutubeService(new YoutubeApi())

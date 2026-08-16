@@ -1,12 +1,10 @@
-'use client'
-
 import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import NativePlayerCore from './NativePlayerCore/NativePlayerCore'
 import { PlayerContext } from './PlayerContext'
 import YouTubePlayerCore from './YouTubePlayerCore/YouTubePlayerCore'
-import './VideoPlayer.scss'
 import type { PlayerCommand } from './fn/types'
 import type { PlayerContextValue } from './PlayerContext'
+import './VideoPlayer.scss'
 
 // ── Public API ────────────────────────────────────────────────────────
 

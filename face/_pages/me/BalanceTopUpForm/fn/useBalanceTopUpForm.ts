@@ -1,9 +1,8 @@
 'use client'
 
-import { useMemo, useState } from 'react'
-import { PaymentService } from '@/entities/payment/PaymentService'
-import { PaymentApi } from '@/entities/payment/repository/PaymentApi'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
+import { paymentQueries } from '@/entities/payment/PaymentQueryFacade'
 
 const RUBLES_TO_KOPECKS = 100
 
@@ -11,10 +10,7 @@ export function useBalanceTopUpForm() {
 	const [amountInRubles, setAmountInRubles] = useState('')
 	const [formError, setFormError] = useState<null | string>(null)
 
-	const service = useMemo(() => new PaymentService(new PaymentApi()), [])
-	const { loading, mutate: topUpBalance } = useAsyncMutation((input: { amountInKopecks: number }) =>
-		service.topUpBalance(input),
-	)
+	const { isPending: loading, mutateAsync: topUpBalance } = useMutation(paymentQueries.topUpBalance())
 
 	async function handleSubmit(event: React.FormEvent) {
 		event.preventDefault()

@@ -1,6 +1,5 @@
-import { useCallback, useMemo } from 'react'
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
+import { useCallback } from 'react'
+import { booksService } from '@/entities/book/BooksService'
 import type { BookModel, UpdateBookInput } from '@/entities/book/repository/BooksRepository'
 import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
 import { ChangeBookFormData } from './form'
@@ -12,8 +11,6 @@ export function useGetOnUpdateBookFormSubmit(
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
-	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
-
 	return useCallback(
 		async function (formData: ChangeBookFormData) {
 			setFormError(null)

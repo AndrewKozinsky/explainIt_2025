@@ -1,19 +1,15 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
 import { useSearchParams } from 'next/navigation'
-import { AuthService } from '@/entities/auth/AuthService'
-import { AuthApi } from '@/entities/auth/repository/AuthApi'
+import { authQueries } from '@/entities/auth/AuthQueryFacade'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
 
 export function useAuthorizeUser(providerType: string) {
 	const code = useSearchParams().get('code')!
 
 	const setUser = useSetUser()
 
-	const service = useMemo(() => new AuthService(new AuthApi()), [])
-	const { mutate: authorizeWithOAuth } = useAsyncMutation((input: { providerType: string; code: string }) =>
-		service.loginWithOAuth(input),
-	)
+	const { mutateAsync: authorizeWithOAuth } = useMutation(authQueries.loginWithOAuth())
 
 	const [authorizationStatus, setAuthorizationStatus] = useState<'loading' | 'error' | 'success'>('loading')
 	const [error, setError] = useState<null | string>(null)
@@ -28,7 +24,7 @@ export function useAuthorizeUser(providerType: string) {
 					return
 				}
 
-				setUser(result.data as Parameters<typeof setUser>[0])
+				setUser(result.data)
 				setAuthorizationStatus('success')
 			})
 		},

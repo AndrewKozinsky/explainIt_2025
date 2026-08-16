@@ -19,7 +19,7 @@ jobs:
 
       - name: Deploy to International develop server
         run: |
-          ssh -o StrictHostKeyChecking=no root@<INTL_SERVER_IP> << 'EOF'
+          ssh -o StrictHostKeyChecking=no root@163.5.157.14 << 'EOF'
             cd ~/sites/explain_dev
 
             git checkout develop

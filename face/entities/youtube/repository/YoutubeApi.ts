@@ -1,7 +1,7 @@
 import { mapToVideoLite, mapVideoOutModelToVideoModel } from '@/entities/video/lib/mappers'
-import type { VideoLiteModel, VideoModel } from '@/entities/video/lib/types'
+import type { VideoModel } from '@/entities/video/lib/types'
 import type {
-	VideoLiteOutModel,
+	SavedYoutubeVideosPageOutModel,
 	YoutubeControllerGetSavedVideosParams as OrvalGetSavedVideosParams,
 	YoutubeControllerGetYouTubeVideosParams as OrvalSearchVideosParams,
 	YoutubeVideoOutModel,
@@ -10,7 +10,6 @@ import type {
 import {
 	youtubeControllerCreateVideo,
 	youtubeControllerGetSavedVideos,
-	youtubeControllerGetVideoById,
 	youtubeControllerGetVideoTopics,
 	youtubeControllerGetYouTubeVideos,
 } from '@/shared/api/generated/you-tube/you-tube'
@@ -21,6 +20,7 @@ import { formatDurationSec } from '@/shared/utils/time'
 import type {
 	GetSavedYoutubeVideosParams,
 	GetYoutubeVideosParams,
+	SavedVideosPage,
 	YoutubeVideoModel,
 	YoutubeVideosResultModel,
 	YoutubeRepository,
@@ -38,13 +38,6 @@ export class YoutubeApi implements YoutubeRepository {
 		)
 	}
 
-	async getVideoById(videoId: string) {
-		return executeApiCall(
-			() => youtubeControllerGetVideoById(videoId),
-			(data) => (data ? mapVideoOutModelToVideoModel(data) : null),
-		)
-	}
-
 	async getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>> {
 		return executeApiCall(
 			() => youtubeControllerCreateVideo(videoId),
@@ -52,10 +45,16 @@ export class YoutubeApi implements YoutubeRepository {
 		)
 	}
 
-	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<VideoLiteModel[]>> {
+	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>> {
 		return executeApiCall(
 			() => youtubeControllerGetSavedVideos(params as OrvalGetSavedVideosParams),
-			(data: VideoLiteOutModel[]) => data.map(mapToVideoLite),
+			(data: SavedYoutubeVideosPageOutModel) => ({
+				items: data.items.map(mapToVideoLite),
+				page: data.page,
+				pageSize: data.pageSize,
+				total: data.total,
+				totalPages: data.totalPages,
+			}),
 		)
 	}
 
@@ -85,6 +84,7 @@ function mapToYoutubeVideo(raw: YoutubeVideoOutModel): YoutubeVideoModel {
 		channelLogoUrl: extractString(raw.channelLogoUrl),
 		thumbnailUrl: raw.thumbnailUrl,
 		viewCount: raw.viewCount,
-		duration: raw.durationSec ? formatDurationSec(raw.durationSec) : null,
+		duration: formatDurationSec(raw.durationSec),
+		durationSeconds: raw.durationSec,
 	}
 }

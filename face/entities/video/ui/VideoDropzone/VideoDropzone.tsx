@@ -1,6 +1,5 @@
-import { useRef, useContext, useCallback, useMemo } from 'react'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
-import { VideosService } from '@/entities/video/VideosService'
+import { useRef, useContext, useCallback } from 'react'
+import { videosService, VideosService } from '@/entities/video/VideosService'
 import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { getVideoDurationSec } from '@/shared/utils/getVideoDurationSec'
@@ -16,8 +15,6 @@ function VideoDropzone(props: VideoDropzoneProps) {
 
 	const { notify } = useContext(NotificationContext)
 	const fileDurationSecRef = useRef<number>(0)
-
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
 
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
@@ -49,7 +46,7 @@ function VideoDropzone(props: VideoDropzoneProps) {
 			// Pre-signed URL comes back as fileUrl from the update response
 			return result.data.fileUrl
 		},
-		[videoId, videosService, notify],
+		[videoId, notify],
 	)
 
 	const onUploadComplete = useCallback(
@@ -57,11 +54,12 @@ function VideoDropzone(props: VideoDropzoneProps) {
 			await videosService.confirmVideoUpload(videoId, fileDurationSecRef.current)
 			onFileUpdated()
 		},
-		[videoId, videosService, onFileUpdated],
+		[videoId, onFileUpdated],
 	)
 
 	return (
 		<FileDropzone
+			block
 			label='Файл с фильмом'
 			accept={VideosService.supportedVideoFormats.accept}
 			supportedFormatsStr={VideosService.supportedVideoFormats.description}

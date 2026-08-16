@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 import cn from 'classnames'
-import BaseButton from '@/shared/ui/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import LogoSign from '../../logo/LogoSign/LogoSign'
 import './Pagination.scss'

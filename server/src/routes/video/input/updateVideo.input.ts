@@ -1,6 +1,7 @@
 import { Language } from 'utils/languages'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
+import { SubtitlesSource, SubtitlesStatus } from 'prisma/generated/client'
 
 export class UpdateVideoInput {
 	@DtoFieldDecorators('name', bdConfig.Video.dbFields.name)
@@ -23,8 +24,10 @@ export class UpdateVideoInput {
 	})
 	fileSizeMb?: number
 
-	@DtoFieldDecorators('fileDurationSec', bdConfig.Video.dbFields.file_duration_sec)
-	fileDurationSec?: number
+	@DtoFieldDecorators('durationSec', bdConfig.Video.dbFields.duration_sec, {
+		required: false,
+	})
+	durationSec?: number
 
 	@DtoFieldDecorators('languageCode', bdConfig.Video.dbFields.source_language_code, {
 		required: false,
@@ -41,4 +44,26 @@ export class UpdateVideoInput {
 		required: false,
 	})
 	isCoverFileUploaded?: boolean
+
+	@DtoFieldDecorators('subtitlesSource', bdConfig.Video.dbFields.subtitles_source, {
+		required: false,
+	})
+	subtitlesSource?: SubtitlesSource
+
+	@DtoFieldDecorators('subtitlesStatus', bdConfig.Video.dbFields.subtitles_status, {
+		required: false,
+	})
+	subtitlesStatus?: SubtitlesStatus
+
+	@DtoFieldDecorators('subtitlesErrorCode', bdConfig.Video.dbFields.subtitles_error_code)
+	subtitlesErrorCode?: null | string
+
+	@DtoFieldDecorators('proficiencyLevel', bdConfig.Video.dbFields.proficiency_level)
+	proficiencyLevel?: null | number
+
+	@DtoFieldDecorators('topic', bdConfig.Video.dbFields.topic)
+	topic?: null | string
+
+	@DtoFieldDecorators('learnabilityScore', bdConfig.Video.dbFields.learnability_score)
+	learnabilityScore?: null | number
 }

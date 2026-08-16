@@ -3,6 +3,7 @@ import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepo
 import { LanguageCode } from '@/shared/utils/languages'
 import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
 import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
+import { useSelectWordScroll } from './fn/useSelectWordScroll'
 import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
 import './Subtitles.scss'
 
@@ -19,7 +20,8 @@ function Subtitles(props: SubtitlesContentProps) {
 	const { subtitles, currentTime, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
 	const containerRef = useRef<HTMLDivElement | null>(null)
 
-	useSubtitlesPlaybackDomSync({ containerRef, subtitles, currentTime })
+	const { scrollToSubtitle } = useSubtitlesPlaybackDomSync({ containerRef, subtitles, currentTime })
+	const handleSelectWord = useSelectWordScroll({ subtitles, selectWord, scrollToSubtitle })
 
 	return (
 		<div className='subtitles' ref={containerRef}>
@@ -31,7 +33,7 @@ function Subtitles(props: SubtitlesContentProps) {
 							key={item.id}
 							selectedSentenceId={selectedSentenceId}
 							selectedWordId={selectedWordId}
-							selectWord={selectWord}
+							selectWord={handleSelectWord}
 							languageCode={languageCode}
 						/>
 					)

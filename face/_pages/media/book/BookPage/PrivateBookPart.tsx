@@ -1,12 +1,10 @@
 'use client'
 
-import { useState, useMemo, useCallback } from 'react'
-import { BooksService } from '@/entities/book/BooksService'
-import { BooksApi } from '@/entities/book/repository/BooksApi'
+import { useState, useCallback } from 'react'
+import { booksService } from '@/entities/book/BooksService'
 import type { BookModel } from '@/entities/book/repository/BooksRepository'
 import { EditPrivateBookAndChapters } from '@/entities/book/ui/EditPrivateBookAndChapters/EditPrivateBookAndChapters'
-import { ChaptersService } from '@/entities/chapter/ChaptersService'
-import { ChaptersApi } from '@/entities/chapter/repository/ChaptersApi'
+import { chaptersService, ChaptersService } from '@/entities/chapter/ChaptersService'
 import ChaptersList from '@/entities/media/ui/ChaptersList/ChaptersList'
 import MediaContentWrapper from '@/entities/media/ui/MediaContentWrapper/MediaContentWrapper'
 import { getBookChaptersLinksConfig } from './fn/getBookChaptersLinksConfig'
@@ -18,9 +16,6 @@ type PrivateBookPartProps = {
 export default function PrivateBookPart(props: PrivateBookPartProps) {
 	const { book: initialBook } = props
 	const [currentBook, setCurrentBook] = useState<BookModel>(initialBook)
-
-	const booksService = useMemo(() => new BooksService(new BooksApi()), [])
-	const chaptersService = useMemo(() => new ChaptersService(new ChaptersApi()), [])
 
 	// Обновление только текстовых полей книги (не трогает обложку)
 	const handleBookUpdated = useCallback(function (updatedBook: BookModel) {
@@ -53,7 +48,7 @@ export default function PrivateBookPart(props: PrivateBookPartProps) {
 				setCurrentBook(bookResult.data)
 			}
 		},
-		[currentBook.id, chaptersService, booksService],
+		[currentBook.id],
 	)
 
 	const handleChapterDeleted = useCallback(function (chapterId: number) {
@@ -74,7 +69,7 @@ export default function PrivateBookPart(props: PrivateBookPartProps) {
 				setCurrentBook(bookResult.data)
 			}
 		},
-		[currentBook.id, booksService],
+		[currentBook.id],
 	)
 
 	if (currentBook.type !== 'private') {

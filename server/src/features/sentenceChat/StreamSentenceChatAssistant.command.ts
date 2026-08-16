@@ -3,8 +3,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Observable, Subscriber } from 'rxjs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
-import { UserRepository } from 'repo/user.repository'
-import { AiModel, OpenAIModels, DeepSeekModels } from 'types/AIModels'
+import { AiModel, OpenAIModels, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
 import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -41,8 +40,7 @@ type PromptPayload = {
  * Основной процесс генерации ответа ИИ в чате по выделенному предложению.
  *
  * Запускается как SSE-endpoint. Сам создаёт пустую streaming-заготовку ответа ассистента
- * в треде, стримит чанки клиенту, по завершении / отмене / ошибке фиксирует итог в БД
- * и списывает баланс пользователя.
+ * в треде, стримит чанки клиенту, по завершении / отмене / ошибке фиксирует итог в БД.
  *
  * Предусловия для запуска:
  *  - тред существует и принадлежит пользователю;
@@ -58,7 +56,6 @@ export class StreamSentenceChatAssistantCommand {
 		private sentenceChatContextBuilder: SentenceChatContextBuilder,
 		private activeGenerationRegistry: ActiveSentenceChatGenerationRegistry,
 		private commandBus: CommandBus,
-		private userRepository: UserRepository,
 	) {}
 
 	execute(input: StreamSentenceChatAssistantInput): Observable<MessageEvent> {
@@ -105,21 +102,6 @@ export class StreamSentenceChatAssistantCommand {
 			const thread = await this.loadAndAuthorizeThread(input.threadId, input.userId)
 			await this.assertNoActiveGenerationForUser(input.userId)
 			await this.assertLastMessageIsUserQuestion(thread.id)
-
-			// Если у пользователя нет средств — создаём assistant-сообщение со status='failed'
-			// и error_message, не вызывая Gemini и не списывая токены. Клиент покажет
-			// это сообщение в треде как карточку ошибки (тот же путь, что и для реальных сбоев LLM).
-			if (await this.isUserBalanceInsufficient(input.userId)) {
-				const placeholder = await this.createStreamingPlaceholder(thread.id)
-				state.assistantMessageId = placeholder.id
-
-				await this.finalize(input, subscriber, state, {
-					status: 'failed',
-					errorText: serializeErrorMessage(errorMessage.sentenceChat.insufficientBalance),
-				})
-
-				return
-			}
 
 			// Сборка промпта ДО создания placeholder-а: если здесь упадёт ошибка,
 			// в БД не остаётся зависшая streaming-заготовка.
@@ -192,11 +174,6 @@ export class StreamSentenceChatAssistantCommand {
 		if (hasActiveInDb) {
 			throw new CustomError(errorMessage.sentenceChat.generationAlreadyActive, ErrorStatusCode.BadRequest_400)
 		}
-	}
-
-	private async isUserBalanceInsufficient(userId: number): Promise<boolean> {
-		const user = await this.userRepository.getUserById(userId)
-		return !user || user.balance <= 0
 	}
 
 	private async assertLastMessageIsUserQuestion(threadId: number): Promise<void> {
@@ -309,7 +286,7 @@ export class StreamSentenceChatAssistantCommand {
 			errorText: opts.errorText,
 		})
 
-		const model: AiModel = input.model ?? DeepSeekModels.Flash
+		const model: AiModel = input.model ?? DEFAULT_FLASH_AI_MODEL
 		await this.chargeTokenUsage(input.userId, state.usage, model)
 
 		if (state.assistantMessageId !== null) {

@@ -27,5 +27,8 @@ export function getProviderFromModel(model: AiModel): AIProviderName {
 	throw new Error(`Unknown LLM model: ${model}`)
 }
 
-/** Модель по умолчанию, когда model не указана. */
-export const DEFAULT_AI_MODEL: AiModel = DeepSeekModels.Flash
+/** Дешёвая/быстрая модель по умолчанию (flash-тир). */
+export const DEFAULT_FLASH_AI_MODEL: AiModel = DeepSeekModels.Flash
+
+/** Более «умная» модель по умолчанию (pro-тир). */
+export const DEFAULT_SMART_AI_MODEL: AiModel = DeepSeekModels.Pro

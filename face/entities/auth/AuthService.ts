@@ -1,3 +1,4 @@
+import { AuthApi } from '@/entities/auth/repository/AuthApi'
 import type {
 	AuthRepository,
 	ConfirmEmailInput,
@@ -57,3 +58,5 @@ export class AuthService {
 		return this.authRepository.logout()
 	}
 }
+
+export const authService = new AuthService(new AuthApi())

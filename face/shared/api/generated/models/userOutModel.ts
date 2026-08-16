@@ -7,7 +7,10 @@
  */
 
 export interface UserOutModel {
-  /** User ID */
+  /**
+     * User ID
+     * @minimum 1
+     */
   id: number;
   /** User-s email */
   email: string;

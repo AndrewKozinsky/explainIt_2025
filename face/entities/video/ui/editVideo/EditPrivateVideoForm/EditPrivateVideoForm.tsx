@@ -1,13 +1,10 @@
-'use client'
-
-import React, { useState, useMemo, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
-import { VideosApi } from '@/entities/video/repository/VideosApi'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { VideosService } from '@/entities/video/VideosService'
+import { videosService } from '@/entities/video/VideosService'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import FormError from '@/shared/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
@@ -66,8 +63,6 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 		stableIsFileUploadedRef.current = video.isFileUploaded
 	}
 
-	const videosService = useMemo(() => new VideosService(new VideosApi()), [])
-
 	useEffect(
 		function () {
 			let cancelled = false
@@ -95,7 +90,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 				cancelled = true
 			}
 		},
-		[video.id, videosService],
+		[video.id],
 	)
 
 	const {
@@ -179,6 +174,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 						inputProps={register('languageCode')}
 					/>
 					<TextInput
+						block
 						label='Название'
 						error={errors.name?.message}
 						inputProps={{
@@ -199,7 +195,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 						videoId={video.id}
 						onFileUpdated={onVideoUpdated}
 					/>
-					<LabelWithField label='Субтитры или текст'>
+					<LabelWithField label='Субтитры или текст' block>
 						<div className='edit-private-video-form__subtitles-container'>
 							<TextInput
 								error={errors.content?.message}

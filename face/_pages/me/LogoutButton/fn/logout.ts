@@ -1,23 +1,21 @@
 'use client'
 
-import { useMemo, useCallback } from 'react'
+import { useCallback } from 'react'
+import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { AuthService } from '@/entities/auth/AuthService'
-import { AuthApi } from '@/entities/auth/repository/AuthApi'
-import { useAsyncMutation } from '@/shared/utils/fetchData/useAsyncMutation'
+import { authQueries } from '@/entities/auth/AuthQueryFacade'
 import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 export function useGetLogout() {
 	const router = useRouter()
 	const locale = useLocale()
 
-	const service = useMemo(() => new AuthService(new AuthApi()), [])
-	const { mutate: logout } = useAsyncMutation(() => service.logout())
+	const { mutateAsync: logout } = useMutation(authQueries.logout())
 
 	return useCallback(
 		async function () {
-			const result = await logout(undefined)
+			const result = await logout()
 			if (result.error) {
 				console.error(result.error)
 				return

@@ -13,8 +13,22 @@ import type { YouTubePlayer } from './youTubeIframeApi'
  * Обратный перемот (START_REVERSE_SEEK) реализован через периодический
  * seekTo, так как YouTube API не поддерживает реверсное воспроизведение.
  */
-export function useYouTubeController(playerRef: RefObject<YouTubePlayer | null>) {
+type YouTubeControllerTimeCallbacks = {
+	setCurrentTime: (t: number) => void
+	onTimeUpdate?: (t: number) => void
+}
+
+export function useYouTubeController(
+	playerRef: RefObject<YouTubePlayer | null>,
+	timeCallbacks: YouTubeControllerTimeCallbacks,
+) {
 	const command = usePlayerContext().command
+
+	// Колбэки синхронизации времени храним в ref, чтобы эффект ниже исполнял
+	// команду ровно один раз (по изменению `command`), а не перезапускался на
+	// каждый ре-рендер из-за пересоздаваемых колбэков.
+	const timeCallbacksRef = useRef(timeCallbacks)
+	timeCallbacksRef.current = timeCallbacks
 
 	const reverseSeekIntervalIdRef = useRef<null | ReturnType<typeof setInterval>>(null)
 	const forwardHoldActiveRef = useRef(false)
@@ -23,6 +37,8 @@ export function useYouTubeController(playerRef: RefObject<YouTubePlayer | null>)
 	useEffect(() => {
 		const player = playerRef.current
 		if (!player || !command) return
+
+		const { setCurrentTime, onTimeUpdate } = timeCallbacksRef.current
 
 		function stopReverseSeekIfActive() {
 			if (!reverseSeekIntervalIdRef.current) return
@@ -54,12 +70,18 @@ export function useYouTubeController(playerRef: RefObject<YouTubePlayer | null>)
 				break
 
 			case 'SET_TIME':
+				setCurrentTime(command.time)
+				onTimeUpdate?.(command.time)
 				player.seekTo(command.time, true)
 				break
 
-			case 'REWIND':
-				player.seekTo(Math.max(0, player.getCurrentTime() + command.seconds), true)
+			case 'REWIND': {
+				const targetTime = Math.max(0, player.getCurrentTime() + command.seconds)
+				setCurrentTime(targetTime)
+				onTimeUpdate?.(targetTime)
+				player.seekTo(targetTime, true)
 				break
+			}
 
 			case 'SET_PLAYBACK_RATE':
 				player.setPlaybackRate(command.rate)

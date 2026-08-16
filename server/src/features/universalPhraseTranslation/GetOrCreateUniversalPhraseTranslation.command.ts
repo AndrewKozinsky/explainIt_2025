@@ -13,6 +13,13 @@ import { LanguageCode } from 'prisma/generated/enums'
 import { buildUniversalPhraseTranslationPrompt } from './buildUniversalPhraseTranslationPrompt'
 import { parseUniversalPhraseTranslationResult } from './parseUniversalPhraseTranslationResult'
 
+/**
+ * Таймаут синхронного запроса к LLM для перевода фразы.
+ * Должен быть меньше proxy_read_timeout nginx (60с по умолчанию),
+ * чтобы в случае зависшего LLM ошибка успела дойти до клиента до 504.
+ */
+const LLM_TRANSLATION_TIMEOUT_MS = 55_000
+
 export type GetOrCreateUniversalPhraseTranslationInput = {
 	universalPhraseId?: number
 	phraseText?: string
@@ -107,6 +114,7 @@ export class GetOrCreateUniversalPhraseTranslationHandler implements ICommandHan
 				],
 				responseFormat: 'json_object',
 				lowPriority: true,
+				timeoutMs: LLM_TRANSLATION_TIMEOUT_MS,
 			})
 
 			// 6. Парсим результат

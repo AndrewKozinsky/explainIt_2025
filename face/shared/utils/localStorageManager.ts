@@ -1,3 +1,5 @@
+import { LanguageCode, languages } from '@/shared/utils/languages'
+
 /**
  * Централизованный доступ к localStorage.
  *
@@ -134,6 +136,177 @@ export const localStorageManager = {
 	},
 
 	/**
+	 * Последняя открытая вкладка на медиа-страницах.
+	 *
+	 * Ключ: `lastMediaTab:<pageKey>`.
+	 * `pageKey` — уникальный идентификатор страницы (например `"books"`, `"youtube"`).
+	 */
+	lastMediaTab: {
+		/**
+		 * Возвращает ключ последней открытой вкладки.
+		 *
+		 * @param pageKey — уникальный ключ страницы
+		 * @returns ключ вкладки или `null`, если запись отсутствует
+		 */
+		get(pageKey: string): string | null {
+			if (typeof window === 'undefined') return null
+
+			const raw = window.localStorage.getItem(lastMediaTabKey(pageKey))
+			return raw || null
+		},
+
+		/**
+		 * Сохраняет ключ последней открытой вкладки.
+		 *
+		 * @param pageKey — уникальный ключ страницы
+		 * @param tabKey — ключ вкладки
+		 */
+		set(pageKey: string, tabKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(lastMediaTabKey(pageKey), tabKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный фильтр длительности видео.
+	 *
+	 * Ключ: `lastVideoDuration`.
+	 */
+	lastDuration: {
+		/**
+		 * Возвращает сохранённый ключ длительности.
+		 *
+		 * @returns ключ длительности, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_DURATION_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ длительности.
+		 *
+		 * @param durationKey — ключ длительности (например `""`, `"0-5"`, `"5-15"`)
+		 */
+		set(durationKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_DURATION_KEY, durationKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный фильтр уровня владения языком.
+	 *
+	 * Ключ: `lastVideoProficiency`.
+	 */
+	lastProficiency: {
+		/**
+		 * Возвращает сохранённый ключ уровня.
+		 *
+		 * @returns ключ уровня, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_PROFICIENCY_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ уровня.
+		 *
+		 * @param proficiencyKey — ключ уровня (например `""`, `"1"`, `"2"`)
+		 */
+		set(proficiencyKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_PROFICIENCY_KEY, proficiencyKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный фильтр темы видео.
+	 *
+	 * Ключ: `lastVideoTopic`.
+	 */
+	lastTopic: {
+		/**
+		 * Возвращает сохранённый ключ темы.
+		 *
+		 * @returns ключ темы, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_TOPIC_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ темы.
+		 *
+		 * @param topicKey — ключ темы
+		 */
+		set(topicKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_TOPIC_KEY, topicKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный фильтр сортировки видео.
+	 *
+	 * Ключ: `lastVideoSort`.
+	 */
+	lastSort: {
+		/**
+		 * Возвращает сохранённый ключ сортировки.
+		 *
+		 * @returns ключ сортировки, по умолчанию `""`
+		 */
+		get(): string {
+			if (typeof window === 'undefined') return ''
+			return window.localStorage.getItem(LAST_VIDEO_SORT_KEY) || ''
+		},
+
+		/**
+		 * Сохраняет ключ сортировки.
+		 *
+		 * @param sortKey — ключ сортировки (например `""`, `"created_at"`, `"learnability_score"`)
+		 */
+		set(sortKey: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_VIDEO_SORT_KEY, sortKey)
+		},
+	},
+
+	/**
+	 * Последний выбранный язык в списке публичных книг.
+	 *
+	 * Ключ: `lastBookLanguage`.
+	 */
+	lastLanguage: {
+		/**
+		 * Возвращает сохранённый код языка.
+		 *
+		 * @returns код языка, по умолчанию `"en"`
+		 */
+		get(): LanguageCode {
+			const defaultValue = languages.en.code as LanguageCode
+
+			if (typeof window === 'undefined') return defaultValue
+
+			const raw = window.localStorage.getItem(LAST_LANGUAGE_KEY) as LanguageCode
+			return raw || defaultValue
+		},
+
+		/**
+		 * Сохраняет код языка.
+		 *
+		 * @param languageCode — код языка (например `"en"`, `"ru"`)
+		 */
+		set(languageCode: string) {
+			if (typeof window === 'undefined') return
+			window.localStorage.setItem(LAST_LANGUAGE_KEY, languageCode)
+		},
+	},
+
+	/**
 	 * OAuth CSRF-токен.
 	 *
 	 * Ключ: `latestCSRFToken`.
@@ -188,6 +361,21 @@ const ONBOARDING_KEY = 'hideOnboardingModal'
 // ── oauth helpers ──────────────────────────────────────────────────────────
 
 const OAUTH_CSRF_KEY = 'latestCSRFToken'
+
+// ── lastLanguage helpers ───────────────────────────────────────────────
+
+const LAST_LANGUAGE_KEY = 'lastLanguage'
+
+const LAST_VIDEO_DURATION_KEY = 'lastVideoDuration'
+const LAST_VIDEO_PROFICIENCY_KEY = 'lastVideoProficiency'
+const LAST_VIDEO_TOPIC_KEY = 'lastVideoTopic'
+const LAST_VIDEO_SORT_KEY = 'lastVideoSort'
+
+// ── lastMediaTab helpers ───────────────────────────────────────────────────
+
+function lastMediaTabKey(pageKey: string) {
+	return `lastMediaTab:${pageKey}`
+}
 
 // ── videoProgress helpers ──────────────────────────────────────────────────
 

@@ -32,7 +32,7 @@ export function DtoFieldDecorators(
 	dbFieldConf: BdConfig.Field,
 	rewrittenDbConfigFields: Partial<BdConfig.Field> = {},
 ) {
-	const updatedFieldConf = Object.assign(dbFieldConf, rewrittenDbConfigFields) as BdConfig.Field & Record<string, any>
+	const updatedFieldConf = { ...dbFieldConf, ...rewrittenDbConfigFields } as BdConfig.Field & Record<string, any>
 
 	// Set the first letter to lowercase 'password' -> 'Password'
 	const name = fieldName.charAt(0).toUpperCase() + fieldName.slice(1)
@@ -45,6 +45,7 @@ export function DtoFieldDecorators(
 	if (updatedFieldConf.type === 'index') {
 		decorators.push(Type(() => Number)) // Converts string to number
 		decorators.push(IsNumber({}, { message: serializeErrorMessage(errorMessage.mustBeNumber) }))
+		decorators.push(Min(1, { message: serializeErrorMessage(errorMessage.minNum(1)) }))
 	}
 	if (updatedFieldConf.type === 'manyToOne') {
 		decorators.push(Type(() => Number)) // Converts string to number
@@ -211,6 +212,9 @@ export function getApiPropertyOptions(fieldConf: Record<string, any>) {
 	}
 	if (fieldConf.max !== undefined) {
 		options.maximum = fieldConf.max
+	}
+	if (fieldConf.type === 'index') {
+		options.minimum = 1
 	}
 
 	const typeMap: Record<string, string> = {

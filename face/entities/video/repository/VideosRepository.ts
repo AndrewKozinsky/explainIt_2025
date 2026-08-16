@@ -4,7 +4,6 @@ import type {
 	VideoLiteModel,
 	VideoModel,
 	VideoSubtitlesModel,
-	SubtitlesSourceModelType,
 	SubtitlesStatusModelType,
 	SubtitlesStatusModel,
 } from '../lib/types'
@@ -15,7 +14,6 @@ export type {
 	VideoLiteModel,
 	VideoModel,
 	VideoSubtitlesModel,
-	SubtitlesSourceModelType,
 	SubtitlesStatusModelType,
 	SubtitlesStatusModel,
 }

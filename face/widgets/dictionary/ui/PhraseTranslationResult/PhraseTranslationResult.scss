@@ -1,0 +1,111 @@
+@use '@/styles/variables' as vars;
+
+.phrase-translation-result {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+// ─── Block ───────────────────────────────────────────────────────────────────
+
+.translation-block {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.translation-block__header {
+	font-size: 2.1rem;
+	line-height: 2.6rem;
+	font-weight: 600;
+}
+
+// ─── UseCase ─────────────────────────────────────────────────────────────────
+
+.translation-use-case {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.translation-use-case__header {
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+	font-weight: 500;
+	margin: 0;
+}
+
+.translation-use-case__number {
+	display: inline-block;
+	min-width: 2.4rem;
+	font-size: 0.8em;
+	line-height: 0.8em;
+	text-align: center;
+	color: white;
+	background-color: vars.$grayColor-5;
+	transform: translateY(-1px);
+	padding: 0.4rem 0.4rem;
+	margin-right: 0.8rem;
+	border-radius: 15px;
+}
+
+// ─── Paper ───────────────────────────────────────────────────────────────────
+
+.translation-paper {
+	border: 1px solid vars.$grayColor-3;
+	border-radius: 8px;
+	padding: 1.2rem;
+	background-color: vars.$grayColor-1;
+}
+
+// ─── Example ─────────────────────────────────────────────────────────────────
+
+.translation-example {
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+
+	&:not(:last-child) {
+		margin-bottom: 1.2rem;
+		padding-bottom: 1.2rem;
+		border-bottom: 1px solid vars.$grayColor-2;
+	}
+}
+
+.translation-example__sentence {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	font-weight: 500;
+	margin: 0;
+}
+
+.translation-example__translation {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color: vars.$grayColor-5;
+	margin: 0;
+}
+
+// ─── PhrasesButtons ──────────────────────────────────────────────────────────
+
+.translation-phrases-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.8rem;
+}
+
+.translation-phrases-button {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	padding: 0.6rem 1.4rem;
+	border: 1px solid vars.$grayColor-3;
+	border-radius: 8px;
+	background-color: vars.$grayColor-1;
+	cursor: pointer;
+	transition: background-color 0.15s, border-color 0.15s;
+
+	&:hover {
+		background-color: vars.$grayColor-2;
+		border-color: vars.$grayColor-4;
+	}
+}
