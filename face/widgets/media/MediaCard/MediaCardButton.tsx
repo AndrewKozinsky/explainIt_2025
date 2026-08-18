@@ -30,9 +30,15 @@ function MediaCardButton(props: MediaCardProps) {
 		<BaseButton href={url} extraClass={`media-card-button media-card-button--${size}`} theme='outline'>
 			<div className='media-card-button__cover' style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}>
 				<div className='media-card-button__cover-shelf'>
-					{theme ? <span className='media-card-button__brick'>{theme}</span> : <span />}
+					{theme ? (
+						<span className='media-card-button__brick media-card-button__brick--with-overflow'>
+							{theme}
+						</span>
+					) : (
+						<span />
+					)}
 					{(proficiencyLevel || duration) && (
-						<span className='media-card-button__brick media-card-button__brick-black'>
+						<span className='media-card-button__brick media-card-button__brick--black'>
 							{proficiencyLevel}
 							{proficiencyLevel && duration && <span className='media-card-button__brick-divider' />}
 							{duration}
