@@ -22,7 +22,6 @@
 	gap: .6rem;
 	width: 100%;
 	box-sizing: border-box;
-	padding: 1rem;
 }
 .media-card-button__brick {
 	display: flex;
@@ -36,7 +35,7 @@
 .media-card-button__brick--black {
 	background-color: vars.$textColor;
 }
-.media-card-button__brick--with-overflow {
+.media-card-button__brick--hidden-overflow {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -61,6 +60,10 @@
 }
 
 .media-card-button--medium {
+	.media-card-button__cover-shelf {
+		padding: 1rem;
+	}
+
 	.media-card-button__brick {
 		gap: 5px;
 		padding: 2px 7px;
@@ -82,6 +85,10 @@
 }
 
 .media-card-button--small {
+	.media-card-button__cover-shelf {
+		padding: .7rem;
+	}
+
 	.media-card-button__brick {
 		gap: 3px;
 		padding: 1px 4px;

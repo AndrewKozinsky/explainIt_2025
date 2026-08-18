@@ -6,7 +6,6 @@ import { videoConfig } from '@/entities/video/lib/videoConfig'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-import MediaCardLongVideo from '@/widgets/media/MediaCardLongVideo/MediaCardLongVideo'
 
 type RecommendedVideosProps = {
 	videoId: string | number

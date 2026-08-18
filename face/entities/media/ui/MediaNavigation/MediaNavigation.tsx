@@ -25,7 +25,6 @@ function MediaNavigation(props: MediaNavigationProps) {
 
 	return (
 		<div className='reading-navigation'>
-			<div className='reading-navigation__auto-height' />
 			<div className='reading-navigation__inner'>
 				<BookLink {...bookLink} />
 				<PrevChapterLink config={prevChapterLink} />

@@ -31,7 +31,7 @@ function MediaCardButton(props: MediaCardProps) {
 			<div className='media-card-button__cover' style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}>
 				<div className='media-card-button__cover-shelf'>
 					{theme ? (
-						<span className='media-card-button__brick media-card-button__brick--with-overflow'>
+						<span className='media-card-button__brick media-card-button__brick--hidden-overflow'>
 							{theme}
 						</span>
 					) : (
