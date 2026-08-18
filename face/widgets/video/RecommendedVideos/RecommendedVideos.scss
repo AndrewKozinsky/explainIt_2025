@@ -1,0 +1,13 @@
+@use '@/styles/variables' as vars;
+
+.recommended-video {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.recommended-video__header {
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color: vars.$grayColor-6;
+}

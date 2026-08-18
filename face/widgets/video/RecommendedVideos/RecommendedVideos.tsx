@@ -6,6 +6,7 @@ import { videoConfig } from '@/entities/video/lib/videoConfig'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
+import './RecommendedVideos.scss'
 
 type RecommendedVideosProps = {
 	videoId: string | number
@@ -21,23 +22,26 @@ function RecommendedVideos(props: RecommendedVideosProps) {
 	}
 
 	return (
-		<ItemsGrid size='small'>
-			{items.map(function (videoData) {
-				return (
-					<MediaCardButton
-						key={videoData.id}
-						title={videoData.name}
-						theme={videoData.topic}
-						proficiencyLevel={videoData.proficiencyLevel}
-						duration={videoData.duration}
-						coverUrl={videoData.coverUrl}
-						url={pageUrls.videos.video(videoData.youtubeVideoId ?? videoData.id).path}
-						defaultMediaName={videoConfig.newVideoEmptyName}
-						size='small'
-					/>
-				)
-			})}
-		</ItemsGrid>
+		<div className='recommended-video'>
+			<p className='recommended-video__header'>Другие видео:</p>
+			<ItemsGrid size='small'>
+				{items.map(function (videoData) {
+					return (
+						<MediaCardButton
+							key={videoData.id}
+							title={videoData.name}
+							theme={videoData.topic}
+							proficiencyLevel={videoData.proficiencyLevel}
+							duration={videoData.duration}
+							coverUrl={videoData.coverUrl}
+							url={pageUrls.videos.video(videoData.youtubeVideoId ?? videoData.id).path}
+							defaultMediaName={videoConfig.newVideoEmptyName}
+							size='small'
+						/>
+					)
+				})}
+			</ItemsGrid>
+		</div>
 	)
 }
 
