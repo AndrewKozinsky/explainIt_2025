@@ -31,7 +31,13 @@ export function downloadAudio(videoId: string): Promise<Readable> {
 				noPart: true,
 				noMtime: true,
 				output: '-',
-			},
+				// The default web_safari/android_vr clients currently get HTTP 403 from
+				// datacenter IPs (YouTube SABR + PO-token experiment, yt-dlp #12482).
+				// The `web_embedded` client avoids it; `node` enables yt-dlp's JS
+				// challenge solver (node is present in the worker image).
+				jsRuntimes: 'node',
+				extractorArgs: 'youtube:player_client=web_embedded',
+			} as Parameters<typeof youtubedl.exec>[1],
 			{ stdio: ['ignore', 'pipe', 'pipe'] },
 		)
 

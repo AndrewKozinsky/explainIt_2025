@@ -1,4 +1,3 @@
-import { SubtitlesStatusModelType } from '@/entities/video/lib/types'
 import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 import { useSubtitlesCountdown } from './fn/useSubtitlesCountdown'
 
