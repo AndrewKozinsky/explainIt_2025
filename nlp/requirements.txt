@@ -1,7 +1,3 @@
 fastapi
 uvicorn
 spacy
-# numpy 2.4 raised the amd64 baseline to x86-64-v2; the production server CPU
-# does not support it ("NumPy was built with baseline optimizations: X86_V2").
-# 2.3.x still ships x86-64-v1 wheels, so keep numpy below 2.4.
-numpy<2.4
