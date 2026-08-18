@@ -3,6 +3,9 @@ import { SubtitlesStatusModelType } from '@/entities/video/repository/VideosRepo
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 import { ProcessedSubtitles } from './ProcessedSubtitles'
+import { PendingSubtitles } from './PendingSubtitles'
+import { IdleSubtitles } from './IdleSubtitles'
+import { FailedSubtitles } from './FailedSubtitles'
 import './SubtitlesStatusRouter.scss'
 
 type SubtitlesGuardProps = {
@@ -16,23 +19,19 @@ function SubtitlesStatusRouter(props: SubtitlesGuardProps) {
 	const { children, subtitlesStatus, subtitlesErrorCode, durationSeconds } = props
 
 	if (subtitlesStatus === 'idle') {
-		return (
-			<StatusBlock type='info'>
-				<p>Субтитров нет</p>
-			</StatusBlock>
-		)
+		return <IdleSubtitles />
 	}
 
-	if (subtitlesStatus === 'pending' || subtitlesStatus === 'processing') {
-		return <ProcessedSubtitles subtitlesStatus={subtitlesStatus} durationSeconds={durationSeconds} />
+	if (subtitlesStatus === 'pending') {
+		return <PendingSubtitles />
+	}
+
+	if (subtitlesStatus === 'processing') {
+		return <ProcessedSubtitles durationSeconds={durationSeconds} />
 	}
 
 	if (subtitlesStatus === 'failed') {
-		return (
-			<StatusBlock type='error'>
-				<ErrorMessage text={subtitlesErrorCode} />
-			</StatusBlock>
-		)
+		return <FailedSubtitles errorCode={subtitlesErrorCode} />
 	}
 
 	return <div>{children}</div>

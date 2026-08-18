@@ -6,30 +6,22 @@ import { formatDurationSec } from '@/shared/utils/time'
 // длительность обратного отсчёта в секундах.
 const COUNTDOWN_MULTIPLIER = 1
 
-export function useSubtitlesCountdown(
-	durationSeconds: number,
-	subtitlesStatus: SubtitlesStatusModelType,
-): null | string {
+export function useSubtitlesCountdown(durationSeconds: number): null | string {
 	const [remainingSeconds, setRemainingSeconds] = useState(() => Math.round(durationSeconds * COUNTDOWN_MULTIPLIER))
 
-	useEffect(
-		function () {
-			if (!['pending', 'processing'].includes(subtitlesStatus)) return
+	useEffect(function () {
+		const interval = setInterval(function () {
+			setRemainingSeconds(function (prevSeconds) {
+				return prevSeconds - 1
+			})
+		}, 1000)
 
-			const interval = setInterval(function () {
-				setRemainingSeconds(function (prevSeconds) {
-					return prevSeconds - 1
-				})
-			}, 1000)
+		return function () {
+			clearInterval(interval)
+		}
+	}, [])
 
-			return function () {
-				clearInterval(interval)
-			}
-		},
-		[subtitlesStatus],
-	)
-
-	if (subtitlesStatus !== 'pending' || remainingSeconds <= 0) {
+	if (remainingSeconds <= 0) {
 		return null
 	}
 

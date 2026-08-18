@@ -3,14 +3,13 @@ import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 import { useSubtitlesCountdown } from './fn/useSubtitlesCountdown'
 
 type ProcessedSubtitlesProps = {
-	subtitlesStatus: SubtitlesStatusModelType
 	durationSeconds: number
 }
 
 export function ProcessedSubtitles(props: ProcessedSubtitlesProps) {
-	const { subtitlesStatus, durationSeconds } = props
+	const { durationSeconds } = props
 
-	const countdown = useSubtitlesCountdown(durationSeconds, subtitlesStatus)
+	const countdown = useSubtitlesCountdown(durationSeconds)
 
 	return (
 		<StatusBlock type='info'>
