@@ -45,6 +45,7 @@ function VideoPage(props: VideoRootProps) {
 					ratio={video.ratio}
 					subtitlesStatus={video.subtitlesStatus}
 					subtitlesErrorCode={video.subtitlesErrorCode}
+					durationSeconds={video.durationSeconds}
 				/>
 			}
 			detailsBlockMetadata={{

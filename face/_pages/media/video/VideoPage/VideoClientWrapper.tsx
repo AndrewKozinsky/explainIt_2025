@@ -24,6 +24,7 @@ type VideoClientWrapperProps = SelectionProps & {
 	ratio?: null | string
 	subtitlesStatus: SubtitlesStatusModelType
 	subtitlesErrorCode: null | string
+	durationSeconds: number
 }
 
 function VideoClientWrapper(props: VideoClientWrapperProps) {
@@ -41,6 +42,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 		selectedSentenceId = null,
 		selectedWordId = null,
 		selectWord = () => {},
+		durationSeconds,
 	} = props
 
 	const playerRef = useRef<VideoPlayerHandle>(null)
@@ -62,7 +64,11 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 				onPlayStateChange={(p) => setPlayerState({ paused: p })}
 				onProgressSave={(id, seconds) => localStorageManager.videoProgress.set(id, seconds)}
 			/>
-			<SubtitlesStatusRouter subtitlesStatus={subtitlesStatus} subtitlesErrorCode={subtitlesErrorCode}>
+			<SubtitlesStatusRouter
+				subtitlesStatus={subtitlesStatus}
+				subtitlesErrorCode={subtitlesErrorCode}
+				durationSeconds={durationSeconds}
+			>
 				<SentencesOrSubtitles
 					languageCode={languageCode}
 					currentTime={currentTime}

@@ -1,7 +1,5 @@
 import React from 'react'
 import { SubtitlesStatusModelType } from '@/entities/video/repository/VideosRepository'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 import { ProcessedSubtitles } from './ProcessedSubtitles'
 import { PendingSubtitles } from './PendingSubtitles'
 import { IdleSubtitles } from './IdleSubtitles'
