@@ -12,7 +12,7 @@ export type TabConfig = {
 
 type MediaPageContentTabsProps = {
 	tabs: TabConfig[]
-	defaultTab?: string
+	defaultTab?: null | string
 	onTabChange?: (tabKey: string) => void
 }
 

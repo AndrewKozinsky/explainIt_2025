@@ -222,7 +222,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: input.text },
 			],
-			lowPriority: input.lowPriority,
+			lowPriority: input.lowPriority ?? false,
 		})
 
 		return result.content

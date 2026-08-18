@@ -4,7 +4,7 @@ import { localStorageManager } from '@/shared/utils/localStorageManager'
 export const YOUTUBE_PAGE_STORAGE_KEY = 'youtube'
 
 export function useVideosPageTabs() {
-	const [defaultTab, setDefaultTab] = useState<string>('saved')
+	const [defaultTab, setDefaultTab] = useState<null | string>(null)
 
 	useLayoutEffect(() => {
 		const saved = localStorageManager.lastMediaTab.get(YOUTUBE_PAGE_STORAGE_KEY)

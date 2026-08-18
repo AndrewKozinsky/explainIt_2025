@@ -8,7 +8,7 @@ import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import FormError from '@/shared/ui/formRelated/FormError/FormError'
 import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import InfoBlock from '@/shared/ui/InfoBlock/InfoBlock'
+import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
 import { FormStatus } from '@/shared/utils/forms'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -84,7 +84,7 @@ function AuthRegisterForm() {
 						Зарегистрироваться
 					</Button>
 					<FormError text={formError} />
-					{formSuccess && <InfoBlock type='success'>{formSuccess}</InfoBlock>}
+					{formSuccess && <StatusBlock type='success'>{formSuccess}</StatusBlock>}
 				</FormFieldsWrapper>
 			</form>
 		</div>

@@ -22,7 +22,7 @@ export class ChatGptLlmProvider implements LlmProvider {
 					: { type: 'text' }
 				: undefined,
 			reasoningEffort: input.reasoningEffort,
-			lowPriority: input.lowPriority,
+			lowPriority: input.lowPriority ?? false,
 		})
 
 		return {
@@ -40,7 +40,7 @@ export class ChatGptLlmProvider implements LlmProvider {
 			model: (input.model as OpenAIModels) ?? OpenAIModels.Standard,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
-			lowPriority: input.lowPriority,
+			lowPriority: input.lowPriority ?? false,
 		})
 
 		for await (const chunk of chunks) {

@@ -1,4 +1,4 @@
-import InfoBlock from '@/shared/ui/InfoBlock/InfoBlock'
+import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 
 type YouWillLosePhrasesWarningProps = {
 	hasOriginalContent: boolean
@@ -9,7 +9,7 @@ function YouWillLosePhrasesWarning(props: YouWillLosePhrasesWarningProps) {
 
 	if (!hasOriginalContent) return null
 
-	return <InfoBlock type='warning'>При обновлении текста главы все переводы будут потеряны.</InfoBlock>
+	return <StatusBlock type='warning'>При обновлении текста главы все переводы будут потеряны.</StatusBlock>
 }
 
 export default YouWillLosePhrasesWarning

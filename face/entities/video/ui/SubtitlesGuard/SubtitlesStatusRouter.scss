@@ -1,0 +1,26 @@
+@use '@/styles/variables' as vars;
+
+.subtitles-status-router {
+	display: flex;
+	flex-direction: column;
+	gap: .6rem
+}
+
+.subtitles-status-router__info-top {
+	display: flex;
+	gap: 1rem;
+	font-size: 2rem;
+	line-height: 2.4rem;
+}
+.subtitles-status-router__info-top-left {
+	flex-grow: 1;
+}
+.subtitles-status-router__info-divider {
+	height: 1px;
+	background-color: vars.$grayColor-2;
+}
+.subtitles-status-router__info-bottom {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	color: vars.$grayColor-5;
+}
