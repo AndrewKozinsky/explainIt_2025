@@ -1,8 +1,10 @@
 import type { VideoModel } from '@/entities/video/repository/VideosRepository'
+import type { VideoLiteModel } from '@/entities/video/lib/types'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { YoutubeApi } from './repository/YoutubeApi'
 import type {
 	GetSavedYoutubeVideosParams,
+	GetRecommendationsForSavedVideoParams,
 	GetYoutubeVideosParams,
 	SavedVideosPage,
 	YoutubeRepository,
@@ -11,6 +13,7 @@ import type {
 
 export type {
 	GetSavedYoutubeVideosParams,
+	GetRecommendationsForSavedVideoParams,
 	GetYoutubeVideosParams,
 	YoutubeVideoModel,
 } from './repository/YoutubeRepository'
@@ -45,6 +48,14 @@ export class YoutubeService {
 	/** Получить сохранённые YouTube-видео с фильтрами */
 	async getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>> {
 		return this.youtubeRepository.getSavedVideos(params)
+	}
+
+	/** Получить рекомендации для сохранённого YouTube-видео */
+	async getRecommendationsForSavedVideo(
+		videoId: string,
+		params?: GetRecommendationsForSavedVideoParams,
+	): Promise<ApiResult<VideoLiteModel[]>> {
+		return this.youtubeRepository.getRecommendationsForSavedVideo(videoId, params)
 	}
 
 	/** Получить список категорий (тем) видео */

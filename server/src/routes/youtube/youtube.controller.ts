@@ -9,13 +9,16 @@ import { CreateYoutubeVideoCommand } from 'features/youtube/CreateYoutubeVideo.c
 import { GetSavedYoutubeVideosCommand } from 'features/youtube/GetSavedYoutubeVideos.command'
 import { GetVideoByYoutubeIdCommand } from 'features/youtube/GetVideoByYoutubeId.command'
 import { GetYoutubeVideosCommand } from 'features/youtube/GetYoutubeVideos.command'
+import { GetYoutubeRecommendationsCommand } from 'features/youtube/GetYoutubeRecommendations.command'
 import { SavedYoutubeVideosPageOutModel } from 'models/video/savedYoutubeVideosPage.out.model'
 import { VideoOutModel } from 'models/video/video.out.model'
+import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 import { YoutubeVideosOutModel } from 'models/youtube/youtubeVideo.out.model'
 import {
 	ApiGetYoutubeVideoById,
 	ApiGetYoutubeSearch,
 	ApiGetSavedYoutubeVideos,
+	ApiGetYoutubeRecommendations,
 	ApiCreateYoutubeVideo,
 	ApiGetYoutubeTopics,
 } from './openAPI.decorators'
@@ -55,6 +58,19 @@ export class YoutubeController {
 				},
 			),
 		)
+	}
+
+	@ApiGetYoutubeRecommendations()
+	@HttpCode(HttpStatus.OK)
+	@Get(':videoId/recommendations')
+	async getRecommendations(
+		@Param() params: GetYoutubeVideoInput,
+		@Query('limit') limit?: number,
+	): Promise<VideoLiteOutModel[]> {
+		const parsedLimit = Number(limit ?? 6)
+		const safeLimit = Number.isFinite(parsedLimit) ? Math.min(Math.max(Math.trunc(parsedLimit), 1), 6) : 6
+
+		return await this.commandBus.execute(new GetYoutubeRecommendationsCommand(params.videoId, safeLimit))
 	}
 
 	@ApiGetYoutubeTopics()

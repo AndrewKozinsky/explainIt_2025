@@ -5,6 +5,7 @@ import { paginationFields } from 'db/dbConfig/pagination'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import { SavedYoutubeVideosPageOutModel } from 'models/video/savedYoutubeVideosPage.out.model'
 import { VideoOutModel } from 'models/video/video.out.model'
+import { VideoLiteOutModel } from 'models/video/videoLite.out.model'
 import { YoutubeVideosOutModel } from 'models/youtube/youtubeVideo.out.model'
 
 export function ApiGetYoutubeTopics() {
@@ -124,6 +125,29 @@ export function ApiGetSavedYoutubeVideos() {
 			...getApiPropertyOptions(paginationFields.pageSize),
 		}),
 		ApiResponse({ status: 200, description: 'OK', type: SavedYoutubeVideosPageOutModel }),
+	)
+}
+
+export function ApiGetYoutubeRecommendations() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Get recommendations for a saved YouTube video',
+			description:
+				'Returns up to 6 other saved YouTube videos. Recommendations are prioritized by matching language, proficiency level, topic, and a duration range from half to one and a half times the current video duration.',
+		}),
+		ApiParam({
+			name: 'videoId',
+			required: true,
+			description: 'YouTube video ID used as the recommendation source',
+			example: 'dQw4w9WgXcQ',
+		}),
+		ApiQuery({
+			name: 'limit',
+			required: false,
+			description: 'Maximum number of recommendations (1–6, default 6)',
+			example: 6,
+		}),
+		ApiResponse({ status: 200, description: 'OK', type: [VideoLiteOutModel] }),
 	)
 }
 

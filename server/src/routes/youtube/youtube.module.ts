@@ -6,6 +6,7 @@ import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateYoutubeVideoHandler } from 'features/youtube/CreateYoutubeVideo.command'
 import { GetSavedYoutubeVideosHandler } from 'features/youtube/GetSavedYoutubeVideos.command'
+import { GetYoutubeRecommendationsHandler } from 'features/youtube/GetYoutubeRecommendations.command'
 import { GetVideoByYoutubeIdHandler } from 'features/youtube/GetVideoByYoutubeId.command'
 import { GetYoutubeVideoHandler } from 'features/youtube/GetYoutubeVideo.command'
 import { GetYoutubeVideosHandler } from 'features/youtube/GetYoutubeVideos.command'
@@ -28,6 +29,7 @@ import { YoutubeController } from './youtube.controller'
 		GetVideoByYoutubeIdHandler,
 		CreateYoutubeVideoHandler,
 		GetSavedYoutubeVideosHandler,
+		GetYoutubeRecommendationsHandler,
 	],
 })
 export class YoutubeRouteModule {}

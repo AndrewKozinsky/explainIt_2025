@@ -81,6 +81,7 @@ export * from './videoSubtitlesStatusOutModelErrorCode';
 export * from './videoSubtitlesStatusOutModelJobId';
 export * from './videoSubtitlesStatusOutModelSource';
 export * from './videoSubtitlesStatusOutModelStatus';
+export * from './youtubeControllerGetRecommendationsParams';
 export * from './youtubeControllerGetSavedVideosParams';
 export * from './youtubeControllerGetYouTubeVideosParams';
 export * from './youtubeVideoOutModel';

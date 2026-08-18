@@ -19,12 +19,13 @@ type VideoPlayerProps = {
 	youTubeVideoId?: string
 	/** Соотношение сторон плеера в CSS-формате "1280 / 720" (из YouTube Data API) */
 	ratio?: string
-	videoId?: number
+	videoId?: number | string
 	initialTime?: number
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
-	onProgressSave?: (videoId: number, seconds: number) => void
+	onEnded?: () => void
+	onProgressSave?: (videoId: number | string, seconds: number) => void
 }
 
 // ── Общие пропсы для обоих Core-компонентов ──────────────────────────
@@ -35,6 +36,7 @@ type CommonCoreProps = {
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
+	onEnded?: () => void
 	setCurrentTime: (t: number) => void
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
@@ -53,6 +55,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
+		onEnded,
 		onProgressSave,
 	} = props
 
@@ -111,6 +114,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
+		onEnded,
 		setCurrentTime,
 		setDuration,
 		setPaused,

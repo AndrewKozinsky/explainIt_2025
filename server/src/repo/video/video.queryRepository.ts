@@ -19,6 +19,7 @@ import {
 	SubtitleSentenceInit,
 	Video,
 } from 'prisma/generated/client'
+import { shuffle } from 'utils/shuffle'
 import { UniversalPhraseQueryRepository } from '../universalPhrase/universalPhrase.queryRepository'
 
 type DbSentenceWithInit = Sentence & {
@@ -167,6 +168,94 @@ export class VideoQueryRepository {
 		const items = await Promise.all(videos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
 
 		return buildPage(items, total, resolvedPagination)
+	}
+
+	/**
+	 * Возвращает рекомендации для сохранённого YouTube-видео.
+	 *
+	 * Исходное видео определяется по YouTube ID и исключается из результата.
+	 * Рекомендации формируются по приоритетным группам: сначала совпадают язык,
+	 * уровень, тема и длительность в диапазоне от половины до полутора длительностей
+	 * исходного видео. Если этого недостаточно, критерии последовательно ослабляются:
+	 * убирается длительность, затем одно из тематических/уровневых ограничений,
+	 * после чего используются все сохранённые YouTube-видео на том же языке.
+	 *
+	 * Видео внутри каждой группы перемешиваются случайным образом. Уже выбранные
+	 * видео исключаются из следующих групп, поэтому в одном ответе нет повторов.
+	 * Если у исходного видео нулевая длительность, фильтр по длительности не применяется.
+	 *
+	 * @param videoId YouTube ID исходного сохранённого видео.
+	 * @param limit Максимальное количество рекомендаций.
+	 */
+	@CatchDbError()
+	async getRecommendationsForSavedVideo(videoId: string, limit: number): Promise<VideoLiteOutModel[]> {
+		const sourceVideo = await this.prisma.video.findUnique({
+			where: { youtube_video_id: videoId },
+		})
+
+		if (!sourceVideo) {
+			return []
+		}
+
+		const durationFilter =
+			sourceVideo.duration_sec > 0
+				? {
+						gte: Math.floor(sourceVideo.duration_sec / 2),
+						lte: Math.ceil(sourceVideo.duration_sec * 1.5),
+					}
+				: undefined
+
+		const baseWhere: Prisma.VideoWhereInput = {
+			youtube_video_id: { not: null },
+			id: { not: sourceVideo.id },
+			source_language_code: sourceVideo.source_language_code,
+		}
+
+		const buckets: Prisma.VideoWhereInput[] = [
+			{
+				...baseWhere,
+				proficiency_level: sourceVideo.proficiency_level,
+				topic: sourceVideo.topic,
+				...(durationFilter ? { duration_sec: durationFilter } : {}),
+			},
+			{
+				...baseWhere,
+				proficiency_level: sourceVideo.proficiency_level,
+				topic: sourceVideo.topic,
+			},
+			{
+				...baseWhere,
+				proficiency_level: sourceVideo.proficiency_level,
+				...(durationFilter ? { duration_sec: durationFilter } : {}),
+			},
+			{
+				...baseWhere,
+				topic: sourceVideo.topic,
+				...(durationFilter ? { duration_sec: durationFilter } : {}),
+			},
+			{ ...baseWhere, proficiency_level: sourceVideo.proficiency_level },
+			{ ...baseWhere, topic: sourceVideo.topic },
+			baseWhere,
+		]
+
+		const selectedIds = new Set<number>()
+		const selectedVideos: Video[] = []
+
+		for (const where of buckets) {
+			if (selectedVideos.length >= limit) break
+
+			const candidates = await this.prisma.video.findMany({ where })
+			shuffle(candidates)
+
+			for (const candidate of candidates) {
+				if (selectedIds.has(candidate.id)) continue
+				selectedIds.add(candidate.id)
+				selectedVideos.push(candidate)
+				if (selectedVideos.length >= limit) break
+			}
+		}
+
+		return await Promise.all(selectedVideos.map((video) => this.mapDbVideoToLiteOutVideo(video)))
 	}
 
 	private buildSavedVideosOrderBy(filters?: {

@@ -1,5 +1,4 @@
 import React from 'react'
-import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
 import OnboardingModal from '@/entities/media/ui/OnboardingModal/OnboardingModal'
 import Header from '@/shared/ui/Header/Header'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
@@ -16,11 +15,11 @@ type MediaRootProps = {
 	subHeader?: null | string
 	leftBlock: React.ReactElement
 	rightBlock: React.ReactElement
-	mediaNavigation?: React.ComponentProps<typeof MediaNavigation>
+	footer?: React.ReactNode
 }
 
 function MediaRoot(props: MediaRootProps) {
-	const { breadCrumbsConfig, subHeader, header, leftBlock, rightBlock, mediaNavigation } = props
+	const { breadCrumbsConfig, subHeader, header, leftBlock, rightBlock, footer } = props
 
 	return (
 		<>
@@ -37,7 +36,7 @@ function MediaRoot(props: MediaRootProps) {
 					<div className='reading-root__left-part'>{leftBlock}</div>
 					<div className='reading-root__right-part'>{rightBlock}</div>
 				</div>
-				{mediaNavigation && <MediaNavigation {...mediaNavigation} />}
+				{footer}
 			</div>
 		</>
 	)

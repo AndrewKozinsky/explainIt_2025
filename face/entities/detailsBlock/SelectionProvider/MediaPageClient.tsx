@@ -1,7 +1,6 @@
 'use client'
 
 import { cloneElement, useCallback, useState } from 'react'
-import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import DetailsBlock from '../DetailsBlock/DetailsBlock'
 import type { DetailsBlockMediaMetadata } from '../DetailsBlock/DetailsBlock'
@@ -22,7 +21,7 @@ type MediaPageClientProps = {
 	header?: React.ReactNode
 	subHeader?: null | string
 	leftBlock: React.ReactElement
-	mediaNavigation?: React.ComponentProps<typeof MediaNavigation>
+	footer?: React.ReactNode
 	detailsBlockMetadata: DetailsBlockMediaMetadata
 }
 
@@ -36,7 +35,7 @@ type MediaPageClientProps = {
  * (сериализуемый), а MediaPageClient доинжектит selection-пропсы на клиенте.
  */
 export function MediaPageClient(props: MediaPageClientProps) {
-	const { breadCrumbsConfig, header, subHeader, leftBlock, mediaNavigation, detailsBlockMetadata } = props
+	const { breadCrumbsConfig, header, subHeader, leftBlock, footer, detailsBlockMetadata } = props
 
 	const [selectedSentenceId, setSelectedSentenceId] = useState<number | null>(null)
 	const [selectedWordId, setSelectedWordId] = useState<number | null>(null)
@@ -65,7 +64,7 @@ export function MediaPageClient(props: MediaPageClientProps) {
 					selectedWordId={selectedWordId ?? null}
 				/>
 			}
-			mediaNavigation={mediaNavigation}
+			footer={footer}
 		/>
 	)
 }

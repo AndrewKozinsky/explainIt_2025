@@ -26,7 +26,9 @@ import type {
 
 import type {
   SavedYoutubeVideosPageOutModel,
+  VideoLiteOutModel,
   VideoOutModel,
+  YoutubeControllerGetRecommendationsParams,
   YoutubeControllerGetSavedVideosParams,
   YoutubeControllerGetYouTubeVideosParams,
   YoutubeVideosOutModel
@@ -283,6 +285,134 @@ export function useYoutubeControllerGetSavedVideos<TData = Awaited<ReturnType<ty
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
 
   const queryOptions = getYoutubeControllerGetSavedVideosQueryOptions(params,options)
+
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+
+export type youtubeControllerGetRecommendationsResponse200 = {
+  data: VideoLiteOutModel[]
+  status: 200
+}
+
+export type youtubeControllerGetRecommendationsResponseSuccess = (youtubeControllerGetRecommendationsResponse200) & {
+  headers: Headers;
+};
+;
+
+export type youtubeControllerGetRecommendationsResponse = (youtubeControllerGetRecommendationsResponseSuccess)
+
+export const getYoutubeControllerGetRecommendationsUrl = (videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams,) => {
+  const normalizedParams = new URLSearchParams();
+
+  Object.entries(params || {}).forEach(([key, value]) => {
+
+    if (value !== undefined) {
+      normalizedParams.append(key, value === null ? 'null' : String(value))
+    }
+  });
+
+  const stringifiedParams = normalizedParams.toString();
+
+  return stringifiedParams.length > 0 ? `/api/youtube/${videoId}/recommendations?${stringifiedParams}` : `/api/youtube/${videoId}/recommendations`
+}
+
+/**
+ * Returns up to 6 other saved YouTube videos. Recommendations are prioritized by matching language, proficiency level, topic, and a duration range from half to one and a half times the current video duration.
+ * @summary Get recommendations for a saved YouTube video
+ */
+export const youtubeControllerGetRecommendations = async (videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams, options?: RequestInit): Promise<youtubeControllerGetRecommendationsResponse> => {
+
+  return customMutator<youtubeControllerGetRecommendationsResponse>(getYoutubeControllerGetRecommendationsUrl(videoId,params),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getYoutubeControllerGetRecommendationsQueryKey = (videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams,) => {
+    return [
+    `/api/youtube/${videoId}/recommendations`, ...(params ? [params] : [])
+    ] as const;
+    }
+
+
+export const getYoutubeControllerGetRecommendationsQueryOptions = <TData = Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError = unknown>(videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getYoutubeControllerGetRecommendationsQueryKey(videoId,params);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>> = ({ signal }) => youtubeControllerGetRecommendations(videoId,params, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, enabled: videoId !== null && videoId !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+}
+
+export type YoutubeControllerGetRecommendationsQueryResult = NonNullable<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>>
+export type YoutubeControllerGetRecommendationsQueryError = unknown
+
+
+export function useYoutubeControllerGetRecommendations<TData = Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError = unknown>(
+ videoId: string,
+    params: undefined |  YoutubeControllerGetRecommendationsParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>,
+          TError,
+          Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useYoutubeControllerGetRecommendations<TData = Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError = unknown>(
+ videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>,
+          TError,
+          Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useYoutubeControllerGetRecommendations<TData = Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError = unknown>(
+ videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+/**
+ * @summary Get recommendations for a saved YouTube video
+ */
+
+export function useYoutubeControllerGetRecommendations<TData = Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError = unknown>(
+ videoId: string,
+    params?: YoutubeControllerGetRecommendationsParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof youtubeControllerGetRecommendations>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
+
+  const queryOptions = getYoutubeControllerGetRecommendationsQueryOptions(videoId,params,options)
 
   const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
 

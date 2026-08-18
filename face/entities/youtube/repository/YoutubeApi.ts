@@ -1,14 +1,17 @@
 import { mapToVideoLite, mapVideoOutModelToVideoModel } from '@/entities/video/lib/mappers'
-import type { VideoModel } from '@/entities/video/lib/types'
+import type { VideoLiteModel, VideoModel } from '@/entities/video/lib/types'
 import type {
 	SavedYoutubeVideosPageOutModel,
 	YoutubeControllerGetSavedVideosParams as OrvalGetSavedVideosParams,
+	YoutubeControllerGetRecommendationsParams as OrvalGetRecommendationsParams,
 	YoutubeControllerGetYouTubeVideosParams as OrvalSearchVideosParams,
 	YoutubeVideoOutModel,
 	YoutubeVideosOutModel,
+	VideoLiteOutModel,
 } from '@/shared/api/generated/models'
 import {
 	youtubeControllerCreateVideo,
+	youtubeControllerGetRecommendations,
 	youtubeControllerGetSavedVideos,
 	youtubeControllerGetVideoTopics,
 	youtubeControllerGetYouTubeVideos,
@@ -19,6 +22,7 @@ import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { formatDurationSec } from '@/shared/utils/time'
 import type {
 	GetSavedYoutubeVideosParams,
+	GetRecommendationsForSavedVideoParams,
 	GetYoutubeVideosParams,
 	SavedVideosPage,
 	YoutubeVideoModel,
@@ -55,6 +59,16 @@ export class YoutubeApi implements YoutubeRepository {
 				total: data.total,
 				totalPages: data.totalPages,
 			}),
+		)
+	}
+
+	async getRecommendationsForSavedVideo(
+		videoId: string,
+		params?: GetRecommendationsForSavedVideoParams,
+	): Promise<ApiResult<VideoLiteModel[]>> {
+		return executeApiCall(
+			() => youtubeControllerGetRecommendations(videoId, params as OrvalGetRecommendationsParams),
+			(data: VideoLiteOutModel[]) => data.map(mapToVideoLite),
 		)
 	}
 

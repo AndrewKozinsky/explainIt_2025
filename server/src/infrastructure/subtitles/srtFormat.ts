@@ -1,9 +1,8 @@
 /**
  * Общие чистые помощники для форматирования SRT-таймкодов.
  *
- * Вынесены в отдельный модуль, потому что используются и `SubtitlesService`
- * (сборка SRT из Deepgram-utterances), и конвертером YouTube VTT → SRT
- * (`youtubeVttToSrt.ts`).
+ * Вынесены в отдельный модуль, потому что используются в `SubtitlesService`
+ * (сборка SRT из Deepgram-utterances).
  */
 
 /**

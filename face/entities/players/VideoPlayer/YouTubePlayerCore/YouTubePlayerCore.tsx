@@ -18,6 +18,7 @@ type YouTubePlayerCoreProps = {
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
+	onEnded?: () => void
 	setCurrentTime: (t: number) => void
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
@@ -40,6 +41,7 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
+		onEnded,
 		setCurrentTime,
 		setDuration,
 		setPaused,
@@ -151,6 +153,11 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 							const t = event.target.getCurrentTime()
 							setCurrentTime(t)
 							onTimeUpdate?.(t)
+						} else if (state === YouTubePlayerState.ENDED) {
+							setPaused(true)
+							onPlayStateChange?.(true)
+							stopPolling()
+							onEnded?.()
 						}
 					},
 
