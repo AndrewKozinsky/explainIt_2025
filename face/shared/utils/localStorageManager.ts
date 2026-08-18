@@ -1,5 +1,7 @@
 import { LanguageCode, languages } from '@/shared/utils/languages'
 
+type VideoProgressId = number | string
+
 /**
  * Централизованный доступ к localStorage.
  *
@@ -61,7 +63,7 @@ export const localStorageManager = {
 		 * @param videoId — ID видео
 		 * @returns позиция в секундах или 0, если запись отсутствует
 		 */
-		get(videoId: number): number {
+		get(videoId: VideoProgressId): number {
 			if (typeof window === 'undefined') return 0
 
 			const key = videoProgressKey(videoId)
@@ -71,7 +73,7 @@ export const localStorageManager = {
 			const value = Number(raw)
 			if (!Number.isFinite(value) || value <= 0) return 0
 
-			return raw
+			return value
 		},
 
 		/**
@@ -80,7 +82,7 @@ export const localStorageManager = {
 		 * @param videoId — ID видео
 		 * @param seconds — позиция в секундах
 		 */
-		set(videoId: number, seconds: number) {
+		set(videoId: VideoProgressId, seconds: number) {
 			if (typeof window === 'undefined') return
 			if (!Number.isFinite(seconds) || seconds <= 0) return
 
@@ -93,7 +95,7 @@ export const localStorageManager = {
 		 * Используется после полного просмотра, чтобы следующее открытие
 		 * начиналось с начала.
 		 */
-		remove(videoId: number) {
+		remove(videoId: VideoProgressId) {
 			if (typeof window === 'undefined') return
 
 			window.localStorage.removeItem(videoProgressKey(videoId))
@@ -107,7 +109,7 @@ export const localStorageManager = {
 		 * @param options.throttleMs — интервал троттлинга в мс (по умолчанию 1000)
 		 * @returns функция `(seconds: number) => void`, которую можно вызывать часто
 		 */
-		createSaver(videoId: number, options?: { throttleMs?: number }): (seconds: number) => void {
+		createSaver(videoId: VideoProgressId, options?: { throttleMs?: number }): (seconds: number) => void {
 			const throttleMs = options?.throttleMs ?? 1000
 			let lastSavedTs = 0
 
@@ -390,6 +392,6 @@ function lastMediaTabKey(pageKey: string) {
 
 // ── videoProgress helpers ──────────────────────────────────────────────────
 
-function videoProgressKey(videoId: number) {
+function videoProgressKey(videoId: VideoProgressId) {
 	return `video_progress_seconds:${videoId}`
 }
