@@ -1,7 +1,11 @@
 import { infiniteQueryOptions, queryOptions, type QueryClient } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { youtubeService, YoutubeService } from './YoutubeService'
-import type { GetSavedYoutubeVideosParams, GetYoutubeVideosParams } from './repository/YoutubeRepository'
+import type {
+	GetSavedYoutubeVideosParams,
+	GetRecommendationsForSavedVideoParams,
+	GetYoutubeVideosParams,
+} from './repository/YoutubeRepository'
 
 /** Количество сохранённых видео на одной странице. */
 const SAVED_VIDEOS_PAGE_SIZE = 12
@@ -16,6 +20,8 @@ export const youtubeQueryKeys = {
 	topics: () => [...youtubeQueryKeys.all, 'topics'] as const,
 	videos: (params: GetYoutubeVideosParams) => [...youtubeQueryKeys.all, 'videos', params] as const,
 	savedVideos: (params: GetSavedYoutubeVideosParams) => [...youtubeQueryKeys.all, 'savedVideos', params] as const,
+	recommendations: (videoId: string, params?: GetRecommendationsForSavedVideoParams) =>
+		[...youtubeQueryKeys.all, 'recommendations', videoId, params] as const,
 }
 
 /**
@@ -47,6 +53,14 @@ export class YoutubeQueryFacade {
 					this.service.getSavedVideos({ ...params, page: pageParam, pageSize: SAVED_VIDEOS_PAGE_SIZE }),
 				),
 			getNextPageParam: (lastPage) => (lastPage.page < lastPage.totalPages ? lastPage.page + 1 : undefined),
+		})
+	}
+
+	getRecommendationsForSavedVideo(videoId: string, params?: GetRecommendationsForSavedVideoParams) {
+		return queryOptions({
+			queryKey: youtubeQueryKeys.recommendations(videoId, params),
+			queryFn: () => unwrapApiResult(this.service.getRecommendationsForSavedVideo(videoId, params)),
+			enabled: videoId.length > 0,
 		})
 	}
 

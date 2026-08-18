@@ -43,6 +43,11 @@ export type GetSavedYoutubeVideosParams = {
 	sortDirection?: 'asc' | 'desc'
 }
 
+/** Параметры получения рекомендаций для сохранённого YouTube-видео. */
+export type GetRecommendationsForSavedVideoParams = {
+	limit?: number
+}
+
 /** Одна страница сохранённых видео вместе с метаданными пагинации. */
 export type SavedVideosPage = {
 	items: VideoLiteModel[]
@@ -69,6 +74,11 @@ export type YoutubeRepository = {
 	getOrCreateYouTubeVideo(videoId: string): Promise<ApiResult<VideoModel>>
 	/** Получить сохранённые YouTube-видео с фильтрами */
 	getSavedVideos(params?: GetSavedYoutubeVideosParams): Promise<ApiResult<SavedVideosPage>>
+	/** Получить рекомендации для сохранённого YouTube-видео */
+	getRecommendationsForSavedVideo(
+		videoId: string,
+		params?: GetRecommendationsForSavedVideoParams,
+	): Promise<ApiResult<VideoLiteModel[]>>
 	/** Получить список категорий (тем) видео */
 	getVideoTopics(): Promise<ApiResult<string[]>>
 }
