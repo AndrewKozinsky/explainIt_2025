@@ -24,6 +24,7 @@ type VideoPlayerProps = {
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
+	onEnded?: () => void
 	onProgressSave?: (videoId: number, seconds: number) => void
 }
 
@@ -35,6 +36,7 @@ type CommonCoreProps = {
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
+	onEnded?: () => void
 	setCurrentTime: (t: number) => void
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
@@ -53,6 +55,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
+		onEnded,
 		onProgressSave,
 	} = props
 
@@ -111,6 +114,7 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
+		onEnded,
 		setCurrentTime,
 		setDuration,
 		setPaused,

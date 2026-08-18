@@ -63,6 +63,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 				onDurationChange={(d) => setPlayerState({ duration: d })}
 				onPlayStateChange={(p) => setPlayerState({ paused: p })}
 				onProgressSave={(id, seconds) => localStorageManager.videoProgress.set(id, seconds)}
+				onEnded={() => localStorageManager.videoProgress.remove(videoId)}
 			/>
 			<SubtitlesStatusRouter
 				subtitlesStatus={subtitlesStatus}

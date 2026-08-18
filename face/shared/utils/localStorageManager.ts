@@ -71,7 +71,7 @@ export const localStorageManager = {
 			const value = Number(raw)
 			if (!Number.isFinite(value) || value <= 0) return 0
 
-			return value
+			return raw
 		},
 
 		/**
@@ -86,6 +86,17 @@ export const localStorageManager = {
 
 			const key = videoProgressKey(videoId)
 			window.localStorage.setItem(key, String(seconds))
+		},
+
+		/**
+		 * Удаляет сохранённую позицию видео.
+		 * Используется после полного просмотра, чтобы следующее открытие
+		 * начиналось с начала.
+		 */
+		remove(videoId: number) {
+			if (typeof window === 'undefined') return
+
+			window.localStorage.removeItem(videoProgressKey(videoId))
 		},
 
 		/**

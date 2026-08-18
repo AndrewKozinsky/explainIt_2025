@@ -14,6 +14,7 @@ type NativePlayerCoreProps = {
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
+	onEnded?: () => void
 	setCurrentTime: (t: number) => void
 	setDuration: (d: number) => void
 	setPaused: (p: boolean) => void
@@ -30,6 +31,7 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
+		onEnded,
 		setCurrentTime,
 		setDuration,
 		setPaused,
@@ -79,6 +81,7 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 					setPaused(true)
 					onPlayStateChange?.(true)
 				}}
+				onEnded={onEnded}
 			/>
 			<VideoProgress />
 		</div>
