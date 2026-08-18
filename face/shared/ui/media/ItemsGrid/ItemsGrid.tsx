@@ -3,13 +3,14 @@ import './ItemsGrid.scss'
 
 type MediaItemsGridWithDataProps = {
 	children: React.ReactNode[]
+	size?: 'small' | 'medium'
 }
 
 function ItemsGrid(props: MediaItemsGridWithDataProps) {
-	const { children } = props
+	const { children, size = 'medium' } = props
 
 	return (
-		<div className='items-grid'>
+		<div className={`items-grid items-grid--${size}`}>
 			{children.map((item, index) => (
 				<React.Fragment key={index}>{item}</React.Fragment>
 			))}

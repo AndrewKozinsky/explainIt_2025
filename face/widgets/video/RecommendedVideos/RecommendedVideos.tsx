@@ -22,14 +22,8 @@ function RecommendedVideos(props: RecommendedVideosProps) {
 	}
 
 	return (
-		<ItemsGrid>
+		<ItemsGrid size='small'>
 			{items.map(function (videoData) {
-				if (videoData.durationSeconds > 60 * 60) {
-					return (
-						<MediaCardLongVideo key={videoData.id} title={videoData.name} duration={videoData.duration} />
-					)
-				}
-
 				return (
 					<MediaCardButton
 						key={videoData.id}
@@ -40,6 +34,7 @@ function RecommendedVideos(props: RecommendedVideosProps) {
 						coverUrl={videoData.coverUrl}
 						url={pageUrls.videos.video(videoData.youtubeVideoId ?? videoData.id).path}
 						defaultMediaName={videoConfig.newVideoEmptyName}
+						size='small'
 					/>
 				)
 			})}

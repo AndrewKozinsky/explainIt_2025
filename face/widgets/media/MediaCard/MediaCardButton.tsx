@@ -10,13 +10,24 @@ type MediaCardProps = {
 	url: string
 	coverUrl?: null | string
 	defaultMediaName: string
+	size?: 'small' | 'medium'
 }
 
 function MediaCardButton(props: MediaCardProps) {
-	const { title, subTitle, theme, proficiencyLevel, duration, url, coverUrl, defaultMediaName } = props
+	const {
+		title,
+		subTitle,
+		theme,
+		proficiencyLevel,
+		duration,
+		url,
+		coverUrl,
+		defaultMediaName,
+		size = 'medium',
+	} = props
 
 	return (
-		<BaseButton href={url} extraClass='media-card-button' theme='outline'>
+		<BaseButton href={url} extraClass={`media-card-button media-card-button--${size}`} theme='outline'>
 			<div className='media-card-button__cover' style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}>
 				<div className='media-card-button__cover-shelf'>
 					{theme ? <span className='media-card-button__brick'>{theme}</span> : <span />}
