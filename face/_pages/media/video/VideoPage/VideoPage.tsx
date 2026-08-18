@@ -1,5 +1,4 @@
 'use client'
-
 import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -7,6 +6,7 @@ import { getHeader } from './fn/getHeader'
 import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
+import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
 
 type VideoRootProps = {
 	videoId: string
@@ -57,6 +57,7 @@ function VideoPage(props: VideoRootProps) {
 				languageCode: video.languageCode,
 				sentences: video.plainSentences,
 			}}
+			footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 		/>
 	)
 }
