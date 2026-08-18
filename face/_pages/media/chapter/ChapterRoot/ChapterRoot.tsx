@@ -2,6 +2,7 @@ import { booksService } from '@/entities/book/BooksService'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import { chaptersService } from '@/entities/chapter/ChaptersService'
 import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
+import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
 import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
@@ -38,7 +39,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 
 	const { header, subHeader } = getHeaderAndSubHeader(chapter)
 	const breadCrumbsConfig = getChapterBreadCrumbsConfig(bookId.toString(), book.name ?? bookConfig.emptyBookName)
-	const mediaNavigation = getMediaNavigationData(book, chapter)
+	const footer = <MediaNavigation {...getMediaNavigationData(book, chapter)} />
 
 	return (
 		<MediaPageClient
@@ -53,7 +54,7 @@ async function ChapterRoot(props: ChapterRootProps) {
 				languageCode: book.languageCode,
 				sentences: chapter.sentences,
 			}}
-			mediaNavigation={mediaNavigation}
+			footer={footer}
 		/>
 	)
 }
