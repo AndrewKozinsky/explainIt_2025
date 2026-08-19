@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef } from 'react'
-import type { SelectionProps } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
 import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
@@ -13,7 +12,10 @@ import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 import { useYouTubeVideoStore } from '../videoStore'
 
-type VideoClientWrapperProps = SelectionProps & {
+type VideoClientWrapperProps = {
+	selectedSentenceId?: null | number
+	selectedWordId?: null | number
+	selectWord?: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: LanguageCode
 	contentType: VideoContentType
 	plainSentences: null | SentenceModel[]
