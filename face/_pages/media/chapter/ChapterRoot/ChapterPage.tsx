@@ -1,6 +1,5 @@
 'use client'
 
-import { useCallback, useState } from 'react'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
@@ -11,24 +10,21 @@ import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { getMediaNavigationData } from './fn/getMediaNavigationData'
 import { useChapterData } from './fn/useChapterData'
+import { setupDeps } from './fn/setupDeps'
+
+const { useMediaStore } = setupDeps()
 
 type ChapterRootProps = {
 	chapterId: number | string
 	bookId: number | string
 }
 
-function ChapterRoot(props: ChapterRootProps) {
+function ChapterPage(props: ChapterRootProps) {
 	const { chapterId, bookId } = props
 
 	const { book, chapter, loading, bookError, chapterError } = useChapterData(Number(bookId), Number(chapterId))
 
-	const [selectedSentenceId, setSelectedSentenceId] = useState<number | null>(null)
-	const [selectedWordId, setSelectedWordId] = useState<number | null>(null)
-
-	const selectWord = useCallback((input: { sentenceId: number; wordId: number }) => {
-		setSelectedSentenceId(input.sentenceId)
-		setSelectedWordId(input.wordId)
-	}, [])
+	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
 	if (loading) {
 		return null
@@ -84,4 +80,4 @@ function ChapterRoot(props: ChapterRootProps) {
 	)
 }
 
-export default ChapterRoot
+export default ChapterPage

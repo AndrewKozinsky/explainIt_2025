@@ -1,6 +1,5 @@
 'use client'
 
-import { useCallback, useState } from 'react'
 import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
@@ -10,6 +9,9 @@ import { getHeader } from './fn/getHeader'
 import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
+import { setupDeps } from './fn/setupDeps'
+
+const { useMediaStore } = setupDeps()
 
 type VideoRootProps = {
 	videoId: string
@@ -22,13 +24,7 @@ function VideoPage(props: VideoRootProps) {
 
 	usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
-	const [selectedSentenceId, setSelectedSentenceId] = useState<number | null>(null)
-	const [selectedWordId, setSelectedWordId] = useState<number | null>(null)
-
-	const selectWord = useCallback((input: { sentenceId: number; wordId: number }) => {
-		setSelectedSentenceId(input.sentenceId)
-		setSelectedWordId(input.wordId)
-	}, [])
+	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
 	if (error) {
 		return <ErrorMessage text={error} />
