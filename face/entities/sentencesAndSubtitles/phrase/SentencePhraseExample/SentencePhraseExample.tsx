@@ -1,4 +1,4 @@
-import { PhraseExample } from '@/entities/detailsBlock/detailsStore'
+import type { PhraseExample } from '@/entities/media/store/translationTypes'
 import './SentencePhraseExample.scss'
 
 function SentencePhraseExample({ example }: { example: PhraseExample }) {

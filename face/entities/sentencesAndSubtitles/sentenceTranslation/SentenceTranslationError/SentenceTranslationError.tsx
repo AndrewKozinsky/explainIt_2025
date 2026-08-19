@@ -1,4 +1,4 @@
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import './SentenceTranslationError.scss'
@@ -10,13 +10,14 @@ type SentenceTranslationErrorProps = {
 
 function SentenceTranslationError(props: SentenceTranslationErrorProps) {
 	const { sentenceId, error } = props
+	const mediaStore = useMediaStoreContext()
 
 	if (!error) {
 		return null
 	}
 
 	function handleRetry() {
-		useDetailsStore.getState().retrySentenceTranslation(sentenceId)
+		mediaStore.getState().retrySentenceTranslation(sentenceId)
 	}
 
 	return (

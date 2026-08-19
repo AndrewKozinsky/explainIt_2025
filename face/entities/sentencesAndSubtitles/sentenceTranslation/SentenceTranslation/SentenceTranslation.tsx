@@ -1,6 +1,5 @@
 import cn from 'classnames'
-import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import SentenceTranslationContent from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationContent/SentenceTranslationContent'
 import SentenceTranslationError from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationError/SentenceTranslationError'
 import SentenceTranslationLoading from '@/entities/sentencesAndSubtitles/sentenceTranslation/SentenceTranslationLoading/SentenceTranslationLoading'
@@ -14,9 +13,8 @@ type SentenceTranslationProps = {
 function SentenceTranslation(props: SentenceTranslationProps) {
 	const { sentenceId, bgColor } = props
 
-	const sentenceEntry = useDetailsStore(function (s) {
-		return findSentenceEntry({ sentences: s.sentences, sentenceId })
-	})
+	const mediaStore = useMediaStoreContext()
+	const sentenceEntry = mediaStore((s) => s.sentences.find((entry) => entry.sentenceId === sentenceId))
 
 	if (!sentenceEntry || !sentenceEntry.data.translation.visible) {
 		return null

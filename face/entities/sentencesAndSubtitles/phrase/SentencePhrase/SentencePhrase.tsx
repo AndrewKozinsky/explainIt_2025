@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { SentencePhraseType } from '@/entities/detailsBlock/detailsStore'
+import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
 import SentencePhraseContent from '../SentencePhraseContent/SentencePhraseContent'
 import SentencePhraseError from '../SentencePhraseError/SentencePhraseError'
 import SentencePhraseLoading from '../SentencePhraseLoading/SentencePhraseLoading'

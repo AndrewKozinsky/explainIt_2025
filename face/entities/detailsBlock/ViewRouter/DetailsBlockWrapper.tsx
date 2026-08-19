@@ -1,5 +1,5 @@
 import cn from 'classnames'
-import { useDetailsStore } from '../detailsStore'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import DialogContent from '../DialogContent/DialogContent'
 import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
@@ -7,7 +7,8 @@ import WordsContent from '../WordsContent/WordsContent'
 import './DetailsBlockWrapper.scss'
 
 function DetailsBlockWrapper() {
-	const sentenceId = useDetailsStore((store) => store.currentSentenceId)
+	const mediaStore = useMediaStoreContext()
+	const sentenceId = mediaStore((store) => store.selectedSentenceId)
 
 	if (!sentenceId) {
 		return (

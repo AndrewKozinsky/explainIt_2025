@@ -1,5 +1,4 @@
-import { findSentenceEntry } from '@/entities/detailsBlock/DetailsBlock/fn/selectors'
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import SentencePhrase from '../SentencePhrase/SentencePhrase'
 import './SentencePhraseAnalyses.scss'
 
@@ -10,12 +9,10 @@ type SentencePhraseAnalysesProps = {
 function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 	const { languageCode } = props
 
-	const currentSentenceId = useDetailsStore((s) => s.currentSentenceId)
-	const phrases = useDetailsStore(function (s) {
-		const entry = findSentenceEntry({
-			sentences: s.sentences,
-			sentenceId: currentSentenceId,
-		})
+	const mediaStore = useMediaStoreContext()
+	const currentSentenceId = mediaStore((s) => s.selectedSentenceId)
+	const phrases = mediaStore(function (s) {
+		const entry = s.sentences.find((item) => item.sentenceId === currentSentenceId)
 
 		return entry?.data.phrases ?? null
 	})

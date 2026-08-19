@@ -1,6 +1,8 @@
 'use client'
 
 import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
+import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
+import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -26,6 +28,15 @@ function VideoPage(props: VideoRootProps) {
 
 	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
+	useMediaTranslations({
+		videoName: video?.name,
+		languageCode: video?.languageCode,
+		sentences: video?.plainSentences,
+		selectedSentenceId,
+		selectedWordId,
+		mediaStore: useMediaStore,
+	})
+
 	if (error) {
 		return <ErrorMessage text={error} />
 	}
@@ -37,42 +48,32 @@ function VideoPage(props: VideoRootProps) {
 	const { header } = getHeader(video)
 
 	return (
-		<MediaRoot
-			breadCrumbsConfig={[pageUrls.videos]}
-			header={header}
-			leftBlock={
-				<VideoClientWrapper
-					languageCode={video.languageCode}
-					contentType={video.contentType}
-					plainSentences={video.plainSentences}
-					subtitles={video.subtitles}
-					fileUrl={video.fileUrl ?? ''}
-					youTubeVideoId={video.youtubeVideoId ?? ''}
-					videoId={video.id}
-					ratio={video.ratio}
-					subtitlesStatus={video.subtitlesStatus}
-					subtitlesErrorCode={video.subtitlesErrorCode}
-					durationSeconds={video.durationSeconds}
-					selectedSentenceId={selectedSentenceId}
-					selectedWordId={selectedWordId}
-					selectWord={selectWord}
-				/>
-			}
-			rightBlock={
-				<DetailsBlock
-					bookName={null}
-					bookAuthor={null}
-					chapterId={null}
-					videoId={video.id}
-					videoName={video.name}
-					languageCode={video.languageCode}
-					sentences={video.plainSentences}
-					selectedSentenceId={selectedSentenceId}
-					selectedWordId={selectedWordId}
-				/>
-			}
-			footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
-		/>
+		<MediaStoreProvider store={useMediaStore}>
+			<MediaRoot
+				breadCrumbsConfig={[pageUrls.videos]}
+				header={header}
+				leftBlock={
+					<VideoClientWrapper
+						languageCode={video.languageCode}
+						contentType={video.contentType}
+						plainSentences={video.plainSentences}
+						subtitles={video.subtitles}
+						fileUrl={video.fileUrl ?? ''}
+						youTubeVideoId={video.youtubeVideoId ?? ''}
+						videoId={video.id}
+						ratio={video.ratio}
+						subtitlesStatus={video.subtitlesStatus}
+						subtitlesErrorCode={video.subtitlesErrorCode}
+						durationSeconds={video.durationSeconds}
+						selectedSentenceId={selectedSentenceId}
+						selectedWordId={selectedWordId}
+						selectWord={selectWord}
+					/>
+				}
+				rightBlock={<DetailsBlock />}
+				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
+			/>
+		</MediaStoreProvider>
 	)
 }
 

@@ -5,6 +5,8 @@ import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
+import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
+import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
@@ -25,6 +27,16 @@ function ChapterPage(props: ChapterRootProps) {
 	const { book, chapter, loading, bookError, chapterError } = useChapterData(Number(bookId), Number(chapterId))
 
 	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
+
+	useMediaTranslations({
+		bookName: book?.name,
+		bookAuthor: book?.author,
+		languageCode: book?.languageCode,
+		sentences: chapter?.sentences,
+		selectedSentenceId,
+		selectedWordId,
+		mediaStore: useMediaStore,
+	})
 
 	if (loading) {
 		return null
@@ -48,35 +60,26 @@ function ChapterPage(props: ChapterRootProps) {
 
 	const { header, subHeader } = getHeaderAndSubHeader(chapter)
 	const breadCrumbsConfig = getChapterBreadCrumbsConfig(bookId.toString(), book.name ?? bookConfig.emptyBookName)
-	const footer = <MediaNavigation {...getMediaNavigationData(book, chapter)} />
 
 	return (
-		<MediaRoot
-			breadCrumbsConfig={breadCrumbsConfig}
-			header={header}
-			subHeader={subHeader}
-			leftBlock={
-				<Sentences
-					languageCode={book.languageCode}
-					sentences={chapter.sentences ?? []}
-					selectedSentenceId={selectedSentenceId}
-					selectedWordId={selectedWordId}
-					selectWord={selectWord}
-				/>
-			}
-			rightBlock={
-				<DetailsBlock
-					bookName={book.name}
-					bookAuthor={book.author}
-					chapterId={chapter.id}
-					languageCode={book.languageCode}
-					sentences={chapter.sentences}
-					selectedSentenceId={selectedSentenceId}
-					selectedWordId={selectedWordId}
-				/>
-			}
-			footer={footer}
-		/>
+		<MediaStoreProvider store={useMediaStore}>
+			<MediaRoot
+				breadCrumbsConfig={breadCrumbsConfig}
+				header={header}
+				subHeader={subHeader}
+				leftBlock={
+					<Sentences
+						languageCode={book.languageCode}
+						sentences={chapter.sentences ?? []}
+						selectedSentenceId={selectedSentenceId}
+						selectedWordId={selectedWordId}
+						selectWord={selectWord}
+					/>
+				}
+				rightBlock={<DetailsBlock />}
+				footer={<MediaNavigation {...getMediaNavigationData(book, chapter)} />}
+			/>
+		</MediaStoreProvider>
 	)
 }
 

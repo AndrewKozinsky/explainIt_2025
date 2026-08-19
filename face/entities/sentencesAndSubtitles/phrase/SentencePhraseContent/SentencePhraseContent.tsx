@@ -1,4 +1,4 @@
-import { SentencePhraseType } from '@/entities/detailsBlock/detailsStore'
+import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
 import SentencePhraseExample from '../SentencePhraseExample/SentencePhraseExample'
 import SentencePhraseTop from '../SentencePhraseTop/SentencePhraseTop'
 import './SentencePhraseContent.scss'

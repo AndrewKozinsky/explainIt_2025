@@ -1,4 +1,5 @@
-import { SentencePhraseType, useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import './SentencePhraseError.scss'
@@ -10,6 +11,7 @@ type SentencePhraseErrorProps = {
 
 function SentencePhraseError(props: SentencePhraseErrorProps) {
 	const { phraseAnalysis, sentenceId } = props
+	const mediaStore = useMediaStoreContext()
 
 	if (!phraseAnalysis) {
 		return null
@@ -20,7 +22,7 @@ function SentencePhraseError(props: SentencePhraseErrorProps) {
 	}
 
 	function handleRetry() {
-		useDetailsStore.getState().retryPhraseTranslation(sentenceId, phraseAnalysis.randomGeneratedPhraseId)
+		mediaStore.getState().retryPhraseTranslation(sentenceId, phraseAnalysis.randomGeneratedPhraseId)
 	}
 
 	return (
