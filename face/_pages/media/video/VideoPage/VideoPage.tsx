@@ -1,4 +1,5 @@
 'use client'
+
 import { MediaPageClient } from '@/entities/detailsBlock/SelectionProvider/MediaPageClient'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'

@@ -1,9 +1,9 @@
 export type AIProviderName = 'deepseek' | 'chatgpt' | 'gemini'
 
 export enum OpenAIModels {
-	Standard = 'gpt-5',
-	Mini = 'gpt-5-mini',
-	Nano = 'gpt-5-nano',
+	Nano = 'gpt-5.6-luna',
+	Mini = 'gpt-5.6-terra',
+	Standard = 'gpt-5.6-sol',
 }
 
 export enum DeepSeekModels {
@@ -28,7 +28,7 @@ export function getProviderFromModel(model: AiModel): AIProviderName {
 }
 
 /** Дешёвая/быстрая модель по умолчанию (flash-тир). */
-export const DEFAULT_FLASH_AI_MODEL: AiModel = DeepSeekModels.Flash
+export const DEFAULT_FLASH_AI_MODEL: AiModel = OpenAIModels.Nano
 
 /** Более «умная» модель по умолчанию (pro-тир). */
 export const DEFAULT_SMART_AI_MODEL: AiModel = DeepSeekModels.Pro
