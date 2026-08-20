@@ -1,8 +1,4 @@
 .details-block {
-	flex-grow: 1;
-	position: sticky;
-	top: 0;
-	left: 0;
+	// Позиционирование и высоту задаёт ViewportSyncedHeight
 	display: flex;
-	box-sizing: border-box;
 }

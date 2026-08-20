@@ -1,0 +1,12 @@
+// Трек занимает всё место, отведённое родителем, но сам не влияет на его высоту.
+// Поэтому высота контейнера внутри не может влиять сама на себя.
+// Родитель обязан иметь position: relative.
+.viewport-synced-height {
+	position: absolute;
+	inset: 0;
+}
+
+.viewport-synced-height__container {
+	position: sticky;
+	box-sizing: border-box;
+}

@@ -4,7 +4,7 @@ import './DetailsBlock.scss'
 
 function DetailsBlock() {
 	return (
-		<ViewportSyncedHeight extraClass='details-block'>
+		<ViewportSyncedHeight extraClass='details-block' gapTop={10} gapBottom={10}>
 			<DetailsBlockWrapper />
 		</ViewportSyncedHeight>
 	)

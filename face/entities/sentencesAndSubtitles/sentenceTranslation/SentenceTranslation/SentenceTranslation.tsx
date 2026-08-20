@@ -25,7 +25,7 @@ function SentenceTranslation(props: SentenceTranslationProps) {
 	const translationText = sentenceEntry.data.translation.text
 
 	return (
-		<p
+		<div
 			className={cn(
 				'sentence-translation',
 				'sentence-translation--' + bgColor,
@@ -35,7 +35,7 @@ function SentenceTranslation(props: SentenceTranslationProps) {
 			<SentenceTranslationLoading loading={loading} />
 			<SentenceTranslationError sentenceId={sentenceId} error={error} />
 			<SentenceTranslationContent translationText={translationText} />
-		</p>
+		</div>
 	)
 }
 
