@@ -10,6 +10,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LanguageCode } from 'prisma/generated/enums'
+import { LLM_TRANSLATION_TIMEOUT_MS } from 'utils/time'
 import { ensureModeIsAllowedOrThrow } from '../translateCommon/TranslationHandler.utils'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 
@@ -223,6 +224,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				{ role: 'user', content: input.text },
 			],
 			lowPriority: input.lowPriority ?? false,
+			timeoutMs: LLM_TRANSLATION_TIMEOUT_MS,
 		})
 
 		return result.content

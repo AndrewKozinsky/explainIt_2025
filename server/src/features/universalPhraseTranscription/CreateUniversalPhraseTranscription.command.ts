@@ -3,6 +3,7 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPh
 import { UniversalTranscriptionQueryRepository } from 'repo/universalPhrase/universalTranscription.queryRepository'
 import { UniversalTranscriptionRepository } from 'repo/universalPhrase/universalTranscription.repository'
 import { canLanguageHaveTranscription } from 'utils/languages'
+import { LLM_TRANSLATION_TIMEOUT_MS } from 'utils/time'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -90,6 +91,7 @@ export class GetOrCreateUniversalPhraseTranscriptionHandler implements ICommandH
 				{ role: 'user', content: userPrompt },
 			],
 			responseFormat: 'json_object',
+			timeoutMs: LLM_TRANSLATION_TIMEOUT_MS,
 		})
 
 		if (!response.content) {

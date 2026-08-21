@@ -19,7 +19,7 @@ export class UniversalPhraseTranslationController {
 	async getOrCreateTranslation(
 		@Body() input: GetOrCreateUniversalPhraseTranslationInput,
 	): Promise<UniversalPhraseTranslationOutModel> {
-		const result = await this.commandBus.execute(
+		return await this.commandBus.execute(
 			new GetOrCreateUniversalPhraseTranslationCommand({
 				universalPhraseId: input.universalPhraseId,
 				phraseText: input.phraseText,
@@ -28,7 +28,5 @@ export class UniversalPhraseTranslationController {
 				model: input.model as AiModel,
 			}),
 		)
-
-		return result
 	}
 }
