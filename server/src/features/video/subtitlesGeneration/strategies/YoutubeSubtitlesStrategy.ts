@@ -232,6 +232,7 @@ export class YoutubeSubtitlesStrategy {
 					proficiencyLevel: metadata.proficiencyLevel,
 					topic: metadata.topic,
 					learnabilityScore: metadata.learnabilityScore,
+					languageCode: metadata.language,
 				}),
 			)
 

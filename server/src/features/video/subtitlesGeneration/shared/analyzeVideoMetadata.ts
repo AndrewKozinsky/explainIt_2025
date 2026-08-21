@@ -1,12 +1,14 @@
 import { Logger } from '@nestjs/common'
 import { DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
 import { VIDEO_TOPICS } from 'utils/videoTopics'
+import { Language, pickValidLanguage } from 'utils/languages'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type VideoMetadata = {
+	language: Language // ISO 639-1 код языка (валидируется по utils/languages)
 	proficiencyLevel: number // 1-6 (A1=1 … C2=6)
 	topic: string // одна из TOPICS
 	learnabilityScore: number // 1-10
@@ -182,7 +184,10 @@ export async function analyzeVideoMetadata(
 		return null
 	}
 
+	const language = pickValidLanguage(parsed.language) || 'en'
+
 	return {
+		language,
 		proficiencyLevel,
 		topic,
 		learnabilityScore,

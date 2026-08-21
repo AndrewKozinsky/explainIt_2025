@@ -34,9 +34,7 @@ function DictionaryContent() {
 		[currentSentenceText, currentWordId, languageCode],
 	)
 
-	if (!languageCode) {
-		return null
-	}
+	if (!languageCode) return null
 
 	return <PhraseDictionary languageCode={languageCode} phrase={phrase} words={words} />
 }

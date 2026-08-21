@@ -68,3 +68,15 @@ export const languages: Record<SupportedLanguageCode, { name: string; nameEng: s
 export function canLanguageHaveTranscription(languageCode: LanguageCode): boolean {
 	return [languages.en.code, languages.fr.code].includes(languageCode)
 }
+
+/**
+ * Нормализует произвольное значение в поддерживаемый код языка.
+ * Приводит к нижнему регистру и сверяет со справочником `languages`.
+ * Возвращает `null`, если значение не является поддерживаемым языком.
+ */
+export function pickValidLanguage(language: unknown): Language | null {
+	if (typeof language !== 'string') return null
+
+	const code = language.trim().toLowerCase()
+	return code in languages ? (code as Language) : null
+}
