@@ -1,4 +1,5 @@
 import cn from 'classnames'
+import { useState } from 'react'
 import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import DialogContent from '../DialogContent/DialogContent'
 import DictionaryContent from '../DictionaryContent/DictionaryContent'
@@ -6,7 +7,10 @@ import InfoViewSwitcher from '../InfoViewSwitcher'
 import WordsContent from '../WordsContent/WordsContent'
 import './DetailsBlockWrapper.scss'
 
+export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
+
 function DetailsBlockWrapper() {
+	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>('dictionary')
 	const mediaStore = useMediaStoreContext()
 	const sentenceId = mediaStore((store) => store.selectedSentenceId)
 
@@ -21,12 +25,12 @@ function DetailsBlockWrapper() {
 	return (
 		<ContentWrapper>
 			<div className='details-block-wrapper__switcher'>
-				<InfoViewSwitcher />
+				<InfoViewSwitcher currentInfoView={currentInfoView} setActiveInfoView={setCurrentInfoView} />
 			</div>
 			<div className='details-block-wrapper__content'>
-				<DictionaryContent />
-				<WordsContent />
-				<DialogContent />
+				{currentInfoView === 'dictionary' && <DictionaryContent />}
+				{currentInfoView === 'words' && <WordsContent />}
+				{currentInfoView === 'ai_dialog' && <DialogContent />}
 			</div>
 		</ContentWrapper>
 	)

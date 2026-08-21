@@ -3,7 +3,7 @@ import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionary
 
 /**
  * Реактивно запускает перевод, когда извне приходит новая фраза (например, клик по слову).
- * Сама фраза приходит через пропсы, а не читается из detailsStore.
+ * Сама фраза приходит через пропсы, а не читается из состояния панели деталей.
  */
 export function useObservePhrase(phrase?: string) {
 	useEffect(
