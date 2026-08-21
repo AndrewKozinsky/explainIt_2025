@@ -30,7 +30,6 @@ export type TranslationBlockModel =
 	| UseCaseBlockModel
 	| PaperBlockModel
 	| ExampleBlockModel
-	| PhrasesButtonsBlockModel
 	| TextBlockModel
 
 /** Секция с заголовком и вложенными блоками */
@@ -58,12 +57,6 @@ export type ExampleBlockModel = {
 	type: 'example'
 	sentence: string
 	translation: string
-}
-
-/** Кнопки фраз (только текст, без перевода) */
-export type PhrasesButtonsBlockModel = {
-	type: 'phrasesButtons'
-	labels: string[]
 }
 
 /** Текст в формате Markdown */

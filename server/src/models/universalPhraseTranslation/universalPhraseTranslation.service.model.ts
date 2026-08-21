@@ -15,7 +15,7 @@ export type UniversalPhraseTranslationServiceModel = {
  * Корневой тип — массив блоков, формирующих статью-объяснение.
  * На верхнем уровне могут быть любые типы блоков.
  */
-export type TranslationBlock = BlockBlock | UseCaseBlock | PaperBlock | ExampleBlock | PhrasesButtonsBlock | TextBlock
+export type TranslationBlock = BlockBlock | UseCaseBlock | PaperBlock | ExampleBlock | TextBlock
 
 /** Секция с заголовком и вложенными блоками */
 export type BlockBlock = {
@@ -42,12 +42,6 @@ export type ExampleBlock = {
 	type: 'example'
 	sentence: string
 	translation: string
-}
-
-/** Кнопки фраз (только текст, без перевода) */
-export type PhrasesButtonsBlock = {
-	type: 'phrasesButtons'
-	labels: string[]
 }
 
 /** Текст в формате Markdown */
