@@ -3,7 +3,7 @@ import { formatDurationSec } from '@/shared/utils/time'
 
 // Множитель, на который умножается длительность видео, чтобы получить
 // длительность обратного отсчёта в секундах.
-const COUNTDOWN_MULTIPLIER = 0.1
+const COUNTDOWN_MULTIPLIER = 0.05
 
 export function useSubtitlesCountdown(durationSeconds: number): null | string {
 	const [remainingSeconds, setRemainingSeconds] = useState(() => Math.round(durationSeconds * COUNTDOWN_MULTIPLIER))

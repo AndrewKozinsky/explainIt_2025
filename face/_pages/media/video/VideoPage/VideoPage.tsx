@@ -24,7 +24,7 @@ function VideoPage(props: VideoRootProps) {
 
 	const { video, refetch, error } = useVideoData(videoId)
 
-	usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
+	const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
 	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
@@ -62,7 +62,7 @@ function VideoPage(props: VideoRootProps) {
 						youTubeVideoId={video.youtubeVideoId ?? ''}
 						videoId={video.id}
 						ratio={video.ratio}
-						subtitlesStatus={video.subtitlesStatus}
+						subtitlesStatus={polledSubtitlesStatus ?? video.subtitlesStatus}
 						subtitlesErrorCode={video.subtitlesErrorCode}
 						durationSeconds={video.durationSeconds}
 						selectedSentenceId={selectedSentenceId}
