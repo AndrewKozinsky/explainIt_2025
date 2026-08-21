@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
-import { LanguageCode } from '@/shared/utils/languages'
+import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
 import { TranscriptionState } from '../types'
 
 type UseTranscriptionStateInput = {
@@ -26,6 +26,7 @@ export function useTranscriptionState(input: UseTranscriptionStateInput): Transc
 		function () {
 			if (transcriptionExplicitlyProvided) return
 			if (!phrase || !languageCode) return
+			if (!canLanguageHaveTranscription(languageCode)) return
 
 			setState({ status: 'loading' })
 
