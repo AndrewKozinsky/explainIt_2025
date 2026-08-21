@@ -9,6 +9,7 @@ export function useObservePhrase(phrase?: string) {
 	useEffect(
 		function () {
 			if (!phrase) return
+
 			void fetchDictionaryArticle(phrase)
 		},
 		[phrase],

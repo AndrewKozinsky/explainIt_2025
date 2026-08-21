@@ -75,7 +75,13 @@ export class UniversalPhraseService {
 	#phraseRequests = new Map<string, Promise<ServiceResult<PhraseData>>>()
 	#transcriptionRequests = new Map<string, Promise<ServiceResult<TranscriptionData>>>()
 	#audioRequests = new Map<string, Promise<ServiceResult<AudioData>>>()
-	#translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
+	#translationRequests = new Map<
+		string,
+		{
+			promise: Promise<ServiceResult<PhraseTranslationDataModel>>
+			signal?: AbortSignal
+		}
+	>()
 
 	phraseRepository: PhraseRepository
 	phraseTranslationRepository: PhraseTranslationRepository
@@ -316,15 +322,24 @@ export class UniversalPhraseService {
 
 		// Dedup inflight
 		const inflight = this.#translationRequests.get(translationKey)
-		if (inflight) return inflight
+		if (inflight) {
+			// Не присоединяемся к запросу, который уже отменён владельцем
+			// предыдущего вызова fetchDictionaryArticle.
+			if (!inflight.signal?.aborted) return inflight.promise
+			this.#translationRequests.delete(translationKey)
+		}
 
 		const promise = this.#executeGetTranslation(phraseKey, phrase, sourceLanguageCode, targetLanguageCode, signal)
-		this.#translationRequests.set(translationKey, promise)
+		const request = { promise, signal }
+		this.#translationRequests.set(translationKey, request)
 
 		try {
 			return await promise
 		} finally {
-			this.#translationRequests.delete(translationKey)
+			// Старый запрос не должен удалить более новый запрос с тем же ключом.
+			if (this.#translationRequests.get(translationKey) === request) {
+				this.#translationRequests.delete(translationKey)
+			}
 		}
 	}
 
