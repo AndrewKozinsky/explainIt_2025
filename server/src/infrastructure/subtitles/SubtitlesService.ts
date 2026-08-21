@@ -124,15 +124,16 @@ export class SubtitlesService {
 
 	/**
 	 * Конвертирует результат распознавания речи Deepgram в SRT-строку.
-	 * Группирует слова внутри utterance'ов по предложениям (по знакам .!?),
+	 * Группирует слова всех utterance'ов по предложениям (по знакам .!?),
+	 * поэтому предложение, которое Deepgram разделил между utterance'ами,
+	 * остаётся одним subtitle cue.
 	 * форматирует с правильными SRT-таймкодами.
 	 *
 	 * @param utterances — сырой результат Deepgram API (поле utterances из ответа)
 	 * @returns готовая SRT-строка, пригодная для сохранения в БД
 	 */
 	utterancesToSrt(utterances: DeepgramUtterance[]): string {
-		const cues = utterances
-			.flatMap((utterance) => splitUtteranceIntoSentenceCues(utterance))
+		const cues = splitUtterancesIntoSentenceCues(utterances)
 			.filter((cue) => cue.transcript.length > 0)
 			.sort((a, b) => a.start - b.start)
 
@@ -195,29 +196,37 @@ type SrtCue = {
 	transcript: string
 }
 
-function splitUtteranceIntoSentenceCues(utterance: DeepgramUtterance): SrtCue[] {
-	const transcript = utterance.transcript.trim()
-	if (!transcript) return []
-
-	if (utterance.words.length === 0) {
-		return [
-			{
-				start: Math.max(0, utterance.start),
-				end: Math.max(utterance.start, utterance.end),
-				transcript,
-			},
-		]
-	}
-
+function splitUtterancesIntoSentenceCues(utterances: DeepgramUtterance[]): SrtCue[] {
 	const cues: SrtCue[] = []
 	let sentenceWords: DeepgramWord[] = []
 
-	for (const word of utterance.words) {
-		sentenceWords.push(word)
+	for (const utterance of utterances) {
+		if (utterance.words.length === 0) {
+			// Deepgram normally returns words with utterances. Keep a safe fallback
+			// for responses where word-level timestamps are unavailable.
+			if (sentenceWords.length > 0) {
+				cues.push(buildCueFromWords(sentenceWords))
+				sentenceWords = []
+			}
 
-		if (isSentenceEndingWord(word.word)) {
-			cues.push(buildCueFromWords(sentenceWords))
-			sentenceWords = []
+			if (utterance.transcript.trim()) {
+				cues.push({
+					start: Math.max(0, utterance.start),
+					end: Math.max(utterance.start, utterance.end),
+					transcript: utterance.transcript.trim(),
+				})
+			}
+
+			continue
+		}
+
+		for (const word of utterance.words) {
+			sentenceWords.push(word)
+
+			if (isSentenceEndingWord(word.word)) {
+				cues.push(buildCueFromWords(sentenceWords))
+				sentenceWords = []
+			}
 		}
 	}
 
