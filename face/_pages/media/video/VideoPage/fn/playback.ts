@@ -1,6 +1,6 @@
 import type { PlayerCommand } from '@/entities/videoPlayer'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-import { useYouTubeVideoStore } from '../../videoStore'
+import { useVideoStore } from '../../videoStore'
 import { findActiveSubtitleIndex, findNextSubtitleIndex, findPrevSubtitleIndex } from './subtitles'
 
 type Subtitle = VideoSubtitlesModel.Subtitle
@@ -14,7 +14,7 @@ let revertToSeconds: null | number = null
 // ── Хелперы ───────────────────────────────────────────────────────────
 
 function getStore() {
-	return useYouTubeVideoStore.getState()
+	return useVideoStore.getState()
 }
 
 function send(command: PlayerCommand) {

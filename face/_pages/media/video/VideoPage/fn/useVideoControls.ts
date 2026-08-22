@@ -1,5 +1,6 @@
 'use client'
 
+import { useVideoStore } from '../../videoStore'
 import {
 	playSub,
 	playSubAndRevert,
@@ -8,12 +9,11 @@ import {
 	toNextSub,
 	toPrevSub,
 	toVideoStart,
-} from '_pages/media/video/VideoPage/fn/playback'
-import { useYouTubeVideoStore } from '_pages/media/video/videoStore'
+} from './playback'
 
 export function useVideoControls() {
-	const activeMode = useYouTubeVideoStore((state) => state.playback.mode)
-	const areSubsAvailable = useYouTubeVideoStore((state) => state.subtitles !== null)
+	const activeMode = useVideoStore((state) => state.playback.mode)
+	const areSubsAvailable = useVideoStore((state) => state.subtitles !== null)
 
 	return {
 		activeMode,

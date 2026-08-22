@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-import { useYouTubeVideoStore } from '../../videoStore'
+import { useVideoStore } from '../../videoStore'
 import { handleAutoStop, resetPlaybackRuntime } from './playback'
 import { useVideoInput } from './useVideoInput'
 
@@ -24,22 +24,22 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	useEffect(() => {
 		resetPlaybackRuntime()
 
-		useYouTubeVideoStore.getState().setSubtitles(subtitleList)
-		useYouTubeVideoStore.getState().setPlayback({ stopAt: null })
+		useVideoStore.getState().setSubtitles(subtitleList)
+		useVideoStore.getState().setPlayback({ stopAt: null })
 	}, [videoId, subtitleList])
 
-	const command = useYouTubeVideoStore((state) => state.player.commandQueue[0] ?? null)
+	const command = useVideoStore((state) => state.player.commandQueue[0] ?? null)
 
 	const handleCommandHandled = useCallback((id: number) => {
-		const queue = useYouTubeVideoStore.getState().player.commandQueue
+		const queue = useVideoStore.getState().player.commandQueue
 		if (queue[0]?.id !== id) return
 
-		useYouTubeVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
+		useVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
 	}, [])
 
 	// Авто-остановка по stopAt
-	const currentTime = useYouTubeVideoStore((state) => state.player.currentTime)
-	const stopAt = useYouTubeVideoStore((state) => state.playback.stopAt)
+	const currentTime = useVideoStore((state) => state.player.currentTime)
+	const stopAt = useVideoStore((state) => state.playback.stopAt)
 
 	useEffect(() => {
 		if (stopAt == null || currentTime < stopAt) return

@@ -1,10 +1,7 @@
 import { create } from 'zustand'
-import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-
-// Режим воспроизведения. Определяет, что делает пробел/центр-клик и какая
-// кнопка подсвечена как активная.
-export type PlaybackMode = 'video' | 'shadowing' | 'subAndRevert' | 'sub'
+import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
+import type { PlaybackMode } from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 
 type PlayerState = {
 	currentTime: number
@@ -20,24 +17,24 @@ type PlaybackState = {
 	stopAt: null | number
 }
 
-type YouTubeVideoStoreValues = {
+type VideoStoreValues = {
 	player: PlayerState
 	subtitles: null | VideoSubtitlesModel.Subtitle[]
 	playback: PlaybackState
 }
 
-type YouTubeVideoStoreMethods = {
+type VideoStoreMethods = {
 	setPlayerState: (state: Partial<PlayerState>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
 	setPlayback: (playback: Partial<PlaybackState>) => void
 }
 
-type VideoStore = YouTubeVideoStoreValues & YouTubeVideoStoreMethods
+type VideoStore = VideoStoreValues & VideoStoreMethods
 
 // ⸻ Defaults ⸻
 
-const defaults: YouTubeVideoStoreValues = {
+const defaults: VideoStoreValues = {
 	player: {
 		currentTime: 0,
 		duration: 0,
@@ -55,7 +52,7 @@ let nextPlayerCommandId = 1
 
 // ⸻ Store ⸻
 
-export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
+export const useVideoStore = create<VideoStore>()((set) => ({
 	...defaults,
 	setPlayerState(playerState) {
 		set((state) => ({

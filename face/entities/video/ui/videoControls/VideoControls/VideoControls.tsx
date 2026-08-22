@@ -3,9 +3,10 @@ import { VideoControlPlayAndStop } from '@/shared/ui/icons/videoControls/VideoCo
 import { VideoControlRevert } from '@/shared/ui/icons/videoControls/VideoControlRevert'
 import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
 import { VideoControlToRightIcon } from '@/shared/ui/icons/videoControls/VideoControlToRightIcon'
-import type { PlaybackMode } from '_pages/media/video/videoStore'
 import VideoControlButton from '../VideoControlButton/VideoControlButton'
 import './VideoControls.scss'
+
+export type PlaybackMode = 'video' | 'shadowing' | 'subAndRevert' | 'sub'
 
 type VideoControlsProps = {
 	toVideoStart: () => void

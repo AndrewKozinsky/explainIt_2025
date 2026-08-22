@@ -7,8 +7,10 @@ import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
+import VideoControls from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 import { getHeader } from './fn/getHeader'
 import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
+import { useVideoControls } from './fn/useVideoControls'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
 import { setupDeps } from './fn/setupDeps'
@@ -36,6 +38,8 @@ function VideoPage(props: VideoRootProps) {
 		selectedWordId,
 		mediaStore: useMediaStore,
 	})
+
+	const videoControls = useVideoControls()
 
 	if (error) {
 		return <ErrorMessage text={error} />
@@ -70,7 +74,7 @@ function VideoPage(props: VideoRootProps) {
 						selectWord={selectWord}
 					/>
 				}
-				rightBlock={<DetailsBlock type='video' />}
+				rightBlock={<DetailsBlock videoControls={<VideoControls {...videoControls} />} />}
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 			/>
 		</MediaStoreProvider>

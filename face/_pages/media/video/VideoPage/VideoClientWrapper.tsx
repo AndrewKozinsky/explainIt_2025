@@ -9,7 +9,7 @@ import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesS
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
 import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
-import { useYouTubeVideoStore } from '../videoStore'
+import { useVideoStore } from '../videoStore'
 import { useVideoPlayback } from './fn/useVideoPlayback'
 
 type VideoClientWrapperProps = {
@@ -50,8 +50,8 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
 	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
-	const currentTime = useYouTubeVideoStore((state) => state.player.currentTime)
-	const setPlayerState = useYouTubeVideoStore((state) => state.setPlayerState)
+	const currentTime = useVideoStore((state) => state.player.currentTime)
+	const setPlayerState = useVideoStore((state) => state.setPlayerState)
 
 	return (
 		<VideoWithSubtitles>

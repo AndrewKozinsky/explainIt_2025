@@ -76,7 +76,7 @@ function ChapterPage(props: ChapterRootProps) {
 						selectWord={selectWord}
 					/>
 				}
-				rightBlock={<DetailsBlock type='chapter' />}
+				rightBlock={<DetailsBlock />}
 				footer={<MediaNavigation {...getMediaNavigationData(book, chapter)} />}
 			/>
 		</MediaStoreProvider>
