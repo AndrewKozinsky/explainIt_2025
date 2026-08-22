@@ -42,12 +42,14 @@ export function useYouTubeController(
 
 		function stopReverseSeekIfActive() {
 			if (!reverseSeekIntervalIdRef.current) return
+
 			clearInterval(reverseSeekIntervalIdRef.current)
 			reverseSeekIntervalIdRef.current = null
 		}
 
 		function stopForwardHoldIfActive() {
 			if (!forwardHoldActiveRef.current) return
+
 			forwardHoldActiveRef.current = false
 			player?.setPlaybackRate(forwardHoldNormalRateRef.current)
 		}
@@ -56,6 +58,7 @@ export function useYouTubeController(
 		if (command.type !== 'START_REVERSE_SEEK' && command.type !== 'STOP_REVERSE_SEEK') {
 			stopReverseSeekIfActive()
 		}
+
 		if (command.type !== 'START_FORWARD_HOLD' && command.type !== 'STOP_FORWARD_HOLD') {
 			stopForwardHoldIfActive()
 		}

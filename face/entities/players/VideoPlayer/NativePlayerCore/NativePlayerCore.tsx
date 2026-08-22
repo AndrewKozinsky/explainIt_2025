@@ -61,10 +61,12 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 
 		function tick(now: number) {
 			const video = playerRef.current
+
 			if (video && !video.paused && now - lastSync >= 50) {
 				lastSync = now
 				syncTimeRef.current(video.currentTime)
 			}
+
 			rafId = requestAnimationFrame(tick)
 		}
 

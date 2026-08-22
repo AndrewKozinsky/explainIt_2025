@@ -22,11 +22,12 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 		[subtitles],
 	)
 
-	// Синхронизация субтитров и сброс состояния воспроизведения при смене видео
+	// При смене видео: обновляем субтитры и гасим авто-остановку/шэдоуинг,
+	// но сохраняем выбранный режим (чтобы подсветка активной кнопки не пропадала).
 	useEffect(() => {
 		resetPlaybackRuntime()
 		useYouTubeVideoStore.getState().setSubtitles(subtitleList)
-		useYouTubeVideoStore.getState().setPlayback({ mode: 'video', stopAt: null })
+		useYouTubeVideoStore.getState().setPlayback({ stopAt: null })
 	}, [videoId, subtitleList])
 
 	// Мост: очередь команд из стора → плеер (по одной за проход эффекта)
@@ -35,6 +36,7 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 		if (commandQueue.length === 0) return
 
 		const [head, ...rest] = commandQueue
+
 		useYouTubeVideoStore.getState().setPlayerState({ commandQueue: rest })
 		playerRef.current?.sendCommand(head)
 	}, [commandQueue, playerRef])
@@ -45,6 +47,7 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 
 	useEffect(() => {
 		if (stopAt == null || currentTime < stopAt) return
+
 		handleAutoStop()
 	}, [currentTime, stopAt])
 

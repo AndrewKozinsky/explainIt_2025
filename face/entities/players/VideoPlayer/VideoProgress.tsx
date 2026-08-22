@@ -20,6 +20,7 @@ function VideoProgress() {
 		const rect = progressRef.current.getBoundingClientRect()
 		const ratio = (clientX - rect.left) / rect.width
 		const clampedRatio = Math.max(0, Math.min(1, ratio))
+
 		sendCommand({ type: 'SET_TIME', time: clampedRatio * duration })
 	}
 

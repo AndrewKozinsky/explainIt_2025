@@ -82,6 +82,7 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 			reverseSeekLastTsRef.current = 0
 
 			video.playbackRate = 1
+
 			if (reverseSeekWasPlayingRef.current) {
 				reverseSeekWasPlayingRef.current = false
 				video.play()
@@ -93,9 +94,11 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 
 			forwardHoldActiveRef.current = false
 			video.playbackRate = 1
+
 			if (!forwardHoldWasPlayingRef.current) {
 				video.pause()
 			}
+
 			forwardHoldWasPlayingRef.current = false
 		}
 

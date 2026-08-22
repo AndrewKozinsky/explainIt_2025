@@ -83,6 +83,7 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 
 	const stopPolling = useCallback(() => {
 		if (!pollIntervalRef.current) return
+
 		clearInterval(pollIntervalRef.current)
 		pollIntervalRef.current = null
 	}, [])
