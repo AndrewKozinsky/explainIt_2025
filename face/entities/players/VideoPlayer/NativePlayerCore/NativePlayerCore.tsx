@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { usePlayerController } from '../fn/controller'
 import VideoProgress from '../VideoProgress'
 
@@ -49,6 +49,29 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 		onTimeUpdate?.(currentTime)
 		saveProgress(currentTime)
 	}
+
+	// Точная синхронизация времени (~20 раз/сек), чтобы автопауза срабатывала
+	// у границы субтитра без заметного перелёта в следующий субтитр.
+	const syncTimeRef = useRef(syncTime)
+	syncTimeRef.current = syncTime
+
+	useEffect(() => {
+		let rafId = 0
+		let lastSync = 0
+
+		function tick(now: number) {
+			const video = playerRef.current
+			if (video && !video.paused && now - lastSync >= 50) {
+				lastSync = now
+				syncTimeRef.current(video.currentTime)
+			}
+			rafId = requestAnimationFrame(tick)
+		}
+
+		rafId = requestAnimationFrame(tick)
+
+		return () => cancelAnimationFrame(rafId)
+	}, [])
 
 	return (
 		<div className='video-root' ref={playerWrapperRef}>

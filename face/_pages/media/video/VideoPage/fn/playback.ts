@@ -88,6 +88,7 @@ function playNextShadowSubtitle(subtitles: Subtitle[], fromSeconds: number) {
 	}
 
 	shadowIndex = next
+	send({ type: 'SET_TIME', time: subtitles[next].fromSeconds })
 	setStopAt(subtitles[next].toSeconds)
 	send({ type: 'PLAY' })
 }
@@ -127,6 +128,7 @@ function startSubMode() {
 	const target = getTargetSubtitleIndex(subtitles, t)
 	if (target === -1) return
 
+	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
 	setStopAt(subtitles[target].toSeconds)
 	send({ type: 'PLAY' })
 }
@@ -161,6 +163,7 @@ function startShadowing() {
 	if (target === -1) return
 
 	shadowIndex = target
+	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
 	setStopAt(subtitles[target].toSeconds)
 	send({ type: 'PLAY' })
 }
