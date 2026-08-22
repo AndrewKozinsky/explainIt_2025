@@ -1,5 +1,5 @@
 import { useMemo, useRef } from 'react'
-import { usePlayerContext } from './PlayerContext'
+import { usePlayerContext } from '../VideoPlayer/PlayerContext'
 
 function VideoProgress() {
 	const progressRef = useRef<HTMLDivElement>(null)

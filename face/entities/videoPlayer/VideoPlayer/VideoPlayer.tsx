@@ -1,7 +1,7 @@
 import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react'
-import NativePlayerCore from './NativePlayerCore/NativePlayerCore'
+import NativePlayerCore from '@/entities/videoPlayer/NativePlayerCore/NativePlayerCore'
 import { PlayerContext } from './PlayerContext'
-import YouTubePlayerCore from './YouTubePlayerCore/YouTubePlayerCore'
+import YouTubePlayerCore from '@/entities/videoPlayer/YouTubePlayerCore/YouTubePlayerCore'
 import type { PlayerCommand } from './fn/types'
 import type { PlayerContextValue } from './PlayerContext'
 import './VideoPlayer.scss'
@@ -85,8 +85,10 @@ const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(function Vid
 	const saveProgress = useCallback(
 		(seconds: number) => {
 			if (videoId === undefined || !onProgressSave) return
+
 			const now = Date.now()
 			if (now - lastSaveRef.current < 1000) return
+
 			lastSaveRef.current = now
 			onProgressSave(videoId, seconds)
 		},

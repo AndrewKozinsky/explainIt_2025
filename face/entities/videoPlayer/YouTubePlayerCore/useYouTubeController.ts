@@ -1,7 +1,7 @@
 'use client'
 
 import { RefObject, useEffect, useRef } from 'react'
-import { usePlayerContext } from '../PlayerContext'
+import { usePlayerContext } from '../VideoPlayer/PlayerContext'
 import type { YouTubePlayer } from './youTubeIframeApi'
 
 /**

@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from 'react'
 import type { RefObject } from 'react'
-import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
+import type { VideoPlayerHandle } from '@/entities/videoPlayer/VideoPlayer/VideoPlayer'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 import { useYouTubeVideoStore } from '../../videoStore'
 import { handleAutoStop, resetPlaybackRuntime } from './playback'

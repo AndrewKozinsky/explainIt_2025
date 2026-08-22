@@ -6,5 +6,3 @@ export const playerControlConfig = {
 	reverseHoldSpeed: 2,
 	forwardHoldSpeed: 2,
 } as const
-
-export type PlayerControlConfig = typeof playerControlConfig

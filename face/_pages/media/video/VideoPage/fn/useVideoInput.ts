@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { playerControlConfig } from '@/entities/players/VideoPlayer/fn/config'
+import { playerControlConfig } from '@/entities/videoPlayer/VideoPlayer/fn/config'
 import { useGetHotKeysHandler } from '@/shared/utils/hotKeysHandler'
 import {
 	rewind,

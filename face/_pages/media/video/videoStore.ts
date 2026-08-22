@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { PlayerCommand } from '@/entities/players/VideoPlayer/fn/types'
+import type { PlayerCommand } from '@/entities/videoPlayer/VideoPlayer/fn/types'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 
 // Режим воспроизведения. Определяет, что делает пробел/центр-клик и какая

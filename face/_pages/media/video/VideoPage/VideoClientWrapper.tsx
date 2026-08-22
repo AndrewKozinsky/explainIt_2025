@@ -2,8 +2,8 @@
 
 import { useRef } from 'react'
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import VideoPlayer from '@/entities/players/VideoPlayer/VideoPlayer'
-import type { VideoPlayerHandle } from '@/entities/players/VideoPlayer/VideoPlayer'
+import VideoPlayer from '@/entities/videoPlayer/VideoPlayer/VideoPlayer'
+import type { VideoPlayerHandle } from '@/entities/videoPlayer/VideoPlayer/VideoPlayer'
 import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
 import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
 import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'

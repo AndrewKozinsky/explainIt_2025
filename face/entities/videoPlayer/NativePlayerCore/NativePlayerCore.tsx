@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { usePlayerController } from '../fn/controller'
-import VideoProgress from '../VideoProgress'
+import { usePlayerController } from '../VideoPlayer/fn/controller'
+import VideoProgress from './VideoProgress'
 
 // ── Props ──────────────────────────────────────────────────────────────
 
