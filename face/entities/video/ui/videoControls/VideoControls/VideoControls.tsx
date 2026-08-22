@@ -37,27 +37,27 @@ function VideoControls(props: VideoControlsProps) {
 		<div className='video-controls'>
 			<VideoControlButton onClick={toVideoStart} icon={<VideoControlToLeftIcon />} />
 			<VideoControlButton onClick={playVideo} icon={<VideoControlPlay />} active={activeMode === 'video'} />
-			<VideoControlButton
+			{/*<VideoControlButton
 				onClick={playVideoShadowing}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'shadowing'}
-			/>
+			/>*/}
 			<div className='video-controls__spacer' />
-			<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />
-			<VideoControlButton
+			{/*<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />*/}
+			{/*<VideoControlButton
 				onClick={playSubAndRevert}
 				icon={<VideoControlRevert />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'subAndRevert'}
-			/>
-			<VideoControlButton
+			/>*/}
+			{/*<VideoControlButton
 				onClick={playSub}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'sub'}
-			/>
-			<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />
+			/>*/}
+			{/*<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />*/}
 		</div>
 	)
 }
