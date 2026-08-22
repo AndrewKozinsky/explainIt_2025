@@ -1,0 +1,14 @@
+@use "@/styles/variables" as vars;
+
+.video-controls {
+	display: flex;
+	justify-content: space-between;
+	gap: .8rem;
+	background-color: vars.$grayColor-1;
+	padding: 1.5rem;
+	border-radius: vars.$radius-2;
+}
+
+.video-controls__spacer {
+	flex-grow: 1;
+}
