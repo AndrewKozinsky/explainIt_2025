@@ -45,7 +45,7 @@ export class LlmAdapterService {
 		return withTimeout(
 			this.providerMap[provider].generate(input),
 			input.timeoutMs ?? LlmAdapterService.GENERATE_TIMEOUT_MS,
-			() => new CustomError(errorMessage.llm.llmTimeout, ErrorStatusCode.InternalServerError_500),
+			() => new CustomError(errorMessage.llm.llmTimeout, ErrorStatusCode.GatewayTimeout_504),
 		)
 	}
 

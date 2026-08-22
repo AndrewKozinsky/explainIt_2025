@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import type { SubtitlesStatusModelType } from '@/entities/video/lib/types'
 import { videosService } from '@/entities/video/VideosService'
 
@@ -21,6 +21,14 @@ export function usePollVideoSubtitlesStatus(
 	subtitlesStatus: undefined | SubtitlesStatusModelType,
 	refetch: () => void,
 ) {
+	const [polledSubtitlesStatus, setPolledSubtitlesStatus] = useState<
+		| undefined
+		| {
+				status: SubtitlesStatusModelType
+				statusFrom: undefined | SubtitlesStatusModelType
+				videoId: number
+		  }
+	>()
 	const shouldPoll = videoId !== undefined && (subtitlesStatus === 'pending' || subtitlesStatus === 'processing')
 
 	useEffect(
@@ -35,6 +43,20 @@ export function usePollVideoSubtitlesStatus(
 					if (cancelled) return
 
 					const status = result.data?.status
+					if (status === 'processing') {
+						setPolledSubtitlesStatus((current) => {
+							if (
+								current?.videoId === videoId &&
+								current.statusFrom === subtitlesStatus &&
+								current.status === status
+							) {
+								return current
+							}
+
+							return { status, statusFrom: subtitlesStatus, videoId }
+						})
+					}
+
 					if (status === 'done' || status === 'failed') {
 						clearInterval(intervalId)
 						refetch()
@@ -51,4 +73,15 @@ export function usePollVideoSubtitlesStatus(
 		},
 		[shouldPoll, videoId, refetch],
 	)
+
+	const currentPolledStatus = polledSubtitlesStatus
+	if (
+		currentPolledStatus &&
+		currentPolledStatus.videoId === videoId &&
+		currentPolledStatus.statusFrom === subtitlesStatus
+	) {
+		return currentPolledStatus.status
+	}
+
+	return subtitlesStatus
 }

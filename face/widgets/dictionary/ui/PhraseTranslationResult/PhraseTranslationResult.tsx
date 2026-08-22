@@ -6,11 +6,9 @@ import type {
 	UseCaseBlockModel,
 	PaperBlockModel,
 	ExampleBlockModel,
-	PhrasesButtonsBlockModel,
 	TextBlockModel,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
-import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import './PhraseTranslationResult.scss'
 
@@ -26,7 +24,6 @@ const blockComponents: Record<TranslationBlockModel['type'], BlockComponent<any>
 	useCase: UseCaseRenderer,
 	paper: PaperRenderer,
 	example: ExampleRenderer,
-	phrasesButtons: PhrasesButtonsRenderer,
 	text: TextRenderer,
 }
 
@@ -122,27 +119,6 @@ function ExampleRenderer({ block }: { block: ExampleBlockModel }) {
 		<div className='translation-example'>
 			<p className='translation-example__sentence'>{block.sentence}</p>
 			<p className='translation-example__translation'>{block.translation}</p>
-		</div>
-	)
-}
-
-function PhrasesButtonsRenderer({ block }: { block: PhrasesButtonsBlockModel }) {
-	const setInputText = usePhraseDictionaryStore((s) => s.setInputText)
-
-	return (
-		<div className='translation-phrases-buttons'>
-			{block.labels.map((label) => (
-				<button
-					key={label}
-					className='translation-phrases-button'
-					onClick={() => {
-						setInputText(label)
-						void fetchDictionaryArticle(label)
-					}}
-				>
-					{label}
-				</button>
-			))}
 		</div>
 	)
 }

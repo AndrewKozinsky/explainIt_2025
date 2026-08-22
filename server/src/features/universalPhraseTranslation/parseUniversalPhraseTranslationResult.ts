@@ -87,8 +87,6 @@ function validateBlock(block: unknown, depth: number): TranslationBlock | null {
 			return validatePaperBlock(b, depth)
 		case 'example':
 			return validateExampleBlock(b)
-		case 'phrasesButtons':
-			return validatePhrasesButtonsBlock(b)
 		case 'text':
 			return validateTextBlock(b)
 		default:
@@ -169,23 +167,6 @@ function validateExampleBlock(b: Record<string, unknown>): TranslationBlock | nu
 		type: 'example',
 		sentence: b.sentence,
 		translation: b.translation,
-	}
-}
-
-function validatePhrasesButtonsBlock(b: Record<string, unknown>): TranslationBlock | null {
-	if (!Array.isArray(b.labels)) {
-		return null
-	}
-
-	for (const label of b.labels) {
-		if (typeof label !== 'string') {
-			return null
-		}
-	}
-
-	return {
-		type: 'phrasesButtons',
-		labels: b.labels,
 	}
 }
 

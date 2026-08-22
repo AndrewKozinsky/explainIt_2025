@@ -1,0 +1,22 @@
+@use '@/styles/variables' as vars;
+
+.video-control-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 3.2rem;
+	min-width: 4.4rem;
+	background-color: white;
+	border-radius: 2rem;
+
+	&--active {
+		color: white;
+		background-color: vars.$accentColor-2;
+		border-color: vars.$accentColor-3;
+
+		&:hover {
+			color: white;
+			background-color: vars.$accentColor-2;
+		}
+	}
+}

@@ -1,5 +1,5 @@
 import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
-import { useSubtitlesCountdown } from './fn/useSubtitlesCountdown'
+import { getSubtitlesGenerationTime } from './fn/getSubtitlesGenerationTime'
 
 type ProcessedSubtitlesProps = {
 	durationSeconds: number
@@ -8,14 +8,14 @@ type ProcessedSubtitlesProps = {
 export function ProcessedSubtitles(props: ProcessedSubtitlesProps) {
 	const { durationSeconds } = props
 
-	const countdown = useSubtitlesCountdown(durationSeconds)
+	const subtitlesGenerationTime = getSubtitlesGenerationTime(durationSeconds)
 
 	return (
 		<StatusBlock type='info'>
 			<div className='subtitles-status-router'>
 				<div className='subtitles-status-router__info-top'>
 					<p className='subtitles-status-router__info-top-left'>Субтитры готовятся</p>
-					{countdown && <p>~{countdown}</p>}
+					<p>≈{subtitlesGenerationTime}</p>
 				</div>
 				<div className='subtitles-status-router__info-divider' />
 				<p className='subtitles-status-router__info-bottom'>

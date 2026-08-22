@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { useDetailsStore } from '@/entities/detailsBlock/detailsStore'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
@@ -18,7 +18,8 @@ export type FlashCardButtonView =
 export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardButtonView {
 	const user = useUser()
 	const { notify } = useContext(NotificationContext)
-	const setPhraseFlashcardId = useDetailsStore((s) => s.setPhraseFlashcardId)
+	const mediaStore = useMediaStoreContext()
+	const setPhraseFlashcardId = mediaStore((s) => s.setPhraseFlashcardId)
 	const queryClient = useQueryClient()
 	const removeFlashcard = useMutation(flashcardQueries.removeFlashcard(queryClient))
 	const addFlashcard = useMutation(flashcardQueries.addFlashcard(queryClient))

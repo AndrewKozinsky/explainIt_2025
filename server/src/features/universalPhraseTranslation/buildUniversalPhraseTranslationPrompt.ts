@@ -42,7 +42,7 @@ Use for major topics: core idea, similar words, common mistakes, patterns, etc.
 {
   "type": "block",
   "header": "Section title",
-  "children": [...]  // any blocks — text, useCase, paper, example, phrasesButtons, etc.
+  "children": [...]  // any blocks — text, useCase, paper, example, etc.
 }
 
 ---
@@ -77,17 +77,7 @@ Use inside a paper block within a useCase. The sentence should use the explained
 }
 
 ---
-
-**phrasesButtons** — A row of clickable phrase/pattern labels.
-Use for typical constructions, collocations, or patterns with this word (e.g. "be drinking", "go drinking").
-Do NOT include translations in labels — just the phrase/pattern text.
-{
-  "type": "phrasesButtons",
-  "labels": ["phrase1", "phrase2"]
-}
-
 ---
-
 **text** — A paragraph of text. Supports Markdown formatting.
 Use for explanations, descriptions, similar words sections, common mistakes sections — any prose content.
 {
@@ -108,8 +98,6 @@ Semantic guidelines — YOU decide the structure based on the word:
 - Add a block with header about similar words ONLY if similar words help explain nuance, frequency, style, or boundaries. Use a text block inside.
 
 - Add a block with header about common mistakes ONLY if there are typical or important mistakes by ${targetLanguage}-speaking users. Use a text block inside.
-
-- Add phrasesButtons for typical constructions or patterns ONLY if they are genuinely useful for understanding and using the word.
 
 - Do NOT include sections that aren't needed. If the word is simple and has no common mistakes or similar words — skip those sections.
 

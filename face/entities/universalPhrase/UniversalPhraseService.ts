@@ -11,7 +11,7 @@ import type {
 	PhraseTranslationRepository,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import { DeepSeekModels } from '@/shared/api/AIModels'
-import { LanguageCode } from '@/shared/utils/languages'
+import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -75,7 +75,13 @@ export class UniversalPhraseService {
 	#phraseRequests = new Map<string, Promise<ServiceResult<PhraseData>>>()
 	#transcriptionRequests = new Map<string, Promise<ServiceResult<TranscriptionData>>>()
 	#audioRequests = new Map<string, Promise<ServiceResult<AudioData>>>()
-	#translationRequests = new Map<string, Promise<ServiceResult<PhraseTranslationDataModel>>>()
+	#translationRequests = new Map<
+		string,
+		{
+			promise: Promise<ServiceResult<PhraseTranslationDataModel>>
+			signal?: AbortSignal
+		}
+	>()
 
 	phraseRepository: PhraseRepository
 	phraseTranslationRepository: PhraseTranslationRepository
@@ -140,7 +146,7 @@ export class UniversalPhraseService {
 		entry.phraseStatus = 'ready'
 
 		// Сохраняем транскрипцию, если пришла в ответе
-		if (model.transcription) {
+		if (canLanguageHaveTranscription(languageCode) && model.transcription) {
 			entry.transcription = mapModelToTranscriptionData(model.transcription)
 			entry.transcriptionStatus = 'ready'
 		}
@@ -157,6 +163,12 @@ export class UniversalPhraseService {
 	// ─── getTranscription ─────────────────────────────────────────────────
 
 	async getTranscription(phrase: string, languageCode: LanguageCode): Promise<ServiceResult<TranscriptionData>> {
+		// Транскрипция поддерживается только для английского и французского.
+		// Защита здесь обязательна: сервис могут вызвать напрямую, минуя UI.
+		if (!canLanguageHaveTranscription(languageCode)) {
+			return { ok: true, data: { ipa: null, pinyin: null } }
+		}
+
 		const key = makePhraseKey(phrase, languageCode)
 
 		// Already cached
@@ -310,15 +322,24 @@ export class UniversalPhraseService {
 
 		// Dedup inflight
 		const inflight = this.#translationRequests.get(translationKey)
-		if (inflight) return inflight
+		if (inflight) {
+			// Не присоединяемся к запросу, который уже отменён владельцем
+			// предыдущего вызова fetchDictionaryArticle.
+			if (!inflight.signal?.aborted) return inflight.promise
+			this.#translationRequests.delete(translationKey)
+		}
 
 		const promise = this.#executeGetTranslation(phraseKey, phrase, sourceLanguageCode, targetLanguageCode, signal)
-		this.#translationRequests.set(translationKey, promise)
+		const request = { promise, signal }
+		this.#translationRequests.set(translationKey, request)
 
 		try {
 			return await promise
 		} finally {
-			this.#translationRequests.delete(translationKey)
+			// Старый запрос не должен удалить более новый запрос с тем же ключом.
+			if (this.#translationRequests.get(translationKey) === request) {
+				this.#translationRequests.delete(translationKey)
+			}
 		}
 	}
 
@@ -388,7 +409,7 @@ export class UniversalPhraseService {
 			translationEntry.status = 'ready'
 
 			// Транскрипция может прийти вместе с переводом — сохраняем в entry
-			if (translation.transcription) {
+			if (canLanguageHaveTranscription(sourceLanguageCode) && translation.transcription) {
 				updated.transcription = mapModelToTranscriptionData(translation.transcription)
 				updated.transcriptionStatus = 'ready'
 			}
@@ -436,7 +457,7 @@ export class UniversalPhraseService {
 
 			if (existing && existing.phraseId !== null) {
 				// Дополняем существующую запись недостающими данными
-				if (!existing.transcription && item.transcription) {
+				if (canLanguageHaveTranscription(item.languageCode) && !existing.transcription && item.transcription) {
 					existing.transcription = { ipa: item.transcription, pinyin: null }
 					existing.transcriptionStatus = 'ready'
 				}
@@ -448,7 +469,7 @@ export class UniversalPhraseService {
 				// Создаём новую запись с предзагруженными данными
 				const entry = createEmptyEntry(item.phrase, item.languageCode)
 
-				if (item.transcription) {
+				if (canLanguageHaveTranscription(item.languageCode) && item.transcription) {
 					entry.transcription = { ipa: item.transcription, pinyin: null }
 					entry.transcriptionStatus = 'ready'
 				}

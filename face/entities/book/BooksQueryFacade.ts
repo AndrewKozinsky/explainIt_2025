@@ -9,6 +9,7 @@ import type { BooksService } from './BooksService'
 export const booksQueryKeys = {
 	all: ['books'] as const,
 	list: () => [...booksQueryKeys.all, 'list'] as const,
+	detail: (id: number) => [...booksQueryKeys.all, 'detail', id] as const,
 }
 
 /**
@@ -24,6 +25,13 @@ export class BooksQueryFacade {
 		return queryOptions({
 			queryKey: booksQueryKeys.list(),
 			queryFn: () => unwrapApiResult(this.service.getBooks()),
+		})
+	}
+
+	getBook(id: number) {
+		return queryOptions({
+			queryKey: booksQueryKeys.detail(id),
+			queryFn: () => unwrapApiResult(this.service.getBook(id)),
 		})
 	}
 }

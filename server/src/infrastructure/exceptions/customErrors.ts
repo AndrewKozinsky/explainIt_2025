@@ -7,6 +7,7 @@ const errorCodeByStatusCode: Record<ErrorStatusCode, string> = {
 	[ErrorStatusCode.Forbidden_403]: 'FORBIDDEN',
 	[ErrorStatusCode.NotFound_404]: 'NOT_FOUND',
 	[ErrorStatusCode.InternalServerError_500]: 'INTERNAL_SERVER_ERROR',
+	[ErrorStatusCode.GatewayTimeout_504]: 'Gateway Timeout',
 }
 
 export class CustomError extends Error {

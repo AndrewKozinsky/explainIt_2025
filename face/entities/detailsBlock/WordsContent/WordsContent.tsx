@@ -1,13 +1,9 @@
 import SentencePhraseAnalyses from '@/entities/sentencesAndSubtitles/phrase/SentencePhrasesAnalyses/SentencePhraseAnalyses'
-import { useDetailsStore } from '../detailsStore'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 
 function WordsContent() {
-	const currentInfoView = useDetailsStore((store) => store.currentInfoView)
-	const languageCode = useDetailsStore((store) => store.languageCode)
-
-	if (currentInfoView !== 'words') {
-		return null
-	}
+	const mediaStore = useMediaStoreContext()
+	const languageCode = mediaStore((store) => store.languageCode)
 
 	return <SentencePhraseAnalyses languageCode={languageCode!} />
 }

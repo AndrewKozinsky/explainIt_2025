@@ -1,10 +1,13 @@
 import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
 import Switcher from '@/shared/ui/Switcher/Switcher'
-import { useDetailsStore } from './detailsStore'
+import type { InfoViewType } from './ViewRouter/DetailsBlockWrapper'
 
-function InfoViewSwitcher() {
-	const currentInfoView = useDetailsStore((store) => store.currentInfoView)
-	const setActiveInfoView = useDetailsStore((store) => store.setActiveInfoView)
+type InfoViewSwitcherProps = {
+	currentInfoView: InfoViewType
+	setActiveInfoView: (view: InfoViewType) => void
+}
+
+function InfoViewSwitcher({ currentInfoView, setActiveInfoView }: InfoViewSwitcherProps) {
 
 	return (
 		<ContainerWidthObserver widths={[500]}>

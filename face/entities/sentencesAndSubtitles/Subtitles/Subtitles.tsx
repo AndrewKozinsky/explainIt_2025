@@ -1,8 +1,9 @@
-import { useRef } from 'react'
+import { Fragment, useRef } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 import { LanguageCode } from '@/shared/utils/languages'
 import SpeechlessBar from '../SpeechlessBar/SpeechlessBar'
 import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
+import SubtitleBlockGap from '../SubtitleBlockGap/SubtitleBlockGap'
 import { useSelectWordScroll } from './fn/useSelectWordScroll'
 import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
 import './Subtitles.scss'
@@ -25,17 +26,24 @@ function Subtitles(props: SubtitlesContentProps) {
 
 	return (
 		<div className='subtitles' ref={containerRef}>
-			{subtitles.map((item) => {
+			{subtitles.map((item, index) => {
 				if (item.type === 'subtitle') {
+					// Между двумя смежными субтитрами (без SpeechlessBar) добавляем зазор,
+					// чтобы визуальное расстояние между субтитрами всегда было одинаковым.
+					const nextItem = subtitles[index + 1]
+					const hasGapAfter = nextItem?.type === 'subtitle'
+
 					return (
-						<SubtitleBlock
-							subtitle={item}
-							key={item.id}
-							selectedSentenceId={selectedSentenceId}
-							selectedWordId={selectedWordId}
-							selectWord={handleSelectWord}
-							languageCode={languageCode}
-						/>
+						<Fragment key={item.id}>
+							<SubtitleBlock
+								subtitle={item}
+								selectedSentenceId={selectedSentenceId}
+								selectedWordId={selectedWordId}
+								selectWord={handleSelectWord}
+								languageCode={languageCode}
+							/>
+							{hasGapAfter && <SubtitleBlockGap />}
+						</Fragment>
 					)
 				}
 

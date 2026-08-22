@@ -10,15 +10,9 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { UniversalPhraseTranslationOutModel } from 'models/universalPhraseTranslation/universalPhraseTranslation.out.model'
 import { LanguageCode } from 'prisma/generated/enums'
+import { LLM_TRANSLATION_TIMEOUT_MS } from 'utils/time'
 import { buildUniversalPhraseTranslationPrompt } from './buildUniversalPhraseTranslationPrompt'
 import { parseUniversalPhraseTranslationResult } from './parseUniversalPhraseTranslationResult'
-
-/**
- * Таймаут синхронного запроса к LLM для перевода фразы.
- * Должен быть меньше proxy_read_timeout nginx (60с по умолчанию),
- * чтобы в случае зависшего LLM ошибка успела дойти до клиента до 504.
- */
-const LLM_TRANSLATION_TIMEOUT_MS = 55_000
 
 export type GetOrCreateUniversalPhraseTranslationInput = {
 	universalPhraseId?: number

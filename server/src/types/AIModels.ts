@@ -1,9 +1,9 @@
 export type AIProviderName = 'deepseek' | 'chatgpt' | 'gemini'
 
 export enum OpenAIModels {
-	Standard = 'gpt-5',
-	Mini = 'gpt-5-mini',
-	Nano = 'gpt-5-nano',
+	Nano = 'gpt-5.6-luna',
+	Mini = 'gpt-5.6-terra',
+	Standard = 'gpt-5.6-sol',
 }
 
 export enum DeepSeekModels {

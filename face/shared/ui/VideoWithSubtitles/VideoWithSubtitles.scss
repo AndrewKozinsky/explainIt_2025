@@ -9,9 +9,9 @@
 
 .video-with-subtitles__video {
 	position: sticky;
-	top: 0;
+	top: 1rem;
 	z-index: 3;
-	border-radius: vars.$radius-1;
+	border-radius: vars.$radius-2;
 	overflow: hidden;
 }
 

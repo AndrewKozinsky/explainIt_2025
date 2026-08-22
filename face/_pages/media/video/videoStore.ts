@@ -1,36 +1,58 @@
 import { create } from 'zustand'
-import type { PlayerCommand } from '@/entities/players/VideoPlayer/fn/types'
+import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
+import type { PlaybackMode } from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 
-type YouTubeVideoStoreValues = {
-	player: {
-		currentTime: number
-		duration: number
-		paused: boolean
-		command: null | PlayerCommand
-	}
+type PlayerState = {
+	currentTime: number
+	duration: number
+	paused: boolean
+	/** Очередь команд, ожидающих подтверждения от адаптера проигрывателя. */
+	commandQueue: PlayerCommandEvent[]
 }
 
-type YouTubeVideoStoreMethods = {
-	setPlayerState: (state: Partial<YouTubeVideoStoreValues['player']>) => void
+type PlaybackState = {
+	mode: PlaybackMode
+	/** Время автоматической остановки. null — играем без авто-остановки. */
+	stopAt: null | number
+}
+
+type VideoStoreValues = {
+	player: PlayerState
+	subtitles: null | VideoSubtitlesModel.Subtitle[]
+	playback: PlaybackState
+}
+
+type VideoStoreMethods = {
+	setPlayerState: (state: Partial<PlayerState>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
+	setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
+	setPlayback: (playback: Partial<PlaybackState>) => void
 }
 
-type VideoStore = YouTubeVideoStoreValues & YouTubeVideoStoreMethods
+type VideoStore = VideoStoreValues & VideoStoreMethods
 
 // ⸻ Defaults ⸻
 
-const defaults: YouTubeVideoStoreValues = {
+const defaults: VideoStoreValues = {
 	player: {
 		currentTime: 0,
 		duration: 0,
 		paused: true,
-		command: null,
+		commandQueue: [],
+	},
+	subtitles: null,
+	playback: {
+		mode: 'video',
+		stopAt: null,
 	},
 }
 
+let nextPlayerCommandId = 1
+
 // ⸻ Store ⸻
 
-export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
+export const useVideoStore = create<VideoStore>()((set) => ({
 	...defaults,
 	setPlayerState(playerState) {
 		set((state) => ({
@@ -44,7 +66,18 @@ export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
 		set((state) => ({
 			player: {
 				...state.player,
-				command,
+				commandQueue: [...state.player.commandQueue, { id: nextPlayerCommandId++, value: command }],
+			},
+		}))
+	},
+	setSubtitles(subtitles) {
+		set({ subtitles })
+	},
+	setPlayback(playback) {
+		set((state) => ({
+			playback: {
+				...state.playback,
+				...playback,
 			},
 		}))
 	},

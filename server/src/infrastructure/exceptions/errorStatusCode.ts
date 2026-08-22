@@ -4,4 +4,5 @@ export enum ErrorStatusCode {
 	Forbidden_403 = 403,
 	NotFound_404 = 404,
 	InternalServerError_500 = 500,
+	GatewayTimeout_504 = 504,
 }
