@@ -1,23 +1,17 @@
-/**
- * Перевод всего предложения.
- */
+/** Перевод всего предложения. */
 export type SentenceTranslationModel = {
 	id: number
 	sentenceId: number
 	translation: string
 }
 
-/**
- * Пример использования фразы (в составе перевода фразы).
- */
+/** Пример использования фразы (в составе перевода фразы). */
 export type SentencePhraseTranslationExampleModel = {
 	text: string
 	translate: string
 }
 
-/**
- * Перевод фразы внутри предложения.
- */
+/** Перевод фразы внутри предложения. */
 export type SentencePhraseTranslationModel = {
 	id: number
 	sentenceId: number

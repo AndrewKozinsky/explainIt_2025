@@ -158,6 +158,7 @@ async function fetchSentence(
 		})
 
 		if (result.error || !result.data.translation) throw new Error()
+
 		input.mediaStore.getState().patchSentenceTranslation({
 			sentenceId: input.sentenceId,
 			patch: {
@@ -174,11 +175,12 @@ async function fetchSentence(
 		})
 
 		if (!cached.error)
-			for (const phrase of cached.data)
+			for (const phrase of cached.data) {
 				input.mediaStore.getState().upsertPhraseTranslation({
 					sentenceId: input.sentenceId,
 					phrase: mapPhrase(phrase, input.sentenceText, input.languageCode ?? null),
 				})
+			}
 	} catch {
 		input.mediaStore.getState().patchSentenceTranslation({
 			sentenceId: input.sentenceId,
