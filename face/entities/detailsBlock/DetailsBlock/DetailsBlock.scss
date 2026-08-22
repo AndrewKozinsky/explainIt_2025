@@ -1,5 +1,6 @@
 .details-block {
 	// Позиционирование и высоту задаёт ViewportSyncedHeight
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	gap: 1.2rem;
 }
