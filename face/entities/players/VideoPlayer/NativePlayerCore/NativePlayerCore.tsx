@@ -2,7 +2,6 @@
 
 import { useRef } from 'react'
 import { usePlayerController } from '../fn/controller'
-import { usePlayerControl } from '../fn/playerControl'
 import VideoProgress from '../VideoProgress'
 
 // ── Props ──────────────────────────────────────────────────────────────
@@ -42,9 +41,6 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 
 	// ── Controller: выполнение команд из PlayerContext ───────────────────
 	usePlayerController(playerRef)
-
-	// ── Player controls: клавиатура + pointer-жесты ─────────────────────
-	usePlayerControl(playerWrapperRef)
 
 	// ── Рендер ──────────────────────────────────────────────────────────
 

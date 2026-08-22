@@ -1,8 +1,9 @@
-import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
 import { VideoControlPlay } from '@/shared/ui/icons/videoControls/VideoControlPlay'
 import { VideoControlPlayAndStop } from '@/shared/ui/icons/videoControls/VideoControlPlayAndStop'
 import { VideoControlRevert } from '@/shared/ui/icons/videoControls/VideoControlRevert'
+import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
 import { VideoControlToRightIcon } from '@/shared/ui/icons/videoControls/VideoControlToRightIcon'
+import type { PlaybackMode } from '_pages/media/video/videoStore'
 import VideoControlButton from '../VideoControlButton/VideoControlButton'
 import './VideoControls.scss'
 
@@ -15,6 +16,7 @@ type VideoControlsProps = {
 	playSub: () => void
 	toNextSub: () => void
 	areSubsAvailable: boolean
+	activeMode: PlaybackMode
 }
 
 function VideoControls(props: VideoControlsProps) {
@@ -27,21 +29,33 @@ function VideoControls(props: VideoControlsProps) {
 		playSub,
 		toNextSub,
 		areSubsAvailable,
+		activeMode,
 	} = props
 
 	return (
 		<div className='video-controls'>
 			<VideoControlButton onClick={toVideoStart} icon={<VideoControlToLeftIcon />} />
-			<VideoControlButton onClick={playVideo} icon={<VideoControlPlay />} />
+			<VideoControlButton onClick={playVideo} icon={<VideoControlPlay />} active={activeMode === 'video'} />
 			<VideoControlButton
 				onClick={playVideoShadowing}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
+				active={activeMode === 'shadowing'}
 			/>
 			<div className='video-controls__spacer' />
 			<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />
-			<VideoControlButton onClick={playSubAndRevert} icon={<VideoControlRevert />} disabled={!areSubsAvailable} />
-			<VideoControlButton onClick={playSub} icon={<VideoControlPlayAndStop />} disabled={!areSubsAvailable} />
+			<VideoControlButton
+				onClick={playSubAndRevert}
+				icon={<VideoControlRevert />}
+				disabled={!areSubsAvailable}
+				active={activeMode === 'subAndRevert'}
+			/>
+			<VideoControlButton
+				onClick={playSub}
+				icon={<VideoControlPlayAndStop />}
+				disabled={!areSubsAvailable}
+				active={activeMode === 'sub'}
+			/>
 			<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />
 		</div>
 	)

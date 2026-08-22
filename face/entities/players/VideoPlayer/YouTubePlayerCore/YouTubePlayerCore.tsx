@@ -1,7 +1,6 @@
 'use client'
 
 import { useCallback, useEffect, useRef } from 'react'
-import { usePlayerControl } from '../fn/playerControl'
 import { useYouTubeController } from './useYouTubeController'
 import { loadYouTubeIframeApi, YouTubePlayerState } from './youTubeIframeApi'
 import type { YouTubePlayer } from './youTubeIframeApi'
@@ -63,10 +62,6 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 	// ── Controller: выполнение команд из PlayerContext ─────────────────
 
 	useYouTubeController(playerRef, { setCurrentTime, onTimeUpdate })
-
-	// ── Player controls: клавиатура + pointer-жесты ───────────────────
-
-	usePlayerControl(playerWrapperRef)
 
 	// ── Опрос времени ─────────────────────────────────────────────────
 

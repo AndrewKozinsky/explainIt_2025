@@ -1,18 +1,36 @@
 import { create } from 'zustand'
 import type { PlayerCommand } from '@/entities/players/VideoPlayer/fn/types'
+import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+
+// Режим воспроизведения. Определяет, что делает пробел/центр-клик и какая
+// кнопка подсвечена как активная.
+export type PlaybackMode = 'video' | 'shadowing' | 'subAndRevert' | 'sub'
+
+type PlayerState = {
+	currentTime: number
+	duration: number
+	paused: boolean
+	/** Очередь команд, которые плеер должен выполнить (передаётся через ref) */
+	commandQueue: PlayerCommand[]
+}
+
+type PlaybackState = {
+	mode: PlaybackMode
+	/** Время автоматической остановки. null — играем без авто-остановки. */
+	stopAt: null | number
+}
 
 type YouTubeVideoStoreValues = {
-	player: {
-		currentTime: number
-		duration: number
-		paused: boolean
-		command: null | PlayerCommand
-	}
+	player: PlayerState
+	subtitles: null | VideoSubtitlesModel.Subtitle[]
+	playback: PlaybackState
 }
 
 type YouTubeVideoStoreMethods = {
-	setPlayerState: (state: Partial<YouTubeVideoStoreValues['player']>) => void
+	setPlayerState: (state: Partial<PlayerState>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
+	setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
+	setPlayback: (playback: Partial<PlaybackState>) => void
 }
 
 type VideoStore = YouTubeVideoStoreValues & YouTubeVideoStoreMethods
@@ -24,7 +42,12 @@ const defaults: YouTubeVideoStoreValues = {
 		currentTime: 0,
 		duration: 0,
 		paused: true,
-		command: null,
+		commandQueue: [],
+	},
+	subtitles: null,
+	playback: {
+		mode: 'video',
+		stopAt: null,
 	},
 }
 
@@ -44,7 +67,18 @@ export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
 		set((state) => ({
 			player: {
 				...state.player,
-				command,
+				commandQueue: [...state.player.commandQueue, command],
+			},
+		}))
+	},
+	setSubtitles(subtitles) {
+		set({ subtitles })
+	},
+	setPlayback(playback) {
+		set((state) => ({
+			playback: {
+				...state.playback,
+				...playback,
 			},
 		}))
 	},

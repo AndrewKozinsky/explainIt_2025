@@ -11,6 +11,7 @@ import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitle
 import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 import { useYouTubeVideoStore } from '../videoStore'
+import { useVideoPlayback } from './fn/useVideoPlayback'
 
 type VideoClientWrapperProps = {
 	selectedSentenceId?: null | number
@@ -48,6 +49,8 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 	} = props
 
 	const playerRef = useRef<VideoPlayerHandle>(null)
+
+	useVideoPlayback({ videoId, subtitles, playerRef })
 
 	const currentTime = useYouTubeVideoStore((state) => state.player.currentTime)
 	const setPlayerState = useYouTubeVideoStore((state) => state.setPlayerState)
