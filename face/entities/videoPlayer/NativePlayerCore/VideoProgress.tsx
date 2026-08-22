@@ -1,11 +1,14 @@
 import { useMemo, useRef } from 'react'
-import { usePlayerContext } from '../VideoPlayer/PlayerContext'
 
-function VideoProgress() {
+type VideoProgressProps = {
+	currentTime: number
+	duration: number
+	onSeek: (time: number) => void
+}
+
+function VideoProgress({ currentTime, duration, onSeek }: VideoProgressProps) {
 	const progressRef = useRef<HTMLDivElement>(null)
 	const dragPointerIdRef = useRef<null | number>(null)
-
-	const { currentTime, duration, sendCommand } = usePlayerContext()
 
 	const progressPercent = useMemo(() => {
 		if (!duration) return 0
@@ -21,7 +24,7 @@ function VideoProgress() {
 		const ratio = (clientX - rect.left) / rect.width
 		const clampedRatio = Math.max(0, Math.min(1, ratio))
 
-		sendCommand({ type: 'SET_TIME', time: clampedRatio * duration })
+		onSeek(clampedRatio * duration)
 	}
 
 	return (

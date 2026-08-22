@@ -1,4 +1,4 @@
-import type { PlayerCommand } from '@/entities/videoPlayer/VideoPlayer/fn/types'
+import type { PlayerCommand } from '@/entities/videoPlayer'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 import { useYouTubeVideoStore } from '../../videoStore'
 import { findActiveSubtitleIndex, findNextSubtitleIndex, findPrevSubtitleIndex } from './subtitles'

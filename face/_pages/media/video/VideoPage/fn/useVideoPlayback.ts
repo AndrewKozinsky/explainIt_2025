@@ -1,8 +1,6 @@
 'use client'
 
-import { useEffect, useMemo } from 'react'
-import type { RefObject } from 'react'
-import type { VideoPlayerHandle } from '@/entities/videoPlayer/VideoPlayer/VideoPlayer'
+import { useCallback, useEffect, useMemo } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 import { useYouTubeVideoStore } from '../../videoStore'
 import { handleAutoStop, resetPlaybackRuntime } from './playback'
@@ -11,11 +9,10 @@ import { useVideoInput } from './useVideoInput'
 type UseVideoPlaybackParams = {
 	videoId: number
 	subtitles: null | VideoSubtitlesModel.Structure
-	playerRef: RefObject<VideoPlayerHandle | null>
 }
 
 export function useVideoPlayback(params: UseVideoPlaybackParams) {
-	const { videoId, subtitles, playerRef } = params
+	const { videoId, subtitles } = params
 
 	const subtitleList = useMemo(
 		() => subtitles?.subtitles.filter((item) => item.type === 'subtitle') ?? null,
@@ -30,16 +27,13 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 		useYouTubeVideoStore.getState().setPlayback({ stopAt: null })
 	}, [videoId, subtitleList])
 
-	// Мост: очередь команд из стора → плеер (по одной за проход эффекта)
-	const commandQueue = useYouTubeVideoStore((state) => state.player.commandQueue)
-	useEffect(() => {
-		if (commandQueue.length === 0) return
+	const command = useYouTubeVideoStore((state) => state.player.commandQueue[0] ?? null)
+	const handleCommandHandled = useCallback((id: number) => {
+		const queue = useYouTubeVideoStore.getState().player.commandQueue
+		if (queue[0]?.id !== id) return
 
-		const [head, ...rest] = commandQueue
-
-		useYouTubeVideoStore.getState().setPlayerState({ commandQueue: rest })
-		playerRef.current?.sendCommand(head)
-	}, [commandQueue, playerRef])
+		useYouTubeVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
+	}, [])
 
 	// Авто-остановка по stopAt
 	const currentTime = useYouTubeVideoStore((state) => state.player.currentTime)
@@ -52,4 +46,6 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	}, [currentTime, stopAt])
 
 	useVideoInput()
+
+	return { command, handleCommandHandled }
 }

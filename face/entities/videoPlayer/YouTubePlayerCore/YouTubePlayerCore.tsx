@@ -1,6 +1,7 @@
 'use client'
 
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
 import { useYouTubeController } from './useYouTubeController'
 import { loadYouTubeIframeApi, YouTubePlayerState } from './youTubeIframeApi'
 import type { YouTubePlayer } from './youTubeIframeApi'
@@ -13,15 +14,13 @@ type YouTubePlayerCoreProps = {
 	/** Соотношение сторон в CSS-формате, например "1280 / 720". По умолчанию "16 / 9". */
 	ratio?: string
 	initialTime?: number
-	playerWrapperRef: React.RefObject<HTMLDivElement | null>
+	command?: PlayerCommandEvent | null
+	onCommandHandled?: (id: number) => void
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
 	onEnded?: () => void
-	setCurrentTime: (t: number) => void
-	setDuration: (d: number) => void
-	setPaused: (p: boolean) => void
-	saveProgress: (seconds: number) => void
+	onProgressSave?: (seconds: number) => void
 }
 
 // ── Константы ──────────────────────────────────────────────────────────
@@ -36,15 +35,13 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 		youTubeVideoId,
 		ratio,
 		initialTime,
-		playerWrapperRef,
+		command,
+		onCommandHandled,
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
 		onEnded,
-		setCurrentTime,
-		setDuration,
-		setPaused,
-		saveProgress,
+		onProgressSave,
 	} = props
 
 	// ── Соотношение сторон (из YouTube Data API или фоллбек) ────────────
@@ -57,11 +54,14 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 	const containerRef = useRef<HTMLDivElement>(null)
 	const pollIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 	const initialTimeRef = useRef(initialTime)
+	const [isReady, setIsReady] = useState(false)
+	const [, setCurrentTime] = useState(0)
+	const [, setDuration] = useState(0)
 	initialTimeRef.current = initialTime
 
-	// ── Controller: выполнение команд из PlayerContext ─────────────────
+	// ── Controller: исполнение команды, полученной через props ─────────
 
-	useYouTubeController(playerRef, { setCurrentTime, onTimeUpdate })
+	useYouTubeController(playerRef, isReady, command, { setCurrentTime, onTimeUpdate }, onCommandHandled)
 
 	// ── Опрос времени ─────────────────────────────────────────────────
 
@@ -76,10 +76,10 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 			setCurrentTime(t)
 			onTimeUpdate?.(t)
 
-			// saveProgress дросселируется на уровне VideoPlayer-обёртки
-			saveProgress(t)
+			// Сохранение прогресса дросселируется владельцем плеера.
+			onProgressSave?.(t)
 		}, TIME_POLL_INTERVAL)
-	}, [setCurrentTime, onTimeUpdate, saveProgress])
+	}, [onProgressSave, onTimeUpdate])
 
 	const stopPolling = useCallback(() => {
 		if (!pollIntervalRef.current) return
@@ -92,6 +92,7 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 
 	useEffect(() => {
 		let disposed = false
+		setIsReady(false)
 
 		async function initPlayer() {
 			await loadYouTubeIframeApi()
@@ -115,9 +116,6 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 							return
 						}
 
-						// Всегда начинаем с паузы
-						event.target.pauseVideo()
-
 						const d = event.target.getDuration()
 						setDuration(d)
 						onDurationChange?.(d)
@@ -127,6 +125,8 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 							event.target.seekTo(savedTime, true)
 							setCurrentTime(savedTime)
 						}
+
+						setIsReady(true)
 					},
 
 					onStateChange(event) {
@@ -135,14 +135,12 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 						const state = event.data
 
 						if (state === YouTubePlayerState.PLAYING) {
-							setPaused(false)
 							onPlayStateChange?.(false)
 							startPolling()
 						} else if (state === YouTubePlayerState.BUFFERING) {
 							// Буферизация — продолжаем опрос, время может идти
 							startPolling()
 						} else if (state === YouTubePlayerState.PAUSED) {
-							setPaused(true)
 							onPlayStateChange?.(true)
 							stopPolling()
 							// Последний замер времени
@@ -150,7 +148,6 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 							setCurrentTime(t)
 							onTimeUpdate?.(t)
 						} else if (state === YouTubePlayerState.ENDED) {
-							setPaused(true)
 							onPlayStateChange?.(true)
 							stopPolling()
 							onEnded?.()
@@ -180,6 +177,7 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 			stopPolling()
 			playerRef.current?.destroy()
 			playerRef.current = null
+			setIsReady(false)
 		}
 		// плеер пересоздаётся только при смене videoId
 		// eslint-disable-next-line react-hooks/exhaustive-deps
@@ -193,7 +191,7 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 	// ── Рендер ────────────────────────────────────────────────────────
 
 	return (
-		<div className='video-root' ref={playerWrapperRef}>
+		<div className='video-root'>
 			<div className='video-root__youtube-container' ref={containerRef} style={{ aspectRatio }} />
 		</div>
 	)

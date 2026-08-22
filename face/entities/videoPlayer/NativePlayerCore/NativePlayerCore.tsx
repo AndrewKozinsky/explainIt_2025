@@ -1,110 +1,103 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePlayerController } from '../VideoPlayer/fn/controller'
+import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
 import VideoProgress from './VideoProgress'
-
-// ── Props ──────────────────────────────────────────────────────────────
 
 type NativePlayerCoreProps = {
 	fileUrl: string
 	initialTime?: number
-	playerWrapperRef: React.RefObject<HTMLDivElement | null>
+	command?: PlayerCommandEvent | null
+	onCommandHandled?: (id: number) => void
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
 	onEnded?: () => void
-	setCurrentTime: (t: number) => void
-	setDuration: (d: number) => void
-	setPaused: (p: boolean) => void
-	saveProgress: (seconds: number) => void
+	onProgressSave?: (seconds: number) => void
 }
-
-// ── Компонент ──────────────────────────────────────────────────────────
 
 function NativePlayerCore(props: NativePlayerCoreProps) {
 	const {
 		fileUrl,
 		initialTime,
-		playerWrapperRef,
+		command,
+		onCommandHandled,
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
 		onEnded,
-		setCurrentTime,
-		setDuration,
-		setPaused,
-		saveProgress,
+		onProgressSave,
 	} = props
 
 	const playerRef = useRef<HTMLVideoElement>(null)
+	const [currentTime, setCurrentTime] = useState(0)
+	const [duration, setDuration] = useState(0)
 
-	// ── Controller: выполнение команд из PlayerContext ───────────────────
-	usePlayerController(playerRef)
+	usePlayerController(playerRef, command, onCommandHandled)
 
-	// ── Рендер ──────────────────────────────────────────────────────────
+	const syncTime = useCallback(
+		(time: number) => {
+			setCurrentTime(time)
+			onTimeUpdate?.(time)
+			onProgressSave?.(time)
+		},
+		[onProgressSave, onTimeUpdate],
+	)
 
-	function syncTime(currentTime: number) {
-		setCurrentTime(currentTime)
-		onTimeUpdate?.(currentTime)
-		saveProgress(currentTime)
-	}
-
-	// Точная синхронизация времени (~20 раз/сек), чтобы автопауза срабатывала
-	// у границы субтитра без заметного перелёта в следующий субтитр.
 	const syncTimeRef = useRef(syncTime)
 	syncTimeRef.current = syncTime
 
+	const seek = useCallback(
+		(time: number) => {
+			const video = playerRef.current
+			if (!video) return
+
+			video.currentTime = time
+			syncTime(time)
+		},
+		[syncTime],
+	)
+
+	// Точная синхронизация времени нужна для авто-паузы у границы субтитра.
 	useEffect(() => {
 		let rafId = 0
 		let lastSync = 0
 
 		function tick(now: number) {
 			const video = playerRef.current
-
 			if (video && !video.paused && now - lastSync >= 50) {
 				lastSync = now
 				syncTimeRef.current(video.currentTime)
 			}
-
 			rafId = requestAnimationFrame(tick)
 		}
 
 		rafId = requestAnimationFrame(tick)
-
 		return () => cancelAnimationFrame(rafId)
 	}, [])
 
 	return (
-		<div className='video-root' ref={playerWrapperRef}>
+		<div className='video-root'>
 			<video
 				src={fileUrl}
 				className='video-root__video'
 				ref={playerRef}
-				onTimeUpdate={(e) => syncTime(e.currentTarget.currentTime)}
-				onSeeked={(e) => syncTime(e.currentTarget.currentTime)}
-				onLoadedMetadata={(e) => {
-					const duration = e.currentTarget.duration
-					setDuration(duration)
-					onDurationChange?.(duration)
+				onTimeUpdate={(event) => syncTime(event.currentTarget.currentTime)}
+				onSeeked={(event) => syncTime(event.currentTarget.currentTime)}
+				onLoadedMetadata={(event) => {
+					const nextDuration = event.currentTarget.duration
+					setDuration(nextDuration)
+					onDurationChange?.(nextDuration)
 
 					const savedTime = initialTime ?? 0
-					if (savedTime > 0 && savedTime < duration) {
-						e.currentTarget.currentTime = savedTime
-						setCurrentTime(savedTime)
-					}
+					if (savedTime > 0 && savedTime < nextDuration) seek(savedTime)
 				}}
-				onPlay={() => {
-					setPaused(false)
-					onPlayStateChange?.(false)
-				}}
-				onPause={() => {
-					setPaused(true)
-					onPlayStateChange?.(true)
-				}}
+				onPlay={() => onPlayStateChange?.(false)}
+				onPause={() => onPlayStateChange?.(true)}
 				onEnded={onEnded}
 			/>
-			<VideoProgress />
+			<VideoProgress currentTime={currentTime} duration={duration} onSeek={seek} />
 		</div>
 	)
 }

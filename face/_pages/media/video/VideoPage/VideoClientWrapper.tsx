@@ -1,9 +1,8 @@
 'use client'
 
-import { useRef } from 'react'
+import { useMemo } from 'react'
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import VideoPlayer from '@/entities/videoPlayer/VideoPlayer/VideoPlayer'
-import type { VideoPlayerHandle } from '@/entities/videoPlayer/VideoPlayer/VideoPlayer'
+import { VideoPlayer } from '@/entities/videoPlayer'
 import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
 import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
 import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'
@@ -48,9 +47,8 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 		durationSeconds,
 	} = props
 
-	const playerRef = useRef<VideoPlayerHandle>(null)
-
-	useVideoPlayback({ videoId, subtitles, playerRef })
+	const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
+	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
 	const currentTime = useYouTubeVideoStore((state) => state.player.currentTime)
 	const setPlayerState = useYouTubeVideoStore((state) => state.setPlayerState)
@@ -58,16 +56,16 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 	return (
 		<VideoWithSubtitles>
 			<VideoPlayer
-				ref={playerRef}
 				fileUrl={fileUrl}
 				youTubeVideoId={youTubeVideoId}
-				videoId={videoId}
 				initialTime={localStorageManager.videoProgress.get(videoId)}
 				ratio={ratio ?? undefined}
+				command={command}
+				onCommandHandled={handleCommandHandled}
 				onTimeUpdate={(t) => setPlayerState({ currentTime: t })}
 				onDurationChange={(d) => setPlayerState({ duration: d })}
 				onPlayStateChange={(p) => setPlayerState({ paused: p })}
-				onProgressSave={(id, seconds) => localStorageManager.videoProgress.set(id, seconds)}
+				onProgressSave={saveProgress}
 				onEnded={() => localStorageManager.videoProgress.remove(videoId)}
 			/>
 			<SubtitlesStatusRouter

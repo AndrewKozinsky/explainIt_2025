@@ -1,8 +1,11 @@
 import { useEffect, useRef } from 'react'
-import { usePlayerContext } from '../PlayerContext'
+import type { PlayerCommandEvent } from './types'
 
-export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement | null>) {
-	const command = usePlayerContext().command
+export function usePlayerController(
+	playerRef: React.RefObject<HTMLVideoElement | null>,
+	command: PlayerCommandEvent | null | undefined,
+	onCommandHandled?: (id: number) => void,
+) {
 	const reverseSeekIntervalIdRef = useRef<null | ReturnType<typeof setInterval>>(null)
 	const reverseSeekWasPlayingRef = useRef(false)
 	const reverseSeekLastTsRef = useRef<number>(0)
@@ -16,7 +19,9 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 	) {
 		if (!command) return
 
-		switch (command.type) {
+		const value = command.value
+
+		switch (value.type) {
 			case 'PLAY':
 				video.play()
 				break
@@ -24,19 +29,19 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 				video.pause()
 				break
 			case 'SET_TIME':
-				video.currentTime = command.time
+				video.currentTime = value.time
 				break
 			case 'REWIND':
-				video.currentTime += command.seconds
+				video.currentTime += value.seconds
 				break
 			case 'SET_PLAYBACK_RATE':
-				video.playbackRate = command.rate
+				video.playbackRate = value.rate
 				break
 			case 'START_FORWARD_HOLD':
 				stopReverseSeekIfActive()
 				forwardHoldActiveRef.current = true
 				forwardHoldWasPlayingRef.current = !video.paused
-				video.playbackRate = command.rate
+				video.playbackRate = value.rate
 				if (video.paused) {
 					video.play()
 				}
@@ -56,7 +61,7 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 					const last = reverseSeekLastTsRef.current || now
 					reverseSeekLastTsRef.current = now
 					const dtSeconds = (now - last) / 1000
-					video.currentTime = Math.max(0, video.currentTime - command.rate * dtSeconds)
+					video.currentTime = Math.max(0, video.currentTime - value.rate * dtSeconds)
 				}, 250)
 				break
 			}
@@ -64,7 +69,7 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 				stopReverseSeekIfActive()
 				break
 			case 'SET_VOLUME':
-				video.volume = command.volume
+				video.volume = value.volume
 				break
 		}
 	}
@@ -102,13 +107,20 @@ export function usePlayerController(playerRef: React.RefObject<HTMLVideoElement 
 			forwardHoldWasPlayingRef.current = false
 		}
 
-		if (command.type !== 'START_REVERSE_SEEK' && command.type !== 'STOP_REVERSE_SEEK') {
+		if (command.value.type !== 'START_REVERSE_SEEK' && command.value.type !== 'STOP_REVERSE_SEEK') {
 			stopReverseSeekIfActive()
 		}
-		if (command.type !== 'START_FORWARD_HOLD' && command.type !== 'STOP_FORWARD_HOLD') {
+		if (command.value.type !== 'START_FORWARD_HOLD' && command.value.type !== 'STOP_FORWARD_HOLD') {
 			stopForwardHoldIfActive()
 		}
 
 		executeCommand(video, stopReverseSeekIfActive, stopForwardHoldIfActive)
-	}, [command, playerRef])
+		onCommandHandled?.(command.id)
+	}, [command, onCommandHandled, playerRef])
+
+	useEffect(() => {
+		return () => {
+			if (reverseSeekIntervalIdRef.current) clearInterval(reverseSeekIntervalIdRef.current)
+		}
+	}, [])
 }

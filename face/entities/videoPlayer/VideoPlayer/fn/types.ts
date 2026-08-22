@@ -9,3 +9,9 @@ export type PlayerCommand =
 	| { type: 'START_REVERSE_SEEK'; rate: number }
 	| { type: 'STOP_REVERSE_SEEK' }
 	| { type: 'SET_VOLUME'; volume: number }
+
+/** Команда с идентификатором доставки. */
+export type PlayerCommandEvent = {
+	id: number
+	value: PlayerCommand
+}

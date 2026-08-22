@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { PlayerCommand } from '@/entities/videoPlayer/VideoPlayer/fn/types'
+import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 
 // Режим воспроизведения. Определяет, что делает пробел/центр-клик и какая
@@ -10,8 +10,8 @@ type PlayerState = {
 	currentTime: number
 	duration: number
 	paused: boolean
-	/** Очередь команд, которые плеер должен выполнить (передаётся через ref) */
-	commandQueue: PlayerCommand[]
+	/** Очередь команд, ожидающих подтверждения от адаптера проигрывателя. */
+	commandQueue: PlayerCommandEvent[]
 }
 
 type PlaybackState = {
@@ -51,6 +51,8 @@ const defaults: YouTubeVideoStoreValues = {
 	},
 }
 
+let nextPlayerCommandId = 1
+
 // ⸻ Store ⸻
 
 export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
@@ -67,7 +69,7 @@ export const useYouTubeVideoStore = create<VideoStore>()((set) => ({
 		set((state) => ({
 			player: {
 				...state.player,
-				commandQueue: [...state.player.commandQueue, command],
+				commandQueue: [...state.player.commandQueue, { id: nextPlayerCommandId++, value: command }],
 			},
 		}))
 	},
