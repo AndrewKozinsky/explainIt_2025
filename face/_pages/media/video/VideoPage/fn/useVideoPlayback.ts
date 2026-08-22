@@ -23,11 +23,13 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	// но сохраняем выбранный режим (чтобы подсветка активной кнопки не пропадала).
 	useEffect(() => {
 		resetPlaybackRuntime()
+
 		useYouTubeVideoStore.getState().setSubtitles(subtitleList)
 		useYouTubeVideoStore.getState().setPlayback({ stopAt: null })
 	}, [videoId, subtitleList])
 
 	const command = useYouTubeVideoStore((state) => state.player.commandQueue[0] ?? null)
+
 	const handleCommandHandled = useCallback((id: number) => {
 		const queue = useYouTubeVideoStore.getState().player.commandQueue
 		if (queue[0]?.id !== id) return

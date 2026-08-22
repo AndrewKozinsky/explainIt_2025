@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
-import { useYouTubeController } from './useYouTubeController'
-import { loadYouTubeIframeApi, YouTubePlayerState } from './youTubeIframeApi'
-import type { YouTubePlayer } from './youTubeIframeApi'
+import { useYouTubeController } from './fn/useYouTubeController'
+import { loadYouTubeIframeApi, YouTubePlayerState } from './fn/youTubeIframeApi'
+import type { YouTubePlayer } from './fn/youTubeIframeApi'
 import './YouTubePlayerCore.scss'
 
 // ── Props ──────────────────────────────────────────────────────────────

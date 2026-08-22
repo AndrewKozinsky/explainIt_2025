@@ -1,7 +1,7 @@
 'use client'
 
 import { RefObject, useEffect, useRef } from 'react'
-import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
+import type { PlayerCommandEvent } from '../../VideoPlayer/fn/types'
 import type { YouTubePlayer } from './youTubeIframeApi'
 
 type YouTubeControllerCallbacks = {
@@ -18,6 +18,7 @@ export function useYouTubeController(
 ) {
 	const callbacksRef = useRef(callbacks)
 	callbacksRef.current = callbacks
+
 	const reverseSeekIntervalIdRef = useRef<null | ReturnType<typeof setInterval>>(null)
 	const forwardHoldActiveRef = useRef(false)
 	const forwardHoldNormalRateRef = useRef(1)
@@ -44,6 +45,7 @@ export function useYouTubeController(
 		if (value.type !== 'START_REVERSE_SEEK' && value.type !== 'STOP_REVERSE_SEEK') {
 			stopReverseSeekIfActive()
 		}
+
 		if (value.type !== 'START_FORWARD_HOLD' && value.type !== 'STOP_FORWARD_HOLD') {
 			stopForwardHoldIfActive()
 		}

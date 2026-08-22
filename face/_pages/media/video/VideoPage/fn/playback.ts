@@ -223,6 +223,7 @@ export function playSubAndRevert() {
 	if (getStore().playback.mode === 'subAndRevert') {
 		if (isPlaying()) send({ type: 'PAUSE' })
 		else startSubAndRevertMode()
+
 		return
 	}
 
@@ -234,6 +235,7 @@ export function playSub() {
 	if (getStore().playback.mode === 'sub') {
 		if (isPlaying()) send({ type: 'PAUSE' })
 		else startSubMode()
+
 		return
 	}
 
