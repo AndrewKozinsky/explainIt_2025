@@ -70,7 +70,7 @@ function VideoPage(props: VideoRootProps) {
 						selectWord={selectWord}
 					/>
 				}
-				rightBlock={<DetailsBlock />}
+				rightBlock={<DetailsBlock type='video' />}
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 			/>
 		</MediaStoreProvider>
