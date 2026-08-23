@@ -1,19 +1,19 @@
-// import { bookConfig } from '@/entities/book/lib/bookConfig'
-// import type { BookModel } from '@/entities/book/repository/BooksRepository'
-// import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-// import { pageUrls } from '@/shared/utils/pageUrls'
-// import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-// import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
-// import { MediaGridAddButton } from '@/widgets/media/MediaGridAddButton/MediaGridAddButton'
-// import { getConfig } from './fn/getConfig'
+import { bookConfig } from '@/entities/book/lib/bookConfig'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
+import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
+import { MediaGridAddButton } from '@/entities/mediaCard/MediaGridAddButton/MediaGridAddButton'
+import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import { getConfig } from './fn/getConfig'
 
-/*type PrivateBooksListProps = {
+type PrivateBooksListProps = {
 	books: BookModel[]
 	addBook?: () => Promise<ApiResult<BookModel>>
-}*/
+}
 
-/*function PrivateBooksList(props: PrivateBooksListProps) {
+function PrivateBooksList(props: PrivateBooksListProps) {
 	const { books, addBook } = props
 
 	const config = getConfig(books)
@@ -36,6 +36,6 @@
 			{addBook && <MediaGridAddButton addAction={addBook} />}
 		</ItemsGrid>
 	)
-}*/
+}
 
-// export default PrivateBooksList
+export default PrivateBooksList
