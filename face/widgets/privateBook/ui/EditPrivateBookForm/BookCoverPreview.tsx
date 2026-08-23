@@ -13,7 +13,7 @@ function BookCoverPreview(props: BookCoverPreviewProps) {
 	const style = coverUrl ? { backgroundImage: `url(${coverUrl})` } : undefined
 
 	return (
-		<LabelWithField label='Обложка'>
+		<LabelWithField label='Обложка' block>
 			<div className='book-cover-preview' style={style}>
 				<DeleteBookCoverButton bookId={bookId} />
 			</div>

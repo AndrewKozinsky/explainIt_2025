@@ -4,7 +4,6 @@ import BookCoverDropzone from './BookCoverDropzone'
 import BookCoverPreview from './BookCoverPreview'
 
 type BookCoverSectionProps = {
-	block?: boolean
 	coverUrl: string | null
 	bookId: number
 	languageCode: string | null
@@ -13,7 +12,7 @@ type BookCoverSectionProps = {
 }
 
 function BookCoverSection(props: BookCoverSectionProps) {
-	const { block, coverUrl, bookId, languageCode, isCoverFileUploaded, onCoverUpdated } = props
+	const { coverUrl, bookId, languageCode, isCoverFileUploaded, onCoverUpdated } = props
 
 	if (coverUrl) {
 		return <BookCoverPreview coverUrl={coverUrl} bookId={bookId} />
@@ -21,7 +20,6 @@ function BookCoverSection(props: BookCoverSectionProps) {
 
 	return (
 		<BookCoverDropzone
-			block={block}
 			bookId={bookId}
 			languageCode={languageCode}
 			isCoverFileUploaded={isCoverFileUploaded}
