@@ -1,19 +1,19 @@
-// 'use client'
+'use client'
 
-// import { useState, useCallback } from 'react'
-// import { booksService } from '@/entities/book/BooksService'
-// import type { BookModel } from '@/entities/book/repository/BooksRepository'
-// import { EditPrivateBookAndChapters } from '@/entities/book/ui/EditPrivateBookAndChapters/EditPrivateBookAndChapters'
-// import { chaptersService, ChaptersService } from '@/entities/chapter/ChaptersService'
-// import ChaptersList from '@/entities/media/ui/ChaptersList/ChaptersList'
-// import MediaContentWrapper from '@/entities/media/ui/MediaContentWrapper/MediaContentWrapper'
-// import { getBookChaptersLinksConfig } from './fn/getBookChaptersLinksConfig'
+import { useCallback, useState } from 'react'
+import { booksService } from '@/entities/book/BooksService'
+import { getBookChaptersLinksConfig } from '@/entities/book/lib/getBookChaptersLinksConfig'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import { chaptersService } from '@/entities/chapter/ChaptersService'
+import ChaptersList from '@/entities/media/ui/ChaptersList/ChaptersList'
+import MediaContentWrapper from '@/entities/media/ui/MediaContentWrapper/MediaContentWrapper'
+import { EditPrivateBookAndChapters } from '@/widgets/privateBook/ui/EditPrivateBookAndChapters/EditPrivateBookAndChapters'
 
-/*type PrivateBookPartProps = {
+type PrivateBookPartProps = {
 	book: BookModel
-}*/
+}
 
-/*export default function PrivateBookPart(props: PrivateBookPartProps) {
+export default function PrivateBook(props: PrivateBookPartProps) {
 	const { book: initialBook } = props
 	const [currentBook, setCurrentBook] = useState<BookModel>(initialBook)
 
@@ -81,8 +81,8 @@
 	return (
 		<MediaContentWrapper
 			list={
-				<div className='book-page__right-menu'>
-					<ChaptersList chapters={chaptersConfig} extraClass='book-page__chapters-list' />
+				<div className='private-book__right-menu'>
+					<ChaptersList chapters={chaptersConfig} extraClass='private-book__chapters-list' />
 				</div>
 			}
 		>
@@ -96,4 +96,4 @@
 			/>
 		</MediaContentWrapper>
 	)
-}*/
+}

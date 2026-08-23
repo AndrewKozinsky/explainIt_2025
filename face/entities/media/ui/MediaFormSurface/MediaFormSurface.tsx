@@ -1,13 +1,12 @@
-// import React from 'react'
-// import './MediaFormSurface.scss'
+import './MediaFormSurface.scss'
 
-/*type BookFormSurfaceProps = {
+type BookFormSurfaceProps = {
 	children: React.ReactNode
 	leftBottomButtons: React.ReactNode[]
 	rightBottomButtons: React.ReactNode[]
-}*/
+}
 
-/*function MediaFormSurface(props: BookFormSurfaceProps) {
+function MediaFormSurface(props: BookFormSurfaceProps) {
 	const { children, leftBottomButtons, rightBottomButtons } = props
 
 	return (
@@ -19,6 +18,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default MediaFormSurface
+export default MediaFormSurface

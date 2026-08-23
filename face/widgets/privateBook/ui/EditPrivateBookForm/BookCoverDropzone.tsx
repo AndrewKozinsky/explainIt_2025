@@ -1,17 +1,17 @@
-// import { BooksService } from '@/entities/book/BooksService'
-// import type { BookModel } from '@/entities/book/repository/BooksRepository'
-// import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
-// import { useCoverUpload } from './fn/useCoverUpload'
+import { BooksService } from '@/entities/book/BooksService'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import FileDropzone from '@/shared/ui/formRelated/FileDropzone/FileDropzone'
+import { useCoverUpload } from './fn/useCoverUpload'
 
-/*type BookCoverDropzoneProps = {
+type BookCoverDropzoneProps = {
 	block?: boolean
 	bookId: number
 	languageCode: string | null
 	isCoverFileUploaded: boolean | null
 	onCoverUpdated: (book: BookModel) => void
-}*/
+}
 
-/*function BookCoverDropzone(props: BookCoverDropzoneProps) {
+function BookCoverDropzone(props: BookCoverDropzoneProps) {
 	const { block, bookId, languageCode, isCoverFileUploaded, onCoverUpdated } = props
 
 	const { onGetUploadUrl, onUploadComplete } = useCoverUpload(bookId, languageCode, onCoverUpdated)
@@ -27,6 +27,6 @@
 			onUploadComplete={onUploadComplete}
 		/>
 	)
-}*/
+}
 
-// export default BookCoverDropzone
+export default BookCoverDropzone

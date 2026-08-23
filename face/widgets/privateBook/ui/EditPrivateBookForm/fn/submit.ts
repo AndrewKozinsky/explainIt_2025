@@ -1,10 +1,10 @@
-// import { useCallback } from 'react'
-// import { booksService } from '@/entities/book/BooksService'
-// import type { BookModel, UpdateBookInput } from '@/entities/book/repository/BooksRepository'
-// import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
-// import { ChangeBookFormData } from './form'
+import { useCallback } from 'react'
+import { booksService } from '@/entities/book/BooksService'
+import type { BookModel, UpdateBookInput } from '@/entities/book/repository/BooksRepository'
+import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+import { ChangeBookFormData } from './form'
 
-/*export function useGetOnUpdateBookFormSubmit(
+export function useGetOnUpdateBookFormSubmit(
 	book: BookModel,
 	onBookUpdated: (book: BookModel) => void,
 	setFieldError: (field: keyof ChangeBookFormData, params: any) => void,
@@ -43,4 +43,4 @@
 		},
 		[book.id, booksService, onBookUpdated, setFieldError, setFormError, setFormStatus],
 	)
-}*/
+}

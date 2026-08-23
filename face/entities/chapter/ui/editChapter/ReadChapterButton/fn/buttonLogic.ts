@@ -1,13 +1,13 @@
-// import { useCallback } from 'react'
-// import { redirect } from 'next/navigation'
-// import { useLocale } from 'next-intl'
-// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+import { useCallback } from 'react'
+import { redirect } from 'next/navigation'
+import { useLocale } from 'next-intl'
+import { localizePath, pageUrls } from '@/shared/utils/pageUrls'
 
-/*export function useIsReadButtonDisabled(hasContent: boolean) {
+export function useIsReadButtonDisabled(hasContent: boolean) {
 	return !hasContent
-}*/
+}
 
-/*export function useGetOnReadButtonClick(bookId: number, chapterId: number) {
+export function useGetOnReadButtonClick(bookId: number, chapterId: number) {
 	const locale = useLocale()
 
 	return useCallback(
@@ -16,4 +16,4 @@
 		},
 		[bookId, chapterId, locale],
 	)
-}*/
+}

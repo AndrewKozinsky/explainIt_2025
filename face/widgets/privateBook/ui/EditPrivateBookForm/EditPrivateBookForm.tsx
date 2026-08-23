@@ -1,28 +1,28 @@
-// import React, { useState } from 'react'
-// import { yupResolver } from '@hookform/resolvers/yup'
-// import { Controller, useForm } from 'react-hook-form'
-// import * as yup from 'yup'
-// import type { BookModel } from '@/entities/book/repository/BooksRepository'
-// import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import FormError from '@/shared/ui/formRelated/FormError/FormError'
-// import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-// import LanguagesRadioGroup from '@/shared/ui/LanguagesRadioGroup/LanguagesRadioGroup'
-// import { FormStatus } from '@/shared/utils/forms'
-// import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
-// import BookCoverSection from './BookCoverSection'
-// import { ChangeBookFormData, changeBookFormSchema } from './fn/form'
-// import { useSetFieldValues } from './fn/setFieldValues'
-// import { useGetOnUpdateBookFormSubmit } from './fn/submit'
+import React, { useState } from 'react'
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Controller, useForm } from 'react-hook-form'
+import * as yup from 'yup'
+import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import FormError from '@/shared/ui/formRelated/FormError/FormError'
+import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import LanguagesRadioGroup from '@/shared/ui/LanguagesRadioGroup/LanguagesRadioGroup'
+import { FormStatus } from '@/shared/utils/forms'
+import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
+import BookCoverSection from './BookCoverSection'
+import { ChangeBookFormData, changeBookFormSchema } from './fn/form'
+import { useSetFieldValues } from './fn/setFieldValues'
+import { useGetOnUpdateBookFormSubmit } from './fn/submit'
 
-/*type EditBookFormProps = {
+type EditBookFormProps = {
 	book: BookModel
 	onBookUpdated: (book: BookModel) => void
 	onCoverUpdated: (book: BookModel) => void
-}*/
+}
 
-/*export default function EditBookForm(props: EditBookFormProps) {
+export default function EditBookForm(props: EditBookFormProps) {
 	const { book, onBookUpdated, onCoverUpdated } = props
 
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
@@ -113,4 +113,4 @@
 			</MediaFormSurface>
 		</form>
 	)
-}*/
+}

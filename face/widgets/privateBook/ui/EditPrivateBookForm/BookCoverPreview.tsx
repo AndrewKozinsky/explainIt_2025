@@ -1,13 +1,13 @@
-// import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
-// import DeleteBookCoverButton from './DeleteBookCoverButton/DeleteBookCoverButton'
-// import './BookCoverPreview.scss'
+import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
+import DeleteBookCoverButton from './DeleteBookCoverButton/DeleteBookCoverButton'
+import './BookCoverPreview.scss'
 
-/*type BookCoverPreviewProps = {
+type BookCoverPreviewProps = {
 	coverUrl?: string | null
 	bookId: number
-}*/
+}
 
-/*function BookCoverPreview(props: BookCoverPreviewProps) {
+function BookCoverPreview(props: BookCoverPreviewProps) {
 	const { coverUrl, bookId } = props
 
 	const style = coverUrl ? { backgroundImage: `url(${coverUrl})` } : undefined
@@ -19,6 +19,6 @@
 			</div>
 		</LabelWithField>
 	)
-}*/
+}
 
-// export default BookCoverPreview
+export default BookCoverPreview

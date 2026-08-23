@@ -1,12 +1,12 @@
-// import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-// import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
-// import { useDeleteBookCover } from './fn/useDeleteBookCover'
+import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+import { useDeleteBookCover } from './fn/useDeleteBookCover'
 
-/*type DeleteBookCoverButtonProps = {
+type DeleteBookCoverButtonProps = {
 	bookId: number
-}*/
+}
 
-/*function DeleteBookCoverButton(props: DeleteBookCoverButtonProps) {
+function DeleteBookCoverButton(props: DeleteBookCoverButtonProps) {
 	const { bookId } = props
 
 	const { status, onDeleteClick } = useDeleteBookCover(bookId)
@@ -23,6 +23,6 @@
 			}}
 		/>
 	)
-}*/
+}
 
-// export default DeleteBookCoverButton
+export default DeleteBookCoverButton
