@@ -20,8 +20,8 @@ export class UpdateBookInput {
 	@DtoFieldDecorators('coverFileName', bdConfig.Book.dtoProps.coverFileName)
 	coverFileName?: null | string
 
-	@DtoFieldDecorators('fileMimeType', bdConfig.Book.dtoProps.fileMimeType)
-	fileMimeType?: null | string
+	@DtoFieldDecorators('coverFileMimeType', bdConfig.Book.dtoProps.coverFileMimeType)
+	coverFileMimeType?: null | string
 
 	@DtoFieldDecorators('isCoverFileUploaded', bdConfig.Book.dbFields.is_cover_file_uploaded, {
 		required: false,

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, useForm } from 'react-hook-form'
 import * as yup from 'yup'
+import MediaCoverField from '@/entities/media/ui/MediaCoverField/MediaCoverField'
 import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
 import { videosService } from '@/entities/video/VideosService'
@@ -19,8 +20,7 @@ import WatchVideoButton from '../WatchMovieButton/WatchMovieButton'
 import { EditPrivateVideoFormData, editPrivateVideoFormSchema } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
-import { useStableCoverUrl } from './fn/useStableCoverUrl'
-import VideoCoverSection from './VideoCoverSection'
+import { useCoverActions } from './fn/useCoverActions'
 import './EditPrivateVideoForm.scss'
 
 type EditPrivateVideoFormProps = {
@@ -55,10 +55,6 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 		stableFileUrlRef.current = null
 		stableIsFileUploadedRef.current = null
 	}
-
-	// Обложка отдаётся как pre-signed URL и перегенерируется при каждом GET,
-	// поэтому стабилизируем её, чтобы картинка не мигала после сохранения формы
-	const stableCoverUrl = useStableCoverUrl(video.coverFileS3Key ?? video.coverUrl, video.coverUrl)
 
 	// Сбрасываем при смене видео
 	const prevVideoIdForUrlRef = useRef(video.id)
@@ -110,6 +106,8 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 	})
 
 	useSetFieldValues(video, originalContent, reset)
+
+	const coverActions = useCoverActions(video.id, onCoverUpdated)
 
 	const onSubmit = useGetOnUpdateVideoFormSubmit(
 		video.id,
@@ -204,11 +202,13 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 							placeholder: 'Моё видео',
 						}}
 					/>
-					<VideoCoverSection
-						coverUrl={stableCoverUrl}
-						videoId={video.id}
+					<MediaCoverField
+						coverUrl={video.coverUrl}
+						coverFileS3Key={video.coverFileS3Key}
 						isCoverFileUploaded={video.isCoverFileUploaded}
-						onCoverUpdated={onCoverUpdated}
+						onGetUploadUrl={coverActions.onGetUploadUrl}
+						onUploadComplete={coverActions.onUploadComplete}
+						onDeleteCover={coverActions.onDeleteCover}
 					/>
 					<VideoFileSection
 						fileUrl={stableFileUrlRef.current}

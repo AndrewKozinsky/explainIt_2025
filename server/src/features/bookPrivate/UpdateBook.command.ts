@@ -16,7 +16,7 @@ type UpdateBookInput = {
 	languageCode?: null | Language
 	about?: null | string
 	coverFileName?: null | string
-	fileMimeType?: null | string
+	coverFileMimeType?: null | string
 	isCoverFileUploaded?: boolean
 }
 
@@ -48,7 +48,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
-		const { coverFileName, coverFileS3Key, isCoverFileUploaded, uploadUrl } =
+		const { coverFileName, coverFileS3Key, isCoverFileUploaded, uploadCoverUrl } =
 			await this.getUploadFileUrlAndFileDetails(bookForUpdating, updateBookInput)
 
 		const book = await this.bookRepository.updateBookById(updateBookInput.id, {
@@ -69,7 +69,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 
 		return {
 			...updatedBook!,
-			uploadUrl,
+			uploadCoverUrl,
 		}
 	}
 
@@ -80,7 +80,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 		coverFileName: null | string
 		coverFileS3Key: null | string
 		isCoverFileUploaded: boolean
-		uploadUrl: null | string
+		uploadCoverUrl: null | string
 	}> {
 		// Deleting the cover
 		if (updateBookInput.coverFileName === null || updateBookInput.isCoverFileUploaded === false) {
@@ -92,7 +92,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 				coverFileName: null,
 				coverFileS3Key: null,
 				isCoverFileUploaded: false,
-				uploadUrl: null,
+				uploadCoverUrl: null,
 			}
 		}
 
@@ -102,20 +102,27 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 				coverFileName: bookForUpdating.coverFileName,
 				coverFileS3Key: bookForUpdating.coverFileS3Key,
 				isCoverFileUploaded: true,
-				uploadUrl: null,
+				uploadCoverUrl: null,
 			}
 		}
 
 		// Generate upload URL for a new cover
-		if (updateBookInput.coverFileName && updateBookInput.fileMimeType && !bookForUpdating.isCoverFileUploaded) {
+		if (
+			updateBookInput.coverFileName &&
+			updateBookInput.coverFileMimeType &&
+			!bookForUpdating.isCoverFileUploaded
+		) {
 			const s3FileKey = this.createCoverFileUrl(updateBookInput.coverFileName)
-			const uploadUrl = await this.cloudflareS3Service.createUploadUrl(s3FileKey, updateBookInput.fileMimeType)
+			const uploadCoverUrl = await this.cloudflareS3Service.createUploadUrl(
+				s3FileKey,
+				updateBookInput.coverFileMimeType,
+			)
 
 			return {
 				coverFileName: updateBookInput.coverFileName,
 				coverFileS3Key: s3FileKey,
 				isCoverFileUploaded: false,
-				uploadUrl,
+				uploadCoverUrl,
 			}
 		}
 
@@ -123,7 +130,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 			coverFileName: bookForUpdating.coverFileName,
 			coverFileS3Key: bookForUpdating.coverFileS3Key,
 			isCoverFileUploaded: bookForUpdating.isCoverFileUploaded,
-			uploadUrl: null,
+			uploadCoverUrl: null,
 		}
 	}
 

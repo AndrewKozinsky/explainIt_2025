@@ -80,7 +80,7 @@ export class BookQueryRepository {
 			userId: dbBook.user_id,
 			languageCode: dbBook.source_language_code,
 			coverUrl,
-			uploadUrl: null,
+			uploadCoverUrl: null,
 			coverFileName: dbBook.cover_file_name,
 			coverFileS3Key: dbBook.cover_file_s3_key,
 			isCoverFileUploaded: dbBook.is_cover_file_uploaded,

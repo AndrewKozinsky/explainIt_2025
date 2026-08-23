@@ -1,21 +1,20 @@
+import React from 'react'
 import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
 import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
-import { useDeleteBookCover } from './fn/useDeleteBookCover'
 
-type DeleteBookCoverButtonProps = {
-	bookId: number
+type DeleteCoverButtonProps = {
+	isLoading: boolean
+	onDelete: () => Promise<void>
 }
 
-function DeleteBookCoverButton(props: DeleteBookCoverButtonProps) {
-	const { bookId } = props
-
-	const { status, onDeleteClick } = useDeleteBookCover(bookId)
+function DeleteCoverButton(props: DeleteCoverButtonProps) {
+	const { isLoading, onDelete } = props
 
 	return (
 		<DeleteEntityButtonAndModal
 			deleteButtonIcon={<TrashButtonIcon />}
-			onDeleteButtonClick={onDeleteClick}
-			isDeleteButtonLoading={status === 'loading'}
+			onDeleteButtonClick={onDelete}
+			isDeleteButtonLoading={isLoading}
 			modal={{
 				header: 'Удаление обложки',
 				content: 'Вы уверены, что хотите удалить обложку?',
@@ -25,4 +24,4 @@ function DeleteBookCoverButton(props: DeleteBookCoverButtonProps) {
 	)
 }
 
-export default DeleteBookCoverButton
+export default DeleteCoverButton

@@ -18,7 +18,7 @@ export type BookModel = {
 	coverFileName: null | string
 	coverFileS3Key: null | string
 	isCoverFileUploaded: null | boolean
-	uploadUrl: null | string
+	uploadCoverUrl: null | string
 	chapters: BookChapterLiteModel[]
 }
 
@@ -42,7 +42,7 @@ export type UpdateBookInput = {
 	languageCode?: null | string
 	about?: null | string
 	coverFileName?: null | string
-	fileMimeType?: null | string
+	coverFileMimeType?: null | string
 	isCoverFileUploaded?: null | boolean
 }
 

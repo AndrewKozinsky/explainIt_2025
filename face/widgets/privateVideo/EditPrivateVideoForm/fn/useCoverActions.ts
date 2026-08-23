@@ -2,7 +2,11 @@ import { useCallback } from 'react'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
 import { videosService } from '@/entities/video/VideosService'
 
-export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
+/**
+ * Адаптер действий над обложкой для формы видео.
+ * Сводит API видео к колбэкам общего компонента MediaCoverField.
+ */
+export function useCoverActions(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
 			const result = await videosService.updateVideo(videoId, {
@@ -34,5 +38,18 @@ export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLit
 		[videoId, onCoverUpdated],
 	)
 
-	return { onGetUploadUrl, onUploadComplete }
+	const onDeleteCover = useCallback(
+		async function (): Promise<void> {
+			const result = await videosService.updateVideo(videoId, {
+				coverFileName: null,
+			})
+
+			if (result.data) {
+				onCoverUpdated(result.data)
+			}
+		},
+		[videoId, onCoverUpdated],
+	)
+
+	return { onGetUploadUrl, onUploadComplete, onDeleteCover }
 }

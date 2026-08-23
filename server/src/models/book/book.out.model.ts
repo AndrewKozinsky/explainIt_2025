@@ -40,8 +40,8 @@ export class BookOutModel {
 	@ApiProperty(getApiPropertyOptions($.is_cover_file_uploaded))
 	isCoverFileUploaded: boolean
 
-	@ApiProperty(getApiPropertyOptions($$.uploadUrl))
-	uploadUrl: null | string
+	@ApiProperty(getApiPropertyOptions($$.uploadCoverUrl))
+	uploadCoverUrl: null | string
 
 	@ApiProperty({ description: 'Book chapters', type: () => BookChapterLiteOutModel, isArray: true })
 	chapters: BookChapterLiteOutModel[]

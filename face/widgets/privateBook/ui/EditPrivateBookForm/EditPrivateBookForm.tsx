@@ -3,6 +3,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Controller, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import MediaCoverField from '@/entities/media/ui/MediaCoverField/MediaCoverField'
 import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import FormError from '@/shared/ui/formRelated/FormError/FormError'
@@ -11,10 +12,10 @@ import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import LanguagesRadioGroup from '@/shared/ui/LanguagesRadioGroup/LanguagesRadioGroup'
 import { FormStatus } from '@/shared/utils/forms'
 import DeleteBookButton from '../DeleteBookButton/DeleteBookButton'
-import BookCoverSection from './BookCoverSection'
 import { ChangeBookFormData, changeBookFormSchema } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateBookFormSubmit } from './fn/submit'
+import { useCoverActions } from './fn/useCoverActions'
 
 type EditBookFormProps = {
 	book: BookModel
@@ -41,6 +42,8 @@ export default function EditBookForm(props: EditBookFormProps) {
 	})
 
 	useSetFieldValues(book, reset)
+
+	const coverActions = useCoverActions(book.id, book.languageCode, onCoverUpdated)
 
 	const onSubmit = useGetOnUpdateBookFormSubmit(book, onBookUpdated, setError, setFormStatus, setFormError)
 	const isFormDisabled = ['success', 'submitting'].includes(formStatus)
@@ -101,12 +104,13 @@ export default function EditBookForm(props: EditBookFormProps) {
 							placeholder: 'Adventures in Wonderland',
 						}}
 					/>
-					<BookCoverSection
+					<MediaCoverField
 						coverUrl={book.coverUrl}
-						bookId={book.id}
-						languageCode={book.languageCode}
+						coverFileS3Key={book.coverFileS3Key}
 						isCoverFileUploaded={book.isCoverFileUploaded}
-						onCoverUpdated={onCoverUpdated}
+						onGetUploadUrl={coverActions.onGetUploadUrl}
+						onUploadComplete={coverActions.onUploadComplete}
+						onDeleteCover={coverActions.onDeleteCover}
 					/>
 					<FormError text={formError} />
 				</FormFieldsWrapper>

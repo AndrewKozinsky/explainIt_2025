@@ -1,6 +1,7 @@
 import { BooksApi } from '@/entities/book/repository/BooksApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput } from './repository/BooksRepository'
+
 export type { BookModel, BooksRepository, CreateBookInput, UpdateBookInput }
 
 /**
@@ -80,12 +81,12 @@ export class BooksService {
 	async requestCoverUploadUrl(
 		bookId: number,
 		fileName: string,
-		fileMimeType: string,
+		coverFileMimeType: string,
 		languageCode: string | null,
 	): Promise<ApiResult<BookModel>> {
 		return this.booksRepository.updateBook(bookId, {
 			coverFileName: fileName,
-			fileMimeType: fileMimeType,
+			coverFileMimeType: coverFileMimeType,
 			languageCode: languageCode,
 		})
 	}
