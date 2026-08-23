@@ -1,8 +1,8 @@
-// import type { VideoLiteModel } from '@/entities/video/lib/types'
-// import { pageUrls } from '@/shared/utils/pageUrls'
-// import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
+import type { VideoLiteModel } from '@/entities/video/lib/types'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import { YouTubeVideoCardData } from '../../YouTubeVideosList/YouTubeVideosList'
 
-/*export function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
+export function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
 	return videos.map(function (video) {
 		return {
 			id: video.id,
@@ -15,4 +15,4 @@
 			proficiencyLevel: video.proficiencyLevel,
 		}
 	})
-}*/
+}

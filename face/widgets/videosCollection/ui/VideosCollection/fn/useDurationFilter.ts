@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
-import type { DurationKey } from '@/widgets/video/VideosFilterForm/YouTubeVideosFilterDuration'
+import { DurationKey } from '../../VideosFilterForm/fn/duration'
 
 function useDurationFilter() {
 	const [durationKey, setDurationKey] = useState<DurationKey>(function () {

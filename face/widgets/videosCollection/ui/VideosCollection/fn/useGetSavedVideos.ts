@@ -1,21 +1,21 @@
-// import { useMemo } from 'react'
-// import { useInfiniteQuery } from '@tanstack/react-query'
-// import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
-// import type { YouTubeVideosFilterValues } from '@/widgets/video/VideosFilterForm/fn/types'
-// import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
-// import { mapFilterValuesToParams } from './mapFilterValuesToParams'
-// import { mapToYouTubeVideoCardData } from './mapToYouTubeVideoCardData'
+import { useMemo } from 'react'
+import { useInfiniteQuery } from '@tanstack/react-query'
+import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
+import type { YouTubeVideoCardData } from '@/widgets/videosCollection/ui/YouTubeVideosList/YouTubeVideosList'
+import { YouTubeVideosFilterValues } from '../../VideosFilterForm/fn/types'
+import { mapFilterValuesToParams } from './mapFilterValuesToParams'
+import { mapToYouTubeVideoCardData } from './mapToYouTubeVideoCardData'
 
-/*type UseSavedVideosResult = {
+type UseSavedVideosResult = {
 	items: YouTubeVideoCardData[]
 	loading: boolean
 	loadingMore: boolean
 	hasMore: boolean
 	loadMore: () => void
 	errorText: string | null
-}*/
+}
 
-/*export function useGetSavedVideos(filterValues: YouTubeVideosFilterValues): UseSavedVideosResult {
+export function useGetSavedVideos(filterValues: YouTubeVideosFilterValues): UseSavedVideosResult {
 	const params = useMemo(
 		function () {
 			return mapFilterValuesToParams(filterValues)
@@ -57,4 +57,4 @@
 		loadMore: fetchNextPage,
 		errorText,
 	}
-}*/
+}

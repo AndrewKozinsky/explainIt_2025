@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
-import type { SortKey } from '@/widgets/video/VideosFilterForm/VideosFilterSort'
+import { SortKey } from '../../VideosFilterForm/fn/sort'
 
 function useSortFilter() {
 	const [sortKey, setSortKey] = useState<SortKey>(function () {

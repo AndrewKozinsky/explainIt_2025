@@ -2,9 +2,9 @@
 
 import { YouTubeVideosFilterValues } from '../VideosFilterForm/fn/types'
 import YouTubeVideosFilterForm from '../VideosFilterForm/YouTubeVideosFilterForm'
-// import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
+import YouTubeVideosList from '../YouTubeVideosList/YouTubeVideosList'
 import useDurationFilter from './fn/useDurationFilter'
-// import { useGetSavedVideos } from './fn/useGetSavedVideos'
+import { useGetSavedVideos } from './fn/useGetSavedVideos'
 import useLanguageFilter from './fn/useLanguageFilter'
 import useProficiencyFilter from './fn/useProficiencyFilter'
 import useSortFilter from './fn/useSortFilter'
@@ -35,19 +35,19 @@ function VideosCollection(props: VideosCollectionProps) {
 		setSortKey(values.sortKey)
 	}
 
-	// const { items, loading, loadingMore, hasMore, loadMore, errorText } = useGetSavedVideos(filterValues)
+	const { items, loading, loadingMore, hasMore, loadMore, errorText } = useGetSavedVideos(filterValues)
 
 	return (
 		<div className='videos-collection'>
 			<YouTubeVideosFilterForm values={filterValues} topics={topics} onChange={handleFilterChange} />
-			{/*<YouTubeVideosList
+			<YouTubeVideosList
 				items={items}
 				loading={loading}
 				loadingMore={loadingMore}
 				hasMore={hasMore}
 				onLoadMore={withInfiniteScroll ? loadMore : undefined}
 				error={errorText}
-			/>*/}
+			/>
 		</div>
 	)
 }

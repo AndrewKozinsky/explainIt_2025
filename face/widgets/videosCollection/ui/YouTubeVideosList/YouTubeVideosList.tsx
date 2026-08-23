@@ -1,13 +1,13 @@
-// import { videoConfig } from '@/entities/video/lib/videoConfig'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import InfiniteScrollTrigger from '@/shared/ui/InfiniteScrollTrigger/InfiniteScrollTrigger'
-// import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-// import Spinner from '@/shared/ui/Spinner/Spinner'
-// import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-// import MediaCardLongVideo from '@/widgets/media/MediaCardLongVideo/MediaCardLongVideo'
-// import YouTubeVideosCenterWrapper from '../YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
+import MediaCardButton from '@/entities/media/ui/MediaCard/MediaCardButton'
+import MediaCardLongVideo from '@/entities/media/ui/MediaCardLongVideo/MediaCardLongVideo'
+import { videoConfig } from '@/entities/video/lib/videoConfig'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import InfiniteScrollTrigger from '@/shared/ui/InfiniteScrollTrigger/InfiniteScrollTrigger'
+import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+import Spinner from '@/shared/ui/Spinner/Spinner'
+import YouTubeVideosCenterWrapper from '../YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 
-/*export type YouTubeVideoCardData = {
+export type YouTubeVideoCardData = {
 	id: number | string
 	name: string | null
 	subName?: string | null
@@ -17,18 +17,18 @@
 	durationSeconds: number
 	coverUrl: string | null
 	url: string
-}*/
+}
 
-/*type YouTubeVideosListProps = {
+type YouTubeVideosListProps = {
 	items: YouTubeVideoCardData[]
 	loading: boolean
 	loadingMore?: boolean
 	hasMore?: boolean
 	onLoadMore?: () => void
 	error: string | null
-}*/
+}
 
-/*function YouTubeVideosList(props: YouTubeVideosListProps) {
+function YouTubeVideosList(props: YouTubeVideosListProps) {
 	const { items, loading, loadingMore = false, hasMore = false, onLoadMore, error } = props
 
 	if (loading) {
@@ -93,6 +93,6 @@
 			) : null}
 		</>
 	)
-}*/
+}
 
-// export default YouTubeVideosList
+export default YouTubeVideosList
