@@ -1,11 +1,11 @@
 import MediaCardButton from '@/entities/media/ui/MediaCard/MediaCardButton'
 import MediaCardLongVideo from '@/entities/media/ui/MediaCardLongVideo/MediaCardLongVideo'
 import { videoConfig } from '@/entities/video/lib/videoConfig'
+import YouTubeVideosCenterWrapper from '@/entities/video/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import InfiniteScrollTrigger from '@/shared/ui/InfiniteScrollTrigger/InfiniteScrollTrigger'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import Spinner from '@/shared/ui/Spinner/Spinner'
-import YouTubeVideosCenterWrapper from '../YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 
 export type YouTubeVideoCardData = {
 	id: number | string

@@ -5,7 +5,7 @@ import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/M
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
 // import PrivateVideosListWithAdd from '@/widgets/video/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
-import YouTubeVideosSearch from '@/widgets/video/YouTubeVideosSearch/YouTubeVideosSearch'
+import YouTubeVideosSearch from '@/widgets/video/-/YouTubeVideosSearch/YouTubeVideosSearch'
 import VideosCollection from '@/widgets/videosCollection/ui/VideosCollection/VideosCollection'
 import { useVideosPageTabs } from './fn/useVideosPageTabs'
 

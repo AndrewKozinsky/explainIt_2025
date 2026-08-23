@@ -1,6 +1,6 @@
 import type { VideoLiteModel } from '@/entities/video/lib/types'
+import { YouTubeVideoCardData } from '@/entities/video/YouTubeVideosList/YouTubeVideosList'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { YouTubeVideoCardData } from '../../YouTubeVideosList/YouTubeVideosList'
 
 export function mapToYouTubeVideoCardData(videos: VideoLiteModel[]): YouTubeVideoCardData[] {
 	return videos.map(function (video) {

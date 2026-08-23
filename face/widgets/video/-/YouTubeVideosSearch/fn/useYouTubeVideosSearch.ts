@@ -1,8 +1,8 @@
-// import { useState } from 'react'
-// import { useRouter } from '@/i18n/routing'
-// import { pageUrls } from '@/shared/utils/pageUrls'
-// import { extractYouTubeVideoId } from '@/shared/utils/youtube'
-// import { useYouTubeVideos } from '_pages/media/videos/VideosPage/fn/setupVideosDeps'
+import { useState } from 'react'
+import { useRouter } from '@/i18n/routing'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import { extractYouTubeVideoId } from '@/shared/utils/youtube'
+import { useYouTubeVideos } from './useYouTubeVideos'
 
 /**
  * Хук-оркестратор страницы поиска YouTube-видео.
@@ -11,7 +11,7 @@
  * YouTube-адреса: если пользователь вставил ссылку — извлекает videoId
  * и сразу переводит на страницу видео, минуя поиск.
  */
-/*function useYouTubeVideosSearch() {
+function useYouTubeVideosSearch() {
 	const [query, setQuery] = useState('')
 	const router = useRouter()
 
@@ -44,6 +44,6 @@
 		handleQueryChange,
 		handleHintSelect,
 	}
-}*/
+}
 
-// export default useYouTubeVideosSearch
+export default useYouTubeVideosSearch

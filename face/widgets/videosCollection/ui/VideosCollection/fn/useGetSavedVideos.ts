@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
+import type { YouTubeVideoCardData } from '@/entities/video/YouTubeVideosList/YouTubeVideosList'
 import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
-import type { YouTubeVideoCardData } from '@/widgets/videosCollection/ui/YouTubeVideosList/YouTubeVideosList'
 import { YouTubeVideosFilterValues } from '../../VideosFilterForm/fn/types'
 import { mapFilterValuesToParams } from './mapFilterValuesToParams'
 import { mapToYouTubeVideoCardData } from './mapToYouTubeVideoCardData'

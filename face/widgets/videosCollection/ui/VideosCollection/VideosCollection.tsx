@@ -1,8 +1,8 @@
 'use client'
 
+import YouTubeVideosList from '@/entities/video/YouTubeVideosList/YouTubeVideosList'
 import { YouTubeVideosFilterValues } from '../VideosFilterForm/fn/types'
 import YouTubeVideosFilterForm from '../VideosFilterForm/YouTubeVideosFilterForm'
-import YouTubeVideosList from '../YouTubeVideosList/YouTubeVideosList'
 import useDurationFilter from './fn/useDurationFilter'
 import { useGetSavedVideos } from './fn/useGetSavedVideos'
 import useLanguageFilter from './fn/useLanguageFilter'
