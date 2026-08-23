@@ -19,6 +19,7 @@ import WatchVideoButton from '../WatchMovieButton/WatchMovieButton'
 import { EditPrivateVideoFormData, editPrivateVideoFormSchema } from './fn/form'
 import { useSetFieldValues } from './fn/setFieldValues'
 import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
+import { useStableCoverUrl } from './fn/useStableCoverUrl'
 import VideoCoverSection from './VideoCoverSection'
 import './EditPrivateVideoForm.scss'
 
@@ -54,6 +55,10 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 		stableFileUrlRef.current = null
 		stableIsFileUploadedRef.current = null
 	}
+
+	// Обложка отдаётся как pre-signed URL и перегенерируется при каждом GET,
+	// поэтому стабилизируем её, чтобы картинка не мигала после сохранения формы
+	const stableCoverUrl = useStableCoverUrl(video.coverFileS3Key ?? video.coverUrl, video.coverUrl)
 
 	// Сбрасываем при смене видео
 	const prevVideoIdForUrlRef = useRef(video.id)
@@ -200,7 +205,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 						}}
 					/>
 					<VideoCoverSection
-						coverUrl={video.coverUrl}
+						coverUrl={stableCoverUrl}
 						videoId={video.id}
 						isCoverFileUploaded={video.isCoverFileUploaded}
 						onCoverUpdated={onCoverUpdated}
