@@ -1,5 +1,5 @@
-import MediaCardButton from '@/entities/media/ui/MediaCard/MediaCardButton'
-import MediaCardLongVideo from '@/entities/media/ui/MediaCardLongVideo/MediaCardLongVideo'
+import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
+import MediaCardLongVideo from '@/entities/mediaCard/MediaCardLongVideo/MediaCardLongVideo'
 import { videoConfig } from '@/entities/video/lib/videoConfig'
 import YouTubeVideosCenterWrapper from '@/entities/video/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'

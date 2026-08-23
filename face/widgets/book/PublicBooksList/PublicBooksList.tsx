@@ -1,48 +1,35 @@
-// import React, { useCallback, useEffect, useState } from 'react'
-// import { bookConfig } from '@/entities/book/lib/bookConfig'
-// import { BookModel } from '@/entities/book/repository/BooksRepository'
-// import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
-// import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import { localStorageManager } from '@/shared/utils/localStorageManager'
-// import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-// import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
-// import { getConfig } from './fn/getConfig'
-// import './PublicBooksList.scss'
+import { bookConfig } from '@/entities/book/lib/bookConfig'
+import { BookModel } from '@/entities/book/repository/BooksRepository'
+import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
+import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
+import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+import { getBookCardsConfig } from './fn/getBookCardsConfig'
+import { useLanguageChange } from './fn/useLanguageChange'
+import './PublicBooksList.scss'
 
-/*type PublicBooksList = {
+type PublicBooksList = {
 	books: BookModel[]
-}*/
+}
 
-/*function PublicBooksList(props: PublicBooksList) {
+function PublicBooksList(props: PublicBooksList) {
 	const { books } = props
 
 	const languages = books.map((item) => item.languageCode)
 	const languagesSet = new Set(languages)
-	const [currentLang, setCurrentLang] = useState(() => localStorageManager.lastLanguage.get() ?? languages[0])
+	const { currentLang, onLanguageChange } = useLanguageChange(languages)
 
-	useEffect(() => {
-		if (!currentLang && languages.length > 0) {
-			setCurrentLang(languages[0])
-		}
-	}, [languages, currentLang])
-
-	const handleLanguageChange = useCallback((lang: LanguageCode) => {
-		setCurrentLang(lang)
-		localStorageManager.lastLanguage.set(lang)
-	}, [])
-
-	const config = getConfig(books, currentLang)
+	const bookCardsConfig = getBookCardsConfig(books, currentLang)
 
 	return (
 		<div className='public-books-list'>
 			<LanguageSwitch
 				languages={Array.from(languagesSet)}
 				currentLang={currentLang}
-				onChange={handleLanguageChange}
+				onChange={onLanguageChange}
 			/>
 			<ItemsGrid>
-				{config.map((book) => {
+				{bookCardsConfig.map((book) => {
 					return (
 						<MediaCardWrapper type='info' key={book.id} actionUrl={book.actionUrl}>
 							<MediaCardButton
@@ -58,6 +45,6 @@
 			</ItemsGrid>
 		</div>
 	)
-}*/
+}
 
-// export default PublicBooksList
+export default PublicBooksList

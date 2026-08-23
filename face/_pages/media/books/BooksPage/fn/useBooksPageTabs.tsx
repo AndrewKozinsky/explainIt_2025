@@ -1,9 +1,9 @@
-// import { useCallback, useLayoutEffect, useState } from 'react'
-// import { localStorageManager } from '@/shared/utils/localStorageManager'
+import { useCallback, useLayoutEffect, useState } from 'react'
+import { localStorageManager } from '@/shared/utils/localStorageManager'
 
-// export const BOOKS_PAGE_STORAGE_KEY = 'books'
+export const BOOKS_PAGE_STORAGE_KEY = 'books'
 
-/*export function useBooksPageTabs() {
+export function useBooksPageTabs() {
 	const [defaultTab, setDefaultTab] = useState<null | string>(null)
 
 	useLayoutEffect(() => {
@@ -18,4 +18,4 @@
 	}, [])
 
 	return { defaultTab, onTabChange }
-}*/
+}

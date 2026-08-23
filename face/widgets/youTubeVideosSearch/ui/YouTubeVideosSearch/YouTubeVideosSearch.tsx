@@ -3,8 +3,8 @@
 import YouTubeVideosCenterWrapper from '@/entities/video/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
 import YouTubeVideosList from '@/entities/video/YouTubeVideosList/YouTubeVideosList'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import YouTubeSearch from '@/widgets/video/-/YouTubeSearch/YouTubeSearch'
-import YouTubeVideoNameHints from '@/widgets/video/-/YouTubeVideoNameHints/YouTubeVideoNameHints'
+import YouTubeSearch from '@/widgets/youTubeVideosSearch/ui/YouTubeSearch/YouTubeSearch'
+import YouTubeVideoNameHints from '@/widgets/youTubeVideosSearch/ui/YouTubeVideoNameHints/YouTubeVideoNameHints'
 import useYouTubeVideosSearch from './fn/useYouTubeVideosSearch'
 import './YouTubeVideosSearch.scss'
 
