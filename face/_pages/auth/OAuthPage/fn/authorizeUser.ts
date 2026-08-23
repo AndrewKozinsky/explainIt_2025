@@ -1,10 +1,10 @@
-// import { useEffect, useState } from 'react'
-// import { useMutation } from '@tanstack/react-query'
-// import { useSearchParams } from 'next/navigation'
-// import { authQueries } from '@/entities/auth/AuthQueryFacade'
-// import { useSetUser } from '@/shared/api/auth/UserProvider'
+import { useEffect, useState } from 'react'
+import { useMutation } from '@tanstack/react-query'
+import { useSearchParams } from 'next/navigation'
+import { authQueries } from '@/entities/auth/AuthQueryFacade'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
 
-/*export function useAuthorizeUser(providerType: string) {
+export function useAuthorizeUser(providerType: string) {
 	const code = useSearchParams().get('code')!
 
 	const setUser = useSetUser()
@@ -32,4 +32,4 @@
 	)
 
 	return { authorizationStatus, error }
-}*/
+}
