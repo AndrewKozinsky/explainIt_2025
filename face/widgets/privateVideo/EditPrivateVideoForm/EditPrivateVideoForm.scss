@@ -1,0 +1,10 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+.edit-private-video-form__subtitles-container {
+	flex-grow: 1;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	width: 100%;
+}
