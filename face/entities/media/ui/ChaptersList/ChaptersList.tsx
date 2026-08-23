@@ -1,22 +1,22 @@
-import React from 'react'
-import cn from 'classnames'
-import ChapterLink from '@/entities/media/ui/ChapterLink/ChapterLink'
-import Paragraph from '@/shared/ui/Paragraph/Paragraph'
-import './ChaptersList.scss'
+// import React from 'react'
+// import cn from 'classnames'
+// import ChapterLink from '@/entities/media/ui/ChapterLink/ChapterLink'
+// import Paragraph from '@/shared/ui/Paragraph/Paragraph'
+// import './ChaptersList.scss'
 
-type ChaptersListProps = {
+/*type ChaptersListProps = {
 	chapters: ChaptersListItem[]
 	extraClass?: string
 	emptyText?: string
-}
+}*/
 
-type ChaptersListItem = {
+/*type ChaptersListItem = {
 	name?: null | string
 	subName?: null | string
 	href: string
-}
+}*/
 
-function ChaptersList(props: ChaptersListProps) {
+/*function ChaptersList(props: ChaptersListProps) {
 	const { chapters, extraClass, emptyText = 'Нет ни одной главы' } = props
 
 	if (!chapters.length) {
@@ -30,6 +30,6 @@ function ChaptersList(props: ChaptersListProps) {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default ChaptersList
+// export default ChaptersList

@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
-import { useMutation, useQueryClient } from '@tanstack/react-query'
-import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+// import React, { useState } from 'react'
+// import { useMutation, useQueryClient } from '@tanstack/react-query'
+// import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
 
-type DeleteFlashcardButtonProps = {
+/*type DeleteFlashcardButtonProps = {
 	flashcardId: number
-}
+}*/
 
-function DeleteFlashcardButton(props: DeleteFlashcardButtonProps) {
+/*function DeleteFlashcardButton(props: DeleteFlashcardButtonProps) {
 	const { flashcardId } = props
 
 	const queryClient = useQueryClient()
@@ -28,6 +28,6 @@ function DeleteFlashcardButton(props: DeleteFlashcardButtonProps) {
 	}
 
 	return <Button icon={<TrashButtonIcon />} size='big' onClick={handleDelete} disabled={loading} />
-}
+}*/
 
-export default DeleteFlashcardButton
+// export default DeleteFlashcardButton

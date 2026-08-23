@@ -1,11 +1,11 @@
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
-import { getSubtitlesGenerationTime } from './fn/getSubtitlesGenerationTime'
+// import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+// import { getSubtitlesGenerationTime } from './fn/getSubtitlesGenerationTime'
 
-type ProcessedSubtitlesProps = {
+/*type ProcessedSubtitlesProps = {
 	durationSeconds: number
-}
+}*/
 
-export function ProcessedSubtitles(props: ProcessedSubtitlesProps) {
+/*export function ProcessedSubtitles(props: ProcessedSubtitlesProps) {
 	const { durationSeconds } = props
 
 	const subtitlesGenerationTime = getSubtitlesGenerationTime(durationSeconds)
@@ -24,4 +24,4 @@ export function ProcessedSubtitles(props: ProcessedSubtitlesProps) {
 			</div>
 		</StatusBlock>
 	)
-}
+}*/

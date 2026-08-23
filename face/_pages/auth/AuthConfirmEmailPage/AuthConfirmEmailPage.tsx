@@ -1,14 +1,14 @@
-'use client'
+// 'use client'
 
-import React from 'react'
-import { redirect } from 'next/navigation'
-import { useLocale } from 'next-intl'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import Spinner from '@/shared/ui/Spinner/Spinner'
-import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
-import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
+// import React from 'react'
+// import { redirect } from 'next/navigation'
+// import { useLocale } from 'next-intl'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import Spinner from '@/shared/ui/Spinner/Spinner'
+// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+// import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
 
-function AuthConfirmEmailPage() {
+/*function AuthConfirmEmailPage() {
 	const confirmationStatus = useConfirmEmail()
 	const locale = useLocale()
 
@@ -22,6 +22,6 @@ function AuthConfirmEmailPage() {
 	}
 
 	return contentMapper[confirmationStatus]
-}
+}*/
 
-export default AuthConfirmEmailPage
+// export default AuthConfirmEmailPage

@@ -1,8 +1,8 @@
-import { useCallback, useContext, useEffect, useState } from 'react'
-import { videosService } from '@/entities/video/VideosService'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { useCallback, useContext, useEffect, useState } from 'react'
+// import { videosService } from '@/entities/video/VideosService'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-export function useGenerateSubtitles(videoId: number) {
+/*export function useGenerateSubtitles(videoId: number) {
 	const { notify } = useContext(NotificationContext)
 	const [isPolling, setIsPolling] = useState(false)
 	const [status, setStatus] = useState<string | null>(null)
@@ -79,4 +79,4 @@ export function useGenerateSubtitles(videoId: number) {
 		isGenerating,
 		generate,
 	}
-}
+}*/

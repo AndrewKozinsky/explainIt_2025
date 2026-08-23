@@ -1,24 +1,24 @@
-import React from 'react'
-import VideoDropzone from '@/entities/video/ui/VideoDropzone/VideoDropzone'
-import FileNameAndDeleteFileButton from '../../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
+// import React from 'react'
+// import VideoDropzone from '@/entities/video/ui/VideoDropzone/VideoDropzone'
+// import FileNameAndDeleteFileButton from '../../FileNameAndDeleteFileButton/FileNameAndDeleteFileButton'
 
-type VideoFileSectionProps = {
+/*type VideoFileSectionProps = {
 	fileUrl: string | null
 	isFileUploaded: boolean | null
 	videoId: number
 	onFileUpdated: () => void
-}
+}*/
 
-function areEqual(prev: VideoFileSectionProps, next: VideoFileSectionProps) {
+/*function areEqual(prev: VideoFileSectionProps, next: VideoFileSectionProps) {
 	return (
 		prev.fileUrl === next.fileUrl &&
 		prev.isFileUploaded === next.isFileUploaded &&
 		prev.videoId === next.videoId &&
 		prev.onFileUpdated === next.onFileUpdated
 	)
-}
+}*/
 
-const VideoFileSection = React.memo(function VideoFileSection(props: VideoFileSectionProps) {
+/*const VideoFileSection = React.memo(function VideoFileSection(props: VideoFileSectionProps) {
 	const { fileUrl, isFileUploaded, videoId, onFileUpdated } = props
 
 	if (fileUrl && isFileUploaded) {
@@ -33,6 +33,6 @@ const VideoFileSection = React.memo(function VideoFileSection(props: VideoFileSe
 	}
 
 	return <VideoDropzone videoId={videoId} isFileUploaded={isFileUploaded} onFileUpdated={onFileUpdated} />
-}, areEqual)
+}, areEqual)*/
 
-export default VideoFileSection
+// export default VideoFileSection

@@ -1,15 +1,15 @@
-import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
-import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
-import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
-import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
+// import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
+// import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
+// import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
+// import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 
-let abortController: AbortController | null = null
+// let abortController: AbortController | null = null
 
 /**
  * Получает словарную статью для фразы и кладёт результат в Zustand-стор.
  * Можно вызывать из любого места приложения — данные появятся в сторе после ответа сервера.
  */
-export async function fetchDictionaryArticle(phrase: string): Promise<void> {
+/*export async function fetchDictionaryArticle(phrase: string): Promise<void> {
 	const { languageCode, targetLanguageCode } = usePhraseDictionaryStore.getState()
 	const text = phrase.trim()
 
@@ -74,4 +74,4 @@ export async function fetchDictionaryArticle(phrase: string): Promise<void> {
 		if (isAbortError(error)) return
 		usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
 	}
-}
+}*/

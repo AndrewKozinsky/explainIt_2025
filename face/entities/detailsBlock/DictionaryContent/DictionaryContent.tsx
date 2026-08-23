@@ -1,9 +1,9 @@
-import { useMemo } from 'react'
-import { offsetsFromWordIds, segmentSentence } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
-import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-import { PhraseDictionary } from '@/widgets/dictionary'
+// import { useMemo } from 'react'
+// import { offsetsFromWordIds, segmentSentence } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
+// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+// import { PhraseDictionary } from '@/widgets/dictionary'
 
-function DictionaryContent() {
+/*function DictionaryContent() {
 	const mediaStore = useMediaStoreContext()
 	const languageCode = mediaStore((s) => s.languageCode)
 	const currentSentenceId = mediaStore((s) => s.selectedSentenceId)
@@ -37,6 +37,6 @@ function DictionaryContent() {
 	if (!languageCode) return null
 
 	return <PhraseDictionary languageCode={languageCode} phrase={phrase} words={words} />
-}
+}*/
 
-export default DictionaryContent
+// export default DictionaryContent

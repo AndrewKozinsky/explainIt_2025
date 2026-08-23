@@ -1,11 +1,11 @@
-import { useCallback } from 'react'
-import { useMutation } from '@tanstack/react-query'
-import { authQueries } from '@/entities/auth/AuthQueryFacade'
-import { useSetUser } from '@/shared/api/auth/UserProvider'
-import { FormStatus } from '@/shared/utils/forms'
-import { LoginFormData } from './form'
+// import { useCallback } from 'react'
+// import { useMutation } from '@tanstack/react-query'
+// import { authQueries } from '@/entities/auth/AuthQueryFacade'
+// import { useSetUser } from '@/shared/api/auth/UserProvider'
+// import { FormStatus } from '@/shared/utils/forms'
+// import { LoginFormData } from './form'
 
-export function useGetOnLoginFormSubmit(
+/*export function useGetOnLoginFormSubmit(
 	setFieldError: (field: keyof LoginFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -42,4 +42,4 @@ export function useGetOnLoginFormSubmit(
 		},
 		[loginUser, setUser, setFieldError, setFormError, setFormStatus],
 	)
-}
+}*/

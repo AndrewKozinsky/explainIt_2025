@@ -1,13 +1,13 @@
-import mainConfig from '@/shared/сonsts/mainConfig'
-import GenerateSubtitlesButton from '../GenerateSubtitlesButton/GenerateSubtitlesButton'
-import './GenerateSubtitlesBlock.scss'
+// import mainConfig from '@/shared/сonsts/mainConfig'
+// import GenerateSubtitlesButton from '../GenerateSubtitlesButton/GenerateSubtitlesButton'
+// import './GenerateSubtitlesBlock.scss'
 
-type GenerateSubtitlesBlockProps = {
+/*type GenerateSubtitlesBlockProps = {
 	videoId: number
 	isFormDisabled: boolean
-}
+}*/
 
-function GenerateSubtitlesBlock(props: GenerateSubtitlesBlockProps) {
+/*function GenerateSubtitlesBlock(props: GenerateSubtitlesBlockProps) {
 	const { videoId, isFormDisabled } = props
 
 	return (
@@ -28,6 +28,6 @@ function GenerateSubtitlesBlock(props: GenerateSubtitlesBlockProps) {
 			</p>
 		</div>
 	)
-}
+}*/
 
-export default GenerateSubtitlesBlock
+// export default GenerateSubtitlesBlock

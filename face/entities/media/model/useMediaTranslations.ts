@@ -1,15 +1,15 @@
-import { useEffect } from 'react'
-import { useLocale } from 'next-intl'
-import type { StoreApi, UseBoundStore } from 'zustand'
-import { translateService } from '@/entities/translate/TranslateService'
-import type { PhraseTranslationModel } from '@/entities/translate/TranslateService'
-import type { BaseMediaStore } from '../store/createBaseMediaStore'
-import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import type { LanguageCode } from '@/shared/utils/languages'
-import type { SentencePhraseType } from '../store/translationTypes'
-import { offsetsFromWordIds, wordIdsFromOffsets } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
+// import { useEffect } from 'react'
+// import { useLocale } from 'next-intl'
+// import type { StoreApi, UseBoundStore } from 'zustand'
+// import { translateService } from '@/entities/translate/TranslateService'
+// import type { PhraseTranslationModel } from '@/entities/translate/TranslateService'
+// import type { BaseMediaStore } from '../store/createBaseMediaStore'
+// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+// import type { LanguageCode } from '@/shared/utils/languages'
+// import type { SentencePhraseType } from '../store/translationTypes'
+// import { offsetsFromWordIds, wordIdsFromOffsets } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
 
-type MediaTranslationContext = {
+/*type MediaTranslationContext = {
 	bookName?: null | string
 	bookAuthor?: null | string
 	videoName?: null | string
@@ -18,10 +18,10 @@ type MediaTranslationContext = {
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	mediaStore: UseBoundStore<StoreApi<BaseMediaStore>>
-}
+}*/
 
 /** Координирует загрузку переводов для всех потребителей текущего media-контекста. */
-export function useMediaTranslations(input: MediaTranslationContext): void {
+/*export function useMediaTranslations(input: MediaTranslationContext): void {
 	const locale = useLocale()
 	const { mediaStore, sentences, languageCode, selectedSentenceId, selectedWordId } = input
 
@@ -138,9 +138,9 @@ export function useMediaTranslations(input: MediaTranslationContext): void {
 				})
 		}
 	}, [mediaStore, phraseRetries, locale])
-}
+}*/
 
-async function fetchSentence(
+/*async function fetchSentence(
 	input: MediaTranslationContext & { sentenceId: number; sentenceText: string; targetLanguageCode: string },
 ) {
 	input.mediaStore.getState().patchSentenceTranslation({
@@ -187,9 +187,9 @@ async function fetchSentence(
 			patch: { loading: false, error: 'Не удалось получить перевод предложения' },
 		})
 	}
-}
+}*/
 
-async function fetchPhrase(
+/*async function fetchPhrase(
 	input: MediaTranslationContext & {
 		sentenceId: number
 		sentenceText: string
@@ -236,9 +236,9 @@ async function fetchPhrase(
 			patch: { loading: false, error: 'Не удалось получить перевод слова' },
 		})
 	}
-}
+}*/
 
-function mapPhrase(
+/*function mapPhrase(
 	phrase: PhraseTranslationModel,
 	sentenceText: string,
 	languageCode: null | string,
@@ -259,8 +259,8 @@ function mapPhrase(
 		translation: phrase.translation,
 		examples: phrase.examples.map((example) => ({ text: example.text ?? '', translate: example.translate ?? '' })),
 	}
-}
+}*/
 
-function makePhraseId(): string {
+/*function makePhraseId(): string {
 	return `p_${Math.random().toString(36).slice(2)}_${Date.now().toString(36)}`
-}
+}*/

@@ -1,10 +1,10 @@
-import { produce } from 'immer'
-import { create } from 'zustand'
-import type { LanguageCode } from '@/shared/utils/languages'
-import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import type { DetailsSentenceEntry, SentencePhraseType, SentenceTranslation } from './translationTypes'
+// import { produce } from 'immer'
+// import { create } from 'zustand'
+// import type { LanguageCode } from '@/shared/utils/languages'
+// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+// import type { DetailsSentenceEntry, SentencePhraseType, SentenceTranslation } from './translationTypes'
 
-export type BaseMediaStore = {
+/*export type BaseMediaStore = {
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	languageCode: null | LanguageCode
@@ -36,9 +36,9 @@ export type BaseMediaStore = {
 	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
 	retrySentenceTranslation: (sentenceId: number) => void
 	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
-}
+}*/
 
-export function createBaseMediaStore() {
+/*export function createBaseMediaStore() {
 	return create<BaseMediaStore>((set) => ({
 		selectedSentenceId: null,
 		selectedWordId: null,
@@ -185,8 +185,8 @@ export function createBaseMediaStore() {
 				}),
 			),
 	}))
-}
+}*/
 
-function sameWordIds(a: number[], b: number[]): boolean {
+/*function sameWordIds(a: number[], b: number[]): boolean {
 	return a.length === b.length && a.every((value, index) => value === b[index])
-}
+}*/

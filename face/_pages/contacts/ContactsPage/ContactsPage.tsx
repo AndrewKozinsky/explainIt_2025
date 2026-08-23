@@ -1,10 +1,10 @@
-import Header from '@/shared/ui/Header/Header'
-import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
-import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
+// import Header from '@/shared/ui/Header/Header'
+// import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+// import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
+// import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 
 /** Страница контактов */
-function ContactsPage() {
+/*function ContactsPage() {
 	return (
 		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
@@ -24,6 +24,6 @@ function ContactsPage() {
 			</PageContentWrapper>
 		</PageWrapper>
 	)
-}
+}*/
 
-export default ContactsPage
+// export default ContactsPage

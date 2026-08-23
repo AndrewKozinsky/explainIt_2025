@@ -1,16 +1,16 @@
-import cn from 'classnames'
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import { ErrorIcon } from '@/shared/ui/icons/ErrorIcon'
-import Spinner from '@/shared/ui/Spinner/Spinner'
-import { canLanguageHaveTranscription } from '@/shared/utils/languages'
-import { useAudioPlayback } from './fn/useAudioPlayback'
-import { useTranscriptionState } from './fn/useTranscriptionState'
-import PauseIcon from './PauseIcon'
-import PlayIcon from './PlayIcon'
-import { TranscriptionAndAudioProps, TranscriptionState } from './types'
-import './TranscriptionAndAudio.scss'
+// import cn from 'classnames'
+// import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+// import { ErrorIcon } from '@/shared/ui/icons/ErrorIcon'
+// import Spinner from '@/shared/ui/Spinner/Spinner'
+// import { canLanguageHaveTranscription } from '@/shared/utils/languages'
+// import { useAudioPlayback } from './fn/useAudioPlayback'
+// import { useTranscriptionState } from './fn/useTranscriptionState'
+// import PauseIcon from './PauseIcon'
+// import PlayIcon from './PlayIcon'
+// import { TranscriptionAndAudioProps, TranscriptionState } from './types'
+// import './TranscriptionAndAudio.scss'
 
-function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
+/*function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const {
 		bg = 'pale',
 		extraClass,
@@ -54,18 +54,18 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 			<TranscriptionBlock transcription={effectiveTranscription} />
 		</BaseButton>
 	)
-}
+}*/
 
-export default TranscriptionAndAudio
+// export default TranscriptionAndAudio
 
 // ---- Sub-components ----
 
-type AudioIconProps = {
+/*type AudioIconProps = {
 	audioStatus: 'idle' | 'loading' | 'error'
 	isPlaying: boolean
-}
+}*/
 
-function AudioIcon(props: AudioIconProps) {
+/*function AudioIcon(props: AudioIconProps) {
 	const { audioStatus, isPlaying } = props
 
 	if (audioStatus === 'loading') {
@@ -77,13 +77,13 @@ function AudioIcon(props: AudioIconProps) {
 	}
 
 	return <span className='transcription-audio__icon-wrapper'>{isPlaying ? <PauseIcon /> : <PlayIcon />}</span>
-}
+}*/
 
-type TranscriptionBlockProps = {
+/*type TranscriptionBlockProps = {
 	transcription?: TranscriptionState | null
-}
+}*/
 
-function TranscriptionBlock(props: TranscriptionBlockProps) {
+/*function TranscriptionBlock(props: TranscriptionBlockProps) {
 	const { transcription } = props
 
 	if (!transcription || transcription.status === 'loading') {
@@ -97,4 +97,4 @@ function TranscriptionBlock(props: TranscriptionBlockProps) {
 	if (!transcription.transcription) return null
 
 	return transcription.transcription
-}
+}*/

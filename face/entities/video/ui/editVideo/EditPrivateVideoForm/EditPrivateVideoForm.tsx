@@ -1,35 +1,35 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import * as yup from 'yup'
-import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { videosService } from '@/entities/video/VideosService'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import FormError from '@/shared/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import LanguagesRadioGroup from '@/shared/ui/LanguagesRadioGroup/LanguagesRadioGroup'
-import { FormStatus } from '@/shared/utils/forms'
-import DeleteVideoButton from '../../DeleteVideoButton/DeleteVideoButton'
-import GenerateSubtitlesBlock from '../../GenerateSubtitlesBlock/GenerateSubtitlesBlock'
-import WatchVideoButton from '../../WatchMovieButton/WatchMovieButton'
-import VideoFileSection from '../EditVideoForm/VideoFileSection'
-import { EditPrivateVideoFormData, editPrivateVideoFormSchema } from './fn/form'
-import { useSetFieldValues } from './fn/setFieldValues'
-import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
-import VideoCoverSection from './VideoCoverSection'
-import './EditPrivateVideoForm.scss'
+// import React, { useState, useEffect, useRef } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { useForm } from 'react-hook-form'
+// import * as yup from 'yup'
+// import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import { videosService } from '@/entities/video/VideosService'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/shared/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
+// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+// import LanguagesRadioGroup from '@/shared/ui/LanguagesRadioGroup/LanguagesRadioGroup'
+// import { FormStatus } from '@/shared/utils/forms'
+// import DeleteVideoButton from '../../DeleteVideoButton/DeleteVideoButton'
+// import GenerateSubtitlesBlock from '../../GenerateSubtitlesBlock/GenerateSubtitlesBlock'
+// import WatchVideoButton from '../../WatchMovieButton/WatchMovieButton'
+// import VideoFileSection from '../EditVideoForm/VideoFileSection'
+// import { EditPrivateVideoFormData, editPrivateVideoFormSchema } from './fn/form'
+// import { useSetFieldValues } from './fn/setFieldValues'
+// import { useGetOnUpdateVideoFormSubmit } from './fn/submit'
+// import VideoCoverSection from './VideoCoverSection'
+// import './EditPrivateVideoForm.scss'
 
-type EditPrivateVideoFormProps = {
+/*type EditPrivateVideoFormProps = {
 	video: VideoLiteModel
 	onVideoUpdated: () => void
 	onCoverUpdated: (updatedVideo: VideoLiteModel) => void
 	onVideoDeleted: (videoId: number) => void
-}
+}*/
 
-export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
+/*export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 	const { video, onVideoUpdated, onCoverUpdated, onVideoDeleted } = props
 
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
@@ -224,4 +224,4 @@ The survivors of the nuclear fire called the war Judgment Day.`,
 			</MediaFormSurface>
 		</form>
 	)
-}
+}*/

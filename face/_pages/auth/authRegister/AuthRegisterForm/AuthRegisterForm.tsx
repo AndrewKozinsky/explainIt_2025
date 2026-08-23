@@ -1,21 +1,21 @@
-'use client'
+// 'use client'
 
-import React, { useState } from 'react'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
-import { Link } from '@/i18n/routing'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import FormError from '@/shared/ui/formRelated/FormError/FormError'
-import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
-import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
-import { FormStatus } from '@/shared/utils/forms'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import { RegisterFormData, registerFormSchema } from './fn/form'
-import { useGetOnRegisterFormSubmit } from './fn/submit'
+// import React, { useState } from 'react'
+// import { yupResolver } from '@hookform/resolvers/yup'
+// import { useForm } from 'react-hook-form'
+// import { Link } from '@/i18n/routing'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import FormError from '@/shared/ui/formRelated/FormError/FormError'
+// import FormFieldsWrapper from '@/shared/ui/formRelated/FormFieldsWrapper/FormFieldsWrapper'
+// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+// import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+// import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
+// import { FormStatus } from '@/shared/utils/forms'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import { RegisterFormData, registerFormSchema } from './fn/form'
+// import { useGetOnRegisterFormSubmit } from './fn/submit'
 
-function AuthRegisterForm() {
+/*function AuthRegisterForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 	const [formSuccess, setFormSuccess] = useState<null | string>(null)
@@ -89,6 +89,6 @@ function AuthRegisterForm() {
 			</form>
 		</div>
 	)
-}
+}*/
 
-export default AuthRegisterForm
+// export default AuthRegisterForm

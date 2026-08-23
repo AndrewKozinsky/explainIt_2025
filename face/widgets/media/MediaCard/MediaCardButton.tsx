@@ -1,7 +1,7 @@
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import './MediaCardButton.scss'
+// import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+// import './MediaCardButton.scss'
 
-type MediaCardProps = {
+/*type MediaCardProps = {
 	title?: null | string
 	subTitle?: null | number | string
 	theme?: null | string
@@ -11,9 +11,9 @@ type MediaCardProps = {
 	coverUrl?: null | string
 	defaultMediaName: string
 	size?: 'small' | 'medium'
-}
+}*/
 
-function MediaCardButton(props: MediaCardProps) {
+/*function MediaCardButton(props: MediaCardProps) {
 	const {
 		title,
 		subTitle,
@@ -52,6 +52,6 @@ function MediaCardButton(props: MediaCardProps) {
 			</div>
 		</BaseButton>
 	)
-}
+}*/
 
-export default MediaCardButton
+// export default MediaCardButton

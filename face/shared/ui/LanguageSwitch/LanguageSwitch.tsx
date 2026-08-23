@@ -1,7 +1,7 @@
 import React from 'react'
 import cn from 'classnames'
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import { LanguageCode } from '@/shared/utils/languages'
+import BaseButton from '../formRelated/buttons/BaseButton/BaseButton'
 import './LanguageSwitch.scss'
 
 type LanguageSwitchProps = {
@@ -17,6 +17,7 @@ function LanguageSwitch(props: LanguageSwitchProps) {
 	return (
 		<div className={cn('language-switch', className)}>
 			{languages.map((lang) => {
+				// @ts-ignore
 				return (
 					<BaseButton
 						current={lang === currentLang}

@@ -1,13 +1,13 @@
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { useGetOnReadButtonClick, useIsReadButtonDisabled } from './fn/buttonLogic'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import { useGetOnReadButtonClick, useIsReadButtonDisabled } from './fn/buttonLogic'
 
-type ReadChapterButtonProps = {
+/*type ReadChapterButtonProps = {
 	bookId: number
 	chapterId: number
 	hasContent: boolean
-}
+}*/
 
-function ReadChapterButton(props: ReadChapterButtonProps) {
+/*function ReadChapterButton(props: ReadChapterButtonProps) {
 	const { bookId, chapterId, hasContent } = props
 
 	const isButtonDisabled = useIsReadButtonDisabled(hasContent)
@@ -18,6 +18,6 @@ function ReadChapterButton(props: ReadChapterButtonProps) {
 			Читать
 		</Button>
 	)
-}
+}*/
 
-export default ReadChapterButton
+// export default ReadChapterButton

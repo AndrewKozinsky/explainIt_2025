@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { EditPrivateVideoFormData } from './form'
-import type { UseFormReset } from 'react-hook-form'
+// import { useEffect, useRef } from 'react'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import { EditPrivateVideoFormData } from './form'
+// import type { UseFormReset } from 'react-hook-form'
 
-export function useSetFieldValues(
+/*export function useSetFieldValues(
 	video: VideoLiteModel,
 	originalContent: string | null | undefined,
 	reset: UseFormReset<EditPrivateVideoFormData>,
@@ -28,4 +28,4 @@ export function useSetFieldValues(
 		},
 		[video, originalContent, reset],
 	)
-}
+}*/

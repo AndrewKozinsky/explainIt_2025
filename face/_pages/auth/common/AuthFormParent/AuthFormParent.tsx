@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link } from '@/i18n/routing'
-import Header from '@/shared/ui/Header/Header'
-import mainConfig from '@/shared/сonsts/mainConfig'
-import './AuthFormParent.scss'
+// import React from 'react'
+// import { Link } from '@/i18n/routing'
+// import Header from '@/shared/ui/Header/Header'
+// import mainConfig from '@/shared/сonsts/mainConfig'
+// import './AuthFormParent.scss'
 
-type AuthPageLayoutProps = {
+/*type AuthPageLayoutProps = {
 	pageTitle: string
 	form: React.ReactNode
 	afterFormLinks: { path: string; name: string }[]
-}
+}*/
 
-export function AuthFormParent(props: AuthPageLayoutProps) {
+/*export function AuthFormParent(props: AuthPageLayoutProps) {
 	const { pageTitle, form, afterFormLinks } = props
 
 	return (
@@ -37,4 +37,4 @@ export function AuthFormParent(props: AuthPageLayoutProps) {
 			</p>
 		</section>
 	)
-}
+}*/

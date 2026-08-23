@@ -1,10 +1,10 @@
-import { useCallback } from 'react'
-import { useMutation } from '@tanstack/react-query'
-import { authQueries } from '@/entities/auth/AuthQueryFacade'
-import { FormStatus } from '@/shared/utils/forms'
-import { RegisterFormData } from './form'
+// import { useCallback } from 'react'
+// import { useMutation } from '@tanstack/react-query'
+// import { authQueries } from '@/entities/auth/AuthQueryFacade'
+// import { FormStatus } from '@/shared/utils/forms'
+// import { RegisterFormData } from './form'
 
-export function useGetOnRegisterFormSubmit(
+/*export function useGetOnRegisterFormSubmit(
 	setFieldError: (field: keyof RegisterFormData, params: any) => void,
 	setFormStatus: React.Dispatch<React.SetStateAction<FormStatus>>,
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
@@ -41,4 +41,4 @@ export function useGetOnRegisterFormSubmit(
 		},
 		[registerUser, setFieldError, setFormError, setFormStatus, setFormSuccess],
 	)
-}
+}*/

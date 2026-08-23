@@ -1,8 +1,8 @@
-import { useCallback } from 'react'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { videosService } from '@/entities/video/VideosService'
+// import { useCallback } from 'react'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import { videosService } from '@/entities/video/VideosService'
 
-export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
+/*export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
 			const result = await videosService.updateVideo(videoId, {
@@ -35,4 +35,4 @@ export function useCoverUpload(videoId: number, onCoverUpdated: (video: VideoLit
 	)
 
 	return { onGetUploadUrl, onUploadComplete }
-}
+}*/

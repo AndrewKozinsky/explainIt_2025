@@ -1,13 +1,13 @@
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import './MediaCardLongVideo.scss'
-import { HideIcon } from '@/shared/ui/icons/HideIcon'
+// import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+// import './MediaCardLongVideo.scss'
+// import { HideIcon } from '@/shared/ui/icons/HideIcon'
 
-type MediaCardProps = {
+/*type MediaCardProps = {
 	title?: null | string
 	duration?: null | string
-}
+}*/
 
-function MediaCardLongVideo(props: MediaCardProps) {
+/*function MediaCardLongVideo(props: MediaCardProps) {
 	const { title, duration } = props
 
 	return (
@@ -24,6 +24,6 @@ function MediaCardLongVideo(props: MediaCardProps) {
 			</div>
 		</div>
 	)
-}
+}*/
 
-export default MediaCardLongVideo
+// export default MediaCardLongVideo

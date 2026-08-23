@@ -1,35 +1,35 @@
-import { createContext, useContext } from 'react'
-import type { ComponentType } from 'react'
-import type {
-	TranslationBlockModel,
-	BlockBlockModel,
-	UseCaseBlockModel,
-	PaperBlockModel,
-	ExampleBlockModel,
-	TextBlockModel,
-} from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
-import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
-import './PhraseTranslationResult.scss'
+// import { createContext, useContext } from 'react'
+// import type { ComponentType } from 'react'
+// import type {
+// 	TranslationBlockModel,
+// 	BlockBlockModel,
+// 	UseCaseBlockModel,
+// 	PaperBlockModel,
+// 	ExampleBlockModel,
+// 	TextBlockModel,
+// } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+// import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
+// import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
+// import './PhraseTranslationResult.scss'
 
 // ─── Component Registry ──────────────────────────────────────────────────────
 
-type BlockComponent<P extends TranslationBlockModel = TranslationBlockModel> = ComponentType<{
+/*type BlockComponent<P extends TranslationBlockModel = TranslationBlockModel> = ComponentType<{
 	block: P
 	index: number
-}>
+}>*/
 
-const blockComponents: Record<TranslationBlockModel['type'], BlockComponent<any>> = {
+/*const blockComponents: Record<TranslationBlockModel['type'], BlockComponent<any>> = {
 	block: BlockRenderer,
 	useCase: UseCaseRenderer,
 	paper: PaperRenderer,
 	example: ExampleRenderer,
 	text: TextRenderer,
-}
+}*/
 
 // ─── Entry Point ─────────────────────────────────────────────────────────────
 
-function BlockTree({ blocks }: { blocks: TranslationBlockModel[] }) {
+/*function BlockTree({ blocks }: { blocks: TranslationBlockModel[] }) {
 	return (
 		<>
 			{blocks.map((block, i) => {
@@ -39,13 +39,13 @@ function BlockTree({ blocks }: { blocks: TranslationBlockModel[] }) {
 			})}
 		</>
 	)
-}
+}*/
 
 // ─── PhraseTranslationResult ─────────────────────────────────────────────────
 
-const UseCaseNumbersContext = createContext<WeakMap<TranslationBlockModel, number> | null>(null)
+// const UseCaseNumbersContext = createContext<WeakMap<TranslationBlockModel, number> | null>(null)
 
-function numberUseCases(blocks: TranslationBlockModel[]): WeakMap<TranslationBlockModel, number> {
+/*function numberUseCases(blocks: TranslationBlockModel[]): WeakMap<TranslationBlockModel, number> {
 	const numbers = new WeakMap<TranslationBlockModel, number>()
 	let counter = 0
 
@@ -61,9 +61,9 @@ function numberUseCases(blocks: TranslationBlockModel[]): WeakMap<TranslationBlo
 
 	visit(blocks)
 	return numbers
-}
+}*/
 
-function PhraseTranslationResult() {
+/*function PhraseTranslationResult() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const translation = usePhraseDictionaryStore((s) => s.translation)
 
@@ -78,20 +78,20 @@ function PhraseTranslationResult() {
 			</UseCaseNumbersContext.Provider>
 		</div>
 	)
-}
+}*/
 
 // ─── Block Renderers ─────────────────────────────────────────────────────────
 
-function BlockRenderer({ block }: { block: BlockBlockModel }) {
+/*function BlockRenderer({ block }: { block: BlockBlockModel }) {
 	return (
 		<section className='translation-block'>
 			<h3 className='translation-block__header'>{block.header}</h3>
 			<BlockTree blocks={block.children} />
 		</section>
 	)
-}
+}*/
 
-function UseCaseRenderer({ block }: { block: UseCaseBlockModel }) {
+/*function UseCaseRenderer({ block }: { block: UseCaseBlockModel }) {
 	const useCaseNumbers = useContext(UseCaseNumbersContext)
 	const number = useCaseNumbers?.get(block)
 
@@ -104,27 +104,27 @@ function UseCaseRenderer({ block }: { block: UseCaseBlockModel }) {
 			<BlockTree blocks={block.children} />
 		</div>
 	)
-}
+}*/
 
-function PaperRenderer({ block }: { block: PaperBlockModel }) {
+/*function PaperRenderer({ block }: { block: PaperBlockModel }) {
 	return (
 		<div className='translation-paper'>
 			<BlockTree blocks={block.children} />
 		</div>
 	)
-}
+}*/
 
-function ExampleRenderer({ block }: { block: ExampleBlockModel }) {
+/*function ExampleRenderer({ block }: { block: ExampleBlockModel }) {
 	return (
 		<div className='translation-example'>
 			<p className='translation-example__sentence'>{block.sentence}</p>
 			<p className='translation-example__translation'>{block.translation}</p>
 		</div>
 	)
-}
+}*/
 
-function TextRenderer({ block }: { block: TextBlockModel }) {
+/*function TextRenderer({ block }: { block: TextBlockModel }) {
 	return <StyledMarkdown content={block.text} />
-}
+}*/
 
-export default PhraseTranslationResult
+// export default PhraseTranslationResult

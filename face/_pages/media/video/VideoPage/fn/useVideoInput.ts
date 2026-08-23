@@ -1,41 +1,41 @@
-'use client'
+// 'use client'
 
-import { useEffect, useRef } from 'react'
-import { playerControlConfig } from '@/entities/videoPlayer'
-import { useGetHotKeysHandler } from '@/shared/utils/hotKeysHandler'
-import {
-	rewind,
-	startForwardHold,
-	startReverseSeek,
-	stopForwardHold,
-	stopReverseSeek,
-	toggleCurrentMode,
-} from './playback'
+// import { useEffect, useRef } from 'react'
+// import { playerControlConfig } from '@/entities/videoPlayer'
+// import { useGetHotKeysHandler } from '@/shared/utils/hotKeysHandler'
+// import {
+// 	rewind,
+// 	startForwardHold,
+// 	startReverseSeek,
+// 	stopForwardHold,
+// 	stopReverseSeek,
+// 	toggleCurrentMode,
+// } from './playback'
 
-const VIDEO_ROOT_SELECTOR = '.video-root'
-const PROGRESS_SELECTOR = '.video-root__progress'
+// const VIDEO_ROOT_SELECTOR = '.video-root'
+// const PROGRESS_SELECTOR = '.video-root__progress'
 
-type PressArea = 'left' | 'center' | 'right'
+// type PressArea = 'left' | 'center' | 'right'
 
-function getWrapper(target: EventTarget | null): HTMLElement | null {
+/*function getWrapper(target: EventTarget | null): HTMLElement | null {
 	if (!(target instanceof HTMLElement)) return null
 	return target.closest(VIDEO_ROOT_SELECTOR)
-}
+}*/
 
-function isProgressTarget(target: EventTarget | null): boolean {
+/*function isProgressTarget(target: EventTarget | null): boolean {
 	if (!(target instanceof HTMLElement)) return false
 	return target.closest(PROGRESS_SELECTOR) !== null
-}
+}*/
 
-function getPressArea(wrapper: HTMLElement, clientX: number): PressArea {
+/*function getPressArea(wrapper: HTMLElement, clientX: number): PressArea {
 	const rect = wrapper.getBoundingClientRect()
 	const ratio = (clientX - rect.left) / rect.width
 	if (ratio < 0.3) return 'left'
 	if (ratio <= 0.7) return 'center'
 	return 'right'
-}
+}*/
 
-export function useVideoInput() {
+/*export function useVideoInput() {
 	// Пробел — переключение текущего режима
 	useGetHotKeysHandler({
 		key: ' ',
@@ -198,4 +198,4 @@ export function useVideoInput() {
 			resetState()
 		}
 	}, [])
-}
+}*/

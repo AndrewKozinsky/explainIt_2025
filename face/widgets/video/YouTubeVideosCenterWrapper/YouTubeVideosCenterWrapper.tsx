@@ -1,14 +1,14 @@
-import React from 'react'
-import './YouTubeVideosCenterWrapper.scss'
+// import React from 'react'
+// import './YouTubeVideosCenterWrapper.scss'
 
-type YouTubeVideosCenterWrapperProps = {
+/*type YouTubeVideosCenterWrapperProps = {
 	children: React.ReactNode
-}
+}*/
 
-function YouTubeVideosCenterWrapper(props: YouTubeVideosCenterWrapperProps) {
+/*function YouTubeVideosCenterWrapper(props: YouTubeVideosCenterWrapperProps) {
 	const { children } = props
 
 	return <div className='youtube-videos-center-wrapper'>{children}</div>
-}
+}*/
 
-export default YouTubeVideosCenterWrapper
+// export default YouTubeVideosCenterWrapper

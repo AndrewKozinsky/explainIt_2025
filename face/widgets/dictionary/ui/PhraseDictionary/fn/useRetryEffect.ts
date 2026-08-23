@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react'
-import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
-import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
+// import { useEffect, useRef } from 'react'
+// import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
+// import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 
 /**
  * Следит за `retryTrigger` в сторе.
  * При инкременте (кнопка «Повторить» в PhraseDictionaryError) заново запускает перевод текущего текста.
  */
-export function useRetryEffect() {
+/*export function useRetryEffect() {
 	const retryTrigger = usePhraseDictionaryStore((s) => s.retryTrigger)
 	const retryTriggerRef = useRef(retryTrigger)
 
@@ -23,4 +23,4 @@ export function useRetryEffect() {
 		},
 		[retryTrigger],
 	)
-}
+}*/

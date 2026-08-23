@@ -1,15 +1,15 @@
 'use client'
 
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import YouTubeSearch from '@/widgets/video/YouTubeSearch/YouTubeSearch'
-import YouTubeVideoNameHints from '@/widgets/video/YouTubeVideoNameHints/YouTubeVideoNameHints'
-import YouTubeVideosCenterWrapper from '@/widgets/video/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
-import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
-import useYouTubeVideosSearch from './fn/useYouTubeVideosSearch'
-import './YouTubeVideosSearch.scss'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import YouTubeSearch from '@/widgets/video/YouTubeSearch/YouTubeSearch'
+// import YouTubeVideoNameHints from '@/widgets/video/YouTubeVideoNameHints/YouTubeVideoNameHints'
+// import YouTubeVideosCenterWrapper from '@/widgets/video/YouTubeVideosCenterWrapper/YouTubeVideosCenterWrapper'
+// import YouTubeVideosList from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
+// import useYouTubeVideosSearch from './fn/useYouTubeVideosSearch'
+// import './YouTubeVideosSearch.scss'
 
 function YouTubeVideosSearch() {
-	const {
+	/*const {
 		query,
 		loading,
 		videos,
@@ -20,9 +20,9 @@ function YouTubeVideosSearch() {
 		loadMore,
 		handleQueryChange,
 		handleHintSelect,
-	} = useYouTubeVideosSearch()
+	} = useYouTubeVideosSearch()*/
 
-	return (
+	/*return (
 		<div className='youtube-videos-search'>
 			<YouTubeSearch query={query} onQueryChange={handleQueryChange} onSearch={search} loading={loading} />
 			<YouTubeVideoNameHints onSelect={handleHintSelect} />
@@ -35,7 +35,8 @@ function YouTubeVideosSearch() {
 				</YouTubeVideosCenterWrapper>
 			)}
 		</div>
-	)
+	)*/
+	return null
 }
 
 export default YouTubeVideosSearch

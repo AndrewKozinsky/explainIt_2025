@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
-import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
-import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
-import { TranscriptionState } from '../types'
+// import { useEffect, useState } from 'react'
+// import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
+// import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
+// import { TranscriptionState } from '../types'
 
-type UseTranscriptionStateInput = {
+/*type UseTranscriptionStateInput = {
 	phrase?: string
 	languageCode?: LanguageCode
 	propTranscription?: string | null
-}
+}*/
 
-export function useTranscriptionState(input: UseTranscriptionStateInput): TranscriptionState | null | undefined {
+/*export function useTranscriptionState(input: UseTranscriptionStateInput): TranscriptionState | null | undefined {
 	const { phrase, languageCode, propTranscription } = input
 
 	const transcriptionExplicitlyProvided = typeof propTranscription === 'string'
@@ -47,4 +47,4 @@ export function useTranscriptionState(input: UseTranscriptionStateInput): Transc
 	}
 
 	return state
-}
+}*/

@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import { useCallback, useContext } from 'react'
-import { redirect } from 'next/navigation'
-import { useLocale } from 'next-intl'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { videosService } from '@/entities/video/VideosService'
-import { useRouter } from '@/i18n/routing'
-import { useUser } from '@/shared/api/auth/UserProvider'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+// import { useCallback, useContext } from 'react'
+// import { redirect } from 'next/navigation'
+// import { useLocale } from 'next-intl'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import { videosService } from '@/entities/video/VideosService'
+// import { useRouter } from '@/i18n/routing'
+// import { useUser } from '@/shared/api/auth/UserProvider'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 /**
  * Хук для создания нового приватного видео.
@@ -22,7 +22,7 @@ import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
  *
  * @returns `() => Promise<ApiResult<VideoLiteModel>>` — обработчик для {@link MediaGridAddButton}
  */
-export function useGetAddVideo(): () => Promise<ApiResult<VideoLiteModel>> {
+/*export function useGetAddVideo(): () => Promise<ApiResult<VideoLiteModel>> {
 	const router = useRouter()
 	const { notify } = useContext(NotificationContext)
 	const user = useUser()
@@ -68,4 +68,4 @@ export function useGetAddVideo(): () => Promise<ApiResult<VideoLiteModel>> {
 	)
 
 	return handleAdd
-}
+}*/

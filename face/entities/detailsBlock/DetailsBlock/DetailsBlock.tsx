@@ -1,15 +1,15 @@
-'use client'
+// 'use client'
 
-import type { ReactNode } from 'react'
-import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
-import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
-import './DetailsBlock.scss'
+// import type { ReactNode } from 'react'
+// import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
+// import DetailsBlockWrapper from '../ViewRouter/DetailsBlockWrapper'
+// import './DetailsBlock.scss'
 
-type DetailsBlockProps = {
+/*type DetailsBlockProps = {
 	videoControls?: ReactNode
-}
+}*/
 
-function DetailsBlock(props: DetailsBlockProps) {
+/*function DetailsBlock(props: DetailsBlockProps) {
 	const { videoControls } = props
 
 	return (
@@ -18,6 +18,6 @@ function DetailsBlock(props: DetailsBlockProps) {
 			{videoControls}
 		</ViewportSyncedHeight>
 	)
-}
+}*/
 
-export default DetailsBlock
+// export default DetailsBlock

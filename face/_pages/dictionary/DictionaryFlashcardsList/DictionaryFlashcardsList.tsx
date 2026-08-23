@@ -1,11 +1,11 @@
-'use client'
+// 'use client'
 
-import React from 'react'
-import { DictionaryFlashcard } from '../DictionaryFlashcard/DictionaryFlashcard'
-import { useDictionaryStore } from '../dictionaryStore'
-import './DictionaryFlashcardsList.scss'
+// import React from 'react'
+// import { DictionaryFlashcard } from '../DictionaryFlashcard/DictionaryFlashcard'
+// import { useDictionaryStore } from '../dictionaryStore'
+// import './DictionaryFlashcardsList.scss'
 
-function DictionaryFlashcardsList() {
+/*function DictionaryFlashcardsList() {
 	const flashcards = useDictionaryStore((state) => state.flashcards)
 	const isFlashcardsLoading = useDictionaryStore((state) => state.isFlashcardsLoading)
 	const getFlashcardsErrorMessage = useDictionaryStore((state) => state.getFlashcardsErrorMessage)
@@ -29,6 +29,6 @@ function DictionaryFlashcardsList() {
 			})}
 		</div>
 	)
-}
+}*/
 
-export default DictionaryFlashcardsList
+// export default DictionaryFlashcardsList

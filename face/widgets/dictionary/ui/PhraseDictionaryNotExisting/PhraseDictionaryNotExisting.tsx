@@ -1,6 +1,6 @@
-import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
+// import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 
-function PhraseDictionaryNotExisting() {
+/*function PhraseDictionaryNotExisting() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const nonExistentWord = usePhraseDictionaryStore((s) => s.nonExistentWord)
 
@@ -9,6 +9,6 @@ function PhraseDictionaryNotExisting() {
 	}
 
 	return <div className='phrase-dictionary__status'>Такого слова не существует.</div>
-}
+}*/
 
-export default PhraseDictionaryNotExisting
+// export default PhraseDictionaryNotExisting

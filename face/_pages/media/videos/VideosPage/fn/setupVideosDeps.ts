@@ -1,11 +1,11 @@
-import { useCallback, useMemo, useState } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
-import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
+// import { useCallback, useMemo, useState } from 'react'
+// import { useQuery } from '@tanstack/react-query'
+// import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
+// import type { YoutubeVideoModel } from '@/entities/youtube/YoutubeService'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import type { YouTubeVideoCardData } from '@/widgets/video/YouTubeVideosList/YouTubeVideosList'
 
-function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
+/*function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
 	return videos.map(function (video) {
 		return {
 			id: video.videoId,
@@ -16,13 +16,13 @@ function mapToCardData(videos: YoutubeVideoModel[]): YouTubeVideoCardData[] {
 			url: pageUrls.videos.video(video.videoId).path,
 		}
 	})
-}
+}*/
 
 /**
  * Хук для поиска YouTube-видео с пагинацией.
  * Использует {@link youtubeQueries.getVideos} — фасад над TanStack Query.
  */
-export function useYouTubeVideos(query: string) {
+/*export function useYouTubeVideos(query: string) {
 	const [searchQuery, setSearchQuery] = useState('')
 	const [pageToken, setPageToken] = useState<string | undefined>(undefined)
 	const [allVideos, setAllVideos] = useState<YoutubeVideoModel[]>([])
@@ -83,4 +83,4 @@ export function useYouTubeVideos(query: string) {
 		},
 		[isLoading, videos, errorText, data?.nextPageToken, hasSearched, search, loadMore],
 	)
-}
+}*/

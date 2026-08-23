@@ -1,18 +1,18 @@
-import React from 'react'
-import type { BookModel } from '@/entities/book/repository/BooksRepository'
-import BookCoverDropzone from './BookCoverDropzone'
-import BookCoverPreview from './BookCoverPreview'
+// import React from 'react'
+// import type { BookModel } from '@/entities/book/repository/BooksRepository'
+// import BookCoverDropzone from './BookCoverDropzone'
+// import BookCoverPreview from './BookCoverPreview'
 
-type BookCoverSectionProps = {
+/*type BookCoverSectionProps = {
 	block?: boolean
 	coverUrl: string | null
 	bookId: number
 	languageCode: string | null
 	isCoverFileUploaded: boolean | null
 	onCoverUpdated: (book: BookModel) => void
-}
+}*/
 
-function BookCoverSection(props: BookCoverSectionProps) {
+/*function BookCoverSection(props: BookCoverSectionProps) {
 	const { block, coverUrl, bookId, languageCode, isCoverFileUploaded, onCoverUpdated } = props
 
 	if (coverUrl) {
@@ -28,6 +28,6 @@ function BookCoverSection(props: BookCoverSectionProps) {
 			onCoverUpdated={onCoverUpdated}
 		/>
 	)
-}
+}*/
 
-export default React.memo(BookCoverSection)
+// export default React.memo(BookCoverSection)

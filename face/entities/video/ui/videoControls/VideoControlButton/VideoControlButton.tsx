@@ -1,16 +1,16 @@
-import React from 'react'
-import cn from 'classnames'
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import './VideoControlButton.scss'
+// import React from 'react'
+// import cn from 'classnames'
+// import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+// import './VideoControlButton.scss'
 
-type VideoControlButtonProps = {
+/*type VideoControlButtonProps = {
 	icon: React.ReactNode
 	onClick?: () => void
 	disabled?: boolean
 	active?: boolean
-}
+}*/
 
-function VideoControlButton(props: VideoControlButtonProps) {
+/*function VideoControlButton(props: VideoControlButtonProps) {
 	const { icon, onClick, disabled, active } = props
 
 	return (
@@ -22,6 +22,6 @@ function VideoControlButton(props: VideoControlButtonProps) {
 			{icon}
 		</BaseButton>
 	)
-}
+}*/
 
-export default VideoControlButton
+// export default VideoControlButton

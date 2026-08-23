@@ -4,8 +4,8 @@ import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPa
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import PrivateVideosListWithAdd from '@/widgets/video/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
-import VideosCollection from '@/widgets/video/VideosCollection/VideosCollection'
+// import PrivateVideosListWithAdd from '@/widgets/video/PrivateVideosListWithAdd/PrivateVideosListWithAdd'
+import VideosCollection from '@/widgets/video/videosCollection/VideosCollection/VideosCollection'
 import YouTubeVideosSearch from '@/widgets/video/YouTubeVideosSearch/YouTubeVideosSearch'
 import { useVideosPageTabs } from './fn/useVideosPageTabs'
 

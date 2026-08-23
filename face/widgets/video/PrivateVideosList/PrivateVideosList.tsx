@@ -1,18 +1,18 @@
-import { videoConfig } from '@/entities/video/lib/videoConfig'
-import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
-import { MediaGridAddButton } from '@/widgets/media/MediaGridAddButton/MediaGridAddButton'
-import { getConfig } from './fn/getConfig'
+// import { videoConfig } from '@/entities/video/lib/videoConfig'
+// import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
+// import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+// import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+// import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
+// import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
+// import { MediaGridAddButton } from '@/widgets/media/MediaGridAddButton/MediaGridAddButton'
+// import { getConfig } from './fn/getConfig'
 
-type PrivateVideosListProps = {
+/*type PrivateVideosListProps = {
 	videos: VideoLiteModel[]
 	addVideo?: () => Promise<ApiResult<VideoLiteModel>>
-}
+}*/
 
-function PrivateVideosList(props: PrivateVideosListProps) {
+/*function PrivateVideosList(props: PrivateVideosListProps) {
 	const { videos, addVideo } = props
 
 	const config = getConfig(videos)
@@ -34,6 +34,6 @@ function PrivateVideosList(props: PrivateVideosListProps) {
 			{addVideo && <MediaGridAddButton addAction={addVideo} />}
 		</ItemsGrid>
 	)
-}
+}*/
 
-export default PrivateVideosList
+// export default PrivateVideosList

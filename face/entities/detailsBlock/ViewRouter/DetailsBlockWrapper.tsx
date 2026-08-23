@@ -1,15 +1,15 @@
-import cn from 'classnames'
-import { useState } from 'react'
-import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-import DialogContent from '../DialogContent/DialogContent'
-import DictionaryContent from '../DictionaryContent/DictionaryContent'
-import InfoViewSwitcher from '../InfoViewSwitcher'
-import WordsContent from '../WordsContent/WordsContent'
-import './DetailsBlockWrapper.scss'
+// import cn from 'classnames'
+// import { useState } from 'react'
+// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+// import DialogContent from '../DialogContent/DialogContent'
+// import DictionaryContent from '../DictionaryContent/DictionaryContent'
+// import InfoViewSwitcher from '../InfoViewSwitcher'
+// import WordsContent from '../WordsContent/WordsContent'
+// import './DetailsBlockWrapper.scss'
 
-export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
+// export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
 
-function DetailsBlockWrapper() {
+/*function DetailsBlockWrapper() {
 	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>('dictionary')
 	const mediaStore = useMediaStoreContext()
 	const sentenceId = mediaStore((store) => store.selectedSentenceId)
@@ -34,18 +34,18 @@ function DetailsBlockWrapper() {
 			</div>
 		</ContentWrapper>
 	)
-}
+}*/
 
-export default DetailsBlockWrapper
+// export default DetailsBlockWrapper
 
 // ------------
 
-type ContentWrapperProps = {
+/*type ContentWrapperProps = {
 	center?: boolean
 	children: React.ReactNode
-}
+}*/
 
-function ContentWrapper(props: ContentWrapperProps) {
+/*function ContentWrapper(props: ContentWrapperProps) {
 	const { center, children } = props
 
 	return (
@@ -53,8 +53,8 @@ function ContentWrapper(props: ContentWrapperProps) {
 			<div className={cn(!center && 'details-block-wrapper__scroll')}>{children}</div>
 		</div>
 	)
-}
+}*/
 
-function InfoText({ children }: { children: React.ReactNode }) {
+/*function InfoText({ children }: { children: React.ReactNode }) {
 	return <p className='details-block-wrapper__text'>{children}</p>
-}
+}*/

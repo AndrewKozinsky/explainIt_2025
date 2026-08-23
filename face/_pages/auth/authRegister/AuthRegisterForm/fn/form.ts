@@ -1,7 +1,7 @@
-import * as yup from 'yup'
-import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
+// import * as yup from 'yup'
+// import { errorMessages } from '@/shared/utils/fetchData/errorMessages'
 
-export const registerFormSchema = yup
+/*export const registerFormSchema = yup
 	.object({
 		email: yup.string().email(errorMessages.wrongEmailFormat).required(errorMessages.requiredField),
 		password: yup.string().required(errorMessages.requiredField).min(6, errorMessages.minCharacters(6)),
@@ -11,11 +11,11 @@ export const registerFormSchema = yup
 			.oneOf([yup.ref('password')], errorMessages.passwordsMustBeTheSame)
 			.required(errorMessages.requiredField),
 	})
-	.required()
+	.required()*/
 
-export type RegisterFormData = yup.InferType<typeof registerFormSchema>
+// export type RegisterFormData = yup.InferType<typeof registerFormSchema>
 
-export const RegisterFormTest = {
+/*export const RegisterFormTest = {
 	form: { id: 'form' },
 	emailField: { id: 'email-field' },
 	passwordField: { id: 'password-field' },
@@ -23,4 +23,4 @@ export const RegisterFormTest = {
 	submitButton: { id: 'submit-button' },
 	failMessage: { id: 'fail-message' },
 	successMessage: { id: 'success-message' },
-}
+}*/

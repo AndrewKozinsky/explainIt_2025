@@ -2,9 +2,9 @@
 
 import { ButtonHTMLAttributes } from 'react'
 import cn from 'classnames'
+import BaseButton from '../../buttons/BaseButton/BaseButton'
 import '../Button/Button.scss'
 import './ExerciseButton.scss'
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 	text: string

@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react'
-import { useMutation } from '@tanstack/react-query'
-import { useSearchParams } from 'next/navigation'
-import { authQueries } from '@/entities/auth/AuthQueryFacade'
+// import { useEffect, useState } from 'react'
+// import { useMutation } from '@tanstack/react-query'
+// import { useSearchParams } from 'next/navigation'
+// import { authQueries } from '@/entities/auth/AuthQueryFacade'
 
-export type ConfirmationStatus = 'loading' | 'success' | 'error'
+// export type ConfirmationStatus = 'loading' | 'success' | 'error'
 
-export function useConfirmEmail() {
+/*export function useConfirmEmail() {
 	const { mutateAsync: confirmEmail } = useMutation(authQueries.confirmEmail())
 
 	const [confirmationStatus, setConfirmationStatus] = useState<ConfirmationStatus>('loading')
@@ -33,4 +33,4 @@ export function useConfirmEmail() {
 	)
 
 	return confirmationStatus
-}
+}*/

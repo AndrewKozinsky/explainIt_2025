@@ -1,8 +1,8 @@
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
-import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
+// import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+// import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
+// import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 
-function PhraseDictionaryInput() {
+/*function PhraseDictionaryInput() {
 	const inputText = usePhraseDictionaryStore((s) => s.inputText)
 
 	function handleSubmit() {
@@ -24,6 +24,6 @@ function PhraseDictionaryInput() {
 			}}
 		/>
 	)
-}
+}*/
 
-export default PhraseDictionaryInput
+// export default PhraseDictionaryInput

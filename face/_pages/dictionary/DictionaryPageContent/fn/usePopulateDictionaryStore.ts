@@ -1,19 +1,19 @@
-import { useEffect } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
-import type { FlashcardModel } from '@/entities/flashcard/FlashcardService'
-import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
-import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
+// import { useEffect } from 'react'
+// import { useQuery } from '@tanstack/react-query'
+// import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
+// import type { FlashcardModel } from '@/entities/flashcard/FlashcardService'
+// import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
+// import { DictionaryFlashcardData, useDictionaryStore } from '../../dictionaryStore'
 
-function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {
+/*function getSentenceTextParts(sentenceText: string, phraseStartOffset: number, phraseEndOffset: number) {
 	return [
 		{ type: 'text' as const, value: sentenceText.slice(0, phraseStartOffset) },
 		{ type: 'phrase' as const, value: sentenceText.slice(phraseStartOffset, phraseEndOffset) },
 		{ type: 'text' as const, value: sentenceText.slice(phraseEndOffset) },
 	].filter((part) => part.value)
-}
+}*/
 
-export function usePopulateDictionaryStore() {
+/*export function usePopulateDictionaryStore() {
 	const currentLang = useDictionaryStore((state) => state.currentLang)
 	const setFlashcards = useDictionaryStore((state) => state.setFlashcards)
 	const setIsFlashcardsLoading = useDictionaryStore((state) => state.setIsFlashcardsLoading)
@@ -105,4 +105,4 @@ export function usePopulateDictionaryStore() {
 			isCancelled = true
 		}
 	}, [currentLang, data, isLoading, error, setFlashcards, setGetFlashcardsErrorMessage, setIsFlashcardsLoading])
-}
+}*/

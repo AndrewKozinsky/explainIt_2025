@@ -1,10 +1,10 @@
-import { useCallback } from 'react'
-import type { UpdateVideoInput } from '@/entities/video/repository/VideosRepository'
-import { videosService } from '@/entities/video/VideosService'
-import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
-import { EditPrivateVideoFormData } from './form'
+// import { useCallback } from 'react'
+// import type { UpdateVideoInput } from '@/entities/video/repository/VideosRepository'
+// import { videosService } from '@/entities/video/VideosService'
+// import { FormStatus, setErrorsToForm } from '@/shared/utils/forms'
+// import { EditPrivateVideoFormData } from './form'
 
-export function useGetOnUpdateVideoFormSubmit(
+/*export function useGetOnUpdateVideoFormSubmit(
 	videoId: number,
 	reset: (formData: EditPrivateVideoFormData) => void,
 	onSaved: () => void,
@@ -45,4 +45,4 @@ export function useGetOnUpdateVideoFormSubmit(
 		},
 		[videoId, reset, onSaved, setFieldError, setFormError, setFormStatus],
 	)
-}
+}*/

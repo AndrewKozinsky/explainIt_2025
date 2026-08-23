@@ -1,6 +1,6 @@
-import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
+// import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 
-function PhraseDictionaryLoading() {
+/*function PhraseDictionaryLoading() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 
 	if (status !== 'loading') {
@@ -8,6 +8,6 @@ function PhraseDictionaryLoading() {
 	}
 
 	return <div className='phrase-dictionary__status'>Загрузка перевода...</div>
-}
+}*/
 
-export default PhraseDictionaryLoading
+// export default PhraseDictionaryLoading

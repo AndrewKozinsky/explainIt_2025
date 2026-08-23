@@ -1,11 +1,11 @@
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 
-type FailedSubtitlesProps = {
+/*type FailedSubtitlesProps = {
 	errorCode: null | string
-}
+}*/
 
-export function FailedSubtitles(props: FailedSubtitlesProps) {
+/*export function FailedSubtitles(props: FailedSubtitlesProps) {
 	const { errorCode = 'Ошибка при генерации субтитров' } = props
 
 	return (
@@ -13,4 +13,4 @@ export function FailedSubtitles(props: FailedSubtitlesProps) {
 			<ErrorMessage text={errorCode} />
 		</StatusBlock>
 	)
-}
+}*/

@@ -1,8 +1,8 @@
-import React from 'react'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import './YouTubeVideoNameHints.scss'
+// import React from 'react'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import './YouTubeVideoNameHints.scss'
 
-function YouTubeVideoNameHints(props: { onSelect: (text: string) => void }) {
+/*function YouTubeVideoNameHints(props: { onSelect: (text: string) => void }) {
 	function handleClick(text: string) {
 		props.onSelect(text)
 	}
@@ -21,14 +21,14 @@ function YouTubeVideoNameHints(props: { onSelect: (text: string) => void }) {
 			<HintButton onClick={() => handleClick('Daily Life English')}>Daily Life English</HintButton>
 		</div>
 	)
-}
+}*/
 
-export default YouTubeVideoNameHints
+// export default YouTubeVideoNameHints
 
-function HintButton(props: { children: string; onClick: () => void }) {
+/*function HintButton(props: { children: string; onClick: () => void }) {
 	return (
 		<Button theme='outline' size='small' onClick={props.onClick}>
 			{props.children}
 		</Button>
 	)
-}
+}*/

@@ -1,21 +1,21 @@
-'use client'
+// 'use client'
 
-import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
-import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
-import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
-import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
-import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
-import VideoControls from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
-import { getHeader } from './fn/getHeader'
-import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
-import { useVideoControls } from './fn/useVideoControls'
-import { useVideoData } from './fn/useVideoData'
-import VideoClientWrapper from './VideoClientWrapper'
-import { setupDeps } from './fn/setupDeps'
+// import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
+// import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
+// import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
+// import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
+// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+// import { pageUrls } from '@/shared/utils/pageUrls'
+// import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
+// import VideoControls from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
+// import { getHeader } from './fn/getHeader'
+// import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
+// import { useVideoControls } from './fn/useVideoControls'
+// import { useVideoData } from './fn/useVideoData'
+// import VideoClientWrapper from './VideoClientWrapper'
+// import { setupDeps } from './fn/setupDeps'
 
-const { useMediaStore } = setupDeps()
+// const { useMediaStore } = setupDeps()
 
 type VideoRootProps = {
 	videoId: string
@@ -24,34 +24,34 @@ type VideoRootProps = {
 function VideoPage(props: VideoRootProps) {
 	const { videoId } = props
 
-	const { video, refetch, error } = useVideoData(videoId)
+	// const { video, refetch, error } = useVideoData(videoId)
 
-	const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
+	// const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
-	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
+	// const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
-	useMediaTranslations({
+	/*useMediaTranslations({
 		videoName: video?.name,
 		languageCode: video?.languageCode,
 		sentences: video?.plainSentences,
 		selectedSentenceId,
 		selectedWordId,
 		mediaStore: useMediaStore,
-	})
+	})*/
 
-	const videoControls = useVideoControls()
+	// const videoControls = useVideoControls()
 
-	if (error) {
+	/*if (error) {
 		return <ErrorMessage text={error} />
-	}
+	}*/
 
-	if (!video) {
+	/*if (!video) {
 		return null
-	}
+	}*/
 
-	const { header } = getHeader(video)
+	// const { header } = getHeader(video)
 
-	return (
+	/*return (
 		<MediaStoreProvider store={useMediaStore}>
 			<MediaRoot
 				breadCrumbsConfig={[pageUrls.videos]}
@@ -78,7 +78,8 @@ function VideoPage(props: VideoRootProps) {
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 			/>
 		</MediaStoreProvider>
-	)
+	)*/
+	return null
 }
 
 export default VideoPage

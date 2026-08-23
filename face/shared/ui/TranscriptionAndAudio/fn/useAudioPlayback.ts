@@ -1,23 +1,23 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
-import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
-import { LanguageCode } from '@/shared/utils/languages'
+// import { useCallback, useEffect, useRef, useState } from 'react'
+// import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
+// import { LanguageCode } from '@/shared/utils/languages'
 
-type AudioViewStatus = 'idle' | 'loading' | 'error'
+// type AudioViewStatus = 'idle' | 'loading' | 'error'
 
-type UseAudioPlaybackInput = {
+/*type UseAudioPlaybackInput = {
 	phrase?: string
 	languageCode?: LanguageCode
 	propAudioUrl?: string | null
-}
+}*/
 
-type UseAudioPlaybackResult = {
+/*type UseAudioPlaybackResult = {
 	audioStatus: AudioViewStatus
 	isPlaying: boolean
 	handleClick: () => void
 	showAudioIcon: boolean
-}
+}*/
 
-export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlaybackResult {
+/*export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlaybackResult {
 	const { phrase, languageCode, propAudioUrl } = input
 
 	const audioRef = useRef<HTMLAudioElement | null>(null)
@@ -111,4 +111,4 @@ export function useAudioPlayback(input: UseAudioPlaybackInput): UseAudioPlayback
 		handleClick,
 		showAudioIcon,
 	}
-}
+}*/

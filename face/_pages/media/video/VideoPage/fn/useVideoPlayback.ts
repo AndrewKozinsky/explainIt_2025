@@ -1,17 +1,17 @@
-'use client'
+// 'use client'
 
-import { useCallback, useEffect, useMemo } from 'react'
-import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-import { useVideoStore } from '../../videoStore'
-import { handleAutoStop, resetPlaybackRuntime } from './playback'
-import { useVideoInput } from './useVideoInput'
+// import { useCallback, useEffect, useMemo } from 'react'
+// import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+// import { useVideoStore } from '../../videoStore'
+// import { handleAutoStop, resetPlaybackRuntime } from './playback'
+// import { useVideoInput } from './useVideoInput'
 
-type UseVideoPlaybackParams = {
+/*type UseVideoPlaybackParams = {
 	videoId: number
 	subtitles: null | VideoSubtitlesModel.Structure
-}
+}*/
 
-export function useVideoPlayback(params: UseVideoPlaybackParams) {
+/*export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	const { videoId, subtitles } = params
 
 	const subtitleList = useMemo(
@@ -50,4 +50,4 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	useVideoInput()
 
 	return { command, handleCommandHandled }
-}
+}*/

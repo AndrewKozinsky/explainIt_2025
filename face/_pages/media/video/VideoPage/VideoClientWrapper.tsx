@@ -1,18 +1,18 @@
-'use client'
+// 'use client'
 
-import { useMemo } from 'react'
-import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import { VideoPlayer } from '@/entities/videoPlayer'
-import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
-import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
-import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'
-import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
-import type { LanguageCode } from '@/shared/utils/languages'
-import { localStorageManager } from '@/shared/utils/localStorageManager'
-import { useVideoStore } from '../videoStore'
-import { useVideoPlayback } from './fn/useVideoPlayback'
+// import { useMemo } from 'react'
+// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+// import { VideoPlayer } from '@/entities/videoPlayer'
+// import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
+// import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
+// import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'
+// import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
+// import type { LanguageCode } from '@/shared/utils/languages'
+// import { localStorageManager } from '@/shared/utils/localStorageManager'
+// import { useVideoStore } from '../videoStore'
+// import { useVideoPlayback } from './fn/useVideoPlayback'
 
-type VideoClientWrapperProps = {
+/*type VideoClientWrapperProps = {
 	selectedSentenceId?: null | number
 	selectedWordId?: null | number
 	selectWord?: (input: { sentenceId: number; wordId: number }) => void
@@ -27,9 +27,9 @@ type VideoClientWrapperProps = {
 	subtitlesStatus: SubtitlesStatusModelType
 	subtitlesErrorCode: null | string
 	durationSeconds: number
-}
+}*/
 
-function VideoClientWrapper(props: VideoClientWrapperProps) {
+/*function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const {
 		languageCode,
 		contentType,
@@ -86,6 +86,6 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 			</SubtitlesStatusRouter>
 		</VideoWithSubtitles>
 	)
-}
+}*/
 
-export default VideoClientWrapper
+// export default VideoClientWrapper

@@ -1,8 +1,8 @@
-import { useCallback, useContext, useState } from 'react'
-import { chaptersService } from '@/entities/chapter/ChaptersService'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+// import { useCallback, useContext, useState } from 'react'
+// import { chaptersService } from '@/entities/chapter/ChaptersService'
+// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-export function useGetDeleteChapter(chapterId: number, onChapterDeleted: () => void) {
+/*export function useGetDeleteChapter(chapterId: number, onChapterDeleted: () => void) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
@@ -40,4 +40,4 @@ export function useGetDeleteChapter(chapterId: number, onChapterDeleted: () => v
 		status,
 		onDeleteChapterClick,
 	}
-}
+}*/

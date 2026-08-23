@@ -1,7 +1,7 @@
-import { useCallback, useState } from 'react'
-import { videosService } from '@/entities/video/VideosService'
+// import { useCallback, useState } from 'react'
+// import { videosService } from '@/entities/video/VideosService'
 
-export function useGetDeleteVideo(videoId: number, onDeleted: () => void) {
+/*export function useGetDeleteVideo(videoId: number, onDeleted: () => void) {
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 
 	const onDeleteClick = useCallback(async () => {
@@ -21,4 +21,4 @@ export function useGetDeleteVideo(videoId: number, onDeleted: () => void) {
 		status,
 		onDeleteClick,
 	}
-}
+}*/

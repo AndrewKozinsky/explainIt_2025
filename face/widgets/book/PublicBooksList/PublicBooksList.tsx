@@ -1,22 +1,20 @@
-// 'use client'
+// import React, { useCallback, useEffect, useState } from 'react'
+// import { bookConfig } from '@/entities/book/lib/bookConfig'
+// import { BookModel } from '@/entities/book/repository/BooksRepository'
+// import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+// import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import { localStorageManager } from '@/shared/utils/localStorageManager'
+// import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
+// import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
+// import { getConfig } from './fn/getConfig'
+// import './PublicBooksList.scss'
 
-import React, { useCallback, useEffect, useState } from 'react'
-import { bookConfig } from '@/entities/book/lib/bookConfig'
-import { BookModel } from '@/entities/book/repository/BooksRepository'
-import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
-import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-import { LanguageCode } from '@/shared/utils/languages'
-import { localStorageManager } from '@/shared/utils/localStorageManager'
-import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
-import { getConfig } from './fn/getConfig'
-import './PublicBooksList.scss'
-
-type PublicBooksList = {
+/*type PublicBooksList = {
 	books: BookModel[]
-}
+}*/
 
-function PublicBooksList(props: PublicBooksList) {
+/*function PublicBooksList(props: PublicBooksList) {
 	const { books } = props
 
 	const languages = books.map((item) => item.languageCode)
@@ -60,6 +58,6 @@ function PublicBooksList(props: PublicBooksList) {
 			</ItemsGrid>
 		</div>
 	)
-}
+}*/
 
-export default PublicBooksList
+// export default PublicBooksList
