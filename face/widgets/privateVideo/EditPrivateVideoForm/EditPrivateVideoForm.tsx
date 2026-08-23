@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { useForm } from 'react-hook-form'
+import { Controller, useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import MediaFormSurface from '@/entities/media/ui/MediaFormSurface/MediaFormSurface'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
@@ -95,6 +95,7 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 
 	const {
 		register,
+		control,
 		handleSubmit,
 		reset,
 		formState: { errors, isDirty },
@@ -168,10 +169,25 @@ export default function EditPrivateVideoForm(props: EditPrivateVideoFormProps) {
 				]}
 			>
 				<FormFieldsWrapper gap='big'>
-					<LanguagesRadioGroup
-						value={video.languageCode}
-						disabled={isFormDisabled}
-						inputProps={register('languageCode')}
+					<Controller
+						name='languageCode'
+						control={control}
+						render={({ field: { onChange, onBlur, value, name, ref } }) => (
+							<LanguagesRadioGroup
+								value={value ?? undefined}
+								disabled={isFormDisabled}
+								inputProps={{
+									onChange: async function (e) {
+										onChange(e)
+									},
+									onBlur: async function () {
+										onBlur()
+									},
+									name,
+									ref,
+								}}
+							/>
+						)}
 					/>
 					<TextInput
 						block

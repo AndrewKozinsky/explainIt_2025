@@ -16,7 +16,7 @@ function VideoCoverPreview(props: VideoCoverPreviewProps) {
 	const style = coverUrl ? { backgroundImage: `url(${coverUrl})` } : undefined
 
 	return (
-		<LabelWithField label='Обложка'>
+		<LabelWithField label='Обложка' block>
 			<div className='video-cover-preview' style={style}>
 				<DeleteVideoCoverButton videoId={videoId} onDeleted={onCoverUpdated} />
 			</div>
