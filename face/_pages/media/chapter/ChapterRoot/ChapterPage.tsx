@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import { bookConfig } from '@/entities/book/lib/bookConfig'
 // import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
@@ -6,29 +6,29 @@
 // import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 // import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
 // import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
-// import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
+import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 // import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
-// import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
-// import { getMediaNavigationData } from './fn/getMediaNavigationData'
-// import { useChapterData } from './fn/useChapterData'
-// import { setupDeps } from './fn/setupDeps'
+import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
+import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+import { getMediaNavigationData } from './fn/getMediaNavigationData'
+import { useChapterData } from './fn/useChapterData'
+import { setupDeps } from './fn/setupDeps'
 
-// const { useMediaStore } = setupDeps()
+const { useMediaStore } = setupDeps()
 
-/*type ChapterRootProps = {
+type ChapterRootProps = {
 	chapterId: number | string
 	bookId: number | string
-}*/
+}
 
-/*function ChapterPage(props: ChapterRootProps) {
+function ChapterPage(props: ChapterRootProps) {
 	const { chapterId, bookId } = props
 
 	const { book, chapter, loading, bookError, chapterError } = useChapterData(Number(bookId), Number(chapterId))
 
 	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
-	useMediaTranslations({
+	/*useMediaTranslations({
 		bookName: book?.name,
 		bookAuthor: book?.author,
 		languageCode: book?.languageCode,
@@ -36,7 +36,7 @@
 		selectedSentenceId,
 		selectedWordId,
 		mediaStore: useMediaStore,
-	})
+	})*/
 
 	if (loading) {
 		return null
@@ -67,7 +67,7 @@
 				breadCrumbsConfig={breadCrumbsConfig}
 				header={header}
 				subHeader={subHeader}
-				leftBlock={
+				/*leftBlock={
 					<Sentences
 						languageCode={book.languageCode}
 						sentences={chapter.sentences ?? []}
@@ -75,12 +75,12 @@
 						selectedWordId={selectedWordId}
 						selectWord={selectWord}
 					/>
-				}
-				rightBlock={<DetailsBlock />}
+				}*/
+				// rightBlock={<DetailsBlock />}
 				footer={<MediaNavigation {...getMediaNavigationData(book, chapter)} />}
 			/>
 		</MediaStoreProvider>
 	)
-}*/
+}
 
-// export default ChapterPage
+export default ChapterPage

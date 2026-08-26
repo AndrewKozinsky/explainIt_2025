@@ -1,7 +1,7 @@
-// import { createBaseMediaStore } from '@/entities/media/store/createBaseMediaStore'
+import { createBaseMediaStore } from '@/entities/media/store/createBaseMediaStore'
 
-/*export function setupDeps() {
+export function setupDeps() {
 	const useMediaStore = createBaseMediaStore()
 
 	return { useMediaStore }
-}*/
+}

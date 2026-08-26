@@ -1,6 +1,6 @@
-// import { useQuery } from '@tanstack/react-query'
-// import { booksQueries } from '@/entities/book/BooksQueryFacade'
-// import { chaptersQueries } from '@/entities/chapter/ChaptersQueryFacade'
+import { useQuery } from '@tanstack/react-query'
+import { booksQueries } from '@/entities/book/BooksQueryFacade'
+import { chaptersQueries } from '@/entities/chapter/ChaptersQueryFacade'
 
 /**
  * Загружает данные книги и главы на клиенте для страницы главы.
@@ -9,7 +9,7 @@
  * {@link null} — объект не найден без ошибки (актуально для книги). Ошибки
  * возвращаются как читаемый текст, чтобы компонент сам решал, что показать.
  */
-/*export function useChapterData(bookId: number, chapterId: number) {
+export function useChapterData(bookId: number, chapterId: number) {
 	const bookQuery = useQuery(booksQueries.getBook(bookId))
 	const chapterQuery = useQuery(chaptersQueries.getChapter(chapterId))
 
@@ -20,4 +20,4 @@
 		bookError: bookQuery.error ? bookQuery.error.message : null,
 		chapterError: chapterQuery.error ? chapterQuery.error.message : null,
 	}
-}*/
+}

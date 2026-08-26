@@ -1,53 +1,51 @@
-// import { produce } from 'immer'
-// import { create } from 'zustand'
-// import type { LanguageCode } from '@/shared/utils/languages'
+import { create } from 'zustand'
 // import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 // import type { DetailsSentenceEntry, SentencePhraseType, SentenceTranslation } from './translationTypes'
 
-/*export type BaseMediaStore = {
+export type BaseMediaStore = {
 	selectedSentenceId: null | number
 	selectedWordId: null | number
-	languageCode: null | LanguageCode
-	sentences: DetailsSentenceEntry[]
-	retryFetchSentenceTranslationQueue: { sentenceId: number; sentenceText: string }[]
-	retryFetchPhraseQueue: {
+	// languageCode: null | LanguageCode
+	// sentences: DetailsSentenceEntry[]
+	// retryFetchSentenceTranslationQueue: { sentenceId: number; sentenceText: string }[]
+	/*retryFetchPhraseQueue: {
 		sentenceId: number
 		randomGeneratedPhraseId: string
 		wordIds: number[]
 		sentenceText: string
-	}[]
-	selectWord: (input: { sentenceId: number; wordId: number }) => void
-	setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
-	clearMediaData: () => void
-	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
-	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
-	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
-	patchPhraseTranslation: (input: {
+	}[]*/
+	// selectWord: (input: { sentenceId: number; wordId: number }) => void
+	// setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
+	// clearMediaData: () => void
+	// insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
+	// patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
+	// upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
+	/*patchPhraseTranslation: (input: {
 		sentenceId: number
 		phraseId: string
 		patch: Partial<SentencePhraseType>
-	}) => void
-	finalizePhraseTranslation: (input: {
+	}) => void*/
+	/*finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
 		phrase: SentencePhraseType
-	}) => void
-	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
-	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
-	retrySentenceTranslation: (sentenceId: number) => void
-	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
-}*/
+	}) => void*/
+	// setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
+	// setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
+	// retrySentenceTranslation: (sentenceId: number) => void
+	// retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
+}
 
-/*export function createBaseMediaStore() {
+export function createBaseMediaStore() {
 	return create<BaseMediaStore>((set) => ({
 		selectedSentenceId: null,
 		selectedWordId: null,
-		languageCode: null,
-		sentences: [],
-		retryFetchSentenceTranslationQueue: [],
-		retryFetchPhraseQueue: [],
-		selectWord: ({ sentenceId, wordId }) => set({ selectedSentenceId: sentenceId, selectedWordId: wordId }),
-		setTranslationContext: ({ languageCode, sentences }) =>
+		// languageCode: null,
+		// sentences: [],
+		// retryFetchSentenceTranslationQueue: [],
+		// retryFetchPhraseQueue: [],
+		// selectWord: ({ sentenceId, wordId }) => set({ selectedSentenceId: sentenceId, selectedWordId: wordId }),
+		/*setTranslationContext: ({ languageCode, sentences }) =>
 			set({
 				languageCode,
 				sentences: sentences.map((sentence) => ({
@@ -65,8 +63,8 @@
 						phrases: [],
 					},
 				})),
-			}),
-		clearMediaData: () =>
+			}),*/
+		/*clearMediaData: () =>
 			set({
 				selectedSentenceId: null,
 				selectedWordId: null,
@@ -74,8 +72,8 @@
 				sentences: [],
 				retryFetchSentenceTranslationQueue: [],
 				retryFetchPhraseQueue: [],
-			}),
-		insertLoadingSentence: ({ sentenceId, text }) =>
+			}),*/
+		/*insertLoadingSentence: ({ sentenceId, text }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					if (state.sentences.some((entry) => entry.sentenceId === sentenceId)) return
@@ -89,15 +87,15 @@
 						},
 					})
 				}),
-			),
-		patchSentenceTranslation: ({ sentenceId, patch }) =>
+			),*/
+		/*patchSentenceTranslation: ({ sentenceId, patch }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (entry) Object.assign(entry.data.translation, patch)
 				}),
-			),
-		upsertPhraseTranslation: ({ sentenceId, phrase }) =>
+			),*/
+		/*upsertPhraseTranslation: ({ sentenceId, phrase }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
@@ -112,8 +110,8 @@
 						entry.data.phrases.push(phrase)
 					}
 				}),
-			),
-		patchPhraseTranslation: ({ sentenceId, phraseId, patch }) =>
+			),*/
+		/*patchPhraseTranslation: ({ sentenceId, phraseId, patch }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const phrase = state.sentences
@@ -122,8 +120,8 @@
 
 					if (phrase) Object.assign(phrase, patch)
 				}),
-			),
-		finalizePhraseTranslation: ({ sentenceId, placeholderPhraseId, phrase }) =>
+			),*/
+		/*finalizePhraseTranslation: ({ sentenceId, placeholderPhraseId, phrase }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
@@ -135,15 +133,15 @@
 						entry.data.phrases[index] = { ...phrase, randomGeneratedPhraseId: placeholderPhraseId }
 					else entry.data.phrases.push({ ...phrase, randomGeneratedPhraseId: placeholderPhraseId })
 				}),
-			),
-		setSelectedPhraseId: ({ sentenceId, phraseId }) =>
+			),*/
+		/*setSelectedPhraseId: ({ sentenceId, phraseId }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (entry) entry.selectedPhraseId = phraseId
 				}),
-			),
-		setPhraseFlashcardId: ({ sentencePhraseId, flashcardId }) =>
+			),*/
+		/*setPhraseFlashcardId: ({ sentencePhraseId, flashcardId }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					for (const entry of state.sentences) {
@@ -151,8 +149,8 @@
 						if (phrase) phrase.flashcardId = flashcardId
 					}
 				}),
-			),
-		retrySentenceTranslation: (sentenceId) =>
+			),*/
+		/*retrySentenceTranslation: (sentenceId) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const index = state.sentences.findIndex((item) => item.sentenceId === sentenceId)
@@ -164,8 +162,8 @@
 						sentenceText: entry.sentenceText,
 					})
 				}),
-			),
-		retryPhraseTranslation: (sentenceId, randomGeneratedPhraseId) =>
+			),*/
+		/*retryPhraseTranslation: (sentenceId, randomGeneratedPhraseId) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
@@ -183,9 +181,9 @@
 						sentenceText: entry.sentenceText,
 					})
 				}),
-			),
+			),*/
 	}))
-}*/
+}
 
 /*function sameWordIds(a: number[], b: number[]): boolean {
 	return a.length === b.length && a.every((value, index) => value === b[index])

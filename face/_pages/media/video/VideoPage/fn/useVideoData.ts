@@ -1,16 +1,7 @@
-// import { useCallback, useEffect } from 'react'
-// import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-// import { videoQueries } from '@/entities/video/VideosQueryFacade'
-// import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
-
-/**
- * Определяет тип видео по его идентификатору.
- *
- * Обычное видео имеет числовой id, YouTube-видео — строковый id вида "KuRr7w8tzkQ".
- */
-/*function isYouTubeVideoId(videoId: string): boolean {
-	return !/^\d+$/.test(videoId)
-}*/
+import { useCallback, useEffect } from 'react'
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { videoQueries } from '@/entities/video/VideosQueryFacade'
+import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
 
 /**
  * Загружает данные видео один раз, в зависимости от типа идентификатора:
@@ -23,11 +14,10 @@
  *
  * @returns { video, loading, error, refetch } — refetch перезапрашивает данные активного источника
  */
-/*export function useVideoData(videoId: string) {
+export function useVideoData(videoId: string) {
 	const queryClient = useQueryClient()
 
 	const isYouTube = isYouTubeVideoId(videoId)
-	const numericId = isYouTube ? null : Number(videoId)
 
 	const {
 		data: regularVideo,
@@ -35,7 +25,7 @@
 		error: regularError,
 		refetch: refetchRegular,
 	} = useQuery({
-		...videoQueries.getVideo(numericId ?? 0),
+		...videoQueries.getVideo(Number(videoId) ?? 0),
 		enabled: !isYouTube,
 	})
 
@@ -75,4 +65,12 @@
 		error: error ? error.message : null,
 		refetch,
 	}
-}*/
+}
+
+/**
+ * Определяет тип видео по его идентификатору.
+ * Обычное видео имеет числовой id, YouTube-видео — строковый id вида "KuRr7w8tzkQ".
+ */
+function isYouTubeVideoId(videoId: string): boolean {
+	return !/^\d+$/.test(videoId)
+}
