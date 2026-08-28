@@ -1,18 +1,18 @@
-// 'use client'
+'use client'
 
-// import { useQuery } from '@tanstack/react-query'
-// import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
-// import { videoConfig } from '@/entities/video/lib/videoConfig'
-// import { pageUrls } from '@/shared/utils/pageUrls'
-// import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-// import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-// import './RecommendedVideos.scss'
+import { useQuery } from '@tanstack/react-query'
+import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
+import { videoConfig } from '@/entities/video/lib/videoConfig'
+import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
+import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import './RecommendedVideos.scss'
 
-/*type RecommendedVideosProps = {
+type RecommendedVideosProps = {
 	videoId: string | number
-}*/
+}
 
-/*function RecommendedVideos(props: RecommendedVideosProps) {
+function RecommendedVideos(props: RecommendedVideosProps) {
 	const { data: items = [] } = useQuery(
 		youtubeQueries.getRecommendationsForSavedVideo(props.videoId.toString(), { limit: 6 }),
 	)
@@ -43,6 +43,6 @@
 			</ItemsGrid>
 		</div>
 	)
-}*/
+}
 
-// export default RecommendedVideos
+export default RecommendedVideos

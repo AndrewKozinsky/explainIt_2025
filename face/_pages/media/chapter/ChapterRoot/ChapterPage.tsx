@@ -2,17 +2,17 @@
 
 // import { bookConfig } from '@/entities/book/lib/bookConfig'
 // import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
-// import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
 // import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 // import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
-// import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
+import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { getMediaNavigationData } from './fn/getMediaNavigationData'
-import { useChapterData } from './fn/useChapterData'
 import { setupDeps } from './fn/setupDeps'
+import { useChapterData } from './fn/useChapterData'
 
 const { useMediaStore } = setupDeps()
 
@@ -28,7 +28,7 @@ function ChapterPage(props: ChapterRootProps) {
 
 	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
-	/*useMediaTranslations({
+	useMediaTranslations({
 		bookName: book?.name,
 		bookAuthor: book?.author,
 		languageCode: book?.languageCode,
@@ -36,7 +36,7 @@ function ChapterPage(props: ChapterRootProps) {
 		selectedSentenceId,
 		selectedWordId,
 		mediaStore: useMediaStore,
-	})*/
+	})
 
 	if (loading) {
 		return null

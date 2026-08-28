@@ -1,19 +1,19 @@
 'use client'
 
 // import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
-// import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
+import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 // import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import { pageUrls } from '@/shared/utils/pageUrls'
-// import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
 // import VideoControls from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 import { getHeader } from './fn/getHeader'
 // import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 // import { useVideoControls } from './fn/useVideoControls'
+import { setupDeps } from './fn/setupDeps'
 import { useVideoData } from './fn/useVideoData'
 // import VideoClientWrapper from './VideoClientWrapper'
-import { setupDeps } from './fn/setupDeps'
 
 const { useMediaStore } = setupDeps()
 
@@ -30,14 +30,14 @@ function VideoPage(props: VideoRootProps) {
 
 	// const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
-	/*useMediaTranslations({
+	useMediaTranslations({
 		videoName: video?.name,
 		languageCode: video?.languageCode,
 		sentences: video?.plainSentences,
 		selectedSentenceId,
 		selectedWordId,
 		mediaStore: useMediaStore,
-	})*/
+	})
 
 	// const videoControls = useVideoControls()
 

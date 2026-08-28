@@ -14,7 +14,7 @@ export type BaseMediaStore = {
 		wordIds: number[]
 		sentenceText: string
 	}[]*/
-	// selectWord: (input: { sentenceId: number; wordId: number }) => void
+	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	// setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
 	// clearMediaData: () => void
 	// insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
@@ -44,7 +44,7 @@ export function createBaseMediaStore() {
 		// sentences: [],
 		// retryFetchSentenceTranslationQueue: [],
 		// retryFetchPhraseQueue: [],
-		// selectWord: ({ sentenceId, wordId }) => set({ selectedSentenceId: sentenceId, selectedWordId: wordId }),
+		selectWord: ({ sentenceId, wordId }) => set({ selectedSentenceId: sentenceId, selectedWordId: wordId }),
 		/*setTranslationContext: ({ languageCode, sentences }) =>
 			set({
 				languageCode,

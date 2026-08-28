@@ -1,15 +1,14 @@
-// import { useEffect } from 'react'
-// import { useLocale } from 'next-intl'
-// import type { StoreApi, UseBoundStore } from 'zustand'
+import { useLocale } from 'next-intl'
 // import { translateService } from '@/entities/translate/TranslateService'
 // import type { PhraseTranslationModel } from '@/entities/translate/TranslateService'
-// import type { BaseMediaStore } from '../store/createBaseMediaStore'
-// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import type { LanguageCode } from '@/shared/utils/languages'
+import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import type { LanguageCode } from '@/shared/utils/languages'
+import type { BaseMediaStore } from '../store/createBaseMediaStore'
+import type { StoreApi, UseBoundStore } from 'zustand'
 // import type { SentencePhraseType } from '../store/translationTypes'
 // import { offsetsFromWordIds, wordIdsFromOffsets } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
 
-/*type MediaTranslationContext = {
+type MediaTranslationContext = {
 	bookName?: null | string
 	bookAuthor?: null | string
 	videoName?: null | string
@@ -18,20 +17,20 @@
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	mediaStore: UseBoundStore<StoreApi<BaseMediaStore>>
-}*/
+}
 
 /** Координирует загрузку переводов для всех потребителей текущего media-контекста. */
-/*export function useMediaTranslations(input: MediaTranslationContext): void {
+export function useMediaTranslations(input: MediaTranslationContext): void {
 	const locale = useLocale()
 	const { mediaStore, sentences, languageCode, selectedSentenceId, selectedWordId } = input
 
-	useEffect(() => {
+	/*useEffect(() => {
 		mediaStore.getState().setTranslationContext({ languageCode: languageCode ?? null, sentences: sentences ?? [] })
-	}, [mediaStore, languageCode, sentences])
+	}, [mediaStore, languageCode, sentences])*/
 
-	useEffect(() => () => mediaStore.getState().clearMediaData(), [mediaStore])
+	// useEffect(() => () => mediaStore.getState().clearMediaData(), [mediaStore])
 
-	useEffect(() => {
+	/*useEffect(() => {
 		if (selectedSentenceId === null) return
 
 		const state = mediaStore.getState()
@@ -44,10 +43,11 @@
 			sentenceText: entry.sentenceText,
 			targetLanguageCode: locale,
 		})
-	}, [mediaStore, selectedSentenceId, locale])
+	}, [mediaStore, selectedSentenceId, locale])*/
 
-	useEffect(() => {
+	/*useEffect(() => {
 		if (selectedSentenceId === null || selectedWordId === null) return
+
 		const state = mediaStore.getState()
 		const entry = state.sentences.find((item) => item.sentenceId === selectedSentenceId)
 		if (!entry) return
@@ -94,11 +94,11 @@
 			wordEndOffset: offsets.endOffset,
 			targetLanguageCode: locale,
 		})
-	}, [mediaStore, selectedSentenceId, selectedWordId, locale])
+	}, [mediaStore, selectedSentenceId, selectedWordId, locale])*/
 
-	const sentenceRetries = mediaStore((state) => state.retryFetchSentenceTranslationQueue)
+	// const sentenceRetries = mediaStore((state) => state.retryFetchSentenceTranslationQueue)
 
-	useEffect(() => {
+	/*useEffect(() => {
 		if (!sentenceRetries.length) return
 		mediaStore.setState({ retryFetchSentenceTranslationQueue: [] })
 
@@ -109,11 +109,11 @@
 				sentenceText: item.sentenceText,
 				targetLanguageCode: locale,
 			})
-	}, [mediaStore, sentenceRetries, locale])
+	}, [mediaStore, sentenceRetries, locale])*/
 
-	const phraseRetries = mediaStore((state) => state.retryFetchPhraseQueue)
+	// const phraseRetries = mediaStore((state) => state.retryFetchPhraseQueue)
 
-	useEffect(() => {
+	/*useEffect(() => {
 		if (!phraseRetries.length) return
 
 		mediaStore.setState({ retryFetchPhraseQueue: [] })
@@ -137,8 +137,8 @@
 					targetLanguageCode: locale,
 				})
 		}
-	}, [mediaStore, phraseRetries, locale])
-}*/
+	}, [mediaStore, phraseRetries, locale])*/
+}
 
 /*async function fetchSentence(
 	input: MediaTranslationContext & { sentenceId: number; sentenceText: string; targetLanguageCode: string },

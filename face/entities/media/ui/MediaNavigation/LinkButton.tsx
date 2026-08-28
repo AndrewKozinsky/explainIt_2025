@@ -1,13 +1,13 @@
-// import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 
-/*type LinkButtonProps = {
+type LinkButtonProps = {
 	href: string
 	smallText?: null | string
 	text?: null | string
 	coverUrl?: null | string
-}*/
+}
 
-/*export function LinkButton(props: LinkButtonProps) {
+export function LinkButton(props: LinkButtonProps) {
 	const { href, smallText, coverUrl } = props
 	const text = props.text ?? smallText
 
@@ -23,4 +23,4 @@
 			{text && <p className='reading-navigation__text'>{text}</p>}
 		</BaseButton>
 	)
-}*/
+}
