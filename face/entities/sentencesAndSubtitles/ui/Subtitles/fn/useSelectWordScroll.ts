@@ -1,13 +1,13 @@
-// import { useCallback, useEffect, useRef } from 'react'
-// import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
+import { useCallback, useEffect, useRef } from 'react'
+import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 
-// type SelectWordInput = { sentenceId: number; wordId: number }
+type SelectWordInput = { sentenceId: number; wordId: number }
 
-/*type UseSelectWordScrollParams = {
+type UseSelectWordScrollParams = {
 	subtitles: VideoSubtitlesModel.Structure['subtitles']
 	selectWord: (input: SelectWordInput) => void
 	scrollToSubtitle: (subtitleId: number) => void
-}*/
+}
 
 /**
  * Оборачивает selectWord: при клике на слово скроллит страницу к субтитру,
@@ -17,7 +17,7 @@
  * повторные клики по другим словам того же субтитра не вызывают скролл.
  * Текущий ли это субтитр — не важно.
  */
-/*export function useSelectWordScroll(params: UseSelectWordScrollParams) {
+export function useSelectWordScroll(params: UseSelectWordScrollParams) {
 	const { subtitles, selectWord, scrollToSubtitle } = params
 
 	const lastScrolledSubtitleIdRef = useRef<number | null>(null)
@@ -44,4 +44,4 @@
 		},
 		[selectWord, subtitles, scrollToSubtitle],
 	)
-}*/
+}

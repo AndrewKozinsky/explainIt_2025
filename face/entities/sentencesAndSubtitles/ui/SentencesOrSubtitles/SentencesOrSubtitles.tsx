@@ -1,11 +1,11 @@
-// import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
-// import { VideoContentType, VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import Subtitles from '../Subtitles/Subtitles'
-// import './SentencesOrSubtitles.scss'
+import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { VideoContentType, VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
+import { LanguageCode } from '@/shared/utils/languages'
+import Sentences from '../Sentences/Sentences'
+import Subtitles from '../Subtitles/Subtitles'
+import './SentencesOrSubtitles.scss'
 
-/*type TextSideProps = {
+type TextSideProps = {
 	languageCode: LanguageCode
 	contentType: VideoContentType
 	currentTime: number
@@ -14,9 +14,9 @@
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	plainSentences: null | SentenceModel[]
 	subtitles: null | VideoSubtitlesModel.Structure
-}*/
+}
 
-/*function SentencesOrSubtitles(props: TextSideProps) {
+function SentencesOrSubtitles(props: TextSideProps) {
 	const {
 		languageCode,
 		contentType,
@@ -53,6 +53,6 @@
 			</div>
 		</div>
 	)
-}*/
+}
 
-// export default SentencesOrSubtitles
+export default SentencesOrSubtitles

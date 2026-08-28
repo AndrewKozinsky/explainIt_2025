@@ -1,7 +1,7 @@
-// import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
-// import Paragraph from '@/shared/ui/Paragraph/Paragraph'
+import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+import Paragraph from '@/shared/ui/Paragraph/Paragraph'
 
-/*export function IdleSubtitles() {
+export function IdleSubtitles() {
 	return (
 		<StatusBlock type='info'>
 			<Paragraph fontSize={16} lineHeight={20}>
@@ -9,4 +9,4 @@
 			</Paragraph>
 		</StatusBlock>
 	)
-}*/
+}

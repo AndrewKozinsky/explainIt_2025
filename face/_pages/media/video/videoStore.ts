@@ -24,7 +24,7 @@ type VideoStoreValues = {
 }
 
 type VideoStoreMethods = {
-	// setPlayerState: (state: Partial<PlayerState>) => void
+	setPlayerState: (state: Partial<PlayerState>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
 	// setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
 	setPlayback: (playback: Partial<PlaybackState>) => void
@@ -54,14 +54,14 @@ let nextPlayerCommandId = 1
 
 export const useVideoStore = create<VideoStore>()((set) => ({
 	...defaults,
-	/*setPlayerState(playerState) {
+	setPlayerState(playerState) {
 		set((state) => ({
 			player: {
 				...state.player,
 				...playerState,
 			},
 		}))
-	},*/
+	},
 	sendPlayerCommand(command) {
 		set((state) => ({
 			player: {

@@ -1,7 +1,7 @@
-// import './SubtitleBlockGap.scss'
+import './SubtitleBlockGap.scss'
 
-/*function SubtitleBlockGap() {
+function SubtitleBlockGap() {
 	return <div className='subtitle-block-gap' />
-}*/
+}
 
-// export default SubtitleBlockGap
+export default SubtitleBlockGap

@@ -9,8 +9,8 @@ import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
 import { getHeader } from './fn/getHeader'
-// import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { setupDeps } from './fn/setupDeps'
+import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useVideoControls } from './fn/useVideoControls'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
@@ -28,7 +28,7 @@ function VideoPage(props: VideoRootProps) {
 
 	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
 
-	// const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
+	const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
 	useMediaTranslations({
 		videoName: video?.name,
@@ -58,20 +58,16 @@ function VideoPage(props: VideoRootProps) {
 				header={header}
 				leftBlock={
 					<VideoClientWrapper
-						languageCode={video.languageCode}
-						// contentType={video.contentType}
-						// plainSentences={video.plainSentences}
-						// subtitles={video.subtitles}
-						// fileUrl={video.fileUrl ?? ''}
-						// youTubeVideoId={video.youtubeVideoId ?? ''}
-						// videoId={video.id}
-						// ratio={video.ratio}
-						// subtitlesStatus={polledSubtitlesStatus ?? video.subtitlesStatus}
-						// subtitlesErrorCode={video.subtitlesErrorCode}
-						// durationSeconds={video.durationSeconds}
-						// selectedSentenceId={selectedSentenceId}
-						// selectedWordId={selectedWordId}
-						// selectWord={selectWord}
+						contentType={video.contentType}
+						plainSentences={video.plainSentences}
+						subtitles={video.subtitles}
+						fileUrl={video.fileUrl ?? ''}
+						youTubeVideoId={video.youtubeVideoId ?? ''}
+						videoId={video.id}
+						ratio={video.ratio}
+						subtitlesStatus={polledSubtitlesStatus ?? video.subtitlesStatus}
+						subtitlesErrorCode={video.subtitlesErrorCode}
+						durationSeconds={video.durationSeconds}
 					/>
 				}
 				rightBlock={

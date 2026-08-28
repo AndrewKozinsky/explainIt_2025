@@ -1,8 +1,8 @@
-// import { useEffect, useState } from 'react'
-// import type { SubtitlesStatusModelType } from '@/entities/video/lib/types'
-// import { videosService } from '@/entities/video/VideosService'
+import { useEffect, useState } from 'react'
+import type { SubtitlesStatusModelType } from '@/entities/video/lib/types'
+import { videosService } from '@/entities/video/VideosService'
 
-// const POLL_INTERVAL_MS = 2000
+const POLL_INTERVAL_MS = 2000
 
 /**
  * Пока генерируются субтитры, каждые 2с опрашивает лёгкий эндпоинт
@@ -16,7 +16,7 @@
  * становится `done` / `failed` — единожды вызывается `refetch`, чтобы
  * подтянуть готовые субтитры, и интервал очищается.
  */
-/*export function usePollVideoSubtitlesStatus(
+export function usePollVideoSubtitlesStatus(
 	videoId: undefined | number,
 	subtitlesStatus: undefined | SubtitlesStatusModelType,
 	refetch: () => void,
@@ -75,6 +75,7 @@
 	)
 
 	const currentPolledStatus = polledSubtitlesStatus
+
 	if (
 		currentPolledStatus &&
 		currentPolledStatus.videoId === videoId &&
@@ -84,4 +85,4 @@
 	}
 
 	return subtitlesStatus
-}*/
+}

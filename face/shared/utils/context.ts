@@ -1,4 +1,4 @@
-import { type Context, createContext } from 'react'
+import { type Context, createContext, useContext } from 'react'
 
 export const createStrictContext = <T>() => createContext<T | null>(null)
 

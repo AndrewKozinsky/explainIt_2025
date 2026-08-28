@@ -1,9 +1,10 @@
 'use client'
 
-import type { StoreApi, UseBoundStore } from 'zustand'
+import { createStrictContext, useStrictContext } from '@/shared/utils/context'
 import type { BaseMediaStore } from './createBaseMediaStore'
+import type { StoreApi, UseBoundStore } from 'zustand'
 
-const MediaStoreContext = createStrictContext < UseBoundStore<StoreApi<BaseMediaStore>>()
+const MediaStoreContext = createStrictContext<UseBoundStore<StoreApi<BaseMediaStore>>>()
 
 export function MediaStoreProvider({
 	store,

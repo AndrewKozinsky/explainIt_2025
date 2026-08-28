@@ -1,17 +1,17 @@
-// 'use client'
+'use client'
 
-// import { useCallback, useEffect, useMemo } from 'react'
-// import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-// import { useVideoStore } from '../../videoStore'
+import { useCallback, useMemo } from 'react'
+import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import { useVideoStore } from '../../videoStore'
 // import { handleAutoStop, resetPlaybackRuntime } from './playback'
 // import { useVideoInput } from './useVideoInput'
 
-/*type UseVideoPlaybackParams = {
+type UseVideoPlaybackParams = {
 	videoId: number
 	subtitles: null | VideoSubtitlesModel.Structure
-}*/
+}
 
-/*export function useVideoPlayback(params: UseVideoPlaybackParams) {
+export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	const { videoId, subtitles } = params
 
 	const subtitleList = useMemo(
@@ -21,33 +21,32 @@
 
 	// При смене видео: обновляем субтитры и гасим авто-остановку/шэдоуинг,
 	// но сохраняем выбранный режим (чтобы подсветка активной кнопки не пропадала).
-	useEffect(() => {
+	/*useEffect(() => {
 		resetPlaybackRuntime()
 
 		useVideoStore.getState().setSubtitles(subtitleList)
 		useVideoStore.getState().setPlayback({ stopAt: null })
-	}, [videoId, subtitleList])
+	}, [videoId, subtitleList])*/
 
 	const command = useVideoStore((state) => state.player.commandQueue[0] ?? null)
 
 	const handleCommandHandled = useCallback((id: number) => {
-		const queue = useVideoStore.getState().player.commandQueue
-		if (queue[0]?.id !== id) return
-
-		useVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
+		// const queue = useVideoStore.getState().player.commandQueue
+		// if (queue[0]?.id !== id) return
+		// useVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
 	}, [])
 
 	// Авто-остановка по stopAt
-	const currentTime = useVideoStore((state) => state.player.currentTime)
-	const stopAt = useVideoStore((state) => state.playback.stopAt)
+	// const currentTime = useVideoStore((state) => state.player.currentTime)
+	// const stopAt = useVideoStore((state) => state.playback.stopAt)
 
-	useEffect(() => {
+	/*useEffect(() => {
 		if (stopAt == null || currentTime < stopAt) return
 
 		handleAutoStop()
-	}, [currentTime, stopAt])
+	}, [currentTime, stopAt])*/
 
-	useVideoInput()
+	// useVideoInput()
 
 	return { command, handleCommandHandled }
-}*/
+}

@@ -1,19 +1,19 @@
-// import { useEffect, useState } from 'react'
-// import Sentence from '@/entities/sentencesAndSubtitles/Sentence/Sentence'
-// import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
-// import { LanguageCode } from '@/shared/utils/languages'
+import { useEffect, useState } from 'react'
+import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
+import { LanguageCode } from '@/shared/utils/languages'
 // import SentenceAndPhraseTranslationBlock from '../SentenceTranslationBlock/SentenceAndPhraseTranslationBlock'
-// import './SubtitleBlock.scss'
+import './SubtitleBlock.scss'
+import Sentence from '../Sentence/Sentence'
 
-/*type SubtitleBlockProps = {
+type SubtitleBlockProps = {
 	subtitle: VideoSubtitlesModel.Subtitle
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: LanguageCode
-}*/
+}
 
-/*function SubtitleBlock(props: SubtitleBlockProps) {
+function SubtitleBlock(props: SubtitleBlockProps) {
 	const { subtitle, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
 
 	// Последнее предложение, которое было выделено в рамках этого субтитра.
@@ -46,15 +46,15 @@
 					)
 				})}
 			</div>
-			{lastSelectedSentence && (
+			{/*{lastSelectedSentence && (
 				<SentenceAndPhraseTranslationBlock
 					sentenceId={lastSelectedSentence.sentenceId}
 					languageCode={languageCode}
 					bgColor='gray'
 				/>
-			)}
+			)}*/}
 		</div>
 	)
-}*/
+}
 
-// export default SubtitleBlock
+export default SubtitleBlock
