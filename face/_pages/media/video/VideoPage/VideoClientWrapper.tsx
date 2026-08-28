@@ -38,6 +38,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 		subtitlesErrorCode,
 		durationSeconds,
 	} = props
+	console.log('-------')
 
 	const mediaStore = useMediaStoreContext()
 	const languageCode = mediaStore((s) => s.languageCode)
@@ -49,6 +50,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
 	const currentTime = useVideoStore((state) => state.player.currentTime)
+	console.log(currentTime)
 	const setPlayerState = useVideoStore((state) => state.setPlayerState)
 
 	return (

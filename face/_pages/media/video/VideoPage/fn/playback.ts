@@ -154,6 +154,8 @@ export function toVideoStart() {
 	cancelAutoStop()
 	send({ type: 'PAUSE' })
 	send({ type: 'SET_TIME', time: 0 })
+
+	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 }
 
 /** 2. Запуск/остановка воспроизведения с текущего места до конца. */
