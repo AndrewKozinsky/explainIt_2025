@@ -1,10 +1,16 @@
 import { RefObject, useCallback, useEffect, useRef } from 'react'
 import { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 
+/** Источник текущего времени плеера, не привязанный к конкретному стору. */
+export type CurrentTimeSource = {
+	getCurrentTime: () => number
+	subscribe: (listener: (currentTime: number) => void) => () => void
+}
+
 type UseSubtitlesPlaybackDomSyncParams = {
 	containerRef: RefObject<HTMLElement | null>
 	subtitles: VideoSubtitlesModel.Structure['subtitles']
-	currentTime: number
+	timeSource: CurrentTimeSource
 	topPaddingPx?: number
 }
 
@@ -20,11 +26,14 @@ type UseSubtitlesPlaybackDomSyncParams = {
  *
  * @param params.containerRef - контейнер со списком субтитров
  * @param params.subtitles - массив субтитров/пауз (в порядке воспроизведения)
- * @param params.currentTime - текущее время плеера в секундах
+ * @param params.timeSource - источник текущего времени плеера (getCurrentTime + subscribe)
  * @param params.topPaddingPx - отступ сверху при автоскролле
+ *
+ * Текущее время читается из `timeSource` через императивную подписку,
+ * поэтому обновления времени не вызывают React-рендер.
  */
 export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
-	const { containerRef, subtitles, currentTime, topPaddingPx = 20 } = params
+	const { containerRef, subtitles, timeSource, topPaddingPx = 20 } = params
 
 	const currentSubtitleIdxRef = useRef(0)
 	const currentSubtitleIdRef = useRef<number | null>(null)
@@ -70,6 +79,7 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			const prevId = currentSubtitleIdRef.current
 			if (prevId != null && prevId !== nextId) {
 				const prevEl = container.querySelector(`#subtitle-${prevId}`) as HTMLElement | null
+
 				if (prevEl) {
 					const prevSubtitleInner = prevEl.querySelector('.subtitle-block__subtitle') as HTMLElement | null
 					prevSubtitleInner?.classList.remove('subtitle-block__subtitle--current')
@@ -78,8 +88,10 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			}
 
 			const nextEl = container.querySelector(`#subtitle-${nextId}`) as HTMLElement | null
+
 			if (nextEl) {
 				const nextSubtitleInner = nextEl.querySelector('.subtitle-block__subtitle') as HTMLElement | null
+
 				if (nextSubtitleInner) {
 					nextSubtitleInner.classList.add('subtitle-block__subtitle--current')
 				} else {
@@ -114,12 +126,10 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			applyCurrent(nextId)
 		}
 
-		sync(currentTime)
+		sync(timeSource.getCurrentTime())
 
-		// Классы --current переключаются в applyCurrent при смене субтитра.
-		// Отдельная очистка на каждом ре-рендере не нужна и только создаёт
-		// лишние DOM-запросы на каждом кадре.
-	}, [currentTime, containerRef, subtitles, topPaddingPx])
+		return timeSource.subscribe(sync)
+	}, [subtitles, containerRef, topPaddingPx, timeSource])
 
 	return { scrollToSubtitle }
 }
@@ -217,6 +227,7 @@ function autoScrollToCurrent(params: {
 			topPaddingPx,
 			forceAlignBelowVideo,
 		})
+
 		return
 	}
 

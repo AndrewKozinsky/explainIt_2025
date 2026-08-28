@@ -3,12 +3,13 @@ import { VideoContentType, VideoSubtitlesModel } from '@/entities/video/reposito
 import { LanguageCode } from '@/shared/utils/languages'
 import Sentences from '../Sentences/Sentences'
 import Subtitles from '../Subtitles/Subtitles'
+import type { CurrentTimeSource } from '../Subtitles/fn/useSubtitlesPlaybackDomSync'
 import './SentencesOrSubtitles.scss'
 
 type TextSideProps = {
 	languageCode: LanguageCode
 	contentType: VideoContentType
-	currentTime: number
+	timeSource: CurrentTimeSource
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
@@ -20,7 +21,7 @@ function SentencesOrSubtitles(props: TextSideProps) {
 	const {
 		languageCode,
 		contentType,
-		currentTime,
+		timeSource,
 		selectedSentenceId,
 		selectedWordId,
 		selectWord,
@@ -43,7 +44,7 @@ function SentencesOrSubtitles(props: TextSideProps) {
 				{contentType === 'subtitles' && subtitles?.subtitles && (
 					<Subtitles
 						subtitles={subtitles.subtitles}
-						currentTime={currentTime}
+						timeSource={timeSource}
 						selectedSentenceId={selectedSentenceId}
 						selectedWordId={selectedWordId}
 						selectWord={selectWord}

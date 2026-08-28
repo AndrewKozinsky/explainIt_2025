@@ -6,11 +6,12 @@ import SubtitleBlock from '../SubtitleBlock/SubtitleBlock'
 import SubtitleBlockGap from '../SubtitleBlockGap/SubtitleBlockGap'
 import { useSelectWordScroll } from './fn/useSelectWordScroll'
 import { useSubtitlesPlaybackDomSync } from './fn/useSubtitlesPlaybackDomSync'
+import type { CurrentTimeSource } from './fn/useSubtitlesPlaybackDomSync'
 import './Subtitles.scss'
 
 type SubtitlesContentProps = {
 	subtitles: (VideoSubtitlesModel.Subtitle | VideoSubtitlesModel.SpeechlessBar)[]
-	currentTime: number
+	timeSource: CurrentTimeSource
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
@@ -18,10 +19,10 @@ type SubtitlesContentProps = {
 }
 
 function Subtitles(props: SubtitlesContentProps) {
-	const { subtitles, currentTime, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
+	const { subtitles, timeSource, selectedSentenceId, selectedWordId, selectWord, languageCode } = props
 	const containerRef = useRef<HTMLDivElement | null>(null)
 
-	const { scrollToSubtitle } = useSubtitlesPlaybackDomSync({ containerRef, subtitles, currentTime })
+	const { scrollToSubtitle } = useSubtitlesPlaybackDomSync({ containerRef, subtitles, timeSource })
 	const handleSelectWord = useSelectWordScroll({ subtitles, selectWord, scrollToSubtitle })
 
 	return (

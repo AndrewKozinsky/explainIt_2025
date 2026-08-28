@@ -10,6 +10,7 @@ import { VideoPlayer } from '@/entities/videoPlayer'
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 import { useVideoStore } from '../videoStore'
+import { currentTimeSource } from './fn/currentTimeSource'
 import { useVideoPlayback } from './fn/useVideoPlayback'
 
 type VideoClientWrapperProps = {
@@ -38,7 +39,6 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 		subtitlesErrorCode,
 		durationSeconds,
 	} = props
-	console.log('-------')
 
 	const mediaStore = useMediaStoreContext()
 	const languageCode = mediaStore((s) => s.languageCode)
@@ -49,8 +49,6 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
 	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
-	const currentTime = useVideoStore((state) => state.player.currentTime)
-	console.log(currentTime)
 	const setPlayerState = useVideoStore((state) => state.setPlayerState)
 
 	return (
@@ -75,7 +73,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 			>
 				<SentencesOrSubtitles
 					languageCode={languageCode!}
-					currentTime={currentTime}
+					timeSource={currentTimeSource}
 					selectedSentenceId={selectedSentenceId}
 					selectedWordId={selectedWordId}
 					selectWord={selectWord}
