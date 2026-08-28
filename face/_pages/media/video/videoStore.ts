@@ -1,40 +1,40 @@
-// import { create } from 'zustand'
-// import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-// import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
-// import type { PlaybackMode } from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
+import { create } from 'zustand'
+import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import { PlaybackMode } from '@/entities/videoControls/VideoControls/VideoControls'
+import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
 
-/*type PlayerState = {
+type PlayerState = {
 	currentTime: number
 	duration: number
 	paused: boolean
-	/!** Очередь команд, ожидающих подтверждения от адаптера проигрывателя. *!/
+	/** Очередь команд, ожидающих подтверждения от адаптера проигрывателя. */
 	commandQueue: PlayerCommandEvent[]
-}*/
+}
 
-/*type PlaybackState = {
+type PlaybackState = {
 	mode: PlaybackMode
-	/!** Время автоматической остановки. null — играем без авто-остановки. *!/
-	stopAt: null | number
-}*/
+	/** Время автоматической остановки. null — играем без авто-остановки. */
+	// stopAt: null | number
+}
 
-/*type VideoStoreValues = {
+type VideoStoreValues = {
 	player: PlayerState
 	subtitles: null | VideoSubtitlesModel.Subtitle[]
 	playback: PlaybackState
-}*/
+}
 
-/*type VideoStoreMethods = {
-	setPlayerState: (state: Partial<PlayerState>) => void
+type VideoStoreMethods = {
+	// setPlayerState: (state: Partial<PlayerState>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
-	setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
+	// setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
 	setPlayback: (playback: Partial<PlaybackState>) => void
-}*/
+}
 
-// type VideoStore = VideoStoreValues & VideoStoreMethods
+type VideoStore = VideoStoreValues & VideoStoreMethods
 
 // ⸻ Defaults ⸻
 
-/*const defaults: VideoStoreValues = {
+const defaults: VideoStoreValues = {
 	player: {
 		currentTime: 0,
 		duration: 0,
@@ -44,24 +44,24 @@
 	subtitles: null,
 	playback: {
 		mode: 'video',
-		stopAt: null,
+		// stopAt: null,
 	},
-}*/
+}
 
-// let nextPlayerCommandId = 1
+let nextPlayerCommandId = 1
 
 // ⸻ Store ⸻
 
-/*export const useVideoStore = create<VideoStore>()((set) => ({
+export const useVideoStore = create<VideoStore>()((set) => ({
 	...defaults,
-	setPlayerState(playerState) {
+	/*setPlayerState(playerState) {
 		set((state) => ({
 			player: {
 				...state.player,
 				...playerState,
 			},
 		}))
-	},
+	},*/
 	sendPlayerCommand(command) {
 		set((state) => ({
 			player: {
@@ -70,9 +70,9 @@
 			},
 		}))
 	},
-	setSubtitles(subtitles) {
+	/*setSubtitles(subtitles) {
 		set({ subtitles })
-	},
+	},*/
 	setPlayback(playback) {
 		set((state) => ({
 			playback: {
@@ -81,4 +81,4 @@
 			},
 		}))
 	},
-}))*/
+}))

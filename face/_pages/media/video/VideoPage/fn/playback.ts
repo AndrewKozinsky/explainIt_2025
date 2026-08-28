@@ -1,6 +1,6 @@
-// import type { PlayerCommand } from '@/entities/videoPlayer'
+import type { PlayerCommand } from '@/entities/videoPlayer'
 // import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-// import { useVideoStore } from '../../videoStore'
+import { useVideoStore } from '../../videoStore'
 // import { findActiveSubtitleIndex, findNextSubtitleIndex, findPrevSubtitleIndex } from './subtitles'
 
 // type Subtitle = VideoSubtitlesModel.Subtitle
@@ -11,30 +11,12 @@
 // let shadowIndex = -1
 // let revertToSeconds: null | number = null
 
-// ── Хелперы ───────────────────────────────────────────────────────────
-
-/*function getStore() {
-	return useVideoStore.getState()
-}*/
-
-/*function send(command: PlayerCommand) {
-	getStore().sendPlayerCommand(command)
-}*/
-
 /*function getSubtitles(): null | Subtitle[] {
 	return getStore().subtitles
 }*/
 
 /*function getCurrentTime(): number {
 	return getStore().player.currentTime
-}*/
-
-/*function isPlaying(): boolean {
-	return !getStore().player.paused
-}*/
-
-/*function setMode(mode: 'video' | 'shadowing' | 'subAndRevert' | 'sub') {
-	getStore().setPlayback({ mode })
 }*/
 
 /*function setStopAt(stopAt: null | number) {
@@ -45,14 +27,6 @@
 	if (shadowTimer == null) return
 	clearTimeout(shadowTimer)
 	shadowTimer = null
-}*/
-
-/** Отменяет авто-остановку: таймер шэдоуинга, возврат к началу и stopAt. */
-/*function cancelAutoStop() {
-	clearShadowTimer()
-	shadowIndex = -1
-	revertToSeconds = null
-	setStopAt(null)
 }*/
 
 /** Активный субтитр или следующий за текущей точкой (если точка вне субтитра). */
@@ -176,14 +150,14 @@
 // ── Кнопки ────────────────────────────────────────────────────────────
 
 /** 1. Переход к началу видео и остановка. */
-/*export function toVideoStart() {
+export function toVideoStart() {
 	cancelAutoStop()
 	send({ type: 'PAUSE' })
 	send({ type: 'SET_TIME', time: 0 })
-}*/
+}
 
 /** 2. Запуск/остановка воспроизведения с текущего места до конца. */
-/*export function playVideo() {
+export function stopOrPlayVideo() {
 	if (getStore().playback.mode === 'video') {
 		send(isPlaying() ? { type: 'PAUSE' } : { type: 'PLAY' })
 		return
@@ -192,68 +166,61 @@
 	cancelAutoStop()
 	setMode('video')
 	send({ type: 'PLAY' })
-}*/
+}
 
 /** 3. Шэдоуинг: текущий субтитр → пауза → следующий субтитр (циклично). */
-/*export function playVideoShadowing() {
-	if (getStore().playback.mode === 'shadowing') {
+export function playVideoShadowing() {
+	/*if (getStore().playback.mode === 'shadowing') {
 		if (isPlaying()) stopShadowing()
 		else startShadowing()
 		return
-	}
-
-	startShadowing()
-}*/
+	}*/
+	// startShadowing()
+}
 
 /** 4. Переход к началу предыдущего субтитра и остановка. */
-/*export function toPrevSub() {
-	const subtitles = getSubtitles()
-	if (!subtitles || subtitles.length === 0) return
-
-	const target = findPrevSubtitleIndex(subtitles, getCurrentTime())
-	if (target === -1) return
-
-	cancelAutoStop()
-	send({ type: 'PAUSE' })
-	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
-}*/
+export function toPrevSub() {
+	// const subtitles = getSubtitles()
+	// if (!subtitles || subtitles.length === 0) return
+	// const target = findPrevSubtitleIndex(subtitles, getCurrentTime())
+	// if (target === -1) return
+	// cancelAutoStop()
+	// send({ type: 'PAUSE' })
+	// send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
+}
 
 /** 5. Текущий субтитр с текущего места, возврат к началу и остановка. Тумблер. */
-/*export function playSubAndRevert() {
-	if (getStore().playback.mode === 'subAndRevert') {
+export function playSubAndRevert() {
+	/*if (getStore().playback.mode === 'subAndRevert') {
 		if (isPlaying()) send({ type: 'PAUSE' })
 		else startSubAndRevertMode()
 
 		return
-	}
-
-	startSubAndRevertMode()
-}*/
+	}*/
+	// startSubAndRevertMode()
+}
 
 /** 6. Текущий субтитр и остановка перед следующим. Тумблер. */
-/*export function playSub() {
-	if (getStore().playback.mode === 'sub') {
+export function playSub() {
+	/*if (getStore().playback.mode === 'sub') {
 		if (isPlaying()) send({ type: 'PAUSE' })
 		else startSubMode()
 
 		return
-	}
-
-	startSubMode()
-}*/
+	}*/
+	// startSubMode()
+}
 
 /** 7. Переход к началу следующего субтитра и остановка. */
-/*export function toNextSub() {
-	const subtitles = getSubtitles()
-	if (!subtitles || subtitles.length === 0) return
-
-	const target = findNextSubtitleIndex(subtitles, getCurrentTime())
-	if (target === -1) return
-
-	cancelAutoStop()
-	send({ type: 'PAUSE' })
-	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
-}*/
+export function toNextSub() {
+	// const subtitles = getSubtitles()
+	// if (!subtitles || subtitles.length === 0) return
+	// const target = findNextSubtitleIndex(subtitles, getCurrentTime())
+	// if (target === -1) return
+	// cancelAutoStop()
+	// send({ type: 'PAUSE' })
+	// send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
+}
 
 /** Пробел / центр-клик: повторяет действие текущей режимной кнопки. */
 /*export function toggleCurrentMode() {
@@ -296,3 +263,29 @@
 	shadowIndex = -1
 	revertToSeconds = null
 }*/
+
+// ── Хелперы ───────────────────────────────────────────────────────────
+
+function setMode(mode: 'video' | 'shadowing' | 'subAndRevert' | 'sub') {
+	getStore().setPlayback({ mode })
+}
+
+function isPlaying(): boolean {
+	return !getStore().player.paused
+}
+
+function getStore() {
+	return useVideoStore.getState()
+}
+
+function send(command: PlayerCommand) {
+	getStore().sendPlayerCommand(command)
+}
+
+/** Отменяет авто-остановку: таймер шэдоуинга, возврат к началу и stopAt. */
+function cancelAutoStop() {
+	// clearShadowTimer()
+	// shadowIndex = -1
+	// revertToSeconds = null
+	// setStopAt(null)
+}

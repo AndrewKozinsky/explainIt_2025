@@ -1,16 +1,16 @@
-// import { VideoControlPlay } from '@/shared/ui/icons/videoControls/VideoControlPlay'
+import { VideoControlPlay } from '@/shared/ui/icons/videoControls/VideoControlPlay'
 // import { VideoControlPlayAndStop } from '@/shared/ui/icons/videoControls/VideoControlPlayAndStop'
 // import { VideoControlRevert } from '@/shared/ui/icons/videoControls/VideoControlRevert'
-// import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
+import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
 // import { VideoControlToRightIcon } from '@/shared/ui/icons/videoControls/VideoControlToRightIcon'
-// import VideoControlButton from '../VideoControlButton/VideoControlButton'
-// import './VideoControls.scss'
+import VideoControlButton from '../VideoControlButton/VideoControlButton'
+import './VideoControls.scss'
 
-// export type PlaybackMode = 'video' | 'shadowing' | 'subAndRevert' | 'sub'
+export type PlaybackMode = 'video' | 'shadowing' | 'subAndRevert' | 'sub'
 
-/*type VideoControlsProps = {
+type VideoControlsProps = {
 	toVideoStart: () => void
-	playVideo: () => void
+	stopOrPlayVideo: () => void
 	playVideoShadowing: () => void
 	toPrevSub: () => void
 	playSubAndRevert: () => void
@@ -18,12 +18,12 @@
 	toNextSub: () => void
 	areSubsAvailable: boolean
 	activeMode: PlaybackMode
-}*/
+}
 
-/*function VideoControls(props: VideoControlsProps) {
+function VideoControls(props: VideoControlsProps) {
 	const {
 		toVideoStart,
-		playVideo,
+		stopOrPlayVideo,
 		playVideoShadowing,
 		toPrevSub,
 		playSubAndRevert,
@@ -36,30 +36,30 @@
 	return (
 		<div className='video-controls'>
 			<VideoControlButton onClick={toVideoStart} icon={<VideoControlToLeftIcon />} />
-			<VideoControlButton onClick={playVideo} icon={<VideoControlPlay />} active={activeMode === 'video'} />
-			{/!*<VideoControlButton
+			<VideoControlButton onClick={stopOrPlayVideo} icon={<VideoControlPlay />} active={activeMode === 'video'} />
+			{/*<VideoControlButton
 				onClick={playVideoShadowing}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'shadowing'}
-			/>*!/}
+			/>*/}
 			<div className='video-controls__spacer' />
-			{/!*<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />*!/}
-			{/!*<VideoControlButton
+			{/*<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />*/}
+			{/*<VideoControlButton
 				onClick={playSubAndRevert}
 				icon={<VideoControlRevert />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'subAndRevert'}
-			/>*!/}
-			{/!*<VideoControlButton
+			/>*/}
+			{/*<VideoControlButton
 				onClick={playSub}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'sub'}
-			/>*!/}
-			{/!*<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />*!/}
+			/>*/}
+			{/*<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />*/}
 		</div>
 	)
-}*/
+}
 
-// export default VideoControls
+export default VideoControls

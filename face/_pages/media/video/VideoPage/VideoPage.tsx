@@ -1,19 +1,19 @@
 'use client'
 
-// import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
+import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
-// import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
+import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
+import VideoControls from '@/entities/videoControls/VideoControls/VideoControls'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
-// import VideoControls from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 import { getHeader } from './fn/getHeader'
 // import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
-// import { useVideoControls } from './fn/useVideoControls'
 import { setupDeps } from './fn/setupDeps'
+import { useVideoControls } from './fn/useVideoControls'
 import { useVideoData } from './fn/useVideoData'
-// import VideoClientWrapper from './VideoClientWrapper'
+import VideoClientWrapper from './VideoClientWrapper'
 
 const { useMediaStore } = setupDeps()
 
@@ -39,7 +39,7 @@ function VideoPage(props: VideoRootProps) {
 		mediaStore: useMediaStore,
 	})
 
-	// const videoControls = useVideoControls()
+	const videoControls = useVideoControls()
 
 	if (error) {
 		return <ErrorMessage text={error} />
@@ -56,25 +56,27 @@ function VideoPage(props: VideoRootProps) {
 			<MediaRoot
 				breadCrumbsConfig={[pageUrls.videos]}
 				header={header}
-				/*leftBlock={
+				leftBlock={
 					<VideoClientWrapper
 						languageCode={video.languageCode}
-						contentType={video.contentType}
-						plainSentences={video.plainSentences}
-						subtitles={video.subtitles}
-						fileUrl={video.fileUrl ?? ''}
-						youTubeVideoId={video.youtubeVideoId ?? ''}
-						videoId={video.id}
-						ratio={video.ratio}
-						subtitlesStatus={polledSubtitlesStatus ?? video.subtitlesStatus}
-						subtitlesErrorCode={video.subtitlesErrorCode}
-						durationSeconds={video.durationSeconds}
-						selectedSentenceId={selectedSentenceId}
-						selectedWordId={selectedWordId}
-						selectWord={selectWord}
+						// contentType={video.contentType}
+						// plainSentences={video.plainSentences}
+						// subtitles={video.subtitles}
+						// fileUrl={video.fileUrl ?? ''}
+						// youTubeVideoId={video.youtubeVideoId ?? ''}
+						// videoId={video.id}
+						// ratio={video.ratio}
+						// subtitlesStatus={polledSubtitlesStatus ?? video.subtitlesStatus}
+						// subtitlesErrorCode={video.subtitlesErrorCode}
+						// durationSeconds={video.durationSeconds}
+						// selectedSentenceId={selectedSentenceId}
+						// selectedWordId={selectedWordId}
+						// selectWord={selectWord}
 					/>
-				}*/
-				// rightBlock={<DetailsBlock videoControls={<VideoControls {...videoControls} />} />}
+				}
+				rightBlock={
+					<DetailsBlock sentenceId={selectedSentenceId} bottomElem={<VideoControls {...videoControls} />} />
+				}
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 			/>
 		</MediaStoreProvider>

@@ -3,25 +3,25 @@
 // import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 // import { PhraseDictionary } from '@/widgets/dictionary'
 
-/*function DictionaryContent() {
-	const mediaStore = useMediaStoreContext()
-	const languageCode = mediaStore((s) => s.languageCode)
-	const currentSentenceId = mediaStore((s) => s.selectedSentenceId)
-	const currentWordId = mediaStore((s) => s.selectedWordId)
-	const currentSentenceText = mediaStore(
+function DictionaryContent() {
+	// const mediaStore = useMediaStoreContext()
+	// const languageCode = mediaStore((s) => s.languageCode)
+	// const currentSentenceId = mediaStore((s) => s.selectedSentenceId)
+	// const currentWordId = mediaStore((s) => s.selectedWordId)
+	/*const currentSentenceText = mediaStore(
 		(s) => s.sentences.find((entry) => entry.sentenceId === currentSentenceId)?.sentenceText ?? null,
 	)
-
-	const words = useMemo(
+*/
+	/*const words = useMemo(
 		function () {
 			if (!currentSentenceText) return []
 
 			return segmentSentence(currentSentenceText, languageCode).map((word) => word.word)
 		},
 		[currentSentenceText, languageCode],
-	)
+	)*/
 
-	const phrase = useMemo(
+	/*const phrase = useMemo(
 		function () {
 			if (!currentSentenceText || currentWordId === null || !languageCode) return undefined
 
@@ -32,11 +32,12 @@
 			})?.text
 		},
 		[currentSentenceText, currentWordId, languageCode],
-	)
+	)*/
 
-	if (!languageCode) return null
+	// if (!languageCode) return null
 
-	return <PhraseDictionary languageCode={languageCode} phrase={phrase} words={words} />
-}*/
+	// return <PhraseDictionary languageCode={languageCode} phrase={phrase} words={words} />
+	return <p>DictionaryContent</p>
+}
 
-// export default DictionaryContent
+export default DictionaryContent

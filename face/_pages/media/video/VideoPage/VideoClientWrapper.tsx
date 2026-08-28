@@ -7,53 +7,53 @@
 // import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
 // import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'
 // import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
-// import type { LanguageCode } from '@/shared/utils/languages'
+import type { LanguageCode } from '@/shared/utils/languages'
 // import { localStorageManager } from '@/shared/utils/localStorageManager'
 // import { useVideoStore } from '../videoStore'
 // import { useVideoPlayback } from './fn/useVideoPlayback'
 
-/*type VideoClientWrapperProps = {
-	selectedSentenceId?: null | number
-	selectedWordId?: null | number
-	selectWord?: (input: { sentenceId: number; wordId: number }) => void
+type VideoClientWrapperProps = {
 	languageCode: LanguageCode
-	contentType: VideoContentType
-	plainSentences: null | SentenceModel[]
-	subtitles: null | VideoSubtitlesModel.Structure
-	fileUrl?: string
-	youTubeVideoId?: string
-	videoId: number
-	ratio?: null | string
-	subtitlesStatus: SubtitlesStatusModelType
-	subtitlesErrorCode: null | string
-	durationSeconds: number
-}*/
+	// selectedSentenceId?: null | number
+	// selectedWordId?: null | number
+	// selectWord?: (input: { sentenceId: number; wordId: number }) => void
+	// contentType: VideoContentType
+	// plainSentences: null | SentenceModel[]
+	// subtitles: null | VideoSubtitlesModel.Structure
+	// fileUrl?: string
+	// youTubeVideoId?: string
+	// videoId: number
+	// ratio?: null | string
+	// subtitlesStatus: SubtitlesStatusModelType
+	// subtitlesErrorCode: null | string
+	// durationSeconds: number
+}
 
-/*function VideoClientWrapper(props: VideoClientWrapperProps) {
+function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const {
 		languageCode,
-		contentType,
-		plainSentences,
-		subtitles,
-		fileUrl,
-		youTubeVideoId,
-		videoId,
-		ratio,
-		subtitlesStatus,
-		subtitlesErrorCode,
-		selectedSentenceId = null,
-		selectedWordId = null,
-		selectWord = () => {},
-		durationSeconds,
+		// contentType,
+		// plainSentences,
+		// subtitles,
+		// fileUrl,
+		// youTubeVideoId,
+		// videoId,
+		// ratio,
+		// subtitlesStatus,
+		// subtitlesErrorCode,
+		// selectedSentenceId = null,
+		// selectedWordId = null,
+		// selectWord = () => {},
+		// durationSeconds,
 	} = props
 
-	const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
-	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
+	// const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
+	// const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
-	const currentTime = useVideoStore((state) => state.player.currentTime)
-	const setPlayerState = useVideoStore((state) => state.setPlayerState)
+	// const currentTime = useVideoStore((state) => state.player.currentTime)
+	// const setPlayerState = useVideoStore((state) => state.setPlayerState)
 
-	return (
+	/*return (
 		<VideoWithSubtitles>
 			<VideoPlayer
 				fileUrl={fileUrl}
@@ -85,7 +85,8 @@
 				/>
 			</SubtitlesStatusRouter>
 		</VideoWithSubtitles>
-	)
-}*/
+	)*/
+	return <p>VideoClientWrapper</p>
+}
 
-// export default VideoClientWrapper
+export default VideoClientWrapper

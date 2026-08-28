@@ -1,18 +1,20 @@
-// import cn from 'classnames'
-// import { useState } from 'react'
-// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-// import DialogContent from '../DialogContent/DialogContent'
-// import DictionaryContent from '../DictionaryContent/DictionaryContent'
-// import InfoViewSwitcher from '../InfoViewSwitcher'
-// import WordsContent from '../WordsContent/WordsContent'
-// import './DetailsBlockWrapper.scss'
+import { useState } from 'react'
+import cn from 'classnames'
+import DictionaryContent from '../DictionaryContent/DictionaryContent'
+import InfoViewSwitcher from '../InfoViewSwitcher'
+import WordsContent from '../WordsContent/WordsContent'
+import './DetailsBlockWrapper.scss'
 
-// export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
+export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
 
-/*function DetailsBlockWrapper() {
+type DetailsBlockWrapperProps = {
+	sentenceId: null | number
+}
+
+function DetailsBlockWrapper(props: DetailsBlockWrapperProps) {
+	const { sentenceId } = props
+
 	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>('dictionary')
-	const mediaStore = useMediaStoreContext()
-	const sentenceId = mediaStore((store) => store.selectedSentenceId)
 
 	if (!sentenceId) {
 		return (
@@ -30,22 +32,22 @@
 			<div className='details-block-wrapper__content'>
 				{currentInfoView === 'dictionary' && <DictionaryContent />}
 				{currentInfoView === 'words' && <WordsContent />}
-				{currentInfoView === 'ai_dialog' && <DialogContent />}
+				{/*{currentInfoView === 'ai_dialog' && <DialogContent />}*/}
 			</div>
 		</ContentWrapper>
 	)
-}*/
+}
 
-// export default DetailsBlockWrapper
+export default DetailsBlockWrapper
 
 // ------------
 
-/*type ContentWrapperProps = {
+type ContentWrapperProps = {
 	center?: boolean
 	children: React.ReactNode
-}*/
+}
 
-/*function ContentWrapper(props: ContentWrapperProps) {
+function ContentWrapper(props: ContentWrapperProps) {
 	const { center, children } = props
 
 	return (
@@ -53,8 +55,8 @@
 			<div className={cn(!center && 'details-block-wrapper__scroll')}>{children}</div>
 		</div>
 	)
-}*/
+}
 
-/*function InfoText({ children }: { children: React.ReactNode }) {
+function InfoText({ children }: { children: React.ReactNode }) {
 	return <p className='details-block-wrapper__text'>{children}</p>
-}*/
+}

@@ -1,8 +1,6 @@
 import { useEffect } from 'react'
-import { useLocale } from 'next-intl'
 import { useFetchPhraseTranslation } from '@/entities/media/model/useFetchPhrase'
 import { useFetchSentenceTranslation } from '@/entities/media/model/useFetchSentence'
-import { fetchPhrase } from './fetchPhrase'
 import { MediaTranslationContext } from './mediaTranslationContext'
 // import type { PhraseTranslationModel } from '@/entities/translate/TranslateService'
 // import type { SentencePhraseType } from '../store/translationTypes'
@@ -10,8 +8,7 @@ import { MediaTranslationContext } from './mediaTranslationContext'
 
 /** Координирует загрузку переводов для всех потребителей текущего media-контекста. */
 export function useMediaTranslations(input: MediaTranslationContext): void {
-	const locale = useLocale()
-	const { mediaStore, sentences, languageCode, selectedSentenceId, selectedWordId } = input
+	const { mediaStore, sentences, languageCode } = input
 
 	useEffect(() => {
 		mediaStore.getState().setTranslationContext({ languageCode: languageCode ?? null, sentences: sentences ?? [] })
@@ -22,8 +19,6 @@ export function useMediaTranslations(input: MediaTranslationContext): void {
 	// useEffect(() => () => mediaStore.getState().clearMediaData(), [mediaStore])
 
 	useFetchPhraseTranslation(input)
-
-	fetchPhrase(input)
 
 	// const sentenceRetries = mediaStore((state) => state.retryFetchSentenceTranslationQueue)
 

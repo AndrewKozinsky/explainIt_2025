@@ -1,19 +1,19 @@
-// import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import Sentence from '@/entities/sentencesAndSubtitles/Sentence/Sentence'
-// import { LanguageCode } from '@/shared/utils/languages'
+import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { LanguageCode } from '@/shared/utils/languages'
 // import SentenceAndPhraseTranslationBlock from '../SentenceTranslationBlock/SentenceAndPhraseTranslationBlock'
-// import './SentenceBlock.scss'
+import Sentence from '../Sentence/Sentence'
+import './SentenceBlock.scss'
 
-/*type ChapterSentenceProps = {
+type ChapterSentenceProps = {
 	sentence: SentenceModel
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	languageCode: LanguageCode
 	environmentColor: 'white' | 'gray'
-}*/
+}
 
-/*function SentenceBlock(props: ChapterSentenceProps) {
+function SentenceBlock(props: ChapterSentenceProps) {
 	const { sentence, selectedSentenceId, selectedWordId, selectWord, languageCode, environmentColor } = props
 
 	return (
@@ -25,13 +25,13 @@
 				selectedWordId={selectedWordId}
 				selectWord={selectWord}
 			/>
-			<SentenceAndPhraseTranslationBlock
+			{/*<SentenceAndPhraseTranslationBlock
 				sentenceId={sentence.id}
 				languageCode={languageCode}
 				bgColor={environmentColor === 'gray' ? 'white' : 'gray'}
-			/>
+			/>*/}
 		</div>
 	)
-}*/
+}
 
-// export default SentenceBlock
+export default SentenceBlock

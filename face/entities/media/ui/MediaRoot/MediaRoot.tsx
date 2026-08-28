@@ -1,29 +1,28 @@
-// import React from 'react'
 // import OnboardingModal from '@/entities/media/ui/OnboardingModal/OnboardingModal'
-// import Header from '@/shared/ui/Header/Header'
-// import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
-// import './MediaRoot.scss'
+import Header from '@/shared/ui/Header/Header'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import './MediaRoot.scss'
 
-/*type BreadCrumbsItem = {
+type BreadCrumbsItem = {
 	name: string
 	path: string
-}*/
+}
 
-/*type MediaRootProps = {
+type MediaRootProps = {
 	breadCrumbsConfig: BreadCrumbsItem[]
 	header?: React.ReactNode
 	subHeader?: null | string
 	leftBlock: React.ReactElement
 	rightBlock: React.ReactElement
 	footer?: React.ReactNode
-}*/
+}
 
-/*function MediaRoot(props: MediaRootProps) {
+function MediaRoot(props: MediaRootProps) {
 	const { breadCrumbsConfig, subHeader, header, leftBlock, rightBlock, footer } = props
 
 	return (
 		<>
-			<OnboardingModal />
+			{/*<OnboardingModal />*/}
 			<div className='media-root'>
 				<div className='media-root__header'>
 					<BreadCrumbs items={breadCrumbsConfig} />
@@ -40,6 +39,6 @@
 			</div>
 		</>
 	)
-}*/
+}
 
-// export default MediaRoot
+export default MediaRoot

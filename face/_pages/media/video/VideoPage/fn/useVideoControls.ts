@@ -1,17 +1,17 @@
 // 'use client'
 
-// import { useVideoStore } from '../../videoStore'
-// import {
-// 	playSub,
-// 	playSubAndRevert,
-// 	playVideo,
-// 	playVideoShadowing,
-// 	toNextSub,
-// 	toPrevSub,
-// 	toVideoStart,
-// } from './playback'
+import { useVideoStore } from '../../videoStore'
+import {
+	playSub,
+	playSubAndRevert,
+	playVideoShadowing,
+	stopOrPlayVideo,
+	toNextSub,
+	toPrevSub,
+	toVideoStart,
+} from './playback'
 
-/*export function useVideoControls() {
+export function useVideoControls() {
 	const activeMode = useVideoStore((state) => state.playback.mode)
 	const areSubsAvailable = useVideoStore((state) => state.subtitles !== null)
 
@@ -19,11 +19,11 @@
 		activeMode,
 		areSubsAvailable,
 		toVideoStart,
-		playVideo,
+		stopOrPlayVideo,
 		playVideoShadowing,
 		toPrevSub,
 		playSubAndRevert,
 		playSub,
 		toNextSub,
 	}
-}*/
+}
