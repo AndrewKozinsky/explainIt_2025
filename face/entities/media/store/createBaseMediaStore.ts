@@ -1,12 +1,14 @@
+import { produce } from 'immer'
 import { create } from 'zustand'
-// import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-// import type { DetailsSentenceEntry, SentencePhraseType, SentenceTranslation } from './translationTypes'
+import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { LanguageCode } from '@/shared/utils/languages'
+import type { DetailsSentenceEntry, SentencePhraseType, SentenceTranslation } from './translationTypes'
 
 export type BaseMediaStore = {
 	selectedSentenceId: null | number
 	selectedWordId: null | number
-	// languageCode: null | LanguageCode
-	// sentences: DetailsSentenceEntry[]
+	languageCode: null | LanguageCode
+	sentences: DetailsSentenceEntry[]
 	// retryFetchSentenceTranslationQueue: { sentenceId: number; sentenceText: string }[]
 	/*retryFetchPhraseQueue: {
 		sentenceId: number
@@ -15,22 +17,22 @@ export type BaseMediaStore = {
 		sentenceText: string
 	}[]*/
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
-	// setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
+	setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
 	// clearMediaData: () => void
 	// insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
-	// patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
-	// upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
-	/*patchPhraseTranslation: (input: {
+	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
+	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
+	patchPhraseTranslation: (input: {
 		sentenceId: number
 		phraseId: string
 		patch: Partial<SentencePhraseType>
-	}) => void*/
-	/*finalizePhraseTranslation: (input: {
+	}) => void
+	finalizePhraseTranslation: (input: {
 		sentenceId: number
 		placeholderPhraseId: string
 		phrase: SentencePhraseType
-	}) => void*/
-	// setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
+	}) => void
+	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
 	// setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
 	// retrySentenceTranslation: (sentenceId: number) => void
 	// retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
@@ -40,12 +42,12 @@ export function createBaseMediaStore() {
 	return create<BaseMediaStore>((set) => ({
 		selectedSentenceId: null,
 		selectedWordId: null,
-		// languageCode: null,
-		// sentences: [],
+		languageCode: null,
+		sentences: [],
 		// retryFetchSentenceTranslationQueue: [],
 		// retryFetchPhraseQueue: [],
 		selectWord: ({ sentenceId, wordId }) => set({ selectedSentenceId: sentenceId, selectedWordId: wordId }),
-		/*setTranslationContext: ({ languageCode, sentences }) =>
+		setTranslationContext: ({ languageCode, sentences }) =>
 			set({
 				languageCode,
 				sentences: sentences.map((sentence) => ({
@@ -63,7 +65,7 @@ export function createBaseMediaStore() {
 						phrases: [],
 					},
 				})),
-			}),*/
+			}),
 		/*clearMediaData: () =>
 			set({
 				selectedSentenceId: null,
@@ -88,18 +90,21 @@ export function createBaseMediaStore() {
 					})
 				}),
 			),*/
-		/*patchSentenceTranslation: ({ sentenceId, patch }) =>
+		patchSentenceTranslation: ({ sentenceId, patch }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
-					if (entry) Object.assign(entry.data.translation, patch)
+					if (entry) {
+						Object.assign(entry.data.translation, patch)
+					}
 				}),
-			),*/
-		/*upsertPhraseTranslation: ({ sentenceId, phrase }) =>
+			),
+		upsertPhraseTranslation: ({ sentenceId, phrase }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (!entry) return
+
 					const index = entry.data.phrases.findIndex((item) => sameWordIds(item.wordIds, phrase.wordIds))
 					if (index >= 0) {
 						entry.data.phrases[index] = {
@@ -110,8 +115,8 @@ export function createBaseMediaStore() {
 						entry.data.phrases.push(phrase)
 					}
 				}),
-			),*/
-		/*patchPhraseTranslation: ({ sentenceId, phraseId, patch }) =>
+			),
+		patchPhraseTranslation: ({ sentenceId, phraseId, patch }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const phrase = state.sentences
@@ -120,27 +125,29 @@ export function createBaseMediaStore() {
 
 					if (phrase) Object.assign(phrase, patch)
 				}),
-			),*/
-		/*finalizePhraseTranslation: ({ sentenceId, placeholderPhraseId, phrase }) =>
+			),
+		finalizePhraseTranslation: ({ sentenceId, placeholderPhraseId, phrase }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (!entry) return
+
 					const index = entry.data.phrases.findIndex(
 						(item) => item.randomGeneratedPhraseId === placeholderPhraseId,
 					)
+
 					if (index >= 0)
 						entry.data.phrases[index] = { ...phrase, randomGeneratedPhraseId: placeholderPhraseId }
 					else entry.data.phrases.push({ ...phrase, randomGeneratedPhraseId: placeholderPhraseId })
 				}),
-			),*/
-		/*setSelectedPhraseId: ({ sentenceId, phraseId }) =>
+			),
+		setSelectedPhraseId: ({ sentenceId, phraseId }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (entry) entry.selectedPhraseId = phraseId
 				}),
-			),*/
+			),
 		/*setPhraseFlashcardId: ({ sentencePhraseId, flashcardId }) =>
 			set(
 				produce((state: BaseMediaStore) => {
@@ -185,6 +192,6 @@ export function createBaseMediaStore() {
 	}))
 }
 
-/*function sameWordIds(a: number[], b: number[]): boolean {
+function sameWordIds(a: number[], b: number[]): boolean {
 	return a.length === b.length && a.every((value, index) => value === b[index])
-}*/
+}
