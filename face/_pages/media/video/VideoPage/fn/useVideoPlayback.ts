@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-import { resetPlaybackRuntime } from '_pages/media/video/VideoPage/fn/playback/playback'
+import { handleAutoStop, resetPlaybackRuntime } from '_pages/media/video/VideoPage/fn/playback/playback'
 import { useVideoStore } from '../../videoStore'
 // import { useVideoInput } from './useVideoInput'
 
@@ -38,14 +38,14 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 	}, [])
 
 	// Авто-остановка по stopAt
-	// const currentTime = useVideoStore((state) => state.player.currentTime)
-	// const stopAt = useVideoStore((state) => state.playback.stopAt)
+	const currentTime = useVideoStore((state) => state.player.currentTime)
+	const stopAt = useVideoStore((state) => state.playback.stopAt)
 
-	/*useEffect(() => {
+	useEffect(() => {
 		if (stopAt == null || currentTime < stopAt) return
 
 		handleAutoStop()
-	}, [currentTime, stopAt])*/
+	}, [currentTime, stopAt])
 
 	// useVideoInput()
 
