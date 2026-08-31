@@ -44,12 +44,12 @@ function VideoControls(props: VideoControlsProps) {
 				icon={activeMode === 'video' && isPaused ? <VideoControlPlay /> : <VideoControlStop />}
 				active={activeMode === 'video'}
 			/>
-			{/*<VideoControlButton
+			<VideoControlButton
 				onClick={playVideoShadowing}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'shadowing'}
-			/>*/}
+			/>
 			<div className='video-controls__spacer' />
 			<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />
 			<VideoControlButton

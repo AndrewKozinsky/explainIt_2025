@@ -11,19 +11,19 @@ type Subtitle = VideoSubtitlesModel.Subtitle
 
 // ── Runtime (модульное состояние, не в сторе) ─────────────────────────
 
-// let shadowTimer: null | ReturnType<typeof setTimeout> = null
-// let shadowIndex = -1
+let shadowTimer: null | ReturnType<typeof setTimeout> = null
+let shadowIndex = -1
 let revertToSeconds: null | number = null
 
-/*function clearShadowTimer() {
+function clearShadowTimer() {
 	if (shadowTimer == null) return
 	clearTimeout(shadowTimer)
 	shadowTimer = null
-}*/
+}
 
 // ── Авто-остановка ────────────────────────────────────────────────────
 
-/*function handleShadowAutoStop() {
+function handleShadowAutoStop() {
 	const subtitles = getSubtitles()
 
 	send({ type: 'PAUSE' })
@@ -35,30 +35,31 @@ let revertToSeconds: null | number = null
 
 	const waitMs = Math.max(0, (sub.toSeconds - sub.fromSeconds) * 1000)
 	shadowTimer = setTimeout(() => {
-		playNextShadowSubtitle(subtitles, sub.toSeconds)
+		playNextShadowSubtitle(subtitles)
 	}, waitMs)
-}*/
+}
 
-/*function playNextShadowSubtitle(subtitles: Subtitle[], fromSeconds: number) {
-	const next = findNextSubtitleIndex(subtitles, fromSeconds)
-	if (next === -1) {
+function playNextShadowSubtitle(subtitles: Subtitle[]) {
+	const next = shadowIndex + 1
+	if (next >= subtitles.length) {
 		shadowIndex = -1
 		return
 	}
 
 	shadowIndex = next
+
 	send({ type: 'SET_TIME', time: subtitles[next].fromSeconds })
 	setStopAt(subtitles[next].toSeconds)
 	send({ type: 'PLAY' })
-}*/
+}
 
 export function handleAutoStop() {
 	const { mode } = getStore().playback
 
-	/*if (mode === 'shadowing') {
+	if (mode === 'shadowing') {
 		handleShadowAutoStop()
 		return
-	}*/
+	}
 
 	if (mode === 'subAndRevert') {
 		send({ type: 'PAUSE' })
@@ -109,7 +110,7 @@ function startSubAndRevertMode() {
 	send({ type: 'PLAY' })
 }
 
-/*function startShadowing() {
+function startShadowing() {
 	const subtitles = getSubtitles()
 	const t = getCurrentTime()
 
@@ -125,12 +126,12 @@ function startSubAndRevertMode() {
 	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
 	setStopAt(subtitles[target].toSeconds)
 	send({ type: 'PLAY' })
-}*/
+}
 
-/*function stopShadowing() {
+function stopShadowing() {
 	cancelAutoStop()
 	send({ type: 'PAUSE' })
-}*/
+}
 
 // ── Кнопки ────────────────────────────────────────────────────────────
 
@@ -157,12 +158,14 @@ export function stopOrPlayVideo() {
 
 /** 3. Шэдоуинг: текущий субтитр → пауза → следующий субтитр (циклично). */
 export function playVideoShadowing() {
-	/*if (getStore().playback.mode === 'shadowing') {
+	if (getStore().playback.mode === 'shadowing') {
 		if (isPlaying()) stopShadowing()
 		else startShadowing()
+
 		return
-	}*/
-	// startShadowing()
+	}
+
+	startShadowing()
 }
 
 /** 4. Переход к началу предыдущего субтитра и остановка. */
@@ -294,8 +297,8 @@ export function stopReverseSeek() {
 
 /** Полный сброс runtime-состояния (при смене видео). */
 export function resetPlaybackRuntime() {
-	// clearShadowTimer()
-	// shadowIndex = -1
+	clearShadowTimer()
+	shadowIndex = -1
 	revertToSeconds = null
 }
 
@@ -341,8 +344,8 @@ function seekTo(time: number) {
 
 /** Отменяет авто-остановку: таймер шэдоуинга, возврат к началу и stopAt. */
 function cancelAutoStop() {
-	// clearShadowTimer()
-	// shadowIndex = -1
+	clearShadowTimer()
+	shadowIndex = -1
 	revertToSeconds = null
 	setStopAt(null)
 }
