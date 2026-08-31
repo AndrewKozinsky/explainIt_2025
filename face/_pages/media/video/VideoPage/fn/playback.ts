@@ -60,13 +60,13 @@ export function handleAutoStop() {
 		return
 	}*/
 
-	/*if (mode === 'subAndRevert') {
+	if (mode === 'subAndRevert') {
 		send({ type: 'PAUSE' })
 		send({ type: 'SET_TIME', time: revertToSeconds ?? 0 })
 		setStopAt(null)
 		revertToSeconds = null
 		return
-	}*/
+	}
 
 	// 'sub' (и защитно — 'video')
 	send({ type: 'PAUSE' })
