@@ -138,15 +138,29 @@ export class SubtitlesService {
 			.sort((a, b) => a.start - b.start)
 
 		const lines: string[] = []
+		let previousEndMs: number | null = null
 
 		cues.forEach((cue, index) => {
-			lines.push(String(index + 1))
 			// cue.start/end are in seconds (Deepgram), convert to ms
-			lines.push(
-				`${formatSrtTimeMs(Math.round(cue.start * 1000))} --> ${formatSrtTimeMs(Math.round(cue.end * 1000))}`,
-			)
+			let startMs = Math.round(cue.start * 1000)
+			let endMs = Math.round(cue.end * 1000)
+
+			// Deepgram boundaries often touch or overlap after rounding, which makes
+			// the end of one cue equal the start of the next. Keep cues strictly
+			// sequential so players never render two cues at the same instant.
+			if (previousEndMs !== null && startMs === previousEndMs) {
+				startMs = previousEndMs + 1
+			}
+			if (endMs < startMs) {
+				endMs = startMs
+			}
+
+			lines.push(String(index + 1))
+			lines.push(`${formatSrtTimeMs(startMs)} --> ${formatSrtTimeMs(endMs)}`)
 			lines.push(cue.transcript)
 			lines.push('')
+
+			previousEndMs = endMs
 		})
 
 		return lines.join('\n').trimEnd() + '\n'

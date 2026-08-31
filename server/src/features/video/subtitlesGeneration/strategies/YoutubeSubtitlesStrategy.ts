@@ -139,6 +139,7 @@ export class YoutubeSubtitlesStrategy {
 
 			const srt = this.subtitlesService.utterancesToSrt(result.utterances)
 			this.logger.log(`Job ${jobId}: built SRT with ${result.utterances.length} utterance(s)`)
+
 			return srt
 		} finally {
 			await rm(jobTmpDir, { recursive: true, force: true }).catch((cleanupErr) => {
