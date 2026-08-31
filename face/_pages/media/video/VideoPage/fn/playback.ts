@@ -232,6 +232,48 @@ export function rewind(seconds: number) {
 	send({ type: 'REWIND', seconds })
 }
 
+/** Порог: если от начала текущего субтитра прошло меньше этого времени — левая стрелка ведёт к предыдущему. */
+const CURRENT_SUB_THRESHOLD_SECONDS = 1
+
+/** Стрелка влево: к началу текущего субтитра. Если от его начала прошло меньше секунды — к началу предыдущего. */
+export function toCurrentSubStart() {
+	const subtitles = getSubtitles()
+	if (!subtitles || subtitles.length === 0) return
+
+	const t = getCurrentTime()
+	const active = findActiveSubtitleIndex(subtitles, t)
+
+	// Между субтитрами — к началу предыдущего.
+	if (active === -1) {
+		const prev = findPrevSubtitleIndex(subtitles, t)
+		if (prev === -1) return
+		seekTo(subtitles[prev].fromSeconds)
+		return
+	}
+
+	const target = t - subtitles[active].fromSeconds < CURRENT_SUB_THRESHOLD_SECONDS && active > 0 ? active - 1 : active
+	seekTo(subtitles[target].fromSeconds)
+}
+
+/** Стрелка вправо: к концу текущего субтитра. */
+export function toCurrentSubEnd() {
+	const subtitles = getSubtitles()
+	if (!subtitles || subtitles.length === 0) return
+
+	const t = getCurrentTime()
+	const active = findActiveSubtitleIndex(subtitles, t)
+
+	// Между субтитрами — к началу следующего.
+	if (active === -1) {
+		const next = findNextSubtitleIndex(subtitles, t)
+		if (next === -1) return
+		seekTo(subtitles[next].fromSeconds)
+		return
+	}
+
+	seekTo(subtitles[active].toSeconds)
+}
+
 export function startForwardHold(rate: number) {
 	cancelAutoStop()
 	send({ type: 'START_FORWARD_HOLD', rate })
@@ -289,6 +331,12 @@ function getStore() {
 
 function send(command: PlayerCommand) {
 	getStore().sendPlayerCommand(command)
+}
+
+/** Перемотка к точному времени (без паузы), отменяя авто-остановку. */
+function seekTo(time: number) {
+	cancelAutoStop()
+	send({ type: 'SET_TIME', time })
 }
 
 /** Отменяет авто-остановку: таймер шэдоуинга, возврат к началу и stopAt. */

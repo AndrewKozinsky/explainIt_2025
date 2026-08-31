@@ -1,5 +1,3 @@
-// 'use client'
-
 import { useEffect, useRef } from 'react'
 import { playerControlConfig } from '@/entities/videoPlayer'
 import { useGetHotKeysHandler } from '@/shared/utils/hotKeysHandler'
@@ -9,6 +7,8 @@ import {
 	startReverseSeek,
 	stopForwardHold,
 	stopReverseSeek,
+	toCurrentSubEnd,
+	toCurrentSubStart,
 	toggleCurrentMode,
 } from './playback'
 
@@ -27,13 +27,12 @@ export function useVideoInput() {
 		},
 	})
 
-	// Стрелки — перемотка
+	// Стрелки — перемотка к границам субтитров
 	useGetHotKeysHandler({
 		key: 'ArrowLeft',
 		handler(e) {
 			e.preventDefault()
-			const seconds = e.shiftKey ? playerControlConfig.rewindSecondsShift : playerControlConfig.rewindSeconds
-			rewind(-seconds)
+			toCurrentSubStart()
 		},
 	})
 
@@ -41,8 +40,7 @@ export function useVideoInput() {
 		key: 'ArrowRight',
 		handler(e) {
 			e.preventDefault()
-			const seconds = e.shiftKey ? playerControlConfig.rewindSecondsShift : playerControlConfig.rewindSeconds
-			rewind(seconds)
+			toCurrentSubEnd()
 		},
 	})
 
