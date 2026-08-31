@@ -5,7 +5,7 @@ import {
 } from '@/entities/sentencesAndSubtitles/lib/subtitles'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 import type { PlayerCommand } from '@/entities/videoPlayer'
-import { useVideoStore } from '../../../videoStore'
+import { useVideoStore } from '../../videoStore'
 
 type Subtitle = VideoSubtitlesModel.Subtitle
 
@@ -92,7 +92,7 @@ function startSubMode() {
 	send({ type: 'PLAY' })
 }
 
-/*function startSubAndRevertMode() {
+function startSubAndRevertMode() {
 	const subtitles = getSubtitles()
 	const t = getCurrentTime()
 
@@ -107,7 +107,7 @@ function startSubMode() {
 	revertToSeconds = subtitles[target].fromSeconds
 	setStopAt(subtitles[target].toSeconds)
 	send({ type: 'PLAY' })
-}*/
+}
 
 /*function startShadowing() {
 	const subtitles = getSubtitles()
@@ -180,13 +180,14 @@ export function toPrevSub() {
 
 /** 5. Текущий субтитр с текущего места, возврат к началу и остановка. Тумблер. */
 export function playSubAndRevert() {
-	/*if (getStore().playback.mode === 'subAndRevert') {
+	if (getStore().playback.mode === 'subAndRevert') {
 		if (isPlaying()) send({ type: 'PAUSE' })
 		else startSubAndRevertMode()
 
 		return
-	}*/
-	// startSubAndRevertMode()
+	}
+
+	startSubAndRevertMode()
 }
 
 /** 6. Текущий субтитр и остановка перед следующим. Тумблер. */
@@ -215,39 +216,39 @@ export function toNextSub() {
 }
 
 /** Пробел / центр-клик: повторяет действие текущей режимной кнопки. */
-/*export function toggleCurrentMode() {
+export function toggleCurrentMode() {
 	const { mode } = getStore().playback
 
-	if (mode === 'video') playVideo()
+	if (mode === 'video') stopOrPlayVideo()
 	else if (mode === 'shadowing') playVideoShadowing()
 	else if (mode === 'subAndRevert') playSubAndRevert()
 	else playSub()
-}*/
+}
 
 // ── Перемотка и удержание ─────────────────────────────────────────────
 
-/*export function rewind(seconds: number) {
+export function rewind(seconds: number) {
 	cancelAutoStop()
 	send({ type: 'REWIND', seconds })
-}*/
+}
 
-/*export function startForwardHold(rate: number) {
+export function startForwardHold(rate: number) {
 	cancelAutoStop()
 	send({ type: 'START_FORWARD_HOLD', rate })
-}*/
+}
 
-/*export function stopForwardHold() {
+export function stopForwardHold() {
 	send({ type: 'STOP_FORWARD_HOLD' })
-}*/
+}
 
-/*export function startReverseSeek(rate: number) {
+export function startReverseSeek(rate: number) {
 	cancelAutoStop()
 	send({ type: 'START_REVERSE_SEEK', rate })
-}*/
+}
 
-/*export function stopReverseSeek() {
+export function stopReverseSeek() {
 	send({ type: 'STOP_REVERSE_SEEK' })
-}*/
+}
 
 /** Полный сброс runtime-состояния (при смене видео). */
 export function resetPlaybackRuntime() {

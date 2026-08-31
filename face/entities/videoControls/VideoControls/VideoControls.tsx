@@ -1,6 +1,6 @@
 import { VideoControlPlay } from '@/shared/ui/icons/videoControls/VideoControlPlay'
 import { VideoControlPlayAndStop } from '@/shared/ui/icons/videoControls/VideoControlPlayAndStop'
-// import { VideoControlRevert } from '@/shared/ui/icons/videoControls/VideoControlRevert'
+import { VideoControlRevert } from '@/shared/ui/icons/videoControls/VideoControlRevert'
 import { VideoControlStop } from '@/shared/ui/icons/videoControls/VideoControlStop'
 import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
 import { VideoControlToRightIcon } from '@/shared/ui/icons/videoControls/VideoControlToRightIcon'
@@ -52,12 +52,12 @@ function VideoControls(props: VideoControlsProps) {
 			/>*/}
 			<div className='video-controls__spacer' />
 			<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />
-			{/*<VideoControlButton
+			<VideoControlButton
 				onClick={playSubAndRevert}
 				icon={<VideoControlRevert />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'subAndRevert'}
-			/>*/}
+			/>
 			<VideoControlButton
 				onClick={playSub}
 				icon={<VideoControlPlayAndStop />}

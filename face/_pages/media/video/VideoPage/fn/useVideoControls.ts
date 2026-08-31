@@ -1,5 +1,3 @@
-// 'use client'
-
 import {
 	playSub,
 	playSubAndRevert,
@@ -8,7 +6,7 @@ import {
 	toNextSub,
 	toPrevSub,
 	toVideoStart,
-} from '_pages/media/video/VideoPage/fn/playback/playback'
+} from '_pages/media/video/VideoPage/fn/playback'
 import { useVideoStore } from '../../videoStore'
 
 export function useVideoControls() {

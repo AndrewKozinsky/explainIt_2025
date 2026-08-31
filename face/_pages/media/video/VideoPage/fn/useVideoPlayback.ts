@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useMemo } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-import { handleAutoStop, resetPlaybackRuntime } from '_pages/media/video/VideoPage/fn/playback/playback'
+import { handleAutoStop, resetPlaybackRuntime } from '_pages/media/video/VideoPage/fn/playback'
 import { useVideoStore } from '../../videoStore'
-// import { useVideoInput } from './useVideoInput'
+import { useVideoInput } from './useVideoInput'
 
 type UseVideoPlaybackParams = {
 	videoId: number
@@ -47,7 +47,7 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 		handleAutoStop()
 	}, [currentTime, stopAt])
 
-	// useVideoInput()
+	useVideoInput()
 
 	return { command, handleCommandHandled }
 }
