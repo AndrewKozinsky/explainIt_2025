@@ -14,10 +14,12 @@ import { useVideoStore } from '../../videoStore'
 export function useVideoControls() {
 	const activeMode = useVideoStore((state) => state.playback.mode)
 	const areSubsAvailable = useVideoStore((state) => state.subtitles !== null)
+	const isPaused = useVideoStore((state) => state.player.paused)
 
 	return {
 		activeMode,
 		areSubsAvailable,
+		isPaused,
 		toVideoStart,
 		stopOrPlayVideo,
 		playVideoShadowing,

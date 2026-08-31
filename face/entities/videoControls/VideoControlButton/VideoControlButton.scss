@@ -7,16 +7,17 @@
 	height: 3.2rem;
 	min-width: 4.4rem;
 	background-color: white;
+	color: vars.$textColor;
 	border-radius: 2rem;
+
+	&:hover:not(:disabled), &:focus:hover:not(:disabled) {
+		color: white;
+		background-color: vars.$accentColor-2;
+	}
 
 	&--active {
 		color: white;
 		background-color: vars.$accentColor-2;
 		border-color: vars.$accentColor-3;
-
-		&:hover {
-			color: white;
-			background-color: vars.$accentColor-2;
-		}
 	}
 }

@@ -15,6 +15,7 @@ function VideoControlButton(props: VideoControlButtonProps) {
 
 	return (
 		<BaseButton
+			theme='plain'
 			extraClass={cn('video-control-button', active && 'video-control-button--active')}
 			onClick={onClick}
 			disabled={disabled}
