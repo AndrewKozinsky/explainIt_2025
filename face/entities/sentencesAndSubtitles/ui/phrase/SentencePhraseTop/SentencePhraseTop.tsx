@@ -1,18 +1,17 @@
-// import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
-// import { LanguageCode } from '@/shared/utils/languages'
-// import FlashCardButton from '../FlashCardButton/FlashCardButton'
-// import './SentencePhraseTop.scss'
+import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
+import { LanguageCode } from '@/shared/utils/languages'
+import './SentencePhraseTop.scss'
 
-/*type SentencePhraseTopPartProps = {
+type SentencePhraseTopPartProps = {
 	phrase: string
 	phraseTranslation: string
 	sentencePhraseId: number
 	flashcardId: null | number
 	languageCode: string
 	onWhiteBackground?: boolean
-}*/
+}
 
-/*function SentencePhraseTop(props: SentencePhraseTopPartProps) {
+function SentencePhraseTop(props: SentencePhraseTopPartProps) {
 	const { phrase, phraseTranslation, languageCode, onWhiteBackground, sentencePhraseId, flashcardId } = props
 
 	return (
@@ -26,9 +25,9 @@
 				/>{' '}
 				— {phraseTranslation}
 			</p>
-			<FlashCardButton sentencePhraseId={sentencePhraseId} flashcardId={flashcardId} />
+			{/*<FlashCardButton sentencePhraseId={sentencePhraseId} flashcardId={flashcardId} />*/}
 		</div>
 	)
-}*/
+}
 
-// export default SentencePhraseTop
+export default SentencePhraseTop

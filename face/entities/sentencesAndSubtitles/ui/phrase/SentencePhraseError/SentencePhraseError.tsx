@@ -1,15 +1,15 @@
-// import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
-// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-// import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import './SentencePhraseError.scss'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import './SentencePhraseError.scss'
 
-/*type SentencePhraseErrorProps = {
+type SentencePhraseErrorProps = {
 	phraseAnalysis: SentencePhraseType
 	sentenceId: number
-}*/
+}
 
-/*function SentencePhraseError(props: SentencePhraseErrorProps) {
+function SentencePhraseError(props: SentencePhraseErrorProps) {
 	const { phraseAnalysis, sentenceId } = props
 	const mediaStore = useMediaStoreContext()
 
@@ -35,6 +35,6 @@
 			</Button>
 		</div>
 	)
-}*/
+}
 
-// export default SentencePhraseError
+export default SentencePhraseError

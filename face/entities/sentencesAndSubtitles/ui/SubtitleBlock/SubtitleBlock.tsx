@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
 import { LanguageCode } from '@/shared/utils/languages'
-// import SentenceAndPhraseTranslationBlock from '../SentenceTranslationBlock/SentenceAndPhraseTranslationBlock'
-import './SubtitleBlock.scss'
+import SentenceAndPhraseTranslationBlock from '../SentenceTranslationBlock/SentenceAndPhraseTranslationBlock'
 import Sentence from '../Sentence/Sentence'
+import './SubtitleBlock.scss'
 
 type SubtitleBlockProps = {
 	subtitle: VideoSubtitlesModel.Subtitle
@@ -46,13 +46,13 @@ function SubtitleBlock(props: SubtitleBlockProps) {
 					)
 				})}
 			</div>
-			{/*{lastSelectedSentence && (
+			{lastSelectedSentence && (
 				<SentenceAndPhraseTranslationBlock
 					sentenceId={lastSelectedSentence.sentenceId}
 					languageCode={languageCode}
 					bgColor='gray'
 				/>
-			)}*/}
+			)}
 		</div>
 	)
 }

@@ -1,9 +1,9 @@
 'use client'
 
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useMemo } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import { resetPlaybackRuntime } from '_pages/media/video/VideoPage/fn/playback/playback'
 import { useVideoStore } from '../../videoStore'
-// import { handleAutoStop, resetPlaybackRuntime } from './playback'
 // import { useVideoInput } from './useVideoInput'
 
 type UseVideoPlaybackParams = {
@@ -21,19 +21,20 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 
 	// При смене видео: обновляем субтитры и гасим авто-остановку/шэдоуинг,
 	// но сохраняем выбранный режим (чтобы подсветка активной кнопки не пропадала).
-	/*useEffect(() => {
+	useEffect(() => {
 		resetPlaybackRuntime()
 
 		useVideoStore.getState().setSubtitles(subtitleList)
 		useVideoStore.getState().setPlayback({ stopAt: null })
-	}, [videoId, subtitleList])*/
+	}, [videoId, subtitleList])
 
 	const command = useVideoStore((state) => state.player.commandQueue[0] ?? null)
 
 	const handleCommandHandled = useCallback((id: number) => {
-		// const queue = useVideoStore.getState().player.commandQueue
-		// if (queue[0]?.id !== id) return
-		// useVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
+		const queue = useVideoStore.getState().player.commandQueue
+		if (queue[0]?.id !== id) return
+
+		useVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
 	}, [])
 
 	// Авто-остановка по stopAt

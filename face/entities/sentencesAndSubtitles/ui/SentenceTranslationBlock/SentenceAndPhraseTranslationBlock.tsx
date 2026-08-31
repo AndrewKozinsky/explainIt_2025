@@ -1,15 +1,15 @@
-// import { LanguageCode } from '@/shared/utils/languages'
-// import PhraseDetails from '../PhraseDetails/PhraseDetails'
-// import SentenceTranslation from '../sentenceTranslation/SentenceTranslation/SentenceTranslation'
-// import './SentenceAndPhraseTranslationBlock.scss'
+import { LanguageCode } from '@/shared/utils/languages'
+import PhraseDetails from '../PhraseDetails/PhraseDetails'
+import SentenceTranslation from '../sentenceTranslation/SentenceTranslation/SentenceTranslation'
+import './SentenceAndPhraseTranslationBlock.scss'
 
-/*type SentenceAndPhraseTranslationBlockProps = {
+type SentenceAndPhraseTranslationBlockProps = {
 	sentenceId: number
 	languageCode: LanguageCode
 	bgColor: 'white' | 'gray'
-}*/
+}
 
-/*function SentenceAndPhraseTranslationBlock(props: SentenceAndPhraseTranslationBlockProps) {
+function SentenceAndPhraseTranslationBlock(props: SentenceAndPhraseTranslationBlockProps) {
 	const { sentenceId, languageCode, bgColor } = props
 
 	return (
@@ -22,6 +22,6 @@
 			</div>
 		</>
 	)
-}*/
+}
 
-// export default SentenceAndPhraseTranslationBlock
+export default SentenceAndPhraseTranslationBlock

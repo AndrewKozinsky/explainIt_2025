@@ -1,8 +1,8 @@
 import { VideoControlPlay } from '@/shared/ui/icons/videoControls/VideoControlPlay'
-// import { VideoControlPlayAndStop } from '@/shared/ui/icons/videoControls/VideoControlPlayAndStop'
+import { VideoControlPlayAndStop } from '@/shared/ui/icons/videoControls/VideoControlPlayAndStop'
 // import { VideoControlRevert } from '@/shared/ui/icons/videoControls/VideoControlRevert'
 import { VideoControlToLeftIcon } from '@/shared/ui/icons/videoControls/VideoControlToLeftIcon'
-// import { VideoControlToRightIcon } from '@/shared/ui/icons/videoControls/VideoControlToRightIcon'
+import { VideoControlToRightIcon } from '@/shared/ui/icons/videoControls/VideoControlToRightIcon'
 import VideoControlButton from '../VideoControlButton/VideoControlButton'
 import './VideoControls.scss'
 
@@ -44,20 +44,20 @@ function VideoControls(props: VideoControlsProps) {
 				active={activeMode === 'shadowing'}
 			/>*/}
 			<div className='video-controls__spacer' />
-			{/*<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />*/}
+			<VideoControlButton onClick={toPrevSub} icon={<VideoControlToLeftIcon />} disabled={!areSubsAvailable} />
 			{/*<VideoControlButton
 				onClick={playSubAndRevert}
 				icon={<VideoControlRevert />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'subAndRevert'}
 			/>*/}
-			{/*<VideoControlButton
+			<VideoControlButton
 				onClick={playSub}
 				icon={<VideoControlPlayAndStop />}
 				disabled={!areSubsAvailable}
 				active={activeMode === 'sub'}
-			/>*/}
-			{/*<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />*/}
+			/>
+			<VideoControlButton onClick={toNextSub} icon={<VideoControlToRightIcon />} disabled={!areSubsAvailable} />
 		</div>
 	)
 }

@@ -9,13 +9,13 @@ export type BaseMediaStore = {
 	selectedWordId: null | number
 	languageCode: null | LanguageCode
 	sentences: DetailsSentenceEntry[]
-	// retryFetchSentenceTranslationQueue: { sentenceId: number; sentenceText: string }[]
-	/*retryFetchPhraseQueue: {
+	retryFetchSentenceTranslationQueue: { sentenceId: number; sentenceText: string }[]
+	retryFetchPhraseQueue: {
 		sentenceId: number
 		randomGeneratedPhraseId: string
 		wordIds: number[]
 		sentenceText: string
-	}[]*/
+	}[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
 	// clearMediaData: () => void
@@ -33,9 +33,9 @@ export type BaseMediaStore = {
 		phrase: SentencePhraseType
 	}) => void
 	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
-	// setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
-	// retrySentenceTranslation: (sentenceId: number) => void
-	// retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
+	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
+	retrySentenceTranslation: (sentenceId: number) => void
+	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
 }
 
 export function createBaseMediaStore() {
@@ -44,8 +44,8 @@ export function createBaseMediaStore() {
 		selectedWordId: null,
 		languageCode: null,
 		sentences: [],
-		// retryFetchSentenceTranslationQueue: [],
-		// retryFetchPhraseQueue: [],
+		retryFetchSentenceTranslationQueue: [],
+		retryFetchPhraseQueue: [],
 		selectWord: ({ sentenceId, wordId }) => set({ selectedSentenceId: sentenceId, selectedWordId: wordId }),
 		setTranslationContext: ({ languageCode, sentences }) =>
 			set({
@@ -148,7 +148,7 @@ export function createBaseMediaStore() {
 					if (entry) entry.selectedPhraseId = phraseId
 				}),
 			),
-		/*setPhraseFlashcardId: ({ sentencePhraseId, flashcardId }) =>
+		setPhraseFlashcardId: ({ sentencePhraseId, flashcardId }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					for (const entry of state.sentences) {
@@ -156,8 +156,8 @@ export function createBaseMediaStore() {
 						if (phrase) phrase.flashcardId = flashcardId
 					}
 				}),
-			),*/
-		/*retrySentenceTranslation: (sentenceId) =>
+			),
+		retrySentenceTranslation: (sentenceId) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const index = state.sentences.findIndex((item) => item.sentenceId === sentenceId)
@@ -169,8 +169,8 @@ export function createBaseMediaStore() {
 						sentenceText: entry.sentenceText,
 					})
 				}),
-			),*/
-		/*retryPhraseTranslation: (sentenceId, randomGeneratedPhraseId) =>
+			),
+		retryPhraseTranslation: (sentenceId, randomGeneratedPhraseId) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
@@ -188,7 +188,7 @@ export function createBaseMediaStore() {
 						sentenceText: entry.sentenceText,
 					})
 				}),
-			),*/
+			),
 	}))
 }
 

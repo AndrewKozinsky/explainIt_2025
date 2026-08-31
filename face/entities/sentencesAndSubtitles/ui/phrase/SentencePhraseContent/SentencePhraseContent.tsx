@@ -1,15 +1,15 @@
-// import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
-// import SentencePhraseExample from '../SentencePhraseExample/SentencePhraseExample'
-// import SentencePhraseTop from '../SentencePhraseTop/SentencePhraseTop'
-// import './SentencePhraseContent.scss'
+import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
+import SentencePhraseExample from '../SentencePhraseExample/SentencePhraseExample'
+import SentencePhraseTop from '../SentencePhraseTop/SentencePhraseTop'
+import './SentencePhraseContent.scss'
 
-/*type SentencePhraseProps = {
+type SentencePhraseProps = {
 	phraseAnalysis: SentencePhraseType
 	languageCode: string
 	onWhiteBackground?: boolean
-}*/
+}
 
-/*function SentencePhraseContent(props: SentencePhraseProps) {
+function SentencePhraseContent(props: SentencePhraseProps) {
 	const { phraseAnalysis, languageCode, onWhiteBackground } = props
 
 	if (!phraseAnalysis || phraseAnalysis.loading || phraseAnalysis.error) {
@@ -39,6 +39,6 @@
 			})}
 		</>
 	)
-}*/
+}
 
-// export default SentencePhraseContent
+export default SentencePhraseContent

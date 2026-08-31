@@ -3,7 +3,7 @@ import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 
 function useLanguageFilter() {
-	const [languageCode, setLanguageCode] = useState<LanguageCode | undefined>(function () {
+	const [languageCode, setLanguageCode] = useState<LanguageCode | null>(function () {
 		return localStorageManager.lastLanguage.get()
 	})
 

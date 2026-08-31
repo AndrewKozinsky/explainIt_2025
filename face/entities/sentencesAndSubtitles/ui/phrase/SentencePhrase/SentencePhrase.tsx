@@ -1,19 +1,19 @@
-// import cn from 'classnames'
-// import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
-// import SentencePhraseContent from '../SentencePhraseContent/SentencePhraseContent'
-// import SentencePhraseError from '../SentencePhraseError/SentencePhraseError'
-// import SentencePhraseLoading from '../SentencePhraseLoading/SentencePhraseLoading'
-// import './SentencePhrase.scss'
+import cn from 'classnames'
+import type { SentencePhraseType } from '@/entities/media/store/translationTypes'
+import SentencePhraseContent from '../SentencePhraseContent/SentencePhraseContent'
+import SentencePhraseError from '../SentencePhraseError/SentencePhraseError'
+import SentencePhraseLoading from '../SentencePhraseLoading/SentencePhraseLoading'
+import './SentencePhrase.scss'
 
-/*type SentencePhraseProps = {
+type SentencePhraseProps = {
 	phraseAnalysis: SentencePhraseType
 	sentenceId: number
 	extraClass?: string
 	languageCode: string
 	onWhiteBackground?: boolean
-}*/
+}
 
-/*function SentencePhrase(props: SentencePhraseProps) {
+function SentencePhrase(props: SentencePhraseProps) {
 	const { phraseAnalysis, sentenceId, extraClass, languageCode, onWhiteBackground } = props
 
 	return (
@@ -27,6 +27,6 @@
 			/>
 		</div>
 	)
-}*/
+}
 
-// export default SentencePhrase
+export default SentencePhrase

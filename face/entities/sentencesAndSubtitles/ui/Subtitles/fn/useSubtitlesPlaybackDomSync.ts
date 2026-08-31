@@ -35,7 +35,6 @@ type UseSubtitlesPlaybackDomSyncParams = {
 export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
 	const { containerRef, subtitles, timeSource, topPaddingPx = 20 } = params
 
-	const currentSubtitleIdxRef = useRef(0)
 	const currentSubtitleIdRef = useRef<number | null>(null)
 	const didInitialAutoScrollRef = useRef(false)
 
@@ -45,7 +44,6 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 			return
 		}
 
-		currentSubtitleIdxRef.current = 0
 		currentSubtitleIdRef.current = null
 		didInitialAutoScrollRef.current = false
 	}, [subtitles])
@@ -112,13 +110,7 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 		}
 
 		const sync = (timeSeconds: number) => {
-			const nextIdx = findCurrentSubtitleIdx({
-				subtitles,
-				timeSeconds,
-				currentIdx: currentSubtitleIdxRef.current,
-			})
-
-			currentSubtitleIdxRef.current = nextIdx
+			const nextIdx = binarySearchSubtitleIdx(subtitles, timeSeconds)
 			const nextId = subtitles[nextIdx]?.id
 			if (nextId == null) return
 
@@ -135,53 +127,8 @@ export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncP
 }
 
 /**
- * Быстро находит индекс блока (subtitle/speechlessBar), соответствующего времени.
- *
- * - Нормальное воспроизведение: O(1) — текущий индекс обычно ещё активен.
- * - Постепенное движение вперёд/назад: линейный скан на несколько шагов.
- * - Перемотка (большой скачок): бинарный поиск O(log n).
- */
-function findCurrentSubtitleIdx(params: {
-	subtitles: VideoSubtitlesModel.Structure['subtitles']
-	timeSeconds: number
-	currentIdx: number
-}): number {
-	const { subtitles, timeSeconds, currentIdx } = params
-	const n = subtitles.length
-	if (n <= 1) return 0
-
-	let idx = Math.min(Math.max(0, currentIdx), n - 1)
-	const cur = subtitles[idx]
-
-	// Fast path: current subtitle is still active.
-	if (cur.fromSeconds <= timeSeconds && cur.toSeconds >= timeSeconds) {
-		return idx
-	}
-
-	// Gradual forward playback: scan ahead a few steps.
-	if (timeSeconds > cur.toSeconds) {
-		while (idx < n - 1 && subtitles[idx].toSeconds < timeSeconds) idx += 1
-		const next = subtitles[idx]
-		if (next.fromSeconds <= timeSeconds && next.toSeconds >= timeSeconds) return idx
-		// Если линейный скан не попал точно (например, попали в промежуток
-		// между блоками) — используем бинарный поиск.
-		return binarySearchSubtitleIdx(subtitles, timeSeconds)
-	}
-
-	// Gradual backward playback: scan back a few steps.
-	if (timeSeconds < cur.fromSeconds) {
-		while (idx > 0 && subtitles[idx].fromSeconds > timeSeconds) idx -= 1
-		const prev = subtitles[idx]
-		if (prev.fromSeconds <= timeSeconds && prev.toSeconds >= timeSeconds) return idx
-		return binarySearchSubtitleIdx(subtitles, timeSeconds)
-	}
-
-	return idx
-}
-
-/**
- * Бинарный поиск первого блока, у которого toSeconds >= timeSeconds.
- * Используется при перемотке — O(log n) вместо линейного O(n).
+ * Находит индекс блока (subtitle/speechlessBar), соответствующего времени, —
+ * это первый блок, у которого toSeconds >= timeSeconds. O(log n).
  */
 function binarySearchSubtitleIdx(subtitles: VideoSubtitlesModel.Structure['subtitles'], timeSeconds: number): number {
 	let lo = 0
@@ -292,6 +239,7 @@ function scrollWindowToReveal(params: { currentEl: HTMLElement; topPaddingPx: nu
 function getStickyVideoBottomPx(fromEl: HTMLElement): number {
 	const doc = fromEl.ownerDocument ?? document
 	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
+
 	const videoEl =
 		(root.querySelector('[data-sticky-video]') as HTMLElement | null) ??
 		(doc.querySelector('[data-sticky-video]') as HTMLElement | null)

@@ -6,8 +6,8 @@
 // import DictionaryPageContent from '_pages/dictionary/DictionaryPageContent/DictionaryPageContent'
 
 /** Страница словаря */
-/*function DictionaryPage() {
-	return (
+function DictionaryPage() {
+	/*return (
 		<PageWrapper withTop withBottom>
 			<PageContentWrapper>
 				<BreadCrumbs />
@@ -15,7 +15,8 @@
 				<DictionaryPageContent />
 			</PageContentWrapper>
 		</PageWrapper>
-	)
-}*/
+	)*/
+	return <p>DictionaryPage</p>
+}
 
-// export default DictionaryPage
+export default DictionaryPage

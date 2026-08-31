@@ -1,6 +1,5 @@
 // 'use client'
 
-import { useVideoStore } from '../../videoStore'
 import {
 	playSub,
 	playSubAndRevert,
@@ -9,7 +8,8 @@ import {
 	toNextSub,
 	toPrevSub,
 	toVideoStart,
-} from './playback'
+} from '_pages/media/video/VideoPage/fn/playback/playback'
+import { useVideoStore } from '../../videoStore'
 
 export function useVideoControls() {
 	const activeMode = useVideoStore((state) => state.playback.mode)

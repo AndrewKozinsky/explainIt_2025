@@ -4,7 +4,7 @@ import { ProficiencyKey } from './proficiency'
 import { SortKey } from './sort'
 
 export type YouTubeVideosFilterValues = {
-	languageCode: LanguageCode | undefined
+	languageCode: LanguageCode | null
 	durationKey: DurationKey
 	topicKey: string
 	proficiencyKey: ProficiencyKey

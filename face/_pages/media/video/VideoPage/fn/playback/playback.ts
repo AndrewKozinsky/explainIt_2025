@@ -1,39 +1,24 @@
+import {
+	findActiveSubtitleIndex,
+	findNextSubtitleIndex,
+	findPrevSubtitleIndex,
+} from '@/entities/sentencesAndSubtitles/lib/subtitles'
+import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
 import type { PlayerCommand } from '@/entities/videoPlayer'
-// import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
-import { useVideoStore } from '../../videoStore'
-// import { findActiveSubtitleIndex, findNextSubtitleIndex, findPrevSubtitleIndex } from './subtitles'
+import { useVideoStore } from '../../../videoStore'
 
-// type Subtitle = VideoSubtitlesModel.Subtitle
+type Subtitle = VideoSubtitlesModel.Subtitle
 
 // ── Runtime (модульное состояние, не в сторе) ─────────────────────────
 
 // let shadowTimer: null | ReturnType<typeof setTimeout> = null
 // let shadowIndex = -1
-// let revertToSeconds: null | number = null
-
-/*function getSubtitles(): null | Subtitle[] {
-	return getStore().subtitles
-}*/
-
-/*function getCurrentTime(): number {
-	return getStore().player.currentTime
-}*/
-
-/*function setStopAt(stopAt: null | number) {
-	getStore().setPlayback({ stopAt })
-}*/
+let revertToSeconds: null | number = null
 
 /*function clearShadowTimer() {
 	if (shadowTimer == null) return
 	clearTimeout(shadowTimer)
 	shadowTimer = null
-}*/
-
-/** Активный субтитр или следующий за текущей точкой (если точка вне субтитра). */
-/*function getTargetSubtitleIndex(subtitles: Subtitle[], t: number): number {
-	const active = findActiveSubtitleIndex(subtitles, t)
-	if (active !== -1) return active
-	return findNextSubtitleIndex(subtitles, t)
 }*/
 
 // ── Авто-остановка ────────────────────────────────────────────────────
@@ -67,30 +52,30 @@ import { useVideoStore } from '../../videoStore'
 	send({ type: 'PLAY' })
 }*/
 
-/*export function handleAutoStop() {
+export function handleAutoStop() {
 	const { mode } = getStore().playback
 
-	if (mode === 'shadowing') {
+	/*if (mode === 'shadowing') {
 		handleShadowAutoStop()
 		return
-	}
+	}*/
 
-	if (mode === 'subAndRevert') {
+	/*if (mode === 'subAndRevert') {
 		send({ type: 'PAUSE' })
 		send({ type: 'SET_TIME', time: revertToSeconds ?? 0 })
 		setStopAt(null)
 		revertToSeconds = null
 		return
-	}
+	}*/
 
 	// 'sub' (и защитно — 'video')
 	send({ type: 'PAUSE' })
 	setStopAt(null)
-}*/
+}
 
 // ── Режимы ────────────────────────────────────────────────────────────
 
-/*function startSubMode() {
+function startSubMode() {
 	const subtitles = getSubtitles()
 	const t = getCurrentTime()
 
@@ -105,7 +90,7 @@ import { useVideoStore } from '../../videoStore'
 	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
 	setStopAt(subtitles[target].toSeconds)
 	send({ type: 'PLAY' })
-}*/
+}
 
 /*function startSubAndRevertMode() {
 	const subtitles = getSubtitles()
@@ -182,13 +167,15 @@ export function playVideoShadowing() {
 
 /** 4. Переход к началу предыдущего субтитра и остановка. */
 export function toPrevSub() {
-	// const subtitles = getSubtitles()
-	// if (!subtitles || subtitles.length === 0) return
-	// const target = findPrevSubtitleIndex(subtitles, getCurrentTime())
-	// if (target === -1) return
-	// cancelAutoStop()
-	// send({ type: 'PAUSE' })
-	// send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
+	const subtitles = getSubtitles()
+	if (!subtitles || subtitles.length === 0) return
+
+	const target = findPrevSubtitleIndex(subtitles, getCurrentTime())
+	if (target === -1) return
+
+	cancelAutoStop()
+	send({ type: 'PAUSE' })
+	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
 }
 
 /** 5. Текущий субтитр с текущего места, возврат к началу и остановка. Тумблер. */
@@ -204,24 +191,27 @@ export function playSubAndRevert() {
 
 /** 6. Текущий субтитр и остановка перед следующим. Тумблер. */
 export function playSub() {
-	/*if (getStore().playback.mode === 'sub') {
+	if (getStore().playback.mode === 'sub') {
 		if (isPlaying()) send({ type: 'PAUSE' })
 		else startSubMode()
 
 		return
-	}*/
-	// startSubMode()
+	}
+
+	startSubMode()
 }
 
 /** 7. Переход к началу следующего субтитра и остановка. */
 export function toNextSub() {
-	// const subtitles = getSubtitles()
-	// if (!subtitles || subtitles.length === 0) return
-	// const target = findNextSubtitleIndex(subtitles, getCurrentTime())
-	// if (target === -1) return
-	// cancelAutoStop()
-	// send({ type: 'PAUSE' })
-	// send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
+	const subtitles = getSubtitles()
+	if (!subtitles || subtitles.length === 0) return
+
+	const target = findNextSubtitleIndex(subtitles, getCurrentTime())
+	if (target === -1) return
+
+	cancelAutoStop()
+	send({ type: 'PAUSE' })
+	send({ type: 'SET_TIME', time: subtitles[target].fromSeconds })
 }
 
 /** Пробел / центр-клик: повторяет действие текущей режимной кнопки. */
@@ -260,13 +250,29 @@ export function toNextSub() {
 }*/
 
 /** Полный сброс runtime-состояния (при смене видео). */
-/*export function resetPlaybackRuntime() {
-	clearShadowTimer()
-	shadowIndex = -1
+export function resetPlaybackRuntime() {
+	// clearShadowTimer()
+	// shadowIndex = -1
 	revertToSeconds = null
-}*/
+}
 
 // ── Хелперы ───────────────────────────────────────────────────────────
+
+/** Активный субтитр или следующий за текущей точкой (если точка вне субтитра). */
+function getTargetSubtitleIndex(subtitles: Subtitle[], t: number): number {
+	const active = findActiveSubtitleIndex(subtitles, t)
+	if (active !== -1) return active
+
+	return findNextSubtitleIndex(subtitles, t)
+}
+
+function getCurrentTime(): number {
+	return getStore().player.currentTime
+}
+
+function getSubtitles(): null | Subtitle[] {
+	return getStore().subtitles
+}
 
 function setMode(mode: 'video' | 'shadowing' | 'subAndRevert' | 'sub') {
 	getStore().setPlayback({ mode })
@@ -288,6 +294,10 @@ function send(command: PlayerCommand) {
 function cancelAutoStop() {
 	// clearShadowTimer()
 	// shadowIndex = -1
-	// revertToSeconds = null
-	// setStopAt(null)
+	revertToSeconds = null
+	setStopAt(null)
+}
+
+function setStopAt(stopAt: null | number) {
+	getStore().setPlayback({ stopAt })
 }

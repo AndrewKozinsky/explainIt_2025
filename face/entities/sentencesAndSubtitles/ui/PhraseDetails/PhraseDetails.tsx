@@ -1,12 +1,12 @@
-// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-// import SentencePhrase from '../phrase/SentencePhrase/SentencePhrase'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+import SentencePhrase from '../phrase/SentencePhrase/SentencePhrase'
 
-/*type PhraseDetailsProps = {
+type PhraseDetailsProps = {
 	sentenceId: number
 	languageCode: string
-}*/
+}
 
-/*function PhraseDetails(props: PhraseDetailsProps) {
+function PhraseDetails(props: PhraseDetailsProps) {
 	const { sentenceId, languageCode } = props
 
 	const mediaStore = useMediaStoreContext()
@@ -22,6 +22,6 @@
 	}
 
 	return <SentencePhrase phraseAnalysis={coveringPhrase} sentenceId={sentenceId} languageCode={languageCode} />
-}*/
+}
 
-// export default PhraseDetails
+export default PhraseDetails

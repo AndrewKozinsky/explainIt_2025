@@ -100,13 +100,11 @@ export type VideoModel = VideoLiteModel & {
 	subtitles: null | VideoSubtitlesModel.Structure
 }
 
-/**
- * Статус генерации субтитров.
- */
-/*export type SubtitlesStatusModel = {
+/** Статус генерации субтитров. */
+export type SubtitlesStatusModel = {
 	videoId: number
 	source: null | SubtitlesSourceModelType
 	status: null | SubtitlesStatusModelType
 	errorCode: null | string
 	jobId: null | string
-}*/
+}

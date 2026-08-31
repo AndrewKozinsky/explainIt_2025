@@ -14,7 +14,7 @@ type PlayerState = {
 type PlaybackState = {
 	mode: PlaybackMode
 	/** Время автоматической остановки. null — играем без авто-остановки. */
-	// stopAt: null | number
+	stopAt: null | number
 }
 
 type VideoStoreValues = {
@@ -26,7 +26,7 @@ type VideoStoreValues = {
 type VideoStoreMethods = {
 	setPlayerState: (state: Partial<PlayerState>) => void
 	sendPlayerCommand: (command: PlayerCommand) => void
-	// setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
+	setSubtitles: (subtitles: null | VideoSubtitlesModel.Subtitle[]) => void
 	setPlayback: (playback: Partial<PlaybackState>) => void
 }
 
@@ -44,7 +44,7 @@ const defaults: VideoStoreValues = {
 	subtitles: null,
 	playback: {
 		mode: 'video',
-		// stopAt: null,
+		stopAt: null,
 	},
 }
 
@@ -70,9 +70,9 @@ export const useVideoStore = create<VideoStore>()((set) => ({
 			},
 		}))
 	},
-	/*setSubtitles(subtitles) {
+	setSubtitles(subtitles) {
 		set({ subtitles })
-	},*/
+	},
 	setPlayback(playback) {
 		set((state) => ({
 			playback: {

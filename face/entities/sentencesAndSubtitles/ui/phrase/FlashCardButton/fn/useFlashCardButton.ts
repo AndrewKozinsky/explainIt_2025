@@ -1,21 +1,21 @@
-// import { useContext, useState } from 'react'
-// import { useMutation, useQueryClient } from '@tanstack/react-query'
-// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-// import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
-// import { useUser } from '@/shared/api/auth/UserProvider'
-// import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { useContext, useState } from 'react'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { flashcardQueries } from '@/entities/flashcard/FlashcardQueryFacade'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+import { useUser } from '@/shared/api/auth/UserProvider'
+import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 
-/*type UseFlashCardButtonInput = {
+type UseFlashCardButtonInput = {
 	sentencePhraseId: number
 	flashcardId: null | number
-}*/
+}
 
-/*export type FlashCardButtonView =
+export type FlashCardButtonView =
 	| { state: 'hidden' }
 	| { state: 'add'; onClick: () => void; disabled: boolean }
-	| { state: 'remove'; onClick: () => void; disabled: boolean }*/
+	| { state: 'remove'; onClick: () => void; disabled: boolean }
 
-/*export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardButtonView {
+export function useFlashCardButton(input: UseFlashCardButtonInput): FlashCardButtonView {
 	const user = useUser()
 	const { notify } = useContext(NotificationContext)
 	const mediaStore = useMediaStoreContext()
@@ -116,4 +116,4 @@
 				})
 		},
 	}
-}*/
+}

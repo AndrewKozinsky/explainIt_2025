@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 
 // import React from 'react'
 // import { redirect } from 'next/navigation'
@@ -8,20 +8,21 @@
 // import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 // import { ConfirmationStatus, useConfirmEmail } from './fn/confirmEmail'
 
-/*function AuthConfirmEmailPage() {
-	const confirmationStatus = useConfirmEmail()
-	const locale = useLocale()
+function AuthConfirmEmailPage() {
+	// const confirmationStatus = useConfirmEmail()
+	// const locale = useLocale()
 
-	const contentMapper: Record<Exclude<ConfirmationStatus, 'success'>, React.ReactNode> = {
+	/*const contentMapper: Record<Exclude<ConfirmationStatus, 'success'>, React.ReactNode> = {
 		loading: <Spinner size='small' />,
 		error: <ErrorMessage text='Код подтверждения или не найден или истёк.' />,
-	}
+	}*/
 
-	if (confirmationStatus === 'success') {
+	/*if (confirmationStatus === 'success') {
 		redirect(localizePath(locale, pageUrls.auth.login.path))
-	}
+	}*/
 
-	return contentMapper[confirmationStatus]
-}*/
+	// return contentMapper[confirmationStatus]
+	return <p>AuthConfirmEmailPage</p>
+}
 
-// export default AuthConfirmEmailPage
+export default AuthConfirmEmailPage

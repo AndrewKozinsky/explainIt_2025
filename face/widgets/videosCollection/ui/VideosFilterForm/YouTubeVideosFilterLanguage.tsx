@@ -3,8 +3,8 @@ import Select, { type DropdownOption } from '@/shared/ui/formRelated/Select/Sele
 import { type LanguageCode, languageKeys, languages } from '@/shared/utils/languages'
 
 type YouTubeVideosFilterLanguageProps = {
-	languageCode: LanguageCode | undefined
-	onChange: (languageCode: LanguageCode | undefined) => void
+	languageCode: LanguageCode | null
+	onChange: (languageCode: LanguageCode | null) => void
 }
 
 function YouTubeVideosFilterLanguage(props: YouTubeVideosFilterLanguageProps) {
@@ -22,7 +22,7 @@ function YouTubeVideosFilterLanguage(props: YouTubeVideosFilterLanguageProps) {
 				value: languageCode ?? '',
 				onChange: function (e) {
 					const value = e.target.value
-					onChange(value === '' ? undefined : (value as LanguageCode))
+					onChange(value === '' ? null : (value as LanguageCode))
 				},
 			}}
 		/>
