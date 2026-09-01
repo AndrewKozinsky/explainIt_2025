@@ -22,6 +22,7 @@ model User {
 	Book                                    Book[]
 	Video                                   Video[]
 	SentenceChatThread                      SentenceChatThread[]
+	AiDialogueScenario                      AiDialogueScenario[]
 	created_at                              DateTime                 @default(now())
 }
 
@@ -258,6 +259,20 @@ model SentenceChatMessage {
 	updated_at    DateTime                  @default(now())
 
 	@@index([thread_id])
+}
+
+model AiDialogueScenario {
+	id            Int          @id @default(autoincrement())
+	slug          String?      @unique
+	title         String
+	description   String
+	system_prompt String
+	language_code LanguageCode
+	user          User?        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	user_id       Int?
+	created_at    DateTime     @default(now())
+
+	@@index([user_id])
 }
 
 enum BalanceTransactionType {

@@ -3,6 +3,7 @@ import { APP_FILTER } from '@nestjs/core'
 import { CqrsModule } from '@nestjs/cqrs'
 import { ScheduleModule } from '@nestjs/schedule'
 // import { Request, Response } from 'express'
+import { AiDialogueScenarioModule } from 'routes/aiDialogueScenario/aiDialogueScenario.module'
 import { AuthModule } from 'routes/auth/auth.module'
 import { BookModule } from 'routes/book/book.module'
 import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
@@ -71,6 +72,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		PaymentModule,
 		YooKassaModule,
 		WebhookModule,
+		AiDialogueScenarioModule,
 		BookModule,
 		BookChapterModule,
 		VideoModule,

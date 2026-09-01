@@ -257,6 +257,7 @@ export type UserWhereInput = {
   Book?: Prisma.BookListRelationFilter
   Video?: Prisma.VideoListRelationFilter
   SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
+  AiDialogueScenario?: Prisma.AiDialogueScenarioListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -274,6 +275,7 @@ export type UserOrderByWithRelationInput = {
   Book?: Prisma.BookOrderByRelationAggregateInput
   Video?: Prisma.VideoOrderByRelationAggregateInput
   SentenceChatThread?: Prisma.SentenceChatThreadOrderByRelationAggregateInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -294,6 +296,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   Book?: Prisma.BookListRelationFilter
   Video?: Prisma.VideoListRelationFilter
   SentenceChatThread?: Prisma.SentenceChatThreadListRelationFilter
+  AiDialogueScenario?: Prisma.AiDialogueScenarioListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -342,6 +345,7 @@ export type UserCreateInput = {
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -359,6 +363,7 @@ export type UserUncheckedCreateInput = {
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserUpdateInput = {
@@ -375,6 +380,7 @@ export type UserUpdateInput = {
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -392,6 +398,7 @@ export type UserUncheckedUpdateInput = {
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -583,6 +590,22 @@ export type UserUpdateOneRequiredWithoutSentenceChatThreadNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutSentenceChatThreadInput, Prisma.UserUpdateWithoutSentenceChatThreadInput>, Prisma.UserUncheckedUpdateWithoutSentenceChatThreadInput>
 }
 
+export type UserCreateNestedOneWithoutAiDialogueScenarioInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAiDialogueScenarioInput, Prisma.UserUncheckedCreateWithoutAiDialogueScenarioInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAiDialogueScenarioInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutAiDialogueScenarioNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutAiDialogueScenarioInput, Prisma.UserUncheckedCreateWithoutAiDialogueScenarioInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAiDialogueScenarioInput
+  upsert?: Prisma.UserUpsertWithoutAiDialogueScenarioInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutAiDialogueScenarioInput, Prisma.UserUpdateWithoutAiDialogueScenarioInput>, Prisma.UserUncheckedUpdateWithoutAiDialogueScenarioInput>
+}
+
 export type UserCreateWithoutUserBalanceTransactionInput = {
   email: string
   password?: string | null
@@ -596,6 +619,7 @@ export type UserCreateWithoutUserBalanceTransactionInput = {
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutUserBalanceTransactionInput = {
@@ -612,6 +636,7 @@ export type UserUncheckedCreateWithoutUserBalanceTransactionInput = {
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutUserBalanceTransactionInput = {
@@ -643,6 +668,7 @@ export type UserUpdateWithoutUserBalanceTransactionInput = {
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutUserBalanceTransactionInput = {
@@ -659,6 +685,7 @@ export type UserUncheckedUpdateWithoutUserBalanceTransactionInput = {
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutPaymentInput = {
@@ -674,6 +701,7 @@ export type UserCreateWithoutPaymentInput = {
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutPaymentInput = {
@@ -690,6 +718,7 @@ export type UserUncheckedCreateWithoutPaymentInput = {
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutPaymentInput = {
@@ -721,6 +750,7 @@ export type UserUpdateWithoutPaymentInput = {
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPaymentInput = {
@@ -737,6 +767,7 @@ export type UserUncheckedUpdateWithoutPaymentInput = {
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutBookInput = {
@@ -752,6 +783,7 @@ export type UserCreateWithoutBookInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutBookInput = {
@@ -768,6 +800,7 @@ export type UserUncheckedCreateWithoutBookInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutBookInput = {
@@ -799,6 +832,7 @@ export type UserUpdateWithoutBookInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutBookInput = {
@@ -815,6 +849,7 @@ export type UserUncheckedUpdateWithoutBookInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutVideoInput = {
@@ -830,6 +865,7 @@ export type UserCreateWithoutVideoInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutVideoInput = {
@@ -846,6 +882,7 @@ export type UserUncheckedCreateWithoutVideoInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutVideoInput = {
@@ -877,6 +914,7 @@ export type UserUpdateWithoutVideoInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutVideoInput = {
@@ -893,6 +931,7 @@ export type UserUncheckedUpdateWithoutVideoInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutUserNestedInput
 }
 
 export type UserCreateWithoutSentenceChatThreadInput = {
@@ -908,6 +947,7 @@ export type UserCreateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutUserInput
 }
 
 export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
@@ -924,6 +964,7 @@ export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutUserInput
 }
 
 export type UserCreateOrConnectWithoutSentenceChatThreadInput = {
@@ -955,6 +996,7 @@ export type UserUpdateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
@@ -971,6 +1013,89 @@ export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
+  AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutUserNestedInput
+}
+
+export type UserCreateWithoutAiDialogueScenarioInput = {
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  balance?: number
+  created_at?: Date | string
+  Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
+  Book?: Prisma.BookCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoCreateNestedManyWithoutUserInput
+  SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
+}
+
+export type UserUncheckedCreateWithoutAiDialogueScenarioInput = {
+  id?: number
+  email: string
+  password?: string | null
+  email_confirmation_code?: string | null
+  email_confirmation_code_expiration_date?: string | null
+  is_email_confirmed?: boolean
+  is_user_confirmed?: boolean
+  balance?: number
+  created_at?: Date | string
+  Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
+  Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
+  Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
+}
+
+export type UserCreateOrConnectWithoutAiDialogueScenarioInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutAiDialogueScenarioInput, Prisma.UserUncheckedCreateWithoutAiDialogueScenarioInput>
+}
+
+export type UserUpsertWithoutAiDialogueScenarioInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutAiDialogueScenarioInput, Prisma.UserUncheckedUpdateWithoutAiDialogueScenarioInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutAiDialogueScenarioInput, Prisma.UserUncheckedCreateWithoutAiDialogueScenarioInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutAiDialogueScenarioInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutAiDialogueScenarioInput, Prisma.UserUncheckedUpdateWithoutAiDialogueScenarioInput>
+}
+
+export type UserUpdateWithoutAiDialogueScenarioInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
+  Book?: Prisma.BookUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutAiDialogueScenarioInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  password?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  email_confirmation_code_expiration_date?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  balance?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
+  UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
+  Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
+  Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
+  SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
 }
 
 
@@ -984,6 +1109,7 @@ export type UserCountOutputType = {
   Book: number
   Video: number
   SentenceChatThread: number
+  AiDialogueScenario: number
 }
 
 export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -992,6 +1118,7 @@ export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.I
   Book?: boolean | UserCountOutputTypeCountBookArgs
   Video?: boolean | UserCountOutputTypeCountVideoArgs
   SentenceChatThread?: boolean | UserCountOutputTypeCountSentenceChatThreadArgs
+  AiDialogueScenario?: boolean | UserCountOutputTypeCountAiDialogueScenarioArgs
 }
 
 /**
@@ -1039,6 +1166,13 @@ export type UserCountOutputTypeCountSentenceChatThreadArgs<ExtArgs extends runti
   where?: Prisma.SentenceChatThreadWhereInput
 }
 
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAiDialogueScenarioArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AiDialogueScenarioWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1055,6 +1189,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   Book?: boolean | Prisma.User$BookArgs<ExtArgs>
   Video?: boolean | Prisma.User$VideoArgs<ExtArgs>
   SentenceChatThread?: boolean | Prisma.User$SentenceChatThreadArgs<ExtArgs>
+  AiDialogueScenario?: boolean | Prisma.User$AiDialogueScenarioArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
@@ -1101,6 +1236,7 @@ export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   Book?: boolean | Prisma.User$BookArgs<ExtArgs>
   Video?: boolean | Prisma.User$VideoArgs<ExtArgs>
   SentenceChatThread?: boolean | Prisma.User$SentenceChatThreadArgs<ExtArgs>
+  AiDialogueScenario?: boolean | Prisma.User$AiDialogueScenarioArgs<ExtArgs>
   _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -1114,6 +1250,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     Book: Prisma.$BookPayload<ExtArgs>[]
     Video: Prisma.$VideoPayload<ExtArgs>[]
     SentenceChatThread: Prisma.$SentenceChatThreadPayload<ExtArgs>[]
+    AiDialogueScenario: Prisma.$AiDialogueScenarioPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1524,6 +1661,7 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   Book<T extends Prisma.User$BookArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$BookArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Video<T extends Prisma.User$VideoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$VideoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$VideoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   SentenceChatThread<T extends Prisma.User$SentenceChatThreadArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$SentenceChatThreadArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentenceChatThreadPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  AiDialogueScenario<T extends Prisma.User$AiDialogueScenarioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$AiDialogueScenarioArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueScenarioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2072,6 +2210,30 @@ export type User$SentenceChatThreadArgs<ExtArgs extends runtime.Types.Extensions
   take?: number
   skip?: number
   distinct?: Prisma.SentenceChatThreadScalarFieldEnum | Prisma.SentenceChatThreadScalarFieldEnum[]
+}
+
+/**
+ * User.AiDialogueScenario
+ */
+export type User$AiDialogueScenarioArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AiDialogueScenario
+   */
+  select?: Prisma.AiDialogueScenarioSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AiDialogueScenario
+   */
+  omit?: Prisma.AiDialogueScenarioOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AiDialogueScenarioInclude<ExtArgs> | null
+  where?: Prisma.AiDialogueScenarioWhereInput
+  orderBy?: Prisma.AiDialogueScenarioOrderByWithRelationInput | Prisma.AiDialogueScenarioOrderByWithRelationInput[]
+  cursor?: Prisma.AiDialogueScenarioWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AiDialogueScenarioScalarFieldEnum | Prisma.AiDialogueScenarioScalarFieldEnum[]
 }
 
 /**

@@ -96,6 +96,9 @@ export const bdConfig = {
 			SentenceChatThread: {
 				type: 'oneToMany',
 			},
+			AiDialogueScenario: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -1217,6 +1220,67 @@ export const bdConfig = {
 			},
 			updated_at: {
 				type: 'updatedAt',
+			},
+		},
+	},
+	// Сценарий диалога пользователя с ИИ (LLM играет роль NPC в сценке).
+	AiDialogueScenario: {
+		dtoProps: {},
+		indexes: [{ fields: ['user_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+				description: 'AI dialogue scenario ID',
+				example: 1,
+			},
+			slug: {
+				type: 'string',
+				description: 'Stable unique key of the scenario (null for user-created scenarios)',
+				example: 'at-the-dentist',
+				required: false,
+				unique: true,
+				maxLength: 255,
+			},
+			title: {
+				type: 'string',
+				description: 'Scenario title shown on the button',
+				example: 'At the Dentist',
+				required: true,
+				maxLength: 255,
+			},
+			description: {
+				type: 'string',
+				description: 'Short description of the scenario',
+				example: 'You visit the dentist and describe your symptoms',
+				required: true,
+				maxLength: 2000,
+			},
+			system_prompt: {
+				type: 'string',
+				description: 'System prompt with the scene and the role of the NPC',
+				example: 'You are a friendly dentist named Dr. Collins...',
+				required: true,
+			},
+			language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				description: 'Language of the dialogue',
+				example: 'en',
+				required: true,
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				relationField: 'user',
+				foreignTable: 'User',
+				foreignField: 'id',
+				description: 'User ID who owns the scenario (null for public scenarios)',
+				example: 1,
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},

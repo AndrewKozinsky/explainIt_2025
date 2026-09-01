@@ -102,3 +102,8 @@ export type SentenceChatThread = Prisma.SentenceChatThreadModel
  * 
  */
 export type SentenceChatMessage = Prisma.SentenceChatMessageModel
+/**
+ * Model AiDialogueScenario
+ * 
+ */
+export type AiDialogueScenario = Prisma.AiDialogueScenarioModel
