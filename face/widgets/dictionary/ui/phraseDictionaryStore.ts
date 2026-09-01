@@ -1,9 +1,9 @@
-// import { create } from 'zustand'
-// import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
-// import type { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-// import { LanguageCode, languages } from '@/shared/utils/languages'
+import { create } from 'zustand'
+import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
+import type { PhraseTranslationDataModel } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+import { LanguageCode, languages } from '@/shared/utils/languages'
 
-/*export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
+export const phraseDictionaryStoreValues: PhraseDictionaryStoreValues = {
 	languageCode: languages.en.code as LanguageCode,
 	targetLanguageCode: null,
 	inputText: '',
@@ -14,9 +14,9 @@
 	error: null,
 	nonExistentWord: false,
 	retryTrigger: 0,
-}*/
+}
 
-/*export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set, get) => {
+export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set, get) => {
 	return {
 		...phraseDictionaryStoreValues,
 		setInputText: (text: string) => {
@@ -42,13 +42,13 @@
 			set({ retryTrigger: get().retryTrigger + 1 })
 		},
 	}
-})*/
+})
 
-// export type TranslationStatus = 'idle' | 'loading' | 'ready' | 'error'
+export type TranslationStatus = 'idle' | 'loading' | 'ready' | 'error'
 
-// export type PhraseDictionaryStoreNext = PhraseDictionaryStoreValues & PhraseDictionaryStoreMethods
+export type PhraseDictionaryStoreNext = PhraseDictionaryStoreValues & PhraseDictionaryStoreMethods
 
-/*export type PhraseDictionaryStoreValues = {
+export type PhraseDictionaryStoreValues = {
 	languageCode: LanguageCode
 	targetLanguageCode: string | null
 	inputText: string
@@ -59,9 +59,9 @@
 	error: null | string
 	nonExistentWord: boolean
 	retryTrigger: number
-}*/
+}
 
-/*export type PhraseDictionaryStoreMethods = {
+export type PhraseDictionaryStoreMethods = {
 	setInputText: (text: string) => void
 	setTranslationResult: (
 		translation: PhraseTranslationDataModel,
@@ -72,4 +72,4 @@
 	setNonExistentWord: () => void
 	setStatusLoading: () => void
 	triggerRetry: () => void
-}*/
+}

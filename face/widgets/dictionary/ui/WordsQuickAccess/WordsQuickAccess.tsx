@@ -1,13 +1,13 @@
-// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-// import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
-// import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
-// import './WordsQuickAccess.scss'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { fetchDictionaryArticle } from '../../lib/fetchDictionaryArticle'
+import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
+import './WordsQuickAccess.scss'
 
-/*type WordsQuickAccessProps = {
+type WordsQuickAccessProps = {
 	words: string[]
-}*/
+}
 
-/*function WordsQuickAccess(props: WordsQuickAccessProps) {
+function WordsQuickAccess(props: WordsQuickAccessProps) {
 	const { words } = props
 
 	if (words.length === 0) {
@@ -28,6 +28,6 @@
 			))}
 		</div>
 	)
-}*/
+}
 
-// export default WordsQuickAccess
+export default WordsQuickAccess

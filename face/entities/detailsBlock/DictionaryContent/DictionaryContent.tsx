@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { offsetsFromWordIds, segmentSentence } from '@/entities/media/model/prepareData'
+import { offsetsFromWordIds } from '@/entities/media/model/prepareData'
 import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import { PhraseDictionary } from '@/widgets/dictionary'
 
@@ -11,15 +11,12 @@ function DictionaryContent() {
 	const currentSentenceText = mediaStore(
 		(s) => s.sentences.find((entry) => entry.sentenceId === currentSentenceId)?.sentenceText ?? null,
 	)
+	const currentPhraseText = mediaStore((s) => {
+		const entry = s.sentences.find((item) => item.sentenceId === currentSentenceId)
+		const phrase = entry?.data.phrases.find((item) => item.randomGeneratedPhraseId === entry.selectedPhraseId)
 
-	const words = useMemo(
-		function () {
-			if (!currentSentenceText) return []
-
-			return segmentSentence(currentSentenceText, languageCode).map((word) => word.word)
-		},
-		[currentSentenceText, languageCode],
-	)
+		return phrase && !phrase.loading ? phrase.phrase : null
+	})
 
 	const currentWord = useMemo(
 		function () {
@@ -32,6 +29,11 @@ function DictionaryContent() {
 			})?.text
 		},
 		[currentSentenceText, currentWordId, languageCode],
+	)
+
+	const words = useMemo(
+		() => [currentWord, currentPhraseText].filter((word): word is string => Boolean(word)),
+		[currentWord, currentPhraseText],
 	)
 
 	if (!languageCode) return null
