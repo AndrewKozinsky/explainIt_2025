@@ -1,4 +1,4 @@
-// import { LanguageCode } from '@/shared/utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 // import DictionaryPhraseTranscription from '../DictionaryPhraseTranscription/DictionaryPhraseTranscription'
 // import PhraseDictionaryError from '../PhraseDictionaryError/PhraseDictionaryError'
 // import PhraseDictionaryInput from '../PhraseDictionaryInput/PhraseDictionaryInput'
@@ -9,22 +9,23 @@
 // import { useInitStore } from './fn/useInitStore'
 // import { useObservePhrase } from './fn/useObservePhrase'
 // import { useRetryEffect } from './fn/useRetryEffect'
-// import './PhraseDictionary.scss'
+import './PhraseDictionary.scss'
 
-/*type PhraseDictionaryProps = {
+type PhraseDictionaryProps = {
 	languageCode: LanguageCode
-	phrase?: string
+	currentWord?: string
 	words: string[]
-}*/
+}
 
-/*function PhraseDictionary(props: PhraseDictionaryProps) {
-	const { languageCode, phrase, words } = props
+function PhraseDictionary(props: PhraseDictionaryProps) {
+	const { languageCode, currentWord, words } = props
 
-	useInitStore(languageCode)
-	useObservePhrase(phrase)
-	useRetryEffect()
+	// useInitStore(languageCode)
+	// useObservePhrase(currentWord)
+	// useRetryEffect()
+	console.log(currentWord)
 
-	return (
+	/*return (
 		<div className='phrase-dictionary'>
 			<WordsQuickAccess words={words} />
 			<PhraseDictionaryInput />
@@ -34,7 +35,8 @@
 			<PhraseDictionaryNotExisting />
 			<PhraseTranslationResult />
 		</div>
-	)
-}*/
+	)*/
+	return null
+}
 
-// export default PhraseDictionary
+export default PhraseDictionary

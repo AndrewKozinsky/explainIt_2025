@@ -41,6 +41,7 @@ function handleShadowAutoStop() {
 
 function playNextShadowSubtitle(subtitles: Subtitle[]) {
 	const next = shadowIndex + 1
+
 	if (next >= subtitles.length) {
 		shadowIndex = -1
 		return
