@@ -1,12 +1,12 @@
-import { createContext, useContext } from 'react'
 import type { ComponentType } from 'react'
+import { createContext, useContext } from 'react'
 import type {
-	TranslationBlockModel,
 	BlockBlockModel,
-	UseCaseBlockModel,
-	PaperBlockModel,
 	ExampleBlockModel,
+	PaperBlockModel,
 	TextBlockModel,
+	TranslationBlockModel,
+	UseCaseBlockModel,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'

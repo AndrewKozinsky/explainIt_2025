@@ -4,16 +4,16 @@ import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
+import VideoControls from '@/entities/videoControls/VideoControls/VideoControls'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
-import VideoControls from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 import { getHeader } from './fn/getHeader'
+import { setupDeps } from './fn/setupDeps'
 import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useVideoControls } from './fn/useVideoControls'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
-import { setupDeps } from './fn/setupDeps'
 
 const { useMediaStore } = setupDeps()
 
@@ -26,9 +26,9 @@ function VideoPage(props: VideoRootProps) {
 
 	const { video, refetch, error } = useVideoData(videoId)
 
-	const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
+	const { selectedSentenceId, selectedWordId } = useMediaStore()
 
-	const { selectedSentenceId, selectedWordId, selectWord } = useMediaStore()
+	const polledSubtitlesStatus = usePollVideoSubtitlesStatus(video?.id, video?.subtitlesStatus, refetch)
 
 	useMediaTranslations({
 		videoName: video?.name,
@@ -58,7 +58,6 @@ function VideoPage(props: VideoRootProps) {
 				header={header}
 				leftBlock={
 					<VideoClientWrapper
-						languageCode={video.languageCode}
 						contentType={video.contentType}
 						plainSentences={video.plainSentences}
 						subtitles={video.subtitles}
@@ -69,12 +68,11 @@ function VideoPage(props: VideoRootProps) {
 						subtitlesStatus={polledSubtitlesStatus ?? video.subtitlesStatus}
 						subtitlesErrorCode={video.subtitlesErrorCode}
 						durationSeconds={video.durationSeconds}
-						selectedSentenceId={selectedSentenceId}
-						selectedWordId={selectedWordId}
-						selectWord={selectWord}
 					/>
 				}
-				rightBlock={<DetailsBlock videoControls={<VideoControls {...videoControls} />} />}
+				rightBlock={
+					<DetailsBlock sentenceId={selectedSentenceId} bottomElem={<VideoControls {...videoControls} />} />
+				}
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 			/>
 		</MediaStoreProvider>

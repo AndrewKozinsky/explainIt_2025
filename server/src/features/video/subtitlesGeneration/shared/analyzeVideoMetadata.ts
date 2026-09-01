@@ -74,7 +74,7 @@ A1:
 Very basic, highly frequent vocabulary and simple grammatical structures. Short sentences and basic statements, questions, and everyday expressions.
 
 A2:
-Common everyday vocabulary and mostly simple grammatical structures. Short or moderately short sentences used for familiar situations, routine communication, and basic descriptions.
+Common everyday vocabulary and mostly simple grammatical structures. Short or moderately short sentences used for familiar situations, routine communication, and basic descriptions. A2 may include simple explanations, basic subordinate clauses with words such as "if", "when", and "because", different common tenses, modal verbs, and an occasional abstract word.
 
 B1:
 Generally familiar vocabulary with some less frequent words and expressions. A mixture of simple and moderately complex sentences, several common grammatical structures, and natural conversational language. The learner may encounter some unfamiliar expressions but can understand the overall meaning from context.
@@ -91,7 +91,10 @@ Exceptionally sophisticated and precise language. Very complex syntax, highly nu
 IMPORTANT CALIBRATION RULES:
 - Do not assign C1 or C2 unless the transcript contains clear linguistic evidence supporting an advanced level.
 - Ordinary native-speaker conversation is NOT automatically C1 or C2.
-- A transcript consisting mainly of short, everyday conversational sentences should normally be classified as A2 or B1, even if the speakers are native speakers.
+- A transcript consisting mainly of short sentences and frequent vocabulary should normally be classified as A1 or A2, even if it sounds natural, educational, or is spoken by native speakers.
+- Do not classify a simple transcript as B1 merely because it contains a few abstract words, natural conversational phrases, or one moderately complex sentence.
+- Choose B1 only when B1-level vocabulary and grammatical structures occur consistently across the transcript, not occasionally.
+- If the text is understandable to a beginner and lacks sustained subordinate clauses, varied complex sentence structures, idiomatic language, or consistently less frequent vocabulary, its maximum level is A2.
 - A few difficult words or idiomatic expressions are not sufficient to classify the entire transcript as B2, C1, or C2.
 - Judge the overall linguistic level of the transcript rather than its most difficult individual sentence.
 - When the transcript contains mixed levels, choose the level that best represents the majority of the language.
@@ -102,7 +105,7 @@ IMPORTANT CALIBRATION RULES:
 Return ONLY valid JSON, with no explanations or markdown.
 
 Example:
-{"language":"en","cefrLevel":"B1","topics":["Technology & Science"],"learnabilityScore":7}`
+{"language":"en","cefrLevel":"A2","topics":["Technology & Science"],"learnabilityScore":7}`
 
 const MAX_SAMPLE_CHARS = 3000
 

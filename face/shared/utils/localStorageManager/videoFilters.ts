@@ -1,4 +1,4 @@
-import { LanguageCode, languages } from '@/shared/utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 
 const LAST_LANGUAGE_KEY = 'lastLanguage'
 const LAST_VIDEO_DURATION_KEY = 'lastVideoDuration'
@@ -27,10 +27,9 @@ export const lastSort = {
 }
 
 export const lastLanguage = {
-	get(): LanguageCode {
-		const defaultValue = languages.en.code as LanguageCode
-		if (typeof window === 'undefined') return defaultValue
-		return (window.localStorage.getItem(LAST_LANGUAGE_KEY) as LanguageCode) || defaultValue
+	get(): null | LanguageCode {
+		if (typeof window === 'undefined') return null
+		return (window.localStorage.getItem(LAST_LANGUAGE_KEY) as LanguageCode) ?? null
 	},
 
 	set: (value: string) => set(LAST_LANGUAGE_KEY, value),

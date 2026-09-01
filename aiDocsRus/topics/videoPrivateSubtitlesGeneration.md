@@ -1,11 +1,15 @@
 # Автоматическая генерация субтитров для приватных видео
 
 ## Что делает функционал
-Пользователь загружает видео (`Video`) и может запустить автоматическую генерацию субтитров. Сервер ставит задачу в очередь, отдельный worker скачивает видео из S3, извлекает аудио через `ffmpeg`, отправляет его в Deepgram Nova-3 Speech-to-Text, собирает SRT и сохраняет его как текст субтитров видео.
+
+Пользователь загружает видео (`Video`) и может запустить автоматическую генерацию субтитров. Сервер ставит задачу в
+очередь, отдельный worker скачивает видео из S3, извлекает аудио через `ffmpeg`, отправляет его в Deepgram Nova-3
+Speech-to-Text, собирает SRT и сохраняет его как текст субтитров видео.
 
 Функционал работает **только для приватных видео**. Публичные видео (`Video`) не участвуют в этом пайплайне.
 
 Результат сохраняется в те же поля и связи, что и при ручной загрузке SRT:
+
 - `Video.original_content` — сгенерированный SRT;
 - `Video.processed_content` — очищенный текст субтитров;
 - `Video.content_type = 'subtitles'`;
@@ -16,8 +20,10 @@
 1. Пользователь создаёт приватное видео и загружает видеофайл в S3.
 2. У видео должен быть указан `languageCode`.
 3. Пользователь нажимает «Сгенерировать субтитры».
-4. Сервер проверяет владельца, факт загрузки файла, язык, известную длительность и баланс на сумму предварительной стоимости.
-5. Сервер списывает предварительную стоимость, сохраняет сумму списания, создаёт задачу в BullMQ и возвращает статус `pending`.
+4. Сервер проверяет владельца, факт загрузки файла, язык, известную длительность и баланс на сумму предварительной
+   стоимости.
+5. Сервер списывает предварительную стоимость, сохраняет сумму списания, создаёт задачу в BullMQ и возвращает статус
+   `pending`.
 6. Клиент периодически опрашивает статус генерации.
 7. Worker выполняет распознавание и сохраняет субтитры.
 8. После успеха статус становится `done`, а пользователь видит видео уже с субтитрами.
@@ -37,6 +43,7 @@
 ### `SubtitlesGenerationStatus`
 
 Возможные значения:
+
 - `idle` — генерация ещё не запускалась;
 - `pending` — задача поставлена в очередь, worker ещё не начал обработку;
 - `processing` — worker обрабатывает видео;
@@ -44,13 +51,6 @@
 - `failed` — генерация завершилась ошибкой.
 
 ## Как работает сервер
-
-### GraphQL API
-
-- **Mutation** `video_private_generate_subtitles(input: { videoId })` → `VideoSubtitlesStatusOutModel`. Запускает генерацию субтитров для приватного видео.
-- **Query** `video_private_get_subtitles_generation_status(input: { videoId })` → `VideoPrivateSubtitlesStatusOutModel`. Возвращает текущий статус генерации.
-
-Обе ручки требуют авторизации через `CheckSessionCookieGuard`. Мутация сама рассчитывает предварительную стоимость по сохранённой длительности видео и списывает её перед постановкой задачи в очередь.
 
 ### `VideoPrivateSubtitlesStatusOutModel`
 
@@ -65,6 +65,7 @@
 #### `StartGenerateSubtitlesHandler`
 
 Последовательность:
+
 1. Загружает состояние видео через `VideoPrivateRepository.getSubtitlesGenerationState`.
 2. Проверяет, что видео существует.
 3. Проверяет, что текущий пользователь — владелец видео.
@@ -79,7 +80,8 @@
 12. Сохраняет `jobId` в `VideoPrivate`.
 13. Возвращает `VideoSubtitlesStatusOutModel`.
 
-Атомарный переход защищает от параллельных запусков: если статус уже `pending` или `processing`, повторный запуск не пройдёт.
+Атомарный переход защищает от параллельных запусков: если статус уже `pending` или `processing`, повторный запуск не
+пройдёт.
 
 #### `GetSubtitlesGenerationStatusHandler`
 
@@ -90,11 +92,13 @@
 
 #### `ChargeSubtitlesGenerationHandler`
 
-Содержит общий расчёт стоимости и может списывать деньги по длительности, но основной запуск генерации теперь списывает предварительную стоимость до постановки задачи в очередь:
+Содержит общий расчёт стоимости и может списывать деньги по длительности, но основной запуск генерации теперь списывает
+предварительную стоимость до постановки задачи в очередь:
 
 `amount = ceil(durationSec * pricePerSecondInKopecks * asrMarkupMultiplier)`
 
 Стоимость берётся из `MainConfigService`:
+
 - `deepgram.pricePerSecondInKopecks` — цена Deepgram Nova-3, пересчитанная в копейки за секунду;
 - `generateSubtitles.asrMarkupMultiplier` — наценка приложения.
 
@@ -104,17 +108,21 @@
 
 ### Зачем отдельный worker
 
-Генерация субтитров может занимать минуты: нужно скачать видео, прогнать `ffprobe`, извлечь аудио, дождаться Deepgram и пересобрать текстовые связи. Поэтому эта работа вынесена из HTTP/GraphQL процесса в отдельный worker.
+Генерация субтитров может занимать минуты: нужно скачать видео, прогнать `ffprobe`, извлечь аудио, дождаться Deepgram и
+пересобрать текстовые связи. Поэтому эта работа вынесена из HTTP/GraphQL процесса в отдельный worker.
 
-Worker запускается из `server/src/main.worker.ts` через `NestFactory.createApplicationContext(WorkerModule)`. Он не поднимает HTTP-сервер и не импортирует `AppModule`.
+Worker запускается из `server/src/main.worker.ts` через `NestFactory.createApplicationContext(WorkerModule)`. Он не
+поднимает HTTP-сервер и не импортирует `AppModule`.
 
 ### BullMQ
 
 Используется очередь `QueueNames.SUBTITLES_GENERATION`.
 
-`SubtitlesGenerationQueue.enqueue` ставит задачу с детерминированным `jobId` для видео. Это уменьшает риск дублей на уровне BullMQ. Дополнительно от дублей защищает DB-переход `idle|done|failed -> pending`.
+`SubtitlesGenerationQueue.enqueue` ставит задачу с детерминированным `jobId` для видео. Это уменьшает риск дублей на
+уровне BullMQ. Дополнительно от дублей защищает DB-переход `idle|done|failed -> pending`.
 
 Настройки очереди:
+
 - `attempts: 3`;
 - exponential backoff;
 - удаление завершённых задач после лимита;
@@ -138,13 +146,16 @@ Worker запускается из `server/src/main.worker.ts` через `NestF
 12. Ставит статус `done`.
 13. В `finally` удаляет временную папку.
 
-Если любой шаг падает, processor пишет `failed` и сохраняет текст ошибки в `subtitles_generation_error`, затем пробрасывает ошибку в BullMQ для retry.
+Если любой шаг падает, processor пишет `failed` и сохраняет текст ошибки в `subtitles_generation_error`, затем
+пробрасывает ошибку в BullMQ для retry.
 
 ## Deepgram STT
 
-Интеграция вынесена в `DeepgramSttModule` и `DeepgramSttService`, потому что сейчас используется только Speech-to-Text часть Deepgram.
+Интеграция вынесена в `DeepgramSttModule` и `DeepgramSttService`, потому что сейчас используется только Speech-to-Text
+часть Deepgram.
 
 `DeepgramSttService` вызывает prerecorded API:
+
 - endpoint: `https://api.deepgram.com/v1/listen`;
 - model: `nova-3`;
 - `punctuate=true`;
@@ -159,7 +170,8 @@ Worker запускается из `server/src/main.worker.ts` через `NestF
 
 ## Работа с SRT и текстовыми связями
 
-Deepgram возвращает utterance-сегменты с `start`, `end` и `transcript`. `buildSrtFromUtterances` превращает их в стандартный SRT:
+Deepgram возвращает utterance-сегменты с `start`, `end` и `transcript`. `buildSrtFromUtterances` превращает их в
+стандартный SRT:
 
 ```text
 1
@@ -171,7 +183,9 @@ First recognized phrase.
 Second recognized phrase.
 ```
 
-Дальше SRT сохраняется не напрямую в репозитории, а через уже существующий `UpdatePrivateVideoCommand`. Это важно, потому что он переиспользует общую логику:
+Дальше SRT сохраняется не напрямую в репозитории, а через уже существующий `UpdatePrivateVideoCommand`. Это важно,
+потому что он переиспользует общую логику:
+
 - определяет, что `originalContent` похож на SRT;
 - парсит SRT;
 - формирует `processedContent`;
@@ -180,28 +194,6 @@ Second recognized phrase.
 - создаёт связи `SubtitleSentenceInit`.
 
 Так автогенерация и ручная загрузка SRT используют один формат данных.
-
-## Баланс и стоимость
-
-Для запуска требуется, чтобы на балансе хватало денег на предварительную стоимость генерации по сохранённой длительности видео.
-
-Списание происходит **до постановки задачи в очередь**. Если постановка задачи в очередь или последняя попытка worker-а завершается ошибкой, сервер возвращает списанную сумму на баланс отдельной транзакцией `REFUND`.
-
-Возврат защищён от дублей: перед созданием refund-транзакции сервер атомарно выставляет `subtitles_generation_refunded_at`. Повторный refund для той же попытки не создаётся.
-
-Формула:
-
-```text
-ceil(durationSec * deepgram.pricePerSecondInKopecks * generateSubtitles.asrMarkupMultiplier)
-```
-
-На момент реализации:
-- Deepgram Nova-3: `$0.0043 / min`;
-- курс в конфиге: `110 ₽ / $`;
-- наценка: `2x`;
-- лимит видео: 2 часа.
-
-Длительность берётся из `Video.duration_sec`, которую клиент сохраняет при создании/загрузке видео.
 
 ## Как работает клиент
 
@@ -255,6 +247,7 @@ query {
 ## Ошибки
 
 Ключи из `errorMessage.video`:
+
 - `subtitlesGenerationAlreadyRunning` — генерация уже `pending` или `processing`.
 - `subtitlesGenerationFileNotUploaded` — у видео нет загруженного файла.
 - `subtitlesGenerationLanguageRequired` — у видео не указан язык.
@@ -264,11 +257,13 @@ query {
 - `subtitlesAsrFailed` — ошибка сервиса распознавания речи.
 
 Общие ошибки:
+
 - `userIsNotOwner` — пользователь не владелец приватного видео.
 - `userUnauthorized` — нет авторизации.
 - `insufficientBalanceForTranslation` — денег на балансе не хватает для списания рассчитанной стоимости.
 
-Некоторые ошибки worker-а пишутся в `subtitles_generation_error` как технический текст: например ошибка `ffmpeg`, пустой ответ Deepgram или ошибка скачивания из S3.
+Некоторые ошибки worker-а пишутся в `subtitles_generation_error` как технический текст: например ошибка `ffmpeg`, пустой
+ответ Deepgram или ошибка скачивания из S3.
 
 ## Ограничения и риски
 
@@ -278,11 +273,14 @@ query {
 
 ### Идемпотентность списания
 
-Списание происходит после сохранения SRT и перед установкой статуса `done`. Если редкий сбой случится после списания, но до записи `done`, BullMQ может повторить job и списать деньги повторно. Для полной идемпотентности можно добавить `idempotencyKey`/`jobId` в `UserBalanceTransaction` и запрещать повторное списание по одному job.
+Списание происходит после сохранения SRT и перед установкой статуса `done`. Если редкий сбой случится после списания, но
+до записи `done`, BullMQ может повторить job и списать деньги повторно. Для полной идемпотентности можно добавить
+`idempotencyKey`/`jobId` в `UserBalanceTransaction` и запрещать повторное списание по одному job.
 
 ### Нет прогресса в процентах
 
-Сейчас клиент видит только статусы `pending`/`processing`/`done`/`failed`. При необходимости можно добавить `job.updateProgress()` и поле прогресса в GraphQL output.
+Сейчас клиент видит только статусы `pending`/`processing`/`done`/`failed`. При необходимости можно добавить
+`job.updateProgress()` и поле прогресса в GraphQL output.
 
 ### Зависимость от ffmpeg в worker-образе
 
@@ -306,7 +304,8 @@ docker compose -f docker-compose.local.dev.yml --env-file .env.localdev up --bui
 
 ### Сервер
 
-- `server/src/db/dbConfig/dbConfig.ts` — поля `subtitles_generation_*` и enum `SubtitlesGenerationStatus` у `VideoPrivate`.
+- `server/src/db/dbConfig/dbConfig.ts` — поля `subtitles_generation_*` и enum `SubtitlesGenerationStatus` у
+  `VideoPrivate`.
 - `server/src/routes/videoPrivate/videoPrivate.resolver.ts` — GraphQL mutation/query.
 - `server/src/routes/videoPrivate/videoPrivate.module.ts` — регистрация CQRS handlers и repositories.
 - `server/src/routes/videoPrivate/inputs/generateSubtitlesForPrivateVideo.input.ts`.

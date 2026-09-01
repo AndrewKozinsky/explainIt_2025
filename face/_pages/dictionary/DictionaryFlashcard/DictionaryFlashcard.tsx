@@ -1,14 +1,14 @@
-import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
-import { LanguageCode } from '@/shared/utils/languages'
-import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
-import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
-import './DictionaryFlashcard.scss'
+// import TranscriptionAndAudio from '@/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import { DictionaryFlashcardData } from '_pages/dictionary/dictionaryStore'
+// import DeleteFlashcardButton from '../DeleteFlashcardButton/DeleteFlashcardButton'
+// import './DictionaryFlashcard.scss'
 
-type DictionaryFlashcardProps = {
+/*type DictionaryFlashcardProps = {
 	flashcard: DictionaryFlashcardData
-}
+}*/
 
-export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
+/*export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -21,9 +21,9 @@ export function DictionaryFlashcard(props: DictionaryFlashcardProps) {
 			<DeleteFlashcardButton flashcardId={flashcard.id} />
 		</div>
 	)
-}
+}*/
 
-function Sentence(props: DictionaryFlashcardProps) {
+/*function Sentence(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -41,9 +41,9 @@ function Sentence(props: DictionaryFlashcardProps) {
 			<p className='dictionary-flashcard__sentence-translate'>{flashcard.sentenceTranslation}</p>
 		</div>
 	)
-}
+}*/
 
-function Phrase(props: DictionaryFlashcardProps) {
+/*function Phrase(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -59,9 +59,9 @@ function Phrase(props: DictionaryFlashcardProps) {
 			{flashcard.phraseTranslation}
 		</p>
 	)
-}
+}*/
 
-function Examples(props: DictionaryFlashcardProps) {
+/*function Examples(props: DictionaryFlashcardProps) {
 	const { flashcard } = props
 
 	return (
@@ -75,4 +75,4 @@ function Examples(props: DictionaryFlashcardProps) {
 			})}
 		</div>
 	)
-}
+}*/

@@ -1,5 +1,4 @@
-import React from 'react'
-import OnboardingModal from '@/entities/media/ui/OnboardingModal/OnboardingModal'
+// import OnboardingModal from '@/entities/media/ui/OnboardingModal/OnboardingModal'
 import Header from '@/shared/ui/Header/Header'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import './MediaRoot.scss'
@@ -23,7 +22,7 @@ function MediaRoot(props: MediaRootProps) {
 
 	return (
 		<>
-			<OnboardingModal />
+			{/*<OnboardingModal />*/}
 			<div className='media-root'>
 				<div className='media-root__header'>
 					<BreadCrumbs items={breadCrumbsConfig} />

@@ -1,2 +1,2 @@
-import PhraseDictionary from '@/widgets/dictionary/ui/PhraseDictionary/PhraseDictionary'
+import PhraseDictionary from './ui/PhraseDictionary/PhraseDictionary'
 export { PhraseDictionary }

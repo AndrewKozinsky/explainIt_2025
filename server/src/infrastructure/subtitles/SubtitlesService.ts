@@ -141,10 +141,12 @@ export class SubtitlesService {
 
 		cues.forEach((cue, index) => {
 			lines.push(String(index + 1))
-			// cue.start/end are in seconds (Deepgram), convert to ms
-			lines.push(
-				`${formatSrtTimeMs(Math.round(cue.start * 1000))} --> ${formatSrtTimeMs(Math.round(cue.end * 1000))}`,
-			)
+			// cue.start/end are in seconds (Deepgram), convert to ms.
+			// Shorten the end by 1ms so it never equals the next cue's start.
+			const startMs = Math.round(cue.start * 1000)
+			const endMs = Math.max(startMs, Math.round(cue.end * 1000) - 1)
+
+			lines.push(`${formatSrtTimeMs(startMs)} --> ${formatSrtTimeMs(endMs)}`)
 			lines.push(cue.transcript)
 			lines.push('')
 		})

@@ -1,23 +1,23 @@
-'use client'
+// 'use client'
 
-import { useRef } from 'react'
-import cn from 'classnames'
-import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
-import LlmProviderSwitch from '../LlmProviderSwitch/LlmProviderSwitch'
-import PromptTextarea, { PromptTextareaHandle } from '../PromptTextarea/PromptTextarea'
-import SendAndCancelButtons from '../SendAndCancelButtons/SendAndCancelButtons'
-import { useSentenceChatStore } from '../sentenceChatStore'
-import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
-import ChatInputWarningMessage from './ChatInputWarningMessage'
-import './ChatInput.scss'
+// import { useRef } from 'react'
+// import cn from 'classnames'
+// import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
+// import LlmProviderSwitch from '../LlmProviderSwitch/LlmProviderSwitch'
+// import PromptTextarea, { PromptTextareaHandle } from '../PromptTextarea/PromptTextarea'
+// import SendAndCancelButtons from '../SendAndCancelButtons/SendAndCancelButtons'
+// import { useSentenceChatStore } from '../sentenceChatStore'
+// import VoiceInputButton from '../VoiceInputButton/VoiceInputButton'
+// import ChatInputWarningMessage from './ChatInputWarningMessage'
+// import './ChatInput.scss'
 
-type ChatInputProps = {
+/*type ChatInputProps = {
 	isGenerating: boolean
 	onSend: (question: string) => void
 	onCancel: () => void
-}
+}*/
 
-function ChatInput(props: ChatInputProps) {
+/*function ChatInput(props: ChatInputProps) {
 	const { isGenerating, onSend, onCancel } = props
 
 	const isTextAreaFocused = useSentenceChatStore((s) => s.isTextAreaFocused)
@@ -49,6 +49,6 @@ function ChatInput(props: ChatInputProps) {
 			</ContainerWidthObserver>
 		</div>
 	)
-}
+}*/
 
-export default ChatInput
+// export default ChatInput

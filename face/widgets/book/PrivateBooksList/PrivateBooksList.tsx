@@ -1,13 +1,11 @@
-// 'use client'
-
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import type { BookModel } from '@/entities/book/repository/BooksRepository'
+import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
+import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
+import { MediaGridAddButton } from '@/entities/mediaCard/MediaGridAddButton/MediaGridAddButton'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
-import MediaCardWrapper from '@/widgets/media/MediaCardWrapper/MediaCardWrapper'
-import { MediaGridAddButton } from '@/widgets/media/MediaGridAddButton/MediaGridAddButton'
 import { getConfig } from './fn/getConfig'
 
 type PrivateBooksListProps = {

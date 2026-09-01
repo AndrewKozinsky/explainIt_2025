@@ -33,7 +33,7 @@ export interface UpdateBookInput {
      * File Mime Type of the book cover
      * @maxLength 50
      */
-  fileMimeType?: string | null;
+  coverFileMimeType?: string | null;
   /** Is cover file was uploaded */
   isCoverFileUploaded?: boolean | null;
 }

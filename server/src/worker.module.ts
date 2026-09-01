@@ -25,6 +25,7 @@ import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
 import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 import { YoutubeService } from 'infrastructure/youtube/youtube.service'
+import { ZaiModule } from 'infrastructure/zai/zai.module'
 
 /**
  * Worker-side Nest app. Runs in a separate process (main.worker.ts).
@@ -43,6 +44,7 @@ import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 		CqrsModule,
 		MainConfigModule,
 		DeepSeekModule,
+		ZaiModule,
 		GoogleGeminiModule,
 		OpenAIModule,
 		LlmProviderModule,

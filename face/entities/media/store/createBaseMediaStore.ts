@@ -1,7 +1,7 @@
 import { produce } from 'immer'
 import { create } from 'zustand'
-import type { LanguageCode } from '@/shared/utils/languages'
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { LanguageCode } from '@/shared/utils/languages'
 import type { DetailsSentenceEntry, SentencePhraseType, SentenceTranslation } from './translationTypes'
 
 export type BaseMediaStore = {
@@ -19,7 +19,6 @@ export type BaseMediaStore = {
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
 	clearMediaData: () => void
-	insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
 	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
 	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
 	patchPhraseTranslation: (input: {
@@ -75,26 +74,13 @@ export function createBaseMediaStore() {
 				retryFetchSentenceTranslationQueue: [],
 				retryFetchPhraseQueue: [],
 			}),
-		insertLoadingSentence: ({ sentenceId, text }) =>
-			set(
-				produce((state: BaseMediaStore) => {
-					if (state.sentences.some((entry) => entry.sentenceId === sentenceId)) return
-					state.sentences.push({
-						sentenceId,
-						sentenceText: text,
-						selectedPhraseId: null,
-						data: {
-							translation: { text: '', loading: true, error: null, translation: null, visible: true },
-							phrases: [],
-						},
-					})
-				}),
-			),
 		patchSentenceTranslation: ({ sentenceId, patch }) =>
 			set(
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
-					if (entry) Object.assign(entry.data.translation, patch)
+					if (entry) {
+						Object.assign(entry.data.translation, patch)
+					}
 				}),
 			),
 		upsertPhraseTranslation: ({ sentenceId, phrase }) =>
@@ -102,6 +88,7 @@ export function createBaseMediaStore() {
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (!entry) return
+
 					const index = entry.data.phrases.findIndex((item) => sameWordIds(item.wordIds, phrase.wordIds))
 					if (index >= 0) {
 						entry.data.phrases[index] = {
@@ -128,9 +115,11 @@ export function createBaseMediaStore() {
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (!entry) return
+
 					const index = entry.data.phrases.findIndex(
 						(item) => item.randomGeneratedPhraseId === placeholderPhraseId,
 					)
+
 					if (index >= 0)
 						entry.data.phrases[index] = { ...phrase, randomGeneratedPhraseId: placeholderPhraseId }
 					else entry.data.phrases.push({ ...phrase, randomGeneratedPhraseId: placeholderPhraseId })

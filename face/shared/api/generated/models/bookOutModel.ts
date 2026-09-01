@@ -50,7 +50,7 @@ export interface BookOutModel {
   /** Is cover file was uploaded */
   isCoverFileUploaded: boolean;
   /** Pre-signed S3 upload URL for the book cover */
-  uploadUrl?: string | null;
+  uploadCoverUrl?: string | null;
   /** Book chapters */
   chapters: BookChapterLiteOutModel[];
 }

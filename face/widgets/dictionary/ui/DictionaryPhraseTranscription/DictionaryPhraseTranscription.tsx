@@ -7,6 +7,7 @@ function DictionaryPhraseTranscription() {
 	const audioUrl = usePhraseDictionaryStore((s) => s.audioUrl)
 	const phrase = usePhraseDictionaryStore((s) => s.inputText)
 	const languageCode = usePhraseDictionaryStore((s) => s.languageCode)
+	const isLoading = usePhraseDictionaryStore((s) => s.status === 'loading')
 
 	if (!phrase || !languageCode) {
 		return null
@@ -19,6 +20,7 @@ function DictionaryPhraseTranscription() {
 				languageCode={languageCode}
 				audioUrl={audioUrl}
 				transcription={transcription?.ipa ?? null}
+				transcriptionLoading={isLoading}
 				bg='white'
 			/>
 		</div>

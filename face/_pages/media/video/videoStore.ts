@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import { PlaybackMode } from '@/entities/videoControls/VideoControls/VideoControls'
 import type { PlayerCommand, PlayerCommandEvent } from '@/entities/videoPlayer'
-import type { PlaybackMode } from '@/entities/video/ui/videoControls/VideoControls/VideoControls'
 
 type PlayerState = {
 	currentTime: number

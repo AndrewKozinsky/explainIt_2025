@@ -1,5 +1,5 @@
-import { SummaryOfMedia } from '@/entities/media/ui/SummaryOfMedia/SummaryOfMedia'
 import PublicBookInfoActions from '../PublicBookInfoActions/PublicBookInfoActions'
+import { SummaryOfMedia } from '../SummaryOfMedia/SummaryOfMedia'
 import './MediaFullInfoContent.scss'
 
 type MediaFullInfoContentProps = {

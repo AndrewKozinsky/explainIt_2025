@@ -42,6 +42,7 @@ import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.
 // import { YandexTranslateModule } from 'infrastructure/yandexTranslate/yandexTranslate.module'
 import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 import { YoutubeModule } from 'infrastructure/youtube/youtube.module'
+import { ZaiModule } from 'infrastructure/zai/zai.module'
 
 @Module({
 	imports: [
@@ -55,6 +56,7 @@ import { YoutubeModule } from 'infrastructure/youtube/youtube.module'
 		// GigaChatModule,
 		OpenAIModule,
 		DeepSeekModule,
+		ZaiModule,
 		DeepgramSttModule,
 		SubtitlesModule,
 		GoogleGeminiModule,

@@ -75,6 +75,7 @@ export function usePollVideoSubtitlesStatus(
 	)
 
 	const currentPolledStatus = polledSubtitlesStatus
+
 	if (
 		currentPolledStatus &&
 		currentPolledStatus.videoId === videoId &&

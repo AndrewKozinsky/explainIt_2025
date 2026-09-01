@@ -1,13 +1,13 @@
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { useCurrentWords } from './fn/currentWords'
-import './WordsButtonList.scss'
+// import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+// import { useCurrentWords } from './fn/currentWords'
+// import './WordsButtonList.scss'
 
-type WordsButtonListProps = {
+/*type WordsButtonListProps = {
 	onWordClick: (word: string) => void
 	onPhraseClick: (phrase: string) => void
-}
+}*/
 
-function WordsButtonList(props: WordsButtonListProps) {
+/*function WordsButtonList(props: WordsButtonListProps) {
 	const { onWordClick, onPhraseClick } = props
 	const { sentenceWords, phrase } = useCurrentWords()
 
@@ -29,6 +29,6 @@ function WordsButtonList(props: WordsButtonListProps) {
 			)}
 		</div>
 	)
-}
+}*/
 
-export default WordsButtonList
+// export default WordsButtonList

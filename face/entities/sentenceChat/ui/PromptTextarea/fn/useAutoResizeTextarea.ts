@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from 'react'
-import type { RefObject } from 'react'
+// import { useCallback, useEffect } from 'react'
+// import type { RefObject } from 'react'
 
-export function useAutoResizeTextarea(textAreaRef: RefObject<HTMLTextAreaElement | null>, value: string) {
+/*export function useAutoResizeTextarea(textAreaRef: RefObject<HTMLTextAreaElement | null>, value: string) {
 	const adjustHeight = useCallback(() => {
 		const el = textAreaRef.current
 		if (!el) return
@@ -19,4 +19,4 @@ export function useAutoResizeTextarea(textAreaRef: RefObject<HTMLTextAreaElement
 
 		return () => window.removeEventListener('resize', adjustHeight)
 	}, [adjustHeight])
-}
+}*/

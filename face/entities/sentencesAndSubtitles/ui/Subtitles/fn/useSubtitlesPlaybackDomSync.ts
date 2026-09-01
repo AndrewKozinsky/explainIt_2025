@@ -1,0 +1,255 @@
+import { RefObject, useCallback, useEffect, useRef } from 'react'
+import { VideoSubtitlesModel } from '@/entities/video/repository/VideosRepository'
+
+/** Источник текущего времени плеера, не привязанный к конкретному стору. */
+export type CurrentTimeSource = {
+	getCurrentTime: () => number
+	subscribe: (listener: (currentTime: number) => void) => () => void
+}
+
+type UseSubtitlesPlaybackDomSyncParams = {
+	containerRef: RefObject<HTMLElement | null>
+	subtitles: VideoSubtitlesModel.Structure['subtitles']
+	timeSource: CurrentTimeSource
+	topPaddingPx?: number
+}
+
+/**
+ * Синхронизирует UI списка субтитров с текущим временем плеера, не вызывая
+ * React-рендер на каждый тик `player.currentTime`.
+ *
+ * Идея: список субтитров рендерится один раз, а при смене активного блока
+ * мы точечно переключаем CSS-классы в DOM и выполняем автоскролл.
+ *
+ * Требования к разметке:
+ * - у каждого элемента должен быть `id="subtitle-<id>"` и `data-subtitle-id="<id>"`.
+ *
+ * @param params.containerRef - контейнер со списком субтитров
+ * @param params.subtitles - массив субтитров/пауз (в порядке воспроизведения)
+ * @param params.timeSource - источник текущего времени плеера (getCurrentTime + subscribe)
+ * @param params.topPaddingPx - отступ сверху при автоскролле
+ *
+ * Текущее время читается из `timeSource` через императивную подписку,
+ * поэтому обновления времени не вызывают React-рендер.
+ */
+export function useSubtitlesPlaybackDomSync(params: UseSubtitlesPlaybackDomSyncParams) {
+	const { containerRef, subtitles, timeSource, topPaddingPx = 20 } = params
+
+	const currentSubtitleIdRef = useRef<number | null>(null)
+	const didInitialAutoScrollRef = useRef(false)
+
+	// Сбрасываем состояние только при смене субтитров (новое видео), а не на каждый тик currentTime.
+	useEffect(() => {
+		if (!subtitles?.length) {
+			return
+		}
+
+		currentSubtitleIdRef.current = null
+		didInitialAutoScrollRef.current = false
+	}, [subtitles])
+
+	// Принудительно скроллит указанный субтитр под видео без проверок видимости.
+	// Используется при клике на слово — нужно показать субтитр, к которому относится слово.
+	const scrollToSubtitle = useCallback(
+		(subtitleId: number) => {
+			const container = containerRef.current
+			if (!container) return
+
+			autoScrollToCurrent({
+				container,
+				subtitleId,
+				topPaddingPx,
+				forceAlignBelowVideo: true,
+			})
+		},
+		[containerRef, topPaddingPx],
+	)
+
+	useEffect(() => {
+		if (!subtitles?.length) {
+			return
+		}
+
+		const applyCurrent = (nextId: number) => {
+			const container = containerRef.current
+			if (!container) return
+
+			const prevId = currentSubtitleIdRef.current
+			if (prevId != null && prevId !== nextId) {
+				const prevEl = container.querySelector(`#subtitle-${prevId}`) as HTMLElement | null
+
+				if (prevEl) {
+					const prevSubtitleInner = prevEl.querySelector('.subtitle-block__subtitle') as HTMLElement | null
+					prevSubtitleInner?.classList.remove('subtitle-block__subtitle--current')
+					prevEl.classList.remove('speechless-bar--active')
+				}
+			}
+
+			const nextEl = container.querySelector(`#subtitle-${nextId}`) as HTMLElement | null
+
+			if (nextEl) {
+				const nextSubtitleInner = nextEl.querySelector('.subtitle-block__subtitle') as HTMLElement | null
+
+				if (nextSubtitleInner) {
+					nextSubtitleInner.classList.add('subtitle-block__subtitle--current')
+				} else {
+					nextEl.classList.add('speechless-bar--active')
+				}
+			}
+
+			currentSubtitleIdRef.current = nextId
+
+			autoScrollToCurrent({
+				container,
+				subtitleId: nextId,
+				topPaddingPx,
+				forceAlignBelowVideo: !didInitialAutoScrollRef.current,
+			})
+
+			didInitialAutoScrollRef.current = true
+		}
+
+		const sync = (timeSeconds: number) => {
+			const nextIdx = binarySearchSubtitleIdx(subtitles, timeSeconds)
+			const nextId = subtitles[nextIdx]?.id
+			if (nextId == null) return
+
+			if (nextId === currentSubtitleIdRef.current) return
+			applyCurrent(nextId)
+		}
+
+		sync(timeSource.getCurrentTime())
+
+		return timeSource.subscribe(sync)
+	}, [subtitles, containerRef, topPaddingPx, timeSource])
+
+	return { scrollToSubtitle }
+}
+
+/**
+ * Находит индекс блока (subtitle/speechlessBar), соответствующего времени, —
+ * это первый блок, у которого toSeconds >= timeSeconds. O(log n).
+ */
+function binarySearchSubtitleIdx(subtitles: VideoSubtitlesModel.Structure['subtitles'], timeSeconds: number): number {
+	let lo = 0
+	let hi = subtitles.length - 1
+
+	while (lo < hi) {
+		const mid = Math.floor((lo + hi) / 2)
+		if (subtitles[mid].toSeconds < timeSeconds) {
+			lo = mid + 1
+		} else {
+			hi = mid
+		}
+	}
+
+	return lo
+}
+
+/**
+ * Скроллит контейнер так, чтобы целевой субтитр оказался сразу под видео.
+ *
+ * Скролл происходит, если субтитр вышел за пределы видимой области под видео:
+ * выше нижней границы видео или ниже нижнего края контейнера/окна. Если
+ * субтитр целиком виден в этой области — скролл не нужен.
+ *
+ * При forceAlignBelowVideo=true скролл выполняется безусловно (например,
+ * при первом автоскролле или клике на слово).
+ */
+function autoScrollToCurrent(params: {
+	container: HTMLElement
+	subtitleId: number
+	topPaddingPx: number
+	forceAlignBelowVideo: boolean
+}) {
+	const { container, subtitleId, topPaddingPx, forceAlignBelowVideo } = params
+
+	const currentEl = container.querySelector(`#subtitle-${subtitleId}`) as HTMLElement | null
+	if (!currentEl) return
+
+	const scrollContainer = getScrollableParent(container) ?? getScrollableParent(currentEl)
+	if (!scrollContainer) {
+		scrollWindowToReveal({
+			currentEl,
+			topPaddingPx,
+			forceAlignBelowVideo,
+		})
+
+		return
+	}
+
+	const containerRect = scrollContainer.getBoundingClientRect()
+	const elRect = currentEl.getBoundingClientRect()
+
+	const videoBottom = getStickyVideoBottomPx(container)
+	const visibleTop = Math.max(containerRect.top, videoBottom)
+
+	const safeTop = visibleTop + topPaddingPx
+	const isAboveSafe = elRect.top < safeTop
+	const isBelowSafe = elRect.bottom > containerRect.bottom
+
+	if (!forceAlignBelowVideo && !isAboveSafe && !isBelowSafe) {
+		return
+	}
+
+	const delta = elRect.top - safeTop
+	scrollContainer.scrollTo({ top: scrollContainer.scrollTop + delta, behavior: 'smooth' })
+}
+
+/**
+ * Ищет ближайшего родителя со скроллом по оси Y.
+ * Возвращает `null`, если подходящего контейнера нет.
+ */
+function getScrollableParent(element: HTMLElement | null) {
+	let el: HTMLElement | null = element
+
+	while (el) {
+		const style = window.getComputedStyle(el)
+		const overflowY = style.overflowY
+		const isScrollableOverflow = overflowY === 'auto' || overflowY === 'scroll'
+		const canScroll = el.scrollHeight > el.clientHeight
+
+		if (isScrollableOverflow && canScroll) {
+			return el
+		}
+
+		el = el.parentElement
+	}
+
+	return null
+}
+
+function scrollWindowToReveal(params: { currentEl: HTMLElement; topPaddingPx: number; forceAlignBelowVideo: boolean }) {
+	const { currentEl, topPaddingPx, forceAlignBelowVideo } = params
+
+	const elRect = currentEl.getBoundingClientRect()
+
+	const videoBottom = getStickyVideoBottomPx(currentEl)
+	const safeTop = videoBottom + topPaddingPx
+
+	const isAboveSafe = elRect.top < safeTop
+	const isBelowSafe = elRect.bottom > (window.innerHeight || 0)
+
+	if (!forceAlignBelowVideo && !isAboveSafe && !isBelowSafe) return
+
+	const delta = elRect.top - safeTop
+	window.scrollBy({ top: delta, behavior: 'smooth' })
+}
+
+function getStickyVideoBottomPx(fromEl: HTMLElement): number {
+	const doc = fromEl.ownerDocument ?? document
+	const root = (fromEl.closest('.root-surface') as HTMLElement | null) ?? doc.documentElement
+
+	const videoEl =
+		(root.querySelector('[data-sticky-video]') as HTMLElement | null) ??
+		(doc.querySelector('[data-sticky-video]') as HTMLElement | null)
+	if (!videoEl) return 0
+
+	const rect = videoEl.getBoundingClientRect()
+	if (!Number.isFinite(rect.bottom)) return 0
+
+	// If video is offscreen (e.g. scrolled far away), don't apply offset.
+	if (rect.bottom <= 0 || rect.top >= (window.innerHeight || 0)) return 0
+
+	return Math.max(0, Math.min(window.innerHeight || 0, rect.bottom))
+}

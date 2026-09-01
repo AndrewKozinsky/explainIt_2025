@@ -91,6 +91,21 @@ export class MainConfigService {
 					},
 				},
 			},
+			zai: {
+				apiKey: enVariables.zai.apiKey,
+				baseUrl: enVariables.zai.baseUrl || 'https://api.z.ai/api/paas/v4',
+				priceInRub: {
+					// Цены z.ai (GLM), значения-заглушки — требуют уточнения
+					flash: {
+						input: (oneDollarInRub * 0.1) / 1_000_000,
+						output: (oneDollarInRub * 0.3) / 1_000_000,
+					},
+					pro: {
+						input: (oneDollarInRub * 0.6) / 1_000_000,
+						output: (oneDollarInRub * 2.2) / 1_000_000,
+					},
+				},
+			},
 			gemini: {
 				// Цены Google Gemini (public pricing), значения-заглушки — требуют уточнения
 				priceInRub: {
@@ -232,6 +247,10 @@ export class MainConfigService {
 			},
 			deepSeek: {
 				apiKey: this.configService.get<string>('DEEPSEEK_API_KEY') as string,
+			},
+			zai: {
+				apiKey: this.configService.get<string>('ZAI_API_KEY') as string,
+				baseUrl: this.configService.get<string>('ZAI_BASE_URL') as string,
 			},
 			deepgram: {
 				apiKey: this.configService.get<string>('DEEPGRAM_API_KEY') as string,

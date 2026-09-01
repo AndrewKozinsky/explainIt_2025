@@ -45,6 +45,7 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 						type: 'error',
 						message: 'Не удалось получить ссылку для загрузки',
 					})
+
 					setInputStatus(FileDropzoneStatus.IDLE)
 					return
 				}

@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
-import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+import { localizePath, pageUrls } from '@/shared/utils/pageUrls'
 
 export function useIsReadButtonDisabled(hasContent: boolean) {
 	return !hasContent

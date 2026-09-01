@@ -38,7 +38,7 @@ export type GetSavedYoutubeVideosParams = {
 	minDurationSec?: number
 	proficiencyLevel?: number
 	topic?: string
-	languageCode?: string
+	languageCode?: null | string
 	sortBy?: 'created_at' | 'learnability_score'
 	sortDirection?: 'asc' | 'desc'
 }
