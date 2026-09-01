@@ -1,18 +1,20 @@
-import cn from 'classnames'
 import { useState } from 'react'
-import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-import DialogContent from '../DialogContent/DialogContent'
+import cn from 'classnames'
 import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
-import WordsContent from '../WordsContent/WordsContent'
+import PhrasesContent from '../WordsContent/PhrasesContent'
 import './DetailsBlockWrapper.scss'
 
-export type InfoViewType = 'words' | 'ai_dialog' | 'dictionary'
+export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
 
-function DetailsBlockWrapper() {
+type DetailsBlockWrapperProps = {
+	sentenceId: null | number
+}
+
+function DetailsBlockWrapper(props: DetailsBlockWrapperProps) {
+	const { sentenceId } = props
+
 	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>('dictionary')
-	const mediaStore = useMediaStoreContext()
-	const sentenceId = mediaStore((store) => store.selectedSentenceId)
 
 	if (!sentenceId) {
 		return (
@@ -29,8 +31,8 @@ function DetailsBlockWrapper() {
 			</div>
 			<div className='details-block-wrapper__content'>
 				{currentInfoView === 'dictionary' && <DictionaryContent />}
-				{currentInfoView === 'words' && <WordsContent />}
-				{currentInfoView === 'ai_dialog' && <DialogContent />}
+				{currentInfoView === 'words' && <PhrasesContent />}
+				{/*{currentInfoView === 'ai_dialog' && <DialogContent />}*/}
 			</div>
 		</ContentWrapper>
 	)

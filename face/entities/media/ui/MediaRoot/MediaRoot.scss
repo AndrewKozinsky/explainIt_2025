@@ -36,7 +36,6 @@
 .media-root__subheader {
 	font-style: italic;
 	align-items: center;
-	font-size: 2rem;
 	line-height: 2.2rem;
 	font-weight: 600;
 }
@@ -46,6 +45,10 @@
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr 1fr;
+		gap: 1.2rem;
+	}
+
+	@include mix.page-width(900px) {
 		gap: 2rem;
 	}
 

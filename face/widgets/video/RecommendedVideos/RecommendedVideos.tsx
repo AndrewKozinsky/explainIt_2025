@@ -1,11 +1,11 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
+import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import { videoConfig } from '@/entities/video/lib/videoConfig'
-import { pageUrls } from '@/shared/utils/pageUrls'
+import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-import MediaCardButton from '@/widgets/media/MediaCard/MediaCardButton'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import './RecommendedVideos.scss'
 
 type RecommendedVideosProps = {

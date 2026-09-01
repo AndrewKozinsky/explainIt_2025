@@ -225,7 +225,7 @@ export const bdConfig = {
 				required: false,
 				maxLength: 255,
 			},
-			fileMimeType: {
+			coverFileMimeType: {
 				type: 'string',
 				description: 'File Mime Type of the book cover',
 				required: false,
@@ -237,7 +237,7 @@ export const bdConfig = {
 				example: 'https://s3.example.com/privateBooksDev/cover.jpg',
 				required: false,
 			},
-			uploadUrl: {
+			uploadCoverUrl: {
 				type: 'string',
 				description: 'Pre-signed S3 upload URL for the book cover',
 				example: 'https://s3.example.com/presigned-url',

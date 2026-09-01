@@ -1,4 +1,4 @@
-import { BookLink, PrevChapterLink, NextChapterLink } from './Buttons'
+import { BookLink, NextChapterLink, PrevChapterLink } from './Buttons'
 import './MediaNavigation.scss'
 
 type MediaNavigationProps = {

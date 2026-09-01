@@ -1,25 +1,25 @@
-'use client'
-
-import { useVideoStore } from '../../videoStore'
 import {
 	playSub,
 	playSubAndRevert,
-	playVideo,
 	playVideoShadowing,
+	stopOrPlayVideo,
 	toNextSub,
 	toPrevSub,
 	toVideoStart,
-} from './playback'
+} from '_pages/media/video/VideoPage/fn/playback'
+import { useVideoStore } from '../../videoStore'
 
 export function useVideoControls() {
 	const activeMode = useVideoStore((state) => state.playback.mode)
 	const areSubsAvailable = useVideoStore((state) => state.subtitles !== null)
+	const isPaused = useVideoStore((state) => state.player.paused)
 
 	return {
 		activeMode,
 		areSubsAvailable,
+		isPaused,
 		toVideoStart,
-		playVideo,
+		stopOrPlayVideo,
 		playVideoShadowing,
 		toPrevSub,
 		playSubAndRevert,

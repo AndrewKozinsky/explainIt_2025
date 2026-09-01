@@ -1,11 +1,11 @@
-export type RecognitionRef = { current: any }
+// export type RecognitionRef = { current: any }
 
-export function getSpeechRecognitionCtor(): any {
+/*export function getSpeechRecognitionCtor(): any {
 	// No feature detection/guard by requirement; assume available
 	return (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
-}
+}*/
 
-export function startRecognition(
+/*export function startRecognition(
 	recognitionRef: RecognitionRef,
 	setState: (s: 'idle' | 'recording' | 'thinking') => void,
 	onInsert: (text: string) => void,
@@ -30,9 +30,9 @@ export function startRecognition(
 
 	rec.start()
 	recognitionRef.current = rec
-}
+}*/
 
-export function stopRecognition(
+/*export function stopRecognition(
 	recognitionRef: RecognitionRef,
 	setState: (s: 'idle' | 'recording' | 'thinking') => void,
 ) {
@@ -44,4 +44,4 @@ export function stopRecognition(
 	} catch {
 		setState('idle')
 	}
-}
+}*/

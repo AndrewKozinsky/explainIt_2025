@@ -1,7 +1,7 @@
 import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
 import MainPageTop from '@/widgets/mainPage/MainPageTop/MainPageTop'
-import VideosCollection from '@/widgets/video/VideosCollection/VideosCollection'
+import VideosCollection from '@/widgets/videosCollection/ui/VideosCollection/VideosCollection'
 import './MainPage.scss'
 
 function MainPage() {

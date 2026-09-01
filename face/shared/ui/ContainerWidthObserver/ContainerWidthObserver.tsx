@@ -43,6 +43,7 @@ function ContainerWidthObserver(props: ContainerWidthObserverProps) {
 
 		const observer = new ResizeObserver((entries) => {
 			const entry = entries[0]
+
 			if (entry) {
 				const newRange = computeRange(entry.contentRect.width)
 				setRange((prev) => (prev !== newRange ? newRange : prev))

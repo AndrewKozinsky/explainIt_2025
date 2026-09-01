@@ -67,7 +67,7 @@ function mapToBook(raw: BookOutModel): BookModel {
 		coverFileName: extractString(raw.coverFileName),
 		coverFileS3Key: extractString(raw.coverFileS3Key),
 		isCoverFileUploaded: extractBoolean(raw.isCoverFileUploaded),
-		uploadUrl: extractString(raw.uploadUrl),
+		uploadCoverUrl: extractString(raw.uploadCoverUrl),
 		chapters: (raw.chapters ?? []).map(mapToChapterLite),
 	}
 }

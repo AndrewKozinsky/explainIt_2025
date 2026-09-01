@@ -2,21 +2,18 @@
 
 import { useMemo } from 'react'
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+import SubtitlesStatusRouter from '@/entities/sentencesAndSubtitles/SubtitlesGuard/SubtitlesStatusRouter'
+import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/ui/SentencesOrSubtitles/SentencesOrSubtitles'
+import { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
 import { VideoPlayer } from '@/entities/videoPlayer'
-import SentencesOrSubtitles from '@/entities/sentencesAndSubtitles/SentencesOrSubtitles/SentencesOrSubtitles'
-import type { SubtitlesStatusModelType, VideoContentType, VideoSubtitlesModel } from '@/entities/video/lib/types'
-import SubtitlesStatusRouter from '@/entities/video/ui/SubtitlesGuard/SubtitlesStatusRouter'
 import VideoWithSubtitles from '@/shared/ui/VideoWithSubtitles/VideoWithSubtitles'
-import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 import { useVideoStore } from '../videoStore'
+import { currentTimeSource } from './fn/currentTimeSource'
 import { useVideoPlayback } from './fn/useVideoPlayback'
 
 type VideoClientWrapperProps = {
-	selectedSentenceId?: null | number
-	selectedWordId?: null | number
-	selectWord?: (input: { sentenceId: number; wordId: number }) => void
-	languageCode: LanguageCode
 	contentType: VideoContentType
 	plainSentences: null | SentenceModel[]
 	subtitles: null | VideoSubtitlesModel.Structure
@@ -31,7 +28,6 @@ type VideoClientWrapperProps = {
 
 function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const {
-		languageCode,
 		contentType,
 		plainSentences,
 		subtitles,
@@ -41,16 +37,18 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 		ratio,
 		subtitlesStatus,
 		subtitlesErrorCode,
-		selectedSentenceId = null,
-		selectedWordId = null,
-		selectWord = () => {},
 		durationSeconds,
 	} = props
+
+	const mediaStore = useMediaStoreContext()
+	const languageCode = mediaStore((s) => s.languageCode)
+	const selectWord = mediaStore((s) => s.selectWord)
+	const selectedSentenceId = mediaStore((s) => s.selectedSentenceId)
+	const selectedWordId = mediaStore((s) => s.selectedWordId)
 
 	const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
 	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
-	const currentTime = useVideoStore((state) => state.player.currentTime)
 	const setPlayerState = useVideoStore((state) => state.setPlayerState)
 
 	return (
@@ -74,8 +72,8 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 				durationSeconds={durationSeconds}
 			>
 				<SentencesOrSubtitles
-					languageCode={languageCode}
-					currentTime={currentTime}
+					languageCode={languageCode!}
+					timeSource={currentTimeSource}
 					selectedSentenceId={selectedSentenceId}
 					selectedWordId={selectedWordId}
 					selectWord={selectWord}

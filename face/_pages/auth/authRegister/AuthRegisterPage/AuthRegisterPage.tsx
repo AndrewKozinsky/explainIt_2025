@@ -1,7 +1,7 @@
 import React from 'react'
+import { AuthFormParent } from '@/entities/auth/ui/AuthFormParent/AuthFormParent'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { AuthFormParent } from '../../common/AuthFormParent/AuthFormParent'
-import AuthRegisterForm from '../AuthRegisterForm/AuthRegisterForm'
+import AuthRegisterForm from '@/widgets/auth/AuthRegisterForm/AuthRegisterForm'
 
 function AuthRegisterPage() {
 	return (

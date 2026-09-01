@@ -1,5 +1,5 @@
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
+import { fetchDictionaryArticle } from '../../lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 import './WordsQuickAccess.scss'
 

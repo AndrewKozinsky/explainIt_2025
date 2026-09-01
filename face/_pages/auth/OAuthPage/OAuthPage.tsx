@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import Spinner from '@/shared/ui/Spinner/Spinner'
-import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
+import { localizePath, pageUrls } from '@/shared/utils/pageUrls'
 import { useAuthorizeUser } from './fn/authorizeUser'
 
 type OAuthPageProps = {

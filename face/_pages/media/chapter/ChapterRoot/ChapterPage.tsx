@@ -2,17 +2,17 @@
 
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
-import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
-import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
-import Sentences from '@/entities/sentencesAndSubtitles/Sentences/Sentences'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
+import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
+import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
+import Sentences from '@/entities/sentencesAndSubtitles/ui/Sentences/Sentences'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { getMediaNavigationData } from './fn/getMediaNavigationData'
-import { useChapterData } from './fn/useChapterData'
 import { setupDeps } from './fn/setupDeps'
+import { useChapterData } from './fn/useChapterData'
 
 const { useMediaStore } = setupDeps()
 
@@ -76,7 +76,7 @@ function ChapterPage(props: ChapterRootProps) {
 						selectWord={selectWord}
 					/>
 				}
-				rightBlock={<DetailsBlock />}
+				rightBlock={<DetailsBlock sentenceId={selectedSentenceId} />}
 				footer={<MediaNavigation {...getMediaNavigationData(book, chapter)} />}
 			/>
 		</MediaStoreProvider>

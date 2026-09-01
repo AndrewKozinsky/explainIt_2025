@@ -1,8 +1,8 @@
-type UserMessageProps = {
+/*type UserMessageProps = {
 	message: string
-}
+}*/
 
-export function UserMessage(props: UserMessageProps) {
+/*export function UserMessage(props: UserMessageProps) {
 	const { message } = props
 
 	return (
@@ -10,6 +10,6 @@ export function UserMessage(props: UserMessageProps) {
 			<p className='chat-message__user-bubble'>{message}</p>
 		</div>
 	)
-}
+}*/
 
-export default UserMessage
+// export default UserMessage

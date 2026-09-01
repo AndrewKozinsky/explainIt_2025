@@ -1,7 +1,7 @@
 import type { TranscriptionModel } from '@/entities/phrase/repository/PhraseRepository'
 import { universalPhraseService } from '@/entities/universalPhrase/UniversalPhraseService'
 import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
-import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
+import { usePhraseDictionaryStore } from '../ui/phraseDictionaryStore'
 
 let abortController: AbortController | null = null
 

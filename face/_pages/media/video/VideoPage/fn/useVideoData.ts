@@ -4,15 +4,6 @@ import { videoQueries } from '@/entities/video/VideosQueryFacade'
 import { youtubeQueries } from '@/entities/youtube/YoutubeQueryFacade'
 
 /**
- * Определяет тип видео по его идентификатору.
- *
- * Обычное видео имеет числовой id, YouTube-видео — строковый id вида "KuRr7w8tzkQ".
- */
-function isYouTubeVideoId(videoId: string): boolean {
-	return !/^\d+$/.test(videoId)
-}
-
-/**
  * Загружает данные видео один раз, в зависимости от типа идентификатора:
  * - обычное видео — GET /api/videos/:id (useQuery через {@link videoQueries.getVideo});
  * - YouTube-видео — POST /api/youtube/:videoId (getOrCreateVideo: создаёт видео в БД
@@ -27,7 +18,6 @@ export function useVideoData(videoId: string) {
 	const queryClient = useQueryClient()
 
 	const isYouTube = isYouTubeVideoId(videoId)
-	const numericId = isYouTube ? null : Number(videoId)
 
 	const {
 		data: regularVideo,
@@ -35,7 +25,7 @@ export function useVideoData(videoId: string) {
 		error: regularError,
 		refetch: refetchRegular,
 	} = useQuery({
-		...videoQueries.getVideo(numericId ?? 0),
+		...videoQueries.getVideo(Number(videoId) ?? 0),
 		enabled: !isYouTube,
 	})
 
@@ -75,4 +65,12 @@ export function useVideoData(videoId: string) {
 		error: error ? error.message : null,
 		refetch,
 	}
+}
+
+/**
+ * Определяет тип видео по его идентификатору.
+ * Обычное видео имеет числовой id, YouTube-видео — строковый id вида "KuRr7w8tzkQ".
+ */
+function isYouTubeVideoId(videoId: string): boolean {
+	return !/^\d+$/.test(videoId)
 }

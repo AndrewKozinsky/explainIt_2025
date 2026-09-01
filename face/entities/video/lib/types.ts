@@ -15,9 +15,7 @@ export type SubtitlesStatusModelType = 'idle' | 'pending' | 'processing' | 'done
 
 // ─── Модель субтитров ────────────────────────────────────────────────────────
 
-/**
- * Структура populated-текста для субтитров.
- */
+/** Структура populated-текста для субтитров. */
 export namespace VideoSubtitlesModel {
 	export type Structure = {
 		subtitles: (Subtitle | SpeechlessBar)[]
@@ -102,9 +100,7 @@ export type VideoModel = VideoLiteModel & {
 	subtitles: null | VideoSubtitlesModel.Structure
 }
 
-/**
- * Статус генерации субтитров.
- */
+/** Статус генерации субтитров. */
 export type SubtitlesStatusModel = {
 	videoId: number
 	source: null | SubtitlesSourceModelType

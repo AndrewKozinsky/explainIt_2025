@@ -1,21 +1,21 @@
-import { forwardRef, KeyboardEvent, useImperativeHandle, useRef } from 'react'
-import { useUser } from '@/shared/api/auth/UserProvider'
-import { handleEnterToSend } from '../ChatInput/fn/handleEnterToSend'
-import { computeInsertAtCaret, applyCaret } from '../ChatInput/fn/insertAtCaret'
-import { useSentenceChatStore } from '../sentenceChatStore'
-import { useAutoResizeTextarea } from './fn/useAutoResizeTextarea'
-import './PromptTextarea.scss'
+// import { forwardRef, KeyboardEvent, useImperativeHandle, useRef } from 'react'
+// import { useUser } from '@/shared/api/auth/UserProvider'
+// import { handleEnterToSend } from '../ChatInput/fn/handleEnterToSend'
+// import { computeInsertAtCaret, applyCaret } from '../ChatInput/fn/insertAtCaret'
+// import { useSentenceChatStore } from '../sentenceChatStore'
+// import { useAutoResizeTextarea } from './fn/useAutoResizeTextarea'
+// import './PromptTextarea.scss'
 
-export type PromptTextareaHandle = {
+/*export type PromptTextareaHandle = {
 	insertAtCaret: (text: string) => void
 	submit: () => void
-}
+}*/
 
-type PromptTextareaProps = {
+/*type PromptTextareaProps = {
 	onSend: (question: string) => void
-}
+}*/
 
-const PromptTextarea = forwardRef<PromptTextareaHandle, PromptTextareaProps>(function PromptTextarea(props, ref) {
+/*const PromptTextarea = forwardRef<PromptTextareaHandle, PromptTextareaProps>(function PromptTextarea(props, ref) {
 	const { onSend } = props
 
 	const prompt = useSentenceChatStore((s) => s.prompt)
@@ -75,6 +75,6 @@ const PromptTextarea = forwardRef<PromptTextareaHandle, PromptTextareaProps>(fun
 			disabled={!hasBalance}
 		/>
 	)
-})
+})*/
 
-export default PromptTextarea
+// export default PromptTextarea

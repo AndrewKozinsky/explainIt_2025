@@ -1,18 +1,18 @@
 import { mapVideoSentencesToModels } from '@/entities/media/repository/SentenceMappers'
 import type { SentenceModel } from '@/entities/media/repository/SentenceTypes'
-import { getSentenceStructure } from '@/entities/sentencesAndSubtitles/Sentence/fn/getSentenceStructure'
+import { getSentenceStructure } from '@/entities/sentencesAndSubtitles/lib/getSentenceStructure'
 import type { VideoLiteOutModel, VideoOutModel } from '@/shared/api/generated/models'
 import { PROFICIENCY_MAP, ProficiencyLevel } from '@/shared/api/proficiencyLevel'
-import { extractString, extractNumber, extractBoolean } from '@/shared/utils/extractors'
+import { extractBoolean, extractNumber, extractString } from '@/shared/utils/extractors'
 import { LanguageCode } from '@/shared/utils/languages'
 import { formatDurationSec } from '@/shared/utils/time'
 import type {
+	SubtitlesSourceModelType,
+	SubtitlesStatusModelType,
 	VideoContentType,
 	VideoLiteModel,
 	VideoModel,
 	VideoSubtitlesModel,
-	SubtitlesSourceModelType,
-	SubtitlesStatusModelType,
 } from './types'
 
 // ─── Мапперы моделей ─────────────────────────────────────────────────────────
@@ -69,9 +69,7 @@ export function mapVideoOutModelToVideoModel(raw: VideoOutModel): VideoModel {
 
 // ─── Populated-текст ─────────────────────────────────────────────────────────
 
-/**
- * Создаёт populated-предложения (plainSentences) из сырых данных VideoOutModel.
- */
+/** Создаёт populated-предложения (plainSentences) из сырых данных VideoOutModel. */
 export function createPopulatedPlainText(videoData: VideoOutModel): SentenceModel[] {
 	if (!videoData.processedContent || !videoData.sentences) {
 		return []

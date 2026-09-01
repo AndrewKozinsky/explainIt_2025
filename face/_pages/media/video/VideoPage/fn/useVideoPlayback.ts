@@ -2,8 +2,8 @@
 
 import { useCallback, useEffect, useMemo } from 'react'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import { handleAutoStop, resetPlaybackRuntime } from '_pages/media/video/VideoPage/fn/playback'
 import { useVideoStore } from '../../videoStore'
-import { handleAutoStop, resetPlaybackRuntime } from './playback'
 import { useVideoInput } from './useVideoInput'
 
 type UseVideoPlaybackParams = {

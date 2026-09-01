@@ -1,13 +1,13 @@
-'use client'
+// 'use client'
 
-import React, { useEffect } from 'react'
-import { useQuery } from '@tanstack/react-query'
-import { languageQueries } from '@/entities/languages/LanguagesQueryFacade'
-import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
-import { LanguageCode } from '@/shared/utils/languages'
-import { useDictionaryStore } from '../dictionaryStore'
+// import React, { useEffect } from 'react'
+// import { useQuery } from '@tanstack/react-query'
+// import { languageQueries } from '@/entities/languages/LanguagesQueryFacade'
+// import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+// import { LanguageCode } from '@/shared/utils/languages'
+// import { useDictionaryStore } from '../dictionaryStore'
 
-function DictionaryLanguageSwitch() {
+/*function DictionaryLanguageSwitch() {
 	const { data } = useQuery(languageQueries.getLanguages())
 
 	const currentLang = useDictionaryStore((state) => state.currentLang)
@@ -25,6 +25,6 @@ function DictionaryLanguageSwitch() {
 	if (!currentLang) return null
 
 	return <LanguageSwitch languages={languages} currentLang={currentLang} onChange={setCurrentLang} />
-}
+}*/
 
-export default DictionaryLanguageSwitch
+// export default DictionaryLanguageSwitch

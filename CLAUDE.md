@@ -17,14 +17,11 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 
 | File                                                  | Triggers (keywords / topics)                                                                                                   |
 |-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| `aiDocsRus/topics/balance.md`                         | баланс, оплата, платежи, YooKassa, копейки, пополнение, списание, user balance                                                 |
 | `aiDocsRus/topics/booksAndMoviesTranslation.md`       | перевод предложения, перевод фразы в книге/фильме, sentence translation, phrase translation                                    |
 | `aiDocsRus/topics/clientUserData.md`                  | пользователь, user, getCurrentUser, UserProvider, useAuthControllerGetMe, авторизация, текущий пользователь, user data         |
-| `aiDocsRus/topics/expressions.md`                     | выражения, expressions, MDX-уроки, фразовые глаголы, phrasal verbs, `/expressions`                                             |
 | `aiDocsRus/topics/flashcards.md`                      | карточки, flashcards, заучивание фраз, flashcard                                                                               |
 | `aiDocsRus/topics/internationalization.md`            | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale                                                |
 | `aiDocsRus/topics/multiRegionDeployment.md`           | регионы, деплой, GitHub Actions, explainit.ru, immersia.site, серверы, CI/CD                                                   |
-| `aiDocsRus/topics/proxy.md`                           | прокси, HttpsProxyAgent, proxy                                                                                                 |
 | `aiDocsRus/topics/sentenceChat.md`                    | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread                                                                     |
 | `aiDocsRus/topics/universalPhraseTranslation.md`      | перевод универсальной фразы, universal phrase translation, GetOrCreateUniversalPhraseTranslation                               |
 | `aiDocsRus/topics/clientRepositories.md`              | репозиторий, repository, BooksRepository, BooksApi, useFetchData, resolveError, extractString, маппинг данных, клиентский API  |

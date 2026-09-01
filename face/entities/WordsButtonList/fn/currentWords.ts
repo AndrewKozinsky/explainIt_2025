@@ -1,8 +1,8 @@
-import { useMemo } from 'react'
-import { segmentSentence } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
-import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+// import { useMemo } from 'react'
+// import { segmentSentence } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
+// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 
-export function useCurrentWords(): { sentenceWords: string[]; phrase: string | null } {
+/*export function useCurrentWords(): { sentenceWords: string[]; phrase: string | null } {
 	const mediaStore = useMediaStoreContext()
 	const sentenceId = mediaStore((s) => s.selectedSentenceId)
 	const languageCode = mediaStore((s) => s.languageCode)
@@ -21,4 +21,4 @@ export function useCurrentWords(): { sentenceWords: string[]; phrase: string | n
 			phrase: selected?.phrase ?? null,
 		}
 	}, [sentenceId, languageCode, sentences])
-}
+}*/

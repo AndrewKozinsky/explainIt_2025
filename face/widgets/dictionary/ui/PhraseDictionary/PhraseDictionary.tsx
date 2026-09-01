@@ -7,21 +7,21 @@ import PhraseDictionaryNotExisting from '../PhraseDictionaryNotExisting/PhraseDi
 import PhraseTranslationResult from '../PhraseTranslationResult/PhraseTranslationResult'
 import WordsQuickAccess from '../WordsQuickAccess/WordsQuickAccess'
 import { useInitStore } from './fn/useInitStore'
-import { useObservePhrase } from './fn/useObservePhrase'
+import { useObserveCurrentWord } from './fn/useObserveCurrentWord'
 import { useRetryEffect } from './fn/useRetryEffect'
 import './PhraseDictionary.scss'
 
 type PhraseDictionaryProps = {
 	languageCode: LanguageCode
-	phrase?: string
+	currentWord?: string
 	words: string[]
 }
 
 function PhraseDictionary(props: PhraseDictionaryProps) {
-	const { languageCode, phrase, words } = props
+	const { languageCode, currentWord, words } = props
 
 	useInitStore(languageCode)
-	useObservePhrase(phrase)
+	useObserveCurrentWord(currentWord)
 	useRetryEffect()
 
 	return (

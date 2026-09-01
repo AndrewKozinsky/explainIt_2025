@@ -8,7 +8,6 @@ type InfoViewSwitcherProps = {
 }
 
 function InfoViewSwitcher({ currentInfoView, setActiveInfoView }: InfoViewSwitcherProps) {
-
 	return (
 		<ContainerWidthObserver widths={[500]}>
 			{(range) => (

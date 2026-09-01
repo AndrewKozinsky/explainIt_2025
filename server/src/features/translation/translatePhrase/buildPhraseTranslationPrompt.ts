@@ -24,32 +24,32 @@ export function buildPhraseTranslationPrompt(input: BuildPhraseTranslationPrompt
 		videoYear: input.videoYear,
 	})
 
-	return `Ты — помощник для изучения ${sourceLanguage} языка.${mediaContext}
+	return `You are an assistant for learning the ${sourceLanguage} language.${mediaContext}
 
-Тебе дано предложение:
+You are given a sentence:
 "${input.sentenceText}"
 
-Пользователь выделил слово:
+The user selected a word:
 - text: "${input.selectedWord}"
 - startOffset: ${input.selectedWordStartOffset}
 - endOffset: ${input.selectedWordEndOffset}
 
-Твоя задача:
-1) Определи смысловую фразу, к которой относится выделение.
-2) Переведи эту фразу на ${targetLanguage} язык.
-3) Дай короткие примеры.
+Your task:
+1) Determine the meaningful phrase the selection belongs to.
+2) Translate this phrase into ${targetLanguage}.
+3) Give short examples.
 
-Верни ответ строго как многострочный текст без markdown и без пояснений:
-- Строка 1: фраза на исходном языке.
-- Строка 2: перевод этой фразы на ${targetLanguage} язык.
-- Строка 3: пример употребления фразы на исходном языке (необязательно).
-- Строка 4: перевод примера (необязательно).
-- Строки 5+ по той же схеме парами (пример / перевод примера).
+Return the answer strictly as multi-line text without markdown and without explanations:
+- Line 1: the phrase in the source language.
+- Line 2: the translation of this phrase into ${targetLanguage}.
+- Line 3: an example of the phrase used in the source language (optional).
+- Line 4: the translation of the example (optional).
+- Lines 5+ following the same pattern in pairs (example / translation of the example).
 
-Правила:
-- phrase должна быть подстрокой исходного предложения.
-- Не добавляй нумерацию строк, заголовки, JSON и ключи полей.
-- Если примеров нет, верни только первые 2 строки.`
+Rules:
+- phrase must be a substring of the source sentence.
+- Do not add line numbering, headings, JSON, or field keys.
+- If there are no examples, return only the first 2 lines.`
 }
 
 function buildMediaContext(input: {
@@ -62,6 +62,7 @@ function buildMediaContext(input: {
 		const details = [input.bookName ?? '', input.bookAuthor ? `author: ${input.bookAuthor}` : '']
 			.filter(Boolean)
 			.join(', ')
+
 		return details ? ` Context: book (${details}).` : ''
 	}
 

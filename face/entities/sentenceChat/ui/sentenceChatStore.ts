@@ -1,8 +1,8 @@
-import { produce } from 'immer'
-import { create } from 'zustand'
-import { ChatMessageStatus, ChatUiMessage } from './types/sseTypes'
+// import { produce } from 'immer'
+// import { create } from 'zustand'
+// import { ChatMessageStatus, ChatUiMessage } from './types/sseTypes'
 
-export const sentenceChatStoreValues: SentenceChatStoreValues = {
+/*export const sentenceChatStoreValues: SentenceChatStoreValues = {
 	threadId: null,
 	messages: [],
 	isLoadingThread: true,
@@ -11,9 +11,9 @@ export const sentenceChatStoreValues: SentenceChatStoreValues = {
 	llmProvider: 'deepseek',
 	prompt: '',
 	isTextAreaFocused: false,
-}
+}*/
 
-export const useSentenceChatStore = create<SentenceChatStoreNext>()((set) => {
+/*export const useSentenceChatStore = create<SentenceChatStoreNext>()((set) => {
 	return {
 		...sentenceChatStoreValues,
 		clearStoreData: () => {
@@ -104,13 +104,13 @@ export const useSentenceChatStore = create<SentenceChatStoreNext>()((set) => {
 			set({ isTextAreaFocused })
 		},
 	}
-})
+})*/
 
-export type LlmProvider = 'gemini' | 'chatgpt' | 'deepseek'
+// export type LlmProvider = 'gemini' | 'chatgpt' | 'deepseek'
 
-export type SentenceChatStoreNext = SentenceChatStoreValues & SentenceChatStoreMethods
+// export type SentenceChatStoreNext = SentenceChatStoreValues & SentenceChatStoreMethods
 
-export type SentenceChatStoreValues = {
+/*export type SentenceChatStoreValues = {
 	threadId: null | number
 	messages: ChatUiMessage[]
 	isLoadingThread: boolean
@@ -119,9 +119,9 @@ export type SentenceChatStoreValues = {
 	llmProvider: LlmProvider
 	prompt: string
 	isTextAreaFocused: boolean
-}
+}*/
 
-export type SentenceChatStoreMethods = {
+/*export type SentenceChatStoreMethods = {
 	clearStoreData: () => void
 	updateStore: (storePart: Partial<SentenceChatStoreValues>) => void
 	setThreadMessages: (input: { threadId: number; messages: ChatUiMessage[] }) => void
@@ -138,4 +138,4 @@ export type SentenceChatStoreMethods = {
 	setLlmProvider: (provider: LlmProvider) => void
 	setPrompt: (prompt: string) => void
 	setIsTextAreaFocused: (isTextAreaFocused: boolean) => void
-}
+}*/

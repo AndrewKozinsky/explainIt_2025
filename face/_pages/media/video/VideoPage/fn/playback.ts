@@ -1,7 +1,11 @@
-import type { PlayerCommand } from '@/entities/videoPlayer'
+import {
+	findActiveSubtitleIndex,
+	findNextSubtitleIndex,
+	findPrevSubtitleIndex,
+} from '@/entities/sentencesAndSubtitles/lib/subtitles'
 import type { VideoSubtitlesModel } from '@/entities/video/lib/types'
+import type { PlayerCommand } from '@/entities/videoPlayer'
 import { useVideoStore } from '../../videoStore'
-import { findActiveSubtitleIndex, findNextSubtitleIndex, findPrevSubtitleIndex } from './subtitles'
 
 type Subtitle = VideoSubtitlesModel.Subtitle
 
@@ -11,55 +15,10 @@ let shadowTimer: null | ReturnType<typeof setTimeout> = null
 let shadowIndex = -1
 let revertToSeconds: null | number = null
 
-// ── Хелперы ───────────────────────────────────────────────────────────
-
-function getStore() {
-	return useVideoStore.getState()
-}
-
-function send(command: PlayerCommand) {
-	getStore().sendPlayerCommand(command)
-}
-
-function getSubtitles(): null | Subtitle[] {
-	return getStore().subtitles
-}
-
-function getCurrentTime(): number {
-	return getStore().player.currentTime
-}
-
-function isPlaying(): boolean {
-	return !getStore().player.paused
-}
-
-function setMode(mode: 'video' | 'shadowing' | 'subAndRevert' | 'sub') {
-	getStore().setPlayback({ mode })
-}
-
-function setStopAt(stopAt: null | number) {
-	getStore().setPlayback({ stopAt })
-}
-
 function clearShadowTimer() {
 	if (shadowTimer == null) return
 	clearTimeout(shadowTimer)
 	shadowTimer = null
-}
-
-/** Отменяет авто-остановку: таймер шэдоуинга, возврат к началу и stopAt. */
-function cancelAutoStop() {
-	clearShadowTimer()
-	shadowIndex = -1
-	revertToSeconds = null
-	setStopAt(null)
-}
-
-/** Активный субтитр или следующий за текущей точкой (если точка вне субтитра). */
-function getTargetSubtitleIndex(subtitles: Subtitle[], t: number): number {
-	const active = findActiveSubtitleIndex(subtitles, t)
-	if (active !== -1) return active
-	return findNextSubtitleIndex(subtitles, t)
 }
 
 // ── Авто-остановка ────────────────────────────────────────────────────
@@ -76,18 +35,20 @@ function handleShadowAutoStop() {
 
 	const waitMs = Math.max(0, (sub.toSeconds - sub.fromSeconds) * 1000)
 	shadowTimer = setTimeout(() => {
-		playNextShadowSubtitle(subtitles, sub.toSeconds)
+		playNextShadowSubtitle(subtitles)
 	}, waitMs)
 }
 
-function playNextShadowSubtitle(subtitles: Subtitle[], fromSeconds: number) {
-	const next = findNextSubtitleIndex(subtitles, fromSeconds)
-	if (next === -1) {
+function playNextShadowSubtitle(subtitles: Subtitle[]) {
+	const next = shadowIndex + 1
+
+	if (next >= subtitles.length) {
 		shadowIndex = -1
 		return
 	}
 
 	shadowIndex = next
+
 	send({ type: 'SET_TIME', time: subtitles[next].fromSeconds })
 	setStopAt(subtitles[next].toSeconds)
 	send({ type: 'PLAY' })
@@ -180,10 +141,12 @@ export function toVideoStart() {
 	cancelAutoStop()
 	send({ type: 'PAUSE' })
 	send({ type: 'SET_TIME', time: 0 })
+
+	window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
 }
 
 /** 2. Запуск/остановка воспроизведения с текущего места до конца. */
-export function playVideo() {
+export function stopOrPlayVideo() {
 	if (getStore().playback.mode === 'video') {
 		send(isPlaying() ? { type: 'PAUSE' } : { type: 'PLAY' })
 		return
@@ -199,6 +162,7 @@ export function playVideoShadowing() {
 	if (getStore().playback.mode === 'shadowing') {
 		if (isPlaying()) stopShadowing()
 		else startShadowing()
+
 		return
 	}
 
@@ -259,7 +223,7 @@ export function toNextSub() {
 export function toggleCurrentMode() {
 	const { mode } = getStore().playback
 
-	if (mode === 'video') playVideo()
+	if (mode === 'video') stopOrPlayVideo()
 	else if (mode === 'shadowing') playVideoShadowing()
 	else if (mode === 'subAndRevert') playSubAndRevert()
 	else playSub()
@@ -270,6 +234,48 @@ export function toggleCurrentMode() {
 export function rewind(seconds: number) {
 	cancelAutoStop()
 	send({ type: 'REWIND', seconds })
+}
+
+/** Порог: если от начала текущего субтитра прошло меньше этого времени — левая стрелка ведёт к предыдущему. */
+const CURRENT_SUB_THRESHOLD_SECONDS = 1
+
+/** Стрелка влево: к началу текущего субтитра. Если от его начала прошло меньше секунды — к началу предыдущего. */
+export function toCurrentSubStart() {
+	const subtitles = getSubtitles()
+	if (!subtitles || subtitles.length === 0) return
+
+	const t = getCurrentTime()
+	const active = findActiveSubtitleIndex(subtitles, t)
+
+	// Между субтитрами — к началу предыдущего.
+	if (active === -1) {
+		const prev = findPrevSubtitleIndex(subtitles, t)
+		if (prev === -1) return
+		seekTo(subtitles[prev].fromSeconds)
+		return
+	}
+
+	const target = t - subtitles[active].fromSeconds < CURRENT_SUB_THRESHOLD_SECONDS && active > 0 ? active - 1 : active
+	seekTo(subtitles[target].fromSeconds)
+}
+
+/** Стрелка вправо: к концу текущего субтитра. */
+export function toCurrentSubEnd() {
+	const subtitles = getSubtitles()
+	if (!subtitles || subtitles.length === 0) return
+
+	const t = getCurrentTime()
+	const active = findActiveSubtitleIndex(subtitles, t)
+
+	// Между субтитрами — к началу следующего.
+	if (active === -1) {
+		const next = findNextSubtitleIndex(subtitles, t)
+		if (next === -1) return
+		seekTo(subtitles[next].fromSeconds)
+		return
+	}
+
+	seekTo(subtitles[active].toSeconds)
 }
 
 export function startForwardHold(rate: number) {
@@ -295,4 +301,56 @@ export function resetPlaybackRuntime() {
 	clearShadowTimer()
 	shadowIndex = -1
 	revertToSeconds = null
+}
+
+// ── Хелперы ───────────────────────────────────────────────────────────
+
+/** Активный субтитр или следующий за текущей точкой (если точка вне субтитра). */
+function getTargetSubtitleIndex(subtitles: Subtitle[], t: number): number {
+	const active = findActiveSubtitleIndex(subtitles, t)
+	if (active !== -1) return active
+
+	return findNextSubtitleIndex(subtitles, t)
+}
+
+function getCurrentTime(): number {
+	return getStore().player.currentTime
+}
+
+function getSubtitles(): null | Subtitle[] {
+	return getStore().subtitles
+}
+
+function setMode(mode: 'video' | 'shadowing' | 'subAndRevert' | 'sub') {
+	getStore().setPlayback({ mode })
+}
+
+function isPlaying(): boolean {
+	return !getStore().player.paused
+}
+
+function getStore() {
+	return useVideoStore.getState()
+}
+
+function send(command: PlayerCommand) {
+	getStore().sendPlayerCommand(command)
+}
+
+/** Перемотка к точному времени (без паузы), отменяя авто-остановку. */
+function seekTo(time: number) {
+	cancelAutoStop()
+	send({ type: 'SET_TIME', time })
+}
+
+/** Отменяет авто-остановку: таймер шэдоуинга, возврат к началу и stopAt. */
+function cancelAutoStop() {
+	clearShadowTimer()
+	shadowIndex = -1
+	revertToSeconds = null
+	setStopAt(null)
+}
+
+function setStopAt(stopAt: null | number) {
+	getStore().setPlayback({ stopAt })
 }

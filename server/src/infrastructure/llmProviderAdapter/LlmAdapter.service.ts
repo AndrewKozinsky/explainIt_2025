@@ -8,6 +8,7 @@ import { ChatGptLlmProvider } from './ChatGptLlmProvider.service'
 import { DeepSeekLlmProvider } from './DeepSeekLlmProvider.service'
 import { GeminiLlmProvider } from './GeminiLlmProvider.service'
 import { LlmGenerateInput, LlmGenerateOutput, LlmProvider, LlmStreamInput } from './LlmProvider.interface'
+import { ZaiLlmProvider } from './ZaiLlmProvider.service'
 
 /**
  * Единый фасад для вызова любого LLM-провайдера.
@@ -32,11 +33,17 @@ export class LlmAdapterService {
 
 	private providerMap: Record<AIProviderName, LlmProvider>
 
-	constructor(gemini: GeminiLlmProvider, chatGpt: ChatGptLlmProvider, deepSeek: DeepSeekLlmProvider) {
+	constructor(
+		gemini: GeminiLlmProvider,
+		chatGpt: ChatGptLlmProvider,
+		deepSeek: DeepSeekLlmProvider,
+		zai: ZaiLlmProvider,
+	) {
 		this.providerMap = {
 			gemini,
 			chatgpt: chatGpt,
 			deepseek: deepSeek,
+			zai,
 		}
 	}
 

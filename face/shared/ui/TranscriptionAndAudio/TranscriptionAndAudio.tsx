@@ -18,6 +18,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 		languageCode,
 		audioUrl: propAudioUrl,
 		transcription: propTranscription,
+		transcriptionLoading = false,
 	} = props
 
 	const effectiveTranscription = useTranscriptionState({
@@ -34,7 +35,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 
 	if (languageCode && !canLanguageHaveTranscription(languageCode)) return null
 
-	const isLoading = effectiveTranscription?.status === 'loading' || phrase === 'loading'
+	const isLoading = transcriptionLoading || effectiveTranscription?.status === 'loading' || phrase === 'loading'
 
 	const rootClasses = cn(
 		'transcription-audio',
@@ -51,7 +52,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 			theme={bg === 'pale' ? 'regular' : 'plain'}
 		>
 			{showAudioIcon ? <AudioIcon audioStatus={audioStatus} isPlaying={isPlaying} /> : null}
-			<TranscriptionBlock transcription={effectiveTranscription} />
+			<TranscriptionBlock transcription={effectiveTranscription} isLoading={isLoading} />
 		</BaseButton>
 	)
 }
@@ -80,13 +81,14 @@ function AudioIcon(props: AudioIconProps) {
 }
 
 type TranscriptionBlockProps = {
+	isLoading: boolean
 	transcription?: TranscriptionState | null
 }
 
 function TranscriptionBlock(props: TranscriptionBlockProps) {
-	const { transcription } = props
+	const { isLoading, transcription } = props
 
-	if (!transcription || transcription.status === 'loading') {
+	if (isLoading || !transcription || transcription.status === 'loading') {
 		return null
 	}
 

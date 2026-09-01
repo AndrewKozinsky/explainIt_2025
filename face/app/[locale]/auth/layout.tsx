@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import AuthMainPageLayout from '../../../_pages/auth/main/AuthMainPageLayout/AuthMainPageLayout'
+import AuthMainPageLayout from '@/_pages/auth/main/AuthMainPageLayout/AuthMainPageLayout'
 
 type LayoutProps = {
 	children: ReactNode

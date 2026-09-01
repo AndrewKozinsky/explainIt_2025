@@ -1,8 +1,8 @@
 import React from 'react'
 import cn from 'classnames'
-import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import FieldError from '../FieldError/FieldError'
 import './RadioGroup.scss'
+import LabelWithField from '../LabelWithField/LabelWithField'
 
 type RadioItemConfig = {
 	label: string
