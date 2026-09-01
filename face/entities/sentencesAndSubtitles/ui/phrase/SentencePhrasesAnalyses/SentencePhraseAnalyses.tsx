@@ -1,12 +1,12 @@
-// import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
-// import SentencePhrase from '../SentencePhrase/SentencePhrase'
-// import './SentencePhraseAnalyses.scss'
+import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
+import SentencePhrase from '../SentencePhrase/SentencePhrase'
+import './SentencePhraseAnalyses.scss'
 
-/*type SentencePhraseAnalysesProps = {
+type SentencePhraseAnalysesProps = {
 	languageCode: string
-}*/
+}
 
-/*function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
+function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 	const { languageCode } = props
 
 	const mediaStore = useMediaStoreContext()
@@ -38,6 +38,6 @@
 			})}
 		</div>
 	)
-}*/
+}
 
-// export default SentencePhraseAnalyses
+export default SentencePhraseAnalyses

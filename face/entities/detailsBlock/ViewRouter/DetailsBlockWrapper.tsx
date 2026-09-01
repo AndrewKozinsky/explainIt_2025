@@ -2,7 +2,7 @@ import { useState } from 'react'
 import cn from 'classnames'
 import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
-import WordsContent from '../WordsContent/WordsContent'
+import PhrasesContent from '../WordsContent/PhrasesContent'
 import './DetailsBlockWrapper.scss'
 
 export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
@@ -31,7 +31,7 @@ function DetailsBlockWrapper(props: DetailsBlockWrapperProps) {
 			</div>
 			<div className='details-block-wrapper__content'>
 				{currentInfoView === 'dictionary' && <DictionaryContent />}
-				{currentInfoView === 'words' && <WordsContent />}
+				{currentInfoView === 'words' && <PhrasesContent />}
 				{/*{currentInfoView === 'ai_dialog' && <DialogContent />}*/}
 			</div>
 		</ContentWrapper>

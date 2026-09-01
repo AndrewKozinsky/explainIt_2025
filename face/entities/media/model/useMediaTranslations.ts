@@ -1,14 +1,17 @@
 import { useEffect } from 'react'
+import { useLocale } from 'next-intl'
+import { fetchSentence } from '@/entities/media/model/fetchSentence'
 import { useFetchPhraseTranslation } from '@/entities/media/model/useFetchPhrase'
 import { useFetchSentenceTranslation } from '@/entities/media/model/useFetchSentence'
+import { fetchPhrase } from './fetchPhrase'
 import { MediaTranslationContext } from './mediaTranslationContext'
-// import type { PhraseTranslationModel } from '@/entities/translate/TranslateService'
-// import type { SentencePhraseType } from '../store/translationTypes'
-// import { offsetsFromWordIds, wordIdsFromOffsets } from '@/entities/detailsBlock/DetailsBlock/fn/wordSegmentation'
+import { offsetsFromWordIds } from './prepareData'
 
 /** Координирует загрузку переводов для всех потребителей текущего media-контекста. */
 export function useMediaTranslations(input: MediaTranslationContext): void {
 	const { mediaStore, sentences, languageCode } = input
+
+	const locale = useLocale()
 
 	useEffect(() => {
 		mediaStore.getState().setTranslationContext({ languageCode: languageCode ?? null, sentences: sentences ?? [] })
@@ -16,13 +19,13 @@ export function useMediaTranslations(input: MediaTranslationContext): void {
 
 	useFetchSentenceTranslation(input)
 
-	// useEffect(() => () => mediaStore.getState().clearMediaData(), [mediaStore])
+	useEffect(() => () => mediaStore.getState().clearMediaData(), [mediaStore])
 
 	useFetchPhraseTranslation(input)
 
-	// const sentenceRetries = mediaStore((state) => state.retryFetchSentenceTranslationQueue)
+	const sentenceRetries = mediaStore((state) => state.retryFetchSentenceTranslationQueue)
 
-	/*useEffect(() => {
+	useEffect(() => {
 		if (!sentenceRetries.length) return
 		mediaStore.setState({ retryFetchSentenceTranslationQueue: [] })
 
@@ -33,11 +36,11 @@ export function useMediaTranslations(input: MediaTranslationContext): void {
 				sentenceText: item.sentenceText,
 				targetLanguageCode: locale,
 			})
-	}, [mediaStore, sentenceRetries, locale])*/
+	}, [mediaStore, sentenceRetries, locale])
 
-	// const phraseRetries = mediaStore((state) => state.retryFetchPhraseQueue)
+	const phraseRetries = mediaStore((state) => state.retryFetchPhraseQueue)
 
-	/*useEffect(() => {
+	useEffect(() => {
 		if (!phraseRetries.length) return
 
 		mediaStore.setState({ retryFetchPhraseQueue: [] })
@@ -61,5 +64,5 @@ export function useMediaTranslations(input: MediaTranslationContext): void {
 					targetLanguageCode: locale,
 				})
 		}
-	}, [mediaStore, phraseRetries, locale])*/
+	}, [mediaStore, phraseRetries, locale])
 }

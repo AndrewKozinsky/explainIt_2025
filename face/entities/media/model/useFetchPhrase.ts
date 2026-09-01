@@ -7,7 +7,7 @@ import { makePhraseId, offsetsFromWordIds } from './prepareData'
 export function useFetchPhraseTranslation(input: MediaTranslationContext) {
 	const locale = useLocale()
 
-	const { mediaStore, sentences, languageCode, selectedSentenceId, selectedWordId } = input
+	const { mediaStore, selectedSentenceId, selectedWordId } = input
 
 	useEffect(() => {
 		if (selectedSentenceId === null || selectedWordId === null) return

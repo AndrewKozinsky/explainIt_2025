@@ -1,7 +1,7 @@
 import { SentenceModel } from '@/entities/media/repository/SentenceTypes'
 import { LanguageCode } from '@/shared/utils/languages'
-// import SentenceAndPhraseTranslationBlock from '../SentenceTranslationBlock/SentenceAndPhraseTranslationBlock'
 import Sentence from '../Sentence/Sentence'
+import SentenceAndPhraseTranslationBlock from '../SentenceTranslationBlock/SentenceAndPhraseTranslationBlock'
 import './SentenceBlock.scss'
 
 type ChapterSentenceProps = {
@@ -25,11 +25,11 @@ function SentenceBlock(props: ChapterSentenceProps) {
 				selectedWordId={selectedWordId}
 				selectWord={selectWord}
 			/>
-			{/*<SentenceAndPhraseTranslationBlock
+			<SentenceAndPhraseTranslationBlock
 				sentenceId={sentence.id}
 				languageCode={languageCode}
 				bgColor={environmentColor === 'gray' ? 'white' : 'gray'}
-			/>*/}
+			/>
 		</div>
 	)
 }

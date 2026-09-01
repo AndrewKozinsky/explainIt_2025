@@ -18,8 +18,7 @@ export type BaseMediaStore = {
 	}[]
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
 	setTranslationContext: (input: { languageCode: null | LanguageCode; sentences: SentenceModel[] }) => void
-	// clearMediaData: () => void
-	// insertLoadingSentence: (input: { sentenceId: number; text: string }) => void
+	clearMediaData: () => void
 	patchSentenceTranslation: (input: { sentenceId: number; patch: Partial<SentenceTranslation> }) => void
 	upsertPhraseTranslation: (input: { sentenceId: number; phrase: SentencePhraseType }) => void
 	patchPhraseTranslation: (input: {
@@ -66,7 +65,7 @@ export function createBaseMediaStore() {
 					},
 				})),
 			}),
-		/*clearMediaData: () =>
+		clearMediaData: () =>
 			set({
 				selectedSentenceId: null,
 				selectedWordId: null,
@@ -74,22 +73,7 @@ export function createBaseMediaStore() {
 				sentences: [],
 				retryFetchSentenceTranslationQueue: [],
 				retryFetchPhraseQueue: [],
-			}),*/
-		/*insertLoadingSentence: ({ sentenceId, text }) =>
-			set(
-				produce((state: BaseMediaStore) => {
-					if (state.sentences.some((entry) => entry.sentenceId === sentenceId)) return
-					state.sentences.push({
-						sentenceId,
-						sentenceText: text,
-						selectedPhraseId: null,
-						data: {
-							translation: { text: '', loading: true, error: null, translation: null, visible: true },
-							phrases: [],
-						},
-					})
-				}),
-			),*/
+			}),
 		patchSentenceTranslation: ({ sentenceId, patch }) =>
 			set(
 				produce((state: BaseMediaStore) => {
