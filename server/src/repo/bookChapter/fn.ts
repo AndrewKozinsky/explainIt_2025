@@ -55,7 +55,6 @@ export function mapSentencePhraseTranslations(
 			errorCode: pt.error_code,
 			createdAt: pt.created_at.toISOString(),
 			updatedAt: pt.updated_at.toISOString(),
-			flashcardId: null,
 			universalPhrase: universalPhraseByText?.get(pt.phrase) ?? null,
 		}
 	})

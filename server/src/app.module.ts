@@ -7,7 +7,6 @@ import { AuthModule } from 'routes/auth/auth.module'
 import { BookModule } from 'routes/book/book.module'
 import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
 import { DbModule } from 'routes/db/db.module'
-import { FlashcardModule } from 'routes/flashcard/flashcard.module'
 import { LanguageModule } from 'routes/language/language.module'
 import { PaymentModule } from 'routes/payment/payment.module'
 import { SentenceChatModule } from 'routes/sentenceChat/sentenceChat.module'
@@ -84,7 +83,6 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		UniversalPhraseTranslationModule,
 		UniversalPhraseAudioModule,
 		LanguageModule,
-		FlashcardModule,
 	],
 	providers: [StartServerTasksRunner, { provide: APP_FILTER, useClass: GlobalExceptionFilter }],
 })

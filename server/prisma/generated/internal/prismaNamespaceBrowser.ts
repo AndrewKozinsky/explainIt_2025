@@ -67,8 +67,7 @@ export const ModelName = {
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   UniversalPhraseTranslation: 'UniversalPhraseTranslation',
   SentenceChatThread: 'SentenceChatThread',
-  SentenceChatMessage: 'SentenceChatMessage',
-  Flashcard: 'Flashcard'
+  SentenceChatMessage: 'SentenceChatMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -174,7 +173,6 @@ export const VideoScalarFieldEnum = {
   is_file_uploaded: 'is_file_uploaded',
   file_size_mb: 'file_size_mb',
   duration_sec: 'duration_sec',
-  file_duration_sec: 'file_duration_sec',
   original_content: 'original_content',
   processed_content: 'processed_content',
   content_type: 'content_type',
@@ -330,26 +328,6 @@ export const SentenceChatMessageScalarFieldEnum = {
 } as const
 
 export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
-
-
-export const FlashcardScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  language_code: 'language_code',
-  sentence_text: 'sentence_text',
-  sentence_translation: 'sentence_translation',
-  phrase: 'phrase',
-  phrase_start_offset: 'phrase_start_offset',
-  phrase_end_offset: 'phrase_end_offset',
-  phrase_translation: 'phrase_translation',
-  examples: 'examples',
-  book_id: 'book_id',
-  video_id: 'video_id',
-  sentence_phrase_translation_id: 'sentence_phrase_translation_id',
-  created_at: 'created_at'
-} as const
-
-export type FlashcardScalarFieldEnum = (typeof FlashcardScalarFieldEnum)[keyof typeof FlashcardScalarFieldEnum]
 
 
 export const SortOrder = {

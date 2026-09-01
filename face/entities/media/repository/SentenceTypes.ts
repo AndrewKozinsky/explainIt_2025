@@ -22,7 +22,6 @@ export type SentencePhraseTranslationModel = {
 	examples: SentencePhraseTranslationExampleModel[]
 	status: 'pending' | 'ready' | 'error'
 	errorMessage: null | string
-	flashcardId: null | number
 }
 
 /**

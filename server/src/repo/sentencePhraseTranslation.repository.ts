@@ -169,7 +169,6 @@ export class SentencePhraseTranslationRepository {
 			errorCode: db.error_code,
 			createdAt: db.created_at,
 			updatedAt: db.updated_at,
-			flashcardId: null,
 		}
 	}
 

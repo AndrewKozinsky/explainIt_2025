@@ -31,7 +31,6 @@ export type VideoAvgAggregateOutputType = {
   user_id: number | null
   file_size_mb: number | null
   duration_sec: number | null
-  file_duration_sec: number | null
   proficiency_level: number | null
   learnability_score: number | null
 }
@@ -41,7 +40,6 @@ export type VideoSumAggregateOutputType = {
   user_id: number | null
   file_size_mb: number | null
   duration_sec: number | null
-  file_duration_sec: number | null
   proficiency_level: number | null
   learnability_score: number | null
 }
@@ -60,7 +58,6 @@ export type VideoMinAggregateOutputType = {
   is_file_uploaded: boolean | null
   file_size_mb: number | null
   duration_sec: number | null
-  file_duration_sec: number | null
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType | null
@@ -94,7 +91,6 @@ export type VideoMaxAggregateOutputType = {
   is_file_uploaded: boolean | null
   file_size_mb: number | null
   duration_sec: number | null
-  file_duration_sec: number | null
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType | null
@@ -128,7 +124,6 @@ export type VideoCountAggregateOutputType = {
   is_file_uploaded: number
   file_size_mb: number
   duration_sec: number
-  file_duration_sec: number
   original_content: number
   processed_content: number
   content_type: number
@@ -155,7 +150,6 @@ export type VideoAvgAggregateInputType = {
   user_id?: true
   file_size_mb?: true
   duration_sec?: true
-  file_duration_sec?: true
   proficiency_level?: true
   learnability_score?: true
 }
@@ -165,7 +159,6 @@ export type VideoSumAggregateInputType = {
   user_id?: true
   file_size_mb?: true
   duration_sec?: true
-  file_duration_sec?: true
   proficiency_level?: true
   learnability_score?: true
 }
@@ -184,7 +177,6 @@ export type VideoMinAggregateInputType = {
   is_file_uploaded?: true
   file_size_mb?: true
   duration_sec?: true
-  file_duration_sec?: true
   original_content?: true
   processed_content?: true
   content_type?: true
@@ -218,7 +210,6 @@ export type VideoMaxAggregateInputType = {
   is_file_uploaded?: true
   file_size_mb?: true
   duration_sec?: true
-  file_duration_sec?: true
   original_content?: true
   processed_content?: true
   content_type?: true
@@ -252,7 +243,6 @@ export type VideoCountAggregateInputType = {
   is_file_uploaded?: true
   file_size_mb?: true
   duration_sec?: true
-  file_duration_sec?: true
   original_content?: true
   processed_content?: true
   content_type?: true
@@ -373,7 +363,6 @@ export type VideoGroupByOutputType = {
   is_file_uploaded: boolean | null
   file_size_mb: number
   duration_sec: number
-  file_duration_sec: number | null
   original_content: string | null
   processed_content: string | null
   content_type: $Enums.VideoTextType
@@ -430,7 +419,6 @@ export type VideoWhereInput = {
   is_file_uploaded?: Prisma.BoolNullableFilter<"Video"> | boolean | null
   file_size_mb?: Prisma.IntFilter<"Video"> | number
   duration_sec?: Prisma.IntFilter<"Video"> | number
-  file_duration_sec?: Prisma.IntNullableFilter<"Video"> | number | null
   original_content?: Prisma.StringNullableFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"Video"> | $Enums.VideoTextType
@@ -451,7 +439,6 @@ export type VideoWhereInput = {
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   Subtitle?: Prisma.SubtitleListRelationFilter
   Sentence?: Prisma.SentenceListRelationFilter
-  Flashcard?: Prisma.FlashcardListRelationFilter
 }
 
 export type VideoOrderByWithRelationInput = {
@@ -468,7 +455,6 @@ export type VideoOrderByWithRelationInput = {
   is_file_uploaded?: Prisma.SortOrderInput | Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrderInput | Prisma.SortOrder
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   content_type?: Prisma.SortOrder
@@ -489,7 +475,6 @@ export type VideoOrderByWithRelationInput = {
   user?: Prisma.UserOrderByWithRelationInput
   Subtitle?: Prisma.SubtitleOrderByRelationAggregateInput
   Sentence?: Prisma.SentenceOrderByRelationAggregateInput
-  Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
 
 export type VideoWhereUniqueInput = Prisma.AtLeast<{
@@ -509,7 +494,6 @@ export type VideoWhereUniqueInput = Prisma.AtLeast<{
   is_file_uploaded?: Prisma.BoolNullableFilter<"Video"> | boolean | null
   file_size_mb?: Prisma.IntFilter<"Video"> | number
   duration_sec?: Prisma.IntFilter<"Video"> | number
-  file_duration_sec?: Prisma.IntNullableFilter<"Video"> | number | null
   original_content?: Prisma.StringNullableFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"Video"> | $Enums.VideoTextType
@@ -530,7 +514,6 @@ export type VideoWhereUniqueInput = Prisma.AtLeast<{
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   Subtitle?: Prisma.SubtitleListRelationFilter
   Sentence?: Prisma.SentenceListRelationFilter
-  Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id" | "youtube_video_id">
 
 export type VideoOrderByWithAggregationInput = {
@@ -547,7 +530,6 @@ export type VideoOrderByWithAggregationInput = {
   is_file_uploaded?: Prisma.SortOrderInput | Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrderInput | Prisma.SortOrder
   original_content?: Prisma.SortOrderInput | Prisma.SortOrder
   processed_content?: Prisma.SortOrderInput | Prisma.SortOrder
   content_type?: Prisma.SortOrder
@@ -589,7 +571,6 @@ export type VideoScalarWhereWithAggregatesInput = {
   is_file_uploaded?: Prisma.BoolNullableWithAggregatesFilter<"Video"> | boolean | null
   file_size_mb?: Prisma.IntWithAggregatesFilter<"Video"> | number
   duration_sec?: Prisma.IntWithAggregatesFilter<"Video"> | number
-  file_duration_sec?: Prisma.IntNullableWithAggregatesFilter<"Video"> | number | null
   original_content?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableWithAggregatesFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeWithAggregatesFilter<"Video"> | $Enums.VideoTextType
@@ -621,7 +602,6 @@ export type VideoCreateInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -642,7 +622,6 @@ export type VideoCreateInput = {
   user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateInput = {
@@ -659,7 +638,6 @@ export type VideoUncheckedCreateInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -679,7 +657,6 @@ export type VideoUncheckedCreateInput = {
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUpdateInput = {
@@ -694,7 +671,6 @@ export type VideoUpdateInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -715,7 +691,6 @@ export type VideoUpdateInput = {
   user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateInput = {
@@ -732,7 +707,6 @@ export type VideoUncheckedUpdateInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -752,7 +726,6 @@ export type VideoUncheckedUpdateInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoCreateManyInput = {
@@ -769,7 +742,6 @@ export type VideoCreateManyInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -801,7 +773,6 @@ export type VideoUpdateManyMutationInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -835,7 +806,6 @@ export type VideoUncheckedUpdateManyInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -879,7 +849,6 @@ export type VideoCountOrderByAggregateInput = {
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrder
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
@@ -904,7 +873,6 @@ export type VideoAvgOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrder
   proficiency_level?: Prisma.SortOrder
   learnability_score?: Prisma.SortOrder
 }
@@ -923,7 +891,6 @@ export type VideoMaxOrderByAggregateInput = {
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrder
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
@@ -957,7 +924,6 @@ export type VideoMinOrderByAggregateInput = {
   is_file_uploaded?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrder
   original_content?: Prisma.SortOrder
   processed_content?: Prisma.SortOrder
   content_type?: Prisma.SortOrder
@@ -982,7 +948,6 @@ export type VideoSumOrderByAggregateInput = {
   user_id?: Prisma.SortOrder
   file_size_mb?: Prisma.SortOrder
   duration_sec?: Prisma.SortOrder
-  file_duration_sec?: Prisma.SortOrder
   proficiency_level?: Prisma.SortOrder
   learnability_score?: Prisma.SortOrder
 }
@@ -1082,22 +1047,6 @@ export type VideoUpdateOneWithoutSubtitleNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.VideoUpdateToOneWithWhereWithoutSubtitleInput, Prisma.VideoUpdateWithoutSubtitleInput>, Prisma.VideoUncheckedUpdateWithoutSubtitleInput>
 }
 
-export type VideoCreateNestedOneWithoutFlashcardInput = {
-  create?: Prisma.XOR<Prisma.VideoCreateWithoutFlashcardInput, Prisma.VideoUncheckedCreateWithoutFlashcardInput>
-  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutFlashcardInput
-  connect?: Prisma.VideoWhereUniqueInput
-}
-
-export type VideoUpdateOneWithoutFlashcardNestedInput = {
-  create?: Prisma.XOR<Prisma.VideoCreateWithoutFlashcardInput, Prisma.VideoUncheckedCreateWithoutFlashcardInput>
-  connectOrCreate?: Prisma.VideoCreateOrConnectWithoutFlashcardInput
-  upsert?: Prisma.VideoUpsertWithoutFlashcardInput
-  disconnect?: Prisma.VideoWhereInput | boolean
-  delete?: Prisma.VideoWhereInput | boolean
-  connect?: Prisma.VideoWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.VideoUpdateToOneWithWhereWithoutFlashcardInput, Prisma.VideoUpdateWithoutFlashcardInput>, Prisma.VideoUncheckedUpdateWithoutFlashcardInput>
-}
-
 export type VideoCreateWithoutUserInput = {
   type: $Enums.MediaType
   name?: string | null
@@ -1110,7 +1059,6 @@ export type VideoCreateWithoutUserInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1130,7 +1078,6 @@ export type VideoCreateWithoutUserInput = {
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateWithoutUserInput = {
@@ -1146,7 +1093,6 @@ export type VideoUncheckedCreateWithoutUserInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1166,7 +1112,6 @@ export type VideoUncheckedCreateWithoutUserInput = {
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoInput
 }
 
 export type VideoCreateOrConnectWithoutUserInput = {
@@ -1212,7 +1157,6 @@ export type VideoScalarWhereInput = {
   is_file_uploaded?: Prisma.BoolNullableFilter<"Video"> | boolean | null
   file_size_mb?: Prisma.IntFilter<"Video"> | number
   duration_sec?: Prisma.IntFilter<"Video"> | number
-  file_duration_sec?: Prisma.IntNullableFilter<"Video"> | number | null
   original_content?: Prisma.StringNullableFilter<"Video"> | string | null
   processed_content?: Prisma.StringNullableFilter<"Video"> | string | null
   content_type?: Prisma.EnumVideoTextTypeFilter<"Video"> | $Enums.VideoTextType
@@ -1244,7 +1188,6 @@ export type VideoCreateWithoutSentenceInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1264,7 +1207,6 @@ export type VideoCreateWithoutSentenceInput = {
   updated_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateWithoutSentenceInput = {
@@ -1281,7 +1223,6 @@ export type VideoUncheckedCreateWithoutSentenceInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1300,7 +1241,6 @@ export type VideoUncheckedCreateWithoutSentenceInput = {
   created_at?: Date | string
   updated_at?: Date | string
   Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoInput
 }
 
 export type VideoCreateOrConnectWithoutSentenceInput = {
@@ -1331,7 +1271,6 @@ export type VideoUpdateWithoutSentenceInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1351,7 +1290,6 @@ export type VideoUpdateWithoutSentenceInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateWithoutSentenceInput = {
@@ -1368,7 +1306,6 @@ export type VideoUncheckedUpdateWithoutSentenceInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1387,7 +1324,6 @@ export type VideoUncheckedUpdateWithoutSentenceInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoCreateWithoutSubtitleInput = {
@@ -1402,7 +1338,6 @@ export type VideoCreateWithoutSubtitleInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1422,7 +1357,6 @@ export type VideoCreateWithoutSubtitleInput = {
   updated_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutVideoInput
   Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutVideoInput
 }
 
 export type VideoUncheckedCreateWithoutSubtitleInput = {
@@ -1439,7 +1373,6 @@ export type VideoUncheckedCreateWithoutSubtitleInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1458,7 +1391,6 @@ export type VideoUncheckedCreateWithoutSubtitleInput = {
   created_at?: Date | string
   updated_at?: Date | string
   Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoInput
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutVideoInput
 }
 
 export type VideoCreateOrConnectWithoutSubtitleInput = {
@@ -1489,7 +1421,6 @@ export type VideoUpdateWithoutSubtitleInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1509,7 +1440,6 @@ export type VideoUpdateWithoutSubtitleInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateWithoutSubtitleInput = {
@@ -1526,7 +1456,6 @@ export type VideoUncheckedUpdateWithoutSubtitleInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1544,165 +1473,6 @@ export type VideoUncheckedUpdateWithoutSubtitleInput = {
   learnability_score?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoNestedInput
-}
-
-export type VideoCreateWithoutFlashcardInput = {
-  type: $Enums.MediaType
-  name?: string | null
-  about?: string | null
-  source_language_code: $Enums.LanguageCode
-  youtube_video_id?: string | null
-  file_name?: string | null
-  file_s3_key?: string | null
-  s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean | null
-  file_size_mb?: number
-  duration_sec?: number
-  file_duration_sec?: number | null
-  original_content?: string | null
-  processed_content?: string | null
-  content_type?: $Enums.VideoTextType
-  cover_file_name?: string | null
-  cover_file_s3_key?: string | null
-  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: boolean
-  cover_url?: string | null
-  subtitles_source?: $Enums.SubtitlesSource
-  subtitles_status?: $Enums.SubtitlesStatus
-  subtitles_error_code?: string | null
-  subtitles_job_id?: string | null
-  proficiency_level?: number | null
-  topic?: string | null
-  learnability_score?: number | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  user?: Prisma.UserCreateNestedOneWithoutVideoInput
-  Subtitle?: Prisma.SubtitleCreateNestedManyWithoutVideoInput
-  Sentence?: Prisma.SentenceCreateNestedManyWithoutVideoInput
-}
-
-export type VideoUncheckedCreateWithoutFlashcardInput = {
-  id?: number
-  type: $Enums.MediaType
-  user_id?: number | null
-  name?: string | null
-  about?: string | null
-  source_language_code: $Enums.LanguageCode
-  youtube_video_id?: string | null
-  file_name?: string | null
-  file_s3_key?: string | null
-  s3_provider_name?: $Enums.S3ProviderName | null
-  is_file_uploaded?: boolean | null
-  file_size_mb?: number
-  duration_sec?: number
-  file_duration_sec?: number | null
-  original_content?: string | null
-  processed_content?: string | null
-  content_type?: $Enums.VideoTextType
-  cover_file_name?: string | null
-  cover_file_s3_key?: string | null
-  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: boolean
-  cover_url?: string | null
-  subtitles_source?: $Enums.SubtitlesSource
-  subtitles_status?: $Enums.SubtitlesStatus
-  subtitles_error_code?: string | null
-  subtitles_job_id?: string | null
-  proficiency_level?: number | null
-  topic?: string | null
-  learnability_score?: number | null
-  created_at?: Date | string
-  updated_at?: Date | string
-  Subtitle?: Prisma.SubtitleUncheckedCreateNestedManyWithoutVideoInput
-  Sentence?: Prisma.SentenceUncheckedCreateNestedManyWithoutVideoInput
-}
-
-export type VideoCreateOrConnectWithoutFlashcardInput = {
-  where: Prisma.VideoWhereUniqueInput
-  create: Prisma.XOR<Prisma.VideoCreateWithoutFlashcardInput, Prisma.VideoUncheckedCreateWithoutFlashcardInput>
-}
-
-export type VideoUpsertWithoutFlashcardInput = {
-  update: Prisma.XOR<Prisma.VideoUpdateWithoutFlashcardInput, Prisma.VideoUncheckedUpdateWithoutFlashcardInput>
-  create: Prisma.XOR<Prisma.VideoCreateWithoutFlashcardInput, Prisma.VideoUncheckedCreateWithoutFlashcardInput>
-  where?: Prisma.VideoWhereInput
-}
-
-export type VideoUpdateToOneWithWhereWithoutFlashcardInput = {
-  where?: Prisma.VideoWhereInput
-  data: Prisma.XOR<Prisma.VideoUpdateWithoutFlashcardInput, Prisma.VideoUncheckedUpdateWithoutFlashcardInput>
-}
-
-export type VideoUpdateWithoutFlashcardInput = {
-  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
-  duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  cover_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
-  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
-  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  proficiency_level?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  topic?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  learnability_score?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneWithoutVideoNestedInput
-  Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
-  Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
-}
-
-export type VideoUncheckedUpdateWithoutFlashcardInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
-  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  youtube_video_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
-  file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
-  duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
-  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  cover_url?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_source?: Prisma.EnumSubtitlesSourceFieldUpdateOperationsInput | $Enums.SubtitlesSource
-  subtitles_status?: Prisma.EnumSubtitlesStatusFieldUpdateOperationsInput | $Enums.SubtitlesStatus
-  subtitles_error_code?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  subtitles_job_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  proficiency_level?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  topic?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  learnability_score?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoNestedInput
 }
 
@@ -1719,7 +1489,6 @@ export type VideoCreateManyUserInput = {
   is_file_uploaded?: boolean | null
   file_size_mb?: number
   duration_sec?: number
-  file_duration_sec?: number | null
   original_content?: string | null
   processed_content?: string | null
   content_type?: $Enums.VideoTextType
@@ -1751,7 +1520,6 @@ export type VideoUpdateWithoutUserInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1771,7 +1539,6 @@ export type VideoUpdateWithoutUserInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateWithoutUserInput = {
@@ -1787,7 +1554,6 @@ export type VideoUncheckedUpdateWithoutUserInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1807,7 +1573,6 @@ export type VideoUncheckedUpdateWithoutUserInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Subtitle?: Prisma.SubtitleUncheckedUpdateManyWithoutVideoNestedInput
   Sentence?: Prisma.SentenceUncheckedUpdateManyWithoutVideoNestedInput
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutVideoNestedInput
 }
 
 export type VideoUncheckedUpdateManyWithoutUserInput = {
@@ -1823,7 +1588,6 @@ export type VideoUncheckedUpdateManyWithoutUserInput = {
   is_file_uploaded?: Prisma.NullableBoolFieldUpdateOperationsInput | boolean | null
   file_size_mb?: Prisma.IntFieldUpdateOperationsInput | number
   duration_sec?: Prisma.IntFieldUpdateOperationsInput | number
-  file_duration_sec?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   original_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   processed_content?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   content_type?: Prisma.EnumVideoTextTypeFieldUpdateOperationsInput | $Enums.VideoTextType
@@ -1851,13 +1615,11 @@ export type VideoUncheckedUpdateManyWithoutUserInput = {
 export type VideoCountOutputType = {
   Subtitle: number
   Sentence: number
-  Flashcard: number
 }
 
 export type VideoCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Subtitle?: boolean | VideoCountOutputTypeCountSubtitleArgs
   Sentence?: boolean | VideoCountOutputTypeCountSentenceArgs
-  Flashcard?: boolean | VideoCountOutputTypeCountFlashcardArgs
 }
 
 /**
@@ -1884,13 +1646,6 @@ export type VideoCountOutputTypeCountSentenceArgs<ExtArgs extends runtime.Types.
   where?: Prisma.SentenceWhereInput
 }
 
-/**
- * VideoCountOutputType without action
- */
-export type VideoCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.FlashcardWhereInput
-}
-
 
 export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -1906,7 +1661,6 @@ export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   duration_sec?: boolean
-  file_duration_sec?: boolean
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
@@ -1927,7 +1681,6 @@ export type VideoSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   user?: boolean | Prisma.Video$userArgs<ExtArgs>
   Subtitle?: boolean | Prisma.Video$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.Video$SentenceArgs<ExtArgs>
-  Flashcard?: boolean | Prisma.Video$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.VideoCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["video"]>
 
@@ -1945,7 +1698,6 @@ export type VideoSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   duration_sec?: boolean
-  file_duration_sec?: boolean
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
@@ -1980,7 +1732,6 @@ export type VideoSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   duration_sec?: boolean
-  file_duration_sec?: boolean
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
@@ -2015,7 +1766,6 @@ export type VideoSelectScalar = {
   is_file_uploaded?: boolean
   file_size_mb?: boolean
   duration_sec?: boolean
-  file_duration_sec?: boolean
   original_content?: boolean
   processed_content?: boolean
   content_type?: boolean
@@ -2035,12 +1785,11 @@ export type VideoSelectScalar = {
   updated_at?: boolean
 }
 
-export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "user_id" | "name" | "about" | "source_language_code" | "youtube_video_id" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "duration_sec" | "file_duration_sec" | "original_content" | "processed_content" | "content_type" | "cover_file_name" | "cover_file_s3_key" | "cover_file_s3_provider_name" | "is_cover_file_uploaded" | "cover_url" | "subtitles_source" | "subtitles_status" | "subtitles_error_code" | "subtitles_job_id" | "proficiency_level" | "topic" | "learnability_score" | "created_at" | "updated_at", ExtArgs["result"]["video"]>
+export type VideoOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "type" | "user_id" | "name" | "about" | "source_language_code" | "youtube_video_id" | "file_name" | "file_s3_key" | "s3_provider_name" | "is_file_uploaded" | "file_size_mb" | "duration_sec" | "original_content" | "processed_content" | "content_type" | "cover_file_name" | "cover_file_s3_key" | "cover_file_s3_provider_name" | "is_cover_file_uploaded" | "cover_url" | "subtitles_source" | "subtitles_status" | "subtitles_error_code" | "subtitles_job_id" | "proficiency_level" | "topic" | "learnability_score" | "created_at" | "updated_at", ExtArgs["result"]["video"]>
 export type VideoInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.Video$userArgs<ExtArgs>
   Subtitle?: boolean | Prisma.Video$SubtitleArgs<ExtArgs>
   Sentence?: boolean | Prisma.Video$SentenceArgs<ExtArgs>
-  Flashcard?: boolean | Prisma.Video$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.VideoCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type VideoIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -2056,7 +1805,6 @@ export type $VideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     user: Prisma.$UserPayload<ExtArgs> | null
     Subtitle: Prisma.$SubtitlePayload<ExtArgs>[]
     Sentence: Prisma.$SentencePayload<ExtArgs>[]
-    Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -2072,7 +1820,6 @@ export type $VideoPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     is_file_uploaded: boolean | null
     file_size_mb: number
     duration_sec: number
-    file_duration_sec: number | null
     original_content: string | null
     processed_content: string | null
     content_type: $Enums.VideoTextType
@@ -2487,7 +2234,6 @@ export interface Prisma__VideoClient<T, Null = never, ExtArgs extends runtime.Ty
   user<T extends Prisma.Video$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   Subtitle<T extends Prisma.Video$SubtitleArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$SubtitleArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SubtitlePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   Sentence<T extends Prisma.Video$SentenceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$SentenceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SentencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  Flashcard<T extends Prisma.Video$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Video$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2530,7 +2276,6 @@ export interface VideoFieldRefs {
   readonly is_file_uploaded: Prisma.FieldRef<"Video", 'Boolean'>
   readonly file_size_mb: Prisma.FieldRef<"Video", 'Int'>
   readonly duration_sec: Prisma.FieldRef<"Video", 'Int'>
-  readonly file_duration_sec: Prisma.FieldRef<"Video", 'Int'>
   readonly original_content: Prisma.FieldRef<"Video", 'String'>
   readonly processed_content: Prisma.FieldRef<"Video", 'String'>
   readonly content_type: Prisma.FieldRef<"Video", 'VideoTextType'>
@@ -3013,30 +2758,6 @@ export type Video$SentenceArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.SentenceScalarFieldEnum | Prisma.SentenceScalarFieldEnum[]
-}
-
-/**
- * Video.Flashcard
- */
-export type Video$FlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Flashcard
-   */
-  select?: Prisma.FlashcardSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Flashcard
-   */
-  omit?: Prisma.FlashcardOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FlashcardInclude<ExtArgs> | null
-  where?: Prisma.FlashcardWhereInput
-  orderBy?: Prisma.FlashcardOrderByWithRelationInput | Prisma.FlashcardOrderByWithRelationInput[]
-  cursor?: Prisma.FlashcardWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.FlashcardScalarFieldEnum | Prisma.FlashcardScalarFieldEnum[]
 }
 
 /**

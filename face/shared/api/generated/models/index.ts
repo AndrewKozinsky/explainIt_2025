@@ -6,7 +6,6 @@
  * OpenAPI spec version: 1.0
  */
 
-export * from './addFlashcardInput';
 export * from './bookChapterControllerGetBookChapterParams';
 export * from './bookChapterLiteOutModel';
 export * from './bookChapterOutModel';
@@ -24,8 +23,6 @@ export * from './createUniversalPhraseTranscriptionInput';
 export * from './createVideoInput';
 export * from './createVideoOutModel';
 export * from './createYooKassaPaymentOutModel';
-export * from './flashcardControllerGetMyFlashcardsParams';
-export * from './flashcardOutModel';
 export * from './getOrCreateUniversalPhraseTranslationInput';
 export * from './getPhraseTranslationInput';
 export * from './getPhraseTranslationsBySentenceInput';
@@ -35,7 +32,6 @@ export * from './loginInput';
 export * from './loginWithOAuthInput';
 export * from './loginWithOAuthInputProviderType';
 export * from './registerUserInput';
-export * from './removeFlashcardInput';
 export * from './resendConfirmationEmailInput';
 export * from './savedYoutubeVideosPageOutModel';
 export * from './sentenceChatControllerGetThreadParams';

@@ -5,14 +5,12 @@ import './SentencePhraseTop.scss'
 type SentencePhraseTopPartProps = {
 	phrase: string
 	phraseTranslation: string
-	sentencePhraseId: number
-	flashcardId: null | number
 	languageCode: string
 	onWhiteBackground?: boolean
 }
 
 function SentencePhraseTop(props: SentencePhraseTopPartProps) {
-	const { phrase, phraseTranslation, languageCode, onWhiteBackground, sentencePhraseId, flashcardId } = props
+	const { phrase, phraseTranslation, languageCode, onWhiteBackground } = props
 
 	return (
 		<div className='sentence-phrase-top'>
@@ -25,7 +23,6 @@ function SentencePhraseTop(props: SentencePhraseTopPartProps) {
 				/>{' '}
 				— {phraseTranslation}
 			</p>
-			{/*<FlashCardButton sentencePhraseId={sentencePhraseId} flashcardId={flashcardId} />*/}
 		</div>
 	)
 }

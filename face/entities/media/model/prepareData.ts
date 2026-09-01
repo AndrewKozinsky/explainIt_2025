@@ -9,7 +9,6 @@ export function mapPhrase(
 	return {
 		randomGeneratedPhraseId: makePhraseId(),
 		sentencePhraseId: phrase.id,
-		flashcardId: phrase.flashcardId,
 		wordIds: wordIdsFromOffsets({
 			sentenceText,
 			locale: languageCode,

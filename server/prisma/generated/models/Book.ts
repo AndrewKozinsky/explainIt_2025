@@ -278,7 +278,6 @@ export type BookWhereInput = {
   created_at?: Prisma.DateTimeFilter<"Book"> | Date | string
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   BookChapter?: Prisma.BookChapterListRelationFilter
-  Flashcard?: Prisma.FlashcardListRelationFilter
 }
 
 export type BookOrderByWithRelationInput = {
@@ -296,7 +295,6 @@ export type BookOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
   BookChapter?: Prisma.BookChapterOrderByRelationAggregateInput
-  Flashcard?: Prisma.FlashcardOrderByRelationAggregateInput
 }
 
 export type BookWhereUniqueInput = Prisma.AtLeast<{
@@ -317,7 +315,6 @@ export type BookWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"Book"> | Date | string
   user?: Prisma.XOR<Prisma.UserNullableScalarRelationFilter, Prisma.UserWhereInput> | null
   BookChapter?: Prisma.BookChapterListRelationFilter
-  Flashcard?: Prisma.FlashcardListRelationFilter
 }, "id">
 
 export type BookOrderByWithAggregationInput = {
@@ -371,7 +368,6 @@ export type BookCreateInput = {
   created_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutBookInput
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookInput
 }
 
 export type BookUncheckedCreateInput = {
@@ -388,7 +384,6 @@ export type BookUncheckedCreateInput = {
   is_cover_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookInput
 }
 
 export type BookUpdateInput = {
@@ -404,7 +399,6 @@ export type BookUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutBookNestedInput
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutBookNestedInput
 }
 
 export type BookUncheckedUpdateInput = {
@@ -421,7 +415,6 @@ export type BookUncheckedUpdateInput = {
   is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookNestedInput
 }
 
 export type BookCreateManyInput = {
@@ -537,11 +530,6 @@ export type BookScalarRelationFilter = {
   isNot?: Prisma.BookWhereInput
 }
 
-export type BookNullableScalarRelationFilter = {
-  is?: Prisma.BookWhereInput | null
-  isNot?: Prisma.BookWhereInput | null
-}
-
 export type BookCreateNestedManyWithoutUserInput = {
   create?: Prisma.XOR<Prisma.BookCreateWithoutUserInput, Prisma.BookUncheckedCreateWithoutUserInput> | Prisma.BookCreateWithoutUserInput[] | Prisma.BookUncheckedCreateWithoutUserInput[]
   connectOrCreate?: Prisma.BookCreateOrConnectWithoutUserInput | Prisma.BookCreateOrConnectWithoutUserInput[]
@@ -610,22 +598,6 @@ export type BookUpdateOneRequiredWithoutBookChapterNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.BookUpdateToOneWithWhereWithoutBookChapterInput, Prisma.BookUpdateWithoutBookChapterInput>, Prisma.BookUncheckedUpdateWithoutBookChapterInput>
 }
 
-export type BookCreateNestedOneWithoutFlashcardInput = {
-  create?: Prisma.XOR<Prisma.BookCreateWithoutFlashcardInput, Prisma.BookUncheckedCreateWithoutFlashcardInput>
-  connectOrCreate?: Prisma.BookCreateOrConnectWithoutFlashcardInput
-  connect?: Prisma.BookWhereUniqueInput
-}
-
-export type BookUpdateOneWithoutFlashcardNestedInput = {
-  create?: Prisma.XOR<Prisma.BookCreateWithoutFlashcardInput, Prisma.BookUncheckedCreateWithoutFlashcardInput>
-  connectOrCreate?: Prisma.BookCreateOrConnectWithoutFlashcardInput
-  upsert?: Prisma.BookUpsertWithoutFlashcardInput
-  disconnect?: Prisma.BookWhereInput | boolean
-  delete?: Prisma.BookWhereInput | boolean
-  connect?: Prisma.BookWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.BookUpdateToOneWithWhereWithoutFlashcardInput, Prisma.BookUpdateWithoutFlashcardInput>, Prisma.BookUncheckedUpdateWithoutFlashcardInput>
-}
-
 export type BookCreateWithoutUserInput = {
   type: $Enums.MediaType
   author?: string | null
@@ -638,7 +610,6 @@ export type BookCreateWithoutUserInput = {
   is_cover_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookInput
 }
 
 export type BookUncheckedCreateWithoutUserInput = {
@@ -654,7 +625,6 @@ export type BookUncheckedCreateWithoutUserInput = {
   is_cover_file_uploaded?: boolean
   created_at?: Date | string
   BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookInput
 }
 
 export type BookCreateOrConnectWithoutUserInput = {
@@ -713,7 +683,6 @@ export type BookCreateWithoutBookChapterInput = {
   is_cover_file_uploaded?: boolean
   created_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutBookInput
-  Flashcard?: Prisma.FlashcardCreateNestedManyWithoutBookInput
 }
 
 export type BookUncheckedCreateWithoutBookChapterInput = {
@@ -729,7 +698,6 @@ export type BookUncheckedCreateWithoutBookChapterInput = {
   cover_file_s3_provider_name?: $Enums.S3ProviderName | null
   is_cover_file_uploaded?: boolean
   created_at?: Date | string
-  Flashcard?: Prisma.FlashcardUncheckedCreateNestedManyWithoutBookInput
 }
 
 export type BookCreateOrConnectWithoutBookChapterInput = {
@@ -760,7 +728,6 @@ export type BookUpdateWithoutBookChapterInput = {
   is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutBookNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutBookNestedInput
 }
 
 export type BookUncheckedUpdateWithoutBookChapterInput = {
@@ -776,85 +743,6 @@ export type BookUncheckedUpdateWithoutBookChapterInput = {
   cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
   is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookNestedInput
-}
-
-export type BookCreateWithoutFlashcardInput = {
-  type: $Enums.MediaType
-  author?: string | null
-  name?: string | null
-  source_language_code: $Enums.LanguageCode
-  about?: string | null
-  cover_file_name?: string | null
-  cover_file_s3_key?: string | null
-  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: boolean
-  created_at?: Date | string
-  user?: Prisma.UserCreateNestedOneWithoutBookInput
-  BookChapter?: Prisma.BookChapterCreateNestedManyWithoutBookInput
-}
-
-export type BookUncheckedCreateWithoutFlashcardInput = {
-  id?: number
-  type: $Enums.MediaType
-  user_id?: number | null
-  author?: string | null
-  name?: string | null
-  source_language_code: $Enums.LanguageCode
-  about?: string | null
-  cover_file_name?: string | null
-  cover_file_s3_key?: string | null
-  cover_file_s3_provider_name?: $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: boolean
-  created_at?: Date | string
-  BookChapter?: Prisma.BookChapterUncheckedCreateNestedManyWithoutBookInput
-}
-
-export type BookCreateOrConnectWithoutFlashcardInput = {
-  where: Prisma.BookWhereUniqueInput
-  create: Prisma.XOR<Prisma.BookCreateWithoutFlashcardInput, Prisma.BookUncheckedCreateWithoutFlashcardInput>
-}
-
-export type BookUpsertWithoutFlashcardInput = {
-  update: Prisma.XOR<Prisma.BookUpdateWithoutFlashcardInput, Prisma.BookUncheckedUpdateWithoutFlashcardInput>
-  create: Prisma.XOR<Prisma.BookCreateWithoutFlashcardInput, Prisma.BookUncheckedCreateWithoutFlashcardInput>
-  where?: Prisma.BookWhereInput
-}
-
-export type BookUpdateToOneWithWhereWithoutFlashcardInput = {
-  where?: Prisma.BookWhereInput
-  data: Prisma.XOR<Prisma.BookUpdateWithoutFlashcardInput, Prisma.BookUncheckedUpdateWithoutFlashcardInput>
-}
-
-export type BookUpdateWithoutFlashcardInput = {
-  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
-  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  user?: Prisma.UserUpdateOneWithoutBookNestedInput
-  BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
-}
-
-export type BookUncheckedUpdateWithoutFlashcardInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  type?: Prisma.EnumMediaTypeFieldUpdateOperationsInput | $Enums.MediaType
-  user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
-  author?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  about?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_name?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  cover_file_s3_provider_name?: Prisma.NullableEnumS3ProviderNameFieldUpdateOperationsInput | $Enums.S3ProviderName | null
-  is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
 }
 
 export type BookCreateManyUserInput = {
@@ -883,7 +771,6 @@ export type BookUpdateWithoutUserInput = {
   is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUpdateManyWithoutBookNestedInput
-  Flashcard?: Prisma.FlashcardUpdateManyWithoutBookNestedInput
 }
 
 export type BookUncheckedUpdateWithoutUserInput = {
@@ -899,7 +786,6 @@ export type BookUncheckedUpdateWithoutUserInput = {
   is_cover_file_uploaded?: Prisma.BoolFieldUpdateOperationsInput | boolean
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   BookChapter?: Prisma.BookChapterUncheckedUpdateManyWithoutBookNestedInput
-  Flashcard?: Prisma.FlashcardUncheckedUpdateManyWithoutBookNestedInput
 }
 
 export type BookUncheckedUpdateManyWithoutUserInput = {
@@ -923,12 +809,10 @@ export type BookUncheckedUpdateManyWithoutUserInput = {
 
 export type BookCountOutputType = {
   BookChapter: number
-  Flashcard: number
 }
 
 export type BookCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   BookChapter?: boolean | BookCountOutputTypeCountBookChapterArgs
-  Flashcard?: boolean | BookCountOutputTypeCountFlashcardArgs
 }
 
 /**
@@ -948,13 +832,6 @@ export type BookCountOutputTypeCountBookChapterArgs<ExtArgs extends runtime.Type
   where?: Prisma.BookChapterWhereInput
 }
 
-/**
- * BookCountOutputType without action
- */
-export type BookCountOutputTypeCountFlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.FlashcardWhereInput
-}
-
 
 export type BookSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -971,7 +848,6 @@ export type BookSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   created_at?: boolean
   user?: boolean | Prisma.Book$userArgs<ExtArgs>
   BookChapter?: boolean | Prisma.Book$BookChapterArgs<ExtArgs>
-  Flashcard?: boolean | Prisma.Book$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.BookCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["book"]>
 
@@ -1026,7 +902,6 @@ export type BookOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type BookInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.Book$userArgs<ExtArgs>
   BookChapter?: boolean | Prisma.Book$BookChapterArgs<ExtArgs>
-  Flashcard?: boolean | Prisma.Book$FlashcardArgs<ExtArgs>
   _count?: boolean | Prisma.BookCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type BookIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1041,7 +916,6 @@ export type $BookPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     user: Prisma.$UserPayload<ExtArgs> | null
     BookChapter: Prisma.$BookChapterPayload<ExtArgs>[]
-    Flashcard: Prisma.$FlashcardPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -1452,7 +1326,6 @@ export interface Prisma__BookClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.Book$userArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Book$userArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   BookChapter<T extends Prisma.Book$BookChapterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Book$BookChapterArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$BookChapterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  Flashcard<T extends Prisma.Book$FlashcardArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Book$FlashcardArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$FlashcardPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1935,30 +1808,6 @@ export type Book$BookChapterArgs<ExtArgs extends runtime.Types.Extensions.Intern
   take?: number
   skip?: number
   distinct?: Prisma.BookChapterScalarFieldEnum | Prisma.BookChapterScalarFieldEnum[]
-}
-
-/**
- * Book.Flashcard
- */
-export type Book$FlashcardArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Flashcard
-   */
-  select?: Prisma.FlashcardSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Flashcard
-   */
-  omit?: Prisma.FlashcardOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FlashcardInclude<ExtArgs> | null
-  where?: Prisma.FlashcardWhereInput
-  orderBy?: Prisma.FlashcardOrderByWithRelationInput | Prisma.FlashcardOrderByWithRelationInput[]
-  cursor?: Prisma.FlashcardWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.FlashcardScalarFieldEnum | Prisma.FlashcardScalarFieldEnum[]
 }
 
 /**

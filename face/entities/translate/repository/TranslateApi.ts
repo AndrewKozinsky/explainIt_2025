@@ -113,7 +113,6 @@ function mapToPhraseTranslation(raw: SentencePhraseTranslationOutModel): PhraseT
 		id: extractNumber(r.id) ?? 0,
 		phraseStartOffset: extractNumber(r.phraseStartOffset) ?? 0,
 		phraseEndOffset: extractNumber(r.phraseEndOffset) ?? 0,
-		flashcardId: extractNumber(r.flashcardId),
 		phrase: extractString(r.phrase),
 		translation: extractString(r.translate),
 		examples: mapToExamples(r.examples),

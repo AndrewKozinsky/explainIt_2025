@@ -29,7 +29,5 @@ export class SentencePhraseTranslationOutModel {
 
 	updatedAt: string
 
-	flashcardId: null | number
-
 	universalPhrase: UniversalPhraseOutModel | null
 }

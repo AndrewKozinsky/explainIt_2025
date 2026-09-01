@@ -151,13 +151,6 @@ export const errorMessage = {
 		previousAnswerNotReady: { code: 'SENTENCE_CHAT_PREVIOUS_ANSWER_NOT_READY' }, // Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.
 		insufficientBalance: { code: 'SENTENCE_CHAT_INSUFFICIENT_BALANCE' }, // Недостаточно средств на балансе для генерации ответа.
 	},
-	flashcard: {
-		notFound: { code: 'FLASHCARD_NOT_FOUND' }, // Карточка не найдена.
-		sourcePhraseNotFound: { code: 'FLASHCARD_SOURCE_PHRASE_NOT_FOUND' }, // Фраза-источник для карточки не найдена.
-		sourceSentenceNotFound: { code: 'FLASHCARD_SOURCE_SENTENCE_NOT_FOUND' }, // Предложение-источник для карточки не найдено.
-		sourceLanguageNotFound: { code: 'FLASHCARD_SOURCE_LANGUAGE_NOT_FOUND' }, // Не удалось определить язык фразы для карточки.
-		alreadyExists: { code: 'FLASHCARD_ALREADY_EXISTS' }, // Карточка для этой фразы уже существует.
-	},
 	audioPronunciation: {
 		notCreated: { code: 'AUDIO_PRONUNCIATION_NOT_CREATED' }, // Не удалось создать озвучку.
 		alreadyExists: { code: 'AUDIO_PRONUNCIATION_ALREADY_EXISTS' }, // Озвучка для этой фразы уже существует.

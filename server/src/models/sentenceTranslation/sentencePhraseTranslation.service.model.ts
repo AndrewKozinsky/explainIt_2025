@@ -18,5 +18,4 @@ export type SentencePhraseTranslationServiceModel = {
 	errorCode: null | string
 	createdAt: Date
 	updatedAt: Date
-	flashcardId: null | number
 }

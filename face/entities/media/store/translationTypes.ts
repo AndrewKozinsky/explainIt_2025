@@ -11,7 +11,6 @@ export type PhraseExample = { text: string; translate: string }
 export type SentencePhraseType = {
 	randomGeneratedPhraseId: string
 	sentencePhraseId: null | number
-	flashcardId: null | number
 	wordIds: number[]
 	phrase: null | string
 	loading: boolean

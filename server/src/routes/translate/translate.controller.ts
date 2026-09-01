@@ -2,7 +2,6 @@ import { Body, Controller, HttpCode, HttpStatus, Post, Req, UseGuards } from '@n
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
-import { FlashcardRepository } from 'repo/flashcard.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import {
@@ -38,7 +37,6 @@ export class TranslateController {
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
-		private flashcardRepository: FlashcardRepository,
 	) {}
 
 	@ApiGetSentenceTranslation()
@@ -101,8 +99,7 @@ export class TranslateController {
 			selectedWordEndOffset: input.selectedWordEndOffset,
 		})
 
-		const enriched = await this.attachFlashcardIds(phrase ? [phrase] : [], request.user?.id ?? null)
-		return enriched[0] ?? null
+		return phrase
 	}
 
 	@ApiGetPhraseTranslationsBySentence()
@@ -131,7 +128,7 @@ export class TranslateController {
 			},
 		)
 
-		return this.attachFlashcardIds(phrases, request.user?.id ?? null)
+		return phrases
 	}
 
 	@ApiTranslateSentence()
@@ -170,23 +167,7 @@ export class TranslateController {
 			}),
 		)
 
-		const [enriched] = await this.attachFlashcardIds([result], request.user?.id ?? null)
-		return enriched
-	}
-
-	private async attachFlashcardIds(
-		phrases: SentencePhraseTranslationServiceModel[],
-		userId: null | number,
-	): Promise<SentencePhraseTranslationServiceModel[]> {
-		if (!userId || phrases.length === 0) return phrases
-
-		const ids = phrases.map((phrase) => phrase.id)
-		const map = await this.flashcardRepository.getFlashcardIdsByUserAndPhrasesIds(userId, ids)
-
-		return phrases.map((phrase) => ({
-			...phrase,
-			flashcardId: map.get(phrase.id) ?? null,
-		}))
+		return result
 	}
 
 	private async ensureModeIsAllowedOrThrow(input: {

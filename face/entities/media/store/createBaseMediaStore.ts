@@ -32,7 +32,6 @@ export type BaseMediaStore = {
 		phrase: SentencePhraseType
 	}) => void
 	setSelectedPhraseId: (input: { sentenceId: number; phraseId: string | null }) => void
-	setPhraseFlashcardId: (input: { sentencePhraseId: number; flashcardId: null | number }) => void
 	retrySentenceTranslation: (sentenceId: number) => void
 	retryPhraseTranslation: (sentenceId: number, randomGeneratedPhraseId: string) => void
 }
@@ -130,15 +129,6 @@ export function createBaseMediaStore() {
 				produce((state: BaseMediaStore) => {
 					const entry = state.sentences.find((item) => item.sentenceId === sentenceId)
 					if (entry) entry.selectedPhraseId = phraseId
-				}),
-			),
-		setPhraseFlashcardId: ({ sentencePhraseId, flashcardId }) =>
-			set(
-				produce((state: BaseMediaStore) => {
-					for (const entry of state.sentences) {
-						const phrase = entry.data.phrases.find((item) => item.sentencePhraseId === sentencePhraseId)
-						if (phrase) phrase.flashcardId = flashcardId
-					}
 				}),
 			),
 		retrySentenceTranslation: (sentenceId) =>

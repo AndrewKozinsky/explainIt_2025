@@ -37,7 +37,6 @@ export function useFetchPhraseTranslation(input: MediaTranslationContext) {
 			phrase: {
 				randomGeneratedPhraseId: phraseId,
 				sentencePhraseId: null,
-				flashcardId: null,
 				wordIds: [selectedWordId],
 				phrase: offsets.text || null,
 				loading: true,

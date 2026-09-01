@@ -34,7 +34,6 @@ export type PhraseTranslationModel = {
 	id: number
 	phraseStartOffset: number
 	phraseEndOffset: number
-	flashcardId: null | number
 	phrase: null | string
 	translation: null | string
 	examples: PhraseTranslationExampleModel[]

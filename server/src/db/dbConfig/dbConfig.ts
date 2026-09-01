@@ -96,9 +96,6 @@ export const bdConfig = {
 			SentenceChatThread: {
 				type: 'oneToMany',
 			},
-			Flashcard: {
-				type: 'oneToMany',
-			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -325,9 +322,6 @@ export const bdConfig = {
 				required: true,
 			},
 			BookChapter: {
-				type: 'oneToMany',
-			},
-			Flashcard: {
 				type: 'oneToMany',
 			},
 			created_at: {
@@ -663,9 +657,6 @@ export const bdConfig = {
 			Sentence: {
 				type: 'oneToMany',
 			},
-			Flashcard: {
-				type: 'oneToMany',
-			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -874,9 +865,6 @@ export const bdConfig = {
 			error_code: {
 				type: 'string',
 				required: false,
-			},
-			Flashcard: {
-				type: 'oneToMany',
 			},
 			created_at: {
 				type: 'createdAt',
@@ -1229,111 +1217,6 @@ export const bdConfig = {
 			},
 			updated_at: {
 				type: 'updatedAt',
-			},
-		},
-	},
-	// Карточка для заучивания фразы. Снапшот данных, привязанный к пользователю.
-	// Источник (книга/видео) опциональный: при удалении источника связь обнуляется (SetNull),
-	// а сама карточка остаётся в коллекции пользователя.
-	Flashcard: {
-		dtoProps: {
-			phraseTranscription: {
-				type: 'string',
-				description: 'Snapshot of the phrase transcription',
-				required: false,
-			},
-		},
-		indexes: [
-			{ fields: ['user_id'] },
-			{ fields: ['user_id', 'language_code'] },
-			{ fields: ['user_id', 'sentence_phrase_translation_id'], unique: true },
-		],
-		dbFields: {
-			id: {
-				type: 'index',
-				description: 'Flashcard ID',
-				example: 1,
-			},
-			user_id: {
-				type: 'manyToOne',
-				thisField: 'user_id',
-				relationField: 'user',
-				foreignTable: 'User',
-				foreignField: 'id',
-				required: true,
-			},
-			language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				required: true,
-			},
-			sentence_text: {
-				type: 'string',
-				description: 'Snapshot of the sentence text',
-				required: true,
-			},
-			sentence_translation: {
-				type: 'string',
-				description: 'Snapshot of the sentence translation',
-				required: false,
-			},
-			phrase: {
-				type: 'string',
-				description: 'Snapshot of the phrase',
-				required: true,
-				maxLength: 500,
-			},
-			phrase_start_offset: {
-				type: 'number',
-				description: 'Phrase start offset within the sentence text snapshot',
-				required: true,
-			},
-			phrase_end_offset: {
-				type: 'number',
-				description: 'Phrase end offset within the sentence text snapshot',
-				required: true,
-			},
-			phrase_translation: {
-				type: 'string',
-				description: 'Snapshot of the phrase translation',
-				required: false,
-			},
-			examples: {
-				type: 'array',
-				arrayItemType: 'string',
-				description: 'Snapshot of phrase usage examples (encoded as flat [text, translate, ...] pairs)',
-				required: true,
-			},
-			book_id: {
-				type: 'manyToOne',
-				thisField: 'book_id',
-				relationField: 'book',
-				foreignTable: 'Book',
-				foreignField: 'id',
-				onDelete: 'SetNull',
-				required: false,
-			},
-			video_id: {
-				type: 'manyToOne',
-				thisField: 'video_id',
-				relationField: 'video',
-				foreignTable: 'Video',
-				foreignField: 'id',
-				onDelete: 'SetNull',
-				required: false,
-			},
-			sentence_phrase_translation_id: {
-				type: 'manyToOne',
-				thisField: 'sentence_phrase_translation_id',
-				relationField: 'sentencePhraseTranslation',
-				foreignTable: 'SentencePhraseTranslation',
-				foreignField: 'id',
-				onDelete: 'SetNull',
-				required: false,
-			},
-			created_at: {
-				type: 'createdAt',
 			},
 		},
 	},

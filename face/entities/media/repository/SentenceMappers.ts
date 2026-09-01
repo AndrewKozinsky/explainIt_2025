@@ -91,7 +91,6 @@ export function mapToSentencePhraseTranslation(raw: Record<string, unknown>): Se
 		examples: raw.examples ? (raw.examples as Record<string, unknown>[]).map(mapToExample) : [],
 		status: (raw.status as SentencePhraseTranslationModel['status']) ?? 'pending',
 		errorMessage: (raw.errorMessage as string) ?? null,
-		flashcardId: (raw.flashcardId as number) ?? null,
 	}
 }
 

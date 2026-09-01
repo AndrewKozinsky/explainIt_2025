@@ -29,8 +29,6 @@ function SentencePhraseContent(props: SentencePhraseProps) {
 			<SentencePhraseTop
 				phrase={phrase}
 				phraseTranslation={phraseTranslation}
-				sentencePhraseId={phraseAnalysis.sentencePhraseId}
-				flashcardId={phraseAnalysis.flashcardId}
 				languageCode={languageCode}
 				onWhiteBackground={onWhiteBackground}
 			/>
