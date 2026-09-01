@@ -6,6 +6,7 @@
  * OpenAPI spec version: 1.0
  */
 
+export * from './aiDialogueScenarioOutModel';
 export * from './bookChapterControllerGetBookChapterParams';
 export * from './bookChapterLiteOutModel';
 export * from './bookChapterOutModel';
@@ -40,7 +41,6 @@ export * from './sentenceChatControllerStreamAssistantReplyParams';
 export * from './sentenceChatMessageOutModel';
 export * from './sentenceChatThreadOutModel';
 export * from './sentenceOutModel';
-export * from './sentencePhraseTranslationExampleOutModel';
 export * from './sentencePhraseTranslationOutModel';
 export * from './sentenceTranslationLiteOutModel';
 export * from './subtitleSentenceInitOutModel';

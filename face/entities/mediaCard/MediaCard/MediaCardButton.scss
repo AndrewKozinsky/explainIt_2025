@@ -23,23 +23,27 @@
 	width: 100%;
 	box-sizing: border-box;
 }
+
 .media-card-button__brick {
 	display: flex;
 	color: white;
 	font-size: 1.4rem;
 	line-height: 1.8rem;
-	background-color:rgba(0, 0, 0, .25);
+	background-color: rgba(0, 0, 0, .25);
 	backdrop-filter: blur(10px);
 	border-radius: vars.$radius-1;
 }
+
 .media-card-button__brick--black {
 	background-color: vars.$textColor;
 }
+
 .media-card-button__brick--hidden-overflow {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }
+
 .media-card-button__brick-divider {
 	width: 1px;
 	background-color: rgba(255, 255, 255, .1);
@@ -80,7 +84,7 @@
 
 	.media-card-button__sub-title {
 		font-size: 1.4rem;
-		line-height: 1.8rem;
+		line-height: 2rem;
 	}
 }
 

@@ -81,6 +81,16 @@ export const pageUrls = {
 			}
 		},
 	},
+	aiDialogueScenarios: {
+		name: 'Сценарии',
+		path: '/ai-dialogue-scenarios',
+		dialog(dialogId: number | string) {
+			return {
+				name: 'Сценарий',
+				path: '/ai-dialogue-scenarios/' + dialogId,
+			}
+		},
+	},
 	contacts: {
 		name: 'Контакты',
 		path: '/contacts',
