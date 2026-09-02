@@ -32,4 +32,9 @@ export class AiDialogueScenarioRepository {
 	async getScenarioBySlug(slug: string) {
 		return this.prisma.aiDialogueScenario.findUnique({ where: { slug } })
 	}
+
+	@CatchDbError()
+	async getScenarioById(id: number) {
+		return this.prisma.aiDialogueScenario.findUnique({ where: { id } })
+	}
 }

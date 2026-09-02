@@ -82,12 +82,12 @@ export const pageUrls = {
 		},
 	},
 	aiDialogueScenarios: {
-		name: 'Сценарии',
-		path: '/ai-dialogue-scenarios',
+		name: 'Диалоги',
+		path: '/dialogues',
 		dialog(dialogId: number | string) {
 			return {
 				name: 'Сценарий',
-				path: '/ai-dialogue-scenarios/' + dialogId,
+				path: '/dialogues/' + dialogId,
 			}
 		},
 	},

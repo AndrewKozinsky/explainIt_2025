@@ -99,6 +99,9 @@ export const bdConfig = {
 			AiDialogueScenario: {
 				type: 'oneToMany',
 			},
+			AiDialogue: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -1279,8 +1282,51 @@ export const bdConfig = {
 				example: 1,
 				required: false,
 			},
+			AiDialogue: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
+			},
+		},
+	},
+	// Диалог пользователя с ИИ по сценарию (контейнер для будущих сообщений).
+	AiDialogue: {
+		dtoProps: {},
+		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+				description: 'AI dialogue ID',
+				example: 1,
+			},
+			scenario_id: {
+				type: 'manyToOne',
+				thisField: 'scenario_id',
+				relationField: 'scenario',
+				foreignTable: 'AiDialogueScenario',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				description: 'ID of the scenario this dialogue follows',
+				example: 1,
+				required: true,
+			},
+			user_id: {
+				type: 'manyToOne',
+				thisField: 'user_id',
+				relationField: 'user',
+				foreignTable: 'User',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				description: 'User ID who started this dialogue',
+				example: 1,
+				required: true,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+			updated_at: {
+				type: 'updatedAt',
 			},
 		},
 	},

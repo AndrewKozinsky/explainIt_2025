@@ -68,7 +68,8 @@ export const ModelName = {
   UniversalPhraseTranslation: 'UniversalPhraseTranslation',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
-  AiDialogueScenario: 'AiDialogueScenario'
+  AiDialogueScenario: 'AiDialogueScenario',
+  AiDialogue: 'AiDialogue'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -343,6 +344,17 @@ export const AiDialogueScenarioScalarFieldEnum = {
 } as const
 
 export type AiDialogueScenarioScalarFieldEnum = (typeof AiDialogueScenarioScalarFieldEnum)[keyof typeof AiDialogueScenarioScalarFieldEnum]
+
+
+export const AiDialogueScalarFieldEnum = {
+  id: 'id',
+  scenario_id: 'scenario_id',
+  user_id: 'user_id',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type AiDialogueScalarFieldEnum = (typeof AiDialogueScalarFieldEnum)[keyof typeof AiDialogueScalarFieldEnum]
 
 
 export const SortOrder = {

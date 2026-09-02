@@ -151,6 +151,10 @@ export const errorMessage = {
 		previousAnswerNotReady: { code: 'SENTENCE_CHAT_PREVIOUS_ANSWER_NOT_READY' }, // Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.
 		insufficientBalance: { code: 'SENTENCE_CHAT_INSUFFICIENT_BALANCE' }, // Недостаточно средств на балансе для генерации ответа.
 	},
+	aiDialogue: {
+		notFound: { code: 'AI_DIALOGUE_NOT_FOUND' }, // Диалог не найден.
+		scenarioNotFound: { code: 'AI_DIALOGUE_SCENARIO_NOT_FOUND' }, // Сценарий диалога не найден.
+	},
 	audioPronunciation: {
 		notCreated: { code: 'AUDIO_PRONUNCIATION_NOT_CREATED' }, // Не удалось создать озвучку.
 		alreadyExists: { code: 'AUDIO_PRONUNCIATION_ALREADY_EXISTS' }, // Озвучка для этой фразы уже существует.

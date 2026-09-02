@@ -5,343 +5,366 @@ generator client {
 }
 
 datasource db {
-	provider = "postgresql"
+    provider = "postgresql"
 }
 
 model User {
-	id	Int	@id	@default(autoincrement())
-	email	String	@unique
-	password	String?
-	email_confirmation_code	String?
-	email_confirmation_code_expiration_date	String?
-	is_email_confirmed	Boolean	@default(false)
-	is_user_confirmed	Boolean	@default(false)
-	balance	Int	@default(0)
-	Payment	Payment[]
-	UserBalanceTransaction	UserBalanceTransaction[]
-	Book	Book[]
-	Video	Video[]
-	SentenceChatThread	SentenceChatThread[]
-	AiDialogueScenario	AiDialogueScenario[]
-	created_at	DateTime	@default(now())
+    id                                      Int                      @id @default(autoincrement())
+    email                                   String                   @unique
+    password                                String?
+    email_confirmation_code                 String?
+    email_confirmation_code_expiration_date String?
+    is_email_confirmed                      Boolean                  @default(false)
+    is_user_confirmed                       Boolean                  @default(false)
+    balance                                 Int                      @default(0)
+    Payment                                 Payment[]
+    UserBalanceTransaction                  UserBalanceTransaction[]
+    Book                                    Book[]
+    Video                                   Video[]
+    SentenceChatThread                      SentenceChatThread[]
+    AiDialogueScenario                      AiDialogueScenario[]
+    AiDialogue                              AiDialogue[]
+    created_at                              DateTime                 @default(now())
 }
 
 model UserBalanceTransaction {
-	id	Int	@id	@default(autoincrement())
-	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id Int
-	type	BalanceTransactionType
-	amount	Int
-	payment Payment? @relation(fields: [payment_id], references: [id], onDelete: Cascade)
-	payment_id Int?	@unique
-	created_at	DateTime	@default(now())
+    id         Int                    @id @default(autoincrement())
+    user       User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id    Int
+    type       BalanceTransactionType
+    amount     Int
+    payment    Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
+    payment_id Int?                   @unique
+    created_at DateTime               @default(now())
 }
 
 model Payment {
-	id	Int	@id	@default(autoincrement())
-	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id Int
-	amount	Int
-	status	PaymentStatus	@default(PENDING)
-	provider_name	PaymentProviderName	@default(YOOKASSA)
-	external_id	String	@unique
-	UserBalanceTransaction	UserBalanceTransaction[]
-	created_at	DateTime	@default(now())
-	updated_at	DateTime	@default(now())
+    id                     Int                      @id @default(autoincrement())
+    user                   User                     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                Int
+    amount                 Int
+    status                 PaymentStatus            @default(PENDING)
+    provider_name          PaymentProviderName      @default(YOOKASSA)
+    external_id            String                   @unique
+    UserBalanceTransaction UserBalanceTransaction[]
+    created_at             DateTime                 @default(now())
+    updated_at             DateTime                 @default(now())
 }
 
 model Book {
-	id	Int	@id	@default(autoincrement())
-	type	MediaType
-	user User? @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id Int?
-	author	String?
-	name	String?
-	source_language_code	LanguageCode
-	about	String?
-	cover_file_name	String?
-	cover_file_s3_key	String?
-	cover_file_s3_provider_name	S3ProviderName?
-	is_cover_file_uploaded	Boolean	@default(false)
-	BookChapter	BookChapter[]
-	created_at	DateTime	@default(now())
+    id                          Int             @id @default(autoincrement())
+    type                        MediaType
+    user                        User?           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                     Int?
+    author                      String?
+    name                        String?
+    source_language_code        LanguageCode
+    about                       String?
+    cover_file_name             String?
+    cover_file_s3_key           String?
+    cover_file_s3_provider_name S3ProviderName?
+    is_cover_file_uploaded      Boolean         @default(false)
+    BookChapter                 BookChapter[]
+    created_at                  DateTime        @default(now())
 }
 
 model BookChapter {
-	id	Int	@id	@default(autoincrement())
-	book Book @relation(fields: [book_id], references: [id], onDelete: Cascade)
-	book_id Int
-	name	String?
-	header	String?
-	original_content	String?
-	processed_content	String?
-	note	String?
-	Sentence	Sentence[]
-	created_at	DateTime	@default(now())
+    id                Int        @id @default(autoincrement())
+    book              Book       @relation(fields: [book_id], references: [id], onDelete: Cascade)
+    book_id           Int
+    name              String?
+    header            String?
+    original_content  String?
+    processed_content String?
+    note              String?
+    Sentence          Sentence[]
+    created_at        DateTime   @default(now())
 }
 
 model Video {
-	id	Int	@id	@default(autoincrement())
-	type	MediaType
-	user User? @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id Int?
-	name	String?
-	about	String?
-	source_language_code	LanguageCode
-	youtube_video_id	String?	@unique
-	file_name	String?
-	file_s3_key	String?
-	s3_provider_name	S3ProviderName?
-	is_file_uploaded	Boolean?	@default(false)
-	file_size_mb	Int	@default(0)
-	duration_sec	Int	@default(0)
-	original_content	String?
-	processed_content	String?
-	content_type	VideoTextType	@default(text)
-	cover_file_name	String?
-	cover_file_s3_key	String?
-	cover_file_s3_provider_name	S3ProviderName?
-	is_cover_file_uploaded	Boolean	@default(false)
-	cover_url	String?
-	subtitles_source	SubtitlesSource	@default(user)
-	subtitles_status	SubtitlesStatus	@default(idle)
-	subtitles_error_code	String?
-	subtitles_job_id	String?
-	proficiency_level	Int?
-	topic	String?
-	learnability_score	Int?
-	Subtitle	Subtitle[]
-	Sentence	Sentence[]
-	created_at	DateTime	@default(now())
-	updated_at	DateTime	@default(now())
+    id                          Int             @id @default(autoincrement())
+    type                        MediaType
+    user                        User?           @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                     Int?
+    name                        String?
+    about                       String?
+    source_language_code        LanguageCode
+    youtube_video_id            String?         @unique
+    file_name                   String?
+    file_s3_key                 String?
+    s3_provider_name            S3ProviderName?
+    is_file_uploaded            Boolean?        @default(false)
+    file_size_mb                Int             @default(0)
+    duration_sec                Int             @default(0)
+    original_content            String?
+    processed_content           String?
+    content_type                VideoTextType   @default(text)
+    cover_file_name             String?
+    cover_file_s3_key           String?
+    cover_file_s3_provider_name S3ProviderName?
+    is_cover_file_uploaded      Boolean         @default(false)
+    cover_url                   String?
+    subtitles_source            SubtitlesSource @default(user)
+    subtitles_status            SubtitlesStatus @default(idle)
+    subtitles_error_code        String?
+    subtitles_job_id            String?
+    proficiency_level           Int?
+    topic                       String?
+    learnability_score          Int?
+    Subtitle                    Subtitle[]
+    Sentence                    Sentence[]
+    created_at                  DateTime        @default(now())
+    updated_at                  DateTime        @default(now())
 }
 
 model Sentence {
-	id	Int	@id	@default(autoincrement())
-	bookChapter BookChapter? @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
-	book_chapter_id Int?
-	video Video? @relation(fields: [video_id], references: [id], onDelete: Cascade)
-	video_id Int?
-	start_offset	Int
-	length	Int
-	order_index	Int
-	SubtitleSentenceInit	SubtitleSentenceInit[]
-	SentenceTranslation	SentenceTranslation[]
-	SentencePhraseTranslation	SentencePhraseTranslation[]
-	SentenceChatThread	SentenceChatThread[]
+    id                        Int                         @id @default(autoincrement())
+    bookChapter               BookChapter?                @relation(fields: [book_chapter_id], references: [id], onDelete: Cascade)
+    book_chapter_id           Int?
+    video                     Video?                      @relation(fields: [video_id], references: [id], onDelete: Cascade)
+    video_id                  Int?
+    start_offset              Int
+    length                    Int
+    order_index               Int
+    SubtitleSentenceInit      SubtitleSentenceInit[]
+    SentenceTranslation       SentenceTranslation[]
+    SentencePhraseTranslation SentencePhraseTranslation[]
+    SentenceChatThread        SentenceChatThread[]
 }
 
 model SentenceTranslation {
-	id	Int	@id	@default(autoincrement())
-	sentence Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
-	sentence_id Int
-	target_language_code	LanguageCode
-	translation	String
-	created_at	DateTime	@default(now())
-	@@index([sentence_id])
-	@@index([sentence_id, target_language_code])
+    id                   Int          @id @default(autoincrement())
+    sentence             Sentence     @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id          Int
+    target_language_code LanguageCode
+    translation          String
+    created_at           DateTime     @default(now())
+
+    @@index([sentence_id])
+    @@index([sentence_id, target_language_code])
 }
 
 model SentencePhraseTranslation {
-	id	Int	@id	@default(autoincrement())
-	sentence Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
-	sentence_id Int
-	target_language_code	LanguageCode
-	phrase	String
-	phrase_start_offset	Int
-	phrase_end_offset	Int
-	translate	String?
-	examples	String[]
-	status	SentencePhraseTranslationStatus
-	error_code	String?
-	created_at	DateTime	@default(now())
-	updated_at	DateTime	@default(now())
-	@@index([sentence_id])
-	@@index([sentence_id, target_language_code])
-	@@index([sentence_id, phrase_start_offset, phrase_end_offset])
-	@@index([sentence_id, target_language_code, phrase_start_offset, phrase_end_offset])
+    id                   Int                             @id @default(autoincrement())
+    sentence             Sentence                        @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id          Int
+    target_language_code LanguageCode
+    phrase               String
+    phrase_start_offset  Int
+    phrase_end_offset    Int
+    translate            String?
+    examples             String[]
+    status               SentencePhraseTranslationStatus
+    error_code           String?
+    created_at           DateTime                        @default(now())
+    updated_at           DateTime                        @default(now())
+
+    @@index([sentence_id])
+    @@index([sentence_id, target_language_code])
+    @@index([sentence_id, phrase_start_offset, phrase_end_offset])
+    @@index([sentence_id, target_language_code, phrase_start_offset, phrase_end_offset])
 }
 
 model Subtitle {
-	id	Int	@id	@default(autoincrement())
-	start_time_ms	Int
-	end_time_ms	Int
-	start_offset	Int
-	length	Int
-	order_index	Int
-	video Video? @relation(fields: [video_id], references: [id], onDelete: Cascade)
-	video_id Int?
-	SubtitleSentenceInit	SubtitleSentenceInit[]
+    id                   Int                    @id @default(autoincrement())
+    start_time_ms        Int
+    end_time_ms          Int
+    start_offset         Int
+    length               Int
+    order_index          Int
+    video                Video?                 @relation(fields: [video_id], references: [id], onDelete: Cascade)
+    video_id             Int?
+    SubtitleSentenceInit SubtitleSentenceInit[]
 }
 
 model SubtitleSentenceInit {
-	id	Int	@id	@default(autoincrement())
-	subtitle Subtitle @relation(fields: [subtitle_id], references: [id], onDelete: Cascade)
-	subtitle_id Int
-	sentence Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
-	sentence_id Int
-	start_offset	Int
-	length	Int
-	@@index([subtitle_id])
-	@@index([sentence_id])
+    id           Int      @id @default(autoincrement())
+    subtitle     Subtitle @relation(fields: [subtitle_id], references: [id], onDelete: Cascade)
+    subtitle_id  Int
+    sentence     Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id  Int
+    start_offset Int
+    length       Int
+
+    @@index([subtitle_id])
+    @@index([sentence_id])
 }
 
 model UniversalPhrase {
-	id	Int	@id	@default(autoincrement())
-	text	String
-	source_language_code	LanguageCode
-	UniversalTranscription	UniversalTranscription?
-	UniversalAudioPronunciation	UniversalAudioPronunciation?
-	UniversalPhraseTranslation	UniversalPhraseTranslation[]
-	created_at	DateTime	@default(now())
-	updated_at	DateTime	@default(now())
-	@@unique([source_language_code, text])
+    id                          Int                          @id @default(autoincrement())
+    text                        String
+    source_language_code        LanguageCode
+    UniversalTranscription      UniversalTranscription?
+    UniversalAudioPronunciation UniversalAudioPronunciation?
+    UniversalPhraseTranslation  UniversalPhraseTranslation[]
+    created_at                  DateTime                     @default(now())
+    updated_at                  DateTime                     @default(now())
+
+    @@unique([source_language_code, text])
 }
 
 model UniversalTranscription {
-	id	Int	@id	@default(autoincrement())
-	universal_phrase UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
-	universal_phrase_id Int	@unique
-	ipa	String?
-	pinyin	String?
+    id                  Int             @id @default(autoincrement())
+    universal_phrase    UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id Int             @unique
+    ipa                 String?
+    pinyin              String?
 }
 
 model UniversalAudioPronunciation {
-	id	Int	@id	@default(autoincrement())
-	universal_phrase UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
-	universal_phrase_id Int	@unique
-	s3_key	String
-	created_at	DateTime	@default(now())
+    id                  Int             @id @default(autoincrement())
+    universal_phrase    UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id Int             @unique
+    s3_key              String
+    created_at          DateTime        @default(now())
 }
 
 model UniversalPhraseTranslation {
-	id	Int	@id	@default(autoincrement())
-	universal_phrase UniversalPhrase @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
-	universal_phrase_id Int
-	target_language_code	LanguageCode
-	translation	String?
-	status	UniversalPhraseTranslationStatus	@default(pending)
-	error_code	String?
-	non_existent_word	Boolean	@default(false)
-	created_at	DateTime	@default(now())
-	@@unique([universal_phrase_id, target_language_code])
-	@@index([universal_phrase_id])
+    id                   Int                              @id @default(autoincrement())
+    universal_phrase     UniversalPhrase                  @relation(fields: [universal_phrase_id], references: [id], onDelete: Cascade)
+    universal_phrase_id  Int
+    target_language_code LanguageCode
+    translation          String?
+    status               UniversalPhraseTranslationStatus @default(pending)
+    error_code           String?
+    non_existent_word    Boolean                          @default(false)
+    created_at           DateTime                         @default(now())
+
+    @@unique([universal_phrase_id, target_language_code])
+    @@index([universal_phrase_id])
 }
 
 model SentenceChatThread {
-	id	Int	@id	@default(autoincrement())
-	user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id Int
-	sentence Sentence @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
-	sentence_id Int
-	SentenceChatMessage	SentenceChatMessage[]
-	created_at	DateTime	@default(now())
-	updated_at	DateTime	@default(now())
-	@@unique([user_id, sentence_id])
-	@@index([user_id])
+    id                  Int                   @id @default(autoincrement())
+    user                User                  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id             Int
+    sentence            Sentence              @relation(fields: [sentence_id], references: [id], onDelete: Cascade)
+    sentence_id         Int
+    SentenceChatMessage SentenceChatMessage[]
+    created_at          DateTime              @default(now())
+    updated_at          DateTime              @default(now())
+
+    @@unique([user_id, sentence_id])
+    @@index([user_id])
 }
 
 model SentenceChatMessage {
-	id	Int	@id	@default(autoincrement())
-	thread SentenceChatThread @relation(fields: [thread_id], references: [id], onDelete: Cascade)
-	thread_id Int
-	role	SentenceChatMessageRole
-	content	String
-	status	SentenceChatMessageStatus	@default(completed)
-	error_message	String?
-	created_at	DateTime	@default(now())
-	updated_at	DateTime	@default(now())
-	@@index([thread_id])
+    id            Int                       @id @default(autoincrement())
+    thread        SentenceChatThread        @relation(fields: [thread_id], references: [id], onDelete: Cascade)
+    thread_id     Int
+    role          SentenceChatMessageRole
+    content       String
+    status        SentenceChatMessageStatus @default(completed)
+    error_message String?
+    created_at    DateTime                  @default(now())
+    updated_at    DateTime                  @default(now())
+
+    @@index([thread_id])
 }
 
 model AiDialogueScenario {
-	id	Int	@id	@default(autoincrement())
-	slug	String?	@unique
-	title	String
-	description	String
-	system_prompt	String
-	language_code	LanguageCode
-	user User? @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id Int?
-	created_at	DateTime	@default(now())
-	@@index([user_id])
+    id            Int          @id @default(autoincrement())
+    slug          String?      @unique
+    title         String
+    description   String
+    system_prompt String
+    language_code LanguageCode
+    user          User?        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id       Int?
+    AiDialogue    AiDialogue[]
+    created_at    DateTime     @default(now())
+
+    @@index([user_id])
+}
+
+model AiDialogue {
+    id          Int                @id @default(autoincrement())
+    scenario    AiDialogueScenario @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
+    scenario_id Int
+    user        User               @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id     Int
+    created_at  DateTime           @default(now())
+    updated_at  DateTime           @default(now())
+
+    @@index([user_id])
+    @@index([scenario_id])
 }
 
 enum BalanceTransactionType {
-	CHARGE
-	TOP_UP
-	REFUND
+    CHARGE
+    TOP_UP
+    REFUND
 }
 
 enum PaymentStatus {
-	PENDING
-	SUCCESS
-	FAILED
-	CANCELED
+    PENDING
+    SUCCESS
+    FAILED
+    CANCELED
 }
 
 enum PaymentProviderName {
-	YOOKASSA
+    YOOKASSA
 }
 
 enum MediaType {
-	public
-	private
+    public
+    private
 }
 
 enum LanguageCode {
-	en
-	es
-	fr
-	de
-	it
-	tr
-	ru
+    en
+    es
+    fr
+    de
+    it
+    tr
+    ru
 }
 
 enum S3ProviderName {
-	cloudRu
+    cloudRu
 }
 
 enum VideoTextType {
-	text
-	subtitles
+    text
+    subtitles
 }
 
 enum SubtitlesSource {
-	user
-	youTube
-	llm
+    user
+    youTube
+    llm
 }
 
 enum SubtitlesStatus {
-	idle
-	pending
-	processing
-	done
-	failed
+    idle
+    pending
+    processing
+    done
+    failed
 }
 
 enum SentencePhraseTranslationStatus {
-	pending
-	ready
-	error
+    pending
+    ready
+    error
 }
 
 enum UniversalPhraseTranslationStatus {
-	pending
-	ready
-	error
+    pending
+    ready
+    error
 }
 
 enum SentenceChatMessageRole {
-	user
-	assistant
+    user
+    assistant
 }
 
 enum SentenceChatMessageStatus {
-	streaming
-	completed
-	canceled
-	failed
+    streaming
+    completed
+    canceled
+    failed
 }
