@@ -1,9 +1,9 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 
-export const AI_DIALOGUE_SCENARIOS_PAGE_STORAGE_KEY = 'ai-dialogue-scenarios'
+export const AI_DIALOGUE_SCENARIOS_PAGE_STORAGE_KEY = 'dialogues'
 
-export function useAiDialogueScenariosPageTabs() {
+export function useAiDialogueScenariosTabs() {
 	const [defaultTab, setDefaultTab] = useState<null | string>(null)
 
 	useLayoutEffect(() => {

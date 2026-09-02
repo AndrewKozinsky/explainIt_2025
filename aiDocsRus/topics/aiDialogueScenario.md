@@ -2,15 +2,16 @@
 
 ## Что делает функционал
 
-Позволяет получить список сценариев для ролевого диалога пользователя с LLM. Сценарий — это описание конкретной
-сценки (визит к стоматологу, паспортный контроль, покупка абонемента в бассейн), в которой LLM играет роль NPC
-(врача, офицера, администратора), ведёт диалог и реагирует на реплики пользователя.
+Позволяет получить список сценариев для ролевого диалога пользователя с LLM. Сценарий — это описание конкретной сценки
+(визит к стоматологу, паспортный контроль, покупка абонемента в бассейн), в которой LLM играет роль NPC (врача, офицера,
+администратора), ведёт диалог и реагирует на реплики пользователя.
 
 Сценарий содержит:
 
 - **`title`** — название, показываемое на кнопке
 - **`description`** — короткое описание сценки (показывается пользователю)
-- **`systemPrompt`** — системный промпт со сценой и ролью NPC (используется при обращении к LLM, клиенту **не отдаётся**)
+- **`systemPrompt`** — системный промпт со сценой и ролью NPC (используется при обращении к LLM, клиенту **не
+  отдаётся**)
 - **`languageCode`** — язык диалога (из enum `LanguageCode`)
 
 > **Важно:** сценарий — лишь тема разговора; основная сущность — диалог (`AiDialogue`). Сценарии (данные + сид +
@@ -24,11 +25,9 @@
   английский (`english/scenarios.ts`) — 3 сценария.
 - REST-эндпоинт списка публичных сценариев.
 - Страница на клиенте (`/dialogues`) — будет показывать и сценарии, и историю диалогов пользователя. Сейчас это
-  «Библиотека» публичных сценариев (с переключателем языка); «Мои сценарии» пока пуста, история диалогов — в
-  разработке.
+  «Библиотека» публичных сценариев (с переключателем языка); «Мои сценарии» пока пуста, история диалогов — в разработке.
 - Пункт «Сценарии» добавлен в главное меню.
-- Пользовательские сценарии пока **не создаются**, но `user_id` уже в схеме (nullable) — чтобы не делать миграцию
-  позже.
+- Пользовательские сценарии пока **не создаются**, но `user_id` уже в схеме (nullable) — чтобы не делать миграцию позже.
 
 ## Как работает сервер
 
@@ -41,25 +40,25 @@
 2. Если найден — ничего не делает (идемпотентно)
 3. Если не найден — создаёт через `createScenario`
 
-Благодаря этому повторный запуск сервера не дублирует сценарии. `slug` уникален и используется именно для
-идемпотентного сида и будущих URL.
+Благодаря этому повторный запуск сервера не дублирует сценарии. `slug` уникален и используется именно для идемпотентного
+сида и будущих URL.
 
 ### Данные сценариев
 
 ```ts
 // server/src/features/aiDialogueScenario/common.ts
 type AiDialogueScenarioSeedData = {
-	slug: string
-	title: string
-	description: string
-	systemPrompt: string
-	languageCode: Language
+    slug: string
+    title: string
+    description: string
+    systemPrompt: string
+    languageCode: Language
 }
 ```
 
 Английские сценарии (`englishScenarios`): `at-the-dentist`, `passport-control`, `pool-membership`. Все на языке `en`
-с уровнем A2–B1. В `systemPrompt` заложены правила: короткие реплики (1–3 предложения), оставаться в роли,
-мягко перефразировать грамматические ошибки без лекции, подсказывать по-русски только если ученик совсем застрял.
+с уровнем A2–B1. В `systemPrompt` заложены правила: короткие реплики (1–3 предложения), оставаться в роли, мягко
+перефразировать грамматические ошибки без лекции, подсказывать по-русски только если ученик совсем застрял.
 
 ### REST API
 
@@ -73,13 +72,13 @@ GET /ai-dialogue-scenario
 
 ```json
 [
-	{
-		"id": 1,
-		"slug": "at-the-dentist",
-		"title": "At the Dentist",
-		"description": "Вы приходите на приём к стоматологу: ...",
-		"languageCode": "en"
-	}
+  {
+    "id": 1,
+    "slug": "at-the-dentist",
+    "title": "At the Dentist",
+    "description": "Вы приходите на приём к стоматологу: ...",
+    "languageCode": "en"
+  }
 ]
 ```
 
@@ -87,22 +86,23 @@ GET /ai-dialogue-scenario
 
 ### Схема обработки (CQRS)
 
-`AiDialogueScenarioController` вызывает `GetAiDialogueScenariosCommand` → `AiDialogueScenarioQueryRepository.getPublicScenarios()`,
-который выбирает `where: { user_id: null }` и маппит в `OutModel`.
+`AiDialogueScenarioController` вызывает `GetAiDialogueScenariosCommand` →
+`AiDialogueScenarioQueryRepository.getPublicScenarios()`, который выбирает `where: { user_id: null }` и маппит в
+`OutModel`.
 
 ## Как работает клиент
 
-Страница со списком сценариев построена по образцу страницы книг (`BooksPage`), но проще — пока есть только
-публичные сценарии и у карточек нет обложек.
+Страница со списком сценариев построена по образцу страницы книг (`BooksPage`), но проще — пока есть только публичные
+сценарии и у карточек нет обложек.
 
 ### Маршрут и страница
 
 - Маршрут — `/dialogues` (страница сейчас переделывается: сценарии + история диалогов).
-- Страница `AiDialogueScenariosPage` рендерит `MediaPageContentTabs` с двумя вкладками:
-  - «Библиотека» — `PublicAiDialogueScenariosList`;
-  - «Мои сценарии» — пока пусто (`content: null`), пользовательские сценарии не реализованы.
-- Выбранная вкладка сохраняется в `localStorage` через `useAiDialogueScenariosPageTabs`
-  (ключ `ai-dialogue-scenarios`, менеджер `localStorageManager.lastMediaTab`).
+- Страница `AiDialoguesPage` рендерит `MediaPageContentTabs` с двумя вкладками:
+    - «Библиотека» — `PublicAiDialogueScenariosList`;
+    - «Мои сценарии» — пока пусто (`content: null`), пользовательские сценарии не реализованы.
+- Выбранная вкладка сохраняется в `localStorage` через `useAiDialogueScenariosTabs`
+  (ключ `dialogues`, менеджер `localStorageManager.lastMediaTab`).
 
 ### Загрузка данных (entity-слой)
 
@@ -130,12 +130,12 @@ GET /ai-dialogue-scenario
 
 ### URL карточки и страница диалога
 
-`pageUrls.aiDialogueScenarios.dialog(dialogId)` ведёт на `/dialogues/{dialogId}` (id диалога, а не сценария).
-Сама страница диалога — следующий шаг.
+`pageUrls.aiDialogueScenarios.dialog(dialogId)` ведёт на `/dialogues/{dialogId}` (id диалога, а не сценария). Сама
+страница диалога — следующий шаг.
 
 ### pageUrls и меню
 
-- В `pageUrls` добавлен `aiDialogueScenarios`: `name: 'Диалоги'`, `path: '/dialogues'`,
+- В `pageUrls` добавлен `aiDialogues`: `name: 'Диалоги'`, `path: '/dialogues'`,
   `dialog(dialogId)` → `/dialogues/{dialogId}`.
 - В главное меню (`MainMenu`) добавлен пункт «Сценарии» — между «Книги» и «Контакты».
 
@@ -143,16 +143,16 @@ GET /ai-dialogue-scenario
 
 ### Таблица AiDialogueScenario
 
-| Поле            | Тип           | Описание                                                               |
-|-----------------|---------------|------------------------------------------------------------------------|
-| `id`            | `Int`         | Первичный ключ (autoincrement)                                         |
-| `slug`          | `String?`     | Стабильный уникальный ключ (null для пользовательских сценариев)       |
-| `title`         | `String`      | Название сценария                                                      |
-| `description`   | `String`      | Короткое описание сценки                                               |
-| `system_prompt` | `String`      | Системный промпт с ролью NPC (не отдаётся клиенту)                     |
-| `language_code` | `LanguageCode`| Язык диалога                                                           |
-| `user_id`       | `Int?`        | Владелец сценария (null для публичных)                                 |
-| `created_at`    | `DateTime`    | Дата создания                                                          |
+| Поле            | Тип            | Описание                                                         |
+|-----------------|----------------|------------------------------------------------------------------|
+| `id`            | `Int`          | Первичный ключ (autoincrement)                                   |
+| `slug`          | `String?`      | Стабильный уникальный ключ (null для пользовательских сценариев) |
+| `title`         | `String`       | Название сценария                                                |
+| `description`   | `String`       | Короткое описание сценки                                         |
+| `system_prompt` | `String`       | Системный промпт с ролью NPC (не отдаётся клиенту)               |
+| `language_code` | `LanguageCode` | Язык диалога                                                     |
+| `user_id`       | `Int?`         | Владелец сценария (null для публичных)                           |
+| `created_at`    | `DateTime`     | Дата создания                                                    |
 
 - `slug` имеет `@unique`.
 - `@@index([user_id])` для быстрого поиска по владельцу.
@@ -193,14 +193,17 @@ GET /ai-dialogue-scenario
 
 ### Клиент
 
-- `face/app/[locale]/ai-dialogue-scenarios/page.tsx` — роут страницы.
-- `face/app/[locale]/ai-dialogue-scenarios/layout.tsx` — обёртка `MediaPageLayout`.
-- `face/_pages/media/aiDialogueScenarios/AiDialogueScenariosPage/AiDialogueScenariosPage.tsx` — страница с вкладками.
-- `face/_pages/media/aiDialogueScenarios/AiDialogueScenariosPage/fn/useAiDialogueScenariosPageTabs.tsx` — сохранение вкладки.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList.tsx` — список публичных сценариев.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioCardsConfig.ts` — маппинг сценариев в карточки.
+- `face/app/[locale]/dialogues/page.tsx` — роут страницы.
+- `face/app/[locale]/dialogues/layout.tsx` — обёртка `MediaPageLayout`.
+- `face/_pages/media/aiDialogues/AiDialoguesPage/AiDialoguesPage.tsx` — страница с вкладками.
+- `face/_pages/media/aiDialogues/AiDialoguesPage/fn/useAiDialogueScenariosTabs.tsx` — сохранение вкладки.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList.tsx` — список публичных
+  сценариев.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioCardsConfig.ts` — маппинг сценариев в
+  карточки.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useLanguageChange.ts` — переключатель языка.
-- `face/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository.ts` — тип `AiDialogueScenarioModel` + интерфейс репозитория.
+- `face/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository.ts` — тип `AiDialogueScenarioModel` +
+  интерфейс репозитория.
 - `face/entities/aiDialogueScenario/repository/AiDialogueScenarioApi.ts` — реализация через REST + маппинг.
 - `face/entities/aiDialogueScenario/AiDialogueScenarioService.ts` — сервис.
 - `face/entities/aiDialogueScenario/AiDialogueScenarioQueryFacade.ts` — TanStack Query фасад.
@@ -212,9 +215,10 @@ GET /ai-dialogue-scenario
 
 ## Как добавить новый язык или сценарий
 
-1. При необходимости создать папку `server/src/features/aiDialogueScenario/<lang>/scenarios.ts` для нового языка
-   (по аналогии с `english/scenarios.ts`).
+1. При необходимости создать папку `server/src/features/aiDialogueScenario/<lang>/scenarios.ts` для нового языка (по
+   аналогии с `english/scenarios.ts`).
 2. Добавить объект `AiDialogueScenarioSeedData` с уникальным `slug`, `title`, `description`, `systemPrompt` и
    `languageCode: languages.<lang>.code`.
-3. Дописать массив в `getScenariosData()` команды `CreateAiDialogueScenarios.command.ts` (`[...englishScenarios, ...другие]`).
+3. Дописать массив в `getScenariosData()` команды `CreateAiDialogueScenarios.command.ts`
+   (`[...englishScenarios, ...другие]`).
 4. Перезапустить сервер — сид создаст новые сценарии автоматически (идемпотентно по `slug`).

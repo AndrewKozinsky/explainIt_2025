@@ -81,7 +81,7 @@ export const pageUrls = {
 			}
 		},
 	},
-	aiDialogueScenarios: {
+	aiDialogues: {
 		name: 'Диалоги',
 		path: '/dialogues',
 		dialog(dialogId: number | string) {

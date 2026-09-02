@@ -13,9 +13,7 @@ export function MainMenu() {
 					<MainMenuLink linkData={{ name: pageUrls.books.name, path: pageUrls.books.path }} />
 				</li>
 				<li>
-					<MainMenuLink
-						linkData={{ name: pageUrls.aiDialogueScenarios.name, path: pageUrls.aiDialogueScenarios.path }}
-					/>
+					<MainMenuLink linkData={{ name: pageUrls.aiDialogues.name, path: pageUrls.aiDialogues.path }} />
 				</li>
 				{/*<li>
 					<MainMenuLink linkData={{ name: pageUrls.dictionary.name, path: pageUrls.dictionary.path }} />

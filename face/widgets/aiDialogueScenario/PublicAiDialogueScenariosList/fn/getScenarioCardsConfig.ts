@@ -10,7 +10,7 @@ export function getScenarioCardsConfig(scenarios: AiDialogueScenarioModel[], cur
 				id: scenario.id,
 				title: scenario.title,
 				description: scenario.description,
-				url: pageUrls.aiDialogueScenarios.dialog(scenario.id).path,
+				url: pageUrls.aiDialogues.dialog(scenario.id).path,
 			}
 		})
 }

@@ -3,20 +3,26 @@
 .header {
 	font-weight: 600;
 }
+
 .header--h1 {
 	font-size: clamp(3.6rem, 10vw, 6rem);
 	line-height: clamp(4.2rem, 10.4vw, 6.8rem);
 	font-weight: 900;
 	font-style: italic;
 }
+
 .header--h2 {
 	font-size: clamp(3.2rem, 10vw, 5rem);
 	line-height: clamp(4rem, 8vw, 7rem);
+	font-weight: 700;
 }
+
 .header--h3 {
-	font-size: clamp(2.4rem, 10vw, 4.4rem);
-	line-height: clamp(3.4rem, 8vw, 6rem);
+	font-size: clamp(2.4rem, 10vw, 4rem);
+	line-height: clamp(3.4rem, 8vw, 5.6rem);
+	font-weight: 600;
 }
+
 .header--h4 {
 	font-size: clamp(1.8rem, 10vw, 3.6rem);
 	line-height: clamp(3rem, 8vw, 6rem);
