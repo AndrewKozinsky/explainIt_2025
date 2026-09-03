@@ -69,7 +69,8 @@ export const ModelName = {
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
   AiDialogueScenario: 'AiDialogueScenario',
-  AiDialogue: 'AiDialogue'
+  AiDialogue: 'AiDialogue',
+  AiDialogueMessage: 'AiDialogueMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -350,11 +351,24 @@ export const AiDialogueScalarFieldEnum = {
   id: 'id',
   scenario_id: 'scenario_id',
   user_id: 'user_id',
+  summary: 'summary',
+  summary_up_to: 'summary_up_to',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
 export type AiDialogueScalarFieldEnum = (typeof AiDialogueScalarFieldEnum)[keyof typeof AiDialogueScalarFieldEnum]
+
+
+export const AiDialogueMessageScalarFieldEnum = {
+  id: 'id',
+  dialogue_id: 'dialogue_id',
+  type: 'type',
+  payload: 'payload',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueMessageScalarFieldEnum = (typeof AiDialogueMessageScalarFieldEnum)[keyof typeof AiDialogueMessageScalarFieldEnum]
 
 
 export const SortOrder = {

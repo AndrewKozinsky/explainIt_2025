@@ -402,7 +402,8 @@ export const ModelName = {
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
   AiDialogueScenario: 'AiDialogueScenario',
-  AiDialogue: 'AiDialogue'
+  AiDialogue: 'AiDialogue',
+  AiDialogueMessage: 'AiDialogueMessage'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -418,7 +419,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenario" | "aiDialogue"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1828,6 +1829,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AiDialogueMessage: {
+      payload: Prisma.$AiDialogueMessagePayload<ExtArgs>
+      fields: Prisma.AiDialogueMessageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiDialogueMessageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiDialogueMessageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>
+        }
+        findFirst: {
+          args: Prisma.AiDialogueMessageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiDialogueMessageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>
+        }
+        findMany: {
+          args: Prisma.AiDialogueMessageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>[]
+        }
+        create: {
+          args: Prisma.AiDialogueMessageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>
+        }
+        createMany: {
+          args: Prisma.AiDialogueMessageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiDialogueMessageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>[]
+        }
+        delete: {
+          args: Prisma.AiDialogueMessageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>
+        }
+        update: {
+          args: Prisma.AiDialogueMessageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>
+        }
+        deleteMany: {
+          args: Prisma.AiDialogueMessageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiDialogueMessageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiDialogueMessageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>[]
+        }
+        upsert: {
+          args: Prisma.AiDialogueMessageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueMessagePayload>
+        }
+        aggregate: {
+          args: Prisma.AiDialogueMessageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueMessage>
+        }
+        groupBy: {
+          args: Prisma.AiDialogueMessageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueMessageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiDialogueMessageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueMessageCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2129,11 +2204,24 @@ export const AiDialogueScalarFieldEnum = {
   id: 'id',
   scenario_id: 'scenario_id',
   user_id: 'user_id',
+  summary: 'summary',
+  summary_up_to: 'summary_up_to',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
 export type AiDialogueScalarFieldEnum = (typeof AiDialogueScalarFieldEnum)[keyof typeof AiDialogueScalarFieldEnum]
+
+
+export const AiDialogueMessageScalarFieldEnum = {
+  id: 'id',
+  dialogue_id: 'dialogue_id',
+  type: 'type',
+  payload: 'payload',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueMessageScalarFieldEnum = (typeof AiDialogueMessageScalarFieldEnum)[keyof typeof AiDialogueMessageScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2398,6 +2486,20 @@ export type ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = Field
 
 
 /**
+ * Reference to a field of type 'AiDialogueMessageType'
+ */
+export type EnumAiDialogueMessageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueMessageType'>
+    
+
+
+/**
+ * Reference to a field of type 'AiDialogueMessageType[]'
+ */
+export type ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueMessageType[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2539,6 +2641,7 @@ export type GlobalOmitConfig = {
   sentenceChatMessage?: Prisma.SentenceChatMessageOmit
   aiDialogueScenario?: Prisma.AiDialogueScenarioOmit
   aiDialogue?: Prisma.AiDialogueOmit
+  aiDialogueMessage?: Prisma.AiDialogueMessageOmit
 }
 
 /* Types for Logging */

@@ -1322,11 +1322,65 @@ export const bdConfig = {
 				example: 1,
 				required: true,
 			},
+			summary: {
+				type: 'string',
+				description:
+					'Rolling summary of past dialogue events (JSON array of { state, history } blocks, serialized to text)',
+				required: false,
+			},
+			// До какого сообщения было сделано summary
+			summary_up_to: {
+				type: 'number',
+				default: 0,
+				description: 'ID of the last message covered by the summary',
+				required: true,
+			},
+			AiDialogueMessage: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
 			updated_at: {
 				type: 'updatedAt',
+			},
+		},
+	},
+	// Отдельное сообщение в диалоге с ИИ (одно событие = одна строка).
+	AiDialogueMessage: {
+		dtoProps: {},
+		indexes: [{ fields: ['dialogue_id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+				description: 'AI dialogue message ID',
+				example: 1,
+			},
+			dialogue_id: {
+				type: 'manyToOne',
+				thisField: 'dialogue_id',
+				relationField: 'dialogue',
+				foreignTable: 'AiDialogue',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				description: 'ID of the dialogue this message belongs to',
+				example: 1,
+				required: true,
+			},
+			type: {
+				type: 'enum',
+				enumName: 'AiDialogueMessageType',
+				variants: ['sceneUpdate', 'help', 'npcActions', 'userActions', 'userAvoidsNPC', 'worldEvent'],
+				description: 'Type of the event stored in this message',
+				required: true,
+			},
+			payload: {
+				type: 'string',
+				description: 'JSON payload of the event (event body without the type field)',
+				required: true,
+			},
+			created_at: {
+				type: 'createdAt',
 			},
 		},
 	},

@@ -112,3 +112,8 @@ export type AiDialogueScenario = Prisma.AiDialogueScenarioModel
  * 
  */
 export type AiDialogue = Prisma.AiDialogueModel
+/**
+ * Model AiDialogueMessage
+ * 
+ */
+export type AiDialogueMessage = Prisma.AiDialogueMessageModel

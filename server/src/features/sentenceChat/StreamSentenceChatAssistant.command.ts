@@ -3,7 +3,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { Observable, Subscriber } from 'rxjs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
-import { AiModel, OpenAIModels, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
+import { AiModel, DEFAULT_FLASH_AI_MODEL, OpenAIModels } from 'types/AIModels'
 import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -17,10 +17,10 @@ import { buildSentenceChatMessages, buildSentenceChatSystemInstruction } from '.
 import { SentenceChatContextBuilder } from './SentenceChatContextBuilder.service'
 
 // Сколько предложений до и после выделенного отдавать в контекст.
-const SENTENCES_BEFORE = 4
+const SENTENCES_BEFORE = 5
 const SENTENCES_AFTER = 0
 // Сколько последних сообщений треда брать для поддержания контекста диалога (включая только что добавленный user).
-const HISTORY_LIMIT = 8
+const HISTORY_LIMIT = 10
 
 export type StreamSentenceChatAssistantInput = {
 	userId: number

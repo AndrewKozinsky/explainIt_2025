@@ -125,3 +125,15 @@ export const SentenceChatMessageStatus = {
 } as const
 
 export type SentenceChatMessageStatus = (typeof SentenceChatMessageStatus)[keyof typeof SentenceChatMessageStatus]
+
+
+export const AiDialogueMessageType = {
+  sceneUpdate: 'sceneUpdate',
+  help: 'help',
+  npcActions: 'npcActions',
+  userActions: 'userActions',
+  userAvoidsNPC: 'userAvoidsNPC',
+  worldEvent: 'worldEvent'
+} as const
+
+export type AiDialogueMessageType = (typeof AiDialogueMessageType)[keyof typeof AiDialogueMessageType]

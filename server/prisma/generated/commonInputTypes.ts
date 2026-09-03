@@ -411,6 +411,23 @@ export type EnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel = nev
   _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
 }
 
+export type EnumAiDialogueMessageTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMessageType | Prisma.EnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel> | $Enums.AiDialogueMessageType
+}
+
+export type EnumAiDialogueMessageTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMessageType | Prisma.EnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueMessageTypeWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueMessageType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -819,6 +836,23 @@ export type NestedEnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumAiDialogueMessageTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMessageType | Prisma.EnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel> | $Enums.AiDialogueMessageType
+}
+
+export type NestedEnumAiDialogueMessageTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMessageType | Prisma.EnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueMessageTypeWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueMessageType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
 }
 
 

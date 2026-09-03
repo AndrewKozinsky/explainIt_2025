@@ -30,18 +30,22 @@ export type AiDialogueAvgAggregateOutputType = {
   id: number | null
   scenario_id: number | null
   user_id: number | null
+  summary_up_to: number | null
 }
 
 export type AiDialogueSumAggregateOutputType = {
   id: number | null
   scenario_id: number | null
   user_id: number | null
+  summary_up_to: number | null
 }
 
 export type AiDialogueMinAggregateOutputType = {
   id: number | null
   scenario_id: number | null
   user_id: number | null
+  summary: string | null
+  summary_up_to: number | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -50,6 +54,8 @@ export type AiDialogueMaxAggregateOutputType = {
   id: number | null
   scenario_id: number | null
   user_id: number | null
+  summary: string | null
+  summary_up_to: number | null
   created_at: Date | null
   updated_at: Date | null
 }
@@ -58,6 +64,8 @@ export type AiDialogueCountAggregateOutputType = {
   id: number
   scenario_id: number
   user_id: number
+  summary: number
+  summary_up_to: number
   created_at: number
   updated_at: number
   _all: number
@@ -68,18 +76,22 @@ export type AiDialogueAvgAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  summary_up_to?: true
 }
 
 export type AiDialogueSumAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  summary_up_to?: true
 }
 
 export type AiDialogueMinAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  summary?: true
+  summary_up_to?: true
   created_at?: true
   updated_at?: true
 }
@@ -88,6 +100,8 @@ export type AiDialogueMaxAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  summary?: true
+  summary_up_to?: true
   created_at?: true
   updated_at?: true
 }
@@ -96,6 +110,8 @@ export type AiDialogueCountAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  summary?: true
+  summary_up_to?: true
   created_at?: true
   updated_at?: true
   _all?: true
@@ -191,6 +207,8 @@ export type AiDialogueGroupByOutputType = {
   id: number
   scenario_id: number
   user_id: number
+  summary: string | null
+  summary_up_to: number
   created_at: Date
   updated_at: Date
   _count: AiDialogueCountAggregateOutputType | null
@@ -222,20 +240,26 @@ export type AiDialogueWhereInput = {
   id?: Prisma.IntFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
+  summary?: Prisma.StringNullableFilter<"AiDialogue"> | string | null
+  summary_up_to?: Prisma.IntFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
   scenario?: Prisma.XOR<Prisma.AiDialogueScenarioScalarRelationFilter, Prisma.AiDialogueScenarioWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  AiDialogueMessage?: Prisma.AiDialogueMessageListRelationFilter
 }
 
 export type AiDialogueOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary?: Prisma.SortOrderInput | Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   scenario?: Prisma.AiDialogueScenarioOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageOrderByRelationAggregateInput
 }
 
 export type AiDialogueWhereUniqueInput = Prisma.AtLeast<{
@@ -245,16 +269,21 @@ export type AiDialogueWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.AiDialogueWhereInput | Prisma.AiDialogueWhereInput[]
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
+  summary?: Prisma.StringNullableFilter<"AiDialogue"> | string | null
+  summary_up_to?: Prisma.IntFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
   scenario?: Prisma.XOR<Prisma.AiDialogueScenarioScalarRelationFilter, Prisma.AiDialogueScenarioWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+  AiDialogueMessage?: Prisma.AiDialogueMessageListRelationFilter
 }, "id">
 
 export type AiDialogueOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary?: Prisma.SortOrderInput | Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
   _count?: Prisma.AiDialogueCountOrderByAggregateInput
@@ -271,49 +300,67 @@ export type AiDialogueScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
+  summary?: Prisma.StringNullableWithAggregatesFilter<"AiDialogue"> | string | null
+  summary_up_to?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"AiDialogue"> | Date | string
   updated_at?: Prisma.DateTimeWithAggregatesFilter<"AiDialogue"> | Date | string
 }
 
 export type AiDialogueCreateInput = {
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
 }
 
 export type AiDialogueUncheckedCreateInput = {
   id?: number
   scenario_id: number
   user_id: number
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
+  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
 }
 
 export type AiDialogueUpdateInput = {
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
 }
 
 export type AiDialogueUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
 }
 
 export type AiDialogueCreateManyInput = {
   id?: number
   scenario_id: number
   user_id: number
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type AiDialogueUpdateManyMutationInput = {
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -322,6 +369,8 @@ export type AiDialogueUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -340,6 +389,8 @@ export type AiDialogueCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -348,12 +399,15 @@ export type AiDialogueAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
 }
 
 export type AiDialogueMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -362,6 +416,8 @@ export type AiDialogueMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary?: Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   updated_at?: Prisma.SortOrder
 }
@@ -370,6 +426,12 @@ export type AiDialogueSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  summary_up_to?: Prisma.SortOrder
+}
+
+export type AiDialogueScalarRelationFilter = {
+  is?: Prisma.AiDialogueWhereInput
+  isNot?: Prisma.AiDialogueWhereInput
 }
 
 export type AiDialogueCreateNestedManyWithoutUserInput = {
@@ -456,17 +518,37 @@ export type AiDialogueUncheckedUpdateManyWithoutScenarioNestedInput = {
   deleteMany?: Prisma.AiDialogueScalarWhereInput | Prisma.AiDialogueScalarWhereInput[]
 }
 
+export type AiDialogueCreateNestedOneWithoutAiDialogueMessageInput = {
+  create?: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueMessageInput>
+  connectOrCreate?: Prisma.AiDialogueCreateOrConnectWithoutAiDialogueMessageInput
+  connect?: Prisma.AiDialogueWhereUniqueInput
+}
+
+export type AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput = {
+  create?: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueMessageInput>
+  connectOrCreate?: Prisma.AiDialogueCreateOrConnectWithoutAiDialogueMessageInput
+  upsert?: Prisma.AiDialogueUpsertWithoutAiDialogueMessageInput
+  connect?: Prisma.AiDialogueWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AiDialogueUpdateToOneWithWhereWithoutAiDialogueMessageInput, Prisma.AiDialogueUpdateWithoutAiDialogueMessageInput>, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput>
+}
+
 export type AiDialogueCreateWithoutUserInput = {
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
 }
 
 export type AiDialogueUncheckedCreateWithoutUserInput = {
   id?: number
   scenario_id: number
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
+  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
 }
 
 export type AiDialogueCreateOrConnectWithoutUserInput = {
@@ -502,21 +584,29 @@ export type AiDialogueScalarWhereInput = {
   id?: Prisma.IntFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
+  summary?: Prisma.StringNullableFilter<"AiDialogue"> | string | null
+  summary_up_to?: Prisma.IntFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
   updated_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
 }
 
 export type AiDialogueCreateWithoutScenarioInput = {
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
 }
 
 export type AiDialogueUncheckedCreateWithoutScenarioInput = {
   id?: number
   user_id: number
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
+  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
 }
 
 export type AiDialogueCreateOrConnectWithoutScenarioInput = {
@@ -545,29 +635,93 @@ export type AiDialogueUpdateManyWithWhereWithoutScenarioInput = {
   data: Prisma.XOR<Prisma.AiDialogueUpdateManyMutationInput, Prisma.AiDialogueUncheckedUpdateManyWithoutScenarioInput>
 }
 
+export type AiDialogueCreateWithoutAiDialogueMessageInput = {
+  summary?: string | null
+  summary_up_to?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+  scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
+  user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
+}
+
+export type AiDialogueUncheckedCreateWithoutAiDialogueMessageInput = {
+  id?: number
+  scenario_id: number
+  user_id: number
+  summary?: string | null
+  summary_up_to?: number
+  created_at?: Date | string
+  updated_at?: Date | string
+}
+
+export type AiDialogueCreateOrConnectWithoutAiDialogueMessageInput = {
+  where: Prisma.AiDialogueWhereUniqueInput
+  create: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueMessageInput>
+}
+
+export type AiDialogueUpsertWithoutAiDialogueMessageInput = {
+  update: Prisma.XOR<Prisma.AiDialogueUpdateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput>
+  create: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueMessageInput>
+  where?: Prisma.AiDialogueWhereInput
+}
+
+export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueMessageInput = {
+  where?: Prisma.AiDialogueWhereInput
+  data: Prisma.XOR<Prisma.AiDialogueUpdateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput>
+}
+
+export type AiDialogueUpdateWithoutAiDialogueMessageInput = {
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
+  user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
+}
+
+export type AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
+  user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
+  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
 export type AiDialogueCreateManyUserInput = {
   id?: number
   scenario_id: number
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type AiDialogueUpdateWithoutUserInput = {
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
 }
 
 export type AiDialogueUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
 }
 
 export type AiDialogueUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -575,46 +729,91 @@ export type AiDialogueUncheckedUpdateManyWithoutUserInput = {
 export type AiDialogueCreateManyScenarioInput = {
   id?: number
   user_id: number
+  summary?: string | null
+  summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
 }
 
 export type AiDialogueUpdateWithoutScenarioInput = {
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
+  AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
 }
 
 export type AiDialogueUncheckedUpdateWithoutScenarioInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
 }
 
 export type AiDialogueUncheckedUpdateManyWithoutScenarioInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
+
+/**
+ * Count Type AiDialogueCountOutputType
+ */
+
+export type AiDialogueCountOutputType = {
+  AiDialogueMessage: number
+}
+
+export type AiDialogueCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  AiDialogueMessage?: boolean | AiDialogueCountOutputTypeCountAiDialogueMessageArgs
+}
+
+/**
+ * AiDialogueCountOutputType without action
+ */
+export type AiDialogueCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AiDialogueCountOutputType
+   */
+  select?: Prisma.AiDialogueCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * AiDialogueCountOutputType without action
+ */
+export type AiDialogueCountOutputTypeCountAiDialogueMessageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AiDialogueMessageWhereInput
+}
 
 
 export type AiDialogueSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  summary?: boolean
+  summary_up_to?: boolean
   created_at?: boolean
   updated_at?: boolean
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  AiDialogueMessage?: boolean | Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs>
+  _count?: boolean | Prisma.AiDialogueCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["aiDialogue"]>
 
 export type AiDialogueSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  summary?: boolean
+  summary_up_to?: boolean
   created_at?: boolean
   updated_at?: boolean
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
@@ -625,6 +824,8 @@ export type AiDialogueSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  summary?: boolean
+  summary_up_to?: boolean
   created_at?: boolean
   updated_at?: boolean
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
@@ -635,14 +836,18 @@ export type AiDialogueSelectScalar = {
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  summary?: boolean
+  summary_up_to?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type AiDialogueOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "scenario_id" | "user_id" | "created_at" | "updated_at", ExtArgs["result"]["aiDialogue"]>
+export type AiDialogueOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "scenario_id" | "user_id" | "summary" | "summary_up_to" | "created_at" | "updated_at", ExtArgs["result"]["aiDialogue"]>
 export type AiDialogueInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+  AiDialogueMessage?: boolean | Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs>
+  _count?: boolean | Prisma.AiDialogueCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type AiDialogueIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
@@ -658,11 +863,14 @@ export type $AiDialoguePayload<ExtArgs extends runtime.Types.Extensions.Internal
   objects: {
     scenario: Prisma.$AiDialogueScenarioPayload<ExtArgs>
     user: Prisma.$UserPayload<ExtArgs>
+    AiDialogueMessage: Prisma.$AiDialogueMessagePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
     scenario_id: number
     user_id: number
+    summary: string | null
+    summary_up_to: number
     created_at: Date
     updated_at: Date
   }, ExtArgs["result"]["aiDialogue"]>
@@ -1061,6 +1269,7 @@ export interface Prisma__AiDialogueClient<T, Null = never, ExtArgs extends runti
   readonly [Symbol.toStringTag]: "PrismaPromise"
   scenario<T extends Prisma.AiDialogueScenarioDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>>): Prisma.Prisma__AiDialogueScenarioClient<runtime.Types.Result.GetResult<Prisma.$AiDialogueScenarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  AiDialogueMessage<T extends Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1093,6 +1302,8 @@ export interface AiDialogueFieldRefs {
   readonly id: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly scenario_id: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly user_id: Prisma.FieldRef<"AiDialogue", 'Int'>
+  readonly summary: Prisma.FieldRef<"AiDialogue", 'String'>
+  readonly summary_up_to: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly created_at: Prisma.FieldRef<"AiDialogue", 'DateTime'>
   readonly updated_at: Prisma.FieldRef<"AiDialogue", 'DateTime'>
 }
@@ -1493,6 +1704,30 @@ export type AiDialogueDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.In
    * Limit how many AiDialogues to delete.
    */
   limit?: number
+}
+
+/**
+ * AiDialogue.AiDialogueMessage
+ */
+export type AiDialogue$AiDialogueMessageArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AiDialogueMessage
+   */
+  select?: Prisma.AiDialogueMessageSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AiDialogueMessage
+   */
+  omit?: Prisma.AiDialogueMessageOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AiDialogueMessageInclude<ExtArgs> | null
+  where?: Prisma.AiDialogueMessageWhereInput
+  orderBy?: Prisma.AiDialogueMessageOrderByWithRelationInput | Prisma.AiDialogueMessageOrderByWithRelationInput[]
+  cursor?: Prisma.AiDialogueMessageWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AiDialogueMessageScalarFieldEnum | Prisma.AiDialogueMessageScalarFieldEnum[]
 }
 
 /**
