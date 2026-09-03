@@ -1,6 +1,7 @@
 import { mapToAiDialogueScenario } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioApi'
 import {
 	aiDialogueControllerCreateAiDialogue,
+	aiDialogueControllerDeleteAiDialogue,
 	aiDialogueControllerGetAiDialogues,
 } from '@/shared/api/generated/ai-dialogue/ai-dialogue'
 import type {
@@ -27,6 +28,10 @@ export class AiDialogueApi implements AiDialogueRepository {
 			() => aiDialogueControllerGetAiDialogues(),
 			(data) => data.map(mapToAiDialogue),
 		)
+	}
+
+	async deleteDialogue(id: number): Promise<ApiResult<void>> {
+		return executeApiCall(() => aiDialogueControllerDeleteAiDialogue(id))
 	}
 }
 

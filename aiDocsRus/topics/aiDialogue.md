@@ -134,6 +134,8 @@ DELETE /ai-dialogue/:id     → 200 boolean
 - `face/widgets/aiDialogue/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя
   (пустое сообщение + карточки).
 - `face/widgets/aiDialogue/UserAiDialoguesList/fn/getDialoguesCardsConfig.ts` — маппинг диалогов в карточки.
+- `face/widgets/aiDialogue/UserAiDialoguesList/fn/useAiDialogueDelete.ts` — удаление диалога (модалка подтверждения +
+  вызов `deleteDialogue` + инвалидация кэша).
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
   (создание диалога + модалка логина).
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/LoginPromptModal/LoginPromptModal.tsx` — модалка
@@ -172,6 +174,8 @@ DELETE /ai-dialogue/:id     → 200 boolean
 
 - Пустой список → сообщение «У вас ещё нет ни одного диалога. Выберите сценарий чтобы начать.».
 - Непустой список → `UserAiDialoguesList` (карточки `MediaCardButton` только с названием сценария, без описания).
+- У каждой карточки в `MediaCardWrapper` есть иконка удаления (`TrashButtonIcon`). Клик открывает модалку подтверждения
+  (`DeleteEntityModal`); подтверждение удаляет диалог (`aiDialogueService.deleteDialogue`) и инвалидирует кэш списка.
 
 ## Вне объёма (следующие шаги)
 

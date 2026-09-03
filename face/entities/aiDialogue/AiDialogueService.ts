@@ -30,6 +30,11 @@ export class AiDialogueService {
 	async getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>> {
 		return this.aiDialogueRepository.getUserDialogues()
 	}
+
+	/** Удалить диалог текущего пользователя */
+	async deleteDialogue(id: number): Promise<ApiResult<void>> {
+		return this.aiDialogueRepository.deleteDialogue(id)
+	}
 }
 
 export const aiDialogueService = new AiDialogueService(new AiDialogueApi())

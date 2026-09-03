@@ -2,9 +2,11 @@ import { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepo
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
+import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
 import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import { getDialoguesCardsConfig } from './fn/getDialoguesCardsConfig'
+import { useAiDialogueDelete } from './fn/useAiDialogueDelete'
 import './UserAiDialoguesList.scss'
 
 type UserAiDialoguesListProps = {
@@ -13,6 +15,8 @@ type UserAiDialoguesListProps = {
 
 function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 	const { dialogues } = props
+
+	const { isModalOpen, status, openDeleteModal, closeDeleteModal, onConfirmDelete } = useAiDialogueDelete()
 
 	if (dialogues.length === 0) {
 		return (
@@ -25,19 +29,36 @@ function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 	const dialoguesCardsConfig = getDialoguesCardsConfig(dialogues)
 
 	return (
-		<ItemsGrid>
-			{dialoguesCardsConfig.map((dialogue) => {
-				return (
-					<MediaCardWrapper actionIcon={<TrashButtonIcon />} key={dialogue.id}>
-						<MediaCardButton
-							title={dialogue.title}
-							url={dialogue.url}
-							defaultMediaName={aiDialogueScenarioConfig.emptyScenarioName}
-						/>
-					</MediaCardWrapper>
-				)
-			})}
-		</ItemsGrid>
+		<>
+			<ItemsGrid>
+				{dialoguesCardsConfig.map((dialogue) => {
+					return (
+						<MediaCardWrapper
+							actionIcon={<TrashButtonIcon />}
+							key={dialogue.id}
+							onActionClick={() => openDeleteModal(dialogue.id)}
+						>
+							<MediaCardButton
+								title={dialogue.title}
+								url={dialogue.url}
+								defaultMediaName={aiDialogueScenarioConfig.emptyScenarioName}
+							/>
+						</MediaCardWrapper>
+					)
+				})}
+			</ItemsGrid>
+			<DeleteEntityModal
+				isModalOpen={isModalOpen}
+				closeModal={closeDeleteModal}
+				onDeleteButtonClick={onConfirmDelete}
+				isDeleteButtonLoading={status === 'loading'}
+				modal={{
+					header: 'Удаление диалога',
+					content: 'Вы уверены, что хотите удалить диалог?',
+					confirmButtonText: 'Удалить диалог',
+				}}
+			/>
+		</>
 	)
 }
 
