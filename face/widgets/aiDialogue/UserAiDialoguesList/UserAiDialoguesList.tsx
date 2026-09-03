@@ -1,6 +1,8 @@
 import { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
+import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
+import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import { getDialoguesCardsConfig } from './fn/getDialoguesCardsConfig'
 import './UserAiDialoguesList.scss'
@@ -26,12 +28,13 @@ function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 		<ItemsGrid>
 			{dialoguesCardsConfig.map((dialogue) => {
 				return (
-					<MediaCardButton
-						key={dialogue.id}
-						title={dialogue.title}
-						url={dialogue.url}
-						defaultMediaName={aiDialogueScenarioConfig.emptyScenarioName}
-					/>
+					<MediaCardWrapper actionIcon={<EditIcon />} key={dialogue.id}>
+						<MediaCardButton
+							title={dialogue.title}
+							url={dialogue.url}
+							defaultMediaName={aiDialogueScenarioConfig.emptyScenarioName}
+						/>
+					</MediaCardWrapper>
 				)
 			})}
 		</ItemsGrid>

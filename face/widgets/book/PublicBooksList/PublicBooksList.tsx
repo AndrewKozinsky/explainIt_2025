@@ -3,6 +3,7 @@ import { BookModel } from '@/entities/book/repository/BooksRepository'
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
+import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import { getBookCardsConfig } from './fn/getBookCardsConfig'
 import { useLanguageChange } from './fn/useLanguageChange'
@@ -31,7 +32,7 @@ function PublicBooksList(props: PublicBooksList) {
 			<ItemsGrid>
 				{bookCardsConfig.map((book) => {
 					return (
-						<MediaCardWrapper type='info' key={book.id} actionUrl={book.actionUrl}>
+						<MediaCardWrapper key={book.id} actionUrl={book.actionUrl} actionIcon={<InfoIcon />}>
 							<MediaCardButton
 								title={book.name}
 								subTitle={book.subName}

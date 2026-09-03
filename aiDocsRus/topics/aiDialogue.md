@@ -16,6 +16,8 @@
 - Таблица `AiDialogue` (создание через `bdConfig` + миграция).
 - REST-эндпоинты: создать диалог, получить список диалогов текущего пользователя, удалить диалог.
 - В ответе диалога возвращаются **вложенные данные сценария** (без `systemPrompt`).
+- Клиентский entity-слой (`AiDialogueRepository`/`Api`/`Service`/`QueryFacade`) и `npm run orval`.
+- На странице `/dialogues`: клик по сценарию создаёт диалог, секция «История диалогов» показывает диалоги пользователя.
 - Таблица сообщений и сам обмен репликами с LLM — следующий шаг.
 
 ## REST API
@@ -123,9 +125,56 @@ DELETE /ai-dialogue/:id     → 200 boolean
 - `server/src/infrastructure/exceptions/errorMessage.ts` — секция `aiDialogue` (`notFound`,
   `scenarioNotFound`).
 
+### Клиент
+
+- `face/entities/aiDialogue/repository/AiDialogueRepository.ts` — тип `AiDialogueModel` + интерфейс репозитория.
+- `face/entities/aiDialogue/repository/AiDialogueApi.ts` — реализация через REST + маппинг.
+- `face/entities/aiDialogue/AiDialogueService.ts` — сервис.
+- `face/entities/aiDialogue/AiDialogueQueryFacade.ts` — TanStack Query фасад.
+- `face/widgets/aiDialogue/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя
+  (пустое сообщение + карточки).
+- `face/widgets/aiDialogue/UserAiDialoguesList/fn/getDialoguesCardsConfig.ts` — маппинг диалогов в карточки.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
+  (создание диалога + модалка логина).
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/LoginPromptModal/LoginPromptModal.tsx` — модалка
+  «войдите в учётную запись».
+- `face/shared/api/generated/ai-dialogue/ai-dialogue.ts` — сгенерированные функции
+  `aiDialogueControllerCreateAiDialogue`, `aiDialogueControllerGetAiDialogues`.
+
+## Как работает клиент
+
+### Entity-слой
+
+Повторяет структуру `entities/aiDialogueScenario`:
+
+- `AiDialogueRepository` — унифицированный тип `AiDialogueModel` (id, вложенный `scenario`, `createdAt`, `updatedAt`)
+  и интерфейс репозитория.
+- `AiDialogueApi` — реализация через сгенерированные Orval-функции `aiDialogueControllerCreateAiDialogue` и
+  `aiDialogueControllerGetAiDialogues`; маппит `AiDialogueOutModel` в `AiDialogueModel`. Вложенный сценарий маппится
+  через переиспользованный `mapToAiDialogueScenario` из `AiDialogueScenarioApi`.
+- `AiDialogueService` — прослойка между компонентами и репозиторием.
+- `AiDialogueQueryFacade` — TanStack Query `queryOptions`, экспортирует `aiDialogueQueries`.
+
+Ключ кэша запроса списка — `['ai-dialogue', 'list']`.
+
+### Создание диалога по клику на сценарий
+
+Клик по карточке сценария обрабатывается хуком `useAiDialogueScenarioClick`:
+
+1. Если пользователь не вошёл (`useUser()` → `null`) — открывается `LoginPromptModal` с просьбой войти.
+2. Иначе вызывается `aiDialogueService.createDialogue({ scenarioId })`.
+3. При успехе инвалидируется кэш списка (`aiDialogueQueryKeys.list()`) и выполняется `router.push` на
+   `pageUrls.aiDialogues.dialog(dialog.id)`.
+
+### История диалогов
+
+Секция «История диалогов» рендерится только для залогиненного пользователя; запрос списка идёт с `enabled: !!user`.
+
+- Пустой список → сообщение «У вас ещё нет ни одного диалога. Выберите сценарий чтобы начать.».
+- Непустой список → `UserAiDialoguesList` (карточки `MediaCardButton` только с названием сценария, без описания).
+
 ## Вне объёма (следующие шаги)
 
 - Таблица `AiDialogueMessage` (dialog → messages, роли user/assistant).
 - Обращение к LLM и стриминг ответов.
-- Клиентский entity-слой (`AiDialogueRepository`/`Api`/`QueryFacade`) и `npm run orval`.
-- Страница `/dialogues` (сценарии + история диалогов пользователя).
+- Страница самого диалога `/dialogues/{dialogId}` (обмен репликами с LLM).

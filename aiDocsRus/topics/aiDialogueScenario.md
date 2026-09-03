@@ -24,8 +24,9 @@
 - Сценарии сгруппированы по языкам в `server/src/features/aiDialogueScenario/<lang>/scenarios.ts`. Сейчас есть только
   английский (`english/scenarios.ts`) — 3 сценария.
 - REST-эндпоинт списка публичных сценариев.
-- Страница на клиенте (`/dialogues`) — будет показывать и сценарии, и историю диалогов пользователя. Сейчас это
-  «Библиотека» публичных сценариев (с переключателем языка); «Мои сценарии» пока пуста, история диалогов — в разработке.
+- Страница на клиенте (`/dialogues`) — показывает секцию «Сценарии» («Библиотека» публичных сценариев с переключателем
+  языка; «Мои сценарии» пока пуста) и секцию «История диалогов» для залогиненного пользователя. Клик по карточке
+  сценария создаёт диалог с ИИ (см. `aiDocsRus/topics/aiDialogue.md`).
 - Пункт «Сценарии» добавлен в главное меню.
 - Пользовательские сценарии пока **не создаются**, но `user_id` уже в схеме (nullable) — чтобы не делать миграцию позже.
 
@@ -97,10 +98,11 @@ GET /ai-dialogue-scenario
 
 ### Маршрут и страница
 
-- Маршрут — `/dialogues` (страница сейчас переделывается: сценарии + история диалогов).
-- Страница `AiDialoguesPage` рендерит `MediaPageContentTabs` с двумя вкладками:
-    - «Библиотека» — `PublicAiDialogueScenariosList`;
-    - «Мои сценарии» — пока пусто (`content: null`), пользовательские сценарии не реализованы.
+- Маршрут — `/dialogues`.
+- Страница `AiDialoguesPage` рендерит две секции:
+    - «Сценарии» — `MediaPageContentTabs` с вкладками «Библиотека» (`PublicAiDialogueScenariosList`) и «Мои сценарии»
+      (пока пусто — `content: null`);
+    - «История диалогов» — `UserAiDialoguesList`, только для залогиненного пользователя.
 - Выбранная вкладка сохраняется в `localStorage` через `useAiDialogueScenariosTabs`
   (ключ `dialogues`, менеджер `localStorageManager.lastMediaTab`).
 
@@ -128,10 +130,15 @@ GET /ai-dialogue-scenario
 Переключатель языка (`LanguageSwitch`) фильтрует сценарии по `languageCode` — как у книг, через локальный
 `useLanguageChange`.
 
-### URL карточки и страница диалога
+Карточка сценария — это кнопка, а не ссылка: `MediaCardButton` вызывается без `url`, с `onClick`. Клик обрабатывается
+хуком `useAiDialogueScenarioClick` (см. `aiDocsRus/topics/aiDialogue.md`), а модалка «войдите в учётную запись»
+вынесена в отдельный компонент `LoginPromptModal`.
 
-`pageUrls.aiDialogueScenarios.dialog(dialogId)` ведёт на `/dialogues/{dialogId}` (id диалога, а не сценария). Сама
-страница диалога — следующий шаг.
+### URL страницы диалога
+
+`pageUrls.aiDialogues.dialog(dialogId)` ведёт на `/dialogues/{dialogId}` (id диалога, а не сценария). Используется в
+хуке `useAiDialogueScenarioClick` (после создания диалога) и в `UserAiDialoguesList`. Сама страница диалога — следующий
+шаг.
 
 ### pageUrls и меню
 
@@ -202,13 +209,18 @@ GET /ai-dialogue-scenario
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioCardsConfig.ts` — маппинг сценариев в
   карточки.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useLanguageChange.ts` — переключатель языка.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
+  (создание диалога + модалка логина).
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/LoginPromptModal/LoginPromptModal.tsx` — модалка
+  «войдите в учётную запись».
 - `face/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository.ts` — тип `AiDialogueScenarioModel` +
   интерфейс репозитория.
-- `face/entities/aiDialogueScenario/repository/AiDialogueScenarioApi.ts` — реализация через REST + маппинг.
+- `face/entities/aiDialogueScenario/repository/AiDialogueScenarioApi.ts` — реализация через REST + маппинг (в т.ч.
+  экспортирует `mapToAiDialogueScenario` для `AiDialogueApi`).
 - `face/entities/aiDialogueScenario/AiDialogueScenarioService.ts` — сервис.
 - `face/entities/aiDialogueScenario/AiDialogueScenarioQueryFacade.ts` — TanStack Query фасад.
 - `face/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig.ts` — конфиг (`emptyScenarioName`).
-- `face/shared/utils/pageUrls.ts` — `pageUrls.aiDialogueScenarios`.
+- `face/shared/utils/pageUrls.ts` — `pageUrls.aiDialogues`.
 - `face/shared/ui/pageRelated/MainMenu/MainMenu.tsx` — пункт «Сценарии».
 - `face/shared/api/generated/ai-dialogue-scenario/ai-dialogue-scenario.ts` — сгенерированная функция
   `aiDialogueScenarioControllerGetAiDialogueScenarios`.

@@ -1,29 +1,18 @@
 import MediaCardActionButton from '@/entities/mediaCard/MediaCardActionButton/MediaCardActionButton'
-import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
-import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
 import './MediaCardWrapper.scss'
 
 type MediaCardProps = {
-	type: 'edit' | 'info'
+	actionIcon: React.ReactNode
 	actionUrl: string
 	children: React.ReactNode
 }
 
 function MediaCardWrapper(props: MediaCardProps) {
-	const { type, actionUrl, children } = props
+	const { actionIcon, actionUrl, children } = props
 
 	return (
 		<div className='media-card-wrapper'>
-			{type === 'edit' && (
-				<MediaCardActionButton url={actionUrl}>
-					<EditIcon />
-				</MediaCardActionButton>
-			)}
-			{type === 'info' && (
-				<MediaCardActionButton url={actionUrl}>
-					<InfoIcon />
-				</MediaCardActionButton>
-			)}
+			<MediaCardActionButton url={actionUrl}>{actionIcon}</MediaCardActionButton>
 			{children}
 		</div>
 	)
