@@ -14,11 +14,18 @@ import { CreateAiDialogueMessageHandler } from 'features/aiDialogue/CreateAiDial
 import { DeleteAiDialogueHandler } from 'features/aiDialogue/DeleteAiDialogue.command'
 import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
 import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.command'
+import { SummarizeAiDialogue } from 'features/aiDialogue/SummarizeAiDialogue.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { AiDialogueController } from './aiDialogue.controller'
 
-const services = [PrismaService, ActiveAiDialogueGenerationRegistry, AiDialogueSseHub, GenerateAiDialogueTurn]
+const services = [
+	PrismaService,
+	ActiveAiDialogueGenerationRegistry,
+	AiDialogueSseHub,
+	GenerateAiDialogueTurn,
+	SummarizeAiDialogue,
+]
 const commandHandlers = [
 	CreateAiDialogueHandler,
 	CreateAiDialogueMessageHandler,

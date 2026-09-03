@@ -1,6 +1,8 @@
-import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueNpcRosterEntry, AiDialogueSummary } from 'types/aiDialogueSummary'
+import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
+import { deriveAiDialogueState } from './deriveAiDialogueState'
+import { serializeAiDialogueEvent } from './serializeAiDialogueEvent'
 
 type ScenarioForPrompt = {
 	title: string
@@ -23,12 +25,12 @@ export function buildAiDialoguePrompt(input: {
 }): LlmMessage[] {
 	const { scenario, summary, recentEvents } = input
 
-	const roster = deriveRoster(summary, recentEvents)
-	const scene = deriveCurrentScene(summary, recentEvents)
+	const prevState = summary?.[summary.length - 1]?.state ?? null
+	const state = deriveAiDialogueState(prevState, recentEvents)
 
 	return [
-		{ role: 'system', content: buildSystemMessage(scenario, roster) },
-		{ role: 'user', content: buildUserMessage(scene, summary, recentEvents) },
+		{ role: 'system', content: buildSystemMessage(scenario, state.roster) },
+		{ role: 'user', content: buildUserMessage(state.scene, summary, recentEvents) },
 	]
 }
 
@@ -65,7 +67,10 @@ function buildUserMessage(scene: string, summary: null | AiDialogueSummary, rece
 		lines.push('Текущая сцена:', scene, '')
 	}
 
-	const summaryHistory = (summary ?? []).map((block) => block.history).filter(Boolean).join('\n')
+	const summaryHistory = (summary ?? [])
+		.map((block) => block.history)
+		.filter(Boolean)
+		.join('\n')
 	if (summaryHistory) {
 		lines.push('Что произошло ранее (сжато):', summaryHistory, '')
 	}
@@ -73,7 +78,7 @@ function buildUserMessage(scene: string, summary: null | AiDialogueSummary, rece
 	if (recentEvents.length) {
 		lines.push('Недавние события (в хронологическом порядке):')
 		for (const event of recentEvents) {
-			lines.push(serializeEventForPrompt(event))
+			lines.push(serializeAiDialogueEvent(event))
 		}
 		lines.push('')
 	}
@@ -81,61 +86,4 @@ function buildUserMessage(scene: string, summary: null | AiDialogueSummary, rece
 	lines.push('Сгенерируй следующий ход (ответ NPC, смену сцены или событие) в указанном JSON-формате.')
 
 	return lines.join('\n')
-}
-
-function deriveRoster(
-	summary: null | AiDialogueSummary,
-	recentEvents: AiDialogueEvent[],
-): AiDialogueNpcRosterEntry[] {
-	const map = new Map<string, AiDialogueNpcRosterEntry>()
-
-	const summaryRoster = summary?.[summary.length - 1]?.state?.roster ?? []
-	for (const entry of summaryRoster) {
-		map.set(entry.npcId, entry)
-	}
-
-	for (const event of recentEvents) {
-		if (event.type === 'npcActions') {
-			map.set(event.npcId, { npcId: event.npcId, npcName: event.npcName, npcRole: event.npcRole })
-		}
-	}
-
-	return [...map.values()]
-}
-
-function deriveCurrentScene(summary: null | AiDialogueSummary, recentEvents: AiDialogueEvent[]): string {
-	let scene = summary?.[summary.length - 1]?.state?.scene ?? ''
-
-	for (const event of recentEvents) {
-		if (event.type === 'sceneUpdate') {
-			scene = event.newScene
-		}
-	}
-
-	return scene
-}
-
-function serializeEventForPrompt(event: AiDialogueEvent): string {
-	switch (event.type) {
-		case 'sceneUpdate':
-			return `[сцена] ${event.newScene}`
-		case 'help':
-			return `[подсказка] ${event.help}`
-		case 'npcActions': {
-			const acts = event.actions.map(serializeAction).join('; ')
-			return `[${event.npcName} (${event.npcRole}), ${event.emotion}] ${acts}`
-		}
-		case 'userActions': {
-			const acts = event.actions.map(serializeAction).join('; ')
-			return `[пользователь] ${acts}`
-		}
-		case 'userAvoidsNPC':
-			return '[пользователь ушёл от разговора]'
-		case 'worldEvent':
-			return `[событие] ${event.content}`
-	}
-}
-
-function serializeAction(action: { type: 'action' | 'speech'; content: string }): string {
-	return action.type === 'speech' ? `«${action.content}»` : `*${action.content}*`
 }

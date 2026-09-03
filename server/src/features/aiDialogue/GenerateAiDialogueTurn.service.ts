@@ -14,6 +14,7 @@ import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGeneration
 import { AiDialogueSseHub } from './AiDialogueSseHub.service'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 import { parseAiDialogueEvents } from './parseAiDialogueEvents'
+import { SummarizeAiDialogue } from './SummarizeAiDialogue.service'
 
 /**
  * Генерирует один «ход» ролевого диалога (ответ NPC / смену сцены / событие мира).
@@ -34,6 +35,7 @@ export class GenerateAiDialogueTurn {
 		private aiDialogueQueryRepository: AiDialogueQueryRepository,
 		private activeGenerationRegistry: ActiveAiDialogueGenerationRegistry,
 		private sseHub: AiDialogueSseHub,
+		private summarizeAiDialogue: SummarizeAiDialogue,
 	) {}
 
 	// Проверяет, «ждёт ли диалог хода» (нет сообщений или последнее — событие
@@ -95,6 +97,12 @@ export class GenerateAiDialogueTurn {
 			this.activeGenerationRegistry.unregister(dialogueId)
 			this.sseHub.emit(dialogueId, { data: { type: 'turnDone' } })
 		}
+
+		// После завершения хода (turnDone уже разослан) — фоновая компакция истории,
+		// чтобы не задерживать клиента и не занимать registry генерации.
+		this.summarizeAiDialogue.summarizeIfNeeded(dialogueId).catch((error) => {
+			console.log('AiDialogue: failed to summarize after turn', { dialogueId, error })
+		})
 	}
 
 	// Стримит ответ LLM, накапливая текст, и в конце разбирает его в события.
