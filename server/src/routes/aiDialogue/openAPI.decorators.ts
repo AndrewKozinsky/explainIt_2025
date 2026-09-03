@@ -1,7 +1,9 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
+import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
 
 export function ApiCreateAiDialogue() {
 	return applyDecorators(
@@ -35,5 +37,18 @@ export function ApiDeleteAiDialogue() {
 		ApiCookieAuth(),
 		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
 		ApiResponse({ status: 200, description: 'OK' }),
+	)
+}
+
+export function ApiCreateAiDialogueMessage() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Send a message to AI dialogue',
+			description: 'Persists a user event (actions or leaving the NPC) into the dialogue.',
+		}),
+		ApiCookieAuth(),
+		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
+		ApiBody({ type: CreateAiDialogueMessageInput }),
+		ApiResponse({ status: 201, description: 'Created', type: AiDialogueMessageOutModel }),
 	)
 }

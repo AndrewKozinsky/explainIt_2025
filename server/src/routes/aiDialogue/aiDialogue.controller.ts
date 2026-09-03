@@ -14,13 +14,22 @@ import {
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
+import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
 import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.command'
+import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
-import { ApiCreateAiDialogue, ApiDeleteAiDialogue, ApiGetAiDialogues } from './openAPI.decorators'
+import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import {
+	ApiCreateAiDialogue,
+	ApiCreateAiDialogueMessage,
+	ApiDeleteAiDialogue,
+	ApiGetAiDialogues,
+} from './openAPI.decorators'
 
 @ApiTags('AiDialogue')
 @Controller('ai-dialogue')
@@ -54,5 +63,26 @@ export class AiDialogueController {
 	@Delete(':id')
 	async deleteAiDialogue(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Promise<boolean> {
 		return await this.commandBus.execute(new DeleteAiDialogueCommand(request.user!.id, { id }))
+	}
+
+	@ApiCreateAiDialogueMessage()
+	@UseGuards(CheckSessionCookieGuard)
+	@HttpCode(HttpStatus.CREATED)
+	@Post(':id/messages')
+	async createAiDialogueMessage(
+		@Param('id', ParseIntPipe) id: number,
+		@Body() input: CreateAiDialogueMessageInput,
+		@Req() request: Request,
+	): Promise<AiDialogueMessageOutModel> {
+		const event: AiDialogueClientEvent =
+			input.type === 'userActions' ? { type: 'userActions', actions: input.actions! } : { type: 'userAvoidsNPC' }
+
+		return await this.commandBus.execute(
+			new CreateAiDialogueMessageCommand({
+				userId: request.user!.id,
+				dialogueId: id,
+				event,
+			}),
+		)
 	}
 }

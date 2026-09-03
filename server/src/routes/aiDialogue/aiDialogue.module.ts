@@ -8,13 +8,19 @@ import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogue
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CreateAiDialogueHandler } from 'features/aiDialogue/CreateAiDialogue.command'
+import { CreateAiDialogueMessageHandler } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueHandler } from 'features/aiDialogue/DeleteAiDialogue.command'
 import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueController } from './aiDialogue.controller'
 
 const services = [PrismaService]
-const commandHandlers = [CreateAiDialogueHandler, DeleteAiDialogueHandler, GetUserDialoguesHandler]
+const commandHandlers = [
+	CreateAiDialogueHandler,
+	CreateAiDialogueMessageHandler,
+	DeleteAiDialogueHandler,
+	GetUserDialoguesHandler,
+]
 const repositories = [
 	AiDialogueMessageRepository,
 	AiDialogueRepository,

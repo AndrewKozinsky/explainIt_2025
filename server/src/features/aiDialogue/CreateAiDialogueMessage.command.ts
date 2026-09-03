@@ -1,0 +1,52 @@
+import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
+import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
+import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
+import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
+import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
+import { CustomError } from 'infrastructure/exceptions/customErrors'
+import { errorMessage } from 'infrastructure/exceptions/errorMessage'
+import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+
+export class CreateAiDialogueMessageCommand implements ICommand {
+	constructor(
+		public dto: {
+			userId: number
+			dialogueId: number
+			event: AiDialogueClientEvent
+		},
+	) {}
+}
+
+@CommandHandler(CreateAiDialogueMessageCommand)
+export class CreateAiDialogueMessageHandler implements ICommandHandler<
+	CreateAiDialogueMessageCommand,
+	AiDialogueMessageOutModel
+> {
+	constructor(
+		private aiDialogueRepository: AiDialogueRepository,
+		private aiDialogueMessageRepository: AiDialogueMessageRepository,
+		private aiDialogueQueryRepository: AiDialogueQueryRepository,
+	) {}
+
+	async execute(command: CreateAiDialogueMessageCommand): Promise<AiDialogueMessageOutModel> {
+		const { userId, dialogueId, event } = command.dto
+
+		const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
+		if (!dialogue) {
+			throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
+		}
+		if (dialogue.user_id !== userId) {
+			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
+		}
+
+		const message = await this.aiDialogueMessageRepository.createMessage({ dialogueId, event })
+
+		const messageOut = await this.aiDialogueQueryRepository.getMessageById(message.id)
+		if (!messageOut) {
+			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
+		}
+
+		return messageOut
+	}
+}

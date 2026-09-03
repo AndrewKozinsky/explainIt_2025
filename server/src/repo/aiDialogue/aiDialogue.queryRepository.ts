@@ -50,6 +50,14 @@ export class AiDialogueQueryRepository {
 		return messages.map((message) => this.mapDbMessageToOutModel(message))
 	}
 
+	@CatchDbError()
+	async getMessageById(messageId: number): Promise<null | AiDialogueMessageOutModel> {
+		const message = await this.prisma.aiDialogueMessage.findUnique({ where: { id: messageId } })
+		if (!message) return null
+
+		return this.mapDbMessageToOutModel(message)
+	}
+
 	mapDbToOutModel(dbDialogue: AiDialogueDb): AiDialogueOutModel {
 		return {
 			id: dbDialogue.id,
