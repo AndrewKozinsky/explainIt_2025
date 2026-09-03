@@ -18,7 +18,7 @@ export class AiDialogueScenarioApi implements AiDialogueScenarioRepository {
 	}
 }
 
-function mapToAiDialogueScenario(raw: AiDialogueScenarioOutModel): AiDialogueScenarioModel {
+export function mapToAiDialogueScenario(raw: AiDialogueScenarioOutModel): AiDialogueScenarioModel {
 	return {
 		id: raw.id,
 		slug: extractString(raw.slug),

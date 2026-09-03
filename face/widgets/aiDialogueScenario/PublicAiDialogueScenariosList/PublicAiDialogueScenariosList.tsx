@@ -4,7 +4,9 @@ import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import { getScenarioCardsConfig } from './fn/getScenarioCardsConfig'
+import { useAiDialogueScenarioClick } from './fn/useAiDialogueScenarioClick'
 import { useLanguageChange } from './fn/useLanguageChange'
+import LoginPromptModal from './ui/LoginPromptModal/LoginPromptModal'
 import './PublicAiDialogueScenariosList.scss'
 
 type PublicAiDialogueScenariosListProps = {
@@ -17,6 +19,8 @@ function PublicAiDialogueScenariosList(props: PublicAiDialogueScenariosListProps
 	const languages = scenarios.map((item) => item.languageCode)
 	const languagesSet = new Set(languages)
 	const { currentLang, onLanguageChange } = useLanguageChange(languages)
+	const { onScenarioClick, isLoginModalOpen, closeLoginModal, onLoginClick, onRegisterClick } =
+		useAiDialogueScenarioClick()
 
 	const scenarioCardsConfig = getScenarioCardsConfig(scenarios, currentLang)
 
@@ -34,12 +38,18 @@ function PublicAiDialogueScenariosList(props: PublicAiDialogueScenariosListProps
 							key={scenario.id}
 							title={scenario.title}
 							subTitle={scenario.description}
-							url={scenario.url}
+							onClick={() => onScenarioClick(scenario.id)}
 							defaultMediaName={aiDialogueScenarioConfig.emptyScenarioName}
 						/>
 					)
 				})}
 			</ItemsGrid>
+			<LoginPromptModal
+				isOpen={isLoginModalOpen}
+				onClose={closeLoginModal}
+				onLogin={onLoginClick}
+				onRegister={onRegisterClick}
+			/>
 		</div>
 	)
 }
