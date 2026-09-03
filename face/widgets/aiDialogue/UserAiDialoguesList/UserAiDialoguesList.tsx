@@ -2,7 +2,7 @@ import { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepo
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
-import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import { getDialoguesCardsConfig } from './fn/getDialoguesCardsConfig'
 import './UserAiDialoguesList.scss'
@@ -28,7 +28,7 @@ function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 		<ItemsGrid>
 			{dialoguesCardsConfig.map((dialogue) => {
 				return (
-					<MediaCardWrapper actionIcon={<EditIcon />} key={dialogue.id}>
+					<MediaCardWrapper actionIcon={<TrashButtonIcon />} key={dialogue.id}>
 						<MediaCardButton
 							title={dialogue.title}
 							url={dialogue.url}

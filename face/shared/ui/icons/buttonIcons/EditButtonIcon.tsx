@@ -1,6 +1,6 @@
 import { ButtonIconProps } from '@/shared/ui/icons/buttonIcons/buttonProps'
 
-export function EditIcon(props: ButtonIconProps) {
+export function EditButtonIcon(props: ButtonIconProps) {
 	const { extraClass } = props
 
 	return (

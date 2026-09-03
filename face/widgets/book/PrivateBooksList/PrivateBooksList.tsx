@@ -3,7 +3,7 @@ import type { BookModel } from '@/entities/book/repository/BooksRepository'
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
 import { MediaGridAddButton } from '@/entities/mediaCard/MediaGridAddButton/MediaGridAddButton'
-import { EditIcon } from '@/shared/ui/icons/buttonIcons/EditIcon'
+import { EditButtonIcon } from '@/shared/ui/icons/buttonIcons/EditButtonIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -23,7 +23,11 @@ function PrivateBooksList(props: PrivateBooksListProps) {
 		<ItemsGrid>
 			{config.map((book) => {
 				return (
-					<MediaCardWrapper key={book.id} actionUrl={pageUrls.books.book(book.id).path} actionIcon={<EditIcon />}>
+					<MediaCardWrapper
+						key={book.id}
+						actionUrl={pageUrls.books.book(book.id).path}
+						actionIcon={<EditButtonIcon />}
+					>
 						<MediaCardButton
 							title={book.name}
 							subTitle={book.subName}

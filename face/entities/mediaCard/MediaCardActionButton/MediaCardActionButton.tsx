@@ -2,17 +2,26 @@ import { Link } from '@/i18n/routing'
 import './MediaCardActionButton.scss'
 
 type MediaCardButtonProps = {
-	url: string
+	url?: string
+	onClick?: () => void
 	children: React.ReactNode
 }
 
 function MediaCardActionButton(props: MediaCardButtonProps) {
-	const { url, children } = props
+	const { url, onClick, children } = props
+
+	if (url) {
+		return (
+			<Link href={url} onClick={onClick} className='media-card-action-button'>
+				{children}
+			</Link>
+		)
+	}
 
 	return (
-		<Link href={url} className='media-card-action-button'>
+		<button type='button' onClick={onClick} className='media-card-action-button'>
 			{children}
-		</Link>
+		</button>
 	)
 }
 

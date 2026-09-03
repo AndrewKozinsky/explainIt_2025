@@ -130,9 +130,9 @@ GET /ai-dialogue-scenario
 Переключатель языка (`LanguageSwitch`) фильтрует сценарии по `languageCode` — как у книг, через локальный
 `useLanguageChange`.
 
-Карточка сценария — это кнопка, а не ссылка: `MediaCardButton` вызывается без `url`, с `onClick`. Клик обрабатывается
-хуком `useAiDialogueScenarioClick` (см. `aiDocsRus/topics/aiDialogue.md`), а модалка «войдите в учётную запись»
-вынесена в отдельный компонент `LoginPromptModal`.
+Карточка сценария — это кнопка, а не ссылка: `MediaCardButton` вызывается без `url`, с `onActionClick`. Клик
+обрабатывается хуком `useAiDialogueScenarioClick` (см. `aiDocsRus/topics/aiDialogue.md`), а модалка «войдите в учётную
+запись» вынесена в отдельный компонент `LoginPromptModal`.
 
 ### URL страницы диалога
 

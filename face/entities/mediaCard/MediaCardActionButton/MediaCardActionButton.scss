@@ -5,6 +5,10 @@
 	top: .5rem;
 	right: .5rem;
 	z-index: 1;
+	cursor: pointer;
+	border: none;
+	appearance: none;
+	font: inherit;
 	color: white;
 	background-color:rgba(0, 0, 0, .15);
 	backdrop-filter: blur(5px);
