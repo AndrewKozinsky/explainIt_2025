@@ -7,14 +7,18 @@ import { AiDialogueScenarioQueryRepository } from 'repo/aiDialogueScenario/aiDia
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
+import { ActiveAiDialogueGenerationRegistry } from 'features/aiDialogue/ActiveAiDialogueGenerationRegistry.service'
+import { AiDialogueSseHub } from 'features/aiDialogue/AiDialogueSseHub.service'
 import { CreateAiDialogueHandler } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageHandler } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueHandler } from 'features/aiDialogue/DeleteAiDialogue.command'
+import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
 import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { AiDialogueController } from './aiDialogue.controller'
 
-const services = [PrismaService]
+const services = [PrismaService, ActiveAiDialogueGenerationRegistry, AiDialogueSseHub, GenerateAiDialogueTurn]
 const commandHandlers = [
 	CreateAiDialogueHandler,
 	CreateAiDialogueMessageHandler,
@@ -31,7 +35,7 @@ const repositories = [
 ]
 
 @Module({
-	imports: [CqrsModule],
+	imports: [CqrsModule, LlmProviderModule],
 	controllers: [AiDialogueController],
 	providers: [...services, ...commandHandlers, ...repositories, CheckSessionCookieGuard],
 })

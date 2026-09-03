@@ -7,6 +7,8 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGenerationRegistry.service'
+import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
 export class CreateAiDialogueMessageCommand implements ICommand {
 	constructor(
@@ -27,6 +29,8 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 		private aiDialogueRepository: AiDialogueRepository,
 		private aiDialogueMessageRepository: AiDialogueMessageRepository,
 		private aiDialogueQueryRepository: AiDialogueQueryRepository,
+		private activeGenerationRegistry: ActiveAiDialogueGenerationRegistry,
+		private generateAiDialogueTurn: GenerateAiDialogueTurn,
 	) {}
 
 	async execute(command: CreateAiDialogueMessageCommand): Promise<AiDialogueMessageOutModel> {
@@ -40,12 +44,22 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
+		// Пока NPC ещё генерирует ответ — новое действие пользователя отклоняем.
+		if (this.activeGenerationRegistry.hasActiveForDialogue(dialogueId)) {
+			throw new CustomError(errorMessage.aiDialogue.generationAlreadyActive, ErrorStatusCode.BadRequest_400)
+		}
+
 		const message = await this.aiDialogueMessageRepository.createMessage({ dialogueId, event })
 
 		const messageOut = await this.aiDialogueQueryRepository.getMessageById(message.id)
 		if (!messageOut) {
 			throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 		}
+
+		// Генерация ответа NPC — fire-and-forget, результат доедет через SSE.
+		this.generateAiDialogueTurn.generate(dialogueId).catch((error) => {
+			console.log('AiDialogue: failed to trigger turn after user message', { dialogueId, error })
+		})
 
 		return messageOut
 	}

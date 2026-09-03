@@ -52,6 +52,7 @@ export class ZaiService {
 	async *generateTextStreamChunks(input: {
 		messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]
 		model?: string
+		responseFormat?: ResponseFormatText | ResponseFormatJSONObject
 		reasoningEffort?: ReasoningEffort
 		abortSignal?: AbortSignal
 		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
@@ -61,7 +62,7 @@ export class ZaiService {
 			{
 				model: input.model ?? ZaiModels.Flash,
 				messages: input.messages,
-				response_format: {
+				response_format: input.responseFormat ?? {
 					type: 'text',
 				},
 				stream: true,

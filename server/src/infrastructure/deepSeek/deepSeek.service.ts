@@ -52,6 +52,7 @@ export class DeepSeekService {
 	async *generateTextStreamChunks(input: {
 		messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]
 		model?: string
+		responseFormat?: ResponseFormatText | ResponseFormatJSONObject
 		reasoningEffort?: ReasoningEffort
 		abortSignal?: AbortSignal
 		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
@@ -61,7 +62,7 @@ export class DeepSeekService {
 			{
 				model: input.model ?? DeepSeekModels.Flash,
 				messages: input.messages,
-				response_format: {
+				response_format: input.responseFormat ?? {
 					type: 'text',
 				},
 				stream: true,

@@ -38,6 +38,11 @@ export class ZaiLlmProvider implements LlmProvider {
 		const chunks = this.zaiService.generateTextStreamChunks({
 			messages,
 			model: input.model ?? ZaiModels.Flash,
+			responseFormat: input.responseFormat
+				? input.responseFormat === 'json_object'
+					? { type: 'json_object' }
+					: { type: 'text' }
+				: undefined,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
 			lowPriority: input.lowPriority ?? false,

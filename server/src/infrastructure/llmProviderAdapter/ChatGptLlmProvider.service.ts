@@ -38,6 +38,11 @@ export class ChatGptLlmProvider implements LlmProvider {
 		const chunks = this.openAIService.generateTextStreamChunks({
 			messages,
 			model: (input.model as OpenAIModels) ?? OpenAIModels.Standard,
+			responseFormat: input.responseFormat
+				? input.responseFormat === 'json_object'
+					? { type: 'json_object' }
+					: { type: 'text' }
+				: undefined,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
 			lowPriority: input.lowPriority ?? false,

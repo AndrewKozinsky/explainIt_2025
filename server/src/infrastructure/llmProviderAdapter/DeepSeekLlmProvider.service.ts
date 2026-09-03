@@ -38,6 +38,11 @@ export class DeepSeekLlmProvider implements LlmProvider {
 		const chunks = this.deepSeekService.generateTextStreamChunks({
 			messages,
 			model: input.model ?? DeepSeekModels.Flash,
+			responseFormat: input.responseFormat
+				? input.responseFormat === 'json_object'
+					? { type: 'json_object' }
+					: { type: 'text' }
+				: undefined,
 			abortSignal: input.abortSignal,
 			onUsage: input.onUsage,
 			lowPriority: input.lowPriority ?? false,

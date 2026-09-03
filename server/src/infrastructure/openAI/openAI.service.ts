@@ -65,6 +65,7 @@ export class OpenAIService {
 	async *generateTextStreamChunks(input: {
 		messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[]
 		model?: OpenAIModels
+		responseFormat?: ResponseFormatText | ResponseFormatJSONObject
 		reasoningEffort?: ReasoningEffort
 		abortSignal?: AbortSignal
 		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
@@ -75,7 +76,7 @@ export class OpenAIService {
 				model: input.model ?? OpenAIModels.Nano,
 				reasoning_effort: input.reasoningEffort,
 				messages: input.messages,
-				response_format: {
+				response_format: input.responseFormat ?? {
 					type: 'text',
 				},
 				service_tier: input.lowPriority ? 'flex' : 'default',

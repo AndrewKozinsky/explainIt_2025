@@ -35,6 +35,7 @@ export type LlmStreamInput = {
 	messages: LlmMessage[]
 	/** Model override. If omitted, the provider's default is used. */
 	model?: AiModel
+	responseFormat?: 'text' | 'json_object'
 	abortSignal?: AbortSignal
 	onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
 	lowPriority?: boolean

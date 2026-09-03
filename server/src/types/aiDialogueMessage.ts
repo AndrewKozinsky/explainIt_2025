@@ -71,3 +71,14 @@ export type DialogueServerMessage = {
 	createdAt: string
 	payload: AiDialogueEvent
 }
+
+// События SSE-потока (server → client). Обёртка — MessageEvent: { data: AiDialogueStreamEvent }.
+//  - message   — одно сохранённое сообщение (replay или только что сгенерированное);
+//  - chunk     — сырой текстовый фрагмент ответа LLM (для превью через partial-json);
+//  - turnDone  — ход завершён (успех или ошибка), можно снова действовать;
+//  - turnError — ход не удался (error — текст ошибки).
+export type AiDialogueStreamEvent =
+	| { type: 'message'; message: DialogueServerMessage }
+	| { type: 'chunk'; chunk: string }
+	| { type: 'turnDone' }
+	| { type: 'turnError'; error: string }
