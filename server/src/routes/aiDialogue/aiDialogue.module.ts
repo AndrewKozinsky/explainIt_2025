@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
+import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
 import { AiDialogueScenarioQueryRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.queryRepository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { UserRepository } from 'repo/user.repository'
@@ -15,6 +16,7 @@ import { AiDialogueController } from './aiDialogue.controller'
 const services = [PrismaService]
 const commandHandlers = [CreateAiDialogueHandler, DeleteAiDialogueHandler, GetUserDialoguesHandler]
 const repositories = [
+	AiDialogueMessageRepository,
 	AiDialogueRepository,
 	AiDialogueQueryRepository,
 	AiDialogueScenarioRepository,

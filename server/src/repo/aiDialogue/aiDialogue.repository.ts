@@ -25,4 +25,17 @@ export class AiDialogueRepository {
 	async deleteDialogueById(id: number) {
 		return this.prisma.aiDialogue.delete({ where: { id } })
 	}
+
+	// Обновляет компактную сводку диалога. summary — JSON-строка (массив блоков
+	// { state, history }), summaryUpTo — id последнего покрытого сводкой сообщения.
+	@CatchDbError()
+	async updateSummary(id: number, dto: { summary: string; summaryUpTo: number }) {
+		return this.prisma.aiDialogue.update({
+			where: { id },
+			data: {
+				summary: dto.summary,
+				summary_up_to: dto.summaryUpTo,
+			},
+		})
+	}
 }
