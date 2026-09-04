@@ -1328,7 +1328,7 @@ export const bdConfig = {
 				variants: languagesArr,
 				description: 'Language into which NPC lines are translated (the learner native language)',
 				example: 'ru',
-				required: false,
+				required: true,
 			},
 			summary: {
 				type: 'string',

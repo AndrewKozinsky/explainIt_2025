@@ -41,7 +41,7 @@ function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {
 	return {
 		id: raw.id,
 		scenario: mapToAiDialogueScenario(raw.scenario),
-		targetLanguageCode: extractString(raw.targetLanguageCode) as LanguageCode | null,
+		targetLanguageCode: extractString(raw.targetLanguageCode) as LanguageCode,
 		createdAt: raw.createdAt,
 		updatedAt: raw.updatedAt,
 	}

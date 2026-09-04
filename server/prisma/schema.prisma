@@ -283,7 +283,7 @@ model AiDialogue {
 	scenario_id          Int
 	user                 User                @relation(fields: [user_id], references: [id], onDelete: Cascade)
 	user_id              Int
-	target_language_code LanguageCode?
+	target_language_code LanguageCode
 	summary              String?
 	summary_up_to        Int                 @default(0)
 	AiDialogueMessage    AiDialogueMessage[]

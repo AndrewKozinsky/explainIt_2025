@@ -8,17 +8,17 @@ const $ = bdConfig.AiDialogue.dbFields
 
 export class AiDialogueOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
-		id: number
+	id: number
 
 	@ApiProperty({ description: 'Scenario this dialogue follows', type: AiDialogueScenarioOutModel })
-		scenario: AiDialogueScenarioOutModel
+	scenario: AiDialogueScenarioOutModel
 
 	@ApiProperty(getApiPropertyOptions($.target_language_code))
-		targetLanguageCode: Language | null
+	targetLanguageCode: Language
 
 	@ApiProperty(getApiPropertyOptions($.created_at))
-		createdAt: string
+	createdAt: string
 
 	@ApiProperty(getApiPropertyOptions($.updated_at))
-		updatedAt: string
+	updatedAt: string
 }

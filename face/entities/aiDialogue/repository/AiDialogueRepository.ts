@@ -9,7 +9,7 @@ import { LanguageCode } from '@/shared/utils/languages'
 export type AiDialogueModel = {
 	id: number
 	scenario: AiDialogueScenarioModel
-	targetLanguageCode: LanguageCode | null
+	targetLanguageCode: LanguageCode
 	createdAt: string
 	updatedAt: string
 }

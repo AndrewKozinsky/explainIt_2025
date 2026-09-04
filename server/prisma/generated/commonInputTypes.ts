@@ -411,23 +411,6 @@ export type EnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel = nev
   _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
 }
 
-export type EnumLanguageCodeNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumLanguageCodeNullableFilter<$PrismaModel> | $Enums.LanguageCode | null
-}
-
-export type EnumLanguageCodeNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumLanguageCodeNullableWithAggregatesFilter<$PrismaModel> | $Enums.LanguageCode | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumLanguageCodeNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumLanguageCodeNullableFilter<$PrismaModel>
-}
-
 export type EnumAiDialogueMessageTypeFilter<$PrismaModel = never> = {
   equals?: $Enums.AiDialogueMessageType | Prisma.EnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
   in?: $Enums.AiDialogueMessageType[] | Prisma.ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel>
@@ -853,23 +836,6 @@ export type NestedEnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
-}
-
-export type NestedEnumLanguageCodeNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumLanguageCodeNullableFilter<$PrismaModel> | $Enums.LanguageCode | null
-}
-
-export type NestedEnumLanguageCodeNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.LanguageCode | Prisma.EnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  in?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.LanguageCode[] | Prisma.ListEnumLanguageCodeFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumLanguageCodeNullableWithAggregatesFilter<$PrismaModel> | $Enums.LanguageCode | null
-  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumLanguageCodeNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumLanguageCodeNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumAiDialogueMessageTypeFilter<$PrismaModel = never> = {
