@@ -1,3 +1,5 @@
+'use client'
+
 import { LanguageCode } from '@/shared/utils/languages'
 import DictionaryPhraseTranscription from '../DictionaryPhraseTranscription/DictionaryPhraseTranscription'
 import PhraseDictionaryError from '../PhraseDictionaryError/PhraseDictionaryError'

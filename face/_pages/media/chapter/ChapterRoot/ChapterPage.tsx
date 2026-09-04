@@ -1,7 +1,7 @@
 'use client'
 
 import { bookConfig } from '@/entities/book/lib/bookConfig'
-import DetailsBlock from '@/entities/detailsBlock/DetailsBlock/DetailsBlock'
+import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'

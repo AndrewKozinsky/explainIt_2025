@@ -1,0 +1,13 @@
+.ai-dialogue-page-parts-wrapper {
+	display: flex;
+	gap: 2rem;
+	flex-grow: 1;
+}
+
+.ai-dialogue-page-parts-wrapper__left {
+	width: 65%;
+}
+
+.ai-dialogue-page-parts-wrapper__right {
+	width: 35%;
+}

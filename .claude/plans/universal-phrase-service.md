@@ -2,7 +2,8 @@
 
 ## Что делаем
 
-Класс `UniversalPhraseService` в `../../face/entities/phraseTranslation/` — единственная точка входа для операций с универсальными фразами (создание, транскрипция, озвучка, анализ).
+Класс `UniversalPhraseService` в `../../face/entities/phraseTranslation/` — единственная точка входа для операций с
+универсальными фразами (создание, транскрипция, озвучка, анализ).
 
 После реализации `face/stores/phraseStore/` **удаляется полностью**.
 
@@ -93,7 +94,9 @@ class UniversalPhraseService {
 
 Ключ кеша: `makePhraseKey(phrase, languageCode)` → `"en:hello"`. Для переводов: `"en:hello:ru"`.
 
-Дедупликация: перед запросом проверяется соответствующий `#*Requests.get(key)`. Если промис уже есть — возвращается он. После выполнения (успех/ошибка) промис удаляется из мапы, чтобы следующий вызов мог сделать новый запрос (это и есть retry).
+Дедупликация: перед запросом проверяется соответствующий `#*Requests.get(key)`. Если промис уже есть — возвращается он.
+После выполнения (успех/ошибка) промис удаляется из мапы, чтобы следующий вызов мог сделать новый запрос (это и есть
+retry).
 
 ## Без Zustand — как компоненты узнают об изменениях
 
@@ -114,39 +117,41 @@ function TranscriptionAndAudio({ phrase, languageCode }) {
 }
 ```
 
-Два экземпляра `TranscriptionAndAudio` с одной фразой будут независимо управлять состоянием, но запрос на сервер уйдёт только один (дедупликация в классе).
+Два экземпляра `TranscriptionAndAudio` с одной фразой будут независимо управлять состоянием, но запрос на сервер уйдёт
+только один (дедупликация в классе).
 
 ## Что меняем
 
 ### Новый файл
+
 - `../../face/entities/phraseTranslation/UniversalPhraseService.ts` — класс + типы + `makePhraseKey` + синглтон
 
 ### Изменяемые файлы
 
-| Файл | Изменение |
-|------|-----------|
-| `face/_pages/dictionary/DictionaryPageContent/fn/usePopulateDictionaryStore.ts` | `new PhraseApi()` → `universalPhraseService.getPhrase()` |
+| Файл                                                                              | Изменение                                                                                                                                                          |
+|-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `face/_pages/dictionary/DictionaryPageContent/fn/usePopulateDictionaryStore.ts`   | `new PhraseApi()` → `universalPhraseService.getPhrase()`                                                                                                           |
 | `face/_pages/media/dictionary/PhraseDictionaryInput/fn/createFetchTranslation.ts` | `phraseStore.resolvePhrase()` → `universalPhraseService.getPhrase()`; `translationRepository.getOrCreateTranslation()` → `universalPhraseService.getTranslation()` |
-| `face/_pages/media/dictionary/PhraseDictionaryInput/fn/usePhraseTranslation.ts` | Убрать `new PhraseTranslationApi()`, репозиторий больше не нужен |
-| `face/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio.tsx` | Убрать подписку на Zustand, использовать `useState` + `universalPhraseService.getTranscription/getAudio` |
-| `face/shared/ui/TranscriptionAndAudio/fn/useTranscriptionState.ts` | Переписать на `useState` + вызов `universalPhraseService.getTranscription()` |
-| `face/shared/ui/TranscriptionAndAudio/fn/useAudioPlayback.ts` | Переписать на `useState` + вызов `universalPhraseService.getAudio()` |
-| `../../face/entities/detailsBlock/DetailsBlock/fn/populateStore.ts` | `usePhraseStore.getState().preload()` → `universalPhraseService.preload()` |
+| `face/_pages/media/dictionary/PhraseDictionaryInput/fn/usePhraseTranslation.ts`   | Убрать `new PhraseTranslationApi()`, репозиторий больше не нужен                                                                                                   |
+| `face/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio.tsx`                  | Убрать подписку на Zustand, использовать `useState` + `universalPhraseService.getTranscription/getAudio`                                                           |
+| `face/shared/ui/TranscriptionAndAudio/fn/useTranscriptionState.ts`                | Переписать на `useState` + вызов `universalPhraseService.getTranscription()`                                                                                       |
+| `face/shared/ui/TranscriptionAndAudio/fn/useAudioPlayback.ts`                     | Переписать на `useState` + вызов `universalPhraseService.getAudio()`                                                                                               |
+| `../../face/entities/detailsBlock/ui/DetailsBlock/fn/populateStore.ts`            | `usePhraseStore.getState().preload()` → `universalPhraseService.preload()`                                                                                         |
 
 ### Удаляемые файлы
 
-| Файл | Причина |
-|------|---------|
+| Файл                                     | Причина                                     |
+|------------------------------------------|---------------------------------------------|
 | `face/stores/phraseStore/phraseStore.ts` | Логика переехала в `UniversalPhraseService` |
-| `face/stores/phraseStore/types.ts` | Типы переехали |
-| `face/stores/phraseStore/helpers.ts` | `makePhraseKey` переехал |
-| `face/stores/phraseStore/index.ts` | Не нужен |
+| `face/stores/phraseStore/types.ts`       | Типы переехали                              |
+| `face/stores/phraseStore/helpers.ts`     | `makePhraseKey` переехал                    |
+| `face/stores/phraseStore/index.ts`       | Не нужен                                    |
 
 ### Файлы, которые становятся внутренними (не удаляются, но снаружи не используются)
 
-| Файл | Причина |
-|------|---------|
-| `../../face/entities/phrase/repository/PhraseApi.ts` | Используется только внутри `UniversalPhraseService` |
+| Файл                                                                       | Причина                                             |
+|----------------------------------------------------------------------------|-----------------------------------------------------|
+| `../../face/entities/phrase/repository/PhraseApi.ts`                       | Используется только внутри `UniversalPhraseService` |
 | `../../face/entities/phraseTranslation/repository/PhraseTranslationApi.ts` | Используется только внутри `UniversalPhraseService` |
 
 ### Не трогаем
@@ -157,8 +162,10 @@ function TranscriptionAndAudio({ phrase, languageCode }) {
 
 ## Порядок шагов
 
-1. **Создать `UniversalPhraseService.ts`** — класс с методами `getPhrase`, `getTranscription`, `getAudio`, `getTranslation`, `getState`, `preload`, внутренняя дедупликация
-2. **Перевести `createFetchTranslation.ts` и `usePhraseTranslation.ts`** — убрать `PhraseTranslationApi`, использовать сервис
+1. **Создать `UniversalPhraseService.ts`** — класс с методами `getPhrase`, `getTranscription`, `getAudio`,
+   `getTranslation`, `getState`, `preload`, внутренняя дедупликация
+2. **Перевести `createFetchTranslation.ts` и `usePhraseTranslation.ts`** — убрать `PhraseTranslationApi`, использовать
+   сервис
 3. **Перевести `usePopulateDictionaryStore.ts`** — `PhraseApi` → сервис
 4. **Перевести `TranscriptionAndAudio` и его хуки** — Zustand → `useState` + сервис
 5. **Перевести `populateStore.ts`** — preload через сервис

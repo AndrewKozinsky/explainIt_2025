@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import cn from 'classnames'
+import PhrasesContent from '@/entities/detailsBlock/ui/PhrasesContent/PhrasesContent'
 import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
-import PhrasesContent from '../WordsContent/PhrasesContent'
 import './DetailsBlockWrapper.scss'
 
 export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
