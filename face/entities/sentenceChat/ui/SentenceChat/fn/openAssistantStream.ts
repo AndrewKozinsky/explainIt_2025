@@ -1,7 +1,7 @@
-// import { LlmProvider, useSentenceChatStore } from '../../sentenceChatStore'
-// import { SseEvent } from '../../types/sseTypes'
+import { LlmProvider, useSentenceChatStore } from '../../sentenceChatStore'
+import { SseEvent } from '../../types/sseTypes'
 
-/*export function openAssistantStream(input: {
+export function openAssistantStream(input: {
 	threadId: number
 	placeholderId: number
 	provider: LlmProvider
@@ -47,8 +47,8 @@
 	}
 
 	return eventSource
-}*/
+}
 
-/*function buildSseUrl(threadId: number, provider: LlmProvider): string {
+function buildSseUrl(threadId: number, provider: LlmProvider): string {
 	return `/api/sentence-chat/threads/${threadId}/assistant-stream?provider=${provider}`
-}*/
+}

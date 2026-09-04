@@ -1,17 +1,17 @@
-// import ChatRoundButton from '@/entities/sentenceChat/ui/ChatRoundButton/ChatRoundButton'
-// import ArrowUpPureButtonIcon from '@/shared/ui/icons/buttonIcons/ArrowUpPureButtonIcon'
-// import SquareButtonIcon from '@/shared/ui/icons/buttonIcons/SquareButtonIcon'
-// import { useSentenceChatStore } from '../sentenceChatStore'
-// import { useIsSendButtonDisabled } from './fn/isSendButtonDisabled'
-// import './SendAndCancelButtons.scss'
+import ChatRoundButton from '@/entities/sentenceChat/ui/ChatRoundButton/ChatRoundButton'
+import ArrowUpPureButtonIcon from '@/shared/ui/icons/buttonIcons/ArrowUpPureButtonIcon'
+import SquareButtonIcon from '@/shared/ui/icons/buttonIcons/SquareButtonIcon'
+import { useSentenceChatStore } from '../sentenceChatStore'
+import { useIsSendButtonDisabled } from './fn/isSendButtonDisabled'
+import './SendAndCancelButtons.scss'
 
-/*type SendAndCancelButtonProps = {
+type SendAndCancelButtonProps = {
 	isGenerating: boolean
 	onSend: () => void
 	onCancel: () => void
-}*/
+}
 
-/*function SendAndCancelButtons(props: SendAndCancelButtonProps) {
+function SendAndCancelButtons(props: SendAndCancelButtonProps) {
 	const { isGenerating, onSend, onCancel } = props
 
 	const prompt = useSentenceChatStore((s) => s.prompt)
@@ -29,6 +29,6 @@
 			color={isGenerating ? 'red' : 'blue'}
 		/>
 	)
-}*/
+}
 
-// export default SendAndCancelButtons
+export default SendAndCancelButtons

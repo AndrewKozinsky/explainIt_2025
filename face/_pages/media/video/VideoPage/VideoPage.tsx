@@ -1,8 +1,9 @@
 'use client'
 
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
-import DictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/DictionaryContent/DictionaryContent'
-import PhrasesContent from '@/entities/detailsBlock/ui/mediaSpecific/PhrasesContent/PhrasesContent'
+import MediaDialogContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaDialogContent/MediaDialogContent'
+import MediaDictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaDictionaryContent/MediaDictionaryContent'
+import MediaPhrasesContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaPhrasesContent/MediaPhrasesContent'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
@@ -78,8 +79,9 @@ function VideoPage(props: VideoRootProps) {
 					<ViewportSyncedHeight extraClass='video-page__details-block' gapTop={10} gapBottom={10}>
 						<DetailsBlock
 							tabs={[
-								{ type: 'dictionary', text: 'Словарь', content: <DictionaryContent /> },
-								{ type: 'words', text: 'Фразы', content: <PhrasesContent /> },
+								{ type: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },
+								{ type: 'words', text: 'Фразы', content: <MediaPhrasesContent /> },
+								{ type: 'ai_dialog', text: 'Диалог', content: <MediaDialogContent /> },
 							]}
 						/>
 						<VideoControls {...videoControls} />

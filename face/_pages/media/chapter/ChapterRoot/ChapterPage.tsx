@@ -2,8 +2,8 @@
 
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
-import DictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/DictionaryContent/DictionaryContent'
-import PhrasesContent from '@/entities/detailsBlock/ui/mediaSpecific/PhrasesContent/PhrasesContent'
+import MediaDictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaDictionaryContent/MediaDictionaryContent'
+import MediaPhrasesContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaPhrasesContent/MediaPhrasesContent'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
@@ -83,8 +83,8 @@ function ChapterPage(props: ChapterRootProps) {
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 						<DetailsBlock
 							tabs={[
-								{ type: 'dictionary', text: 'Словарь', content: <DictionaryContent /> },
-								{ type: 'words', text: 'Фразы', content: <PhrasesContent /> },
+								{ type: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },
+								{ type: 'words', text: 'Фразы', content: <MediaPhrasesContent /> },
 							]}
 						/>
 					</ViewportSyncedHeight>

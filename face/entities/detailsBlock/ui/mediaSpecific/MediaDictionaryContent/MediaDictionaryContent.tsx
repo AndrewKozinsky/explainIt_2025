@@ -3,7 +3,7 @@ import { offsetsFromWordIds } from '@/entities/media/model/prepareData'
 import { useMediaStoreContext } from '@/entities/media/store/MediaStoreContext'
 import { PhraseDictionary } from '@/widgets/dictionary'
 
-function DictionaryContent() {
+function MediaDictionaryContent() {
 	const mediaStore = useMediaStoreContext()
 	const languageCode = mediaStore((s) => s.languageCode)
 	const currentSentenceId = mediaStore((s) => s.selectedSentenceId)
@@ -41,4 +41,4 @@ function DictionaryContent() {
 	return <PhraseDictionary languageCode={languageCode} currentWord={currentWord} words={words} />
 }
 
-export default DictionaryContent
+export default MediaDictionaryContent

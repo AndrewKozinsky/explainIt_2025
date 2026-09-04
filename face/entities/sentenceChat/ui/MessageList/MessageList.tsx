@@ -1,12 +1,12 @@
-// import Message from '../Message/Message'
-// import { ChatUiMessage } from '../types/sseTypes'
-// import './MessageList.scss'
+import Message from '../Message/Message'
+import { ChatUiMessage } from '../types/sseTypes'
+import './MessageList.scss'
 
-/*type MessageListProps = {
+type MessageListProps = {
 	messages: ChatUiMessage[]
-}*/
+}
 
-/*function MessageList(props: MessageListProps) {
+function MessageList(props: MessageListProps) {
 	const { messages } = props
 
 	if (!messages.length) {
@@ -20,6 +20,6 @@
 			))}
 		</div>
 	)
-}*/
+}
 
-// export default MessageList
+export default MessageList

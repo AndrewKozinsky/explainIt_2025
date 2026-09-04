@@ -1,20 +1,20 @@
-// import cn from 'classnames'
-// import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-// import DeepseekButtonIcon from '@/shared/ui/icons/buttonIcons/DeepseekButtonIcon'
-// import DeepseekLiteButtonIcon from '@/shared/ui/icons/buttonIcons/DeepseekLiteButtonIcon'
-// import GeminiButtonIcon from '@/shared/ui/icons/buttonIcons/GeminiButtonIcon'
-// import GeminiLiteButtonIcon from '@/shared/ui/icons/buttonIcons/GeminiLiteButtonIcon'
-// import OpenAIButtonIcon from '@/shared/ui/icons/buttonIcons/OpenAIButtonIcon'
-// import OpenAILiteButtonIcon from '@/shared/ui/icons/buttonIcons/OpenAILiteButtonIcon'
-// import { LlmProvider, useSentenceChatStore } from '../sentenceChatStore'
+import cn from 'classnames'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+import DeepseekButtonIcon from '@/shared/ui/icons/buttonIcons/DeepseekButtonIcon'
+import DeepseekLiteButtonIcon from '@/shared/ui/icons/buttonIcons/DeepseekLiteButtonIcon'
+import GeminiButtonIcon from '@/shared/ui/icons/buttonIcons/GeminiButtonIcon'
+import GeminiLiteButtonIcon from '@/shared/ui/icons/buttonIcons/GeminiLiteButtonIcon'
+import OpenAIButtonIcon from '@/shared/ui/icons/buttonIcons/OpenAIButtonIcon'
+import OpenAILiteButtonIcon from '@/shared/ui/icons/buttonIcons/OpenAILiteButtonIcon'
+import { LlmProvider, useSentenceChatStore } from '../sentenceChatStore'
 
-/*type LLMProviderButtonProps = {
+type LLMProviderButtonProps = {
 	activeProvider: LlmProvider
 	provider: LlmProvider
 	smallIcon: boolean
-}*/
+}
 
-/*function LLMProviderButton(props: LLMProviderButtonProps) {
+function LLMProviderButton(props: LLMProviderButtonProps) {
 	const { activeProvider, provider, smallIcon } = props
 
 	const setLlmProvider = useSentenceChatStore((s) => s.setLlmProvider)
@@ -31,11 +31,11 @@
 			<LLMProviderButtonIcon provider={provider} smallIcon={smallIcon} />
 		</BaseButton>
 	)
-}*/
+}
 
-// export default LLMProviderButton
+export default LLMProviderButton
 
-/*function LLMProviderButtonIcon({ provider, smallIcon }: { provider: LlmProvider; smallIcon: boolean }) {
+function LLMProviderButtonIcon({ provider, smallIcon }: { provider: LlmProvider; smallIcon: boolean }) {
 	if (provider === 'gemini') {
 		return smallIcon ? <GeminiLiteButtonIcon /> : <GeminiButtonIcon />
 	} else if (provider === 'chatgpt') {
@@ -43,4 +43,4 @@
 	} else {
 		return smallIcon ? <DeepseekLiteButtonIcon /> : <DeepseekButtonIcon />
 	}
-}*/
+}
