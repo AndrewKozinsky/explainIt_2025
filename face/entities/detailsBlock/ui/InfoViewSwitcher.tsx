@@ -1,13 +1,14 @@
-import type { InfoViewType } from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
+import type { DetailsBlockTab, InfoViewType } from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
 import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
 import Switcher from '@/shared/ui/Switcher/Switcher'
 
 type InfoViewSwitcherProps = {
+	tabs: [DetailsBlockTab, ...DetailsBlockTab[]]
 	currentInfoView: InfoViewType
 	setActiveInfoView: (view: InfoViewType) => void
 }
 
-function InfoViewSwitcher({ currentInfoView, setActiveInfoView }: InfoViewSwitcherProps) {
+function InfoViewSwitcher({ tabs, currentInfoView, setActiveInfoView }: InfoViewSwitcherProps) {
 	return (
 		<ContainerWidthObserver widths={[500]}>
 			{(range) => (
@@ -15,23 +16,11 @@ function InfoViewSwitcher({ currentInfoView, setActiveInfoView }: InfoViewSwitch
 					type='fit'
 					widePaddings={range !== 1}
 					orientation='horizontal'
-					items={[
-						{
-							text: 'Словарь',
-							onClick: () => setActiveInfoView('dictionary'),
-							isCurrent: currentInfoView === 'dictionary',
-						},
-						{
-							text: 'Фразы',
-							onClick: () => setActiveInfoView('words'),
-							isCurrent: currentInfoView === 'words',
-						},
-						/*{
-							text: 'Диалог',
-							onClick: () => setActiveInfoView('ai_dialog'),
-							isCurrent: currentInfoView === 'ai_dialog',
-						},*/
-					]}
+					items={tabs.map((tab) => ({
+						text: tab.text,
+						onClick: () => setActiveInfoView(tab.type),
+						isCurrent: currentInfoView === tab.type,
+					}))}
 				/>
 			)}
 		</ContainerWidthObserver>

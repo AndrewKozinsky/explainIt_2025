@@ -6,6 +6,7 @@ import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/M
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
+import { PhraseDictionary } from '@/widgets/dictionary'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 
 type Props = {
@@ -30,7 +31,16 @@ export default async function AiDialoguePage({ dialogueId }: Props) {
 			<AiDialoguePagePartsWrapper>
 				<p>left</p>
 				<ViewportSyncedHeight gapTop={10} gapBottom={10}>
-					<DetailsBlock />
+					<DetailsBlock
+						tabs={[
+							{
+								type: 'dictionary',
+								text: 'Словарь',
+								content: <PhraseDictionary languageCode={dialogue.scenario.languageCode} words={[]} />,
+							},
+							{ type: 'ai_dialog', text: 'Диалог', content: null },
+						]}
+					/>
 				</ViewportSyncedHeight>
 				{/*<PhraseDictionary languageCode='en' words={[]} currentWord='hello' />*/}
 			</AiDialoguePagePartsWrapper>

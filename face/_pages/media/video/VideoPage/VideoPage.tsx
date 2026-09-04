@@ -1,6 +1,8 @@
 'use client'
 
 import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
+import DictionaryContent from '@/entities/detailsBlock/ui/DictionaryContent/DictionaryContent'
+import PhrasesContent from '@/entities/detailsBlock/ui/PhrasesContent/PhrasesContent'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
@@ -74,7 +76,12 @@ function VideoPage(props: VideoRootProps) {
 				}
 				rightBlock={
 					<ViewportSyncedHeight extraClass='video-page__details-block' gapTop={10} gapBottom={10}>
-						<DetailsBlock />
+						<DetailsBlock
+							tabs={[
+								{ type: 'dictionary', text: 'Словарь', content: <DictionaryContent /> },
+								{ type: 'words', text: 'Фразы', content: <PhrasesContent /> },
+							]}
+						/>
 						<VideoControls {...videoControls} />
 					</ViewportSyncedHeight>
 				}

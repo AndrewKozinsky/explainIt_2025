@@ -10,7 +10,7 @@ function DetailsBlockContentWrapper(props: DetailsBlockContentWrapperProps) {
 	const { center, children } = props
 
 	return (
-		<div className={cn('details-block-wrapper', center && 'details-block-wrapper--center')}>
+		<div className='details-block-wrapper'>
 			<div className={cn(!center && 'details-block-wrapper__scroll')}>{children}</div>
 		</div>
 	)

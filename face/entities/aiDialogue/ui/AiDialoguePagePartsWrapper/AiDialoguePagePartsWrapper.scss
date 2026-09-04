@@ -5,9 +5,11 @@
 }
 
 .ai-dialogue-page-parts-wrapper__left {
-	width: 65%;
+	width: 60%;
 }
 
 .ai-dialogue-page-parts-wrapper__right {
-	width: 35%;
+	position: relative;
+	min-width: 0;
+	width: 40%;
 }
