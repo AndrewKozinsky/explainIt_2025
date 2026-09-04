@@ -77,6 +77,7 @@ export class GenerateAiDialogueTurn {
 					systemPrompt: scenario.system_prompt,
 					languageCode: scenario.language_code,
 				},
+				targetLanguageCode: dialogue.target_language_code,
 				summary,
 				recentEvents,
 			})

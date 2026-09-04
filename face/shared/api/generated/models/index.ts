@@ -6,6 +6,11 @@
  * OpenAPI spec version: 1.0
  */
 
+export * from './aiDialogueActionItemInput';
+export * from './aiDialogueActionItemInputType';
+export * from './aiDialogueControllerStream200';
+export * from './aiDialogueMessageOutModel';
+export * from './aiDialogueMessageOutModelPayload';
 export * from './aiDialogueOutModel';
 export * from './aiDialogueScenarioOutModel';
 export * from './bookChapterControllerGetBookChapterParams';
@@ -16,6 +21,8 @@ export * from './bookOutModel';
 export * from './bookOutModelUserId';
 export * from './confirmEmailInput';
 export * from './createAiDialogueInput';
+export * from './createAiDialogueMessageInput';
+export * from './createAiDialogueMessageInputType';
 export * from './createBookChapterInput';
 export * from './createBookInput';
 export * from './createSentenceChatThreadInput';

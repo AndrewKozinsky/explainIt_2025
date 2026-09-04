@@ -15,6 +15,8 @@ export interface AiDialogueOutModel {
   id: number;
   /** Scenario this dialogue follows */
   scenario: AiDialogueScenarioOutModel;
+  /** Language into which NPC lines are translated (the learner native language) */
+  targetLanguageCode?: string | null;
   createdAt: string;
   updatedAt: string;
 }

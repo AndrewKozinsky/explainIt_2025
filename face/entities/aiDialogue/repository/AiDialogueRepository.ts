@@ -4,10 +4,12 @@
  */
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { LanguageCode } from '@/shared/utils/languages'
 
 export type AiDialogueModel = {
 	id: number
 	scenario: AiDialogueScenarioModel
+	targetLanguageCode: LanguageCode | null
 	createdAt: string
 	updatedAt: string
 }
@@ -17,6 +19,7 @@ export type AiDialogueModel = {
  */
 export type CreateAiDialogueInput = {
 	scenarioId: number
+	targetLanguageCode: LanguageCode
 }
 
 /**

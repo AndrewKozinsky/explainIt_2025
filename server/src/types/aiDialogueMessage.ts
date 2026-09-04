@@ -12,16 +12,23 @@ export type AiDialogueActionItem = {
 	content: string
 }
 
+// Действие или реплика NPC с переводом на родной язык пользователя.
+export type AiDialogueNpcActionItem = AiDialogueActionItem & {
+	translation: string
+}
+
 // Смена сцены — где сейчас находится пользователь.
 export type SceneUpdateEvent = {
 	type: 'sceneUpdate'
 	newScene: string
+	translation: string
 }
 
 // Подсказка, что следует сделать пользователю (если NPC не может обратиться напрямую).
 export type HelpEvent = {
 	type: 'help'
 	help: string
+	translation: string
 }
 
 // Действия и реплики NPC.
@@ -31,7 +38,7 @@ export type NpcActionsEvent = {
 	npcName: string
 	npcRole: string
 	emotion: string
-	actions: AiDialogueActionItem[]
+	actions: AiDialogueNpcActionItem[]
 }
 
 // Действия и реплики пользователя.
@@ -49,6 +56,7 @@ export type UserAvoidsNpcEvent = {
 export type WorldEvent = {
 	type: 'worldEvent'
 	content: string
+	translation: string
 }
 
 // Любое событие диалога (хранится в AiDialogueMessage.payload).

@@ -61,6 +61,7 @@ export class AiDialogueController {
 			new CreateAiDialogueCommand({
 				userId: request.user!.id,
 				scenarioId: input.scenarioId,
+				targetLanguageCode: input.targetLanguageCode,
 			}),
 		)
 	}

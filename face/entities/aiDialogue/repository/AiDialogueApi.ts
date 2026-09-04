@@ -8,8 +8,10 @@ import type {
 	AiDialogueOutModel,
 	CreateAiDialogueInput as OrvalCreateAiDialogueInput,
 } from '@/shared/api/generated/models'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import { extractString } from '@/shared/utils/extractors'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
+import { LanguageCode } from '@/shared/utils/languages'
 import type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput } from './AiDialogueRepository'
 
 /**
@@ -39,6 +41,7 @@ function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {
 	return {
 		id: raw.id,
 		scenario: mapToAiDialogueScenario(raw.scenario),
+		targetLanguageCode: extractString(raw.targetLanguageCode) as LanguageCode | null,
 		createdAt: raw.createdAt,
 		updatedAt: raw.updatedAt,
 	}

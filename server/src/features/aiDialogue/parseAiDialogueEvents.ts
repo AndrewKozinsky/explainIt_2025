@@ -1,5 +1,5 @@
 import { jsonrepair } from 'jsonrepair'
-import { AiDialogueActionItem, AiDialogueEvent } from 'types/aiDialogueMessage'
+import { AiDialogueActionItem, AiDialogueEvent, AiDialogueNpcActionItem } from 'types/aiDialogueMessage'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -29,27 +29,39 @@ function parseEvent(event: unknown): AiDialogueEvent {
 	}
 
 	switch (event.type) {
-	case 'sceneUpdate':
-		return { type: 'sceneUpdate', newScene: requireString(event, 'newScene') }
-	case 'help':
-		return { type: 'help', help: requireString(event, 'help') }
-	case 'npcActions':
-		return {
-			type: 'npcActions',
-			npcId: requireString(event, 'npcId'),
-			npcName: requireString(event, 'npcName'),
-			npcRole: requireString(event, 'npcRole'),
-			emotion: requireString(event, 'emotion'),
-			actions: requireActionItems(event, 'actions'),
-		}
-	case 'userActions':
-		return { type: 'userActions', actions: requireActionItems(event, 'actions') }
-	case 'userAvoidsNPC':
-		return { type: 'userAvoidsNPC' }
-	case 'worldEvent':
-		return { type: 'worldEvent', content: requireString(event, 'content') }
-	default:
-		throw cannotParse()
+		case 'sceneUpdate':
+			return {
+				type: 'sceneUpdate',
+				newScene: requireString(event, 'newScene'),
+				translation: optionalString(event, 'translation'),
+			}
+		case 'help':
+			return {
+				type: 'help',
+				help: requireString(event, 'help'),
+				translation: optionalString(event, 'translation'),
+			}
+		case 'npcActions':
+			return {
+				type: 'npcActions',
+				npcId: requireString(event, 'npcId'),
+				npcName: requireString(event, 'npcName'),
+				npcRole: requireString(event, 'npcRole'),
+				emotion: requireString(event, 'emotion'),
+				actions: requireNpcActionItems(event, 'actions'),
+			}
+		case 'userActions':
+			return { type: 'userActions', actions: requireActionItems(event, 'actions') }
+		case 'userAvoidsNPC':
+			return { type: 'userAvoidsNPC' }
+		case 'worldEvent':
+			return {
+				type: 'worldEvent',
+				content: requireString(event, 'content'),
+				translation: optionalString(event, 'translation'),
+			}
+		default:
+			throw cannotParse()
 	}
 }
 
@@ -59,6 +71,13 @@ function requireString(event: Record<string, unknown>, key: string): string {
 		throw cannotParse()
 	}
 	return value
+}
+
+// Перевод — необязательное поле (для обратной совместимости со старыми событиями
+// и на случай, если LLM его пропустил). Отсутствующее значение заменяем на ''.
+function optionalString(event: Record<string, unknown>, key: string): string {
+	const value = event[key]
+	return typeof value === 'string' ? value : ''
 }
 
 function requireActionItems(event: Record<string, unknown>, key: string): AiDialogueActionItem[] {
@@ -73,6 +92,21 @@ function requireActionItems(event: Record<string, unknown>, key: string): AiDial
 		}
 
 		return { type: item.type, content: item.content }
+	})
+}
+
+function requireNpcActionItems(event: Record<string, unknown>, key: string): AiDialogueNpcActionItem[] {
+	const value = event[key]
+	if (!Array.isArray(value)) {
+		throw cannotParse()
+	}
+
+	return value.map((item) => {
+		if (!isRecord(item) || (item.type !== 'action' && item.type !== 'speech') || typeof item.content !== 'string') {
+			throw cannotParse()
+		}
+
+		return { type: item.type, content: item.content, translation: optionalString(item, 'translation') }
 	})
 }
 

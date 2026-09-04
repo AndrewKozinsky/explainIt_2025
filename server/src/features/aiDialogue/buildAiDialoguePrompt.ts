@@ -1,5 +1,6 @@
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueNpcRosterEntry, AiDialogueSummary } from 'types/aiDialogueSummary'
+import { Language, languages } from 'utils/languages'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { deriveAiDialogueState } from './deriveAiDialogueState'
 import { serializeAiDialogueEvent } from './serializeAiDialogueEvent'
@@ -20,24 +21,40 @@ type ScenarioForPrompt = {
  */
 export function buildAiDialoguePrompt(input: {
 	scenario: ScenarioForPrompt
+	targetLanguageCode: Language | null
 	summary: null | AiDialogueSummary
 	recentEvents: AiDialogueEvent[]
 }): LlmMessage[] {
-	const { scenario, summary, recentEvents } = input
+	const { scenario, targetLanguageCode, summary, recentEvents } = input
 
 	const prevState = summary?.[summary.length - 1]?.state ?? null
 	const state = deriveAiDialogueState(prevState, recentEvents)
 
 	return [
-		{ role: 'system', content: buildSystemMessage(scenario, state.roster) },
+		{ role: 'system', content: buildSystemMessage(scenario, targetLanguageCode, state.roster) },
 		{ role: 'user', content: buildUserMessage(state.scene, summary, recentEvents) },
 	]
 }
 
-function buildSystemMessage(scenario: ScenarioForPrompt, roster: AiDialogueNpcRosterEntry[]): string {
+function buildSystemMessage(
+	scenario: ScenarioForPrompt,
+	targetLanguageCode: Language | null,
+	roster: AiDialogueNpcRosterEntry[],
+): string {
 	const rosterLines = roster.length
 		? roster.map((n) => `- npcId: "${n.npcId}" — ${n.npcRole}, ${n.npcName}`).join('\n')
 		: '(пока никого)'
+
+	const rules = [`- Пользователь изучает язык: ${scenario.languageCode}. Реплики NPC должны быть на этом языке.`]
+	if (targetLanguageCode) {
+		rules.push(
+			`- Для каждого текстового поля (newScene, help, content и content внутри actions) добавь поле "translation" — точный перевод на ${languages[targetLanguageCode].nameEng}. Поля npcId, npcName, npcRole, emotion, type не переводи.`,
+		)
+	}
+	rules.push(
+		'- npcId должен быть стабильным: если NPC уже появлялся, переиспользуй его npcId из реестра ниже, не выдумывай новые.',
+		'- Если сейчас ход пользователя и тебе не нужно ничего говорить или делать — верни {"events":[]}.',
+	)
 
 	return [
 		scenario.systemPrompt,
@@ -45,15 +62,13 @@ function buildSystemMessage(scenario: ScenarioForPrompt, roster: AiDialogueNpcRo
 		'## Формат ответа',
 		'Отвечай строго одним JSON-объектом, без пояснений и без markdown: {"events": [...]}.',
 		'Каждый элемент массива events — одно событие с полем "type" и соответствующими полями:',
-		'- {"type":"sceneUpdate","newScene":"описание новой сцены"}',
-		'- {"type":"npcActions","npcId":"...","npcName":"...","npcRole":"...","emotion":"...","actions":[{"type":"action","content":"..."},{"type":"speech","content":"..."}]}',
-		'- {"type":"help","help":"подсказка пользователю"}',
-		'- {"type":"worldEvent","content":"описание события"}',
+		'- {"type":"sceneUpdate","newScene":"описание новой сцены","translation":"перевод"}',
+		'- {"type":"npcActions","npcId":"...","npcName":"...","npcRole":"...","emotion":"...","actions":[{"type":"action","content":"...","translation":"..."},{"type":"speech","content":"...","translation":"..."}]}',
+		'- {"type":"help","help":"подсказка пользователю","translation":"перевод"}',
+		'- {"type":"worldEvent","content":"описание события","translation":"перевод"}',
 		'',
 		'Правила:',
-		`- Пользователь изучает язык: ${scenario.languageCode}. Реплики NPC должны быть на этом языке.`,
-		'- npcId должен быть стабильным: если NPC уже появлялся, переиспользуй его npcId из реестра ниже, не выдумывай новые.',
-		'- Если сейчас ход пользователя и тебе не нужно ничего говорить или делать — верни {"events":[]}.',
+		...rules,
 		'',
 		'## Реестр NPC',
 		rosterLines,

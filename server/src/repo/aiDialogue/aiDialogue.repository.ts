@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common'
+import { Language } from 'utils/languages'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 
@@ -7,11 +8,12 @@ export class AiDialogueRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createDialogue(dto: { userId: number; scenarioId: number }) {
+	async createDialogue(dto: { userId: number; scenarioId: number; targetLanguageCode: Language }) {
 		return this.prisma.aiDialogue.create({
 			data: {
 				user_id: dto.userId,
 				scenario_id: dto.scenarioId,
+				target_language_code: dto.targetLanguageCode,
 			},
 		})
 	}

@@ -2204,6 +2204,7 @@ export const AiDialogueScalarFieldEnum = {
   id: 'id',
   scenario_id: 'scenario_id',
   user_id: 'user_id',
+  target_language_code: 'target_language_code',
   summary: 'summary',
   summary_up_to: 'summary_up_to',
   created_at: 'created_at',

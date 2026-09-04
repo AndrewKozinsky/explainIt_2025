@@ -25,8 +25,11 @@ import type {
 } from '@tanstack/react-query';
 
 import type {
+  AiDialogueControllerStream200,
+  AiDialogueMessageOutModel,
   AiDialogueOutModel,
-  CreateAiDialogueInput
+  CreateAiDialogueInput,
+  CreateAiDialogueMessageInput
 } from '../models';
 
 import { customMutator } from '../../mutator';
@@ -330,3 +333,193 @@ export const useAiDialogueControllerDeleteAiDialogue = <TError = unknown,
       > => {
       return useMutation(getAiDialogueControllerDeleteAiDialogueMutationOptions(options), queryClient);
     }
+    export type aiDialogueControllerCreateAiDialogueMessageResponse201 = {
+  data: AiDialogueMessageOutModel
+  status: 201
+}
+
+export type aiDialogueControllerCreateAiDialogueMessageResponseSuccess = (aiDialogueControllerCreateAiDialogueMessageResponse201) & {
+  headers: Headers;
+};
+;
+
+export type aiDialogueControllerCreateAiDialogueMessageResponse = (aiDialogueControllerCreateAiDialogueMessageResponseSuccess)
+
+export const getAiDialogueControllerCreateAiDialogueMessageUrl = (id: number,) => {
+
+
+
+
+  return `/api/ai-dialogue/${id}/messages`
+}
+
+/**
+ * Persists a user event (actions or leaving the NPC) into the dialogue.
+ * @summary Send a message to AI dialogue
+ */
+export const aiDialogueControllerCreateAiDialogueMessage = async (id: number,
+    createAiDialogueMessageInput: CreateAiDialogueMessageInput, options?: RequestInit): Promise<aiDialogueControllerCreateAiDialogueMessageResponse> => {
+
+  return customMutator<aiDialogueControllerCreateAiDialogueMessageResponse>(getAiDialogueControllerCreateAiDialogueMessageUrl(id),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(createAiDialogueMessageInput)
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerCreateAiDialogueMessageMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCreateAiDialogueMessage>>, TError,{id: number;data: CreateAiDialogueMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCreateAiDialogueMessage>>, TError,{id: number;data: CreateAiDialogueMessageInput}, TContext> => {
+
+const mutationKey = ['aiDialogueControllerCreateAiDialogueMessage'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerCreateAiDialogueMessage>>, {id: number;data: CreateAiDialogueMessageInput}> = (props) => {
+          const {id,data} = props ?? {};
+
+          return  aiDialogueControllerCreateAiDialogueMessage(id,data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type AiDialogueControllerCreateAiDialogueMessageMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerCreateAiDialogueMessage>>>
+    export type AiDialogueControllerCreateAiDialogueMessageMutationBody = CreateAiDialogueMessageInput
+    export type AiDialogueControllerCreateAiDialogueMessageMutationError = unknown
+
+    /**
+ * @summary Send a message to AI dialogue
+ */
+export const useAiDialogueControllerCreateAiDialogueMessage = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCreateAiDialogueMessage>>, TError,{id: number;data: CreateAiDialogueMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof aiDialogueControllerCreateAiDialogueMessage>>,
+        TError,
+        {id: number;data: CreateAiDialogueMessageInput},
+        TContext
+      > => {
+      return useMutation(getAiDialogueControllerCreateAiDialogueMessageMutationOptions(options), queryClient);
+    }
+    export type aiDialogueControllerStreamResponse200 = {
+  data: AiDialogueControllerStream200
+  status: 200
+}
+
+export type aiDialogueControllerStreamResponseSuccess = (aiDialogueControllerStreamResponse200) & {
+  headers: Headers;
+};
+;
+
+export type aiDialogueControllerStreamResponse = (aiDialogueControllerStreamResponseSuccess)
+
+export const getAiDialogueControllerStreamUrl = (id: number,) => {
+
+
+
+
+  return `/api/ai-dialogue/${id}/stream`
+}
+
+export const aiDialogueControllerStream = async (id: number, options?: RequestInit): Promise<aiDialogueControllerStreamResponse> => {
+
+  return customMutator<aiDialogueControllerStreamResponse>(getAiDialogueControllerStreamUrl(id),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerStreamQueryKey = (id: number,) => {
+    return [
+    `/api/ai-dialogue/${id}/stream`
+    ] as const;
+    }
+
+
+export const getAiDialogueControllerStreamQueryOptions = <TData = Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError = unknown>(id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getAiDialogueControllerStreamQueryKey(id);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof aiDialogueControllerStream>>> = ({ signal }) => aiDialogueControllerStream(id, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, enabled: id !== null && id !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+}
+
+export type AiDialogueControllerStreamQueryResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerStream>>>
+export type AiDialogueControllerStreamQueryError = unknown
+
+
+export function useAiDialogueControllerStream<TData = Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError = unknown>(
+ id: number, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof aiDialogueControllerStream>>,
+          TError,
+          Awaited<ReturnType<typeof aiDialogueControllerStream>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useAiDialogueControllerStream<TData = Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError = unknown>(
+ id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof aiDialogueControllerStream>>,
+          TError,
+          Awaited<ReturnType<typeof aiDialogueControllerStream>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useAiDialogueControllerStream<TData = Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError = unknown>(
+ id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+
+export function useAiDialogueControllerStream<TData = Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError = unknown>(
+ id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerStream>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
+
+  const queryOptions = getAiDialogueControllerStreamQueryOptions(id,options)
+
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+

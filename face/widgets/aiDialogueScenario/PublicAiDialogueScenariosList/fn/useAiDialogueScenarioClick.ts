@@ -2,11 +2,13 @@
 
 import { useCallback, useContext, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
+import { useLocale } from 'next-intl'
 import { aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { useRouter } from '@/i18n/routing'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { LanguageCode } from '@/shared/utils/languages'
 import { pageUrls } from '@/shared/utils/pageUrls'
 
 /**
@@ -19,6 +21,7 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 export function useAiDialogueScenarioClick() {
 	const router = useRouter()
 	const user = useUser()
+	const locale = useLocale()
 	const { notify } = useContext(NotificationContext)
 	const queryClient = useQueryClient()
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
@@ -34,7 +37,7 @@ export function useAiDialogueScenarioClick() {
 				return
 			}
 
-			const result = await aiDialogueService.createDialogue({ scenarioId })
+			const result = await aiDialogueService.createDialogue({ scenarioId, targetLanguageCode: locale as LanguageCode })
 
 			if (result.error) {
 				notify({ type: 'error', message: result.error })
@@ -52,7 +55,7 @@ export function useAiDialogueScenarioClick() {
 				router.push(pageUrls.aiDialogues.dialog(result.data.id).path)
 			}
 		},
-		[user, notify, queryClient, router],
+		[user, locale, notify, queryClient, router],
 	)
 
 	const onLoginClick = useCallback(

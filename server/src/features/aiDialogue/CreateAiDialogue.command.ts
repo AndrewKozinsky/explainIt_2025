@@ -2,6 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
+import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -12,6 +13,7 @@ export class CreateAiDialogueCommand implements ICommand {
 		public dto: {
 			userId: number
 			scenarioId: number
+			targetLanguageCode: Language
 		},
 	) {}
 }
@@ -25,7 +27,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 	) {}
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, scenarioId } = command.dto
+		const { userId, scenarioId, targetLanguageCode } = command.dto
 
 		const scenario = await this.aiDialogueScenarioRepository.getScenarioById(scenarioId)
 		if (!scenario) {
@@ -37,7 +39,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
-		const dialogue = await this.aiDialogueRepository.createDialogue({ userId, scenarioId })
+		const dialogue = await this.aiDialogueRepository.createDialogue({ userId, scenarioId, targetLanguageCode })
 
 		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogue.id)
 		if (!dialogueOut) {

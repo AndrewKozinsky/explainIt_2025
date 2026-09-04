@@ -44,6 +44,7 @@ export type AiDialogueMinAggregateOutputType = {
   id: number | null
   scenario_id: number | null
   user_id: number | null
+  target_language_code: $Enums.LanguageCode | null
   summary: string | null
   summary_up_to: number | null
   created_at: Date | null
@@ -54,6 +55,7 @@ export type AiDialogueMaxAggregateOutputType = {
   id: number | null
   scenario_id: number | null
   user_id: number | null
+  target_language_code: $Enums.LanguageCode | null
   summary: string | null
   summary_up_to: number | null
   created_at: Date | null
@@ -64,6 +66,7 @@ export type AiDialogueCountAggregateOutputType = {
   id: number
   scenario_id: number
   user_id: number
+  target_language_code: number
   summary: number
   summary_up_to: number
   created_at: number
@@ -90,6 +93,7 @@ export type AiDialogueMinAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  target_language_code?: true
   summary?: true
   summary_up_to?: true
   created_at?: true
@@ -100,6 +104,7 @@ export type AiDialogueMaxAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  target_language_code?: true
   summary?: true
   summary_up_to?: true
   created_at?: true
@@ -110,6 +115,7 @@ export type AiDialogueCountAggregateInputType = {
   id?: true
   scenario_id?: true
   user_id?: true
+  target_language_code?: true
   summary?: true
   summary_up_to?: true
   created_at?: true
@@ -207,6 +213,7 @@ export type AiDialogueGroupByOutputType = {
   id: number
   scenario_id: number
   user_id: number
+  target_language_code: $Enums.LanguageCode | null
   summary: string | null
   summary_up_to: number
   created_at: Date
@@ -240,6 +247,7 @@ export type AiDialogueWhereInput = {
   id?: Prisma.IntFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
+  target_language_code?: Prisma.EnumLanguageCodeNullableFilter<"AiDialogue"> | $Enums.LanguageCode | null
   summary?: Prisma.StringNullableFilter<"AiDialogue"> | string | null
   summary_up_to?: Prisma.IntFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
@@ -253,6 +261,7 @@ export type AiDialogueOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -269,6 +278,7 @@ export type AiDialogueWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.AiDialogueWhereInput | Prisma.AiDialogueWhereInput[]
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
+  target_language_code?: Prisma.EnumLanguageCodeNullableFilter<"AiDialogue"> | $Enums.LanguageCode | null
   summary?: Prisma.StringNullableFilter<"AiDialogue"> | string | null
   summary_up_to?: Prisma.IntFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
@@ -282,6 +292,7 @@ export type AiDialogueOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrderInput | Prisma.SortOrder
   summary?: Prisma.SortOrderInput | Prisma.SortOrder
   summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -300,6 +311,7 @@ export type AiDialogueScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
+  target_language_code?: Prisma.EnumLanguageCodeNullableWithAggregatesFilter<"AiDialogue"> | $Enums.LanguageCode | null
   summary?: Prisma.StringNullableWithAggregatesFilter<"AiDialogue"> | string | null
   summary_up_to?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"AiDialogue"> | Date | string
@@ -307,6 +319,7 @@ export type AiDialogueScalarWhereWithAggregatesInput = {
 }
 
 export type AiDialogueCreateInput = {
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -320,6 +333,7 @@ export type AiDialogueUncheckedCreateInput = {
   id?: number
   scenario_id: number
   user_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -328,6 +342,7 @@ export type AiDialogueUncheckedCreateInput = {
 }
 
 export type AiDialogueUpdateInput = {
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -341,6 +356,7 @@ export type AiDialogueUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -352,6 +368,7 @@ export type AiDialogueCreateManyInput = {
   id?: number
   scenario_id: number
   user_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -359,6 +376,7 @@ export type AiDialogueCreateManyInput = {
 }
 
 export type AiDialogueUpdateManyMutationInput = {
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -369,6 +387,7 @@ export type AiDialogueUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -389,6 +408,7 @@ export type AiDialogueCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -406,6 +426,7 @@ export type AiDialogueMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -416,6 +437,7 @@ export type AiDialogueMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
+  target_language_code?: Prisma.SortOrder
   summary?: Prisma.SortOrder
   summary_up_to?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
@@ -518,6 +540,10 @@ export type AiDialogueUncheckedUpdateManyWithoutScenarioNestedInput = {
   deleteMany?: Prisma.AiDialogueScalarWhereInput | Prisma.AiDialogueScalarWhereInput[]
 }
 
+export type NullableEnumLanguageCodeFieldUpdateOperationsInput = {
+  set?: $Enums.LanguageCode | null
+}
+
 export type AiDialogueCreateNestedOneWithoutAiDialogueMessageInput = {
   create?: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueMessageInput>
   connectOrCreate?: Prisma.AiDialogueCreateOrConnectWithoutAiDialogueMessageInput
@@ -533,6 +559,7 @@ export type AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput = {
 }
 
 export type AiDialogueCreateWithoutUserInput = {
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -544,6 +571,7 @@ export type AiDialogueCreateWithoutUserInput = {
 export type AiDialogueUncheckedCreateWithoutUserInput = {
   id?: number
   scenario_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -584,6 +612,7 @@ export type AiDialogueScalarWhereInput = {
   id?: Prisma.IntFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
+  target_language_code?: Prisma.EnumLanguageCodeNullableFilter<"AiDialogue"> | $Enums.LanguageCode | null
   summary?: Prisma.StringNullableFilter<"AiDialogue"> | string | null
   summary_up_to?: Prisma.IntFilter<"AiDialogue"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogue"> | Date | string
@@ -591,6 +620,7 @@ export type AiDialogueScalarWhereInput = {
 }
 
 export type AiDialogueCreateWithoutScenarioInput = {
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -602,6 +632,7 @@ export type AiDialogueCreateWithoutScenarioInput = {
 export type AiDialogueUncheckedCreateWithoutScenarioInput = {
   id?: number
   user_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -636,6 +667,7 @@ export type AiDialogueUpdateManyWithWhereWithoutScenarioInput = {
 }
 
 export type AiDialogueCreateWithoutAiDialogueMessageInput = {
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -648,6 +680,7 @@ export type AiDialogueUncheckedCreateWithoutAiDialogueMessageInput = {
   id?: number
   scenario_id: number
   user_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -671,6 +704,7 @@ export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueMessageInput = {
 }
 
 export type AiDialogueUpdateWithoutAiDialogueMessageInput = {
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -683,6 +717,7 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -692,6 +727,7 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput = {
 export type AiDialogueCreateManyUserInput = {
   id?: number
   scenario_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -699,6 +735,7 @@ export type AiDialogueCreateManyUserInput = {
 }
 
 export type AiDialogueUpdateWithoutUserInput = {
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -710,6 +747,7 @@ export type AiDialogueUpdateWithoutUserInput = {
 export type AiDialogueUncheckedUpdateWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -720,6 +758,7 @@ export type AiDialogueUncheckedUpdateWithoutUserInput = {
 export type AiDialogueUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -729,6 +768,7 @@ export type AiDialogueUncheckedUpdateManyWithoutUserInput = {
 export type AiDialogueCreateManyScenarioInput = {
   id?: number
   user_id: number
+  target_language_code?: $Enums.LanguageCode | null
   summary?: string | null
   summary_up_to?: number
   created_at?: Date | string
@@ -736,6 +776,7 @@ export type AiDialogueCreateManyScenarioInput = {
 }
 
 export type AiDialogueUpdateWithoutScenarioInput = {
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -747,6 +788,7 @@ export type AiDialogueUpdateWithoutScenarioInput = {
 export type AiDialogueUncheckedUpdateWithoutScenarioInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -757,6 +799,7 @@ export type AiDialogueUncheckedUpdateWithoutScenarioInput = {
 export type AiDialogueUncheckedUpdateManyWithoutScenarioInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
+  target_language_code?: Prisma.NullableEnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode | null
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -798,6 +841,7 @@ export type AiDialogueSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  target_language_code?: boolean
   summary?: boolean
   summary_up_to?: boolean
   created_at?: boolean
@@ -812,6 +856,7 @@ export type AiDialogueSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  target_language_code?: boolean
   summary?: boolean
   summary_up_to?: boolean
   created_at?: boolean
@@ -824,6 +869,7 @@ export type AiDialogueSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  target_language_code?: boolean
   summary?: boolean
   summary_up_to?: boolean
   created_at?: boolean
@@ -836,13 +882,14 @@ export type AiDialogueSelectScalar = {
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
+  target_language_code?: boolean
   summary?: boolean
   summary_up_to?: boolean
   created_at?: boolean
   updated_at?: boolean
 }
 
-export type AiDialogueOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "scenario_id" | "user_id" | "summary" | "summary_up_to" | "created_at" | "updated_at", ExtArgs["result"]["aiDialogue"]>
+export type AiDialogueOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "scenario_id" | "user_id" | "target_language_code" | "summary" | "summary_up_to" | "created_at" | "updated_at", ExtArgs["result"]["aiDialogue"]>
 export type AiDialogueInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -869,6 +916,7 @@ export type $AiDialoguePayload<ExtArgs extends runtime.Types.Extensions.Internal
     id: number
     scenario_id: number
     user_id: number
+    target_language_code: $Enums.LanguageCode | null
     summary: string | null
     summary_up_to: number
     created_at: Date
@@ -1302,6 +1350,7 @@ export interface AiDialogueFieldRefs {
   readonly id: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly scenario_id: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly user_id: Prisma.FieldRef<"AiDialogue", 'Int'>
+  readonly target_language_code: Prisma.FieldRef<"AiDialogue", 'LanguageCode'>
   readonly summary: Prisma.FieldRef<"AiDialogue", 'String'>
   readonly summary_up_to: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly created_at: Prisma.FieldRef<"AiDialogue", 'DateTime'>

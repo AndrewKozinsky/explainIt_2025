@@ -1322,6 +1322,14 @@ export const bdConfig = {
 				example: 1,
 				required: true,
 			},
+			target_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				description: 'Language into which NPC lines are translated (the learner native language)',
+				example: 'ru',
+				required: false,
+			},
 			summary: {
 				type: 'string',
 				description:

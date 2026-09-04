@@ -62,6 +62,7 @@ export class AiDialogueQueryRepository {
 		return {
 			id: dbDialogue.id,
 			scenario: this.aiDialogueScenarioQueryRepository.mapDbToOutModel(dbDialogue.scenario),
+			targetLanguageCode: dbDialogue.target_language_code,
 			createdAt: dbDialogue.created_at.toISOString(),
 			updatedAt: dbDialogue.updated_at.toISOString(),
 		}
