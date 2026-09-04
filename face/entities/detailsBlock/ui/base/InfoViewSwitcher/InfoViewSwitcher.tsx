@@ -1,4 +1,4 @@
-import type { DetailsBlockTab, InfoViewType } from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
+import type { DetailsBlockTab, InfoViewType } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
 import Switcher from '@/shared/ui/Switcher/Switcher'
 

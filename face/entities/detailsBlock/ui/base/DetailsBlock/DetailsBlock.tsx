@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, type ReactNode } from 'react'
-import DetailsBlockContentWrapper from '../base/DetailsBlockContentWrapper/DetailsBlockContentWrapper'
-import InfoViewSwitcher from '../InfoViewSwitcher'
+import { type ReactNode, useState } from 'react'
+import DetailsBlockContentWrapper from '../DetailsBlockContentWrapper/DetailsBlockContentWrapper'
+import InfoViewSwitcher from '../InfoViewSwitcher/InfoViewSwitcher'
 import './DetailsBlock.scss'
 
 export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'

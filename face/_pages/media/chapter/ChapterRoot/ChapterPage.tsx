@@ -1,9 +1,9 @@
 'use client'
 
 import { bookConfig } from '@/entities/book/lib/bookConfig'
-import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
-import DictionaryContent from '@/entities/detailsBlock/ui/DictionaryContent/DictionaryContent'
-import PhrasesContent from '@/entities/detailsBlock/ui/PhrasesContent/PhrasesContent'
+import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
+import DictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/DictionaryContent/DictionaryContent'
+import PhrasesContent from '@/entities/detailsBlock/ui/mediaSpecific/PhrasesContent/PhrasesContent'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'

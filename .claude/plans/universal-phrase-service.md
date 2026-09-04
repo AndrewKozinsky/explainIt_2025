@@ -136,7 +136,7 @@ function TranscriptionAndAudio({ phrase, languageCode }) {
 | `face/shared/ui/TranscriptionAndAudio/TranscriptionAndAudio.tsx`                  | Убрать подписку на Zustand, использовать `useState` + `universalPhraseService.getTranscription/getAudio`                                                           |
 | `face/shared/ui/TranscriptionAndAudio/fn/useTranscriptionState.ts`                | Переписать на `useState` + вызов `universalPhraseService.getTranscription()`                                                                                       |
 | `face/shared/ui/TranscriptionAndAudio/fn/useAudioPlayback.ts`                     | Переписать на `useState` + вызов `universalPhraseService.getAudio()`                                                                                               |
-| `../../face/entities/detailsBlock/ui/DetailsBlock/fn/populateStore.ts`            | `usePhraseStore.getState().preload()` → `universalPhraseService.preload()`                                                                                         |
+| `../../face/entities/detailsBlock/ui/base/DetailsBlock/fn/populateStore.ts`       | `usePhraseStore.getState().preload()` → `universalPhraseService.preload()`                                                                                         |
 
 ### Удаляемые файлы
 

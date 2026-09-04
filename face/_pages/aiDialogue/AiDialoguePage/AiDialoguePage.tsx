@@ -1,6 +1,6 @@
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import AiDialoguePagePartsWrapper from '@/entities/aiDialogue/ui/AiDialoguePagePartsWrapper/AiDialoguePagePartsWrapper'
-import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
+import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
