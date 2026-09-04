@@ -7,6 +7,7 @@ import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import { PhraseDictionary } from '@/widgets/dictionary'
+import AiDialogueLeftWrapper from '../AiDialogueLeftWrapper/AiDialogueLeftWrapper'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 
 type Props = {
@@ -29,7 +30,10 @@ export default async function AiDialoguePage({ dialogueId }: Props) {
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[pageUrls.aiDialogues]} />} header={header}>
 			<AiDialoguePagePartsWrapper>
-				<p>left</p>
+				<AiDialogueLeftWrapper>
+					<p>messages</p>
+					<p>input</p>
+				</AiDialogueLeftWrapper>
 				<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 					<DetailsBlock
 						tabs={[
@@ -42,7 +46,6 @@ export default async function AiDialoguePage({ dialogueId }: Props) {
 						]}
 					/>
 				</ViewportSyncedHeight>
-				{/*<PhraseDictionary languageCode='en' words={[]} currentWord='hello' />*/}
 			</AiDialoguePagePartsWrapper>
 		</MediaPageContentWrapper>
 	)
