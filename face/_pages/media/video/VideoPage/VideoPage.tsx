@@ -1,11 +1,12 @@
 'use client'
 
-import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
+import DetailsBlockWrapper from '@/entities/detailsBlock/ui/ViewRouter/DetailsBlockWrapper'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import VideoControls from '@/entities/videoControls/VideoControls/VideoControls'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
 import { getHeader } from './fn/getHeader'
@@ -14,6 +15,7 @@ import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useVideoControls } from './fn/useVideoControls'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
+import './VideoPage.scss'
 
 const { useMediaStore } = setupDeps()
 
@@ -71,7 +73,10 @@ function VideoPage(props: VideoRootProps) {
 					/>
 				}
 				rightBlock={
-					<DetailsBlock sentenceId={selectedSentenceId} bottomElem={<VideoControls {...videoControls} />} />
+					<ViewportSyncedHeight extraClass='video-page__details-block' gapTop={10} gapBottom={10}>
+						<DetailsBlockWrapper />
+						<VideoControls {...videoControls} />
+					</ViewportSyncedHeight>
 				}
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}
 			/>

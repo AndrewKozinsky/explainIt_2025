@@ -1,13 +1,14 @@
 'use client'
 
 import { bookConfig } from '@/entities/book/lib/bookConfig'
-import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
+import DetailsBlockWrapper from '@/entities/detailsBlock/ui/ViewRouter/DetailsBlockWrapper'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import Sentences from '@/entities/sentencesAndSubtitles/ui/Sentences/Sentences'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { getMediaNavigationData } from './fn/getMediaNavigationData'
@@ -76,7 +77,11 @@ function ChapterPage(props: ChapterRootProps) {
 						selectWord={selectWord}
 					/>
 				}
-				rightBlock={<DetailsBlock sentenceId={selectedSentenceId} />}
+				rightBlock={
+					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
+						<DetailsBlockWrapper />
+					</ViewportSyncedHeight>
+				}
 				footer={<MediaNavigation {...getMediaNavigationData(book, chapter)} />}
 			/>
 		</MediaStoreProvider>

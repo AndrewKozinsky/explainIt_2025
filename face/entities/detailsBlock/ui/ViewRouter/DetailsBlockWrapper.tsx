@@ -1,31 +1,17 @@
 import { useState } from 'react'
-import cn from 'classnames'
 import PhrasesContent from '@/entities/detailsBlock/ui/PhrasesContent/PhrasesContent'
+import DetailsBlockContentWrapper from '../base/DetailsBlockContentWrapper/DetailsBlockContentWrapper'
 import DictionaryContent from '../DictionaryContent/DictionaryContent'
 import InfoViewSwitcher from '../InfoViewSwitcher'
 import './DetailsBlockWrapper.scss'
 
 export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
 
-type DetailsBlockWrapperProps = {
-	sentenceId: null | number
-}
-
-function DetailsBlockWrapper(props: DetailsBlockWrapperProps) {
-	const { sentenceId } = props
-
+function DetailsBlockWrapper() {
 	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>('dictionary')
 
-	if (!sentenceId) {
-		return (
-			<ContentWrapper center>
-				<InfoText>Нажмите на слово для перевода.</InfoText>
-			</ContentWrapper>
-		)
-	}
-
 	return (
-		<ContentWrapper>
+		<DetailsBlockContentWrapper>
 			<div className='details-block-wrapper__switcher'>
 				<InfoViewSwitcher currentInfoView={currentInfoView} setActiveInfoView={setCurrentInfoView} />
 			</div>
@@ -34,29 +20,8 @@ function DetailsBlockWrapper(props: DetailsBlockWrapperProps) {
 				{currentInfoView === 'words' && <PhrasesContent />}
 				{/*{currentInfoView === 'ai_dialog' && <DialogContent />}*/}
 			</div>
-		</ContentWrapper>
+		</DetailsBlockContentWrapper>
 	)
 }
 
 export default DetailsBlockWrapper
-
-// ------------
-
-type ContentWrapperProps = {
-	center?: boolean
-	children: React.ReactNode
-}
-
-function ContentWrapper(props: ContentWrapperProps) {
-	const { center, children } = props
-
-	return (
-		<div className={cn('details-block-wrapper', center && 'details-block-wrapper--center')}>
-			<div className={cn(!center && 'details-block-wrapper__scroll')}>{children}</div>
-		</div>
-	)
-}
-
-function InfoText({ children }: { children: React.ReactNode }) {
-	return <p className='details-block-wrapper__text'>{children}</p>
-}
