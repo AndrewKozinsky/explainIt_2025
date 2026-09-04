@@ -1,7 +1,7 @@
 'use client'
 
 import { bookConfig } from '@/entities/book/lib/bookConfig'
-import DetailsBlockWrapper from '@/entities/detailsBlock/ui/ViewRouter/DetailsBlockWrapper'
+import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaNavigation from '@/entities/media/ui/MediaNavigation/MediaNavigation'
@@ -79,7 +79,7 @@ function ChapterPage(props: ChapterRootProps) {
 				}
 				rightBlock={
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
-						<DetailsBlockWrapper />
+						<DetailsBlock />
 					</ViewportSyncedHeight>
 				}
 				footer={<MediaNavigation {...getMediaNavigationData(book, chapter)} />}

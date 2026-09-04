@@ -1,19 +1,26 @@
-'use client'
+import { useState } from 'react'
+import PhrasesContent from '@/entities/detailsBlock/ui/PhrasesContent/PhrasesContent'
+import DetailsBlockContentWrapper from '../base/DetailsBlockContentWrapper/DetailsBlockContentWrapper'
+import DictionaryContent from '../DictionaryContent/DictionaryContent'
+import InfoViewSwitcher from '../InfoViewSwitcher'
+import './DetailsBlock.scss'
 
-import type { ReactNode } from 'react'
-import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
+export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
 
-type DetailsBlockProps = {
-	bottomElem?: ReactNode
-}
-
-function DetailsBlock(props: DetailsBlockProps) {
-	const { bottomElem } = props
+function DetailsBlock() {
+	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>('dictionary')
 
 	return (
-		<ViewportSyncedHeight extraClass='details-block' gapTop={10} gapBottom={10}>
-			{bottomElem}
-		</ViewportSyncedHeight>
+		<DetailsBlockContentWrapper>
+			<div className='details-block-wrapper__switcher'>
+				<InfoViewSwitcher currentInfoView={currentInfoView} setActiveInfoView={setCurrentInfoView} />
+			</div>
+			<div className='details-block-wrapper__content'>
+				{currentInfoView === 'dictionary' && <DictionaryContent />}
+				{currentInfoView === 'words' && <PhrasesContent />}
+				{/*{currentInfoView === 'ai_dialog' && <DialogContent />}*/}
+			</div>
+		</DetailsBlockContentWrapper>
 	)
 }
 

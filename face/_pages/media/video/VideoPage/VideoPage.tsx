@@ -1,6 +1,6 @@
 'use client'
 
-import DetailsBlockWrapper from '@/entities/detailsBlock/ui/ViewRouter/DetailsBlockWrapper'
+import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
 import { useMediaTranslations } from '@/entities/media/model/useMediaTranslations'
 import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
@@ -74,7 +74,7 @@ function VideoPage(props: VideoRootProps) {
 				}
 				rightBlock={
 					<ViewportSyncedHeight extraClass='video-page__details-block' gapTop={10} gapBottom={10}>
-						<DetailsBlockWrapper />
+						<DetailsBlock />
 						<VideoControls {...videoControls} />
 					</ViewportSyncedHeight>
 				}

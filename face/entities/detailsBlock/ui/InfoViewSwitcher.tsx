@@ -1,6 +1,6 @@
+import type { InfoViewType } from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
 import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/ContainerWidthObserver'
 import Switcher from '@/shared/ui/Switcher/Switcher'
-import type { InfoViewType } from './ViewRouter/DetailsBlockWrapper'
 
 type InfoViewSwitcherProps = {
 	currentInfoView: InfoViewType

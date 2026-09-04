@@ -1,8 +1,10 @@
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import AiDialoguePagePartsWrapper from '@/entities/aiDialogue/ui/AiDialoguePagePartsWrapper/AiDialoguePagePartsWrapper'
+import DetailsBlock from '@/entities/detailsBlock/ui/DetailsBlock/DetailsBlock'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 
@@ -27,8 +29,9 @@ export default async function AiDialoguePage({ dialogueId }: Props) {
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[pageUrls.aiDialogues]} />} header={header}>
 			<AiDialoguePagePartsWrapper>
 				<p>left</p>
-				<p>right</p>
-				{/*<DetailsBlock />*/}
+				<ViewportSyncedHeight gapTop={10} gapBottom={10}>
+					<DetailsBlock />
+				</ViewportSyncedHeight>
 				{/*<PhraseDictionary languageCode='en' words={[]} currentWord='hello' />*/}
 			</AiDialoguePagePartsWrapper>
 		</MediaPageContentWrapper>
