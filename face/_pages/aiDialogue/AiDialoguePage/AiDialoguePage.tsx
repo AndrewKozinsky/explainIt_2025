@@ -1,0 +1,30 @@
+import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
+import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
+import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
+import { pageUrls } from '@/shared/utils/pageUrls'
+import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+
+type Props = {
+	dialogueId: string
+}
+
+export default async function AiDialoguePage({ dialogueId }: Props) {
+	const { error, data: dialogue } = await aiDialogueService.getDialogue(Number(dialogueId))
+
+	if (error) {
+		return <ErrorMessage text={error} />
+	}
+
+	if (!dialogue) {
+		return <ErrorMessage text='Диалог не найден' />
+	}
+
+	const { header } = getHeaderAndSubHeader(dialogue)
+
+	return (
+		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[pageUrls.aiDialogues]} />} header={header}>
+			<p>Content</p>
+		</MediaPageContentWrapper>
+	)
+}

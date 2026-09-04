@@ -1,4 +1,4 @@
-import AiDialoguesPage from '_pages/media/aiDialogues/AiDialoguesPage/AiDialoguesPage'
+import AiDialoguesPage from '_pages/aiDialogues/AiDialoguesPage/AiDialoguesPage'
 
 export default async function Page() {
 	return <AiDialoguesPage />

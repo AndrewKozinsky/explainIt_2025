@@ -31,6 +31,25 @@ export class AiDialogueService {
 		return this.aiDialogueRepository.getUserDialogues()
 	}
 
+	/** Получить один диалог текущего пользователя по ID. */
+	async getDialogue(id: number): Promise<ApiResult<AiDialogueModel | null>> {
+		const result = await this.aiDialogueRepository.getUserDialogues()
+
+		if (result.error || result.errors) {
+			return {
+				error: result.error,
+				errors: result.errors,
+				data: null,
+			}
+		}
+
+		return {
+			error: null,
+			errors: null,
+			data: result.data.find((dialogue) => dialogue.id === id) ?? null,
+		}
+	}
+
 	/** Удалить диалог текущего пользователя */
 	async deleteDialogue(id: number): Promise<ApiResult<void>> {
 		return this.aiDialogueRepository.deleteDialogue(id)

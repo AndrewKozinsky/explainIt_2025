@@ -1,8 +1,8 @@
 import { jsonrepair } from 'jsonrepair'
+import { AiDialogueActionItem, AiDialogueEvent } from 'types/aiDialogueMessage'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { AiDialogueActionItem, AiDialogueEvent } from 'types/aiDialogueMessage'
 
 /**
  * Разбирает накопленный текст ответа LLM в список событий диалога.
@@ -29,27 +29,27 @@ function parseEvent(event: unknown): AiDialogueEvent {
 	}
 
 	switch (event.type) {
-		case 'sceneUpdate':
-			return { type: 'sceneUpdate', newScene: requireString(event, 'newScene') }
-		case 'help':
-			return { type: 'help', help: requireString(event, 'help') }
-		case 'npcActions':
-			return {
-				type: 'npcActions',
-				npcId: requireString(event, 'npcId'),
-				npcName: requireString(event, 'npcName'),
-				npcRole: requireString(event, 'npcRole'),
-				emotion: requireString(event, 'emotion'),
-				actions: requireActionItems(event, 'actions'),
-			}
-		case 'userActions':
-			return { type: 'userActions', actions: requireActionItems(event, 'actions') }
-		case 'userAvoidsNPC':
-			return { type: 'userAvoidsNPC' }
-		case 'worldEvent':
-			return { type: 'worldEvent', content: requireString(event, 'content') }
-		default:
-			throw cannotParse()
+	case 'sceneUpdate':
+		return { type: 'sceneUpdate', newScene: requireString(event, 'newScene') }
+	case 'help':
+		return { type: 'help', help: requireString(event, 'help') }
+	case 'npcActions':
+		return {
+			type: 'npcActions',
+			npcId: requireString(event, 'npcId'),
+			npcName: requireString(event, 'npcName'),
+			npcRole: requireString(event, 'npcRole'),
+			emotion: requireString(event, 'emotion'),
+			actions: requireActionItems(event, 'actions'),
+		}
+	case 'userActions':
+		return { type: 'userActions', actions: requireActionItems(event, 'actions') }
+	case 'userAvoidsNPC':
+		return { type: 'userAvoidsNPC' }
+	case 'worldEvent':
+		return { type: 'worldEvent', content: requireString(event, 'content') }
+	default:
+		throw cannotParse()
 	}
 }
 
@@ -68,11 +68,7 @@ function requireActionItems(event: Record<string, unknown>, key: string): AiDial
 	}
 
 	return value.map((item) => {
-		if (
-			!isRecord(item) ||
-			(item.type !== 'action' && item.type !== 'speech') ||
-			typeof item.content !== 'string'
-		) {
+		if (!isRecord(item) || (item.type !== 'action' && item.type !== 'speech') || typeof item.content !== 'string') {
 			throw cannotParse()
 		}
 
