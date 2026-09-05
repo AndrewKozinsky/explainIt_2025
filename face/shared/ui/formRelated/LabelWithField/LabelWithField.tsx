@@ -6,11 +6,12 @@ type LabelWithFieldProps = {
 	label?: string
 	disabled?: boolean
 	block?: boolean
+	htmlFor?: string
 	children: React.ReactNode
 }
 
 function LabelWithField(props: LabelWithFieldProps) {
-	const { label, disabled, block, children } = props
+	const { label, disabled, block, htmlFor, children } = props
 
 	return (
 		<div
@@ -20,7 +21,11 @@ function LabelWithField(props: LabelWithFieldProps) {
 				block && 'label-with-field--block',
 			)}
 		>
-			{label && <label className='label-with-field__label'>{label}</label>}
+			{label && (
+				<label className='label-with-field__label' htmlFor={htmlFor}>
+					{label}
+				</label>
+			)}
 			{children}
 		</div>
 	)

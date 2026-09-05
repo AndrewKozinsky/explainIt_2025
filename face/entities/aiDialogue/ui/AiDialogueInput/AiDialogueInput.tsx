@@ -3,6 +3,7 @@
 import { KeyboardEvent, useState } from 'react'
 import type { AiDialogueActionItem } from '@/entities/aiDialogue/types/aiDialogueMessage'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import { useAiDialogueStore } from '../aiDialogueStore'
 import { useAiDialogueSendMessage } from '../fn/useAiDialogueSendMessage'
 import './AiDialogueInput.scss'
@@ -61,37 +62,31 @@ function AiDialogueInput({ dialogueId }: AiDialogueInputProps) {
 
 	return (
 		<div className='ai-dialogue-input'>
-			<div className='ai-dialogue-input__field'>
-				<label className='ai-dialogue-input__label' htmlFor='ai-dialogue-action'>
-					Действие
-				</label>
-				<textarea
-					id='ai-dialogue-action'
-					className='ai-dialogue-input__textarea'
-					value={action}
-					onChange={(e) => setAction(e.target.value)}
-					onKeyDown={handleKeyDown}
-					placeholder='Что вы делаете…'
-					rows={1}
-					disabled={isDisabled}
-				/>
-			</div>
+			<TextInput
+				label='Действие'
+				textareaProps={{
+					id: 'ai-dialogue-action',
+					value: action,
+					onChange: (e) => setAction(e.target.value),
+					onKeyDown: handleKeyDown,
+					placeholder: 'Что вы делаете…',
+					rows: 1,
+					disabled: isDisabled,
+				}}
+			/>
 
-			<div className='ai-dialogue-input__field'>
-				<label className='ai-dialogue-input__label' htmlFor='ai-dialogue-speech'>
-					Реплика
-				</label>
-				<textarea
-					id='ai-dialogue-speech'
-					className='ai-dialogue-input__textarea'
-					value={speech}
-					onChange={(e) => setSpeech(e.target.value)}
-					onKeyDown={handleKeyDown}
-					placeholder='Что вы говорите…'
-					rows={2}
-					disabled={isDisabled}
-				/>
-			</div>
+			<TextInput
+				label='Реплика'
+				textareaProps={{
+					id: 'ai-dialogue-speech',
+					value: speech,
+					onChange: (e) => setSpeech(e.target.value),
+					onKeyDown: handleKeyDown,
+					placeholder: 'Что вы говорите…',
+					rows: 2,
+					disabled: isDisabled,
+				}}
+			/>
 
 			<div className='ai-dialogue-input__actions'>
 				<Button theme='outline' onClick={handleFinish} disabled={isDisabled}>
