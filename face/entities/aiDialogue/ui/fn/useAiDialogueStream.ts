@@ -9,11 +9,13 @@ import { openAiDialogueStream } from './openAiDialogueStream'
  * размонтировании. Сообщения возвращает отсортированными по id — в порядке,
  * в котором они появлялись в диалоге.
  */
-export function useAiDialogueStream(dialogueId: number) {
+export function useAiDialogueStream(dialogueId: number, enabled: boolean = true) {
 	const eventSourceRef = useRef<null | EventSource>(null)
 
 	useEffect(
 		function () {
+			if (!enabled) return
+
 			useAiDialogueStore.getState().clearStore()
 			eventSourceRef.current = openAiDialogueStream(dialogueId)
 
@@ -22,7 +24,7 @@ export function useAiDialogueStream(dialogueId: number) {
 				eventSourceRef.current = null
 			}
 		},
-		[dialogueId],
+		[dialogueId, enabled],
 	)
 
 	const messages = useAiDialogueStore((state) => state.messages)
@@ -30,10 +32,7 @@ export function useAiDialogueStream(dialogueId: number) {
 	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
 	const turnError = useAiDialogueStore((state) => state.turnError)
 
-	const orderedMessages = useMemo(
-		() => [...messages.values()].sort((a, b) => a.id - b.id),
-		[messages],
-	)
+	const orderedMessages = useMemo(() => [...messages.values()].sort((a, b) => a.id - b.id), [messages])
 
 	return {
 		messages: orderedMessages,

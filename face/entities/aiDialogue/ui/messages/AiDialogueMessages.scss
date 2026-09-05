@@ -1,0 +1,38 @@
+.ai-dialogue-message {
+	& + & {
+		margin-top: 12px;
+	}
+
+	&__label {
+		display: block;
+		margin-bottom: 2px;
+		font-size: 0.8em;
+		font-weight: 600;
+		letter-spacing: 0.04em;
+		text-transform: uppercase;
+		opacity: 0.55;
+	}
+
+	&__npc-header {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 6px 10px;
+		align-items: baseline;
+		margin-bottom: 4px;
+	}
+
+	&__npc-name {
+		font-weight: 600;
+	}
+
+	&__npc-role,
+	&__npc-emotion {
+		font-size: 0.85em;
+		opacity: 0.65;
+	}
+
+	&--pending {
+		font-style: italic;
+		opacity: 0.6;
+	}
+}
