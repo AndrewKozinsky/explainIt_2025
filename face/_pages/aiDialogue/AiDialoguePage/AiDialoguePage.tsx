@@ -6,6 +6,7 @@ import { useLocale } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { resolveAiDialogueTurnError } from '@/entities/aiDialogue/lib/resolveTurnError'
 import type { AiDialogueWordSelection } from '@/entities/aiDialogue/types/aiDialogueUi'
+import AiDialogueInput from '@/entities/aiDialogue/ui/AiDialogueInput/AiDialogueInput'
 import AiDialogueMessageList from '@/entities/aiDialogue/ui/AiDialogueMessageList/AiDialogueMessageList'
 import AiDialoguePagePartsWrapper from '@/entities/aiDialogue/ui/AiDialoguePagePartsWrapper/AiDialoguePagePartsWrapper'
 import { useAiDialogueStream } from '@/entities/aiDialogue/ui/fn/useAiDialogueStream'
@@ -62,7 +63,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 							onWordSelect={handleWordSelect}
 						/>
 					</>
-					<p>input</p>
+					<AiDialogueInput dialogueId={Number(dialogueId)} />
 				</AiDialogueLeftWrapper>
 				<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 					<DetailsBlock

@@ -1,0 +1,49 @@
+@use '@/styles/variables' as vars;
+
+.ai-dialogue-input {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding-top: 1.2rem;
+	border-top: 1px solid vars.$grayColor-2;
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	&__label {
+		font-size: 0.85em;
+		font-weight: 600;
+		opacity: 0.6;
+	}
+
+	&__textarea {
+		width: 100%;
+		resize: none;
+		padding: 0.9rem 1.1rem;
+		font: inherit;
+		line-height: 1.4;
+		border: 1px solid vars.$grayColor-3;
+		border-radius: vars.$radius-1;
+		background: transparent;
+		color: vars.$textColor;
+
+		&:focus {
+			outline: none;
+			border-color: vars.$linkColor-2;
+		}
+
+		&:disabled {
+			opacity: 0.55;
+			cursor: not-allowed;
+		}
+	}
+
+	&__actions {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+}

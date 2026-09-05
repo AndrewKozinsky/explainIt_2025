@@ -1,6 +1,7 @@
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput } from './repository/AiDialogueRepository'
+import type { AiDialogueClientEvent, DialogueServerMessage } from './types/aiDialogueMessage'
 
 export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput }
 
@@ -39,6 +40,11 @@ export class AiDialogueService {
 	/** Удалить диалог текущего пользователя */
 	async deleteDialogue(id: number): Promise<ApiResult<void>> {
 		return this.aiDialogueRepository.deleteDialogue(id)
+	}
+
+	/** Отправить событие пользователя (реплику или уход от NPC) в диалог */
+	async createMessage(id: number, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>> {
+		return this.aiDialogueRepository.createMessage(id, event)
 	}
 }
 

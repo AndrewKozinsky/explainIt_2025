@@ -5,6 +5,7 @@
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
+import type { AiDialogueClientEvent, DialogueServerMessage } from '../types/aiDialogueMessage'
 
 export type AiDialogueModel = {
 	id: number
@@ -41,4 +42,6 @@ export type AiDialogueRepository = {
 	getDialogue(id: number): Promise<ApiResult<AiDialogueModel>>
 	/** Удалить диалог текущего пользователя */
 	deleteDialogue(id: number): Promise<ApiResult<void>>
+	/** Отправить событие пользователя (реплику или уход от NPC) в диалог */
+	createMessage(id: number, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>>
 }
