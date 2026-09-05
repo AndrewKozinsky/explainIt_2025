@@ -22,14 +22,16 @@
 
 ### `AiDialogue` (контейнер)
 
-| Поле          | Тип       | Описание                                                     |
-|---------------|-----------|--------------------------------------------------------------|
-| `id`          | `Int`     | Первичный ключ (autoincrement)                               |
-| `scenario_id` | `Int`     | FK → `AiDialogueScenario.id`, `onDelete: Cascade`            |
-| `user_id`     | `Int`     | FK → `User.id`, `onDelete: Cascade`                          |
-| `summary`     | `String?` | Компактная сводка истории (JSON-строка, см. «Компакция»)     |
-| `summary_up_to` | `Int`   | `id` последнего сообщения, покрытого сводкой (default `0`)   |
-| `created_at` / `updated_at` | `DateTime` | Даты                                    |
+| Поле          | Тип           | Описание                                                          |
+|---------------|---------------|-------------------------------------------------------------------|
+| `id`          | `Int`         | Первичный ключ (autoincrement)                                    |
+| `scenario_id` | `Int`         | FK → `AiDialogueScenario.id`, `onDelete: Cascade`                 |
+| `user_id`     | `Int`         | FK → `User.id`, `onDelete: Cascade`                               |
+| `source_language_code` | `LanguageCode` | Язык диалога — тот, который практикует ученик (реплики NPC)   |
+| `target_language_code` | `LanguageCode` | Язык перевода — родной язык ученика (поле `translation`)      |
+| `summary`     | `String?`     | Компактная сводка истории (JSON-строка, см. «Компакция»)          |
+| `summary_up_to` | `Int`       | `id` последнего сообщения, покрытого сводкой (default `0`)        |
+| `created_at` / `updated_at` | `DateTime` | Даты                                          |
 
 ### `AiDialogueMessage` (событие)
 
@@ -54,6 +56,9 @@
 - Фоновая компакция истории в `AiDialogue.summary` (append-only).
 - Клиент: entity-слой `AiDialogue` (list/create/delete), секция «История диалогов», создание по клику на
   сценарий. **Страница самого диалога `/dialogues/{dialogId}` и клиентский слой сообщений — следующий шаг.**
+- Языковая модель: сценарий языконейтрален, языки задаются на диалоге (`source_language_code` — практика,
+  `target_language_code` — перевод); `title`/`description` сценария — JSON-строки переводов (резолв на клиенте через
+  `pickLocalized`).
 
 ## REST API
 
@@ -64,7 +69,7 @@
 Все эндпоинты требуют авторизации (`CheckSessionCookieGuard`).
 
 ```
-POST   /ai-dialogue                body: { scenarioId } → 201 AiDialogueOutModel
+POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode } → 201 AiDialogueOutModel
 GET    /ai-dialogue                → 200 AiDialogueOutModel[]
 DELETE /ai-dialogue/:id            → 200 boolean
 POST   /ai-dialogue/:id/messages   body: CreateAiDialogueMessageInput → 201 AiDialogueMessageOutModel
@@ -76,20 +81,23 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 ```json
 {
     "id": 1,
+    "sourceLanguageCode": "en",
+    "targetLanguageCode": "ru",
     "scenario": {
         "id": 1,
         "slug": "at-the-dentist",
-        "title": "At the Dentist",
-        "description": "Вы приходите на приём к стоматологу: ...",
-        "languageCode": "en"
+        "title": "{\"en\":\"At the Dentist\",\"ru\":\"У стоматолога\", ...}",
+        "description": "{\"en\":\"...\",\"ru\":\"...\"}"
     },
     "createdAt": "2026-09-02T10:41:57.000Z",
     "updatedAt": "2026-09-02T10:41:57.000Z"
 }
 ```
 
-**Обрати внимание:** `system_prompt` сценария не попадает в ответ (как и в списке сценариев) — он не
-отдаётся клиенту.
+**Обрати внимание:**
+- `system_prompt` сценария не попадает в ответ (как и в списке сценариев) — он не отдаётся клиенту.
+- `sourceLanguageCode` — язык практики, `targetLanguageCode` — язык перевода (см. «Доменная модель»).
+- `scenario.title`/`scenario.description` — сырые JSON-строки переводов; резолвит их клиент через `pickLocalized`.
 
 `AiDialogueMessageOutModel`:
 
@@ -104,11 +112,16 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 
 ### Создание диалога
 
-- При создании передаётся `scenarioId`.
+- При создании передаётся `scenarioId` и два языка:
+    - `sourceLanguageCode` — язык диалога (тот, который практикует ученик; реплики NPC будут на нём);
+    - `targetLanguageCode` — язык перевода (родной язык ученика; для текстовых полей LLM добавляет `translation`).
 - Сценарий должен существовать (иначе `404` `AI_DIALOGUE_SCENARIO_NOT_FOUND`).
 - Начать диалог можно только по **публичному** (`user_id === null`) или **своему** сценарию (иначе
   `403` `USER_IS_NOT_OWNER`).
 - Повторные вызовы создают новые диалоги.
+
+Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см. `aiDocsRus/topics/aiDialogueScenario.md`).
+На клиенте `sourceLanguageCode` пока временно захардкожен как `'en'` (см. `useAiDialogueScenarioClick`).
 
 ### Удаление диалога
 
@@ -216,7 +229,8 @@ SSE-эндпоинт не использует CQRS: контроллер нап
 2. Читает диалог (нужен `summary`, `summary_up_to`, `scenario_id`) и сценарий.
 3. Читает все сообщения; «свежие» события = сообщения с `id > summary_up_to`.
 4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий контракт
-   `{ "events": [...] }` + реестр NPC; user = текущая сцена + сжатая история + свежие события).
+   `{ "events": [...] }` + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события).
+   Язык диалога берётся из `source_language_code`, язык перевода/подсказок — из `target_language_code`.
 5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'json_object' })`, накапливает текст и
    рассылает сырые `chunk`-события в шину.
 6. В конце парсит накопленный текст через `parseAiDialogueEvents` (`jsonrepair` → `JSON.parse` →
@@ -279,15 +293,17 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 
 ### Таблица AiDialogue
 
-| Поле          | Тип        | Описание                                                          |
-|---------------|------------|-------------------------------------------------------------------|
-| `id`          | `Int`      | Первичный ключ (autoincrement)                                    |
-| `scenario_id` | `Int`      | FK → `AiDialogueScenario.id`, `onDelete: Cascade`                 |
-| `user_id`     | `Int`      | FK → `User.id`, `onDelete: Cascade`                               |
-| `summary`     | `String?`  | Сводка истории (JSON-строка, см. «Компакция»)                     |
-| `summary_up_to` | `Int`    | `id` последнего сообщения, покрытого сводкой (default `0`)        |
-| `created_at`  | `DateTime` | Дата создания                                                     |
-| `updated_at`  | `DateTime` | Дата последнего изменения                                         |
+| Поле          | Тип           | Описание                                                          |
+|---------------|---------------|-------------------------------------------------------------------|
+| `id`          | `Int`         | Первичный ключ (autoincrement)                                    |
+| `scenario_id` | `Int`         | FK → `AiDialogueScenario.id`, `onDelete: Cascade`                 |
+| `user_id`     | `Int`         | FK → `User.id`, `onDelete: Cascade`                               |
+| `source_language_code` | `LanguageCode` | Язык диалога (практикуемый язык, реплики NPC)                 |
+| `target_language_code` | `LanguageCode` | Язык перевода (родной язык, поле `translation`)               |
+| `summary`     | `String?`     | Сводка истории (JSON-строка, см. «Компакция»)                     |
+| `summary_up_to` | `Int`       | `id` последнего сообщения, покрытого сводкой (default `0`)        |
+| `created_at`  | `DateTime`    | Дата создания                                                     |
+| `updated_at`  | `DateTime`    | Дата последнего изменения                                         |
 
 - Индексы: `@@index([user_id])`, `@@index([scenario_id])`.
 - Обратные связи: `User.AiDialogue`, `AiDialogueScenario.AiDialogue`, `AiDialogue.AiDialogueMessage`
@@ -312,7 +328,9 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 - `server/src/db/dbConfig/dbConfig.ts` — таблицы `AiDialogue` (с `summary`/`summary_up_to`) и
   `AiDialogueMessage`, обратные `oneToMany`.
 - `server/prisma/schema.prisma` — генерируется из `bdConfig` командой `npm run generatePrismaFile`.
-- `server/prisma/migrations/20260903151732_add_ai_dialogue_message/` — миграция.
+- `server/prisma/migrations/20260903151732_add_ai_dialogue_message/` — миграция сообщений.
+- `server/prisma/migrations/20260905120000_add_ai_dialogue_source_language/` — миграция: добавляет
+  `AiDialogue.source_language_code`, удаляет `AiDialogueScenario.language_code`.
 
 ### Доменные типы
 
@@ -336,7 +354,8 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 
 ### Промпты и парсинг
 
-- `server/src/features/aiDialogue/buildAiDialoguePrompt.ts` — промпт генерации хода.
+- `server/src/features/aiDialogue/buildAiDialoguePrompt.ts` — промпт генерации хода (язык из
+  `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
 - `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — разбор ответа LLM (`jsonrepair`).
 - `server/src/features/aiDialogue/deriveAiDialogueState.ts` — детерминированный вывод `state` +
@@ -379,9 +398,12 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 - `face/entities/aiDialogue/AiDialogueService.ts` — сервис.
 - `face/entities/aiDialogue/AiDialogueQueryFacade.ts` — TanStack Query фасад.
 - `face/widgets/aiDialogue/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя.
-- `face/widgets/aiDialogue/UserAiDialoguesList/fn/getDialoguesCardsConfig.ts` — маппинг диалогов в карточки.
+- `face/widgets/aiDialogue/UserAiDialoguesList/fn/getDialoguesCardsConfig.ts` — маппинг диалогов в карточки (резолвит
+  название через `pickLocalized`).
 - `face/widgets/aiDialogue/UserAiDialoguesList/fn/useAiDialogueDelete.ts` — удаление диалога.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
+  (создаёт диалог; `sourceLanguageCode` пока `'en'`).
+- `face/shared/utils/pickLocalized.ts` — резолв JSON-строки переводов под локаль.
 - `face/shared/api/generated/ai-dialogue/ai-dialogue.ts` — сгенерированные функции (Orval).
 
 ## Как работает клиент
@@ -390,26 +412,30 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 
 Повторяет структуру `entities/aiDialogueScenario`:
 
-- `AiDialogueRepository` — тип `AiDialogueModel` (id, вложенный `scenario`, `createdAt`, `updatedAt`) и
-  интерфейс репозитория.
+- `AiDialogueRepository` — тип `AiDialogueModel` (`id`, вложенный `scenario`, `sourceLanguageCode`,
+  `targetLanguageCode`, `createdAt`, `updatedAt`) и интерфейс репозитория.
 - `AiDialogueApi` — реализация через сгенерированные Orval-функции; маппит `AiDialogueOutModel` в
   `AiDialogueModel`, вложенный сценарий — через `mapToAiDialogueScenario`.
 - `AiDialogueService` — прослойка между компонентами и репозиторием.
 - `AiDialogueQueryFacade` — TanStack Query `queryOptions` (`aiDialogueQueries`).
 
-Ключ кэша запроса списка — `['ai-dialogue', 'list']`.
+Ключ кэша запроса списка — `['ai-dialogue', 'list']`. `scenario.title`/`scenario.description` — сырые JSON-строки,
+резолв под локаль — через `pickLocalized` (см. `aiDocsRus/topics/aiDialogueScenario.md`).
 
 ### Создание диалога по клику на сценарий
 
 1. Если пользователь не вошёл (`useUser()` → `null`) — `LoginPromptModal`.
-2. Иначе `aiDialogueService.createDialogue({ scenarioId })`.
+2. Иначе `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode })`.
+   - `sourceLanguageCode` — пока временно `'en'` (захардкожено, с TODO);
+   - `targetLanguageCode` — текущая локаль интерфейса (`locale`).
 3. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
 
 ### История диалогов
 
 Рендерится только для залогиненного пользователя. Пустой список → сообщение-заглушка; непустой →
-`UserAiDialoguesList` (карточки `MediaCardButton` с названием сценария). У карточки иконка удаления
-(`TrashButtonIcon`) → модалка `DeleteEntityModal` → `deleteDialogue` + инвалидация кэша.
+`UserAiDialoguesList` (карточки `MediaCardButton` с названием сценария, резолвнутым через
+`pickLocalized(dialogue.scenario.title, locale)`). У карточки иконка удаления (`TrashButtonIcon`) → модалка
+`DeleteEntityModal` → `deleteDialogue` + инвалидация кэша.
 
 ## Ошибки
 
@@ -430,3 +456,4 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 - Клиентский entity-слой сообщений (`AiDialogueMessage` repository/api/service/фасад) и регенерация
   Orval-функций (`npm run orval`) для `POST :id/messages` и `GET :id/stream`.
 - Отмена генерации пользователем (задействовать `AbortController` в registry) и выбор LLM-модели клиентом.
+- Выбор языка практики пользователем: сейчас `sourceLanguageCode` при создании диалога захардкожен как `'en'`.
