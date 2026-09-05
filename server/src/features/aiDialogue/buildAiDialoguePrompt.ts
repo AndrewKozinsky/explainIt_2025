@@ -51,15 +51,17 @@ function buildSystemMessage(
 		: '(none yet)'
 
 	const rules = [
-		`- The learner is studying: ${languages[sourceLanguageCode].nameEng}. NPC speech must be in this language.`,
+		`- The learner is studying: ${languages[sourceLanguageCode].nameEng}. Every content line (speech, action, scene update, help, world event) must be written in ${languages[sourceLanguageCode].nameEng}. Use the target language only for translation lines.`,
 	]
 	if (targetLanguageCode) {
 		rules.push(
-			`- For every content line, add a translation line immediately after it — an accurate translation into ${languages[targetLanguageCode].nameEng}. Do not translate structural lines (headers, npcId/npcName/npcRole/emotion fields, or action:/speech: labels).`,
+			`- For every content line, add a translation line immediately after it — an accurate translation into ${languages[targetLanguageCode].nameEng}. Always include the translation line, even if the translation looks obvious; never skip it. Do not translate structural lines (headers, npcId/npcName/npcRole/emotion fields, or action:/speech: labels).`,
 		)
 	}
 
 	rules.push(
+		'- Write exactly one field per line. Never put an empty line inside a block — an empty line only separates whole blocks. Content and translation are always a single line each.',
+		'- End the response cleanly: after the last translation line, output nothing else (no commentary, no markdown, no trailing blank text).',
 		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',
 		"- Create a help event only when the learner may be unsure what action to take next. If the NPC has asked a direct question or clearly requested something, that is enough: do not create help and do not repeat the NPC's question or request in it.",
 		'- Use help for non-obvious actions that the NPC did not directly request. For example, if someone knocks on a door, suggest that the learner open the door. The hint must explain only the necessary next action and must not duplicate npcActions.',
@@ -96,6 +98,15 @@ function buildSystemMessage(
 		'worldEvent',
 		'<event description>',
 		'<translation>',
+		'',
+		'Example (a dentist NPC replies to a patient; each speech/action is a label + content + translation triple):',
+		'npcActions|dentist_1|Dr. Lee|dentist|friendly',
+		'speech:',
+		'Hello! How can I help you today?',
+		'Здравствуйте! Чем я могу вам помочь?',
+		'action:',
+		'gestures toward the chair',
+		'жестом показывает на кресло',
 		'',
 		'Rules:',
 		...rules,

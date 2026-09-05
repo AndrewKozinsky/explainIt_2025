@@ -181,6 +181,7 @@ type CreateAiDialogueMessageInput =
 ```
 { "type": "message",  "message": DialogueServerMessage }   // одно сохранённое сообщение
 { "type": "chunk",    "chunk": "..." }                     // сырой фрагмент ответа LLM (превью)
+{ "type": "turnReset" }                                    // повторная попытка генерации началась
 { "type": "turnDone" }                                     // ход завершён (успех или ошибка)
 { "type": "turnError","error": "..." }                     // ход не удался
 ```
@@ -189,6 +190,8 @@ type CreateAiDialogueMessageInput =
   `DialogueServerMessage = { id, dialogueId, createdAt, payload }`.
 - `chunk` — сырой фрагмент ответа LLM. Клиент собирает из него превью построчным парсером
   (`parseAiDialoguePreview`); авторитетный разбор делает сервер (`parseAiDialogueEvents`) в конце стрима.
+- `turnReset` — сервер начал повторную попытку генерации после провала парсинга. Клиент сбрасывает
+  накопленное превью (`accumulated` и `preview`), но `isGenerating` остаётся `true`.
 - `turnDone` — сигнал, что можно снова действовать (после каждого хода, даже при ошибке).
 
 ### Порядок при подключении
@@ -241,8 +244,11 @@ SSE-эндпоинт не использует CQRS: контроллер нап
    Язык диалога берётся из `source_language_code`, язык перевода/подсказок — из `target_language_code`.
 5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'text' })`, накапливает текст и
    рассылает сырые `chunk`-события в шину.
-6. В конце парсит накопленный текст через `parseAiDialogueEvents` (строгий построчный разбор).
-   При невалидной структуре — ошибка `cannotParseLlmResponse`.
+6. В конце парсит накопленный текст через `parseAiDialogueEvents` («спасающий» построчный разбор —
+   недостающий `translation` хвостового блока подставляется как `''`, битые блоки отбрасываются).
+   Если не удалось спасти ни одного события — повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с
+   корректирующей подсказкой; между попытками клиенту шлётся `turnReset`. Если и повтор не удался —
+   ошибка `cannotParseLlmResponse`.
 7. Каждое событие сохраняет (`createMessage`) и рассылает как `message`.
 8. В `finally`: снимает регистрацию в registry и рассылает `turnDone`.
 9. После хода (уже вне registry) fire-and-forget вызывает `SummarizeAiDialogue.summarizeIfNeeded`.
@@ -388,7 +394,7 @@ sceneUpdate
 - `server/src/features/aiDialogue/buildAiDialoguePrompt.ts` — промпт генерации хода (язык из
   `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
-- `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — строгий построчный разбор ответа LLM.
+- `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — «спасающий» построчный разбор ответа LLM.
 - `server/src/features/aiDialogue/deriveAiDialogueState.ts` — детерминированный вывод `state` +
   `sameAiDialogueState`.
 - `server/src/features/aiDialogue/serializeAiDialogueEvent.ts` — сериализация события в текст промпта.

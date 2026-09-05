@@ -46,6 +46,14 @@ export function openAiDialogueStream(dialogueId: number): EventSource {
 			return
 		}
 
+		if (parsed.type === 'turnReset') {
+			// Сервер начал повторную попытку генерации: выбрасываем превью неудачной
+			// попытки, но isGenerating остаётся true — новый стрим уже идёт.
+			accumulated = ''
+			store.setPreview([])
+			return
+		}
+
 		if (parsed.type === 'turnError') {
 			store.setTurnError(parsed.error)
 			return

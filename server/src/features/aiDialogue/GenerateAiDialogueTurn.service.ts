@@ -16,6 +16,9 @@ import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 import { parseAiDialogueEvents } from './parseAiDialogueEvents'
 import { SummarizeAiDialogue } from './SummarizeAiDialogue.service'
 
+// Сколько попыток разобрать ответ LLM до того, как отдать ошибку хода (turnError).
+const MAX_PARSE_ATTEMPTS = 2
+
 /**
  * Генерирует один «ход» ролевого диалога (ответ NPC / смену сцены / событие мира).
  *
@@ -104,18 +107,47 @@ export class GenerateAiDialogueTurn {
 		})
 	}
 
-	// Стримит ответ LLM, накапливая текст, и в конце разбирает его в события.
-	// Сырые чанки отдаёт клиенту для превью (построчный разбор на клиенте);
-	// авторитетный разбор — в parseAiDialogueEvents по завершении стрима.
+	// Стримит ответ LLM и разбирает его в события. При провале парсинга повторяет
+	// запрос (до MAX_PARSE_ATTEMPTS попыток) с корректирующей подсказкой: быстрая
+	// модель часто нарушает построчный формат, поэтому повтор — страховка. Между
+	// попытками клиенту шлётся turnReset, чтобы он выбросил превью неудачной попытки
+	// (сырые чанки — только превью, в БД ничего не сохраняется до успешного парсинга).
 	private async streamAndParse(
 		dialogueId: number,
 		prompt: LlmMessage[],
 		abortSignal: AbortSignal,
 	): Promise<AiDialogueEvent[]> {
+		let lastError: unknown = null
+
+		for (let attempt = 0; attempt < MAX_PARSE_ATTEMPTS; attempt += 1) {
+			const messages = attempt === 0 ? prompt : appendRetryHint(prompt)
+			const accumulated = await this.streamAndAccumulate(dialogueId, messages, abortSignal)
+
+			try {
+				return parseAiDialogueEvents(accumulated)
+			} catch (error) {
+				lastError = error
+				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: accumulated })
+
+				if (attempt < MAX_PARSE_ATTEMPTS - 1) {
+					this.sseHub.emit(dialogueId, { data: { type: 'turnReset' } })
+				}
+			}
+		}
+
+		throw lastError
+	}
+
+	// Стримит один вызов LLM, накапливая текст и рассылая сырые чанки для превью.
+	private async streamAndAccumulate(
+		dialogueId: number,
+		messages: LlmMessage[],
+		abortSignal: AbortSignal,
+	): Promise<string> {
 		let accumulated = ''
 
 		const stream = this.llmAdapter.stream({
-			messages: prompt,
+			messages,
 			responseFormat: 'text',
 			abortSignal,
 		})
@@ -125,7 +157,7 @@ export class GenerateAiDialogueTurn {
 			this.sseHub.emit(dialogueId, { data: { type: 'chunk', chunk } })
 		}
 
-		return parseAiDialogueEvents(accumulated)
+		return accumulated
 	}
 
 	private shouldGenerateTurn(messages: AiDialogueMessageOutModel[]): boolean {
@@ -139,4 +171,17 @@ export class GenerateAiDialogueTurn {
 		if (error instanceof Error) return error.message
 		return serializeErrorMessage(errorMessage.unknownError)
 	}
+}
+
+// Добавляет к промпту корректирующую подсказку для повторной попытки после провала
+// парсинга: модель видит, что прошлый ответ был не в формате, и получает напоминание.
+function appendRetryHint(prompt: LlmMessage[]): LlmMessage[] {
+	return [
+		...prompt,
+		{
+			role: 'user',
+			content:
+				'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line.',
+		},
+	]
 }

@@ -55,6 +55,8 @@ LLM-«NPC» в рамках выбранного сценария. Это **кл
 - `chunk` → накопить текст; на первом чанке `setGenerating(true)` и сбросить ошибку; затем
   `parseAiDialoguePreview(accumulated)`;
 - `turnError` → `setTurnError(error)`;
+- `turnReset` → сбросить накопленный текст и превью (повторная попытка генерации), `isGenerating`
+  остаётся `true`;
 - `turnDone` → очистить превью + `setGenerating(false)`;
 - `onerror` → сбросить превью и `setGenerating(false)` (EventSource переподключится сам и сервер отдаст
   replay).
