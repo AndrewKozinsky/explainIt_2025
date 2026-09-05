@@ -20,7 +20,7 @@ export function deriveAiDialogueState(
 
 	for (const event of events) {
 		if (event.type === 'sceneUpdate') {
-			scene = event.newScene
+			scene = event.content
 		}
 
 		if (event.type === 'npcActions') {

@@ -32,13 +32,13 @@ function parseEvent(event: unknown): AiDialogueEvent {
 		case 'sceneUpdate':
 			return {
 				type: 'sceneUpdate',
-				newScene: requireString(event, 'newScene'),
+				content: requireString(event, 'content'),
 				translation: optionalString(event, 'translation'),
 			}
 		case 'help':
 			return {
 				type: 'help',
-				help: requireString(event, 'help'),
+				content: requireString(event, 'content'),
 				translation: optionalString(event, 'translation'),
 			}
 		case 'npcActions':

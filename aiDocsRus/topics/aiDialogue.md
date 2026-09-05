@@ -139,10 +139,10 @@ type CreateAiDialogueMessageInput =
 
 | `type`          | Поля                                    | Кто генерирует        |
 |-----------------|-----------------------------------------|-----------------------|
-| `sceneUpdate`   | `newScene: string`                      | LLM                   |
+| `sceneUpdate`   | `content: string`, `translation`        | LLM                   |
 | `npcActions`    | `npcId`, `npcName`, `npcRole`, `emotion`, `actions` | LLM   |
-| `help`          | `help: string`                          | LLM                   |
-| `worldEvent`    | `content: string`                       | LLM                   |
+| `help`          | `content: string`, `translation`        | LLM                   |
+| `worldEvent`    | `content: string`, `translation`        | LLM                   |
 | `userActions`   | `actions`                               | клиент                |
 | `userAvoidsNPC` | —                                       | клиент                |
 

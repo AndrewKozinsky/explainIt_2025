@@ -53,7 +53,7 @@ function buildSystemMessage(
 	const rules = [`- Пользователь изучает язык: ${languages[sourceLanguageCode].nameEng}. Реплики NPC должны быть на этом языке.`]
 	if (targetLanguageCode) {
 		rules.push(
-			`- Для каждого текстового поля (newScene, help, content и content внутри actions) добавь поле "translation" — точный перевод на ${languages[targetLanguageCode].nameEng}. Поля npcId, npcName, npcRole, emotion, type не переводи.`,
+			`- Для каждого текстового поля (content и content внутри actions) добавь поле "translation" — точный перевод на ${languages[targetLanguageCode].nameEng}. Поля npcId, npcName, npcRole, emotion, type не переводи.`,
 		)
 	}
 	rules.push(
@@ -67,9 +67,9 @@ function buildSystemMessage(
 		'## Формат ответа',
 		'Отвечай строго одним JSON-объектом, без пояснений и без markdown: {"events": [...]}.',
 		'Каждый элемент массива events — одно событие с полем "type" и соответствующими полями:',
-		'- {"type":"sceneUpdate","newScene":"описание новой сцены","translation":"перевод"}',
+		'- {"type":"sceneUpdate","content":"описание новой сцены","translation":"перевод"}',
 		'- {"type":"npcActions","npcId":"...","npcName":"...","npcRole":"...","emotion":"...","actions":[{"type":"action","content":"...","translation":"..."},{"type":"speech","content":"...","translation":"..."}]}',
-		'- {"type":"help","help":"подсказка пользователю","translation":"перевод"}',
+		'- {"type":"help","content":"подсказка пользователю","translation":"перевод"}',
 		'- {"type":"worldEvent","content":"описание события","translation":"перевод"}',
 		'',
 		'Правила:',

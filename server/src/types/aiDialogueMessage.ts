@@ -20,14 +20,14 @@ export type AiDialogueNpcActionItem = AiDialogueActionItem & {
 // Смена сцены — где сейчас находится пользователь.
 export type SceneUpdateEvent = {
 	type: 'sceneUpdate'
-	newScene: string
+	content: string
 	translation: string
 }
 
 // Подсказка, что следует сделать пользователю (если NPC не может обратиться напрямую).
 export type HelpEvent = {
 	type: 'help'
-	help: string
+	content: string
 	translation: string
 }
 

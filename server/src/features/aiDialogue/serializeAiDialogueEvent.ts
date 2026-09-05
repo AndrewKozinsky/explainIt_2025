@@ -5,9 +5,9 @@ import { AiDialogueActionItem, AiDialogueEvent } from 'types/aiDialogueMessage'
 export function serializeAiDialogueEvent(event: AiDialogueEvent): string {
 	switch (event.type) {
 		case 'sceneUpdate':
-			return `[сцена] ${event.newScene}`
+			return `[сцена] ${event.content}`
 		case 'help':
-			return `[подсказка] ${event.help}`
+			return `[подсказка] ${event.content}`
 		case 'npcActions': {
 			const acts = event.actions.map(serializeAction).join('; ')
 			return `[${event.npcName} (${event.npcRole}), ${event.emotion}] ${acts}`
