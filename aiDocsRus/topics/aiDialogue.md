@@ -15,8 +15,9 @@
 - обмен идёт по двум каналам: клиент → сервер через REST (`POST .../messages`), сервер → клиент через
   постоянный SSE-поток (`GET .../stream`).
 
-Сценарии описаны отдельно — см. `aiDocsRus/topics/aiDialogueScenario.md`. Существующий SentenceChat к
-этой фиче отношения не имеет.
+Сценарии описаны отдельно — см. `aiDocsRus/topics/aiDialogueScenario.md`. Страница самого диалога
+`/dialogues/{dialogId}` (SSE-клиент, стор, рендер событий, форма ввода) — см.
+`aiDocsRus/topics/aiDialoguePage.md`. Существующий SentenceChat к этой фиче отношения не имеет.
 
 ## Доменная модель
 
@@ -55,7 +56,8 @@
 - Генерация хода LLM (стриминг + парсинг событий через `jsonrepair`), рассылка через in-memory шину.
 - Фоновая компакция истории в `AiDialogue.summary` (append-only).
 - Клиент: entity-слой `AiDialogue` (list/create/delete), секция «История диалогов», создание по клику на
-  сценарий. **Страница самого диалога `/dialogues/{dialogId}` и клиентский слой сообщений — следующий шаг.**
+  сценарий, страница диалога `/dialogues/{dialogId}` и клиентский слой сообщений
+  (см. `aiDocsRus/topics/aiDialoguePage.md`).
 - Языковая модель: сценарий языконейтрален, языки задаются на диалоге (`source_language_code` — практика,
   `target_language_code` — перевод); `title`/`description` сценария — JSON-строки переводов (резолв на клиенте через
   `pickLocalized`).
@@ -451,9 +453,5 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 
 ## Вне объёма (следующие шаги)
 
-- Страница самого диалога `/dialogues/{dialogId}`: подключение к SSE, рендер событий, отправка действий
-  пользователя, превью частичного ответа (partial-json).
-- Клиентский entity-слой сообщений (`AiDialogueMessage` repository/api/service/фасад) и регенерация
-  Orval-функций (`npm run orval`) для `POST :id/messages` и `GET :id/stream`.
 - Отмена генерации пользователем (задействовать `AbortController` в registry) и выбор LLM-модели клиентом.
 - Выбор языка практики пользователем: сейчас `sourceLanguageCode` при создании диалога захардкожен как `'en'`.
