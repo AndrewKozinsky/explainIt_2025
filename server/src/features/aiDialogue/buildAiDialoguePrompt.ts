@@ -6,10 +6,7 @@ import { deriveAiDialogueState } from './deriveAiDialogueState'
 import { serializeAiDialogueEvent } from './serializeAiDialogueEvent'
 
 type ScenarioForPrompt = {
-	title: string
-	description: string
 	systemPrompt: string
-	languageCode: string
 }
 
 /**
@@ -18,26 +15,34 @@ type ScenarioForPrompt = {
  * system-сообщение — контракт (system_prompt сценария + строгий формат ответа
  * `{ events: [...] }` + реестр NPC). user-сообщение — контекст (текущая сцена,
  * сжатая история, свежие несжатые события) + просьба сгенерировать следующий ход.
+ *
+ * Язык диалога (source) и язык перевода/подсказок (target) приходят из диалога,
+ * а не из сценария — сценарий языконейтрален.
  */
 export function buildAiDialoguePrompt(input: {
 	scenario: ScenarioForPrompt
+	sourceLanguageCode: Language
 	targetLanguageCode: Language | null
 	summary: null | AiDialogueSummary
 	recentEvents: AiDialogueEvent[]
 }): LlmMessage[] {
-	const { scenario, targetLanguageCode, summary, recentEvents } = input
+	const { scenario, sourceLanguageCode, targetLanguageCode, summary, recentEvents } = input
 
 	const prevState = summary?.[summary.length - 1]?.state ?? null
 	const state = deriveAiDialogueState(prevState, recentEvents)
 
 	return [
-		{ role: 'system', content: buildSystemMessage(scenario, targetLanguageCode, state.roster) },
+		{
+			role: 'system',
+			content: buildSystemMessage(scenario, sourceLanguageCode, targetLanguageCode, state.roster),
+		},
 		{ role: 'user', content: buildUserMessage(state.scene, summary, recentEvents) },
 	]
 }
 
 function buildSystemMessage(
 	scenario: ScenarioForPrompt,
+	sourceLanguageCode: Language,
 	targetLanguageCode: Language | null,
 	roster: AiDialogueNpcRosterEntry[],
 ): string {
@@ -45,7 +50,7 @@ function buildSystemMessage(
 		? roster.map((n) => `- npcId: "${n.npcId}" — ${n.npcRole}, ${n.npcName}`).join('\n')
 		: '(пока никого)'
 
-	const rules = [`- Пользователь изучает язык: ${scenario.languageCode}. Реплики NPC должны быть на этом языке.`]
+	const rules = [`- Пользователь изучает язык: ${languages[sourceLanguageCode].nameEng}. Реплики NPC должны быть на этом языке.`]
 	if (targetLanguageCode) {
 		rules.push(
 			`- Для каждого текстового поля (newScene, help, content и content внутри actions) добавь поле "translation" — точный перевод на ${languages[targetLanguageCode].nameEng}. Поля npcId, npcName, npcRole, emotion, type не переводи.`,

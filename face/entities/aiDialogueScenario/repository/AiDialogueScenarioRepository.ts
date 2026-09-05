@@ -3,14 +3,12 @@
  * Компоненты работают только с этим типом — он не зависит от API.
  */
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import { LanguageCode } from '@/shared/utils/languages'
 
 export type AiDialogueScenarioModel = {
 	id: number
 	slug: null | string
 	title: string
 	description: string
-	languageCode: LanguageCode
 }
 
 /**

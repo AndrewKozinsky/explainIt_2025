@@ -12,6 +12,8 @@ export interface CreateAiDialogueInput {
      * @minimum 1
      */
   scenarioId: number;
+  /** Language of the dialogue (the language the learner practices) */
+  sourceLanguageCode: string;
   /** Language into which NPC lines are translated (the learner native language) */
   targetLanguageCode: string;
 }

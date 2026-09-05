@@ -37,7 +37,12 @@ export function useAiDialogueScenarioClick() {
 				return
 			}
 
-			const result = await aiDialogueService.createDialogue({ scenarioId, targetLanguageCode: locale as LanguageCode })
+			// TODO: временно передаём английский как язык практики — позже дадим пользователю выбор.
+			const result = await aiDialogueService.createDialogue({
+				scenarioId,
+				sourceLanguageCode: 'en',
+				targetLanguageCode: locale as LanguageCode,
+			})
 
 			if (result.error) {
 				notify({ type: 'error', message: result.error })

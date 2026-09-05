@@ -27,6 +27,4 @@ export interface AiDialogueScenarioOutModel {
      * @maxLength 2000
      */
   description: string;
-  /** Language of the dialogue */
-  languageCode: string;
 }

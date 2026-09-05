@@ -5,5 +5,12 @@ export type AiDialogueScenarioSeedData = {
 	title: string
 	description: string
 	systemPrompt: string
-	languageCode: Language
+}
+
+/**
+ * Упаковывает переводы названия/описания сценария в JSON-строку,
+ * которую хранит колонка `title`/`description` (формат всегда JSON).
+ */
+export function localized(translations: Partial<Record<Language, string>>): string {
+	return JSON.stringify(translations)
 }

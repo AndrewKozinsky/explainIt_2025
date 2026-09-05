@@ -9,6 +9,7 @@ import { LanguageCode } from '@/shared/utils/languages'
 export type AiDialogueModel = {
 	id: number
 	scenario: AiDialogueScenarioModel
+	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
 	createdAt: string
 	updatedAt: string
@@ -19,6 +20,7 @@ export type AiDialogueModel = {
  */
 export type CreateAiDialogueInput = {
 	scenarioId: number
+	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
 }
 

@@ -16,7 +16,7 @@ import './PhraseDictionary.scss'
 type PhraseDictionaryProps = {
 	languageCode: LanguageCode
 	currentWord?: string
-	words: string[]
+	words?: string[]
 }
 
 function PhraseDictionary(props: PhraseDictionaryProps) {
@@ -28,7 +28,7 @@ function PhraseDictionary(props: PhraseDictionaryProps) {
 
 	return (
 		<div className='phrase-dictionary'>
-			<WordsQuickAccess words={words} />
+			{words && <WordsQuickAccess words={words} />}
 			<PhraseDictionaryInput />
 			<DictionaryPhraseTranscription />
 			<PhraseDictionaryLoading />

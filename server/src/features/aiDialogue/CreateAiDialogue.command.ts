@@ -13,6 +13,7 @@ export class CreateAiDialogueCommand implements ICommand {
 		public dto: {
 			userId: number
 			scenarioId: number
+			sourceLanguageCode: Language
 			targetLanguageCode: Language
 		},
 	) {}
@@ -27,7 +28,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 	) {}
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, scenarioId, targetLanguageCode } = command.dto
+		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode } = command.dto
 
 		const scenario = await this.aiDialogueScenarioRepository.getScenarioById(scenarioId)
 		if (!scenario) {
@@ -39,7 +40,12 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
-		const dialogue = await this.aiDialogueRepository.createDialogue({ userId, scenarioId, targetLanguageCode })
+		const dialogue = await this.aiDialogueRepository.createDialogue({
+			userId,
+			scenarioId,
+			sourceLanguageCode,
+			targetLanguageCode,
+		})
 
 		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogue.id)
 		if (!dialogueOut) {

@@ -26,7 +26,6 @@ export class AiDialogueScenarioQueryRepository {
 			slug: dbScenario.slug,
 			title: dbScenario.title,
 			description: dbScenario.description,
-			languageCode: dbScenario.language_code,
 		}
 	}
 }

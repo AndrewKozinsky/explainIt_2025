@@ -8,11 +8,17 @@ export class AiDialogueRepository {
 	constructor(private prisma: PrismaService) {}
 
 	@CatchDbError()
-	async createDialogue(dto: { userId: number; scenarioId: number; targetLanguageCode: Language }) {
+	async createDialogue(dto: {
+		userId: number
+		scenarioId: number
+		sourceLanguageCode: Language
+		targetLanguageCode: Language
+	}) {
 		return this.prisma.aiDialogue.create({
 			data: {
 				user_id: dto.userId,
 				scenario_id: dto.scenarioId,
+				source_language_code: dto.sourceLanguageCode,
 				target_language_code: dto.targetLanguageCode,
 			},
 		})

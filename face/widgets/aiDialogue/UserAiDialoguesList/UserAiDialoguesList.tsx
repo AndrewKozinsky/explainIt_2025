@@ -1,3 +1,4 @@
+import { useLocale } from 'next-intl'
 import { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
@@ -16,6 +17,7 @@ type UserAiDialoguesListProps = {
 function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 	const { dialogues } = props
 
+	const locale = useLocale()
 	const { isModalOpen, status, openDeleteModal, closeDeleteModal, onConfirmDelete } = useAiDialogueDelete()
 
 	if (dialogues.length === 0) {
@@ -26,7 +28,7 @@ function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 		)
 	}
 
-	const dialoguesCardsConfig = getDialoguesCardsConfig(dialogues)
+	const dialoguesCardsConfig = getDialoguesCardsConfig(dialogues, locale)
 
 	return (
 		<>

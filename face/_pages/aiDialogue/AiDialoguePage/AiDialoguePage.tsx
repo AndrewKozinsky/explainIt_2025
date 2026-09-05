@@ -1,3 +1,4 @@
+import { getLocale } from 'next-intl/server'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import AiDialoguePagePartsWrapper from '@/entities/aiDialogue/ui/AiDialoguePagePartsWrapper/AiDialoguePagePartsWrapper'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
@@ -25,7 +26,8 @@ export default async function AiDialoguePage({ dialogueId }: Props) {
 		return <ErrorMessage text='Диалог не найден' />
 	}
 
-	const { header } = getHeaderAndSubHeader(dialogue)
+	const locale = await getLocale()
+	const { header } = getHeaderAndSubHeader(dialogue, locale)
 
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[pageUrls.aiDialogues]} />} header={header}>
@@ -40,9 +42,11 @@ export default async function AiDialoguePage({ dialogueId }: Props) {
 							{
 								type: 'dictionary',
 								text: 'Словарь',
-								content: <PhraseDictionary languageCode={dialogue.scenario.languageCode} words={[]} />,
+								content: (
+									<PhraseDictionary languageCode={dialogue.sourceLanguageCode} currentWord='hello' />
+								),
 							},
-							{ type: 'ai_dialog', text: 'Диалог', content: null },
+							{ type: 'ai_dialog', text: 'Диалог', content: <p>selected sentence</p> },
 						]}
 					/>
 				</ViewportSyncedHeight>

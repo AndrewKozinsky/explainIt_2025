@@ -13,6 +13,9 @@ export class AiDialogueOutModel {
 	@ApiProperty({ description: 'Scenario this dialogue follows', type: AiDialogueScenarioOutModel })
 	scenario: AiDialogueScenarioOutModel
 
+	@ApiProperty(getApiPropertyOptions($.source_language_code))
+	sourceLanguageCode: Language
+
 	@ApiProperty(getApiPropertyOptions($.target_language_code))
 	targetLanguageCode: Language
 

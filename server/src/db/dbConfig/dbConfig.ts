@@ -1264,14 +1264,6 @@ export const bdConfig = {
 				example: 'You are a friendly dentist named Dr. Collins...',
 				required: true,
 			},
-			language_code: {
-				type: 'enum',
-				enumName: 'LanguageCode',
-				variants: languagesArr,
-				description: 'Language of the dialogue',
-				example: 'en',
-				required: true,
-			},
 			user_id: {
 				type: 'manyToOne',
 				thisField: 'user_id',
@@ -1320,6 +1312,14 @@ export const bdConfig = {
 				onDelete: 'Cascade',
 				description: 'User ID who started this dialogue',
 				example: 1,
+				required: true,
+			},
+			source_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				description: 'Language of the dialogue (the language the learner practices)',
+				example: 'en',
 				required: true,
 			},
 			target_language_code: {

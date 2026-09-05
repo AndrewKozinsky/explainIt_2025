@@ -3,7 +3,6 @@ import type { AiDialogueScenarioOutModel } from '@/shared/api/generated/models'
 import { extractString } from '@/shared/utils/extractors'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import { LanguageCode } from '@/shared/utils/languages'
 import type { AiDialogueScenarioModel, AiDialogueScenarioRepository } from './AiDialogueScenarioRepository'
 
 /**
@@ -24,6 +23,5 @@ export function mapToAiDialogueScenario(raw: AiDialogueScenarioOutModel): AiDial
 		slug: extractString(raw.slug),
 		title: raw.title,
 		description: raw.description,
-		languageCode: extractString(raw.languageCode) as LanguageCode,
 	}
 }

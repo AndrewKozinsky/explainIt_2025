@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Language } from 'utils/languages'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 
@@ -17,7 +16,4 @@ export class AiDialogueScenarioOutModel {
 
 	@ApiProperty(getApiPropertyOptions($.description))
 	description: string
-
-	@ApiProperty(getApiPropertyOptions($.language_code))
-	languageCode: Language
 }

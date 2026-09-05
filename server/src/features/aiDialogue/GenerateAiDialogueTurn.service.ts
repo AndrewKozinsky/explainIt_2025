@@ -72,11 +72,9 @@ export class GenerateAiDialogueTurn {
 
 			const prompt = buildAiDialoguePrompt({
 				scenario: {
-					title: scenario.title,
-					description: scenario.description,
 					systemPrompt: scenario.system_prompt,
-					languageCode: scenario.language_code,
 				},
+				sourceLanguageCode: dialogue.source_language_code,
 				targetLanguageCode: dialogue.target_language_code,
 				summary,
 				recentEvents,

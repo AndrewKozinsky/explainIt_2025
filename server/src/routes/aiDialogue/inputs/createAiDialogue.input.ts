@@ -6,6 +6,9 @@ export class CreateAiDialogueInput {
 	@DtoFieldDecorators('scenarioId', bdConfig.AiDialogueScenario.dbFields.id)
 	scenarioId: number
 
+	@DtoFieldDecorators('sourceLanguageCode', bdConfig.AiDialogue.dbFields.source_language_code)
+	sourceLanguageCode: Language
+
 	@DtoFieldDecorators('targetLanguageCode', bdConfig.AiDialogue.dbFields.target_language_code)
 	targetLanguageCode: Language
 }

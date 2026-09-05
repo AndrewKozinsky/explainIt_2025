@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common'
-import { Language } from 'utils/languages'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 
@@ -13,7 +12,6 @@ export class AiDialogueScenarioRepository {
 		title: string
 		description: string
 		systemPrompt: string
-		languageCode: Language
 		userId?: null | number
 	}) {
 		return this.prisma.aiDialogueScenario.create({
@@ -22,7 +20,6 @@ export class AiDialogueScenarioRepository {
 				title: dto.title,
 				description: dto.description,
 				system_prompt: dto.systemPrompt,
-				language_code: dto.languageCode,
 				user_id: dto.userId ?? null,
 			},
 		})

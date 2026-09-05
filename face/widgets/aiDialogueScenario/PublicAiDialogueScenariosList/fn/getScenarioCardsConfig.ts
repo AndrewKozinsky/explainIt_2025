@@ -1,14 +1,12 @@
 import { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository'
-import { LanguageCode } from '@/shared/utils/languages'
+import { pickLocalized } from '@/shared/utils/pickLocalized'
 
-export function getScenarioCardsConfig(scenarios: AiDialogueScenarioModel[], currentLang: LanguageCode) {
-	return scenarios
-		.filter((scenario) => scenario.languageCode === currentLang)
-		.map((scenario) => {
-			return {
-				id: scenario.id,
-				title: scenario.title,
-				description: scenario.description,
-			}
-		})
+export function getScenarioCardsConfig(scenarios: AiDialogueScenarioModel[], locale: string) {
+	return scenarios.map((scenario) => {
+		return {
+			id: scenario.id,
+			title: pickLocalized(scenario.title, locale),
+			description: pickLocalized(scenario.description, locale),
+		}
+	})
 }
