@@ -105,8 +105,8 @@ export class GenerateAiDialogueTurn {
 	}
 
 	// Стримит ответ LLM, накапливая текст, и в конце разбирает его в события.
-	// Сырые чанки отдаёт клиенту для превью (partial-json); авторитетный разбор —
-	// в parseAiDialogueEvents по завершении стрима.
+	// Сырые чанки отдаёт клиенту для превью (построчный разбор на клиенте);
+	// авторитетный разбор — в parseAiDialogueEvents по завершении стрима.
 	private async streamAndParse(
 		dialogueId: number,
 		prompt: LlmMessage[],
@@ -116,7 +116,7 @@ export class GenerateAiDialogueTurn {
 
 		const stream = this.llmAdapter.stream({
 			messages: prompt,
-			responseFormat: 'json_object',
+			responseFormat: 'text',
 			abortSignal,
 		})
 

@@ -9,5 +9,9 @@
 	"testRegex": ".spec.ts$",
 	"transform": {
 		"^.+\\.(t|j)s$": "ts-jest"
+	},
+	"moduleNameMapper": {
+		"^types/(.*)$": "<rootDir>/types/$1",
+		"^infrastructure/(.*)$": "<rootDir>/infrastructure/$1"
 	}
 }

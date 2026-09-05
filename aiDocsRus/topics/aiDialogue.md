@@ -53,7 +53,7 @@
   `20260903151732_add_ai_dialogue_message`).
 - REST: создать диалог, список диалогов, удалить диалог, **отправить сообщение** (`POST .../messages`).
 - SSE-поток `GET .../stream`: replay истории + подписка на новые события + запуск первого хода.
-- Генерация хода LLM (стриминг + парсинг событий через `jsonrepair`), рассылка через in-memory шину.
+- Генерация хода LLM (стриминг + построчный парсинг событий), рассылка через in-memory шину.
 - Фоновая компакция истории в `AiDialogue.summary` (append-only).
 - Клиент: entity-слой `AiDialogue` (list/create/delete), секция «История диалогов», создание по клику на
   сценарий, страница диалога `/dialogues/{dialogId}` и клиентский слой сообщений
@@ -181,8 +181,8 @@ type CreateAiDialogueMessageInput =
 
 - `message` — используется и для **replay** истории (при подключении), и для новых событий. Обёртка
   `DialogueServerMessage = { id, dialogueId, createdAt, payload }`.
-- `chunk` — сырой текст стрима LLM. Клиент показывает превью через partial-json; авторитетный разбор
-  делает сервер (`jsonrepair` + `JSON.parse`) в конце стрима.
+- `chunk` — сырой фрагмент ответа LLM. Клиент собирает из него превью построчным парсером
+  (`parseAiDialoguePreview`); авторитетный разбор делает сервер (`parseAiDialogueEvents`) в конце стрима.
 - `turnDone` — сигнал, что можно снова действовать (после каждого хода, даже при ошибке).
 
 ### Порядок при подключении
@@ -214,7 +214,7 @@ SSE-эндпоинт не использует CQRS: контроллер нап
 ## Генерация хода (`GenerateAiDialogueTurn`)
 
 Сервис `features/aiDialogue/GenerateAiDialogueTurn.service.ts`. Один «ход» = один вызов LLM, который может
-вернуть **несколько** событий (`{ events: [...] }`).
+вернуть **несколько** событий (плоским построчным текстом, см. «Стриминг и формат ответа»).
 
 ### Когда генерировать («ждёт ли диалог хода»)
 
@@ -230,13 +230,13 @@ SSE-эндпоинт не использует CQRS: контроллер нап
    `AbortController` в `ActiveAiDialogueGenerationRegistry` (лимит — **1 активная генерация на диалог**).
 2. Читает диалог (нужен `summary`, `summary_up_to`, `scenario_id`) и сценарий.
 3. Читает все сообщения; «свежие» события = сообщения с `id > summary_up_to`.
-4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий контракт
-   `{ "events": [...] }` + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события).
+4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий построчный
+   контракт ответа + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события).
    Язык диалога берётся из `source_language_code`, язык перевода/подсказок — из `target_language_code`.
-5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'json_object' })`, накапливает текст и
+5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'text' })`, накапливает текст и
    рассылает сырые `chunk`-события в шину.
-6. В конце парсит накопленный текст через `parseAiDialogueEvents` (`jsonrepair` → `JSON.parse` →
-   строгая валидация union). При невалидной структуре — ошибка `cannotParseLlmResponse`.
+6. В конце парсит накопленный текст через `parseAiDialogueEvents` (строгий построчный разбор).
+   При невалидной структуре — ошибка `cannotParseLlmResponse`.
 7. Каждое событие сохраняет (`createMessage`) и рассылает как `message`.
 8. В `finally`: снимает регистрацию в registry и рассылает `turnDone`.
 9. После хода (уже вне registry) fire-and-forget вызывает `SummarizeAiDialogue.summarizeIfNeeded`.
@@ -245,11 +245,34 @@ SSE-эндпоинт не использует CQRS: контроллер нап
 
 ### Стриминг и формат ответа
 
-LLM обязан ответить одним JSON-объектом `{ "events": [...] }` (используется
-`response_format: { type: 'json_object' }`, потому что голый массив JSON нельзя задать `response_format`).
-Сырые чанки отдаются клиенту для превью, но **авторитетный разбор** событий делает сервер на полном
-накопленном тексте. По умолчанию используется DeepSeek (`DEFAULT_FLASH_AI_MODEL`) — выбор модели клиентом
-не реализован.
+LLM отвечает **плоским построчным текстом** (`responseFormat: 'text'`), а не JSON — так контент реплики
+стримится обычными строками и рисуется на клиенте посимвольно. Один ход = один или несколько блоков,
+разделённых **ровно одной пустой строкой**; блок = строка-заголовок + поля по одной строке.
+
+```
+npcActions|<npcId>|<npcName>|<npcRole>|<emotion>
+action:
+<описание действия>
+<перевод>
+speech:
+<реплика>
+<перевод>
+```
+
+```
+sceneUpdate
+<описание новой сцены>
+<перевод>
+```
+
+Заголовки текстовых событий — `sceneUpdate`, `help`, `worldEvent` (без полей, затем `content` и
+`translation`). Внутри `npcActions` повторяются тройки `метка:` / `content` / `translation`, где метка —
+`action:` или `speech:`. `translation` присутствует **всегда** (`targetLanguageCode` обязателен). «Ничего
+не говорить» → пустой ответ.
+
+Сырые чанки отдаются клиенту для превью (толерантный построчный разбор `parseAiDialoguePreview`), а
+**авторитетный разбор** событий делает сервер на полном накопленном тексте (`parseAiDialogueEvents`).
+По умолчанию используется DeepSeek (`DEFAULT_FLASH_AI_MODEL`) — выбор модели клиентом не реализован.
 
 ### Реестр активных генераций
 
@@ -359,7 +382,7 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 - `server/src/features/aiDialogue/buildAiDialoguePrompt.ts` — промпт генерации хода (язык из
   `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
-- `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — разбор ответа LLM (`jsonrepair`).
+- `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — строгий построчный разбор ответа LLM.
 - `server/src/features/aiDialogue/deriveAiDialogueState.ts` — детерминированный вывод `state` +
   `sameAiDialogueState`.
 - `server/src/features/aiDialogue/serializeAiDialogueEvent.ts` — сериализация события в текст промпта.
@@ -390,8 +413,8 @@ LLM обязан ответить одним JSON-объектом `{ "events": 
 - `server/src/app.module.ts` — регистрация `AiDialogueModule`.
 - `server/src/infrastructure/exceptions/errorMessage.ts` — секция `aiDialogue` (`notFound`,
   `scenarioNotFound`, `generationAlreadyActive`, `cannotParseLlmResponse`).
-- `server/src/infrastructure/llmProviderAdapter/LlmProvider.interface.ts` — `responseFormat` в
-  `LlmStreamInput` (для `json_object`).
+- `server/src/infrastructure/llmProviderAdapter/LlmProvider.interface.ts` — `responseFormat`
+  (`'text' | 'json_object'`) в `LlmStreamInput`.
 
 ### Клиент
 

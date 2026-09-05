@@ -42,8 +42,8 @@ LLM-«NPC» в рамках выбранного сценария. Это **кл
 - `DialogueServerMessage` — обёртка сообщения (`id`, `dialogueId`, `createdAt`, `payload`);
 - `AiDialogueStreamEvent` — события SSE-потока (`message` / `chunk` / `turnDone` / `turnError`).
 
-`types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного JSON: все поля опциональны,
-`type` может отсутствовать. `types/aiDialogueUi.ts` — `AiDialogueWordSelection` (`word`, `sentence`) и
+`types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного построчного текста: все
+поля опциональны, `type` может отсутствовать. `types/aiDialogueUi.ts` — `AiDialogueWordSelection` (`word`, `sentence`) и
 `AiDialogueWordSelectHandler`.
 
 ## SSE-клиент
@@ -107,13 +107,14 @@ SSE открывается только после загрузки диалог
 (`translation`) и пробрасывает `{ word, sentence: content }` наверх — в правую панель (словарь +
 выбранное предложение).
 
-## Частичное превью (partial-json)
+## Частичное превью (построчный разбор)
 
-`lib/parseAiDialoguePreview.ts` парсит накопленный обрезанный JSON ответа LLM (`{ events: [...] }`) через
-`jsonrepair` → `JSON.parse`, мягко собирая события в `AiDialoguePreviewEvent[]`. Недостающие/обрезанные
-поля не роняют парсер — они просто отсутствуют. Возвращает `null`, если текст ещё нельзя распарсить —
-вызывающий код оставляет предыдущее превью без изменений (без мерцания). Авторитетный разбор делает сервер;
-превью — только для UX.
+`lib/parseAiDialoguePreview.ts` разбирает накопленный частичный текст ответа LLM (плоский построчный формат,
+см. «Стриминг и формат ответа» в `aiDialogue.md`) в `AiDialoguePreviewEvent[]`. Последняя строка без
+завершающего `\n` трактуется как «дописываемый» `content`/`translation` текущего блока — поэтому реплика
+растёт посимвольно по мере генерации. Недостающие поля не роняют парсер — они просто отсутствуют.
+Возвращает `null`, если пока нечего показать — вызывающий код оставляет предыдущее превью без изменений
+(без мерцания). Авторитетный разбор делает сервер; превью — только для UX.
 
 ## Форма ответа пользователя
 
@@ -154,7 +155,7 @@ SSE открывается только после загрузки диалог
 - `face/entities/aiDialogue/types/aiDialogueMessage.ts` — зеркало серверных типов.
 - `face/entities/aiDialogue/types/aiDialoguePreview.ts` — ленивое превью.
 - `face/entities/aiDialogue/types/aiDialogueUi.ts` — выбор слова.
-- `face/entities/aiDialogue/lib/parseAiDialoguePreview.ts` — partial-json (`jsonrepair`).
+- `face/entities/aiDialogue/lib/parseAiDialoguePreview.ts` — толерантный построчный разбор превью.
 - `face/entities/aiDialogue/lib/resolveTurnError.ts` — текст ошибки хода.
 
 ### Entity-слой
