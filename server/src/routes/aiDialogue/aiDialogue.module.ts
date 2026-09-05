@@ -13,6 +13,7 @@ import { CreateAiDialogueHandler } from 'features/aiDialogue/CreateAiDialogue.co
 import { CreateAiDialogueMessageHandler } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueHandler } from 'features/aiDialogue/DeleteAiDialogue.command'
 import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
+import { GetAiDialogueHandler } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.command'
 import { SummarizeAiDialogue } from 'features/aiDialogue/SummarizeAiDialogue.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
@@ -30,6 +31,7 @@ const commandHandlers = [
 	CreateAiDialogueHandler,
 	CreateAiDialogueMessageHandler,
 	DeleteAiDialogueHandler,
+	GetAiDialogueHandler,
 	GetUserDialoguesHandler,
 ]
 const repositories = [

@@ -1,8 +1,12 @@
-import { getLocale } from 'next-intl/server'
-import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
+'use client'
+
+import { useQuery } from '@tanstack/react-query'
+import { useLocale } from 'next-intl'
+import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import AiDialoguePagePartsWrapper from '@/entities/aiDialogue/ui/AiDialoguePagePartsWrapper/AiDialoguePagePartsWrapper'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
@@ -15,18 +19,19 @@ type Props = {
 	dialogueId: string
 }
 
-export default async function AiDialoguePage({ dialogueId }: Props) {
-	const { error, data: dialogue } = await aiDialogueService.getDialogue(Number(dialogueId))
+export default function AiDialoguePage({ dialogueId }: Props) {
+	const locale = useLocale()
+
+	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 
 	if (error) {
-		return <ErrorMessage text={error} />
+		return <ErrorMessage text={error.message} />
 	}
 
-	if (!dialogue) {
-		return <ErrorMessage text='Диалог не найден' />
+	if (isPending || !dialogue) {
+		return <LoadingMessage text='Загрузка диалога…' />
 	}
 
-	const locale = await getLocale()
 	const { header } = getHeaderAndSubHeader(dialogue, locale)
 
 	return (

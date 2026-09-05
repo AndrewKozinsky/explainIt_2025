@@ -37,6 +37,8 @@ export type AiDialogueRepository = {
 	createDialogue(input: CreateAiDialogueInput): Promise<ApiResult<AiDialogueModel>>
 	/** Получить диалоги текущего пользователя */
 	getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>>
+	/** Получить один диалог текущего пользователя по ID */
+	getDialogue(id: number): Promise<ApiResult<AiDialogueModel>>
 	/** Удалить диалог текущего пользователя */
 	deleteDialogue(id: number): Promise<ApiResult<void>>
 }

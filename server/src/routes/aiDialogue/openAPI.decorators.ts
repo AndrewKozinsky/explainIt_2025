@@ -28,6 +28,18 @@ export function ApiGetAiDialogues() {
 	)
 }
 
+export function ApiGetAiDialogue() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Get AI dialogue',
+			description: 'Returns a single dialogue of the current user by id with its scenario.',
+		}),
+		ApiCookieAuth(),
+		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
+		ApiResponse({ status: 200, description: 'OK', type: AiDialogueOutModel }),
+	)
+}
+
 export function ApiDeleteAiDialogue() {
 	return applyDecorators(
 		ApiOperation({

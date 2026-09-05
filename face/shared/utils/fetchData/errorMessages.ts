@@ -89,6 +89,11 @@ export const serverErrorMessagesByCode: Record<string, ServerErrorMessageResolve
 		'Невозможно сгенерировать ответ: последнее сообщение в треде не является вопросом пользователя.',
 	SENTENCE_CHAT_PREVIOUS_ANSWER_NOT_READY: 'Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.',
 	SENTENCE_CHAT_INSUFFICIENT_BALANCE: 'Недостаточно средств на балансе для генерации ответа.',
+	AI_DIALOGUE_NOT_FOUND: 'Диалог не найден.',
+	AI_DIALOGUE_SCENARIO_NOT_FOUND: 'Сценарий диалога не найден.',
+	AI_DIALOGUE_GENERATION_ALREADY_ACTIVE:
+		'У вас уже есть активная генерация ответа. Дождитесь её завершения или отмените.',
+	AI_DIALOGUE_CANNOT_PARSE_LLM_RESPONSE: 'Не удалось разобрать ответ ИИ.',
 	AUDIO_PRONUNCIATION_NOT_CREATED: 'Не удалось создать озвучку.',
 	AUDIO_PRONUNCIATION_ALREADY_EXISTS: 'Озвучка для этой фразы уже существует.',
 	AUDIO_PRONUNCIATION_CANNOT_UPLOAD_TO_S3: 'Не удалось загрузить аудио файл в хранилище.',

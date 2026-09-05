@@ -25,6 +25,7 @@ import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.co
 import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.command'
 import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
+import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -38,6 +39,7 @@ import {
 	ApiCreateAiDialogue,
 	ApiCreateAiDialogueMessage,
 	ApiDeleteAiDialogue,
+	ApiGetAiDialogue,
 	ApiGetAiDialogues,
 } from './openAPI.decorators'
 
@@ -73,6 +75,14 @@ export class AiDialogueController {
 	@Get()
 	async getAiDialogues(@Req() request: Request): Promise<AiDialogueOutModel[]> {
 		return await this.commandBus.execute(new GetUserDialoguesCommand(request.user!.id))
+	}
+
+	@ApiGetAiDialogue()
+	@UseGuards(CheckSessionCookieGuard)
+	@HttpCode(HttpStatus.OK)
+	@Get(':id')
+	async getAiDialogue(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Promise<AiDialogueOutModel> {
+		return await this.commandBus.execute(new GetAiDialogueCommand(request.user!.id, id))
 	}
 
 	@ApiDeleteAiDialogue()
