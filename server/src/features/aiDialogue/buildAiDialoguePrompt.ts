@@ -63,6 +63,8 @@ function buildSystemMessage(
 		'- Write exactly one field per line. Never put an empty line inside a block — an empty line only separates whole blocks. Content and translation are always a single line each.',
 		'- End the response cleanly: after the last translation line, output nothing else (no commentary, no markdown, no trailing blank text).',
 		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',
+		'- The scenario is a setting, not a rigid script. Introduce whatever NPCs the scene naturally needs (a receptionist, a nurse, another staff member, and so on). Every new NPC gets a new stable npcId plus a npcName, npcRole and emotion.',
+		'- When the learner walks away from the current NPC (a "learner walked away" event), that NPC must react to the departure instead of continuing the previous request — for example "You can come back another time" or "If something is wrong, just tell me". Then introduce a different NPC that fits the scene so the learner can keep practicing.',
 		"- Create a help event only when the learner may be unsure what action to take next. If the NPC has asked a direct question or clearly requested something, that is enough: do not create help and do not repeat the NPC's question or request in it.",
 		'- Use help for non-obvious actions that the NPC did not directly request. For example, if someone knocks on a door, suggest that the learner open the door. The hint must explain only the necessary next action and must not duplicate npcActions.',
 		"- If it is the learner's turn and you do not need to say or do anything, output nothing (an empty response).",

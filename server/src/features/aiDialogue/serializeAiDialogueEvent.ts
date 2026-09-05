@@ -17,7 +17,7 @@ export function serializeAiDialogueEvent(event: AiDialogueEvent): string {
 			return `[пользователь] ${acts}`
 		}
 		case 'userAvoidsNPC':
-			return '[пользователь ушёл от разговора]'
+			return '[the learner walked away from the conversation]'
 		case 'worldEvent':
 			return `[событие] ${event.content}`
 	}
