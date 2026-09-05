@@ -48,54 +48,59 @@ function buildSystemMessage(
 ): string {
 	const rosterLines = roster.length
 		? roster.map((n) => `- npcId: "${n.npcId}" — ${n.npcRole}, ${n.npcName}`).join('\n')
-		: '(пока никого)'
+		: '(none yet)'
 
-	const rules = [`- Пользователь изучает язык: ${languages[sourceLanguageCode].nameEng}. Реплики NPC должны быть на этом языке.`]
+	const rules = [
+		`- The learner is studying: ${languages[sourceLanguageCode].nameEng}. NPC speech must be in this language.`,
+	]
 	if (targetLanguageCode) {
 		rules.push(
-			`- Для каждого content добавь строку перевода сразу после него — точный перевод на ${languages[targetLanguageCode].nameEng}. Служебные строки (заголовки, поля npcId/npcName/npcRole/emotion, метки action:/speech:) не переводи.`,
+			`- For every content line, add a translation line immediately after it — an accurate translation into ${languages[targetLanguageCode].nameEng}. Do not translate structural lines (headers, npcId/npcName/npcRole/emotion fields, or action:/speech: labels).`,
 		)
 	}
+
 	rules.push(
-		'- npcId должен быть стабильным: если NPC уже появлялся, переиспользуй его npcId из реестра ниже, не выдумывай новые.',
-		'- Если сейчас ход пользователя и тебе не нужно ничего говорить или делать — ничего не выводи (пустой ответ).',
+		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',
+		"- Create a help event only when the learner may be unsure what action to take next. If the NPC has asked a direct question or clearly requested something, that is enough: do not create help and do not repeat the NPC's question or request in it.",
+		'- Use help for non-obvious actions that the NPC did not directly request. For example, if someone knocks on a door, suggest that the learner open the door. The hint must explain only the necessary next action and must not duplicate npcActions.',
+		"- If it is the learner's turn and you do not need to say or do anything, output nothing (an empty response).",
 	)
 
 	return [
 		scenario.systemPrompt,
 		'',
-		'## Формат ответа',
-		'Отвечай плоским построчным текстом, без пояснений и без markdown.',
-		'Ход — один или несколько блоков, разделённых ровно одной пустой строкой. Блок начинается строкой-заголовком, далее поля по одной строке.',
+		'## Response format',
+		'Reply with flat line-based text, without explanations or markdown.',
+		'A turn consists of one or more blocks separated by exactly one blank line. A block starts with a header line, followed by one field per line.',
 		'',
-		'Смена сцены:',
+		'Scene update:',
 		'sceneUpdate',
-		'<описание новой сцены>',
-		'<перевод>',
+		'<new scene description>',
+		'<translation>',
 		'',
-		'Действия/реплики NPC (заголовок — 5 полей через |):',
+		'NPC actions/speech (header — 5 fields separated by |):',
 		'npcActions|<npcId>|<npcName>|<npcRole>|<emotion>',
 		'action:',
-		'<описание действия>',
-		'<перевод>',
+		'<action description>',
+		'<translation>',
 		'speech:',
-		'<реплика>',
-		'<перевод>',
+		'<speech>',
+		'<translation>',
 		'',
-		'Подсказка:',
+		'Help:',
 		'help',
-		'<подсказка>',
-		'<перевод>',
+		'<hint>',
+		'<translation>',
 		'',
-		'Событие мира:',
+		'World event:',
 		'worldEvent',
-		'<описание события>',
-		'<перевод>',
+		'<event description>',
+		'<translation>',
 		'',
-		'Правила:',
+		'Rules:',
 		...rules,
 		'',
-		'## Реестр NPC',
+		'## NPC registry',
 		rosterLines,
 	].join('\n')
 }
@@ -104,7 +109,7 @@ function buildUserMessage(scene: string, summary: null | AiDialogueSummary, rece
 	const lines: string[] = []
 
 	if (scene) {
-		lines.push('Текущая сцена:', scene, '')
+		lines.push('Current scene:', scene, '')
 	}
 
 	const summaryHistory = (summary ?? [])
@@ -112,18 +117,18 @@ function buildUserMessage(scene: string, summary: null | AiDialogueSummary, rece
 		.filter(Boolean)
 		.join('\n')
 	if (summaryHistory) {
-		lines.push('Что произошло ранее (сжато):', summaryHistory, '')
+		lines.push('What happened earlier (condensed):', summaryHistory, '')
 	}
 
 	if (recentEvents.length) {
-		lines.push('Недавние события (в хронологическом порядке):')
+		lines.push('Recent events (in chronological order):')
 		for (const event of recentEvents) {
 			lines.push(serializeAiDialogueEvent(event))
 		}
 		lines.push('')
 	}
 
-	lines.push('Сгенерируй следующий ход (ответ NPC, смену сцены или событие) в указанном формате.')
+	lines.push('Generate the next turn (NPC response, scene update, or event) in the specified format.')
 
 	return lines.join('\n')
 }
