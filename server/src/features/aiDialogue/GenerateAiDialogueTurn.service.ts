@@ -60,6 +60,10 @@ export class GenerateAiDialogueTurn {
 		const abortController = this.activeGenerationRegistry.register(dialogueId)
 
 		try {
+			// Ход начался: сигналим клиенту до первого chunk, чтобы он сразу показал
+			// плейсхолдер «ответ готовится» (зазор между запуском и первым токеном LLM).
+			this.sseHub.emit(dialogueId, { data: { type: 'turnStarted' } })
+
 			const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
 			if (!dialogue) return
 

@@ -30,6 +30,16 @@ export function openAiDialogueStream(dialogueId: number): EventSource {
 			return
 		}
 
+		if (parsed.type === 'turnStarted') {
+			// Генерация хода началась (до первого chunk): показываем «ответ готовится».
+			// Сбрасываем превью и ошибку прошлого хода — как это делает первый chunk.
+			accumulated = ''
+			store.setPreview([])
+			store.setTurnError(null)
+			store.setGenerating(true)
+			return
+		}
+
 		if (parsed.type === 'chunk') {
 			if (!store.isGenerating) {
 				// Начало нового хода — сбрасываем текст предыдущего и его ошибку.

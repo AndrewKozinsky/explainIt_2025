@@ -197,6 +197,7 @@ type CreateAiDialogueMessageInput =
 ```
 { "type": "message",  "message": DialogueServerMessage }   // одно сохранённое сообщение
 { "type": "chunk",    "chunk": "..." }                     // сырой фрагмент ответа LLM (превью)
+{ "type": "turnStarted" }                                  // началась генерация хода (до первого chunk)
 { "type": "turnReset" }                                    // повторная попытка генерации началась
 { "type": "turnDone" }                                     // ход завершён (успех или ошибка)
 { "type": "turnError","error": "..." }                     // ход не удался
@@ -206,6 +207,7 @@ type CreateAiDialogueMessageInput =
   `DialogueServerMessage = { id, dialogueId, createdAt, payload }`.
 - `chunk` — сырой фрагмент ответа LLM. Клиент собирает из него превью построчным парсером (`parseAiDialoguePreview`);
   авторитетный разбор делает сервер (`parseAiDialogueEvents`) в конце стрима.
+- `turnStarted` — сервер начал генерацию хода (до первого `chunk`). Клиент показывает «ответ готовится».
 - `turnReset` — сервер начал повторную попытку генерации после провала парсинга. Клиент сбрасывает накопленное превью
   (`accumulated` и `preview`), но `isGenerating` остаётся `true`.
 - `turnDone` — сигнал, что можно снова действовать (после каждого хода, даже при ошибке).

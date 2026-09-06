@@ -39,7 +39,8 @@ SSE-протокол, генерация хода, компакция) опис�
 - `AiDialogueEvent` — union из 6 событий (дискриминатор `type`);
 - `AiDialogueClientEvent` — то, что клиент может отправить серверу (`userActions` | `userAvoidsNPC`);
 - `DialogueServerMessage` — обёртка сообщения (`id`, `dialogueId`, `createdAt`, `payload`);
-- `AiDialogueStreamEvent` — события SSE-потока (`message` / `chunk` / `turnDone` / `turnError`).
+- `AiDialogueStreamEvent` — события SSE-потока (`message` / `chunk` / `turnStarted` / `turnReset` / `turnDone` /
+  `turnError`).
 
 `types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного построчного текста: все поля
 опциональны, `type` может отсутствовать. `types/aiDialogueUi.ts` — `AiDialogueWordSelection` (`word`, `sentence`) и
@@ -50,6 +51,7 @@ SSE-протокол, генерация хода, компакция) опис�
 `ui/fn/openAiDialogueStream.ts` открывает `EventSource('/api/ai-dialogue/:id/stream')` и разбирает события в стор:
 
 - `message` → `upsertMessage(message)` + очистить превью (финализированное сообщение заменяет превью);
+- `turnStarted` → сбросить превью и ошибку + `setGenerating(true)` (плейсхолдер «ответ готовится» до первого `chunk`);
 - `chunk` → накопить текст; на первом чанке `setGenerating(true)` и сбросить ошибку; затем
   `parseAiDialoguePreview(accumulated)`;
 - `turnError` → `setTurnError(error)`;
