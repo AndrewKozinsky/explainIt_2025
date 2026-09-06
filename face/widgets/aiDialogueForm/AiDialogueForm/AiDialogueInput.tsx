@@ -1,11 +1,11 @@
 'use client'
 
 import { KeyboardEvent, useState } from 'react'
-import type { AiDialogueActionItem } from '@/entities/aiDialogue/types/aiDialogueMessage'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import { useAiDialogueStore } from '../aiDialogueStore'
-import { useAiDialogueSendMessage } from '../fn/useAiDialogueSendMessage'
+import type { AiDialogueActionItem } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { useAiDialogueSendMessage } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage'
+import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
 import './AiDialogueInput.scss'
 
 type AiDialogueInputProps = {

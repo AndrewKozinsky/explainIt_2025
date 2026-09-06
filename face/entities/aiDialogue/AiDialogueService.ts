@@ -1,7 +1,10 @@
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput } from './repository/AiDialogueRepository'
-import type { AiDialogueClientEvent, DialogueServerMessage } from './types/aiDialogueMessage'
+import type {
+	AiDialogueClientEvent,
+	DialogueServerMessage,
+} from '../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 
 export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput }
 

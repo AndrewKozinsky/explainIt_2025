@@ -1,12 +1,12 @@
-import { parseAiDialoguePreview } from '@/entities/aiDialogue/lib/parseAiDialoguePreview'
-import type { AiDialogueStreamEvent } from '@/entities/aiDialogue/types/aiDialogueMessage'
-import { useAiDialogueStore } from '../aiDialogueStore'
+import type { AiDialogueStreamEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { parseAiDialoguePreview } from '_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
+import { useAiDialogueStore } from '../../aiDialogueStore'
 
 /**
  * Открывает постоянное SSE-соединение с потоком диалога и разбирает события в стор.
  *
  * Соединение не закрывается по завершении хода — оно живёт, пока открыта страница
- * (см. aiDocsRus/topics/aiDialogue.md). Закрывает его вызывающий код при unmount.
+ * (см. aiDocsRus/topics/aiDialogues.md). Закрывает его вызывающий код при unmount.
  */
 export function openAiDialogueStream(dialogueId: number): EventSource {
 	const eventSource = new EventSource(buildStreamUrl(dialogueId))

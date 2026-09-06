@@ -1,5 +1,5 @@
-import type { AiDialogueWordSelectHandler } from '@/entities/aiDialogue/types/aiDialogueUi'
-import AiDialogueContentBlock from '../AiDialogueContentBlock/AiDialogueContentBlock'
+import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import './AiDialogueMessages.scss'
 
 type WorldEventMessageProps = {

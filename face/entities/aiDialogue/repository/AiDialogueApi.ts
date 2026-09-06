@@ -17,7 +17,11 @@ import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
 import type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput } from './AiDialogueRepository'
-import type { AiDialogueClientEvent, AiDialogueEvent, DialogueServerMessage } from '../types/aiDialogueMessage'
+import type {
+	AiDialogueClientEvent,
+	AiDialogueEvent,
+	DialogueServerMessage,
+} from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 
 /**
  * Реализация AiDialogueRepository через REST API.

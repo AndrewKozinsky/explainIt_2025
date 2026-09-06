@@ -1,6 +1,6 @@
 import { create } from 'zustand'
-import type { DialogueServerMessage } from '@/entities/aiDialogue/types/aiDialogueMessage'
-import type { AiDialoguePreviewEvent } from '@/entities/aiDialogue/types/aiDialoguePreview'
+import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 
 /**
  * Состояние страницы диалога с ИИ.

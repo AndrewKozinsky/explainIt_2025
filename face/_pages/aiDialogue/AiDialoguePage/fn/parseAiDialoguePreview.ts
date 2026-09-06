@@ -1,4 +1,7 @@
-import type { AiDialoguePreviewActionItem, AiDialoguePreviewEvent } from '@/entities/aiDialogue/types/aiDialoguePreview'
+import type {
+	AiDialoguePreviewActionItem,
+	AiDialoguePreviewEvent,
+} from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 
 type TextEventType = 'sceneUpdate' | 'help' | 'worldEvent'
 

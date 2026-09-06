@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { useAiDialogueStore } from '../aiDialogueStore'
+import { useAiDialogueStore } from '../../aiDialogueStore'
 import { openAiDialogueStream } from './openAiDialogueStream'
 
 /**

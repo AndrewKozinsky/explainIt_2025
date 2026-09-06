@@ -2,18 +2,18 @@
 
 ## Что делает функционал
 
-Ролевой диалог пользователя с LLM на иностранном языке. Пользователь выбирает сценарий
-(`AiDialogueScenario`) — например, визит к стоматологу — и в рамках **диалога** (`AiDialogue`)
-обменивается с LLM репликами: LLM играет роль NPC (врача, офицера, администратора), ведёт сцену и
-реагирует на действия пользователя.
+Ролевой диалог пользователя с LLM на иностранном языке. Пользователь выбирает сценарий (`AiDialogueScenario`) —
+например, визит к стоматологу — и в рамках **диалога** (`AiDialogue`)
+обменивается с LLM репликами: LLM играет роль NPC (врача, офицера, администратора), ведёт сцену и реагирует на действия
+пользователя.
 
 - один сценарий → **много** диалогов (ограничения на пару `(user, scenario)` нет);
 - диалог принадлежит **одному** пользователю;
 - диалог — контейнер: у него нет текстовых полей, вся переписка хранится в `AiDialogueMessage`;
 - **одно событие = одна строка** в `AiDialogueMessage` (реплика, смена сцены, подсказка и т. д.);
 - `id` сообщения назначает **сервер** (autoincrement), а не LLM;
-- обмен идёт по двум каналам: клиент → сервер через REST (`POST .../messages`), сервер → клиент через
-  постоянный SSE-поток (`GET .../stream`).
+- обмен идёт по двум каналам: клиент → сервер через REST (`POST .../messages`), сервер → клиент через постоянный
+  SSE-поток (`GET .../stream`).
 
 Сценарии описаны отдельно — см. `aiDocsRus/topics/aiDialogueScenario.md`. Страница самого диалога
 `/dialogues/{dialogId}` (SSE-клиент, стор, рендер событий, форма ввода) — см.
@@ -23,29 +23,29 @@
 
 ### `AiDialogue` (контейнер)
 
-| Поле          | Тип           | Описание                                                          |
-|---------------|---------------|-------------------------------------------------------------------|
-| `id`          | `Int`         | Первичный ключ (autoincrement)                                    |
-| `scenario_id` | `Int`         | FK → `AiDialogueScenario.id`, `onDelete: Cascade`                 |
-| `user_id`     | `Int`         | FK → `User.id`, `onDelete: Cascade`                               |
-| `source_language_code` | `LanguageCode` | Язык диалога — тот, который практикует ученик (реплики NPC)   |
-| `target_language_code` | `LanguageCode` | Язык перевода — родной язык ученика (поле `translation`)      |
-| `summary`     | `String?`     | Компактная сводка истории (JSON-строка, см. «Компакция»)          |
-| `summary_up_to` | `Int`       | `id` последнего сообщения, покрытого сводкой (default `0`)        |
-| `created_at` / `updated_at` | `DateTime` | Даты                                          |
+| Поле                        | Тип            | Описание                                                    |
+|-----------------------------|----------------|-------------------------------------------------------------|
+| `id`                        | `Int`          | Первичный ключ (autoincrement)                              |
+| `scenario_id`               | `Int`          | FK → `AiDialogueScenario.id`, `onDelete: Cascade`           |
+| `user_id`                   | `Int`          | FK → `User.id`, `onDelete: Cascade`                         |
+| `source_language_code`      | `LanguageCode` | Язык диалога — тот, который практикует ученик (реплики NPC) |
+| `target_language_code`      | `LanguageCode` | Язык перевода — родной язык ученика (поле `translation`)    |
+| `summary`                   | `String?`      | Компактная сводка истории (JSON-строка, см. «Компакция»)    |
+| `summary_up_to`             | `Int`          | `id` последнего сообщения, покрытого сводкой (default `0`)  |
+| `created_at` / `updated_at` | `DateTime`     | Даты                                                        |
 
 ### `AiDialogueMessage` (событие)
 
-Одна строка = одно событие. Колонка `type` хранит дискриминатор события, `payload` — JSON-тело события
-**без** поля `type` (ключи в camelCase).
+Одна строка = одно событие. Колонка `type` хранит дискриминатор события, `payload` — JSON-тело события **без** поля
+`type` (ключи в camelCase).
 
-| Поле         | Тип       | Описание                                                       |
-|--------------|-----------|----------------------------------------------------------------|
-| `id`         | `Int`     | Первичный ключ (autoincrement), назначается сервером           |
-| `dialogue_id`| `Int`     | FK → `AiDialogue.id`, `onDelete: Cascade`                      |
-| `type`       | enum `AiDialogueMessageType` | Дискриминатор события            |
-| `payload`    | `String`  | JSON-тело события (без `type`)                                 |
-| `created_at` | `DateTime`| Дата создания                                                  |
+| Поле          | Тип                          | Описание                                             |
+|---------------|------------------------------|------------------------------------------------------|
+| `id`          | `Int`                        | Первичный ключ (autoincrement), назначается сервером |
+| `dialogue_id` | `Int`                        | FK → `AiDialogue.id`, `onDelete: Cascade`            |
+| `type`        | enum `AiDialogueMessageType` | Дискриминатор события                                |
+| `payload`     | `String`                     | JSON-тело события (без `type`)                       |
+| `created_at`  | `DateTime`                   | Дата создания                                        |
 
 ## Статус: что уже сделано
 
@@ -55,9 +55,8 @@
 - SSE-поток `GET .../stream`: replay истории + подписка на новые события + запуск первого хода.
 - Генерация хода LLM (стриминг + построчный парсинг событий), рассылка через in-memory шину.
 - Фоновая компакция истории в `AiDialogue.summary` (append-only).
-- Клиент: entity-слой `AiDialogue` (list/create/delete), секция «История диалогов», создание по клику на
-  сценарий, страница диалога `/dialogues/{dialogId}` и клиентский слой сообщений
-  (см. `aiDocsRus/topics/aiDialoguePage.md`).
+- Клиент: entity-слой `AiDialogue` (list/create/delete), секция «История диалогов», создание по клику на сценарий,
+  страница диалога `/dialogues/{dialogId}` и клиентский слой сообщений (см. `aiDocsRus/topics/aiDialoguePage.md`).
 - Языковая модель: сценарий языконейтрален, языки задаются на диалоге (`source_language_code` — практика,
   `target_language_code` — перевод); `title`/`description` сценария — JSON-строки переводов (резолв на клиенте через
   `pickLocalized`).
@@ -82,21 +81,22 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 
 ```json
 {
+  "id": 1,
+  "sourceLanguageCode": "en",
+  "targetLanguageCode": "ru",
+  "scenario": {
     "id": 1,
-    "sourceLanguageCode": "en",
-    "targetLanguageCode": "ru",
-    "scenario": {
-        "id": 1,
-        "slug": "at-the-dentist",
-        "title": "{\"en\":\"At the Dentist\",\"ru\":\"У стоматолога\", ...}",
-        "description": "{\"en\":\"...\",\"ru\":\"...\"}"
-    },
-    "createdAt": "2026-09-02T10:41:57.000Z",
-    "updatedAt": "2026-09-02T10:41:57.000Z"
+    "slug": "at-the-dentist",
+    "title": "{\"en\":\"At the Dentist\",\"ru\":\"У стоматолога\", ...}",
+    "description": "{\"en\":\"...\",\"ru\":\"...\"}"
+  },
+  "createdAt": "2026-09-02T10:41:57.000Z",
+  "updatedAt": "2026-09-02T10:41:57.000Z"
 }
 ```
 
 **Обрати внимание:**
+
 - `system_prompt` сценария не попадает в ответ (как и в списке сценариев) — он не отдаётся клиенту.
 - `sourceLanguageCode` — язык практики, `targetLanguageCode` — язык перевода (см. «Доменная модель»).
 - `scenario.title`/`scenario.description` — сырые JSON-строки переводов; резолвит их клиент через `pickLocalized`.
@@ -105,10 +105,22 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 
 ```json
 {
-    "id": 10,
-    "dialogueId": 1,
-    "payload": { "type": "npcActions", "npcId": "...", "npcName": "...", "npcRole": "...", "emotion": "...", "actions": [{"type": "speech", "content": "..."}] },
-    "createdAt": "2026-09-03T10:00:00.000Z"
+  "id": 10,
+  "dialogueId": 1,
+  "payload": {
+    "type": "npcActions",
+    "npcId": "...",
+    "npcName": "...",
+    "npcRole": "...",
+    "emotion": "...",
+    "actions": [
+      {
+        "type": "speech",
+        "content": "..."
+      }
+    ]
+  },
+  "createdAt": "2026-09-03T10:00:00.000Z"
 }
 ```
 
@@ -122,8 +134,8 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
   `403` `USER_IS_NOT_OWNER`).
 - Повторные вызовы создают новые диалоги.
 
-Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см. `aiDocsRus/topics/aiDialogueScenario.md`).
-На клиенте `sourceLanguageCode` пока временно захардкожен как `'en'` (см. `useAiDialogueScenarioClick`).
+Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см. `aiDocsRus/topics/aiDialogueScenario.md`). На
+клиенте `sourceLanguageCode` пока временно захардкожен как `'en'` (см. `useAiDialogueScenarioClick`).
 
 ### Удаление диалога
 
@@ -132,8 +144,8 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 
 ### Отправка сообщения (действие пользователя)
 
-`POST /ai-dialogue/:id/messages` — единственный канал «клиент → сервер». Клиент может отправить только
-событие пользователя (`CreateAiDialogueMessageInput`):
+`POST /ai-dialogue/:id/messages` — единственный канал «клиент → сервер». Клиент может отправить только событие
+пользователя (`CreateAiDialogueMessageInput`):
 
 ```ts
 type CreateAiDialogueMessageInput =
@@ -145,43 +157,42 @@ type CreateAiDialogueMessageInput =
 
 1. Если для диалога уже идёт генерация (`generationAlreadyActive`) — возвращает
    `400` `AI_DIALOGUE_GENERATION_ALREADY_ACTIVE` (нельзя действовать, пока NPC отвечает).
-2. Иначе сохраняет сообщение и **fire-and-forget** запускает генерацию ответа (результат доедет через
-   SSE).
+2. Иначе сохраняет сообщение и **fire-and-forget** запускает генерацию ответа (результат доедет через SSE).
 
 ## События диалога
 
 Дискриминированный union `AiDialogueEvent` (в `types/aiDialogueMessage.ts`). `type` — дискриминатор.
 
-| `type`          | Поля                                    | Кто генерирует        |
-|-----------------|-----------------------------------------|-----------------------|
-| `sceneUpdate`   | `content: string`, `translation`        | LLM                   |
-| `npcActions`    | `npcId`, `npcName`, `npcRole`, `emotion`, `actions` | LLM   |
-| `help`          | `content: string`, `translation`        | LLM                   |
-| `worldEvent`    | `content: string`, `translation`        | LLM                   |
-| `userActions`   | `actions`                               | клиент                |
-| `userAvoidsNPC` | —                                       | клиент                |
+| `type`          | Поля                                                | Кто генерирует |
+|-----------------|-----------------------------------------------------|----------------|
+| `sceneUpdate`   | `content: string`, `translation`                    | LLM            |
+| `npcActions`    | `npcId`, `npcName`, `npcRole`, `emotion`, `actions` | LLM            |
+| `help`          | `content: string`, `translation`                    | LLM            |
+| `worldEvent`    | `content: string`, `translation`                    | LLM            |
+| `userActions`   | `actions`                                           | клиент         |
+| `userAvoidsNPC` | —                                                   | клиент         |
 
-`actions` — массив `AiDialogueActionItem = { type: 'action' | 'speech'; content: string }` (`action` —
-невербальное действие, `speech` — реплика).
+`actions` — массив `AiDialogueActionItem = { type: 'action' | 'speech'; content: string }` (`action` — невербальное
+действие, `speech` — реплика).
 
-Событие `help` — это не перевод и не повторение реплики NPC. LLM создаёт его только тогда, когда пользователю
-может быть непонятно, какое действие совершить дальше, и NPC не дал ясную прямую инструкцию. Если NPC уже задал
-прямой вопрос или попросил о конкретном действии, дополнительный `help` не создаётся. Например, после стука в дверь
-можно отправить `help` с предложением открыть дверь, но после реплики NPC «Какой абонемент вы хотите купить?» такой
+Событие `help` — это не перевод и не повторение реплики NPC. LLM создаёт его только тогда, когда пользователю может быть
+непонятно, какое действие совершить дальше, и NPC не дал ясную прямую инструкцию. Если NPC уже задал прямой вопрос или
+попросил о конкретном действии, дополнительный `help` не создаётся. Например, после стука в дверь можно отправить `help`
+с предложением открыть дверь, но после реплики NPC «Какой абонемент вы хотите купить?» такой
 `help` будет дублированием и не нужен.
 
-Сервер **сам** никогда не генерирует `userActions`/`userAvoidsNPC` от имени пользователя — эти два типа
-выделены в отдельный тип `AiDialogueClientEvent`.
+Сервер **сам** никогда не генерирует `userActions`/`userAvoidsNPC` от имени пользователя — эти два типа выделены в
+отдельный тип `AiDialogueClientEvent`.
 
-Событие `userAvoidsNPC` означает «пользователь ушёл от текущего NPC». LLM должен отреагировать на уход (текущий
-NPC прощается или уточняет, не продолжая прежнюю просьбу) и затем представить другого NPC, уместного по сцене,
-чтобы ученик мог продолжить практику. Персонажей LLM придумывает сам, исходя из сценария (правила — в
+Событие `userAvoidsNPC` означает «пользователь ушёл от текущего NPC». LLM должен отреагировать на уход (текущий NPC
+прощается или уточняет, не продолжая прежнюю просьбу) и затем представить другого NPC, уместного по сцене, чтобы ученик
+мог продолжить практику. Персонажей LLM придумывает сам, исходя из сценария (правила — в
 `buildAiDialoguePrompt`).
 
 ## SSE-протокол
 
-`GET /api/ai-dialogue/:id/stream` — постоянное соединение (открывается один раз при открытии страницы
-диалога). Каждый фрейм — `MessageEvent`, `data` которого — `AiDialogueStreamEvent`:
+`GET /api/ai-dialogue/:id/stream` — постоянное соединение (открывается один раз при открытии страницы диалога). Каждый
+фрейм — `MessageEvent`, `data` которого — `AiDialogueStreamEvent`:
 
 ```
 { "type": "message",  "message": DialogueServerMessage }   // одно сохранённое сообщение
@@ -193,10 +204,10 @@ NPC прощается или уточняет, не продолжая преж
 
 - `message` — используется и для **replay** истории (при подключении), и для новых событий. Обёртка
   `DialogueServerMessage = { id, dialogueId, createdAt, payload }`.
-- `chunk` — сырой фрагмент ответа LLM. Клиент собирает из него превью построчным парсером
-  (`parseAiDialoguePreview`); авторитетный разбор делает сервер (`parseAiDialogueEvents`) в конце стрима.
-- `turnReset` — сервер начал повторную попытку генерации после провала парсинга. Клиент сбрасывает
-  накопленное превью (`accumulated` и `preview`), но `isGenerating` остаётся `true`.
+- `chunk` — сырой фрагмент ответа LLM. Клиент собирает из него превью построчным парсером (`parseAiDialoguePreview`);
+  авторитетный разбор делает сервер (`parseAiDialogueEvents`) в конце стрима.
+- `turnReset` — сервер начал повторную попытку генерации после провала парсинга. Клиент сбрасывает накопленное превью
+  (`accumulated` и `preview`), но `isGenerating` остаётся `true`.
 - `turnDone` — сигнал, что можно снова действовать (после каждого хода, даже при ошибке).
 
 ### Порядок при подключении
@@ -204,8 +215,7 @@ NPC прощается или уточняет, не продолжая преж
 1. Клиент открывает SSE-соединение.
 2. Сервер проверяет существование и владение диалога.
 3. Подписывается на in-memory шину диалога (чтобы ловить события параллельной генерации).
-4. Отдаёт **replay** всех сохранённых сообщений (дедуп по `id` — события, уже пришедшие через шину,
-   не повторяются).
+4. Отдаёт **replay** всех сохранённых сообщений (дедуп по `id` — события, уже пришедшие через шину, не повторяются).
 5. Если диалог «ждёт хода» (см. ниже) — запускает генерацию первого ответа.
 
 Соединение не закрывается по завершении хода — оно живёт, пока открыта страница.
@@ -219,16 +229,16 @@ NPC прощается или уточняет, не продолжая преж
 - `GetUserDialoguesCommand` → `AiDialogueQueryRepository.getUserDialogues`.
 - `DeleteAiDialogueCommand` → проверка владения → `AiDialogueRepository.deleteDialogueById`.
 - `CreateAiDialogueMessageCommand` → проверка существования/владения → запрет при активной генерации →
-  `AiDialogueMessageRepository.createMessage` → `AiDialogueQueryRepository.getMessageById` → fire-and-forget
-  запуск `GenerateAiDialogueTurn`.
+  `AiDialogueMessageRepository.createMessage` → `AiDialogueQueryRepository.getMessageById` → fire-and-forget запуск
+  `GenerateAiDialogueTurn`.
 
 SSE-эндпоинт не использует CQRS: контроллер напрямую подписывается на `AiDialogueSseHub` и вызывает
 `GenerateAiDialogueTurn.triggerIfNeeded`.
 
 ## Генерация хода (`GenerateAiDialogueTurn`)
 
-Сервис `features/aiDialogue/GenerateAiDialogueTurn.service.ts`. Один «ход» = один вызов LLM, который может
-вернуть **несколько** событий (плоским построчным текстом, см. «Стриминг и формат ответа»).
+Сервис `features/aiDialogue/GenerateAiDialogueTurn.service.ts`. Один «ход» = один вызов LLM, который может вернуть
+**несколько** событий (плоским построчным текстом, см. «Стриминг и формат ответа»).
 
 ### Когда генерировать («ждёт ли диалог хода»)
 
@@ -244,16 +254,15 @@ SSE-эндпоинт не использует CQRS: контроллер нап
    `AbortController` в `ActiveAiDialogueGenerationRegistry` (лимит — **1 активная генерация на диалог**).
 2. Читает диалог (нужен `summary`, `summary_up_to`, `scenario_id`) и сценарий.
 3. Читает все сообщения; «свежие» события = сообщения с `id > summary_up_to`.
-4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий построчный
-   контракт ответа + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события).
-   Язык диалога берётся из `source_language_code`, язык перевода/подсказок — из `target_language_code`.
-5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'text' })`, накапливает текст и
-   рассылает сырые `chunk`-события в шину.
-6. В конце парсит накопленный текст через `parseAiDialogueEvents` («спасающий» построчный разбор —
-   недостающий `translation` хвостового блока подставляется как `''`, битые блоки отбрасываются).
-   Если не удалось спасти ни одного события — повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с
-   корректирующей подсказкой; между попытками клиенту шлётся `turnReset`. Если и повтор не удался —
-   ошибка `cannotParseLlmResponse`.
+4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий построчный контракт
+   ответа + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события). Язык диалога берётся из
+   `source_language_code`, язык перевода/подсказок — из `target_language_code`.
+5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'text' })`, накапливает текст и рассылает сырые `chunk`
+   -события в шину.
+6. В конце парсит накопленный текст через `parseAiDialogueEvents` («спасающий» построчный разбор — недостающий
+   `translation` хвостового блока подставляется как `''`, битые блоки отбрасываются). Если не удалось спасти ни одного
+   события — повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с корректирующей подсказкой; между попытками клиенту
+   шлётся `turnReset`. Если и повтор не удался — ошибка `cannotParseLlmResponse`.
 7. Каждое событие сохраняет (`createMessage`) и рассылает как `message`.
 8. В `finally`: снимает регистрацию в registry и рассылает `turnDone`.
 9. После хода (уже вне registry) fire-and-forget вызывает `SummarizeAiDialogue.summarizeIfNeeded`.
@@ -262,9 +271,9 @@ SSE-эндпоинт не использует CQRS: контроллер нап
 
 ### Стриминг и формат ответа
 
-LLM отвечает **плоским построчным текстом** (`responseFormat: 'text'`), а не JSON — так контент реплики
-стримится обычными строками и рисуется на клиенте посимвольно. Один ход = один или несколько блоков,
-разделённых **ровно одной пустой строкой**; блок = строка-заголовок + поля по одной строке.
+LLM отвечает **плоским построчным текстом** (`responseFormat: 'text'`), а не JSON — так контент реплики стримится
+обычными строками и рисуется на клиенте посимвольно. Один ход = один или несколько блоков, разделённых **ровно одной
+пустой строкой**; блок = строка-заголовок + поля по одной строке.
 
 ```
 npcActions|<npcId>|<npcName>|<npcRole>|<emotion>
@@ -284,25 +293,24 @@ sceneUpdate
 
 Заголовки текстовых событий — `sceneUpdate`, `help`, `worldEvent` (без полей, затем `content` и
 `translation`). Внутри `npcActions` повторяются тройки `метка:` / `content` / `translation`, где метка —
-`action:` или `speech:`. `translation` присутствует **всегда** (`targetLanguageCode` обязателен). «Ничего
-не говорить» → пустой ответ.
+`action:` или `speech:`. `translation` присутствует **всегда** (`targetLanguageCode` обязателен). «Ничего не говорить» →
+пустой ответ.
 
-Сырые чанки отдаются клиенту для превью (толерантный построчный разбор `parseAiDialoguePreview`), а
-**авторитетный разбор** событий делает сервер на полном накопленном тексте (`parseAiDialogueEvents`).
-По умолчанию используется DeepSeek (`DEFAULT_FLASH_AI_MODEL`) — выбор модели клиентом не реализован.
+Сырые чанки отдаются клиенту для превью (толерантный построчный разбор `parseAiDialoguePreview`), а **авторитетный
+разбор** событий делает сервер на полном накопленном тексте (`parseAiDialogueEvents`). По умолчанию используется
+DeepSeek (`DEFAULT_FLASH_AI_MODEL`) — выбор модели клиентом не реализован.
 
 ### Реестр активных генераций
 
-`ActiveAiDialogueGenerationRegistry` — `Map<dialogueId, AbortController>`. В отличие от SentenceChat (лимит
-на пользователя), здесь лимит **на диалог**. `AbortController` зарезервирован под будущую отмену: сейчас
-генерация не привязана к жизни SSE-соединения (она продолжается и при отключении клиента, т.к. результат
-пишется в БД).
+`ActiveAiDialogueGenerationRegistry` — `Map<dialogueId, AbortController>`. В отличие от SentenceChat (лимит на
+пользователя), здесь лимит **на диалог**. `AbortController` зарезервирован под будущую отмену: сейчас генерация не
+привязана к жизни SSE-соединения (она продолжается и при отключении клиента, т.к. результат пишется в БД).
 
 ### In-memory шина (`AiDialogueSseHub`)
 
-`Map<dialogueId, Subject<MessageEvent>>`. SSE-эндпоинт подписывается на `Subject` своего диалога, а
-генерация пушит события в него. Благодаря этому события, порождённые POST-запросом (в другом HTTP-запросе),
-доезжают до уже открытого SSE-соединения. Субъекты не вычищаются (диалогов немного, `Subject` пустой).
+`Map<dialogueId, Subject<MessageEvent>>`. SSE-эндпоинт подписывается на `Subject` своего диалога, а генерация пушит
+события в него. Благодаря этому события, порождённые POST-запросом (в другом HTTP-запросе), доезжают до уже открытого
+SSE-соединения. Субъекты не вычищаются (диалогов немного, `Subject` пустой).
 
 ## Компакция истории (`SummarizeAiDialogue`)
 
@@ -311,7 +319,20 @@ sceneUpdate
 
 ```json
 [
-  { "state": { "scene": "...", "activeNpcId": "...", "roster": [{"npcId":"...","npcName":"...","npcRole":"..."}] }, "history": "краткий пересказ" }
+  {
+    "state": {
+      "scene": "...",
+      "activeNpcId": "...",
+      "roster": [
+        {
+          "npcId": "...",
+          "npcName": "...",
+          "npcRole": "..."
+        }
+      ]
+    },
+    "history": "краткий пересказ"
+  }
 ]
 ```
 
@@ -328,24 +349,24 @@ sceneUpdate
   дописывается в `history` последнего блока.
 - `summary_up_to` сдвигается на `id` последнего сжатого сообщения.
 
-Выполняется в фоне после завершения хода (не блокирует клиента и не занимает registry), защита от
-параллельного запуска — `Set` `inFlight`. Ошибки компакции только логируются.
+Выполняется в фоне после завершения хода (не блокирует клиента и не занимает registry), защита от параллельного
+запуска — `Set` `inFlight`. Ошибки компакции только логируются.
 
 ## База данных
 
 ### Таблица AiDialogue
 
-| Поле          | Тип           | Описание                                                          |
-|---------------|---------------|-------------------------------------------------------------------|
-| `id`          | `Int`         | Первичный ключ (autoincrement)                                    |
-| `scenario_id` | `Int`         | FK → `AiDialogueScenario.id`, `onDelete: Cascade`                 |
-| `user_id`     | `Int`         | FK → `User.id`, `onDelete: Cascade`                               |
-| `source_language_code` | `LanguageCode` | Язык диалога (практикуемый язык, реплики NPC)                 |
-| `target_language_code` | `LanguageCode` | Язык перевода (родной язык, поле `translation`)               |
-| `summary`     | `String?`     | Сводка истории (JSON-строка, см. «Компакция»)                     |
-| `summary_up_to` | `Int`       | `id` последнего сообщения, покрытого сводкой (default `0`)        |
-| `created_at`  | `DateTime`    | Дата создания                                                     |
-| `updated_at`  | `DateTime`    | Дата последнего изменения                                         |
+| Поле                   | Тип            | Описание                                                   |
+|------------------------|----------------|------------------------------------------------------------|
+| `id`                   | `Int`          | Первичный ключ (autoincrement)                             |
+| `scenario_id`          | `Int`          | FK → `AiDialogueScenario.id`, `onDelete: Cascade`          |
+| `user_id`              | `Int`          | FK → `User.id`, `onDelete: Cascade`                        |
+| `source_language_code` | `LanguageCode` | Язык диалога (практикуемый язык, реплики NPC)              |
+| `target_language_code` | `LanguageCode` | Язык перевода (родной язык, поле `translation`)            |
+| `summary`              | `String?`      | Сводка истории (JSON-строка, см. «Компакция»)              |
+| `summary_up_to`        | `Int`          | `id` последнего сообщения, покрытого сводкой (default `0`) |
+| `created_at`           | `DateTime`     | Дата создания                                              |
+| `updated_at`           | `DateTime`     | Дата последнего изменения                                  |
 
 - Индексы: `@@index([user_id])`, `@@index([scenario_id])`.
 - Обратные связи: `User.AiDialogue`, `AiDialogueScenario.AiDialogue`, `AiDialogue.AiDialogueMessage`
@@ -353,13 +374,13 @@ sceneUpdate
 
 ### Таблица AiDialogueMessage
 
-| Поле         | Тип                          | Описание                                        |
-|--------------|------------------------------|-------------------------------------------------|
-| `id`         | `Int`                        | Первичный ключ (autoincrement)                  |
-| `dialogue_id`| `Int`                        | FK → `AiDialogue.id`, `onDelete: Cascade`       |
-| `type`       | enum `AiDialogueMessageType` | `sceneUpdate`/`help`/`npcActions`/`userActions`/`userAvoidsNPC`/`worldEvent` |
-| `payload`    | `String`                     | JSON-тело события (без `type`, ключи camelCase) |
-| `created_at` | `DateTime`                   | Дата создания                                   |
+| Поле          | Тип                          | Описание                                                                     |
+|---------------|------------------------------|------------------------------------------------------------------------------|
+| `id`          | `Int`                        | Первичный ключ (autoincrement)                                               |
+| `dialogue_id` | `Int`                        | FK → `AiDialogue.id`, `onDelete: Cascade`                                    |
+| `type`        | enum `AiDialogueMessageType` | `sceneUpdate`/`help`/`npcActions`/`userActions`/`userAvoidsNPC`/`worldEvent` |
+| `payload`     | `String`                     | JSON-тело события (без `type`, ключи camelCase)                              |
+| `created_at`  | `DateTime`                   | Дата создания                                                                |
 
 - Индекс: `@@index([dialogue_id])`.
 
@@ -386,10 +407,9 @@ sceneUpdate
 - `server/src/features/aiDialogue/CreateAiDialogue.command.ts` — создание диалога.
 - `server/src/features/aiDialogue/GetUserDialogues.command.ts` — список диалогов пользователя.
 - `server/src/features/aiDialogue/DeleteAiDialogue.command.ts` — удаление диалога.
-- `server/src/features/aiDialogue/CreateAiDialogueMessage.command.ts` — приём действия пользователя +
-  триггер генерации.
-- `server/src/features/aiDialogue/GenerateAiDialogueTurn.service.ts` — генерация хода (стрим → парс →
-  сохранение → шина).
+- `server/src/features/aiDialogue/CreateAiDialogueMessage.command.ts` — приём действия пользователя + триггер генерации.
+- `server/src/features/aiDialogue/GenerateAiDialogueTurn.service.ts` — генерация хода (стрим → парс → сохранение →
+  шина).
 - `server/src/features/aiDialogue/SummarizeAiDialogue.service.ts` — фоновая компакция истории.
 - `server/src/features/aiDialogue/ActiveAiDialogueGenerationRegistry.service.ts` — лимит 1 генерация/диалог.
 - `server/src/features/aiDialogue/AiDialogueSseHub.service.ts` — in-memory шина SSE-событий.
@@ -420,15 +440,14 @@ sceneUpdate
 - `server/src/repo/aiDialogue/aiDialogue.queryRepository.ts` — `getUserDialogues`, `getDialogueById`,
   `getMessagesByDialogueId`, `getMessageById`, маппинг в OutModel (`mapDbMessageToOutModel` +
   `deserializeEvent`).
-- `server/src/repo/aiDialogue/aiDialogueMessage.repository.ts` — `createMessage` (type в колонку,
-  тело в JSON `payload`).
+- `server/src/repo/aiDialogue/aiDialogueMessage.repository.ts` — `createMessage` (type в колонку, тело в JSON`payload`).
 - `server/src/models/aiDialogue/aiDialogue.out.model.ts` — `AiDialogueOutModel` с вложенным `scenario`.
 - `server/src/models/aiDialogue/aiDialogueMessage.out.model.ts` — `AiDialogueMessageOutModel`.
 
 ### Инфраструктура
 
 - `server/src/app.module.ts` — регистрация `AiDialogueModule`.
-- `server/src/infrastructure/exceptions/errorMessage.ts` — секция `aiDialogue` (`notFound`,
+- `server/src/infrastructure/exceptions/errorMessage.ts` — секция `aiDialogues` (`notFound`,
   `scenarioNotFound`, `generationAlreadyActive`, `cannotParseLlmResponse`).
 - `server/src/infrastructure/llmProviderAdapter/LlmProvider.interface.ts` — `responseFormat`
   (`'text' | 'json_object'`) в `LlmStreamInput`.
@@ -439,10 +458,10 @@ sceneUpdate
 - `face/entities/aiDialogue/repository/AiDialogueApi.ts` — реализация через REST + маппинг.
 - `face/entities/aiDialogue/AiDialogueService.ts` — сервис.
 - `face/entities/aiDialogue/AiDialogueQueryFacade.ts` — TanStack Query фасад.
-- `face/widgets/aiDialogue/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя.
-- `face/widgets/aiDialogue/UserAiDialoguesList/fn/getDialoguesCardsConfig.ts` — маппинг диалогов в карточки (резолвит
-  название через `pickLocalized`).
-- `face/widgets/aiDialogue/UserAiDialoguesList/fn/useAiDialogueDelete.ts` — удаление диалога.
+- `../../face/widgets/aiDialogues/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя.
+- `../../face/widgets/aiDialogues/UserAiDialoguesList/fn/getDialoguesCardsConfig.ts` — маппинг диалогов в карточки
+  (резолвит название через `pickLocalized`).
+- `../../face/widgets/aiDialogues/UserAiDialoguesList/fn/useAiDialogueDelete.ts` — удаление диалога.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
   (создаёт диалог; `sourceLanguageCode` пока `'en'`).
 - `face/shared/utils/pickLocalized.ts` — резолв JSON-строки переводов под локаль.
@@ -468,8 +487,8 @@ sceneUpdate
 
 1. Если пользователь не вошёл (`useUser()` → `null`) — `LoginPromptModal`.
 2. Иначе `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode })`.
-   - `sourceLanguageCode` — пока временно `'en'` (захардкожено, с TODO);
-   - `targetLanguageCode` — текущая локаль интерфейса (`locale`).
+    - `sourceLanguageCode` — пока временно `'en'` (захардкожено, с TODO);
+    - `targetLanguageCode` — текущая локаль интерфейса (`locale`).
 3. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
 
 ### История диалогов
@@ -486,8 +505,7 @@ sceneUpdate
 - `notFound` — диалог не найден (`404`).
 - `scenarioNotFound` — сценарий не найден при создании диалога (`404`).
 - `generationAlreadyActive` — для диалога уже идёт генерация (`400`), нельзя отправить действие пользователя.
-- `cannotParseLlmResponse` — не удалось разобрать ответ LLM в события (`500`, уходит в `turnError`, а не
-  роняет SSE).
+- `cannotParseLlmResponse` — не удалось разобрать ответ LLM в события (`500`, уходит в `turnError`, а не роняет SSE).
 
 Плюс `user.isNotOwner` (`403`) при доступе к чужому диалогу.
 

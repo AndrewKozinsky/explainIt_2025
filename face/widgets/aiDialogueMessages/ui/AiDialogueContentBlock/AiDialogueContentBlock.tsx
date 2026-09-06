@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import type { AiDialogueWordSelectHandler } from '@/entities/aiDialogue/types/aiDialogueUi'
-import SegmentedText from '../SegmentedText/SegmentedText'
+import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import SegmentedText from '@/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText'
 import './AiDialogueContentBlock.scss'
 
 type AiDialogueContentBlockProps = {

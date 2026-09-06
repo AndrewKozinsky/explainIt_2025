@@ -1,5 +1,5 @@
-import type { AiDialoguePreviewEvent } from '@/entities/aiDialogue/types/aiDialoguePreview'
-import type { AiDialogueWordSelectHandler } from '@/entities/aiDialogue/types/aiDialogueUi'
+import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
+import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import HelpMessage from '../messages/HelpMessage'
 import NpcActionsMessage from '../messages/NpcActionsMessage'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage'

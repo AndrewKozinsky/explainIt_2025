@@ -2,9 +2,9 @@
 
 import { useCallback, useContext, useState } from 'react'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
-import type { AiDialogueActionItem, AiDialogueClientEvent } from '@/entities/aiDialogue/types/aiDialogueMessage'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import { useAiDialogueStore } from '../aiDialogueStore'
+import type { AiDialogueActionItem, AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { useAiDialogueStore } from '../../aiDialogueStore'
 
 /**
  * Хук отправки события пользователя в диалог (действие/реплика или уход от NPC).

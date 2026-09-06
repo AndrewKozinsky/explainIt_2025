@@ -9,7 +9,7 @@ import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPa
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import UserAiDialoguesList from '@/widgets/aiDialogue/UserAiDialoguesList/UserAiDialoguesList'
+import UserAiDialoguesList from '@/widgets/aiDialogues/UserAiDialoguesList/UserAiDialoguesList'
 import PublicAiDialogueScenariosList from '@/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList'
 import { useAiDialogueScenariosTabs } from './fn/useAiDialogueScenariosTabs'
 import './AiDialoguesPage.scss'

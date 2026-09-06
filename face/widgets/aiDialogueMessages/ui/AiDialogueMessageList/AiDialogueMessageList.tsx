@@ -1,7 +1,7 @@
-import type { DialogueServerMessage } from '@/entities/aiDialogue/types/aiDialogueMessage'
-import type { AiDialoguePreviewEvent } from '@/entities/aiDialogue/types/aiDialoguePreview'
-import type { AiDialogueWordSelectHandler } from '@/entities/aiDialogue/types/aiDialogueUi'
-import AiDialogMessageRouter from '../AiDialogMessageRouter/AiDialogMessageRouter'
+import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
+import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import AiDialogMessageRouter from '@/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage'
 import './AiDialogueMessageList.scss'
 

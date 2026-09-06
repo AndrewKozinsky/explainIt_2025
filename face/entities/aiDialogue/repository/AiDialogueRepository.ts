@@ -5,7 +5,10 @@
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
-import type { AiDialogueClientEvent, DialogueServerMessage } from '../types/aiDialogueMessage'
+import type {
+	AiDialogueClientEvent,
+	DialogueServerMessage,
+} from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 
 export type AiDialogueModel = {
 	id: number
