@@ -17,9 +17,16 @@ export function useFetchSentenceTranslation(input: MediaTranslationContext) {
 			return item.sentenceId === selectedSentenceId
 		})
 
-		if (!foundSentence || foundSentence.data.translation.translation || foundSentence.data.translation.loading) {
-			return
-		}
+		if (!foundSentence) return
+
+		// Выбранное предложение должно стать видимым даже при наличии
+		// перевода, загруженного вместе с данными главы.
+		state.patchSentenceTranslation({
+			sentenceId: selectedSentenceId,
+			patch: { visible: true },
+		})
+
+		if (foundSentence.data.translation.translation || foundSentence.data.translation.loading) return
 
 		void fetchSentence({
 			...input,

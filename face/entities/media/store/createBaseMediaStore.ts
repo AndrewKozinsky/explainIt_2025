@@ -58,7 +58,7 @@ export function createBaseMediaStore() {
 							loading: false,
 							error: null,
 							translation: sentence.sentenceTranslation?.translation ?? null,
-							visible: true,
+							visible: false,
 						},
 						phrases: [],
 					},
