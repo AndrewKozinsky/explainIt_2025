@@ -5,11 +5,13 @@ import { useMutation } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { authQueries } from '@/entities/auth/AuthQueryFacade'
+import { useSetUser } from '@/shared/api/auth/UserProvider'
 import { pageUrls, localizePath } from '@/shared/utils/pageUrls'
 
 export function useGetLogout() {
 	const router = useRouter()
 	const locale = useLocale()
+	const setUser = useSetUser()
 
 	const { mutateAsync: logout } = useMutation(authQueries.logout())
 
@@ -20,11 +22,10 @@ export function useGetLogout() {
 				console.error(result.error)
 				return
 			}
-			// No setUser(null) here — on the current page MePageLayout
-			// would react and call redirect(), conflicting with router.push().
-			// The new page will get user=null from the server.
+
+			setUser(null)
 			router.push(localizePath(locale, pageUrls.main.path))
 		},
-		[logout, router, locale],
+		[logout, router, locale, setUser],
 	)
 }
