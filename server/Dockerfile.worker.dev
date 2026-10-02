@@ -1,4 +1,4 @@
-FROM node:24.11.1
+FROM node:24.21.0
 
 # Ensure TLS works for Prisma binary downloads and install ffmpeg + ffprobe
 # (required by the subtitles generation worker for audio extraction and probing).

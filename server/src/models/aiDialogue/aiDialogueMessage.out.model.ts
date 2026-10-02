@@ -7,14 +7,14 @@ const $ = bdConfig.AiDialogueMessage.dbFields
 
 export class AiDialogueMessageOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
-		id: number
+	id: number
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.id))
-		dialogueId: number
+	dialogueId: number
 
 	@ApiProperty({ description: 'Event payload (discriminated by its type field)' })
-		payload: AiDialogueEvent
+	payload: AiDialogueEvent
 
 	@ApiProperty(getApiPropertyOptions($.created_at))
-		createdAt: string
+	createdAt: string
 }

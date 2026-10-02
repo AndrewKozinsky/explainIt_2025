@@ -4,8 +4,8 @@ import { BadRequestException, INestApplication, ValidationPipe } from '@nestjs/c
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 import { useContainer, ValidationError } from 'class-validator'
 import { RedisStore } from 'connect-redis'
-import * as cookieParser from 'cookie-parser'
-import * as session from 'express-session'
+import cookieParser = require('cookie-parser')
+import session = require('express-session')
 import { AppModule } from '../app.module'
 import { MainConfigService } from './mainConfig/mainConfig.service'
 import { RedisService } from './redis/redis.service'
