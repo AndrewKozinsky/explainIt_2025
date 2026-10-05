@@ -5,7 +5,7 @@
 Страница `/dialogues/{dialogId}` (`_pages/aiDialogue/AiDialoguePage`), на которой пользователь общается с LLM-«NPC» в
 рамках выбранного сценария. Это **клиентская** часть фичи AiDialogue — серверная часть (доменная модель, REST,
 SSE-протокол, генерация хода, компакция) описана в
-`aiDocsRus/topics/aiDialogue.md`.
+`aiDocsRus/topics/aiDialogue/aiDialogue.md`.
 
 Страница полностью клиентская (`'use client'`). Взаимодействие:
 

@@ -22,9 +22,9 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/internationalization.md`            | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale                                                |
 | `aiDocsRus/topics/multiRegionDeployment.md`           | регионы, деплой, GitHub Actions, explainit.ru, immersia.site, серверы, CI/CD                                                   |
 | `aiDocsRus/topics/sentenceChat.md`                    | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread                                                                     |
-| `aiDocsRus/topics/aiDialogueScenario.md`              | сценарий диалога, AiDialogueScenario, ai-dialogue-scenario, сценка с ИИ, NPC, сид сценариев, ролевая сценка                    |
-| `aiDocsRus/topics/aiDialogue.md`                      | диалог, AiDialogue, ai-dialogue, история диалогов, создать диалог, удалить диалог, сообщения диалога                          |
-| `aiDocsRus/topics/aiDialoguePage.md`                  | страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore   |
+| `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`   | сценарий диалога, AiDialogueScenario, ai-dialogue-scenario, сценка с ИИ, NPC, сид сценариев, ролевая сценка                    |
+| `aiDocsRus/topics/aiDialogue/aiDialogue.md`           | диалог, AiDialogue, ai-dialogue, история диалогов, создать диалог, удалить диалог, сообщения диалога                          |
+| `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`       | страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore   |
 | `aiDocsRus/topics/universalPhraseTranslation.md`      | перевод универсальной фразы, universal phrase translation, GetOrCreateUniversalPhraseTranslation                               |
 | `aiDocsRus/topics/clientRepositories.md`              | репозиторий, repository, BooksRepository, BooksApi, useFetchData, resolveError, extractString, маппинг данных, клиентский API  |
 | `aiDocsRus/topics/errorHandling.md`                   | ошибки, errorMessageCode, CustomError, extractErrorText, ApolloError, обработка ошибок, error handling                         |
