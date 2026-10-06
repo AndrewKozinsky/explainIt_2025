@@ -175,6 +175,10 @@ type CreateAiDialogueMessageInput =
 `actions` — массив `AiDialogueActionItem = { type: 'action' | 'speech'; content: string }` (`action` — невербальное
 действие, `speech` — реплика).
 
+`emotion` нормализуется в один из 12 кодов, описанных в `aiDialogueImages.md`; неизвестное значение становится
+`neutral`. Внешность нового NPC, визуальное состояние сцены и эмоция пользователя разбираются отдельно от
+сюжетных событий и не добавляют строки в `AiDialogueMessage`.
+
 Событие `help` — это не перевод и не повторение реплики NPC. LLM создаёт его только тогда, когда пользователю может быть
 непонятно, какое действие совершить дальше, и NPC не дал ясную прямую инструкцию. Если NPC уже задал прямой вопрос или
 попросил о конкретном действии, дополнительный `help` не создаётся. Например, после стука в дверь можно отправить `help`
@@ -265,7 +269,8 @@ SSE-эндпоинт не использует CQRS: контроллер нап
    `translation` хвостового блока подставляется как `''`, битые блоки отбрасываются). Если не удалось спасти ни одного
    события — повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с корректирующей подсказкой; между попытками клиенту
    шлётся `turnReset`. Если и повтор не удался — ошибка `cannotParseLlmResponse`.
-7. Каждое событие сохраняет (`createMessage`) и рассылает как `message`.
+7. Подтверждённый ход сохраняется одной транзакцией: сюжетные сообщения, новые NPC, эмоции и данные сцены в payload,
+   задания изображений и outbox. Сообщения NPC связываются с AiDialogueCharacter через character_id. После коммита каждое сюжетное сообщение рассылается как `message`.
 8. В `finally`: снимает регистрацию в registry и рассылает `turnDone`.
 9. После хода (уже вне registry) fire-and-forget вызывает `SummarizeAiDialogue.summarizeIfNeeded`.
 
@@ -422,6 +427,7 @@ SSE-соединения. Субъекты не вычищаются (диало
   `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
 - `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — «спасающий» построчный разбор ответа LLM.
+- `server/src/features/aiDialogue/aiDialogueVisualConfig.ts` — коды первой версии стиля, раскладки и модели FLUX.
 - `server/src/features/aiDialogue/deriveAiDialogueState.ts` — детерминированный вывод `state` +
   `sameAiDialogueState`.
 - `server/src/features/aiDialogue/serializeAiDialogueEvent.ts` — сериализация события в текст промпта.
@@ -443,6 +449,8 @@ SSE-соединения. Субъекты не вычищаются (диало
   `getMessagesByDialogueId`, `getMessageById`, маппинг в OutModel (`mapDbMessageToOutModel` +
   `deserializeEvent`).
 - `server/src/repo/aiDialogue/aiDialogueMessage.repository.ts` — `createMessage` (type в колонку, тело в JSON`payload`).
+- `server/src/repo/aiDialogue/aiDialogueTurn.repository.ts` — транзакционное сохранение подтверждённого хода
+  вместе с визуальными сущностями и заданиями.
 - `server/src/models/aiDialogue/aiDialogue.out.model.ts` — `AiDialogueOutModel` с вложенным `scenario`.
 - `server/src/models/aiDialogue/aiDialogueMessage.out.model.ts` — `AiDialogueMessageOutModel`.
 

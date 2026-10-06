@@ -12,6 +12,10 @@
 	},
 	"moduleNameMapper": {
 		"^types/(.*)$": "<rootDir>/types/$1",
-		"^infrastructure/(.*)$": "<rootDir>/infrastructure/$1"
+		"^infrastructure/(.*)$": "<rootDir>/infrastructure/$1",
+		"^db/(.*)$": "<rootDir>/db/$1",
+		"^features/(.*)$": "<rootDir>/features/$1",
+		"^repo/(.*)$": "<rootDir>/repo/$1",
+		"^prisma/(.*)$": "<rootDir>/../prisma/$1"
 	}
 }

@@ -3,6 +3,7 @@ import { CqrsModule } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
+import { AiDialogueTurnRepository } from 'repo/aiDialogue/aiDialogueTurn.repository'
 import { AiDialogueScenarioQueryRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.queryRepository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { UserRepository } from 'repo/user.repository'
@@ -36,6 +37,7 @@ const commandHandlers = [
 ]
 const repositories = [
 	AiDialogueMessageRepository,
+	AiDialogueTurnRepository,
 	AiDialogueRepository,
 	AiDialogueQueryRepository,
 	AiDialogueScenarioRepository,

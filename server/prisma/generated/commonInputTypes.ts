@@ -428,6 +428,99 @@ export type EnumAiDialogueMessageTypeWithAggregatesFilter<$PrismaModel = never> 
   _max?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
 }
 
+export type EnumAiDialogueImageTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueImageType | Prisma.EnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueImageTypeFilter<$PrismaModel> | $Enums.AiDialogueImageType
+}
+
+export type EnumAiDialogueImageTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueImageType | Prisma.EnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueImageTypeWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueImageType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueImageTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueImageTypeFilter<$PrismaModel>
+}
+
+export type EnumImageGenerationJobTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobType | Prisma.EnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobTypeFilter<$PrismaModel> | $Enums.ImageGenerationJobType
+}
+
+export type EnumImageGenerationJobStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobStatus | Prisma.EnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobStatusFilter<$PrismaModel> | $Enums.ImageGenerationJobStatus
+}
+
+export type EnumImageGenerationJobTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobType | Prisma.EnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobTypeWithAggregatesFilter<$PrismaModel> | $Enums.ImageGenerationJobType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumImageGenerationJobTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumImageGenerationJobTypeFilter<$PrismaModel>
+}
+
+export type EnumImageGenerationJobStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobStatus | Prisma.EnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobStatusWithAggregatesFilter<$PrismaModel> | $Enums.ImageGenerationJobStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumImageGenerationJobStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumImageGenerationJobStatusFilter<$PrismaModel>
+}
+
+export type EnumImageGenerationOutboxStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationOutboxStatus | Prisma.EnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel> | $Enums.ImageGenerationOutboxStatus
+}
+
+export type DateTimeNullableFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+}
+
+export type EnumImageGenerationOutboxStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationOutboxStatus | Prisma.EnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationOutboxStatusWithAggregatesFilter<$PrismaModel> | $Enums.ImageGenerationOutboxStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel>
+}
+
+export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+}
+
 export type NestedIntFilter<$PrismaModel = never> = {
   equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
   in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
@@ -853,6 +946,99 @@ export type NestedEnumAiDialogueMessageTypeWithAggregatesFilter<$PrismaModel = n
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
   _max?: Prisma.NestedEnumAiDialogueMessageTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumAiDialogueImageTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueImageType | Prisma.EnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueImageTypeFilter<$PrismaModel> | $Enums.AiDialogueImageType
+}
+
+export type NestedEnumAiDialogueImageTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueImageType | Prisma.EnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueImageType[] | Prisma.ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueImageTypeWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueImageType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueImageTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueImageTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumImageGenerationJobTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobType | Prisma.EnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobTypeFilter<$PrismaModel> | $Enums.ImageGenerationJobType
+}
+
+export type NestedEnumImageGenerationJobStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobStatus | Prisma.EnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobStatusFilter<$PrismaModel> | $Enums.ImageGenerationJobStatus
+}
+
+export type NestedEnumImageGenerationJobTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobType | Prisma.EnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobType[] | Prisma.ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobTypeWithAggregatesFilter<$PrismaModel> | $Enums.ImageGenerationJobType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumImageGenerationJobTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumImageGenerationJobTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumImageGenerationJobStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationJobStatus | Prisma.EnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationJobStatus[] | Prisma.ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationJobStatusWithAggregatesFilter<$PrismaModel> | $Enums.ImageGenerationJobStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumImageGenerationJobStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumImageGenerationJobStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationOutboxStatus | Prisma.EnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel> | $Enums.ImageGenerationOutboxStatus
+}
+
+export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+}
+
+export type NestedEnumImageGenerationOutboxStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.ImageGenerationOutboxStatus | Prisma.EnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.ImageGenerationOutboxStatus[] | Prisma.ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumImageGenerationOutboxStatusWithAggregatesFilter<$PrismaModel> | $Enums.ImageGenerationOutboxStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumImageGenerationOutboxStatusFilter<$PrismaModel>
+}
+
+export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel> | null
+  in?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  notIn?: Date[] | string[] | Prisma.ListDateTimeFieldRefInput<$PrismaModel> | null
+  lt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  lte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gt?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  gte?: Date | string | Prisma.DateTimeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
 

@@ -139,3 +139,23 @@ export type AiDialogue = Prisma.AiDialogueModel
  * 
  */
 export type AiDialogueMessage = Prisma.AiDialogueMessageModel
+/**
+ * Model AiDialogueCharacter
+ * 
+ */
+export type AiDialogueCharacter = Prisma.AiDialogueCharacterModel
+/**
+ * Model AiDialogueImage
+ * 
+ */
+export type AiDialogueImage = Prisma.AiDialogueImageModel
+/**
+ * Model ImageGenerationJob
+ * 
+ */
+export type ImageGenerationJob = Prisma.ImageGenerationJobModel
+/**
+ * Model ImageGenerationOutbox
+ * 
+ */
+export type ImageGenerationOutbox = Prisma.ImageGenerationOutboxModel

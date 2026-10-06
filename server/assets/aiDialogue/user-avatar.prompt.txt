@@ -1,0 +1,3 @@
+Generated with the built-in imagegen tool on 2026-10-06.
+
+Use case: illustration-story. Asset type: square neutral user avatar for a language-learning dialogue app, readable at 120x120. Create one centered head-and-shoulders portrait of a fictional adult with short dark brown hair, warm medium skin, dark eyes, a simple teal shirt, neutral relaxed mouth and attentive expression, facing forward. Plain warm ivory background, generous small margins around head, no objects. Style: modern editorial illustration with subtle graphic-novel influences; realistic adult proportions, clean soft outlines, simplified shapes, light paper texture and soft shadows; calm moderately warm palette. No photorealism, caricature, 3D, text, frame, UI or watermark. Square composition.

@@ -416,7 +416,11 @@ export const ModelName = {
   SentenceChatMessage: 'SentenceChatMessage',
   AiDialogueScenario: 'AiDialogueScenario',
   AiDialogue: 'AiDialogue',
-  AiDialogueMessage: 'AiDialogueMessage'
+  AiDialogueMessage: 'AiDialogueMessage',
+  AiDialogueCharacter: 'AiDialogueCharacter',
+  AiDialogueImage: 'AiDialogueImage',
+  ImageGenerationJob: 'ImageGenerationJob',
+  ImageGenerationOutbox: 'ImageGenerationOutbox'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -432,7 +436,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1916,6 +1920,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AiDialogueCharacter: {
+      payload: Prisma.$AiDialogueCharacterPayload<ExtArgs>
+      fields: Prisma.AiDialogueCharacterFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiDialogueCharacterFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiDialogueCharacterFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>
+        }
+        findFirst: {
+          args: Prisma.AiDialogueCharacterFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiDialogueCharacterFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>
+        }
+        findMany: {
+          args: Prisma.AiDialogueCharacterFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>[]
+        }
+        create: {
+          args: Prisma.AiDialogueCharacterCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>
+        }
+        createMany: {
+          args: Prisma.AiDialogueCharacterCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiDialogueCharacterCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>[]
+        }
+        delete: {
+          args: Prisma.AiDialogueCharacterDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>
+        }
+        update: {
+          args: Prisma.AiDialogueCharacterUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiDialogueCharacterDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiDialogueCharacterUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiDialogueCharacterUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiDialogueCharacterUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueCharacterPayload>
+        }
+        aggregate: {
+          args: Prisma.AiDialogueCharacterAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueCharacter>
+        }
+        groupBy: {
+          args: Prisma.AiDialogueCharacterGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueCharacterGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiDialogueCharacterCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueCharacterCountAggregateOutputType> | number
+        }
+      }
+    }
+    AiDialogueImage: {
+      payload: Prisma.$AiDialogueImagePayload<ExtArgs>
+      fields: Prisma.AiDialogueImageFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiDialogueImageFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiDialogueImageFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>
+        }
+        findFirst: {
+          args: Prisma.AiDialogueImageFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiDialogueImageFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>
+        }
+        findMany: {
+          args: Prisma.AiDialogueImageFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>[]
+        }
+        create: {
+          args: Prisma.AiDialogueImageCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>
+        }
+        createMany: {
+          args: Prisma.AiDialogueImageCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiDialogueImageCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>[]
+        }
+        delete: {
+          args: Prisma.AiDialogueImageDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>
+        }
+        update: {
+          args: Prisma.AiDialogueImageUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>
+        }
+        deleteMany: {
+          args: Prisma.AiDialogueImageDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiDialogueImageUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiDialogueImageUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>[]
+        }
+        upsert: {
+          args: Prisma.AiDialogueImageUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueImagePayload>
+        }
+        aggregate: {
+          args: Prisma.AiDialogueImageAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueImage>
+        }
+        groupBy: {
+          args: Prisma.AiDialogueImageGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueImageGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiDialogueImageCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueImageCountAggregateOutputType> | number
+        }
+      }
+    }
+    ImageGenerationJob: {
+      payload: Prisma.$ImageGenerationJobPayload<ExtArgs>
+      fields: Prisma.ImageGenerationJobFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ImageGenerationJobFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ImageGenerationJobFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>
+        }
+        findFirst: {
+          args: Prisma.ImageGenerationJobFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ImageGenerationJobFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>
+        }
+        findMany: {
+          args: Prisma.ImageGenerationJobFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>[]
+        }
+        create: {
+          args: Prisma.ImageGenerationJobCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>
+        }
+        createMany: {
+          args: Prisma.ImageGenerationJobCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ImageGenerationJobCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>[]
+        }
+        delete: {
+          args: Prisma.ImageGenerationJobDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>
+        }
+        update: {
+          args: Prisma.ImageGenerationJobUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>
+        }
+        deleteMany: {
+          args: Prisma.ImageGenerationJobDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ImageGenerationJobUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ImageGenerationJobUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>[]
+        }
+        upsert: {
+          args: Prisma.ImageGenerationJobUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationJobPayload>
+        }
+        aggregate: {
+          args: Prisma.ImageGenerationJobAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateImageGenerationJob>
+        }
+        groupBy: {
+          args: Prisma.ImageGenerationJobGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ImageGenerationJobGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ImageGenerationJobCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ImageGenerationJobCountAggregateOutputType> | number
+        }
+      }
+    }
+    ImageGenerationOutbox: {
+      payload: Prisma.$ImageGenerationOutboxPayload<ExtArgs>
+      fields: Prisma.ImageGenerationOutboxFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.ImageGenerationOutboxFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.ImageGenerationOutboxFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>
+        }
+        findFirst: {
+          args: Prisma.ImageGenerationOutboxFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.ImageGenerationOutboxFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>
+        }
+        findMany: {
+          args: Prisma.ImageGenerationOutboxFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>[]
+        }
+        create: {
+          args: Prisma.ImageGenerationOutboxCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>
+        }
+        createMany: {
+          args: Prisma.ImageGenerationOutboxCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.ImageGenerationOutboxCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>[]
+        }
+        delete: {
+          args: Prisma.ImageGenerationOutboxDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>
+        }
+        update: {
+          args: Prisma.ImageGenerationOutboxUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>
+        }
+        deleteMany: {
+          args: Prisma.ImageGenerationOutboxDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.ImageGenerationOutboxUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.ImageGenerationOutboxUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>[]
+        }
+        upsert: {
+          args: Prisma.ImageGenerationOutboxUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$ImageGenerationOutboxPayload>
+        }
+        aggregate: {
+          args: Prisma.ImageGenerationOutboxAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateImageGenerationOutbox>
+        }
+        groupBy: {
+          args: Prisma.ImageGenerationOutboxGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ImageGenerationOutboxGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.ImageGenerationOutboxCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.ImageGenerationOutboxCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -2230,12 +2530,76 @@ export type AiDialogueScalarFieldEnum = (typeof AiDialogueScalarFieldEnum)[keyof
 export const AiDialogueMessageScalarFieldEnum = {
   id: 'id',
   dialogue_id: 'dialogue_id',
+  character_id: 'character_id',
   type: 'type',
   payload: 'payload',
   created_at: 'created_at'
 } as const
 
 export type AiDialogueMessageScalarFieldEnum = (typeof AiDialogueMessageScalarFieldEnum)[keyof typeof AiDialogueMessageScalarFieldEnum]
+
+
+export const AiDialogueCharacterScalarFieldEnum = {
+  id: 'id',
+  dialogue_id: 'dialogue_id',
+  npc_id: 'npc_id',
+  name: 'name',
+  role: 'role',
+  appearance: 'appearance',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type AiDialogueCharacterScalarFieldEnum = (typeof AiDialogueCharacterScalarFieldEnum)[keyof typeof AiDialogueCharacterScalarFieldEnum]
+
+
+export const AiDialogueImageScalarFieldEnum = {
+  id: 'id',
+  character_id: 'character_id',
+  message_id: 'message_id',
+  type: 'type',
+  layout_version: 'layout_version',
+  s3_key: 's3_key',
+  mime_type: 'mime_type',
+  width: 'width',
+  height: 'height',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueImageScalarFieldEnum = (typeof AiDialogueImageScalarFieldEnum)[keyof typeof AiDialogueImageScalarFieldEnum]
+
+
+export const ImageGenerationJobScalarFieldEnum = {
+  id: 'id',
+  dedup_key: 'dedup_key',
+  type: 'type',
+  status: 'status',
+  character_id: 'character_id',
+  message_id: 'message_id',
+  input: 'input',
+  provider_request_id: 'provider_request_id',
+  provider_polling_url: 'provider_polling_url',
+  attempts: 'attempts',
+  error: 'error',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type ImageGenerationJobScalarFieldEnum = (typeof ImageGenerationJobScalarFieldEnum)[keyof typeof ImageGenerationJobScalarFieldEnum]
+
+
+export const ImageGenerationOutboxScalarFieldEnum = {
+  id: 'id',
+  job_id: 'job_id',
+  status: 'status',
+  attempts: 'attempts',
+  error: 'error',
+  published_at: 'published_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type ImageGenerationOutboxScalarFieldEnum = (typeof ImageGenerationOutboxScalarFieldEnum)[keyof typeof ImageGenerationOutboxScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -2514,6 +2878,62 @@ export type ListEnumAiDialogueMessageTypeFieldRefInput<$PrismaModel> = FieldRefI
 
 
 /**
+ * Reference to a field of type 'AiDialogueImageType'
+ */
+export type EnumAiDialogueImageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueImageType'>
+    
+
+
+/**
+ * Reference to a field of type 'AiDialogueImageType[]'
+ */
+export type ListEnumAiDialogueImageTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueImageType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ImageGenerationJobType'
+ */
+export type EnumImageGenerationJobTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ImageGenerationJobType'>
+    
+
+
+/**
+ * Reference to a field of type 'ImageGenerationJobType[]'
+ */
+export type ListEnumImageGenerationJobTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ImageGenerationJobType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ImageGenerationJobStatus'
+ */
+export type EnumImageGenerationJobStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ImageGenerationJobStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ImageGenerationJobStatus[]'
+ */
+export type ListEnumImageGenerationJobStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ImageGenerationJobStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'ImageGenerationOutboxStatus'
+ */
+export type EnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ImageGenerationOutboxStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'ImageGenerationOutboxStatus[]'
+ */
+export type ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ImageGenerationOutboxStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'Float'
  */
 export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -2697,6 +3117,10 @@ export type GlobalOmitConfig = {
   aiDialogueScenario?: Prisma.AiDialogueScenarioOmit
   aiDialogue?: Prisma.AiDialogueOmit
   aiDialogueMessage?: Prisma.AiDialogueMessageOmit
+  aiDialogueCharacter?: Prisma.AiDialogueCharacterOmit
+  aiDialogueImage?: Prisma.AiDialogueImageOmit
+  imageGenerationJob?: Prisma.ImageGenerationJobOmit
+  imageGenerationOutbox?: Prisma.ImageGenerationOutboxOmit
 }
 
 /* Types for Logging */

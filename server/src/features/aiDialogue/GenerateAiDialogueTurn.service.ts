@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
-import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
+import { AiDialogueTurnRepository } from 'repo/aiDialogue/aiDialogueTurn.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
-import { AiDialogueEvent } from 'types/aiDialogueMessage'
+import { ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
 import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -34,7 +34,7 @@ export class GenerateAiDialogueTurn {
 		private llmAdapter: LlmAdapterService,
 		private aiDialogueRepository: AiDialogueRepository,
 		private aiDialogueScenarioRepository: AiDialogueScenarioRepository,
-		private aiDialogueMessageRepository: AiDialogueMessageRepository,
+		private aiDialogueTurnRepository: AiDialogueTurnRepository,
 		private aiDialogueQueryRepository: AiDialogueQueryRepository,
 		private activeGenerationRegistry: ActiveAiDialogueGenerationRegistry,
 		private sseHub: AiDialogueSseHub,
@@ -87,11 +87,14 @@ export class GenerateAiDialogueTurn {
 				recentEvents,
 			})
 
-			const events = await this.streamAndParse(dialogueId, prompt, abortController.signal)
+			const turn = await this.streamAndParse(dialogueId, prompt, abortController.signal)
+			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({
+				dialogueId,
+				turn,
+			})
 
-			for (const event of events) {
-				const created = await this.aiDialogueMessageRepository.createMessage({ dialogueId, event })
-				const messageOut = await this.aiDialogueQueryRepository.getMessageById(created.id)
+			for (const messageId of messageIds) {
+				const messageOut = await this.aiDialogueQueryRepository.getMessageById(messageId)
 				if (messageOut) {
 					this.sseHub.emit(dialogueId, { data: { type: 'message', message: messageOut } })
 				}
@@ -120,7 +123,7 @@ export class GenerateAiDialogueTurn {
 		dialogueId: number,
 		prompt: LlmMessage[],
 		abortSignal: AbortSignal,
-	): Promise<AiDialogueEvent[]> {
+	): Promise<ParsedAiDialogueTurn> {
 		let lastError: unknown = null
 
 		for (let attempt = 0; attempt < MAX_PARSE_ATTEMPTS; attempt += 1) {

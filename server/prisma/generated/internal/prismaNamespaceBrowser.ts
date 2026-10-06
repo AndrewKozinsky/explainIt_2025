@@ -70,7 +70,11 @@ export const ModelName = {
   SentenceChatMessage: 'SentenceChatMessage',
   AiDialogueScenario: 'AiDialogueScenario',
   AiDialogue: 'AiDialogue',
-  AiDialogueMessage: 'AiDialogueMessage'
+  AiDialogueMessage: 'AiDialogueMessage',
+  AiDialogueCharacter: 'AiDialogueCharacter',
+  AiDialogueImage: 'AiDialogueImage',
+  ImageGenerationJob: 'ImageGenerationJob',
+  ImageGenerationOutbox: 'ImageGenerationOutbox'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -364,12 +368,76 @@ export type AiDialogueScalarFieldEnum = (typeof AiDialogueScalarFieldEnum)[keyof
 export const AiDialogueMessageScalarFieldEnum = {
   id: 'id',
   dialogue_id: 'dialogue_id',
+  character_id: 'character_id',
   type: 'type',
   payload: 'payload',
   created_at: 'created_at'
 } as const
 
 export type AiDialogueMessageScalarFieldEnum = (typeof AiDialogueMessageScalarFieldEnum)[keyof typeof AiDialogueMessageScalarFieldEnum]
+
+
+export const AiDialogueCharacterScalarFieldEnum = {
+  id: 'id',
+  dialogue_id: 'dialogue_id',
+  npc_id: 'npc_id',
+  name: 'name',
+  role: 'role',
+  appearance: 'appearance',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type AiDialogueCharacterScalarFieldEnum = (typeof AiDialogueCharacterScalarFieldEnum)[keyof typeof AiDialogueCharacterScalarFieldEnum]
+
+
+export const AiDialogueImageScalarFieldEnum = {
+  id: 'id',
+  character_id: 'character_id',
+  message_id: 'message_id',
+  type: 'type',
+  layout_version: 'layout_version',
+  s3_key: 's3_key',
+  mime_type: 'mime_type',
+  width: 'width',
+  height: 'height',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueImageScalarFieldEnum = (typeof AiDialogueImageScalarFieldEnum)[keyof typeof AiDialogueImageScalarFieldEnum]
+
+
+export const ImageGenerationJobScalarFieldEnum = {
+  id: 'id',
+  dedup_key: 'dedup_key',
+  type: 'type',
+  status: 'status',
+  character_id: 'character_id',
+  message_id: 'message_id',
+  input: 'input',
+  provider_request_id: 'provider_request_id',
+  provider_polling_url: 'provider_polling_url',
+  attempts: 'attempts',
+  error: 'error',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type ImageGenerationJobScalarFieldEnum = (typeof ImageGenerationJobScalarFieldEnum)[keyof typeof ImageGenerationJobScalarFieldEnum]
+
+
+export const ImageGenerationOutboxScalarFieldEnum = {
+  id: 'id',
+  job_id: 'job_id',
+  status: 'status',
+  attempts: 'attempts',
+  error: 'error',
+  published_at: 'published_at',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type ImageGenerationOutboxScalarFieldEnum = (typeof ImageGenerationOutboxScalarFieldEnum)[keyof typeof ImageGenerationOutboxScalarFieldEnum]
 
 
 export const SortOrder = {

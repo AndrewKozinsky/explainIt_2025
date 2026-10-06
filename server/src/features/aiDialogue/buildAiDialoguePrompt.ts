@@ -55,15 +55,18 @@ function buildSystemMessage(
 	]
 	if (targetLanguageCode) {
 		rules.push(
-			`- For every content line, add a translation line immediately after it — an accurate translation into ${languages[targetLanguageCode].nameEng}. Always include the translation line, even if the translation looks obvious; never skip it. Do not translate structural lines (headers, npcId/npcName/npcRole/emotion fields, or action:/speech: labels).`,
+			`- For every learner-facing content line, add a translation line immediately after it — an accurate translation into ${languages[targetLanguageCode].nameEng}. Always include the translation line, even if the translation looks obvious; never skip it. Do not translate structural or visual metadata lines (headers, npcId/npcName/npcRole/emotion fields, appearance, participants, visual, or action:/speech: labels).`,
 		)
 	}
 
 	rules.push(
 		'- Write exactly one field per line. Never put an empty line inside a block — an empty line only separates whole blocks. Content and translation are always a single line each.',
-		'- End the response cleanly: after the last translation line, output nothing else (no commentary, no markdown, no trailing blank text).',
+		'- End the response cleanly after the final required line: output no commentary, markdown, or trailing blank text.',
 		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',
-		'- The scenario is a setting, not a rigid script. Introduce whatever NPCs the scene naturally needs (a receptionist, a nurse, another staff member, and so on). Every new NPC gets a new stable npcId plus a npcName, npcRole and emotion.',
+		'- The scenario is a setting, not a rigid script. Introduce whatever NPCs the scene naturally needs. Every new NPC gets a stable npcId. npcName and npcRole may be empty when they are unknown.',
+		'- For a new NPC only, add appearance: followed by one English line describing stable visible traits: approximate age, face, hair, build and distinctive clothing. Never repeat or change appearance for a known npcId.',
+		'- emotion must be exactly one of: neutral, happy, sad, angry, surprised, confused, worried, embarrassed, thoughtful, skeptical, relieved, encouraging.',
+		'- After every sceneUpdate translation, add participants: with comma-separated known npcIds visible in the scene (empty when none), then visual: with a single English line describing the already occurring visual moment. The learner is always present and is not listed.',
 		'- When the learner walks away from the current NPC (a "learner walked away" event), that NPC must react to the departure instead of continuing the previous request — for example "You can come back another time" or "If something is wrong, just tell me". Then introduce a different NPC that fits the scene so the learner can keep practicing.',
 		"- Create a help event only when the learner may be unsure what action to take next. If the NPC has asked a direct question or clearly requested something, that is enough: do not create help and do not repeat the NPC's question or request in it.",
 		'- Use help for non-obvious actions that the NPC did not directly request. For example, if someone knocks on a door, suggest that the learner open the door. The hint must explain only the necessary next action and must not duplicate npcActions.',
@@ -81,9 +84,13 @@ function buildSystemMessage(
 		'sceneUpdate',
 		'<new scene description>',
 		'<translation>',
+		'participants:<comma-separated npcIds, or empty>',
+		'visual:<English visual description of the current moment>',
 		'',
 		'NPC actions/speech (header — 5 fields separated by |):',
 		'npcActions|<npcId>|<npcName>|<npcRole>|<emotion>',
+		'appearance:',
+		'<English appearance; include these two lines only when npcId is new>',
 		'action:',
 		'<action description>',
 		'<translation>',
@@ -102,7 +109,7 @@ function buildSystemMessage(
 		'<translation>',
 		'',
 		'Example (a dentist NPC replies to a patient; each speech/action is a label + content + translation triple):',
-		'npcActions|dentist_1|Dr. Lee|dentist|friendly',
+		'npcActions|dentist_1|Dr. Lee|dentist|encouraging',
 		'speech:',
 		'Hello! How can I help you today?',
 		'Здравствуйте! Чем я могу вам помочь?',

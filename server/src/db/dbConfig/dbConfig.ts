@@ -1346,6 +1346,9 @@ export const bdConfig = {
 			AiDialogueMessage: {
 				type: 'oneToMany',
 			},
+			AiDialogueCharacter: {
+				type: 'oneToMany',
+			},
 			created_at: {
 				type: 'createdAt',
 			},
@@ -1357,7 +1360,7 @@ export const bdConfig = {
 	// Отдельное сообщение в диалоге с ИИ (одно событие = одна строка).
 	AiDialogueMessage: {
 		dtoProps: {},
-		indexes: [{ fields: ['dialogue_id'] }],
+		indexes: [{ fields: ['dialogue_id'] }, { fields: ['character_id'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -1375,6 +1378,16 @@ export const bdConfig = {
 				example: 1,
 				required: true,
 			},
+			character_id: {
+				type: 'manyToOne',
+				thisField: 'character_id',
+				foreignTable: 'AiDialogueCharacter',
+				foreignField: 'id',
+				onDelete: 'SetNull',
+				description:
+					'NPC, отправивший npcActions; у пользовательских и системных событий null. NPC принадлежит тому же диалогу.',
+				required: false,
+			},
 			type: {
 				type: 'enum',
 				enumName: 'AiDialogueMessageType',
@@ -1387,9 +1400,229 @@ export const bdConfig = {
 				description: 'JSON payload of the event (event body without the type field)',
 				required: true,
 			},
+			AiDialogueImage: { type: 'oneToMany' },
+			ImageGenerationJob: { type: 'oneToMany' },
 			created_at: {
 				type: 'createdAt',
 			},
+		},
+	},
+	AiDialogueCharacter: {
+		dtoProps: {},
+		indexes: [{ fields: ['dialogue_id', 'npc_id'], unique: true }],
+		dbFields: {
+			id: { type: 'index' },
+			dialogue_id: {
+				description: 'Диалог, в котором существует NPC; одинаковые npc_id в разных диалогах независимы.',
+				type: 'manyToOne',
+				thisField: 'dialogue_id',
+				foreignTable: 'AiDialogue',
+				foreignField: 'id',
+				required: true,
+			},
+			npc_id: {
+				description: 'Стабильный идентификатор NPC из ответа ИИ, уникальный только внутри диалога.',
+				type: 'string',
+				required: true,
+				maxLength: 255,
+			},
+			name: { type: 'string', required: false, maxLength: 255 },
+			role: { type: 'string', required: false, maxLength: 255 },
+			appearance: {
+				description: 'Описание внешности при первом появлении; повторные встречи используют тот же образ.',
+				type: 'string',
+				required: true,
+			},
+			AiDialogueMessage: { type: 'oneToMany' },
+			AiDialogueImage: { type: 'oneToMany' },
+			ImageGenerationJob: { type: 'oneToMany' },
+			created_at: { type: 'createdAt' },
+			updated_at: { type: 'updatedAt' },
+		},
+	},
+	AiDialogueImage: {
+		dtoProps: {},
+		indexes: [{ fields: ['character_id'] }, { fields: ['message_id'] }],
+		dbFields: {
+			id: { type: 'index' },
+			character_id: {
+				description:
+					'NPC, которому принадлежит файл. Альтернатива message_id. Заполняется только одна ссылка владельца.',
+				type: 'manyToOne',
+				thisField: 'character_id',
+				foreignTable: 'AiDialogueCharacter',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				required: false,
+			},
+			message_id: {
+				description:
+					'Сообщение sceneUpdate, которому принадлежит иллюстрация. Альтернатива character_id. Заполняется только одна ссылка владельца.',
+				type: 'manyToOne',
+				thisField: 'message_id',
+				foreignTable: 'AiDialogueMessage',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				required: false,
+			},
+			type: {
+				description: 'Содержимое файла: лист эмоций, лист ракурсов или иллюстрация сцены.',
+				type: 'enum',
+				enumName: 'AiDialogueImageType',
+				variants: ['emotionSheet', 'angleSheet', 'scene'],
+				required: true,
+			},
+			layout_version: {
+				description: 'Код раскладки ячеек спрайта; для обычной иллюстрации сцены не нужен.',
+				type: 'string',
+				required: false,
+				maxLength: 100,
+			},
+			s3_key: {
+				description: 'Ключ объекта в Cloudflare R2, а не временная подписанная ссылка.',
+				type: 'string',
+				required: true,
+				unique: true,
+				maxLength: 1000,
+			},
+			mime_type: { type: 'string', required: true, maxLength: 100 },
+			width: {
+				description: 'Ширина всего сохранённого файла в пикселях, а не размер аватара в интерфейсе.',
+				type: 'number',
+				required: true,
+			},
+			height: {
+				description: 'Высота всего сохранённого файла в пикселях, а не размер аватара в интерфейсе.',
+				type: 'number',
+				required: true,
+			},
+			created_at: { type: 'createdAt' },
+		},
+	},
+	ImageGenerationJob: {
+		dtoProps: {},
+		indexes: [{ fields: ['status'] }],
+		dbFields: {
+			id: { type: 'index' },
+			dedup_key: {
+				description:
+					'Уникальный ключ логического задания, предотвращающий повторное создание той же генерации.',
+				type: 'string',
+				required: true,
+				unique: true,
+				maxLength: 500,
+			},
+			type: {
+				description: 'Что требуется сгенерировать: лист эмоций, лист ракурсов или сцену.',
+				type: 'enum',
+				enumName: 'ImageGenerationJobType',
+				variants: ['emotionSheet', 'angleSheet', 'scene'],
+				required: true,
+			},
+			status: {
+				description:
+					'Состояние генерации; waitingDependencies означает ожидание необходимых изображений-референсов.',
+				type: 'enum',
+				enumName: 'ImageGenerationJobStatus',
+				variants: ['queued', 'waitingDependencies', 'generating', 'ready', 'failed'],
+				default: 'queued',
+				required: true,
+			},
+			character_id: {
+				description: 'Целевой NPC; альтернатива message_id. Заполняется только одна ссылка цели.',
+				type: 'manyToOne',
+				thisField: 'character_id',
+				foreignTable: 'AiDialogueCharacter',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				required: false,
+			},
+			message_id: {
+				description:
+					'Целевое сообщение sceneUpdate; альтернатива character_id. Заполняется только одна ссылка цели.',
+				type: 'manyToOne',
+				thisField: 'message_id',
+				foreignTable: 'AiDialogueMessage',
+				foreignField: 'id',
+				onDelete: 'Cascade',
+				required: false,
+			},
+			input: {
+				description:
+					'JSON с описанием внешности или сцены и параметрами генерации, сохранёнными при создании задания.',
+				type: 'string',
+				required: true,
+			},
+			provider_request_id: {
+				description:
+					'Идентификатор асинхронного запроса у поставщика; позволяет продолжить уже начатую генерацию.',
+				type: 'string',
+				required: false,
+				maxLength: 500,
+			},
+			provider_polling_url: {
+				description: 'URL проверки готовности ранее отправленного запроса у поставщика.',
+				type: 'string',
+				required: false,
+				maxLength: 2000,
+			},
+			attempts: {
+				description: 'Количество попыток обработки задания генерации.',
+				type: 'number',
+				required: true,
+				default: 0,
+			},
+			error: {
+				description: 'Последняя ошибка обработки задания генерации.',
+				type: 'string',
+				required: false,
+			},
+			ImageGenerationOutbox: { type: 'parentOneToOne', required: false },
+			created_at: { type: 'createdAt' },
+			updated_at: { type: 'updatedAt' },
+		},
+	},
+	ImageGenerationOutbox: {
+		dtoProps: {},
+		indexes: [{ fields: ['status'] }],
+		dbFields: {
+			id: { type: 'index' },
+			job_id: {
+				description:
+					'Задание, которое нужно передать в BullMQ. Запись создаётся в одной транзакции с сообщениями и заданием.',
+				type: 'childOneToOne',
+				thisField: 'job_id',
+				foreignTable: 'ImageGenerationJob',
+				foreignField: 'id',
+				required: true,
+			},
+			status: {
+				description:
+					'pending — ожидает передачи в очередь; published — передано. Это не статус генерации картинки.',
+				type: 'enum',
+				enumName: 'ImageGenerationOutboxStatus',
+				variants: ['pending', 'published'],
+				default: 'pending',
+				required: true,
+			},
+			attempts: {
+				description: 'Количество попыток передачи задания в очередь, а не вызовов генератора.',
+				type: 'number',
+				required: true,
+				default: 0,
+			},
+			error: {
+				description: 'Последняя ошибка передачи задания в очередь.',
+				type: 'string',
+				required: false,
+			},
+			published_at: {
+				description: 'Момент успешной передачи задания в BullMQ.',
+				type: 'dateTime',
+				required: false,
+			},
+			created_at: { type: 'createdAt' },
+			updated_at: { type: 'updatedAt' },
 		},
 	},
 } satisfies BdConfig.Root

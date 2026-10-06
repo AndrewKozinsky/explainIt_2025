@@ -17,11 +17,31 @@ export type AiDialogueNpcActionItem = AiDialogueActionItem & {
 	translation: string
 }
 
+export const aiDialogueEmotions = [
+	'neutral',
+	'happy',
+	'sad',
+	'angry',
+	'surprised',
+	'confused',
+	'worried',
+	'embarrassed',
+	'thoughtful',
+	'skeptical',
+	'relieved',
+	'encouraging',
+] as const
+
+export type AiDialogueEmotion = (typeof aiDialogueEmotions)[number]
+
 // Смена сцены — где сейчас находится пользователь.
 export type SceneUpdateEvent = {
 	type: 'sceneUpdate'
 	content: string
 	translation: string
+	/** Данные иллюстрации; отсутствуют у старых сообщений и в стриминговом превью. */
+	visualDescription?: string
+	participantNpcIds?: string[]
 }
 
 // Подсказка, что следует сделать пользователю (если NPC не может обратиться напрямую).
@@ -37,7 +57,7 @@ export type NpcActionsEvent = {
 	npcId: string
 	npcName: string
 	npcRole: string
-	emotion: string
+	emotion: AiDialogueEmotion
 	actions: AiDialogueNpcActionItem[]
 }
 
@@ -61,16 +81,32 @@ export type WorldEvent = {
 
 // Любое событие диалога (хранится в AiDialogueMessage.payload).
 export type AiDialogueEvent =
-	| SceneUpdateEvent
-	| HelpEvent
-	| NpcActionsEvent
-	| UserActionsEvent
-	| UserAvoidsNpcEvent
-	| WorldEvent
+	SceneUpdateEvent | HelpEvent | NpcActionsEvent | UserActionsEvent | UserAvoidsNpcEvent | WorldEvent
 
 // События, которые клиент может отправить серверу (в отличие от AiDialogueEvent —
 // сервер сам не генерирует userActions/userAvoidsNPC от имени пользователя).
 export type AiDialogueClientEvent = UserActionsEvent | UserAvoidsNpcEvent
+
+export type AiDialogueNpcAppearance = {
+	npcId: string
+	appearance: string
+}
+
+export type AiDialogueSceneVisualMetadata = {
+	eventIndex: number
+	participantNpcIds: string[]
+	visualDescription: string
+}
+
+export type AiDialogueTurnVisualMetadata = {
+	npcAppearances: AiDialogueNpcAppearance[]
+	scenes: AiDialogueSceneVisualMetadata[]
+}
+
+export type ParsedAiDialogueTurn = {
+	events: AiDialogueEvent[]
+	visualMetadata: AiDialogueTurnVisualMetadata
+}
 
 // Обёртка сообщения, отдаваемая клиенту (replay и SSE): событие + служебные поля.
 export type DialogueServerMessage = {

@@ -217,6 +217,7 @@ export namespace BdConfig {
 
 	export type ChildOneToOneField = {
 		type: 'childOneToOne'
+		description?: string
 		thisField: string // Name of the column of this table that refers to another table
 		foreignTable: string // Name of the table that this column refers to
 		foreignField: string // Name of the column of foreign table that this column refers to

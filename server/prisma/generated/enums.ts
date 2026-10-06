@@ -137,3 +137,40 @@ export const AiDialogueMessageType = {
 } as const
 
 export type AiDialogueMessageType = (typeof AiDialogueMessageType)[keyof typeof AiDialogueMessageType]
+
+
+export const AiDialogueImageType = {
+  emotionSheet: 'emotionSheet',
+  angleSheet: 'angleSheet',
+  scene: 'scene'
+} as const
+
+export type AiDialogueImageType = (typeof AiDialogueImageType)[keyof typeof AiDialogueImageType]
+
+
+export const ImageGenerationJobType = {
+  emotionSheet: 'emotionSheet',
+  angleSheet: 'angleSheet',
+  scene: 'scene'
+} as const
+
+export type ImageGenerationJobType = (typeof ImageGenerationJobType)[keyof typeof ImageGenerationJobType]
+
+
+export const ImageGenerationJobStatus = {
+  queued: 'queued',
+  waitingDependencies: 'waitingDependencies',
+  generating: 'generating',
+  ready: 'ready',
+  failed: 'failed'
+} as const
+
+export type ImageGenerationJobStatus = (typeof ImageGenerationJobStatus)[keyof typeof ImageGenerationJobStatus]
+
+
+export const ImageGenerationOutboxStatus = {
+  pending: 'pending',
+  published: 'published'
+} as const
+
+export type ImageGenerationOutboxStatus = (typeof ImageGenerationOutboxStatus)[keyof typeof ImageGenerationOutboxStatus]
