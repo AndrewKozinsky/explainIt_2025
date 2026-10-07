@@ -1,9 +1,6 @@
 {
   "mcpServers": {
-    "phpstorm": {
-      "url": "http://127.0.0.1:64442/stream",
-      "type": "http"
-    },
+    
     "webstorm": {
       "url": "http://127.0.0.1:64543/stream",
       "type": "http"

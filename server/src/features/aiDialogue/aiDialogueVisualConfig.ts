@@ -6,7 +6,7 @@ export const AI_DIALOGUE_VISUAL_STYLE_PROMPT =
 export const AI_DIALOGUE_EMOTION_LAYOUT_VERSION = 'emotion-grid-4x3-v1'
 export const FLUX_3_IMAGE_MODEL = 'flux-3-image'
 
-/** Ключ объекта в R2, не путь к исходникам. Локальный исходник: server/assets/aiDialogue/user-avatar.png. В R2 пользователь загрузил вариант .jpg. */
+/** Ключ объекта в R2, не путь к исходникам. Локальный исходник: server/assets/aiDialogue/user-avatar.jpg. В R2 пользователь загрузил вариант .jpg. */
 export const AI_DIALOGUE_USER_AVATAR_S3_KEY = 'ai-dialogue-images/shared/user-avatar.jpg'
 
 /** Ключи эталонов стиля в R2. Заполняются после подготовки и загрузки эталонных изображений. */

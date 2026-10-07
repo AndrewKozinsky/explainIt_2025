@@ -4,6 +4,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
 import { AiDialogueTurnRepository } from 'repo/aiDialogue/aiDialogueTurn.repository'
+import { ImageGenerationOutboxRepository } from 'repo/aiDialogue/imageGenerationOutbox.repository'
 import { AiDialogueScenarioQueryRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.queryRepository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { UserRepository } from 'repo/user.repository'
@@ -16,6 +17,7 @@ import { DeleteAiDialogueHandler } from 'features/aiDialogue/DeleteAiDialogue.co
 import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
 import { GetAiDialogueHandler } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.command'
+import { PublishImageGenerationOutbox } from 'features/aiDialogue/PublishImageGenerationOutbox.service'
 import { SummarizeAiDialogue } from 'features/aiDialogue/SummarizeAiDialogue.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
@@ -27,6 +29,7 @@ const services = [
 	AiDialogueSseHub,
 	GenerateAiDialogueTurn,
 	SummarizeAiDialogue,
+	PublishImageGenerationOutbox,
 ]
 const commandHandlers = [
 	CreateAiDialogueHandler,
@@ -38,6 +41,7 @@ const commandHandlers = [
 const repositories = [
 	AiDialogueMessageRepository,
 	AiDialogueTurnRepository,
+	ImageGenerationOutboxRepository,
 	AiDialogueRepository,
 	AiDialogueQueryRepository,
 	AiDialogueScenarioRepository,
