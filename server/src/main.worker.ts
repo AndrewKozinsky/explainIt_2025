@@ -4,7 +4,7 @@ import { NestFactory } from '@nestjs/core'
 import { WorkerModule } from './worker.module'
 
 /**
- * Entry point for the subtitles generation worker process.
+ * Entry point for the subtitles and AI dialogue image worker process.
  *
  * We use `createApplicationContext` instead of `create` because the worker
  * does not need to listen on any HTTP/GraphQL port — it just pulls jobs from

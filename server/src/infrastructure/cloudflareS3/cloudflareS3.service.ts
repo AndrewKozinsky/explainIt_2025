@@ -2,6 +2,7 @@ import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } fro
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
+import { Readable } from 'node:stream'
 
 @Injectable()
 export class CloudflareS3Service {
@@ -59,6 +60,30 @@ export class CloudflareS3Service {
 		})
 
 		await this.s3.send(command)
+	}
+
+	/** Reads a bounded original object for image validation and in-memory reference preparation. */
+	async readFile(fileKey: string): Promise<Buffer> {
+		const response = await this.s3.send(
+			new GetObjectCommand({
+				Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
+				Key: fileKey,
+			}),
+			{ abortSignal: AbortSignal.timeout(60_000) },
+		)
+		const limit = 32 * 1024 * 1024
+		if (!response.Body || (response.ContentLength ?? 0) > limit) {
+			if (response.Body instanceof Readable) response.Body.destroy()
+			throw new Error('R2 image missing or too large')
+		}
+		const chunks: Buffer[] = []
+		let size = 0
+		for await (const chunk of response.Body as AsyncIterable<Uint8Array>) {
+			size += chunk.length
+			if (size > limit) throw new Error('R2 image is too large')
+			chunks.push(Buffer.from(chunk))
+		}
+		return Buffer.concat(chunks)
 	}
 
 	async deleteFile(fileKey: string): Promise<void> {

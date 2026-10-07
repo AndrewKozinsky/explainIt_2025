@@ -76,6 +76,9 @@ export class MainConfigService {
 					},
 				},
 			},
+			blackForestLabs: {
+				apiKey: enVariables.blackForestLabs.apiKey,
+			},
 			deepSeek: {
 				apiKey: enVariables.deepSeek.apiKey,
 				priceInRub: {
@@ -244,6 +247,9 @@ export class MainConfigService {
 			},
 			openAi: {
 				apiKey: this.configService.get<string>('OPENAI_API_KEY') as string,
+			},
+			blackForestLabs: {
+				apiKey: this.configService.get<string>('BLACK_FOREST_LABS_API_KEY')?.trim() || null,
 			},
 			deepSeek: {
 				apiKey: this.configService.get<string>('DEEPSEEK_API_KEY') as string,

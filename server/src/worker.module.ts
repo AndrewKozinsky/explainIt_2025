@@ -1,6 +1,9 @@
 import { BullModule } from '@nestjs/bullmq'
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
+import { ImageGenerationAssetsRepository } from 'repo/aiDialogue/imageGenerationAssets.repository'
+import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
+import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
 import { DBRepository } from 'repo/db.repository'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
@@ -9,6 +12,10 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPh
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
+import { AiDialogueImageGenerationProcessor } from 'features/aiDialogue/imageGeneration/AiDialogueImageGeneration.processor'
+import { GenerateAiDialogueImage } from 'features/aiDialogue/imageGeneration/GenerateAiDialogueImage.service'
+import { ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/ImageGenerationAssets'
+import { R2ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/R2ImageGenerationAssets.service'
 import { S3SubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/S3SubtitlesStrategy'
 import { YoutubeSubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/YoutubeSubtitlesStrategy'
 import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
@@ -30,7 +37,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 /**
  * Worker-side Nest app. Runs in a separate process (main.worker.ts).
  *
- * Wires exactly what the subtitles generation processor needs:
+ * Wires the subtitles and AI dialogue image processors:
  *   - Shared BullMQ connection + queue registration
  *   - CQRS + reused handlers (UpdateVideoCommand for SRT persistence)
  *   - Prisma + all repos those handlers touch
@@ -59,6 +66,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 			}),
 		}),
 		BullModule.registerQueue({ name: QueueNames.SUBTITLES_GENERATION }),
+		BullModule.registerQueue({ name: QueueNames.AI_DIALOGUE_IMAGE_GENERATION }),
 	],
 	providers: [
 		PrismaService,
@@ -74,6 +82,12 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		S3SubtitlesStrategy,
 		YoutubeSubtitlesStrategy,
 		SubtitlesGenerationProcessor,
+		ImageGenerationRequestRepository,
+		ImageGenerationWorkerRepository,
+		GenerateAiDialogueImage,
+		AiDialogueImageGenerationProcessor,
+		ImageGenerationAssetsRepository,
+		{ provide: ImageGenerationAssets, useClass: R2ImageGenerationAssets },
 	],
 })
 export class WorkerModule {}

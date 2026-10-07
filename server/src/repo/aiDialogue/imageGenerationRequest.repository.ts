@@ -33,7 +33,7 @@ export class ImageGenerationRequestRepository {
 				provider_request_id: null,
 				provider_polling_url: null,
 			},
-			data: { status: 'generating' },
+			data: { status: 'generating', updated_at: new Date() },
 		})
 		return result.count === 1
 	}
@@ -51,7 +51,11 @@ export class ImageGenerationRequestRepository {
 	async saveRequest(id: number, request: Flux3Request): Promise<void> {
 		const result = await this.prisma.imageGenerationJob.updateMany({
 			where: { id, status: 'generating', provider_request_id: null, provider_polling_url: null },
-			data: { provider_request_id: request.requestId, provider_polling_url: request.pollingUrl },
+			data: {
+				provider_request_id: request.requestId,
+				provider_polling_url: request.pollingUrl,
+				updated_at: new Date(),
+			},
 		})
 
 		if (result.count !== 1) throw new Error('Image generation job deleted or request already recorded')

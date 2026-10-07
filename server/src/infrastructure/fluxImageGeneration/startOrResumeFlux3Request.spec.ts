@@ -115,7 +115,7 @@ describe('ImageGenerationRequestRepository', () => {
 				provider_request_id: null,
 				provider_polling_url: null,
 			},
-			data: { status: 'generating' },
+			data: { status: 'generating', updated_at: expect.any(Date) },
 		})
 		jobs.updateMany.mockResolvedValue({ count: 0 })
 		await expect(repository.claimSubmission(7)).resolves.toBe(false)
@@ -126,7 +126,11 @@ describe('ImageGenerationRequestRepository', () => {
 		await repository.saveRequest(7, request)
 		expect(jobs.updateMany).toHaveBeenCalledWith({
 			where: { id: 7, status: 'generating', provider_request_id: null, provider_polling_url: null },
-			data: { provider_request_id: request.requestId, provider_polling_url: request.pollingUrl },
+			data: {
+				provider_request_id: request.requestId,
+				provider_polling_url: request.pollingUrl,
+				updated_at: expect.any(Date),
+			},
 		})
 		jobs.updateMany.mockResolvedValue({ count: 0 })
 		await expect(repository.saveRequest(7, request)).rejects.toThrow('deleted')
