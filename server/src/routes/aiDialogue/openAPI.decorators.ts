@@ -4,6 +4,19 @@ import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
+
+export function ApiGetAiDialogueVisuals() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Get AI dialogue visuals',
+			description: 'Returns visual state and signed image URLs for the dialogue owner.',
+		}),
+		ApiCookieAuth(),
+		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
+		ApiResponse({ status: 200, description: 'OK', type: AiDialogueVisualsOutModel }),
+	)
+}
 
 export function ApiCreateAiDialogue() {
 	return applyDecorators(

@@ -1284,7 +1284,20 @@ export const bdConfig = {
 	},
 	// Диалог пользователя с ИИ по сценарию (контейнер для будущих сообщений).
 	AiDialogue: {
-		dtoProps: {},
+		dtoProps: {
+			userAvatarUrl: {
+				type: 'string',
+				required: true,
+				description: 'Подписанная ссылка на общий нейтральный аватар пользователя.',
+				example: 'https://r2.example/avatar.jpg?signature=temporary',
+			},
+			visualUrlsExpireAt: {
+				type: 'string',
+				required: true,
+				description: 'Время обновления подписанных ссылок визуального снимка (ISO 8601).',
+				example: '2026-10-07T18:00:00.000Z',
+			},
+		},
 		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }],
 		dbFields: {
 			id: {
@@ -1408,7 +1421,16 @@ export const bdConfig = {
 		},
 	},
 	AiDialogueCharacter: {
-		dtoProps: {},
+		dtoProps: {
+			generationStatus: {
+				type: 'enum',
+				enumName: 'ImageGenerationJobStatus',
+				variants: ['queued', 'waitingDependencies', 'generating', 'ready', 'failed'],
+				required: false,
+				description: 'Статус генерации спрайта; null для NPC без задания.',
+				example: 'generating',
+			},
+		},
 		indexes: [{ fields: ['dialogue_id', 'npc_id'], unique: true }],
 		dbFields: {
 			id: { type: 'index' },
@@ -1441,7 +1463,22 @@ export const bdConfig = {
 		},
 	},
 	AiDialogueImage: {
-		dtoProps: {},
+		dtoProps: {
+			url: {
+				type: 'string',
+				required: true,
+				description: 'Временная подписанная ссылка на готовое изображение в R2.',
+				example: 'https://r2.example/image.png?signature=temporary',
+			},
+			generationStatus: {
+				type: 'enum',
+				enumName: 'ImageGenerationJobStatus',
+				variants: ['queued', 'waitingDependencies', 'generating', 'ready', 'failed'],
+				required: false,
+				description: 'Статус генерации иллюстрации; null для старой сцены без задания.',
+				example: 'waitingDependencies',
+			},
+		},
 		indexes: [{ fields: ['character_id'] }, { fields: ['message_id'] }],
 		dbFields: {
 			id: { type: 'index' },

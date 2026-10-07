@@ -5,6 +5,7 @@ import {
 	Get,
 	HttpCode,
 	HttpStatus,
+	Header,
 	MessageEvent,
 	Param,
 	ParseIntPipe,
@@ -17,42 +18,33 @@ import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
 import { Observable } from 'rxjs'
-import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
-import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
-import { AiDialogueClientEvent, AiDialogueStreamEvent } from 'types/aiDialogueMessage'
-import { AiDialogueSseHub } from 'features/aiDialogue/AiDialogueSseHub.service'
+import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
+import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
 import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.command'
-import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
 import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
-import { CustomError } from 'infrastructure/exceptions/customErrors'
-import { errorMessage } from 'infrastructure/exceptions/errorMessage'
-import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
+import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import {
 	ApiCreateAiDialogue,
 	ApiCreateAiDialogueMessage,
 	ApiDeleteAiDialogue,
 	ApiGetAiDialogue,
 	ApiGetAiDialogues,
+	ApiGetAiDialogueVisuals,
 } from './openAPI.decorators'
 
 @ApiTags('AiDialogue')
 @Controller('ai-dialogue')
 export class AiDialogueController {
-	constructor(
-		private commandBus: CommandBus,
-		private aiDialogueRepository: AiDialogueRepository,
-		private aiDialogueQueryRepository: AiDialogueQueryRepository,
-		private aiDialogueSseHub: AiDialogueSseHub,
-		private generateAiDialogueTurn: GenerateAiDialogueTurn,
-	) {}
+	constructor(private commandBus: CommandBus) {}
 
 	@ApiCreateAiDialogue()
 	@UseGuards(CheckSessionCookieGuard)
@@ -114,67 +106,20 @@ export class AiDialogueController {
 		)
 	}
 
+	@ApiGetAiDialogueVisuals()
+	@UseGuards(CheckSessionCookieGuard)
+	@Header('Cache-Control', 'private, no-store')
+	@Get(':id/visuals')
+	async getAiDialogueVisuals(
+		@Param('id', ParseIntPipe) id: number,
+		@Req() request: Request,
+	): Promise<AiDialogueVisualsOutModel> {
+		return this.commandBus.execute(new GetAiDialogueVisualsCommand(request.user!.id, id))
+	}
+
 	@UseGuards(CheckSessionCookieGuard)
 	@Sse(':id/stream')
-	stream(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Observable<MessageEvent> {
-		const userId = request.user!.id
-		const dialogueId = id
-
-		return new Observable<MessageEvent>((subscriber) => {
-			const receivedMessageIds = new Set<number>()
-
-			// Подписываемся на SSE-шину ДО replay, чтобы не пропустить события,
-			// сохранённые параллельной генерацией (POST) в окне между запросами.
-			const hubSubscription = this.aiDialogueSseHub.getSubject(dialogueId).subscribe((event) => {
-				if (subscriber.closed) return
-				const data = event.data as AiDialogueStreamEvent | undefined
-				if (data && data.type === 'message') {
-					receivedMessageIds.add(data.message.id)
-				}
-				subscriber.next(event)
-			})
-
-			;(async () => {
-				try {
-					const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
-					if (!dialogue) {
-						if (!subscriber.closed) {
-							subscriber.error(
-								new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404),
-							)
-						}
-						return
-					}
-
-					if (dialogue.user_id !== userId) {
-						if (!subscriber.closed) {
-							subscriber.error(
-								new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403),
-							)
-						}
-						return
-					}
-
-					// Replay: отдаём уже сохранённые сообщения (пропуская те, что уже
-					// прилетели через SSE-шину, чтобы не задвоить).
-					const messages = await this.aiDialogueQueryRepository.getMessagesByDialogueId(dialogueId)
-					for (const message of messages) {
-						if (subscriber.closed) break
-						if (!receivedMessageIds.has(message.id)) {
-							subscriber.next({ data: { type: 'message', message } })
-						}
-					}
-
-					// Если диалог «ждёт хода» — запускаем генерацию первого ответа.
-					await this.generateAiDialogueTurn.triggerIfNeeded(dialogueId)
-				} catch (error) {
-					if (!subscriber.closed) subscriber.error(error)
-				}
-			})()
-
-			return () => {
-				hubSubscription.unsubscribe()
-			}
-		})
+	stream(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Promise<Observable<MessageEvent>> {
+		return this.commandBus.execute(new OpenAiDialogueStreamCommand(request.user!.id, id))
 	}
 }

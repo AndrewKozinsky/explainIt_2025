@@ -123,7 +123,9 @@ export type DialogueServerMessage = {
 //  - turnReset   — повторная попытка генерации началась: сбросить накопленное превью;
 //  - turnDone    — ход завершён (успех или ошибка), можно снова действовать;
 //  - turnError   — ход не удался (error — текст ошибки).
+//  - visualsChanged — перечитать визуальный REST-снимок; не является сообщением диалога.
 export type AiDialogueStreamEvent =
+	| { type: 'visualsChanged'; dialogueId: number }
 	| { type: 'message'; message: DialogueServerMessage }
 	| { type: 'chunk'; chunk: string }
 	| { type: 'turnStarted' }

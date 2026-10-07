@@ -22,6 +22,12 @@ import { SummarizeAiDialogue } from 'features/aiDialogue/SummarizeAiDialogue.ser
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { AiDialogueController } from './aiDialogue.controller'
+import { GetAiDialogueVisualsHandler } from 'features/aiDialogue/GetAiDialogueVisuals.command'
+import { AiDialogueVisualUpdates } from 'features/aiDialogue/AiDialogueVisualUpdates.service'
+import { AiDialogueVisualsRepository } from 'repo/aiDialogue/aiDialogueVisuals.repository'
+import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
+import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
+import { OpenAiDialogueStreamHandler } from 'features/aiDialogue/OpenAiDialogueStream.command'
 
 const services = [
 	PrismaService,
@@ -30,6 +36,7 @@ const services = [
 	GenerateAiDialogueTurn,
 	SummarizeAiDialogue,
 	PublishImageGenerationOutbox,
+	AiDialogueVisualUpdates,
 ]
 const commandHandlers = [
 	CreateAiDialogueHandler,
@@ -37,6 +44,8 @@ const commandHandlers = [
 	DeleteAiDialogueHandler,
 	GetAiDialogueHandler,
 	GetUserDialoguesHandler,
+	GetAiDialogueVisualsHandler,
+	OpenAiDialogueStreamHandler,
 ]
 const repositories = [
 	AiDialogueMessageRepository,
@@ -44,13 +53,14 @@ const repositories = [
 	ImageGenerationOutboxRepository,
 	AiDialogueRepository,
 	AiDialogueQueryRepository,
+	AiDialogueVisualsRepository,
 	AiDialogueScenarioRepository,
 	AiDialogueScenarioQueryRepository,
 	UserRepository,
 ]
 
 @Module({
-	imports: [CqrsModule, LlmProviderModule],
+	imports: [CqrsModule, LlmProviderModule, CloudflareS3Module, AiDialogueVisualNotificationsModule],
 	controllers: [AiDialogueController],
 	providers: [...services, ...commandHandlers, ...repositories, CheckSessionCookieGuard],
 })

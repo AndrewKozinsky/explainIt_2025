@@ -62,7 +62,7 @@ export class GenerateAiDialogueTurn {
 		try {
 			// Ход начался: сигналим клиенту до первого chunk, чтобы он сразу показал
 			// плейсхолдер «ответ готовится» (зазор между запуском и первым токеном LLM).
-			this.sseHub.emit(dialogueId, { data: { type: 'turnStarted' } })
+			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'turnStarted' } })
 
 			const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
 			if (!dialogue) return
@@ -96,15 +96,18 @@ export class GenerateAiDialogueTurn {
 			for (const messageId of messageIds) {
 				const messageOut = await this.aiDialogueQueryRepository.getMessageById(messageId)
 				if (messageOut) {
-					this.sseHub.emit(dialogueId, { data: { type: 'message', message: messageOut } })
+					this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'message', message: messageOut } })
 				}
 			}
 		} catch (error) {
 			console.log('AiDialogue: turn generation failed', { dialogueId, error })
-			this.sseHub.emit(dialogueId, { data: { type: 'turnError', error: this.extractErrorMessage(error) } })
+
+			this.sseHub.publishDialogueEvent(dialogueId, {
+				data: { type: 'turnError', error: this.extractErrorMessage(error) },
+			})
 		} finally {
 			this.activeGenerationRegistry.unregister(dialogueId)
-			this.sseHub.emit(dialogueId, { data: { type: 'turnDone' } })
+			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'turnDone' } })
 		}
 
 		// После завершения хода (turnDone уже разослан) — фоновая компакция истории,
@@ -137,7 +140,7 @@ export class GenerateAiDialogueTurn {
 				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: accumulated })
 
 				if (attempt < MAX_PARSE_ATTEMPTS - 1) {
-					this.sseHub.emit(dialogueId, { data: { type: 'turnReset' } })
+					this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'turnReset' } })
 				}
 			}
 		}
@@ -161,7 +164,7 @@ export class GenerateAiDialogueTurn {
 
 		for await (const chunk of stream) {
 			accumulated += chunk
-			this.sseHub.emit(dialogueId, { data: { type: 'chunk', chunk } })
+			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'chunk', chunk } })
 		}
 
 		return accumulated
