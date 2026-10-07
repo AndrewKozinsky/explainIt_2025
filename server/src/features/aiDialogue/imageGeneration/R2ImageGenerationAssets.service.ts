@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { Injectable } from '@nestjs/common'
 import { ImageGenerationAssetsRepository } from 'repo/aiDialogue/imageGenerationAssets.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ImageGenerationJob } from 'prisma/generated/client'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 import { ImageGenerationSnapshot, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
@@ -11,6 +12,7 @@ import {
 	inspectDialogueImage,
 	neutralNpcReference,
 } from './dialogueImageFiles'
+import { getGeneratedDialogueImagesPrefix } from './generatedDialogueImageKey'
 import { ImageGenerationAssets } from './ImageGenerationAssets'
 
 @Injectable()
@@ -18,6 +20,7 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 	constructor(
 		private readonly repository: ImageGenerationAssetsRepository,
 		private readonly storage: CloudflareS3Service,
+		private readonly config: MainConfigService,
 	) {
 		super()
 	}
@@ -42,6 +45,7 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 			throw new Error('Scene owner does not match the job snapshot')
 		if (snapshot.participantCharacterIds.length + 1 + Number(Boolean(snapshot.styleSceneReferenceS3Key)) > 10)
 			throw new Error('Too many scene references for BFL')
+
 		const characters = await this.repository.findCharacters(snapshot.dialogueId, snapshot.participantCharacterIds)
 		const sheets: string[] = []
 
@@ -49,6 +53,7 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 			const character = characters.find((item) => item.id === snapshot.participantCharacterIds[index])
 			if (!character || character.npc_id !== snapshot.participantNpcIds[index])
 				throw new Error('Scene NPC does not belong to the saved dialogue')
+
 			const sheet = character.AiDialogueImage.find(
 				(image) => image.layout_version === AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
 			)
@@ -87,8 +92,9 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 		const metadata = await inspectDialogueImage(result.bytes, result.contentType)
 		assertDialogueImageRatio(metadata.width, metadata.height, snapshot.aspectRatio === '4:3' ? 4 / 3 : 2)
 		// A unique upload belongs to this attempt, so cleanup cannot delete another publisher's result.
-		const key = `ai-dialogue-images/generated/job-${job.id}/${randomUUID()}.${metadata.extension}`
+		const key = `${getGeneratedDialogueImagesPrefix(this.config.get())}job-${job.id}/${randomUUID()}.${metadata.extension}`
 		await this.storage.uploadFile(key, result.bytes, metadata.mime)
+
 		let committed: boolean
 		try {
 			committed = await this.repository.saveImageAndMarkJobReady(current, {

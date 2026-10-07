@@ -4,6 +4,7 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 import sharp from 'sharp'
 import { ImageGenerationAssetsRepository } from 'repo/aiDialogue/imageGenerationAssets.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ImageGenerationJob } from 'prisma/generated/client'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 import { parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
@@ -56,6 +57,7 @@ function harness() {
 	const service = new R2ImageGenerationAssets(
 		repository as unknown as ImageGenerationAssetsRepository,
 		storage as unknown as CloudflareS3Service,
+		{ get: () => ({ region: 'ru', mode: 'localtest' }) } as unknown as MainConfigService,
 	)
 	return { job, repository, storage, service }
 }
@@ -112,6 +114,7 @@ describe('R2ImageGenerationAssets', () => {
 		const { service, storage, repository, job } = harness()
 		await service.publish(job, { bytes: sprite, contentType: 'image/png' })
 		const key = storage.uploadFile.mock.calls[0][0]
+		expect(key).toMatch(/^ai-dialogue-images\/generated\/ru\/localtest\/job-10\/[a-f0-9-]+\.png$/)
 		expect(storage.uploadFile).toHaveBeenCalledWith(key, sprite, 'image/png')
 		expect(repository.saveImageAndMarkJobReady).toHaveBeenCalledWith(
 			job,

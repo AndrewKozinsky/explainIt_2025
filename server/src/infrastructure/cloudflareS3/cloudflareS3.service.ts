@@ -1,8 +1,14 @@
-import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3'
+import { Readable } from 'node:stream'
+import {
+	DeleteObjectCommand,
+	GetObjectCommand,
+	ListObjectsV2Command,
+	PutObjectCommand,
+	S3Client,
+} from '@aws-sdk/client-s3'
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
-import { Readable } from 'node:stream'
 
 @Injectable()
 export class CloudflareS3Service {
@@ -86,13 +92,27 @@ export class CloudflareS3Service {
 		return Buffer.concat(chunks)
 	}
 
-	async deleteFile(fileKey: string): Promise<void> {
+	/** Читает ограниченную страницу ключей и времени изменения; не загружает содержимое объектов. */
+	async listFilesByPrefix(prefix: string, continuationToken?: string, maxKeys = 25) {
+		return this.s3.send(
+			new ListObjectsV2Command({
+				Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
+				Prefix: prefix,
+				ContinuationToken: continuationToken,
+				MaxKeys: maxKeys,
+			}),
+			{ abortSignal: AbortSignal.timeout(10_000) },
+		)
+	}
+
+	/** Удаляет объект по ключу; необязательный timeoutMs ограничивает ожидание фоновой очистки. */
+	async deleteFile(fileKey: string, timeoutMs?: number): Promise<void> {
 		const command = new DeleteObjectCommand({
 			Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
 			Key: fileKey,
 		})
 
-		await this.s3.send(command)
+		await this.s3.send(command, timeoutMs ? { abortSignal: AbortSignal.timeout(timeoutMs) } : {})
 	}
 }
 

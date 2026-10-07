@@ -34,6 +34,29 @@ export class AiDialogueRepository {
 		return this.prisma.aiDialogue.delete({ where: { id } })
 	}
 
+	/**
+	 * Читает ключи изображений и удаляет принадлежащий пользователю диалог одной транзакцией.
+	 * R2 вызывается только после её коммита; поздние файлы с новым namespace подхватит orphan scan.
+	 * @returns Ключи исходников либо null, если диалог уже удалён или не принадлежит пользователю.
+	 */
+	async deleteDialogueAndGetImageKeys(id: number, userId: number): Promise<string[] | null> {
+		return this.prisma.$transaction(async (tx) => {
+			const images = await tx.aiDialogueImage.findMany({
+				where: {
+					OR: [
+						{ character: { dialogue: { id, user_id: userId } } },
+						{ message: { dialogue: { id, user_id: userId } } },
+					],
+				},
+				select: { s3_key: true },
+			})
+
+			const deleted = await tx.aiDialogue.deleteMany({ where: { id, user_id: userId } })
+
+			return deleted.count === 1 ? images.map((image) => image.s3_key) : null
+		})
+	}
+
 	// Обновляет компактную сводку диалога. summary — JSON-строка (массив блоков
 	// { state, history }), summaryUpTo — id последнего покрытого сводкой сообщения.
 	@CatchDbError()

@@ -2,7 +2,7 @@ jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => targ
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 
 import { Readable } from 'node:stream'
-import { GetObjectCommand } from '@aws-sdk/client-s3'
+import { GetObjectCommand, ListObjectsV2Command, DeleteObjectCommand } from '@aws-sdk/client-s3'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 import { CloudflareS3Service } from './cloudflareS3.service'
 
@@ -19,6 +19,30 @@ describe('bounded R2 reads', () => {
 		const send = jest.spyOn(service.s3, 'send').mockResolvedValue({} as never)
 		return { service, send }
 	}
+
+	it('lists only a bounded prefix page using the opaque cursor', async () => {
+		const { service, send } = harness()
+		await service.listFilesByPrefix('generated/ru/test/', 'cursor', 25)
+		expect(send.mock.calls[0][0]).toBeInstanceOf(ListObjectsV2Command)
+		expect((send.mock.calls[0][0] as ListObjectsV2Command).input).toEqual({
+			Bucket: 'images',
+			Prefix: 'generated/ru/test/',
+			ContinuationToken: 'cursor',
+			MaxKeys: 25,
+		})
+		expect(send.mock.calls[0][1]).toMatchObject({ abortSignal: expect.any(AbortSignal) })
+	})
+
+	it('bounds cleanup deletion without changing the object key', async () => {
+		const { service, send } = harness()
+		await service.deleteFile('generated/image.png', 10_000)
+		expect(send.mock.calls[0][0]).toBeInstanceOf(DeleteObjectCommand)
+		expect((send.mock.calls[0][0] as DeleteObjectCommand).input).toEqual({
+			Bucket: 'images',
+			Key: 'generated/image.png',
+		})
+		expect(send.mock.calls[0][1]).toMatchObject({ abortSignal: expect.any(AbortSignal) })
+	})
 
 	it('reads private objects as bounded bytes without a signed URL', async () => {
 		const { service, send } = harness()
