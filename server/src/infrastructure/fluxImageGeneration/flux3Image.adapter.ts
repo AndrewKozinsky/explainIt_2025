@@ -41,7 +41,7 @@ export class Flux3HttpError extends Error {
 	}
 }
 
-/** Single HTTP operations. Poll scheduling and retries belong to the future worker. */
+/** Single HTTP operations. Poll scheduling, durable submission guards and retries belong to consumers. */
 export class Flux3ImageAdapter {
 	constructor(
 		private readonly apiKey: string,
@@ -54,10 +54,11 @@ export class Flux3ImageAdapter {
 		flux3ImageGenerationInputSchema.parse(input)
 	}
 
-	async submit(input: Flux3ImageInput): Promise<Flux3Request> {
+	async submit(input: Flux3ImageInput, abortSignal?: AbortSignal): Promise<Flux3Request> {
 		const parsed = flux3ImageGenerationInputSchema.parse(input)
 		const response = await this.request('submit', {
 			method: 'POST',
+			signal: abortSignal,
 			url: 'https://api.bfl.ai/v1/flux-3-image',
 			headers: { 'x-key': this.apiKey, 'Content-Type': 'application/json' },
 			data: {
@@ -68,17 +69,20 @@ export class Flux3ImageAdapter {
 				...(parsed.images ? { images: parsed.images } : {}),
 			},
 		})
+
 		const data = submitSchema.parse(response.data)
 		assertPollingUrl(data.polling_url)
+
 		return { requestId: data.id, pollingUrl: data.polling_url }
 	}
 
-	async poll(request: Flux3Request): Promise<Flux3PollResult> {
+	async poll(request: Flux3Request, abortSignal?: AbortSignal): Promise<Flux3PollResult> {
 		assertPollingUrl(request.pollingUrl)
 		const response = await this.request(
 			'poll',
 			{
 				method: 'GET',
+				signal: abortSignal,
 				url: request.pollingUrl,
 				headers: { 'x-key': this.apiKey },
 			},
@@ -96,10 +100,14 @@ export class Flux3ImageAdapter {
 		return { status: 'Ready', sampleUrl: result.data.sample }
 	}
 
-	async download(sampleUrl: string): Promise<{ bytes: Buffer; contentType: string | null }> {
+	async download(
+		sampleUrl: string,
+		abortSignal?: AbortSignal,
+	): Promise<{ bytes: Buffer; contentType: string | null }> {
 		assertHttpsUrl(sampleUrl)
 		const response = await this.request('download', {
 			method: 'GET',
+			signal: abortSignal,
 			url: sampleUrl,
 			responseType: 'arraybuffer',
 			timeout: 120_000,

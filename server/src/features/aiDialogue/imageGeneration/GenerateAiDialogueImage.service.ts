@@ -2,11 +2,12 @@ import { Injectable, Optional } from '@nestjs/common'
 import { UnrecoverableError } from 'bullmq'
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
-import { Flux3ImageAdapter, Flux3Request } from 'infrastructure/fluxImageGeneration/flux3Image.adapter'
-import { startOrResumeFlux3Request } from 'infrastructure/fluxImageGeneration/startOrResumeFlux3Request'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
+import { ImageGenerationError } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationError'
+import { ImageGenerationOperation } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
 import { buildImageGenerationInput, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 import { ImageGenerationAssets } from './ImageGenerationAssets'
+import { savedFluxOperation, startOrResumeFlux3Request } from './startOrResumeFlux3Request'
 
 export type ImageGenerationStepResult = { done: true } | { done: false; delayMs: number }
 
@@ -15,7 +16,7 @@ export class GenerateAiDialogueImage {
 	constructor(
 		private readonly repository: ImageGenerationWorkerRepository,
 		private readonly requests: ImageGenerationRequestRepository,
-		private readonly config: MainConfigService,
+		private readonly adapter: ImageGenerationAdapterService,
 		@Optional() private readonly assets?: ImageGenerationAssets,
 	) {}
 
@@ -33,23 +34,22 @@ export class GenerateAiDialogueImage {
 		if (!job || job.status === 'ready' || job.status === 'failed') return { done: true }
 		// No paid request until both reference preparation and durable publication are wired.
 		if (!this.assets) return { done: false, delayMs: 60_000 }
-		const apiKey = this.config.get().blackForestLabs.apiKey
-		if (!apiKey) return { done: false, delayMs: 60_000 }
-
-		let request: Flux3Request | undefined
+		let request: ImageGenerationOperation | undefined
 
 		try {
+			// Saved jobs are BFL-only at this stage, including continuation of legacy receipts.
+			if (!this.adapter.isConfigured('flux-3-image')) return { done: false, delayMs: 60_000 }
 			if (job.provider_request_id && job.provider_polling_url) {
-				request = { requestId: job.provider_request_id, pollingUrl: job.provider_polling_url }
+				request = savedFluxOperation(job.provider_request_id, job.provider_polling_url)
 			} else if (job.status === 'generating' || job.provider_request_id || job.provider_polling_url) {
 				await this.repository.recordFailure(
 					id,
 					'BFL submission outcome unknown; manual recovery required',
 					false,
 				)
+
 				throw new UnrecoverableError('BFL submission outcome unknown; manual recovery required')
 			}
-			const adapter = this.createAdapter(apiKey)
 			if (!request) {
 				const snapshot = parseImageGenerationSnapshot(job.type, job.input)
 				const references = await this.assets.prepareReferences(job, snapshot)
@@ -59,23 +59,18 @@ export class GenerateAiDialogueImage {
 				}
 				const input = buildImageGenerationInput(snapshot, references)
 				if (!(await this.repository.findJob(id))) return { done: true }
-				request = await startOrResumeFlux3Request(id, input, adapter, this.requests)
+				request = await startOrResumeFlux3Request(id, input, this.adapter, this.requests)
 				return { done: false, delayMs: 2_000 }
 			}
 			if (Date.now() - job.updated_at.getTime() > 20 * 60_000) {
 				await this.repository.recordFailure(id, 'BFL polling timed out; external request retained', true)
 				throw new UnrecoverableError('BFL polling timed out')
 			}
-			const result = await adapter.poll(request)
-			if (['Pending', 'Reasoning', 'Generating'].includes(result.status)) return { done: false, delayMs: 2_000 }
-			if (result.status !== 'Ready') {
-				await this.repository.recordFailure(id, `BFL task ended: ${result.status}`, true)
-				throw new UnrecoverableError(`BFL task ended: ${result.status}`)
-			}
+			const result = await this.adapter.resume(request)
+			if (result.status === 'pending') return { done: false, delayMs: 2_000 }
+			if (result.images.length !== 1) throw new Error('Expected one image for the dialogue job')
 			if (!(await this.repository.findJob(id))) return { done: true }
-			const bytes = await adapter.download(result.sampleUrl)
-			if (!(await this.repository.findJob(id))) return { done: true }
-			await this.assets.publish(job, bytes)
+			await this.assets.publish(job, result.images[0])
 			const published = await this.repository.findJob(id)
 			if (published && published.status !== 'ready')
 				throw new Error('Image publication did not mark the job ready')
@@ -84,6 +79,10 @@ export class GenerateAiDialogueImage {
 			if (error instanceof UnrecoverableError) throw error
 			const current = await this.repository.findJob(id)
 			if (!current || current.status === 'ready' || current.status === 'failed') return { done: true }
+			if (error instanceof ImageGenerationError && ['moderated', 'operation_failed'].includes(error.code)) {
+				await this.repository.recordFailure(id, error.message, true)
+				throw new UnrecoverableError(error.message)
+			}
 			if (current.status === 'generating' && (!current.provider_request_id || !current.provider_polling_url)) {
 				await this.repository.recordFailure(
 					id,
@@ -97,13 +96,5 @@ export class GenerateAiDialogueImage {
 			if (terminal) throw new UnrecoverableError('Image processing failed after five errors')
 			return { done: false, delayMs: 30_000 }
 		}
-	}
-
-	/**
-	 * Создаёт адаптер FLUX 3 для текущего ключа; метод можно переопределить для подмены HTTP в тестах.
-	 * @param apiKey Ключ доступа Black Forest Labs, не передаваемый в Redis или референсы.
-	 */
-	protected createAdapter(apiKey: string): Flux3ImageAdapter {
-		return new Flux3ImageAdapter(apiKey)
 	}
 }

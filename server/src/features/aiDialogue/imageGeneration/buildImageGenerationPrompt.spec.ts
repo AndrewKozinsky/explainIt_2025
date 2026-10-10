@@ -45,8 +45,15 @@ describe('image generation prompts', () => {
 				styleSceneReferenceS3Key: 'style.png',
 			}),
 		)
-		const input = buildImageGenerationInput(snapshot, ['user', 'npc', 'style'])
-		expect(input.images).toEqual(['user', 'npc', 'style'])
+		const images = ['user', 'npc', 'style'].map(
+			(value) => `data:image/png;base64,${Buffer.from(value).toString('base64')}`,
+		)
+		const input = buildImageGenerationInput(snapshot, images)
+		expect(input.references?.map((ref) => ref.bytes.toString())).toEqual(['user', 'npc', 'style'])
+		expect(input.references?.map((ref) => ref.mimeType)).toEqual(['image/png', 'image/png', 'image/png'])
+		expect(input.references?.[1].purpose).toContain('dentist')
+		expect(input.model).toBe('flux-3-image')
+		expect(input.size).toEqual({ aspectRatio: '2:1', resolution: '768sq' })
 		expect(input.prompt).toContain('Image 2 is NPC dentist')
 		expect(input.prompt).toContain('Image 3 supplies visual style only')
 		expect(input.prompt).toContain('Dentist greets learner')

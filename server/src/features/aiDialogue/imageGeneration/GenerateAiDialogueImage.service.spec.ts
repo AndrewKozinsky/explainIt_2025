@@ -4,7 +4,8 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
 import { Flux3ImageAdapter } from 'infrastructure/fluxImageGeneration/flux3Image.adapter'
-import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { FluxImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/FluxImageGenerationProvider'
+import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 import { GenerateAiDialogueImage } from './GenerateAiDialogueImage.service'
 import { ImageGenerationAssets } from './ImageGenerationAssets'
@@ -32,11 +33,13 @@ function createHarness() {
 		updated_at: new Date(),
 		attempts: 0,
 	}
+
 	const repository = {
 		findJob: jest.fn().mockImplementation(async () => job),
 		waitForDependencies: jest.fn(),
 		recordFailure: jest.fn(),
 	}
+
 	const requests = {
 		getJob: jest.fn().mockImplementation(async () => job),
 		claimSubmission: jest.fn(async () => {
@@ -48,6 +51,7 @@ function createHarness() {
 			job.provider_polling_url = external.pollingUrl
 		}),
 	}
+
 	const config = { get: jest.fn(() => ({ blackForestLabs: { apiKey: 'test-key' as string | null } })) }
 	const assets = {
 		prepareReferences: jest.fn().mockResolvedValue([]),
@@ -55,25 +59,31 @@ function createHarness() {
 			job.status = 'ready'
 		}),
 	}
+
 	const http = {
 		request: jest.fn().mockResolvedValue({
 			data: { id: 'bfl-10', polling_url: 'https://api.eu1.bfl.ai/v1/get_result?id=bfl-10' },
 		}),
 	}
-	class TestGeneration extends GenerateAiDialogueImage {
-		protected createAdapter(key: string) {
-			return new Flux3ImageAdapter(key, http)
-		}
-	}
+
+	const adapter = new ImageGenerationAdapterService([
+		new FluxImageGenerationProvider(() => {
+			const key = config.get().blackForestLabs.apiKey
+			return key ? new Flux3ImageAdapter(key, http) : null
+		}),
+	])
+
 	function makeService(publisher?: ImageGenerationAssets) {
-		return new TestGeneration(
+		return new GenerateAiDialogueImage(
 			repository as unknown as ImageGenerationWorkerRepository,
 			requests as unknown as ImageGenerationRequestRepository,
-			config as unknown as MainConfigService,
+			adapter,
 			publisher,
 		)
 	}
+
 	const service = makeService(assets)
+
 	return { job, repository, requests, config, assets, http, service, makeService }
 }
 
@@ -137,6 +147,27 @@ describe('GenerateAiDialogueImage', () => {
 		job.status = 'generating'
 		await expect(service.processStep(10)).rejects.toThrow('manual recovery')
 		expect(http.request).not.toHaveBeenCalled()
+	})
+
+	it('continues a legacy saved BFL receipt without parsing input or preparing references', async () => {
+		const { service, job, http, assets, requests } = createHarness()
+		job.status = 'generating'
+		job.input = 'legacy input does not need reparsing'
+		job.provider_request_id = 'bfl-10'
+		job.provider_polling_url = 'https://api.eu1.bfl.ai/v1/get_result?id=bfl-10'
+		http.request.mockResolvedValueOnce({ status: 200, data: { id: 'bfl-10', status: 'Pending' } })
+		await expect(service.processStep(10)).resolves.toEqual({ done: false, delayMs: 2000 })
+		expect(assets.prepareReferences).not.toHaveBeenCalled()
+		expect(requests.claimSubmission).not.toHaveBeenCalled()
+		expect(http.request.mock.calls[0][0].method).toBe('GET')
+	})
+
+	it('does not restart generation when saving the accepted request fails', async () => {
+		const { service, requests, http } = createHarness()
+		requests.saveRequest.mockRejectedValueOnce(new Error('DB acknowledgement lost'))
+		await expect(service.processStep(10)).rejects.toThrow('manual recovery')
+		await expect(service.processStep(10)).rejects.toThrow('manual recovery')
+		expect(http.request).toHaveBeenCalledTimes(1)
 	})
 
 	it('keeps a lost submit response unresolved instead of automatically retrying POST', async () => {

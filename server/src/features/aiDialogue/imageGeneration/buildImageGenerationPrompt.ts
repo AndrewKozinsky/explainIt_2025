@@ -1,6 +1,9 @@
 import { z } from 'zod'
 import { aiDialogueEmotions } from 'types/aiDialogueMessage'
-import { Flux3ImageInput } from 'infrastructure/fluxImageGeneration/flux3Image.adapter'
+import {
+	ImageGenerationInput,
+	ImageGenerationReference,
+} from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 
 const common = {
@@ -43,21 +46,39 @@ export function parseImageGenerationSnapshot(type: string, input: string): Image
 }
 
 /** References must be ordered as style for a sprite; user, NPCs, then style for a scene. */
-export function buildImageGenerationInput(snapshot: ImageGenerationSnapshot, images: string[]): Flux3ImageInput {
+export function buildImageGenerationInput(snapshot: ImageGenerationSnapshot, images: string[]): ImageGenerationInput {
 	const expectedReferences =
 		'appearance' in snapshot
 			? Number(Boolean(snapshot.styleAvatarReferenceS3Key))
 			: 1 + snapshot.participantNpcIds.length + Number(Boolean(snapshot.styleSceneReferenceS3Key))
 	if (images.length !== expectedReferences) throw new Error('Missing or extra image references')
+
 	const prompt = 'appearance' in snapshot ? buildEmotionPrompt(snapshot) : buildScenePrompt(snapshot)
+	const references = images.map((image, index) => referenceFromDataUri(image, referencePurpose(snapshot, index)))
 
 	return {
+		model: snapshot.model,
 		prompt,
-		aspectRatio: snapshot.aspectRatio,
-		resolution: snapshot.resolution,
-		grounding: snapshot.grounding,
-		...(images.length ? { images } : {}),
+		size: { aspectRatio: snapshot.aspectRatio, resolution: snapshot.resolution },
+		...(references.length ? { references } : {}),
 	}
+}
+
+/** Adapt the existing validated R2 data URIs to the neutral byte contract without transcoding. */
+function referenceFromDataUri(image: string, purpose: string): ImageGenerationReference {
+	const match = /^data:(image\/(?:png|jpeg|webp));base64,([A-Za-z0-9+/]+={0,2})$/.exec(image)
+	if (!match) throw new Error('Invalid prepared image reference')
+
+	return { bytes: Buffer.from(match[2], 'base64'), mimeType: match[1], purpose }
+}
+
+function referencePurpose(snapshot: ImageGenerationSnapshot, index: number): string {
+	if ('appearance' in snapshot) return 'Visual style only; do not copy the character'
+	if (index === 0) return 'Learner identity and clothing'
+	if (index <= snapshot.participantNpcIds.length)
+		return `NPC ${snapshot.participantNpcIds[index - 1]} identity and clothing`
+
+	return 'Visual style only; do not copy composition or characters'
 }
 
 function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
@@ -71,6 +92,7 @@ function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
 			desc: `Head and shoulders of the same adult NPC, expression: ${emotion}. ${input.appearance}`,
 		}
 	})
+
 	return [
 		input.stylePrompt,
 		input.styleAvatarReferenceS3Key

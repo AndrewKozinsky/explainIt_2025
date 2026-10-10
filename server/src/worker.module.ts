@@ -24,16 +24,17 @@ import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.mod
 import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module'
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { GoogleGeminiModule } from 'infrastructure/googleGemini/googleGemini.module'
+import { ImageGenerationProviderModule } from 'infrastructure/imageGenerationProviderAdapter/imageGenerationProvider.module'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
+import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
 import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 import { ZaiModule } from 'infrastructure/zai/zai.module'
-import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
 
 /**
  * Worker-side Nest app. Runs in a separate process (main.worker.ts).
@@ -56,6 +57,7 @@ import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDial
 		GoogleGeminiModule,
 		OpenAIModule,
 		LlmProviderModule,
+		ImageGenerationProviderModule,
 		CloudflareS3Module,
 		AiDialogueVisualNotificationsModule,
 		DeepgramSttModule,

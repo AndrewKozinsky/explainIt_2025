@@ -2,15 +2,25 @@ jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => targ
 
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { PrismaService } from 'db/prisma.service'
-import { Flux3ImageAdapter, Flux3ImageInput } from './flux3Image.adapter'
-import { startOrResumeFlux3Request } from './startOrResumeFlux3Request'
+import { Flux3ImageAdapter } from 'infrastructure/fluxImageGeneration/flux3Image.adapter'
+import { FluxImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/FluxImageGenerationProvider'
+import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
+import { ImageGenerationInput } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
+import { savedFluxOperation, startOrResumeFlux3Request } from './startOrResumeFlux3Request'
 
-const input: Flux3ImageInput = { prompt: 'Scene', aspectRatio: '2:1', resolution: '768sq', grounding: false }
+const input: ImageGenerationInput = {
+	model: 'flux-3-image',
+	prompt: 'Scene',
+	size: { aspectRatio: '2:1', resolution: '768sq' },
+}
 const request = { requestId: 'task-1', pollingUrl: 'https://api.eu1.bfl.ai/v1/get_result?id=task-1' }
+const operation = savedFluxOperation(request.requestId, request.pollingUrl)
 
 describe('startOrResumeFlux3Request', () => {
 	const http = { request: jest.fn() }
-	const adapter = new Flux3ImageAdapter('test-key', http)
+	const adapter = new ImageGenerationAdapterService([
+		new FluxImageGenerationProvider(() => new Flux3ImageAdapter('test-key', http)),
+	])
 	const repository = { getJob: jest.fn(), claimSubmission: jest.fn(), saveRequest: jest.fn() }
 	beforeEach(() => {
 		jest.resetAllMocks()
@@ -21,7 +31,7 @@ describe('startOrResumeFlux3Request', () => {
 	})
 
 	it('records both response fields before returning control to the caller', async () => {
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).resolves.toEqual(request)
+		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).resolves.toEqual(operation)
 		expect(repository.saveRequest).toHaveBeenCalledWith(7, request)
 		expect(repository.claimSubmission.mock.invocationCallOrder[0]).toBeLessThan(
 			http.request.mock.invocationCallOrder[0],
@@ -37,7 +47,7 @@ describe('startOrResumeFlux3Request', () => {
 			provider_request_id: request.requestId,
 			provider_polling_url: request.pollingUrl,
 		})
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).resolves.toEqual(request)
+		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).resolves.toEqual(operation)
 		expect(http.request).not.toHaveBeenCalled()
 		expect(repository.claimSubmission).not.toHaveBeenCalled()
 	})
@@ -64,15 +74,16 @@ describe('startOrResumeFlux3Request', () => {
 		})
 		const started = await startOrResumeFlux3Request(7, input, adapter, repository)
 		http.request.mockRejectedValueOnce(new Error('network timeout'))
-		await expect(adapter.poll(started)).rejects.toThrow('poll failed')
+		await expect(adapter.resume(started)).rejects.toThrow('request failed')
 		const resumed = await startOrResumeFlux3Request(7, input, adapter, repository)
 		http.request.mockResolvedValueOnce({
 			status: 200,
 			data: { id: 'task-1', status: 'Ready', result: { sample: 'https://delivery.example.com/image' } },
 		})
-		await expect(adapter.poll(resumed)).resolves.toEqual({
-			status: 'Ready',
-			sampleUrl: 'https://delivery.example.com/image',
+		http.request.mockResolvedValueOnce({ data: Buffer.from('original'), headers: {} })
+		await expect(adapter.resume(resumed)).resolves.toEqual({
+			status: 'ready',
+			images: [{ bytes: Buffer.from('original'), contentType: null }],
 		})
 		expect(http.request.mock.calls.filter(([config]) => config.method === 'POST')).toHaveLength(1)
 	})
@@ -97,6 +108,30 @@ describe('startOrResumeFlux3Request', () => {
 		repository.saveRequest.mockRejectedValue(new Error('DB unavailable'))
 		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).rejects.toThrow('DB unavailable')
 		expect(http.request).toHaveBeenCalledTimes(1)
+	})
+
+	it('rejects unsupported provider parameters before reserving a paid submission', async () => {
+		await expect(startOrResumeFlux3Request(7, { ...input, quality: 'high' }, adapter, repository)).rejects.toThrow(
+			'quality',
+		)
+		expect(repository.claimSubmission).not.toHaveBeenCalled()
+		expect(http.request).not.toHaveBeenCalled()
+	})
+
+	it('allows only one POST for concurrent attempts and persists the receipt before continuation', async () => {
+		let claimed = false
+		repository.claimSubmission.mockImplementation(async () => {
+			if (claimed) return false
+			claimed = true
+			return true
+		})
+		const results = await Promise.allSettled([
+			startOrResumeFlux3Request(7, input, adapter, repository),
+			startOrResumeFlux3Request(7, input, adapter, repository),
+		])
+		expect(results.filter((result) => result.status === 'fulfilled')).toHaveLength(1)
+		expect(http.request).toHaveBeenCalledTimes(1)
+		expect(repository.saveRequest).toHaveBeenCalledTimes(1)
 	})
 })
 

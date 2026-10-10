@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
-import type { Flux3Request } from 'infrastructure/fluxImageGeneration/flux3Image.adapter'
 
 @Injectable()
 export class ImageGenerationRequestRepository {
@@ -35,6 +34,7 @@ export class ImageGenerationRequestRepository {
 			},
 			data: { status: 'generating', updated_at: new Date() },
 		})
+
 		return result.count === 1
 	}
 
@@ -48,7 +48,7 @@ export class ImageGenerationRequestRepository {
 	 * @throws Если задание отсутствует, имеет другой статус или реквизиты уже записаны.
 	 * Ошибка сохранения не означает отказ BFL: повторный POST может создать дубликат.
 	 */
-	async saveRequest(id: number, request: Flux3Request): Promise<void> {
+	async saveRequest(id: number, request: { requestId: string; pollingUrl: string }): Promise<void> {
 		const result = await this.prisma.imageGenerationJob.updateMany({
 			where: { id, status: 'generating', provider_request_id: null, provider_polling_url: null },
 			data: {
