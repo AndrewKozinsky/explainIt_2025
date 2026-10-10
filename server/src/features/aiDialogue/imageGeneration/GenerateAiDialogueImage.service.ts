@@ -7,7 +7,7 @@ import { ImageGenerationError } from 'infrastructure/imageGenerationProviderAdap
 import { ImageGenerationOperation } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
 import { buildImageGenerationInput, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 import { ImageGenerationAssets } from './ImageGenerationAssets'
-import { savedFluxOperation, startOrResumeFlux3Request } from './startOrResumeFlux3Request'
+import { savedFluxOperation, startOrResumeImageGenerationRequest } from './startOrResumeImageGenerationRequest'
 
 export type ImageGenerationStepResult = { done: true } | { done: false; delayMs: number }
 
@@ -59,7 +59,7 @@ export class GenerateAiDialogueImage {
 				}
 				const input = buildImageGenerationInput(snapshot, references)
 				if (!(await this.repository.findJob(id))) return { done: true }
-				request = await startOrResumeFlux3Request(id, input, this.adapter, this.requests)
+				request = await startOrResumeImageGenerationRequest(id, input, this.adapter, this.requests)
 				return { done: false, delayMs: 2_000 }
 			}
 			if (Date.now() - job.updated_at.getTime() > 20 * 60_000) {

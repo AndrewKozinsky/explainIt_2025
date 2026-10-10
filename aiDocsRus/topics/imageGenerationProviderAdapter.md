@@ -1,6 +1,6 @@
 # Универсальный адаптер генерации изображений
 
-Этап 1 реализован 10 октября 2026 года. Папка: `server/src/infrastructure/imageGenerationProviderAdapter`.
+Этап 1 реализован. Папка: `server/src/infrastructure/imageGenerationProviderAdapter`.
 Адаптер работает с любыми изображениями и не зависит от диалогов, NPC, спрайтов, БД, R2, BullMQ или SSE.
 Текстовый `llmProviderAdapter` не расширяется.
 
@@ -73,8 +73,15 @@ FLUX-контракт не имеет отдельного поля назнач
 в `features/aiDialogue/imageGeneration`. `buildImageGenerationInput` переводит проверенные data URI
 в общий контракт байтов/MIME без перекодирования.
 
-`startOrResumeFlux3Request.ts` и тесты перенесены из infrastructure в эту feature:
+`startOrResumeImageGenerationRequest.ts` и тесты перенесены из infrastructure в эту feature:
 резервирование и сохранение внешних реквизитов относятся к потребителю.
+Этот helper не вызывает FLUX напрямую: он проверяет состояние задания, резервирует отправку через репозиторий,
+вызывает `ImageGenerationAdapterService.generate(input)` и сохраняет возвращённые реквизиты.
+Сам внешний запрос выполняется через общий фасад и выбранного им поставщика.
+Файл `.spec.ts` проверяет этот порядок, восстановление и запрет повторной отправки; в runtime он не участвует.
+Имя helper описывает запуск или получение сохранённого запроса через общий адаптер.
+Текущий потребитель пока сохраняет BFL-пару в прежние колонки; обработка синхронного результата OpenAI
+будет добавлена при подключении этого поставщика.
 Существующие `provider_request_id`/`provider_polling_url` хранят BFL-пару без изменения схемы.
 `savedFluxOperation` восстанавливает общий envelope версии 1 для старых заданий. При сохранённой паре
 worker не перестраивает промпт/референсы и не делает POST. Неопределённый submit блокирует повторную отправку,
@@ -110,7 +117,7 @@ worker не перестраивает промпт/референсы и не �
 
 - `GenerateAiDialogueImage.service.ts` и `GenerateAiDialogueImage.service.spec.ts`;
 - `buildImageGenerationPrompt.ts` и `buildImageGenerationPrompt.spec.ts`;
-- `startOrResumeFlux3Request.ts` и `startOrResumeFlux3Request.spec.ts` — перенесены из `infrastructure/fluxImageGeneration/` и адаптированы к общему фасаду.
+- `startOrResumeImageGenerationRequest.ts` и `startOrResumeImageGenerationRequest.spec.ts` — оркестрация сохранения задания и вызова общего фасада.
 
 Также изменены:
 

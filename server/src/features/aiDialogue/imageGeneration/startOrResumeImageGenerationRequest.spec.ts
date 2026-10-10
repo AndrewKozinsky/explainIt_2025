@@ -6,7 +6,7 @@ import { Flux3ImageAdapter } from 'infrastructure/fluxImageGeneration/flux3Image
 import { FluxImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/FluxImageGenerationProvider'
 import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
 import { ImageGenerationInput } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
-import { savedFluxOperation, startOrResumeFlux3Request } from './startOrResumeFlux3Request'
+import { savedFluxOperation, startOrResumeImageGenerationRequest } from './startOrResumeImageGenerationRequest'
 
 const input: ImageGenerationInput = {
 	model: 'flux-3-image',
@@ -16,7 +16,7 @@ const input: ImageGenerationInput = {
 const request = { requestId: 'task-1', pollingUrl: 'https://api.eu1.bfl.ai/v1/get_result?id=task-1' }
 const operation = savedFluxOperation(request.requestId, request.pollingUrl)
 
-describe('startOrResumeFlux3Request', () => {
+describe('startOrResumeImageGenerationRequest', () => {
 	const http = { request: jest.fn() }
 	const adapter = new ImageGenerationAdapterService([
 		new FluxImageGenerationProvider(() => new Flux3ImageAdapter('test-key', http)),
@@ -31,7 +31,7 @@ describe('startOrResumeFlux3Request', () => {
 	})
 
 	it('records both response fields before returning control to the caller', async () => {
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).resolves.toEqual(operation)
+		await expect(startOrResumeImageGenerationRequest(7, input, adapter, repository)).resolves.toEqual(operation)
 		expect(repository.saveRequest).toHaveBeenCalledWith(7, request)
 		expect(repository.claimSubmission.mock.invocationCallOrder[0]).toBeLessThan(
 			http.request.mock.invocationCallOrder[0],
@@ -47,19 +47,19 @@ describe('startOrResumeFlux3Request', () => {
 			provider_request_id: request.requestId,
 			provider_polling_url: request.pollingUrl,
 		})
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).resolves.toEqual(operation)
+		await expect(startOrResumeImageGenerationRequest(7, input, adapter, repository)).resolves.toEqual(operation)
 		expect(http.request).not.toHaveBeenCalled()
 		expect(repository.claimSubmission).not.toHaveBeenCalled()
 	})
 
 	it('blocks a concurrent or uncertain submission', async () => {
 		repository.claimSubmission.mockResolvedValue(false)
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).rejects.toThrow('outcome unknown')
+		await expect(startOrResumeImageGenerationRequest(7, input, adapter, repository)).rejects.toThrow('outcome unknown')
 		expect(http.request).not.toHaveBeenCalled()
 	})
 
 	it('does not claim a job with invalid input', async () => {
-		await expect(startOrResumeFlux3Request(7, { ...input, prompt: ' ' }, adapter, repository)).rejects.toThrow()
+		await expect(startOrResumeImageGenerationRequest(7, { ...input, prompt: ' ' }, adapter, repository)).rejects.toThrow()
 		expect(repository.claimSubmission).not.toHaveBeenCalled()
 		expect(http.request).not.toHaveBeenCalled()
 	})
@@ -72,10 +72,10 @@ describe('startOrResumeFlux3Request', () => {
 				provider_polling_url: saved.pollingUrl,
 			})
 		})
-		const started = await startOrResumeFlux3Request(7, input, adapter, repository)
+		const started = await startOrResumeImageGenerationRequest(7, input, adapter, repository)
 		http.request.mockRejectedValueOnce(new Error('network timeout'))
 		await expect(adapter.resume(started)).rejects.toThrow('request failed')
-		const resumed = await startOrResumeFlux3Request(7, input, adapter, repository)
+		const resumed = await startOrResumeImageGenerationRequest(7, input, adapter, repository)
 		http.request.mockResolvedValueOnce({
 			status: 200,
 			data: { id: 'task-1', status: 'Ready', result: { sample: 'https://delivery.example.com/image' } },
@@ -90,7 +90,7 @@ describe('startOrResumeFlux3Request', () => {
 
 	it.each(['ready', 'failed'])('does not restart a %s job', async (status) => {
 		repository.getJob.mockResolvedValue({ status })
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).rejects.toThrow('terminal')
+		await expect(startOrResumeImageGenerationRequest(7, input, adapter, repository)).rejects.toThrow('terminal')
 		expect(http.request).not.toHaveBeenCalled()
 	})
 
@@ -100,18 +100,18 @@ describe('startOrResumeFlux3Request', () => {
 			provider_request_id: 'task-1',
 			provider_polling_url: null,
 		})
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).rejects.toThrow('Incomplete')
+		await expect(startOrResumeImageGenerationRequest(7, input, adapter, repository)).rejects.toThrow('Incomplete')
 		expect(http.request).not.toHaveBeenCalled()
 	})
 
 	it('propagates a persistence failure without polling or retrying POST', async () => {
 		repository.saveRequest.mockRejectedValue(new Error('DB unavailable'))
-		await expect(startOrResumeFlux3Request(7, input, adapter, repository)).rejects.toThrow('DB unavailable')
+		await expect(startOrResumeImageGenerationRequest(7, input, adapter, repository)).rejects.toThrow('DB unavailable')
 		expect(http.request).toHaveBeenCalledTimes(1)
 	})
 
 	it('rejects unsupported provider parameters before reserving a paid submission', async () => {
-		await expect(startOrResumeFlux3Request(7, { ...input, quality: 'high' }, adapter, repository)).rejects.toThrow(
+		await expect(startOrResumeImageGenerationRequest(7, { ...input, quality: 'high' }, adapter, repository)).rejects.toThrow(
 			'quality',
 		)
 		expect(repository.claimSubmission).not.toHaveBeenCalled()
@@ -126,8 +126,8 @@ describe('startOrResumeFlux3Request', () => {
 			return true
 		})
 		const results = await Promise.allSettled([
-			startOrResumeFlux3Request(7, input, adapter, repository),
-			startOrResumeFlux3Request(7, input, adapter, repository),
+			startOrResumeImageGenerationRequest(7, input, adapter, repository),
+			startOrResumeImageGenerationRequest(7, input, adapter, repository),
 		])
 		expect(results.filter((result) => result.status === 'fulfilled')).toHaveLength(1)
 		expect(http.request).toHaveBeenCalledTimes(1)

@@ -5,10 +5,11 @@ import {
 } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
 import type { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 
-/** Consumer-side durable BFL submission guard. Existing DB columns retain the original BFL receipt.
+/** Consumer-side durable image request orchestration via the shared adapter.
+ * Existing DB columns currently retain the BFL receipt; this is not a direct provider client.
  * Called after references are prepared; validation precedes the claim. Never retries an uncertain POST.
  * Persistence errors propagate: a lost save acknowledgement is not permission to resubmit. */
-export async function startOrResumeFlux3Request(
+export async function startOrResumeImageGenerationRequest(
 	jobId: number,
 	input: ImageGenerationInput,
 	adapter: ImageGenerationAdapterService,
