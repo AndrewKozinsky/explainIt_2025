@@ -10,30 +10,41 @@ export interface UpdateBookInput {
   /**
      * Author of the book
      * @maxLength 255
+     * @nullable
      */
   author?: string | null;
   /**
      * Name of the book
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
-  /** Language code of the book */
+  /**
+     * Language code of the book
+     * @nullable
+     */
   languageCode?: string | null;
   /**
      * Text about the book
      * @maxLength 2000
+     * @nullable
      */
   about?: string | null;
   /**
      * File name of the book cover
      * @maxLength 255
+     * @nullable
      */
   coverFileName?: string | null;
   /**
      * File Mime Type of the book cover
      * @maxLength 50
+     * @nullable
      */
   coverFileMimeType?: string | null;
-  /** Is cover file was uploaded */
+  /**
+     * Is cover file was uploaded
+     * @nullable
+     */
   isCoverFileUploaded?: boolean | null;
 }

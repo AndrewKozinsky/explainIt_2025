@@ -15,6 +15,7 @@ export interface AiDialogueScenarioOutModel {
   /**
      * Stable unique key of the scenario (null for user-created scenarios)
      * @maxLength 255
+     * @nullable
      */
   slug?: string | null;
   /**

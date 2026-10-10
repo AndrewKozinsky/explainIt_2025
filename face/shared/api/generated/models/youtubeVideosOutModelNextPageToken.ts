@@ -8,5 +8,6 @@
 
 /**
  * Token for the next page of results. null if there is no next page.
+ * @nullable
  */
 export type YoutubeVideosOutModelNextPageToken = { [key: string]: unknown } | null;

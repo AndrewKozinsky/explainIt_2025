@@ -8,5 +8,6 @@
 
 /**
  * BullMQ job ID of the subtitles task
+ * @nullable
  */
 export type VideoSubtitlesStatusOutModelJobId = { [key: string]: unknown } | null;

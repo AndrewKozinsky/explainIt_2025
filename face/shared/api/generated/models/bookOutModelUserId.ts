@@ -8,5 +8,6 @@
 
 /**
  * User ID who owns the book (null for public books)
+ * @nullable
  */
 export type BookOutModelUserId = { [key: string]: unknown } | null;

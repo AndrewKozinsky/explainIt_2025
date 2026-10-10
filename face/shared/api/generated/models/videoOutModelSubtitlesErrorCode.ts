@@ -8,5 +8,6 @@
 
 /**
  * Error code if subtitles processing failed
+ * @nullable
  */
 export type VideoOutModelSubtitlesErrorCode = { [key: string]: unknown } | null;

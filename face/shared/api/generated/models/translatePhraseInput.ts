@@ -26,15 +26,28 @@ export interface TranslatePhraseInput {
      * Source language code
      * @minLength 2
      * @maxLength 2
+     * @nullable
      */
   sourceLanguageCode?: string | null;
   targetLanguageCode: string;
-  /** Name of the book */
+  /**
+     * Name of the book
+     * @nullable
+     */
   bookName?: string | null;
-  /** Author of the book */
+  /**
+     * Author of the book
+     * @nullable
+     */
   bookAuthor?: string | null;
-  /** Name of the video */
+  /**
+     * Name of the video
+     * @nullable
+     */
   videoName?: string | null;
-  /** Year of video release */
+  /**
+     * Year of video release
+     * @nullable
+     */
   videoYear?: number | null;
 }

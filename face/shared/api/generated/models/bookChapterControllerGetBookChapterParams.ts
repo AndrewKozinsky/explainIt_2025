@@ -11,5 +11,8 @@ export type BookChapterControllerGetBookChapterParams = {
  * Media type: public or private
  */
 bookType: string;
+/**
+ * @nullable
+ */
 targetLanguageCode?: string | null;
 };

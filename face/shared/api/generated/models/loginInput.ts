@@ -13,6 +13,7 @@ export interface LoginInput {
      * User password
      * @minLength 6
      * @maxLength 30
+     * @nullable
      */
   password?: string | null;
 }

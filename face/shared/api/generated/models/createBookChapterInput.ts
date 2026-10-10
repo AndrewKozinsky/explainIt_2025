@@ -17,22 +17,26 @@ export interface CreateBookChapterInput {
   /**
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
+     * @nullable
      */
   header?: string | null;
   /**
      * Original content of the chapter
      * @maxLength 900000
+     * @nullable
      */
   originalContent?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
+     * @nullable
      */
   note?: string | null;
 }

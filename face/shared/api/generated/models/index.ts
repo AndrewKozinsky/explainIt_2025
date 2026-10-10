@@ -8,11 +8,17 @@
 
 export * from './aiDialogueActionItemInput';
 export * from './aiDialogueActionItemInputType';
+export * from './aiDialogueCharacterVisualOutModel';
+export * from './aiDialogueCharacterVisualOutModelGenerationStatus';
 export * from './aiDialogueControllerStream200';
+export * from './aiDialogueImageOutModel';
 export * from './aiDialogueMessageOutModel';
 export * from './aiDialogueMessageOutModelPayload';
 export * from './aiDialogueOutModel';
 export * from './aiDialogueScenarioOutModel';
+export * from './aiDialogueSceneVisualOutModel';
+export * from './aiDialogueSceneVisualOutModelGenerationStatus';
+export * from './aiDialogueVisualsOutModel';
 export * from './bookChapterControllerGetBookChapterParams';
 export * from './bookChapterLiteOutModel';
 export * from './bookChapterOutModel';

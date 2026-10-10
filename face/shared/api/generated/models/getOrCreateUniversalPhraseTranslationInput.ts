@@ -10,16 +10,24 @@ export interface GetOrCreateUniversalPhraseTranslationInput {
   /**
      * Universal phrase ID
      * @minimum 1
+     * @nullable
      */
   universalPhraseId?: number | null;
   /**
      * Word, phrase or sentence in foreign language
      * @maxLength 2000
+     * @nullable
      */
   phraseText?: string | null;
-  /** Language code of the book or video */
+  /**
+     * Language code of the book or video
+     * @nullable
+     */
   sourceLanguageCode?: string | null;
   targetLanguageCode: string;
-  /** LLM model (enum). Если не указана — DeepSeek по умолчанию. */
+  /**
+     * LLM model (enum). Если не указана — DeepSeek по умолчанию.
+     * @nullable
+     */
   model?: string | null;
 }

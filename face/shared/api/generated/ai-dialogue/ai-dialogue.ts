@@ -28,6 +28,7 @@ import type {
   AiDialogueControllerStream200,
   AiDialogueMessageOutModel,
   AiDialogueOutModel,
+  AiDialogueVisualsOutModel,
   CreateAiDialogueInput,
   CreateAiDialogueMessageInput
 } from '../models';
@@ -530,7 +531,120 @@ export const useAiDialogueControllerCreateAiDialogueMessage = <TError = unknown,
       > => {
       return useMutation(getAiDialogueControllerCreateAiDialogueMessageMutationOptions(options), queryClient);
     }
-    export type aiDialogueControllerStreamResponse200 = {
+    export type aiDialogueControllerGetAiDialogueVisualsResponse200 = {
+  data: AiDialogueVisualsOutModel
+  status: 200
+}
+
+export type aiDialogueControllerGetAiDialogueVisualsResponseSuccess = (aiDialogueControllerGetAiDialogueVisualsResponse200) & {
+  headers: Headers;
+};
+;
+
+export type aiDialogueControllerGetAiDialogueVisualsResponse = (aiDialogueControllerGetAiDialogueVisualsResponseSuccess)
+
+export const getAiDialogueControllerGetAiDialogueVisualsUrl = (id: number,) => {
+
+
+
+
+  return `/api/ai-dialogue/${id}/visuals`
+}
+
+/**
+ * Returns visual state and signed image URLs for the dialogue owner.
+ * @summary Get AI dialogue visuals
+ */
+export const aiDialogueControllerGetAiDialogueVisuals = async (id: number, options?: RequestInit): Promise<aiDialogueControllerGetAiDialogueVisualsResponse> => {
+
+  return customMutator<aiDialogueControllerGetAiDialogueVisualsResponse>(getAiDialogueControllerGetAiDialogueVisualsUrl(id),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerGetAiDialogueVisualsQueryKey = (id: number,) => {
+    return [
+    `/api/ai-dialogue/${id}/visuals`
+    ] as const;
+    }
+
+
+export const getAiDialogueControllerGetAiDialogueVisualsQueryOptions = <TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError = unknown>(id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getAiDialogueControllerGetAiDialogueVisualsQueryKey(id);
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>> = ({ signal }) => aiDialogueControllerGetAiDialogueVisuals(id, { signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, enabled: id !== null && id !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+}
+
+export type AiDialogueControllerGetAiDialogueVisualsQueryResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>>
+export type AiDialogueControllerGetAiDialogueVisualsQueryError = unknown
+
+
+export function useAiDialogueControllerGetAiDialogueVisuals<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError = unknown>(
+ id: number, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>,
+          TError,
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useAiDialogueControllerGetAiDialogueVisuals<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError = unknown>(
+ id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>,
+          TError,
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useAiDialogueControllerGetAiDialogueVisuals<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError = unknown>(
+ id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+/**
+ * @summary Get AI dialogue visuals
+ */
+
+export function useAiDialogueControllerGetAiDialogueVisuals<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError = unknown>(
+ id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueVisuals>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
+
+  const queryOptions = getAiDialogueControllerGetAiDialogueVisualsQueryOptions(id,options)
+
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
+
+export type aiDialogueControllerStreamResponse200 = {
   data: AiDialogueControllerStream200
   status: 200
 }

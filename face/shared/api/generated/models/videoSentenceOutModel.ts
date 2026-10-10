@@ -14,7 +14,10 @@ export interface VideoSentenceOutModel {
      * @minimum 1
      */
   id: number;
-  /** Sentence translations */
+  /**
+     * Sentence translations
+     * @nullable
+     */
   sentenceTranslations: SentenceTranslationLiteOutModel[] | null;
   /** how many symbols it needs to offset from the beginning of the whole text where this sentence begins */
   startOffset: number;
@@ -22,6 +25,9 @@ export interface VideoSentenceOutModel {
   length: number;
   /** the serial number of this sentence */
   orderIndex: number;
-  /** Phrase translations within this sentence */
+  /**
+     * Phrase translations within this sentence
+     * @nullable
+     */
   sentencePhraseTranslations: SentencePhraseTranslationOutModel[] | null;
 }

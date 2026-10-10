@@ -17,27 +17,37 @@ export interface BookChapterOutModel {
   /**
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
+     * @nullable
      */
   header?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
+     * @nullable
      */
   note?: string | null;
   /**
      * Original content of the chapter
      * @maxLength 900000
+     * @nullable
      */
   originalContent?: string | null;
-  /** Processed content of the chapter (flattened) */
+  /**
+     * Processed content of the chapter (flattened)
+     * @nullable
+     */
   processedContent?: string | null;
-  /** Sentences of the chapter */
+  /**
+     * Sentences of the chapter
+     * @nullable
+     */
   sentences: SentenceOutModel[] | null;
   /** Book that the chapter belongs to */
   book: BookLiteOutModel;

@@ -23,7 +23,10 @@ export interface SentenceChatMessageOutModel {
   content: string;
   /** Lifecycle status of the message (mostly relevant for assistant messages) */
   status: string;
-  /** Error description if status is failed */
+  /**
+     * Error description if status is failed
+     * @nullable
+     */
   errorMessage?: string | null;
   createdAt: string;
   updatedAt: string;

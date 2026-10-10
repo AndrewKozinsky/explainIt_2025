@@ -10,11 +10,18 @@ export interface CreateVideoInput {
   /**
      * Name of the video
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
-  /** Original subtitles or text of the video */
+  /**
+     * Original subtitles or text of the video
+     * @nullable
+     */
   originalContent?: string | null;
-  /** Size of the video file in megabytes */
+  /**
+     * Size of the video file in megabytes
+     * @nullable
+     */
   fileSizeMb?: number | null;
   /** Duration of the video in seconds (from YouTube metadata or ffprobe) */
   durationSec: number;

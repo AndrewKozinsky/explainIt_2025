@@ -17,20 +17,31 @@ export interface UpdateVideoOutModel {
   /**
      * Name of the video
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /** Language code of the video */
   languageCode: string;
-  /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
+  /**
+     * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
+     * @nullable
+     */
   proficiencyLevel?: number | null;
   /**
      * Predefined topic category (e.g. Travel & Geography)
      * @maxLength 100
+     * @nullable
      */
   topic?: string | null;
-  /** Original subtitles or text of the video */
+  /**
+     * Original subtitles or text of the video
+     * @nullable
+     */
   originalContent?: string | null;
-  /** Processed subtitles or text of the video (flattened) */
+  /**
+     * Processed subtitles or text of the video (flattened)
+     * @nullable
+     */
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;

@@ -14,7 +14,10 @@ export interface YoutubeVideoOutModel {
   title: string;
   /** Channel name */
   channelName: string;
-  /** Channel logo URL */
+  /**
+     * Channel logo URL
+     * @nullable
+     */
   channelLogoUrl: YoutubeVideoOutModelChannelLogoUrl;
   /** Video thumbnail URL */
   thumbnailUrl: string;

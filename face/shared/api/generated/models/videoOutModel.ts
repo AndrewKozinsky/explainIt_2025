@@ -28,47 +28,65 @@ export interface VideoOutModel {
   /**
      * Name of the video
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /** Language code of the video */
   languageCode: string;
-  /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
+  /**
+     * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
+     * @nullable
+     */
   proficiencyLevel?: number | null;
   /**
      * YouTube video ID for videos hosted on YouTube
      * @minLength 11
      * @maxLength 20
+     * @nullable
      */
   youtubeVideoId?: string | null;
   /**
      * Text about the video
      * @maxLength 4000
+     * @nullable
      */
   about?: string | null;
   /**
      * Predefined topic category (e.g. Travel & Geography)
      * @maxLength 100
+     * @nullable
      */
   topic?: string | null;
-  /** Original subtitles or text of the video */
+  /**
+     * Original subtitles or text of the video
+     * @nullable
+     */
   originalContent?: string | null;
-  /** Processed subtitles or text of the video (flattened) */
+  /**
+     * Processed subtitles or text of the video (flattened)
+     * @nullable
+     */
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
   contentType: string;
   /**
      * File name of the video file
      * @maxLength 200
+     * @nullable
      */
   fileName?: string | null;
   /**
      * S3 key of the video file
      * @maxLength 1000
+     * @nullable
      */
   fileS3Key?: string | null;
   /** Pre-signed URL for downloading the video file from S3 */
   fileUrl: VideoOutModelFileUrl;
-  /** Is video file was uploaded */
+  /**
+     * Is video file was uploaded
+     * @nullable
+     */
   isFileUploaded?: boolean | null;
   /** Size of the video file in megabytes */
   fileSizeMb: number;
@@ -79,29 +97,49 @@ export interface VideoOutModel {
   /**
      * Name of the video cover file
      * @maxLength 200
+     * @nullable
      */
   coverFileName?: string | null;
   /**
      * S3 key of the video cover
      * @maxLength 1000
+     * @nullable
      */
   coverFileS3Key?: string | null;
   /** Is cover file was uploaded */
   isCoverFileUploaded: boolean;
-  /** URL to the cover image of the video */
+  /**
+     * URL to the cover image of the video
+     * @nullable
+     */
   coverUrl?: string | null;
-  /** Pre-signed S3 upload URL for the video cover */
+  /**
+     * Pre-signed S3 upload URL for the video cover
+     * @nullable
+     */
   uploadCoverUrl?: string | null;
-  /** Sentences extracted from the video content */
+  /**
+     * Sentences extracted from the video content
+     * @nullable
+     */
   sentences: VideoSentenceOutModel[] | null;
-  /** Subtitles parsed from the video content */
+  /**
+     * Subtitles parsed from the video content
+     * @nullable
+     */
   subtitles: VideoSubtitleOutModel[] | null;
-  /** Mapping between subtitles and sentences */
+  /**
+     * Mapping between subtitles and sentences
+     * @nullable
+     */
   subtitleSentenceInit: SubtitleSentenceInitOutModel[] | null;
   /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
   subtitlesSource: string;
   /** Status of subtitles processing */
   subtitlesStatus: VideoOutModelSubtitlesStatus;
-  /** Error code if subtitles processing failed */
+  /**
+     * Error code if subtitles processing failed
+     * @nullable
+     */
   subtitlesErrorCode: VideoOutModelSubtitlesErrorCode;
 }

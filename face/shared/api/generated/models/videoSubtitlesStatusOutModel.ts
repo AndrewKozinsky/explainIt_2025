@@ -17,8 +17,14 @@ export interface VideoSubtitlesStatusOutModel {
   source: VideoSubtitlesStatusOutModelSource;
   /** Current status of subtitles processing */
   status: VideoSubtitlesStatusOutModelStatus;
-  /** Machine-readable error code if processing failed */
+  /**
+     * Machine-readable error code if processing failed
+     * @nullable
+     */
   errorCode: VideoSubtitlesStatusOutModelErrorCode;
-  /** BullMQ job ID of the subtitles task */
+  /**
+     * BullMQ job ID of the subtitles task
+     * @nullable
+     */
   jobId: VideoSubtitlesStatusOutModelJobId;
 }

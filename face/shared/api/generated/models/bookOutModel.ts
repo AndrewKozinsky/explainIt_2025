@@ -19,11 +19,13 @@ export interface BookOutModel {
   /**
      * Author of the book
      * @maxLength 255
+     * @nullable
      */
   author?: string | null;
   /**
      * Name of the book
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /** Language code of the book */
@@ -31,25 +33,37 @@ export interface BookOutModel {
   /**
      * Text about the book
      * @maxLength 2000
+     * @nullable
      */
   about?: string | null;
-  /** User ID who owns the book (null for public books) */
+  /**
+     * User ID who owns the book (null for public books)
+     * @nullable
+     */
   userId?: BookOutModelUserId;
-  /** URL to the book cover image */
+  /**
+     * URL to the book cover image
+     * @nullable
+     */
   coverUrl?: string | null;
   /**
      * Name of the book cover file
      * @maxLength 200
+     * @nullable
      */
   coverFileName?: string | null;
   /**
      * S3 key of the book cover
      * @maxLength 1000
+     * @nullable
      */
   coverFileS3Key?: string | null;
   /** Is cover file was uploaded */
   isCoverFileUploaded: boolean;
-  /** Pre-signed S3 upload URL for the book cover */
+  /**
+     * Pre-signed S3 upload URL for the book cover
+     * @nullable
+     */
   uploadCoverUrl?: string | null;
   /** Book chapters */
   chapters: BookChapterLiteOutModel[];

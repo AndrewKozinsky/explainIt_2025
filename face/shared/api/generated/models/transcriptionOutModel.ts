@@ -20,11 +20,13 @@ export interface TranscriptionOutModel {
   /**
      * IPA transcription
      * @maxLength 500
+     * @nullable
      */
   ipa?: string | null;
   /**
      * Pinyin transcription (for Chinese)
      * @maxLength 500
+     * @nullable
      */
   pinyin?: string | null;
 }

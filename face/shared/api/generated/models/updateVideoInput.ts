@@ -10,56 +10,93 @@ export interface UpdateVideoInput {
   /**
      * Name of the video
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
-  /** Original subtitles or text of the video */
+  /**
+     * Original subtitles or text of the video
+     * @nullable
+     */
   originalContent?: string | null;
   /**
      * File name of the video
      * @maxLength 255
+     * @nullable
      */
   fileName?: string | null;
   /**
      * File Mime Type of the video
      * @maxLength 50
+     * @nullable
      */
   fileMimeType?: string | null;
-  /** Is video file was uploaded */
+  /**
+     * Is video file was uploaded
+     * @nullable
+     */
   isFileUploaded?: boolean | null;
-  /** Size of the video file in megabytes */
+  /**
+     * Size of the video file in megabytes
+     * @nullable
+     */
   fileSizeMb?: number | null;
-  /** Duration of the video in seconds (from YouTube metadata or ffprobe) */
+  /**
+     * Duration of the video in seconds (from YouTube metadata or ffprobe)
+     * @nullable
+     */
   durationSec?: number | null;
-  /** Language code of the video */
+  /**
+     * Language code of the video
+     * @nullable
+     */
   languageCode?: string | null;
   /**
      * File name of the video cover
      * @maxLength 255
+     * @nullable
      */
   coverFileName?: string | null;
   /**
      * File Mime Type of the video cover
      * @maxLength 50
+     * @nullable
      */
   coverFileMimeType?: string | null;
-  /** Is cover file was uploaded */
+  /**
+     * Is cover file was uploaded
+     * @nullable
+     */
   isCoverFileUploaded?: boolean | null;
-  /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
+  /**
+     * Who created the subtitles: user-uploaded, from YouTube, or LLM-generated
+     * @nullable
+     */
   subtitlesSource?: string | null;
-  /** Status of subtitles processing */
+  /**
+     * Status of subtitles processing
+     * @nullable
+     */
   subtitlesStatus?: string | null;
   /**
      * Machine-readable error code if status is failed
      * @maxLength 200
+     * @nullable
      */
   subtitlesErrorCode?: string | null;
-  /** CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2 */
+  /**
+     * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
+     * @nullable
+     */
   proficiencyLevel?: number | null;
   /**
      * Predefined topic category (e.g. Travel & Geography)
      * @maxLength 100
+     * @nullable
      */
   topic?: string | null;
-  /** How suitable the video is for language learners (1-10) */
+  /**
+     * How suitable the video is for language learners (1-10)
+     * @nullable
+     */
   learnabilityScore?: number | null;
 }

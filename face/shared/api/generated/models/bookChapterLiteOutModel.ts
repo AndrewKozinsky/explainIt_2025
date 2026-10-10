@@ -17,17 +17,20 @@ export interface BookChapterLiteOutModel {
   /**
      * Name of the chapter. For example: Chapter 1.
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /**
      * Header of the chapter
      * @maxLength 255
+     * @nullable
      */
   header?: string | null;
   /**
      * Note about the book
      * @minLength 0
      * @maxLength 1000
+     * @nullable
      */
   note?: string | null;
 }

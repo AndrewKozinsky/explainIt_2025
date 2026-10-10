@@ -8,5 +8,6 @@
 
 /**
  * Channel logo URL
+ * @nullable
  */
 export type YoutubeVideoOutModelChannelLogoUrl = { [key: string]: unknown } | null;

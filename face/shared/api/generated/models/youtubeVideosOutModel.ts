@@ -11,7 +11,10 @@ import type { YoutubeVideosOutModelNextPageToken } from './youtubeVideosOutModel
 export interface YoutubeVideosOutModel {
   /** List of YouTube videos */
   videos: YoutubeVideoOutModel[];
-  /** Token for the next page of results. null if there is no next page. */
+  /**
+     * Token for the next page of results. null if there is no next page.
+     * @nullable
+     */
   nextPageToken: YoutubeVideosOutModelNextPageToken;
   /** Total number of search results */
   totalResults: number;

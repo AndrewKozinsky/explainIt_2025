@@ -20,11 +20,17 @@ export interface UniversalPhraseTranslationOutModel {
      */
   universalPhraseId: number;
   targetLanguageCode: string;
-  /** Translation result from LLM — array of typed blocks */
+  /**
+     * Translation result from LLM — array of typed blocks
+     * @nullable
+     */
   translation: UniversalPhraseTranslationOutModelTranslation;
   /** Status of translation generation */
   status: string;
-  /** Error code if status is error */
+  /**
+     * Error code if status is error
+     * @nullable
+     */
   errorCode?: string | null;
   /** Flag indicating that the word/phrase does not exist in the source language */
   nonExistentWord: boolean;

@@ -10,12 +10,14 @@ export type YoutubeControllerGetSavedVideosParams = {
 /**
  * Page number (1-based)
  * @minimum 1
+ * @nullable
  */
 page?: number | null;
 /**
  * Number of items per page
  * @minimum 1
  * @maximum 100
+ * @nullable
  */
 pageSize?: number | null;
 /**
@@ -28,11 +30,13 @@ maxDurationSec?: number;
 minDurationSec?: number;
 /**
  * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
+ * @nullable
  */
 proficiencyLevel?: number | null;
 /**
  * Predefined topic category (e.g. Travel & Geography)
  * @maxLength 100
+ * @nullable
  */
 topic?: string | null;
 /**
@@ -41,10 +45,12 @@ topic?: string | null;
 languageCode?: string;
 /**
  * Field to sort saved YouTube videos by. If omitted, results are not sorted
+ * @nullable
  */
 sortBy?: string | null;
 /**
  * Sort direction. Defaults to "desc" when sortBy is provided
+ * @nullable
  */
 sortDirection?: string | null;
 };

@@ -17,10 +17,12 @@ query: string;
  * Maximum number of videos per page (1–50, default 20)
  * @minimum 1
  * @maximum 50
+ * @nullable
  */
 limit?: number | null;
 /**
  * Token for the next page of results. Omit for the first page.
+ * @nullable
  */
 pageToken?: string | null;
 };

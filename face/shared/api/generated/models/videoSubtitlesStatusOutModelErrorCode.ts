@@ -8,5 +8,6 @@
 
 /**
  * Machine-readable error code if processing failed
+ * @nullable
  */
 export type VideoSubtitlesStatusOutModelErrorCode = { [key: string]: unknown } | null;

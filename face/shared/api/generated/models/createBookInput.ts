@@ -10,16 +10,19 @@ export interface CreateBookInput {
   /**
      * Author of the book
      * @maxLength 255
+     * @nullable
      */
   author?: string | null;
   /**
      * Name of the book
      * @maxLength 255
+     * @nullable
      */
   name?: string | null;
   /**
      * Text about the book
      * @maxLength 2000
+     * @nullable
      */
   about?: string | null;
   /** Language code of the book */
