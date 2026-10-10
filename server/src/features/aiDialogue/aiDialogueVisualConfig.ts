@@ -9,6 +9,6 @@ export const FLUX_3_IMAGE_MODEL = 'flux-3-image'
 /** Ключ объекта в R2, не путь к исходникам. Локальный исходник: server/assets/aiDialogue/user-avatar.jpg. В R2 пользователь загрузил вариант .jpg. */
 export const AI_DIALOGUE_USER_AVATAR_S3_KEY = 'ai-dialogue-images/shared/user-avatar.jpg'
 
-/** Ключи эталонов стиля в R2. Заполняются после подготовки и загрузки эталонных изображений. */
-export const AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY: string | null = null
-export const AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY: string | null = null
+/** Ключи загруженных эталонов стиля в R2 для новых заданий; старые снимки могут не содержать эталоны. */
+export const AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY = AI_DIALOGUE_USER_AVATAR_S3_KEY
+export const AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY = 'ai-dialogue-images/shared/style-scene.jpg'
