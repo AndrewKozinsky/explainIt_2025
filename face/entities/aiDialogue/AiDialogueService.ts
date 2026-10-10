@@ -1,10 +1,12 @@
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput } from './repository/AiDialogueRepository'
+import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type {
-	AiDialogueClientEvent,
-	DialogueServerMessage,
-} from '../../widgets/aiDialogueMessages/types/aiDialogueMessage'
+	AiDialogueModel,
+	AiDialogueRepository,
+	AiDialogueVisualsModel,
+	CreateAiDialogueInput,
+} from './repository/AiDialogueRepository'
 
 export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput }
 
@@ -38,6 +40,10 @@ export class AiDialogueService {
 	/** Получить один диалог текущего пользователя по ID. */
 	async getDialogue(id: number): Promise<ApiResult<AiDialogueModel>> {
 		return this.aiDialogueRepository.getDialogue(id)
+	}
+
+	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {
+		return this.aiDialogueRepository.getVisuals(id, signal)
 	}
 
 	/** Удалить диалог текущего пользователя */

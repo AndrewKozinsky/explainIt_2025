@@ -11,6 +11,8 @@ import WorldEventMessage from '../messages/WorldEventMessage'
 type AiDialogMessageRouterProps = {
 	event: AiDialoguePreviewEvent
 	onWordSelect: AiDialogueWordSelectHandler
+	messageId?: number
+	reserveSceneSpace?: boolean
 }
 
 /**
@@ -20,10 +22,21 @@ type AiDialogMessageRouterProps = {
  * поля на месте, у превью (во время стрима) часть полей может отсутствовать.
  * Неизвестный/отсутствующий type рендерится как плейсхолдер «Ответ готовится».
  */
-function AiDialogMessageRouter({ event, onWordSelect }: AiDialogMessageRouterProps) {
+function AiDialogMessageRouter({
+	event,
+	onWordSelect,
+	messageId,
+	reserveSceneSpace = false,
+}: AiDialogMessageRouterProps) {
 	if (event.type === 'sceneUpdate') {
 		return (
-			<SceneUpdateMessage content={event.content} translation={event.translation} onWordSelect={onWordSelect} />
+			<SceneUpdateMessage
+				messageId={messageId}
+				reserveSpace={reserveSceneSpace}
+				content={event.content}
+				translation={event.translation}
+				onWordSelect={onWordSelect}
+			/>
 		)
 	}
 
@@ -38,6 +51,7 @@ function AiDialogMessageRouter({ event, onWordSelect }: AiDialogMessageRouterPro
 	if (event.type === 'npcActions') {
 		return (
 			<NpcActionsMessage
+				npcId={event.npcId}
 				npcName={event.npcName}
 				npcRole={event.npcRole}
 				emotion={event.emotion}

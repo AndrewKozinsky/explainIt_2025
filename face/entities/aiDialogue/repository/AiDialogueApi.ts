@@ -4,6 +4,7 @@ import {
 	aiDialogueControllerCreateAiDialogueMessage,
 	aiDialogueControllerDeleteAiDialogue,
 	aiDialogueControllerGetAiDialogue,
+	aiDialogueControllerGetAiDialogueVisuals,
 	aiDialogueControllerGetAiDialogues,
 } from '@/shared/api/generated/ai-dialogue/ai-dialogue'
 import type {
@@ -16,7 +17,12 @@ import { extractString } from '@/shared/utils/extractors'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
-import type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput } from './AiDialogueRepository'
+import type {
+	AiDialogueModel,
+	AiDialogueRepository,
+	AiDialogueVisualsModel,
+	CreateAiDialogueInput,
+} from './AiDialogueRepository'
 import type {
 	AiDialogueClientEvent,
 	AiDialogueEvent,
@@ -50,6 +56,10 @@ export class AiDialogueApi implements AiDialogueRepository {
 
 	async deleteDialogue(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => aiDialogueControllerDeleteAiDialogue(id))
+	}
+
+	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {
+		return executeApiCall(() => aiDialogueControllerGetAiDialogueVisuals(id, { signal, cache: 'no-store' }))
 	}
 
 	async createMessage(id: number, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>> {

@@ -3,6 +3,7 @@
  * Компоненты работают только с этим типом — он не зависит от API.
  */
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository'
+import type { AiDialogueVisualsOutModel } from '@/shared/api/generated/models'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
 import type {
@@ -18,6 +19,8 @@ export type AiDialogueModel = {
 	createdAt: string
 	updatedAt: string
 }
+
+export type AiDialogueVisualsModel = AiDialogueVisualsOutModel
 
 /**
  * Унифицированный тип для создания диалога.
@@ -43,6 +46,7 @@ export type AiDialogueRepository = {
 	getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>>
 	/** Получить один диалог текущего пользователя по ID */
 	getDialogue(id: number): Promise<ApiResult<AiDialogueModel>>
+	getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>>
 	/** Удалить диалог текущего пользователя */
 	deleteDialogue(id: number): Promise<ApiResult<void>>
 	/** Отправить событие пользователя (реплику или уход от NPC) в диалог */

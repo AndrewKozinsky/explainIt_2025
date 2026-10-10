@@ -8,9 +8,13 @@ import { useAiDialogueStore } from '../../aiDialogueStore'
  * Соединение не закрывается по завершении хода — оно живёт, пока открыта страница
  * (см. aiDocsRus/topics/aiDialogues.md). Закрывает его вызывающий код при unmount.
  */
-export function openAiDialogueStream(dialogueId: number): EventSource {
+export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () => void): EventSource {
 	const eventSource = new EventSource(buildStreamUrl(dialogueId))
 	let accumulated = ''
+
+	eventSource.onopen = function () {
+		onVisualsChanged?.()
+	}
 
 	eventSource.onmessage = function (event) {
 		let parsed: AiDialogueStreamEvent
@@ -23,10 +27,20 @@ export function openAiDialogueStream(dialogueId: number): EventSource {
 
 		const store = useAiDialogueStore.getState()
 
+		if (parsed.type === 'visualsChanged') {
+			if (parsed.dialogueId === dialogueId) onVisualsChanged?.()
+			return
+		}
+
 		if (parsed.type === 'message') {
 			// Финализированное сообщение заменяет превью текущего хода.
 			store.upsertMessage(parsed.message)
 			store.setPreview([])
+
+			if (parsed.message.payload.type === 'npcActions' || parsed.message.payload.type === 'sceneUpdate') {
+				onVisualsChanged?.()
+			}
+
 			return
 		}
 

@@ -23,6 +23,8 @@ export type SceneUpdateEvent = {
 	type: 'sceneUpdate'
 	content: string
 	translation: string
+	visualDescription?: string
+	participantNpcIds?: string[]
 }
 
 // Подсказка, что следует сделать пользователю (если NPC не может обратиться напрямую).
@@ -93,6 +95,7 @@ export type DialogueServerMessage = {
 //  - turnDone    — ход завершён (успех или ошибка), можно снова действовать;
 //  - turnError   — ход не удался (error — текст ошибки).
 export type AiDialogueStreamEvent =
+	| { type: 'visualsChanged'; dialogueId: number }
 	| { type: 'message'; message: DialogueServerMessage }
 	| { type: 'chunk'; chunk: string }
 	| { type: 'turnStarted' }

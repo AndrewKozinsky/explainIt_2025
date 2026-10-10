@@ -11,7 +11,7 @@ type Header =
 	| { type: 'npcActions'; npcId: string; npcName: string; npcRole: string; emotion: string }
 
 // Что ожидается следующей строкой внутри текущего блока.
-type Stage = 'label' | 'content' | 'translation'
+type Stage = 'label' | 'content' | 'translation' | 'done'
 
 type ParseState = {
 	events: AiDialoguePreviewEvent[]
@@ -122,6 +122,7 @@ function finalizeCurrent(state: ParseState): void {
 function applyLineToCurrent(state: ParseState, line: string): void {
 	const { current } = state
 	if (!current) return
+	if (isVisualMetadataLine(line)) return
 
 	if (current.type === 'npcActions') {
 		const trimmed = line.trim()
@@ -158,7 +159,7 @@ function applyLineToCurrent(state: ParseState, line: string): void {
 		state.stage = 'translation'
 	} else if (state.stage === 'translation') {
 		current.translation = line
-		state.stage = 'content'
+		state.stage = 'done'
 	}
 }
 
@@ -172,6 +173,7 @@ function setLastActionField(current: AiDialoguePreviewEvent, field: 'content' | 
 
 function applyInProgressLine(current: AiDialoguePreviewEvent | null, stage: Stage, line: string): void {
 	if (!current || !line) return
+	if (isVisualMetadataLine(line)) return
 
 	if (current.type === 'npcActions') {
 		if (stage === 'content') {
@@ -191,4 +193,9 @@ function applyInProgressLine(current: AiDialoguePreviewEvent | null, stage: Stag
 
 function stripCarriageReturn(line: string): string {
 	return line.endsWith('\r') ? line.slice(0, -1) : line
+}
+
+function isVisualMetadataLine(line: string): boolean {
+	const trimmed = line.trim()
+	return trimmed.startsWith('participants:') || trimmed.startsWith('visual:')
 }

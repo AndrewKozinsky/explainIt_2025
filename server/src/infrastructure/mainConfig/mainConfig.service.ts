@@ -96,7 +96,7 @@ export class MainConfigService {
 			},
 			zai: {
 				apiKey: enVariables.zai.apiKey,
-				baseUrl: enVariables.zai.baseUrl || 'https://api.z.ai/api/paas/v4',
+				baseUrl: 'https://api.z.ai/api/paas/v4',
 				priceInRub: {
 					// Цены z.ai (GLM), значения-заглушки — требуют уточнения
 					flash: {
@@ -256,7 +256,6 @@ export class MainConfigService {
 			},
 			zai: {
 				apiKey: this.configService.get<string>('ZAI_API_KEY') as string,
-				baseUrl: this.configService.get<string>('ZAI_BASE_URL') as string,
 			},
 			deepgram: {
 				apiKey: this.configService.get<string>('DEEPGRAM_API_KEY') as string,

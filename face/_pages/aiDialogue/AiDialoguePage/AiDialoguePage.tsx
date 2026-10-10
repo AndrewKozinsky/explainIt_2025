@@ -20,6 +20,7 @@ import { resolveAiDialogueTurnError } from '_pages/aiDialogue/AiDialoguePage/fn/
 import { useAiDialogueStream } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream'
 import AiDialogueLeftWrapper from '../AiDialogueLeftWrapper/AiDialogueLeftWrapper'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
+import { useAiDialogueVisuals } from './fn/useAiDialogueVisuals'
 
 type Props = {
 	dialogueId: string
@@ -30,7 +31,12 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 
-	const { messages, preview, isGenerating, turnError } = useAiDialogueStream(Number(dialogueId), Boolean(dialogue))
+	const { visuals, refreshVisuals, recoverImage } = useAiDialogueVisuals(Number(dialogueId), Boolean(dialogue))
+	const { messages, preview, isGenerating, turnError } = useAiDialogueStream(
+		Number(dialogueId),
+		Boolean(dialogue),
+		refreshVisuals,
+	)
 
 	const [selectedWord, setSelectedWord] = useState<null | string>(null)
 	const [selectedSentence, setSelectedSentence] = useState('')
@@ -57,10 +63,14 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 					<>
 						{turnError && <ErrorMessage text={resolveAiDialogueTurnError(turnError)} />}
 						<AiDialogueMessageList
+							key={dialogueId}
 							messages={messages}
 							preview={preview}
 							isGenerating={isGenerating}
 							onWordSelect={handleWordSelect}
+							visuals={visuals}
+							refreshVisuals={refreshVisuals}
+							recoverImage={recoverImage}
 						/>
 					</>
 					<AiDialogueInput dialogueId={Number(dialogueId)} />
