@@ -36,7 +36,7 @@ export function buildAiDialoguePrompt(input: {
 			role: 'system',
 			content: buildSystemMessage(scenario, sourceLanguageCode, targetLanguageCode, state.roster),
 		},
-		{ role: 'user', content: buildUserMessage(state.scene, summary, recentEvents) },
+		{ role: 'user', content: buildUserMessage(state.scene, state.activeNpcId, summary, recentEvents) },
 	]
 }
 
@@ -53,6 +53,7 @@ function buildSystemMessage(
 	const rules = [
 		`- The learner is studying: ${languages[sourceLanguageCode].nameEng}. Every content line (speech, action, scene update, help, world event) must be written in ${languages[sourceLanguageCode].nameEng}. Use the target language only for translation lines.`,
 	]
+
 	if (targetLanguageCode) {
 		rules.push(
 			`- For every learner-facing content line, add a translation line immediately after it — an accurate translation into ${languages[targetLanguageCode].nameEng}. Always include the translation line, even if the translation looks obvious; never skip it. Do not translate structural or visual metadata lines (headers, npcId/npcName/npcRole/emotion fields, appearance, participants, visual, or action:/speech: labels).`,
@@ -66,6 +67,12 @@ function buildSystemMessage(
 		'- The scenario is a setting, not a rigid script. Introduce whatever NPCs the scene naturally needs. Every new NPC gets a stable npcId. npcName and npcRole may be empty when they are unknown.',
 		'- For a new NPC only, add appearance: followed by one English line describing stable visible traits: approximate age, face, hair, build and distinctive clothing. Never repeat or change appearance for a known npcId.',
 		'- emotion must be exactly one of: neutral, happy, sad, angry, surprised, confused, worried, embarrassed, thoughtful, skeptical, relieved, encouraging.',
+		'- A scene is one continuous encounter between the learner and the main conversation partner. Begin the first encounter with exactly one sceneUpdate, before the first npcActions of that encounter.',
+		'- During an ongoing encounter with the same NPC, do not emit another sceneUpdate. Questions, gestures, document checks, typing, handing objects over, changes of emotion and other ordinary actions belong in npcActions. Background events belong in worldEvent.',
+		'- A farewell or the end of the conversation belongs in npcActions and does not itself require a sceneUpdate. Emit the next sceneUpdate only when the next encounter actually begins, before its first npcActions. Do not invent a new encounter just to illustrate the end of the previous one.',
+		'- After the previous encounter ends, starting a conversation with another NPC begins a new scene. Returning to a previously met NPC after talking to another NPC also begins a new scene: emit a new sceneUpdate, but reuse the original npcId and appearance of the returning NPC.',
+		'- A background character appearing or briefly interjecting does not start a new encounter while the learner is still talking to the main partner. Do not invent changes to the location or surroundings during that encounter.',
+		'- Example: passport control is one encounter. Establish it once with sceneUpdate; opening or flipping through the passport, typing on the computer, stamping or returning the passport and saying goodbye are npcActions, not additional sceneUpdate events.',
 		'- After every sceneUpdate translation, add participants: with comma-separated known npcIds visible in the scene (empty when none), then visual: with a single English line describing the already occurring visual moment. The learner is always present and is not listed.',
 		'- When the learner walks away from the current NPC (a "learner walked away" event), that NPC must react to the departure instead of continuing the previous request — for example "You can come back another time" or "If something is wrong, just tell me". Then introduce a different NPC that fits the scene so the learner can keep practicing.',
 		"- Create a help event only when the learner may be unsure what action to take next. If the NPC has asked a direct question or clearly requested something, that is enough: do not create help and do not repeat the NPC's question or request in it.",
@@ -80,7 +87,7 @@ function buildSystemMessage(
 		'Reply with flat line-based text, without explanations or markdown.',
 		'A turn consists of one or more blocks separated by exactly one blank line. A block starts with a header line, followed by one field per line.',
 		'',
-		'Scene update:',
+		'New encounter only (not an action within the current encounter):',
 		'sceneUpdate',
 		'<new scene description>',
 		'<translation>',
@@ -125,11 +132,21 @@ function buildSystemMessage(
 	].join('\n')
 }
 
-function buildUserMessage(scene: string, summary: null | AiDialogueSummary, recentEvents: AiDialogueEvent[]): string {
+function buildUserMessage(
+	scene: string,
+	activeNpcId: string | null,
+	summary: null | AiDialogueSummary,
+	recentEvents: AiDialogueEvent[],
+): string {
 	const lines: string[] = []
 
 	if (scene) {
 		lines.push('Current scene:', scene, '')
+	}
+	if (activeNpcId) {
+		lines.push('Most recent conversation partner npcId:', activeNpcId, '')
+	} else if (!scene) {
+		lines.push('No encounter has started yet. Begin the first encounter with sceneUpdate.', '')
 	}
 
 	const summaryHistory = (summary ?? [])
@@ -148,7 +165,9 @@ function buildUserMessage(scene: string, summary: null | AiDialogueSummary, rece
 		lines.push('')
 	}
 
-	lines.push('Generate the next turn (NPC response, scene update, or event) in the specified format.')
+	lines.push(
+		'Generate the next turn in the specified format. Continue the current encounter with npcActions; use worldEvent for background events. Emit sceneUpdate only when a new encounter begins, according to the encounter rules above.',
+	)
 
 	return lines.join('\n')
 }

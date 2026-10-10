@@ -12,6 +12,7 @@
 	},
 	"moduleNameMapper": {
 		"^types/(.*)$": "<rootDir>/types/$1",
+		"^utils/(.*)$": "<rootDir>/utils/$1",
 		"^infrastructure/(.*)$": "<rootDir>/infrastructure/$1",
 		"^db/(.*)$": "<rootDir>/db/$1",
 		"^features/(.*)$": "<rootDir>/features/$1",
