@@ -15,7 +15,7 @@ describe('dialogue image files', () => {
 		expect(metadata).toMatchObject({ width: 512, height: 256, mime: `image/${format}` })
 		expect(await dialogueImageReference(bytes)).toBe(`data:${metadata.mime};base64,${bytes.toString('base64')}`)
 	})
-	it('extracts only the top-left neutral cell and enlarges it to the BFL minimum', async () => {
+	it('extracts only the top-left neutral cell and enlarges it to the reference validator minimum', async () => {
 		const red = await sharp({ create: { width: 120, height: 120, channels: 3, background: 'red' } })
 			.png()
 			.toBuffer()

@@ -443,7 +443,7 @@ SSE-соединения. Субъекты не вычищаются (диало
   `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
 - `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — «спасающий» построчный разбор ответа LLM.
-- `server/src/features/aiDialogue/aiDialogueVisualConfig.ts` — коды первой версии стиля, раскладки и модели FLUX.
+- `server/src/features/aiDialogue/aiDialogueVisualConfig.ts` — стиль, раскладка, модель OpenAI, качество и размеры новых заданий.
 - `server/src/features/aiDialogue/deriveAiDialogueState.ts` — детерминированный вывод `state` +
   `sameAiDialogueState`.
 - `server/src/features/aiDialogue/serializeAiDialogueEvent.ts` — сериализация события в текст промпта.
@@ -547,9 +547,13 @@ SSE-соединения. Субъекты не вычищаются (диало
 и межпроцессные уведомления реализованы. Клиентское отображение остаётся следующим этапом; картинки не блокируют текст.
 
 Генератор подключён к отдельному универсальному
-[`imageGenerationProviderAdapter`](../imageGenerationProviderAdapter.md). На этапе 1 поставщик остаётся FLUX:
-старые BFL-задания продолжают сохранённые запросы, защита неопределённого submit остаётся у потребителя.
-OpenAI подключается только следующим согласованным этапом.
+[`imageGenerationProviderAdapter`](../imageGenerationProviderAdapter.md). Диалоги используют OpenAI Images API:
+`gpt-image-2.5-sunburst-2026-09-08`, для тестов `quality: low`, PNG, спрайт 960×720 и сцена 1152×576.
+Настройки фиксируются в снимке задания; их смена влияет только на новые задания. Исходники сохраняются без уменьшения.
+Старых BFL-заданий нет по сообщению пользователя; feature не содержит BFL polling или перенаправления старых моделей.
+Ключ результата R2 резервируется в JSON задания атомарно до платного запроса, без новой миграции.
+После сбоя worker может завершить публикацию уже загруженного оригинала, но не восстановить потерянный ответ OpenAI.
+Если файла нет после резервирования, требуется ручная проверка; повторная платная генерация автоматически не запускается.
 
 Удаление диалога через CQRS собирает ключи изображений и каскадно удаляет записи в одной owner-scoped транзакции.
 После коммита сервер пытается удалить исходники R2; ошибка очистки не отменяет успешное удаление диалога.

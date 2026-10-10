@@ -7,7 +7,11 @@ import {
 	AI_DIALOGUE_USER_AVATAR_S3_KEY,
 	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
 	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-	FLUX_3_IMAGE_MODEL,
+	AI_DIALOGUE_IMAGE_MODEL,
+	AI_DIALOGUE_IMAGE_QUALITY,
+	AI_DIALOGUE_IMAGE_FORMAT,
+	AI_DIALOGUE_EMOTION_SHEET_SIZE,
+	AI_DIALOGUE_SCENE_SIZE,
 } from 'features/aiDialogue/aiDialogueVisualConfig'
 import { Prisma } from 'prisma/generated/client'
 
@@ -61,8 +65,7 @@ export class AiDialogueTurnRepository {
 						participantCharacterIds: participantNpcIds.map((npcId) => characterIdByNpcId.get(npcId)),
 						userAvatarS3Key: AI_DIALOGUE_USER_AVATAR_S3_KEY,
 						aspectRatio: '2:1',
-						resolution: '768sq',
-						grounding: false,
+						size: AI_DIALOGUE_SCENE_SIZE,
 					},
 				})
 			}
@@ -103,8 +106,7 @@ export class AiDialogueTurnRepository {
 					appearance: character.appearance,
 					layoutVersion: AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
 					aspectRatio: '4:3',
-					resolution: '768sq',
-					grounding: false,
+					size: AI_DIALOGUE_EMOTION_SHEET_SIZE,
 				},
 			})
 		}
@@ -139,7 +141,9 @@ export class AiDialogueTurnRepository {
 				character_id: input.characterId ?? null,
 				message_id: input.messageId ?? null,
 				input: JSON.stringify({
-					model: FLUX_3_IMAGE_MODEL,
+					model: AI_DIALOGUE_IMAGE_MODEL,
+					quality: AI_DIALOGUE_IMAGE_QUALITY,
+					format: AI_DIALOGUE_IMAGE_FORMAT,
 					stylePrompt: AI_DIALOGUE_VISUAL_STYLE_PROMPT,
 					styleAvatarReferenceS3Key: AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
 					styleSceneReferenceS3Key: AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,

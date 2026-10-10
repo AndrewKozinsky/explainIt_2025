@@ -2,15 +2,30 @@ import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 import { buildImageGenerationInput, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 
 const common = {
-	model: 'flux-3-image',
+	model: 'gpt-image-2.5-sunburst-2026-09-08',
 	stylePrompt: 'Saved style',
-	resolution: '768sq',
-	grounding: false,
+	size: { width: 960, height: 720 },
+	quality: 'low',
+	format: 'png',
 	styleAvatarReferenceS3Key: null,
 	styleSceneReferenceS3Key: null,
 }
 
 describe('image generation prompts', () => {
+	it('rejects inconsistent saved geometry before submitting a paid request', () => {
+		expect(() =>
+			parseImageGenerationSnapshot(
+				'emotionSheet',
+				JSON.stringify({
+					...common,
+					appearance: 'NPC',
+					aspectRatio: '4:3',
+					layoutVersion: AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
+					size: { width: 1152, height: 576 },
+				}),
+			),
+		).toThrow('4x3')
+	})
 	it('puts all twelve emotions in row-major boxes using top/left/bottom/right coordinates', () => {
 		const snapshot = parseImageGenerationSnapshot(
 			'emotionSheet',
@@ -37,6 +52,7 @@ describe('image generation prompts', () => {
 			JSON.stringify({
 				...common,
 				visualDescription: 'Dentist greets learner',
+				size: { width: 1152, height: 576 },
 				aspectRatio: '2:1',
 				dialogueId: 1,
 				participantNpcIds: ['dentist'],
@@ -52,8 +68,10 @@ describe('image generation prompts', () => {
 		expect(input.references?.map((ref) => ref.bytes.toString())).toEqual(['user', 'npc', 'style'])
 		expect(input.references?.map((ref) => ref.mimeType)).toEqual(['image/png', 'image/png', 'image/png'])
 		expect(input.references?.[1].purpose).toContain('dentist')
-		expect(input.model).toBe('flux-3-image')
-		expect(input.size).toEqual({ aspectRatio: '2:1', resolution: '768sq' })
+		expect(input.model).toBe(common.model)
+		expect(input.size).toEqual({ width: 1152, height: 576 })
+		expect(input.quality).toBe('low')
+		expect(input.format).toBe('png')
 		expect(input.prompt).toContain('Image 2 is NPC dentist')
 		expect(input.prompt).toContain('Image 3 supplies visual style only')
 		expect(input.prompt).toContain('Dentist greets learner')

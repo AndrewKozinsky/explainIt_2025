@@ -57,7 +57,7 @@ export class CloudflareS3Service {
 		)
 	}
 
-	async uploadFile(fileKey: string, body: Buffer, contentType: string): Promise<void> {
+	async uploadFile(fileKey: string, body: Buffer, contentType: string, timeoutMs?: number): Promise<void> {
 		const command = new PutObjectCommand({
 			Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
 			Key: fileKey,
@@ -65,7 +65,7 @@ export class CloudflareS3Service {
 			ContentType: contentType,
 		})
 
-		await this.s3.send(command)
+		await this.s3.send(command, timeoutMs ? { abortSignal: AbortSignal.timeout(timeoutMs) } : {})
 	}
 
 	/** Reads a bounded original object for image validation and in-memory reference preparation. */
@@ -77,6 +77,7 @@ export class CloudflareS3Service {
 			}),
 			{ abortSignal: AbortSignal.timeout(60_000) },
 		)
+
 		const limit = 32 * 1024 * 1024
 		if (!response.Body || (response.ContentLength ?? 0) > limit) {
 			if (response.Body instanceof Readable) response.Body.destroy()

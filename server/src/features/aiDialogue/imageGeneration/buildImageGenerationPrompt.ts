@@ -4,13 +4,17 @@ import {
 	ImageGenerationInput,
 	ImageGenerationReference,
 } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
+import { OPENAI_IMAGE_MODELS } from 'infrastructure/imageGenerationProviderAdapter/OpenAIImageGenerationProvider'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 
 const common = {
-	model: z.literal('flux-3-image'),
+	model: z.enum(OPENAI_IMAGE_MODELS),
 	stylePrompt: z.string().min(1),
-	resolution: z.literal('768sq'),
-	grounding: z.literal(false),
+	size: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
+	quality: z.enum(['low', 'medium', 'high']),
+	format: z.enum(['png', 'jpeg', 'webp']),
+	// Consumer checkpoint metadata added atomically during claim, never changes generation parameters.
+	resultS3Key: z.string().min(1).optional(),
 	styleAvatarReferenceS3Key: z.string().nullable(),
 	styleSceneReferenceS3Key: z.string().nullable(),
 }
@@ -34,9 +38,17 @@ export type ImageGenerationSnapshot = z.infer<typeof emotionSchema> | z.infer<ty
 
 export function parseImageGenerationSnapshot(type: string, input: string): ImageGenerationSnapshot {
 	const data: unknown = JSON.parse(input)
-	if (type === 'emotionSheet') return emotionSchema.parse(data)
+
+	if (type === 'emotionSheet') {
+		const parsed = emotionSchema.parse(data)
+		if (parsed.size.width * 3 !== parsed.size.height * 4 || parsed.size.width % 4 || parsed.size.height % 3)
+			throw new Error('Emotion sheet requires an exact 4x3 grid of square cells')
+		return parsed
+	}
+
 	if (type === 'scene') {
 		const parsed = sceneSchema.parse(data)
+		if (parsed.size.width !== parsed.size.height * 2) throw new Error('Scene requires a 2:1 pixel size')
 		if (parsed.participantNpcIds.length !== parsed.participantCharacterIds.length) {
 			throw new Error('Scene participant IDs do not match')
 		}
@@ -59,7 +71,9 @@ export function buildImageGenerationInput(snapshot: ImageGenerationSnapshot, ima
 	return {
 		model: snapshot.model,
 		prompt,
-		size: { aspectRatio: snapshot.aspectRatio, resolution: snapshot.resolution },
+		size: snapshot.size,
+		quality: snapshot.quality,
+		format: snapshot.format,
 		...(references.length ? { references } : {}),
 	}
 }

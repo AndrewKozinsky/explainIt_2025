@@ -40,7 +40,7 @@ export async function inspectDialogueImage(bytes: Buffer, declaredMime?: string 
  * @throws При выходе соотношения сторон за допустимый диапазон.
  */
 export function assertDialogueImageRatio(width: number, height: number, ratio: number): void {
-	// BFL resolution tiers can round dimensions to a model-specific pixel grid.
+	// References may have a rounded grid; generated results additionally require the exact saved pixel size.
 	if (Math.abs(width / height - ratio) / ratio > 0.03) throw new Error('Dialogue image aspect ratio mismatch')
 }
 
@@ -49,7 +49,7 @@ export function assertDialogueImageRatio(width: number, height: number, ratio: n
  * Маленькую ячейку увеличивает до 256×256 только в памяти; исходный спрайт не изменяет.
  * Вызывающий код должен заранее проверить layout_version emotion-grid-4x3-v1.
  * @param bytes Исходные байты листа эмоций NPC.
- * @returns Data URI нейтрального портрета для BFL.
+ * @returns Data URI нейтрального портрета для поставщика изображений.
  * @throws При неверном файле/соотношении сторон или ошибке обработки ячейки.
  */
 export async function neutralNpcReference(bytes: Buffer): Promise<string> {
@@ -61,6 +61,7 @@ export async function neutralNpcReference(bytes: Buffer): Promise<string> {
 		.resize({ width: Math.max(256, cellSize), height: Math.max(256, cellSize) })
 		.png()
 		.toBuffer()
+
 	return `data:image/png;base64,${image.toString('base64')}`
 }
 
