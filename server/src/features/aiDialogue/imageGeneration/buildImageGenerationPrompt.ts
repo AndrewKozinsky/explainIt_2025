@@ -1,5 +1,4 @@
 import { z } from 'zod'
-import { aiDialogueEmotions } from 'types/aiDialogueMessage'
 import {
 	ImageGenerationInput,
 	ImageGenerationReference,
@@ -18,12 +17,14 @@ const common = {
 	styleAvatarReferenceS3Key: z.string().nullable(),
 	styleSceneReferenceS3Key: z.string().nullable(),
 }
+
 const emotionSchema = z.object({
 	...common,
 	appearance: z.string().min(1),
 	layoutVersion: z.literal(AI_DIALOGUE_EMOTION_LAYOUT_VERSION),
 	aspectRatio: z.literal('4:3'),
 })
+
 const sceneSchema = z.object({
 	...common,
 	visualDescription: z.string().min(1),
@@ -96,26 +97,30 @@ function referencePurpose(snapshot: ImageGenerationSnapshot, index: number): str
 }
 
 function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
-	const boxes = aiDialogueEmotions.map((emotion, index) => {
-		const row = Math.floor(index / 4)
-		const column = index % 4
-		const rows = [0, 333, 667, 1000]
-		return {
-			id: `portrait_${emotion}`,
-			bbox: [rows[row], column * 250, rows[row + 1], (column + 1) * 250],
-			desc: `Head and shoulders of the same adult NPC, expression: ${emotion}. ${input.appearance}`,
-		}
-	})
-
 	return [
 		input.stylePrompt,
 		input.styleAvatarReferenceS3Key
 			? 'Use Image 1 only as the visual style reference; do not copy its character.'
 			: '',
-		`Create one emotion sprite sheet: 4 columns and 3 rows of square cells. Character: ${input.appearance}.`,
-		'Same person, clothing, camera angle, lighting and plain background in every cell. Only facial expression changes.',
-		'No text, labels, frames, gutters, margins or separators. Fill each cell with its portrait.',
-		JSON.stringify(boxes),
+		'Create one emotion sprite sheet with exactly 12 close-up facial portraits of the same adult character.',
+		'LAYOUT:',
+		'4 columns and 3 rows of equal square cells. The full image has a 4:3 width-to-height ratio. Cells touch edge to edge and cover the entire image.',
+		'Exact expressions, listed left to right within each row:',
+		'Top row: neutral | happy | sad | angry',
+		'Middle row: surprised | confused | worried | embarrassed',
+		'Bottom row: thoughtful | skeptical | relieved | encouraging',
+		'Show each expression exactly once in its assigned cell.',
+		'CHARACTER:',
+		input.appearance,
+		'FRAMING:',
+		'Close-up, front-facing facial portraits. The face is the dominant element, with a visible, even empty margin around the complete head. Leave at least 5% of the cell width as free background between the head and each of the top, bottom, left, and right edges. Keep the entire forehead, hairstyle, both ears, eyebrows, eyes, nose, mouth, and chin fully visible inside every cell. Do not crop the head, face, hair, or ears. No shoulders, chest, or torso. Minimal visible neck and background. Keep the same face size, eye level, and head position in every cell.',
+		'EXPRESSIONS:',
+		'Make each expression distinct and immediately readable at small avatar sizes. Communicate emotion through clear changes in eyebrows, eyes, and mouth. Use natural but pronounced expressions without distorting facial proportions. Avoid subtle expressions that disappear when the image is downscaled.',
+		'CONSISTENCY:',
+		'Keep identical identity, facial features, hairstyle, camera angle, lighting, and background across all cells. Only the facial expression changes.',
+		'STYLE:',
+		'Modern editorial illustration with subtle graphic-novel influence. Realistic adult facial proportions, clean soft outlines, simplified shapes, soft shadows, and a moderately warm palette. Prioritize clear facial features over fine texture and decorative detail.',
+		'No text, labels, visible grid lines, borders, gaps, or outer margins. No photorealism, caricature, or 3D rendering.',
 	]
 		.filter(Boolean)
 		.join('\n')
@@ -124,6 +129,7 @@ function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
 function buildScenePrompt(input: z.infer<typeof sceneSchema>): string {
 	const participants = input.participantNpcIds.map((npcId, index) => `Image ${index + 2} is NPC ${npcId}.`)
 	const styleIndex = input.participantNpcIds.length + 2
+
 	return [
 		input.stylePrompt,
 		`Illustrate this exact scene: ${input.visualDescription}`,

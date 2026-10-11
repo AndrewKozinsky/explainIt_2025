@@ -13,7 +13,8 @@ export function useDialogueAvatar({ npcId, emotion, isUser }: Params) {
 		sheet.width % 4 === 0 &&
 		sheet.height % 3 === 0 &&
 		sheet.width / 4 === sheet.height / 3 &&
-		sheet.width / 4 >= 120
+		sheet.width / 4 >= 160
+
 	const url = isUser ? userAvatarUrl : supportedSheet ? sheet?.url : undefined
 	const assetKey = isUser ? 'user-avatar' : `character-${sheet?.id ?? npcId}`
 	const onError = useCallback(

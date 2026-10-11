@@ -2,7 +2,7 @@ import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 import { buildImageGenerationInput, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 
 const common = {
-	model: 'gpt-image-2.5-sunburst-2026-09-08',
+	model: 'gpt-image-2',
 	stylePrompt: 'Saved style',
 	size: { width: 960, height: 720 },
 	quality: 'low',
@@ -26,7 +26,8 @@ describe('image generation prompts', () => {
 			),
 		).toThrow('4x3')
 	})
-	it('puts all twelve emotions in row-major boxes using top/left/bottom/right coordinates', () => {
+
+	it('requires all twelve emotions in their row-major positions and prioritizes readable close-ups', () => {
 		const snapshot = parseImageGenerationSnapshot(
 			'emotionSheet',
 			JSON.stringify({
@@ -37,11 +38,15 @@ describe('image generation prompts', () => {
 			}),
 		)
 		const { prompt } = buildImageGenerationInput(snapshot, [])
-		const boxes = JSON.parse(prompt.split('\n').at(-1)!)
-		expect(boxes).toHaveLength(12)
-		expect(boxes[0]).toMatchObject({ id: 'portrait_neutral', bbox: [0, 0, 333, 250] })
-		expect(boxes[4]).toMatchObject({ id: 'portrait_surprised', bbox: [333, 0, 667, 250] })
-		expect(boxes[11]).toMatchObject({ id: 'portrait_encouraging', bbox: [667, 750, 1000, 1000] })
+		expect(prompt).toContain('4 columns and 3 rows of equal square cells.')
+		expect(prompt).toContain('Top row: neutral | happy | sad | angry')
+		expect(prompt).toContain('Middle row: surprised | confused | worried | embarrassed')
+		expect(prompt).toContain('Bottom row: thoughtful | skeptical | relieved | encouraging')
+		expect(prompt).toContain('Show each expression exactly once in its assigned cell.')
+		expect(prompt).toContain('Close-up, front-facing facial portraits.')
+		expect(prompt).toContain('Leave at least 5% of the cell width as free background')
+		expect(prompt).toContain('Do not crop the head, face, hair, or ears.')
+		expect(prompt).toContain('Make each expression distinct and immediately readable at small avatar sizes.')
 		expect(prompt).toContain('Saved style')
 		expect(prompt).toContain('Adult wearing a green coat')
 	})

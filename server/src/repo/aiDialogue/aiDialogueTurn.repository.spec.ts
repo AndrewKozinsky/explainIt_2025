@@ -60,14 +60,14 @@ describe('AiDialogueTurnRepository', () => {
 		expect(tx.imageGenerationOutbox.create).toHaveBeenCalledTimes(2)
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[1][0].data.input)).toMatchObject({
 			userAvatarS3Key: 'ai-dialogue-images/shared/user-avatar.jpg',
-			model: 'gpt-image-2.5-sunburst-2026-09-08',
+			model: 'gpt-image-2',
 			quality: 'low',
 			format: 'png',
 			size: { width: 1152, height: 576 },
 			styleSceneReferenceS3Key: 'ai-dialogue-images/shared/style-scene.jpg',
 		})
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).toMatchObject({
-			model: 'gpt-image-2.5-sunburst-2026-09-08',
+			model: 'gpt-image-2',
 			quality: 'low',
 			format: 'png',
 			size: { width: 960, height: 720 },

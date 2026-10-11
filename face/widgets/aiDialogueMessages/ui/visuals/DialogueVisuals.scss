@@ -2,12 +2,12 @@
 
 .ai-dialogue-avatar {
 	position: relative;
-	flex: 0 0 60px;
-	width: 60px;
-	height: 60px;
+	flex: 0 0 80px;
+	width: 80px;
+	height: 80px;
 	overflow: hidden;
 	border-radius: vars.$radius-2;
-	background: vars.$grayColor-2;
+	background: vars.$grayColor-1;
 }
 
 .ai-dialogue-avatar__sheet {
@@ -31,7 +31,7 @@
 	margin-bottom: 12px;
 	overflow: hidden;
 	border-radius: vars.$radius-2;
-	background: vars.$grayColor-2;
+	background: vars.$grayColor-1;
 
 	> img {
 		display: block;

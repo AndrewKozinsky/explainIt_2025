@@ -4,12 +4,13 @@ import { ImageGenerationInput } from './ImageGenerationProvider.interface'
 import { OpenAIImageGenerationProvider } from './OpenAIImageGenerationProvider'
 
 const input: ImageGenerationInput = {
-	model: 'gpt-image-2.5-sunburst-2026-09-08',
+	model: 'gpt-image-2',
 	prompt: 'A landscape',
 	size: { width: 1152, height: 576 },
 	quality: 'low',
 	format: 'png',
 }
+
 function harness() {
 	const bytes = Buffer.from('original-image')
 	const images = {
@@ -21,6 +22,7 @@ function harness() {
 
 	return { bytes, images, provider, adapter: new ImageGenerationAdapterService([provider]) }
 }
+
 describe('OpenAIImageGenerationProvider', () => {
 	it('disables retries in the actual SDK even when the server responds with a retryable 503', async () => {
 		const fetch = jest.fn().mockResolvedValue(

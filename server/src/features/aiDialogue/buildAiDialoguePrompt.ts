@@ -69,19 +69,25 @@ function buildSystemMessage(
 		'- emotion must be exactly one of: neutral, happy, sad, angry, surprised, confused, worried, embarrassed, thoughtful, skeptical, relieved, encouraging.',
 		'- A scene is one continuous encounter between the learner and the main conversation partner. Begin the first encounter with exactly one sceneUpdate, before the first npcActions of that encounter.',
 		'- During an ongoing encounter with the same NPC, do not emit another sceneUpdate. Questions, gestures, document checks, typing, handing objects over, changes of emotion and other ordinary actions belong in npcActions. Background events belong in worldEvent.',
-		'- A farewell or the end of the conversation belongs in npcActions and does not itself require a sceneUpdate. Emit the next sceneUpdate only when the next encounter actually begins, before its first npcActions. Do not invent a new encounter just to illustrate the end of the previous one.',
+		'- When either the main NPC or the learner clearly ends the encounter, begin the next encounter with a different NPC in the same response. Output at most one brief closing npcActions block for the previous NPC if needed, then exactly one sceneUpdate establishing the next encounter, then npcActions from the next NPC with a clear question or request the learner can respond to. Never end the turn with only a farewell or wait for the learner to confirm departure.',
+		'- Clear closure includes an NPC returning the passport and waving the learner through, saying goodbye with no remaining question or task, or turning to the next customer; it also includes the learner explicitly saying goodbye, stating they are leaving, or a "learner walked away" event. A polite "Thank you" alone during an unfinished encounter is not closure: continue when a question or task remains. If the previous encounter already ended in the history, move on now instead of repeating its farewell.',
+		'- The farewell itself belongs in npcActions; sceneUpdate must establish the next encounter, not illustrate the farewell. Do not repeat "Next, please" or other closing exchanges across multiple blocks or turns. Do not use help to ask the learner to leave or confirm departure after clear closure.',
+		'- Choose a plausible next NPC in the scenario setting. Describe the surroundings of the next encounter without inventing the learner\'s speech, actions, choices, purchases or consent. Introduce only one next encounter per response and stop after the next NPC gives the learner a clear opportunity to respond.',
 		'- After the previous encounter ends, starting a conversation with another NPC begins a new scene. Returning to a previously met NPC after talking to another NPC also begins a new scene: emit a new sceneUpdate, but reuse the original npcId and appearance of the returning NPC.',
 		'- A background character appearing or briefly interjecting does not start a new encounter while the learner is still talking to the main partner. Do not invent changes to the location or surroundings during that encounter.',
 		'- Example: passport control is one encounter. Establish it once with sceneUpdate; opening or flipping through the passport, typing on the computer, stamping or returning the passport and saying goodbye are npcActions, not additional sceneUpdate events.',
 		'- After every sceneUpdate translation, add participants: with comma-separated known npcIds visible in the scene (empty when none), then visual: with a single English line describing the already occurring visual moment. The learner is always present and is not listed.',
-		'- When the learner walks away from the current NPC (a "learner walked away" event), that NPC must react to the departure instead of continuing the previous request — for example "You can come back another time" or "If something is wrong, just tell me". Then introduce a different NPC that fits the scene so the learner can keep practicing.',
+		'- A "learner walked away" event ends the current encounter even if its task was unfinished. The previous NPC may briefly acknowledge the departure if needed, but must not continue the old request or ask the learner to come back before the transition. Introduce the next NPC in this same response.',
 		"- Create a help event only when the learner may be unsure what action to take next. If the NPC has asked a direct question or clearly requested something, that is enough: do not create help and do not repeat the NPC's question or request in it.",
 		'- Use help for non-obvious actions that the NPC did not directly request. For example, if someone knocks on a door, suggest that the learner open the door. The hint must explain only the necessary next action and must not duplicate npcActions.',
 		"- If it is the learner's turn and you do not need to say or do anything, output nothing (an empty response).",
 	)
 
 	return [
+		'## Opening encounter and scenario setting',
 		scenario.systemPrompt,
+		'## Scope of scenario roles',
+		'Any instruction above to stay in one character or never leave a particular role applies only while playing that NPC in the opening encounter. You play all NPCs needed for continued practice. The encounter-transition rules below take precedence over any scenario instruction that would keep the learner with the same NPC after clear closure.',
 		'',
 		'## Response format',
 		'Reply with flat line-based text, without explanations or markdown.',
@@ -166,7 +172,7 @@ function buildUserMessage(
 	}
 
 	lines.push(
-		'Generate the next turn in the specified format. Continue the current encounter with npcActions; use worldEvent for background events. Emit sceneUpdate only when a new encounter begins, according to the encounter rules above.',
+		'Generate the next turn in the specified format. If the encounter is ongoing, continue with npcActions; use worldEvent for background events. If either participant clearly ends it now, or it already ended in the history, begin the next encounter in this same response: optional brief closing npcActions, then sceneUpdate, then the next NPC\'s npcActions with a clear question or request. Do not wait for a separate departure action or another farewell.',
 	)
 
 	return lines.join('\n')

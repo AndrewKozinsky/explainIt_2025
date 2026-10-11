@@ -24,6 +24,49 @@ function prompt(recentEvents: AiDialogueEvent[], summary: AiDialogueSummary | nu
 }
 
 describe('dialogue encounter context', () => {
+	it('scopes a stored single-role scenario to the opening encounter', () => {
+		const scenarioPrompt = 'Stay in character and never step out of the officer role.'
+		const messages = buildAiDialoguePrompt({
+			scenario: { systemPrompt: scenarioPrompt },
+			sourceLanguageCode: 'en',
+			targetLanguageCode: 'ru',
+			summary: null,
+			recentEvents: [],
+		})
+		const system = messages[0].content
+		expect(system.indexOf('## Scope of scenario roles')).toBeGreaterThan(system.indexOf(scenarioPrompt))
+		expect(system).toContain('applies only while playing that NPC in the opening encounter')
+		expect(system).toContain('encounter-transition rules below take precedence')
+	})
+
+	it.each<AiDialogueEvent>([
+		{ type: 'userActions', actions: [{ type: 'speech', content: 'Goodbye!' }] },
+		{ type: 'userActions', actions: [{ type: 'action', content: 'I am leaving the border guard.' }] },
+		{ type: 'userAvoidsNPC' },
+	])('requires a same-response transition after explicit learner closure: %j', (event) => {
+		const messages = prompt([
+			{ type: 'sceneUpdate', content: 'At passport control', translation: 'На контроле' },
+			npc('officer_1', 'Here is your passport. Enjoy your stay.'),
+			event,
+		])
+		expect(messages[0].content).toContain('begin the next encounter with a different NPC in the same response')
+		expect(messages[0].content).toContain('Never end the turn with only a farewell')
+		expect(messages[0].content).toContain('Do not use help to ask the learner to leave')
+		expect(messages[0].content).toContain('without inventing the learner\'s speech, actions, choices')
+		expect(messages[1].content).toContain('optional brief closing npcActions, then sceneUpdate')
+	})
+
+	it('recovers an already closed encounter while keeping unfinished thanks distinct from closure', () => {
+		const messages = prompt([
+			npc('officer_1', 'Here is your passport. Next, please.'),
+			{ type: 'userActions', actions: [{ type: 'speech', content: 'Thank you!' }] },
+		])
+		expect(messages[1].content).toContain('Here is your passport. Next, please.')
+		expect(messages[1].content).toContain('or it already ended in the history')
+		expect(messages[0].content).toContain('A polite "Thank you" alone during an unfinished encounter is not closure')
+		expect(messages[0].content).toContain('Do not repeat "Next, please"')
+	})
+
 	it('distinguishes the first encounter from continuing an existing conversation', () => {
 		const initial = prompt([])
 		expect(initial[1].content).toContain('No encounter has started yet')

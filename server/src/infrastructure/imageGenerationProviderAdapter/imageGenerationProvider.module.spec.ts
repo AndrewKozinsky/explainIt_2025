@@ -21,7 +21,7 @@ describe('ImageGenerationProviderModule', () => {
 		expect(metadata.providers[0].provide).toBe(ImageGenerationAdapterService)
 		expect(metadata.exports).toContain(ImageGenerationAdapterService)
 		const adapter = metadata.providers[0].useFactory(config)
-		expect(adapter.isConfigured('gpt-image-2.5-sunburst-2026-09-08')).toBe(true)
+		expect(adapter.isConfigured('gpt-image-2')).toBe(true)
 		expect(adapter.isConfigured('flux-3-image')).toBe(false)
 		expect(config.get).toHaveBeenCalled()
 	})
