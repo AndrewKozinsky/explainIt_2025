@@ -5,8 +5,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LanguageCode } from 'prisma/generated/client'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
-
-type AudioEncoding = protos.google.cloud.texttospeech.v1.AudioEncoding
+import { GoogleTtsAudioConfig, GoogleTtsVoice } from './googleTts.types'
 
 @Injectable()
 export class GoogleTtsService {
@@ -42,18 +41,31 @@ export class GoogleTtsService {
 
 		const bcp47LanguageCode = LANGUAGE_CODE_MAP[languageCode]
 
-		const audioEncoding: AudioEncoding = 3 // 'OGG_OPUS'
+		return this.synthesizeAudio(
+			text,
+			{ languageCode: bcp47LanguageCode, name: voiceName },
+			{ audioEncoding: 'OGG_OPUS' },
+		)
+	}
 
-		const [response] = await this.client.synthesizeSpeech({
-			input: { text },
-			voice: {
-				languageCode: bcp47LanguageCode,
-				name: voiceName,
+	/** Explicit provider parameters for infrastructure consumers; legacy defaults remain in generateAudio. */
+	async synthesizeAudio(
+		text: string,
+		voice: GoogleTtsVoice,
+		audioConfig: GoogleTtsAudioConfig,
+		timeoutMs?: number,
+	): Promise<Buffer> {
+		const [response] = await this.client.synthesizeSpeech(
+			{
+				input: { text },
+				voice,
+				audioConfig: {
+					...audioConfig,
+					audioEncoding: protos.google.cloud.texttospeech.v1.AudioEncoding[audioConfig.audioEncoding],
+				},
 			},
-			audioConfig: {
-				audioEncoding,
-			},
-		})
+			timeoutMs === undefined ? undefined : { timeout: timeoutMs, retry: null },
+		)
 
 		if (!response.audioContent) {
 			throw new CustomError(
@@ -62,6 +74,8 @@ export class GoogleTtsService {
 			)
 		}
 
-		return Buffer.from(response.audioContent as Uint8Array)
+		return typeof response.audioContent === 'string'
+			? Buffer.from(response.audioContent, 'base64')
+			: Buffer.from(response.audioContent)
 	}
 }
