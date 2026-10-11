@@ -81,7 +81,11 @@ export class AiDialogueQueryRepository {
 	// Восстанавливает событие из колонки type и JSON-строки payload
 	// (обратная операция к AiDialogueMessageRepository.createMessage).
 	private deserializeEvent(dbMessage: AiDialogueMessageDb): AiDialogueEvent {
-		const body = JSON.parse(dbMessage.payload) as Omit<AiDialogueEvent, 'type'>
+		const { wordMapRequestId: _requestId, ...body } = JSON.parse(dbMessage.payload) as Omit<
+			AiDialogueEvent,
+			'type'
+		> & { wordMapRequestId?: string }
+
 		return { type: dbMessage.type, ...body } as AiDialogueEvent
 	}
 }

@@ -62,7 +62,7 @@ function buildSystemMessage(
 
 	rules.push(
 		'- Write exactly one field per line. Never put an empty line inside a block — an empty line only separates whole blocks. Content and translation are always a single line each.',
-		'- End the response cleanly after the final required line: output no commentary, markdown, or trailing blank text.',
+		'- After ALL dialogue blocks, output the wordMaps: footer described below. End after its final JSON line, without commentary or markdown.',
 		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',
 		'- The scenario is a setting, not a rigid script. Introduce whatever NPCs the scene naturally needs. Every new NPC gets a stable npcId. npcName and npcRole may be empty when they are unknown.',
 		'- For a new NPC only, add appearance: followed by one English line describing stable visible traits: approximate age, face, hair, build and distinctive clothing. Never repeat or change appearance for a known npcId.',
@@ -72,7 +72,7 @@ function buildSystemMessage(
 		'- When either the main NPC or the learner clearly ends the encounter, begin the next encounter with a different NPC in the same response. Output at most one brief closing npcActions block for the previous NPC if needed, then exactly one sceneUpdate establishing the next encounter, then npcActions from the next NPC with a clear question or request the learner can respond to. Never end the turn with only a farewell or wait for the learner to confirm departure.',
 		'- Clear closure includes an NPC returning the passport and waving the learner through, saying goodbye with no remaining question or task, or turning to the next customer; it also includes the learner explicitly saying goodbye, stating they are leaving, or a "learner walked away" event. A polite "Thank you" alone during an unfinished encounter is not closure: continue when a question or task remains. If the previous encounter already ended in the history, move on now instead of repeating its farewell.',
 		'- The farewell itself belongs in npcActions; sceneUpdate must establish the next encounter, not illustrate the farewell. Do not repeat "Next, please" or other closing exchanges across multiple blocks or turns. Do not use help to ask the learner to leave or confirm departure after clear closure.',
-		'- Choose a plausible next NPC in the scenario setting. Describe the surroundings of the next encounter without inventing the learner\'s speech, actions, choices, purchases or consent. Introduce only one next encounter per response and stop after the next NPC gives the learner a clear opportunity to respond.',
+		"- Choose a plausible next NPC in the scenario setting. Describe the surroundings of the next encounter without inventing the learner's speech, actions, choices, purchases or consent. Introduce only one next encounter per response and stop after the next NPC gives the learner a clear opportunity to respond.",
 		'- After the previous encounter ends, starting a conversation with another NPC begins a new scene. Returning to a previously met NPC after talking to another NPC also begins a new scene: emit a new sceneUpdate, but reuse the original npcId and appearance of the returning NPC.',
 		'- A background character appearing or briefly interjecting does not start a new encounter while the learner is still talking to the main partner. Do not invent changes to the location or surroundings during that encounter.',
 		'- Example: passport control is one encounter. Establish it once with sceneUpdate; opening or flipping through the passport, typing on the computer, stamping or returning the passport and saying goodbye are npcActions, not additional sceneUpdate events.',
@@ -133,6 +133,7 @@ function buildSystemMessage(
 		'Rules:',
 		...rules,
 		'',
+		...wordMapRules(),
 		'## NPC registry',
 		rosterLines,
 	].join('\n')
@@ -172,8 +173,23 @@ function buildUserMessage(
 	}
 
 	lines.push(
-		'Generate the next turn in the specified format. If the encounter is ongoing, continue with npcActions; use worldEvent for background events. If either participant clearly ends it now, or it already ended in the history, begin the next encounter in this same response: optional brief closing npcActions, then sceneUpdate, then the next NPC\'s npcActions with a clear question or request. Do not wait for a separate departure action or another farewell.',
+		"Generate the next turn in the specified format. If the encounter is ongoing, continue with npcActions; use worldEvent for background events. If either participant clearly ends it now, or it already ended in the history, begin the next encounter in this same response: optional brief closing npcActions, then sceneUpdate, then the next NPC's npcActions with a clear question or request. Do not wait for a separate departure action or another farewell.",
 	)
 
 	return lines.join('\n')
+}
+
+function wordMapRules(): string[] {
+	return [
+		'## Dictionary word maps (generate LAST, in this same response)',
+		'After all dialogue text and translations, add one blank line, then wordMaps: on its own line.',
+		'For EACH source-language content line in sceneUpdate, help, worldEvent and every NPC action/speech, output one compact JSON object on its own line: {"content":"exact source content line","selections":[{"clicked":{"text":"Do","occurrence":0},"words":[{"text":"Do","occurrence":0},{"text":"you","occurrence":0},{"text":"have","occurrence":0}]}]}. Escape JSON strings correctly. No markdown fences.',
+		'Analyze every sentence in each content line. A click selects the minimal original words needed for a dictionary lookup, never a translation, explanation or rewritten lemma. Include ONLY multiword expressions; independent words need no entry. Empty selections are valid.',
+		'Each text reference identifies a whole original word, with exact spelling/case; occurrence is its zero-based occurrence among identical words in that content line. Contractions such as "don’t" are one word. For languages without spaces, use ordinary word boundaries. Never calculate character offsets or token numbers.',
+		'Choose independently for each clicked word. Overlaps are allowed, but sharing an expression does not force identical click behavior. Include the clicked word in words. List expression words in their source order; keep them within one sentence.',
+		'For "Do you have anything to declare?": Do and have each select Do, you, have; you and anything have no entry; to and declare each select to, declare.',
+		'For "She put the beautifully wrapped birthday present that she had bought for her sister the day before away in the closet.": put and away each select ONLY put, away. Omit every intervening word. In "looks up at you", looks and up select looks, up. In "Ich rufe dich an", rufe and an select rufe, an; dich has no entry. Apply these principles to the learner’s actual language.',
+		'Do not map translation lines, English visual metadata, NPC headers or learner-authored history. The content field must exactly match its source content line.',
+		'',
+	]
 }

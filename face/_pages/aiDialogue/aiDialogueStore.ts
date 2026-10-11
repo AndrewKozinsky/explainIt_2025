@@ -40,7 +40,13 @@ export const useAiDialogueStore = create<AiDialogueStoreValues & AiDialogueStore
 	upsertMessage: (message) =>
 		set((state) => {
 			const messages = new Map(state.messages)
-			messages.set(message.id, message)
+
+			const currentEvent = state.messages.get(message.id)?.payload
+			const current = currentEvent && 'wordMap' in currentEvent ? currentEvent.wordMap : undefined
+			let wordMap = 'wordMap' in message.payload ? message.payload.wordMap : undefined
+			if (wordMap?.status !== 'ready' && current?.status === 'ready') wordMap = current
+			messages.set(message.id, { ...message, payload: { ...message.payload, ...(wordMap ? { wordMap } : {}) } })
+
 			return { messages }
 		}),
 

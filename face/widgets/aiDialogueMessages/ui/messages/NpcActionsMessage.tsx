@@ -1,10 +1,12 @@
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import DialogueAvatar from '../visuals/DialogueAvatar'
 import './AiDialogueMessages.scss'
 
 type NpcActionsMessageProps = {
+	wordMap?: AiDialogueWordMap
 	npcId?: string
 	npcName?: string
 	npcRole?: string
@@ -20,9 +22,11 @@ function NpcActionsMessage({
 	emotion = '',
 	actions = [],
 	onWordSelect,
+	wordMap,
 }: NpcActionsMessageProps) {
 	const content = actions.map((action, index) => (
 		<AiDialogueContentBlock
+			wordMap={wordMap?.status === 'ready' ? wordMap.blocks[`action:${index}`] : undefined}
 			key={index}
 			content={action.content ?? ''}
 			translation={action.translation ?? ''}

@@ -1,3 +1,5 @@
+import type { AiDialogueWordMap } from './aiDialogueWordMap'
+
 /**
  * Типы событий ролевого диалога с ИИ (AiDialogue) — клиентское зеркало
  * `server/src/types/aiDialogueMessage.ts`.
@@ -25,6 +27,7 @@ export type SceneUpdateEvent = {
 	translation: string
 	visualDescription?: string
 	participantNpcIds?: string[]
+	wordMap?: AiDialogueWordMap
 }
 
 // Подсказка, что следует сделать пользователю (если NPC не может обратиться напрямую).
@@ -32,6 +35,7 @@ export type HelpEvent = {
 	type: 'help'
 	content: string
 	translation: string
+	wordMap?: AiDialogueWordMap
 }
 
 // Действия и реплики NPC.
@@ -42,6 +46,7 @@ export type NpcActionsEvent = {
 	npcRole: string
 	emotion: string
 	actions: AiDialogueNpcActionItem[]
+	wordMap?: AiDialogueWordMap
 }
 
 // Действия и реплики пользователя.
@@ -60,6 +65,7 @@ export type WorldEvent = {
 	type: 'worldEvent'
 	content: string
 	translation: string
+	wordMap?: AiDialogueWordMap
 }
 
 // Любое событие диалога (хранится в AiDialogueMessage.payload).

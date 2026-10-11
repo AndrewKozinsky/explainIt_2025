@@ -1,6 +1,5 @@
 'use client'
 
-import { useCallback, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
@@ -13,7 +12,6 @@ import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
-import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueMessageList from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
 import { PhraseDictionary } from '@/widgets/dictionary'
 import { resolveAiDialogueTurnError } from '_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError'
@@ -21,6 +19,7 @@ import { useAiDialogueStream } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDi
 import AiDialogueLeftWrapper from '../AiDialogueLeftWrapper/AiDialogueLeftWrapper'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { useAiDialogueVisuals } from './fn/useAiDialogueVisuals'
+import { useAiDialogueWordSelection } from './fn/useAiDialogueWordSelection'
 
 type Props = {
 	dialogueId: string
@@ -38,13 +37,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 		refreshVisuals,
 	)
 
-	const [selectedWord, setSelectedWord] = useState<null | string>(null)
-	const [selectedSentence, setSelectedSentence] = useState('')
-
-	const handleWordSelect = useCallback(function ({ word, sentence }: AiDialogueWordSelection) {
-		setSelectedWord(word)
-		setSelectedSentence(sentence)
-	}, [])
+	const { selectedWord, selectedSentence, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
 
 	if (error) {
 		return <ErrorMessage text={error.message} />

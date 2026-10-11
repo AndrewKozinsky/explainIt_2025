@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "orval": "orval",
+    "test:ai-dialogue": "tsx --test tests/aiDialogue*.test.ts",
     "test:e2e": "npx playwright test --ui",
     "generate-transcription-items": "tsx articleBuilder/transcriptions/generate/generateTranscriptionItems.ts",
     "generate-transcription-texts": "tsx articleBuilder/transcriptions/generate/generateTranscriptionTexts.ts",

@@ -1,3 +1,5 @@
+import type { AiDialogueWordMap } from 'types/aiDialogueWordMap'
+
 /**
  * Типы событий ролевого диалога с ИИ (AiDialogue).
  *
@@ -42,6 +44,7 @@ export type SceneUpdateEvent = {
 	/** Данные иллюстрации; отсутствуют у старых сообщений и в стриминговом превью. */
 	visualDescription?: string
 	participantNpcIds?: string[]
+	wordMap?: AiDialogueWordMap
 }
 
 // Подсказка, что следует сделать пользователю (если NPC не может обратиться напрямую).
@@ -49,6 +52,7 @@ export type HelpEvent = {
 	type: 'help'
 	content: string
 	translation: string
+	wordMap?: AiDialogueWordMap
 }
 
 // Действия и реплики NPC.
@@ -59,6 +63,7 @@ export type NpcActionsEvent = {
 	npcRole: string
 	emotion: AiDialogueEmotion
 	actions: AiDialogueNpcActionItem[]
+	wordMap?: AiDialogueWordMap
 }
 
 // Действия и реплики пользователя.
@@ -77,6 +82,7 @@ export type WorldEvent = {
 	type: 'worldEvent'
 	content: string
 	translation: string
+	wordMap?: AiDialogueWordMap
 }
 
 // Любое событие диалога (хранится в AiDialogueMessage.payload).

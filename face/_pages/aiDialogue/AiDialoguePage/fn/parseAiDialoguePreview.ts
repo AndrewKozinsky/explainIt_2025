@@ -32,6 +32,8 @@ type ParseState = {
  * (см. AiDialoguePreviewEvent). Возвращает `null`, если пока нечего показать.
  */
 export function parseAiDialoguePreview(raw: string): null | AiDialoguePreviewEvent[] {
+	// The final technical section must never become visible text, even while streaming.
+	raw = raw.split(/(?:^|\n)[ \t]*wordMaps:[ \t]*(?:\r?\n|$)/, 1)[0]
 	if (!raw.trim()) return null
 
 	const lines = raw.split('\n').map(stripCarriageReturn)
@@ -50,6 +52,7 @@ export function parseAiDialoguePreview(raw: string): null | AiDialoguePreviewEve
 	}
 
 	const result = current ? [...events, current] : events
+
 	return result.length > 0 ? result : null
 }
 

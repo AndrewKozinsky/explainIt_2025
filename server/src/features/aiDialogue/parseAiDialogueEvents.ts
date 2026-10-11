@@ -6,9 +6,11 @@ import {
 	AiDialogueSceneVisualMetadata,
 	ParsedAiDialogueTurn,
 } from 'types/aiDialogueMessage'
+import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { attachInlineWordMaps, splitWordMapFooter } from './wordMap/inlineWordMaps'
 
 type TextEventType = 'sceneUpdate' | 'help' | 'worldEvent'
 type ParsedBlock = {
@@ -20,8 +22,10 @@ type ParsedBlock = {
 const EMPTY_BLOCK: ParsedBlock = { event: null, npcAppearance: null, scene: null }
 
 /** Разбирает подтверждённый построчный ответ LLM на сюжетные события и визуальные метаданные. */
-export function parseAiDialogueEvents(raw: string): ParsedAiDialogueTurn {
-	const text = raw.trim()
+export function parseAiDialogueEvents(raw: string, language?: Language): ParsedAiDialogueTurn {
+	const { text: body, footer } = splitWordMapFooter(raw)
+
+	const text = body.trim()
 	if (!text) return emptyTurn()
 
 	const blocks = splitIntoBlocks(text.split('\n').map(stripCarriageReturn)).map(parseBlock)
@@ -35,11 +39,16 @@ export function parseAiDialogueEvents(raw: string): ParsedAiDialogueTurn {
 			events.push(block.event)
 			if (block.scene) scenes.push({ eventIndex, ...block.scene })
 		}
+
 		if (block.npcAppearance) npcAppearances.push(block.npcAppearance)
 	}
 
 	if (events.length === 0) throw cannotParse()
-	return { events, visualMetadata: { npcAppearances, scenes } }
+
+	return {
+		events: language ? attachInlineWordMaps(events, footer, language) : events,
+		visualMetadata: { npcAppearances, scenes },
+	}
 }
 
 function emptyTurn(): ParsedAiDialogueTurn {
@@ -77,11 +86,13 @@ function parseTextEvent(type: TextEventType, block: string[]): ParsedBlock {
 
 	const participantLine = block.find((line) => line.trim().startsWith('participants:'))
 	const visualLine = block.find((line) => line.trim().startsWith('visual:'))
+
 	const participantNpcIds = (participantLine?.trim().slice('participants:'.length) ?? '')
 		.split(',')
 		.map((value) => value.trim())
 		.filter(Boolean)
 	const visualDescription = visualLine?.trim().slice('visual:'.length).trim() || content
+
 	return { ...EMPTY_BLOCK, event, scene: { participantNpcIds, visualDescription } }
 }
 

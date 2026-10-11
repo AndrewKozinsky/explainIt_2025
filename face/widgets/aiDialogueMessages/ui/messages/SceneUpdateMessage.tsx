@@ -1,9 +1,12 @@
-import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import type {
+	AiDialogueTextMappingProps,
+	AiDialogueWordSelectHandler,
+} from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import DialogueSceneImage from '../visuals/DialogueSceneImage'
 import './AiDialogueMessages.scss'
 
-type SceneUpdateMessageProps = {
+type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
 	content?: string
 	translation?: string
 	onWordSelect: AiDialogueWordSelectHandler
@@ -17,12 +20,18 @@ function SceneUpdateMessage({
 	onWordSelect,
 	messageId,
 	reserveSpace,
+	wordMap,
 }: SceneUpdateMessageProps) {
 	return (
 		<div className='ai-dialogue-message ai-dialogue-message--scene-update'>
 			<DialogueSceneImage messageId={messageId} reserveSpace={reserveSpace} />
 			<span className='ai-dialogue-message__label'>Смена сцены</span>
-			<AiDialogueContentBlock content={content} translation={translation} onWordSelect={onWordSelect} />
+			<AiDialogueContentBlock
+				wordMap={wordMap}
+				content={content}
+				translation={translation}
+				onWordSelect={onWordSelect}
+			/>
 		</div>
 	)
 }

@@ -28,9 +28,14 @@ function AiDialogMessageRouter({
 	messageId,
 	reserveSceneSpace = false,
 }: AiDialogMessageRouterProps) {
+	const mapping = {
+		wordMap: event.wordMap?.status === 'ready' ? event.wordMap.blocks.content : undefined,
+	}
+
 	if (event.type === 'sceneUpdate') {
 		return (
 			<SceneUpdateMessage
+				{...mapping}
 				messageId={messageId}
 				reserveSpace={reserveSceneSpace}
 				content={event.content}
@@ -41,16 +46,31 @@ function AiDialogMessageRouter({
 	}
 
 	if (event.type === 'help') {
-		return <HelpMessage content={event.content} translation={event.translation} onWordSelect={onWordSelect} />
+		return (
+			<HelpMessage
+				{...mapping}
+				content={event.content}
+				translation={event.translation}
+				onWordSelect={onWordSelect}
+			/>
+		)
 	}
 
 	if (event.type === 'worldEvent') {
-		return <WorldEventMessage content={event.content} translation={event.translation} onWordSelect={onWordSelect} />
+		return (
+			<WorldEventMessage
+				{...mapping}
+				content={event.content}
+				translation={event.translation}
+				onWordSelect={onWordSelect}
+			/>
+		)
 	}
 
 	if (event.type === 'npcActions') {
 		return (
 			<NpcActionsMessage
+				wordMap={event.wordMap}
 				npcId={event.npcId}
 				npcName={event.npcName}
 				npcRole={event.npcRole}

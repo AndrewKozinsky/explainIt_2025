@@ -25,6 +25,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`   | сценарий диалога, AiDialogueScenario, ai-dialogue-scenario, сценка с ИИ, NPC, сид сценариев, ролевая сценка                    |
 | `aiDocsRus/topics/aiDialogue/aiDialogue.md`           | диалог, AiDialogue, ai-dialogue, история диалогов, создать диалог, удалить диалог, сообщения диалога                          |
 | `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`       | страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore   |
+| `aiDocsRus/topics/aiDialogue/aiDialogueWordMaps.md`   | карта выбора словарных фраз в диалогах, wordMap, связанные слова, put away, разрывные выражения                                |
 | `aiDocsRus/topics/aiDialogue/aiDialogueImages.md`     | изображения диалога, аватары, эмоции, NPC, сцены, image generation, R2, FLUX, GPT Image                                      |
 | `aiDocsRus/topics/imageGenerationProviderAdapter.md` | универсальный адаптер изображений, ImageGenerationAdapterService, ImageGenerationProvider, внешний запрос изображений |
 | `aiDocsRus/topics/universalPhraseTranslation.md`      | перевод универсальной фразы, universal phrase translation, GetOrCreateUniversalPhraseTranslation                               |

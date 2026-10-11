@@ -5,6 +5,7 @@ import { AiDialogueTurnRepository } from 'repo/aiDialogue/aiDialogueTurn.reposit
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
 import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
+import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
@@ -87,7 +88,13 @@ export class GenerateAiDialogueTurn {
 				recentEvents,
 			})
 
-			const turn = await this.streamAndParse(dialogueId, prompt, abortController.signal)
+			const turn = await this.streamAndParse(
+				dialogueId,
+				prompt,
+				abortController.signal,
+				dialogue.source_language_code,
+			)
+
 			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({
 				dialogueId,
 				turn,
@@ -126,6 +133,7 @@ export class GenerateAiDialogueTurn {
 		dialogueId: number,
 		prompt: LlmMessage[],
 		abortSignal: AbortSignal,
+		language: Language,
 	): Promise<ParsedAiDialogueTurn> {
 		let lastError: unknown = null
 
@@ -134,7 +142,7 @@ export class GenerateAiDialogueTurn {
 			const accumulated = await this.streamAndAccumulate(dialogueId, messages, abortSignal)
 
 			try {
-				return parseAiDialogueEvents(accumulated)
+				return parseAiDialogueEvents(accumulated, language)
 			} catch (error) {
 				lastError = error
 				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: accumulated })
@@ -191,7 +199,7 @@ function appendRetryHint(prompt: LlmMessage[]): LlmMessage[] {
 		{
 			role: 'user',
 			content:
-				'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line.',
+				'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line. After all dialogue blocks, append the wordMaps: footer in the specified JSON-lines format.',
 		},
 	]
 }

@@ -1,4 +1,5 @@
 import type { AiDialogueEventType } from './aiDialogueMessage'
+import type { AiDialogueWordMap } from './aiDialogueWordMap'
 
 /**
  * Ленивое «превью» события, собранное из частичного JSON во время стрима LLM.
@@ -10,6 +11,7 @@ import type { AiDialogueEventType } from './aiDialogueMessage'
  * значения вместо недостающих полей, чтобы не спотыкаться.
  */
 export type AiDialoguePreviewEvent = {
+	wordMap?: AiDialogueWordMap
 	type?: AiDialogueEventType
 	content?: string
 	translation?: string

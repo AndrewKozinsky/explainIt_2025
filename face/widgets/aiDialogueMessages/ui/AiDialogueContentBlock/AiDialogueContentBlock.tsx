@@ -1,31 +1,27 @@
-import { useState } from 'react'
-import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import type {
+	AiDialogueTextMappingProps,
+	AiDialogueWordSelectHandler,
+} from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import SegmentedText from '@/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText'
+import { useDialogueContentSelection } from './fn/useDialogueContentSelection'
 import './AiDialogueContentBlock.scss'
 
-type AiDialogueContentBlockProps = {
+type AiDialogueContentBlockProps = AiDialogueTextMappingProps & {
 	content: string
 	translation?: string
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
-/**
- * Текстовый блок сообщения: разбитый на слова контент + скрытый перевод.
- *
- * Перевод показывается при клике на слово. Клик также сообщает наверх слово и
- * весь текст блока (для словаря и «выбранного предложения» в правой панели).
- */
-function AiDialogueContentBlock({ content, translation, onWordSelect }: AiDialogueContentBlockProps) {
-	const [isTranslationVisible, setIsTranslationVisible] = useState(false)
-
-	const handleWordClick = function (word: string) {
-		setIsTranslationVisible(true)
-		onWordSelect({ word, sentence: content })
-	}
+function AiDialogueContentBlock({ content, translation, onWordSelect, wordMap }: AiDialogueContentBlockProps) {
+	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({
+		content,
+		onWordSelect,
+		wordMap,
+	})
 
 	return (
 		<div className='ai-dialogue-content-block'>
-			<SegmentedText text={content} onWordClick={handleWordClick} />
+			<SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />
 			{isTranslationVisible && translation ? (
 				<div className='ai-dialogue-content-block__translation'>{translation}</div>
 			) : null}
