@@ -17,6 +17,9 @@ model User {
     is_email_confirmed                      Boolean                  @default(false)
     is_user_confirmed                       Boolean                  @default(false)
     balance                                 Int                      @default(0)
+    gender                                  UserGender               @default(MALE)
+    avatar_preset_id                        String?                  @default("male-1")
+    avatar_s3_key                           String?
     Payment                                 Payment[]
     UserBalanceTransaction                  UserBalanceTransaction[]
     Book                                    Book[]
@@ -379,6 +382,11 @@ model ImageGenerationOutbox {
     updated_at   DateTime                    @default(now())
 
     @@index([status])
+}
+
+enum UserGender {
+    MALE
+    FEMALE
 }
 
 enum BalanceTransactionType {

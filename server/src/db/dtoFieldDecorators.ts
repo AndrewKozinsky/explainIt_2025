@@ -88,7 +88,10 @@ export function DtoFieldDecorators(
 	}
 	if (updatedFieldConf.type === 'enum') {
 		decorators.push(IsString({ message: serializeErrorMessage(errorMessage.mustBeString(name)) }))
-		decorators.push(IsIn(updatedFieldConf.variants, { message: serializeErrorMessage(errorMessage.mustBeEnumValue(name)) }))
+		decorators.push(
+			IsIn(updatedFieldConf.variants, { message: serializeErrorMessage(errorMessage.mustBeEnumValue(name)) }),
+		)
+
 		if (!updatedFieldConf.required) {
 			decorators.push(IsOptional())
 		}
@@ -215,6 +218,9 @@ export function getApiPropertyOptions(fieldConf: Record<string, any>) {
 	}
 	if (fieldConf.type === 'index') {
 		options.minimum = 1
+	}
+	if (fieldConf.type === 'enum') {
+		options.enum = fieldConf.variants
 	}
 
 	const typeMap: Record<string, string> = {

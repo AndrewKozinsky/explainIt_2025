@@ -51,17 +51,6 @@ export function ApiLogin() {
 	)
 }
 
-export function ApiGetMe() {
-	return applyDecorators(
-		ApiOperation({
-			summary: 'Get current user',
-			description: 'Returns the currently authenticated user data.',
-		}),
-		ApiCookieAuth(),
-		ApiResponse({ status: 200, description: 'OK', type: UserOutModel }),
-	)
-}
-
 export function ApiLogout() {
 	return applyDecorators(
 		ApiOperation({

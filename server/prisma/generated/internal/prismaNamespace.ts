@@ -2264,6 +2264,9 @@ export const UserScalarFieldEnum = {
   is_email_confirmed: 'is_email_confirmed',
   is_user_confirmed: 'is_user_confirmed',
   balance: 'balance',
+  gender: 'gender',
+  avatar_preset_id: 'avatar_preset_id',
+  avatar_s3_key: 'avatar_s3_key',
   created_at: 'created_at'
 } as const
 
@@ -2665,6 +2668,20 @@ export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaMod
  */
 export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
+
+
+/**
+ * Reference to a field of type 'UserGender'
+ */
+export type EnumUserGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserGender'>
+
+
+
+/**
+ * Reference to a field of type 'UserGender[]'
+ */
+export type ListEnumUserGenderFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'UserGender[]'>
+
 
 
 /**

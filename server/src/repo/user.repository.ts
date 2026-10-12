@@ -168,6 +168,9 @@ export class UserRepository {
 			isEmailConfirmed: dbUser.is_email_confirmed,
 			isUserConfirmed: dbUser.is_user_confirmed,
 			balance: dbUser.balance ?? 0,
+			gender: dbUser.gender,
+			avatarPresetId: dbUser.avatar_preset_id,
+			avatarS3Key: dbUser.avatar_s3_key,
 		}
 	}
 }

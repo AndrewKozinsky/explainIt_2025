@@ -1,4 +1,4 @@
-import { Body, Controller, Get, HttpCode, HttpStatus, Post, Req, Res, UseGuards } from '@nestjs/common'
+import { Body, Controller, HttpCode, HttpStatus, Post, Req, Res, UseGuards } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request, Response } from 'express'
@@ -9,7 +9,6 @@ import { RegisterUserInput } from 'routes/auth/inputs/registerUser.input'
 import { ResendConfirmationEmailInput } from 'routes/auth/inputs/resendConfirmationEmail.input'
 import { ConfirmEmailCommand } from 'features/auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from 'features/auth/CreateUserWithEmailAndPassword.command'
-import { GetUserByIdCommand } from 'features/auth/GetUserById.command'
 import { LoginCommand } from 'features/auth/Login.command'
 import { LoginWithOAuthCommand } from 'features/auth/LoginWithOAuth.command'
 import { LogoutCommand } from 'features/auth/Logout.command'
@@ -19,7 +18,6 @@ import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCooki
 import { UserOutModel } from 'models/user/user.out.model'
 import {
 	ApiLogin,
-	ApiGetMe,
 	ApiLoginWithOAuth,
 	ApiRegister,
 	ApiConfirmEmail,
@@ -72,13 +70,6 @@ export class AuthController {
 	@Post('logout')
 	async logout(@Req() request: Request, @Res({ passthrough: true }) response: Response): Promise<boolean> {
 		return await this.commandBus.execute(new LogoutCommand(request, response))
-	}
-
-	@ApiGetMe()
-	@UseGuards(CheckSessionCookieGuard)
-	@Get('me')
-	async getMe(@Req() request: Request): Promise<UserOutModel> {
-		return await this.commandBus.execute(new GetUserByIdCommand(request.session.userId!))
 	}
 
 	@ApiLoginWithOAuth()

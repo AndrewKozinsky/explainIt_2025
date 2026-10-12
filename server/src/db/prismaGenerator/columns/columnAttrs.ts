@@ -22,7 +22,12 @@ export function createColumnAttrs(
 		attrStrings.push('?')
 	}
 	if (columnConfig.default !== undefined) {
-		attrStrings.push(`@default(${columnConfig.default})`)
+		const isStringColumn = ['string', 'email', 'dateString', 'timeString'].includes(columnConfig.type)
+		const defaultValue =
+			isStringColumn && typeof columnConfig.default === 'string'
+				? JSON.stringify(columnConfig.default)
+				: columnConfig.default
+		attrStrings.push(`@default(${defaultValue})`)
 	}
 	if (columnConfig.unique) {
 		attrStrings.push('@unique')

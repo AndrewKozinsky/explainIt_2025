@@ -1,3 +1,5 @@
+import type { UserGender } from 'prisma/generated/client'
+
 export type UserServiceModel = {
 	id: number
 	email: string
@@ -7,4 +9,7 @@ export type UserServiceModel = {
 	isEmailConfirmed: boolean
 	isUserConfirmed: boolean
 	balance: number
+	gender: UserGender
+	avatarPresetId: string | null
+	avatarS3Key: string | null
 }

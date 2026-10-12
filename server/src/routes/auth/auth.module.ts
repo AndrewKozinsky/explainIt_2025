@@ -6,7 +6,6 @@ import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { ConfirmEmailHandler } from 'features/auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordHandler } from 'features/auth/CreateUserWithEmailAndPassword.command'
-import { GetUserByIdHandler } from 'features/auth/GetUserById.command'
 import { LoginHandler } from 'features/auth/Login.command'
 import { LoginWithOAuthHandler } from 'features/auth/LoginWithOAuth.command'
 import { LogoutHandler } from 'features/auth/Logout.command'
@@ -21,7 +20,6 @@ const commandHandlers = [
 	CreateUserWithEmailAndPasswordHandler,
 	LoginHandler,
 	LoginWithOAuthHandler,
-	GetUserByIdHandler,
 	ConfirmEmailHandler,
 	ResendConfirmationEmailHandler,
 	LogoutHandler,

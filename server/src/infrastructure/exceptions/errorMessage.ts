@@ -20,6 +20,9 @@ export const errorMessage = {
 		notFound: { code: 'USER_NOT_FOUND' }, // Пользователь не найден.
 		unauthorized: { code: 'USER_UNAUTHORIZED' }, // Пользователь не авторизован.
 		isNotOwner: { code: 'USER_IS_NOT_OWNER' }, // Пользователь не является владельцем этой сущности.
+		invalidAvatarPreset: { code: 'USER_INVALID_AVATAR_PRESET' }, // Готовый аватар не найден.
+		invalidProfileUpdate: { code: 'USER_INVALID_PROFILE_UPDATE' }, // Передайте пол или ID готового аватара; null не допускается.
+		invalidAvatarPhoto: { code: 'USER_INVALID_AVATAR_PHOTO' }, // Требуется корректное фото JPEG/PNG/WebP без анимации, до 30 MiB и 80 млн пикселей.
 	},
 
 	userBalanceIsNegative: { code: 'USER_BALANCE_IS_NEGATIVE' }, // Отрицательный баланс.

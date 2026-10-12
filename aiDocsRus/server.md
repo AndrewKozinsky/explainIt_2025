@@ -39,15 +39,15 @@
 
 
 ## Как менять базу данных
-У меня есть функция, генерирующая схему призмы: `server/src/db/prismaGenerator/createSchema.ts`.
-Эта функция принимает конфигурацию базы данных: `server/prisma/schema.prisma`.
-После изменения конфигурации нужно запустить команду
+Источник структуры базы данных — `server/src/db/dbConfig/dbConfig.ts`.
+Функция `server/src/db/prismaGenerator/createSchema.ts` принимает эту конфигурацию и генерирует содержимое Prisma-схемы.
+Сначала нужно изменить `dbConfig.ts`, затем в папке `server/` запустить команду
 
 ```bash
 npm run generatePrismaFile
 ```
 
-и схема Призмы сгенерируется в файл `server/src/db/dbConfig/dbConfig.ts`.
+Схема Prisma будет сгенерирована в `server/prisma/schema.prisma`. Этот файл не нужно редактировать вручную.
 
 Для генерации миграции запустить команду
 

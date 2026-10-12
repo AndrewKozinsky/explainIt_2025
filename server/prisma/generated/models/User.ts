@@ -45,6 +45,9 @@ export type UserMinAggregateOutputType = {
   is_email_confirmed: boolean | null
   is_user_confirmed: boolean | null
   balance: number | null
+  gender: $Enums.UserGender | null
+  avatar_preset_id: string | null
+  avatar_s3_key: string | null
   created_at: Date | null
 }
 
@@ -57,6 +60,9 @@ export type UserMaxAggregateOutputType = {
   is_email_confirmed: boolean | null
   is_user_confirmed: boolean | null
   balance: number | null
+  gender: $Enums.UserGender | null
+  avatar_preset_id: string | null
+  avatar_s3_key: string | null
   created_at: Date | null
 }
 
@@ -69,6 +75,9 @@ export type UserCountAggregateOutputType = {
   is_email_confirmed: number
   is_user_confirmed: number
   balance: number
+  gender: number
+  avatar_preset_id: number
+  avatar_s3_key: number
   created_at: number
   _all: number
 }
@@ -93,6 +102,9 @@ export type UserMinAggregateInputType = {
   is_email_confirmed?: true
   is_user_confirmed?: true
   balance?: true
+  gender?: true
+  avatar_preset_id?: true
+  avatar_s3_key?: true
   created_at?: true
 }
 
@@ -105,6 +117,9 @@ export type UserMaxAggregateInputType = {
   is_email_confirmed?: true
   is_user_confirmed?: true
   balance?: true
+  gender?: true
+  avatar_preset_id?: true
+  avatar_s3_key?: true
   created_at?: true
 }
 
@@ -117,6 +132,9 @@ export type UserCountAggregateInputType = {
   is_email_confirmed?: true
   is_user_confirmed?: true
   balance?: true
+  gender?: true
+  avatar_preset_id?: true
+  avatar_s3_key?: true
   created_at?: true
   _all?: true
 }
@@ -216,6 +234,9 @@ export type UserGroupByOutputType = {
   is_email_confirmed: boolean
   is_user_confirmed: boolean
   balance: number
+  gender: $Enums.UserGender
+  avatar_preset_id: string | null
+  avatar_s3_key: string | null
   created_at: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
@@ -251,6 +272,9 @@ export type UserWhereInput = {
   is_email_confirmed?: Prisma.BoolFilter<"User"> | boolean
   is_user_confirmed?: Prisma.BoolFilter<"User"> | boolean
   balance?: Prisma.IntFilter<"User"> | number
+  gender?: Prisma.EnumUserGenderFilter<"User"> | $Enums.UserGender
+  avatar_preset_id?: Prisma.StringNullableFilter<"User"> | string | null
+  avatar_s3_key?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   Payment?: Prisma.PaymentListRelationFilter
   UserBalanceTransaction?: Prisma.UserBalanceTransactionListRelationFilter
@@ -270,6 +294,9 @@ export type UserOrderByWithRelationInput = {
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
   balance?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  avatar_preset_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  avatar_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   Payment?: Prisma.PaymentOrderByRelationAggregateInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionOrderByRelationAggregateInput
@@ -292,6 +319,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   is_email_confirmed?: Prisma.BoolFilter<"User"> | boolean
   is_user_confirmed?: Prisma.BoolFilter<"User"> | boolean
   balance?: Prisma.IntFilter<"User"> | number
+  gender?: Prisma.EnumUserGenderFilter<"User"> | $Enums.UserGender
+  avatar_preset_id?: Prisma.StringNullableFilter<"User"> | string | null
+  avatar_s3_key?: Prisma.StringNullableFilter<"User"> | string | null
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   Payment?: Prisma.PaymentListRelationFilter
   UserBalanceTransaction?: Prisma.UserBalanceTransactionListRelationFilter
@@ -311,6 +341,9 @@ export type UserOrderByWithAggregationInput = {
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
   balance?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  avatar_preset_id?: Prisma.SortOrderInput | Prisma.SortOrder
+  avatar_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
@@ -331,6 +364,9 @@ export type UserScalarWhereWithAggregatesInput = {
   is_email_confirmed?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   is_user_confirmed?: Prisma.BoolWithAggregatesFilter<"User"> | boolean
   balance?: Prisma.IntWithAggregatesFilter<"User"> | number
+  gender?: Prisma.EnumUserGenderWithAggregatesFilter<"User"> | $Enums.UserGender
+  avatar_preset_id?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  avatar_s3_key?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
@@ -342,6 +378,9 @@ export type UserCreateInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
@@ -361,6 +400,9 @@ export type UserUncheckedCreateInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
@@ -379,6 +421,9 @@ export type UserUpdateInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
@@ -398,6 +443,9 @@ export type UserUncheckedUpdateInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
@@ -417,6 +465,9 @@ export type UserCreateManyInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
 }
 
@@ -428,6 +479,9 @@ export type UserUpdateManyMutationInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -440,6 +494,9 @@ export type UserUncheckedUpdateManyInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -452,6 +509,9 @@ export type UserCountOrderByAggregateInput = {
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
   balance?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  avatar_preset_id?: Prisma.SortOrder
+  avatar_s3_key?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -469,6 +529,9 @@ export type UserMaxOrderByAggregateInput = {
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
   balance?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  avatar_preset_id?: Prisma.SortOrder
+  avatar_s3_key?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -481,6 +544,9 @@ export type UserMinOrderByAggregateInput = {
   is_email_confirmed?: Prisma.SortOrder
   is_user_confirmed?: Prisma.SortOrder
   balance?: Prisma.SortOrder
+  gender?: Prisma.SortOrder
+  avatar_preset_id?: Prisma.SortOrder
+  avatar_s3_key?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -517,6 +583,10 @@ export type IntFieldUpdateOperationsInput = {
   decrement?: number
   multiply?: number
   divide?: number
+}
+
+export type EnumUserGenderFieldUpdateOperationsInput = {
+  set?: $Enums.UserGender
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
@@ -635,6 +705,9 @@ export type UserCreateWithoutUserBalanceTransactionInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
@@ -653,6 +726,9 @@ export type UserUncheckedCreateWithoutUserBalanceTransactionInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
@@ -686,6 +762,9 @@ export type UserUpdateWithoutUserBalanceTransactionInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
@@ -704,6 +783,9 @@ export type UserUncheckedUpdateWithoutUserBalanceTransactionInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
@@ -721,6 +803,9 @@ export type UserCreateWithoutPaymentInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
@@ -739,6 +824,9 @@ export type UserUncheckedCreateWithoutPaymentInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
@@ -772,6 +860,9 @@ export type UserUpdateWithoutPaymentInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
@@ -790,6 +881,9 @@ export type UserUncheckedUpdateWithoutPaymentInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
@@ -807,6 +901,9 @@ export type UserCreateWithoutBookInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
@@ -825,6 +922,9 @@ export type UserUncheckedCreateWithoutBookInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
@@ -858,6 +958,9 @@ export type UserUpdateWithoutBookInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
@@ -876,6 +979,9 @@ export type UserUncheckedUpdateWithoutBookInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
@@ -893,6 +999,9 @@ export type UserCreateWithoutVideoInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
@@ -911,6 +1020,9 @@ export type UserUncheckedCreateWithoutVideoInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
@@ -944,6 +1056,9 @@ export type UserUpdateWithoutVideoInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
@@ -962,6 +1077,9 @@ export type UserUncheckedUpdateWithoutVideoInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
@@ -979,6 +1097,9 @@ export type UserCreateWithoutSentenceChatThreadInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
@@ -997,6 +1118,9 @@ export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
@@ -1030,6 +1154,9 @@ export type UserUpdateWithoutSentenceChatThreadInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
@@ -1048,6 +1175,9 @@ export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
@@ -1065,6 +1195,9 @@ export type UserCreateWithoutAiDialogueScenarioInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
@@ -1083,6 +1216,9 @@ export type UserUncheckedCreateWithoutAiDialogueScenarioInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
@@ -1116,6 +1252,9 @@ export type UserUpdateWithoutAiDialogueScenarioInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
@@ -1134,6 +1273,9 @@ export type UserUncheckedUpdateWithoutAiDialogueScenarioInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
@@ -1151,6 +1293,9 @@ export type UserCreateWithoutAiDialogueInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionCreateNestedManyWithoutUserInput
@@ -1169,6 +1314,9 @@ export type UserUncheckedCreateWithoutAiDialogueInput = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: number
+  gender?: $Enums.UserGender
+  avatar_preset_id?: string | null
+  avatar_s3_key?: string | null
   created_at?: Date | string
   Payment?: Prisma.PaymentUncheckedCreateNestedManyWithoutUserInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedCreateNestedManyWithoutUserInput
@@ -1202,6 +1350,9 @@ export type UserUpdateWithoutAiDialogueInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUpdateManyWithoutUserNestedInput
@@ -1220,6 +1371,9 @@ export type UserUncheckedUpdateWithoutAiDialogueInput = {
   is_email_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   is_user_confirmed?: Prisma.BoolFieldUpdateOperationsInput | boolean
   balance?: Prisma.IntFieldUpdateOperationsInput | number
+  gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
+  avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Payment?: Prisma.PaymentUncheckedUpdateManyWithoutUserNestedInput
   UserBalanceTransaction?: Prisma.UserBalanceTransactionUncheckedUpdateManyWithoutUserNestedInput
@@ -1323,6 +1477,9 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: boolean
+  gender?: boolean
+  avatar_preset_id?: boolean
+  avatar_s3_key?: boolean
   created_at?: boolean
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   UserBalanceTransaction?: boolean | Prisma.User$UserBalanceTransactionArgs<ExtArgs>
@@ -1343,6 +1500,9 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: boolean
+  gender?: boolean
+  avatar_preset_id?: boolean
+  avatar_s3_key?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -1355,6 +1515,9 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: boolean
+  gender?: boolean
+  avatar_preset_id?: boolean
+  avatar_s3_key?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -1367,10 +1530,13 @@ export type UserSelectScalar = {
   is_email_confirmed?: boolean
   is_user_confirmed?: boolean
   balance?: boolean
+  gender?: boolean
+  avatar_preset_id?: boolean
+  avatar_s3_key?: boolean
   created_at?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "email_confirmation_code" | "email_confirmation_code_expiration_date" | "is_email_confirmed" | "is_user_confirmed" | "balance" | "created_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "email_confirmation_code" | "email_confirmation_code_expiration_date" | "is_email_confirmed" | "is_user_confirmed" | "balance" | "gender" | "avatar_preset_id" | "avatar_s3_key" | "created_at", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Payment?: boolean | Prisma.User$PaymentArgs<ExtArgs>
   UserBalanceTransaction?: boolean | Prisma.User$UserBalanceTransactionArgs<ExtArgs>
@@ -1404,6 +1570,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     is_email_confirmed: boolean
     is_user_confirmed: boolean
     balance: number
+    gender: $Enums.UserGender
+    avatar_preset_id: string | null
+    avatar_s3_key: string | null
     created_at: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
@@ -1843,6 +2012,9 @@ export interface UserFieldRefs {
   readonly is_email_confirmed: Prisma.FieldRef<"User", 'Boolean'>
   readonly is_user_confirmed: Prisma.FieldRef<"User", 'Boolean'>
   readonly balance: Prisma.FieldRef<"User", 'Int'>
+  readonly gender: Prisma.FieldRef<"User", 'UserGender'>
+  readonly avatar_preset_id: Prisma.FieldRef<"User", 'String'>
+  readonly avatar_s3_key: Prisma.FieldRef<"User", 'String'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
 }
     

@@ -26,6 +26,32 @@ export const bdConfig = {
 				type: 'string',
 				required: true,
 			},
+			avatarUrl: {
+				type: 'string',
+				required: true,
+				description: 'Temporary URL of the current user avatar',
+				example: 'https://storage.example.com/avatar.webp',
+			},
+			avatarUrlExpiresAt: {
+				type: 'dateString',
+				required: true,
+				description: 'Refresh the avatar URL before this time',
+				example: '2026-10-12T12:00:00.000Z',
+			},
+			avatarPresetId: {
+				type: 'enum',
+				enumName: 'AvatarPresetId',
+				variants: ['male-1', 'male-2', 'female-1', 'female-2'],
+				required: true,
+				description: 'ID of a prepared avatar available to all users',
+				example: 'female-1',
+			},
+			avatarFile: {
+				type: 'string',
+				required: true,
+				description: 'JPEG, PNG or WebP photo, up to 30 MiB and 80 million pixels; no animation',
+				example: 'photo.jpg',
+			},
 		},
 		dbFields: {
 			id: {
@@ -80,6 +106,28 @@ export const bdConfig = {
 				description: 'User balance in kopecks',
 				example: 50000,
 				required: true,
+			},
+			gender: {
+				type: 'enum',
+				enumName: 'UserGender',
+				variants: ['MALE', 'FEMALE'],
+				default: 'MALE',
+				required: true,
+				description: 'User gender; selecting an avatar preset also sets its gender',
+				example: 'MALE',
+			},
+			avatar_preset_id: {
+				type: 'string',
+				default: 'male-1',
+				required: false,
+				description: 'Selected avatar preset ID; null when a custom photo is selected',
+				example: 'male-1',
+			},
+			avatar_s3_key: {
+				type: 'string',
+				required: false,
+				description: 'R2 key of the custom user photo; null when a preset is selected',
+				example: 'user-avatars/uploads/ru/localdev/1/uuid.webp',
 			},
 			Payment: {
 				type: 'oneToMany',

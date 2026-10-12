@@ -9,6 +9,14 @@
 * 🟢 You can import this file directly.
 */
 
+export const UserGender = {
+  MALE: 'MALE',
+  FEMALE: 'FEMALE'
+} as const
+
+export type UserGender = (typeof UserGender)[keyof typeof UserGender]
+
+
 export const BalanceTransactionType = {
   CHARGE: 'CHARGE',
   TOP_UP: 'TOP_UP',

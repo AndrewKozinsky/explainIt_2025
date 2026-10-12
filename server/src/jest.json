@@ -1,9 +1,5 @@
 {
-	"moduleFileExtensions": [
-		"js",
-		"json",
-		"ts"
-	],
+	"moduleFileExtensions": ["js", "json", "ts"],
 	"rootDir": ".",
 	"testEnvironment": "node",
 	"testRegex": ".spec.ts$",
@@ -17,6 +13,8 @@
 		"^db/(.*)$": "<rootDir>/db/$1",
 		"^features/(.*)$": "<rootDir>/features/$1",
 		"^repo/(.*)$": "<rootDir>/repo/$1",
+		"^models/(.*)$": "<rootDir>/models/$1",
+		"^routes/(.*)$": "<rootDir>/routes/$1",
 		"^prisma/(.*)$": "<rootDir>/../prisma/$1"
 	}
 }
