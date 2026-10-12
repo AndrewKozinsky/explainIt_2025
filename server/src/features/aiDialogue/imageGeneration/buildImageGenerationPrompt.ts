@@ -100,7 +100,7 @@ function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
 	return [
 		input.stylePrompt,
 		input.styleAvatarReferenceS3Key
-			? 'Use Image 1 only as the visual style reference; do not copy its character.'
+			? 'Use Image 1 only for palette, linework, texture and lighting. Do not copy any person, face, facial features, hairstyle or composition from it.'
 			: '',
 		'Create one emotion sprite sheet with exactly 12 close-up facial portraits of the same adult character.',
 		'LAYOUT:',
@@ -112,6 +112,7 @@ function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
 		'Show each expression exactly once in its assigned cell.',
 		'CHARACTER:',
 		input.appearance,
+		'Create an original identity with its own facial structure and distinctive features according to this description. The style reference does not define this character.',
 		'FRAMING:',
 		'Close-up, front-facing facial portraits. The face is the dominant element, with a visible, even empty margin around the complete head. Leave at least 5% of the cell width as free background between the head and each of the top, bottom, left, and right edges. Keep the entire forehead, hairstyle, both ears, eyebrows, eyes, nose, mouth, and chin fully visible inside every cell. Do not crop the head, face, hair, or ears. No shoulders, chest, or torso. Minimal visible neck and background. Keep the same face size, eye level, and head position in every cell.',
 		'EXPRESSIONS:',
@@ -135,6 +136,7 @@ function buildScenePrompt(input: z.infer<typeof sceneSchema>): string {
 		`Illustrate this exact scene: ${input.visualDescription}`,
 		'Image 1 is the learner. Include the learner in the scene and preserve the identity and clothing of all participants.',
 		...participants,
+		'Keep each participant a separate recognizable person. Never transfer the learner’s face or facial features to an NPC, or blend the identities. Render all participants in the requested illustration style.',
 		input.styleSceneReferenceS3Key
 			? `Image ${styleIndex} supplies visual style only; do not copy its composition or characters.`
 			: '',

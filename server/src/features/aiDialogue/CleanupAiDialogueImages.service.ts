@@ -6,7 +6,6 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
 	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
 	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-	AI_DIALOGUE_USER_AVATAR_S3_KEY,
 } from './aiDialogueVisualConfig'
 import {
 	GENERATED_DIALOGUE_IMAGES_PREFIX,
@@ -85,12 +84,10 @@ export class CleanupAiDialogueImages implements OnModuleDestroy {
 	private async deleteUnreferencedGeneratedImage(key: string): Promise<void> {
 		const jobId = getGeneratedDialogueImageJobId(key)
 		if (!key.startsWith(this.generatedPrefix) && !key.startsWith(`${GENERATED_DIALOGUE_IMAGES_PREFIX}job-`)) return
-		const sharedKeys = [
-			AI_DIALOGUE_USER_AVATAR_S3_KEY,
-			AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-			AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-		]
+
+		const sharedKeys = [AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY, AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY]
 		if (jobId === null || sharedKeys.includes(key)) return
+
 		try {
 			if (await this.repository.isGeneratedImageInUse(key, jobId)) return
 			if (!this.stopped) await this.storage.deleteFile(key, 10_000)

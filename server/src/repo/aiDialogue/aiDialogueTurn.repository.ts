@@ -3,16 +3,16 @@ import { AiDialogueEvent, ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
 import { PrismaService } from 'db/prisma.service'
 import {
 	AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
-	AI_DIALOGUE_VISUAL_STYLE_PROMPT,
-	AI_DIALOGUE_USER_AVATAR_S3_KEY,
-	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
+	AI_DIALOGUE_EMOTION_SHEET_SIZE,
+	AI_DIALOGUE_IMAGE_FORMAT,
 	AI_DIALOGUE_IMAGE_MODEL,
 	AI_DIALOGUE_IMAGE_QUALITY,
-	AI_DIALOGUE_IMAGE_FORMAT,
-	AI_DIALOGUE_EMOTION_SHEET_SIZE,
 	AI_DIALOGUE_SCENE_SIZE,
+	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
+	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
+	AI_DIALOGUE_VISUAL_STYLE_PROMPT,
 } from 'features/aiDialogue/aiDialogueVisualConfig'
+import { getUserAvatarS3Key } from 'features/user/avatarPresets'
 import { Prisma } from 'prisma/generated/client'
 
 type SaveGeneratedTurnInput = {
@@ -27,19 +27,29 @@ export class AiDialogueTurnRepository {
 
 	async saveGeneratedTurn(input: SaveGeneratedTurnInput): Promise<number[]> {
 		return this.prisma.$transaction(async (tx) => {
+			const dialogue = input.turn.events.some((event) => event.type === 'sceneUpdate')
+				? await tx.aiDialogue.findUniqueOrThrow({
+						where: { id: input.dialogueId },
+						select: { user: { select: { avatar_preset_id: true, avatar_s3_key: true } } },
+					})
+				: null
+
 			const appearanceByNpcId = new Map(
 				input.turn.visualMetadata.npcAppearances.map((item) => [item.npcId, item.appearance]),
 			)
+
 			await this.ensureCharacters(tx, input.dialogueId, input.turn.events, appearanceByNpcId)
 
 			const characters = await tx.aiDialogueCharacter.findMany({
 				where: { dialogue_id: input.dialogueId },
 				select: { id: true, npc_id: true },
 			})
+
 			const characterIdByNpcId = new Map(characters.map((character) => [character.npc_id, character.id]))
 			const sceneByEventIndex = new Map(
 				input.turn.visualMetadata.scenes.map((scene) => [scene.eventIndex, scene]),
 			)
+
 			const messageIds: number[] = []
 
 			for (let eventIndex = 0; eventIndex < input.turn.events.length; eventIndex += 1) {
@@ -54,6 +64,7 @@ export class AiDialogueTurnRepository {
 				messageIds.push(message.id)
 
 				if (savedEvent.type !== 'sceneUpdate') continue
+
 				await this.createJobWithOutbox(tx, {
 					dedupKey: `scene-message:${message.id}`,
 					type: 'scene',
@@ -63,7 +74,7 @@ export class AiDialogueTurnRepository {
 						visualDescription: savedEvent.visualDescription,
 						participantNpcIds,
 						participantCharacterIds: participantNpcIds.map((npcId) => characterIdByNpcId.get(npcId)),
-						userAvatarS3Key: AI_DIALOGUE_USER_AVATAR_S3_KEY,
+						userAvatarS3Key: getUserAvatarS3Key(dialogue!.user),
 						aspectRatio: '2:1',
 						size: AI_DIALOGUE_SCENE_SIZE,
 					},

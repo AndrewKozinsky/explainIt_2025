@@ -13,6 +13,7 @@ const jobs = { orderBy: { id: 'desc' as const }, take: 1, select: { status: true
 const visualSelection = {
 	id: true,
 	user_id: true,
+	user: { select: { avatar_preset_id: true, avatar_s3_key: true } },
 	AiDialogueCharacter: {
 		orderBy: { id: 'asc' },
 		select: {

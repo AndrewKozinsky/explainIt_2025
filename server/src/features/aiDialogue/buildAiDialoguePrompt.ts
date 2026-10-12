@@ -65,7 +65,7 @@ function buildSystemMessage(
 		'- After ALL dialogue blocks, output the wordMaps: footer described below. End after its final JSON line, without commentary or markdown.',
 		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',
 		'- The scenario is a setting, not a rigid script. Introduce whatever NPCs the scene naturally needs. Every new NPC gets a stable npcId. npcName and npcRole may be empty when they are unknown.',
-		'- For a new NPC only, add appearance: followed by one English line describing stable visible traits: approximate age, face, hair, build and distinctive clothing. Never repeat or change appearance for a known npcId.',
+		'- For a new NPC only, add appearance: followed by one English line describing stable visible traits: approximate age, face shape, eyes, nose, hair, build and distinctive clothing. Give each new NPC an individual appearance with distinguishable facial features; do not default every character to the same young dark-haired man. Never repeat or change appearance for a known npcId.',
 		'- emotion must be exactly one of: neutral, happy, sad, angry, surprised, confused, worried, embarrassed, thoughtful, skeptical, relieved, encouraging.',
 		'- A scene is one continuous encounter between the learner and the main conversation partner. Begin the first encounter with exactly one sceneUpdate, before the first npcActions of that encounter.',
 		'- During an ongoing encounter with the same NPC, do not emit another sceneUpdate. Questions, gestures, document checks, typing, handing objects over, changes of emotion and other ordinary actions belong in npcActions. Background events belong in worldEvent.',

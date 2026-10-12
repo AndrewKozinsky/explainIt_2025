@@ -1,11 +1,11 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueVisualsRepository } from 'repo/aiDialogue/aiDialogueVisuals.repository'
-import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
+import { getUserAvatarS3Key } from 'features/user/avatarPresets'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { AI_DIALOGUE_USER_AVATAR_S3_KEY } from './aiDialogueVisualConfig'
+import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 
 export class GetAiDialogueVisualsCommand implements ICommand {
 	constructor(
@@ -28,6 +28,7 @@ export class GetAiDialogueVisualsHandler implements ICommandHandler<
 	async execute(command: GetAiDialogueVisualsCommand): Promise<AiDialogueVisualsOutModel> {
 		const dialogue = await this.repository.getDialogueVisuals(command.dialogueId)
 		if (!dialogue) throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
+
 		if (dialogue.user_id !== command.userId)
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 
@@ -38,19 +39,19 @@ export class GetAiDialogueVisualsHandler implements ICommandHandler<
 		) =>
 			image
 				? {
-						id: image.id,
-						url: await this.storage.getFileUrl(image.s3_key),
-						mimeType: image.mime_type,
-						width: image.width,
-						height: image.height,
-						layoutVersion: image.layout_version,
-					}
+					id: image.id,
+					url: await this.storage.getFileUrl(image.s3_key),
+					mimeType: image.mime_type,
+					width: image.width,
+					height: image.height,
+					layoutVersion: image.layout_version,
+				}
 				: null
 
 		return {
 			dialogueId: dialogue.id,
 			urlsExpireAt,
-			userAvatarUrl: await this.storage.getFileUrl(AI_DIALOGUE_USER_AVATAR_S3_KEY),
+			userAvatarUrl: await this.storage.getFileUrl(getUserAvatarS3Key(dialogue.user)),
 			characters: await Promise.all(
 				dialogue.AiDialogueCharacter.map(async (character) => ({
 					id: character.id,

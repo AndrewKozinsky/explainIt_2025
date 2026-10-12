@@ -6,13 +6,13 @@ import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.se
 import {
 	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
 	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-	AI_DIALOGUE_USER_AVATAR_S3_KEY,
 } from '../aiDialogueVisualConfig'
 import { CheckAiDialogueImageAssets } from './CheckAiDialogueImageAssets.service'
 
 describe('read-only dialogue image assets check', () => {
-	const keys = { userAvatar: 'user.jpg', avatarStyle: 'avatar.png', sceneStyle: 'scene.webp' }
+	const keys = { avatarStyle: 'avatar.png', sceneStyle: 'scene.webp' }
 	let image: Buffer
+
 	beforeAll(async () => {
 		image = await sharp({ create: { width: 512, height: 256, channels: 3, background: 'green' } })
 			.png()
@@ -37,17 +37,15 @@ describe('read-only dialogue image assets check', () => {
 				mime: 'image/png',
 			})),
 		)
-		expect(storage.readFile.mock.calls).toEqual([['user.jpg'], ['avatar.png'], ['scene.webp']])
+		expect(storage.readFile.mock.calls).toEqual([['avatar.png'], ['scene.webp']])
 		expect(storage.uploadFile).not.toHaveBeenCalled()
 		expect(storage.deleteFile).not.toHaveBeenCalled()
 	})
 	it('uses the configured avatar and style keys', async () => {
 		const { storage, check } = harness()
 		const report = await check.checkSharedImageAssets()
-		expect(storage.readFile).toHaveBeenCalledWith(AI_DIALOGUE_USER_AVATAR_S3_KEY)
 		expect(report.ready).toBe(true)
 		expect(storage.readFile.mock.calls).toEqual([
-			[AI_DIALOGUE_USER_AVATAR_S3_KEY],
 			[AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY],
 			[AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY],
 		])
@@ -56,7 +54,6 @@ describe('read-only dialogue image assets check', () => {
 		).resolves.toMatchObject({
 			ready: false,
 			assets: [
-				expect.objectContaining({ status: 'ready' }),
 				{ asset: 'avatarStyle', key: null, status: 'unconfigured' },
 				{ asset: 'sceneStyle', key: null, status: 'unconfigured' },
 			],
@@ -67,8 +64,8 @@ describe('read-only dialogue image assets check', () => {
 		storage.readFile.mockRejectedValueOnce(new Error('secret access key and signed URL'))
 		const report = await check.checkSharedImageAssets(keys)
 		expect(report.ready).toBe(false)
-		expect(report.assets[0]).toEqual({ asset: 'userAvatar', key: 'user.jpg', status: 'unavailable' })
-		expect(report.assets[2].status).toBe('ready')
+		expect(report.assets[0]).toEqual({ asset: 'avatarStyle', key: 'avatar.png', status: 'unavailable' })
+		expect(report.assets[1].status).toBe('ready')
 		expect(JSON.stringify(report)).not.toContain('secret')
 	})
 	it('rejects non-images but checks subsequent resources', async () => {
@@ -91,7 +88,7 @@ describe('read-only dialogue image assets check', () => {
 	})
 	it('skips empty keys without an R2 request', async () => {
 		const { storage, check } = harness()
-		const report = await check.checkSharedImageAssets({ userAvatar: '', avatarStyle: null, sceneStyle: ' ' })
+		const report = await check.checkSharedImageAssets({ avatarStyle: null, sceneStyle: ' ' })
 		expect(report.ready).toBe(false)
 		expect(storage.readFile).not.toHaveBeenCalled()
 		expect(report.assets.every((asset) => asset.status === 'unconfigured')).toBe(true)

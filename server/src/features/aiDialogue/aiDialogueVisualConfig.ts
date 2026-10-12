@@ -11,9 +11,6 @@ export const AI_DIALOGUE_IMAGE_FORMAT = 'png'
 export const AI_DIALOGUE_EMOTION_SHEET_SIZE = { width: 960, height: 720 } as const
 export const AI_DIALOGUE_SCENE_SIZE = { width: 1152, height: 576 } as const
 
-/** Ключ объекта в R2, не путь к исходникам. Локальный исходник: server/assets/aiDialogue/user-avatar.jpg. В R2 пользователь загрузил вариант .jpg. */
-export const AI_DIALOGUE_USER_AVATAR_S3_KEY = 'ai-dialogue-images/shared/user-avatar.jpg'
-
-/** Ключи загруженных эталонов стиля в R2 для новых заданий; старые снимки могут не содержать эталоны. */
-export const AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY = AI_DIALOGUE_USER_AVATAR_S3_KEY
+/** Единственный художественный эталон для новых спрайтов NPC и сцен. */
 export const AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY = 'ai-dialogue-images/shared/style-scene.jpg'
+export const AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY = AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY

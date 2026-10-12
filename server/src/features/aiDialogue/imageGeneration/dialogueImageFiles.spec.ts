@@ -4,6 +4,7 @@ import {
 	dialogueImageReference,
 	inspectDialogueImage,
 	neutralNpcReference,
+	userAvatarReference,
 } from './dialogueImageFiles'
 
 describe('dialogue image files', () => {
@@ -15,6 +16,7 @@ describe('dialogue image files', () => {
 		expect(metadata).toMatchObject({ width: 512, height: 256, mime: `image/${format}` })
 		expect(await dialogueImageReference(bytes)).toBe(`data:${metadata.mime};base64,${bytes.toString('base64')}`)
 	})
+
 	it('extracts only the top-left neutral cell and enlarges it to the reference validator minimum', async () => {
 		const red = await sharp({ create: { width: 120, height: 120, channels: 3, background: 'red' } })
 			.png()
@@ -39,6 +41,23 @@ describe('dialogue image files', () => {
 		await expect(inspectDialogueImage(Buffer.alloc(33 * 1024 * 1024))).rejects.toThrow('size')
 		const small = await sharp(bytes).resize(128, 128).toBuffer()
 		await expect(inspectDialogueImage(small)).rejects.toThrow('small')
+	})
+	it('accepts small profile photos without cropping or changing their proportions', async () => {
+		const bytes = await sharp({ create: { width: 80, height: 120, channels: 3, background: 'green' } })
+			.webp()
+			.toBuffer()
+		const reference = await userAvatarReference(bytes)
+		expect(await sharp(Buffer.from(reference.split(',')[1], 'base64')).metadata()).toMatchObject({
+			width: 256,
+			height: 384,
+		})
+		expect(await sharp(bytes).metadata()).toMatchObject({ width: 80, height: 120 })
+	})
+	it('keeps sufficiently large profile photos as their original reference bytes', async () => {
+		const bytes = await sharp({ create: { width: 512, height: 300, channels: 3, background: 'green' } })
+			.webp()
+			.toBuffer()
+		expect(await userAvatarReference(bytes)).toBe(`data:image/webp;base64,${bytes.toString('base64')}`)
 	})
 	it('allows grid rounding but rejects another aspect ratio', () => {
 		expect(() => assertDialogueImageRatio(1024, 768, 4 / 3)).not.toThrow()

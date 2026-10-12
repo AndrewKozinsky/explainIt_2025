@@ -2,9 +2,9 @@ jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => targ
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => target }))
 
-import { GetAiDialogueVisualsCommand, GetAiDialogueVisualsHandler } from './GetAiDialogueVisuals.command'
 import { AiDialogueVisualsRepository } from 'repo/aiDialogue/aiDialogueVisuals.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { GetAiDialogueVisualsCommand, GetAiDialogueVisualsHandler } from './GetAiDialogueVisuals.command'
 
 function harness() {
 	const image = {
@@ -18,6 +18,7 @@ function harness() {
 	const dialogue = {
 		id: 1,
 		user_id: 7,
+		user: { avatar_preset_id: 'male-1' as string | null, avatar_s3_key: 'own.webp' },
 		AiDialogueCharacter: [
 			{
 				id: 2,
@@ -33,6 +34,7 @@ function harness() {
 			{ id: 4, AiDialogueImage: [], ImageGenerationJob: [] },
 		],
 	}
+
 	const repository = { getDialogueVisuals: jest.fn().mockResolvedValue(dialogue) }
 	const storage = { getFileUrl: jest.fn(async (key) => `signed:${key}`) }
 	const service = new GetAiDialogueVisualsHandler(
@@ -69,17 +71,26 @@ describe('GetAiDialogueVisuals', () => {
 		})
 		expect(storage.getFileUrl).not.toHaveBeenCalled()
 	})
-	it('returns a shared avatar even for a dialogue without NPCs or scenes', async () => {
+	it('returns the selected profile avatar even for a dialogue without NPCs or scenes', async () => {
 		const { service, dialogue } = harness()
 		dialogue.AiDialogueCharacter = []
 		dialogue.AiDialogueMessage = []
 		const result = await service.execute(new GetAiDialogueVisualsCommand(7, 1))
 		expect(result).toMatchObject({
-			userAvatarUrl: 'signed:ai-dialogue-images/shared/user-avatar.jpg',
+			userAvatarUrl: 'signed:user-avatars/shared/male-1.jpg',
 			characters: [],
 			scenes: [],
 		})
 		expect(Date.parse(result.urlsExpireAt)).toBeGreaterThan(Date.now())
+	})
+	it('uses the current uploaded photo and reflects subsequent profile changes', async () => {
+		const { service, dialogue } = harness()
+		dialogue.user.avatar_preset_id = null
+		expect((await service.execute(new GetAiDialogueVisualsCommand(7, 1))).userAvatarUrl).toBe('signed:own.webp')
+		dialogue.user.avatar_s3_key = 'replacement.webp'
+		expect((await service.execute(new GetAiDialogueVisualsCommand(7, 1))).userAvatarUrl).toBe(
+			'signed:replacement.webp',
+		)
 	})
 	it('propagates signing failures instead of marking missing URLs ready', async () => {
 		const { service, storage } = harness()

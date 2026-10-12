@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
-import { getAvatarPreset } from 'features/user/avatarPresets'
+import { getUserAvatarS3Key } from 'features/user/avatarPresets'
 import { getAvatarUrlExpiresAt } from 'features/user/userAvatarConfig'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
@@ -43,9 +43,7 @@ export class UserQueryRepository {
 	}
 
 	async mapDbUserToOutUser(dbUser: User): Promise<UserOutModel> {
-		const avatarKey =
-			dbUser.avatar_preset_id !== null ? getAvatarPreset(dbUser.avatar_preset_id)?.s3Key : dbUser.avatar_s3_key
-		if (!avatarKey) throw new Error('User avatar is not configured')
+		const avatarKey = getUserAvatarS3Key(dbUser)
 
 		const avatarUrlExpiresAt = getAvatarUrlExpiresAt()
 		const uploadedAvatarUrl = dbUser.avatar_s3_key ? await this.storage.getFileUrl(dbUser.avatar_s3_key) : null

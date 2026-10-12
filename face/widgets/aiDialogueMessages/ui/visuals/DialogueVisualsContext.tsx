@@ -1,6 +1,7 @@
-import { createContext, useContext, useMemo } from 'react'
 import type { ReactNode } from 'react'
+import { createContext, useContext, useEffect, useMemo } from 'react'
 import type { AiDialogueVisualsModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
+import { useUser } from '@/shared/api/auth/UserProvider'
 import type { AiDialogueCharacterVisualOutModel, AiDialogueSceneVisualOutModel } from '@/shared/api/generated/models'
 
 type DialogueVisualsValue = {
@@ -26,6 +27,15 @@ type Props = {
 }
 
 export function DialogueVisualsProvider({ visuals, recoverImage, refreshVisuals, children }: Props) {
+	const user = useUser()
+	// Profile changes refresh the avatar in every open dialogue without changing saved scenes.
+	useEffect(
+		function () {
+			if (user?.avatarUrl) refreshVisuals()
+		},
+		[user?.avatarUrl, refreshVisuals],
+	)
+
 	const value = useMemo(
 		function () {
 			return {

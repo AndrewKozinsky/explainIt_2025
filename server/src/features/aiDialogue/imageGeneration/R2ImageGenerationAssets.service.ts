@@ -11,6 +11,7 @@ import {
 	dialogueImageReference,
 	inspectDialogueImage,
 	neutralNpcReference,
+	userAvatarReference,
 } from './dialogueImageFiles'
 import { getGeneratedDialogueImageJobId, getGeneratedDialogueImagesPrefix } from './generatedDialogueImageKey'
 import { ImageGenerationAssets } from './ImageGenerationAssets'
@@ -100,7 +101,7 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 			return null
 		}
 
-		const images = [await this.readReference(snapshot.userAvatarS3Key)]
+		const images = [await userAvatarReference(await this.storage.readFile(snapshot.userAvatarS3Key))]
 		for (const key of sheets) images.push(await neutralNpcReference(await this.storage.readFile(key)))
 		if (snapshot.styleSceneReferenceS3Key) images.push(await this.readReference(snapshot.styleSceneReferenceS3Key))
 

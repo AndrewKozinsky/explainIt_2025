@@ -5,6 +5,11 @@ import { AiDialogueTurnRepository } from './aiDialogueTurn.repository'
 
 function createHarness() {
 	const tx = {
+		aiDialogue: {
+			findUniqueOrThrow: jest
+				.fn()
+				.mockResolvedValue({ user: { avatar_preset_id: 'female-2', avatar_s3_key: 'retained.webp' } }),
+		},
 		aiDialogueCharacter: {
 			findUnique: jest.fn(),
 			create: jest.fn(),
@@ -17,12 +22,21 @@ function createHarness() {
 	const prisma = {
 		$transaction: jest.fn(async (callback: (client: typeof tx) => unknown) => callback(tx)),
 	} as unknown as PrismaService
+
 	return { repository: new AiDialogueTurnRepository(prisma), tx }
 }
 
 describe('AiDialogueTurnRepository', () => {
-	it('persists scene metadata and binds messages to characters in the same transaction', async () => {
+	it.each([
+		{
+			avatar_preset_id: 'female-2',
+			avatar_s3_key: 'retained.webp',
+			expectedKey: 'user-avatars/shared/female-2.jpg',
+		},
+		{ avatar_preset_id: null, avatar_s3_key: 'uploaded.webp', expectedKey: 'uploaded.webp' },
+	])('persists scene metadata and the selected avatar $expectedKey in the same transaction', async (profile) => {
 		const { repository, tx } = createHarness()
+		tx.aiDialogue.findUniqueOrThrow.mockResolvedValue({ user: profile })
 		tx.aiDialogueCharacter.findUnique.mockResolvedValue(null)
 		tx.aiDialogueCharacter.create.mockResolvedValue({ id: 10, appearance: 'short dark hair' })
 		tx.aiDialogueMessage.create.mockResolvedValueOnce({ id: 100 }).mockResolvedValueOnce({ id: 101 })
@@ -59,7 +73,7 @@ describe('AiDialogueTurnRepository', () => {
 		expect(tx.imageGenerationJob.create).toHaveBeenCalledTimes(2)
 		expect(tx.imageGenerationOutbox.create).toHaveBeenCalledTimes(2)
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[1][0].data.input)).toMatchObject({
-			userAvatarS3Key: 'ai-dialogue-images/shared/user-avatar.jpg',
+			userAvatarS3Key: profile.expectedKey,
 			model: 'gpt-image-2',
 			quality: 'low',
 			format: 'png',
@@ -71,8 +85,11 @@ describe('AiDialogueTurnRepository', () => {
 			quality: 'low',
 			format: 'png',
 			size: { width: 960, height: 720 },
-			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/user-avatar.jpg',
+			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/style-scene.jpg',
 		})
+		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).not.toHaveProperty(
+			'userAvatarS3Key',
+		)
 		expect(tx.imageGenerationJob.create.mock.calls[1][0].data).toMatchObject({
 			message_id: 101,
 			character_id: null,

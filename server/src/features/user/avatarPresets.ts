@@ -11,3 +11,11 @@ export const avatarPresets = [
 export function getAvatarPreset(id: string) {
 	return avatarPresets.find((preset) => preset.id === id)
 }
+
+/** Resolves the selected profile avatar; a preset takes precedence over a retained upload. */
+export function getUserAvatarS3Key(user: { avatar_preset_id: string | null; avatar_s3_key: string | null }): string {
+	const key = user.avatar_preset_id !== null ? getAvatarPreset(user.avatar_preset_id)?.s3Key : user.avatar_s3_key
+	if (!key) throw new Error('User avatar is not configured')
+
+	return key
+}

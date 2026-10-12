@@ -75,3 +75,19 @@ export async function dialogueImageReference(bytes: Buffer): Promise<string> {
 	const metadata = await inspectDialogueImage(bytes)
 	return `data:${metadata.mime};base64,${bytes.toString('base64')}`
 }
+
+/** Accept small profile photos by enlarging the reference in memory; the stored avatar stays unchanged. */
+export async function userAvatarReference(bytes: Buffer): Promise<string> {
+	if (!bytes.length || bytes.length > MAX_IMAGE_BYTES) throw new Error('Invalid avatar reference file size')
+	const image = sharp(bytes, { limitInputPixels: MAX_IMAGE_PIXELS, failOn: 'warning' })
+	const metadata = await image.metadata()
+	if (!metadata.format || !(metadata.format in formats)) throw new Error('Unsupported avatar reference format')
+	if ((metadata.pages ?? 1) !== 1 || (metadata.orientation ?? 1) !== 1)
+		throw new Error('Animated or rotated avatar reference is unsupported')
+
+	if (!metadata.width || !metadata.height) throw new Error('Invalid avatar reference dimensions')
+	if (metadata.width >= 256 && metadata.height >= 256) return dialogueImageReference(bytes)
+	const resized = await image.resize({ width: 256, height: 256, fit: 'outside' }).png().toBuffer()
+
+	return dialogueImageReference(resized)
+}
