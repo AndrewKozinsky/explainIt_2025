@@ -1,4 +1,4 @@
-@use "@/styles/variables" as vars;
+@use '@/styles/variables' as vars;
 
 .file-dropzone__wrapper {
 	width: 100%;
@@ -14,7 +14,7 @@
 	overflow: hidden;
 	border: 1px solid transparent;
 	border-radius: vars.$radius-1;
-	transition: all .2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 .file-dropzone--idle {
@@ -48,7 +48,7 @@
 .file-dropzone__content {
 	display: flex;
 	flex-direction: column;
-	gap: .4rem;
+	gap: 0.4rem;
 }
 
 .file-dropzone__text {
@@ -80,4 +80,24 @@
 	left: 0;
 	height: 100%;
 	background-color: vars.$linkColor-1;
+}
+
+.file-dropzone__file-uploading-progress--indeterminate {
+	width: 35%;
+	animation: file-dropzone-upload 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes file-dropzone-upload {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(185%);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.file-dropzone__file-uploading-progress--indeterminate {
+		animation: none;
+	}
 }

@@ -1,0 +1,133 @@
+@use '@/styles/variables' as vars;
+
+.user-profile-form {
+	display: flex;
+	flex-direction: column;
+	gap: 2.4rem;
+	width: 100%;
+	max-width: 64rem;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+}
+
+.user-profile-form__photo-field {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+}
+
+.user-profile-form__preview {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: min(100%, 24rem);
+	height: 24rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+	background: white;
+	padding: 1rem;
+	box-sizing: border-box;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.user-profile-form__presets {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1.2rem;
+}
+
+.user-profile-form__preset {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6rem;
+	padding: 1rem;
+	border: 2px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+	background: white;
+	cursor: pointer;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	text-align: center;
+
+	&:hover {
+		border-color: vars.$grayColor-3;
+	}
+
+	&:focus-within {
+		outline: 2px solid vars.$linkColor-2;
+		outline-offset: 3px;
+	}
+
+	&:has(input:disabled) {
+		cursor: wait;
+		opacity: 0.6;
+	}
+}
+
+.user-profile-form__preset--selected {
+	border-color: vars.$linkColor-2;
+
+	&:hover {
+		border-color: vars.$linkColor-2;
+	}
+}
+
+.user-profile-form__preset-input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.user-profile-form__preset-image {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	aspect-ratio: 1;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}
+
+.user-profile-form__image-error {
+	color: vars.$grayColor-5;
+	text-align: center;
+	font-size: 1.4rem;
+}
+
+.user-profile-form__status {
+	min-height: 2.2rem;
+	color: vars.$grayColor-5;
+}
+
+.user-profile-form__status--error {
+	color: vars.$dangerColor-1;
+}
+
+.user-profile-form__catalog-error {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+@media (max-width: 600px) {
+	.user-profile-form__presets {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	.user-profile-form .file-dropzone {
+		gap: 1rem;
+		padding: 1.2rem;
+	}
+}

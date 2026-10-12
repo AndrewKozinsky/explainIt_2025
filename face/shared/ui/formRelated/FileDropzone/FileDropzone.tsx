@@ -2,28 +2,19 @@ import LabelWithField from '../LabelWithField/LabelWithField'
 import ContentFileDragging from './ContentFileDragging'
 import ContentFileUploading from './ContentFileUploading'
 import ContentIdle from './ContentIdle'
-import { FileDropzoneStatus, useFileDropzone } from './fn/useFileDropzone'
+import { FileDropzoneStatus, useFileDropzone, type UseFileDropzoneParams } from './fn/useFileDropzone'
 import './FileDropzone.scss'
 
-export type FileDropzoneProps = {
+export type FileDropzoneProps = UseFileDropzoneParams & {
 	block?: boolean
 	label: string
-	accept: Record<string, string[]>
-	supportedFormatsStr: string
 	visible: boolean
-	onGetUploadUrl: (file: File) => Promise<string | null>
-	onUploadComplete: () => Promise<void>
 }
 
 function FileDropzone(props: FileDropzoneProps) {
-	const { block, label, accept, supportedFormatsStr, visible, onGetUploadUrl, onUploadComplete } = props
+	const { block, label, supportedFormatsStr, visible, disabled, onUploadFile } = props
 
-	const { getRootProps, getInputProps, inputStatus, uploadedBytes, totalBytes, fileName } = useFileDropzone({
-		accept,
-		supportedFormatsStr,
-		onGetUploadUrl,
-		onUploadComplete,
-	})
+	const { getRootProps, getInputProps, inputStatus, uploadedBytes, totalBytes, fileName } = useFileDropzone(props)
 
 	if (!visible) {
 		return null
@@ -35,13 +26,18 @@ function FileDropzone(props: FileDropzoneProps) {
 		inputStatus === FileDropzoneStatus.FILE_UPLOADING || inputStatus === FileDropzoneStatus.FILE_SELECTED
 
 	return (
-		<LabelWithField label={label} block={block}>
-			<div {...getRootProps()} className='file-dropzone__wrapper'>
-				<input {...getInputProps()} />
+		<LabelWithField label={label} block={block} disabled={disabled}>
+			<div {...getRootProps()} className='file-dropzone__wrapper' aria-disabled={disabled || isUploadingStatus}>
+				<input {...getInputProps()} disabled={disabled || isUploadingStatus} />
 				{isIdleStatus && <ContentIdle supportedFormatsStr={supportedFormatsStr} />}
 				{isDraggingStatus && <ContentFileDragging />}
 				{isUploadingStatus && (
-					<ContentFileUploading uploadedBytes={uploadedBytes} totalBytes={totalBytes} fileName={fileName} />
+					<ContentFileUploading
+						uploadedBytes={uploadedBytes}
+						totalBytes={totalBytes}
+						fileName={fileName}
+						indeterminate={Boolean(onUploadFile)}
+					/>
 				)}
 			</div>
 		</LabelWithField>

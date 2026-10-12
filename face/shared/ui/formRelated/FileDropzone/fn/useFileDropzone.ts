@@ -1,6 +1,7 @@
-import { useContext, useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
+import { uploadBySignedUrl } from './uploadBySignedUrl'
 
 export enum FileDropzoneStatus {
 	IDLE,
@@ -9,114 +10,80 @@ export enum FileDropzoneStatus {
 	FILE_UPLOADING,
 }
 
-export type UseFileDropzoneParams = {
+type FileUploadHandlers =
+	| { onUploadFile: (file: File) => Promise<void>; onGetUploadUrl?: never; onUploadComplete?: never }
+	| {
+			onUploadFile?: never
+			onGetUploadUrl: (file: File) => Promise<string | null>
+			onUploadComplete: () => Promise<void>
+	  }
+
+export type UseFileDropzoneParams = FileUploadHandlers & {
 	accept: Record<string, string[]>
 	supportedFormatsStr: string
-	onGetUploadUrl: (file: File) => Promise<string | null>
-	onUploadComplete: () => Promise<void>
+	disabled?: boolean
+	maxSize?: number
 }
 
 export function useFileDropzone(params: UseFileDropzoneParams) {
-	const { accept, supportedFormatsStr, onGetUploadUrl, onUploadComplete } = params
-
+	const { accept, supportedFormatsStr, disabled, maxSize } = params
 	const { notify } = useContext(NotificationContext)
-
-	const [inputStatus, setInputStatus] = useState<FileDropzoneStatus>(FileDropzoneStatus.IDLE)
+	const uploading = useRef(false)
+	const [inputStatus, setInputStatus] = useState(FileDropzoneStatus.IDLE)
 	const [uploadedBytes, setUploadedBytes] = useState(0)
 	const [totalBytes, setTotalBytes] = useState(0)
 	const [fileName, setFileName] = useState('')
+	const isUploading =
+		inputStatus === FileDropzoneStatus.FILE_SELECTED || inputStatus === FileDropzoneStatus.FILE_UPLOADING
+
+	async function uploadFile(file: File) {
+		if (params.onUploadFile) return params.onUploadFile(file)
+		const uploadUrl = await params.onGetUploadUrl(file)
+		if (!uploadUrl) throw new Error('Не удалось получить ссылку для загрузки')
+		await uploadBySignedUrl(uploadUrl, file, function (loaded, total) {
+			setUploadedBytes(loaded)
+			setTotalBytes(total)
+		})
+		await params.onUploadComplete()
+	}
 
 	const { getRootProps, getInputProps } = useDropzone({
 		accept,
 		multiple: false,
+		disabled: disabled || isUploading,
+		maxSize,
 		onDragEnter() {
-			setInputStatus(FileDropzoneStatus.FILE_DRAGGING)
+			if (!uploading.current) setInputStatus(FileDropzoneStatus.FILE_DRAGGING)
+		},
+		onDragLeave() {
+			if (!uploading.current) setInputStatus(FileDropzoneStatus.IDLE)
 		},
 		async onDropAccepted(files) {
-			setInputStatus(FileDropzoneStatus.FILE_SELECTED)
-
-			const file = files[0]
-			setFileName(file.name)
-
+			if (uploading.current || disabled || !files[0]) return
+			uploading.current = true
+			setFileName(files[0].name)
+			setUploadedBytes(0)
+			setTotalBytes(files[0].size)
+			setInputStatus(FileDropzoneStatus.FILE_UPLOADING)
 			try {
-				const uploadUrl = await onGetUploadUrl(file)
-				if (!uploadUrl) {
-					notify({
-						type: 'error',
-						message: 'Не удалось получить ссылку для загрузки',
-					})
-
-					setInputStatus(FileDropzoneStatus.IDLE)
-					return
-				}
-
-				setInputStatus(FileDropzoneStatus.FILE_UPLOADING)
-
-				const xhr = new XMLHttpRequest()
-
-				xhr.open('PUT', uploadUrl)
-				xhr.setRequestHeader('Content-Type', file.type)
-
-				xhr.upload.onprogress = (event) => {
-					if (event.lengthComputable) {
-						setUploadedBytes(event.loaded)
-						setTotalBytes(event.total)
-					}
-				}
-
-				xhr.onload = () => {
-					if (xhr.status === 200) {
-						onUploadComplete()
-							.then(() => {
-								setInputStatus(FileDropzoneStatus.IDLE)
-							})
-							.catch(() => {
-								notify({
-									type: 'error',
-									message: 'Не удалось подтвердить загрузку файла',
-								})
-								setInputStatus(FileDropzoneStatus.IDLE)
-							})
-					} else {
-						notify({
-							type: 'error',
-							message: 'Не удалось загрузить файл',
-						})
-						setInputStatus(FileDropzoneStatus.IDLE)
-					}
-				}
-
-				xhr.onerror = () => {
-					notify({
-						type: 'error',
-						message: 'Не удалось загрузить файл',
-					})
-					setInputStatus(FileDropzoneStatus.IDLE)
-				}
-
-				xhr.send(file)
-			} catch {
-				notify({
-					type: 'error',
-					message: 'Не удалось загрузить файл',
-				})
+				await uploadFile(files[0])
+			} catch (error) {
+				notify({ type: 'error', message: error instanceof Error ? error.message : 'Не удалось загрузить файл' })
+			} finally {
+				uploading.current = false
 				setInputStatus(FileDropzoneStatus.IDLE)
 			}
 		},
-		onDropRejected: () => {
-			notify({
-				type: 'error',
-				message: `Можно перетащить только файлы с расширением ${supportedFormatsStr}.`,
-			})
+		onDropRejected(files) {
+			setInputStatus(FileDropzoneStatus.IDLE)
+			const tooLarge = files.some((file) => file.errors.some((error) => error.code === 'file-too-large'))
+			const message =
+				tooLarge && maxSize
+					? `Файл слишком большой. Максимальный размер — ${Math.round(maxSize / 1024 / 1024)} МБ.`
+					: `Выберите один файл: ${supportedFormatsStr}.`
+			notify({ type: 'error', message })
 		},
 	})
 
-	return {
-		getRootProps,
-		getInputProps,
-		inputStatus,
-		uploadedBytes,
-		totalBytes,
-		fileName,
-	}
+	return { getRootProps, getInputProps, inputStatus, uploadedBytes, totalBytes, fileName }
 }
