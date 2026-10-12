@@ -32,6 +32,13 @@ export const bdConfig = {
 				description: 'Temporary URL of the current user avatar',
 				example: 'https://storage.example.com/avatar.webp',
 			},
+			uploadedAvatarUrl: {
+				type: 'string',
+				required: false,
+				description:
+					'Temporary URL of the saved custom photo, including when a preset is selected; uses avatarUrlExpiresAt',
+				example: 'https://storage.example.com/photo.webp',
+			},
 			avatarUrlExpiresAt: {
 				type: 'dateString',
 				required: true,
@@ -43,7 +50,7 @@ export const bdConfig = {
 				enumName: 'AvatarPresetId',
 				variants: ['male-1', 'male-2', 'female-1', 'female-2'],
 				required: true,
-				description: 'ID of a prepared avatar available to all users',
+				description: 'ID of a prepared avatar; null selects the saved custom photo',
 				example: 'female-1',
 			},
 			avatarFile: {
@@ -126,7 +133,7 @@ export const bdConfig = {
 			avatar_s3_key: {
 				type: 'string',
 				required: false,
-				description: 'R2 key of the custom user photo; null when a preset is selected',
+				description: 'R2 key of the last uploaded user photo, retained when a preset is selected',
 				example: 'user-avatars/uploads/ru/localdev/1/uuid.webp',
 			},
 			Payment: {

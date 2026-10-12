@@ -7,5 +7,5 @@ export class UpdateUserProfileDto {
 	gender?: UserGender
 
 	@DtoFieldDecorators('avatarPresetId', bdConfig.User.dtoProps.avatarPresetId, { required: false })
-	avatarPresetId?: string
+	avatarPresetId?: null | string
 }

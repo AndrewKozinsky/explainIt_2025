@@ -40,7 +40,8 @@ export function ApiUpdateMe() {
 	return applyDecorators(
 		ApiOperation({
 			summary: 'Update current user profile',
-			description: 'Provide gender and/or avatarPresetId. Preset gender takes precedence. Null is rejected.',
+			description:
+				'Provide gender and/or avatarPresetId. Preset gender takes precedence; the saved photo is retained. avatarPresetId: null selects an existing saved photo.',
 		}),
 		ApiCookieAuth(),
 		ApiBody({ type: UpdateUserProfileDto }),

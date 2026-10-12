@@ -10,6 +10,7 @@ export function mapToUser(raw: UserOutModel): UserModel {
 		gender: raw.gender,
 		avatarPresetId: mapAvatarPresetId(raw.avatarPresetId),
 		avatarUrl: raw.avatarUrl,
+		uploadedAvatarUrl: raw.uploadedAvatarUrl ?? null,
 		avatarUrlExpiresAt: raw.avatarUrlExpiresAt,
 	}
 }
@@ -20,5 +21,6 @@ export function mapToAvatarPreset(raw: AvatarPresetOutModel): AvatarPresetModel 
 
 function mapAvatarPresetId(id: string | null | undefined): AvatarPresetId | null {
 	if (id === 'male-1' || id === 'male-2' || id === 'female-1' || id === 'female-2') return id
+
 	return null
 }

@@ -43,10 +43,14 @@ export class UserQueryRepository {
 	}
 
 	async mapDbUserToOutUser(dbUser: User): Promise<UserOutModel> {
-		const avatarKey = dbUser.avatar_s3_key ?? getAvatarPreset(dbUser.avatar_preset_id ?? '')?.s3Key
+		const avatarKey =
+			dbUser.avatar_preset_id !== null ? getAvatarPreset(dbUser.avatar_preset_id)?.s3Key : dbUser.avatar_s3_key
 		if (!avatarKey) throw new Error('User avatar is not configured')
 
 		const avatarUrlExpiresAt = getAvatarUrlExpiresAt()
+		const uploadedAvatarUrl = dbUser.avatar_s3_key ? await this.storage.getFileUrl(dbUser.avatar_s3_key) : null
+		const avatarUrl =
+			dbUser.avatar_preset_id === null ? uploadedAvatarUrl! : await this.storage.getFileUrl(avatarKey)
 
 		return {
 			id: dbUser.id,
@@ -55,7 +59,8 @@ export class UserQueryRepository {
 			balance: dbUser.balance ?? 0,
 			gender: dbUser.gender,
 			avatarPresetId: dbUser.avatar_preset_id,
-			avatarUrl: await this.storage.getFileUrl(avatarKey),
+			avatarUrl,
+			uploadedAvatarUrl,
 			avatarUrlExpiresAt,
 		}
 	}

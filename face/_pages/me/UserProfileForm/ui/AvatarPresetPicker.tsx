@@ -1,9 +1,11 @@
+import type { ReactNode } from 'react'
 import type { AvatarPresetId, AvatarPresetModel, UserModel } from '@/entities/user/UserService'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import AvatarPresetCard from './AvatarPresetCard'
 
 type AvatarPresetPickerProps = {
+	children: ReactNode
 	user: UserModel
 	selectedId: AvatarPresetId | null
 	presets: AvatarPresetModel[]
@@ -16,7 +18,7 @@ type AvatarPresetPickerProps = {
 }
 
 function AvatarPresetPicker(props: AvatarPresetPickerProps) {
-	const { user, selectedId, presets, disabled, loading, error, refreshing, onRetry, onSelect } = props
+	const { children, user, selectedId, presets, disabled, loading, error, refreshing, onRetry, onSelect } = props
 
 	function renderPreset(preset: AvatarPresetModel) {
 		return (
@@ -32,10 +34,17 @@ function AvatarPresetPicker(props: AvatarPresetPickerProps) {
 	}
 
 	return (
-		<LabelWithField label='Готовые аватары' block>
+		<LabelWithField label='Аватар' block>
 			{loading && <p role='status'>Загружаем готовые аватары…</p>}
 			{error && <CatalogError refreshing={refreshing} onRetry={onRetry} />}
-			<div className='user-profile-form__presets'>{presets.map(renderPreset)}</div>
+			<div className='user-profile-form__presets'>
+				{children}
+				{presets.map(renderPreset)}
+			</div>
+			<p className='user-profile-form__photo-hint'>
+				Своя фотография: JPEG, PNG, WebP · до 30 МБ. Чтобы заменить выбранную фотографию, нажмите на неё ещё
+				раз.
+			</p>
 		</LabelWithField>
 	)
 }

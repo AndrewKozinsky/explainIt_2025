@@ -186,7 +186,7 @@ export const getUserControllerUpdateMeUrl = () => {
 }
 
 /**
- * Provide gender and/or avatarPresetId. Preset gender takes precedence. Null is rejected.
+ * Provide gender and/or avatarPresetId. Preset gender takes precedence; the saved photo is retained. avatarPresetId: null selects an existing saved photo.
  * @summary Update current user profile
  */
 export const userControllerUpdateMe = async (updateUserProfileDto: UpdateUserProfileDto, options?: RequestInit): Promise<userControllerUpdateMeResponse> => {

@@ -41,7 +41,6 @@ function harness() {
 		update: new UpdateUserProfileHandler(
 			repository as unknown as UserRepository,
 			queryRepository as unknown as UserQueryRepository,
-			cleanup as unknown as CleanupUserAvatars,
 		),
 		upload: new UploadUserAvatarHandler(
 			repository as unknown as UserRepository,
@@ -68,9 +67,8 @@ describe('user profile changes', () => {
 		expect(h.repository.updateProfile).toHaveBeenCalledWith(1, {
 			gender: 'FEMALE',
 			avatar_preset_id: 'female-2',
-			avatar_s3_key: null,
 		})
-		expect(h.cleanup.cleanupReplacedPhoto).toHaveBeenCalledWith('old-photo')
+		expect(h.cleanup.cleanupReplacedPhoto).not.toHaveBeenCalled()
 	})
 
 	it('changes only gender without replacing or cleaning the current photo', async () => {
@@ -80,7 +78,7 @@ describe('user profile changes', () => {
 		expect(h.cleanup.cleanupReplacedPhoto).not.toHaveBeenCalled()
 	})
 
-	it.each([{}, { gender: null }, { avatarPresetId: null }, { gender: 'OTHER' }, { avatarPresetId: 'unknown' }])(
+	it.each([{}, { gender: null }, { avatarPresetId: 3 }, { gender: 'OTHER' }, { avatarPresetId: 'unknown' }])(
 		'rejects invalid or empty input %j before touching the database',
 		async (input) => {
 			const h = harness()

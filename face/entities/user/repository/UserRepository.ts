@@ -12,6 +12,7 @@ export type UserModel = {
 	gender: UserGender
 	avatarPresetId: AvatarPresetId | null
 	avatarUrl: string
+	uploadedAvatarUrl: string | null
 	avatarUrlExpiresAt: string
 }
 
@@ -22,7 +23,7 @@ export type AvatarPresetModel = {
 	avatarUrlExpiresAt: string
 }
 
-export type UpdateUserProfileInput = { gender?: UserGender; avatarPresetId?: AvatarPresetId }
+export type UpdateUserProfileInput = { gender?: UserGender; avatarPresetId?: AvatarPresetId | null }
 
 /** Доступ к данным пользователя; реализацию можно подменить в тестах и Storybook. */
 export type UserRepository = {

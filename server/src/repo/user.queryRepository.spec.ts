@@ -10,6 +10,7 @@ describe('user output mapping', () => {
 	it.each([
 		{ avatar_preset_id: 'male-1', avatar_s3_key: null, expected: 'user-avatars/shared/male-1.jpg' },
 		{ avatar_preset_id: null, avatar_s3_key: 'custom-key', expected: 'custom-key' },
+		{ avatar_preset_id: 'female-1', avatar_s3_key: 'custom-key', expected: 'user-avatars/shared/female-1.jpg' },
 	])('signs the selected source without exposing private fields', async ({ expected, ...avatar }) => {
 		const user = {
 			id: 1,
@@ -39,6 +40,7 @@ describe('user output mapping', () => {
 			gender: 'FEMALE',
 			avatarPresetId: avatar.avatar_preset_id,
 			avatarUrl: `signed:${expected}`,
+			uploadedAvatarUrl: avatar.avatar_s3_key ? `signed:${avatar.avatar_s3_key}` : null,
 			avatarUrlExpiresAt: expect.any(String),
 		})
 

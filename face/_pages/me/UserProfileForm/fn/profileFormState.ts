@@ -1,15 +1,20 @@
 import type { AvatarPresetId, UserGender } from '@/entities/user/UserService'
 
-export type ProfileOperation = 'gender' | 'preset' | 'upload'
+export type ProfileOperation = 'gender' | 'preset' | 'photo' | 'upload'
 export type ProfileFormState = {
 	status: 'idle' | 'saving' | 'saved' | 'error'
 	operation?: ProfileOperation
 	pendingGender?: UserGender
-	pendingPresetId?: AvatarPresetId
+	pendingPresetId?: AvatarPresetId | null
 	error?: string
 }
 export type ProfileFormEvent =
-	| { type: 'start'; operation: ProfileOperation; pendingGender?: UserGender; pendingPresetId?: AvatarPresetId }
+	| {
+			type: 'start'
+			operation: ProfileOperation
+			pendingGender?: UserGender
+			pendingPresetId?: AvatarPresetId | null
+	  }
 	| { type: 'success' }
 	| { type: 'failure'; error: string }
 

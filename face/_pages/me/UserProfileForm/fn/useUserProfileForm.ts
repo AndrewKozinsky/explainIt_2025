@@ -44,7 +44,7 @@ export function useUserProfileForm(user: UserModel) {
 		operation: ProfileOperation,
 		request: () => Promise<UserModel>,
 		pendingGender?: UserGender,
-		pendingPresetId?: AvatarPresetId,
+		pendingPresetId?: AvatarPresetId | null,
 	) {
 		if (!active.current || saving.current) return
 
@@ -85,9 +85,15 @@ export function useUserProfileForm(user: UserModel) {
 		return save('preset', () => unwrapApiResult(updateMe({ avatarPresetId: id })), preset.gender, id)
 	}
 
+	function selectPhoto() {
+		if (!user.uploadedAvatarUrl || user.avatarPresetId === null) return
+
+		return save('photo', () => unwrapApiResult(updateMe({ avatarPresetId: null })), undefined, null)
+	}
+
 	function uploadPhoto(file: File) {
 		return save('upload', () => unwrapApiResult(uploadAvatar(file)))
 	}
 
-	return { state, isSaving, presets, changeGender, selectPreset, uploadPhoto }
+	return { state, isSaving, presets, changeGender, selectPreset, selectPhoto, uploadPhoto }
 }

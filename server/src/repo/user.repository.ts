@@ -132,9 +132,13 @@ export class UserRepository {
 			if (!rows.length) return null
 
 			const previous = await tx.user.findUniqueOrThrow({ where: { id: userId } })
+			// Check under the row lock: a saved photo must exist before selecting it.
+			if (data.avatar_preset_id === null && !(data.avatar_s3_key ?? previous.avatar_s3_key)) {
+				return { user: previous, previousAvatarKey: previous.avatar_s3_key, avatarSelectionRejected: true }
+			}
 			const user = await tx.user.update({ where: { id: userId }, data })
 
-			return { user, previousAvatarKey: previous.avatar_s3_key }
+			return { user, previousAvatarKey: previous.avatar_s3_key, avatarSelectionRejected: false }
 		})
 	}
 

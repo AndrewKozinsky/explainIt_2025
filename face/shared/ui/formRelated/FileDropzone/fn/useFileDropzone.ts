@@ -23,6 +23,8 @@ export type UseFileDropzoneParams = FileUploadHandlers & {
 	supportedFormatsStr: string
 	disabled?: boolean
 	maxSize?: number
+	noClick?: boolean
+	noKeyboard?: boolean
 }
 
 export function useFileDropzone(params: UseFileDropzoneParams) {
@@ -47,11 +49,13 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 		await params.onUploadComplete()
 	}
 
-	const { getRootProps, getInputProps } = useDropzone({
+	const { getRootProps, getInputProps, open } = useDropzone({
 		accept,
 		multiple: false,
 		disabled: disabled || isUploading,
 		maxSize,
+		noClick: params.noClick,
+		noKeyboard: params.noKeyboard,
 		onDragEnter() {
 			if (!uploading.current) setInputStatus(FileDropzoneStatus.FILE_DRAGGING)
 		},
@@ -81,9 +85,10 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 				tooLarge && maxSize
 					? `Файл слишком большой. Максимальный размер — ${Math.round(maxSize / 1024 / 1024)} МБ.`
 					: `Выберите один файл: ${supportedFormatsStr}.`
+
 			notify({ type: 'error', message })
 		},
 	})
 
-	return { getRootProps, getInputProps, inputStatus, uploadedBytes, totalBytes, fileName }
+	return { getRootProps, getInputProps, open, inputStatus, uploadedBytes, totalBytes, fileName }
 }

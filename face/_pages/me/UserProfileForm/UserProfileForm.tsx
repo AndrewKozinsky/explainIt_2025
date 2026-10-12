@@ -17,15 +17,14 @@ function UserProfileForm() {
 }
 
 function ProfileFields({ user }: { user: UserModel }) {
-	const { state, isSaving, presets, changeGender, selectPreset, uploadPhoto } = useUserProfileForm(user)
+	const { state, isSaving, presets, changeGender, selectPreset, selectPhoto, uploadPhoto } = useUserProfileForm(user)
 
 	return (
 		<section className='user-profile-form' aria-label='Настройки профиля' aria-busy={isSaving}>
 			<UserGenderField gender={state.pendingGender ?? user.gender} disabled={isSaving} onChange={changeGender} />
-			<UserAvatarField avatarUrl={user.avatarUrl} disabled={isSaving} onUploadFile={uploadPhoto} />
 			<AvatarPresetPicker
 				user={user}
-				selectedId={state.pendingPresetId ?? user.avatarPresetId}
+				selectedId={state.pendingPresetId !== undefined ? state.pendingPresetId : user.avatarPresetId}
 				presets={presets.data ?? []}
 				disabled={isSaving}
 				loading={presets.isPending}
@@ -33,7 +32,17 @@ function ProfileFields({ user }: { user: UserModel }) {
 				refreshing={presets.isFetching}
 				onRetry={() => void presets.refetch()}
 				onSelect={selectPreset}
-			/>
+			>
+				<UserAvatarField
+					avatarUrl={user.uploadedAvatarUrl}
+					selected={
+						(state.pendingPresetId !== undefined ? state.pendingPresetId : user.avatarPresetId) === null
+					}
+					disabled={isSaving}
+					onSelect={selectPhoto}
+					onUploadFile={uploadPhoto}
+				/>
+			</AvatarPresetPicker>
 			<p
 				className={`user-profile-form__status${state.status === 'error' ? ' user-profile-form__status--error' : ''}`}
 				role='status'
