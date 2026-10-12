@@ -56,7 +56,8 @@ User ID берётся исключительно из сессии.
 URL подписываются на шесть часов, срок обновления объявляется через пять часов.
 Ответы маршрутов профиля имеют `Cache-Control: private, no-store`.
 
-`GET /api/auth/me` удалён без alias. Клиентское чтение пользователя и ключ React Query уже переведены на `/api/user/me`.
+`GET /api/auth/me` удалён без alias. Клиентское чтение пользователя переведено на `/api/user/me` через `UserApi`/`UserService`.
+Контекст и `UserQueryFacade` используют доменный ключ `userQueryKeys.me()`; см. [`clientUserData.md`](clientUserData.md).
 
 ## Обработка фотографий
 

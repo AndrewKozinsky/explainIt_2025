@@ -2,10 +2,10 @@
 
 import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
-import type { UserModel } from '@/entities/auth/repository/AuthRepository'
-import { getUserControllerGetMeQueryKey } from '@/shared/api/generated/user/user'
+import { userQueryKeys } from '@/entities/user/UserQueryFacade'
+import type { UserModel } from '@/entities/user/UserService'
 
-const getMeQueryKey = getUserControllerGetMeQueryKey()
+const getMeQueryKey = userQueryKeys.me()
 
 const UserContext = createContext<UserModel | null>(null)
 const SetUserContext = createContext<(user: UserModel | null) => void>(function () {})

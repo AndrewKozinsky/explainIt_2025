@@ -1,3 +1,5 @@
+import { getApiInternalUrl } from '@/shared/api/getApiInternalUrl'
+
 /**
  * Custom mutator for Orval-generated API calls.
  *
@@ -31,7 +33,7 @@ export async function customMutator<TResponse = unknown>(url: string, options?: 
 	// include the user's session cookie — without this, the server-side fetch has no
 	// access to browser cookies and the API sees every request as unauthenticated.
 	if (typeof window === 'undefined' && url.startsWith('/')) {
-		const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://explainserverlocaldev:3001'
+		const apiBase = getApiInternalUrl()
 		url = apiBase + url
 
 		try {

@@ -1,4 +1,7 @@
+import type { UserModel } from '@/entities/user/repository/UserRepository'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+
+export type { UserModel } from '@/entities/user/repository/UserRepository'
 
 /** Входные данные для подтверждения email. */
 export type ConfirmEmailInput = {
@@ -24,20 +27,7 @@ export type LoginWithOAuthInput = {
 }
 
 /** Результат авторизации (данные пользователя). */
-export type LoginWithOAuthResult = {
-	id: number
-	email: string
-	isUserConfirmed: boolean
-	balance: number
-}
-
-/** Унифицированная модель пользователя — не зависит от API. */
-export type UserModel = {
-	id: number
-	email: string
-	isUserConfirmed: boolean
-	balance: number
-}
+export type LoginWithOAuthResult = UserModel
 
 /**
  * Репозиторий аутентификации — абстракция над серверным API.

@@ -1,3 +1,4 @@
+import { mapToUser } from '@/entities/user/repository/UserMappers'
 import {
 	authControllerConfirmEmail,
 	authControllerLogin,
@@ -5,9 +6,8 @@ import {
 	authControllerLogout,
 	authControllerRegister,
 } from '@/shared/api/generated/auth/auth'
-import type { UserOutModel } from '@/shared/api/generated/models'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type {
 	AuthRepository,
 	ConfirmEmailInput,
@@ -51,16 +51,5 @@ export class AuthApi implements AuthRepository {
 
 	async logout(): Promise<ApiResult<void>> {
 		return executeApiCall(() => authControllerLogout())
-	}
-}
-
-// ─── Приватные мапперы ─────────────────────────────────────────────────────
-
-function mapToUser(raw: UserOutModel): LoginWithOAuthResult {
-	return {
-		id: raw.id,
-		email: raw.email,
-		isUserConfirmed: raw.isUserConfirmed,
-		balance: raw.balance,
 	}
 }
