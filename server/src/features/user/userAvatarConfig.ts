@@ -2,7 +2,11 @@ export const USER_AVATAR_MAX_UPLOAD_BYTES = 30 * 1024 * 1024
 export const USER_AVATAR_MAX_INPUT_PIXELS = 80_000_000
 export const USER_AVATAR_SHORT_SIDE = 512
 
-/** The storage signer grants six hours; refresh an hour earlier. */
+/**
+ * Срок безопасного использования ссылки для клиента: обновить её через пять часов.
+ * Подпись R2 действует шесть часов; час запаса оставлен на задержки и расхождение часов.
+ * Функция не меняет срок подписи и сама не обновляет ссылку.
+ */
 export function getAvatarUrlExpiresAt() {
 	return new Date(Date.now() + 5 * 60 * 60_000).toISOString()
 }

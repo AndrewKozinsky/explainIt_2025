@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
-import { UserProfileRepository } from 'repo/userProfile.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CleanupUserAvatars } from 'features/user/CleanupUserAvatars.service'
 import { GetAvatarPresetsHandler } from 'features/user/GetAvatarPresets.command'
@@ -21,7 +20,6 @@ import { UserController } from './user.controller'
 		PrismaService,
 		UserRepository,
 		UserQueryRepository,
-		UserProfileRepository,
 		CheckSessionCookieGuard,
 		GetUserByIdHandler,
 		GetAvatarPresetsHandler,

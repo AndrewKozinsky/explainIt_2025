@@ -7,6 +7,7 @@ http {
         listen 80;
         client_max_body_size 10m;
 
+        # Настройка загрузки файлов большого размера (фотографий для аватаров).
         location = /api/user/me/avatar {
             client_max_body_size 31m;
             proxy_pass http://explainserverlocalcheckserver:3001;

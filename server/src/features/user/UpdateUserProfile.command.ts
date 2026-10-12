@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
-import { UserProfileRepository, type UserProfileUpdate } from 'repo/userProfile.repository'
+import { UserRepository, type UserProfileUpdate } from 'repo/user.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -20,7 +20,7 @@ export class UpdateUserProfileCommand implements ICommand {
 @CommandHandler(UpdateUserProfileCommand)
 export class UpdateUserProfileHandler implements ICommandHandler<UpdateUserProfileCommand> {
 	constructor(
-		private readonly repository: UserProfileRepository,
+		private readonly repository: UserRepository,
 		private readonly queryRepository: UserQueryRepository,
 		private readonly cleanup: CleanupUserAvatars,
 	) {}

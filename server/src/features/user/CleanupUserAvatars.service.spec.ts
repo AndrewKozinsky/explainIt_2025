@@ -7,7 +7,7 @@ jest.mock('@nestjs/common', () => ({
 jest.mock('@nestjs/schedule', () => ({ Interval: () => () => undefined }))
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 
-import { UserProfileRepository } from 'repo/userProfile.repository'
+import { UserRepository } from 'repo/user.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { CleanupUserAvatars } from './CleanupUserAvatars.service'
@@ -21,7 +21,7 @@ function harness() {
 	const config = { get: () => ({ region: 'ru', mode: 'localtest' }) }
 
 	const cleanup = new CleanupUserAvatars(
-		repository as unknown as UserProfileRepository,
+		repository as unknown as UserRepository,
 		storage as unknown as CloudflareS3Service,
 		config as unknown as MainConfigService,
 	)
@@ -84,6 +84,7 @@ describe('user avatar cleanup', () => {
 
 	it('resets the cursor on listing failure and stops after shutdown', async () => {
 		const h = harness()
+
 		h.storage.listFilesByPrefix.mockRejectedValueOnce(new Error('R2 unavailable'))
 		await h.cleanup.cleanupOrphanedPhotos()
 		h.storage.listFilesByPrefix.mockResolvedValueOnce({ Contents: [] })
@@ -92,6 +93,7 @@ describe('user avatar cleanup', () => {
 		h.cleanup.onModuleDestroy()
 		await h.cleanup.cleanupOrphanedPhotos()
 		await h.cleanup.cleanupReplacedPhoto(key)
+
 		expect(h.storage.listFilesByPrefix).toHaveBeenCalledTimes(2)
 		expect(h.storage.deleteFile).not.toHaveBeenCalled()
 	})

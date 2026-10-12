@@ -1,6 +1,6 @@
 import { Injectable, Logger, OnModuleDestroy } from '@nestjs/common'
 import { Interval } from '@nestjs/schedule'
-import { UserProfileRepository } from 'repo/userProfile.repository'
+import { UserRepository } from 'repo/user.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { getUserAvatarUploadPrefix, isUserAvatarUploadKey } from './userAvatarConfig'
@@ -16,7 +16,7 @@ export class CleanupUserAvatars implements OnModuleDestroy {
 	private stopped = false
 
 	constructor(
-		private readonly repository: UserProfileRepository,
+		private readonly repository: UserRepository,
 		private readonly storage: CloudflareS3Service,
 		config: MainConfigService,
 	) {

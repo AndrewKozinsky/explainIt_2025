@@ -1,7 +1,7 @@
 import { randomUUID } from 'node:crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
-import { UserProfileRepository } from 'repo/userProfile.repository'
+import { UserRepository } from 'repo/user.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -29,7 +29,7 @@ export class UploadUserAvatarCommand implements ICommand {
 export class UploadUserAvatarHandler implements ICommandHandler<UploadUserAvatarCommand> {
 	private readonly prefix: string
 	constructor(
-		private readonly repository: UserProfileRepository,
+		private readonly repository: UserRepository,
 		private readonly queryRepository: UserQueryRepository,
 		private readonly storage: CloudflareS3Service,
 		private readonly images: ImageProcessingService,

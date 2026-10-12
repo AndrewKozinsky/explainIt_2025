@@ -5,7 +5,7 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 
 import sharp from 'sharp'
 import { UserQueryRepository } from 'repo/user.queryRepository'
-import { UserProfileRepository } from 'repo/userProfile.repository'
+import { UserRepository } from 'repo/user.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { ImageProcessingService } from 'infrastructure/imageProcessing/imageProcessing.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -39,12 +39,12 @@ function harness() {
 		cleanup,
 		images,
 		update: new UpdateUserProfileHandler(
-			repository as unknown as UserProfileRepository,
+			repository as unknown as UserRepository,
 			queryRepository as unknown as UserQueryRepository,
 			cleanup as unknown as CleanupUserAvatars,
 		),
 		upload: new UploadUserAvatarHandler(
-			repository as unknown as UserProfileRepository,
+			repository as unknown as UserRepository,
 			queryRepository as unknown as UserQueryRepository,
 			storage as unknown as CloudflareS3Service,
 			images,
