@@ -6,9 +6,12 @@
  * OpenAPI spec version: 1.0
  */
 import type { SubtitleSentenceInitOutModel } from './subtitleSentenceInitOutModel';
+import type { VideoOutModelContentType } from './videoOutModelContentType';
 import type { VideoOutModelFileUrl } from './videoOutModelFileUrl';
+import type { VideoOutModelLanguageCode } from './videoOutModelLanguageCode';
 import type { VideoOutModelSubtitlesErrorCode } from './videoOutModelSubtitlesErrorCode';
 import type { VideoOutModelSubtitlesStatus } from './videoOutModelSubtitlesStatus';
+import type { VideoOutModelType } from './videoOutModelType';
 import type { VideoSentenceOutModel } from './videoSentenceOutModel';
 import type { VideoSubtitleOutModel } from './videoSubtitleOutModel';
 
@@ -19,7 +22,7 @@ export interface VideoOutModel {
      */
   id: number;
   /** Media type: public or private */
-  type: string;
+  type: VideoOutModelType;
   /**
      * User ID
      * @minimum 1
@@ -32,7 +35,7 @@ export interface VideoOutModel {
      */
   name?: string | null;
   /** Language code of the video */
-  languageCode: string;
+  languageCode: VideoOutModelLanguageCode;
   /**
      * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
      * @nullable
@@ -68,7 +71,7 @@ export interface VideoOutModel {
      */
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
-  contentType: string;
+  contentType: VideoOutModelContentType;
   /**
      * File name of the video file
      * @maxLength 200

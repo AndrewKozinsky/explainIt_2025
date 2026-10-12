@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { CreateVideoInputLanguageCode } from './createVideoInputLanguageCode';
 
 export interface CreateVideoInput {
   /**
@@ -26,5 +27,5 @@ export interface CreateVideoInput {
   /** Duration of the video in seconds (from YouTube metadata or ffprobe) */
   durationSec: number;
   /** Language code of the video */
-  languageCode: string;
+  languageCode: CreateVideoInputLanguageCode;
 }

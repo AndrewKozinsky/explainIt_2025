@@ -6,6 +6,8 @@
  * OpenAPI spec version: 1.0
  */
 import type { BookChapterLiteOutModel } from './bookChapterLiteOutModel';
+import type { BookOutModelLanguageCode } from './bookOutModelLanguageCode';
+import type { BookOutModelType } from './bookOutModelType';
 import type { BookOutModelUserId } from './bookOutModelUserId';
 
 export interface BookOutModel {
@@ -15,7 +17,7 @@ export interface BookOutModel {
      */
   id: number;
   /** Media type: public or private */
-  type: string;
+  type: BookOutModelType;
   /**
      * Author of the book
      * @maxLength 255
@@ -29,7 +31,7 @@ export interface BookOutModel {
      */
   name?: string | null;
   /** Language code of the book */
-  languageCode: string;
+  languageCode: BookOutModelLanguageCode;
   /**
      * Text about the book
      * @maxLength 2000

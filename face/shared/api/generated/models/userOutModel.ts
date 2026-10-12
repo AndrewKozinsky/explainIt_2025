@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { UserOutModelGender } from './userOutModelGender';
 
 export interface UserOutModel {
   /**
@@ -18,4 +19,15 @@ export interface UserOutModel {
   isUserConfirmed: boolean;
   /** User balance in kopecks */
   balance: number;
+  /** User gender; selecting an avatar preset also sets its gender */
+  gender: UserOutModelGender;
+  /**
+     * Selected avatar preset ID; null when a custom photo is selected
+     * @nullable
+     */
+  avatarPresetId?: string | null;
+  /** Temporary URL of the current user avatar */
+  avatarUrl: string;
+  /** Refresh the avatar URL before this time */
+  avatarUrlExpiresAt: string;
 }

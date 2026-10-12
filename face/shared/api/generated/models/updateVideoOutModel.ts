@@ -5,6 +5,8 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { UpdateVideoOutModelContentType } from './updateVideoOutModelContentType';
+import type { UpdateVideoOutModelLanguageCode } from './updateVideoOutModelLanguageCode';
 import type { UpdateVideoOutModelUploadCoverUrl } from './updateVideoOutModelUploadCoverUrl';
 import type { UpdateVideoOutModelUploadUrl } from './updateVideoOutModelUploadUrl';
 
@@ -21,7 +23,7 @@ export interface UpdateVideoOutModel {
      */
   name?: string | null;
   /** Language code of the video */
-  languageCode: string;
+  languageCode: UpdateVideoOutModelLanguageCode;
   /**
      * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
      * @nullable
@@ -44,7 +46,7 @@ export interface UpdateVideoOutModel {
      */
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
-  contentType: string;
+  contentType: UpdateVideoOutModelContentType;
   /**
      * User ID
      * @minimum 1

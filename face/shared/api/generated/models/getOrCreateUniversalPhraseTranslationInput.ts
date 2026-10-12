@@ -5,6 +5,8 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { GetOrCreateUniversalPhraseTranslationInputSourceLanguageCode } from './getOrCreateUniversalPhraseTranslationInputSourceLanguageCode';
+import type { GetOrCreateUniversalPhraseTranslationInputTargetLanguageCode } from './getOrCreateUniversalPhraseTranslationInputTargetLanguageCode';
 
 export interface GetOrCreateUniversalPhraseTranslationInput {
   /**
@@ -23,8 +25,8 @@ export interface GetOrCreateUniversalPhraseTranslationInput {
      * Language code of the book or video
      * @nullable
      */
-  sourceLanguageCode?: string | null;
-  targetLanguageCode: string;
+  sourceLanguageCode?: GetOrCreateUniversalPhraseTranslationInputSourceLanguageCode;
+  targetLanguageCode: GetOrCreateUniversalPhraseTranslationInputTargetLanguageCode;
   /**
      * LLM model (enum). Если не указана — DeepSeek по умолчанию.
      * @nullable

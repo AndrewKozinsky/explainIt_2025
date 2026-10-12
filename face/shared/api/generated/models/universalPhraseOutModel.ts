@@ -7,6 +7,7 @@
  */
 import type { TranscriptionOutModel } from './transcriptionOutModel';
 import type { UniversalAudioPronunciationOutModel } from './universalAudioPronunciationOutModel';
+import type { UniversalPhraseOutModelSourceLanguageCode } from './universalPhraseOutModelSourceLanguageCode';
 
 export interface UniversalPhraseOutModel {
   /**
@@ -20,7 +21,7 @@ export interface UniversalPhraseOutModel {
      */
   text: string;
   /** Language code of the book or video */
-  sourceLanguageCode: string;
+  sourceLanguageCode: UniversalPhraseOutModelSourceLanguageCode;
   /** Transcription data */
   transcription: TranscriptionOutModel | null;
   /** Audio pronunciation data */

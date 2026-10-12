@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { CreateBookInputLanguageCode } from './createBookInputLanguageCode';
 
 export interface CreateBookInput {
   /**
@@ -26,5 +27,5 @@ export interface CreateBookInput {
      */
   about?: string | null;
   /** Language code of the book */
-  languageCode: string;
+  languageCode: CreateBookInputLanguageCode;
 }

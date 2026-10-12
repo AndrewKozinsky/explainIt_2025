@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { UniversalPhraseControllerGetUniversalPhraseSourceLanguageCode } from './universalPhraseControllerGetUniversalPhraseSourceLanguageCode';
 
 export type UniversalPhraseControllerGetUniversalPhraseParams = {
 /**
@@ -15,5 +16,5 @@ text: string;
 /**
  * Language code of the book or video
  */
-sourceLanguageCode: string;
+sourceLanguageCode: UniversalPhraseControllerGetUniversalPhraseSourceLanguageCode;
 };

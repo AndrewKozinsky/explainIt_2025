@@ -5,8 +5,9 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { GetSentenceTranslationInputTargetLanguageCode } from './getSentenceTranslationInputTargetLanguageCode';
 
 export interface GetSentenceTranslationInput {
   sentenceId: number;
-  targetLanguageCode: string;
+  targetLanguageCode: GetSentenceTranslationInputTargetLanguageCode;
 }

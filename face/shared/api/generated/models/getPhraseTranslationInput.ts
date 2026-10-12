@@ -5,10 +5,11 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { GetPhraseTranslationInputTargetLanguageCode } from './getPhraseTranslationInputTargetLanguageCode';
 
 export interface GetPhraseTranslationInput {
   sentenceId: number;
-  targetLanguageCode: string;
+  targetLanguageCode: GetPhraseTranslationInputTargetLanguageCode;
   selectedWordStartOffset: number;
   selectedWordEndOffset: number;
 }

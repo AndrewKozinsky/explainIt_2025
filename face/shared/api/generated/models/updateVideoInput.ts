@@ -5,6 +5,9 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { UpdateVideoInputLanguageCode } from './updateVideoInputLanguageCode';
+import type { UpdateVideoInputSubtitlesSource } from './updateVideoInputSubtitlesSource';
+import type { UpdateVideoInputSubtitlesStatus } from './updateVideoInputSubtitlesStatus';
 
 export interface UpdateVideoInput {
   /**
@@ -49,7 +52,7 @@ export interface UpdateVideoInput {
      * Language code of the video
      * @nullable
      */
-  languageCode?: string | null;
+  languageCode?: UpdateVideoInputLanguageCode;
   /**
      * File name of the video cover
      * @maxLength 255
@@ -71,12 +74,12 @@ export interface UpdateVideoInput {
      * Who created the subtitles: user-uploaded, from YouTube, or LLM-generated
      * @nullable
      */
-  subtitlesSource?: string | null;
+  subtitlesSource?: UpdateVideoInputSubtitlesSource;
   /**
      * Status of subtitles processing
      * @nullable
      */
-  subtitlesStatus?: string | null;
+  subtitlesStatus?: UpdateVideoInputSubtitlesStatus;
   /**
      * Machine-readable error code if status is failed
      * @maxLength 200

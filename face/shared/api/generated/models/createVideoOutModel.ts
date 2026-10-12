@@ -5,6 +5,11 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { CreateVideoOutModelContentType } from './createVideoOutModelContentType';
+import type { CreateVideoOutModelLanguageCode } from './createVideoOutModelLanguageCode';
+import type { CreateVideoOutModelSubtitlesSource } from './createVideoOutModelSubtitlesSource';
+import type { CreateVideoOutModelSubtitlesStatus } from './createVideoOutModelSubtitlesStatus';
+import type { CreateVideoOutModelType } from './createVideoOutModelType';
 
 export interface CreateVideoOutModel {
   /**
@@ -13,7 +18,7 @@ export interface CreateVideoOutModel {
      */
   id: number;
   /** Media type: public or private */
-  type: string;
+  type: CreateVideoOutModelType;
   /**
      * Name of the video
      * @maxLength 255
@@ -21,7 +26,7 @@ export interface CreateVideoOutModel {
      */
   name?: string | null;
   /** Language code of the video */
-  languageCode: string;
+  languageCode: CreateVideoOutModelLanguageCode;
   /**
      * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
      * @nullable
@@ -38,16 +43,16 @@ export interface CreateVideoOutModel {
      */
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
-  contentType: string;
+  contentType: CreateVideoOutModelContentType;
   /**
      * User ID
      * @minimum 1
      */
   userId: number;
   /** Who created the subtitles: user-uploaded, from YouTube, or LLM-generated */
-  subtitlesSource: string;
+  subtitlesSource: CreateVideoOutModelSubtitlesSource;
   /** Status of subtitles processing */
-  subtitlesStatus: string;
+  subtitlesStatus: CreateVideoOutModelSubtitlesStatus;
   /**
      * Machine-readable error code if status is failed
      * @maxLength 200

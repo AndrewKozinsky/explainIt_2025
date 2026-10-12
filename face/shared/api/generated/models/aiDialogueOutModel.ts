@@ -5,6 +5,8 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { AiDialogueOutModelSourceLanguageCode } from './aiDialogueOutModelSourceLanguageCode';
+import type { AiDialogueOutModelTargetLanguageCode } from './aiDialogueOutModelTargetLanguageCode';
 import type { AiDialogueScenarioOutModel } from './aiDialogueScenarioOutModel';
 
 export interface AiDialogueOutModel {
@@ -16,9 +18,9 @@ export interface AiDialogueOutModel {
   /** Scenario this dialogue follows */
   scenario: AiDialogueScenarioOutModel;
   /** Language of the dialogue (the language the learner practices) */
-  sourceLanguageCode: string;
+  sourceLanguageCode: AiDialogueOutModelSourceLanguageCode;
   /** Language into which NPC lines are translated (the learner native language) */
-  targetLanguageCode: string;
+  targetLanguageCode: AiDialogueOutModelTargetLanguageCode;
   createdAt: string;
   updatedAt: string;
 }

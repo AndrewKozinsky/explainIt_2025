@@ -6,6 +6,8 @@
  * OpenAPI spec version: 1.0
  */
 import type { TranscriptionOutModel } from './transcriptionOutModel';
+import type { UniversalPhraseTranslationOutModelStatus } from './universalPhraseTranslationOutModelStatus';
+import type { UniversalPhraseTranslationOutModelTargetLanguageCode } from './universalPhraseTranslationOutModelTargetLanguageCode';
 import type { UniversalPhraseTranslationOutModelTranslation } from './universalPhraseTranslationOutModelTranslation';
 
 export interface UniversalPhraseTranslationOutModel {
@@ -19,14 +21,14 @@ export interface UniversalPhraseTranslationOutModel {
      * @minimum 1
      */
   universalPhraseId: number;
-  targetLanguageCode: string;
+  targetLanguageCode: UniversalPhraseTranslationOutModelTargetLanguageCode;
   /**
      * Translation result from LLM — array of typed blocks
      * @nullable
      */
   translation: UniversalPhraseTranslationOutModelTranslation;
   /** Status of translation generation */
-  status: string;
+  status: UniversalPhraseTranslationOutModelStatus;
   /**
      * Error code if status is error
      * @nullable

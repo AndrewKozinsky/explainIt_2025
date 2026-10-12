@@ -5,9 +5,12 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { VideoLiteOutModelContentType } from './videoLiteOutModelContentType';
 import type { VideoLiteOutModelFileUrl } from './videoLiteOutModelFileUrl';
+import type { VideoLiteOutModelLanguageCode } from './videoLiteOutModelLanguageCode';
 import type { VideoLiteOutModelSubtitlesErrorCode } from './videoLiteOutModelSubtitlesErrorCode';
 import type { VideoLiteOutModelSubtitlesStatus } from './videoLiteOutModelSubtitlesStatus';
+import type { VideoLiteOutModelType } from './videoLiteOutModelType';
 
 export interface VideoLiteOutModel {
   /**
@@ -16,7 +19,7 @@ export interface VideoLiteOutModel {
      */
   id: number;
   /** Media type: public or private */
-  type: string;
+  type: VideoLiteOutModelType;
   /**
      * User ID
      * @minimum 1
@@ -29,7 +32,7 @@ export interface VideoLiteOutModel {
      */
   name?: string | null;
   /** Language code of the video */
-  languageCode: string;
+  languageCode: VideoLiteOutModelLanguageCode;
   /**
      * CEFR-based language difficulty: 1=A1, 2=A2, 3=B1, 4=B2, 5=C1, 6=C2
      * @nullable
@@ -65,7 +68,7 @@ export interface VideoLiteOutModel {
      */
   processedContent?: string | null;
   /** Type of content in the video: plain text or subtitles (SRT) */
-  contentType: string;
+  contentType: VideoLiteOutModelContentType;
   /**
      * File name of the video file
      * @maxLength 200

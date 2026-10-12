@@ -5,10 +5,11 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { CreateBookChapterInputBookType } from './createBookChapterInputBookType';
 
 export interface CreateBookChapterInput {
   /** Media type: public or private */
-  bookType: string;
+  bookType: CreateBookChapterInputBookType;
   /**
      * Book ID
      * @minimum 1

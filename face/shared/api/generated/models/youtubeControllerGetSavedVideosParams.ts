@@ -5,6 +5,9 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { YoutubeControllerGetSavedVideosLanguageCode } from './youtubeControllerGetSavedVideosLanguageCode';
+import type { YoutubeControllerGetSavedVideosSortBy } from './youtubeControllerGetSavedVideosSortBy';
+import type { YoutubeControllerGetSavedVideosSortDirection } from './youtubeControllerGetSavedVideosSortDirection';
 
 export type YoutubeControllerGetSavedVideosParams = {
 /**
@@ -42,15 +45,13 @@ topic?: string | null;
 /**
  * Language code of the video
  */
-languageCode?: string;
+languageCode?: YoutubeControllerGetSavedVideosLanguageCode;
 /**
  * Field to sort saved YouTube videos by. If omitted, results are not sorted
- * @nullable
  */
-sortBy?: string | null;
+sortBy?: YoutubeControllerGetSavedVideosSortBy;
 /**
  * Sort direction. Defaults to "desc" when sortBy is provided
- * @nullable
  */
-sortDirection?: string | null;
+sortDirection?: YoutubeControllerGetSavedVideosSortDirection;
 };

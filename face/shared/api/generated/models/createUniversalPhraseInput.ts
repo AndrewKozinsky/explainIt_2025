@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { CreateUniversalPhraseInputSourceLanguageCode } from './createUniversalPhraseInputSourceLanguageCode';
 
 export interface CreateUniversalPhraseInput {
   /**
@@ -13,5 +14,5 @@ export interface CreateUniversalPhraseInput {
      */
   text: string;
   /** Language code of the book or video */
-  sourceLanguageCode: string;
+  sourceLanguageCode: CreateUniversalPhraseInputSourceLanguageCode;
 }

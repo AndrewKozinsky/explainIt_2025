@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { UpdateBookInputLanguageCode } from './updateBookInputLanguageCode';
 
 export interface UpdateBookInput {
   /**
@@ -23,7 +24,7 @@ export interface UpdateBookInput {
      * Language code of the book
      * @nullable
      */
-  languageCode?: string | null;
+  languageCode?: UpdateBookInputLanguageCode;
   /**
      * Text about the book
      * @maxLength 2000
