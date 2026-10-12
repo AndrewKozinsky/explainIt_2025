@@ -30,7 +30,9 @@ face/
 │       ├── mutator.ts         ← кастомный fetch с обработкой ошибок
 │       └── generated/         ← сгенерировано Orval (в .gitignore)
 │           ├── auth/
-│           │   └── auth.ts    ← useAuthControllerLogin, useAuthControllerGetMe, ...
+│           │   └── auth.ts    ← useAuthControllerLogin, ...
+│           ├── user/
+│           │   └── user.ts    ← useUserControllerGetMe, getUserControllerGetMeQueryKey, ...
 │           └── models/
 │               ├── index.ts
 │               ├── userOutModel.ts
@@ -102,7 +104,7 @@ Mutator делает три вещи:
 
 ```typescript
 import { useAuthControllerLogin } from '@/shared/api/generated/auth/auth'
-import { useAuthControllerGetMe } from '@/shared/api/generated/auth/auth'
+import { useUserControllerGetMe } from '@/shared/api/generated/user/user'
 import type { UserOutModel } from '@/shared/api/generated/models'
 
 // Mutation (POST, PUT, DELETE)
@@ -116,7 +118,7 @@ function LoginForm() {
 
 // Query (GET)
 function UserProfile() {
-    const { data, isPending, isError, error } = useAuthControllerGetMe()
+    const { data, isPending, isError, error } = useUserControllerGetMe()
 
     if (isPending) return <Spinner />
     if (isError) return <Error message={error.message} />
@@ -145,8 +147,8 @@ type AuthControllerLoginResponse = {
 import { useQueryClient } from '@tanstack/react-query'
 import {
     useAuthControllerLogin,
-    getAuthControllerGetMeQueryKey,
 } from '@/shared/api/generated/auth/auth'
+import { getUserControllerGetMeQueryKey } from '@/shared/api/generated/user/user'
 
 function LoginForm() {
     const queryClient = useQueryClient()
@@ -155,7 +157,7 @@ function LoginForm() {
         mutation: {
             onSuccess: () => {
                 queryClient.invalidateQueries({
-                    queryKey: getAuthControllerGetMeQueryKey(),
+                    queryKey: getUserControllerGetMeQueryKey(),
                 })
             },
         },

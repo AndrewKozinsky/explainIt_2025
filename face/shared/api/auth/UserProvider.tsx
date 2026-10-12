@@ -1,11 +1,11 @@
 'use client'
 
-import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from 'react'
+import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import type { UserModel } from '@/entities/auth/repository/AuthRepository'
+import { getUserControllerGetMeQueryKey } from '@/shared/api/generated/user/user'
 
-/** Must match getAuthControllerGetMeQueryKey() from generated/auth/auth.ts */
-const getMeQueryKey = ['/api/auth/me'] as const
+const getMeQueryKey = getUserControllerGetMeQueryKey()
 
 const UserContext = createContext<UserModel | null>(null)
 const SetUserContext = createContext<(user: UserModel | null) => void>(function () {})

@@ -25,7 +25,7 @@ export async function getCurrentUser(): Promise<UserModel | null> {
 	}
 
 	try {
-		const res = await fetch(`${API_INTERNAL_URL}/api/auth/me`, {
+		const res = await fetch(`${API_INTERNAL_URL}/api/user/me`, {
 			headers: { Cookie: `${sessionCookie.name}=${sessionCookie.value}` },
 			cache: 'no-store',
 		})

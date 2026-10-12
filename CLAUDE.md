@@ -18,7 +18,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | File                                                  | Triggers (keywords / topics)                                                                                                   |
 |-------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
 | `aiDocsRus/topics/booksAndMoviesTranslation.md`       | перевод предложения, перевод фразы в книге/фильме, sentence translation, phrase translation                                    |
-| `aiDocsRus/topics/clientUserData.md`                  | пользователь, user, getCurrentUser, UserProvider, useAuthControllerGetMe, авторизация, текущий пользователь, user data         |
+| `aiDocsRus/topics/clientUserData.md`                  | пользователь, user, getCurrentUser, UserProvider, useUserControllerGetMe, авторизация, текущий пользователь, user data         |
 | `aiDocsRus/topics/userProfile.md`                     | профиль пользователя, пол, gender, готовые аватары, avatar-presets, загрузка фотографии, ImageProcessingService               |
 | `aiDocsRus/topics/internationalization.md`            | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale                                                |
 | `aiDocsRus/topics/multiRegionDeployment.md`           | регионы, деплой, GitHub Actions, explainit.ru, immersia.site, серверы, CI/CD                                                   |

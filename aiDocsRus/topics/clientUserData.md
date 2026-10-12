@@ -1,13 +1,12 @@
 # Получение данных пользователя на клиенте
 
-## Серверный этап профиля (12 октября 2026)
+## Перенос чтения пользователя (12 октября 2026)
 
-На сервере `GET /api/auth/me` удалён; текущий пользователь теперь читается через `GET /api/user/me`.
-Добавлены пол, готовые аватары и загрузка фотографии — см. [`userProfile.md`](userProfile.md).
-Клиент пока намеренно не изменён и всё ещё использует старый маршрут, ключ кэша и модель пользователя.
-Примеры ниже описывают клиент до следующего этапа: нужно обновить `getCurrentUser`, `UserProvider`,
-клиентские репозитории/мапперы и Orval, затем исправить примеры на новые функции `userControllerGetMe`.
-До этого перехода загрузка текущего пользователя клиентом не работает с обновлённым сервером.
+Текущий пользователь читается через `GET /api/user/me`; старый серверный маршрут удалён.
+`getCurrentUser` использует новый путь, а `UserProvider` получает ключ кэша через
+`getUserControllerGetMeQueryKey()` из сгенерированного `user/user.ts`.
+Вход, OAuth и выход обновляют этот же кэш через существующий `useSetUser()`.
+Форма профиля и расширение клиентской модели полом/аватаром остаются следующим этапом — см. [`userProfile.md`](userProfile.md).
 
 ## Архитектура
 
@@ -16,37 +15,37 @@
 ```
 Браузер → app/[locale]/layout.tsx (Server Component)
               │
-              ├─ cookies() → connect.sid
-              ├─ fetch('http://explainserver{MODE}:3001/api/auth/me')
+              ├─ cookies() → session
+              ├─ fetch('http://explainserver{MODE}:3001/api/user/me')
               └─ user: UserOutModel | null
               │
               ▼
          UserProvider (Client)
               │
               ├─ UserContext.Provider value={user}  → useUser() — прямой доступ
-              └─ queryClient.setQueryData(...)       → useAuthControllerGetMe() — через кэш
+              └─ queryClient.setQueryData(...)       → useUserControllerGetMe() — через кэш
 ```
 
 **useUser()** — основной способ. Возвращает `UserOutModel | null` напрямую, без деструктуризации `data`. Не зависит от React Query.
 
-**useAuthControllerGetMe()** — если нужны возможности React Query (`isPending`, `isError`, инвалидация).
+**useUserControllerGetMe()** — если нужны возможности React Query (`isPending`, `isError`, инвалидация).
 
 ## Файлы
 
 | Файл | Роль |
 |---|---|
-| `shared/api/auth/getCurrentUser.ts` | Серверная функция: читает `connect.sid`, вызывает `GET /api/auth/me` внутри Docker-сети, возвращает `UserOutModel \| null` |
+| `shared/api/auth/getCurrentUser.ts` | Серверная функция: читает `session`, вызывает `GET /api/user/me` внутри Docker-сети, возвращает `UserOutModel \| null` |
 | `shared/api/auth/Providers.tsx` | `QueryClientProvider` со `staleTime: 5min` |
 | `shared/api/auth/UserProvider.tsx` | Принимает `user` пропсом. Предоставляет через React Context (`useUser()`) и одновременно кладёт в кэш React Query (`queryClient.setQueryData`) |
 | `app/[locale]/layout.tsx` | Вызывает `getCurrentUser()`, оборачивает дерево в `Providers > UserProvider` |
-| `shared/api/generated/auth/auth.ts` | Содержит `useAuthControllerGetMe()` и `getAuthControllerGetMeQueryKey()` (генерируется Orval) |
+| `shared/api/generated/user/user.ts` | Содержит `useUserControllerGetMe()` и `getUserControllerGetMeQueryKey()` (генерируется Orval) |
 
 ## Использование в компонентах
 
 Данные уже загружены на сервере и помещены в кэш React Query и React Context на этапе рендера лейаута. Поэтому:
 
 - **Server Components** — получают пользователя через `await getCurrentUser()`
-- **Client Components** — вызывают `useUser()` (контекст) или `useAuthControllerGetMe()` (React Query). Оба возвращают данные мгновенно, без задержки.
+- **Client Components** — вызывают `useUser()` (контекст) или `useUserControllerGetMe()` (React Query). Оба возвращают данные мгновенно, без задержки.
 
 ### Server Component (layout, page)
 
@@ -83,13 +82,13 @@ function AuthButtons() {
 }
 ```
 
-### Client Component — через React Query (useAuthControllerGetMe)
+### Client Component — через React Query (useUserControllerGetMe)
 
 ```typescript
-import { useAuthControllerGetMe } from '@/shared/api/generated/auth/auth'
+import { useUserControllerGetMe } from '@/shared/api/generated/user/user'
 
 function AuthButtons() {
-    const { data: user } = useAuthControllerGetMe()
+    const { data: user } = useUserControllerGetMe()
     // user уже в кэше → возвращается синхронно, без задержки
     // isPending === false с первого рендера
 
@@ -106,14 +105,15 @@ function AuthButtons() {
 |---|---|
 | Server Component (layout/page) | `await getCurrentUser()` — пользователь как переменная |
 | Client Component, любое обращение к полям пользователя | `useUser()` — из контекста, точный тип, без деструктуризации |
-| Нужен `isPending` / `isError` / инвалидация | `useAuthControllerGetMe()` — из кэша React Query |
+| Нужен `isPending` / `isError` / инвалидация | `useUserControllerGetMe()` — из кэша React Query |
 | Проверка авторизации в `fn/` | `useUser()` — проще и короче |
 
 ### Перезагрузка после мутации (логин/логаут)
 
 ```typescript
 import { useQueryClient } from '@tanstack/react-query'
-import { useAuthControllerLogin, getAuthControllerGetMeQueryKey } from '@/shared/api/generated/auth/auth'
+import { useAuthControllerLogin } from '@/shared/api/generated/auth/auth'
+import { getUserControllerGetMeQueryKey } from '@/shared/api/generated/user/user'
 
 function LoginForm() {
     const queryClient = useQueryClient()
@@ -121,9 +121,9 @@ function LoginForm() {
     const { mutate: login } = useAuthControllerLogin({
         mutation: {
             onSuccess: () => {
-                // Сбросить кэш — useAuthControllerGetMe перезапросит свежие данные
+                // Сбросить кэш — useUserControllerGetMe перезапросит свежие данные
                 queryClient.invalidateQueries({
-                    queryKey: getAuthControllerGetMeQueryKey(),
+                    queryKey: getUserControllerGetMeQueryKey(),
                 })
             },
         },
@@ -138,7 +138,8 @@ import { useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLocale } from 'next-intl'
 import { useQueryClient } from '@tanstack/react-query'
-import { useAuthControllerLogout, getAuthControllerGetMeQueryKey } from '@/shared/api/generated/auth/auth'
+import { useAuthControllerLogout } from '@/shared/api/generated/auth/auth'
+import { getUserControllerGetMeQueryKey } from '@/shared/api/generated/user/user'
 import { pageUrls, localizePath } from '@/utils/pageUrls'
 
 export function useGetLogout() {
@@ -151,7 +152,7 @@ export function useGetLogout() {
         async function () {
             try {
                 await logout()
-                queryClient.invalidateQueries({ queryKey: getAuthControllerGetMeQueryKey() })
+                queryClient.invalidateQueries({ queryKey: getUserControllerGetMeQueryKey() })
                 router.push(localizePath(locale, pageUrls.main.path))
             } catch (error: unknown) {
                 console.error(error)
@@ -163,7 +164,7 @@ export function useGetLogout() {
 ```
 После логаута:
 1. Сервер уничтожает сессию и удаляет cookie
-2. Инвалидируется кэш `getMe` — все `useAuthControllerGetMe()` перезапрашивают и получают 401
+2. Инвалидируется кэш `getMe` — все `useUserControllerGetMe()` перезапрашивают и получают 401
 3. Редирект на главную страницу
 
 ## Как добавить серверную предзагрузку для других сущностей
