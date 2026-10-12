@@ -89,9 +89,12 @@ function referenceFromDataUri(image: string, purpose: string): ImageGenerationRe
 
 function referencePurpose(snapshot: ImageGenerationSnapshot, index: number): string {
 	if ('appearance' in snapshot) return 'Visual style only; do not copy the character'
-	if (index === 0) return 'Learner identity and clothing'
+
+	if (index === 0)
+		return 'Participant identity and clothing only; pose, head orientation and gaze come from the scene'
+
 	if (index <= snapshot.participantNpcIds.length)
-		return `NPC ${snapshot.participantNpcIds[index - 1]} identity and clothing`
+		return `NPC ${snapshot.participantNpcIds[index - 1]} identity and clothing only; pose and gaze come from the scene`
 
 	return 'Visual style only; do not copy composition or characters'
 }
@@ -134,9 +137,12 @@ function buildScenePrompt(input: z.infer<typeof sceneSchema>): string {
 	return [
 		input.stylePrompt,
 		`Illustrate this exact scene: ${input.visualDescription}`,
-		'Image 1 is the learner. Include the learner in the scene and preserve the identity and clothing of all participants.',
+		'Image 1 is the participant. Include the participant in the scene and preserve the identity and clothing of all participants.',
 		...participants,
-		'Keep each participant a separate recognizable person. Never transfer the learner’s face or facial features to an NPC, or blend the identities. Render all participants in the requested illustration style.',
+		'Use participant references only to preserve identity, facial features, hairstyle and clothing. Reconstruct each person in the pose required by this scene. Do not copy the reference photo’s body pose, head angle, gaze direction, camera viewpoint or background; a front-facing portrait or an over-the-shoulder photo is not a pose instruction.',
+		'For a conversation, orient the participant’s body and head toward the NPC addressing them, with the participant’s eyes looking at that NPC’s face. Turning the torso alone is insufficient: align head orientation and eye direction with the conversation partner. The speaking NPC should naturally face and look toward the participant. With multiple NPCs, use the current speaker indicated by the scene description. Respect a different pose or focus only when the described scene explicitly requires it.',
+		'Choose a side or three-quarter camera view that makes the interaction and mutual attention clear. Participants should look at each other rather than at the viewer. Do not force frontal faces for recognition: preserve identity in profile and three-quarter views as needed.',
+		'Keep each participant a separate recognizable person. Never transfer the participant’s face or facial features to an NPC, or blend the identities. Render all participants in the requested illustration style.',
 		input.styleSceneReferenceS3Key
 			? `Image ${styleIndex} supplies visual style only; do not copy its composition or characters.`
 			: '',

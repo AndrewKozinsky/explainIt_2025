@@ -43,7 +43,7 @@ describe('dialogue encounter context', () => {
 		{ type: 'userActions', actions: [{ type: 'speech', content: 'Goodbye!' }] },
 		{ type: 'userActions', actions: [{ type: 'action', content: 'I am leaving the border guard.' }] },
 		{ type: 'userAvoidsNPC' },
-	])('requires a same-response transition after explicit learner closure: %j', (event) => {
+	])('requires a same-response transition after explicit participant closure: %j', (event) => {
 		const messages = prompt([
 			{ type: 'sceneUpdate', content: 'At passport control', translation: 'На контроле' },
 			npc('officer_1', 'Here is your passport. Enjoy your stay.'),
@@ -51,8 +51,8 @@ describe('dialogue encounter context', () => {
 		])
 		expect(messages[0].content).toContain('begin the next encounter with a different NPC in the same response')
 		expect(messages[0].content).toContain('Never end the turn with only a farewell')
-		expect(messages[0].content).toContain('Do not use help to ask the learner to leave')
-		expect(messages[0].content).toContain('without inventing the learner\'s speech, actions, choices')
+		expect(messages[0].content).toContain('Do not use help to ask the participant to leave')
+		expect(messages[0].content).toContain("without inventing the participant's speech, actions, choices")
 		expect(messages[1].content).toContain('optional brief closing npcActions, then sceneUpdate')
 	})
 
@@ -63,7 +63,9 @@ describe('dialogue encounter context', () => {
 		])
 		expect(messages[1].content).toContain('Here is your passport. Next, please.')
 		expect(messages[1].content).toContain('or it already ended in the history')
-		expect(messages[0].content).toContain('A polite "Thank you" alone during an unfinished encounter is not closure')
+		expect(messages[0].content).toContain(
+			'A polite "Thank you" alone during an unfinished encounter is not closure',
+		)
 		expect(messages[0].content).toContain('Do not repeat "Next, please"')
 	})
 
@@ -81,7 +83,7 @@ describe('dialogue encounter context', () => {
 		expect(continuing[1].content).toContain('Most recent conversation partner npcId:\nofficer_1')
 	})
 
-	it('retains scene and partner context after compaction when recent events only contain the learner reply', () => {
+	it('retains scene and partner context after compaction when recent events only contain the participant reply', () => {
 		const summary: AiDialogueSummary = [
 			{
 				state: {
@@ -103,7 +105,7 @@ describe('dialogue encounter context', () => {
 		expect(messages[0].content).toContain('npcId: "officer_1" — passport officer, Blake')
 	})
 
-	it('keeps both NPC identities when the learner intends to return to the first NPC', () => {
+	it('keeps both NPC identities when the participant intends to return to the first NPC', () => {
 		const messages = prompt([
 			{ type: 'sceneUpdate', content: 'At passport control', translation: 'На контроле' },
 			npc('officer_1', 'Here is your passport. Goodbye.'),
@@ -117,14 +119,14 @@ describe('dialogue encounter context', () => {
 		expect(messages[1].content).toContain('Return to the passport officer.')
 	})
 
-	it('does not erase the previous partner or scene when the learner walks away', () => {
+	it('does not erase the previous partner or scene when the participant walks away', () => {
 		const messages = prompt([
 			{ type: 'sceneUpdate', content: 'At passport control', translation: 'На контроле' },
 			npc('officer_1', 'Your passport, please.'),
 			{ type: 'userAvoidsNPC' },
 		])
 		expect(messages[1].content).toContain('Most recent conversation partner npcId:\nofficer_1')
-		expect(messages[1].content).toContain('the learner walked away from the conversation')
+		expect(messages[1].content).toContain('the participant walked away from the conversation')
 		expect(messages[1].content).not.toContain('No encounter has started yet')
 	})
 })
