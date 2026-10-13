@@ -21,11 +21,17 @@ export interface UserOutModel {
   balance: number;
   /** User gender; selecting an avatar preset also sets its gender */
   gender: UserOutModelGender;
-  /** Selected avatar preset ID; null when a custom photo is selected */
+  /**
+     * Selected avatar preset ID; null when a custom photo is selected
+     * @nullable
+     */
   avatarPresetId?: string | null;
   /** Temporary URL of the current user avatar */
   avatarUrl: string;
-  /** Temporary URL of the saved custom photo, including when a preset is selected; uses avatarUrlExpiresAt */
+  /**
+     * Temporary URL of the saved custom photo, including when a preset is selected; uses avatarUrlExpiresAt
+     * @nullable
+     */
   uploadedAvatarUrl?: string | null;
   /** Refresh the avatar URL before this time */
   avatarUrlExpiresAt: string;

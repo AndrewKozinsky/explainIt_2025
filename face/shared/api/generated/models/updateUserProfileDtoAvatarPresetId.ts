@@ -8,6 +8,7 @@
 
 /**
  * ID of a prepared avatar; null selects the saved custom photo
+ * @nullable
  */
 export type UpdateUserProfileDtoAvatarPresetId = typeof UpdateUserProfileDtoAvatarPresetId[keyof typeof UpdateUserProfileDtoAvatarPresetId] | null;
 

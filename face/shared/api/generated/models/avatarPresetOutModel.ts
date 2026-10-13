@@ -9,7 +9,7 @@ import type { AvatarPresetOutModelGender } from './avatarPresetOutModelGender';
 import type { AvatarPresetOutModelId } from './avatarPresetOutModelId';
 
 export interface AvatarPresetOutModel {
-  /** ID of a prepared avatar available to all users */
+  /** ID of a prepared avatar; null selects the saved custom photo */
   id: AvatarPresetOutModelId;
   /** User gender; selecting an avatar preset also sets its gender */
   gender: AvatarPresetOutModelGender;

@@ -8,6 +8,13 @@
 
 export * from './aiDialogueActionItemInput';
 export * from './aiDialogueActionItemInputType';
+export * from './aiDialogueAudioAttemptOutModel';
+export * from './aiDialogueAudioAttemptOutModelStatus';
+export * from './aiDialogueAudioItemOutModel';
+export * from './aiDialogueAudioItemOutModelAttemptStatus';
+export * from './aiDialogueAudioItemOutModelMessageId';
+export * from './aiDialogueAudioItemOutModelStatus';
+export * from './aiDialogueAudioOutModel';
 export * from './aiDialogueCharacterVisualOutModel';
 export * from './aiDialogueCharacterVisualOutModelGenerationStatus';
 export * from './aiDialogueControllerStream200';

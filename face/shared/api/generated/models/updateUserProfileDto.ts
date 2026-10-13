@@ -9,8 +9,14 @@ import type { UpdateUserProfileDtoAvatarPresetId } from './updateUserProfileDtoA
 import type { UpdateUserProfileDtoGender } from './updateUserProfileDtoGender';
 
 export interface UpdateUserProfileDto {
-  /** User gender; selecting an avatar preset also sets its gender */
+  /**
+     * User gender; selecting an avatar preset also sets its gender
+     * @nullable
+     */
   gender?: UpdateUserProfileDtoGender;
-  /** ID of a prepared avatar; null selects the saved custom photo */
+  /**
+     * ID of a prepared avatar; null selects the saved custom photo
+     * @nullable
+     */
   avatarPresetId?: UpdateUserProfileDtoAvatarPresetId;
 }

@@ -7,7 +7,7 @@
  */
 
 /**
- * ID of a prepared avatar available to all users
+ * ID of a prepared avatar; null selects the saved custom photo
  */
 export type AvatarPresetOutModelId = typeof AvatarPresetOutModelId[keyof typeof AvatarPresetOutModelId];
 
