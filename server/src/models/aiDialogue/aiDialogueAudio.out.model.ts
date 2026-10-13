@@ -15,7 +15,7 @@ export class AiDialogueAudioItemOutModel {
 	turnId: string
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueAudioAttempt.dbFields.status))
 	attemptStatus: AiDialogueAudioAttemptStatus
-	@ApiProperty(getApiPropertyOptions($.message_id))
+	@ApiProperty({ ...getApiPropertyOptions($.message_id), type: Number })
 	messageId: number | null
 	@ApiProperty(getApiPropertyOptions($.event_index))
 	eventIndex: number

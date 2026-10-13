@@ -10,6 +10,7 @@ export const aiDialogueQueryKeys = {
 	all: ['ai-dialogue'] as const,
 	list: () => [...aiDialogueQueryKeys.all, 'list'] as const,
 	detail: (id: number) => [...aiDialogueQueryKeys.all, 'detail', id] as const,
+	audio: (id: number) => [...aiDialogueQueryKeys.detail(id), 'audio'] as const,
 	visuals: (id: number) => [...aiDialogueQueryKeys.detail(id), 'visuals'] as const,
 }
 
@@ -33,6 +34,13 @@ export class AiDialogueQueryFacade {
 		return queryOptions({
 			queryKey: aiDialogueQueryKeys.detail(id),
 			queryFn: () => unwrapApiResult(this.service.getDialogue(id)),
+		})
+	}
+
+	getAudio(id: number) {
+		return queryOptions({
+			queryKey: aiDialogueQueryKeys.audio(id),
+			queryFn: ({ signal }) => unwrapApiResult(this.service.getAudio(id, signal)),
 		})
 	}
 

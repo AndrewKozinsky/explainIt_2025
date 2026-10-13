@@ -1,0 +1,88 @@
+.dialogue-audio-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 32px;
+	width: 32px;
+	height: 32px;
+	padding: 0;
+	border: 1px solid rgba(75, 98, 116, 0.22);
+	border-radius: 50%;
+	background: rgba(75, 98, 116, 0.06);
+	color: #466a81;
+	cursor: pointer;
+
+	transition: background 150ms,
+	border-color 150ms;
+
+	svg {
+		fill: currentColor;
+	}
+
+	&:hover:not(:disabled) {
+		background: rgba(75, 98, 116, 0.15);
+	}
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+
+	&:disabled {
+		opacity: 0.45;
+		cursor: default;
+	}
+
+	&--playing {
+		background: rgba(75, 98, 116, 0.18);
+		border-color: currentColor;
+	}
+
+	&__spinner {
+		width: 14px;
+		height: 14px;
+		border: 2px solid currentColor;
+		border-right-color: transparent;
+		border-radius: 50%;
+		animation: dialogue-audio-spin 900ms linear infinite;
+	}
+}
+
+.dialogue-audio-unlock {
+	margin-bottom: 10px;
+	padding: 8px 12px;
+	border: 1px solid #466a81;
+	border-radius: 8px;
+	background: transparent;
+	color: #466a81;
+	font: inherit;
+	cursor: pointer;
+
+	&:focus-visible {
+		outline: 2px solid currentColor;
+		outline-offset: 3px;
+	}
+}
+
+@keyframes dialogue-audio-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dialogue-audio-button {
+		transition: none;
+	}
+	.dialogue-audio-button__spinner {
+		animation: none;
+	}
+}
+
+@media (max-width: 600px) {
+	.dialogue-audio-button {
+		width: 44px;
+		height: 44px;
+		flex-basis: 44px;
+	}
+}

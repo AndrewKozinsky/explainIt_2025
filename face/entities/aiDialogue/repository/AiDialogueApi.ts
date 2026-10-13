@@ -5,6 +5,7 @@ import {
 	aiDialogueControllerDeleteAiDialogue,
 	aiDialogueControllerGetAiDialogue,
 	aiDialogueControllerGetAiDialogueVisuals,
+	aiDialogueControllerGetAiDialogueAudio,
 	aiDialogueControllerGetAiDialogues,
 } from '@/shared/api/generated/ai-dialogue/ai-dialogue'
 import type {
@@ -28,6 +29,7 @@ import type {
 	AiDialogueEvent,
 	DialogueServerMessage,
 } from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 
 /**
  * Реализация AiDialogueRepository через REST API.
@@ -56,6 +58,19 @@ export class AiDialogueApi implements AiDialogueRepository {
 
 	async deleteDialogue(id: number): Promise<ApiResult<void>> {
 		return executeApiCall(() => aiDialogueControllerDeleteAiDialogue(id))
+	}
+
+	async getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>> {
+		return executeApiCall(
+			() => aiDialogueControllerGetAiDialogueAudio(id, { signal, cache: 'no-store' }),
+			(snapshot) => ({
+				...snapshot,
+				items: snapshot.items.map((item) => ({
+					...item,
+					messageId: typeof item.messageId === 'number' ? item.messageId : null,
+				})),
+			}),
+		)
 	}
 
 	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {

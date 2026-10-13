@@ -1,3 +1,5 @@
+import type { DialogueAudioEvent, DialogueAudioTarget } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { getCompletedAudioTargets } from '@/entities/aiDialogue/audio/getCompletedAudioTargets'
 import type { AiDialogueStreamEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { parseAiDialoguePreview } from '_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '../../aiDialogueStore'
@@ -8,12 +10,25 @@ import { useAiDialogueStore } from '../../aiDialogueStore'
  * Соединение не закрывается по завершении хода — оно живёт, пока открыта страница
  * (см. aiDocsRus/topics/aiDialogues.md). Закрывает его вызывающий код при unmount.
  */
-export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () => void): EventSource {
+export type DialogueAudioStreamHandlers = {
+	event: (event: DialogueAudioEvent) => void
+	targets: (attemptId: string, targets: DialogueAudioTarget[]) => void
+	refresh: () => void
+	disconnect: () => void
+}
+
+export function openAiDialogueStream(
+	dialogueId: number,
+	onVisualsChanged?: () => void,
+	audio?: DialogueAudioStreamHandlers,
+): EventSource {
 	const eventSource = new EventSource(buildStreamUrl(dialogueId))
 	let accumulated = ''
+	let attemptId: string | undefined
 
 	eventSource.onopen = function () {
 		onVisualsChanged?.()
+		audio?.refresh()
 	}
 
 	eventSource.onmessage = function (event) {
@@ -27,6 +42,14 @@ export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () =
 
 		const store = useAiDialogueStore.getState()
 
+		if (parsed.type.startsWith('audio')) {
+			const event = parsed as DialogueAudioEvent
+			if (event.dialogueId !== dialogueId) return
+			if (event.type === 'audioAttemptStarted') attemptId = event.attemptId
+			audio?.event(event)
+			return
+		}
+
 		if (parsed.type === 'visualsChanged') {
 			if (parsed.dialogueId === dialogueId) onVisualsChanged?.()
 			return
@@ -35,6 +58,7 @@ export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () =
 		if (parsed.type === 'message') {
 			// Финализированное сообщение заменяет превью текущего хода.
 			store.upsertMessage(parsed.message)
+			audio?.refresh()
 			store.setPreview([])
 
 			if (parsed.message.payload.type === 'npcActions' || parsed.message.payload.type === 'sceneUpdate') {
@@ -63,6 +87,7 @@ export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () =
 			}
 
 			accumulated += parsed.chunk
+			if (attemptId) audio?.targets(attemptId, getCompletedAudioTargets(accumulated))
 			const preview = parseAiDialoguePreview(accumulated)
 			if (preview !== null) {
 				store.setPreview(preview)
@@ -71,6 +96,8 @@ export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () =
 		}
 
 		if (parsed.type === 'turnReset') {
+			if (attemptId) audio?.disconnect()
+			attemptId = undefined
 			// Сервер начал повторную попытку генерации: выбрасываем превью неудачной
 			// попытки, но isGenerating остаётся true — новый стрим уже идёт.
 			accumulated = ''
@@ -84,6 +111,8 @@ export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () =
 		}
 
 		if (parsed.type === 'turnDone') {
+			if (attemptId) audio?.targets(attemptId, getCompletedAudioTargets(accumulated + '\n'))
+			audio?.refresh()
 			accumulated = ''
 			store.setPreview([])
 			store.setGenerating(false)
@@ -92,6 +121,8 @@ export function openAiDialogueStream(dialogueId: number, onVisualsChanged?: () =
 	}
 
 	eventSource.onerror = function () {
+		audio?.disconnect()
+		attemptId = undefined
 		// EventSource переподключится сам и сервер отдаст replay. Пока соединение
 		// оборвано — сбрасываем transient-состояние, чтобы не зависло «генерируется».
 		accumulated = ''

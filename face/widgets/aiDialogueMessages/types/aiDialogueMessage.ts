@@ -1,3 +1,4 @@
+import type { DialogueAudioEvent } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import type { AiDialogueWordMap } from './aiDialogueWordMap'
 
 /**
@@ -101,6 +102,7 @@ export type DialogueServerMessage = {
 //  - turnDone    — ход завершён (успех или ошибка), можно снова действовать;
 //  - turnError   — ход не удался (error — текст ошибки).
 export type AiDialogueStreamEvent =
+	| DialogueAudioEvent
 	| { type: 'visualsChanged'; dialogueId: number }
 	| { type: 'message'; message: DialogueServerMessage }
 	| { type: 'chunk'; chunk: string }

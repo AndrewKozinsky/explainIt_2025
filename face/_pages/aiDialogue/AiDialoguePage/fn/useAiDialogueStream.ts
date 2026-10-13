@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { useAiDialogueStore } from '../../aiDialogueStore'
-import { openAiDialogueStream } from './openAiDialogueStream'
+import { openAiDialogueStream, type DialogueAudioStreamHandlers } from './openAiDialogueStream'
 
 /**
  * Подключает страницу диалога к SSE-потоку и отдаёт нормализованное состояние.
@@ -9,7 +9,12 @@ import { openAiDialogueStream } from './openAiDialogueStream'
  * размонтировании. Сообщения возвращает отсортированными по id — в порядке,
  * в котором они появлялись в диалоге.
  */
-export function useAiDialogueStream(dialogueId: number, enabled: boolean = true, onVisualsChanged?: () => void) {
+export function useAiDialogueStream(
+	dialogueId: number,
+	enabled: boolean = true,
+	onVisualsChanged?: () => void,
+	audio?: DialogueAudioStreamHandlers,
+) {
 	const eventSourceRef = useRef<null | EventSource>(null)
 
 	useEffect(
@@ -17,14 +22,14 @@ export function useAiDialogueStream(dialogueId: number, enabled: boolean = true,
 			if (!enabled) return
 
 			useAiDialogueStore.getState().clearStore()
-			eventSourceRef.current = openAiDialogueStream(dialogueId, onVisualsChanged)
+			eventSourceRef.current = openAiDialogueStream(dialogueId, onVisualsChanged, audio)
 
 			return function () {
 				eventSourceRef.current?.close()
 				eventSourceRef.current = null
 			}
 		},
-		[dialogueId, enabled, onVisualsChanged],
+		[dialogueId, enabled, onVisualsChanged, audio],
 	)
 
 	const messages = useAiDialogueStore((state) => state.messages)

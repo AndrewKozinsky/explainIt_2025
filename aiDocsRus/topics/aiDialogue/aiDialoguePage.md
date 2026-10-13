@@ -236,3 +236,13 @@ AiDialogueContentBlock раскрывает существующий перев�
 - `face/_pages/aiDialogue/AiDialoguePage/AiDialoguePage.tsx` — страница.
 - `face/_pages/aiDialogue/AiDialogueLeftWrapper/AiDialogueLeftWrapper.tsx` — левая колонка (сообщения + ввод).
 - `face/_pages/aiDialogue/AiDialoguePage/fn/getHeaderAndSubHeader.ts` — заголовок через `pickLocalized`.
+
+
+## Озвучка на клиенте
+
+Страница подключает отдельный аудио REST-снимок и технические события SSE, общий проигрыватель и кнопку
+у каждого speech/описания сцены. Автоматическое воспроизведение возможно уже во время превью.
+Ручная остановка сохраняет время; выбор другого файла сбрасывает позицию предыдущего.
+Ручное управление снимает очередь текущего ответа; следующий ответ снова озвучивается автоматически.
+Глобальный переключатель не добавлен. При запрете autoplay показывается «Включить звук».
+Подробный контракт, ошибки, порядок и проверки: [`aiDialogueAudio.md`](aiDialogueAudio.md).

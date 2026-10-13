@@ -1,3 +1,4 @@
+import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
@@ -6,6 +7,7 @@ import DialogueAvatar from '../visuals/DialogueAvatar'
 import './AiDialogueMessages.scss'
 
 type NpcActionsMessageProps = {
+	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	wordMap?: AiDialogueWordMap
 	npcId?: string
 	npcName?: string
@@ -16,6 +18,7 @@ type NpcActionsMessageProps = {
 }
 
 function NpcActionsMessage({
+	audioAddress,
 	npcId,
 	npcName = '',
 	npcRole = '',
@@ -26,6 +29,7 @@ function NpcActionsMessage({
 }: NpcActionsMessageProps) {
 	const content = actions.map((action, index) => (
 		<AiDialogueContentBlock
+			audioAddress={action.type === 'speech' ? { ...audioAddress, actionIndex: index } : undefined}
 			wordMap={wordMap?.status === 'ready' ? wordMap.blocks[`action:${index}`] : undefined}
 			key={index}
 			content={action.content ?? ''}

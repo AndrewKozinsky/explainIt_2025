@@ -11,6 +11,8 @@ import type { AiDialogueWordMap } from './aiDialogueWordMap'
  * значения вместо недостающих полей, чтобы не спотыкаться.
  */
 export type AiDialoguePreviewEvent = {
+	/** Raw protocol block position, retained even when an earlier malformed block was dropped. */
+	audioEventIndex?: number
 	wordMap?: AiDialogueWordMap
 	type?: AiDialogueEventType
 	content?: string

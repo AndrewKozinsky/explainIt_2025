@@ -1,6 +1,7 @@
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueAudioSnapshot } from './audio/dialogueAudioTypes'
 import type {
 	AiDialogueModel,
 	AiDialogueRepository,
@@ -40,6 +41,10 @@ export class AiDialogueService {
 	/** Получить один диалог текущего пользователя по ID. */
 	async getDialogue(id: number): Promise<ApiResult<AiDialogueModel>> {
 		return this.aiDialogueRepository.getDialogue(id)
+	}
+
+	async getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>> {
+		return this.aiDialogueRepository.getAudio(id, signal)
 	}
 
 	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {

@@ -10,6 +10,7 @@ import type {
 	AiDialogueClientEvent,
 	DialogueServerMessage,
 } from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 
 export type AiDialogueModel = {
 	id: number
@@ -46,6 +47,7 @@ export type AiDialogueRepository = {
 	getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>>
 	/** Получить один диалог текущего пользователя по ID */
 	getDialogue(id: number): Promise<ApiResult<AiDialogueModel>>
+	getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>>
 	getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>>
 	/** Удалить диалог текущего пользователя */
 	deleteDialogue(id: number): Promise<ApiResult<void>>

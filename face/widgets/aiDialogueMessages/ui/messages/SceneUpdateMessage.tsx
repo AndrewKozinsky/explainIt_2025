@@ -1,3 +1,4 @@
+import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import type {
 	AiDialogueTextMappingProps,
 	AiDialogueWordSelectHandler,
@@ -7,6 +8,7 @@ import DialogueSceneImage from '../visuals/DialogueSceneImage'
 import './AiDialogueMessages.scss'
 
 type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
+	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	content?: string
 	translation?: string
 	onWordSelect: AiDialogueWordSelectHandler
@@ -15,6 +17,7 @@ type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
 }
 
 function SceneUpdateMessage({
+	audioAddress,
 	content = '',
 	translation = '',
 	onWordSelect,
@@ -27,6 +30,7 @@ function SceneUpdateMessage({
 			<DialogueSceneImage messageId={messageId} reserveSpace={reserveSpace} />
 			<span className='ai-dialogue-message__label'>Смена сцены</span>
 			<AiDialogueContentBlock
+				audioAddress={{ ...audioAddress, actionIndex: -1 }}
 				wordMap={wordMap}
 				content={content}
 				translation={translation}
