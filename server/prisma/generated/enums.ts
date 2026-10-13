@@ -182,3 +182,24 @@ export const ImageGenerationOutboxStatus = {
 } as const
 
 export type ImageGenerationOutboxStatus = (typeof ImageGenerationOutboxStatus)[keyof typeof ImageGenerationOutboxStatus]
+
+
+export const AiDialogueAudioAttemptStatus = {
+  active: 'active',
+  confirmed: 'confirmed',
+  cancelled: 'cancelled'
+} as const
+
+export type AiDialogueAudioAttemptStatus = (typeof AiDialogueAudioAttemptStatus)[keyof typeof AiDialogueAudioAttemptStatus]
+
+
+export const AiDialogueAudioStatus = {
+  queued: 'queued',
+  generating: 'generating',
+  ready: 'ready',
+  failed: 'failed',
+  outcomeUnknown: 'outcomeUnknown',
+  cancelled: 'cancelled'
+} as const
+
+export type AiDialogueAudioStatus = (typeof AiDialogueAudioStatus)[keyof typeof AiDialogueAudioStatus]

@@ -10,6 +10,7 @@ jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository
 jest.mock('repo/aiDialogue/aiDialogueTurn.repository', () => ({ AiDialogueTurnRepository: class {} }))
 jest.mock('repo/aiDialogueScenario/aiDialogueScenario.repository', () => ({ AiDialogueScenarioRepository: class {} }))
 jest.mock('infrastructure/llmProviderAdapter/LlmAdapter.service', () => ({ LlmAdapterService: class {} }))
+jest.mock('./audio/AiDialogueAudioStream.service', () => ({ AiDialogueAudioStream: class {} }))
 jest.mock('./SummarizeAiDialogue.service', () => ({ SummarizeAiDialogue: class {} }))
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
@@ -48,6 +49,16 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 	}
 	const hub = { publishDialogueEvent: jest.fn((_id, event) => timeline.push(event.data.type)) }
 	const summary = { summarizeIfNeeded: jest.fn().mockResolvedValue(undefined) }
+
+	const audioSession = {
+		id: 'attempt',
+		push: jest.fn(),
+		finish: jest.fn().mockResolvedValue(undefined),
+		cancel: jest.fn().mockResolvedValue(undefined),
+		confirm: jest.fn().mockResolvedValue(undefined),
+	}
+	const audio = { start: jest.fn(() => audioSession) }
+
 	const service = new GenerateAiDialogueTurn(
 		llm as never,
 		dialogue as never,
@@ -57,13 +68,15 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 		registry as never,
 		hub as never,
 		summary as never,
+		audio as never,
 	)
-	return { service, timeline, turn, query, registry, hub, llm }
+
+	return { service, timeline, turn, query, registry, hub, llm, audioSession }
 }
 
 describe('text turn with inline word maps', () => {
 	it('streams the text first and saves ready maps before sending messages', async () => {
-		const { service, timeline, turn, hub, llm } = harness()
+		const { service, timeline, turn, hub, llm, audioSession } = harness()
 		await service.generate(3)
 		expect(timeline).toEqual(['turnStarted', 'chunk', 'chunk', 'message', 'unregister', 'turnDone'])
 		expect(turn.saveGeneratedTurn.mock.calls[0][0].turn.events[0].wordMap.status).toBe('ready')
@@ -86,5 +99,28 @@ describe('text turn with inline word maps', () => {
 		query.getMessagesByDialogueId.mockResolvedValue([{ id: 7, payload: { type: 'help' } }])
 		await service.triggerIfNeeded(3)
 		expect(registry.register).not.toHaveBeenCalled()
+	})
+})
+
+describe('audio does not wait for the full text turn', () => {
+	it('passes a completed speech to audio preparation before receiving the footer', async () => {
+		const { service, llm, turn, audioSession, timeline } = harness()
+		let release!: () => void
+		const gate = new Promise<void>((resolve) => {
+			release = resolve
+		})
+		llm.stream.mockImplementation(async function* () {
+			yield 'npcActions|npc|||neutral\nspeech:\nHello.\n'
+			await gate
+			yield 'Здравствуйте.\n\nwordMaps:\n{"content":"Hello.","selections":[]}'
+		})
+		const pending = service.generate(3)
+		for (let i = 0; i < 20; i += 1) await Promise.resolve()
+		expect(audioSession.push).toHaveBeenCalledWith('npcActions|npc|||neutral\nspeech:\nHello.\n')
+		expect(turn.saveGeneratedTurn).not.toHaveBeenCalled()
+		expect(timeline).not.toContain('turnDone')
+		release()
+		await pending
+		expect(audioSession.confirm).toHaveBeenCalledWith([7], expect.any(Array))
 	})
 })

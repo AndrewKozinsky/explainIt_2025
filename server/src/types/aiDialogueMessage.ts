@@ -131,6 +131,22 @@ export type DialogueServerMessage = {
 //  - turnError   — ход не удался (error — текст ошибки).
 //  - visualsChanged — перечитать визуальный REST-снимок; не является сообщением диалога.
 export type AiDialogueStreamEvent =
+	| { type: 'audioChanged'; dialogueId: number }
+	| { type: 'audioAttemptStarted' | 'audioAttemptCancelled'; dialogueId: number; turnId: string; attemptId: string }
+	| {
+			type: 'audioQueued'
+			dialogueId: number
+			attemptId: string
+			audioId: number
+			eventIndex: number
+			actionIndex: number
+			npcId: string | null
+	  }
+	| {
+			type: 'audioReady'
+			dialogueId: number
+			audio: import('models/aiDialogue/aiDialogueAudio.out.model').AiDialogueAudioItemOutModel
+	  }
 	| { type: 'visualsChanged'; dialogueId: number }
 	| { type: 'message'; message: DialogueServerMessage }
 	| { type: 'chunk'; chunk: string }

@@ -3,6 +3,7 @@ import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { CleanupAiDialogueAudio } from './audio/CleanupAiDialogueAudio.service'
 import { CleanupAiDialogueImages } from './CleanupAiDialogueImages.service'
 
 type DeleteAiDialogueInput = {
@@ -21,6 +22,7 @@ export class DeleteAiDialogueHandler implements ICommandHandler<DeleteAiDialogue
 	constructor(
 		private aiDialogueRepository: AiDialogueRepository,
 		private readonly cleanup: CleanupAiDialogueImages,
+		private readonly audioCleanup: CleanupAiDialogueAudio,
 	) {}
 
 	/** Проверяет владельца, коммитит каскадное удаление БД, затем пытается убрать его исходники из R2. */
@@ -38,7 +40,9 @@ export class DeleteAiDialogueHandler implements ICommandHandler<DeleteAiDialogue
 
 		const keys = await this.aiDialogueRepository.deleteDialogueAndGetImageKeys(deleteAiDialogueInput.id, userId)
 		if (keys === null) throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
+
 		await this.cleanup.cleanupDeletedDialogueImages(keys)
+		await this.audioCleanup.deleteFiles(keys)
 
 		return true
 	}

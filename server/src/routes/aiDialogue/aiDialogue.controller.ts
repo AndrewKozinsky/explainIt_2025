@@ -3,9 +3,9 @@ import {
 	Controller,
 	Delete,
 	Get,
+	Header,
 	HttpCode,
 	HttpStatus,
-	Header,
 	MessageEvent,
 	Param,
 	ParseIntPipe,
@@ -18,25 +18,28 @@ import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
 import { Observable } from 'rxjs'
-import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
+import { GetAiDialogueAudioCommand } from 'features/aiDialogue/audio/GetAiDialogueAudio.command'
 import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.command'
 import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
+import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
+import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
-import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
-import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import {
 	ApiCreateAiDialogue,
 	ApiCreateAiDialogueMessage,
 	ApiDeleteAiDialogue,
 	ApiGetAiDialogue,
+	ApiGetAiDialogueAudio,
 	ApiGetAiDialogues,
 	ApiGetAiDialogueVisuals,
 } from './openAPI.decorators'
@@ -104,6 +107,17 @@ export class AiDialogueController {
 				event,
 			}),
 		)
+	}
+
+	@ApiGetAiDialogueAudio()
+	@UseGuards(CheckSessionCookieGuard)
+	@Header('Cache-Control', 'private, no-store')
+	@Get(':id/audio')
+	async getAiDialogueAudio(
+		@Param('id', ParseIntPipe) id: number,
+		@Req() request: Request,
+	): Promise<AiDialogueAudioOutModel> {
+		return this.commandBus.execute(new GetAiDialogueAudioCommand(request.user!.id, id))
 	}
 
 	@ApiGetAiDialogueVisuals()

@@ -159,3 +159,18 @@ export type ImageGenerationJob = Prisma.ImageGenerationJobModel
  * 
  */
 export type ImageGenerationOutbox = Prisma.ImageGenerationOutboxModel
+/**
+ * Model AiDialogueVoice
+ * 
+ */
+export type AiDialogueVoice = Prisma.AiDialogueVoiceModel
+/**
+ * Model AiDialogueAudioAttempt
+ * 
+ */
+export type AiDialogueAudioAttempt = Prisma.AiDialogueAudioAttemptModel
+/**
+ * Model AiDialogueAudioJob
+ * 
+ */
+export type AiDialogueAudioJob = Prisma.AiDialogueAudioJobModel

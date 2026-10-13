@@ -30,6 +30,7 @@ function harness() {
 	const handler = new DeleteAiDialogueHandler(
 		repository as unknown as AiDialogueRepository,
 		cleanup as unknown as CleanupAiDialogueImages,
+		{ deleteFiles: jest.fn().mockResolvedValue(undefined) } as never,
 	)
 
 	return { handler, repository, cleanup, calls }
@@ -39,6 +40,7 @@ describe('DeleteAiDialogue images', () => {
 	it('starts R2 cleanup only after the authorized DB deletion has committed', async () => {
 		const { handler, repository, cleanup, calls } = harness()
 		await expect(handler.execute(new DeleteAiDialogueCommand(7, { id: 1 }))).resolves.toBe(true)
+
 		expect(repository.deleteDialogueAndGetImageKeys).toHaveBeenCalledWith(1, 7)
 		expect(cleanup.cleanupDeletedDialogueImages).toHaveBeenCalledWith(['key'])
 		expect(calls).toEqual(['commit', 'cleanup'])

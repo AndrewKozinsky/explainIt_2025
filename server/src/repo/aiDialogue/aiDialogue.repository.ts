@@ -51,9 +51,16 @@ export class AiDialogueRepository {
 				select: { s3_key: true },
 			})
 
+			const audio = await tx.aiDialogueAudioJob.findMany({
+				where: { attempt: { dialogue: { id, user_id: userId } } },
+				select: { s3_key: true },
+			})
+
 			const deleted = await tx.aiDialogue.deleteMany({ where: { id, user_id: userId } })
 
-			return deleted.count === 1 ? images.map((image) => image.s3_key) : null
+			return deleted.count === 1
+				? [...images.map((image) => image.s3_key), ...audio.map((item) => item.s3_key)]
+				: null
 		})
 	}
 

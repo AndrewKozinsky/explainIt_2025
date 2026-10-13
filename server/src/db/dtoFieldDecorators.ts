@@ -232,7 +232,7 @@ export function getApiPropertyOptions(fieldConf: Record<string, any>) {
 		timeString: 'string',
 		number: 'number',
 		index: 'number',
-		uuidIndex: 'number',
+		uuidIndex: 'string',
 		boolean: 'boolean',
 		array: 'array',
 	}

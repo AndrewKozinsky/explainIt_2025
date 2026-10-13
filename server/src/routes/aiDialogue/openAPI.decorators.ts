@@ -1,10 +1,11 @@
 import { applyDecorators } from '@nestjs/common'
 import { ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
-import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 
 export function ApiGetAiDialogueVisuals() {
 	return applyDecorators(
@@ -75,5 +76,13 @@ export function ApiCreateAiDialogueMessage() {
 		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
 		ApiBody({ type: CreateAiDialogueMessageInput }),
 		ApiResponse({ status: 201, description: 'Created', type: AiDialogueMessageOutModel }),
+	)
+}
+
+export function ApiGetAiDialogueAudio() {
+	return applyDecorators(
+		ApiOperation({ summary: 'Получить озвучки диалога, включая текущую попытку текстового превью' }),
+		ApiCookieAuth(),
+		ApiResponse({ status: 200, type: AiDialogueAudioOutModel }),
 	)
 }

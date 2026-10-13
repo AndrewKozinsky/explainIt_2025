@@ -42,6 +42,7 @@ jest.mock('./openAPI.decorators', () =>
 			'ApiGetAiDialogue',
 			'ApiGetAiDialogues',
 			'ApiGetAiDialogueVisuals',
+			'ApiGetAiDialogueAudio',
 		].map((name) => [name, () => () => undefined]),
 	),
 )
@@ -49,8 +50,8 @@ jest.mock('./openAPI.decorators', () =>
 import { CommandBus } from '@nestjs/cqrs'
 import { Request } from 'express'
 import { Observable } from 'rxjs'
-import { AiDialogueController } from './aiDialogue.controller'
 import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
+import { AiDialogueController } from './aiDialogue.controller'
 
 describe('AiDialogueController CQRS dispatch', () => {
 	function harness() {
@@ -59,12 +60,14 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const request = { user: { id: 7 } } as unknown as Request
 		return { controller, bus, request }
 	}
+
 	it('passes authenticated identity and dialogue ID to the visual command', async () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockResolvedValue({ dialogueId: 1 })
 		await expect(controller.getAiDialogueVisuals(1, request)).resolves.toEqual({ dialogueId: 1 })
 		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, dialogueId: 1 }))
 	})
+
 	it('dispatches stream opening through CommandBus and returns its Observable unchanged', async () => {
 		const { controller, bus, request } = harness()
 		const stream = new Observable()
@@ -72,6 +75,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 		await expect(controller.stream(1, request)).resolves.toBe(stream)
 		expect(bus.execute).toHaveBeenCalledWith(new OpenAiDialogueStreamCommand(7, 1))
 	})
+
 	it('propagates command dispatch errors without opening another stream', async () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockRejectedValue(new Error('dispatch failed'))

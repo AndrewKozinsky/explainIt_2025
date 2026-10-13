@@ -2,6 +2,7 @@ import { BullModule } from '@nestjs/bullmq'
 import { Global, Module } from '@nestjs/common'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { AiDialogueAudioGenerationQueue } from './aiDialogueAudioGeneration.queue'
 import { AiDialogueImageGenerationQueue } from './aiDialogueImageGeneration.queue'
 import { buildBullmqConnection } from './bullmq.connection'
 import { QueueNames } from './queueNames'
@@ -32,6 +33,20 @@ import { SubtitlesGenerationQueue } from './subtitlesGeneration.queue'
 			},
 		}),
 		BullModule.registerQueueAsync({
+			name: QueueNames.AI_DIALOGUE_AUDIO_GENERATION,
+			imports: [MainConfigModule],
+			inject: [MainConfigService],
+			useFactory: (config: MainConfigService) => ({
+				connection: {
+					...buildBullmqConnection(config),
+					maxRetriesPerRequest: 1,
+					enableOfflineQueue: false,
+					commandTimeout: 10_000,
+					connectTimeout: 10_000,
+				},
+			}),
+		}),
+		BullModule.registerQueueAsync({
 			name: QueueNames.AI_DIALOGUE_IMAGE_GENERATION,
 			imports: [MainConfigModule],
 			inject: [MainConfigService],
@@ -46,7 +61,7 @@ import { SubtitlesGenerationQueue } from './subtitlesGeneration.queue'
 			}),
 		}),
 	],
-	providers: [SubtitlesGenerationQueue, AiDialogueImageGenerationQueue],
-	exports: [BullModule, SubtitlesGenerationQueue, AiDialogueImageGenerationQueue],
+	providers: [AiDialogueAudioGenerationQueue, SubtitlesGenerationQueue, AiDialogueImageGenerationQueue],
+	exports: [AiDialogueAudioGenerationQueue, BullModule, SubtitlesGenerationQueue, AiDialogueImageGenerationQueue],
 })
 export class QueuesModule {}

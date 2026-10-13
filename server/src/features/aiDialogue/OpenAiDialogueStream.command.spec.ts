@@ -4,11 +4,11 @@ jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository
 jest.mock('repo/aiDialogue/aiDialogue.queryRepository', () => ({ AiDialogueQueryRepository: class {} }))
 jest.mock('./GenerateAiDialogueTurn.service', () => ({ GenerateAiDialogueTurn: class {} }))
 
-import { OpenAiDialogueStreamCommand, OpenAiDialogueStreamHandler } from './OpenAiDialogueStream.command'
-import { AiDialogueSseHub } from './AiDialogueSseHub.service'
-import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
+import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
+import { AiDialogueSseHub } from './AiDialogueSseHub.service'
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
+import { OpenAiDialogueStreamCommand, OpenAiDialogueStreamHandler } from './OpenAiDialogueStream.command'
 
 function harness() {
 	let authorize!: (dialogue: unknown) => void
@@ -63,6 +63,7 @@ describe('OpenAiDialogueStreamHandler', () => {
 		const { handler, hub, authorize, query, generation } = harness()
 		const message = { id: 3, dialogueId: 1, payload: { type: 'sceneUpdate' } }
 		query.getMessagesByDialogueId.mockResolvedValue([message])
+
 		const next = jest.fn()
 		const stream = await handler.execute(new OpenAiDialogueStreamCommand(7, 1))
 		const subscription = stream.subscribe(next)
@@ -70,10 +71,12 @@ describe('OpenAiDialogueStreamHandler', () => {
 		expect(next).not.toHaveBeenCalled()
 		authorize({ user_id: 7 })
 		await settle()
-		expect(next.mock.calls.map(([event]) => event.data.type)).toEqual(['message', 'visualsChanged'])
+
+		expect(next.mock.calls.map(([event]) => event.data.type)).toEqual(['message', 'visualsChanged', 'audioChanged'])
 		expect(generation.triggerIfNeeded).toHaveBeenCalledWith(1)
 		hub.publishDialogueEvent(1, { data: { type: 'visualsChanged', dialogueId: 1 } })
-		expect(next).toHaveBeenCalledTimes(3)
+
+		expect(next).toHaveBeenCalledTimes(4)
 		subscription.unsubscribe()
 		expect(hub.getDialogueEventSubject(1).observed).toBe(false)
 	})
@@ -84,6 +87,7 @@ describe('OpenAiDialogueStreamHandler', () => {
 		subscription.unsubscribe()
 		authorize({ user_id: 7 })
 		await settle()
+
 		expect(query.getMessagesByDialogueId).not.toHaveBeenCalled()
 		expect(generation.triggerIfNeeded).not.toHaveBeenCalled()
 	})

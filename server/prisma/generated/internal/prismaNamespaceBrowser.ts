@@ -74,7 +74,10 @@ export const ModelName = {
   AiDialogueCharacter: 'AiDialogueCharacter',
   AiDialogueImage: 'AiDialogueImage',
   ImageGenerationJob: 'ImageGenerationJob',
-  ImageGenerationOutbox: 'ImageGenerationOutbox'
+  ImageGenerationOutbox: 'ImageGenerationOutbox',
+  AiDialogueVoice: 'AiDialogueVoice',
+  AiDialogueAudioAttempt: 'AiDialogueAudioAttempt',
+  AiDialogueAudioJob: 'AiDialogueAudioJob'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -441,6 +444,52 @@ export const ImageGenerationOutboxScalarFieldEnum = {
 } as const
 
 export type ImageGenerationOutboxScalarFieldEnum = (typeof ImageGenerationOutboxScalarFieldEnum)[keyof typeof ImageGenerationOutboxScalarFieldEnum]
+
+
+export const AiDialogueVoiceScalarFieldEnum = {
+  id: 'id',
+  dialogue_id: 'dialogue_id',
+  npc_id: 'npc_id',
+  voice: 'voice',
+  instructions: 'instructions',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueVoiceScalarFieldEnum = (typeof AiDialogueVoiceScalarFieldEnum)[keyof typeof AiDialogueVoiceScalarFieldEnum]
+
+
+export const AiDialogueAudioAttemptScalarFieldEnum = {
+  id: 'id',
+  dialogue_id: 'dialogue_id',
+  turn_id: 'turn_id',
+  status: 'status',
+  message_ids: 'message_ids',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type AiDialogueAudioAttemptScalarFieldEnum = (typeof AiDialogueAudioAttemptScalarFieldEnum)[keyof typeof AiDialogueAudioAttemptScalarFieldEnum]
+
+
+export const AiDialogueAudioJobScalarFieldEnum = {
+  id: 'id',
+  attempt_id: 'attempt_id',
+  message_id: 'message_id',
+  event_index: 'event_index',
+  action_index: 'action_index',
+  npc_id: 'npc_id',
+  text: 'text',
+  input: 'input',
+  s3_key: 's3_key',
+  status: 'status',
+  published_at: 'published_at',
+  submitted_at: 'submitted_at',
+  error: 'error',
+  created_at: 'created_at',
+  updated_at: 'updated_at'
+} as const
+
+export type AiDialogueAudioJobScalarFieldEnum = (typeof AiDialogueAudioJobScalarFieldEnum)[keyof typeof AiDialogueAudioJobScalarFieldEnum]
 
 
 export const SortOrder = {

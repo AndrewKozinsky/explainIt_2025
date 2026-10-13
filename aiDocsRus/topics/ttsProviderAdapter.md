@@ -7,7 +7,8 @@
 ## Подключение
 
 Импортировать `TtsProviderModule` в Nest-модуль потребителя и внедрить `TtsAdapterService` через конструктор.
-Модуль не глобальный и пока не подключён к существующим features: первый потребитель добавит импорт.
+Модуль не глобальный. Его использует worker озвучки диалогов с OpenAI; HTTP-процесс только готовит задания.
+Подробнее: [`aiDialogue/aiDialogueAudio.md`](aiDialogue/aiDialogueAudio.md).
 Клиенты создаются лениво, только при генерации соответствующим поставщиком.
 Конфигурация берётся из существующего `MainConfigService`: `openAI.apiKey` и `googleTts.serviceAccountCredentials`.
 Новых переменных окружения нет.

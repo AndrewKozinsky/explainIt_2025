@@ -71,8 +71,10 @@ function splitIntoBlocks(lines: string[]): string[][] {
 function parseBlock(block: string[]): ParsedBlock {
 	const header = block[0].trim()
 	const type = header.split('|')[0].trim()
+
 	if (type === 'npcActions') return parseNpcActions(block)
 	if (type === 'sceneUpdate' || type === 'help' || type === 'worldEvent') return parseTextEvent(type, block)
+
 	return EMPTY_BLOCK
 }
 
@@ -138,7 +140,14 @@ function normalizeEmotion(value: null | string | undefined): AiDialogueEmotion {
 
 function isLabel(line: string): boolean {
 	const value = line.trim()
-	return value === 'action:' || value === 'speech:' || value === 'appearance:' || isVisualField(value)
+
+	return (
+		value === 'action:' ||
+		value === 'speech:' ||
+		value === 'appearance:' ||
+		value === 'voice:' ||
+		isVisualField(value)
+	)
 }
 
 function isVisualField(line: string): boolean {

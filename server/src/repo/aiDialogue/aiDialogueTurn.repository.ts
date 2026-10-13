@@ -18,6 +18,7 @@ import { Prisma } from 'prisma/generated/client'
 type SaveGeneratedTurnInput = {
 	dialogueId: number
 	turn: ParsedAiDialogueTurn
+	audioAttemptId?: string
 }
 
 /** Сохраняет подтверждённый ход и все намерения визуальной генерации одной транзакцией. */
@@ -81,6 +82,12 @@ export class AiDialogueTurnRepository {
 				})
 			}
 
+			if (input.audioAttemptId) {
+				await tx.aiDialogueAudioAttempt.updateMany({
+					where: { id: input.audioAttemptId, dialogue_id: input.dialogueId, status: 'active' },
+					data: { message_ids: JSON.stringify(messageIds) },
+				})
+			}
 			return messageIds
 		})
 	}

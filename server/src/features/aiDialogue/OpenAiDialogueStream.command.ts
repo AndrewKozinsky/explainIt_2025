@@ -1,8 +1,8 @@
 import { MessageEvent } from '@nestjs/common'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { Observable, Subscriber } from 'rxjs'
-import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
+import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueStreamEvent } from 'types/aiDialogueMessage'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -90,6 +90,7 @@ export class OpenAiDialogueStreamHandler implements ICommandHandler<
 		for (const event of state.pendingEvents) {
 			if (!subscriber.closed) subscriber.next(event)
 		}
+
 		state.pendingEvents.length = 0
 		if (subscriber.closed) return
 
@@ -100,6 +101,7 @@ export class OpenAiDialogueStreamHandler implements ICommandHandler<
 		}
 
 		if (!subscriber.closed) subscriber.next({ data: { type: 'visualsChanged', dialogueId } })
+		if (!subscriber.closed) subscriber.next({ data: { type: 'audioChanged', dialogueId } })
 		if (!subscriber.closed) await this.generateAiDialogueTurn.triggerIfNeeded(dialogueId)
 	}
 }

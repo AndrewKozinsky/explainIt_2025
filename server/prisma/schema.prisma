@@ -280,19 +280,21 @@ model AiDialogueScenario {
 }
 
 model AiDialogue {
-    id                   Int                   @id @default(autoincrement())
-    scenario             AiDialogueScenario    @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
-    scenario_id          Int
-    user                 User                  @relation(fields: [user_id], references: [id], onDelete: Cascade)
-    user_id              Int
-    source_language_code LanguageCode
-    target_language_code LanguageCode
-    summary              String?
-    summary_up_to        Int                   @default(0)
-    AiDialogueMessage    AiDialogueMessage[]
-    AiDialogueCharacter  AiDialogueCharacter[]
-    created_at           DateTime              @default(now())
-    updated_at           DateTime              @default(now())
+    id                     Int                      @id @default(autoincrement())
+    scenario               AiDialogueScenario       @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
+    scenario_id            Int
+    user                   User                     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+    user_id                Int
+    source_language_code   LanguageCode
+    target_language_code   LanguageCode
+    summary                String?
+    summary_up_to          Int                      @default(0)
+    AiDialogueVoice        AiDialogueVoice[]
+    AiDialogueAudioAttempt AiDialogueAudioAttempt[]
+    AiDialogueMessage      AiDialogueMessage[]
+    AiDialogueCharacter    AiDialogueCharacter[]
+    created_at             DateTime                 @default(now())
+    updated_at             DateTime                 @default(now())
 
     @@index([user_id])
     @@index([scenario_id])
@@ -306,6 +308,7 @@ model AiDialogueMessage {
     character_id       Int?
     type               AiDialogueMessageType
     payload            String
+    AiDialogueAudioJob AiDialogueAudioJob[]
     AiDialogueImage    AiDialogueImage[]
     ImageGenerationJob ImageGenerationJob[]
     created_at         DateTime              @default(now())
@@ -382,6 +385,56 @@ model ImageGenerationOutbox {
     updated_at   DateTime                    @default(now())
 
     @@index([status])
+}
+
+model AiDialogueVoice {
+    id           Int        @id @default(autoincrement())
+    dialogue     AiDialogue @relation(fields: [dialogue_id], references: [id], onDelete: Cascade)
+    dialogue_id  Int
+    npc_id       String
+    voice        String
+    instructions String
+    created_at   DateTime   @default(now())
+
+    @@unique([dialogue_id, npc_id])
+}
+
+model AiDialogueAudioAttempt {
+    id                 String                       @id @default(uuid())
+    dialogue           AiDialogue                   @relation(fields: [dialogue_id], references: [id], onDelete: Cascade)
+    dialogue_id        Int
+    turn_id            String
+    status             AiDialogueAudioAttemptStatus @default(active)
+    message_ids        String?
+    AiDialogueAudioJob AiDialogueAudioJob[]
+    created_at         DateTime                     @default(now())
+    updated_at         DateTime                     @default(now())
+
+    @@index([dialogue_id, created_at])
+}
+
+model AiDialogueAudioJob {
+    id           Int                    @id @default(autoincrement())
+    attempt      AiDialogueAudioAttempt @relation(fields: [attempt_id], references: [id], onDelete: Cascade)
+    attempt_id   String
+    message      AiDialogueMessage?     @relation(fields: [message_id], references: [id], onDelete: Cascade)
+    message_id   Int?
+    event_index  Int
+    action_index Int
+    npc_id       String?
+    text         String
+    input        String
+    s3_key       String                 @unique
+    status       AiDialogueAudioStatus  @default(queued)
+    published_at DateTime?
+    submitted_at DateTime?
+    error        String?
+    created_at   DateTime               @default(now())
+    updated_at   DateTime               @default(now())
+
+    @@unique([attempt_id, event_index, action_index])
+    @@index([published_at, status])
+    @@index([message_id])
 }
 
 enum UserGender {
@@ -500,4 +553,19 @@ enum ImageGenerationJobStatus {
 enum ImageGenerationOutboxStatus {
     pending
     published
+}
+
+enum AiDialogueAudioAttemptStatus {
+    active
+    confirmed
+    cancelled
+}
+
+enum AiDialogueAudioStatus {
+    queued
+    generating
+    ready
+    failed
+    outcomeUnknown
+    cancelled
 }

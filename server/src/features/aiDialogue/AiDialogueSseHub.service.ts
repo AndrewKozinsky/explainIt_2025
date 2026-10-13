@@ -44,6 +44,12 @@ export class AiDialogueSseHub {
 	 * Отправляет visualsChanged всем диалогам с активными локальными подписчиками после восстановления Redis.
 	 * Это сигнал перечитать REST-снимок, а не сами изображения; неактивные Subject не уведомляются.
 	 */
+	notifyActiveDialoguesOfAudioChanges(): void {
+		for (const [dialogueId, subject] of this.subjects) {
+			if (subject.observed) subject.next({ data: { type: 'audioChanged', dialogueId } })
+		}
+	}
+
 	notifyActiveDialoguesOfVisualChanges(): void {
 		for (const [dialogueId, subject] of this.subjects) {
 			if (subject.observed) subject.next({ data: { type: 'visualsChanged', dialogueId } })
