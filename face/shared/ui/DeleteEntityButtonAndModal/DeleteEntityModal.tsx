@@ -1,4 +1,4 @@
-import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/TrashButtonIcon'
 import Button from '../formRelated/buttons/Button/Button'
 import Modal from '../Modal/Modal'
 import Paragraph from '../Paragraph/Paragraph'

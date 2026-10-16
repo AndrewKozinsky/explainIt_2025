@@ -1,5 +1,5 @@
 import DeleteEntityButtonAndModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityButtonAndModal'
-import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/TrashButtonIcon'
 import { useGetDeleteBook } from './fn/getDeleteBook'
 
 type DeleteBookButtonProps = {

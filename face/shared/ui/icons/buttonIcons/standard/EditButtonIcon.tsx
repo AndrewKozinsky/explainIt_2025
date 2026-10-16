@@ -1,4 +1,4 @@
-import { ButtonIconProps } from '@/shared/ui/icons/buttonIcons/buttonProps'
+import { ButtonIconProps } from '@/shared/ui/icons/buttonIcons/standard/buttonProps'
 
 export function EditButtonIcon(props: ButtonIconProps) {
 	const { extraClass } = props

@@ -3,7 +3,7 @@ import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWra
 import { MediaGridAddButton } from '@/entities/mediaCard/MediaGridAddButton/MediaGridAddButton'
 import { videoConfig } from '@/entities/video/lib/videoConfig'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
-import { EditButtonIcon } from '@/shared/ui/icons/buttonIcons/EditButtonIcon'
+import { EditButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/EditButtonIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { getConfig } from './fn/getConfig'

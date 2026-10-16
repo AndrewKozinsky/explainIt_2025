@@ -4,7 +4,7 @@ import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDi
 import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
 import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
 import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
-import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/TrashButtonIcon'
+import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/TrashButtonIcon'
 import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
 import { getDialoguesCardsConfig } from './fn/getDialoguesCardsConfig'
 import { useAiDialogueDelete } from './fn/useAiDialogueDelete'

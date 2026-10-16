@@ -1,5 +1,5 @@
 import React from 'react'
-import { ButtonIconProps } from '@/shared/ui/icons/buttonIcons/buttonProps'
+import { ButtonIconProps } from '@/shared/ui/icons/buttonIcons/standard/buttonProps'
 
 function DeepseekLiteButtonIcon(props: ButtonIconProps) {
 	const { extraClass } = props

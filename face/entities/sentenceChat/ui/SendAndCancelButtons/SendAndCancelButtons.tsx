@@ -1,6 +1,6 @@
 import ChatRoundButton from '@/entities/sentenceChat/ui/ChatRoundButton/ChatRoundButton'
-import ArrowUpPureButtonIcon from '@/shared/ui/icons/buttonIcons/ArrowUpPureButtonIcon'
-import SquareButtonIcon from '@/shared/ui/icons/buttonIcons/SquareButtonIcon'
+import ArrowUpPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowUpPureButtonIcon'
+import SquareButtonIcon from '@/shared/ui/icons/buttonIcons/standard/SquareButtonIcon'
 import { useSentenceChatStore } from '../sentenceChatStore'
 import { useIsSendButtonDisabled } from './fn/isSendButtonDisabled'
 import './SendAndCancelButtons.scss'
