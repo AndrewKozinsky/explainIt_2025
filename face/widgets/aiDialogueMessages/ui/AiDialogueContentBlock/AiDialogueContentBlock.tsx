@@ -30,12 +30,13 @@ function AiDialogueContentBlock({
 
 	return (
 		<div className='ai-dialogue-content-block'>
-			<div className='ai-dialogue-content-block__line'>
-				<div className='ai-dialogue-content-block__text'>
-					<SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />
-				</div>
-				{audioAddress && content && <DialogueAudioButton address={audioAddress} />}
+			<div className='ai-dialogue-content-block__buttons'>
+				{audioAddress && <DialogueAudioButton address={audioAddress} />}
 			</div>
+			<div className='ai-dialogue-content-block__text'>
+				<SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />
+			</div>
+
 			{isTranslationVisible && translation ? (
 				<div className='ai-dialogue-content-block__translation'>{translation}</div>
 			) : null}

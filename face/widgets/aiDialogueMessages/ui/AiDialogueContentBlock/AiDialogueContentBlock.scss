@@ -1,18 +1,18 @@
 .ai-dialogue-content-block {
-	&__line {
-		display: flex;
-		align-items: flex-start;
-		gap: 8px;
-	}
+}
 
-	&__text {
-		flex: 1;
-		min-width: 0;
-	}
+.ai-dialogue-content-block__buttons {
+	display: flex;
+	gap: 8px;
+}
 
-	&__translation {
-		margin-top: 4px;
-		font-style: italic;
-		opacity: 0.7;
-	}
+.ai-dialogue-content-block__text {
+	flex: 1;
+	min-width: 0;
+}
+
+.ai-dialogue-content-block__translation {
+	margin-top: 4px;
+	font-style: italic;
+	opacity: 0.7;
 }
