@@ -7,13 +7,13 @@ function DialogueAvatar({ npcId, emotion, name, isUser = false }: Props) {
 	const { loadedUrl, handleDisplayError, imageStyle } = useDialogueAvatar({ npcId, emotion, isUser })
 
 	return (
-		<div className='ai-dialogue-avatar' role='img' aria-label={`Аватар: ${name}`}>
+		<div className='ai-dialogue-message__avatar' role='img' aria-label={`Аватар: ${name}`}>
 			{loadedUrl && (
 				<img
 					onError={handleDisplayError}
 					src={loadedUrl}
 					alt=''
-					className={isUser ? 'ai-dialogue-avatar__user' : 'ai-dialogue-avatar__sheet'}
+					className={isUser ? 'ai-dialogue-message__avatar-user' : 'ai-dialogue-message__avatar-sheet'}
 					style={imageStyle}
 				/>
 			)}

@@ -12,12 +12,12 @@ function DialogueSceneImage({ messageId, reserveSpace }: Props) {
 	if (!showSlot) return null
 
 	return (
-		<div className='ai-dialogue-scene-image' ref={slotRef}>
+		<div className='ai-dialogue-message__scene-image' ref={slotRef}>
 			{loadedUrl && (
 				<img src={loadedUrl} onError={handleDisplayError} alt='Иллюстрация сцены' width={1152} height={576} />
 			)}
 			{failed && (
-				<div className='ai-dialogue-scene-image__error'>
+				<div className='ai-dialogue-message__scene-image-error'>
 					<span>Иллюстрация недоступна</span>
 					{isError && (
 						<button type='button' onClick={retryDownload}>

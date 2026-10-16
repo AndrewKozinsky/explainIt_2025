@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useDialogueVisuals } from '../DialogueVisualsContext'
+import { useDialogueVisuals } from '../../../visuals/DialogueVisualsContext'
 import { useDialogueImage } from './useDialogueImage'
 
 export function useDialogueSceneImage(messageId: number | undefined, reserveSpace: boolean) {

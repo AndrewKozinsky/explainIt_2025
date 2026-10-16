@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { useDialogueVisuals } from '../DialogueVisualsContext'
+import { useDialogueVisuals } from '../../../visuals/DialogueVisualsContext'
 import { getEmotionCell } from './getEmotionCell'
 import { useDialogueImage } from './useDialogueImage'
 

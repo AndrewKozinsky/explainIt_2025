@@ -1,7 +1,7 @@
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
-import DialogueAvatar from '../visuals/DialogueAvatar'
+import DialogueAvatar from './visuals/DialogueAvatar'
 import './AiDialogueMessages.scss'
 
 type UserActionsMessageProps = {

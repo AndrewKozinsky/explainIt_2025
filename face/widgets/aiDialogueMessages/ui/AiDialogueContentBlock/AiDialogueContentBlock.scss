@@ -4,10 +4,12 @@
 		align-items: flex-start;
 		gap: 8px;
 	}
+
 	&__text {
 		flex: 1;
 		min-width: 0;
 	}
+
 	&__translation {
 		margin-top: 4px;
 		font-style: italic;

@@ -3,7 +3,7 @@ import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/t
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
-import DialogueAvatar from '../visuals/DialogueAvatar'
+import DialogueAvatar from './visuals/DialogueAvatar'
 import './AiDialogueMessages.scss'
 
 type NpcActionsMessageProps = {

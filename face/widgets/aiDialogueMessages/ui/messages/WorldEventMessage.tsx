@@ -14,7 +14,6 @@ type WorldEventMessageProps = AiDialogueTextMappingProps & {
 function WorldEventMessage({ content = '', translation = '', onWordSelect, wordMap }: WorldEventMessageProps) {
 	return (
 		<div className='ai-dialogue-message ai-dialogue-message--world-event'>
-			<span className='ai-dialogue-message__label'>Событие</span>
 			<AiDialogueContentBlock
 				wordMap={wordMap}
 				content={content}
