@@ -9,6 +9,7 @@ import './Button.scss'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: 'regular' | 'danger' | 'accent' | 'plain' | 'outline'
+	colorScheme?: 'dark' | 'light'
 	size?: 'small' | 'medium' | 'big'
 	children?: ReactNode
 	icon?: string | ReactNode
@@ -19,6 +20,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 function Button(props: ButtonProps) {
 	const {
 		theme = 'regular',
+		colorScheme = 'dark',
 		size = 'medium',
 		children,
 		icon,
@@ -42,6 +44,7 @@ function Button(props: ButtonProps) {
 			extraClass={cn(buttonClasses, extraClass)}
 			disabled={disabled}
 			theme={theme}
+			colorScheme={colorScheme}
 			onClick={onClick}
 			type={buttonType}
 			title={restProps.title}

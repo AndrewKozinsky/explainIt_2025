@@ -5,6 +5,7 @@ import './BaseButton.scss'
 
 type BaseButtonProps = {
 	theme?: 'plain' | 'outline' | 'regular' | 'accent' | 'danger'
+	colorScheme?: 'dark' | 'light'
 	onClick?: React.MouseEventHandler<HTMLButtonElement>
 	disabled?: boolean
 	extraClass?: string
@@ -21,6 +22,7 @@ type BaseButtonProps = {
 function BaseButton(props: BaseButtonProps) {
 	const {
 		theme = 'regular',
+		colorScheme = 'dark',
 		extraClass,
 		onClick,
 		current,
@@ -35,7 +37,16 @@ function BaseButton(props: BaseButtonProps) {
 	} = props
 
 	const isDisabled = !!disabled || !!current
-	const className = cn('base-button', 'base-button--' + theme, extraClass, current && 'base-button--current')
+	const colorModifier = current
+		? `base-button--color-${colorScheme}-current`
+		: `base-button--color-${colorScheme}-${theme}`
+	const className = cn(
+		'base-button',
+		'base-button--' + theme,
+		colorModifier,
+		extraClass,
+		current && 'base-button--current',
+	)
 
 	if (!href || isDisabled) {
 		return (

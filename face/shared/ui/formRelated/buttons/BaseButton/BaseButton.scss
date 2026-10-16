@@ -3,21 +3,12 @@
 .base-button {
 	cursor: pointer;
 	border: 1px solid transparent;
-	transition: background-color .15s ease, color .1s ease, transform .2s ease;
+	transition: background-color 0.15s ease,
+	color 0.1s ease,
+	transform 0.2s ease;
 
 	&:active:not(:disabled) {
-		transform: scale(.97);
-	}
-
-	&:disabled {
-		color: vars.$grayColor-3;
-		cursor: default;
-		background-color: vars.$grayColor-1;
-
-		&:hover {
-			color: vars.$grayColor-3;
-			background-color: vars.$grayColor-1;
-		}
+		transform: scale(0.97);
 	}
 
 	&:focus {
@@ -27,6 +18,26 @@
 }
 
 .base-button--plain {
+}
+
+.base-button--outline {
+}
+
+.base-button--regular {
+}
+
+.base-button--accent {
+}
+
+.base-button--danger {
+}
+
+.base-button--current {
+	cursor: default;
+	pointer-events: none;
+}
+
+.base-button--color-dark-plain {
 	&:hover {
 		background-color: vars.$grayColor-1;
 	}
@@ -39,9 +50,48 @@
 	&:hover:focus {
 		background-color: white;
 	}
+
+	&:disabled {
+		color: vars.$grayColor-3;
+		cursor: default;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:disabled:hover {
+		color: vars.$grayColor-3;
+		background-color: vars.$grayColor-1;
+	}
 }
 
-.base-button--outline {
+.base-button--color-light-plain {
+	color: white;
+
+	&:hover {
+		background-color: rgba(white, 0.15);
+	}
+
+	&:focus {
+		border-color: white;
+		outline-color: rgba(white, 0.3);
+	}
+
+	&:hover:focus {
+		background-color: rgba(white, 0.25);
+	}
+
+	&:disabled {
+		color: rgba(white, 0.5);
+		cursor: default;
+		background-color: rgba(white, 0.12);
+	}
+
+	&:disabled:hover {
+		color: rgba(white, 0.5);
+		background-color: rgba(white, 0.12);
+	}
+}
+
+.base-button--color-dark-outline {
 	border-color: vars.$grayColor-2;
 
 	&:hover:not(:disabled) {
@@ -52,9 +102,45 @@
 		border-color: vars.$grayColor-4;
 		outline-color: vars.$grayColor-2;
 	}
+
+	&:disabled {
+		color: vars.$grayColor-3;
+		cursor: default;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:disabled:hover {
+		color: vars.$grayColor-3;
+		background-color: vars.$grayColor-1;
+	}
 }
 
-.base-button--regular {
+.base-button--color-light-outline {
+	color: white;
+	border-color: rgba(white, 0.6);
+
+	&:hover:not(:disabled) {
+		border-color: white;
+	}
+
+	&:focus {
+		border-color: white;
+		outline-color: rgba(white, 0.3);
+	}
+
+	&:disabled {
+		color: rgba(white, 0.5);
+		cursor: default;
+		background-color: rgba(white, 0.12);
+	}
+
+	&:disabled:hover {
+		color: rgba(white, 0.5);
+		background-color: rgba(white, 0.12);
+	}
+}
+
+.base-button--color-dark-regular {
 	color: vars.$textColor;
 	background-color: vars.$grayColor-1;
 
@@ -69,12 +155,53 @@
 	}
 
 	&:hover:focus {
-		border-color: rgba(vars.$accentColor-2, .3);
-		outline-color: rgba(vars.$accentColor-2, .3);
+		border-color: rgba(vars.$accentColor-2, 0.3);
+		outline-color: rgba(vars.$accentColor-2, 0.3);
+	}
+
+	&:disabled {
+		color: vars.$grayColor-3;
+		cursor: default;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:disabled:hover {
+		color: vars.$grayColor-3;
+		background-color: vars.$grayColor-1;
 	}
 }
 
-.base-button--accent {
+.base-button--color-light-regular {
+	color: white;
+	background-color: rgba(white, 0.16);
+
+	&:hover {
+		background-color: rgba(white, 0.28);
+	}
+
+	&:focus {
+		border-color: rgba(white, 0.7);
+		outline-color: rgba(white, 0.3);
+	}
+
+	&:hover:focus {
+		border-color: white;
+		outline-color: rgba(white, 0.4);
+	}
+
+	&:disabled {
+		color: rgba(white, 0.5);
+		cursor: default;
+		background-color: rgba(white, 0.12);
+	}
+
+	&:disabled:hover {
+		color: rgba(white, 0.5);
+		background-color: rgba(white, 0.12);
+	}
+}
+
+.base-button--color-dark-accent {
 	color: white;
 	background-color: vars.$accentColor-2;
 
@@ -84,15 +211,55 @@
 	}
 
 	&:focus {
-		outline-color: rgba(vars.$accentColor-2, .3);
+		outline-color: rgba(vars.$accentColor-2, 0.3);
 	}
 
 	&:hover:focus {
 		outline-color: vars.$grayColor-2;
 	}
+
+	&:disabled {
+		color: vars.$grayColor-3;
+		cursor: default;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:disabled:hover {
+		color: vars.$grayColor-3;
+		background-color: vars.$grayColor-1;
+	}
 }
 
-.base-button--danger {
+.base-button--color-light-accent {
+	color: white;
+	background-color: vars.$accentColor-2;
+
+	&:hover {
+		color: white;
+		background-color: vars.$textColor;
+	}
+
+	&:focus {
+		outline-color: rgba(vars.$accentColor-2, 0.3);
+	}
+
+	&:hover:focus {
+		outline-color: vars.$grayColor-2;
+	}
+
+	&:disabled {
+		color: rgba(white, 0.5);
+		cursor: default;
+		background-color: rgba(white, 0.12);
+	}
+
+	&:disabled:hover {
+		color: rgba(white, 0.5);
+		background-color: rgba(white, 0.12);
+	}
+}
+
+.base-button--color-dark-danger {
 	color: vars.$dangerColor-1;
 	background-color: vars.$dangerColor-4;
 
@@ -105,24 +272,65 @@
 		color: white;
 		background-color: vars.$dangerColor-1;
 	}
+
+	&:disabled {
+		color: vars.$grayColor-3;
+		cursor: default;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:disabled:hover {
+		color: vars.$grayColor-3;
+		background-color: vars.$grayColor-1;
+	}
 }
 
-.base-button--current {
-	color: white;
-	cursor: default;
-	background-color: vars.$accentColor-2;
-	pointer-events: none;
-	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .08);
-	border-color: vars.$accentColor-3;
+.base-button--color-light-danger {
+	color: vars.$dangerColor-1;
+	background-color: vars.$dangerColor-4;
+
+	&:focus {
+		border-color: vars.$dangerColor-1;
+		outline-color: vars.$dangerColor-2;
+	}
 
 	&:hover {
 		color: white;
-		background-color: vars.$accentColor-2;
+		background-color: vars.$dangerColor-1;
 	}
 
 	&:disabled {
-		color: white;
+		color: rgba(white, 0.5);
 		cursor: default;
+		background-color: rgba(white, 0.12);
+	}
+
+	&:disabled:hover {
+		color: rgba(white, 0.5);
+		background-color: rgba(white, 0.12);
+	}
+}
+
+.base-button--color-dark-current {
+	color: white;
+	background-color: vars.$accentColor-2;
+	border-color: vars.$accentColor-3;
+
+	&:hover,
+	&:disabled {
+		color: white;
+		background-color: vars.$accentColor-2;
+	}
+}
+
+.base-button--color-light-current {
+	color: white;
+	background-color: vars.$accentColor-2;
+	border-color: vars.$accentColor-3;
+
+	&:hover,
+	&:disabled {
+		color: white;
 		background-color: vars.$accentColor-2;
 	}
 }
