@@ -14,7 +14,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	icon?: string | ReactNode
 	loading?: boolean
 	extraClass?: string
-	onClick?: () => void
 }
 
 function Button(props: ButtonProps) {
@@ -45,6 +44,9 @@ function Button(props: ButtonProps) {
 			theme={theme}
 			onClick={onClick}
 			type={buttonType}
+			title={restProps.title}
+			aria-label={restProps['aria-label']}
+			aria-pressed={restProps['aria-pressed']}
 		>
 			<ButtonIcon icon={icon} disabled={disabled} />
 			{children}

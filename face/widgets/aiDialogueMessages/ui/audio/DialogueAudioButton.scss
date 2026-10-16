@@ -2,10 +2,6 @@
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	flex: 0 0 32px;
-	width: 32px;
-	height: 32px;
-	padding: 0;
 	border: 1px solid rgba(75, 98, 116, 0.22);
 	border-radius: 50%;
 	background: rgba(75, 98, 116, 0.06);
@@ -81,8 +77,7 @@
 
 @media (max-width: 600px) {
 	.dialogue-audio-button {
-		width: 44px;
-		height: 44px;
-		flex-basis: 44px;
+		min-width: 44px;
+		min-height: 44px;
 	}
 }

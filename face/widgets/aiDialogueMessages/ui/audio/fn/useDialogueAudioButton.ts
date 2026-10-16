@@ -5,8 +5,9 @@ import { useDialogueAudio } from '../DialogueAudioContext'
 export function useDialogueAudioButton(address: DialogueAudioAddress) {
 	const audio = useDialogueAudio()
 	if (!audio) return null
+	const player = audio.player
 
-	const item = audio.player.findItem(address)
+	const item = player.findItem(address)
 	const selected = item?.id === audio.state.selectedId
 	const playing = selected && (audio.state.playbackStatus === 'playing' || audio.state.playbackStatus === 'loading')
 	const failed = Boolean(item && ['failed', 'outcomeUnknown', 'cancelled'].includes(item.status))
@@ -18,7 +19,7 @@ export function useDialogueAudioButton(address: DialogueAudioAddress) {
 
 	function handleClick(event: MouseEvent<HTMLButtonElement>) {
 		event.stopPropagation()
-		if (item) audio.player.toggle(item.id)
+		if (item) player.toggle(item.id)
 	}
 
 	return {
