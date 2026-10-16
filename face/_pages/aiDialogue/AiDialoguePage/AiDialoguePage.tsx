@@ -3,12 +3,10 @@
 import { useQuery } from '@tanstack/react-query'
 import { useLocale } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
-import AiDialoguePagePartsWrapper from '@/entities/aiDialogue/ui/AiDialoguePagePartsWrapper/AiDialoguePagePartsWrapper'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
+import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
-import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
-import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
@@ -55,8 +53,10 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 
 	return (
 		<DialogueAudioProvider player={audio.player} state={audio.state}>
-			<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[pageUrls.aiDialogues]} />} header={header}>
-				<AiDialoguePagePartsWrapper>
+			<MediaRoot
+				breadCrumbsConfig={[pageUrls.aiDialogues]}
+				header={header}
+				leftBlock={
 					<AiDialogueLeftWrapper>
 						<>
 							{audio.state.blocked && (
@@ -84,6 +84,8 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 						</>
 						<AiDialogueInput dialogueId={Number(dialogueId)} />
 					</AiDialogueLeftWrapper>
+				}
+				rightBlock={
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 						<DetailsBlock
 							tabs={[
@@ -101,8 +103,8 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 							]}
 						/>
 					</ViewportSyncedHeight>
-				</AiDialoguePagePartsWrapper>
-			</MediaPageContentWrapper>
+				}
+			/>
 		</DialogueAudioProvider>
 	)
 }
