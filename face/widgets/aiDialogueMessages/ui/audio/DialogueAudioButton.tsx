@@ -2,32 +2,39 @@
 
 import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import { LoadingSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/LoadingSmallButtonIcon'
+import { PlaySmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/PlaySmallButtonIcon'
+import { StopSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/StopSmallButtonIcon'
+import { WarningSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/WarningSmallButtonIcon'
 import { useDialogueAudioButton } from './fn/useDialogueAudioButton'
 import './DialogueAudioButton.scss'
 
 export default function DialogueAudioButton({ address }: { address: DialogueAudioAddress }) {
-	const button = useDialogueAudioButton(address)
-	if (!button) return null
+	const audioButtonConfig = useDialogueAudioButton(address)
+	if (!audioButtonConfig) return null
 
 	return (
 		<Button
 			size='small'
-			theme='plain'
-			extraClass={`dialogue-audio-button${button.playing ? ' dialogue-audio-button--playing' : ''}`}
-			onClick={button.handleClick}
-			disabled={button.disabled}
-			aria-label={button.label}
-			title={button.label}
-			aria-pressed={button.playing}
+			theme='outline'
+			onClick={audioButtonConfig.handleClick}
+			disabled={audioButtonConfig.disabled}
+			aria-label={audioButtonConfig.text}
+			title={audioButtonConfig.text}
+			aria-pressed={audioButtonConfig.playing}
 			icon={
-				button.loading ? (
-					<span className='dialogue-audio-button__spinner' aria-hidden='true' />
+				audioButtonConfig.loading ? (
+					<LoadingSmallButtonIcon />
+				) : audioButtonConfig.playing ? (
+					<StopSmallButtonIcon />
+				) : audioButtonConfig.hasWarning ? (
+					<WarningSmallButtonIcon />
 				) : (
-					<svg viewBox='0 0 24 24' width='18' height='18' aria-hidden='true' focusable='false'>
-						<path d={button.iconPath} />
-					</svg>
+					<PlaySmallButtonIcon />
 				)
 			}
-		/>
+		>
+			{audioButtonConfig.text}
+		</Button>
 	)
 }

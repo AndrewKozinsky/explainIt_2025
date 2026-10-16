@@ -1,0 +1,22 @@
+.loading-small-button-icon {
+	display: block;
+	box-sizing: border-box;
+	width: 14px;
+	height: 14px;
+	border: 2px solid currentColor;
+	border-right-color: transparent;
+	border-radius: 50%;
+	animation: loading-small-button-icon-spin 900ms linear infinite;
+}
+
+@keyframes loading-small-button-icon-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.loading-small-button-icon {
+		animation: none;
+	}
+}
