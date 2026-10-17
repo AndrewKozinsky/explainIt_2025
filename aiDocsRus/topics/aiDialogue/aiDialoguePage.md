@@ -12,7 +12,8 @@ SSE-протокол, генерация хода, компакция) опис�
 - диалог загружается по REST (`GET /ai-dialogue/:id`) через TanStack Query;
 - обмен сообщениями — через постоянный SSE-поток (`EventSource`), открытый хуком `useAiDialogueStream`;
 - пользователь отправляет действие/реплику и «завершает» диалог через REST (`POST /ai-dialogue/:id/messages`);
-- клик по слову в сохранённом сообщении показывает перевод блока, выбирает связанные слова по серверной карте и передаёт фразу в правую панель. Подробности: `aiDialogueWordMaps.md`.
+- клик по слову в сохранённом сообщении показывает перевод блока, выбирает связанные слова по серверной карте и передаёт
+  фразу в правую панель. Подробности: `aiDialogueWordMaps.md`.
 
 Языки: `dialogue.sourceLanguageCode` — изучаемый язык (реплики NPC), `dialogue.targetLanguageCode` — родной язык (поле
 `translation`). Словарь в правой панели строится по `sourceLanguageCode`.
@@ -96,7 +97,7 @@ SSE-протокол, генерация хода, компакция) опис�
   Аватар есть у каждого сообщения, без группировки. Ячейка 240×240 из спрайта обеспечивает запас для Retina.
   Пользовательские `userActions` имеют текущий выбранный аватар профиля и подпись «Вы».
   Изменение профиля обновляет аватар у всех сообщений без истории прежнего выбора.
-- `UserActionsMessage` — действия пользователя (без перевода);
+- `UserMessage` — действия пользователя (без перевода);
 - `UserAvoidsNpcMessage` — «Вы отошли от разговора»;
 - `PendingAnswerMessage` — плейсхолдер, пока ответ не готов.
 
@@ -236,7 +237,6 @@ AiDialogueContentBlock раскрывает существующий перев�
 - `face/_pages/aiDialogue/AiDialoguePage/AiDialoguePage.tsx` — страница.
 - `face/_pages/aiDialogue/AiDialogueLeftWrapper/AiDialogueLeftWrapper.tsx` — левая колонка (сообщения + ввод).
 - `face/_pages/aiDialogue/AiDialoguePage/fn/getHeaderAndSubHeader.ts` — заголовок через `pickLocalized`.
-
 
 ## Озвучка на клиенте
 

@@ -1,15 +1,15 @@
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
-import DialogueAvatar from './visuals/DialogueAvatar'
-import './AiDialogueMessages.scss'
+import DialogueAvatar from '../visuals/DialogueAvatar'
+import '../AiDialogueMessages.scss'
 
 type UserActionsMessageProps = {
 	actions?: AiDialoguePreviewActionItem[]
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
-function UserActionsMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
+function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 	const content = actions.map((action, index) => (
 		<AiDialogueContentBlock key={index} content={action.content ?? ''} onWordSelect={onWordSelect} />
 	))
@@ -27,4 +27,4 @@ function UserActionsMessage({ actions = [], onWordSelect }: UserActionsMessagePr
 	)
 }
 
-export default UserActionsMessage
+export default UserMessage

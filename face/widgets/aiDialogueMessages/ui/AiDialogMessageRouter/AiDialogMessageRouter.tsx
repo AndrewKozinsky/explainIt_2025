@@ -1,10 +1,10 @@
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
 import HelpMessage from '../messages/HelpMessage'
 import NpcActionsMessage from '../messages/NpcActionsMessage'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage'
-import SceneUpdateMessage from '../messages/SceneUpdateMessage'
-import UserActionsMessage from '../messages/UserActionsMessage'
+import SceneUpdateMessage from '../messages/SceneUpdateMessage/SceneUpdateMessage'
 import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage'
 import WorldEventMessage from '../messages/WorldEventMessage'
 
@@ -89,7 +89,7 @@ function AiDialogMessageRouter({
 	}
 
 	if (event.type === 'userActions') {
-		return <UserActionsMessage actions={event.actions} onWordSelect={onWordSelect} />
+		return <UserMessage actions={event.actions} onWordSelect={onWordSelect} />
 	}
 
 	if (event.type === 'userAvoidsNPC') {

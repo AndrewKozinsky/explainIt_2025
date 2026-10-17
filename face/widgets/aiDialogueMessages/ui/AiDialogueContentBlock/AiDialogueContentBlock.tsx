@@ -1,3 +1,5 @@
+'use client'
+
 import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import type {
 	AiDialogueTextMappingProps,
@@ -5,7 +7,9 @@ import type {
 } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import SegmentedText from '@/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText'
 import DialogueAudioButton from '../audio/DialogueAudioButton'
+import DialogueTextVisibilityButton from '../DialogueTextVisibilityButton/DialogueTextVisibilityButton'
 import { useDialogueContentSelection } from './fn/useDialogueContentSelection'
+import { useDialogueTextVisibility } from './fn/useDialogueTextVisibility'
 import './AiDialogueContentBlock.scss'
 
 type AiDialogueContentBlockProps = AiDialogueTextMappingProps & {
@@ -22,6 +26,7 @@ function AiDialogueContentBlock({
 	wordMap,
 	audioAddress,
 }: AiDialogueContentBlockProps) {
+	const { isTextVisible, toggleTextVisibility } = useDialogueTextVisibility()
 	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({
 		content,
 		onWordSelect,
@@ -32,14 +37,19 @@ function AiDialogueContentBlock({
 		<div className='ai-dialogue-content-block'>
 			<div className='ai-dialogue-content-block__buttons'>
 				{audioAddress && <DialogueAudioButton address={audioAddress} />}
+				<DialogueTextVisibilityButton isTextVisible={isTextVisible} onClick={toggleTextVisibility} />
 			</div>
-			<div className='ai-dialogue-content-block__text'>
-				<SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />
-			</div>
+			{isTextVisible && (
+				<>
+					<div className='ai-dialogue-content-block__text'>
+						<SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />
+					</div>
 
-			{isTranslationVisible && translation ? (
-				<div className='ai-dialogue-content-block__translation'>{translation}</div>
-			) : null}
+					{isTranslationVisible && translation ? (
+						<div className='ai-dialogue-content-block__translation'>{translation}</div>
+					) : null}
+				</>
+			)}
 		</div>
 	)
 }

@@ -4,8 +4,8 @@ import type {
 	AiDialogueWordSelectHandler,
 } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
-import DialogueSceneImage from './visuals/DialogueSceneImage'
-import './AiDialogueMessages.scss'
+import DialogueSceneImage from './DialogueSceneImage'
+import './SceneUpdateMessage.scss'
 
 type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
@@ -26,15 +26,17 @@ function SceneUpdateMessage({
 	wordMap,
 }: SceneUpdateMessageProps) {
 	return (
-		<div className='ai-dialogue-message ai-dialogue-message--scene-update'>
+		<div className='ai-dialogue-message-scene-update'>
 			<DialogueSceneImage messageId={messageId} reserveSpace={reserveSpace} />
-			<AiDialogueContentBlock
-				audioAddress={{ ...audioAddress, actionIndex: -1 }}
-				wordMap={wordMap}
-				content={content}
-				translation={translation}
-				onWordSelect={onWordSelect}
-			/>
+			<div className='ai-dialogue-message-scene-update__content'>
+				<AiDialogueContentBlock
+					audioAddress={{ ...audioAddress, actionIndex: -1 }}
+					wordMap={wordMap}
+					content={content}
+					translation={translation}
+					onWordSelect={onWordSelect}
+				/>
+			</div>
 		</div>
 	)
 }
