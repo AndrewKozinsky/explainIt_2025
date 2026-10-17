@@ -18,7 +18,6 @@ import { usePollVideoSubtitlesStatus } from './fn/usePollVideoSubtitlesStatus'
 import { useVideoControls } from './fn/useVideoControls'
 import { useVideoData } from './fn/useVideoData'
 import VideoClientWrapper from './VideoClientWrapper'
-import './VideoPage.scss'
 
 const { useMediaStore } = setupDeps()
 
@@ -76,7 +75,7 @@ function VideoPage(props: VideoRootProps) {
 					/>
 				}
 				rightBlock={
-					<ViewportSyncedHeight extraClass='video-page__details-block' gapTop={10} gapBottom={10}>
+					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 						<DetailsBlock
 							tabs={[
 								{ type: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },

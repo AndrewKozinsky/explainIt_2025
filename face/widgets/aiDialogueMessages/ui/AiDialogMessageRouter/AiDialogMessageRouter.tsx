@@ -6,7 +6,7 @@ import NpcMessage from '../messages/NpcMessage/NpcMessage'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage'
 import SceneUpdateMessage from '../messages/SceneUpdateMessage/SceneUpdateMessage'
 import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage'
-import WorldEventMessage from '../messages/WorldEventMessage'
+import WorldEventMessage from '../messages/WorldEventMessage/WorldEventMessage'
 
 type AiDialogMessageRouterProps = {
 	event: AiDialoguePreviewEvent
