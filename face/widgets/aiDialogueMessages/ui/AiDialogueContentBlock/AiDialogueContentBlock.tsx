@@ -5,7 +5,7 @@ import type {
 	AiDialogueTextMappingProps,
 	AiDialogueWordSelectHandler,
 } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
-import SegmentedText from '@/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText'
+import AiDialogueTextWithTranslation from '../AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import DialogueAudioButton from '../audio/DialogueAudioButton'
 import DialogueTextVisibilityButton from '../DialogueTextVisibilityButton/DialogueTextVisibilityButton'
 import { useDialogueContentSelection } from './fn/useDialogueContentSelection'
@@ -40,15 +40,13 @@ function AiDialogueContentBlock({
 				<DialogueTextVisibilityButton isTextVisible={isTextVisible} onClick={toggleTextVisibility} />
 			</div>
 			{isTextVisible && (
-				<>
-					<div className='ai-dialogue-content-block__text'>
-						<SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />
-					</div>
-
-					{isTranslationVisible && translation ? (
-						<div className='ai-dialogue-content-block__translation'>{translation}</div>
-					) : null}
-				</>
+				<AiDialogueTextWithTranslation
+					content={content}
+					translation={translation}
+					wordMap={wordMap}
+					isTranslationVisible={isTranslationVisible}
+					onWordClick={handleWordClick}
+				/>
 			)}
 		</div>
 	)

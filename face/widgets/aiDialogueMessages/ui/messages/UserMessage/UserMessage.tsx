@@ -16,7 +16,6 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 
 	return (
 		<WithAvatarMessageWrapper
-			className='ai-dialogue-message--user'
 			avatar={<DialogueAvatar name='Вы' isUser />}
 			name='Вы'
 			actions={content.filter((_, index) => actions[index].type !== 'speech')}

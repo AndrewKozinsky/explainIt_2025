@@ -40,7 +40,6 @@ function NpcActionsMessage({
 
 	return (
 		<WithAvatarMessageWrapper
-			className='ai-dialogue-message--npc'
 			avatar={<DialogueAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}

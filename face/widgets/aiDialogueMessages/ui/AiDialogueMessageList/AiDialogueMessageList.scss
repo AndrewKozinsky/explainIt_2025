@@ -1,6 +1,6 @@
 .ai-dialogue-message-list {
-	display: flex;
-	flex-direction: column;
-	min-width: 0;
+	display: grid;
+	grid-auto-flow: row;
+	gap: 3rem;
 	width: 100%;
 }
