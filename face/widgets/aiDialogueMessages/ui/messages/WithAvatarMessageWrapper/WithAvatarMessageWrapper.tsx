@@ -20,7 +20,7 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 			{avatar}
 			<div className='ai-dialogue-message-with-avatar__body'>
 				<div className='ai-dialogue-message-with-avatar__header'>
-					{name && <span className='ai-dialogue-message-with-avatar__name'>{name}</span>}
+					<span className='ai-dialogue-message-with-avatar__name'>{name}</span>
 					{role && (
 						<>
 							<span className='ai-dialogue-message-with-avatar__circle' />
@@ -29,8 +29,8 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 					)}
 				</div>
 				<div className='ai-dialogue-message-with-avatar__content'>
-					<div className='ai-dialogue-message-with-avatar__actions'>{actions}</div>
-					<div className='ai-dialogue-message-with-avatar__speech'>{speech}</div>
+					{actions && <div className='ai-dialogue-message-with-avatar__actions'>{actions}</div>}
+					{speech && <div className='ai-dialogue-message-with-avatar__speech'>{speech}</div>}
 				</div>
 			</div>
 		</div>

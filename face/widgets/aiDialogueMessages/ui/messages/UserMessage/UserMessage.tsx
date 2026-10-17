@@ -3,6 +3,7 @@ import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/t
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import DialogueAvatar from '../visuals/DialogueAvatar'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
+import './UserMessage.scss'
 
 type UserActionsMessageProps = {
 	actions?: AiDialoguePreviewActionItem[]
@@ -16,6 +17,7 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 
 	return (
 		<WithAvatarMessageWrapper
+			extraClass='user-message'
 			avatar={<DialogueAvatar name='Вы' isUser />}
 			name='Вы'
 			actions={content.filter((_, index) => actions[index].type !== 'speech')}
