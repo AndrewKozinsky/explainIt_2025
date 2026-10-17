@@ -7,13 +7,12 @@ type WithAvatarMessageWrapperProps = {
 	avatar: ReactNode
 	name: string
 	role?: string
-	actions?: ReactNode
-	speech?: ReactNode
+	contentGroups: { key: number; speech?: ReactNode; actions?: ReactNode }[]
 	extraClass?: string
 }
 
 function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
-	const { avatar, name, role, actions, speech, extraClass } = props
+	const { avatar, name, role, contentGroups, extraClass } = props
 
 	return (
 		<div className={cn('ai-dialogue-message-with-avatar', extraClass)}>
@@ -29,8 +28,12 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 					)}
 				</div>
 				<div className='ai-dialogue-message-with-avatar__content'>
-					{actions && <div className='ai-dialogue-message-with-avatar__actions'>{actions}</div>}
-					{speech && <div className='ai-dialogue-message-with-avatar__speech'>{speech}</div>}
+					{contentGroups.map(({ key, speech, actions }) => (
+						<div key={key} className='ai-dialogue-message-with-avatar__group'>
+							{speech && <div className='ai-dialogue-message-with-avatar__speech'>{speech}</div>}
+							{actions && <div className='ai-dialogue-message-with-avatar__actions'>{actions}</div>}
+						</div>
+					))}
 				</div>
 			</div>
 		</div>

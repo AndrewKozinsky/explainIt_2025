@@ -38,7 +38,8 @@
 	font-weight: 300;
 }
 
-.ai-dialogue-message-with-avatar__content {
+.ai-dialogue-message-with-avatar__content,
+.ai-dialogue-message-with-avatar__group {
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;

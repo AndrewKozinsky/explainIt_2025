@@ -11,6 +11,7 @@ import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueCo
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import DialogueNpcAvatar from '../visuals/DialogueNpcAvatar'
+import { groupDialogueActions } from '../WithAvatarMessageWrapper/fn/groupDialogueActions'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import './NpcMessage.scss'
 
@@ -58,8 +59,11 @@ function NpcMessage({
 			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}
-			actions={content.filter((_, index) => actions[index].type !== 'speech')}
-			speech={content.filter((_, index) => actions[index].type === 'speech')}
+			contentGroups={groupDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
+				key,
+				speech: speechIndex !== undefined ? content[speechIndex] : undefined,
+				actions: actionIndex !== undefined ? content[actionIndex] : undefined,
+			}))}
 		/>
 	)
 }

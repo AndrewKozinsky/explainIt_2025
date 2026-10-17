@@ -6,6 +6,7 @@ import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueCo
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import DialogueUserAvatar from '../visuals/DialogueUserAvatar'
+import { groupDialogueActions } from '../WithAvatarMessageWrapper/fn/groupDialogueActions'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import './UserMessage.scss'
 
@@ -33,8 +34,11 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 			extraClass='user-message'
 			avatar={<DialogueUserAvatar name='Вы' />}
 			name='Вы'
-			actions={content.filter((_, index) => actions[index].type !== 'speech')}
-			speech={content.filter((_, index) => actions[index].type === 'speech')}
+			contentGroups={groupDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
+				key,
+				speech: speechIndex !== undefined ? content[speechIndex] : undefined,
+				actions: actionIndex !== undefined ? content[actionIndex] : undefined,
+			}))}
 		/>
 	)
 }
