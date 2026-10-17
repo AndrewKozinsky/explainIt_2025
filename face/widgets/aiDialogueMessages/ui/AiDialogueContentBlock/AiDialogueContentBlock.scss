@@ -1,4 +1,7 @@
 .ai-dialogue-content-block {
+	display: flex;
+	flex-direction: column;
+	gap: .4rem;
 }
 
 .ai-dialogue-content-block__buttons {
