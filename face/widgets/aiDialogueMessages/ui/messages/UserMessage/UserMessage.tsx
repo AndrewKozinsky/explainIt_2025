@@ -2,7 +2,7 @@ import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/t
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import DialogueAvatar from '../visuals/DialogueAvatar'
-import '../AiDialogueMessages.scss'
+import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 
 type UserActionsMessageProps = {
 	actions?: AiDialoguePreviewActionItem[]
@@ -15,15 +15,13 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 	))
 
 	return (
-		<div className='ai-dialogue-message ai-dialogue-message--user'>
-			<DialogueAvatar name='Вы' isUser />
-			<div className='ai-dialogue-message__body'>
-				<div className='ai-dialogue-message__npc-header'>
-					<span className='ai-dialogue-message__npc-name'>Вы</span>
-				</div>
-				{content}
-			</div>
-		</div>
+		<WithAvatarMessageWrapper
+			className='ai-dialogue-message--user'
+			avatar={<DialogueAvatar name='Вы' isUser />}
+			name='Вы'
+			actions={content.filter((_, index) => actions[index].type !== 'speech')}
+			speech={content.filter((_, index) => actions[index].type === 'speech')}
+		/>
 	)
 }
 

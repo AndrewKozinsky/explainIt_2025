@@ -1,38 +1,3 @@
-@use '@/styles/variables' as vars;
-
-.ai-dialogue-message--npc,
-.ai-dialogue-message--user {
-	display: flex;
-	align-items: flex-start;
-	gap: 12px;
-}
-
-.ai-dialogue-message__body {
-	flex: 1;
-	min-width: 0;
-}
-
-.ai-dialogue-message + .ai-dialogue-message {
-	margin-top: 12px;
-}
-
-.ai-dialogue-message__npc-header {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 6px 10px;
-	align-items: baseline;
-	margin-bottom: 4px;
-}
-
-.ai-dialogue-message__npc-name {
-	font-weight: 600;
-}
-
-.ai-dialogue-message__npc-role {
-	font-size: 0.85em;
-	opacity: 0.65;
-}
-
 .ai-dialogue-message--pending {
 	font-style: italic;
 	opacity: 0.6;

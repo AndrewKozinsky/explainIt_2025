@@ -4,7 +4,7 @@ import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/t
 import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import DialogueAvatar from './visuals/DialogueAvatar'
-import './AiDialogueMessages.scss'
+import WithAvatarMessageWrapper from './WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 
 type NpcActionsMessageProps = {
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
@@ -39,17 +39,14 @@ function NpcActionsMessage({
 	))
 
 	return (
-		<div className='ai-dialogue-message ai-dialogue-message--npc'>
-			<DialogueAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />
-			<div className='ai-dialogue-message__body'>
-				<div className='ai-dialogue-message__npc-header'>
-					{npcName && <span className='ai-dialogue-message__npc-name'>{npcName}</span>}
-					{npcRole && <span className='ai-dialogue-message__npc-role'>{npcRole}</span>}
-				</div>
-
-				{content}
-			</div>
-		</div>
+		<WithAvatarMessageWrapper
+			className='ai-dialogue-message--npc'
+			avatar={<DialogueAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
+			name={npcName}
+			role={npcRole}
+			actions={content.filter((_, index) => actions[index].type !== 'speech')}
+			speech={content.filter((_, index) => actions[index].type === 'speech')}
+		/>
 	)
 }
 

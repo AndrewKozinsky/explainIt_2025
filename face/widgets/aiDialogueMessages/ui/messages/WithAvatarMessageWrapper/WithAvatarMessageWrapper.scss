@@ -1,0 +1,27 @@
+.ai-dialogue-message-with-avatar {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.ai-dialogue-message-with-avatar__body {
+	flex: 1;
+	min-width: 0;
+}
+
+.ai-dialogue-message-with-avatar__header {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px 10px;
+	align-items: baseline;
+	margin-bottom: 4px;
+}
+
+.ai-dialogue-message-with-avatar__name {
+	font-weight: 600;
+}
+
+.ai-dialogue-message-with-avatar__role {
+	font-size: 0.85em;
+	opacity: 0.65;
+}
