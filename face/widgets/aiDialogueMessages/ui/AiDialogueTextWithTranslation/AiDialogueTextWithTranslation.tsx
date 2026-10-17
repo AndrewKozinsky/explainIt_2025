@@ -18,7 +18,7 @@ function AiDialogueTextWithTranslation({
 	onWordClick,
 }: AiDialogueTextWithTranslationProps) {
 	return (
-		<>
+		<div className='ai-dialogue-text-with-translation'>
 			<div className='ai-dialogue-text-with-translation__text'>
 				<SegmentedText text={content} wordMap={wordMap} onWordClick={onWordClick} />
 			</div>
@@ -26,7 +26,7 @@ function AiDialogueTextWithTranslation({
 			{isTranslationVisible && translation ? (
 				<div className='ai-dialogue-text-with-translation__translation'>{translation}</div>
 			) : null}
-		</>
+		</div>
 	)
 }
 
