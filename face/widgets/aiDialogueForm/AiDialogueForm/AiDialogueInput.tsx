@@ -36,8 +36,8 @@ function AiDialogueInput({ dialogueId }: AiDialogueInputProps) {
 		if ((!actionText && !speechText) || isDisabled) return
 
 		const actions: AiDialogueActionItem[] = []
-		if (actionText) actions.push({ type: 'action', content: actionText })
 		if (speechText) actions.push({ type: 'speech', content: speechText })
+		if (actionText) actions.push({ type: 'action', content: actionText })
 
 		const ok = await sendUserActions(actions)
 		if (ok) {
