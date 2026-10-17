@@ -10,7 +10,7 @@ import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDia
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
-import DialogueAvatar from '../visuals/DialogueAvatar'
+import DialogueNpcAvatar from '../visuals/DialogueNpcAvatar'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import './NpcMessage.scss'
 
@@ -55,7 +55,7 @@ function NpcMessage({
 	return (
 		<WithAvatarMessageWrapper
 			extraClass='nps-message'
-			avatar={<DialogueAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
+			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}
 			actions={content.filter((_, index) => actions[index].type !== 'speech')}

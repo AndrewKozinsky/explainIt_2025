@@ -3,10 +3,10 @@ import { useDialogueVisuals } from '../../../visuals/DialogueVisualsContext'
 import { getEmotionCell } from './getEmotionCell'
 import { useDialogueImage } from './useDialogueImage'
 
-type Params = { npcId?: string; emotion?: string; isUser: boolean }
+type Params = { npcId?: string; emotion?: string }
 
-export function useDialogueAvatar({ npcId, emotion, isUser }: Params) {
-	const { characters, userAvatarUrl, recoverImage } = useDialogueVisuals()
+export function useDialogueNpcAvatar({ npcId, emotion }: Params) {
+	const { characters, recoverImage } = useDialogueVisuals()
 	const sheet = npcId ? characters.get(npcId)?.emotionSheet : null
 	const supportedSheet =
 		sheet?.layoutVersion === 'emotion-grid-4x3-v1' &&
@@ -15,8 +15,8 @@ export function useDialogueAvatar({ npcId, emotion, isUser }: Params) {
 		sheet.width / 4 === sheet.height / 3 &&
 		sheet.width / 4 >= 160
 
-	const url = isUser ? userAvatarUrl : supportedSheet ? sheet?.url : undefined
-	const assetKey = isUser ? 'user-avatar' : `character-${sheet?.id ?? npcId}`
+	const url = supportedSheet ? sheet?.url : undefined
+	const assetKey = `character-${sheet?.id ?? npcId}`
 	const onError = useCallback(
 		function () {
 			recoverImage(assetKey)
@@ -29,6 +29,6 @@ export function useDialogueAvatar({ npcId, emotion, isUser }: Params) {
 	return {
 		loadedUrl,
 		handleDisplayError,
-		imageStyle: isUser ? undefined : { left: `${-column * 100}%`, top: `${-row * 100}%` },
+		imageStyle: { left: `${-column * 100}%`, top: `${-row * 100}%` },
 	}
 }
