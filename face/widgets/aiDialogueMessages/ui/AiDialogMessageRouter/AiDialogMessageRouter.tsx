@@ -2,7 +2,7 @@ import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
 import HelpMessage from '../messages/HelpMessage'
-import NpcActionsMessage from '../messages/NpcActionsMessage'
+import NpcMessage from '../messages/NpcMessage/NpcMessage'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage'
 import SceneUpdateMessage from '../messages/SceneUpdateMessage/SceneUpdateMessage'
 import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage'
@@ -75,7 +75,7 @@ function AiDialogMessageRouter({
 
 	if (event.type === 'npcActions') {
 		return (
-			<NpcActionsMessage
+			<NpcMessage
 				audioAddress={audioAddress}
 				wordMap={event.wordMap}
 				npcId={event.npcId}

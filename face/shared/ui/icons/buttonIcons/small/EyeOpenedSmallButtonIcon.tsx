@@ -16,7 +16,7 @@ export function EyeOpenedSmallButtonIcon(props: ButtonIconProps) {
 			<defs>
 				<path d='M0,0 L14,0 L14,14 L0,14 L0,0 Z' id='path-1'></path>
 			</defs>
-			<g stroke='none' fill='none' xlinkHref='#path-1' fill-rule='nonzero'>
+			<g stroke='none' fill='none' xlinkHref='#path-1' fillRule='nonzero'>
 				<path
 					d='M14,7.00001724 C11.1054736,13.6666609 2.8945264,13.6666609 0,7.00001724 C2.8945264,0.333327588 11.1054736,0.333327588 14,7.00001724 Z M1.14986911,6.90311238 L1.102,7 L1.14986803,7.09691616 C3.78849086,12.3010279 10.2115091,12.3010279 12.850132,7.09691616 L12.897,7 L12.8501309,6.90311238 C10.2115073,1.69896254 3.78849267,1.69896254 1.14986911,6.90311238 Z'
 					fill='currentColor'

@@ -10,8 +10,9 @@ import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDia
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
-import DialogueAvatar from './visuals/DialogueAvatar'
-import WithAvatarMessageWrapper from './WithAvatarMessageWrapper/WithAvatarMessageWrapper'
+import DialogueAvatar from '../visuals/DialogueAvatar'
+import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
+import './NpcMessage.scss'
 
 type NpcActionsMessageProps = {
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
@@ -24,7 +25,7 @@ type NpcActionsMessageProps = {
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
-function NpcActionsMessage({
+function NpcMessage({
 	audioAddress,
 	npcId,
 	npcName = '',
@@ -53,6 +54,7 @@ function NpcActionsMessage({
 
 	return (
 		<WithAvatarMessageWrapper
+			extraClass='nps-message'
 			avatar={<DialogueAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}
@@ -82,4 +84,4 @@ function NpcActionText({ content, translation, wordMap, onWordSelect }: NpcActio
 	)
 }
 
-export default NpcActionsMessage
+export default NpcMessage
