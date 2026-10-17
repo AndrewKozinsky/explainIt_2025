@@ -9,7 +9,12 @@ import { WarningSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/Warn
 import { useDialogueAudioButton } from './fn/useDialogueAudioButton'
 import './DialogueAudioButton.scss'
 
-export default function DialogueAudioButton({ address }: { address: DialogueAudioAddress }) {
+type DialogueAudioButtonProps = {
+	address: DialogueAudioAddress
+	colorScheme?: 'dark' | 'light'
+}
+
+export default function DialogueAudioButton({ address, colorScheme = 'dark' }: DialogueAudioButtonProps) {
 	const audioButtonConfig = useDialogueAudioButton(address)
 	if (!audioButtonConfig) return null
 
@@ -17,6 +22,7 @@ export default function DialogueAudioButton({ address }: { address: DialogueAudi
 		<Button
 			size='small'
 			theme='outline'
+			colorScheme={colorScheme}
 			rounded
 			onClick={audioButtonConfig.handleClick}
 			disabled={audioButtonConfig.disabled}

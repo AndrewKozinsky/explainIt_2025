@@ -15,7 +15,7 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 	const { avatar, name, role, contentGroups, extraClass } = props
 
 	return (
-		<div className={cn('ai-dialogue-message-with-avatar', extraClass)}>
+		<section className={cn('ai-dialogue-message-with-avatar', extraClass)}>
 			{avatar}
 			<div className='ai-dialogue-message-with-avatar__body'>
 				<div className='ai-dialogue-message-with-avatar__header'>
@@ -36,7 +36,7 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 					))}
 				</div>
 			</div>
-		</div>
+		</section>
 	)
 }
 

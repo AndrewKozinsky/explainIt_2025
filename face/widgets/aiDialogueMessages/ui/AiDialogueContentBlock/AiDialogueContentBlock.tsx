@@ -14,6 +14,7 @@ import './AiDialogueContentBlock.scss'
 
 type AiDialogueContentBlockProps = AiDialogueTextMappingProps & {
 	audioAddress?: DialogueAudioAddress
+	colorScheme?: 'dark' | 'light'
 	content: string
 	translation?: string
 	onWordSelect: AiDialogueWordSelectHandler
@@ -25,6 +26,7 @@ function AiDialogueContentBlock({
 	onWordSelect,
 	wordMap,
 	audioAddress,
+	colorScheme = 'dark',
 }: AiDialogueContentBlockProps) {
 	const { isTextVisible, toggleTextVisibility } = useDialogueTextVisibility()
 	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({
@@ -36,8 +38,12 @@ function AiDialogueContentBlock({
 	return (
 		<div className='ai-dialogue-content-block'>
 			<div className='ai-dialogue-content-block__buttons'>
-				{audioAddress && <DialogueAudioButton address={audioAddress} />}
-				<DialogueTextVisibilityButton isTextVisible={isTextVisible} onClick={toggleTextVisibility} />
+				{audioAddress && <DialogueAudioButton address={audioAddress} colorScheme={colorScheme} />}
+				<DialogueTextVisibilityButton
+					isTextVisible={isTextVisible}
+					onClick={toggleTextVisibility}
+					colorScheme={colorScheme}
+				/>
 			</div>
 			{isTextVisible && (
 				<AiDialogueTextWithTranslation

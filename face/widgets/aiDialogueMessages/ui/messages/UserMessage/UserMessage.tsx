@@ -32,8 +32,8 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 	return (
 		<WithAvatarMessageWrapper
 			extraClass='user-message'
-			avatar={<DialogueUserAvatar name='Вы' />}
-			name='Вы'
+			avatar={<DialogueUserAvatar name='You' />}
+			name='You'
 			contentGroups={groupDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
 				key,
 				speech: speechIndex !== undefined ? content[speechIndex] : undefined,

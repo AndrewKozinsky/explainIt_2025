@@ -30,6 +30,7 @@ function SceneUpdateMessage({
 			<DialogueSceneImage messageId={messageId} reserveSpace={reserveSpace} />
 			<div className='ai-dialogue-message-scene-update__content'>
 				<AiDialogueContentBlock
+					colorScheme='light'
 					audioAddress={{ ...audioAddress, actionIndex: -1 }}
 					wordMap={wordMap}
 					content={content}

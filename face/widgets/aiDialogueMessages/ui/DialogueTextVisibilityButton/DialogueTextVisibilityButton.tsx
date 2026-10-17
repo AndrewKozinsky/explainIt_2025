@@ -4,14 +4,20 @@ import { EyeOpenedSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/Ey
 
 type DialogueTextVisibilityButtonProps = {
 	isTextVisible: boolean
+	colorScheme?: 'dark' | 'light'
 	onClick: () => void
 }
 
-export default function DialogueTextVisibilityButton({ isTextVisible, onClick }: DialogueTextVisibilityButtonProps) {
+export default function DialogueTextVisibilityButton({
+	isTextVisible,
+	onClick,
+	colorScheme = 'dark',
+}: DialogueTextVisibilityButtonProps) {
 	return (
 		<Button
 			size='small'
 			theme='outline'
+			colorScheme={colorScheme}
 			rounded
 			onClick={onClick}
 			aria-pressed={isTextVisible}

@@ -1,7 +1,10 @@
+@use '@/styles/variables' as vars;
+
 .user-message {
 	.ai-dialogue-message-with-avatar__actions {
 		font-size: 1.8rem;
 		line-height: 2.6rem;
+		color: vars.$grayColor-5;
 	}
 
 	.ai-dialogue-message-with-avatar__speech {

@@ -24,7 +24,7 @@ function AiDialogueTextWithTranslation({
 			</div>
 
 			{isTranslationVisible && translation ? (
-				<div className='ai-dialogue-text-with-translation__translation'>{translation}</div>
+				<p className='ai-dialogue-text-with-translation__translation'>{translation}</p>
 			) : null}
 		</div>
 	)
