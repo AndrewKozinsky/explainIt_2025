@@ -12,6 +12,7 @@ export default function DialogueTextVisibilityButton({ isTextVisible, onClick }:
 		<Button
 			size='small'
 			theme='outline'
+			rounded
 			onClick={onClick}
 			aria-pressed={isTextVisible}
 			icon={isTextVisible ? <EyeClosedSmallButtonIcon /> : <EyeOpenedSmallButtonIcon />}

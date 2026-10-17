@@ -10,6 +10,7 @@ import './Button.scss'
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: 'regular' | 'danger' | 'accent' | 'plain' | 'outline'
 	colorScheme?: 'dark' | 'light'
+	rounded?: boolean
 	size?: 'small' | 'medium' | 'big'
 	children?: ReactNode
 	icon?: string | ReactNode
@@ -21,6 +22,7 @@ function Button(props: ButtonProps) {
 	const {
 		theme = 'regular',
 		colorScheme = 'dark',
+		rounded,
 		size = 'medium',
 		children,
 		icon,
@@ -34,7 +36,12 @@ function Button(props: ButtonProps) {
 		restProps.type = 'button'
 	}
 
-	const buttonClasses = ['button', `button--size-${size}`, !children && icon && 'button--icon-only']
+	const buttonClasses = [
+		'button',
+		`button--size-${size}`,
+		!children && icon && 'button--icon-only',
+		rounded && 'button--rounded',
+	]
 	const buttonType = restProps.type || 'button'
 
 	let disabled = (props.disabled || loading) ?? false

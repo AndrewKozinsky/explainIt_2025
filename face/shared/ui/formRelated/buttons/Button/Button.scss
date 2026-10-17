@@ -11,6 +11,10 @@
 	transition: border-color .2s ease-in-out;
 }
 
+.button--rounded {
+	border-radius: 1.6rem;
+}
+
 .button--size-small {
 	font-size: 1.4rem;
 	line-height: 1.8rem;

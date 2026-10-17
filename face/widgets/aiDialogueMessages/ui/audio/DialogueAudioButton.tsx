@@ -17,6 +17,7 @@ export default function DialogueAudioButton({ address }: { address: DialogueAudi
 		<Button
 			size='small'
 			theme='outline'
+			rounded
 			onClick={audioButtonConfig.handleClick}
 			disabled={audioButtonConfig.disabled}
 			aria-label={audioButtonConfig.text}
