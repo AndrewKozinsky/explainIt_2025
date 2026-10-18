@@ -1,11 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import Toggle from '@/shared/ui/formRelated/Toggle/Toggle'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import SeparatedStack from '@/shared/ui/SeparatedStack/SeparatedStack'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
@@ -28,6 +30,7 @@ type Props = {
 
 export default function AiDialoguePage({ dialogueId }: Props) {
 	const locale = useLocale()
+	const [showText, setShowText] = useState(false)
 
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 
@@ -105,6 +108,12 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 								]}
 							/>
 							<p>123456789001</p>
+							<Toggle
+								label='Show text'
+								checked={showText}
+								inputProps={{ onChange: (event) => setShowText(event.target.checked) }}
+								disabled
+							/>
 						</SeparatedStack>
 					</ViewportSyncedHeight>
 				}

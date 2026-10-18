@@ -14,6 +14,7 @@
 	display: flex;
 	width: fit-content;
 }
+
 .switcher--block {
 	display: grid;
 }
@@ -21,6 +22,7 @@
 .switcher--fit.switcher--horizontal {
 	flex-direction: row;
 }
+
 .switcher--fit.switcher--vertical {
 	flex-direction: column;
 	justify-content: stretch;
@@ -34,6 +36,7 @@
 .switcher--block.switcher--horizontal {
 	grid-auto-flow: column;
 }
+
 .switcher--block.switcher--vertical {
 	grid-auto-flow: row;
 }
@@ -61,12 +64,15 @@
 .switcher__button--current, .switcher__button--current:disabled {
 	color: vars.$textColor;
 	background-color: white;
-	box-shadow:
-		0 1px 0 rgba(0, 0, 0, .05),
-		0 0 2px rgba(0, 0, 0, .15);
+	box-shadow: 0 1px 0 rgba(0, 0, 0, .05),
+	0 0 2px rgba(0, 0, 0, .15);
 
 	&:hover {
 		color: vars.$textColor;
 		background-color: white;
 	}
+}
+
+.switcher__button--current:disabled {
+	box-shadow: none
 }
