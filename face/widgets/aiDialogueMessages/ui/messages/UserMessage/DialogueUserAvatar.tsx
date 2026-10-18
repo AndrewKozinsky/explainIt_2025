@@ -1,7 +1,6 @@
 'use client'
 
 import { useDialogueUserAvatar } from './fn/useDialogueUserAvatar'
-import './DialogueUserAvatar.scss'
 
 type Props = { name: string }
 

@@ -3,7 +3,7 @@ import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/t
 import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
 import HelpMessage from '../messages/HelpMessage'
 import NpcMessage from '../messages/NpcMessage/NpcMessage'
-import PendingAnswerMessage from '../messages/PendingAnswerMessage'
+import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import SceneUpdateMessage from '../messages/SceneUpdateMessage/SceneUpdateMessage'
 import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage'
 import WorldEventMessage from '../messages/WorldEventMessage/WorldEventMessage'

@@ -1,6 +1,6 @@
 import { useCallback } from 'react'
 import { useDialogueVisuals } from '../../../visuals/DialogueVisualsContext'
-import { useDialogueImage } from './useDialogueImage'
+import { useDialogueImage } from '../../visuals/fn/useDialogueImage'
 
 export function useDialogueUserAvatar() {
 	const { userAvatarUrl, recoverImage } = useDialogueVisuals()

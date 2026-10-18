@@ -16,3 +16,20 @@
 		color: vars.$grayColor-5;
 	}
 }
+
+.dialogue-npc-avatar {
+	position: relative;
+	flex: 0 0 100px;
+	width: 100px;
+	height: 100px;
+	overflow: hidden;
+	border-radius: vars.$radius-2;
+	background: vars.$grayColor-1;
+}
+
+.dialogue-npc-avatar__image {
+	position: absolute;
+	width: 400%;
+	height: 300%;
+	max-width: none;
+}

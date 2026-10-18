@@ -1,4 +1,4 @@
-import { useDialogueSceneImage } from '../visuals/fn/useDialogueSceneImage'
+import { useDialogueSceneImage } from './fn/useDialogueSceneImage'
 
 type Props = { messageId?: number; reserveSpace: boolean }
 

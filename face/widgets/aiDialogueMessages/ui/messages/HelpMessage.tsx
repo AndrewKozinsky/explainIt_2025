@@ -3,7 +3,7 @@ import type {
 	AiDialogueWordSelectHandler,
 } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
-import './AiDialogueMessages.scss'
+import './PendingAnswerMessage/PendingAnswerMessage.scss'
 
 type HelpMessageProps = AiDialogueTextMappingProps & {
 	content?: string

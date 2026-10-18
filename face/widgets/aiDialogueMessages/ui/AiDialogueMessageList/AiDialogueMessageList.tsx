@@ -4,7 +4,7 @@ import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogMessageRouter from '@/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
 import { useDialogueAudio } from '../audio/DialogueAudioContext'
-import PendingAnswerMessage from '../messages/PendingAnswerMessage'
+import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import { DialogueVisualsProvider } from '../visuals/DialogueVisualsContext'
 import './AiDialogueMessageList.scss'
 

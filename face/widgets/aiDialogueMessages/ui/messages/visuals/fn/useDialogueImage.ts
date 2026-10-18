@@ -42,9 +42,11 @@ export function loadDialogueImage(url: string): Promise<void> {
 export function useDialogueImage(url: string | undefined, enabled: boolean, onError: () => void, attempt = 0) {
 	const [loadedUrl, setLoadedUrl] = useState<string>()
 	const [failedUrl, setFailedUrl] = useState<string>()
+
 	useEffect(
 		function () {
 			if (!url || !enabled) return
+
 			let active = true
 			void loadDialogueImage(url).then(
 				function () {

@@ -1,7 +1,6 @@
 'use client'
 
 import { useDialogueNpcAvatar } from './fn/useDialogueNpcAvatar'
-import './DialogueNpcAvatar.scss'
 
 type Props = { npcId?: string; emotion?: string; name: string }
 

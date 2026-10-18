@@ -10,9 +10,9 @@ import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDia
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
-import DialogueNpcAvatar from '../visuals/DialogueNpcAvatar'
 import { groupDialogueActions } from '../WithAvatarMessageWrapper/fn/groupDialogueActions'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
+import DialogueNpcAvatar from './DialogueNpcAvatar'
 import './NpcMessage.scss'
 
 type NpcActionsMessageProps = {

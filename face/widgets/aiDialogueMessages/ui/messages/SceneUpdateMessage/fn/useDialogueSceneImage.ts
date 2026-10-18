@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useDialogueVisuals } from '../../../visuals/DialogueVisualsContext'
-import { useDialogueImage } from './useDialogueImage'
+import { useDialogueImage } from '../../visuals/fn/useDialogueImage'
 
 export function useDialogueSceneImage(messageId: number | undefined, reserveSpace: boolean) {
 	const { scenes, recoverImage, refreshVisuals } = useDialogueVisuals()

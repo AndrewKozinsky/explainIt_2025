@@ -8,7 +8,7 @@ import {
 } from '@/_pages/aiDialogue/AiDialoguePage/fn/visualsRefreshPolicy'
 import { useAiDialogueStore } from '@/_pages/aiDialogue/aiDialogueStore'
 import type { AiDialogueVisualsModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
-import { getEmotionCell } from '@/widgets/aiDialogueMessages/ui/messages/visuals/fn/getEmotionCell'
+import { getEmotionCell } from '@/widgets/aiDialogueMessages/ui/messages/NpcMessage/fn/getEmotionCell'
 import { loadDialogueImage } from '@/widgets/aiDialogueMessages/ui/messages/visuals/fn/useDialogueImage'
 
 const now = Date.parse('2026-10-10T10:00:00Z')

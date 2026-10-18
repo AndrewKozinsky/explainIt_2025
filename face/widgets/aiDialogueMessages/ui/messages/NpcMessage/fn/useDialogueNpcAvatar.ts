@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useDialogueVisuals } from '../../../visuals/DialogueVisualsContext'
+import { useDialogueImage } from '../../visuals/fn/useDialogueImage'
 import { getEmotionCell } from './getEmotionCell'
-import { useDialogueImage } from './useDialogueImage'
 
 type Params = { npcId?: string; emotion?: string }
 

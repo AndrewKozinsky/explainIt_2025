@@ -5,9 +5,9 @@ import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/t
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
-import DialogueUserAvatar from '../visuals/DialogueUserAvatar'
 import { groupDialogueActions } from '../WithAvatarMessageWrapper/fn/groupDialogueActions'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
+import DialogueUserAvatar from './DialogueUserAvatar'
 import './UserMessage.scss'
 
 type UserActionsMessageProps = {

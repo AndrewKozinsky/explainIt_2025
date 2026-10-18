@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import '../AiDialogueMessages.scss'
+import '../PendingAnswerMessage/PendingAnswerMessage.scss'
 import './WithAvatarMessageWrapper.scss'
 import cn from 'classnames'
 
