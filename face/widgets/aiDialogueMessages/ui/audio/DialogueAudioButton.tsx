@@ -7,7 +7,6 @@ import { PlaySmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/PlaySma
 import { StopSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/StopSmallButtonIcon'
 import { WarningSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/WarningSmallButtonIcon'
 import { useDialogueAudioButton } from './fn/useDialogueAudioButton'
-import './DialogueAudioButton.scss'
 
 type DialogueAudioButtonProps = {
 	address: DialogueAudioAddress

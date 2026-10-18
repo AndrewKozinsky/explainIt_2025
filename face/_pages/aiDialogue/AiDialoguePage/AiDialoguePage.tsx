@@ -14,6 +14,9 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
 import AiDialogueMessageList from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
 import { DialogueAudioProvider } from '@/widgets/aiDialogueMessages/ui/audio/DialogueAudioContext'
+import AiDialogueSettings, {
+	type AiDialogueTextLevel,
+} from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
 import { PhraseDictionary } from '@/widgets/dictionary'
 import { resolveAiDialogueTurnError } from '_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError'
 import { useAiDialogueStream } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream'
@@ -30,6 +33,7 @@ type Props = {
 export default function AiDialoguePage({ dialogueId }: Props) {
 	const locale = useLocale()
 	const [showText, setShowText] = useState(false)
+	const [textLevel, setTextLevel] = useState<AiDialogueTextLevel>('A1')
 
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 
@@ -62,17 +66,6 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 				leftBlock={
 					<AiDialogueLeftWrapper>
 						<>
-							{audio.state.blocked && (
-								<button
-									type='button'
-									className='dialogue-audio-unlock'
-									onClick={function () {
-										audio.player.unlock()
-									}}
-								>
-									Включить звук
-								</button>
-							)}
 							{turnError && <ErrorMessage text={resolveAiDialogueTurnError(turnError)} />}
 							<AiDialogueMessageList
 								key={dialogueId}
@@ -106,7 +99,14 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 									{ type: 'ai_dialog', text: 'Диалог', content: <p>{selectedSentence}</p> },
 								]}
 							/>
-							<p>123456789001</p>
+							<AiDialogueSettings
+								textLevel={textLevel}
+								onTextLevelChange={setTextLevel}
+								showText={showText}
+								onShowTextChange={setShowText}
+								audioBlocked={audio.state.blocked}
+								onUnlockAudio={() => audio.player.unlock()}
+							/>
 						</SeparatedStack>
 					</ViewportSyncedHeight>
 				}
