@@ -5,7 +5,13 @@ import './PendingAnswerMessage.scss'
  * или ещё не пришёл).
  */
 function PendingAnswerMessage() {
-	return <div className='pending-answer-message'>Ответ от ИИ готовится…</div>
+	return (
+		<div className='pending-answer-message'>
+			<span className='pending-answer-message__text' data-text='Ожидание ответа…'>
+				Ожидание ответа…
+			</span>
+		</div>
+	)
 }
 
 export default PendingAnswerMessage

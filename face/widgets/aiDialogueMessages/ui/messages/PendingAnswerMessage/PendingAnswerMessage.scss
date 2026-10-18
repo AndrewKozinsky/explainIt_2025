@@ -1,4 +1,27 @@
+@use '@/styles/inherit' as inh;
+
 .pending-answer-message {
+}
+
+.pending-answer-message__text {
 	font-style: italic;
-	opacity: 0.6;
+
+	@include inh.ai-shimmer-text();
+	animation: pending-answer-appear 600ms ease-out both;
+
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+}
+
+@keyframes pending-answer-appear {
+	from {
+		opacity: 0;
+		transform: translateY(1.2rem);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }

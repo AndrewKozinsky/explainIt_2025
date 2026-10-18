@@ -59,7 +59,7 @@ function AiDialogueMessageList({
 				{savedMessages}
 
 				{isGenerating && preview.length === 0 && <PendingAnswerMessage />}
-
+				<PendingAnswerMessage />
 				{previewMessages}
 			</div>
 		</DialogueVisualsProvider>
