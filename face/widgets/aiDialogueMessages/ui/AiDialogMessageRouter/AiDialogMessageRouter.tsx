@@ -1,11 +1,11 @@
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
-import HelpMessage from '../messages/HelpMessage'
+import HelpMessage from '../messages/HelpMessage/HelpMessage'
 import NpcMessage from '../messages/NpcMessage/NpcMessage'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import SceneUpdateMessage from '../messages/SceneUpdateMessage/SceneUpdateMessage'
-import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage'
+import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage/UserAvoidsNpcMessage'
 import WorldEventMessage from '../messages/WorldEventMessage/WorldEventMessage'
 
 type AiDialogMessageRouterProps = {
@@ -52,14 +52,7 @@ function AiDialogMessageRouter({
 	}
 
 	if (event.type === 'help') {
-		return (
-			<HelpMessage
-				{...mapping}
-				content={event.content}
-				translation={event.translation}
-				onWordSelect={onWordSelect}
-			/>
-		)
+		return <HelpMessage content={event.content} />
 	}
 
 	if (event.type === 'worldEvent') {

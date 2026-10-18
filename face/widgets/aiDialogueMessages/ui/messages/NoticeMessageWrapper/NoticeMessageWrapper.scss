@@ -1,0 +1,29 @@
+@use '@/styles/variables' as vars;
+
+.notice-message {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 4.4rem;
+	padding: .8rem 1.6rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+	color: vars.$grayColor-5;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+
+.notice-message__text {
+	flex: 1;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.notice-message__icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 1.9rem;
+}
