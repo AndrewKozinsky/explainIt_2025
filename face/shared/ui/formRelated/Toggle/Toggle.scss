@@ -1,5 +1,11 @@
 @use '@/styles/variables' as vars;
 
+@property --toggle-progress {
+	syntax: '<number>';
+	inherits: false;
+	initial-value: 0;
+}
+
 .toggle {
 	position: relative;
 	display: inline-flex;
@@ -41,6 +47,8 @@
 }
 
 .toggle__thumb {
+	--toggle-progress: 0;
+
 	position: absolute;
 	top: .3rem;
 	left: .3rem;
@@ -49,14 +57,17 @@
 	border-radius: 50%;
 	background-color: white;
 	box-shadow: 0 1px 0 rgba(0, 0, 0, .05), 0 0 2px rgba(0, 0, 0, .15);
-	transition: transform .15s ease;
+	// Ширина достигает 130% в середине пути и возвращается к 100% на концах.
+	transform: translateX(calc(1.7rem * var(--toggle-progress)))
+		scaleX(calc(1 + 1.2 * var(--toggle-progress) * (1 - var(--toggle-progress))));
+	transition: --toggle-progress .24s ease-in-out;
 }
 
 .toggle__input:checked + .toggle__track {
 	background-color: vars.$successColor-3;
 
 	.toggle__thumb {
-		transform: translateX(1.7rem);
+		--toggle-progress: 1;
 	}
 }
 
@@ -66,6 +77,7 @@
 
 	.toggle__thumb {
 		box-shadow: none;
+		transition: none;
 	}
 }
 
