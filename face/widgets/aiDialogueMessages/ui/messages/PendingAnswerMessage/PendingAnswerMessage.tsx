@@ -6,9 +6,12 @@ import './PendingAnswerMessage.scss'
  */
 function PendingAnswerMessage() {
 	return (
-		<div className='pending-answer-message'>
-			<span className='pending-answer-message__text' data-text='Ожидание ответа…'>
-				Ожидание ответа…
+		<div className='pending-answer-message' role='status' aria-label='Ожидание ответа'>
+			<span className='pending-answer-message__text' aria-hidden='true'>
+				<span className='pending-answer-message__label' data-text='Ожидание ответа'>
+					Ожидание ответа
+				</span>
+				<span className='pending-answer-message__dots'>...</span>
 			</span>
 		</div>
 	)
