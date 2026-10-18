@@ -9,6 +9,7 @@ import { MediaStoreProvider } from '@/entities/media/store/MediaStoreContext'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import VideoControls from '@/entities/videoControls/VideoControls/VideoControls'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import SeparatedStack from '@/shared/ui/SeparatedStack/SeparatedStack'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import RecommendedVideos from '@/widgets/video/RecommendedVideos/RecommendedVideos'
@@ -76,14 +77,16 @@ function VideoPage(props: VideoRootProps) {
 				}
 				rightBlock={
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
-						<DetailsBlock
-							tabs={[
-								{ type: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },
-								{ type: 'words', text: 'Фразы', content: <MediaPhrasesContent /> },
-								{ type: 'ai_dialog', text: 'Диалог', content: <MediaDialogContent /> },
-							]}
-						/>
-						<VideoControls {...videoControls} />
+						<SeparatedStack>
+							<DetailsBlock
+								tabs={[
+									{ type: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },
+									{ type: 'words', text: 'Фразы', content: <MediaPhrasesContent /> },
+									{ type: 'ai_dialog', text: 'Диалог', content: <MediaDialogContent /> },
+								]}
+							/>
+							<VideoControls {...videoControls} />
+						</SeparatedStack>
 					</ViewportSyncedHeight>
 				}
 				footer={video.youtubeVideoId && <RecommendedVideos videoId={videoId} />}

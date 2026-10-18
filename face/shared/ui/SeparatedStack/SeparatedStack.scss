@@ -1,0 +1,15 @@
+@use '@/styles/variables' as vars;
+
+.separated-stack {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	height: 100%;
+	min-height: 0;
+}
+
+.separated-stack__divider {
+	flex-shrink: 0;
+	height: 1px;
+	background-color: vars.$grayColor-2;
+}

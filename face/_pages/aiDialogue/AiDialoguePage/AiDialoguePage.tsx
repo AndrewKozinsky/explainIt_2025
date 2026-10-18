@@ -7,6 +7,7 @@ import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBl
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
+import SeparatedStack from '@/shared/ui/SeparatedStack/SeparatedStack'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
@@ -87,21 +88,24 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 				}
 				rightBlock={
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
-						<DetailsBlock
-							tabs={[
-								{
-									type: 'dictionary',
-									text: 'Словарь',
-									content: (
-										<PhraseDictionary
-											languageCode={dialogue.sourceLanguageCode}
-											currentWord={selectedWord ?? undefined}
-										/>
-									),
-								},
-								{ type: 'ai_dialog', text: 'Диалог', content: <p>{selectedSentence}</p> },
-							]}
-						/>
+						<SeparatedStack>
+							<DetailsBlock
+								tabs={[
+									{
+										type: 'dictionary',
+										text: 'Словарь',
+										content: (
+											<PhraseDictionary
+												languageCode={dialogue.sourceLanguageCode}
+												currentWord={selectedWord ?? undefined}
+											/>
+										),
+									},
+									{ type: 'ai_dialog', text: 'Диалог', content: <p>{selectedSentence}</p> },
+								]}
+							/>
+							<p>123456789001</p>
+						</SeparatedStack>
 					</ViewportSyncedHeight>
 				}
 			/>
