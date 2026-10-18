@@ -1,11 +1,9 @@
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import Toggle from '@/shared/ui/formRelated/Toggle/Toggle'
-import Switcher from '@/shared/ui/Switcher/Switcher'
+import ShowTextToggle from './ShowTextToggle'
+import TextLevelSwitcher, { type AiDialogueTextLevel } from './TextLevelSwitcher'
+import UnlockAudioButton from './UnlockAudioButton'
 import './AiDialogueSettings.scss'
 
-const textLevels = ['A1', 'A2', 'B1', 'B2', 'Any'] as const
-
-export type AiDialogueTextLevel = (typeof textLevels)[number]
+export type { AiDialogueTextLevel } from './TextLevelSwitcher'
 
 type AiDialogueSettingsProps = {
 	textLevel: AiDialogueTextLevel
@@ -22,26 +20,9 @@ function AiDialogueSettings(props: AiDialogueSettingsProps) {
 	return (
 		<section className='ai-dialogue-settings' aria-label='Settings'>
 			<h2 className='ai-dialogue-settings__heading'>Settings</h2>
-			<Switcher
-				label='Text level:'
-				type='fit'
-				orientation='horizontal'
-				items={textLevels.map((level) => ({
-					text: level,
-					isCurrent: textLevel === level,
-					onClick: () => onTextLevelChange(level),
-				}))}
-			/>
-			<Toggle
-				label='Show text'
-				checked={showText}
-				inputProps={{ onChange: (event) => onShowTextChange(event.target.checked) }}
-			/>
-			{audioBlocked && (
-				<Button theme='outline' size='small' onClick={onUnlockAudio}>
-					Включить звук
-				</Button>
-			)}
+			<TextLevelSwitcher textLevel={textLevel} onTextLevelChange={onTextLevelChange} />
+			<ShowTextToggle showText={showText} onShowTextChange={onShowTextChange} />
+			<UnlockAudioButton audioBlocked={audioBlocked} onUnlockAudio={onUnlockAudio} />
 		</section>
 	)
 }
