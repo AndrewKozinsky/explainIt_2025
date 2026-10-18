@@ -16,6 +16,10 @@
 	.ai-dialogue-text-with-translation__translation {
 		color: vars.$grayColor-5;
 	}
+
+	.ai-dialogue-message-with-avatar__actions .ai-dialogue-text-with-translation__text {
+		color: vars.$grayColor-6;
+	}
 }
 
 .dialogue-npc-avatar {

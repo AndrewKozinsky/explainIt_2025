@@ -12,17 +12,17 @@ import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiD
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import DialogueNpcAvatar from './DialogueNpcAvatar'
-import { groupNpcDialogueActions } from './fn/groupNpcDialogueActions'
+import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAndActions'
 import './NpcMessage.scss'
 
-type NpcActionsMessageProps = {
+type NpcMessageProps = {
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	wordMap?: AiDialogueWordMap
 	npcId?: string
 	npcName?: string
 	npcRole?: string
 	emotion?: string
-	actions?: AiDialoguePreviewActionItem[]
+	speechAndActions?: AiDialoguePreviewActionItem[]
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
@@ -32,19 +32,19 @@ function NpcMessage({
 	npcName = '',
 	npcRole = '',
 	emotion = '',
-	actions = [],
+	speechAndActions = [],
 	onWordSelect,
 	wordMap,
-}: NpcActionsMessageProps) {
-	const content = actions.map((action, index) => {
+}: NpcMessageProps) {
+	const content = speechAndActions.map((item, index) => {
 		const textProps = {
-			content: action.content ?? '',
-			translation: action.translation ?? '',
+			content: item.content ?? '',
+			translation: item.translation ?? '',
 			wordMap: wordMap?.status === 'ready' ? wordMap.blocks[`action:${index}`] : undefined,
 			onWordSelect,
 		}
 
-		if (action.type !== 'speech') {
+		if (item.type !== 'speech') {
 			return <NpcActionText key={index} {...textProps} />
 		}
 
@@ -59,7 +59,7 @@ function NpcMessage({
 			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}
-			contentGroups={groupNpcDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
+			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(({ key, speechIndex, actionIndex }) => ({
 				key,
 				speech: speechIndex !== undefined ? content[speechIndex] : undefined,
 				actions: actionIndex !== undefined ? content[actionIndex] : undefined,

@@ -75,7 +75,7 @@ function AiDialogMessageRouter({
 				npcName={event.npcName}
 				npcRole={event.npcRole}
 				emotion={event.emotion}
-				actions={event.actions}
+				speechAndActions={event.actions}
 				onWordSelect={onWordSelect}
 			/>
 		)
