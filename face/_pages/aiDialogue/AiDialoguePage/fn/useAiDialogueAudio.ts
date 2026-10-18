@@ -3,6 +3,7 @@ import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { aiDialogueQueries, aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { DialogueAudioPlayer } from '@/entities/aiDialogue/audio/DialogueAudioPlayer'
 import type { DialogueAudioEvent } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { getAudioRefreshInterval, hasPendingDialogueAudio } from './audioRefreshPolicy'
 import type { DialogueAudioStreamHandlers } from './openAiDialogueStream'
 
 /** REST repairs missed SSE notifications; a ready SSE item is playable without waiting for REST. */
@@ -24,6 +25,8 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 
 	const refreshTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 	const epoch = useRef(0)
+	const pendingSince = useRef<number | null>(null)
+
 	const subscribe = useCallback(
 		function (listener: () => void) {
 			return player.subscribe(listener)
@@ -39,6 +42,7 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 	)
 
 	const state = useSyncExternalStore(subscribe, getState, getState)
+
 	const query = useQuery({
 		...aiDialogueQueries.getAudio(dialogueId),
 		enabled,
@@ -50,25 +54,11 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 		refetchIntervalInBackground: false,
 		refetchInterval: function (current) {
 			const snapshot = current.state.data
-			if (!snapshot || current.state.error) return 5000
-			if (
-				snapshot.attempts.some(function (attempt) {
-					return attempt.status === 'active'
-				})
-			)
-				return 2000
-			if (
-				snapshot.items.some(function (item) {
-					return item.status === 'queued' || item.status === 'generating'
-				})
-			)
-				return 2000
-			const dates = snapshot.items
-				.map(function (item) {
-					return Date.parse(item.urlsExpireAt ?? '')
-				})
-				.filter(Number.isFinite)
-			return dates.length ? Math.max(1000, Math.min(...dates) - Date.now() - 60_000) : false
+			const now = Date.now()
+			const pending = hasPendingDialogueAudio(snapshot) || !snapshot || Boolean(current.state.error)
+			if (!pending) pendingSince.current = null
+			else if (pendingSince.current === null) pendingSince.current = now
+			return getAudioRefreshInterval(snapshot, pendingSince.current ?? now, now, Boolean(current.state.error))
 		},
 	})
 
@@ -83,6 +73,7 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 					.find({ queryKey, exact: true })
 					?.promise?.catch(function () {})
 				if (version !== epoch.current) return
+
 				refreshTimer.current = null
 				void queryClient.invalidateQueries({ queryKey, exact: true }, { cancelRefetch: false })
 			}, 100)
@@ -101,6 +92,7 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 			})
 			return function () {
 				epoch.current += 1
+				pendingSince.current = null
 				if (refreshTimer.current !== null) clearTimeout(refreshTimer.current)
 				refreshTimer.current = null
 				player.dispose()
@@ -116,15 +108,25 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 		[player, query.data],
 	)
 
+	const handleAudioEvent = useCallback(
+		function (event: DialogueAudioEvent) {
+			if (event.type === 'audioAttemptStarted') {
+				pendingSince.current = Date.now()
+				player.startAttempt(event.attemptId, event.turnId)
+			} else if (event.type === 'audioAttemptCancelled') player.cancelAttempt(event.attemptId)
+			else if (event.type === 'audioReady') player.mergeItem(event.audio)
+			else {
+				if (event.type === 'audioQueued') pendingSince.current = Date.now()
+				refresh()
+			}
+		},
+		[player, refresh],
+	)
+
 	const handlers: DialogueAudioStreamHandlers = useMemo(
 		function () {
 			return {
-				event: function (event: DialogueAudioEvent) {
-					if (event.type === 'audioAttemptStarted') player.startAttempt(event.attemptId, event.turnId)
-					else if (event.type === 'audioAttemptCancelled') player.cancelAttempt(event.attemptId)
-					else if (event.type === 'audioReady') player.mergeItem(event.audio)
-					else refresh()
-				},
+				event: handleAudioEvent,
 				targets: function (attemptId, targets) {
 					player.registerTargets(attemptId, targets)
 				},
@@ -134,7 +136,7 @@ export function useAiDialogueAudio(dialogueId: number, enabled: boolean) {
 				},
 			}
 		},
-		[player, refresh],
+		[player, refresh, handleAudioEvent],
 	)
 
 	return { player, state, handlers }

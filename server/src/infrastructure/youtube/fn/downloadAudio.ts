@@ -1,12 +1,10 @@
 import { ChildProcess } from 'child_process'
-import { Readable } from 'stream'
+import { PassThrough, Readable } from 'stream'
 import { Logger } from '@nestjs/common'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-
 // youtube-dl-exec has ESM/CJS interop issues with webpack — use require to bypass
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const youtubedl: typeof import('youtube-dl-exec').default = require('youtube-dl-exec')
 
 const LOGGER_CONTEXT = 'YoutubeService'
@@ -41,39 +39,50 @@ export function downloadAudio(videoId: string): Promise<Readable> {
 			{ stdio: ['ignore', 'pipe', 'pipe'] },
 		)
 
-		// TinyspawnPromise extends both Promise and ChildProcess, but TypeScript
-		// intersection makes stdout type `never`. Cast to ChildProcess to access
-		// the Readable stream (available until the process exits).
-		const stdout = (child as unknown as ChildProcess).stdout as Readable
+		// Tinyspawn is both a child process and a rejecting Promise. Event listeners alone
+		// do not handle that Promise: an unavailable video used to crash the entire worker.
+		const process = child as unknown as ChildProcess
+		const stdout = process.stdout as Readable
+		const output = new PassThrough()
+		let completed = false
+		let failed = false
 
-		child.on('error', (err) => {
-			Logger.error(`yt-dlp failed to start for video ${videoId}: ${err.message}`, err.stack, LOGGER_CONTEXT)
-			reject(new CustomError(errorMessage.youtube.audioDownloadFailed, ErrorStatusCode.InternalServerError_500))
+		// A spawn failure may precede the consumer attaching pipeline(). The stored
+		// stream error still reaches that consumer, without an unhandled error event.
+		output.on('error', () => undefined)
+
+		const fail = () => {
+			if (failed) return
+
+			failed = true
+			Logger.error(`yt-dlp audio download failed for video ${videoId}`, undefined, LOGGER_CONTEXT)
+			const error = new CustomError(
+				errorMessage.youtube.audioDownloadFailed,
+				ErrorStatusCode.InternalServerError_500,
+			)
+
+			stdout.unpipe(output)
+			output.destroy(error)
+			reject(error)
+		}
+
+		stdout.on('error', fail)
+		// stdout can end before the process reports a non-zero exit. Keep the public
+		// stream open until successful process completion, including partial downloads.
+		stdout.pipe(output, { end: false })
+		child.once('error', fail)
+		child.once('spawn', () => resolve(output))
+
+		void child.then(() => {
+			completed = true
+			if (!failed) output.end()
+		}, fail)
+
+		output.once('close', () => {
+			if (!completed) child.kill('SIGTERM')
 		})
 
-		child.on('spawn', () => {
-			resolve(stdout)
-		})
-
-		// Если yt-dlp упал до начала передачи данных — уничтожаем поток с ошибкой.
-		// Если данные уже пошли, потребитель увидит преждевременный конец.
-		let dataStarted = false
-
-		stdout.once('data', () => {
-			dataStarted = true
-		})
-
-		child.on('close', (code) => {
-			if (code !== 0 && !dataStarted) {
-				Logger.error(`yt-dlp exited with code ${code} for video ${videoId}`, undefined, LOGGER_CONTEXT)
-				stdout.destroy(
-					new CustomError(errorMessage.youtube.audioDownloadFailed, ErrorStatusCode.InternalServerError_500),
-				)
-			}
-		})
-
-		// stderr yt-dlp — информационные сообщения и прогресс
-		const stderr = (child as unknown as ChildProcess).stderr as Readable
+		const stderr = process.stderr as Readable
 		stderr.on('data', (chunk: Buffer) => {
 			Logger.debug(`yt-dlp [${videoId}]: ${chunk.toString().trim()}`, LOGGER_CONTEXT)
 		})

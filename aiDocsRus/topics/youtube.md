@@ -102,6 +102,18 @@ YouTube Data API требует параметр `q` (поисковый зап�
 | `mergeVideosWithDetails(...)`         | Шаг 4: сборка `YoutubeVideoData[]`                                        |
 | `request<T>(url)`                     | HTTP-запрос через `axios` с обработкой ошибок                             |
 
+### Жизненный цикл скачивания аудио
+
+`infrastructure/youtube/fn/downloadAudio.ts` обрабатывает и события процесса, и Promise,
+возвращаемый `youtube-dl-exec`: подписка только на error/close не перехватывает отклонение этого Promise.
+Недоступное видео завершает задание с `youtube.audioDownloadFailed`, сохраняя работу общего worker
+для остальных заданий, включая озвучки диалогов.
+
+Потребитель получает Readable через PassThrough. Завершение stdout ещё не означает успешное скачивание:
+выходной поток завершается только после успешного завершения процесса. Ошибка после частичного скачивания
+передаётся в pipeline, отмена потребителем останавливает yt-dlp. Эти случаи проверяются
+в `downloadAudio.spec.ts` с подменой дочернего процесса, без обращений к YouTube.
+
 ### Переменные окружения
 
 - `YOUTUBE_API_KEY` — API-ключ из [Google Cloud Console](https://console.cloud.google.com/apis/credentials). Должен быть
