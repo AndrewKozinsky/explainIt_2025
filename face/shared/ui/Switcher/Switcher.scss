@@ -2,6 +2,8 @@
 
 .switcher {
 	position: relative;
+	background: white;
+	border-radius: vars.$radius-1;
 }
 
 .switcher--fit {
