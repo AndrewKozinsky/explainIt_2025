@@ -2,7 +2,6 @@
 @use '@/styles/mixins' as mix;
 
 .ai-dialogue-message-scene-update {
-	container-type: inline-size;
 	color: white;
 	background: vars.$grayColor-4;
 	overflow: hidden;

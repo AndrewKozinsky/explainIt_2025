@@ -10,9 +10,9 @@ import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDia
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
-import { groupDialogueActions } from '../WithAvatarMessageWrapper/fn/groupDialogueActions'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import DialogueNpcAvatar from './DialogueNpcAvatar'
+import { groupNpcDialogueActions } from './fn/groupNpcDialogueActions'
 import './NpcMessage.scss'
 
 type NpcActionsMessageProps = {
@@ -59,7 +59,7 @@ function NpcMessage({
 			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}
-			contentGroups={groupDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
+			contentGroups={groupNpcDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
 				key,
 				speech: speechIndex !== undefined ? content[speechIndex] : undefined,
 				actions: actionIndex !== undefined ? content[actionIndex] : undefined,
