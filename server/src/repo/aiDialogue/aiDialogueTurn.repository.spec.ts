@@ -1,6 +1,11 @@
 jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
 
 import { PrismaService } from 'db/prisma.service'
+import { parseAiDialogueEvents } from 'features/aiDialogue/parseAiDialogueEvents'
+import {
+	buildImageGenerationInput,
+	parseImageGenerationSnapshot,
+} from 'features/aiDialogue/imageGeneration/buildImageGenerationPrompt'
 import { AiDialogueTurnRepository } from './aiDialogueTurn.repository'
 
 function createHarness() {
@@ -168,6 +173,52 @@ describe('AiDialogueTurnRepository', () => {
 			10,
 		])
 		expect(tx.aiDialogueMessage.create.mock.calls[1][0].data.character_id).toBe(10)
+	})
+
+	it('keeps a heard visitor out of the scene snapshot and image references', async () => {
+		const { repository, tx } = createHarness()
+		tx.aiDialogueCharacter.findUnique.mockResolvedValue(null)
+		tx.aiDialogueCharacter.create.mockResolvedValue({ id: 10, appearance: 'dark hair' })
+		tx.aiDialogueMessage.create.mockResolvedValueOnce({ id: 101 }).mockResolvedValueOnce({ id: 102 })
+		tx.imageGenerationJob.create.mockResolvedValue({ id: 30 })
+		const visualDescription =
+			'The participant is inside their apartment facing the closed opaque front door. The visitor is outside, entirely out of view. Interior camera; no hallway is visible.'
+		const turn = parseAiDialogueEvents(
+			[
+				'sceneUpdate',
+				'You hear a knock at your apartment door.',
+				'Вы слышите стук во входную дверь своей квартиры.',
+				'participants:',
+				`visual:${visualDescription}`,
+				'',
+				'npcActions|npc_1|||neutral',
+				'appearance:',
+				'dark hair',
+				'speech:',
+				'Is anyone home?',
+				'Кто-нибудь дома?',
+			].join('\n'),
+		)
+
+		await repository.saveGeneratedTurn({ dialogueId: 5, turn })
+
+		const sceneJob = tx.imageGenerationJob.create.mock.calls.find(([args]) => args.data.type === 'scene')
+		const snapshot = parseImageGenerationSnapshot('scene', sceneJob![0].data.input)
+		expect(snapshot).toMatchObject({
+			visualDescription,
+			participantNpcIds: [],
+			participantCharacterIds: [],
+		})
+		expect(JSON.parse(tx.aiDialogueMessage.create.mock.calls[0][0].data.payload).participantNpcIds).toEqual([])
+		expect(tx.aiDialogueMessage.create.mock.calls[1][0].data.character_id).toBe(10)
+		const references = ['user', 'style'].map(
+			(value) => `data:image/png;base64,${Buffer.from(value).toString('base64')}`,
+		)
+		const imageInput = buildImageGenerationInput(snapshot, references)
+		expect(imageInput.references?.map((reference) => reference.bytes.toString())).toEqual(['user', 'style'])
+		expect(imageInput.prompt).toContain(visualDescription)
+		expect(imageInput.prompt).toContain('Image 2 supplies visual style only')
+		expect(imageInput.prompt).not.toContain('Image 2 is NPC')
 	})
 
 	it('keeps user messages without an NPC author and creates no image job for them', async () => {
