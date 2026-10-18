@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useRef } from 'react'
-import { useDialogueTextVisibilityStore } from '@/widgets/aiDialogueMessages/model/textVisibilityStore'
 import { useAiDialogueStore } from '../../aiDialogueStore'
 import { openAiDialogueStream, type DialogueAudioStreamHandlers } from './openAiDialogueStream'
 
@@ -22,7 +21,6 @@ export function useAiDialogueStream(
 		function () {
 			if (!enabled) return
 
-			useDialogueTextVisibilityStore.getState().initializeDialogue()
 			useAiDialogueStore.getState().clearStore()
 			eventSourceRef.current = openAiDialogueStream(dialogueId, onVisualsChanged, audio)
 

@@ -16,7 +16,6 @@ import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAnd
 import './NpcMessage.scss'
 
 type NpcMessageProps = {
-	textVisibilityKey: string
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	wordMap?: AiDialogueWordMap
 	npcId?: string
@@ -28,7 +27,6 @@ type NpcMessageProps = {
 }
 
 function NpcMessage({
-	textVisibilityKey,
 	audioAddress,
 	npcId,
 	npcName = '',
@@ -51,12 +49,7 @@ function NpcMessage({
 		}
 
 		return (
-			<AiDialogueContentBlock
-				key={index}
-				{...textProps}
-				textVisibilityKey={textVisibilityKey}
-				audioAddress={{ ...audioAddress, actionIndex: index }}
-			/>
+			<AiDialogueContentBlock key={index} {...textProps} audioAddress={{ ...audioAddress, actionIndex: index }} />
 		)
 	})
 

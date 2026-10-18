@@ -8,7 +8,6 @@ import DialogueSceneImage from './DialogueSceneImage'
 import './SceneUpdateMessage.scss'
 
 type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
-	textVisibilityKey: string
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	content?: string
 	translation?: string
@@ -18,7 +17,6 @@ type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
 }
 
 function SceneUpdateMessage({
-	textVisibilityKey,
 	audioAddress,
 	content = '',
 	translation = '',
@@ -32,7 +30,6 @@ function SceneUpdateMessage({
 			<DialogueSceneImage messageId={messageId} reserveSpace={reserveSpace} />
 			<div className='ai-dialogue-message-scene-update__content'>
 				<AiDialogueContentBlock
-					textVisibilityKey={textVisibilityKey}
 					colorScheme='light'
 					audioAddress={{ ...audioAddress, actionIndex: -1 }}
 					wordMap={wordMap}

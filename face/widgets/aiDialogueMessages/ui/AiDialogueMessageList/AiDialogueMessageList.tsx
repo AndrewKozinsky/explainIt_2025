@@ -1,9 +1,4 @@
 import type { AiDialogueVisualsModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
-import {
-	messageTextVisibilityKey,
-	previewTextVisibilityKey,
-	useDialogueTextVisibilityStore,
-} from '@/widgets/aiDialogueMessages/model/textVisibilityStore'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
@@ -37,13 +32,11 @@ function AiDialogueMessageList({
 	recoverImage,
 }: AiDialogueMessageListProps) {
 	const audio = useDialogueAudio()
-	const previewGeneration = useDialogueTextVisibilityStore((state) => state.previewGeneration)
 
 	const savedMessages = messages.map((message) => (
 		<AiDialogMessageRouter
 			key={message.id}
 			messageId={message.id}
-			textVisibilityKey={messageTextVisibilityKey(message.id)}
 			event={message.payload}
 			reserveSceneSpace={message.payload.type === 'sceneUpdate' && Boolean(message.payload.visualDescription)}
 			onWordSelect={onWordSelect}
@@ -52,8 +45,7 @@ function AiDialogueMessageList({
 
 	const previewMessages = preview.map((event, index) => (
 		<AiDialogMessageRouter
-			key={`preview-${previewGeneration}-${index}`}
-			textVisibilityKey={previewTextVisibilityKey(previewGeneration, event.audioEventIndex ?? index)}
+			key={`preview-${index}`}
 			event={event}
 			audioAttemptId={audio?.state.attemptId}
 			audioEventIndex={event.audioEventIndex ?? index}

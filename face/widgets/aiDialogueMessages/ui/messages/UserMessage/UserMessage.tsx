@@ -2,7 +2,6 @@
 
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
-import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import { groupDialogueActions } from '../WithAvatarMessageWrapper/fn/groupDialogueActions'
@@ -16,18 +15,9 @@ type UserActionsMessageProps = {
 }
 
 function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
-	const content = actions.map((action, index) => {
-		const textProps = {
-			content: action.content ?? '',
-			onWordSelect,
-		}
-
-		if (action.type !== 'speech') {
-			return <UserActionText key={index} {...textProps} />
-		}
-
-		return <AiDialogueContentBlock key={index} {...textProps} />
-	})
+	const content = actions.map((action, index) => (
+		<UserMessageText key={index} content={action.content ?? ''} onWordSelect={onWordSelect} />
+	))
 
 	return (
 		<WithAvatarMessageWrapper
@@ -43,12 +33,12 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 	)
 }
 
-type UserActionTextProps = {
+type UserMessageTextProps = {
 	content: string
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
-function UserActionText({ content, onWordSelect }: UserActionTextProps) {
+function UserMessageText({ content, onWordSelect }: UserMessageTextProps) {
 	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({ content, onWordSelect })
 
 	return (
