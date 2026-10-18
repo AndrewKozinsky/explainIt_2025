@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { useDialogueTextVisibilityStore } from '@/widgets/aiDialogueMessages/model/textVisibilityStore'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 
@@ -37,7 +38,8 @@ const aiDialogueStoreValues: AiDialogueStoreValues = {
 export const useAiDialogueStore = create<AiDialogueStoreValues & AiDialogueStoreMethods>()((set) => ({
 	...aiDialogueStoreValues,
 
-	upsertMessage: (message) =>
+	upsertMessage: (message) => {
+		useDialogueTextVisibilityStore.getState().registerMessage(message)
 		set((state) => {
 			const messages = new Map(state.messages)
 
@@ -48,9 +50,13 @@ export const useAiDialogueStore = create<AiDialogueStoreValues & AiDialogueStore
 			messages.set(message.id, { ...message, payload: { ...message.payload, ...(wordMap ? { wordMap } : {}) } })
 
 			return { messages }
-		}),
+		})
+	},
 
-	setPreview: (preview) => set({ preview }),
+	setPreview: (preview) => {
+		if (preview.length) useDialogueTextVisibilityStore.getState().registerPreview(preview)
+		set({ preview })
+	},
 
 	setGenerating: (isGenerating) => set({ isGenerating }),
 

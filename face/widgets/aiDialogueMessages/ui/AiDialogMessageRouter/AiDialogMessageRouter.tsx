@@ -10,6 +10,7 @@ import WorldEventMessage from '../messages/WorldEventMessage/WorldEventMessage'
 
 type AiDialogMessageRouterProps = {
 	event: AiDialoguePreviewEvent
+	textVisibilityKey: string
 	onWordSelect: AiDialogueWordSelectHandler
 	messageId?: number
 	audioAttemptId?: string
@@ -26,6 +27,7 @@ type AiDialogMessageRouterProps = {
  */
 function AiDialogMessageRouter({
 	event,
+	textVisibilityKey,
 	onWordSelect,
 	messageId,
 	audioAttemptId,
@@ -40,6 +42,7 @@ function AiDialogMessageRouter({
 	if (event.type === 'sceneUpdate') {
 		return (
 			<SceneUpdateMessage
+				textVisibilityKey={textVisibilityKey}
 				audioAddress={audioAddress}
 				{...mapping}
 				messageId={messageId}
@@ -69,6 +72,7 @@ function AiDialogMessageRouter({
 	if (event.type === 'npcActions') {
 		return (
 			<NpcMessage
+				textVisibilityKey={textVisibilityKey}
 				audioAddress={audioAddress}
 				wordMap={event.wordMap}
 				npcId={event.npcId}

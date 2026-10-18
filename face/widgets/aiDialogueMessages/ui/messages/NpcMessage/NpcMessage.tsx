@@ -16,6 +16,7 @@ import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAnd
 import './NpcMessage.scss'
 
 type NpcMessageProps = {
+	textVisibilityKey: string
 	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	wordMap?: AiDialogueWordMap
 	npcId?: string
@@ -27,6 +28,7 @@ type NpcMessageProps = {
 }
 
 function NpcMessage({
+	textVisibilityKey,
 	audioAddress,
 	npcId,
 	npcName = '',
@@ -49,7 +51,12 @@ function NpcMessage({
 		}
 
 		return (
-			<AiDialogueContentBlock key={index} {...textProps} audioAddress={{ ...audioAddress, actionIndex: index }} />
+			<AiDialogueContentBlock
+				key={index}
+				{...textProps}
+				textVisibilityKey={textVisibilityKey}
+				audioAddress={{ ...audioAddress, actionIndex: index }}
+			/>
 		)
 	})
 
@@ -59,11 +66,13 @@ function NpcMessage({
 			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
 			name={npcName}
 			role={npcRole}
-			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(({ key, speechIndex, actionIndex }) => ({
-				key,
-				speech: speechIndex !== undefined ? content[speechIndex] : undefined,
-				actions: actionIndex !== undefined ? content[actionIndex] : undefined,
-			}))}
+			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(
+				({ key, speechIndex, actionIndex }) => ({
+					key,
+					speech: speechIndex !== undefined ? content[speechIndex] : undefined,
+					actions: actionIndex !== undefined ? content[actionIndex] : undefined,
+				}),
+			)}
 		/>
 	)
 }

@@ -12,6 +12,7 @@ import SeparatedStack from '@/shared/ui/SeparatedStack/SeparatedStack'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
+import { useDialogueTextVisibilityStore } from '@/widgets/aiDialogueMessages/model/textVisibilityStore'
 import AiDialogueMessageList from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
 import { DialogueAudioProvider } from '@/widgets/aiDialogueMessages/ui/audio/DialogueAudioContext'
 import AiDialogueSettings, {
@@ -32,7 +33,8 @@ type Props = {
 
 export default function AiDialoguePage({ dialogueId }: Props) {
 	const locale = useLocale()
-	const [showText, setShowText] = useState(false)
+	const showText = useDialogueTextVisibilityStore((state) => state.showTextForNewMessages)
+	const setShowText = useDialogueTextVisibilityStore((state) => state.setShowTextForNewMessages)
 	const [textLevel, setTextLevel] = useState<AiDialogueTextLevel>('A1')
 
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))

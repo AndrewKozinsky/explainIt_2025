@@ -13,6 +13,7 @@ import { useDialogueTextVisibility } from './fn/useDialogueTextVisibility'
 import './AiDialogueContentBlock.scss'
 
 type AiDialogueContentBlockProps = AiDialogueTextMappingProps & {
+	textVisibilityKey?: string
 	audioAddress?: DialogueAudioAddress
 	colorScheme?: 'dark' | 'light'
 	content: string
@@ -21,6 +22,7 @@ type AiDialogueContentBlockProps = AiDialogueTextMappingProps & {
 }
 
 function AiDialogueContentBlock({
+	textVisibilityKey,
 	content,
 	translation,
 	onWordSelect,
@@ -28,7 +30,11 @@ function AiDialogueContentBlock({
 	audioAddress,
 	colorScheme = 'dark',
 }: AiDialogueContentBlockProps) {
-	const { isTextVisible, toggleTextVisibility } = useDialogueTextVisibility()
+	const { isTextVisible, toggleTextVisibility } = useDialogueTextVisibility(
+		textVisibilityKey,
+		audioAddress?.actionIndex ?? -1,
+	)
+
 	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({
 		content,
 		onWordSelect,

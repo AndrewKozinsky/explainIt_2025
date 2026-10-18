@@ -1,5 +1,6 @@
 import type { DialogueAudioEvent, DialogueAudioTarget } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { getCompletedAudioTargets } from '@/entities/aiDialogue/audio/getCompletedAudioTargets'
+import { useDialogueTextVisibilityStore } from '@/widgets/aiDialogueMessages/model/textVisibilityStore'
 import type { AiDialogueStreamEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { parseAiDialoguePreview } from '_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '../../aiDialogueStore'
@@ -69,6 +70,7 @@ export function openAiDialogueStream(
 		}
 
 		if (parsed.type === 'turnStarted') {
+			useDialogueTextVisibilityStore.getState().beginPreview()
 			// Генерация хода началась (до первого chunk): показываем «ответ готовится».
 			// Сбрасываем превью и ошибку прошлого хода — как это делает первый chunk.
 			accumulated = ''
@@ -80,6 +82,7 @@ export function openAiDialogueStream(
 
 		if (parsed.type === 'chunk') {
 			if (!store.isGenerating) {
+				useDialogueTextVisibilityStore.getState().beginPreview()
 				// Начало нового хода — сбрасываем текст предыдущего и его ошибку.
 				accumulated = ''
 				store.setTurnError(null)
@@ -96,6 +99,7 @@ export function openAiDialogueStream(
 		}
 
 		if (parsed.type === 'turnReset') {
+			useDialogueTextVisibilityStore.getState().beginPreview()
 			if (attemptId) audio?.disconnect()
 			attemptId = undefined
 			// Сервер начал повторную попытку генерации: выбрасываем превью неудачной
@@ -111,11 +115,16 @@ export function openAiDialogueStream(
 		}
 
 		if (parsed.type === 'turnDone') {
-			if (attemptId) audio?.targets(attemptId, getCompletedAudioTargets(accumulated + '\n'))
+			useDialogueTextVisibilityStore.getState().beginPreview()
+			if (attemptId) {
+				audio?.targets(attemptId, getCompletedAudioTargets(accumulated + '\n'))
+			}
+
 			audio?.refresh()
 			accumulated = ''
 			store.setPreview([])
 			store.setGenerating(false)
+
 			return
 		}
 	}
