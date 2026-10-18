@@ -82,15 +82,15 @@ export const aiDialogueScenarios: AiDialogueScenarioSeedData[] = [
 			ru: 'Стук в дверь',
 		}),
 		description: localized({
-			en: 'You are in your apartment when someone knocks at the front door. You do not know who is on the other side.',
-			es: 'Estás en tu apartamento cuando alguien llama a la puerta de entrada. No sabes quién está al otro lado.',
-			fr: 'Vous êtes dans votre appartement quand quelqu’un frappe à la porte d’entrée. Vous ne savez pas qui est de l’autre côté.',
-			de: 'Sie sind in Ihrer Wohnung, als jemand an die Wohnungstür klopft. Sie wissen nicht, wer auf der anderen Seite steht.',
-			it: 'Sei nel tuo appartamento quando qualcuno bussa alla porta di ingresso. Non sai chi ci sia dall’altra parte.',
-			tr: 'Dairenizdesiniz ve birisi giriş kapısını çalıyor. Kapının arkasında kimin olduğunu bilmiyorsunuz.',
-			ru: 'Вы находитесь у себя в квартире, когда раздаётся стук во входную дверь. Кто за дверью — неизвестно.',
+			en: 'You are at home when someone knocks at the front door. You open it and discover who has come.',
+			es: 'Estás en casa cuando alguien llama a la puerta de entrada. La abres y descubres quién ha venido.',
+			fr: 'Vous êtes chez vous quand quelqu’un frappe à la porte d’entrée. Vous ouvrez et découvrez qui est là.',
+			de: 'Sie sind zu Hause, als jemand an die Wohnungstür klopft. Sie öffnen die Tür und sehen, wer gekommen ist.',
+			it: 'Sei a casa quando qualcuno bussa alla porta di ingresso. Apri e scopri chi è venuto.',
+			tr: 'Evdesiniz ve birisi giriş kapısını çalıyor. Kapıyı açıp kimin geldiğini görüyorsunuz.',
+			ru: 'Вы у себя дома и слышите стук во входную дверь. Вы открываете её и видите, кто пришёл.',
 		}),
 		systemPrompt:
-			"The participant is inside their own apartment when someone knocks at the closed front door. Begin with the sound of knocking, leaving the visitor's identity and reason for coming unknown to the participant. Privately choose a plausible visitor with a consistent personality and reason for being there. Reveal who they are and what they want only through what the participant can hear or observe as the interaction unfolds. Do not reveal the visitor through scene narration or help before the participant discovers them. Let the participant decide whether to ask who is there, look through the peephole, open the door, ignore the knock, or do something else; never assume or narrate these actions for them. Respond naturally to their choices and let the encounter develop from both people's contributions. Stay in character.",
+			"The participant is at home in their own apartment. The predefined opening is: they hear a knock at the front door, open it, and see what is outside. Narrate this brief sequence in the opening sceneUpdate without waiting for a separate participant action to open the door. You choose who is at the door and why they have come; no visitor identity, role, appearance or purpose is prescribed. Give the visitor a consistent personality and a plausible reason for being there, and let the participant discover more through the encounter. The opening sceneUpdate's visual must depict the final moment of this sequence: the door is already open, the participant remains inside their apartment at the threshold, and the visitor is visible outside. Include the visible visitor's npcId in participants. Begin the visitor's natural reaction or greeting, then leave the participant free to respond. Opening the door is the only predefined participant action; do not invent further speech, decisions, invitations or consent for them. Respond naturally to their choices and stay in character.",
 	},
 ]
