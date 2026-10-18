@@ -68,7 +68,7 @@ type AiDialogueScenarioSeedData = {
 function localized(translations: Partial<Record<Language, string>>): string
 ```
 
-Сценарии (`englishScenarios`): `at-the-dentist`, `passport-control`, `pool-membership`. `title` и `description`
+Сценарии (`aiDialogueScenarios`): `at-the-dentist`, `passport-control`, `pool-membership`, `knock-at-the-door`. `title` и `description`
 заданы через `localized({ en, es, fr, de, it, tr, ru })` — сразу на 7 языков. `systemPrompt` — один языконейтральный
 английский текст с ролями и ситуацией. NPC говорят естественно для своей роли и обстановки,
 без ограничения уровня языка и исправления ошибок участника. Указание уровня удалено и из описаний карточек.

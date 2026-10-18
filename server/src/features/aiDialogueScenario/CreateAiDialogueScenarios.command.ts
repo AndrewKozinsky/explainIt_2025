@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { AiDialogueScenarioSeedData } from './common'
-import { englishScenarios } from './english/scenarios'
+import { aiDialogueScenarios } from './english/scenarios'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
 	constructor() {}
@@ -18,7 +18,7 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 	}
 
 	getScenariosData(): AiDialogueScenarioSeedData[] {
-		return [...englishScenarios]
+		return [...aiDialogueScenarios]
 	}
 
 	async getOrCreateScenario(scenarioData: AiDialogueScenarioSeedData) {

@@ -1,6 +1,6 @@
 import { AiDialogueScenarioSeedData, localized } from '../common'
 
-export const englishScenarios: AiDialogueScenarioSeedData[] = [
+export const aiDialogueScenarios: AiDialogueScenarioSeedData[] = [
 	{
 		slug: 'at-the-dentist',
 		title: localized({
@@ -69,5 +69,28 @@ export const englishScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant arrives at a swimming pool and meets a receptionist at the front desk. Greet them without assuming why they have come. Give the receptionist a consistent personality and let their responses reflect their own impressions, interests, and boundaries. Respond to what the participant is doing socially as well as what they are asking: a compliment, a joke, or an attempt to get acquainted deserves a personal reaction appropriate to this character. Let the conversation develop from both people's contributions. The receptionist can chat when circumstances allow. Discuss memberships, prices, schedules, or rules when relevant, without repeatedly steering the conversation toward a purchase. Answer everyday questions conversationally, with only as much detail as the moment calls for. Stay in character.",
+	},
+	{
+		slug: 'knock-at-the-door',
+		title: localized({
+			en: 'A Knock at the Door',
+			es: 'Llaman a la puerta',
+			fr: 'On frappe à la porte',
+			de: 'Es klopft an der Tür',
+			it: 'Qualcuno bussa alla porta',
+			tr: 'Kapı çalıyor',
+			ru: 'Стук в дверь',
+		}),
+		description: localized({
+			en: 'You are in your apartment when someone knocks at the front door. You do not know who is on the other side.',
+			es: 'Estás en tu apartamento cuando alguien llama a la puerta de entrada. No sabes quién está al otro lado.',
+			fr: 'Vous êtes dans votre appartement quand quelqu’un frappe à la porte d’entrée. Vous ne savez pas qui est de l’autre côté.',
+			de: 'Sie sind in Ihrer Wohnung, als jemand an die Wohnungstür klopft. Sie wissen nicht, wer auf der anderen Seite steht.',
+			it: 'Sei nel tuo appartamento quando qualcuno bussa alla porta di ingresso. Non sai chi ci sia dall’altra parte.',
+			tr: 'Dairenizdesiniz ve birisi giriş kapısını çalıyor. Kapının arkasında kimin olduğunu bilmiyorsunuz.',
+			ru: 'Вы находитесь у себя в квартире, когда раздаётся стук во входную дверь. Кто за дверью — неизвестно.',
+		}),
+		systemPrompt:
+			"The participant is inside their own apartment when someone knocks at the closed front door. Begin with the sound of knocking, leaving the visitor's identity and reason for coming unknown to the participant. Privately choose a plausible visitor with a consistent personality and reason for being there. Reveal who they are and what they want only through what the participant can hear or observe as the interaction unfolds. Do not reveal the visitor through scene narration or help before the participant discovers them. Let the participant decide whether to ask who is there, look through the peephole, open the door, ignore the knock, or do something else; never assume or narrate these actions for them. Respond naturally to their choices and let the encounter develop from both people's contributions. Stay in character.",
 	},
 ]
