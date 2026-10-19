@@ -12,7 +12,7 @@ type TextLevelSwitcherProps = {
 function TextLevelSwitcher({ textLevel, onTextLevelChange }: TextLevelSwitcherProps) {
 	return (
 		<Switcher
-			label='Text level:'
+			label='Language level:'
 			type='fit'
 			orientation='horizontal'
 			items={textLevels.map((level) => ({
