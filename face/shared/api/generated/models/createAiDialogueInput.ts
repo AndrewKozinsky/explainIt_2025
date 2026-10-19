@@ -5,10 +5,16 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { CreateAiDialogueInputMaxCefrLevel } from './createAiDialogueInputMaxCefrLevel';
 import type { CreateAiDialogueInputSourceLanguageCode } from './createAiDialogueInputSourceLanguageCode';
 import type { CreateAiDialogueInputTargetLanguageCode } from './createAiDialogueInputTargetLanguageCode';
 
 export interface CreateAiDialogueInput {
+  /**
+     * Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.
+     * @nullable
+     */
+  maxCefrLevel?: CreateAiDialogueInputMaxCefrLevel;
   /**
      * AI dialogue scenario ID
      * @minimum 1

@@ -5,6 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { AiDialogueOutModelMaxCefrLevel } from './aiDialogueOutModelMaxCefrLevel';
 import type { AiDialogueOutModelSourceLanguageCode } from './aiDialogueOutModelSourceLanguageCode';
 import type { AiDialogueOutModelTargetLanguageCode } from './aiDialogueOutModelTargetLanguageCode';
 import type { AiDialogueScenarioOutModel } from './aiDialogueScenarioOutModel';
@@ -21,6 +22,11 @@ export interface AiDialogueOutModel {
   sourceLanguageCode: AiDialogueOutModelSourceLanguageCode;
   /** Language into which NPC lines are translated (the learner native language) */
   targetLanguageCode: AiDialogueOutModelTargetLanguageCode;
+  /**
+     * Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.
+     * @nullable
+     */
+  maxCefrLevel: AiDialogueOutModelMaxCefrLevel;
   createdAt: string;
   updatedAt: string;
 }

@@ -31,7 +31,8 @@ import type {
   AiDialogueOutModel,
   AiDialogueVisualsOutModel,
   CreateAiDialogueInput,
-  CreateAiDialogueMessageInput
+  CreateAiDialogueMessageInput,
+  UpdateAiDialogueInput
 } from '../models';
 
 import { customMutator } from '../../mutator';
@@ -365,7 +366,91 @@ export function useAiDialogueControllerGetAiDialogue<TData = Awaited<ReturnType<
 
 
 
-export type aiDialogueControllerDeleteAiDialogueResponse200 = {
+export type aiDialogueControllerUpdateAiDialogueResponse200 = {
+  data: AiDialogueOutModel
+  status: 200
+}
+
+export type aiDialogueControllerUpdateAiDialogueResponseSuccess = (aiDialogueControllerUpdateAiDialogueResponse200) & {
+  headers: Headers;
+};
+;
+
+export type aiDialogueControllerUpdateAiDialogueResponse = (aiDialogueControllerUpdateAiDialogueResponseSuccess)
+
+export const getAiDialogueControllerUpdateAiDialogueUrl = (id: number,) => {
+
+
+
+
+  return `/api/ai-dialogue/${id}`
+}
+
+/**
+ * Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit maxCefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.
+ * @summary Update AI dialogue settings
+ */
+export const aiDialogueControllerUpdateAiDialogue = async (id: number,
+    updateAiDialogueInput: UpdateAiDialogueInput, options?: RequestInit): Promise<aiDialogueControllerUpdateAiDialogueResponse> => {
+
+  return customMutator<aiDialogueControllerUpdateAiDialogueResponse>(getAiDialogueControllerUpdateAiDialogueUrl(id),
+  {
+    ...options,
+    method: 'PATCH',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(updateAiDialogueInput)
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerUpdateAiDialogueMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerUpdateAiDialogue>>, TError,{id: number;data: UpdateAiDialogueInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerUpdateAiDialogue>>, TError,{id: number;data: UpdateAiDialogueInput}, TContext> => {
+
+const mutationKey = ['aiDialogueControllerUpdateAiDialogue'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerUpdateAiDialogue>>, {id: number;data: UpdateAiDialogueInput}> = (props) => {
+          const {id,data} = props ?? {};
+
+          return  aiDialogueControllerUpdateAiDialogue(id,data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type AiDialogueControllerUpdateAiDialogueMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerUpdateAiDialogue>>>
+    export type AiDialogueControllerUpdateAiDialogueMutationBody = UpdateAiDialogueInput
+    export type AiDialogueControllerUpdateAiDialogueMutationError = unknown
+
+    /**
+ * @summary Update AI dialogue settings
+ */
+export const useAiDialogueControllerUpdateAiDialogue = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerUpdateAiDialogue>>, TError,{id: number;data: UpdateAiDialogueInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof aiDialogueControllerUpdateAiDialogue>>,
+        TError,
+        {id: number;data: UpdateAiDialogueInput},
+        TContext
+      > => {
+      return useMutation(getAiDialogueControllerUpdateAiDialogueMutationOptions(options), queryClient);
+    }
+    export type aiDialogueControllerDeleteAiDialogueResponse200 = {
   data: void
   status: 200
 }

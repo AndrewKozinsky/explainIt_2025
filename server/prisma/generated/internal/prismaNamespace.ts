@@ -3156,14 +3156,14 @@ export type ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = Field
  * Reference to a field of type 'CefrSimplificationLevel'
  */
 export type EnumCefrSimplificationLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CefrSimplificationLevel'>
-
+    
 
 
 /**
  * Reference to a field of type 'CefrSimplificationLevel[]'
  */
 export type ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CefrSimplificationLevel[]'>
-
+    
 
 
 /**
