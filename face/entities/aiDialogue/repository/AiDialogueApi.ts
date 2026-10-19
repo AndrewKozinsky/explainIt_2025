@@ -7,6 +7,7 @@ import {
 	aiDialogueControllerGetAiDialogueVisuals,
 	aiDialogueControllerGetAiDialogueAudio,
 	aiDialogueControllerGetAiDialogues,
+	aiDialogueControllerUpdateAiDialogue,
 } from '@/shared/api/generated/ai-dialogue/ai-dialogue'
 import type {
 	AiDialogueMessageOutModel,
@@ -23,6 +24,7 @@ import type {
 	AiDialogueRepository,
 	AiDialogueVisualsModel,
 	CreateAiDialogueInput,
+	UpdateAiDialogueInput,
 } from './AiDialogueRepository'
 import type {
 	AiDialogueClientEvent,
@@ -35,6 +37,13 @@ import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
  * Реализация AiDialogueRepository через REST API.
  */
 export class AiDialogueApi implements AiDialogueRepository {
+	async updateDialogue(id: number, input: UpdateAiDialogueInput): Promise<ApiResult<AiDialogueModel>> {
+		return executeApiCall(
+			() => aiDialogueControllerUpdateAiDialogue(id, input),
+			(data) => mapToAiDialogue(data),
+		)
+	}
+
 	async createDialogue(input: CreateAiDialogueInput): Promise<ApiResult<AiDialogueModel>> {
 		return executeApiCall(
 			() => aiDialogueControllerCreateAiDialogue(input as unknown as OrvalCreateAiDialogueInput),
@@ -92,6 +101,7 @@ function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {
 		scenario: mapToAiDialogueScenario(raw.scenario),
 		sourceLanguageCode: extractString(raw.sourceLanguageCode) as LanguageCode,
 		targetLanguageCode: extractString(raw.targetLanguageCode) as LanguageCode,
+		maxCefrLevel: raw.maxCefrLevel,
 		createdAt: raw.createdAt,
 		updatedAt: raw.updatedAt,
 	}

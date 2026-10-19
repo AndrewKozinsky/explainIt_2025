@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
@@ -14,15 +13,14 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
 import AiDialogueMessageList from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
 import { DialogueAudioProvider } from '@/widgets/aiDialogueMessages/ui/audio/DialogueAudioContext'
-import AiDialogueSettings, {
-	type AiDialogueTextLevel,
-} from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
+import AiDialogueSettings from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
 import { PhraseDictionary } from '@/widgets/dictionary'
 import { resolveAiDialogueTurnError } from '_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError'
 import { useAiDialogueStream } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream'
 import AiDialogueLeftWrapper from '../AiDialogueLeftWrapper/AiDialogueLeftWrapper'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { useAiDialogueAudio } from './fn/useAiDialogueAudio'
+import { useAiDialogueTextLevel } from './fn/useAiDialogueTextLevel'
 import { useAiDialogueVisuals } from './fn/useAiDialogueVisuals'
 import { useAiDialogueWordSelection } from './fn/useAiDialogueWordSelection'
 
@@ -32,9 +30,9 @@ type Props = {
 
 export default function AiDialoguePage({ dialogueId }: Props) {
 	const locale = useLocale()
-	const [textLevel, setTextLevel] = useState<AiDialogueTextLevel>('A1')
 
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
+	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
 	const { visuals, refreshVisuals, recoverImage } = useAiDialogueVisuals(Number(dialogueId), Boolean(dialogue))
 	const audio = useAiDialogueAudio(Number(dialogueId), Boolean(dialogue))
@@ -100,7 +98,8 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 							/>
 							<AiDialogueSettings
 								textLevel={textLevel}
-								onTextLevelChange={setTextLevel}
+								onTextLevelChange={changeTextLevel}
+								isUpdatingTextLevel={isUpdatingTextLevel}
 								audioBlocked={audio.state.blocked}
 								onUnlockAudio={() => audio.player.unlock()}
 							/>

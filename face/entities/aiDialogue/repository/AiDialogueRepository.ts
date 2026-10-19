@@ -17,8 +17,15 @@ export type AiDialogueModel = {
 	scenario: AiDialogueScenarioModel
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
+	maxCefrLevel: AiDialogueCefrLevel | null
 	createdAt: string
 	updatedAt: string
+}
+
+export type AiDialogueCefrLevel = 'A1' | 'A2' | 'B1' | 'B2'
+
+export type UpdateAiDialogueInput = {
+	maxCefrLevel?: AiDialogueCefrLevel | null
 }
 
 export type AiDialogueVisualsModel = AiDialogueVisualsOutModel
@@ -30,6 +37,7 @@ export type CreateAiDialogueInput = {
 	scenarioId: number
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
+	maxCefrLevel?: AiDialogueCefrLevel | null
 }
 
 /**
@@ -43,6 +51,8 @@ export type CreateAiDialogueInput = {
 export type AiDialogueRepository = {
 	/** Создать диалог по сценарию для текущего пользователя */
 	createDialogue(input: CreateAiDialogueInput): Promise<ApiResult<AiDialogueModel>>
+	/** Обновить настройки диалога текущего пользователя */
+	updateDialogue(id: number, input: UpdateAiDialogueInput): Promise<ApiResult<AiDialogueModel>>
 	/** Получить диалоги текущего пользователя */
 	getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>>
 	/** Получить один диалог текущего пользователя по ID */

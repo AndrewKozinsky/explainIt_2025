@@ -7,9 +7,10 @@ import type {
 	AiDialogueRepository,
 	AiDialogueVisualsModel,
 	CreateAiDialogueInput,
+	UpdateAiDialogueInput,
 } from './repository/AiDialogueRepository'
 
-export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput }
+export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput, UpdateAiDialogueInput }
 
 /**
  * Сервис диалогов с ИИ — прослойка между компонентами и репозиторием.
@@ -31,6 +32,11 @@ export class AiDialogueService {
 	/** Создать диалог по сценарию для текущего пользователя */
 	async createDialogue(input: CreateAiDialogueInput): Promise<ApiResult<AiDialogueModel>> {
 		return this.aiDialogueRepository.createDialogue(input)
+	}
+
+	/** Обновить настройки диалога текущего пользователя */
+	async updateDialogue(id: number, input: UpdateAiDialogueInput): Promise<ApiResult<AiDialogueModel>> {
+		return this.aiDialogueRepository.updateDialogue(id, input)
 	}
 
 	/** Получить диалоги текущего пользователя */

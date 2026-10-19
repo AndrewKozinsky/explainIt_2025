@@ -1,7 +1,8 @@
-import { queryOptions } from '@tanstack/react-query'
+import { mutationOptions, type QueryClient, queryOptions } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { aiDialogueService } from './AiDialogueService'
 import type { AiDialogueService } from './AiDialogueService'
+import type { AiDialogueModel, UpdateAiDialogueInput } from './repository/AiDialogueRepository'
 
 /**
  * Ключи кэша серверных данных диалогов с ИИ.
@@ -10,6 +11,7 @@ export const aiDialogueQueryKeys = {
 	all: ['ai-dialogue'] as const,
 	list: () => [...aiDialogueQueryKeys.all, 'list'] as const,
 	detail: (id: number) => [...aiDialogueQueryKeys.all, 'detail', id] as const,
+	update: (id: number) => [...aiDialogueQueryKeys.all, 'update', id] as const,
 	audio: (id: number) => [...aiDialogueQueryKeys.detail(id), 'audio'] as const,
 	visuals: (id: number) => [...aiDialogueQueryKeys.detail(id), 'visuals'] as const,
 }
@@ -22,6 +24,25 @@ export const aiDialogueQueryKeys = {
  */
 export class AiDialogueQueryFacade {
 	constructor(private readonly service: AiDialogueService) {}
+
+	updateDialogue(id: number, queryClient: QueryClient) {
+		return mutationOptions({
+			mutationKey: aiDialogueQueryKeys.update(id),
+			mutationFn: (input: UpdateAiDialogueInput) => unwrapApiResult(this.service.updateDialogue(id, input)),
+			onSuccess: async function (dialogue) {
+				// Не даём старому запросу перезаписать подтверждённую сервером настройку.
+				await Promise.all([
+					queryClient.cancelQueries({ queryKey: aiDialogueQueryKeys.detail(dialogue.id), exact: true }),
+					queryClient.cancelQueries({ queryKey: aiDialogueQueryKeys.list(), exact: true }),
+				])
+
+				queryClient.setQueryData(aiDialogueQueryKeys.detail(dialogue.id), dialogue)
+				queryClient.setQueryData<AiDialogueModel[]>(aiDialogueQueryKeys.list(), (current) =>
+					current?.map((item) => (item.id === dialogue.id ? dialogue : item)),
+				)
+			},
+		})
+	}
 
 	getUserDialogues() {
 		return queryOptions({

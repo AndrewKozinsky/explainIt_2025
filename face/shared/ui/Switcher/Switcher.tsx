@@ -15,10 +15,11 @@ type SwitcherProps = {
 	orientation: 'horizontal' | 'vertical'
 	widePaddings?: boolean
 	items: SwitcherItem[]
+	disabled?: boolean
 }
 
 function Switcher(props: SwitcherProps) {
-	const { label, type, orientation, widePaddings, items } = props
+	const { label, type, orientation, widePaddings, items, disabled } = props
 
 	return (
 		<LabelWithField label={label}>
@@ -31,7 +32,7 @@ function Switcher(props: SwitcherProps) {
 				)}
 			>
 				{items.map((item, i) => {
-					return <SwitcherButton item={item} key={i} />
+					return <SwitcherButton item={item} disabled={disabled} key={i} />
 				})}
 			</div>
 		</LabelWithField>
@@ -42,17 +43,18 @@ export default Switcher
 
 type SwitcherButtonProps = {
 	item: SwitcherItem
+	disabled?: boolean
 }
 
 function SwitcherButton(props: SwitcherButtonProps) {
-	const { item } = props
+	const { item, disabled } = props
 
 	return (
 		<BaseButton
 			extraClass={cn('switcher__button', item.isCurrent && 'switcher__button--current')}
 			onClick={item.onClick}
 			theme='plain'
-			disabled={item.isCurrent}
+			disabled={disabled || item.isCurrent}
 		>
 			{item.text}
 		</BaseButton>
