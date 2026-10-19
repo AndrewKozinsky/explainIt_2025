@@ -1,7 +1,7 @@
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueNpcRosterEntry, AiDialogueSummary } from 'types/aiDialogueSummary'
 import { Language, languages } from 'utils/languages'
-import { CefrSimplificationLevel } from 'utils/proficiencyLevel'
+import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { OPENAI_TTS_VOICES } from 'infrastructure/ttsProviderAdapter/TtsProvider.interface'
 import { buildAiDialogueLanguageLevelRules } from './buildAiDialogueLanguageLevelRules'
@@ -26,7 +26,7 @@ export function buildAiDialoguePrompt(input: {
 	scenario: ScenarioForPrompt
 	sourceLanguageCode: Language
 	targetLanguageCode: Language | null
-	maxCefrLevel?: CefrSimplificationLevel | null
+	maxCefrLevel?: AiDialogueCefrLevel | null
 	summary: null | AiDialogueSummary
 	recentEvents: AiDialogueEvent[]
 }): LlmMessage[] {
@@ -49,7 +49,7 @@ function buildSystemMessage(
 	sourceLanguageCode: Language,
 	targetLanguageCode: Language | null,
 	roster: AiDialogueNpcRosterEntry[],
-	maxCefrLevel: CefrSimplificationLevel | null,
+	maxCefrLevel: AiDialogueCefrLevel | null,
 ): string {
 	const rosterLines = roster.length
 		? roster.map((n) => `- npcId: "${n.npcId}" — ${n.npcRole}, ${n.npcName}`).join('\n')

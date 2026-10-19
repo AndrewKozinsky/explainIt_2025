@@ -41,13 +41,24 @@ describe('dialogue language setting persistence', () => {
 
 	it('scopes updates to the owner and reports concurrent deletion', async () => {
 		const { repository, prisma } = harness()
-		await expect(repository.updateMaxCefrLevel(1, 7, null)).resolves.toBe(true)
+		await expect(repository.updateDialogue(1, 7, { max_cefr_level: null })).resolves.toBe(true)
 		expect(prisma.aiDialogue.updateMany).toHaveBeenCalledWith({
 			where: { id: 1, user_id: 7 },
 			data: { max_cefr_level: null },
 		})
 		prisma.aiDialogue.updateMany.mockResolvedValue({ count: 0 })
-		await expect(repository.updateMaxCefrLevel(1, 7, 'B1')).resolves.toBe(false)
+		await expect(repository.updateDialogue(1, 7, { max_cefr_level: 'B1' })).resolves.toBe(false)
+	})
+
+	it('updates several scalar dialogue fields in one owner-scoped write', async () => {
+		const { repository, prisma } = harness()
+		const data = { source_language_code: 'de' as const, summary: 'Updated summary', summary_up_to: 12 }
+		await expect(repository.updateDialogue(1, 7, data)).resolves.toBe(true)
+
+		expect(prisma.aiDialogue.updateMany).toHaveBeenCalledWith({
+			where: { id: 1, user_id: 7 },
+			data,
+		})
 	})
 
 	it.each([null, 'B2'])('returns the saved value %s in detail and list responses', async (maxCefrLevel) => {

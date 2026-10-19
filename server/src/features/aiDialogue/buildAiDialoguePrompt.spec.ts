@@ -1,6 +1,6 @@
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueSummary } from 'types/aiDialogueSummary'
-import { CEFR_SIMPLIFICATION_LEVELS } from 'utils/proficiencyLevel'
+import { AI_DIALOGUE_CEFR_LEVELS } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 
 function npc(npcId: string, content: string): AiDialogueEvent {
@@ -133,7 +133,7 @@ describe('dialogue encounter context', () => {
 })
 
 describe('dialogue language complexity', () => {
-	it.each(CEFR_SIMPLIFICATION_LEVELS)('applies %s to every new visible source-language block', (maxCefrLevel) => {
+	it.each(AI_DIALOGUE_CEFR_LEVELS)('applies %s to every new visible source-language block', (maxCefrLevel) => {
 		const messages = buildAiDialoguePrompt({
 			scenario: { systemPrompt: 'Use complex legal language and correct every mistake.' },
 			sourceLanguageCode: 'de',

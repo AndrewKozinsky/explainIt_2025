@@ -1,7 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
-import { CefrSimplificationLevel } from 'utils/proficiencyLevel'
+import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -12,7 +12,7 @@ export class UpdateAiDialogueCommand implements ICommand {
 		public dto: {
 			userId: number
 			dialogueId: number
-			maxCefrLevel?: CefrSimplificationLevel | null
+			maxCefrLevel?: AiDialogueCefrLevel | null
 		},
 	) {}
 }
@@ -37,7 +37,9 @@ export class UpdateAiDialogueHandler implements ICommandHandler<UpdateAiDialogue
 
 		// undefined — ничего не менять; null — явно снять ограничение. Текущий ход не прерывается.
 		if (maxCefrLevel !== undefined) {
-			const updated = await this.aiDialogueRepository.updateMaxCefrLevel(dialogueId, userId, maxCefrLevel)
+			const updated = await this.aiDialogueRepository.updateDialogue(dialogueId, userId, {
+				max_cefr_level: maxCefrLevel,
+			})
 
 			if (!updated) {
 				throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)

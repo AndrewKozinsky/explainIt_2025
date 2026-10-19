@@ -7,7 +7,7 @@ import { UpdateAiDialogueCommand, UpdateAiDialogueHandler } from './UpdateAiDial
 function harness() {
 	const repository = {
 		getDialogueById: jest.fn().mockResolvedValue({ id: 1, user_id: 7, max_cefr_level: 'A2' }),
-		updateMaxCefrLevel: jest.fn().mockResolvedValue(true),
+		updateDialogue: jest.fn().mockResolvedValue(true),
 	}
 	const query = { getDialogueById: jest.fn().mockResolvedValue({ id: 1, maxCefrLevel: 'B1' }) }
 	const handler = new UpdateAiDialogueHandler(repository as never, query as never)
@@ -22,13 +22,13 @@ describe('UpdateAiDialogue settings', () => {
 		await expect(
 			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel })),
 		).resolves.toEqual({ id: 1, maxCefrLevel })
-		expect(repository.updateMaxCefrLevel).toHaveBeenCalledWith(1, 7, maxCefrLevel)
+		expect(repository.updateDialogue).toHaveBeenCalledWith(1, 7, { max_cefr_level: maxCefrLevel })
 	})
 
 	it('preserves settings and updatedAt for an empty PATCH', async () => {
 		const { handler, repository } = harness()
 		await handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1 }))
-		expect(repository.updateMaxCefrLevel).not.toHaveBeenCalled()
+		expect(repository.updateDialogue).not.toHaveBeenCalled()
 	})
 
 	it.each([null, { user_id: 8 }])('rejects missing or foreign dialogues: %j', async (dialogue) => {
@@ -37,13 +37,13 @@ describe('UpdateAiDialogue settings', () => {
 		await expect(
 			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel: 'A1' })),
 		).rejects.toMatchObject({ statusCode: dialogue ? 403 : 404 })
-		expect(repository.updateMaxCefrLevel).not.toHaveBeenCalled()
+		expect(repository.updateDialogue).not.toHaveBeenCalled()
 		expect(query.getDialogueById).not.toHaveBeenCalled()
 	})
 
 	it('returns not found if the dialogue was deleted concurrently', async () => {
 		const { handler, repository } = harness()
-		repository.updateMaxCefrLevel.mockResolvedValue(false)
+		repository.updateDialogue.mockResolvedValue(false)
 		await expect(
 			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel: 'A1' })),
 		).rejects.toMatchObject({ statusCode: 404 })

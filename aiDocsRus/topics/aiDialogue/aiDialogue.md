@@ -146,8 +146,10 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 
 `maxCefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | null` — настройка конкретного диалога, а не оценка
 реального владения языком пользователя. Значение задаёт верхнюю границу сложности, более простой текст допустим.
-Общий справочник находится в `server/src/utils/proficiencyLevel.ts`: `PROFICIENCY_LEVELS` (A1–C2),
-`CEFR_SIMPLIFICATION_LEVELS` (A1–B2), тип `CefrSimplificationLevel`. Числовой маппинг 1–6 для видео сохранён.
+Общая шкала `PROFICIENCY_LEVELS` (A1–C2) и числовой маппинг 1–6 для видео находятся в
+`server/src/utils/proficiencyLevel.ts`. Допустимые границы сложности диалогов — `AI_DIALOGUE_CEFR_LEVELS`
+(A1–B2) и тип `AiDialogueCefrLevel` — находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`.
+Имя enum в БД `CefrSimplificationLevel` сохранено; перенос констант не требует миграции.
 C1/C2 не принимаются в этой настройке: для свободного владения используется `null`.
 
 При создании `maxCefrLevel` необязателен; отсутствие поля и явный `null` сохраняют `null`.
@@ -339,8 +341,11 @@ notifyActiveDialoguesOfVisualChanges отправляет технический
 SSE-эндпоинт использует `OpenAiDialogueStreamCommand`: хендлер проверяет доступ, подписывается на
 `AiDialogueSseHub`, отдаёт историю и вызывает `GenerateAiDialogueTurn.triggerIfNeeded`.
 
-`UpdateAiDialogueCommand` проверяет владельца и сохраняет настройку через `AiDialogueRepository.updateMaxCefrLevel`,
-затем возвращает свежий `AiDialogueOutModel` из QueryRepository. Registry генерации и шину SSE он не использует.
+`UpdateAiDialogueCommand` проверяет владельца и сохраняет настройку через `AiDialogueRepository.updateDialogue`,
+затем возвращает свежий `AiDialogueOutModel` из QueryRepository. Метод репозитория принимает объект
+`Prisma.AiDialogueUpdateManyMutationInput` и позволяет обновлять несколько скалярных полей за одну запись
+с условием `id`/`user_id`; разрешённые клиенту поля по-прежнему определяются DTO и командой.
+Registry генерации и шину SSE команда не использует.
 
 ## Генерация хода (`GenerateAiDialogueTurn`)
 
@@ -540,7 +545,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 ### Промпты и парсинг
 
-- `server/src/utils/proficiencyLevel.ts` — общий справочник CEFR и уровни адаптации.
+- `server/src/utils/proficiencyLevel.ts` — общая шкала CEFR и числовой маппинг для видео.
+- `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts` — допустимые уровни сложности диалогов.
 - `server/src/features/aiDialogue/buildAiDialogueLanguageLevelRules.ts` — правила сложности видимых текстов.
 - `server/src/features/aiDialogue/buildAiDialoguePrompt.ts` — промпт генерации хода (язык из
   `source_language_code`/`target_language_code`).
@@ -563,7 +569,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 ### Репозитории и модели
 
-- `server/src/repo/aiDialogue/aiDialogue.repository.ts` — `createDialogue`, `getDialogueById`,
+- `server/src/repo/aiDialogue/aiDialogue.repository.ts` — `createDialogue`, `getDialogueById`, `updateDialogue`,
   `deleteDialogueById`, `updateSummary`.
 - `server/src/repo/aiDialogue/aiDialogue.queryRepository.ts` — `getUserDialogues`, `getDialogueById`,
   `getMessagesByDialogueId`, `getMessageById`, маппинг в OutModel (`mapDbMessageToOutModel` +

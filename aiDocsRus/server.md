@@ -108,9 +108,10 @@ Reuse an existing error message when one text already covers multiple forbidden 
 
 ## Общий справочник CEFR
 
-`server/src/utils/proficiencyLevel.ts` содержит `PROFICIENCY_LEVELS` (A1–C2), тип `ProficiencyLevel`,
-существующий маппинг чисел 1–6 для метаданных видео, а также `CEFR_SIMPLIFICATION_LEVELS` (A1–B2)
-и тип `CefrSimplificationLevel` для ограничения сложности генерируемого текста.
+`server/src/utils/proficiencyLevel.ts` содержит `PROFICIENCY_LEVELS` (A1–C2), тип `ProficiencyLevel`
+и существующий маппинг чисел 1–6 для метаданных видео.
+Допустимые границы сложности диалогов — `AI_DIALOGUE_CEFR_LEVELS` (A1–B2) и тип `AiDialogueCefrLevel` —
+находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`. Это настройка диалогов, а не общей шкалы CEFR.
 В диалогах `maxCefrLevel` хранит CEFR-код или `null` (без ограничения), отдельно от оценки уровня пользователя.
 Правила промпта находятся в feature диалогов; контракт создания и PATCH описан в
 `aiDocsRus/topics/aiDialogue/aiDialogue.md`.

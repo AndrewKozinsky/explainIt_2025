@@ -3,7 +3,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { Language } from 'utils/languages'
-import { CefrSimplificationLevel } from 'utils/proficiencyLevel'
+import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -16,7 +16,7 @@ export class CreateAiDialogueCommand implements ICommand {
 			scenarioId: number
 			sourceLanguageCode: Language
 			targetLanguageCode: Language
-			maxCefrLevel?: CefrSimplificationLevel | null
+			maxCefrLevel?: AiDialogueCefrLevel | null
 		},
 	) {}
 }
