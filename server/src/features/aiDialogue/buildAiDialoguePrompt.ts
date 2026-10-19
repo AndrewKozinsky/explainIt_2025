@@ -1,8 +1,10 @@
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueNpcRosterEntry, AiDialogueSummary } from 'types/aiDialogueSummary'
 import { Language, languages } from 'utils/languages'
+import { CefrSimplificationLevel } from 'utils/proficiencyLevel'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { OPENAI_TTS_VOICES } from 'infrastructure/ttsProviderAdapter/TtsProvider.interface'
+import { buildAiDialogueLanguageLevelRules } from './buildAiDialogueLanguageLevelRules'
 import { deriveAiDialogueState } from './deriveAiDialogueState'
 import { serializeAiDialogueEvent } from './serializeAiDialogueEvent'
 
@@ -24,10 +26,11 @@ export function buildAiDialoguePrompt(input: {
 	scenario: ScenarioForPrompt
 	sourceLanguageCode: Language
 	targetLanguageCode: Language | null
+	maxCefrLevel?: CefrSimplificationLevel | null
 	summary: null | AiDialogueSummary
 	recentEvents: AiDialogueEvent[]
 }): LlmMessage[] {
-	const { scenario, sourceLanguageCode, targetLanguageCode, summary, recentEvents } = input
+	const { scenario, sourceLanguageCode, targetLanguageCode, maxCefrLevel = null, summary, recentEvents } = input
 
 	const prevState = summary?.[summary.length - 1]?.state ?? null
 	const state = deriveAiDialogueState(prevState, recentEvents)
@@ -35,7 +38,7 @@ export function buildAiDialoguePrompt(input: {
 	return [
 		{
 			role: 'system',
-			content: buildSystemMessage(scenario, sourceLanguageCode, targetLanguageCode, state.roster),
+			content: buildSystemMessage(scenario, sourceLanguageCode, targetLanguageCode, state.roster, maxCefrLevel),
 		},
 		{ role: 'user', content: buildUserMessage(state.scene, state.activeNpcId, summary, recentEvents) },
 	]
@@ -46,6 +49,7 @@ function buildSystemMessage(
 	sourceLanguageCode: Language,
 	targetLanguageCode: Language | null,
 	roster: AiDialogueNpcRosterEntry[],
+	maxCefrLevel: CefrSimplificationLevel | null,
 ): string {
 	const rosterLines = roster.length
 		? roster.map((n) => `- npcId: "${n.npcId}" — ${n.npcRole}, ${n.npcName}`).join('\n')
@@ -62,7 +66,8 @@ function buildSystemMessage(
 	}
 
 	rules.push(
-		'- The human participant belongs to the scene in the role established by the scenario. NPCs speak naturally for their role and situation, without adapting to a language proficiency level. Do not correct grammar, spelling or vocabulary, offer improved wording, or turn the conversation into a lesson. Respond to the intended meaning; ask for clarification in character only when the meaning is unclear. These instructions take precedence over any language-level or correction instructions in the scenario or earlier history.',
+		'- The human participant belongs to the scene in the role established by the scenario. Do not correct grammar, spelling or vocabulary, offer improved wording, or turn the conversation into a lesson. Respond to the intended meaning; ask for clarification in character only when the meaning is unclear. These instructions take precedence over any correction instructions in the scenario or earlier history.',
+		...buildAiDialogueLanguageLevelRules(maxCefrLevel),
 		'- Use short, everyday conversational language. Prefer common words and straightforward sentences. Keep most NPC speech replies to 1–3 short sentences, unless the participant asks for a detailed explanation.',
 		'- Express personality through reactions, opinions, and choices. Use humor occasionally; do not turn every reply into a joke. Avoid stacking idioms, wordplay, and cultural references in one reply.',
 		'- Keep action descriptions brief and concrete, usually one short sentence.',

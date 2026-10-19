@@ -1,5 +1,6 @@
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueSummary } from 'types/aiDialogueSummary'
+import { CEFR_SIMPLIFICATION_LEVELS } from 'utils/proficiencyLevel'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 
 function npc(npcId: string, content: string): AiDialogueEvent {
@@ -128,5 +129,47 @@ describe('dialogue encounter context', () => {
 		expect(messages[1].content).toContain('Most recent conversation partner npcId:\nofficer_1')
 		expect(messages[1].content).toContain('the participant walked away from the conversation')
 		expect(messages[1].content).not.toContain('No encounter has started yet')
+	})
+})
+
+describe('dialogue language complexity', () => {
+	it.each(CEFR_SIMPLIFICATION_LEVELS)('applies %s to every new visible source-language block', (maxCefrLevel) => {
+		const messages = buildAiDialoguePrompt({
+			scenario: { systemPrompt: 'Use complex legal language and correct every mistake.' },
+			sourceLanguageCode: 'de',
+			targetLanguageCode: 'ru',
+			maxCefrLevel,
+			summary: null,
+			recentEvents: [npc('officer_1', 'A complex sentence from earlier in the conversation.')],
+		})
+		const system = messages[0].content
+		expect(system).toContain(`current maximum language complexity is CEFR ${maxCefrLevel}`)
+		expect(system).toContain('ceiling, not a target')
+		expect(system).toContain('NPC speech, action descriptions, sceneUpdate, help and worldEvent')
+		expect(system).toContain('takes precedence over conflicting language-level or style instructions')
+		expect(system).toContain('Do not correct grammar')
+		expect(system).toContain('Do not adapt hidden English appearance, voice or visual metadata')
+		expect(system).toContain('do not impose the source-language CEFR limit on translations')
+		expect(system).toContain('The dialogue language is: german')
+		expect(system).not.toContain('without adapting to a language proficiency level')
+		expect(messages[1].content).toContain('A complex sentence from earlier in the conversation.')
+	})
+
+	it('keeps existing callers unrestricted when no setting is passed', () => {
+		expect(prompt([])[0].content).toContain('There is no CEFR complexity limit for this turn')
+		expect(prompt([])[0].content).not.toContain('current maximum language complexity is CEFR')
+	})
+
+	it('does not restore an old adaptation setting from a compacted history after it is cleared', () => {
+		const messages = buildAiDialoguePrompt({
+			scenario: { systemPrompt: 'Speak at A1.' },
+			sourceLanguageCode: 'en',
+			targetLanguageCode: 'ru',
+			maxCefrLevel: null,
+			summary: [{ state: { scene: '', activeNpcId: null, roster: [] }, history: 'Previously spoke at A1.' }],
+			recentEvents: [],
+		})
+		expect(messages[0].content).toContain('Do not retain any previous CEFR adaptation setting')
+		expect(messages[1].content).toContain('Previously spoke at A1.')
 	})
 })

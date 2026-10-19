@@ -41,6 +41,7 @@ export type AiDialogueSumAggregateOutputType = {
 }
 
 export type AiDialogueMinAggregateOutputType = {
+  max_cefr_level: $Enums.CefrSimplificationLevel | null
   id: number | null
   scenario_id: number | null
   user_id: number | null
@@ -53,6 +54,7 @@ export type AiDialogueMinAggregateOutputType = {
 }
 
 export type AiDialogueMaxAggregateOutputType = {
+  max_cefr_level: $Enums.CefrSimplificationLevel | null
   id: number | null
   scenario_id: number | null
   user_id: number | null
@@ -65,6 +67,7 @@ export type AiDialogueMaxAggregateOutputType = {
 }
 
 export type AiDialogueCountAggregateOutputType = {
+  max_cefr_level: number
   id: number
   scenario_id: number
   user_id: number
@@ -93,6 +96,7 @@ export type AiDialogueSumAggregateInputType = {
 }
 
 export type AiDialogueMinAggregateInputType = {
+  max_cefr_level?: true
   id?: true
   scenario_id?: true
   user_id?: true
@@ -105,6 +109,7 @@ export type AiDialogueMinAggregateInputType = {
 }
 
 export type AiDialogueMaxAggregateInputType = {
+  max_cefr_level?: true
   id?: true
   scenario_id?: true
   user_id?: true
@@ -117,6 +122,7 @@ export type AiDialogueMaxAggregateInputType = {
 }
 
 export type AiDialogueCountAggregateInputType = {
+  max_cefr_level?: true
   id?: true
   scenario_id?: true
   user_id?: true
@@ -216,6 +222,7 @@ export type AiDialogueGroupByArgs<ExtArgs extends runtime.Types.Extensions.Inter
 }
 
 export type AiDialogueGroupByOutputType = {
+  max_cefr_level: $Enums.CefrSimplificationLevel | null
   id: number
   scenario_id: number
   user_id: number
@@ -251,6 +258,7 @@ export type AiDialogueWhereInput = {
   AND?: Prisma.AiDialogueWhereInput | Prisma.AiDialogueWhereInput[]
   OR?: Prisma.AiDialogueWhereInput[]
   NOT?: Prisma.AiDialogueWhereInput | Prisma.AiDialogueWhereInput[]
+  max_cefr_level?: Prisma.EnumCefrSimplificationLevelNullableFilter<"AiDialogue"> | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
@@ -269,6 +277,7 @@ export type AiDialogueWhereInput = {
 }
 
 export type AiDialogueOrderByWithRelationInput = {
+  max_cefr_level?: Prisma.SortOrderInput | Prisma.SortOrder
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -291,6 +300,7 @@ export type AiDialogueWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.AiDialogueWhereInput | Prisma.AiDialogueWhereInput[]
   OR?: Prisma.AiDialogueWhereInput[]
   NOT?: Prisma.AiDialogueWhereInput | Prisma.AiDialogueWhereInput[]
+  max_cefr_level?: Prisma.EnumCefrSimplificationLevelNullableFilter<"AiDialogue"> | $Enums.CefrSimplificationLevel | null
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
   source_language_code?: Prisma.EnumLanguageCodeFilter<"AiDialogue"> | $Enums.LanguageCode
@@ -308,6 +318,7 @@ export type AiDialogueWhereUniqueInput = Prisma.AtLeast<{
 }, "id">
 
 export type AiDialogueOrderByWithAggregationInput = {
+  max_cefr_level?: Prisma.SortOrderInput | Prisma.SortOrder
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -328,6 +339,7 @@ export type AiDialogueScalarWhereWithAggregatesInput = {
   AND?: Prisma.AiDialogueScalarWhereWithAggregatesInput | Prisma.AiDialogueScalarWhereWithAggregatesInput[]
   OR?: Prisma.AiDialogueScalarWhereWithAggregatesInput[]
   NOT?: Prisma.AiDialogueScalarWhereWithAggregatesInput | Prisma.AiDialogueScalarWhereWithAggregatesInput[]
+  max_cefr_level?: Prisma.EnumCefrSimplificationLevelNullableWithAggregatesFilter<"AiDialogue"> | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
   user_id?: Prisma.IntWithAggregatesFilter<"AiDialogue"> | number
@@ -340,6 +352,7 @@ export type AiDialogueScalarWhereWithAggregatesInput = {
 }
 
 export type AiDialogueCreateInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -355,6 +368,7 @@ export type AiDialogueCreateInput = {
 }
 
 export type AiDialogueUncheckedCreateInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   user_id: number
@@ -371,6 +385,7 @@ export type AiDialogueUncheckedCreateInput = {
 }
 
 export type AiDialogueUpdateInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -386,6 +401,7 @@ export type AiDialogueUpdateInput = {
 }
 
 export type AiDialogueUncheckedUpdateInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -402,6 +418,7 @@ export type AiDialogueUncheckedUpdateInput = {
 }
 
 export type AiDialogueCreateManyInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   user_id: number
@@ -414,6 +431,7 @@ export type AiDialogueCreateManyInput = {
 }
 
 export type AiDialogueUpdateManyMutationInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -423,6 +441,7 @@ export type AiDialogueUpdateManyMutationInput = {
 }
 
 export type AiDialogueUncheckedUpdateManyInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -445,6 +464,7 @@ export type AiDialogueOrderByRelationAggregateInput = {
 }
 
 export type AiDialogueCountOrderByAggregateInput = {
+  max_cefr_level?: Prisma.SortOrder
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -464,6 +484,7 @@ export type AiDialogueAvgOrderByAggregateInput = {
 }
 
 export type AiDialogueMaxOrderByAggregateInput = {
+  max_cefr_level?: Prisma.SortOrder
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -476,6 +497,7 @@ export type AiDialogueMaxOrderByAggregateInput = {
 }
 
 export type AiDialogueMinOrderByAggregateInput = {
+  max_cefr_level?: Prisma.SortOrder
   id?: Prisma.SortOrder
   scenario_id?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -583,6 +605,10 @@ export type AiDialogueUncheckedUpdateManyWithoutScenarioNestedInput = {
   deleteMany?: Prisma.AiDialogueScalarWhereInput | Prisma.AiDialogueScalarWhereInput[]
 }
 
+export type NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput = {
+  set?: $Enums.CefrSimplificationLevel | null
+}
+
 export type AiDialogueCreateNestedOneWithoutAiDialogueMessageInput = {
   create?: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueMessageInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueMessageInput>
   connectOrCreate?: Prisma.AiDialogueCreateOrConnectWithoutAiDialogueMessageInput
@@ -640,6 +666,7 @@ export type AiDialogueUpdateOneRequiredWithoutAiDialogueAudioAttemptNestedInput 
 }
 
 export type AiDialogueCreateWithoutUserInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -654,6 +681,7 @@ export type AiDialogueCreateWithoutUserInput = {
 }
 
 export type AiDialogueUncheckedCreateWithoutUserInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   source_language_code: $Enums.LanguageCode
@@ -698,6 +726,7 @@ export type AiDialogueScalarWhereInput = {
   AND?: Prisma.AiDialogueScalarWhereInput | Prisma.AiDialogueScalarWhereInput[]
   OR?: Prisma.AiDialogueScalarWhereInput[]
   NOT?: Prisma.AiDialogueScalarWhereInput | Prisma.AiDialogueScalarWhereInput[]
+  max_cefr_level?: Prisma.EnumCefrSimplificationLevelNullableFilter<"AiDialogue"> | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFilter<"AiDialogue"> | number
   scenario_id?: Prisma.IntFilter<"AiDialogue"> | number
   user_id?: Prisma.IntFilter<"AiDialogue"> | number
@@ -710,6 +739,7 @@ export type AiDialogueScalarWhereInput = {
 }
 
 export type AiDialogueCreateWithoutScenarioInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -724,6 +754,7 @@ export type AiDialogueCreateWithoutScenarioInput = {
 }
 
 export type AiDialogueUncheckedCreateWithoutScenarioInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   user_id: number
   source_language_code: $Enums.LanguageCode
@@ -765,6 +796,7 @@ export type AiDialogueUpdateManyWithWhereWithoutScenarioInput = {
 }
 
 export type AiDialogueCreateWithoutAiDialogueMessageInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -779,6 +811,7 @@ export type AiDialogueCreateWithoutAiDialogueMessageInput = {
 }
 
 export type AiDialogueUncheckedCreateWithoutAiDialogueMessageInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   user_id: number
@@ -810,6 +843,7 @@ export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueMessageInput = {
 }
 
 export type AiDialogueUpdateWithoutAiDialogueMessageInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -824,6 +858,7 @@ export type AiDialogueUpdateWithoutAiDialogueMessageInput = {
 }
 
 export type AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -839,6 +874,7 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput = {
 }
 
 export type AiDialogueCreateWithoutAiDialogueCharacterInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -853,6 +889,7 @@ export type AiDialogueCreateWithoutAiDialogueCharacterInput = {
 }
 
 export type AiDialogueUncheckedCreateWithoutAiDialogueCharacterInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   user_id: number
@@ -884,6 +921,7 @@ export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueCharacterInput = {
 }
 
 export type AiDialogueUpdateWithoutAiDialogueCharacterInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -898,6 +936,7 @@ export type AiDialogueUpdateWithoutAiDialogueCharacterInput = {
 }
 
 export type AiDialogueUncheckedUpdateWithoutAiDialogueCharacterInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -913,6 +952,7 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueCharacterInput = {
 }
 
 export type AiDialogueCreateWithoutAiDialogueVoiceInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -927,6 +967,7 @@ export type AiDialogueCreateWithoutAiDialogueVoiceInput = {
 }
 
 export type AiDialogueUncheckedCreateWithoutAiDialogueVoiceInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   user_id: number
@@ -958,6 +999,7 @@ export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueVoiceInput = {
 }
 
 export type AiDialogueUpdateWithoutAiDialogueVoiceInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -972,6 +1014,7 @@ export type AiDialogueUpdateWithoutAiDialogueVoiceInput = {
 }
 
 export type AiDialogueUncheckedUpdateWithoutAiDialogueVoiceInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -987,6 +1030,7 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueVoiceInput = {
 }
 
 export type AiDialogueCreateWithoutAiDialogueAudioAttemptInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   source_language_code: $Enums.LanguageCode
   target_language_code: $Enums.LanguageCode
   summary?: string | null
@@ -1001,6 +1045,7 @@ export type AiDialogueCreateWithoutAiDialogueAudioAttemptInput = {
 }
 
 export type AiDialogueUncheckedCreateWithoutAiDialogueAudioAttemptInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   user_id: number
@@ -1032,6 +1077,7 @@ export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueAudioAttemptInput = {
 }
 
 export type AiDialogueUpdateWithoutAiDialogueAudioAttemptInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1046,6 +1092,7 @@ export type AiDialogueUpdateWithoutAiDialogueAudioAttemptInput = {
 }
 
 export type AiDialogueUncheckedUpdateWithoutAiDialogueAudioAttemptInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
@@ -1061,6 +1108,7 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueAudioAttemptInput = {
 }
 
 export type AiDialogueCreateManyUserInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   scenario_id: number
   source_language_code: $Enums.LanguageCode
@@ -1072,6 +1120,7 @@ export type AiDialogueCreateManyUserInput = {
 }
 
 export type AiDialogueUpdateWithoutUserInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1086,6 +1135,7 @@ export type AiDialogueUpdateWithoutUserInput = {
 }
 
 export type AiDialogueUncheckedUpdateWithoutUserInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1101,6 +1151,7 @@ export type AiDialogueUncheckedUpdateWithoutUserInput = {
 }
 
 export type AiDialogueUncheckedUpdateManyWithoutUserInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1112,6 +1163,7 @@ export type AiDialogueUncheckedUpdateManyWithoutUserInput = {
 }
 
 export type AiDialogueCreateManyScenarioInput = {
+  max_cefr_level?: $Enums.CefrSimplificationLevel | null
   id?: number
   user_id: number
   source_language_code: $Enums.LanguageCode
@@ -1123,6 +1175,7 @@ export type AiDialogueCreateManyScenarioInput = {
 }
 
 export type AiDialogueUpdateWithoutScenarioInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
   summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1137,6 +1190,7 @@ export type AiDialogueUpdateWithoutScenarioInput = {
 }
 
 export type AiDialogueUncheckedUpdateWithoutScenarioInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1152,6 +1206,7 @@ export type AiDialogueUncheckedUpdateWithoutScenarioInput = {
 }
 
 export type AiDialogueUncheckedUpdateManyWithoutScenarioInput = {
+  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
   id?: Prisma.IntFieldUpdateOperationsInput | number
   user_id?: Prisma.IntFieldUpdateOperationsInput | number
   source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
@@ -1221,6 +1276,7 @@ export type AiDialogueCountOutputTypeCountAiDialogueCharacterArgs<ExtArgs extend
 
 
 export type AiDialogueSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  max_cefr_level?: boolean
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
@@ -1240,6 +1296,7 @@ export type AiDialogueSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
 }, ExtArgs["result"]["aiDialogue"]>
 
 export type AiDialogueSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  max_cefr_level?: boolean
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
@@ -1254,6 +1311,7 @@ export type AiDialogueSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
 }, ExtArgs["result"]["aiDialogue"]>
 
 export type AiDialogueSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+  max_cefr_level?: boolean
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
@@ -1268,6 +1326,7 @@ export type AiDialogueSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
 }, ExtArgs["result"]["aiDialogue"]>
 
 export type AiDialogueSelectScalar = {
+  max_cefr_level?: boolean
   id?: boolean
   scenario_id?: boolean
   user_id?: boolean
@@ -1279,7 +1338,7 @@ export type AiDialogueSelectScalar = {
   updated_at?: boolean
 }
 
-export type AiDialogueOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "scenario_id" | "user_id" | "source_language_code" | "target_language_code" | "summary" | "summary_up_to" | "created_at" | "updated_at", ExtArgs["result"]["aiDialogue"]>
+export type AiDialogueOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"max_cefr_level" | "id" | "scenario_id" | "user_id" | "source_language_code" | "target_language_code" | "summary" | "summary_up_to" | "created_at" | "updated_at", ExtArgs["result"]["aiDialogue"]>
 export type AiDialogueInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -1309,6 +1368,7 @@ export type $AiDialoguePayload<ExtArgs extends runtime.Types.Extensions.Internal
     AiDialogueCharacter: Prisma.$AiDialogueCharacterPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
+    max_cefr_level: $Enums.CefrSimplificationLevel | null
     id: number
     scenario_id: number
     user_id: number
@@ -1747,6 +1807,7 @@ export interface Prisma__AiDialogueClient<T, Null = never, ExtArgs extends runti
  * Fields of the AiDialogue model
  */
 export interface AiDialogueFieldRefs {
+  readonly max_cefr_level: Prisma.FieldRef<"AiDialogue", 'CefrSimplificationLevel'>
   readonly id: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly scenario_id: Prisma.FieldRef<"AiDialogue", 'Int'>
   readonly user_id: Prisma.FieldRef<"AiDialogue", 'Int'>

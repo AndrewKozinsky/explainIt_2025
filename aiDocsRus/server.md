@@ -104,3 +104,13 @@ Reuse an existing error message when one text already covers multiple forbidden 
 
 Гард следящий чтобы запросы делал пользователь не с нулевым балансом.
 ```server/src/infrastructure/guards/userWithPositiveBalanceGuard.guard.ts```
+
+
+## Общий справочник CEFR
+
+`server/src/utils/proficiencyLevel.ts` содержит `PROFICIENCY_LEVELS` (A1–C2), тип `ProficiencyLevel`,
+существующий маппинг чисел 1–6 для метаданных видео, а также `CEFR_SIMPLIFICATION_LEVELS` (A1–B2)
+и тип `CefrSimplificationLevel` для ограничения сложности генерируемого текста.
+В диалогах `maxCefrLevel` хранит CEFR-код или `null` (без ограничения), отдельно от оценки уровня пользователя.
+Правила промпта находятся в feature диалогов; контракт создания и PATCH описан в
+`aiDocsRus/topics/aiDialogue/aiDialogue.md`.

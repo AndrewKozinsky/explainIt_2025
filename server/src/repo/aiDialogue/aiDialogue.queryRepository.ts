@@ -64,6 +64,7 @@ export class AiDialogueQueryRepository {
 			scenario: this.aiDialogueScenarioQueryRepository.mapDbToOutModel(dbDialogue.scenario),
 			sourceLanguageCode: dbDialogue.source_language_code,
 			targetLanguageCode: dbDialogue.target_language_code,
+			maxCefrLevel: dbDialogue.max_cefr_level,
 			createdAt: dbDialogue.created_at.toISOString(),
 			updatedAt: dbDialogue.updated_at.toISOString(),
 		}

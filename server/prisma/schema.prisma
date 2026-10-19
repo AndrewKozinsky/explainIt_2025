@@ -280,6 +280,7 @@ model AiDialogueScenario {
 }
 
 model AiDialogue {
+    max_cefr_level         CefrSimplificationLevel?
     id                     Int                      @id @default(autoincrement())
     scenario               AiDialogueScenario       @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
     scenario_id            Int
@@ -519,6 +520,13 @@ enum SentenceChatMessageStatus {
     completed
     canceled
     failed
+}
+
+enum CefrSimplificationLevel {
+    A1
+    A2
+    B1
+    B2
 }
 
 enum AiDialogueMessageType {

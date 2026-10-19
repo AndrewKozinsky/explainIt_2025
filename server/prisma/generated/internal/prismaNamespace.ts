@@ -2741,6 +2741,7 @@ export type AiDialogueScenarioScalarFieldEnum = (typeof AiDialogueScenarioScalar
 
 
 export const AiDialogueScalarFieldEnum = {
+  max_cefr_level: 'max_cefr_level',
   id: 'id',
   scenario_id: 'scenario_id',
   user_id: 'user_id',
@@ -3149,6 +3150,20 @@ export type EnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = FieldRefI
  */
 export type ListEnumSentenceChatMessageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageStatus[]'>
     
+
+
+/**
+ * Reference to a field of type 'CefrSimplificationLevel'
+ */
+export type EnumCefrSimplificationLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CefrSimplificationLevel'>
+
+
+
+/**
+ * Reference to a field of type 'CefrSimplificationLevel[]'
+ */
+export type ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CefrSimplificationLevel[]'>
+
 
 
 /**

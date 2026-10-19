@@ -12,21 +12,24 @@ jest.mock('repo/aiDialogueScenario/aiDialogueScenario.repository', () => ({ AiDi
 jest.mock('infrastructure/llmProviderAdapter/LlmAdapter.service', () => ({ LlmAdapterService: class {} }))
 jest.mock('./audio/AiDialogueAudioStream.service', () => ({ AiDialogueAudioStream: class {} }))
 jest.mock('./SummarizeAiDialogue.service', () => ({ SummarizeAiDialogue: class {} }))
+import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
 function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') {
 	const timeline: string[] = []
 	const llm = {
-		stream: jest.fn(async function* () {
+		stream: jest.fn(async function* (_input: { messages: LlmMessage[] }) {
 			yield 'help\nHello\nПривет'
 			yield footer
 		}),
 	}
+
 	const dialogue = {
 		getDialogueById: jest.fn().mockResolvedValue({
 			scenario_id: 1,
 			source_language_code: 'en',
 			target_language_code: 'ru',
+			max_cefr_level: null,
 			summary: null,
 			summary_up_to: 0,
 		}),
@@ -71,7 +74,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 		audio as never,
 	)
 
-	return { service, timeline, turn, query, registry, hub, llm, audioSession }
+	return { service, timeline, turn, query, registry, hub, llm, audioSession, dialogue }
 }
 
 describe('text turn with inline word maps', () => {
@@ -99,6 +102,43 @@ describe('text turn with inline word maps', () => {
 		query.getMessagesByDialogueId.mockResolvedValue([{ id: 7, payload: { type: 'help' } }])
 		await service.triggerIfNeeded(3)
 		expect(registry.register).not.toHaveBeenCalled()
+	})
+})
+
+describe('language settings snapshot per turn', () => {
+	it('reads the saved level for each new turn and retains it through a parse retry', async () => {
+		const { service, dialogue, llm, timeline } = harness()
+		const stored = {
+			scenario_id: 1,
+			source_language_code: 'en',
+			target_language_code: 'ru',
+			max_cefr_level: 'A2',
+			summary: null,
+			summary_up_to: 0,
+		}
+		dialogue.getDialogueById.mockImplementation(async () => ({ ...stored }))
+		llm.stream.mockImplementationOnce(async function* () {
+			// A PATCH completes while the first attempt is already streaming.
+			stored.max_cefr_level = 'B1'
+			yield 'invalid response'
+		})
+		const log = jest.spyOn(console, 'log').mockImplementation(() => undefined)
+		try {
+			await service.generate(3)
+			expect(timeline).toContain('turnReset')
+			expect(dialogue.getDialogueById).toHaveBeenCalledTimes(1)
+			expect(llm.stream.mock.calls[0][0].messages[0].content).toContain('complexity is CEFR A2')
+			expect(llm.stream.mock.calls[1][0].messages[0].content).toContain('complexity is CEFR A2')
+
+			await service.generate(3)
+			expect(llm.stream.mock.calls[2][0].messages[0].content).toContain('complexity is CEFR B1')
+
+			dialogue.getDialogueById.mockResolvedValue({ ...stored, max_cefr_level: null })
+			await service.generate(3)
+			expect(llm.stream.mock.calls[3][0].messages[0].content).toContain('There is no CEFR complexity limit')
+		} finally {
+			log.mockRestore()
+		}
 	})
 })
 

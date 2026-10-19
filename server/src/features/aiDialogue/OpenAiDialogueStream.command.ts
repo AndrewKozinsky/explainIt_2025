@@ -44,6 +44,7 @@ export class OpenAiDialogueStreamHandler implements ICommandHandler<
 	async execute(command: OpenAiDialogueStreamCommand): Promise<Observable<MessageEvent>> {
 		return new Observable<MessageEvent>((subscriber) => {
 			const state: DialogueStreamState = { authorized: false, receivedMessageIds: new Set(), pendingEvents: [] }
+
 			// Subscribe before replay, but hold events until ownership has been checked.
 			const hubSubscription = this.aiDialogueSseHub
 				.getDialogueEventSubject(command.dialogueId)

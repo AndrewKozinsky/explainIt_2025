@@ -6,6 +6,21 @@ import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.o
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
+
+export function ApiUpdateAiDialogue() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Update AI dialogue settings',
+			description:
+				'Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit maxCefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.',
+		}),
+		ApiCookieAuth(),
+		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
+		ApiBody({ type: UpdateAiDialogueInput }),
+		ApiResponse({ status: 200, description: 'OK', type: AiDialogueOutModel }),
+	)
+}
 
 export function ApiGetAiDialogueVisuals() {
 	return applyDecorators(

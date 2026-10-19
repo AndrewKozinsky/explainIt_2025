@@ -1,4 +1,5 @@
 import { languages } from 'utils/languages'
+import { CEFR_SIMPLIFICATION_LEVELS } from 'utils/proficiencyLevel'
 import { BdConfig } from './dbConfigType'
 
 const languagesArr: string[] = Object.keys(languages)
@@ -1355,6 +1356,15 @@ export const bdConfig = {
 		},
 		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }],
 		dbFields: {
+			max_cefr_level: {
+				type: 'enum',
+				enumName: 'CefrSimplificationLevel',
+				variants: [...CEFR_SIMPLIFICATION_LEVELS],
+				required: false,
+				description:
+					'Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.',
+				example: 'A2',
+			},
 			id: {
 				type: 'index',
 				description: 'AI dialogue ID',

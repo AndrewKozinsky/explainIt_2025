@@ -9,6 +9,7 @@ import {
 	MessageEvent,
 	Param,
 	ParseIntPipe,
+	Patch,
 	Post,
 	Req,
 	Sse,
@@ -27,6 +28,7 @@ import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
 import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
+import { UpdateAiDialogueCommand } from 'features/aiDialogue/UpdateAiDialogue.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
@@ -34,6 +36,7 @@ import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.o
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
 import {
 	ApiCreateAiDialogue,
 	ApiCreateAiDialogueMessage,
@@ -42,6 +45,7 @@ import {
 	ApiGetAiDialogueAudio,
 	ApiGetAiDialogues,
 	ApiGetAiDialogueVisuals,
+	ApiUpdateAiDialogue,
 } from './openAPI.decorators'
 
 @ApiTags('AiDialogue')
@@ -60,6 +64,7 @@ export class AiDialogueController {
 				scenarioId: input.scenarioId,
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode,
+				maxCefrLevel: input.maxCefrLevel,
 			}),
 		)
 	}
@@ -78,6 +83,24 @@ export class AiDialogueController {
 	@Get(':id')
 	async getAiDialogue(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Promise<AiDialogueOutModel> {
 		return await this.commandBus.execute(new GetAiDialogueCommand(request.user!.id, id))
+	}
+
+	@ApiUpdateAiDialogue()
+	@UseGuards(CheckSessionCookieGuard)
+	@HttpCode(HttpStatus.OK)
+	@Patch(':id')
+	async updateAiDialogue(
+		@Param('id', ParseIntPipe) id: number,
+		@Body() input: UpdateAiDialogueInput,
+		@Req() request: Request,
+	): Promise<AiDialogueOutModel> {
+		return await this.commandBus.execute(
+			new UpdateAiDialogueCommand({
+				userId: request.user!.id,
+				dialogueId: id,
+				maxCefrLevel: input.maxCefrLevel,
+			}),
+		)
 	}
 
 	@ApiDeleteAiDialogue()

@@ -7,6 +7,7 @@ jest.mock('@nestjs/common', () => {
 		'Header',
 		'HttpCode',
 		'Param',
+		'Patch',
 		'Post',
 		'Req',
 		'Sse',
@@ -33,6 +34,7 @@ jest.mock('features/aiDialogue/GetUserDialogues.command', () => ({ GetUserDialog
 jest.mock('infrastructure/guards/checkSessionCookie.guard', () => ({ CheckSessionCookieGuard: class {} }))
 jest.mock('./inputs/createAiDialogue.input', () => ({ CreateAiDialogueInput: class {} }))
 jest.mock('./inputs/createAiDialogueMessage.input', () => ({ CreateAiDialogueMessageInput: class {} }))
+jest.mock('./inputs/updateAiDialogue.input', () => ({ UpdateAiDialogueInput: class {} }))
 jest.mock('./openAPI.decorators', () =>
 	Object.fromEntries(
 		[
@@ -43,6 +45,7 @@ jest.mock('./openAPI.decorators', () =>
 			'ApiGetAiDialogues',
 			'ApiGetAiDialogueVisuals',
 			'ApiGetAiDialogueAudio',
+			'ApiUpdateAiDialogue',
 		].map((name) => [name, () => () => undefined]),
 	),
 )
@@ -66,6 +69,18 @@ describe('AiDialogueController CQRS dispatch', () => {
 		bus.execute.mockResolvedValue({ dialogueId: 1 })
 		await expect(controller.getAiDialogueVisuals(1, request)).resolves.toEqual({ dialogueId: 1 })
 		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, dialogueId: 1 }))
+	})
+
+	it('dispatches a settings update with the authenticated owner and explicit null', async () => {
+		const { controller, bus, request } = harness()
+		bus.execute.mockResolvedValue({ id: 1, maxCefrLevel: null })
+		await expect(controller.updateAiDialogue(1, { maxCefrLevel: null }, request)).resolves.toEqual({
+			id: 1,
+			maxCefrLevel: null,
+		})
+		expect(bus.execute).toHaveBeenCalledWith(
+			expect.objectContaining({ dto: { userId: 7, dialogueId: 1, maxCefrLevel: null } }),
+		)
 	})
 
 	it('dispatches stream opening through CommandBus and returns its Observable unchanged', async () => {

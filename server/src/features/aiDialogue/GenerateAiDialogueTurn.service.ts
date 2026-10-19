@@ -70,6 +70,7 @@ export class GenerateAiDialogueTurn {
 			// плейсхолдер «ответ готовится» (зазор между запуском и первым токеном LLM).
 			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'turnStarted' } })
 
+			// Настройки фиксируются этим чтением на весь ход, включая повторные попытки парсинга.
 			const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
 			if (!dialogue) return
 
@@ -89,6 +90,7 @@ export class GenerateAiDialogueTurn {
 				},
 				sourceLanguageCode: dialogue.source_language_code,
 				targetLanguageCode: dialogue.target_language_code,
+				maxCefrLevel: dialogue.max_cefr_level,
 				summary,
 				recentEvents,
 			})

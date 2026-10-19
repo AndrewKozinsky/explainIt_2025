@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
+import { CefrSimplificationLevel } from 'utils/proficiencyLevel'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 
@@ -13,6 +14,7 @@ export class AiDialogueRepository {
 		scenarioId: number
 		sourceLanguageCode: Language
 		targetLanguageCode: Language
+		maxCefrLevel?: CefrSimplificationLevel | null
 	}) {
 		return this.prisma.aiDialogue.create({
 			data: {
@@ -20,6 +22,7 @@ export class AiDialogueRepository {
 				scenario_id: dto.scenarioId,
 				source_language_code: dto.sourceLanguageCode,
 				target_language_code: dto.targetLanguageCode,
+				max_cefr_level: dto.maxCefrLevel ?? null,
 			},
 		})
 	}
@@ -27,6 +30,16 @@ export class AiDialogueRepository {
 	@CatchDbError()
 	async getDialogueById(id: number) {
 		return this.prisma.aiDialogue.findUnique({ where: { id } })
+	}
+
+	/** Меняет настройки только у владельца; генерация текущего хода продолжает использовать свой снимок. */
+	@CatchDbError()
+	async updateMaxCefrLevel(id: number, userId: number, maxCefrLevel: CefrSimplificationLevel | null) {
+		const result = await this.prisma.aiDialogue.updateMany({
+			where: { id, user_id: userId },
+			data: { max_cefr_level: maxCefrLevel },
+		})
+		return result.count === 1
 	}
 
 	@CatchDbError()

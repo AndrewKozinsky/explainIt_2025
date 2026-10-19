@@ -31,6 +31,7 @@ import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.co
 import { OpenAiDialogueStreamHandler } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { PublishImageGenerationOutbox } from 'features/aiDialogue/PublishImageGenerationOutbox.service'
 import { SummarizeAiDialogue } from 'features/aiDialogue/SummarizeAiDialogue.service'
+import { UpdateAiDialogueHandler } from 'features/aiDialogue/UpdateAiDialogue.command'
 import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
@@ -53,6 +54,7 @@ const services = [
 	CleanupAiDialogueImages,
 ]
 const commandHandlers = [
+	UpdateAiDialogueHandler,
 	GetAiDialogueAudioHandler,
 	CreateAiDialogueHandler,
 	CreateAiDialogueMessageHandler,

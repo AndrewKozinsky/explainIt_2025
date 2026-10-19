@@ -357,6 +357,7 @@ export type AiDialogueScenarioScalarFieldEnum = (typeof AiDialogueScenarioScalar
 
 
 export const AiDialogueScalarFieldEnum = {
+  max_cefr_level: 'max_cefr_level',
   id: 'id',
   scenario_id: 'scenario_id',
   user_id: 'user_id',

@@ -3,6 +3,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { Language } from 'utils/languages'
+import { CefrSimplificationLevel } from 'utils/proficiencyLevel'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -15,6 +16,7 @@ export class CreateAiDialogueCommand implements ICommand {
 			scenarioId: number
 			sourceLanguageCode: Language
 			targetLanguageCode: Language
+			maxCefrLevel?: CefrSimplificationLevel | null
 		},
 	) {}
 }
@@ -28,7 +30,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 	) {}
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode } = command.dto
+		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel } = command.dto
 
 		const scenario = await this.aiDialogueScenarioRepository.getScenarioById(scenarioId)
 		if (!scenario) {
@@ -45,6 +47,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			scenarioId,
 			sourceLanguageCode,
 			targetLanguageCode,
+			maxCefrLevel,
 		})
 
 		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogue.id)

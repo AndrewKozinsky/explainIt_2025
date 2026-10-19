@@ -30,6 +30,7 @@
 | `user_id`                   | `Int`          | FK → `User.id`, `onDelete: Cascade`                         |
 | `source_language_code`      | `LanguageCode` | Язык диалога — тот, который практикует ученик (реплики NPC) |
 | `target_language_code`      | `LanguageCode` | Язык перевода — родной язык ученика (поле `translation`)    |
+| `max_cefr_level`            | `CefrSimplificationLevel?` | Верхняя граница сложности A1/A2/B1/B2; `null` — без ограничения |
 | `summary`                   | `String?`      | Компактная сводка истории (JSON-строка, см. «Компакция»)    |
 | `summary_up_to`             | `Int`          | `id` последнего сообщения, покрытого сводкой (default `0`)  |
 | `created_at` / `updated_at` | `DateTime`     | Даты                                                        |
@@ -70,8 +71,10 @@
 Все эндпоинты требуют авторизации (`CheckSessionCookieGuard`).
 
 ```
-POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode } → 201 AiDialogueOutModel
+POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel? } → 201 AiDialogueOutModel
 GET    /ai-dialogue                → 200 AiDialogueOutModel[]
+GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
+PATCH  /ai-dialogue/:id            body: { maxCefrLevel? } → 200 AiDialogueOutModel
 DELETE /ai-dialogue/:id            → 200 boolean
 POST   /ai-dialogue/:id/messages   body: CreateAiDialogueMessageInput → 201 AiDialogueMessageOutModel
 GET    /ai-dialogue/:id/visuals    → 200 AiDialogueVisualsOutModel (только владельцу)
@@ -85,6 +88,7 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
   "id": 1,
   "sourceLanguageCode": "en",
   "targetLanguageCode": "ru",
+  "maxCefrLevel": null,
   "scenario": {
     "id": 1,
     "slug": "at-the-dentist",
@@ -137,6 +141,49 @@ GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 
 Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см. `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`). На
 клиенте `sourceLanguageCode` пока временно захардкожен как `'en'` (см. `useAiDialogueScenarioClick`).
+
+### Ограничение сложности текста по CEFR
+
+`maxCefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | null` — настройка конкретного диалога, а не оценка
+реального владения языком пользователя. Значение задаёт верхнюю границу сложности, более простой текст допустим.
+Общий справочник находится в `server/src/utils/proficiencyLevel.ts`: `PROFICIENCY_LEVELS` (A1–C2),
+`CEFR_SIMPLIFICATION_LEVELS` (A1–B2), тип `CefrSimplificationLevel`. Числовой маппинг 1–6 для видео сохранён.
+C1/C2 не принимаются в этой настройке: для свободного владения используется `null`.
+
+При создании `maxCefrLevel` необязателен; отсутствие поля и явный `null` сохраняют `null`.
+Все существующие диалоги после миграции также имеют `null`; ограничения автоматически не включаются.
+Поле всегда возвращается в `AiDialogueOutModel` (создание, получение одного диалога, список, обновление).
+
+Изменение: `PATCH /api/ai-dialogue/:id` с телом `{"maxCefrLevel":"A2"}`.
+`{"maxCefrLevel":null}` отключает адаптацию; `{}` ничего не меняет, включая `updatedAt`.
+Маршрут проверяет сессию, существование и владельца диалога; чужой диалог — 403, отсутствующий — 404.
+Недопустимые значения, включая C1/C2, числа и неверный регистр, отклоняются валидацией DTO с 400.
+Обновление БД дополнительно ограничено `id` и `user_id`.
+
+PATCH можно вызвать при активной генерации. Он не запускает новый ответ, не прерывает текущий и не создаёт
+сюжетного сообщения. SSE не нужно закрывать или передавать уровень в его URL.
+Каждый ход один раз фиксирует настройку при чтении диалога в `GenerateAiDialogueTurn.generate` перед сборкой
+промпта. С этого момента изменение влияет на следующие ходы, а текущий ход и повторные попытки после ошибки
+парсинга используют прежний снимок. Если PATCH завершился до чтения настроек, ход увидит новое значение.
+Для применения к ответу на новую реплику клиент сначала дожидается успешного PATCH, затем отправляет POST сообщения.
+Для первой сцены уровень передаётся сразу при создании, до открытия SSE.
+
+Адаптация применяется ко всем новым видимым `content` на языке `sourceLanguageCode`: реплики и действия NPC,
+описания сцен, подсказки, события мира. Имена и идентификаторы NPC сохраняются. Переводы точно передают смысл
+на `targetLanguageCode`, без отдельного ограничения CEFR. Скрытые appearance/voice/visual и технический
+формат wordMaps не упрощаются; карта строится по фактически сгенерированному тексту.
+Озвучка получает уже адаптированный текст из существующего потока.
+
+`buildAiDialogueLanguageLevelRules` задаёт отдельные инструкции по лексике и грамматике для каждого уровня.
+Текущая настройка имеет приоритет над противоречащими указаниями сценария и истории, включая summary;
+при `null` прежняя адаптация из истории не переносится. NPC сохраняют роль и характер, не исправляют
+пользователя и не превращают разговор в урок. Необходимые тематические термины допускаются с простым пояснением.
+Общие правила краткой разговорной речи сохраняются и без ограничения CEFR.
+История не переписывается, настройка хранится отдельно от summary и заново читается для каждого хода.
+
+Это адаптация через промпт, а не строгий автоматический сертификат CEFR. Дополнительной проверки или
+перегенерации по результатам оценки сложности нет; потоковое превью и ранняя озвучка сохраняются.
+Художественное качество и соответствие уровням требуют ручной оценки ответов реальной модели.
 
 ### Удаление диалога
 
@@ -216,8 +263,8 @@ type CreateAiDialogueMessageInput =
 ситуацию; visual показывает конечный момент этого вступления. Например, если вступление включает открытие двери,
 иллюстрация показывает уже открытую дверь и видимого посетителя. Дальнейшие действия выбирает участник.
 Подробности и пример — в [`aiDialogueImages.md`](aiDialogueImages.md).
-Промпт задаёт язык разговора, но не сообщает, что участник изучает язык, и не ограничивает сложность речи.
-NPC говорят естественно для своей роли и ситуации, не исправляют грамматику, лексику или написание
+Промпт задаёт язык разговора и учитывает `maxCefrLevel`, но не сообщает в видимом тексте, что участник изучает язык.
+При `null` ограничения CEFR нет. NPC сохраняют роль и ситуацию, не исправляют грамматику, лексику или написание
 и не предлагают улучшенные формулировки. Если смысл понятен — продолжают сцену; иначе переспрашивают в роли.
 Общее правило имеет приоритет над прежними учебными инструкциями в сценарии или истории.
 
@@ -289,8 +336,11 @@ notifyActiveDialoguesOfVisualChanges отправляет технический
   `AiDialogueMessageRepository.createMessage` → `AiDialogueQueryRepository.getMessageById` → fire-and-forget запуск
   `GenerateAiDialogueTurn`.
 
-SSE-эндпоинт не использует CQRS: контроллер напрямую подписывается на `AiDialogueSseHub` и вызывает
-`GenerateAiDialogueTurn.triggerIfNeeded`.
+SSE-эндпоинт использует `OpenAiDialogueStreamCommand`: хендлер проверяет доступ, подписывается на
+`AiDialogueSseHub`, отдаёт историю и вызывает `GenerateAiDialogueTurn.triggerIfNeeded`.
+
+`UpdateAiDialogueCommand` проверяет владельца и сохраняет настройку через `AiDialogueRepository.updateMaxCefrLevel`,
+затем возвращает свежий `AiDialogueOutModel` из QueryRepository. Registry генерации и шину SSE он не использует.
 
 ## Генерация хода (`GenerateAiDialogueTurn`)
 
@@ -309,7 +359,8 @@ SSE-эндпоинт не использует CQRS: контроллер нап
 
 1. Guard: если для диалога уже идёт генерация — выход (идемпотентно). Иначе регистрирует
    `AbortController` в `ActiveAiDialogueGenerationRegistry` (лимит — **1 активная генерация на диалог**).
-2. Читает диалог (нужен `summary`, `summary_up_to`, `scenario_id`) и сценарий.
+2. Читает диалог (нужны `summary`, `summary_up_to`, `scenario_id`, `max_cefr_level`) и сценарий.
+   Уровень сложности фиксируется этим чтением на весь ход, включая повторные попытки парсинга.
 3. Читает все сообщения; «свежие» события = сообщения с `id > summary_up_to`.
 4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий построчный контракт
    ответа + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события). Язык диалога берётся из
@@ -430,6 +481,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 | `user_id`              | `Int`          | FK → `User.id`, `onDelete: Cascade`                        |
 | `source_language_code` | `LanguageCode` | Язык диалога (практикуемый язык, реплики NPC)              |
 | `target_language_code` | `LanguageCode` | Язык перевода (родной язык, поле `translation`)            |
+| `max_cefr_level` | `CefrSimplificationLevel?` | A1/A2/B1/B2 или `null` (без ограничения) |
 | `summary`              | `String?`      | Сводка истории (JSON-строка, см. «Компакция»)              |
 | `summary_up_to`        | `Int`          | `id` последнего сообщения, покрытого сводкой (default `0`) |
 | `created_at`           | `DateTime`     | Дата создания                                              |
@@ -438,6 +490,10 @@ SSE-соединения. Субъекты не вычищаются (диало
 - Индексы: `@@index([user_id])`, `@@index([scenario_id])`.
 - Обратные связи: `User.AiDialogue`, `AiDialogueScenario.AiDialogue`, `AiDialogue.AiDialogueMessage`
   (`oneToMany`).
+
+Миграция `20261019120000_add_ai_dialogue_max_cefr_level` добавляет nullable enum-поле без изменения истории.
+Схема и Prisma Client перегенерируются из `bdConfig`; миграцию перед запуском обновлённого сервера нужно применить
+обычной командой `cd server && npm run migrate:deploy`.
 
 ### Таблица AiDialogueMessage
 
@@ -472,6 +528,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 ### CQRS-команды и сервисы генерации
 
 - `server/src/features/aiDialogue/CreateAiDialogue.command.ts` — создание диалога.
+- `server/src/features/aiDialogue/UpdateAiDialogue.command.ts` — изменение ограничения сложности владельцем.
 - `server/src/features/aiDialogue/GetUserDialogues.command.ts` — список диалогов пользователя.
 - `server/src/features/aiDialogue/DeleteAiDialogue.command.ts` — удаление диалога.
 - `server/src/features/aiDialogue/CreateAiDialogueMessage.command.ts` — приём действия пользователя + триггер генерации.
@@ -483,6 +540,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 ### Промпты и парсинг
 
+- `server/src/utils/proficiencyLevel.ts` — общий справочник CEFR и уровни адаптации.
+- `server/src/features/aiDialogue/buildAiDialogueLanguageLevelRules.ts` — правила сложности видимых текстов.
 - `server/src/features/aiDialogue/buildAiDialoguePrompt.ts` — промпт генерации хода (язык из
   `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
@@ -494,9 +553,10 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 ### REST-маршрут
 
-- `server/src/routes/aiDialogue/aiDialogue.controller.ts` — контроллер (`POST/GET/DELETE /ai-dialogue`,
+- `server/src/routes/aiDialogue/aiDialogue.controller.ts` — контроллер (`POST/GET/PATCH/DELETE /ai-dialogue`,
   `POST :id/messages`, `@Sse :id/stream`).
-- `server/src/routes/aiDialogue/inputs/createAiDialogue.input.ts` — DTO создания (`scenarioId`).
+- `server/src/routes/aiDialogue/inputs/createAiDialogue.input.ts` — DTO создания (сценарий, языки, `maxCefrLevel`).
+- `server/src/routes/aiDialogue/inputs/updateAiDialogue.input.ts` — DTO изменения `maxCefrLevel`.
 - `server/src/routes/aiDialogue/inputs/createAiDialogueMessage.input.ts` — DTO действия пользователя.
 - `server/src/routes/aiDialogue/openAPI.decorators.ts` — композитные декораторы OpenAPI.
 - `server/src/routes/aiDialogue/aiDialogue.module.ts` — NestJS-модуль.
@@ -617,3 +677,11 @@ HTTP-процесс периодически убирает новые осир�
 постоянные голоса, отдельную очередь, R2 и REST/SSE, описана в [`aiDialogueAudio.md`](aiDialogueAudio.md).
 Аудио может быть готово до финального сохранения сообщения; turnDone по-прежнему завершает только текст.
 Клиентский проигрыватель подключён: раннее автоматическое воспроизведение, отдельные кнопки и ручное управление.
+
+## Проверки ограничения сложности
+
+Из `server/`: `npm test -- --testPathPatterns='features/aiDialogue/|routes/aiDialogue/|repo/aiDialogue/'`.
+Проверяются DTO создания/обновления (включая null, отсутствие и неверные значения), передача уровня при создании,
+сохранение и выдача в detail/list, права владельца, пустой PATCH, конкурентное удаление,
+все четыре уровня в промпте, отключение прежней адаптации и снимок уровня на ход с повторной попыткой парсинга.
+Проверки используют подмены БД/LLM; реальные платные генерации не запускаются.
