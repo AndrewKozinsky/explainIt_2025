@@ -16,6 +16,7 @@ function TextLevelSwitcher({ textLevel, onTextLevelChange, disabled }: TextLevel
 		<Switcher
 			label='Language level:'
 			type='fit'
+			size='small'
 			orientation='horizontal'
 			disabled={disabled}
 			items={textLevels.map((level) => ({

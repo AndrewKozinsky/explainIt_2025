@@ -37,6 +37,24 @@
 	grid-auto-flow: row;
 }
 
+.switcher--size-small .switcher__button {
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+	padding: .3rem .8rem;
+}
+
+.switcher--size-medium .switcher__button {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	padding: .7rem 1.4rem;
+}
+
+.switcher--size-big .switcher__button {
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	padding: 1.1rem 2.6rem;
+}
+
 .switcher--wide-paddings {
 	.switcher__button {
 		padding-left: 2rem;
@@ -45,11 +63,8 @@
 }
 
 .switcher__button {
-	font-size: 1.6rem;
-	line-height: 2rem;
 	color: vars.$grayColor-5;
 	background-color: transparent;
-	padding: .8rem .8rem .8rem .8rem;
 	border-radius: vars.$radius-1;
 
 	&:hover, &:focus {

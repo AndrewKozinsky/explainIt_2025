@@ -13,19 +13,21 @@ type SwitcherProps = {
 	label?: string
 	type: 'fit' | 'block'
 	orientation: 'horizontal' | 'vertical'
+	size?: 'small' | 'medium' | 'big'
 	widePaddings?: boolean
 	items: SwitcherItem[]
 	disabled?: boolean
 }
 
 function Switcher(props: SwitcherProps) {
-	const { label, type, orientation, widePaddings, items, disabled } = props
+	const { label, type, orientation, size = 'medium', widePaddings, items, disabled } = props
 
 	return (
 		<LabelWithField label={label}>
 			<div
 				className={cn(
 					'switcher',
+					`switcher--size-${size}`,
 					'switcher--' + orientation,
 					'switcher--' + type,
 					widePaddings && 'switcher--wide-paddings',
