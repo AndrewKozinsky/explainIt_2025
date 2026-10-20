@@ -1,6 +1,7 @@
 import OpenAI from 'openai'
 import { GoogleTtsProvider } from './GoogleTtsProvider'
 import { OpenAITtsProvider } from './OpenAITtsProvider'
+import { SonioxTtsProvider } from './SonioxTtsProvider'
 import { TtsAdapterService } from './TtsAdapter.service'
 import { TtsError } from './TtsError'
 import { GoogleTtsInput, OpenAITtsInput, TtsGenerateInput } from './TtsProvider.interface'
@@ -24,7 +25,12 @@ function setup() {
 	const getClient = jest.fn(() => ({ audio: { speech: { create } } }) as unknown as Pick<OpenAI, 'audio'>)
 	const synthesizeAudio = jest.fn().mockResolvedValue(bytes)
 	const getService = jest.fn(() => ({ synthesizeAudio }))
-	const adapter = new TtsAdapterService(new OpenAITtsProvider(getClient), new GoogleTtsProvider(getService))
+
+	const adapter = new TtsAdapterService(
+		new OpenAITtsProvider(getClient),
+		new GoogleTtsProvider(getService),
+		new SonioxTtsProvider(getService),
+	)
 
 	return { adapter, create, getClient, synthesizeAudio, getService, bytes }
 }
@@ -33,6 +39,7 @@ describe('TtsAdapterService', () => {
 	it('passes OpenAI voice, style, format, speed and cancellation, returning the original bytes', async () => {
 		const { adapter, create, getService, bytes } = setup()
 		const signal = new AbortController().signal
+
 		expect(
 			await adapter.generate({
 				...openAIInput,
@@ -43,6 +50,7 @@ describe('TtsAdapterService', () => {
 				abortSignal: signal,
 			}),
 		).toEqual(bytes)
+
 		expect(create).toHaveBeenCalledWith(
 			{
 				input: 'Hello!',

@@ -1,4 +1,5 @@
 import { GoogleTtsAudioConfig, GoogleTtsVoice } from '../googleTts/googleTts.types'
+import { SonioxTtsOptions } from '../sonioxTts/sonioxTts.types'
 
 export const OPENAI_TTS_VOICES = [
 	'alloy',
@@ -34,8 +35,10 @@ export type GoogleTtsInput = TtsInputBase & {
 	audioConfig: GoogleTtsAudioConfig
 }
 
+export type SonioxTtsInput = SonioxTtsOptions & { type: 'Soniox'; text: string }
+
 /** Discriminated union: each supplier receives only its own parameters. */
-export type TtsGenerateInput = OpenAITtsInput | GoogleTtsInput
+export type TtsGenerateInput = OpenAITtsInput | GoogleTtsInput | SonioxTtsInput
 
 export interface TtsProvider<TInput extends TtsGenerateInput> {
 	generate(input: TInput): Promise<Buffer>

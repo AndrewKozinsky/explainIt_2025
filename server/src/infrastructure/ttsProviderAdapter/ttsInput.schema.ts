@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { sonioxTtsRequestSchema } from '../sonioxTts/sonioxTts.types'
 import { OPENAI_TTS_VOICES } from './TtsProvider.interface'
 
 const base = {
@@ -44,3 +45,5 @@ export const googleTtsInputSchema = z
 			.strict(),
 	})
 	.strict()
+
+export const sonioxTtsInputSchema = sonioxTtsRequestSchema.extend({ type: z.literal('Soniox') }).strict()

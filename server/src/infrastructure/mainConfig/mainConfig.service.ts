@@ -76,6 +76,9 @@ export class MainConfigService {
 					},
 				},
 			},
+			soniox: {
+				apiKey: enVariables.soniox.apiKey,
+			},
 			blackForestLabs: {
 				apiKey: enVariables.blackForestLabs.apiKey,
 			},
@@ -247,6 +250,9 @@ export class MainConfigService {
 			},
 			openAi: {
 				apiKey: this.configService.get<string>('OPENAI_API_KEY') as string,
+			},
+			soniox: {
+				apiKey: this.configService.get<string>('SONIOX_API_KEY')?.trim() || null,
 			},
 			blackForestLabs: {
 				apiKey: this.configService.get<string>('BLACK_FOREST_LABS_API_KEY')?.trim() || null,
