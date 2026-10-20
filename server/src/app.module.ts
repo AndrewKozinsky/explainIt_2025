@@ -36,6 +36,7 @@ import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { QueuesModule } from 'infrastructure/queues/queues.module'
 import { RedisModule } from 'infrastructure/redis/redis.module'
 import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
+import { SonioxSttModule } from 'infrastructure/sonioxStt/sonioxStt.module'
 import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 import { TelegramModule } from 'infrastructure/telegram/telegram.module'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
@@ -59,6 +60,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		DeepSeekModule,
 		ZaiModule,
 		DeepgramSttModule,
+		SonioxSttModule,
 		SubtitlesModule,
 		GoogleGeminiModule,
 		GoogleTtsModule,
