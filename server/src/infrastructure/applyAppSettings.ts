@@ -6,6 +6,7 @@ import { useContainer, ValidationError } from 'class-validator'
 import { RedisStore } from 'connect-redis'
 import cookieParser = require('cookie-parser')
 import session = require('express-session')
+import { AiDialogueDictationWebSocket } from 'routes/aiDialogue/aiDialogueDictationWebSocket.service'
 import { AppModule } from '../app.module'
 import { MainConfigService } from './mainConfig/mainConfig.service'
 import { RedisService } from './redis/redis.service'
@@ -18,7 +19,9 @@ export async function applyAppSettings(app: INestApplication) {
 	// Enable NestJS DI for class-validator
 	useContainer(app.select(AppModule), { fallbackOnErrors: true })
 
-	await setUpSession(app)
+	const sessionMiddleware = await setUpSession(app)
+	app.use(sessionMiddleware)
+	app.get(AiDialogueDictationWebSocket).attach(app.getHttpServer(), sessionMiddleware)
 
 	setUpGlobalPipes(app)
 
@@ -48,21 +51,19 @@ async function setUpSession(app: INestApplication) {
 		sameSite: 'lax', // ⬅️ 'lax' works for same-site requests (frontend and backend on same domain)
 	}
 
-	app.use(
-		session({
-			secret: mainConfig.get().session.secret,
-			name: mainConfig.get().session.name,
-			resave: true,
-			saveUninitialized: false,
-			rolling: true, // ⬅️ Refreshes cookie expiration on every request
-			cookie: cookieConfig,
-			store: new RedisStore({
-				client: redis,
-				prefix: mainConfig.get().redis.sessionsFolder,
-				ttl: mainConfig.get().session.lifeDurationInMs / 1000,
-			}),
+	return session({
+		secret: mainConfig.get().session.secret,
+		name: mainConfig.get().session.name,
+		resave: true,
+		saveUninitialized: false,
+		rolling: true, // ⬅️ Refreshes cookie expiration on every request
+		cookie: cookieConfig,
+		store: new RedisStore({
+			client: redis,
+			prefix: mainConfig.get().redis.sessionsFolder,
+			ttl: mainConfig.get().session.lifeDurationInMs / 1000,
 		}),
-	)
+	})
 }
 
 function setUpGlobalPipes(app: INestApplication) {

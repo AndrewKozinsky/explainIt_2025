@@ -177,7 +177,8 @@ npm test -- --testPathPatterns='messageCheck/|checkAiDialogueUserMessage.input|a
 Тесты не вызывают платные модели и настоящую БД.
 
 После запуска обновлённого сервера клиентские типы и функцию можно сгенерировать через
-`cd face && npm run orval`; operationId — `AiDialogueController_checkAiDialogueMessage`.
+`cd face && npm run orval`; operationId — `AiDialogueController_checkAiDialogueUserMessageText`.
 
-Диктовка и WebSocket-маршрут реализуются отдельным этапом. Языки диктовки будут браться из диалога;
-согласовано строгое ограничение распознавания изучаемым и родным языками, с удалением дубля при их совпадении.
+Потоковая диктовка реализована отдельным WebSocket-маршрутом. Языки берутся из диалога;
+контракт, авторизация, строгие языковые подсказки и ограничения — в
+[`aiDialogueDictation.md`](aiDialogueDictation.md).

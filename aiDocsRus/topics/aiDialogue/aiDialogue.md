@@ -80,11 +80,15 @@ POST   /ai-dialogue/:id/messages   body: CreateAiDialogueMessageInput → 201 Ai
 GET    /ai-dialogue/:id/visuals    → 200 AiDialogueVisualsOutModel (только владельцу)
 GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
 POST   /ai-dialogue/:id/check-message body: { speech?, action? } → 200 AiDialogueUserMessageCheckOutModel
+WS     /ai-dialogue/:id/dictation  → потоковое распознавание аудио (отдельный WebSocket, не REST)
 ```
 
 Проверка черновика реплики и/или действия, категории ошибок, контекст и компактный формат ответа LLM:
 [`aiDialogueMessageCheck.md`](aiDialogueMessageCheck.md). Она не сохраняет сообщение и не ограничивает
 существующий маршрут отправки; достаточно заполнить хотя бы одно поле.
+
+Диктовка черновика с авторизацией по общей сессии и распознаванием двух языков:
+[`aiDialogueDictation.md`](aiDialogueDictation.md).
 
 `AiDialogueOutModel`:
 

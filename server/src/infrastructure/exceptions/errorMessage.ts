@@ -155,6 +155,12 @@ export const errorMessage = {
 		insufficientBalance: { code: 'SENTENCE_CHAT_INSUFFICIENT_BALANCE' }, // Недостаточно средств на балансе для генерации ответа.
 	},
 	aiDialogue: {
+		dictationInvalidInput: { code: 'AI_DIALOGUE_DICTATION_INVALID_INPUT' }, // Неверный формат или порядок данных диктовки.
+		dictationProviderFailed: { code: 'AI_DIALOGUE_DICTATION_PROVIDER_FAILED' }, // Сервис распознавания недоступен.
+		dictationTimeout: { code: 'AI_DIALOGUE_DICTATION_TIMEOUT' }, // Время ожидания диктовки истекло.
+		dictationLimitExceeded: { code: 'AI_DIALOGUE_DICTATION_LIMIT_EXCEEDED' }, // Превышен лимит диктовки.
+		dictationAlreadyActive: { code: 'AI_DIALOGUE_DICTATION_ALREADY_ACTIVE' }, // Диктовка пользователя уже активна.
+		dictationOriginForbidden: { code: 'AI_DIALOGUE_DICTATION_ORIGIN_FORBIDDEN' }, // Источник подключения не разрешён.
 		checkTextRequired: { code: 'AI_DIALOGUE_CHECK_TEXT_REQUIRED' }, // Заполните реплику и/или действие для проверки.
 		cannotParseMessageCheck: { code: 'AI_DIALOGUE_CANNOT_PARSE_MESSAGE_CHECK' }, // Не удалось разобрать результат проверки текста.
 		notFound: { code: 'AI_DIALOGUE_NOT_FOUND' }, // Диалог не найден.

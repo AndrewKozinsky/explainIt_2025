@@ -209,6 +209,10 @@ AiDialogueContentBlock раскрывает существующий перев�
 [`aiDialogueMessageCheck.md`](aiDialogueMessageCheck.md). Текущая форма пока не использует этот маршрут;
 сервер не запрещает отправлять непроверенный текст.
 
+Также подготовлен WebSocket `/api/ai-dialogue/:id/dictation` для диктовки в любое из полей.
+Форма пока его не использует. Протокол микрофона, partial/final и остановки —
+[`aiDialogueDictation.md`](aiDialogueDictation.md).
+
 `ui/AiDialogueInput/AiDialogueInput.tsx` — два поля и две кнопки:
 
 - **Действие** (`type: 'action'`) — что пользователь делает;

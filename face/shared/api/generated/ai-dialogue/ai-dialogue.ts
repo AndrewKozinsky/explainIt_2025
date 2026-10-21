@@ -59,51 +59,51 @@ const withQueryKey = <T extends object, K>(query: T, queryKey: K): T & { queryKe
   return result;
 };
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse200 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse200 = {
   data: AiDialogueUserMessageCheckOutModel
   status: 200
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse400 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse400 = {
   data: void
   status: 400
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse401 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse401 = {
   data: void
   status: 401
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse403 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse403 = {
   data: void
   status: 403
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse404 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse404 = {
   data: void
   status: 404
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse500 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse500 = {
   data: void
   status: 500
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse504 = {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse504 = {
   data: void
   status: 504
 }
 
-export type aiDialogueControllerCheckAiDialogueMessageResponseSuccess = (aiDialogueControllerCheckAiDialogueMessageResponse200) & {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponseSuccess = (aiDialogueControllerCheckAiDialogueUserMessageTextResponse200) & {
   headers: Headers;
 };
-export type aiDialogueControllerCheckAiDialogueMessageResponseError = (aiDialogueControllerCheckAiDialogueMessageResponse400 | aiDialogueControllerCheckAiDialogueMessageResponse401 | aiDialogueControllerCheckAiDialogueMessageResponse403 | aiDialogueControllerCheckAiDialogueMessageResponse404 | aiDialogueControllerCheckAiDialogueMessageResponse500 | aiDialogueControllerCheckAiDialogueMessageResponse504) & {
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponseError = (aiDialogueControllerCheckAiDialogueUserMessageTextResponse400 | aiDialogueControllerCheckAiDialogueUserMessageTextResponse401 | aiDialogueControllerCheckAiDialogueUserMessageTextResponse403 | aiDialogueControllerCheckAiDialogueUserMessageTextResponse404 | aiDialogueControllerCheckAiDialogueUserMessageTextResponse500 | aiDialogueControllerCheckAiDialogueUserMessageTextResponse504) & {
   headers: Headers;
 };
 
-export type aiDialogueControllerCheckAiDialogueMessageResponse = (aiDialogueControllerCheckAiDialogueMessageResponseSuccess | aiDialogueControllerCheckAiDialogueMessageResponseError)
+export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse = (aiDialogueControllerCheckAiDialogueUserMessageTextResponseSuccess | aiDialogueControllerCheckAiDialogueUserMessageTextResponseError)
 
-export const getAiDialogueControllerCheckAiDialogueMessageUrl = (id: number,) => {
+export const getAiDialogueControllerCheckAiDialogueUserMessageTextUrl = (id: number,) => {
 
 
 
@@ -115,10 +115,10 @@ export const getAiDialogueControllerCheckAiDialogueMessageUrl = (id: number,) =>
  * Проверяет заполненные поля с контекстом диалога. Языки берутся из диалога. Возвращает критические ошибки и рекомендации отдельно для каждого поля. Не сохраняет сообщение, не запускает ответ NPC и не ограничивает отправку сообщений.
  * @summary Проверить черновик реплики и/или действия
  */
-export const aiDialogueControllerCheckAiDialogueMessage = async (id: number,
-    checkAiDialogueUserMessageInput: CheckAiDialogueUserMessageInput, options?: RequestInit): Promise<aiDialogueControllerCheckAiDialogueMessageResponse> => {
+export const aiDialogueControllerCheckAiDialogueUserMessageText = async (id: number,
+    checkAiDialogueUserMessageInput: CheckAiDialogueUserMessageInput, options?: RequestInit): Promise<aiDialogueControllerCheckAiDialogueUserMessageTextResponse> => {
 
-  return customMutator<aiDialogueControllerCheckAiDialogueMessageResponse>(getAiDialogueControllerCheckAiDialogueMessageUrl(id),
+  return customMutator<aiDialogueControllerCheckAiDialogueUserMessageTextResponse>(getAiDialogueControllerCheckAiDialogueUserMessageTextUrl(id),
   {
     ...options,
     method: 'POST',
@@ -131,11 +131,11 @@ export const aiDialogueControllerCheckAiDialogueMessage = async (id: number,
 
 
 
-export const getAiDialogueControllerCheckAiDialogueMessageMutationOptions = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
-): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext> => {
+export const getAiDialogueControllerCheckAiDialogueUserMessageTextMutationOptions = <TError = void,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueUserMessageText>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueUserMessageText>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext> => {
 
-const mutationKey = ['aiDialogueControllerCheckAiDialogueMessage'];
+const mutationKey = ['aiDialogueControllerCheckAiDialogueUserMessageText'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
       options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
       options
@@ -145,10 +145,10 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, {id: number;data: CheckAiDialogueUserMessageInput}> = (props) => {
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueUserMessageText>>, {id: number;data: CheckAiDialogueUserMessageInput}> = (props) => {
           const {id,data} = props ?? {};
 
-          return  aiDialogueControllerCheckAiDialogueMessage(id,data,requestOptions)
+          return  aiDialogueControllerCheckAiDialogueUserMessageText(id,data,requestOptions)
         }
 
 
@@ -158,22 +158,22 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
   return  { mutationFn, ...mutationOptions }}
 
-    export type AiDialogueControllerCheckAiDialogueMessageMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>>
-    export type AiDialogueControllerCheckAiDialogueMessageMutationBody = CheckAiDialogueUserMessageInput
-    export type AiDialogueControllerCheckAiDialogueMessageMutationError = void
+    export type AiDialogueControllerCheckAiDialogueUserMessageTextMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueUserMessageText>>>
+    export type AiDialogueControllerCheckAiDialogueUserMessageTextMutationBody = CheckAiDialogueUserMessageInput
+    export type AiDialogueControllerCheckAiDialogueUserMessageTextMutationError = void
 
     /**
  * @summary Проверить черновик реплики и/или действия
  */
-export const useAiDialogueControllerCheckAiDialogueMessage = <TError = void,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+export const useAiDialogueControllerCheckAiDialogueUserMessageText = <TError = void,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueUserMessageText>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient): UseMutationResult<
-        Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>,
+        Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueUserMessageText>>,
         TError,
         {id: number;data: CheckAiDialogueUserMessageInput},
         TContext
       > => {
-      return useMutation(getAiDialogueControllerCheckAiDialogueMessageMutationOptions(options), queryClient);
+      return useMutation(getAiDialogueControllerCheckAiDialogueUserMessageTextMutationOptions(options), queryClient);
     }
     export type aiDialogueControllerCreateAiDialogueResponse201 = {
   data: AiDialogueOutModel

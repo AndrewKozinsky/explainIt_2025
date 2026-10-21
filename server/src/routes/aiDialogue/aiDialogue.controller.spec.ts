@@ -77,7 +77,9 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const result = { speech: { critical: [], suggestions: [] }, action: { critical: [], suggestions: [] } }
 		bus.execute.mockResolvedValue(result)
 
-		await expect(controller.checkAiDialogueMessage(1, { action: 'I smile.' }, request)).resolves.toBe(result)
+		await expect(controller.checkAiDialogueUserMessageText(1, { action: 'I smile.' }, request)).resolves.toBe(
+			result,
+		)
 
 		expect(bus.execute).toHaveBeenCalledWith(
 			expect.objectContaining({
@@ -90,6 +92,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockResolvedValue({ dialogueId: 1 })
 		await expect(controller.getAiDialogueVisuals(1, request)).resolves.toEqual({ dialogueId: 1 })
+
 		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, dialogueId: 1 }))
 	})
 

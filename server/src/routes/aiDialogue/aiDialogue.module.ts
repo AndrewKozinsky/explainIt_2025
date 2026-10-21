@@ -39,8 +39,10 @@ import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider
 import { AiDialogueAudioNotificationsModule } from 'infrastructure/redis/aiDialogueAudioNotifications.module'
 import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
 import { AiDialogueController } from './aiDialogue.controller'
+import { AiDialogueDictationWebSocket } from './aiDialogueDictationWebSocket.service'
 
 const services = [
+	AiDialogueDictationWebSocket,
 	AiDialogueAudioStream,
 	PublishAiDialogueAudio,
 	AiDialogueAudioUpdates,

@@ -62,7 +62,7 @@ export class AiDialogueController {
 	@Header('Cache-Control', 'private, no-store')
 	@HttpCode(HttpStatus.OK)
 	@Post(':id/check-message')
-	async checkAiDialogueMessage(
+	async checkAiDialogueUserMessageText(
 		@Param('id', ParseIntPipe) id: number,
 		@Body() input: CheckAiDialogueUserMessageInput,
 		@Req() request: Request,
