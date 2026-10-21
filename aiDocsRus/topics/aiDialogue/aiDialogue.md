@@ -79,7 +79,12 @@ DELETE /ai-dialogue/:id            → 200 boolean
 POST   /ai-dialogue/:id/messages   body: CreateAiDialogueMessageInput → 201 AiDialogueMessageOutModel
 GET    /ai-dialogue/:id/visuals    → 200 AiDialogueVisualsOutModel (только владельцу)
 GET    /ai-dialogue/:id/stream     → SSE (Server-Sent Events)
+POST   /ai-dialogue/:id/check-message body: { speech?, action? } → 200 AiDialogueUserMessageCheckOutModel
 ```
+
+Проверка черновика реплики и/или действия, категории ошибок, контекст и компактный формат ответа LLM:
+[`aiDialogueMessageCheck.md`](aiDialogueMessageCheck.md). Она не сохраняет сообщение и не ограничивает
+существующий маршрут отправки; достаточно заполнить хотя бы одно поле.
 
 `AiDialogueOutModel`:
 

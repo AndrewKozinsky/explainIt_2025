@@ -27,13 +27,16 @@ import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.co
 import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
+import { CheckAiDialogueUserMessageCommand } from 'features/aiDialogue/messageCheck/CheckAiDialogueUserMessage.command'
 import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { UpdateAiDialogueCommand } from 'features/aiDialogue/UpdateAiDialogue.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
+import { CheckAiDialogueUserMessageInput } from './inputs/checkAiDialogueUserMessage.input'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
 import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
@@ -46,12 +49,33 @@ import {
 	ApiGetAiDialogues,
 	ApiGetAiDialogueVisuals,
 	ApiUpdateAiDialogue,
+	ApiCheckAiDialogueUserMessage,
 } from './openAPI.decorators'
 
 @ApiTags('AiDialogue')
 @Controller('ai-dialogue')
 export class AiDialogueController {
 	constructor(private commandBus: CommandBus) {}
+
+	@ApiCheckAiDialogueUserMessage()
+	@UseGuards(CheckSessionCookieGuard)
+	@Header('Cache-Control', 'private, no-store')
+	@HttpCode(HttpStatus.OK)
+	@Post(':id/check-message')
+	async checkAiDialogueMessage(
+		@Param('id', ParseIntPipe) id: number,
+		@Body() input: CheckAiDialogueUserMessageInput,
+		@Req() request: Request,
+	): Promise<AiDialogueUserMessageCheckOutModel> {
+		return this.commandBus.execute(
+			new CheckAiDialogueUserMessageCommand({
+				userId: request.user!.id,
+				dialogueId: id,
+				speech: input.speech,
+				action: input.action,
+			}),
+		)
+	}
 
 	@ApiCreateAiDialogue()
 	@UseGuards(CheckSessionCookieGuard)

@@ -31,13 +31,20 @@ jest.mock('features/aiDialogue/CreateAiDialogueMessage.command', () => ({ Create
 jest.mock('features/aiDialogue/DeleteAiDialogue.command', () => ({ DeleteAiDialogueCommand: class {} }))
 jest.mock('features/aiDialogue/GetAiDialogue.command', () => ({ GetAiDialogueCommand: class {} }))
 jest.mock('features/aiDialogue/GetUserDialogues.command', () => ({ GetUserDialoguesCommand: class {} }))
+jest.mock('features/aiDialogue/messageCheck/CheckAiDialogueUserMessage.command', () => ({
+	CheckAiDialogueUserMessageCommand: class {
+		constructor(public dto: unknown) {}
+	},
+}))
 jest.mock('infrastructure/guards/checkSessionCookie.guard', () => ({ CheckSessionCookieGuard: class {} }))
 jest.mock('./inputs/createAiDialogue.input', () => ({ CreateAiDialogueInput: class {} }))
+jest.mock('./inputs/checkAiDialogueUserMessage.input', () => ({ CheckAiDialogueUserMessageInput: class {} }))
 jest.mock('./inputs/createAiDialogueMessage.input', () => ({ CreateAiDialogueMessageInput: class {} }))
 jest.mock('./inputs/updateAiDialogue.input', () => ({ UpdateAiDialogueInput: class {} }))
 jest.mock('./openAPI.decorators', () =>
 	Object.fromEntries(
 		[
+			'ApiCheckAiDialogueUserMessage',
 			'ApiCreateAiDialogue',
 			'ApiCreateAiDialogueMessage',
 			'ApiDeleteAiDialogue',
@@ -61,8 +68,23 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const bus = { execute: jest.fn() }
 		const controller = new AiDialogueController(bus as unknown as CommandBus)
 		const request = { user: { id: 7 } } as unknown as Request
+
 		return { controller, bus, request }
 	}
+
+	it('checks a draft with authenticated identity and forwards only the optional draft fields', async () => {
+		const { controller, bus, request } = harness()
+		const result = { speech: { critical: [], suggestions: [] }, action: { critical: [], suggestions: [] } }
+		bus.execute.mockResolvedValue(result)
+
+		await expect(controller.checkAiDialogueMessage(1, { action: 'I smile.' }, request)).resolves.toBe(result)
+
+		expect(bus.execute).toHaveBeenCalledWith(
+			expect.objectContaining({
+				dto: { userId: 7, dialogueId: 1, speech: undefined, action: 'I smile.' },
+			}),
+		)
+	})
 
 	it('passes authenticated identity and dialogue ID to the visual command', async () => {
 		const { controller, bus, request } = harness()
@@ -74,10 +96,12 @@ describe('AiDialogueController CQRS dispatch', () => {
 	it('dispatches a settings update with the authenticated owner and explicit null', async () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockResolvedValue({ id: 1, maxCefrLevel: null })
+
 		await expect(controller.updateAiDialogue(1, { maxCefrLevel: null }, request)).resolves.toEqual({
 			id: 1,
 			maxCefrLevel: null,
 		})
+
 		expect(bus.execute).toHaveBeenCalledWith(
 			expect.objectContaining({ dto: { userId: 7, dialogueId: 1, maxCefrLevel: null } }),
 		)
@@ -86,8 +110,11 @@ describe('AiDialogueController CQRS dispatch', () => {
 	it('dispatches stream opening through CommandBus and returns its Observable unchanged', async () => {
 		const { controller, bus, request } = harness()
 		const stream = new Observable()
+
 		bus.execute.mockResolvedValue(stream)
+
 		await expect(controller.stream(1, request)).resolves.toBe(stream)
+
 		expect(bus.execute).toHaveBeenCalledWith(new OpenAiDialogueStreamCommand(7, 1))
 	})
 

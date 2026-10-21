@@ -29,7 +29,9 @@ import type {
   AiDialogueControllerStream200,
   AiDialogueMessageOutModel,
   AiDialogueOutModel,
+  AiDialogueUserMessageCheckOutModel,
   AiDialogueVisualsOutModel,
+  CheckAiDialogueUserMessageInput,
   CreateAiDialogueInput,
   CreateAiDialogueMessageInput,
   UpdateAiDialogueInput
@@ -57,7 +59,123 @@ const withQueryKey = <T extends object, K>(query: T, queryKey: K): T & { queryKe
   return result;
 };
 
-export type aiDialogueControllerCreateAiDialogueResponse201 = {
+export type aiDialogueControllerCheckAiDialogueMessageResponse200 = {
+  data: AiDialogueUserMessageCheckOutModel
+  status: 200
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse400 = {
+  data: void
+  status: 400
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse401 = {
+  data: void
+  status: 401
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse403 = {
+  data: void
+  status: 403
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse404 = {
+  data: void
+  status: 404
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse500 = {
+  data: void
+  status: 500
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse504 = {
+  data: void
+  status: 504
+}
+
+export type aiDialogueControllerCheckAiDialogueMessageResponseSuccess = (aiDialogueControllerCheckAiDialogueMessageResponse200) & {
+  headers: Headers;
+};
+export type aiDialogueControllerCheckAiDialogueMessageResponseError = (aiDialogueControllerCheckAiDialogueMessageResponse400 | aiDialogueControllerCheckAiDialogueMessageResponse401 | aiDialogueControllerCheckAiDialogueMessageResponse403 | aiDialogueControllerCheckAiDialogueMessageResponse404 | aiDialogueControllerCheckAiDialogueMessageResponse500 | aiDialogueControllerCheckAiDialogueMessageResponse504) & {
+  headers: Headers;
+};
+
+export type aiDialogueControllerCheckAiDialogueMessageResponse = (aiDialogueControllerCheckAiDialogueMessageResponseSuccess | aiDialogueControllerCheckAiDialogueMessageResponseError)
+
+export const getAiDialogueControllerCheckAiDialogueMessageUrl = (id: number,) => {
+
+
+
+
+  return `/api/ai-dialogue/${id}/check-message`
+}
+
+/**
+ * Проверяет заполненные поля с контекстом диалога. Языки берутся из диалога. Возвращает критические ошибки и рекомендации отдельно для каждого поля. Не сохраняет сообщение, не запускает ответ NPC и не ограничивает отправку сообщений.
+ * @summary Проверить черновик реплики и/или действия
+ */
+export const aiDialogueControllerCheckAiDialogueMessage = async (id: number,
+    checkAiDialogueUserMessageInput: CheckAiDialogueUserMessageInput, options?: RequestInit): Promise<aiDialogueControllerCheckAiDialogueMessageResponse> => {
+
+  return customMutator<aiDialogueControllerCheckAiDialogueMessageResponse>(getAiDialogueControllerCheckAiDialogueMessageUrl(id),
+  {
+    ...options,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(checkAiDialogueUserMessageInput)
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerCheckAiDialogueMessageMutationOptions = <TError = void,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext> => {
+
+const mutationKey = ['aiDialogueControllerCheckAiDialogueMessage'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, {id: number;data: CheckAiDialogueUserMessageInput}> = (props) => {
+          const {id,data} = props ?? {};
+
+          return  aiDialogueControllerCheckAiDialogueMessage(id,data,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type AiDialogueControllerCheckAiDialogueMessageMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>>
+    export type AiDialogueControllerCheckAiDialogueMessageMutationBody = CheckAiDialogueUserMessageInput
+    export type AiDialogueControllerCheckAiDialogueMessageMutationError = void
+
+    /**
+ * @summary Проверить черновик реплики и/или действия
+ */
+export const useAiDialogueControllerCheckAiDialogueMessage = <TError = void,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>, TError,{id: number;data: CheckAiDialogueUserMessageInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof aiDialogueControllerCheckAiDialogueMessage>>,
+        TError,
+        {id: number;data: CheckAiDialogueUserMessageInput},
+        TContext
+      > => {
+      return useMutation(getAiDialogueControllerCheckAiDialogueMessageMutationOptions(options), queryClient);
+    }
+    export type aiDialogueControllerCreateAiDialogueResponse201 = {
   data: AiDialogueOutModel
   status: 201
 }

@@ -3,10 +3,32 @@ import { ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiResponse } from '@ne
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
+import { CheckAiDialogueUserMessageInput } from './inputs/checkAiDialogueUserMessage.input'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
 import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
+
+export function ApiCheckAiDialogueUserMessage() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Проверить черновик реплики и/или действия',
+			description:
+				'Проверяет заполненные поля с контекстом диалога. Языки берутся из диалога. Возвращает критические ошибки и рекомендации отдельно для каждого поля. Не сохраняет сообщение, не запускает ответ NPC и не ограничивает отправку сообщений.',
+		}),
+		ApiCookieAuth(),
+		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
+		ApiBody({ type: CheckAiDialogueUserMessageInput }),
+		ApiResponse({ status: 200, type: AiDialogueUserMessageCheckOutModel }),
+		ApiResponse({ status: 400, description: 'Нет текста для проверки или превышен лимит 4000 символов на поле.' }),
+		ApiResponse({ status: 401, description: 'Необходима авторизация.' }),
+		ApiResponse({ status: 403, description: 'Диалог принадлежит другому пользователю.' }),
+		ApiResponse({ status: 404, description: 'Диалог не найден.' }),
+		ApiResponse({ status: 500, description: 'Ошибка LLM или некорректный формат результата проверки.' }),
+		ApiResponse({ status: 504, description: 'Превышено время ожидания LLM.' }),
+	)
+}
 
 export function ApiUpdateAiDialogue() {
 	return applyDecorators(

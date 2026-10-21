@@ -1341,6 +1341,45 @@ export const bdConfig = {
 	// Диалог пользователя с ИИ по сценарию (контейнер для будущих сообщений).
 	AiDialogue: {
 		dtoProps: {
+			checkUserMessageSpeechPart: {
+				type: 'string',
+				required: false,
+				maxLength: 4_000,
+				description:
+					'Черновик реплики. Достаточно заполнить реплику и/или действие; пустые поля не проверяются.',
+				example: 'Hey girls! There is a очередь.',
+			},
+			checkUserMessageActionPart: {
+				type: 'string',
+				required: false,
+				maxLength: 4_000,
+				description: 'Черновик действия. Необязателен, если заполнена реплика.',
+				example: 'I opened the door.',
+			},
+			checkUserMessageIssueTitle: {
+				type: 'string',
+				required: true,
+				description: 'Краткий заголовок критической ошибки на родном языке.',
+				example: 'Слово на русском языке',
+			},
+			checkUserMessageIssueSentence: {
+				type: 'string',
+				required: true,
+				description: 'Исходное предложение или фрагмент с выделенной через **bold** ошибкой (Markdown).',
+				example: 'There is a **очередь**.',
+			},
+			checkUserMessageIssueExplanation: {
+				type: 'string',
+				required: true,
+				description: 'Объяснение ошибки или рекомендации на родном языке в Markdown.',
+				example: '«Очередь» по-английски — **queue**.',
+			},
+			checkUserMessageIssueExample: {
+				type: 'string',
+				required: true,
+				description: 'Пример исправления для необязательной рекомендации на изучаемом языке.',
+				example: 'Hey, girls!',
+			},
 			userAvatarUrl: {
 				type: 'string',
 				required: true,

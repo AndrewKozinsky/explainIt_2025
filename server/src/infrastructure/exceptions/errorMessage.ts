@@ -155,6 +155,8 @@ export const errorMessage = {
 		insufficientBalance: { code: 'SENTENCE_CHAT_INSUFFICIENT_BALANCE' }, // Недостаточно средств на балансе для генерации ответа.
 	},
 	aiDialogue: {
+		checkTextRequired: { code: 'AI_DIALOGUE_CHECK_TEXT_REQUIRED' }, // Заполните реплику и/или действие для проверки.
+		cannotParseMessageCheck: { code: 'AI_DIALOGUE_CANNOT_PARSE_MESSAGE_CHECK' }, // Не удалось разобрать результат проверки текста.
 		notFound: { code: 'AI_DIALOGUE_NOT_FOUND' }, // Диалог не найден.
 		scenarioNotFound: { code: 'AI_DIALOGUE_SCENARIO_NOT_FOUND' }, // Сценарий диалога не найден.
 		generationAlreadyActive: { code: 'AI_DIALOGUE_GENERATION_ALREADY_ACTIVE' }, // У вас уже есть активная генерация ответа. Дождитесь её завершения.
