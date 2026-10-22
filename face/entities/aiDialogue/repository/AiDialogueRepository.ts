@@ -11,6 +11,7 @@ import type {
 	DialogueServerMessage,
 } from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
+import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
 
 export type AiDialogueModel = {
 	id: number
@@ -49,6 +50,12 @@ export type CreateAiDialogueInput = {
  * в читаемый текст.
  */
 export type AiDialogueRepository = {
+	/** Проверить текст черновика пользователя без отправки в диалог. */
+	checkUserMessageText(
+		id: number,
+		input: CheckUserMessageInput,
+		signal?: AbortSignal,
+	): Promise<ApiResult<UserMessageCheck>>
 	/** Создать диалог по сценарию для текущего пользователя */
 	createDialogue(input: CreateAiDialogueInput): Promise<ApiResult<AiDialogueModel>>
 	/** Обновить настройки диалога текущего пользователя */

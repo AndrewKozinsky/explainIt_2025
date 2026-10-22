@@ -1,12 +1,13 @@
 import { mapToAiDialogueScenario } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioApi'
 import {
+	aiDialogueControllerCheckAiDialogueUserMessageText,
 	aiDialogueControllerCreateAiDialogue,
 	aiDialogueControllerCreateAiDialogueMessage,
 	aiDialogueControllerDeleteAiDialogue,
 	aiDialogueControllerGetAiDialogue,
-	aiDialogueControllerGetAiDialogueVisuals,
 	aiDialogueControllerGetAiDialogueAudio,
 	aiDialogueControllerGetAiDialogues,
+	aiDialogueControllerGetAiDialogueVisuals,
 	aiDialogueControllerUpdateAiDialogue,
 } from '@/shared/api/generated/ai-dialogue/ai-dialogue'
 import type {
@@ -32,11 +33,29 @@ import type {
 	DialogueServerMessage,
 } from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
+import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
 
 /**
  * Реализация AiDialogueRepository через REST API.
  */
 export class AiDialogueApi implements AiDialogueRepository {
+	async checkUserMessageText(
+		id: number,
+		input: CheckUserMessageInput,
+		signal?: AbortSignal,
+	): Promise<ApiResult<UserMessageCheck>> {
+		return executeApiCall(async () => {
+			const response = await aiDialogueControllerCheckAiDialogueUserMessageText(id, input, {
+				signal,
+				cache: 'no-store',
+			})
+
+			if (response.status !== 200) throw new Error('Draft check failed')
+
+			return response
+		}, mapUserMessageCheck)
+	}
+
 	async updateDialogue(id: number, input: UpdateAiDialogueInput): Promise<ApiResult<AiDialogueModel>> {
 		return executeApiCall(
 			() => aiDialogueControllerUpdateAiDialogue(id, input),
@@ -93,6 +112,40 @@ export class AiDialogueApi implements AiDialogueRepository {
 			(data) => mapToAiDialogueMessage(data),
 		)
 	}
+}
+
+/** Не трактуем пустой/повреждённый HTTP-ответ как отсутствие грамматических ошибок. */
+function mapUserMessageCheck(raw: unknown): UserMessageCheck {
+	if (!raw || typeof raw !== 'object') throw new Error('Invalid draft check response')
+
+	const result = raw as UserMessageCheck
+
+	for (const key of ['speech', 'action'] as const) {
+		const part = result[key]
+
+		if (!part || !Array.isArray(part.critical) || !Array.isArray(part.suggestions))
+			throw new Error('Invalid draft check field')
+
+		if (
+			!part.critical.every(
+				(issue) =>
+					issue &&
+					typeof issue.title === 'string' &&
+					typeof issue.sentenceMarkdown === 'string' &&
+					typeof issue.explanationMarkdown === 'string',
+			)
+		)
+			throw new Error('Invalid critical issue')
+
+		if (
+			!part.suggestions.every(
+				(issue) => issue && typeof issue.explanationMarkdown === 'string' && typeof issue.example === 'string',
+			)
+		)
+			throw new Error('Invalid suggestion')
+	}
+
+	return result
 }
 
 function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {

@@ -47,11 +47,13 @@ async function main() {
 			}
 		},
 	}
+
 	const dialogues = {
 		async getDialogueById(id: number) {
 			return id === 1 ? { user_id: 7, source_language_code: 'en', target_language_code: 'ru' } : { user_id: 8 }
 		},
 	}
+
 	const users = {
 		async getUserById(id: number) {
 			return id === 7 ? { id } : null
@@ -61,6 +63,7 @@ async function main() {
 	const route = new AiDialogueDictationWebSocket(dialogues as never, users as never, soniox as never, config as never)
 	route.attach(server, middleware)
 	const clients: WebSocket[] = []
+
 	try {
 		server.listen(0, '127.0.0.1')
 		await once(server, 'listening')
@@ -100,6 +103,7 @@ async function main() {
 		const ready = once(client, 'message')
 		client.send(JSON.stringify({ type: 'start', audioFormat: 'auto' }))
 		await ready
+
 		assert.equal(output[0].type, 'ready')
 		assert.deepEqual(options.languageHints, ['en', 'ru'])
 		assert.equal(options.languageHintsStrict, true)

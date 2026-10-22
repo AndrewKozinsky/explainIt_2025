@@ -1,103 +1,85 @@
 'use client'
 
-import { KeyboardEvent, useState } from 'react'
-import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
-import type { AiDialogueActionItem } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import { useAiDialogueSendMessage } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage'
-import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
+import type { ChangeEvent, KeyboardEvent, PointerEvent } from 'react'
+import { AiDialogueDraftFooter, AiDialogueDraftHeader } from './AiDialogueDraftControls'
+import { AiDialogueDraftFeedback, AiDialogueDraftRequestError } from './AiDialogueDraftFeedback'
+import { isPartChecked, isPartReady, MAX_DRAFT_LENGTH } from './fn/aiDialogueDraftState'
+import { useAiDialogueDraft } from './fn/useAiDialogueDraft'
+import { useDraftTextarea } from './fn/useDraftTextarea'
 import './AiDialogueInput.scss'
 
-type AiDialogueInputProps = {
-	dialogueId: number
+/** Новый dialogueId создаёт отдельный черновик и отменяет операции прежнего диалога. */
+export default function AiDialogueInput({ dialogueId }: { dialogueId: number }) {
+	return <AiDialogueReplyForm key={dialogueId} dialogueId={dialogueId} />
 }
 
-/**
- * Форма ответа пользователя: действие и реплика + кнопка завершения диалога с NPC.
- *
- * Действие (что пользователь делает) и реплика (что говорит) собираются в событие
- * userActions с двумя action-элементами (type: 'action' и 'speech'). Достаточно
- * заполнить хотя бы одно поле. Завершение диалога — событие userAvoidsNPC.
- *
- * Пока NPC генерирует ответ (isGenerating) или сообщение отправляется — форма заблокирована.
- */
-function AiDialogueInput({ dialogueId }: AiDialogueInputProps) {
-	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
-	const { status, sendUserActions, finishDialogue } = useAiDialogueSendMessage(dialogueId)
+function AiDialogueReplyForm({ dialogueId }: { dialogueId: number }) {
+	const { state, controller, blocked } = useAiDialogueDraft(dialogueId)
+	const { activePart, parts, dictation } = state
+	const current = parts[activePart]
+	const inputRef = useDraftTextarea(current, !!dictation)
+	const busy = blocked || state.sending
+	const readOnly = busy || current.checking || !!dictation
+	const showSend = isPartReady(current)
+	const finishing = dictation?.phase === 'finishing'
 
-	const [action, setAction] = useState('')
-	const [speech, setSpeech] = useState('')
-
-	const isDisabled = isGenerating || status === 'loading'
-
-	async function handleSend() {
-		const actionText = action.trim()
-		const speechText = speech.trim()
-		if ((!actionText && !speechText) || isDisabled) return
-
-		const actions: AiDialogueActionItem[] = []
-		if (speechText) actions.push({ type: 'speech', content: speechText })
-		if (actionText) actions.push({ type: 'action', content: actionText })
-
-		const ok = await sendUserActions(actions)
-		if (ok) {
-			setAction('')
-			setSpeech('')
-		}
+	function rememberSelection() {
+		const input = inputRef.current
+		if (input) controller.rememberSelection(activePart, { start: input.selectionStart, end: input.selectionEnd })
 	}
 
-	async function handleFinish() {
-		if (isDisabled) return
-
-		await finishDialogue()
+	function preserveFocus(event: PointerEvent<HTMLButtonElement>) {
+		event.preventDefault()
+		rememberSelection()
+		inputRef.current?.focus({ preventScroll: true })
 	}
 
 	function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-		// Enter отправляет; Shift+Enter — перенос строки.
-		if (event.key === 'Enter' && !event.shiftKey) {
-			event.preventDefault()
-			handleSend()
-		}
+		if (event.key !== 'Enter' || event.shiftKey || event.nativeEvent.isComposing) return
+		event.preventDefault()
+
+		if (showSend) void controller.send()
+		else void controller.checkActivePart()
+	}
+
+	function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
+		controller.edit(activePart, event.target.value, {
+			start: event.target.selectionStart,
+			end: event.target.selectionEnd,
+		})
 	}
 
 	return (
-		<div className='ai-dialogue-input'>
-			<TextInput
-				label='Действие'
-				textareaProps={{
-					id: 'ai-dialogue-action',
-					value: action,
-					onChange: (e) => setAction(e.target.value),
-					onKeyDown: handleKeyDown,
-					placeholder: 'Что вы делаете…',
-					rows: 1,
-					disabled: isDisabled,
-				}}
+		<section className='ai-dialogue-input' aria-label='Ответ в диалоге'>
+			<AiDialogueDraftHeader state={state} controller={controller} blocked={blocked} />
+			<textarea
+				ref={inputRef}
+				className={`ai-dialogue-input__editor${current.checking || finishing || busy ? ' ai-dialogue-input__editor--pending' : ''}`}
+				aria-label={activePart === 'speech' ? 'Текст реплики' : 'Текст действия'}
+				aria-describedby={`ai-dialogue-draft-error-${dialogueId}`}
+				aria-busy={current.checking || !!dictation}
+				placeholder={activePart === 'speech' ? 'Hi, how’s it going?' : 'I opened the door'}
+				value={current.text}
+				rows={1}
+				maxLength={MAX_DRAFT_LENGTH}
+				readOnly={readOnly}
+				spellCheck={false}
+				onChange={handleChange}
+				onSelect={rememberSelection}
+				onBlur={rememberSelection}
+				onKeyDown={handleKeyDown}
 			/>
-
-			<TextInput
-				label='Реплика'
-				textareaProps={{
-					id: 'ai-dialogue-speech',
-					value: speech,
-					onChange: (e) => setSpeech(e.target.value),
-					onKeyDown: handleKeyDown,
-					placeholder: 'Что вы говорите…',
-					rows: 2,
-					disabled: isDisabled,
-				}}
+			<AiDialogueDraftRequestError text={current.error} dialogueId={dialogueId} />
+			<AiDialogueDraftFeedback
+				result={current.text.trim() ? (current.review?.result ?? null) : null}
+				stale={!isPartChecked(current)}
 			/>
-
-			<div className='ai-dialogue-input__actions'>
-				<Button theme='outline' onClick={handleFinish} disabled={isDisabled}>
-					Завершить диалог
-				</Button>
-				<Button theme='accent' onClick={handleSend} disabled={isDisabled} loading={status === 'loading'}>
-					Отправить
-				</Button>
-			</div>
-		</div>
+			<AiDialogueDraftFooter
+				state={state}
+				controller={controller}
+				blocked={blocked}
+				preserveFocus={preserveFocus}
+			/>
+		</section>
 	)
 }
-
-export default AiDialogueInput

@@ -53,6 +53,7 @@ function Button(props: ButtonProps) {
 			theme={theme}
 			colorScheme={colorScheme}
 			onClick={onClick}
+			onPointerDown={restProps.onPointerDown}
 			type={buttonType}
 			title={restProps.title}
 			aria-label={restProps['aria-label']}

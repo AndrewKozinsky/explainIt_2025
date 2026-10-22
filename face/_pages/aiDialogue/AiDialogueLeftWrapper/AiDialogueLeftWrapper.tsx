@@ -1,3 +1,4 @@
+import Divider from '@/shared/ui/Divider/Divider'
 import './AiDialogueLeftWrapper.scss'
 
 type AiDialogueLeftWrapperProps = {
@@ -10,6 +11,7 @@ function AiDialogueLeftWrapper(props: AiDialogueLeftWrapperProps) {
 	return (
 		<div className='ai-dialogue-left-wrapper'>
 			<div className='ai-dialogue-left-wrapper__messages'>{messages}</div>
+			<Divider />
 			<div className='ai-dialogue-left-wrapper__input'>{input}</div>
 		</div>
 	)

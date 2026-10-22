@@ -2,6 +2,7 @@ import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from './audio/dialogueAudioTypes'
+import type { CheckUserMessageInput, UserMessageCheck } from './messageCheck/userMessageCheckTypes'
 import type {
 	AiDialogueModel,
 	AiDialogueRepository,
@@ -27,6 +28,14 @@ export class AiDialogueService {
 
 	constructor(aiDialogueRepository: AiDialogueRepository) {
 		this.aiDialogueRepository = aiDialogueRepository
+	}
+
+	checkUserMessageText(
+		id: number,
+		input: CheckUserMessageInput,
+		signal?: AbortSignal,
+	): Promise<ApiResult<UserMessageCheck>> {
+		return this.aiDialogueRepository.checkUserMessageText(id, input, signal)
 	}
 
 	/** Создать диалог по сценарию для текущего пользователя */

@@ -7,6 +7,7 @@ type BaseButtonProps = {
 	theme?: 'plain' | 'outline' | 'regular' | 'accent' | 'danger'
 	colorScheme?: 'dark' | 'light'
 	onClick?: React.MouseEventHandler<HTMLButtonElement>
+	onPointerDown?: React.PointerEventHandler<HTMLButtonElement>
 	disabled?: boolean
 	extraClass?: string
 	current?: boolean
@@ -25,6 +26,7 @@ function BaseButton(props: BaseButtonProps) {
 		colorScheme = 'dark',
 		extraClass,
 		onClick,
+		onPointerDown,
 		current,
 		disabled,
 		href,
@@ -55,6 +57,7 @@ function BaseButton(props: BaseButtonProps) {
 				disabled={isDisabled}
 				style={style}
 				onClick={onClick}
+				onPointerDown={onPointerDown}
 				type={type ?? 'button'}
 				title={title}
 				aria-label={ariaLabel}

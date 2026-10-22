@@ -28,6 +28,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`       | страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore   |
 | `aiDocsRus/topics/aiDialogue/aiDialogueMessageCheck.md` | проверка черновика, check-message, грамматика реплики/действия, критические ошибки, рекомендации, диктовка |
 | `aiDocsRus/topics/aiDialogue/aiDialogueDictation.md` | диктовка, микрофон, dictation, Soniox, WebSocket, распознавание речи, partial/final |
+| `aiDocsRus/topics/aiDialogue/aiDialogueForm.md` | форма ответа пользователя, вкладки Реплика/Действие, AiDialogueInput, курсор, выделение, клиентская диктовка, проверка перед отправкой |
 | `aiDocsRus/topics/aiDialogue/aiDialogueWordMaps.md`   | карта выбора словарных фраз в диалогах, wordMap, связанные слова, put away, разрывные выражения                                |
 | `aiDocsRus/topics/aiDialogue/aiDialogueAudio.md`      | озвучка диалога, голоса NPC, диктор, ранний TTS, audioReady, очередь аудио                                               |
 | `aiDocsRus/topics/aiDialogue/aiDialogueImages.md`     | изображения диалога, аватары, эмоции, NPC, сцены, image generation, R2, FLUX, GPT Image                                      |

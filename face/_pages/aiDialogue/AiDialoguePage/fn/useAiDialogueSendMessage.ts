@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useContext, useState } from 'react'
+import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import type { AiDialogueActionItem, AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
@@ -20,12 +20,25 @@ import { useAiDialogueStore } from '../../aiDialogueStore'
 export function useAiDialogueSendMessage(dialogueId: number) {
 	const { notify } = useContext(NotificationContext)
 	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
+	const lifetime = useRef({ active: true })
+
+	useEffect(() => {
+		const current = { active: true }
+		lifetime.current = current
+
+		return () => {
+			current.active = false
+		}
+	}, [dialogueId])
 
 	const send = useCallback(
 		async function (event: AiDialogueClientEvent): Promise<boolean> {
+			const currentLifetime = lifetime.current
 			setStatus('loading')
 
 			const result = await aiDialogueService.createMessage(dialogueId, event)
+			// Ответ прежнего диалога не должен попасть в общий стор после навигации.
+			if (!currentLifetime.active) return false
 
 			if (result.error) {
 				notify({ type: 'error', message: result.error })
