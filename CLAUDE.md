@@ -25,6 +25,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/sentenceChat.md`                    | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread                                                                     |
 | `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`   | сценарий диалога, AiDialogueScenario, ai-dialogue-scenario, сценка с ИИ, NPC, сид сценариев, ролевая сценка                    |
 | `aiDocsRus/topics/aiDialogue/aiDialogue.md`           | диалог, AiDialogue, ai-dialogue, история диалогов, создать диалог, удалить диалог, сообщения диалога                          |
+| `aiDocsRus/topics/aiDialogue/aiDialogueList.md` | Мои диалоги, список диалогов, история диалогов, карточки диалогов, пагинация диалогов, lastMessage, characters |
 | `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`       | страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore   |
 | `aiDocsRus/topics/aiDialogue/aiDialogueMessageCheck.md` | проверка черновика, check-message, грамматика реплики/действия, критические ошибки, рекомендации, диктовка |
 | `aiDocsRus/topics/aiDialogue/aiDialogueDictation.md` | диктовка, микрофон, dictation, Soniox, WebSocket, распознавание речи, partial/final |
