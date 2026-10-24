@@ -7,6 +7,12 @@
 	min-width: 1080px;
 }
 
+.user-ai-dialogues-list__cards {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem;
+}
+
 .user-ai-dialogues-list__more {
 	align-self: center;
 }
@@ -21,7 +27,6 @@
 	grid-template-areas: 'scene summary characters message delete reply';
 	column-gap: 12px;
 	align-items: center;
-	padding: 12px 0;
 
 	&:last-child {
 		border-bottom: none;
@@ -35,8 +40,6 @@
 	grid-template-rows: 1fr auto;
 	column-gap: 20px;
 	row-gap: 4px;
-	padding-top: 0;
-	padding-bottom: 8px;
 
 	.ai-dialogue-card__scene {
 		height: 120px;
@@ -90,9 +93,9 @@
 }
 
 .ai-dialogue-card__title {
-	font-size: 19px;
-	line-height: 25px;
-	font-weight: 600;
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	font-weight: 500;
 	overflow-wrap: anywhere;
 
 	a {
@@ -157,31 +160,3 @@
 	font-style: italic;
 }
 
-.ai-dialogue-card__delete {
-	grid-area: delete;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 32px;
-	height: 36px;
-	border-radius: 5px;
-	color: vars.$grayColor-6;
-}
-
-.ai-dialogue-card__reply {
-	grid-area: reply;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 5px;
-	padding: 7px 10px;
-	border-radius: 6px;
-	font-size: 18px;
-	line-height: 22px;
-	white-space: nowrap;
-	text-decoration: none;
-}
-
-.ai-dialogue-card__reply svg {
-	flex: 0 0 20px;
-}

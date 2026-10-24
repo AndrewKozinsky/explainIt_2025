@@ -138,19 +138,19 @@ test('load-more errors preserve cards; retry and deletion refresh all loaded pag
 	const h = await setup(page, items)
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(3)
 	h.failNext()
-	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
+	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.getByRole('alert')).toBeVisible()
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(3)
-	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
+	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(13)
 	await expect(page.locator('.ai-dialogue-card h4')).toHaveText(
 		items.slice(0, 13).map((item) => JSON.parse(item.scenario.title).ru),
 	)
-	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
+	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(23)
-	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
+	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(25)
-	await expect(page.getByRole('button', { name: 'Более ранние диалоги' })).toHaveCount(0)
+	await expect(page.getByRole('button', { name: 'Предыдущие диалоги' })).toHaveCount(0)
 	await page.getByRole('button', { name: 'Удалить диалог «Покупка абонемента в бассейн»' }).click()
 	await expect(page.getByText('Вы уверены, что хотите удалить диалог?')).toBeVisible()
 	expect(h.deleted).toEqual([])
@@ -171,7 +171,7 @@ test('initial loading errors can be retried and an empty account has no load-mor
 	await expect(page.getByRole('alert')).toBeVisible()
 	await page.getByRole('button', { name: 'Повторить', exact: true }).click()
 	await expect(page.getByText('У вас ещё нет ни одного диалога.', { exact: false })).toBeVisible()
-	await expect(page.getByRole('button', { name: 'Более ранние диалоги' })).toHaveCount(0)
+	await expect(page.getByRole('button', { name: 'Предыдущие диалоги' })).toHaveCount(0)
 })
 
 test('a dialogue without messages, scene or a sprite keeps its layout and controls', async ({ page }) => {

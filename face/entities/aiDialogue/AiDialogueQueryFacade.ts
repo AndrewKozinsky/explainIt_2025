@@ -7,7 +7,6 @@ import {
 } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { aiDialogueService } from './AiDialogueService'
-import { getDialogueListRefreshInterval } from './fn/getDialogueListRefreshInterval'
 import { updateDialogueListLevel } from './fn/updateDialogueListLevel'
 import type { AiDialogueService } from './AiDialogueService'
 import type { UpdateAiDialogueInput } from './repository/AiDialogueRepository'
@@ -62,7 +61,9 @@ export class AiDialogueQueryFacade {
 			queryFn: ({ pageParam, signal }) =>
 				unwrapApiResult(this.service.getUserDialogues({ page: pageParam, pageSize: 10 }, signal)),
 			getNextPageParam: (page) => (page.page < page.totalPages ? page.page + 1 : undefined),
-			refetchInterval: (query) => getDialogueListRefreshInterval(query.state.data),
+			refetchInterval: false,
+			refetchOnWindowFocus: false,
+			refetchOnReconnect: false,
 		})
 	}
 

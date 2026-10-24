@@ -3,7 +3,6 @@ import { mock, test } from 'node:test'
 import { InfiniteQueryObserver, QueryClient } from '@tanstack/react-query'
 import { AiDialogueQueryFacade, aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { AiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
-import { getDialogueListRefreshInterval } from '@/entities/aiDialogue/fn/getDialogueListRefreshInterval'
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import { formatDialogueDate } from '@/widgets/aiDialogues/UserAiDialoguesList/fn/formatDialogueDate'
 
@@ -72,13 +71,6 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 		assert.equal(result.data?.pages[0].items[0].characters[0].name, null)
 		assert.deepEqual(calls, ['/api/ai-dialogue?page=1&pageSize=10', '/api/ai-dialogue?page=2&pageSize=10'])
 		assert.notDeepEqual(aiDialogueQueryKeys.userList(7), aiDialogueQueryKeys.userList(8))
-		assert.ok(Number(getDialogueListRefreshInterval(result.data)) > 60_000)
-		const item = result.data!.pages[0].items[0]
-		item.characters[0].generationStatus = 'generating'
-		item.createdAt = new Date(Date.now() - 10 * 60_000).toISOString()
-		assert.equal(getDialogueListRefreshInterval(result.data), 60_000)
-		item.createdAt = new Date().toISOString()
-		assert.equal(getDialogueListRefreshInterval(result.data), 15_000)
 	} finally {
 		fetch.mock.restore()
 		client.clear()

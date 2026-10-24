@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
-import { Link } from '@/i18n/routing'
 import { formatDialogueDate } from '../../fn/formatDialogueDate'
 
 export default function DialogueSummary({
@@ -25,11 +24,7 @@ export default function DialogueSummary({
 	return (
 		<div className='ai-dialogue-card__summary'>
 			{children}
-			<h4 className='ai-dialogue-card__title'>
-				<Link href={url} prefetch={false}>
-					{title}
-				</Link>
-			</h4>
+			<h4 className='ai-dialogue-card__title'>{title}</h4>
 			<p className='ai-dialogue-card__meta'>
 				<span className='ai-dialogue-card__language'>{languageName}</span>
 				<span>{dialogue.maxCefrLevel ?? 'Без ограничения'}</span>

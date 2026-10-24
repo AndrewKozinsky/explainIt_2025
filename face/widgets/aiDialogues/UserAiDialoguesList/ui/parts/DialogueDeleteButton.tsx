@@ -8,14 +8,12 @@ export default function DialogueDeleteButton(props: Props) {
 
 	return (
 		<Button
-			size='custom'
+			size='medium'
 			theme='plain'
-			extraClass='ai-dialogue-card__delete'
 			title='Удалить диалог'
+			icon={<TrashButtonIcon />}
 			aria-label={`Удалить диалог «${title}»`}
 			onClick={() => onDelete(id)}
-		>
-			<TrashButtonIcon />
-		</Button>
+		/>
 	)
 }

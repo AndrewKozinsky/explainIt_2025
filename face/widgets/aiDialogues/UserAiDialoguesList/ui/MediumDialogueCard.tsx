@@ -1,8 +1,7 @@
 import { getDialogueCardDetails } from '../fn/getDialogueCardDetails'
+import DialogueActions from './parts/DialogueActions'
 import DialogueCharacters from './parts/DialogueCharacters'
-import DialogueDeleteButton from './parts/DialogueDeleteButton'
 import DialogueLastMessage from './parts/DialogueLastMessage'
-import DialogueReplyButton from './parts/DialogueReplyButton'
 import DialogueSceneImage from './parts/DialogueSceneImage'
 import DialogueSummary from './parts/DialogueSummary'
 import type { DialogueCardProps } from './dialogueCardTypes'
@@ -16,8 +15,7 @@ export default function MediumDialogueCard({ dialogue, locale, onDelete }: Dialo
 			<DialogueSummary dialogue={dialogue} locale={locale} title={title} url={url} />
 			<DialogueCharacters characters={dialogue.characters} size='medium' maxVisible={3} />
 			<DialogueLastMessage message={dialogue.lastMessage} />
-			<DialogueDeleteButton id={dialogue.id} title={title} onDelete={onDelete} />
-			<DialogueReplyButton url={url} title={title} theme='regular' />
+			<DialogueActions id={dialogue.id} title={title} url={url} theme='regular' onDelete={onDelete} />
 		</article>
 	)
 }

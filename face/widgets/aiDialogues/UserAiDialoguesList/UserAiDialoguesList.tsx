@@ -63,7 +63,7 @@ export default function UserAiDialoguesList({ userId }: Props) {
 					disabled={query.isFetching}
 					loading={query.isFetchingNextPage}
 				>
-					Более ранние диалоги
+					Предыдущие диалоги
 				</Button>
 			)}
 			<DeleteEntityModal

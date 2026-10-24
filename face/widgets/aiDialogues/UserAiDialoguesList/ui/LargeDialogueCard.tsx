@@ -1,8 +1,7 @@
 import { getDialogueCardDetails } from '../fn/getDialogueCardDetails'
+import DialogueActions from './parts/DialogueActions'
 import DialogueCharacters from './parts/DialogueCharacters'
-import DialogueDeleteButton from './parts/DialogueDeleteButton'
 import DialogueLastMessage from './parts/DialogueLastMessage'
-import DialogueReplyButton from './parts/DialogueReplyButton'
 import DialogueSceneImage from './parts/DialogueSceneImage'
 import DialogueSummary from './parts/DialogueSummary'
 import type { DialogueCardProps } from './dialogueCardTypes'
@@ -18,8 +17,7 @@ export default function LargeDialogueCard({ dialogue, locale, onDelete }: Dialog
 			</DialogueSummary>
 			<DialogueCharacters characters={dialogue.characters} size='small' maxVisible={8} />
 			<DialogueLastMessage message={dialogue.lastMessage} />
-			<DialogueDeleteButton id={dialogue.id} title={title} onDelete={onDelete} />
-			<DialogueReplyButton url={url} title={title} theme='accent' />
+			<DialogueActions id={dialogue.id} title={title} url={url} theme='accent' onDelete={onDelete} />
 		</article>
 	)
 }

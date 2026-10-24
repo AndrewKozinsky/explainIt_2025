@@ -5,14 +5,8 @@ type Props = { url: string; title: string; theme: 'accent' | 'regular' }
 
 export default function DialogueReplyButton({ url, title, theme }: Props) {
 	return (
-		<Button
-			href={url}
-			size='custom'
-			theme={theme}
-			extraClass='ai-dialogue-card__reply'
-			aria-label={`Ответить в диалоге «${title}»`}
-		>
-			<ActionButtonIcon /> Ответить
+		<Button href={url} theme={theme} aria-label={`Ответить в диалоге «${title}»`} icon={<ActionButtonIcon />}>
+			Ответить
 		</Button>
 	)
 }

@@ -69,10 +69,10 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
   Для neutral используется верхняя левая ячейка emotion-grid-4x3-v1; обрезка и размеры — задача клиента.
 - Ссылки R2 подписываются после owner-scoped чтения БД, действуют 6 часов;
   urlsExpireAt рекомендует обновить страницу данных через 5 часов. `Cache-Control: private, no-store`.
-- Подсчёт, страница, NPC и выбранные сообщения читаются в RepeatableRead. MAX(id) по npcActions/sceneUpdate
+- Подсчёт, страница, NPC и выбранные сообщения читаются в RepeatableRead. MAX (id) по npcActions/sceneUpdate
   ограничивает загрузку двумя payload на диалог; полная история в приложение не передаётся.
   Старые NPC читаются одним параметризованным SQL-запросом для страницы с дедупликацией в БД.
-- Для пустой страницы items=[], totalPages=Math.ceil(total/pageSize); при total=0 — totalPages=0.
+- Для пустой страницы items=[], totalPages=Math.ceil (total/pageSize); при total=0 — totalPages=0.
   Кнопка следующей страницы нужна при page<totalPages. После создания/удаления клиент должен перечитать
   загруженную часть списка, чтобы смещение offset-пагинации не пропустило элементы.
 
@@ -96,7 +96,7 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
 AiDialoguesPage монтирует UserAiDialoguesList только для авторизованного пользователя и передаёт userId.
 Виджет сам загружает список через useUserAiDialogues/useInfiniteQuery. Серверные страницы имеют размер 10,
 начальная страница — 1. Сначала видны только три карточки, остальные остаются в кэше. Каждое нажатие
-«Более ранние диалоги» добавляет до 10 карточек: 3 → 13 → 23. Если кэша недостаточно, загружается
+«Предыдущие диалоги» добавляет до 10 карточек: 3 → 13 → 23. Если кэша недостаточно, загружается
 следующая серверная страница. Постоянный pageSize исключает пропуски при offset-пагинации.
 Ключ кэша — ['ai-dialogue', 'list', userId, { pageSize: 10 }], поэтому данные разных аккаунтов не смешиваются.
 Сервис возвращает AiDialoguesPageModel; mapToAiDialoguesPage нормализует необязательные nullable поля Orval.
@@ -126,7 +126,7 @@ href сохраняет ссылку, size="custom" оставляет разм�
 заглушку с первой буквой имени. Иллюстрация без URL/при ошибке
 сохраняет серый слот и размеры. Новый URL повторно разрешает показ изображения.
 
-Кнопка «Более ранние диалоги» видна, пока есть скрытые карточки в кэше или следующая серверная страница.
+Кнопка «Предыдущие диалоги» видна, пока есть скрытые карточки в кэше или следующая серверная страница.
 Ошибка догрузки сохраняет ранее загруженные карточки и возможность повторить запрос.
 Начальная загрузка, ошибка с кнопкой повтора и пустой список обрабатываются отдельно.
 
@@ -136,9 +136,11 @@ href сохраняет ссылку, size="custom" оставляет разм�
 PATCH сложности обновляет только maxCefrLevel элемента в страницах кэша, сохраняя изображения,
 участников и последнее сообщение; кэш detail обновляется отдельно.
 
-Список перечитывается при возвращении фокуса. Подписанные URL обновляются за минуту до urlsExpireAt.
-Незавершённые спрайты и недавняя сцена без картинки проверяются с интервалами 15/30/60 секунд;
-поллинг в скрытой вкладке отключён стандартным поведением React Query. Генерация из клиента не запускается.
+Пока страница открыта, список сохраняет загруженные данные без автоматических запросов:
+таймеры обновления подписанных URL, проверка готовности изображений, обновление при возвращении
+фокуса и восстановлении соединения отключены. Поле urlsExpireAt не используется для обновления списка.
+Догрузка по кнопке, повтор после ошибки и обновление после удаления остаются явными действиями.
+Генерация из клиента не запускается.
 
 ## Проверки клиента
 
@@ -158,7 +160,8 @@ PATCH сложности обновляет только maxCefrLevel элеме
 
 - `server/src/repo/aiDialogue/aiDialogueList.queryRepository.ts` — пагинированный список с иллюстрацией,
   всеми NPC конкретного диалога и его последним сообщением NPC; без загрузки полной истории.
-- `server/src/models/aiDialogue/aiDialogueList.out.model.ts` — отдельные модели страницы/карточки/последнего сообщения/NPC.
+- `server/src/models/aiDialogue/aiDialogueList.out.model.ts` — отдельные модели страницы/карточки/последнего
+  сообщения/NPC.
 - `server/src/routes/aiDialogue/inputs/getUserDialogues.input.ts` — валидация page/pageSize.
 - `server/src/features/aiDialogue/getAiDialogueLastMessage.ts` — выбор речи или действий из последнего npcActions.
 - `server/src/repo/aiDialogue/aiDialogueList.queryRepository.helpers.ts` — выборки, SQL старых NPC,
@@ -175,7 +178,7 @@ PATCH сложности обновляет только maxCefrLevel элеме
 - `face/shared/ui/CharacterAvatars/CharacterFace.tsx` — один портрет и обработка ошибки загрузки.
 - `face/entities/aiDialogue/types/aiDialogueList.ts` — доменные модели списка.
 - `face/entities/aiDialogue/repository/mapToAiDialoguesPage.ts` — нормализация ответа.
-- `face/entities/aiDialogue/fn/updateDialogueListLevel.ts` — обновление CEFR в списке после PATCH без потери данных карточки.
-- `face/entities/aiDialogue/fn/getDialogueListRefreshInterval.ts` — интервалы обновления подписанных URL и незавершённых изображений.
+- `face/entities/aiDialogue/fn/updateDialogueListLevel.ts` — обновление CEFR в списке после PATCH без потери данных
+  карточки.
 - `face/tests/aiDialogueList.test.ts`, `face/tests/browser/aiDialogueList.spec.ts` — проверки списка.
 - `face/e2e/fixtures/ai-dialogues/` — изолированный браузерный стенд.
