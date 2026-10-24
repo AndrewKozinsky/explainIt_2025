@@ -94,13 +94,19 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
 ## Клиентский список
 
 AiDialoguesPage монтирует UserAiDialoguesList только для авторизованного пользователя и передаёт userId.
-Виджет сам загружает список через useUserAiDialogues/useInfiniteQuery. Начальная страница — 1, размер — 3.
-Ключ кэша — ['ai-dialogue', 'list', userId], поэтому данные разных аккаунтов не смешиваются.
+Виджет сам загружает список через useUserAiDialogues/useInfiniteQuery. Серверные страницы имеют размер 10,
+начальная страница — 1. Сначала видны только три карточки, остальные остаются в кэше. Каждое нажатие
+«Более ранние диалоги» добавляет до 10 карточек: 3 → 13 → 23. Если кэша недостаточно, загружается
+следующая серверная страница. Постоянный pageSize исключает пропуски при offset-пагинации.
+Ключ кэша — ['ai-dialogue', 'list', userId, { pageSize: 10 }], поэтому данные разных аккаунтов не смешиваются.
 Сервис возвращает AiDialoguesPageModel; mapToAiDialoguesPage нормализует необязательные nullable поля Orval.
 
 Карточки выводятся в порядке сервера. Только первая имеет крупную иллюстрацию 240×120, подпись
 «Последний диалог», акцентные название и кнопку «Ответить». Остальные имеют иллюстрации 120×60.
 Макет рассматривается как Retina 2×; адаптация под маленькие экраны не добавлялась.
+LargeDialogueCard и MediumDialogueCard — отдельные обёртки; иллюстрация, описание, аватары, сообщение
+и кнопки вынесены в общие компоненты ui/parts. Кнопки удаления и ответа используют Button;
+href сохраняет ссылку, size="custom" оставляет размеры существующим стилям карточки.
 Название берётся из scenario.title через pickLocalized, язык — через Intl.DisplayNames по локали интерфейса.
 При maxCefrLevel=null выводится «Без ограничения».
 
@@ -114,12 +120,13 @@ AiDialoguesPage монтирует UserAiDialoguesList только для ав�
 Универсальный CharacterAvatars принимает characters, size='small'|'medium' и необязательный maxVisible.
 Без maxVisible показывает всех; превышение обозначается кругом +N. В карточке используются small/8
 и medium/3 соответственно. Размеры — 26 и 32 CSS px. NPC учитывается и при отсутствии спрайта.
-Поддерживается emotion-grid-4x3-v1 с квадратными ячейками не меньше 160 px: img размером 400%×300%
-обрезается круглым контейнером, left/top=0 выбирают только neutral. Неподдерживаемая геометрия, отсутствие
-или ошибка загрузки показывают нейтральную заглушку с первой буквой имени. Иллюстрация без URL/при ошибке
+Каждый персонаж передаётся как { id, name, imageUrl }; метаданные API (layoutVersion, размеры)
+в компонент не передаются. Отдельный CharacterFace показывает нейтральную ячейку: img размером 400%×300%
+обрезается круглым контейнером, left/top=0. Отсутствие спрайта или ошибка загрузки показывают
+заглушку с первой буквой имени. Иллюстрация без URL/при ошибке
 сохраняет серый слот и размеры. Новый URL повторно разрешает показ изображения.
 
-Кнопка «Более ранние диалоги» добавляет следующую страницу, пока page<totalPages.
+Кнопка «Более ранние диалоги» видна, пока есть скрытые карточки в кэше или следующая серверная страница.
 Ошибка догрузки сохраняет ранее загруженные карточки и возможность повторить запрос.
 Начальная загрузка, ошибка с кнопкой повтора и пустой список обрабатываются отдельно.
 
@@ -160,12 +167,15 @@ PATCH сложности обновляет только maxCefrLevel элеме
   двух диалогов одного сценария с одинаковыми npcId и разными аватарами.
 - `face/widgets/aiDialogues/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя.
 - `face/widgets/aiDialogues/UserAiDialoguesList/fn/useAiDialogueDelete.ts` — удаление диалога.
-- `face/widgets/aiDialogues/UserAiDialoguesList/ui/DialogueCard.tsx` — разметка карточки, иллюстрация, сообщение и действия.
+- `face/widgets/aiDialogues/UserAiDialoguesList/ui/LargeDialogueCard.tsx`, `MediumDialogueCard.tsx` — обёртки карточек.
+- `face/widgets/aiDialogues/UserAiDialoguesList/ui/parts/` — общие элементы обеих карточек.
 - `face/widgets/aiDialogues/UserAiDialoguesList/fn/useUserAiDialogues.ts` — загрузка страниц.
 - `face/widgets/aiDialogues/UserAiDialoguesList/fn/formatDialogueDate.ts` — относительные календарные даты.
 - `face/shared/ui/CharacterAvatars/CharacterAvatars.tsx` — универсальная группа нейтральных портретов.
+- `face/shared/ui/CharacterAvatars/CharacterFace.tsx` — один портрет и обработка ошибки загрузки.
 - `face/entities/aiDialogue/types/aiDialogueList.ts` — доменные модели списка.
 - `face/entities/aiDialogue/repository/mapToAiDialoguesPage.ts` — нормализация ответа.
-- `face/entities/aiDialogue/fn/dialogueListCache.ts` — обновление кэша и интервалы обновления изображений.
+- `face/entities/aiDialogue/fn/updateDialogueListLevel.ts` — обновление CEFR в списке после PATCH без потери данных карточки.
+- `face/entities/aiDialogue/fn/getDialogueListRefreshInterval.ts` — интервалы обновления подписанных URL и незавершённых изображений.
 - `face/tests/aiDialogueList.test.ts`, `face/tests/browser/aiDialogueList.spec.ts` — проверки списка.
 - `face/e2e/fixtures/ai-dialogues/` — изолированный браузерный стенд.

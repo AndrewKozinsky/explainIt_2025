@@ -11,7 +11,7 @@ const sheet = svgImage(
 	'<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720"><rect width="960" height="720" fill="#c642a4"/><rect width="240" height="240" fill="#e5c99f"/><ellipse cx="120" cy="138" rx="70" ry="92" fill="#b47b52"/><path d="M47 110Q30 0 120 15Q220 0 193 110L170 63H70Z" fill="#49342a"/><circle cx="95" cy="125" r="5"/><circle cx="145" cy="125" r="5"/><path d="M95 180H145" stroke="#643f32" stroke-width="5"/></svg>',
 )
 
-function dialogues(): AiDialogueListItemModel[] {
+function dialogues(count = 5): AiDialogueListItemModel[] {
 	const titles = [
 		'Покупка абонемента в бассейн',
 		'Заселение в отель',
@@ -20,9 +20,9 @@ function dialogues(): AiDialogueListItemModel[] {
 		'У стоматолога',
 	]
 
-	return titles.map((title, index) => ({
+	return Array.from({ length: count }, (_, index) => ({
 		id: index + 1,
-		scenario: { id: 2, title: JSON.stringify({ ru: title }) },
+		scenario: { id: 2, title: JSON.stringify({ ru: titles[index] ?? `Диалог ${index + 1}` }) },
 		sourceLanguageCode: index === 2 ? 'de' : 'en',
 		maxCefrLevel: index === 2 ? null : 'A2',
 		createdAt: new Date(Date.now() - index * 86_400_000).toISOString(),
@@ -76,19 +76,21 @@ async function setup(page: Page, items = dialogues(), failFirst = false) {
 		const params = new URL(request.url()).searchParams
 		const pageNumber = Number(params.get('page'))
 		requests.push(pageNumber)
-		expect(params.get('pageSize')).toBe('3')
+		expect(params.get('pageSize')).toBe('10')
+
 		if (failFirst || failNext) {
 			failFirst = false
 			failNext = false
 			return route.fulfill({ status: 500, json: { message: 'Error' } })
 		}
+
 		const data: AiDialoguesPageModel = {
 			page: pageNumber,
-			pageSize: 3,
+			pageSize: 10,
 			total: current.length,
-			totalPages: Math.ceil(current.length / 3),
+			totalPages: Math.ceil(current.length / 10),
 			urlsExpireAt: '2099-01-01T00:00:00Z',
-			items: current.slice((pageNumber - 1) * 3, pageNumber * 3),
+			items: current.slice((pageNumber - 1) * 10, pageNumber * 10),
 		}
 		return route.fulfill({ json: data })
 	})
@@ -132,30 +134,35 @@ test('the desktop layout matches the half-size reference and crops just the neut
 test('load-more errors preserve cards; retry and deletion refresh all loaded pages without skipping a dialogue', async ({
 	page,
 }) => {
-	const h = await setup(page)
+	const items = dialogues(25)
+	const h = await setup(page, items)
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(3)
 	h.failNext()
 	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
 	await expect(page.getByRole('alert')).toBeVisible()
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(3)
 	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(5)
+	await expect(page.locator('.ai-dialogue-card')).toHaveCount(13)
+	await expect(page.locator('.ai-dialogue-card h4')).toHaveText(
+		items.slice(0, 13).map((item) => JSON.parse(item.scenario.title).ru),
+	)
+	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
+	await expect(page.locator('.ai-dialogue-card')).toHaveCount(23)
+	await page.getByRole('button', { name: 'Более ранние диалоги' }).click()
+	await expect(page.locator('.ai-dialogue-card')).toHaveCount(25)
 	await expect(page.getByRole('button', { name: 'Более ранние диалоги' })).toHaveCount(0)
 	await page.getByRole('button', { name: 'Удалить диалог «Покупка абонемента в бассейн»' }).click()
 	await expect(page.getByText('Вы уверены, что хотите удалить диалог?')).toBeVisible()
 	expect(h.deleted).toEqual([])
 	await page.locator('.modal').getByRole('button', { name: 'Удалить диалог', exact: true }).click()
 	await expect(page.locator('.modal')).toHaveCount(0)
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(4)
+	await expect(page.locator('.ai-dialogue-card')).toHaveCount(24)
 	await expect(page.locator('.ai-dialogue-card--featured h4')).toHaveText('Заселение в отель')
-	await expect(page.locator('.ai-dialogue-card h4')).toHaveText([
-		'Заселение в отель',
-		'Стук в дверь',
-		'Паспортный контроль',
-		'У стоматолога',
-	])
+	await expect(page.locator('.ai-dialogue-card h4')).toHaveText(
+		items.slice(1).map((item) => JSON.parse(item.scenario.title).ru),
+	)
 	expect(h.deleted).toEqual([1])
-	expect(h.requests).toEqual([1, 2, 2, 1, 2])
+	expect(h.requests).toEqual([1, 2, 2, 3, 1, 2, 3])
 	expect(h.errors).toEqual([])
 })
 
@@ -167,11 +174,11 @@ test('initial loading errors can be retried and an empty account has no load-mor
 	await expect(page.getByRole('button', { name: 'Более ранние диалоги' })).toHaveCount(0)
 })
 
-test('a dialogue without messages, scene or a valid sprite keeps its layout and controls', async ({ page }) => {
+test('a dialogue without messages, scene or a sprite keeps its layout and controls', async ({ page }) => {
 	const item = dialogues()[0]
 	item.lastMessage = null
 	item.sceneImage = null
-	item.characters[0].emotionSheet!.layoutVersion = 'unsupported'
+	item.characters[0].emotionSheet = null
 	item.characters = item.characters.slice(0, 1)
 	const h = await setup(page, [item])
 	await expect(page.locator('.ai-dialogue-card')).toHaveCount(1)

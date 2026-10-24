@@ -3,7 +3,7 @@ import { mock, test } from 'node:test'
 import { InfiniteQueryObserver, QueryClient } from '@tanstack/react-query'
 import { AiDialogueQueryFacade, aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { AiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
-import { getDialogueListRefreshInterval } from '@/entities/aiDialogue/fn/dialogueListCache'
+import { getDialogueListRefreshInterval } from '@/entities/aiDialogue/fn/getDialogueListRefreshInterval'
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import { formatDialogueDate } from '@/widgets/aiDialogues/UserAiDialoguesList/fn/formatDialogueDate'
 
@@ -26,6 +26,7 @@ test('same calendar date stays today even around midnight; invalid dates do not 
 test('pagination uses Service/API/generated GET and retains earlier pages when loading more', async () => {
 	const original = Object.getOwnPropertyDescriptor(globalThis, 'window')
 	Object.defineProperty(globalThis, 'window', { configurable: true, value: {} })
+
 	const calls: string[] = []
 
 	const fetch = mock.method(globalThis, 'fetch', async (url: RequestInfo | URL, init?: RequestInit) => {
@@ -34,10 +35,11 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 		assert.equal(init?.cache, 'no-store')
 		assert.ok(init?.signal)
 		const page = Number(new URL(String(url), 'http://test').searchParams.get('page'))
+
 		return Response.json({
 			page,
-			pageSize: 3,
-			total: 4,
+			pageSize: 10,
+			total: 20,
 			totalPages: 2,
 			urlsExpireAt: '2099-01-01T00:00:00Z',
 			items: [
@@ -68,7 +70,7 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 		)
 		assert.equal(result.hasNextPage, false)
 		assert.equal(result.data?.pages[0].items[0].characters[0].name, null)
-		assert.deepEqual(calls, ['/api/ai-dialogue?page=1&pageSize=3', '/api/ai-dialogue?page=2&pageSize=3'])
+		assert.deepEqual(calls, ['/api/ai-dialogue?page=1&pageSize=10', '/api/ai-dialogue?page=2&pageSize=10'])
 		assert.notDeepEqual(aiDialogueQueryKeys.userList(7), aiDialogueQueryKeys.userList(8))
 		assert.ok(Number(getDialogueListRefreshInterval(result.data)) > 60_000)
 		const item = result.data!.pages[0].items[0]

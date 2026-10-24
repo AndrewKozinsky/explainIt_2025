@@ -7,7 +7,8 @@ import {
 } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { aiDialogueService } from './AiDialogueService'
-import { getDialogueListRefreshInterval, updateDialogueListLevel } from './fn/dialogueListCache'
+import { getDialogueListRefreshInterval } from './fn/getDialogueListRefreshInterval'
+import { updateDialogueListLevel } from './fn/updateDialogueListLevel'
 import type { AiDialogueService } from './AiDialogueService'
 import type { UpdateAiDialogueInput } from './repository/AiDialogueRepository'
 import type { AiDialoguesPageModel } from './types/aiDialogueList'
@@ -18,7 +19,7 @@ import type { AiDialoguesPageModel } from './types/aiDialogueList'
 export const aiDialogueQueryKeys = {
 	all: ['ai-dialogue'] as const,
 	list: () => [...aiDialogueQueryKeys.all, 'list'] as const,
-	userList: (userId: number) => [...aiDialogueQueryKeys.list(), userId] as const,
+	userList: (userId: number) => [...aiDialogueQueryKeys.list(), userId, { pageSize: 10 }] as const,
 	detail: (id: number) => [...aiDialogueQueryKeys.all, 'detail', id] as const,
 	update: (id: number) => [...aiDialogueQueryKeys.all, 'update', id] as const,
 	audio: (id: number) => [...aiDialogueQueryKeys.detail(id), 'audio'] as const,
@@ -59,7 +60,7 @@ export class AiDialogueQueryFacade {
 			queryKey: aiDialogueQueryKeys.userList(userId),
 			initialPageParam: 1,
 			queryFn: ({ pageParam, signal }) =>
-				unwrapApiResult(this.service.getUserDialogues({ page: pageParam, pageSize: 3 }, signal)),
+				unwrapApiResult(this.service.getUserDialogues({ page: pageParam, pageSize: 10 }, signal)),
 			getNextPageParam: (page) => (page.page < page.totalPages ? page.page + 1 : undefined),
 			refetchInterval: (query) => getDialogueListRefreshInterval(query.state.data),
 		})

@@ -11,7 +11,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: 'regular' | 'danger' | 'accent' | 'plain' | 'outline'
 	colorScheme?: 'dark' | 'light'
 	rounded?: boolean
-	size?: 'small' | 'medium' | 'big'
+	size?: 'small' | 'medium' | 'big' | 'custom'
+	href?: string
 	children?: ReactNode
 	icon?: string | ReactNode
 	loading?: boolean
@@ -27,6 +28,7 @@ function Button(props: ButtonProps) {
 		children,
 		icon,
 		loading = false,
+		href,
 		extraClass,
 		onClick,
 		...restProps
@@ -38,7 +40,7 @@ function Button(props: ButtonProps) {
 
 	const buttonClasses = [
 		'button',
-		`button--size-${size}`,
+		size !== 'custom' && `button--size-${size}`,
 		!children && icon && 'button--icon-only',
 		rounded && 'button--rounded',
 	]
@@ -48,6 +50,7 @@ function Button(props: ButtonProps) {
 
 	return (
 		<BaseButton
+			href={href}
 			extraClass={cn(buttonClasses, extraClass)}
 			disabled={disabled}
 			theme={theme}

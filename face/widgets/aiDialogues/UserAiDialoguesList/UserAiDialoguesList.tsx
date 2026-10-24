@@ -7,7 +7,8 @@ import Divider from '@/shared/ui/Divider/Divider'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useAiDialogueDelete } from './fn/useAiDialogueDelete'
 import { useUserAiDialogues } from './fn/useUserAiDialogues'
-import DialogueCard from './ui/DialogueCard'
+import LargeDialogueCard from './ui/LargeDialogueCard'
+import MediumDialogueCard from './ui/MediumDialogueCard'
 import './UserAiDialoguesList.scss'
 
 type Props = { userId: number }
@@ -37,9 +38,11 @@ export default function UserAiDialoguesList({ userId }: Props) {
 	}
 
 	const cards = query.dialogues.map((dialogue, index) => {
+		const Card = index === 0 ? LargeDialogueCard : MediumDialogueCard
+
 		return (
 			<React.Fragment key={dialogue.id}>
-				<DialogueCard dialogue={dialogue} featured={index === 0} locale={locale} onDelete={openDeleteModal} />
+				<Card dialogue={dialogue} locale={locale} onDelete={openDeleteModal} />
 				<Divider />
 			</React.Fragment>
 		)
@@ -53,10 +56,10 @@ export default function UserAiDialoguesList({ userId }: Props) {
 					Не удалось обновить диалоги. Попробуйте ещё раз.
 				</p>
 			)}
-			{query.hasNextPage && (
+			{query.hasMore && (
 				<Button
 					extraClass='user-ai-dialogues-list__more'
-					onClick={() => void query.fetchNextPage()}
+					onClick={() => void query.loadMore()}
 					disabled={query.isFetching}
 					loading={query.isFetchingNextPage}
 				>

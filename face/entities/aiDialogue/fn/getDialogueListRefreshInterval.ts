@@ -1,22 +1,5 @@
-import type { AiDialogueModel } from '../repository/AiDialogueRepository'
 import type { AiDialoguesPageModel } from '../types/aiDialogueList'
 import type { InfiniteData } from '@tanstack/react-query'
-
-export function updateDialogueListLevel(
-	data: InfiniteData<AiDialoguesPageModel> | undefined,
-	dialogue: AiDialogueModel,
-) {
-	if (!data) return data
-	return {
-		...data,
-		pages: data.pages.map((page) => ({
-			...page,
-			items: page.items.map((item) =>
-				item.id === dialogue.id ? { ...item, maxCefrLevel: dialogue.maxCefrLevel } : item,
-			),
-		})),
-	}
-}
 
 /** Обновляем ссылки до истечения срока, а недавно созданные картинки — пока они готовятся. */
 export function getDialogueListRefreshInterval(data: InfiniteData<AiDialoguesPageModel> | undefined): number | false {

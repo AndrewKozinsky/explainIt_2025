@@ -8,7 +8,6 @@ export default defineConfig({
 	resolve: {
 		alias: [
 			{ find: '@/i18n/routing', replacement: `${directory}routing.tsx` },
-			{ find: 'next/headers', replacement: `${directory}headers.ts` },
 			{ find: '@', replacement: face },
 		],
 	},
