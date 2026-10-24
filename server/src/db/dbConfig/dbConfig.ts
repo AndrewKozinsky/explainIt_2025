@@ -1341,6 +1341,27 @@ export const bdConfig = {
 	// Диалог пользователя с ИИ по сценарию (контейнер для будущих сообщений).
 	AiDialogue: {
 		dtoProps: {
+			lastMessageNpcId: {
+				type: 'string',
+				required: false,
+				description: 'Идентификатор NPC последнего npcActions; null, если его нет в старом payload.',
+				example: 'receptionist_1',
+			},
+			lastMessageText: {
+				type: 'string',
+				required: true,
+				description:
+					'Реплики последнего сообщения NPC, соединённые переносом строки; при отсутствии речи — действия.',
+				example: 'Would you like a monthly membership?',
+			},
+			lastMessageTextType: {
+				type: 'enum',
+				enumName: 'AiDialogueLastMessageTextType',
+				variants: ['speech', 'action'],
+				required: false,
+				description: 'Тип текста последнего сообщения NPC; null, если сообщение не содержит непустого текста.',
+				example: 'speech',
+			},
 			checkUserMessageSpeechPart: {
 				type: 'string',
 				required: false,
@@ -1393,7 +1414,7 @@ export const bdConfig = {
 				example: '2026-10-07T18:00:00.000Z',
 			},
 		},
-		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }],
+		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }, { fields: ['user_id', 'created_at', 'id'] }],
 		dbFields: {
 			max_cefr_level: {
 				type: 'enum',
@@ -1479,7 +1500,12 @@ export const bdConfig = {
 	// Отдельное сообщение в диалоге с ИИ (одно событие = одна строка).
 	AiDialogueMessage: {
 		dtoProps: {},
-		indexes: [{ fields: ['dialogue_id'] }, { fields: ['character_id'] }],
+		indexes: [
+			{ fields: ['dialogue_id'] },
+			{ fields: ['character_id'] },
+			{ fields: ['dialogue_id', 'id'] },
+			{ fields: ['dialogue_id', 'type', 'id'] },
+		],
 		dbFields: {
 			id: {
 				type: 'index',

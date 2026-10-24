@@ -1,0 +1,58 @@
+import { getAiDialogueLastMessage } from './getAiDialogueLastMessage'
+
+function message(actions: unknown[], identity: object = { npcId: 'anna', npcName: 'Anna', npcRole: 'receptionist' }) {
+	return { id: 1, created_at: new Date('2026-10-23T15:30:00Z'), payload: JSON.stringify({ ...identity, actions }) }
+}
+
+describe('getAiDialogueLastMessage', () => {
+	it('prefers all nonempty speech blocks in their original order over actions', () => {
+		const result = getAiDialogueLastMessage(
+			message([
+				{ type: 'action', content: 'She waves.' },
+				{ type: 'speech', content: ' Hello! ', translation: 'Привет!' },
+				{ type: 'speech', content: ' ' },
+				{ type: 'speech', content: 'How are you?' },
+			]),
+		)
+
+		expect(result).toMatchObject({ text: 'Hello!\nHow are you?', textType: 'speech' })
+	})
+
+	it('uses actions when there is no nonempty speech', () => {
+		expect(
+			getAiDialogueLastMessage(
+				message([
+					{ type: 'speech', content: '' },
+					{ type: 'action', content: 'She smiles.' },
+					{ type: 'action', content: 'She opens the door.' },
+				]),
+			),
+		).toMatchObject({ text: 'She smiles.\nShe opens the door.', textType: 'action' })
+	})
+
+	it('reads legacy NPC identity from payload without requiring character_id', () => {
+		expect(getAiDialogueLastMessage(message([], { npcName: 'Anna', npcRole: 'receptionist' }))).toEqual({
+			id: 1,
+			npcId: null,
+			name: 'Anna',
+			role: 'receptionist',
+			text: '',
+			textType: null,
+			createdAt: '2026-10-23T15:30:00.000Z',
+		})
+	})
+
+	it('allows missing identity or invalid individual action items without inventing text', () => {
+		expect(getAiDialogueLastMessage(message([null, 'broken', { type: 'speech', content: 1 }], {}))).toMatchObject({
+			npcId: null,
+			name: null,
+			role: null,
+			text: '',
+			textType: null,
+		})
+	})
+
+	it('returns null when no NPC has sent a message', () => {
+		expect(getAiDialogueLastMessage()).toBeNull()
+	})
+})

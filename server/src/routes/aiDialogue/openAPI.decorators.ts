@@ -2,6 +2,7 @@ import { applyDecorators } from '@nestjs/common'
 import { ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
+import { AiDialoguesPageOutModel } from 'models/aiDialogue/aiDialogueList.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
@@ -72,10 +73,11 @@ export function ApiGetAiDialogues() {
 	return applyDecorators(
 		ApiOperation({
 			summary: 'Get current user AI dialogues',
-			description: 'Returns the list of dialogues of the current user with their scenarios.',
+			description:
+				'Returns the current user dialogues ordered by createdAt DESC, id DESC. Page defaults to 1 and pageSize to 3 (maximum 100). Includes the last NPC message, the ready image of the latest scene and all NPCs. Image URLs should be refreshed by urlsExpireAt.',
 		}),
 		ApiCookieAuth(),
-		ApiResponse({ status: 200, description: 'OK', type: [AiDialogueOutModel] }),
+		ApiResponse({ status: 200, description: 'OK', type: AiDialoguesPageOutModel }),
 	)
 }
 

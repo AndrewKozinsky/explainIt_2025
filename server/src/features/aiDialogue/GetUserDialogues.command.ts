@@ -1,16 +1,20 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
-import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
-import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { AiDialogueListQueryRepository } from 'repo/aiDialogue/aiDialogueList.queryRepository'
+import { AiDialoguesPageOutModel } from 'models/aiDialogue/aiDialogueList.out.model'
+import type { PaginationParams } from 'types/pagination'
 
 export class GetUserDialoguesCommand implements ICommand {
-	constructor(public userId: number) {}
+	constructor(
+		public userId: number,
+		public pagination: PaginationParams,
+	) {}
 }
 
 @CommandHandler(GetUserDialoguesCommand)
-export class GetUserDialoguesHandler implements ICommandHandler<GetUserDialoguesCommand, AiDialogueOutModel[]> {
-	constructor(private aiDialogueQueryRepository: AiDialogueQueryRepository) {}
+export class GetUserDialoguesHandler implements ICommandHandler<GetUserDialoguesCommand, AiDialoguesPageOutModel> {
+	constructor(private aiDialogueListQueryRepository: AiDialogueListQueryRepository) {}
 
-	async execute(command: GetUserDialoguesCommand): Promise<AiDialogueOutModel[]> {
-		return await this.aiDialogueQueryRepository.getUserDialogues(command.userId)
+	async execute(command: GetUserDialoguesCommand): Promise<AiDialoguesPageOutModel> {
+		return this.aiDialogueListQueryRepository.getUserDialogues(command.userId, command.pagination)
 	}
 }

@@ -72,7 +72,7 @@
 
 ```
 POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel? } → 201 AiDialogueOutModel
-GET    /ai-dialogue                → 200 AiDialogueOutModel[]
+GET    /ai-dialogue?page=1&pageSize=3 → 200 AiDialoguesPageOutModel
 GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
 PATCH  /ai-dialogue/:id            body: { maxCefrLevel? } → 200 AiDialogueOutModel
 DELETE /ai-dialogue/:id            → 200 boolean
@@ -90,7 +90,7 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 Диктовка черновика с авторизацией по общей сессии и распознаванием двух языков:
 [`aiDialogueDictation.md`](aiDialogueDictation.md).
 
-`AiDialogueOutModel`:
+`AiDialogueOutModel` (создание, получение одного диалога, PATCH; список имеет отдельную модель ниже):
 
 ```json
 {
@@ -114,6 +114,83 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 - `system_prompt` сценария не попадает в ответ (как и в списке сценариев) — он не отдаётся клиенту.
 - `sourceLanguageCode` — язык практики, `targetLanguageCode` — язык перевода (см. «Доменная модель»).
 - `scenario.title`/`scenario.description` — сырые JSON-строки переводов; резолвит их клиент через `pickLocalized`.
+
+### Список «Мои диалоги»
+
+`GET /api/ai-dialogue?page=1&pageSize=3` возвращает только диалоги текущего пользователя.
+Параметры необязательны: page=1, pageSize=3; принимаются целые числа, page≥1, 1≤pageSize≤100.
+Сортировка — `created_at DESC, id DESC`, независимо от даты последнего сообщения или изменения настроек.
+Ответ `AiDialoguesPageOutModel`:
+
+```json
+{
+  "page": 1,
+  "pageSize": 3,
+  "total": 7,
+  "totalPages": 3,
+  "urlsExpireAt": "2026-10-24T15:00:00.000Z",
+  "items": [{
+    "id": 5,
+    "scenario": { "id": 2, "title": "{\"ru\":\"Покупка абонемента в бассейн\",\"en\":\"Pool membership\"}" },
+    "sourceLanguageCode": "en",
+    "maxCefrLevel": null,
+    "createdAt": "2026-10-20T10:00:00.000Z",
+    "lastMessage": {
+      "id": 90,
+      "npcId": "anna",
+      "name": "Anna",
+      "role": "receptionist",
+      "text": "Would you like a monthly membership?",
+      "textType": "speech",
+      "createdAt": "2026-10-23T15:30:00.000Z"
+    },
+    "sceneImage": null,
+    "characters": [{
+      "npcId": "anna", "name": "Anna", "role": "receptionist",
+      "generationStatus": "generating", "emotionSheet": null
+    }]
+  }]
+}
+```
+
+- `scenario` — вложенный объект с id и title; title остаётся JSON-строкой переводов.
+- `maxCefrLevel: null` означает «без ограничения». Названия языка, подписи CEFR и относительных дат формирует клиент.
+- `lastMessage` — именно последнее сохранённое `npcActions`. Более поздние userActions, userAvoidsNPC,
+  help, worldEvent или sceneUpdate его не заменяют. Дата относится к этому же сообщению NPC;
+  `updatedAt` контейнера не используется. При отсутствии npcActions — null.
+- Внутри последнего npcActions непустые speech соединяются переносом строки в исходном порядке;
+  если речи нет — аналогично action. Если нет ни речи, ни действий, text="", textType=null.
+  Идентичность NPC берётся из payload и работает в старых сообщениях без character_id.
+- `sceneImage` — готовое изображение **последнего sceneUpdate**. Если эта сцена ещё не имеет изображения,
+  возвращается null, даже когда у более ранних сцен есть картинки. Генерация при чтении не запускается.
+- `characters` содержит всех NPC за историю, без пользователя и без ограничения количества.
+  Идентификатор в этом списке — npcId, уникальный в рамках диалога. Старые NPC без записи AiDialogueCharacter
+  восстанавливаются только для ответа из публичных метаданных сообщений, без записи в БД или генерации спрайтов.
+  Их emotionSheet/generationStatus равны null. Новые NPC возвращаются и до готовности спрайта.
+- `sceneImage` и `emotionSheet` используют AiDialogueImageOutModel: id/url/mimeType/width/height/layoutVersion.
+  Для neutral используется верхняя левая ячейка emotion-grid-4x3-v1; обрезка и размеры — задача клиента.
+- Ссылки R2 подписываются после owner-scoped чтения БД, действуют 6 часов;
+  urlsExpireAt рекомендует обновить страницу данных через 5 часов. `Cache-Control: private, no-store`.
+- Подсчёт, страница, NPC и выбранные сообщения читаются в RepeatableRead. MAX(id) по npcActions/sceneUpdate
+  ограничивает загрузку двумя payload на диалог; полная история в приложение не передаётся.
+  Старые NPC читаются одним параметризованным SQL-запросом для страницы с дедупликацией в БД.
+- Для пустой страницы items=[], totalPages=Math.ceil(total/pageSize); при total=0 — totalPages=0.
+  Кнопка следующей страницы нужна при page<totalPages. После создания/удаления клиент должен перечитать
+  загруженную часть списка, чтобы смещение offset-пагинации не пропустило элементы.
+
+Контракт списка заменяет прежний массив, отдельного маршрута совместимости нет. Клиентский список и генерация
+Orval в этом этапе не менялись: перед использованием нового ответа требуется отдельная адаптация клиента.
+Удаление продолжает использовать существующий DELETE и клиентскую DeleteEntityModal.
+
+Миграция `20261024120000_ai_dialogue_list_indexes` добавляет только составные индексы для списка и сообщений.
+Схема и Prisma Client перегенерированы из dbConfig; миграцию нужно применить обычным `npm run migrate:deploy`
+из server с нужным окружением. Во время реализации миграция к БД не применялась.
+
+Проверки этапа: серверные build, TypeScript и git diff --check проходят. Полный набор — 600 успешных тестов,
+14 ранее существовавших тестов пропущены; целевой набор диалогов — 368 успешных тестов.
+Новые проверки покрывают параметры пагинации, owner-scoped запросы и согласованный снимок, ограниченную загрузку
+сообщений, речь/действия последнего NPC, старые payload/NPC, отсутствие картинок и пустые страницы.
+БД и R2 подменены; приложение, worker и платные генерации не запускались.
 
 `AiDialogueMessageOutModel`:
 
@@ -163,7 +240,8 @@ C1/C2 не принимаются в этой настройке: для сво�
 
 При создании `maxCefrLevel` необязателен; отсутствие поля и явный `null` сохраняют `null`.
 Все существующие диалоги после миграции также имеют `null`; ограничения автоматически не включаются.
-Поле всегда возвращается в `AiDialogueOutModel` (создание, получение одного диалога, список, обновление).
+Поле всегда возвращается в `AiDialogueOutModel` (создание, получение одного диалога, обновление)
+и `AiDialogueListItemOutModel` (список).
 
 Изменение: `PATCH /api/ai-dialogue/:id` с телом `{"maxCefrLevel":"A2"}`.
 `{"maxCefrLevel":null}` отключает адаптацию; `{}` ничего не меняет, включая `updatedAt`.
@@ -343,7 +421,7 @@ notifyActiveDialoguesOfVisualChanges отправляет технический
 
 - `CreateAiDialogueCommand` → проверка сценария → `AiDialogueRepository.createDialogue` →
   `AiDialogueQueryRepository.getDialogueById`.
-- `GetUserDialoguesCommand` → `AiDialogueQueryRepository.getUserDialogues`.
+- `GetUserDialoguesCommand` → `AiDialogueListQueryRepository.getUserDialogues(userId, pagination)`.
 - `DeleteAiDialogueCommand` → проверка владения → `AiDialogueRepository.deleteDialogueById`.
 - `CreateAiDialogueMessageCommand` → проверка существования/владения → запрет при активной генерации →
   `AiDialogueMessageRepository.createMessage` → `AiDialogueQueryRepository.getMessageById` → fire-and-forget запуск
@@ -503,7 +581,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 | `created_at`           | `DateTime`     | Дата создания                                              |
 | `updated_at`           | `DateTime`     | Дата последнего изменения                                  |
 
-- Индексы: `@@index([user_id])`, `@@index([scenario_id])`.
+- Индексы: `@@index([user_id])`, `@@index([scenario_id])`, `@@index([user_id, created_at, id])`.
 - Обратные связи: `User.AiDialogue`, `AiDialogueScenario.AiDialogue`, `AiDialogue.AiDialogueMessage`
   (`oneToMany`).
 
@@ -521,7 +599,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 | `payload`     | `String`                     | JSON-тело события (без `type`, ключи camelCase)                              |
 | `created_at`  | `DateTime`                   | Дата создания                                                                |
 
-- Индекс: `@@index([dialogue_id])`.
+- Индексы: `@@index([dialogue_id])`, `@@index([character_id])`, `@@index([dialogue_id, id])`,
+  `@@index([dialogue_id, type, id])`.
 
 ## Ключевые файлы
 
@@ -582,7 +661,12 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 - `server/src/repo/aiDialogue/aiDialogue.repository.ts` — `createDialogue`, `getDialogueById`, `updateDialogue`,
   `deleteDialogueById`, `updateSummary`.
-- `server/src/repo/aiDialogue/aiDialogue.queryRepository.ts` — `getUserDialogues`, `getDialogueById`,
+- `server/src/repo/aiDialogue/aiDialogueList.queryRepository.ts` — пагинированный список с иллюстрацией,
+  всеми NPC и последним сообщением NPC; без загрузки полной истории.
+- `server/src/models/aiDialogue/aiDialogueList.out.model.ts` — отдельные модели страницы/карточки/последнего сообщения/NPC.
+- `server/src/routes/aiDialogue/inputs/getUserDialogues.input.ts` — валидация page/pageSize.
+- `server/src/features/aiDialogue/getAiDialogueLastMessage.ts` — выбор речи или действий из последнего npcActions.
+- `server/src/repo/aiDialogue/aiDialogue.queryRepository.ts` — `getDialogueById`,
   `getMessagesByDialogueId`, `getMessageById`, маппинг в OutModel (`mapDbMessageToOutModel` +
   `deserializeEvent`).
 - `server/src/repo/aiDialogue/aiDialogueMessage.repository.ts` — `createMessage` (type в колонку, тело в JSON`payload`).
@@ -648,6 +732,9 @@ Any передаёт `null`. На время сохранения заблоки
 3. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
 
 ### История диалогов
+
+Ниже описан прежний клиент. Он ещё не адаптирован к новому AiDialoguesPageOutModel;
+изменение клиента и регенерация Orval выполняются отдельным этапом.
 
 Рендерится только для залогиненного пользователя. Пустой список → сообщение-заглушка; непустой →
 `UserAiDialoguesList` (карточки `MediaCardButton` с названием сценария, резолвнутым через

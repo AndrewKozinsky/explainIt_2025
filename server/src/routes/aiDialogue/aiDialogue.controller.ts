@@ -11,6 +11,7 @@ import {
 	ParseIntPipe,
 	Patch,
 	Post,
+	Query,
 	Req,
 	Sse,
 	UseGuards,
@@ -33,14 +34,17 @@ import { UpdateAiDialogueCommand } from 'features/aiDialogue/UpdateAiDialogue.co
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
+import { AiDialoguesPageOutModel } from 'models/aiDialogue/aiDialogueList.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 import { CheckAiDialogueUserMessageInput } from './inputs/checkAiDialogueUserMessage.input'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { GetUserDialoguesInput } from './inputs/getUserDialogues.input'
 import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
 import {
+	ApiCheckAiDialogueUserMessage,
 	ApiCreateAiDialogue,
 	ApiCreateAiDialogueMessage,
 	ApiDeleteAiDialogue,
@@ -49,7 +53,6 @@ import {
 	ApiGetAiDialogues,
 	ApiGetAiDialogueVisuals,
 	ApiUpdateAiDialogue,
-	ApiCheckAiDialogueUserMessage,
 } from './openAPI.decorators'
 
 @ApiTags('AiDialogue')
@@ -95,10 +98,19 @@ export class AiDialogueController {
 
 	@ApiGetAiDialogues()
 	@UseGuards(CheckSessionCookieGuard)
+	@Header('Cache-Control', 'private, no-store')
 	@HttpCode(HttpStatus.OK)
 	@Get()
-	async getAiDialogues(@Req() request: Request): Promise<AiDialogueOutModel[]> {
-		return await this.commandBus.execute(new GetUserDialoguesCommand(request.user!.id))
+	async getAiDialogues(
+		@Query() query: GetUserDialoguesInput,
+		@Req() request: Request,
+	): Promise<AiDialoguesPageOutModel> {
+		return this.commandBus.execute(
+			new GetUserDialoguesCommand(request.user!.id, {
+				page: query.page ?? 1,
+				pageSize: query.pageSize ?? 3,
+			}),
+		)
 	}
 
 	@ApiGetAiDialogue()

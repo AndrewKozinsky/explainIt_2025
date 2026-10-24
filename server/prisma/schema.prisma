@@ -299,6 +299,7 @@ model AiDialogue {
 
 	@@index([user_id])
 	@@index([scenario_id])
+	@@index([user_id, created_at, id])
 }
 
 model AiDialogueMessage {
@@ -316,6 +317,8 @@ model AiDialogueMessage {
 
 	@@index([dialogue_id])
 	@@index([character_id])
+	@@index([dialogue_id, id])
+	@@index([dialogue_id, type, id])
 }
 
 model AiDialogueCharacter {

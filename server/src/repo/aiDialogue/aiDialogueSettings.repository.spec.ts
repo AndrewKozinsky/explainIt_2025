@@ -42,11 +42,13 @@ describe('dialogue language setting persistence', () => {
 	it('scopes updates to the owner and reports concurrent deletion', async () => {
 		const { repository, prisma } = harness()
 		await expect(repository.updateDialogue(1, 7, { max_cefr_level: null })).resolves.toBe(true)
+
 		expect(prisma.aiDialogue.updateMany).toHaveBeenCalledWith({
 			where: { id: 1, user_id: 7 },
 			data: { max_cefr_level: null },
 		})
 		prisma.aiDialogue.updateMany.mockResolvedValue({ count: 0 })
+
 		await expect(repository.updateDialogue(1, 7, { max_cefr_level: 'B1' })).resolves.toBe(false)
 	})
 
@@ -61,7 +63,7 @@ describe('dialogue language setting persistence', () => {
 		})
 	})
 
-	it.each([null, 'B2'])('returns the saved value %s in detail and list responses', async (maxCefrLevel) => {
+	it.each([null, 'B2'])('returns the saved value %s in detail responses', async (maxCefrLevel) => {
 		const { prisma, query } = harness()
 		const row = {
 			id: 1,
@@ -69,9 +71,9 @@ describe('dialogue language setting persistence', () => {
 			created_at: new Date(),
 			updated_at: new Date(),
 		}
+
 		prisma.aiDialogue.findUnique.mockResolvedValue(row)
-		prisma.aiDialogue.findMany.mockResolvedValue([row])
+
 		await expect(query.getDialogueById(1)).resolves.toMatchObject({ maxCefrLevel })
-		await expect(query.getUserDialogues(7)).resolves.toEqual([expect.objectContaining({ maxCefrLevel })])
 	})
 })

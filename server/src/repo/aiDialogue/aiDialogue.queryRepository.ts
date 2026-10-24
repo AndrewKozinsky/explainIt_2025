@@ -18,17 +18,6 @@ export class AiDialogueQueryRepository {
 	) {}
 
 	@CatchDbError()
-	async getUserDialogues(userId: number): Promise<AiDialogueOutModel[]> {
-		const dialogues = await this.prisma.aiDialogue.findMany({
-			where: { user_id: userId },
-			include: { scenario: true },
-			orderBy: { id: 'desc' },
-		})
-
-		return dialogues.map((dialogue) => this.mapDbToOutModel(dialogue))
-	}
-
-	@CatchDbError()
 	async getDialogueById(id: number): Promise<null | AiDialogueOutModel> {
 		const dialogue = await this.prisma.aiDialogue.findUnique({
 			where: { id },

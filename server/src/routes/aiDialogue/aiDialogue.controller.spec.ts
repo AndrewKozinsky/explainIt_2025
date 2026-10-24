@@ -9,6 +9,7 @@ jest.mock('@nestjs/common', () => {
 		'Param',
 		'Patch',
 		'Post',
+		'Query',
 		'Req',
 		'Sse',
 		'UseGuards',
@@ -30,7 +31,15 @@ jest.mock('features/aiDialogue/CreateAiDialogue.command', () => ({ CreateAiDialo
 jest.mock('features/aiDialogue/CreateAiDialogueMessage.command', () => ({ CreateAiDialogueMessageCommand: class {} }))
 jest.mock('features/aiDialogue/DeleteAiDialogue.command', () => ({ DeleteAiDialogueCommand: class {} }))
 jest.mock('features/aiDialogue/GetAiDialogue.command', () => ({ GetAiDialogueCommand: class {} }))
-jest.mock('features/aiDialogue/GetUserDialogues.command', () => ({ GetUserDialoguesCommand: class {} }))
+jest.mock('features/aiDialogue/GetUserDialogues.command', () => ({
+	GetUserDialoguesCommand: class {
+		constructor(
+			public userId: number,
+			public pagination: { page: number; pageSize: number },
+		) {}
+	},
+}))
+
 jest.mock('features/aiDialogue/messageCheck/CheckAiDialogueUserMessage.command', () => ({
 	CheckAiDialogueUserMessageCommand: class {
 		constructor(public dto: unknown) {}
@@ -41,6 +50,8 @@ jest.mock('./inputs/createAiDialogue.input', () => ({ CreateAiDialogueInput: cla
 jest.mock('./inputs/checkAiDialogueUserMessage.input', () => ({ CheckAiDialogueUserMessageInput: class {} }))
 jest.mock('./inputs/createAiDialogueMessage.input', () => ({ CreateAiDialogueMessageInput: class {} }))
 jest.mock('./inputs/updateAiDialogue.input', () => ({ UpdateAiDialogueInput: class {} }))
+jest.mock('./inputs/getUserDialogues.input', () => ({ GetUserDialoguesInput: class {} }))
+
 jest.mock('./openAPI.decorators', () =>
 	Object.fromEntries(
 		[
@@ -71,6 +82,17 @@ describe('AiDialogueController CQRS dispatch', () => {
 
 		return { controller, bus, request }
 	}
+
+	it.each([
+		{ query: {}, pagination: { page: 1, pageSize: 3 } },
+		{ query: { page: 2, pageSize: 5 }, pagination: { page: 2, pageSize: 5 } },
+	])('lists dialogues for the authenticated user with pagination $pagination', async ({ query, pagination }) => {
+		const { controller, bus, request } = harness()
+		const result = { items: [], total: 0, page: pagination.page, pageSize: pagination.pageSize, totalPages: 0 }
+		bus.execute.mockResolvedValue(result)
+		await expect(controller.getAiDialogues(query, request)).resolves.toBe(result)
+		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, pagination }))
+	})
 
 	it('checks a draft with authenticated identity and forwards only the optional draft fields', async () => {
 		const { controller, bus, request } = harness()
@@ -125,6 +147,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockRejectedValue(new Error('dispatch failed'))
 		await expect(controller.stream(1, request)).rejects.toThrow('dispatch failed')
+
 		expect(bus.execute).toHaveBeenCalledTimes(1)
 	})
 })

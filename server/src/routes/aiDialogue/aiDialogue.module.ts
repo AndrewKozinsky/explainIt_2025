@@ -4,6 +4,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueAudioRepository } from 'repo/aiDialogue/aiDialogueAudio.repository'
 import { AiDialogueImageCleanupRepository } from 'repo/aiDialogue/aiDialogueImageCleanup.repository'
+import { AiDialogueListQueryRepository } from 'repo/aiDialogue/aiDialogueList.queryRepository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
 import { AiDialogueTurnRepository } from 'repo/aiDialogue/aiDialogueTurn.repository'
 import { AiDialogueVisualsRepository } from 'repo/aiDialogue/aiDialogueVisuals.repository'
@@ -75,6 +76,7 @@ const repositories = [
 	ImageGenerationOutboxRepository,
 	AiDialogueRepository,
 	AiDialogueQueryRepository,
+	AiDialogueListQueryRepository,
 	AiDialogueVisualsRepository,
 	AiDialogueImageCleanupRepository,
 	AiDialogueScenarioRepository,

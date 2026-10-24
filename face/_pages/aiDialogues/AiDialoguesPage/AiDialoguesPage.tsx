@@ -28,6 +28,14 @@ export default function AiDialoguesPage() {
 	return (
 		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.aiDialogues.name}>
 			<div className='ai-dialogues-page'>
+				{user && (
+					<div className='ai-dialogues-page__part'>
+						<Header hTag={3} hStyle={4}>
+							Мои диалоги
+						</Header>
+						{dialogues && <UserAiDialoguesList dialogues={dialogues} />}
+					</div>
+				)}
 				<div className='ai-dialogues-page__part'>
 					<Header hTag={3}>Сценарии</Header>
 					<MediaPageContentTabs
@@ -47,12 +55,6 @@ export default function AiDialoguesPage() {
 						onTabChange={onTabChange}
 					/>
 				</div>
-				{user && (
-					<div className='ai-dialogues-page__part'>
-						<Header hTag={3}>История диалогов</Header>
-						{dialogues && <UserAiDialoguesList dialogues={dialogues} />}
-					</div>
-				)}
 			</div>
 		</MediaPageContentWrapper>
 	)
