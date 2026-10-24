@@ -59,6 +59,7 @@ export default function UserAiDialoguesList({ userId }: Props) {
 			{query.hasMore && (
 				<div className='user-ai-dialogues-list__more'>
 					<Button
+						theme='outline'
 						onClick={() => void query.loadMore()}
 						disabled={query.isFetching}
 						loading={query.isFetchingNextPage}

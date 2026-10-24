@@ -6,7 +6,7 @@ type Props = {
 	id: number
 	title: string
 	url: string
-	theme: 'accent' | 'regular'
+	theme: 'accent' | 'regular' | 'outline'
 	onDelete: (id: number) => void
 }
 

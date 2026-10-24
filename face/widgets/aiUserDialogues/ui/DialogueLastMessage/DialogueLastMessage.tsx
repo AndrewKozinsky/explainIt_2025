@@ -12,7 +12,7 @@ export default function DialogueLastMessage({ message }: { message: AiDialogueLi
 		<div className='ai-dialogue-card__message'>
 			<p className='ai-dialogue-card__speaker'>
 				{message.name || 'Персонаж'}
-				{message.role && <span> • {message.role}</span>}
+				{message.role && <span>{message.role}</span>}
 			</p>
 			<p
 				className={cn(
