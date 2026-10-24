@@ -7,6 +7,7 @@ import { isPartChecked, isPartReady, MAX_DRAFT_LENGTH } from './fn/aiDialogueDra
 import { useAiDialogueDraft } from './fn/useAiDialogueDraft'
 import { useDraftTextarea } from './fn/useDraftTextarea'
 import './AiDialogueInput.scss'
+import Divider from '@/shared/ui/Divider/Divider'
 
 /** Новый dialogueId создаёт отдельный черновик и отменяет операции прежнего диалога. */
 export default function AiDialogueInput({ dialogueId }: { dialogueId: number }) {
@@ -74,6 +75,7 @@ function AiDialogueReplyForm({ dialogueId }: { dialogueId: number }) {
 				result={current.text.trim() ? (current.review?.result ?? null) : null}
 				stale={!isPartChecked(current)}
 			/>
+			<Divider />
 			<AiDialogueDraftFooter
 				state={state}
 				controller={controller}

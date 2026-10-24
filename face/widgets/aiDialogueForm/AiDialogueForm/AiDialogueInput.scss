@@ -50,8 +50,7 @@
 }
 
 .ai-dialogue-input__footer {
-	border-top: 1px solid vars.$grayColor-2;
-	padding-top: 1rem;
+
 }
 
 .ai-dialogue-input__editor {
@@ -138,8 +137,6 @@
 	flex-direction: column;
 	gap: 1.4rem;
 	counter-reset: issues;
-	padding: 0;
-	margin: 0;
 }
 
 .ai-dialogue-input__critical:empty {
@@ -164,7 +161,6 @@
 	background: vars.$accentColor-1;
 	max-width: 2.4rem;
 	padding: 0.6rem 0.6rem;
-	margin-top: 0.15rem;
 	border-radius: vars.$radius-1;
 }
 
@@ -215,7 +211,6 @@
 }
 
 .ai-dialogue-input__feedback p {
-	margin: 0;
 	white-space: pre-wrap;
 }
 
