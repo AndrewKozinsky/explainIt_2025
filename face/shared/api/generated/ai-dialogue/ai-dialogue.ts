@@ -26,11 +26,13 @@ import type {
 
 import type {
   AiDialogueAudioOutModel,
+  AiDialogueControllerGetAiDialoguesParams,
   AiDialogueControllerStream200,
   AiDialogueMessageOutModel,
   AiDialogueOutModel,
   AiDialogueUserMessageCheckOutModel,
   AiDialogueVisualsOutModel,
+  AiDialoguesPageOutModel,
   CheckAiDialogueUserMessageInput,
   CreateAiDialogueInput,
   CreateAiDialogueMessageInput,
@@ -259,7 +261,7 @@ export const useAiDialogueControllerCreateAiDialogue = <TError = unknown,
       return useMutation(getAiDialogueControllerCreateAiDialogueMutationOptions(options), queryClient);
     }
     export type aiDialogueControllerGetAiDialoguesResponse200 = {
-  data: AiDialogueOutModel[]
+  data: AiDialoguesPageOutModel
   status: 200
 }
 
@@ -270,21 +272,28 @@ export type aiDialogueControllerGetAiDialoguesResponseSuccess = (aiDialogueContr
 
 export type aiDialogueControllerGetAiDialoguesResponse = (aiDialogueControllerGetAiDialoguesResponseSuccess)
 
-export const getAiDialogueControllerGetAiDialoguesUrl = () => {
+export const getAiDialogueControllerGetAiDialoguesUrl = (params?: AiDialogueControllerGetAiDialoguesParams,) => {
+  const normalizedParams = new URLSearchParams();
 
+  Object.entries(params || {}).forEach(([key, value]) => {
 
+    if (value !== undefined) {
+      normalizedParams.append(key, value === null ? 'null' : String(value))
+    }
+  });
 
+  const stringifiedParams = normalizedParams.toString();
 
-  return `/api/ai-dialogue`
+  return stringifiedParams.length > 0 ? `/api/ai-dialogue?${stringifiedParams}` : `/api/ai-dialogue`
 }
 
 /**
- * Returns the list of dialogues of the current user with their scenarios.
+ * Returns the current user dialogues ordered by createdAt DESC, id DESC. Page defaults to 1 and pageSize to 3 (maximum 100). Includes the last NPC message, the ready image of the latest scene and all NPCs. Image URLs should be refreshed by urlsExpireAt.
  * @summary Get current user AI dialogues
  */
-export const aiDialogueControllerGetAiDialogues = async ( options?: RequestInit): Promise<aiDialogueControllerGetAiDialoguesResponse> => {
+export const aiDialogueControllerGetAiDialogues = async (params?: AiDialogueControllerGetAiDialoguesParams, options?: RequestInit): Promise<aiDialogueControllerGetAiDialoguesResponse> => {
 
-  return customMutator<aiDialogueControllerGetAiDialoguesResponse>(getAiDialogueControllerGetAiDialoguesUrl(),
+  return customMutator<aiDialogueControllerGetAiDialoguesResponse>(getAiDialogueControllerGetAiDialoguesUrl(params),
   {
     ...options,
     method: 'GET'
@@ -297,23 +306,23 @@ export const aiDialogueControllerGetAiDialogues = async ( options?: RequestInit)
 
 
 
-export const getAiDialogueControllerGetAiDialoguesQueryKey = () => {
+export const getAiDialogueControllerGetAiDialoguesQueryKey = (params?: AiDialogueControllerGetAiDialoguesParams,) => {
     return [
-    `/api/ai-dialogue`
+    `/api/ai-dialogue`, ...(params ? [params] : [])
     ] as const;
     }
 
 
-export const getAiDialogueControllerGetAiDialoguesQueryOptions = <TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError = unknown>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+export const getAiDialogueControllerGetAiDialoguesQueryOptions = <TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError = unknown>(params?: AiDialogueControllerGetAiDialoguesParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
 ) => {
 
 const {query: queryOptions, request: requestOptions} = options ?? {};
 
-  const queryKey =  queryOptions?.queryKey ?? getAiDialogueControllerGetAiDialoguesQueryKey();
+  const queryKey =  queryOptions?.queryKey ?? getAiDialogueControllerGetAiDialoguesQueryKey(params);
 
 
 
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>> = ({ signal }) => aiDialogueControllerGetAiDialogues({ signal, ...requestOptions });
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>> = ({ signal }) => aiDialogueControllerGetAiDialogues(params, { signal, ...requestOptions });
 
 
 
@@ -327,7 +336,7 @@ export type AiDialogueControllerGetAiDialoguesQueryError = unknown
 
 
 export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError = unknown>(
-  options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>> & Pick<
+ params: undefined |  AiDialogueControllerGetAiDialoguesParams, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>> & Pick<
         DefinedInitialDataOptions<
           Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>,
           TError,
@@ -337,7 +346,7 @@ export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType
  , queryClient?: QueryClient
   ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
 export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError = unknown>(
-  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>> & Pick<
+ params?: AiDialogueControllerGetAiDialoguesParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>> & Pick<
         UndefinedInitialDataOptions<
           Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>,
           TError,
@@ -347,7 +356,7 @@ export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
 export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError = unknown>(
-  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ params?: AiDialogueControllerGetAiDialoguesParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
   ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
 /**
@@ -355,11 +364,11 @@ export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType
  */
 
 export function useAiDialogueControllerGetAiDialogues<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError = unknown>(
-  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ params?: AiDialogueControllerGetAiDialoguesParams, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogues>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
  , queryClient?: QueryClient
  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
 
-  const queryOptions = getAiDialogueControllerGetAiDialoguesQueryOptions(options)
+  const queryOptions = getAiDialogueControllerGetAiDialoguesQueryOptions(params,options)
 
   const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
 
