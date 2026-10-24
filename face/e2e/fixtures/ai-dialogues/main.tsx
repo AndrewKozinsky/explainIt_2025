@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NextIntlClientProvider } from 'next-intl'
 import { createRoot } from 'react-dom/client'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import UserAiDialoguesList from '@/widgets/aiUserDialogues/UserAiDialoguesList/UserAiDialoguesList'
+import UserAiDialoguesList from '@/widgets/aiUserDialogues/ui/UserAiDialoguesList/UserAiDialoguesList'
 import '@/_pages/main/mainPageLayout/style/global.scss'
 
 const client = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } })

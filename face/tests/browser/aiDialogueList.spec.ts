@@ -109,7 +109,7 @@ test('the desktop layout matches the half-size reference and crops just the neut
 	page,
 }, testInfo) => {
 	const h = await setup(page)
-	const cards = page.locator('.ai-dialogue-card')
+	const cards = page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')
 	await expect(cards).toHaveCount(3)
 	await expect(page.getByText('Последний диалог')).toHaveCount(1)
 	await expect(page.getByText('Без ограничения')).toBeVisible()
@@ -117,8 +117,8 @@ test('the desktop layout matches the half-size reference and crops just the neut
 	await expect(
 		cards.first().getByRole('link', { name: 'Ответить в диалоге «Покупка абонемента в бассейн»' }),
 	).toHaveAttribute('href', '/ru/dialogues/1')
-	const cover = await cards.first().locator('.ai-dialogue-card__scene').boundingBox()
-	const small = await cards.nth(1).locator('.ai-dialogue-card__scene').boundingBox()
+	const cover = await cards.first().locator(':is(.medium-dialogue-card, .large-dialogue-card)__scene').boundingBox()
+	const small = await cards.nth(1).locator(':is(.medium-dialogue-card, .large-dialogue-card)__scene').boundingBox()
 	expect([cover?.width, cover?.height, small?.width, small?.height]).toEqual([240, 120, 120, 60])
 	const face = cards.nth(1).locator('.character-avatars__face').first()
 	const cell = (await face.boundingBox())!
@@ -136,29 +136,29 @@ test('load-more errors preserve cards; retry and deletion refresh all loaded pag
 }) => {
 	const items = dialogues(25)
 	const h = await setup(page, items)
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(3)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(3)
 	h.failNext()
 	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.getByRole('alert')).toBeVisible()
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(3)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(3)
 	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(13)
-	await expect(page.locator('.ai-dialogue-card h4')).toHaveText(
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(13)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card) h4')).toHaveText(
 		items.slice(0, 13).map((item) => JSON.parse(item.scenario.title).ru),
 	)
 	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(23)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(23)
 	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(25)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(25)
 	await expect(page.getByRole('button', { name: 'Предыдущие диалоги' })).toHaveCount(0)
 	await page.getByRole('button', { name: 'Удалить диалог «Покупка абонемента в бассейн»' }).click()
 	await expect(page.getByText('Вы уверены, что хотите удалить диалог?')).toBeVisible()
 	expect(h.deleted).toEqual([])
 	await page.locator('.modal').getByRole('button', { name: 'Удалить диалог', exact: true }).click()
 	await expect(page.locator('.modal')).toHaveCount(0)
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(24)
-	await expect(page.locator('.ai-dialogue-card--featured h4')).toHaveText('Заселение в отель')
-	await expect(page.locator('.ai-dialogue-card h4')).toHaveText(
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(24)
+	await expect(page.locator('.large-dialogue-card h4')).toHaveText('Заселение в отель')
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card) h4')).toHaveText(
 		items.slice(1).map((item) => JSON.parse(item.scenario.title).ru),
 	)
 	expect(h.deleted).toEqual([1])
@@ -181,11 +181,11 @@ test('a dialogue without messages, scene or a sprite keeps its layout and contro
 	item.characters[0].emotionSheet = null
 	item.characters = item.characters.slice(0, 1)
 	const h = await setup(page, [item])
-	await expect(page.locator('.ai-dialogue-card')).toHaveCount(1)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(1)
 	await expect(page.getByText('Пока нет сообщений персонажей.')).toBeVisible()
-	await expect(page.locator('.ai-dialogue-card__scene img')).toHaveCount(0)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)__scene img')).toHaveCount(0)
 	await expect(page.locator('.character-avatars__placeholder')).toBeVisible()
-	await expect(page.locator('.ai-dialogue-card time')).toHaveCount(0)
+	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card) time')).toHaveCount(0)
 	await page.getByRole('button', { name: 'Удалить диалог «Покупка абонемента в бассейн»' }).click()
 	await page.locator('.modal__close-button').click()
 	await expect(page.locator('.modal')).toHaveCount(0)

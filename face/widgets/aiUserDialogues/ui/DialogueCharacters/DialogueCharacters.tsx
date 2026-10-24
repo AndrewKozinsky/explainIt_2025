@@ -1,6 +1,8 @@
 import type { DialogueListCharacter } from '@/entities/aiDialogue/types/aiDialogueList'
 import CharacterAvatars from '@/shared/ui/CharacterAvatars/CharacterAvatars'
 
+import './DialogueCharacters.scss'
+
 type Props = { characters: DialogueListCharacter[]; size: 'small' | 'medium'; maxVisible: number }
 
 export default function DialogueCharacters({ characters, size, maxVisible }: Props) {

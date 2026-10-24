@@ -1,0 +1,40 @@
+@use '@/styles/variables' as vars;
+
+.large-dialogue-card {
+	display: grid;
+	align-items: center;
+	grid-template-columns: 240px 350px minmax(0, 1fr) 32px 125px;
+	grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
+	grid-template-rows: 1fr auto;
+	column-gap: 20px;
+	row-gap: 4px;
+
+	.ai-dialogue-card__scene {
+		height: 120px;
+	}
+
+	.ai-dialogue-card__summary {
+		align-self: end;
+	}
+
+	.ai-dialogue-card__characters {
+		align-self: start;
+		padding-bottom: 8px;
+	}
+
+	.ai-dialogue-card__title {
+		color: vars.$accentColor-2;
+		font-size: 1.8rem;
+		line-height: 2.2rem;
+		font-weight: 500;
+	}
+
+	.ai-dialogue-card__text {
+		-webkit-line-clamp: 2;
+	}
+}
+
+.large-dialogue-card__label {
+	font-size: 16px;
+	line-height: 22px;
+}

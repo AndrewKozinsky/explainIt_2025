@@ -1,6 +1,8 @@
 import type { ReactNode } from 'react'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
-import { formatDialogueDate } from '../../fn/formatDialogueDate'
+import { formatDialogueDate } from '../UserAiDialoguesList/fn/formatDialogueDate'
+
+import './DialogueSummary.scss'
 
 export default function DialogueSummary({
 	dialogue,

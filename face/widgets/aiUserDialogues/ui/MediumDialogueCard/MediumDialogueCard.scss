@@ -1,0 +1,7 @@
+.medium-dialogue-card {
+	display: grid;
+	grid-template-columns: 120px 220px 104px minmax(0, 1fr) 32px 125px;
+	grid-template-areas: 'scene summary characters message delete reply';
+	column-gap: 12px;
+	align-items: center;
+}

@@ -6,6 +6,7 @@ export function formatDialogueDate(value: string, locale: string, now = new Date
 	const day = (d: Date) => Date.UTC(d.getFullYear(), d.getMonth(), d.getDate())
 	const days = Math.max(0, Math.round((day(now) - day(date)) / 86_400_000))
 	const format = new Intl.RelativeTimeFormat(locale, { numeric: days < 2 ? 'auto' : 'always' })
+
 	if (days < 30) return format.format(-days, 'day')
 
 	const months = Math.max(

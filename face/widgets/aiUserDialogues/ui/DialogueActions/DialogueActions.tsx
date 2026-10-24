@@ -1,5 +1,5 @@
-import DialogueDeleteButton from './DialogueDeleteButton'
-import DialogueReplyButton from './DialogueReplyButton'
+import DialogueDeleteButton from '../DialogueDeleteButton/DialogueDeleteButton'
+import DialogueReplyButton from '../DialogueReplyButton/DialogueReplyButton'
 import './DialogueActions.scss'
 
 type Props = {

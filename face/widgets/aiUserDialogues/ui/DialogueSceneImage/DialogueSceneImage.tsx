@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 
+import './DialogueSceneImage.scss'
+
 export default function DialogueSceneImage({ url, title }: { url?: string; title: string }) {
 	const [failedUrl, setFailedUrl] = useState<string | null>(null)
 

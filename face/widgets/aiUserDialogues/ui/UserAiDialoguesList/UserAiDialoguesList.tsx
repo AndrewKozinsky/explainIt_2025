@@ -5,10 +5,10 @@ import { useLocale } from 'next-intl'
 import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
 import Divider from '@/shared/ui/Divider/Divider'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import LargeDialogueCard from '../LargeDialogueCard/LargeDialogueCard'
+import MediumDialogueCard from '../MediumDialogueCard/MediumDialogueCard'
 import { useAiDialogueDelete } from './fn/useAiDialogueDelete'
 import { useUserAiDialogues } from './fn/useUserAiDialogues'
-import LargeDialogueCard from './ui/LargeDialogueCard'
-import MediumDialogueCard from './ui/MediumDialogueCard'
 import './UserAiDialoguesList.scss'
 
 type Props = { userId: number }

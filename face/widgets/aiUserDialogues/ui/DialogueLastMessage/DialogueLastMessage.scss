@@ -1,0 +1,28 @@
+@use '@/styles/variables' as vars;
+
+.ai-dialogue-card__message {
+	grid-area: message;
+	min-width: 0;
+	font-size: 16px;
+	line-height: 21px;
+}
+
+.ai-dialogue-card__speaker span,
+.ai-dialogue-card__text,
+.ai-dialogue-card__no-message {
+	color: vars.$grayColor-5;
+}
+
+.ai-dialogue-card__text {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 4;
+	overflow: hidden;
+	overflow-wrap: anywhere;
+	white-space: pre-line;
+	margin-top: 3px;
+}
+
+.ai-dialogue-card__text--action {
+	font-style: italic;
+}

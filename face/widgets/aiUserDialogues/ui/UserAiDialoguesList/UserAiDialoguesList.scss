@@ -1,0 +1,22 @@
+@use '@/styles/variables' as vars;
+
+.user-ai-dialogues-list {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	min-width: 1080px;
+}
+
+.user-ai-dialogues-list__cards {
+	display: flex;
+	flex-direction: column;
+	gap: .8rem;
+}
+
+.user-ai-dialogues-list__more {
+	align-self: center;
+}
+
+.user-ai-dialogues-list__error {
+	color: vars.$dangerColor-1;
+}

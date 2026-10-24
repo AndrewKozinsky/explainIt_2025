@@ -1,6 +1,8 @@
 import cn from 'classnames'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
 
+import './DialogueLastMessage.scss'
+
 export default function DialogueLastMessage({ message }: { message: AiDialogueListItemModel['lastMessage'] }) {
 	if (!message) {
 		return <p className='ai-dialogue-card__message ai-dialogue-card__no-message'>Пока нет сообщений персонажей.</p>
