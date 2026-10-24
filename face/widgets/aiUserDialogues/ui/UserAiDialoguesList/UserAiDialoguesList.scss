@@ -13,10 +13,11 @@
 	gap: .8rem;
 }
 
-.user-ai-dialogues-list__more {
-	align-self: center;
-}
-
 .user-ai-dialogues-list__error {
 	color: vars.$dangerColor-1;
+}
+
+.user-ai-dialogues-list__more {
+	display: flex;
+	justify-content: center;
 }

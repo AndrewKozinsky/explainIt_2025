@@ -57,14 +57,15 @@ export default function UserAiDialoguesList({ userId }: Props) {
 				</p>
 			)}
 			{query.hasMore && (
-				<Button
-					extraClass='user-ai-dialogues-list__more'
-					onClick={() => void query.loadMore()}
-					disabled={query.isFetching}
-					loading={query.isFetchingNextPage}
-				>
-					Предыдущие диалоги
-				</Button>
+				<div className='user-ai-dialogues-list__more'>
+					<Button
+						onClick={() => void query.loadMore()}
+						disabled={query.isFetching}
+						loading={query.isFetchingNextPage}
+					>
+						Предыдущие диалоги
+					</Button>
+				</div>
 			)}
 			<DeleteEntityModal
 				isModalOpen={isModalOpen}

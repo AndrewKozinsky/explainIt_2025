@@ -1,10 +1,13 @@
 @use '@/styles/variables' as vars;
 
 .ai-dialogue-card__message {
+	display: flex;
+	flex-direction: column;
+	gap: .2rem;
 	grid-area: message;
 	min-width: 0;
-	font-size: 16px;
-	line-height: 21px;
+	font-size: 1.5rem;
+	line-height: 2.1rem;
 }
 
 .ai-dialogue-card__speaker span,
@@ -20,7 +23,6 @@
 	overflow: hidden;
 	overflow-wrap: anywhere;
 	white-space: pre-line;
-	margin-top: 3px;
 }
 
 .ai-dialogue-card__text--action {

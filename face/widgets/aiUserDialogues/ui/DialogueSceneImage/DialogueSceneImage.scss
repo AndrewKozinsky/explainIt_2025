@@ -1,17 +1,8 @@
-@use '@/styles/variables' as vars;
-
 .ai-dialogue-card__scene {
 	grid-area: scene;
+	display: block;
 	width: 100%;
-	height: 60px;
+	height: auto;
 	overflow: hidden;
 	border-radius: 5px;
-	background: vars.$grayColor-1;
-
-	img {
-		display: block;
-		width: 100%;
-		height: 100%;
-		object-fit: cover;
-	}
 }

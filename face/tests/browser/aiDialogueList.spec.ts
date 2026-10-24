@@ -117,8 +117,8 @@ test('the desktop layout matches the half-size reference and crops just the neut
 	await expect(
 		cards.first().getByRole('link', { name: 'Ответить в диалоге «Покупка абонемента в бассейн»' }),
 	).toHaveAttribute('href', '/ru/dialogues/1')
-	const cover = await cards.first().locator(':is(.medium-dialogue-card, .large-dialogue-card)__scene').boundingBox()
-	const small = await cards.nth(1).locator(':is(.medium-dialogue-card, .large-dialogue-card)__scene').boundingBox()
+	const cover = await cards.first().locator('.ai-dialogue-card__scene').boundingBox()
+	const small = await cards.nth(1).locator('.ai-dialogue-card__scene').boundingBox()
 	expect([cover?.width, cover?.height, small?.width, small?.height]).toEqual([240, 120, 120, 60])
 	const face = cards.nth(1).locator('.character-avatars__face').first()
 	const cell = (await face.boundingBox())!
@@ -183,7 +183,7 @@ test('a dialogue without messages, scene or a sprite keeps its layout and contro
 	const h = await setup(page, [item])
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(1)
 	await expect(page.getByText('Пока нет сообщений персонажей.')).toBeVisible()
-	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)__scene img')).toHaveCount(0)
+	await expect(page.locator('.ai-dialogue-card__scene')).toHaveCount(0)
 	await expect(page.locator('.character-avatars__placeholder')).toBeVisible()
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card) time')).toHaveCount(0)
 	await page.getByRole('button', { name: 'Удалить диалог «Покупка абонемента в бассейн»' }).click()
