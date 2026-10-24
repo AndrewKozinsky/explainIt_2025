@@ -10,6 +10,7 @@ import type {
 	CreateAiDialogueInput,
 	UpdateAiDialogueInput,
 } from './repository/AiDialogueRepository'
+import type { AiDialoguesPageModel, GetUserDialoguesParams } from './types/aiDialogueList'
 
 export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput, UpdateAiDialogueInput }
 
@@ -49,8 +50,11 @@ export class AiDialogueService {
 	}
 
 	/** Получить диалоги текущего пользователя */
-	async getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>> {
-		return this.aiDialogueRepository.getUserDialogues()
+	async getUserDialogues(
+		params: GetUserDialoguesParams,
+		signal?: AbortSignal,
+	): Promise<ApiResult<AiDialoguesPageModel>> {
+		return this.aiDialogueRepository.getUserDialogues(params, signal)
 	}
 
 	/** Получить один диалог текущего пользователя по ID. */

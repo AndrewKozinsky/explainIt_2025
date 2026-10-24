@@ -6,12 +6,10 @@ import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repo
 import type { AiDialogueVisualsOutModel } from '@/shared/api/generated/models'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
-import type {
-	AiDialogueClientEvent,
-	DialogueServerMessage,
-} from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
+import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
 
 export type AiDialogueModel = {
 	id: number
@@ -61,7 +59,7 @@ export type AiDialogueRepository = {
 	/** Обновить настройки диалога текущего пользователя */
 	updateDialogue(id: number, input: UpdateAiDialogueInput): Promise<ApiResult<AiDialogueModel>>
 	/** Получить диалоги текущего пользователя */
-	getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>>
+	getUserDialogues(params: GetUserDialoguesParams, signal?: AbortSignal): Promise<ApiResult<AiDialoguesPageModel>>
 	/** Получить один диалог текущего пользователя по ID */
 	getDialogue(id: number): Promise<ApiResult<AiDialogueModel>>
 	getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>>

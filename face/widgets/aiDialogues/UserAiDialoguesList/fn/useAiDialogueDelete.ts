@@ -52,7 +52,10 @@ export function useAiDialogueDelete() {
 				return
 			}
 
-			queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
+			await queryClient.cancelQueries({ queryKey: aiDialogueQueryKeys.list() })
+			await queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
+
+			setDialogueId(null)
 			setStatus('idle')
 		},
 		[dialogueId, notify, queryClient],

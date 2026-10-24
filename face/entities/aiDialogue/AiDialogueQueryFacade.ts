@@ -1,8 +1,16 @@
-import { mutationOptions, type QueryClient, queryOptions } from '@tanstack/react-query'
+import {
+	infiniteQueryOptions,
+	mutationOptions,
+	type InfiniteData,
+	type QueryClient,
+	queryOptions,
+} from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { aiDialogueService } from './AiDialogueService'
+import { getDialogueListRefreshInterval, updateDialogueListLevel } from './fn/dialogueListCache'
 import type { AiDialogueService } from './AiDialogueService'
-import type { AiDialogueModel, UpdateAiDialogueInput } from './repository/AiDialogueRepository'
+import type { UpdateAiDialogueInput } from './repository/AiDialogueRepository'
+import type { AiDialoguesPageModel } from './types/aiDialogueList'
 
 /**
  * Ключи кэша серверных данных диалогов с ИИ.
@@ -10,6 +18,7 @@ import type { AiDialogueModel, UpdateAiDialogueInput } from './repository/AiDial
 export const aiDialogueQueryKeys = {
 	all: ['ai-dialogue'] as const,
 	list: () => [...aiDialogueQueryKeys.all, 'list'] as const,
+	userList: (userId: number) => [...aiDialogueQueryKeys.list(), userId] as const,
 	detail: (id: number) => [...aiDialogueQueryKeys.all, 'detail', id] as const,
 	update: (id: number) => [...aiDialogueQueryKeys.all, 'update', id] as const,
 	audio: (id: number) => [...aiDialogueQueryKeys.detail(id), 'audio'] as const,
@@ -33,21 +42,26 @@ export class AiDialogueQueryFacade {
 				// Не даём старому запросу перезаписать подтверждённую сервером настройку.
 				await Promise.all([
 					queryClient.cancelQueries({ queryKey: aiDialogueQueryKeys.detail(dialogue.id), exact: true }),
-					queryClient.cancelQueries({ queryKey: aiDialogueQueryKeys.list(), exact: true }),
+					queryClient.cancelQueries({ queryKey: aiDialogueQueryKeys.list() }),
 				])
 
 				queryClient.setQueryData(aiDialogueQueryKeys.detail(dialogue.id), dialogue)
-				queryClient.setQueryData<AiDialogueModel[]>(aiDialogueQueryKeys.list(), (current) =>
-					current?.map((item) => (item.id === dialogue.id ? dialogue : item)),
+				queryClient.setQueriesData<InfiniteData<AiDialoguesPageModel>>(
+					{ queryKey: aiDialogueQueryKeys.list() },
+					(current) => updateDialogueListLevel(current, dialogue),
 				)
 			},
 		})
 	}
 
-	getUserDialogues() {
-		return queryOptions({
-			queryKey: aiDialogueQueryKeys.list(),
-			queryFn: () => unwrapApiResult(this.service.getUserDialogues()),
+	getUserDialogues(userId: number) {
+		return infiniteQueryOptions({
+			queryKey: aiDialogueQueryKeys.userList(userId),
+			initialPageParam: 1,
+			queryFn: ({ pageParam, signal }) =>
+				unwrapApiResult(this.service.getUserDialogues({ page: pageParam, pageSize: 3 }, signal)),
+			getNextPageParam: (page) => (page.page < page.totalPages ? page.page + 1 : undefined),
+			refetchInterval: (query) => getDialogueListRefreshInterval(query.state.data),
 		})
 	}
 

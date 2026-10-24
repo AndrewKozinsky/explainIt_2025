@@ -1,26 +1,34 @@
+'use client'
+
+import React from 'react'
 import { useLocale } from 'next-intl'
-import { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
-import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
-import MediaCardButton from '@/entities/mediaCard/MediaCard/MediaCardButton'
-import MediaCardWrapper from '@/entities/mediaCard/MediaCardWrapper/MediaCardWrapper'
 import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
-import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/TrashButtonIcon'
-import ItemsGrid from '@/shared/ui/media/ItemsGrid/ItemsGrid'
-import { getDialoguesCardsConfig } from './fn/getDialoguesCardsConfig'
+import Divider from '@/shared/ui/Divider/Divider'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { useAiDialogueDelete } from './fn/useAiDialogueDelete'
+import { useUserAiDialogues } from './fn/useUserAiDialogues'
+import DialogueCard from './ui/DialogueCard'
 import './UserAiDialoguesList.scss'
 
-type UserAiDialoguesListProps = {
-	dialogues: AiDialogueModel[]
-}
+type Props = { userId: number }
 
-function UserAiDialoguesList(props: UserAiDialoguesListProps) {
-	const { dialogues } = props
-
+export default function UserAiDialoguesList({ userId }: Props) {
 	const locale = useLocale()
+	const query = useUserAiDialogues(userId)
 	const { isModalOpen, status, openDeleteModal, closeDeleteModal, onConfirmDelete } = useAiDialogueDelete()
 
-	if (dialogues.length === 0) {
+	if (query.isPending) return <p role='status'>Загружаю диалоги…</p>
+
+	if (query.isError && !query.data) {
+		return (
+			<div role='alert' className='user-ai-dialogues-list__error'>
+				<p>Не удалось загрузить диалоги.</p>
+				<Button onClick={() => void query.refetch()}>Повторить</Button>
+			</div>
+		)
+	}
+
+	if (!query.dialogues.length) {
 		return (
 			<p className='user-ai-dialogues-list__empty'>
 				У вас ещё нет ни одного диалога. Выберите сценарий чтобы начать.
@@ -28,27 +36,33 @@ function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 		)
 	}
 
-	const dialoguesCardsConfig = getDialoguesCardsConfig(dialogues, locale)
+	const cards = query.dialogues.map((dialogue, index) => {
+		return (
+			<React.Fragment key={dialogue.id}>
+				<DialogueCard dialogue={dialogue} featured={index === 0} locale={locale} onDelete={openDeleteModal} />
+				<Divider />
+			</React.Fragment>
+		)
+	})
 
 	return (
-		<>
-			<ItemsGrid>
-				{dialoguesCardsConfig.map((dialogue) => {
-					return (
-						<MediaCardWrapper
-							actionIcon={<TrashButtonIcon />}
-							key={dialogue.id}
-							onActionClick={() => openDeleteModal(dialogue.id)}
-						>
-							<MediaCardButton
-								title={dialogue.title}
-								url={dialogue.url}
-								defaultMediaName={aiDialogueScenarioConfig.emptyScenarioName}
-							/>
-						</MediaCardWrapper>
-					)
-				})}
-			</ItemsGrid>
+		<div className='user-ai-dialogues-list'>
+			<div className='user-ai-dialogues-list__cards'>{cards}</div>
+			{query.isError && (
+				<p role='alert' className='user-ai-dialogues-list__error'>
+					Не удалось обновить диалоги. Попробуйте ещё раз.
+				</p>
+			)}
+			{query.hasNextPage && (
+				<Button
+					extraClass='user-ai-dialogues-list__more'
+					onClick={() => void query.fetchNextPage()}
+					disabled={query.isFetching}
+					loading={query.isFetchingNextPage}
+				>
+					Более ранние диалоги
+				</Button>
+			)}
 			<DeleteEntityModal
 				isModalOpen={isModalOpen}
 				closeModal={closeDeleteModal}
@@ -60,8 +74,6 @@ function UserAiDialoguesList(props: UserAiDialoguesListProps) {
 					confirmButtonText: 'Удалить диалог',
 				}}
 			/>
-		</>
+		</div>
 	)
 }
-
-export default UserAiDialoguesList

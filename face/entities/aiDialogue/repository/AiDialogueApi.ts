@@ -20,6 +20,7 @@ import { extractString } from '@/shared/utils/extractors'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
+import { mapToAiDialoguesPage } from './mapToAiDialoguesPage'
 import type {
 	AiDialogueModel,
 	AiDialogueRepository,
@@ -34,6 +35,7 @@ import type {
 } from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
+import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
 
 /**
  * Реализация AiDialogueRepository через REST API.
@@ -70,10 +72,13 @@ export class AiDialogueApi implements AiDialogueRepository {
 		)
 	}
 
-	async getUserDialogues(): Promise<ApiResult<AiDialogueModel[]>> {
+	async getUserDialogues(
+		params: GetUserDialoguesParams,
+		signal?: AbortSignal,
+	): Promise<ApiResult<AiDialoguesPageModel>> {
 		return executeApiCall(
-			() => aiDialogueControllerGetAiDialogues(),
-			(data) => data.map(mapToAiDialogue),
+			() => aiDialogueControllerGetAiDialogues(params, { signal, cache: 'no-store' }),
+			mapToAiDialoguesPage,
 		)
 	}
 
