@@ -10,6 +10,8 @@
 	row-gap: 4px;
 
 	.ai-dialogue-card__summary {
+		grid-area: summary;
+		min-width: 0;
 		align-self: end;
 	}
 

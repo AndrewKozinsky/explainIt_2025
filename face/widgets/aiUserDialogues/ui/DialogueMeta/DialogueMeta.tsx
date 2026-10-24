@@ -1,22 +1,8 @@
-import type { ReactNode } from 'react'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
 import { formatDialogueDate } from '../UserAiDialoguesList/fn/formatDialogueDate'
+import './DialogueMeta.scss'
 
-import './DialogueSummary.scss'
-
-export default function DialogueSummary({
-	dialogue,
-	locale,
-	title,
-	url,
-	children,
-}: {
-	dialogue: AiDialogueListItemModel
-	locale: string
-	title: string
-	url: string
-	children?: ReactNode
-}) {
+export default function DialogueMeta({ dialogue, locale }: { dialogue: AiDialogueListItemModel; locale: string }) {
 	const language =
 		new Intl.DisplayNames([locale], { type: 'language' }).of(dialogue.sourceLanguageCode) ??
 		dialogue.sourceLanguageCode
@@ -24,15 +10,11 @@ export default function DialogueSummary({
 	const languageName = language.charAt(0).toLocaleUpperCase(locale) + language.slice(1)
 
 	return (
-		<div className='ai-dialogue-card__summary'>
-			{children}
-			<h4 className='ai-dialogue-card__title'>{title}</h4>
-			<p className='ai-dialogue-card__meta'>
-				<span className='ai-dialogue-card__language'>{languageName}</span>
-				<span>{dialogue.maxCefrLevel ?? 'Без ограничения'}</span>
-				<DialogueTime message={dialogue.lastMessage} locale={locale} />
-			</p>
-		</div>
+		<p className='ai-dialogue-card__meta'>
+			<span className='ai-dialogue-card__language'>{languageName}</span>
+			<span>{dialogue.maxCefrLevel ?? 'Без ограничения'}</span>
+			<DialogueTime message={dialogue.lastMessage} locale={locale} />
+		</p>
 	)
 }
 

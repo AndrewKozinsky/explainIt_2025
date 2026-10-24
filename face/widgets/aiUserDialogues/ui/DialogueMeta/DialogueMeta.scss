@@ -1,0 +1,17 @@
+@use '@/styles/variables' as vars;
+
+.ai-dialogue-card__meta {
+	display: block;
+	font-size: 1.5rem;
+	line-height: 1.9rem;
+
+	> * + *::before {
+		content: '•';
+		margin: 0 6px;
+		color: vars.$grayColor-5;
+	}
+
+	time {
+		color: vars.$grayColor-5;
+	}
+}

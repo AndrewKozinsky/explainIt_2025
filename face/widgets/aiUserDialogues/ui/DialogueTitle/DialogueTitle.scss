@@ -1,10 +1,5 @@
 @use '@/styles/variables' as vars;
 
-.ai-dialogue-card__summary {
-	grid-area: summary;
-	min-width: 0;
-}
-
 .ai-dialogue-card__title {
 	font-size: 1.8rem;
 	line-height: 2.2rem;
@@ -26,18 +21,3 @@
 	}
 }
 
-.ai-dialogue-card__meta {
-	display: block;
-	font-size: 1.5rem;
-	line-height: 1.9rem;
-
-	> * + *::before {
-		content: '•';
-		margin: 0 6px;
-		color: vars.$grayColor-5;
-	}
-
-	time {
-		color: vars.$grayColor-5;
-	}
-}
