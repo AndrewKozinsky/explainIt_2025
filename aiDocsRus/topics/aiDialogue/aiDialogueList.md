@@ -26,27 +26,37 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
   "total": 7,
   "totalPages": 3,
   "urlsExpireAt": "2026-10-24T15:00:00.000Z",
-  "items": [{
-    "id": 5,
-    "scenario": { "id": 2, "title": "{\"ru\":\"Покупка абонемента в бассейн\",\"en\":\"Pool membership\"}" },
-    "sourceLanguageCode": "en",
-    "maxCefrLevel": null,
-    "createdAt": "2026-10-20T10:00:00.000Z",
-    "lastMessage": {
-      "id": 90,
-      "npcId": "anna",
-      "name": "Anna",
-      "role": "receptionist",
-      "text": "Would you like a monthly membership?",
-      "textType": "speech",
-      "createdAt": "2026-10-23T15:30:00.000Z"
-    },
-    "sceneImage": null,
-    "characters": [{
-      "npcId": "anna", "name": "Anna", "role": "receptionist",
-      "generationStatus": "generating", "emotionSheet": null
-    }]
-  }]
+  "items": [
+    {
+      "id": 5,
+      "scenario": {
+        "id": 2,
+        "title": "{\"ru\":\"Покупка абонемента в бассейн\",\"en\":\"Pool membership\"}"
+      },
+      "sourceLanguageCode": "en",
+      "maxCefrLevel": null,
+      "createdAt": "2026-10-20T10:00:00.000Z",
+      "lastMessage": {
+        "id": 90,
+        "npcId": "anna",
+        "name": "Anna",
+        "role": "receptionist",
+        "text": "Would you like a monthly membership?",
+        "textType": "speech",
+        "createdAt": "2026-10-23T15:30:00.000Z"
+      },
+      "sceneImage": null,
+      "characters": [
+        {
+          "npcId": "anna",
+          "name": "Anna",
+          "role": "receptionist",
+          "generationStatus": "generating",
+          "emotionSheet": null
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -168,12 +178,12 @@ PATCH сложности обновляет только maxCefrLevel элеме
   сопоставление по dialogue_id, маппинг карточек и подписание ссылок; в репозитории остаётся управление транзакцией.
 - `server/src/repo/aiDialogue/aiDialogueList.queryRepository.spec.ts` — проверки списка, включая изоляцию NPC
   двух диалогов одного сценария с одинаковыми npcId и разными аватарами.
-- `face/widgets/aiDialogues/UserAiDialoguesList/UserAiDialoguesList.tsx` — история диалогов пользователя.
-- `face/widgets/aiDialogues/UserAiDialoguesList/fn/useAiDialogueDelete.ts` — удаление диалога.
-- `face/widgets/aiDialogues/UserAiDialoguesList/ui/LargeDialogueCard.tsx`, `MediumDialogueCard.tsx` — обёртки карточек.
-- `face/widgets/aiDialogues/UserAiDialoguesList/ui/parts/` — общие элементы обеих карточек.
-- `face/widgets/aiDialogues/UserAiDialoguesList/fn/useUserAiDialogues.ts` — загрузка страниц.
-- `face/widgets/aiDialogues/UserAiDialoguesList/fn/formatDialogueDate.ts` — относительные календарные даты.
+- `face/widgets/aiUserDialogues` — история диалогов пользователя.
+- `face/widgets/aiUserDialogues` — удаление диалога.
+- `face/widgets/aiUserDialogues`, `MediumDialogueCard.tsx` — обёртки карточек.
+- `face/widgets/aiUserDialogues` — общие элементы обеих карточек.
+- `face/widgets/aiUserDialogues` — загрузка страниц.
+- `face/widgets/aiUserDialogues` — относительные календарные даты.
 - `face/shared/ui/CharacterAvatars/CharacterAvatars.tsx` — универсальная группа нейтральных портретов.
 - `face/shared/ui/CharacterAvatars/CharacterFace.tsx` — один портрет и обработка ошибки загрузки.
 - `face/entities/aiDialogue/types/aiDialogueList.ts` — доменные модели списка.

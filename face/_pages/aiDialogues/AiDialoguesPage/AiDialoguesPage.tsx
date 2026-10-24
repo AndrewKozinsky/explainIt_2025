@@ -8,8 +8,8 @@ import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPa
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import UserAiDialoguesList from '@/widgets/aiDialogues/UserAiDialoguesList/UserAiDialoguesList'
 import PublicAiDialogueScenariosList from '@/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList'
+import UserAiDialoguesList from '@/widgets/aiUserDialogues/UserAiDialoguesList/UserAiDialoguesList'
 import { useAiDialogueScenariosTabs } from './fn/useAiDialogueScenariosTabs'
 import './AiDialoguesPage.scss'
 

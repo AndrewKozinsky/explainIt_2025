@@ -4,7 +4,7 @@ import { InfiniteQueryObserver, QueryClient } from '@tanstack/react-query'
 import { AiDialogueQueryFacade, aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { AiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
-import { formatDialogueDate } from '@/widgets/aiDialogues/UserAiDialoguesList/fn/formatDialogueDate'
+import { formatDialogueDate } from '@/widgets/aiUserDialogues/UserAiDialoguesList/fn/formatDialogueDate'
 
 for (const [date, expected] of [
 	['2026-10-24', 'сегодня'],

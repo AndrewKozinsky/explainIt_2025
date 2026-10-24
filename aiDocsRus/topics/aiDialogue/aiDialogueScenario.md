@@ -29,8 +29,8 @@
 ## Статус: что уже сделано
 
 - Только **публичные** сценарии, создаваемые при старте сервера (как публичные книги).
-- Сценарии языконейтральны: `title`/`description` хранятся как JSON-строки с переводами на 7 языков
-  (`en`, `es`, `fr`, `de`, `it`, `tr`, `ru`), заданные через `localized()` в
+- Сценарии языконейтральны: `title`/`description` хранятся как JSON-строки с переводами на 7 языков (`en`, `es`, `fr`,
+  `de`, `it`, `tr`, `ru`), заданные через `localized()` в
   `server/src/features/aiDialogueScenario/english/scenarios.ts` (4 сценария).
 - REST-эндпоинт списка публичных сценариев.
 - Страница на клиенте (`/dialogues`) — показывает секцию «Сценарии» («Библиотека» публичных сценариев; «Мои сценарии»
@@ -68,7 +68,8 @@ type AiDialogueScenarioSeedData = {
 function localized(translations: Partial<Record<Language, string>>): string
 ```
 
-Сценарии (`aiDialogueScenarios`): `at-the-dentist`, `passport-control`, `pool-membership`, `knock-at-the-door`. `title` и `description`
+Сценарии (`aiDialogueScenarios`): `at-the-dentist`, `passport-control`, `pool-membership`, `knock-at-the-door`. `title`
+и `description`
 заданы через `localized({ en, es, fr, de, it, tr, ru })` — сразу на 7 языков. `systemPrompt` — один языконейтральный
 английский текст с ролями и ситуацией. NPC говорят естественно для своей роли и обстановки,
 без ограничения уровня языка и исправления ошибок участника. Указание уровня удалено и из описаний карточек.
@@ -109,6 +110,7 @@ GET /ai-dialogue-scenario
 ```
 
 **Обрати внимание:**
+
 - `system_prompt` в ответе **отсутствует** — он не попадает в `OutModel` и не отдаётся клиенту.
 - `title` и `description` отдаются **сырой JSON-строкой** — сервер не резолвит локаль. Выбор строки под локаль
   интерфейса делает клиент через `pickLocalized` (см. ниже).
@@ -170,7 +172,8 @@ GET /ai-dialogue-scenario
 сценарий языконейтрален, подпись выбирается по текущей локали интерфейса (`useLocale()`).
 
 Карточка сценария — это кнопка, а не ссылка: `MediaCardButton` вызывается без `url`, с `onActionClick`. Клик
-обрабатывается хуком `useAiDialogueScenarioClick` (см. `aiDocsRus/topics/aiDialogue/aiDialogue.md`), а модалка «войдите в учётную
+обрабатывается хуком `useAiDialogueScenarioClick` (см. `aiDocsRus/topics/aiDialogue/aiDialogue.md`), а модалка «войдите
+в учётную
 запись» вынесена в отдельный компонент `LoginPromptModal`.
 
 ### URL страницы диалога
@@ -181,7 +184,7 @@ GET /ai-dialogue-scenario
 
 ### pageUrls и меню
 
-- В `pageUrls` добавлен `aiDialogues`: `name: 'Диалоги'`, `path: '/dialogues'`,
+- В `pageUrls` добавлен `aiUserDialogues`: `name: 'Диалоги'`, `path: '/dialogues'`,
   `dialog(dialogId)` → `/dialogues/{dialogId}`.
 - В главное меню (`MainMenu`) добавлен пункт «Сценарии» — между «Книги» и «Контакты».
 
@@ -189,15 +192,15 @@ GET /ai-dialogue-scenario
 
 ### Таблица AiDialogueScenario
 
-| Поле            | Тип       | Описание                                                          |
-|-----------------|-----------|-------------------------------------------------------------------|
-| `id`            | `Int`     | Первичный ключ (autoincrement)                                    |
-| `slug`          | `String?` | Стабильный уникальный ключ (null для пользовательских сценариев)  |
-| `title`         | `String`  | Название сценария (JSON-строка переводов, см. `localized`)        |
-| `description`   | `String`  | Короткое описание сценки (JSON-строка переводов)                  |
-| `system_prompt` | `String`  | Системный промпт с ролью NPC (языконейтральный, не отдаётся клиенту) |
-| `user_id`       | `Int?`    | Владелец сценария (null для публичных)                            |
-| `created_at`    | `DateTime`| Дата создания                                                     |
+| Поле            | Тип        | Описание                                                             |
+|-----------------|------------|----------------------------------------------------------------------|
+| `id`            | `Int`      | Первичный ключ (autoincrement)                                       |
+| `slug`          | `String?`  | Стабильный уникальный ключ (null для пользовательских сценариев)     |
+| `title`         | `String`   | Название сценария (JSON-строка переводов, см. `localized`)           |
+| `description`   | `String`   | Короткое описание сценки (JSON-строка переводов)                     |
+| `system_prompt` | `String`   | Системный промпт с ролью NPC (языконейтральный, не отдаётся клиенту) |
+| `user_id`       | `Int?`     | Владелец сценария (null для публичных)                               |
+| `created_at`    | `DateTime` | Дата создания                                                        |
 
 - `slug` имеет `@unique`.
 - `@@index([user_id])` для быстрого поиска по владельцу.

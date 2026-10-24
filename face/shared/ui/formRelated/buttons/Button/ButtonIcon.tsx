@@ -11,11 +11,9 @@ export function ButtonIcon(props: ButtonIconProps) {
 
 	if (!icon) return null
 
-	return typeof icon === 'string' ? (
-		<span className={cn('button__icon', disabled && 'button__icon--disabled')}>
-			<img src={icon} alt='icon' />
+	return (
+		<span className={cn('button__icon', typeof icon === 'string' && disabled && 'button__icon--disabled')}>
+			{typeof icon === 'string' ? <img src={icon} alt='icon' /> : icon}
 		</span>
-	) : (
-		icon
 	)
 }

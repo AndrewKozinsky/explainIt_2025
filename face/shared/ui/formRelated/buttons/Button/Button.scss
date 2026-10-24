@@ -16,40 +16,44 @@
 }
 
 .button--size-small {
+	--button-padding-block: .3rem;
+
 	font-size: 1.4rem;
 	line-height: 1.8rem;
-	padding: .3rem 0.8rem;
-
-	&.button--icon-only {
-		padding: .3rem;
-	}
+	padding: var(--button-padding-block) 0.8rem;
 }
 
 .button--size-medium {
+	--button-padding-block: .7rem;
+
 	font-size: 1.6rem;
 	line-height: 2.2rem;
-	padding: .7rem 1.4rem;
-
-	&.button--icon-only {
-		padding: .4rem;
-	}
+	padding: var(--button-padding-block) 1.4rem;
 }
 
 .button--size-big {
+	--button-padding-block: 1.1rem;
+
 	font-size: 1.8rem;
 	line-height: 2.2rem;
-	padding: 1.1rem 2.6rem;
+	padding: var(--button-padding-block) 2.6rem;
+}
 
-	&.button--icon-only {
-		padding: .6rem;
-	}
+.button--icon-only {
+	padding-inline: var(--button-padding-block);
 }
 
 .button__icon {
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	height: 1lh;
 
-	& > img {
+	& > img,
+	& > svg {
 		display: block;
+		max-height: 100%;
 	}
 }
 .button__icon--disabled {

@@ -8,7 +8,7 @@ import { useAiDialogueStore } from '../../aiDialogueStore'
  * Открывает постоянное SSE-соединение с потоком диалога и разбирает события в стор.
  *
  * Соединение не закрывается по завершении хода — оно живёт, пока открыта страница
- * (см. aiDocsRus/topics/aiDialogues.md). Закрывает его вызывающий код при unmount.
+ * (см. aiDocsRus/topics/aiUserDialogues.md). Закрывает его вызывающий код при unmount.
  */
 export type DialogueAudioStreamHandlers = {
 	event: (event: DialogueAudioEvent) => void

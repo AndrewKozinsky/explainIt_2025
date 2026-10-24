@@ -23,17 +23,17 @@
 
 ### `AiDialogue` (контейнер)
 
-| Поле                        | Тип            | Описание                                                    |
-|-----------------------------|----------------|-------------------------------------------------------------|
-| `id`                        | `Int`          | Первичный ключ (autoincrement)                              |
-| `scenario_id`               | `Int`          | FK → `AiDialogueScenario.id`, `onDelete: Cascade`           |
-| `user_id`                   | `Int`          | FK → `User.id`, `onDelete: Cascade`                         |
-| `source_language_code`      | `LanguageCode` | Язык диалога — тот, который практикует ученик (реплики NPC) |
-| `target_language_code`      | `LanguageCode` | Язык перевода — родной язык ученика (поле `translation`)    |
+| Поле                        | Тип                        | Описание                                                        |
+|-----------------------------|----------------------------|-----------------------------------------------------------------|
+| `id`                        | `Int`                      | Первичный ключ (autoincrement)                                  |
+| `scenario_id`               | `Int`                      | FK → `AiDialogueScenario.id`, `onDelete: Cascade`               |
+| `user_id`                   | `Int`                      | FK → `User.id`, `onDelete: Cascade`                             |
+| `source_language_code`      | `LanguageCode`             | Язык диалога — тот, который практикует ученик (реплики NPC)     |
+| `target_language_code`      | `LanguageCode`             | Язык перевода — родной язык ученика (поле `translation`)        |
 | `max_cefr_level`            | `CefrSimplificationLevel?` | Верхняя граница сложности A1/A2/B1/B2; `null` — без ограничения |
-| `summary`                   | `String?`      | Компактная сводка истории (JSON-строка, см. «Компакция»)    |
-| `summary_up_to`             | `Int`          | `id` последнего сообщения, покрытого сводкой (default `0`)  |
-| `created_at` / `updated_at` | `DateTime`     | Даты                                                        |
+| `summary`                   | `String?`                  | Компактная сводка истории (JSON-строка, см. «Компакция»)        |
+| `summary_up_to`             | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`)      |
+| `created_at` / `updated_at` | `DateTime`                 | Даты                                                            |
 
 ### `AiDialogueMessage` (событие)
 
@@ -57,7 +57,8 @@
 - Генерация хода LLM (стриминг + построчный парсинг событий), рассылка через in-memory шину.
 - Фоновая компакция истории в `AiDialogue.summary` (append-only).
 - Клиент: entity-слой `AiDialogue` (list/create/delete), секция «История диалогов», создание по клику на сценарий,
-  страница диалога `/dialogues/{dialogId}` и клиентский слой сообщений (см. `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`).
+  страница диалога `/dialogues/{dialogId}` и клиентский слой сообщений (см.
+  `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`).
 - Языковая модель: сценарий языконейтрален, языки задаются на диалоге (`source_language_code` — практика,
   `target_language_code` — перевод); `title`/`description` сценария — JSON-строки переводов (резолв на клиенте через
   `pickLocalized`).
@@ -150,7 +151,8 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
   `403` `USER_IS_NOT_OWNER`).
 - Повторные вызовы создают новые диалоги.
 
-Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см. `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`). На
+Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см.
+`aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`). На
 клиенте `sourceLanguageCode` пока временно захардкожен как `'en'` (см. `useAiDialogueScenarioClick`).
 
 ### Ограничение сложности текста по CEFR
@@ -248,7 +250,8 @@ type CreateAiDialogueMessageInput =
 документов, смена эмоций и прощание остаются npcActions; фоновые события — worldEvent.
 При явном завершении встречи NPC или пользователем модель в том же ответе начинает следующую встречу:
 при необходимости один короткий прощальный npcActions → sceneUpdate следующей встречи → npcActions нового NPC
-с понятным вопросом или просьбой. Отдельного действия ухода, подтверждения прощания или help с просьбой уйти не требуется.
+с понятным вопросом или просьбой. Отдельного действия ухода, подтверждения прощания или help с просьбой уйти не
+требуется.
 Если предыдущая встреча уже завершилась в истории, модель сразу продолжает следующей, без повторного прощания.
 Обычное «спасибо» внутри незавершённой встречи не является завершением, когда остаётся вопрос или задача.
 Переход описывает окружение новой встречи, не придумывая реплики, действия, решения или согласие пользователя.
@@ -391,7 +394,8 @@ Registry генерации и шину SSE команда не использу
    события — повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с корректирующей подсказкой; между попытками клиенту
    шлётся `turnReset`. Если и повтор не удался — ошибка `cannotParseLlmResponse`.
 7. Подтверждённый ход сохраняется одной транзакцией: сюжетные сообщения, новые NPC, эмоции и данные сцены в payload,
-   задания изображений и outbox. Сообщения NPC связываются с AiDialogueCharacter через character_id. После коммита каждое сюжетное сообщение рассылается как `message`.
+   задания изображений и outbox. Сообщения NPC связываются с AiDialogueCharacter через character_id. После коммита
+   каждое сюжетное сообщение рассылается как `message`.
 8. В `finally`: снимает регистрацию в registry и рассылает `turnDone`.
 9. После хода (уже вне registry) fire-and-forget вызывает `SummarizeAiDialogue.summarizeIfNeeded`.
 
@@ -443,7 +447,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 ## Карта словарных выражений
 
 Карта генерируется в техническом разделе wordMaps: в конце того же ответа модели после всех сюжетных блоков.
-Текст показывается через chunk, подтверждённый message и replay содержат payload.wordMap. Отдельного запроса анализа нет.
+Текст показывается через chunk, подтверждённый message и replay содержат payload.wordMap. Отдельного запроса анализа
+нет.
 Клик сразу передаёт готовую фразу из карты или само слово; ожидания и подсветки нет.
 Поддерживаются пересечения, несоседние связанные слова и независимый выбор для каждого вхождения.
 Все серверные тексты получают карту; пользовательские сообщения передают отдельное слово.
@@ -493,18 +498,18 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 ### Таблица AiDialogue
 
-| Поле                   | Тип            | Описание                                                   |
-|------------------------|----------------|------------------------------------------------------------|
-| `id`                   | `Int`          | Первичный ключ (autoincrement)                             |
-| `scenario_id`          | `Int`          | FK → `AiDialogueScenario.id`, `onDelete: Cascade`          |
-| `user_id`              | `Int`          | FK → `User.id`, `onDelete: Cascade`                        |
-| `source_language_code` | `LanguageCode` | Язык диалога (практикуемый язык, реплики NPC)              |
-| `target_language_code` | `LanguageCode` | Язык перевода (родной язык, поле `translation`)            |
-| `max_cefr_level` | `CefrSimplificationLevel?` | A1/A2/B1/B2 или `null` (без ограничения) |
-| `summary`              | `String?`      | Сводка истории (JSON-строка, см. «Компакция»)              |
-| `summary_up_to`        | `Int`          | `id` последнего сообщения, покрытого сводкой (default `0`) |
-| `created_at`           | `DateTime`     | Дата создания                                              |
-| `updated_at`           | `DateTime`     | Дата последнего изменения                                  |
+| Поле                   | Тип                        | Описание                                                   |
+|------------------------|----------------------------|------------------------------------------------------------|
+| `id`                   | `Int`                      | Первичный ключ (autoincrement)                             |
+| `scenario_id`          | `Int`                      | FK → `AiDialogueScenario.id`, `onDelete: Cascade`          |
+| `user_id`              | `Int`                      | FK → `User.id`, `onDelete: Cascade`                        |
+| `source_language_code` | `LanguageCode`             | Язык диалога (практикуемый язык, реплики NPC)              |
+| `target_language_code` | `LanguageCode`             | Язык перевода (родной язык, поле `translation`)            |
+| `max_cefr_level`       | `CefrSimplificationLevel?` | A1/A2/B1/B2 или `null` (без ограничения)                   |
+| `summary`              | `String?`                  | Сводка истории (JSON-строка, см. «Компакция»)              |
+| `summary_up_to`        | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`) |
+| `created_at`           | `DateTime`                 | Дата создания                                              |
+| `updated_at`           | `DateTime`                 | Дата последнего изменения                                  |
 
 - Индексы: `@@index([user_id])`, `@@index([scenario_id])`, `@@index([user_id, created_at, id])`.
 - Обратные связи: `User.AiDialogue`, `AiDialogueScenario.AiDialogue`, `AiDialogue.AiDialogueMessage`
@@ -567,7 +572,8 @@ SSE-соединения. Субъекты не вычищаются (диало
   `source_language_code`/`target_language_code`).
 - `server/src/features/aiDialogue/buildSummaryPrompt.ts` — промпт сжатия истории.
 - `server/src/features/aiDialogue/parseAiDialogueEvents.ts` — «спасающий» построчный разбор ответа LLM.
-- `server/src/features/aiDialogue/aiDialogueVisualConfig.ts` — стиль, раскладка, модель OpenAI, качество и размеры новых заданий.
+- `server/src/features/aiDialogue/aiDialogueVisualConfig.ts` — стиль, раскладка, модель OpenAI, качество и размеры новых
+  заданий.
 - `server/src/features/aiDialogue/deriveAiDialogueState.ts` — детерминированный вывод `state` +
   `sameAiDialogueState`.
 - `server/src/features/aiDialogue/serializeAiDialogueEvent.ts` — сериализация события в текст промпта.
@@ -598,7 +604,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 ### Инфраструктура
 
 - `server/src/app.module.ts` — регистрация `AiDialogueModule`.
-- `server/src/infrastructure/exceptions/errorMessage.ts` — секция `aiDialogues` (`notFound`,
+- `server/src/infrastructure/exceptions/errorMessage.ts` — секция `aiUserDialogues` (`notFound`,
   `scenarioNotFound`, `generationAlreadyActive`, `cannotParseLlmResponse`).
 - `server/src/infrastructure/llmProviderAdapter/LlmProvider.interface.ts` — `responseFormat`
   (`'text' | 'json_object'`) в `LlmStreamInput`.
@@ -679,18 +685,19 @@ Any передаёт `null`. На время сохранения заблоки
 Старых BFL-заданий нет по сообщению пользователя; feature не содержит BFL polling или перенаправления старых моделей.
 Ключ результата R2 резервируется в JSON задания атомарно до платного запроса, без новой миграции.
 После сбоя worker может завершить публикацию уже загруженного оригинала, но не восстановить потерянный ответ OpenAI.
-Если файла нет после резервирования, требуется ручная проверка; повторная платная генерация автоматически не запускается.
+Если файла нет после резервирования, требуется ручная проверка; повторная платная генерация автоматически не
+запускается.
 
 Удаление диалога через CQRS собирает ключи изображений и каскадно удаляет записи в одной owner-scoped транзакции.
 После коммита сервер пытается удалить исходники R2; ошибка очистки не отменяет успешное удаление диалога.
 HTTP-процесс периодически убирает новые осиротевшие объекты старше суток, проверяя ссылки и активные задания.
-Новые ключи разделены по REGION/MODE; эталон стиля сохраняется, фотографии профиля лежат вне generated-префикса. Ограничения старых ключей без namespace
+Новые ключи разделены по REGION/MODE; эталон стиля сохраняется, фотографии профиля лежат вне generated-префикса.
+Ограничения старых ключей без namespace
 и требования к бакету описаны в разделе очистки документа об изображениях.
 
 Перед включением генерации доступность и формат эталона стиля можно проверить из `server/` командой
 `npm run check:ai-dialogue-image-assets` с полным серверным окружением. Команда не запускает worker и ничего
 не записывает. Контракт отчёта и ограничения описаны в документе об изображениях.
-
 
 ## Озвучка диалогов
 
