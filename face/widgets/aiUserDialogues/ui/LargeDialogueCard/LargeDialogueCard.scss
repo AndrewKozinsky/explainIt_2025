@@ -18,7 +18,7 @@
 	@include mix.container-width(90rem) {
 		display: grid;
 		align-items: center;
-		grid-template-columns: 240px 240px minmax(0, 1fr) 125px;
+		grid-template-columns: 260px 240px minmax(0, 1fr) 125px;
 		grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
 		grid-template-rows: 1fr auto;
 		column-gap: 20px;

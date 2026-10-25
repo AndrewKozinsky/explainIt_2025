@@ -2,8 +2,9 @@
 
 .character-avatars {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	width: max-content;
+	gap: .2rem;
 }
 
 .character-avatars--small {
@@ -11,7 +12,7 @@
 }
 
 .character-avatars--medium {
-	--avatar-size: 3.6rem;
+	--avatar-size: 3.4rem;
 }
 
 .character-avatars__face,
@@ -21,14 +22,9 @@
 	flex: 0 0 var(--avatar-size);
 	width: var(--avatar-size);
 	height: var(--avatar-size);
-	border: 1px solid white;
 	border-radius: 50%;
 	overflow: hidden;
 	background: vars.$grayColor-1;
-
-	& + & {
-		margin-left: -8px;
-	}
 }
 
 .character-avatars__face img {
