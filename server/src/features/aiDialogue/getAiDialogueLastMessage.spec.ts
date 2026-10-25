@@ -5,29 +5,33 @@ function message(actions: unknown[], identity: object = { npcId: 'anna', npcName
 }
 
 describe('getAiDialogueLastMessage', () => {
-	it('prefers all nonempty speech blocks in their original order over actions', () => {
+	it('returns only the last nonempty speech, even when followed by actions or invalid speech', () => {
 		const result = getAiDialogueLastMessage(
 			message([
 				{ type: 'action', content: 'She waves.' },
 				{ type: 'speech', content: ' Hello! ', translation: 'Привет!' },
 				{ type: 'speech', content: ' ' },
-				{ type: 'speech', content: 'How are you?' },
+				{ type: 'speech', content: ' How are you? ' },
+				{ type: 'action', content: 'She opens the door.' },
+				{ type: 'speech', content: ' ' },
+				{ type: 'speech', content: 1 },
 			]),
 		)
 
-		expect(result).toMatchObject({ text: 'Hello!\nHow are you?', textType: 'speech' })
+		expect(result).toMatchObject({ text: 'How are you?', textType: 'speech' })
 	})
 
-	it('uses actions when there is no nonempty speech', () => {
+	it('returns only the last nonempty action when there is no nonempty speech', () => {
 		expect(
 			getAiDialogueLastMessage(
 				message([
 					{ type: 'speech', content: '' },
 					{ type: 'action', content: 'She smiles.' },
-					{ type: 'action', content: 'She opens the door.' },
+					{ type: 'action', content: ' She opens the door. ' },
+					{ type: 'action', content: ' ' },
 				]),
 			),
-		).toMatchObject({ text: 'She smiles.\nShe opens the door.', textType: 'action' })
+		).toMatchObject({ text: 'She opens the door.', textType: 'action' })
 	})
 
 	it('reads legacy NPC identity from payload without requiring character_id', () => {

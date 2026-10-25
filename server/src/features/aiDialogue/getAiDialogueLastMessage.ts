@@ -2,33 +2,36 @@ import type { AiDialogueLastMessageOutModel } from 'models/aiDialogue/aiDialogue
 
 type LastNpcMessage = { id: number; payload: string; created_at: Date }
 
-/** Речь имеет приоритет внутри последнего сообщения NPC; другие события не заменяют его. */
+/** Последняя непустая реплика имеет приоритет над действиями внутри последнего сообщения NPC. */
 export function getAiDialogueLastMessage(message?: LastNpcMessage): AiDialogueLastMessageOutModel | null {
 	if (!message) return null
 
 	const payload = JSON.parse(message.payload) as Record<string, unknown>
 	const actions: unknown[] = Array.isArray(payload.actions) ? payload.actions : []
-	const speech = getActionTexts(actions, 'speech')
-	const action = speech.length ? [] : getActionTexts(actions, 'action')
+	const speech = getLastActionText(actions, 'speech')
+	const action = speech ? null : getLastActionText(actions, 'action')
 
 	return {
 		id: message.id,
 		npcId: getNonemptyString(payload.npcId),
 		name: getNonemptyString(payload.npcName),
 		role: getNonemptyString(payload.npcRole),
-		text: [...speech, ...action].join('\n'),
-		textType: speech.length ? 'speech' : action.length ? 'action' : null,
+		text: speech ?? action ?? '',
+		textType: speech ? 'speech' : action ? 'action' : null,
 		createdAt: message.created_at.toISOString(),
 	}
 }
 
-function getActionTexts(actions: unknown[], type: string): string[] {
-	return actions.flatMap((action) => {
-		if (!action || typeof action !== 'object' || !('type' in action) || action.type !== type) return []
+function getLastActionText(actions: unknown[], type: 'speech' | 'action'): string | null {
+	for (let index = actions.length - 1; index >= 0; index--) {
+		const action = actions[index]
+		if (!action || typeof action !== 'object' || !('type' in action) || action.type !== type) continue
 		const content = 'content' in action ? getNonemptyString(action.content) : null
 
-		return content ? [content] : []
-	})
+		if (content) return content
+	}
+
+	return null
 }
 
 function getNonemptyString(value: unknown): string | null {
