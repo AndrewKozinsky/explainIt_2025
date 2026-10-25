@@ -1,7 +1,9 @@
 @use '@/styles/mixins' as mix;
 
 .medium-dialogue-card {
-
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
 
 	@include mix.container-width(1000px) {
 		display: grid;
@@ -28,10 +30,19 @@
 
 .medium-dialogue-card__scene {
 	grid-area: scene;
+
+	img {
+		max-width: 35rem;
+	}
 }
 
 .medium-dialogue-card__message {
 	grid-area: message;
+	display: none;
+
+	@include mix.container-width(1000px) {
+		display: block;
+	}
 }
 
 .medium-dialogue-card__actions {

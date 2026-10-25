@@ -2,7 +2,9 @@
 @use '@/styles/mixins' as mix;
 
 .large-dialogue-card {
-
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
 
 	@include mix.container-width(1000px) {
 		display: grid;
@@ -43,14 +45,18 @@
 .large-dialogue-card__scene {
 	grid-area: scene;
 
-	//img {
-	width: 100%;
-	//}
+	img {
+		max-width: 35rem;
+	}
 }
 
 .large-dialogue-card__message {
 	grid-area: message;
-	min-width: 0;
+	display: none;
+
+	@include mix.container-width(1000px) {
+		display: block;
+	}
 }
 
 .large-dialogue-card__actions {
