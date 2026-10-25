@@ -12,7 +12,9 @@ export default function LargeDialogueCard({ dialogue, locale, onDelete }: Dialog
 
 	return (
 		<article className='large-dialogue-card'>
-			<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
+			<div className='large-dialogue-card__scene'>
+				<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
+			</div>
 			<div className='large-dialogue-card__summary'>
 				<p className='large-dialogue-card__label'>Последний диалог</p>
 				<h4 className='large-dialogue-card__title'>{title}</h4>
@@ -21,8 +23,12 @@ export default function LargeDialogueCard({ dialogue, locale, onDelete }: Dialog
 					<DialogueCharacters characters={dialogue.characters} size='small' maxVisible={8} />
 				</div>
 			</div>
-			<DialogueLastMessage message={dialogue.lastMessage} />
-			<DialogueActions id={dialogue.id} title={title} url={url} theme='accent' onDelete={onDelete} />
+			<div className='large-dialogue-card__message'>
+				<DialogueLastMessage message={dialogue.lastMessage} />
+			</div>
+			<div className='large-dialogue-card__actions'>
+				<DialogueActions id={dialogue.id} title={title} url={url} theme='accent' onDelete={onDelete} />
+			</div>
 		</article>
 	)
 }

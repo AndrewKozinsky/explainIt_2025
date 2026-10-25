@@ -7,7 +7,6 @@
 	grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
 	grid-template-rows: 1fr auto;
 	column-gap: 20px;
-	row-gap: 4px;
 }
 
 .large-dialogue-card__summary {
@@ -34,4 +33,18 @@
 
 .large-dialogue-card__characters {
 	margin-top: .6rem;
+}
+
+.large-dialogue-card__scene {
+	grid-area: scene;
+}
+
+.large-dialogue-card__message {
+	grid-area: message;
+	min-width: 0;
+}
+
+.large-dialogue-card__actions {
+	grid-column: delete-start / reply-end;
+	grid-row: 1 / -1;
 }

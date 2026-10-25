@@ -19,3 +19,20 @@
 .medium-dialogue-card .ai-dialogue-card__meta {
 	margin-top: .2rem;
 }
+
+.medium-dialogue-card__scene {
+	grid-area: scene;
+}
+
+.medium-dialogue-card__message {
+	grid-area: message;
+}
+
+.medium-dialogue-card__actions {
+	grid-column: delete-start / reply-end;
+	grid-row: 1 / -1;
+}
+
+.medium-dialogue-card__characters {
+	grid-area: characters;
+}

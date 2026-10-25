@@ -12,14 +12,22 @@ export default function MediumDialogueCard({ dialogue, locale, onDelete }: Dialo
 
 	return (
 		<article className='medium-dialogue-card'>
-			<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
+			<div className='medium-dialogue-card__scene'>
+				<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
+			</div>
 			<div className='medium-dialogue-card__summary'>
 				<h4 className='ai-dialogue-card__title'>{title}</h4>
 				<DialogueMeta dialogue={dialogue} locale={locale} />
 			</div>
-			<DialogueCharacters characters={dialogue.characters} size='medium' maxVisible={3} />
-			<DialogueLastMessage message={dialogue.lastMessage} />
-			<DialogueActions id={dialogue.id} title={title} url={url} theme='outline' onDelete={onDelete} />
+			<div className='medium-dialogue-card__characters'>
+				<DialogueCharacters characters={dialogue.characters} size='medium' maxVisible={3} />
+			</div>
+			<div className='medium-dialogue-card__message'>
+				<DialogueLastMessage message={dialogue.lastMessage} />
+			</div>
+			<div className='medium-dialogue-card__actions'>
+				<DialogueActions id={dialogue.id} title={title} url={url} theme='outline' onDelete={onDelete} />
+			</div>
 		</article>
 	)
 }
