@@ -8,31 +8,30 @@
 	grid-template-rows: 1fr auto;
 	column-gap: 20px;
 	row-gap: 4px;
-
-	.ai-dialogue-card__characters {
-		align-self: start;
-		padding-bottom: 8px;
-	}
-
-	.ai-dialogue-card__title {
-		color: vars.$accentColor-2;
-		font-size: 1.8rem;
-		line-height: 2.2rem;
-		font-weight: 500;
-	}
-
-	.ai-dialogue-card__text {
-		-webkit-line-clamp: 2;
-	}
 }
 
 .large-dialogue-card__summary {
 	grid-area: summary;
-	min-width: 0;
-	align-self: end;
+	display: flex;
+	flex-direction: column;
 }
 
 .large-dialogue-card__label {
-	font-size: 16px;
-	line-height: 22px;
+	font-size: 1.5rem;
+	line-height: 2.1rem;
+}
+
+.large-dialogue-card__title {
+	color: vars.$accentColor-2;
+	font-size: 2rem;
+	line-height: 2.6rem;
+	font-weight: 500;
+}
+
+.large-dialogue-card .ai-dialogue-card__meta {
+	margin-top: .2rem;
+}
+
+.large-dialogue-card__characters {
+	margin-top: .6rem;
 }

@@ -1,6 +1,6 @@
 .medium-dialogue-card {
 	display: grid;
-	grid-template-columns: 120px 220px 104px minmax(0, 1fr) 32px 125px;
+	grid-template-columns: 120px 230px 100px minmax(0, 1fr) 32px 125px;
 	grid-template-areas: 'scene summary characters message delete reply';
 	column-gap: 12px;
 	align-items: center;
@@ -8,5 +8,14 @@
 
 .medium-dialogue-card__summary {
 	grid-area: summary;
-	min-width: 0;
+}
+
+.ai-dialogue-card__title {
+	font-size: 1.8rem;
+	line-height: 2.2rem;
+	font-weight: 500;
+}
+
+.medium-dialogue-card .ai-dialogue-card__meta {
+	margin-top: .2rem;
 }

@@ -17,6 +17,10 @@
 	column-gap: .6rem;
 }
 
+.ai-dialogue-card__role {
+	color: vars.$grayColor-5;
+}
+
 .ai-dialogue-card__text,
 .ai-dialogue-card__no-message {
 	color: vars.$grayColor-5;

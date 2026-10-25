@@ -10,14 +10,18 @@ export type CharacterAvatar = {
 	imageUrl: string | null
 }
 
-type Props = { characters: CharacterAvatar[]; size?: 'small' | 'medium'; maxVisible?: number }
+type CharacterAvatarsProps = { characters: CharacterAvatar[]; size?: 'small' | 'medium'; maxVisible?: number }
 
 /** Нейтральная верхняя левая ячейка; без maxVisible показываются все портреты. */
-export default function CharacterAvatars({ characters, size = 'medium', maxVisible }: Props) {
+export default function CharacterAvatars(props: Props) {
+	const { characters, size = 'medium', maxVisible } = props
+
 	const visibleCount = maxVisible === undefined ? characters.length : Math.max(0, Math.floor(maxVisible))
 	const hidden = Math.max(0, characters.length - visibleCount)
 
-	if (!characters.length) return null
+	if (!characters.length) {
+		return null
+	}
 
 	return (
 		<div

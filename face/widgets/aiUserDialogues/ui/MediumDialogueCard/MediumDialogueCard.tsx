@@ -3,7 +3,6 @@ import DialogueCharacters from '../DialogueCharacters/DialogueCharacters'
 import DialogueLastMessage from '../DialogueLastMessage/DialogueLastMessage'
 import DialogueMeta from '../DialogueMeta/DialogueMeta'
 import DialogueSceneImage from '../DialogueSceneImage/DialogueSceneImage'
-import DialogueTitle from '../DialogueTitle/DialogueTitle'
 import { getDialogueCardDetails } from '../UserAiDialoguesList/fn/getDialogueCardDetails'
 import type { DialogueCardProps } from '../UserAiDialoguesList/ui/dialogueCardTypes'
 import './MediumDialogueCard.scss'
@@ -15,7 +14,7 @@ export default function MediumDialogueCard({ dialogue, locale, onDelete }: Dialo
 		<article className='medium-dialogue-card'>
 			<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
 			<div className='medium-dialogue-card__summary'>
-				<DialogueTitle title={title} />
+				<h4 className='ai-dialogue-card__title'>{title}</h4>
 				<DialogueMeta dialogue={dialogue} locale={locale} />
 			</div>
 			<DialogueCharacters characters={dialogue.characters} size='medium' maxVisible={3} />
