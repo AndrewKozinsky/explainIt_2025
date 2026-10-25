@@ -16,7 +16,7 @@
 
 	@include mix.container-width(90rem) {
 		display: grid;
-		grid-template-columns: 120px 230px 100px minmax(0, 1fr) 125px;
+		grid-template-columns: 150px 230px 100px minmax(0, 1fr) 125px;
 		grid-template-areas: 'scene summary characters message delete reply';
 		grid-template-rows: auto;
 		column-gap: 12px;
@@ -66,10 +66,12 @@
 
 	@include mix.container-width(50rem) {
 		justify-self: end;
+		align-self: end;
 	}
 
 	@include mix.container-width(90rem) {
 		justify-self: stretch;
+		align-self: center;
 		grid-area: auto;
 		grid-column: delete-start / reply-end;
 		grid-row: 1 / -1;

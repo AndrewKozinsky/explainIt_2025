@@ -80,10 +80,12 @@
 
 	@include mix.container-width(50rem) {
 		justify-self: end;
+		align-self: end;
 	}
 
 	@include mix.container-width(90rem) {
 		justify-self: stretch;
+		align-self: center;
 		grid-area: auto;
 		grid-column: delete-start / reply-end;
 		grid-row: 1 / -1;
