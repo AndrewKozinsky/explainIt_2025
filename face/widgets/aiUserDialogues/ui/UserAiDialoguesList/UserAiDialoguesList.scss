@@ -14,7 +14,7 @@
 	flex-direction: column;
 	gap: 1.2rem;
 
-	@include mix.page-width(1000px) {
+	@include mix.page-width(900px) {
 		gap: .8rem;
 	}
 }

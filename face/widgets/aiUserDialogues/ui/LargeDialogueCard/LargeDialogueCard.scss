@@ -6,7 +6,7 @@
 	flex-direction: column;
 	gap: .6rem;
 
-	@include mix.container-width(500px) {
+	@include mix.container-width(50rem) {
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		grid-template-areas: 'scene summary' 'scene characters' 'scene actions';
@@ -15,10 +15,10 @@
 		align-items: start;
 	}
 
-	@include mix.container-width(1000px) {
+	@include mix.container-width(90rem) {
 		display: grid;
 		align-items: center;
-		grid-template-columns: 240px 350px minmax(0, 1fr) 32px 125px;
+		grid-template-columns: 240px 240px minmax(0, 1fr) 125px;
 		grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
 		grid-template-rows: 1fr auto;
 		column-gap: 20px;
@@ -69,7 +69,7 @@
 	grid-area: message;
 	display: none;
 
-	@include mix.container-width(1000px) {
+	@include mix.container-width(90rem) {
 		display: block;
 	}
 }
@@ -78,11 +78,11 @@
 	grid-area: actions;
 	min-width: 0;
 
-	@include mix.container-width(500px) {
+	@include mix.container-width(50rem) {
 		justify-self: end;
 	}
 
-	@include mix.container-width(1000px) {
+	@include mix.container-width(90rem) {
 		justify-self: stretch;
 		grid-area: auto;
 		grid-column: delete-start / reply-end;
