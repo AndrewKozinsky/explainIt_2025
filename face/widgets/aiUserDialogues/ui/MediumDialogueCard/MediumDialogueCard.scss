@@ -19,7 +19,7 @@
 		grid-template-columns: 150px 230px 70px minmax(0, 1fr) 125px;
 		grid-template-areas: 'scene summary characters message delete reply';
 		grid-template-rows: auto;
-		column-gap: 12px;
+		column-gap: 2rem;
 		align-items: center;
 	}
 }
