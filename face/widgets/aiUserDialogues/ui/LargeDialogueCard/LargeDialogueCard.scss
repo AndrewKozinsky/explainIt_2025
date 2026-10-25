@@ -1,12 +1,17 @@
 @use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
 
 .large-dialogue-card {
-	display: grid;
-	align-items: center;
-	grid-template-columns: 240px 350px minmax(0, 1fr) 32px 125px;
-	grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
-	grid-template-rows: 1fr auto;
-	column-gap: 20px;
+
+
+	@include mix.container-width(1000px) {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 240px 350px minmax(0, 1fr) 32px 125px;
+		grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
+		grid-template-rows: 1fr auto;
+		column-gap: 20px;
+	}
 }
 
 .large-dialogue-card__summary {
@@ -37,6 +42,10 @@
 
 .large-dialogue-card__scene {
 	grid-area: scene;
+
+	//img {
+	width: 100%;
+	//}
 }
 
 .large-dialogue-card__message {

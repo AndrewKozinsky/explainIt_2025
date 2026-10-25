@@ -1,9 +1,15 @@
+@use '@/styles/mixins' as mix;
+
 .medium-dialogue-card {
-	display: grid;
-	grid-template-columns: 120px 230px 100px minmax(0, 1fr) 32px 125px;
-	grid-template-areas: 'scene summary characters message delete reply';
-	column-gap: 12px;
-	align-items: center;
+
+
+	@include mix.container-width(1000px) {
+		display: grid;
+		grid-template-columns: 120px 230px 100px minmax(0, 1fr) 32px 125px;
+		grid-template-areas: 'scene summary characters message delete reply';
+		column-gap: 12px;
+		align-items: center;
+	}
 }
 
 .medium-dialogue-card__summary {

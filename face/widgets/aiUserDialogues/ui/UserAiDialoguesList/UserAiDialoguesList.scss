@@ -8,6 +8,7 @@
 }
 
 .user-ai-dialogues-list__cards {
+	container-type: inline-size;
 	display: flex;
 	flex-direction: column;
 	gap: .8rem;
