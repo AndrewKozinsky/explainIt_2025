@@ -165,6 +165,10 @@ export const errorMessage = {
 		cannotParseMessageCheck: { code: 'AI_DIALOGUE_CANNOT_PARSE_MESSAGE_CHECK' }, // Не удалось разобрать результат проверки текста.
 		notFound: { code: 'AI_DIALOGUE_NOT_FOUND' }, // Диалог не найден.
 		scenarioNotFound: { code: 'AI_DIALOGUE_SCENARIO_NOT_FOUND' }, // Сценарий диалога не найден.
+		invalidPublicScenario: { code: 'AI_DIALOGUE_INVALID_PUBLIC_SCENARIO' }, // У публичного сценария отсутствует slug или обложка.
+		invalidScenarioCoverKey: { code: 'AI_DIALOGUE_INVALID_SCENARIO_COVER_KEY' }, // Неверный MODE или slug для ключа обложки сценария.
+		scenarioGroupNotFound: { code: 'AI_DIALOGUE_SCENARIO_GROUP_NOT_FOUND' }, // Группа публичного сценария отсутствует в сиде.
+		scenarioSlugAlreadyOwned: { code: 'AI_DIALOGUE_SCENARIO_SLUG_ALREADY_OWNED' }, // Slug публичного сценария занят пользовательским сценарием.
 		generationAlreadyActive: { code: 'AI_DIALOGUE_GENERATION_ALREADY_ACTIVE' }, // У вас уже есть активная генерация ответа. Дождитесь её завершения.
 		cannotParseLlmResponse: { code: 'AI_DIALOGUE_CANNOT_PARSE_LLM_RESPONSE' }, // Не удалось разобрать ответ LLM.
 	},

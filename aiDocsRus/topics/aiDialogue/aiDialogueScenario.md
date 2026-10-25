@@ -1,285 +1,212 @@
-# Сценарии ролевого диалога с ИИ (AiDialogueScenario)
+# Общедоступные группы сценариев и пользовательские сценарии
 
-## Что делает функционал
+Сценарий AiDialogueScenario задаёт начальную ситуацию для ролевого диалога с ИИ.
+Он языконейтрален: язык практики и перевода задаётся при создании AiDialogue.
+`title` и `description` — JSON-строки переводов на en/es/fr/de/it/tr/ru;
+клиент выбирает перевод через `pickLocalized`. `system_prompt` — английская инструкция только для сервера.
+Создание и работа диалога описаны в [aiDialogue.md](aiDialogue.md), история — в [aiDialogueList.md](aiDialogueList.md).
 
-Позволяет получить список сценариев для ролевого диалога пользователя с LLM. Сценарий — это описание конкретной сценки
-(визит к стоматологу, паспортный контроль, покупка абонемента в бассейн), в которой LLM играет роль NPC (врача, офицера,
-администратора), ведёт диалог и реагирует на реплики пользователя.
+## Состояние реализации
 
-Сценарий содержит:
+Сервер возвращает все непустые общедоступные группы со всеми их сценариями и подписанными ссылками обложек.
+Один публичный сценарий входит ровно в одну группу. Пользовательские сценарии хранятся в той же таблице,
+принадлежат пользователю и не могут входить в группы. Их создание через интерфейс и REST пока не реализовано.
 
-- **`title`** — название, показываемое на кнопке. Хранится как JSON-строка переводов (`{"en":"...","ru":"..."}`),
-  клиент выбирает строку под свою локаль.
-- **`description`** — короткое описание сценки (показывается пользователю). Тоже JSON-строка переводов.
-- **`systemPrompt`** — системный промпт со сценой и ролью NPC (используется при обращении к LLM, клиенту **не
-  отдаётся**). Языконейтрален — пишется один раз на английском.
+Клиентский список пока использует старый плоский GET /api/ai-dialogue-scenario, который удалён.
+Следующий этап — обновить Orval и entity/widget-слой клиента под новый групповой контракт.
+Клиентская страница и компоненты в этом серверном этапе не менялись.
+Модель сценария внутри GET/POST/PATCH отдельного диалога остаётся прежней, без группы и обложки.
 
-Сценарий **языконейтрален**: у него нет поля языка. Один и тот же сценарий ведётся на любом языке — язык практики
-(`source_language_code`) и язык перевода (`target_language_code`) задаются на уровне диалога (`AiDialogue`), а не
-сценария.
+## База данных
 
-> **Важно:** сценарий — лишь тема разговора; основная сущность — диалог (`AiDialogue`). Сценарии (данные + сид +
-> REST-список) описаны здесь. Диалоги (создание/список/удаление) реализованы отдельно — см.
-> `aiDocsRus/topics/aiDialogue/aiDialogue.md`. Существующий SentenceChat к этой фиче отношения не имеет.
+Источник схемы — `server/src/db/dbConfig/dbConfig.ts`. Prisma-схема и типы генерируются из него.
 
-Общий `buildAiDialoguePrompt` уточняет после текста сценария: требования оставаться в одной роли относятся к
-начальной встрече. После явного завершения встречи модель сразу вводит следующего NPC в том же ответе.
-Это уточнение применяется и к сценариям, уже сохранённым в БД; обновление сидов или записей не требуется.
+AiDialogueScenarioGroup содержит только публичные группы:
 
-## Статус: что уже сделано
+| Поле | Назначение |
+|---|---|
+| id | Int, первичный ключ |
+| slug | Обязательный уникальный стабильный ключ |
+| title | JSON-строка переводов названия |
+| created_at | Дата добавления |
 
-- Только **публичные** сценарии, создаваемые при старте сервера (как публичные книги).
-- Сценарии языконейтральны: `title`/`description` хранятся как JSON-строки с переводами на 7 языков (`en`, `es`, `fr`,
-  `de`, `it`, `tr`, `ru`), заданные через `localized()` в
-  `server/src/features/aiDialogueScenario/english/scenarios.ts` (4 сценария).
-- REST-эндпоинт списка публичных сценариев.
-- Страница на клиенте (`/dialogues`) — показывает секцию «Сценарии» («Библиотека» публичных сценариев; «Мои сценарии»
-  пока пуста) и секцию «История диалогов» для залогиненного пользователя. Клик по карточке сценария создаёт диалог
-  с ИИ (см. `aiDocsRus/topics/aiDialogue/aiDialogue.md`).
-- Пункт «Сценарии» добавлен в главное меню.
-- Пользовательские сценарии пока **не создаются**, но `user_id` уже в схеме (nullable) — чтобы не делать миграцию позже.
+AiDialogueScenario:
 
-## Как работает сервер
+| Поле | Назначение |
+|---|---|
+| id | Int, первичный ключ |
+| slug | Уникальный стабильный ключ; обязателен для публичного сценария, nullable для пользовательского |
+| title | JSON-строка переводов названия |
+| description | JSON-строка переводов короткого описания |
+| system_prompt | Промпт начальной ситуации, не отдаётся клиенту |
+| user_id | FK → User, null означает публичный сценарий |
+| group_id | Nullable FK → AiDialogueScenarioGroup |
+| cover_s3_key | Nullable ключ файла R2, а не URL |
+| created_at | Дата добавления |
 
-### Сид при старте
+SQL CHECK `AiDialogueScenario_public_group_cover_check` требует:
 
-`StartServerTasksRunner.onApplicationBootstrap()` вызывает `CreateAiDialogueScenariosCommand` (после создания публичных
-книг). Команда проходит по списку сид-данных и для каждого сценария:
+- публичный сценарий (`user_id IS NULL`) имеет группу, непустой slug и непустой ключ обложки;
+- пользовательский сценарий (`user_id IS NOT NULL`) имеет `group_id IS NULL`; обложка необязательна.
 
-1. Ищет сценарий по `slug` (`getScenarioBySlug`)
-2. Если найден — ничего не делает (идемпотентно)
-3. Если не найден — создаёт через `createScenario`
+Условная обязательность задана в SQL-миграции, поскольку Prisma и текущий dbConfig её не выражают.
+Nullable-поля схемы сами по себе не означают, что публичный сценарий можно создать без группы или обложки.
+`createScenario` также различает эти варианты на уровне TypeScript.
 
-Благодаря этому повторный запуск сервера не дублирует сценарии. `slug` уникален и используется именно для идемпотентного
-сида и будущих URL.
+Удаление непустой группы запрещено (`onDelete: Restrict`). Связь AiDialogue → AiDialogueScenario
+не менялась: удаление сценария каскадно удаляет его диалоги, поэтому синхронизация сидов сценарии не удаляет.
+Индексы: группы `(created_at, id)`; сценарии `(user_id)` и `(group_id, created_at, id)`.
+Поля ручного порядка и таблицы связи многие-ко-многим нет.
 
-### Данные сценариев
+## REST API
 
-```ts
-// server/src/features/aiDialogueScenario/common.ts
-type AiDialogueScenarioSeedData = {
-    slug: string
-    title: string        // JSON-строка переводов (см. localized ниже)
-    description: string  // JSON-строка переводов
-    systemPrompt: string // языконейтральный английский промпт
-}
-
-// Упаковывает переводы в JSON-строку, которую хранит колонка title/description.
-function localized(translations: Partial<Record<Language, string>>): string
+```http
+GET /api/ai-dialogue-scenario-group
 ```
 
-Сценарии (`aiDialogueScenarios`): `at-the-dentist`, `passport-control`, `pool-membership`, `knock-at-the-door`. `title`
-и `description`
-заданы через `localized({ en, es, fr, de, it, tr, ru })` — сразу на 7 языков. `systemPrompt` — один языконейтральный
-английский текст с ролями и ситуацией. NPC говорят естественно для своей роли и обстановки,
-без ограничения уровня языка и исправления ошибок участника. Указание уровня удалено и из описаний карточек.
-Миграция `20261012170000_natural_dialogue_scenarios` обновляет промпты и описания трёх существующих
-публичных сценариев, сохраняя ID и связанные диалоги. Сид при старте по-прежнему не обновляет существующие строки.
-
-В `knock-at-the-door` задано вступление: участник дома, слышит стук, открывает дверь и видит посетителя.
-Личность, внешность, роль и цель визита выбирает ИИ. Первый sceneUpdate описывает эту последовательность,
-а visual показывает её конечный момент: дверь уже открыта, участник внутри у порога, посетитель виден снаружи.
-После вступления модель не придумывает дальнейшие действия или реплики участника.
-Миграция `20261018120000_update_knock_at_the_door_opening` обновляет описание и промпт существующего публичного
-сценария по slug, сохраняя его ID и диалоги; сохранённые сообщения и изображения не переписываются.
-
-Событие `help` создаётся только если пользователю может быть
-непонятно следующее действие и NPC не дал прямой инструкции; оно не должно повторять вопрос или просьбу NPC. Например,
-после стука в дверь можно предложить открыть дверь, а после ясного вопроса NPC подсказка не нужна. Язык подсказок
-приходит в промпт отдельно — см. `aiDocsRus/topics/aiDialogue/aiDialogue.md`.
-
-### REST API
-
-```
-GET /ai-dialogue-scenario
-```
-
-Возвращает массив публичных сценариев (`AiDialogueScenarioOutModel[]`), отсортированных по `id`.
-
-Пример ответа:
+Не требует авторизации. Возвращает массив AiDialogueScenarioGroupOutModel:
 
 ```json
 [
   {
     "id": 1,
-    "slug": "at-the-dentist",
-    "title": "{\"en\":\"At the Dentist\",\"es\":\"En el dentista\",\"fr\":\"Chez le dentiste\",\"de\":\"Beim Zahnarzt\",\"it\":\"Dal dentista\",\"tr\":\"Dişçide\",\"ru\":\"У стоматолога\"}",
-    "description": "{\"en\":\"...\",\"ru\":\"...\"}"
+    "slug": "travel-abroad",
+    "title": "{\"en\":\"Travel abroad\",\"ru\":\"Поездка за границу\"}",
+    "scenarios": [
+      {
+        "id": 2,
+        "slug": "passport-control",
+        "title": "{\"en\":\"Passport control\",\"ru\":\"Паспортный контроль\"}",
+        "description": "{\"en\":\"...\",\"ru\":\"...\"}",
+        "coverUrl": "https://r2.example/passport-control.webp?signature=temporary"
+      }
+    ]
   }
 ]
 ```
 
-**Обрати внимание:**
+Группы и сценарии в каждой группе сортируются `created_at DESC, id DESC`.
+Пустые группы и пользовательские сценарии исключаются. При отсутствии публичных сценариев возвращается `[]`.
+Пагинации, счётчиков, обёртки groups и urlsExpireAt нет. Количество — scenarios.length на клиенте.
+Отдельных маршрутов группы по ID или плоского списка нет; старый маршрут не сохраняется.
 
-- `system_prompt` в ответе **отсутствует** — он не попадает в `OutModel` и не отдаётся клиенту.
-- `title` и `description` отдаются **сырой JSON-строкой** — сервер не резолвит локаль. Выбор строки под локаль
-  интерфейса делает клиент через `pickLocalized` (см. ниже).
+Контроллер → GetAiDialogueScenarioGroupsCommand → AiDialogueScenarioGroupQueryRepository.
+Репозиторий выбирает только поля карточек, без system_prompt и переписки. R2-ключ используется только для
+подписания и не входит в ответ. Ошибка БД/подписания не превращается в успешный пустой список.
+При отсутствующем slug или ключе обложки возвращается CustomError
+`AI_DIALOGUE_INVALID_PUBLIC_SCENARIO` со статусом 500; обработчик ошибок БД не подменяет этот код.
+Ссылки формируются существующим CloudflareS3Service на шесть часов, `Cache-Control: no-store`.
+Таймеры обновления URL не предусмотрены. Загруженная картинка остаётся на странице после истечения ссылки;
+первая загрузка по уже истёкшей ссылке может завершиться ошибкой.
+Чтение списка не проверяет наличие файлов в R2 и ничего не генерирует.
 
-### Схема обработки (CQRS)
+## Сиды при запуске
 
-`AiDialogueScenarioController` вызывает `GetAiDialogueScenariosCommand` →
-`AiDialogueScenarioQueryRepository.getPublicScenarios()`, который выбирает `where: { user_id: null }` и маппит в
-`OutModel`.
+StartServerTasksRunner сначала применяет миграции, затем вызывает CreateAiDialogueScenariosCommand.
+До начала прослушивания HTTP команда синхронизирует четыре группы и двенадцать сценариев одной транзакцией.
+Группы upsert по slug; сценарии upsert по slug с предварительной проверкой, что существующая запись публичная.
+Конфликт slug с пользовательским сценарием отменяет транзакцию, не меняет владельца и не обновляет его сценарий.
 
-## Как работает клиент
+Обновляются названия, переводы, описания, промпты, группы и ключи обложек. ID и created_at не переписываются,
+поэтому повторный запуск не меняет порядок и не создаёт дубликаты. Неназванные в сиде записи не удаляются.
+Неверный MODE отклоняется до записи в БД. Обновление промпта влияет на последующие ходы существующих диалогов;
+сохранённые сообщения и изображения не переписываются.
 
-Страница со списком сценариев построена по образцу страницы книг (`BooksPage`), но проще — пока есть только публичные
-сценарии и у карточек нет обложек.
+| Группа | Сценарии (slug) |
+|---|---|
+| travel-abroad | passport-control, lost-luggage, hotel-check-in, hotel-room-problem |
+| food-and-shopping | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market |
+| city-and-services | at-the-dentist, pool-membership |
+| home-and-everyday-life | knock-at-the-door |
 
-### Маршрут и страница
+Данные групп — `features/aiDialogueScenario/groups.ts`. В папке `scenarios` каждому набору
+соответствует файл своей группы: `travelScenarios.ts`, `foodAndShoppingScenarios.ts`,
+`cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts`. Сценарии языконейтральны;
+у каждого один английский промпт и семь переводов карточки.
+Новый сценарий добавляется с уникальным slug и groupSlug, затем создаётся и вручную загружается его обложка.
+Новая группа требует записи в groups.ts и расширения AiDialogueScenarioGroupSlug.
 
-- Маршрут — `/dialogues`.
-- Страница `AiDialoguesPage` рендерит две секции:
-    - «Сценарии» — `MediaPageContentTabs` с вкладками «Библиотека» (`PublicAiDialogueScenariosList`) и «Мои сценарии»
-      (пока пусто — `content: null`);
-    - «История диалогов» — `UserAiDialoguesList`, только для залогиненного пользователя.
-- Выбранная вкладка сохраняется в `localStorage` через `useAiDialogueScenariosTabs`
-  (ключ `dialogues`, менеджер `localStorageManager.lastMediaTab`).
+Основные правила промпта диалога сохраняются: NPC естественно играет свою роль, не исправляет язык участника,
+не задаёт уровень сложности; ограничение CEFR задаётся на AiDialogue.
+В «Стуке в дверь» первое описание включает открытие двери и показывает видимого посетителя снаружи,
+но дальнейшие действия выбирает участник. Посетителя выбирает ИИ; обложка не фиксирует его личность.
+После завершения встречи общий промпт диалога может вводить следующего NPC.
 
-### Загрузка данных (entity-слой)
+## Обложки и R2
 
-Повторяет структуру `entities/book`:
+Бакет — существующий CLOUDFLARE_S3_BUCKET_NAME. Ключ:
 
-- `AiDialogueScenarioRepository` — унифицированный тип `AiDialogueScenarioModel` и интерфейс репозитория.
-- `AiDialogueScenarioApi` — реализация через сгенерированную Orval-функцию
-  `aiDialogueScenarioControllerGetAiDialogueScenarios()` и `executeApiCall`; маппит `AiDialogueScenarioOutModel`
-  в `AiDialogueScenarioModel` (через `extractString` для nullable полей).
-- `AiDialogueScenarioService` — прослойка между компонентами и репозиторием.
-- `AiDialogueScenarioQueryFacade` — TanStack Query `queryOptions`, экспортирует `aiDialogueScenarioQueries`.
+```text
+ai-dialogue-public-scenarios/covers/<mode>/<slug>.webp
+```
 
-Ключ кэша запроса — `['ai-dialogue-scenario', 'list']`.
+MODE берётся из MainConfigService: localtest/localdev/localcheckserver/serverdevelop/servermaster.
+Регионы используют одинаковые общие обложки. Разные окружения могут иметь разные изображения одного сценария.
+Полный ключ сохраняется в БД при синхронизации; смена MODE при запуске синхронизирует ключи для этого окружения.
+Предполагаются отдельные БД окружений. Ключи не зависят от numeric ID или группы.
 
-### Резолв локализованных строк (`pickLocalized`)
+12 готовых файлов WebP 1152×576 находятся в `server/assets/aiDialogue/public-scenario-covers/`.
+Инструкции загрузки — [Обложки общедоступных сценариев](aiDialogueScenarioCovers.md).
+Изображения сгенерированы встроенным image_gen. Архив covers.zip содержит только загружаемые WebP.
+Обложки получены заранее, не создаются сервером/worker и не зависят от аватара пользователя.
+Это иллюстрация темы, а не обещание конкретной внешности NPC в диалоге.
 
-`title`/`description` приходят с сервера как JSON-строка переводов. Компоненты не хранят «плоскую» строку — они
-резолвят её под локаль через `pickLocalized(raw, locale)` (`face/shared/utils/pickLocalized.ts`):
+Приватный бакет открывать не нужно. Наличие и правильность файлов пользователь проверяет вручную;
+отдельной команды проверки обложек нет. Эти файлы не относятся к AiDialogueImage, не удаляются
+при удалении диалога и находятся вне generated-префиксов фоновой очистки.
 
-- парсит `raw` как JSON; если это не JSON (legacy-данные в виде обычного текста) — возвращает строку как есть;
-- иначе берёт `translations[locale]`, затем fallback-ключ `*`, затем первый доступный перевод, затем `raw`.
+## Миграция и запуск
 
-Локаль берётся из `useLocale()` (клиентские компоненты) или `getLocale()` (серверные компоненты, `next-intl`).
+Миграция `20261025120000_public_ai_dialogue_scenario_groups` создаёт таблицу, поля, индексы, FK и CHECK.
+Она распределяет существующие четыре публичных сценария по группам, сохраняя ID и связи с диалогами.
+Поскольку SQL не знает MODE, при переносе четырёх строк устанавливаются временные ключи `_seed-pending`.
+Синхронизация при bootstrap заменяет их ключами текущего MODE до начала обслуживания HTTP.
+В папку `_seed-pending` ничего загружать не нужно. Неизвестные старые публичные сценарии без назначения группы
+будут отклонены CHECK: перед миграцией их нужно явно включить в перенос. Пользовательские записи не меняются.
 
-### Список сценариев
+Обычный запуск HTTP применяет миграцию и сиды автоматически. Применить только миграции можно из server:
 
-`PublicAiDialogueScenariosList` повторяет `PublicBooksList`, но:
+```bash
+npm run migrate:deploy
+```
 
-- `MediaCardButton` **не оборачивается** в `MediaCardWrapper` (у сценариев нет страницы «подробнее» с info-кнопкой);
-- у карточки нет обложки (`coverUrl` не передаётся), в `subTitle` — `description` сценария;
-- `defaultMediaName` берётся из `aiDialogueScenarioConfig.emptyScenarioName`.
+После этого нужно запустить обновлённый HTTP-процесс для синхронизации ключей и новых сценариев.
+Запуск worker для сидов и обложек не требуется. Миграция к базе приложения в этом этапе не применялась.
+25 октября 2026 все 12 WebP загружены в настроенный бакет R2 под
+`ai-dialogue-public-scenarios/covers/localdev/`; после PUT проверено совпадение SHA-256 с исходниками.
+Для остальных MODE файлы пока не загружены. Локальные копии сохранены для загрузки в другие окружения.
 
-Название и описание резолвятся под локаль через `pickLocalized(scenario.title, locale)` /
-`pickLocalized(scenario.description, locale)` (см. `getScenarioCardsConfig`). Переключателя языка больше нет —
-сценарий языконейтрален, подпись выбирается по текущей локали интерфейса (`useLocale()`).
+## Проверки
 
-Карточка сценария — это кнопка, а не ссылка: `MediaCardButton` вызывается без `url`, с `onActionClick`. Клик
-обрабатывается хуком `useAiDialogueScenarioClick` (см. `aiDocsRus/topics/aiDialogue/aiDialogue.md`), а модалка «войдите
-в учётную
-запись» вынесена в отдельный компонент `LoginPromptModal`.
+```bash
+cd server
+npm test -- --testPathPatterns='aiDialogueScenario'
+npm run build
+npx tsc --noEmit --incremental false
+```
 
-### URL страницы диалога
+Unit-тесты проверяют публичную выборку, порядок запросов, состав ответа, подписание, пустые данные,
+ошибки подписи, ключи окружений, состав/переводы сидов и создание пользовательского сценария без группы.
 
-`pageUrls.aiDialogues.dialog(dialogId)` ведёт на `/dialogues/{dialogId}` (id диалога, а не сценария). Используется в
-хуке `useAiDialogueScenarioClick` (после создания диалога) и в `UserAiDialoguesList`. Сама страница диалога — следующий
-шаг.
+`npm run test:ai-dialogue-scenario-groups` — отдельный интеграционный тест на настоящей PostgreSQL.
+Требует AI_DIALOGUE_SCENARIO_TEST_DB_URL на пустую локальную БД с точным именем
+`explainit_scenario_groups_test`; непустую или другую БД тест не использует.
+Он применяет историю миграций, вставляет четыре старых сценария и связанный диалог перед новой миграцией,
+проверяет перенос, реальные CHECK/FK, повторный сид, обновление данных и откат при конфликте частного slug.
+Затем проверяет реальную сортировку, исключение частных/пустых групп, HTTP/CQRS и OpenAPI.
+Nest-модуль запускается изолированно: R2/config подменены; AppModule, очереди, worker, LLM не запускаются.
 
-### pageUrls и меню
+Проверки серверного этапа после правок: build, TypeScript, 625 успешных unit-тестов (14 существующих пропущены),
+Prettier исходников и git diff --check проходят. Интеграционный тест успешно выполнен на отдельной
+PostgreSQL 16.2; одноразовый Docker-контейнер удалён после проверки.
 
-- В `pageUrls` добавлен `aiUserDialogues`: `name: 'Диалоги'`, `path: '/dialogues'`,
-  `dialog(dialogId)` → `/dialogues/{dialogId}`.
-- В главное меню (`MainMenu`) добавлен пункт «Сценарии» — между «Книги» и «Контакты».
+## Основные файлы
 
-## База данных
-
-### Таблица AiDialogueScenario
-
-| Поле            | Тип        | Описание                                                             |
-|-----------------|------------|----------------------------------------------------------------------|
-| `id`            | `Int`      | Первичный ключ (autoincrement)                                       |
-| `slug`          | `String?`  | Стабильный уникальный ключ (null для пользовательских сценариев)     |
-| `title`         | `String`   | Название сценария (JSON-строка переводов, см. `localized`)           |
-| `description`   | `String`   | Короткое описание сценки (JSON-строка переводов)                     |
-| `system_prompt` | `String`   | Системный промпт с ролью NPC (языконейтральный, не отдаётся клиенту) |
-| `user_id`       | `Int?`     | Владелец сценария (null для публичных)                               |
-| `created_at`    | `DateTime` | Дата создания                                                        |
-
-- `slug` имеет `@unique`.
-- `@@index([user_id])` для быстрого поиска по владельцу.
-- `user_id` → `User.id` с `onDelete: Cascade`.
-
-## Ключевые файлы
-
-### Схема БД
-
-- `server/src/db/dbConfig/dbConfig.ts` — таблица `AiDialogueScenario` + обратный `oneToMany` на `User`
-- `server/prisma/schema.prisma` — генерируется из `bdConfig` командой `npm run generatePrismaFile`
-
-### Сид и данные
-
-- `server/src/features/aiDialogueScenario/common.ts` — тип `AiDialogueScenarioSeedData` + хелпер `localized`
-- `server/src/features/aiDialogueScenario/english/scenarios.ts` — 4 сценария с переводами на 7 языков
-- `server/src/features/aiDialogueScenario/CreateAiDialogueScenarios.command.ts` — CQRS-команда идемпотентного сида
-
-### REST-маршрут
-
-- `server/src/features/aiDialogueScenario/GetAiDialogueScenarios.command.ts` — команда получения списка
-- `server/src/routes/aiDialogueScenario/aiDialogueScenario.controller.ts` — контроллер (`GET /ai-dialogue-scenario`)
-- `server/src/routes/aiDialogueScenario/openAPI.decorators.ts` — композитный декоратор `ApiGetAiDialogueScenarios`
-- `server/src/routes/aiDialogueScenario/aiDialogueScenario.module.ts` — NestJS-модуль
-
-### Репозитории и модели
-
-- `server/src/repo/aiDialogueScenario/aiDialogueScenario.repository.ts` — бизнес-операции (`createScenario`,
-  `getScenarioBySlug`)
-- `server/src/repo/aiDialogueScenario/aiDialogueScenario.queryRepository.ts` — запрос для клиента (`getPublicScenarios`
-  с маппингом в OutModel)
-- `server/src/models/aiDialogueScenario/aiDialogueScenario.out.model.ts` — OpenAPI OutModel (без `systemPrompt`)
-
-### Инфраструктура
-
-- `server/src/infrastructure/StartServerTasksRunner.ts` — запуск сида при старте сервера
-- `server/src/app.module.ts` — регистрация `AiDialogueScenarioModule`
-
-### Клиент
-
-- `face/app/[locale]/dialogues/page.tsx` — роут страницы.
-- `face/app/[locale]/dialogues/layout.tsx` — обёртка `MediaPageLayout`.
-- `face/_pages/media/aiDialogues/AiDialoguesPage/AiDialoguesPage.tsx` — страница с вкладками.
-- `face/_pages/media/aiDialogues/AiDialoguesPage/fn/useAiDialogueScenariosTabs.tsx` — сохранение вкладки.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList.tsx` — список публичных
-  сценариев.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioCardsConfig.ts` — маппинг сценариев в
-  карточки (резолвит `title`/`description` через `pickLocalized`).
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
-  (создание диалога + модалка логина).
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/LoginPromptModal/LoginPromptModal.tsx` — модалка
-  «войдите в учётную запись».
-- `face/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository.ts` — тип `AiDialogueScenarioModel` +
-  интерфейс репозитория.
-- `face/entities/aiDialogueScenario/repository/AiDialogueScenarioApi.ts` — реализация через REST + маппинг (в т.ч.
-  экспортирует `mapToAiDialogueScenario` для `AiDialogueApi`).
-- `face/shared/utils/pickLocalized.ts` — резолв JSON-строки переводов под локаль (`pickLocalized`).
-- `face/entities/aiDialogueScenario/AiDialogueScenarioService.ts` — сервис.
-- `face/entities/aiDialogueScenario/AiDialogueScenarioQueryFacade.ts` — TanStack Query фасад.
-- `face/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig.ts` — конфиг (`emptyScenarioName`).
-- `face/shared/utils/pageUrls.ts` — `pageUrls.aiDialogues`.
-- `face/shared/ui/pageRelated/MainMenu/MainMenu.tsx` — пункт «Сценарии».
-- `face/shared/api/generated/ai-dialogue-scenario/ai-dialogue-scenario.ts` — сгенерированная функция
-  `aiDialogueScenarioControllerGetAiDialogueScenarios`.
-
-## Как добавить новый сценарий или язык
-
-### Новый сценарий
-
-1. Добавить объект `AiDialogueScenarioSeedData` в `english/scenarios.ts` с уникальным `slug`, `title` и `description`
-   через `localized({...})` (переводы на все нужные языки) и языконейтральным `systemPrompt`.
-2. Если сценарий выносят в отдельный файл/массив — дописать его в `getScenariosData()` команды
-   `CreateAiDialogueScenarios.command.ts`.
-3. Перезапустить сервер — сид создаст новые сценарии автоматически (идемпотентно по `slug`).
-
-### Новый язык перевода
-
-1. Добавить переводы для нового языка в каждый вызов `localized({...})` (ключ — код языка из `Language`, например
-   `'pt'`). Отдельную папку сценариев создавать **не нужно** — сценарий языконейтрален.
-2. Убедиться, что новый язык есть в `Language`/`LanguageCode` (см. `utils/languages`).
-3. Учесть, что сид идемпотентен по `slug` и **не обновляет** уже существующие строки — новые переводы попадут в БД
-   только после удаления сценариев (или ручного обновления), см. «Сид при старте».
+- `server/src/db/dbConfig/dbConfig.ts` — структура БД и метаданные OpenAPI.
+- `server/src/features/aiDialogueScenario/` — сиды, генерация ключа и команды.
+- `server/src/repo/aiDialogueScenario/aiDialogueScenario.repository.ts` — бизнес-чтение, создание и синхронизация.
+- `server/src/repo/aiDialogueScenario/aiDialogueScenario.queryRepository.ts` — прежний маппинг сценария в ответ диалога.
+- `server/src/repo/aiDialogueScenarioGroup/aiDialogueScenarioGroup.queryRepository.ts` — список групп/карточек.
+- `server/src/models/aiDialogueScenarioGroup/aiDialogueScenarioGroup.out.model.ts` — новые OutModel.
+- `server/src/routes/aiDialogueScenarioGroup/` — контроллер, OpenAPI и Nest-модуль.
+- `server/test/aiDialogueScenarioGroups.integration.ts` — PostgreSQL/HTTP/OpenAPI-проверка.

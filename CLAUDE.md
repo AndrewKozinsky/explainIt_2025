@@ -23,7 +23,8 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/internationalization.md`            | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale                                                |
 | `aiDocsRus/topics/multiRegionDeployment.md`           | регионы, деплой, GitHub Actions, explainit.ru, immersia.site, серверы, CI/CD                                                   |
 | `aiDocsRus/topics/sentenceChat.md`                    | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread                                                                     |
-| `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`   | сценарий диалога, AiDialogueScenario, ai-dialogue-scenario, сценка с ИИ, NPC, сид сценариев, ролевая сценка                    |
+| `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`   | сценарий диалога, группы сценариев, AiDialogueScenarioGroup, AiDialogueScenario, ai-dialogue-scenario-group, ai-dialogue-scenario, обложки сценариев, сценка с ИИ, NPC, сид сценариев, ролевая сценка |
+| `aiDocsRus/topics/aiDialogue/aiDialogueScenarioCovers.md` | обложки общедоступных сценариев, файлы обложек, загрузка обложек сценариев в R2, префиксы обложек по MODE |
 | `aiDocsRus/topics/aiDialogue/aiDialogue.md`           | диалог, AiDialogue, ai-dialogue, история диалогов, создать диалог, удалить диалог, сообщения диалога                          |
 | `aiDocsRus/topics/aiDialogue/aiDialogueList.md` | Мои диалоги, список диалогов, история диалогов, карточки диалогов, пагинация диалогов, lastMessage, characters |
 | `aiDocsRus/topics/aiDialogue/aiDialoguePage.md`       | страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore   |

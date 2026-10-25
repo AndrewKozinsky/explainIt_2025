@@ -68,6 +68,7 @@ export const ModelName = {
   UniversalPhraseTranslation: 'UniversalPhraseTranslation',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
+  AiDialogueScenarioGroup: 'AiDialogueScenarioGroup',
   AiDialogueScenario: 'AiDialogueScenario',
   AiDialogue: 'AiDialogue',
   AiDialogueMessage: 'AiDialogueMessage',
@@ -343,12 +344,24 @@ export const SentenceChatMessageScalarFieldEnum = {
 export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
 
 
+export const AiDialogueScenarioGroupScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueScenarioGroupScalarFieldEnum = (typeof AiDialogueScenarioGroupScalarFieldEnum)[keyof typeof AiDialogueScenarioGroupScalarFieldEnum]
+
+
 export const AiDialogueScenarioScalarFieldEnum = {
   id: 'id',
   slug: 'slug',
   title: 'title',
   description: 'description',
   system_prompt: 'system_prompt',
+  group_id: 'group_id',
+  cover_s3_key: 'cover_s3_key',
   user_id: 'user_id',
   created_at: 'created_at'
 } as const

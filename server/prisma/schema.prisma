@@ -265,18 +265,32 @@ model SentenceChatMessage {
 	@@index([thread_id])
 }
 
+model AiDialogueScenarioGroup {
+	id                 Int                  @id @default(autoincrement())
+	slug               String               @unique
+	title              String
+	AiDialogueScenario AiDialogueScenario[]
+	created_at         DateTime             @default(now())
+
+	@@index([created_at, id])
+}
+
 model AiDialogueScenario {
-	id            Int          @id @default(autoincrement())
-	slug          String?      @unique
+	id            Int                      @id @default(autoincrement())
+	slug          String?                  @unique
 	title         String
 	description   String
 	system_prompt String
-	user          User?        @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	group         AiDialogueScenarioGroup? @relation(fields: [group_id], references: [id], onDelete: Restrict)
+	group_id      Int?
+	cover_s3_key  String?
+	user          User?                    @relation(fields: [user_id], references: [id], onDelete: Cascade)
 	user_id       Int?
 	AiDialogue    AiDialogue[]
-	created_at    DateTime     @default(now())
+	created_at    DateTime                 @default(now())
 
 	@@index([user_id])
+	@@index([group_id, created_at, id])
 }
 
 model AiDialogue {

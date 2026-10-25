@@ -1282,10 +1282,51 @@ export const bdConfig = {
 			},
 		},
 	},
+	// Группы только общедоступных сценариев. Пользовательские сценарии не группируются.
+	AiDialogueScenarioGroup: {
+		dtoProps: {},
+		indexes: [{ fields: ['created_at', 'id'] }],
+		dbFields: {
+			id: {
+				type: 'index',
+				description: 'Public AI dialogue scenario group ID',
+				example: 1,
+			},
+			slug: {
+				type: 'string',
+				required: true,
+				unique: true,
+				maxLength: 255,
+				description: 'Stable unique key of the public scenario group',
+				example: 'travel-abroad',
+			},
+			title: {
+				type: 'string',
+				required: true,
+				description: 'Group title as a JSON string of translations',
+				example: '{"en":"Travel abroad","ru":"Поездка за границу"}',
+			},
+			AiDialogueScenario: { type: 'oneToMany' },
+			created_at: { type: 'createdAt' },
+		},
+	},
 	// Сценарий диалога пользователя с ИИ (LLM играет роль NPC в сценке).
 	AiDialogueScenario: {
-		dtoProps: {},
-		indexes: [{ fields: ['user_id'] }],
+		dtoProps: {
+			publicSlug: {
+				type: 'string',
+				required: true,
+				description: 'Stable unique key of the public scenario',
+				example: 'passport-control',
+			},
+			coverUrl: {
+				type: 'string',
+				required: true,
+				description: 'Temporary signed URL of the public scenario cover in R2',
+				example: 'https://r2.example/passport-control.webp?signature=temporary',
+			},
+		},
+		indexes: [{ fields: ['user_id'] }, { fields: ['group_id', 'created_at', 'id'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -1319,6 +1360,23 @@ export const bdConfig = {
 				description: 'System prompt with the scene and the role of the NPC',
 				example: 'You are a friendly dentist named Dr. Collins...',
 				required: true,
+			},
+			group_id: {
+				type: 'manyToOne',
+				thisField: 'group_id',
+				relationField: 'group',
+				foreignTable: 'AiDialogueScenarioGroup',
+				foreignField: 'id',
+				onDelete: 'Restrict',
+				required: false,
+				description: 'Group ID: required for public scenarios, null for user scenarios (SQL CHECK)',
+				example: 1,
+			},
+			cover_s3_key: {
+				type: 'string',
+				required: false,
+				description: 'R2 object key; required for public scenarios, optional for user scenarios (SQL CHECK)',
+				example: 'ai-dialogue-public-scenarios/covers/localdev/passport-control.webp',
 			},
 			user_id: {
 				type: 'manyToOne',

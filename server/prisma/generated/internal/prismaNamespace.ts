@@ -414,6 +414,7 @@ export const ModelName = {
   UniversalPhraseTranslation: 'UniversalPhraseTranslation',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
+  AiDialogueScenarioGroup: 'AiDialogueScenarioGroup',
   AiDialogueScenario: 'AiDialogueScenario',
   AiDialogue: 'AiDialogue',
   AiDialogueMessage: 'AiDialogueMessage',
@@ -439,7 +440,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox" | "aiDialogueVoice" | "aiDialogueAudioAttempt" | "aiDialogueAudioJob"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenarioGroup" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox" | "aiDialogueVoice" | "aiDialogueAudioAttempt" | "aiDialogueAudioJob"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1701,6 +1702,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AiDialogueScenarioGroup: {
+      payload: Prisma.$AiDialogueScenarioGroupPayload<ExtArgs>
+      fields: Prisma.AiDialogueScenarioGroupFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AiDialogueScenarioGroupFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AiDialogueScenarioGroupFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>
+        }
+        findFirst: {
+          args: Prisma.AiDialogueScenarioGroupFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AiDialogueScenarioGroupFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>
+        }
+        findMany: {
+          args: Prisma.AiDialogueScenarioGroupFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>[]
+        }
+        create: {
+          args: Prisma.AiDialogueScenarioGroupCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>
+        }
+        createMany: {
+          args: Prisma.AiDialogueScenarioGroupCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AiDialogueScenarioGroupCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>[]
+        }
+        delete: {
+          args: Prisma.AiDialogueScenarioGroupDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>
+        }
+        update: {
+          args: Prisma.AiDialogueScenarioGroupUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>
+        }
+        deleteMany: {
+          args: Prisma.AiDialogueScenarioGroupDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AiDialogueScenarioGroupUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AiDialogueScenarioGroupUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>[]
+        }
+        upsert: {
+          args: Prisma.AiDialogueScenarioGroupUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueScenarioGroupPayload>
+        }
+        aggregate: {
+          args: Prisma.AiDialogueScenarioGroupAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueScenarioGroup>
+        }
+        groupBy: {
+          args: Prisma.AiDialogueScenarioGroupGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueScenarioGroupGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AiDialogueScenarioGroupCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueScenarioGroupCountAggregateOutputType> | number
+        }
+      }
+    }
     AiDialogueScenario: {
       payload: Prisma.$AiDialogueScenarioPayload<ExtArgs>
       fields: Prisma.AiDialogueScenarioFieldRefs
@@ -2727,12 +2802,24 @@ export const SentenceChatMessageScalarFieldEnum = {
 export type SentenceChatMessageScalarFieldEnum = (typeof SentenceChatMessageScalarFieldEnum)[keyof typeof SentenceChatMessageScalarFieldEnum]
 
 
+export const AiDialogueScenarioGroupScalarFieldEnum = {
+  id: 'id',
+  slug: 'slug',
+  title: 'title',
+  created_at: 'created_at'
+} as const
+
+export type AiDialogueScenarioGroupScalarFieldEnum = (typeof AiDialogueScenarioGroupScalarFieldEnum)[keyof typeof AiDialogueScenarioGroupScalarFieldEnum]
+
+
 export const AiDialogueScenarioScalarFieldEnum = {
   id: 'id',
   slug: 'slug',
   title: 'title',
   description: 'description',
   system_prompt: 'system_prompt',
+  group_id: 'group_id',
+  cover_s3_key: 'cover_s3_key',
   user_id: 'user_id',
   created_at: 'created_at'
 } as const
@@ -3445,6 +3532,7 @@ export type GlobalOmitConfig = {
   universalPhraseTranslation?: Prisma.UniversalPhraseTranslationOmit
   sentenceChatThread?: Prisma.SentenceChatThreadOmit
   sentenceChatMessage?: Prisma.SentenceChatMessageOmit
+  aiDialogueScenarioGroup?: Prisma.AiDialogueScenarioGroupOmit
   aiDialogueScenario?: Prisma.AiDialogueScenarioOmit
   aiDialogue?: Prisma.AiDialogueOmit
   aiDialogueMessage?: Prisma.AiDialogueMessageOmit

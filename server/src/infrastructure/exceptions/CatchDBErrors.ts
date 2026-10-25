@@ -2,18 +2,7 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { CustomError } from './customErrors'
 import { errorMessage } from './errorMessage'
 
-/**
- * Decorator for class method:
- * class ExampleService {
- *   @CatchDbError()
- *   async fetchData() {
- *     // Simulate an error
- *     throw new Error("Something went wrong!");
- *   }
- * }
- * It wraps decorated method into block try...catch and throws custom GraphQL error if some error happened
- * @constructor
- */
+/** Преобразует непредвиденные ошибки БД в UNKNOWN_DB_ERROR, сохраняя уже созданный CustomError и его код. */
 function CatchDbError() {
 	return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
 		const originalMethod = descriptor.value
@@ -22,6 +11,7 @@ function CatchDbError() {
 			try {
 				return await originalMethod.apply(this, args)
 			} catch (error: unknown) {
+				if (error instanceof CustomError) throw error
 				console.error('[CatchDbError] Original error:', error)
 				throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 			}

@@ -1,7 +1,13 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueScenarioSeedData } from './common'
-import { aiDialogueScenarios } from './english/scenarios'
+import { cityAndServicesScenarios } from './scenarios/cityAndServicesScenarios'
+import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
+import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
+import { travelScenarios } from './scenarios/travelScenarios'
+import { aiDialogueScenarioGroups } from './groups'
+import { getPublicScenarioCoverKey } from './publicScenarioCoverKey'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
 	constructor() {}
@@ -9,25 +15,28 @@ export class CreateAiDialogueScenariosCommand implements ICommand {
 
 @CommandHandler(CreateAiDialogueScenariosCommand)
 export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateAiDialogueScenariosCommand> {
-	constructor(private aiDialogueScenarioRepository: AiDialogueScenarioRepository) {}
+	constructor(
+		private aiDialogueScenarioRepository: AiDialogueScenarioRepository,
+		private mainConfig: MainConfigService,
+	) {}
 
 	async execute() {
-		for (const scenarioData of this.getScenariosData()) {
-			await this.getOrCreateScenario(scenarioData)
-		}
+		const { mode } = this.mainConfig.get()
+
+		const scenarios = this.getScenariosData().map((scenario) => ({
+			...scenario,
+			coverS3Key: getPublicScenarioCoverKey(mode, scenario.slug),
+		}))
+
+		await this.aiDialogueScenarioRepository.synchronizePublicScenarios(aiDialogueScenarioGroups, scenarios)
 	}
 
 	getScenariosData(): AiDialogueScenarioSeedData[] {
-		return [...aiDialogueScenarios]
-	}
-
-	async getOrCreateScenario(scenarioData: AiDialogueScenarioSeedData) {
-		const existingScenario = await this.aiDialogueScenarioRepository.getScenarioBySlug(scenarioData.slug)
-		if (existingScenario) {
-			return existingScenario.id
-		}
-
-		const newScenario = await this.aiDialogueScenarioRepository.createScenario(scenarioData)
-		return newScenario.id
+		return [
+			...travelScenarios,
+			...foodAndShoppingScenarios,
+			...cityAndServicesScenarios,
+			...homeAndEverydayLifeScenarios,
+		]
 	}
 }

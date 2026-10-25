@@ -39,13 +39,18 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 		inputStatus === FileDropzoneStatus.FILE_SELECTED || inputStatus === FileDropzoneStatus.FILE_UPLOADING
 
 	async function uploadFile(file: File) {
-		if (params.onUploadFile) return params.onUploadFile(file)
+		if (params.onUploadFile) {
+			return params.onUploadFile(file)
+		}
+
 		const uploadUrl = await params.onGetUploadUrl(file)
 		if (!uploadUrl) throw new Error('Не удалось получить ссылку для загрузки')
+
 		await uploadBySignedUrl(uploadUrl, file, function (loaded, total) {
 			setUploadedBytes(loaded)
 			setTotalBytes(total)
 		})
+
 		await params.onUploadComplete()
 	}
 
@@ -69,6 +74,7 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 			setUploadedBytes(0)
 			setTotalBytes(files[0].size)
 			setInputStatus(FileDropzoneStatus.FILE_UPLOADING)
+
 			try {
 				await uploadFile(files[0])
 			} catch (error) {
