@@ -5,31 +5,44 @@
 	display: flex;
 	flex-direction: column;
 	gap: .6rem;
+	min-width: 0;
 
 	@include mix.container-width(50rem) {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		grid-template-areas: 'scene summary' 'scene characters' 'scene actions';
-		grid-template-rows: auto auto 1fr;
-		column-gap: 20px;
-		align-items: start;
+		flex-direction: row;
+		align-items: stretch;
+		gap: 20px;
 	}
 
 	@include mix.container-width(90rem) {
-		display: grid;
 		align-items: center;
-		grid-template-columns: 260px 240px minmax(0, 1fr) 125px;
-		grid-template-areas: 'scene summary message delete reply' 'scene characters message delete reply';
-		grid-template-rows: 1fr auto;
-		column-gap: 20px;
+	}
+}
+
+.large-dialogue-card__info {
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
+	min-width: 0;
+
+	@include mix.container-width(50rem) {
+		flex: 1;
+	}
+
+	@include mix.container-width(90rem) {
+		flex-direction: row;
+		align-items: center;
+		gap: 20px;
 	}
 }
 
 .large-dialogue-card__summary {
 	min-width: 0;
-	grid-area: summary;
 	display: flex;
 	flex-direction: column;
+
+	@include mix.container-width(90rem) {
+		flex: 0 0 240px;
+	}
 }
 
 .large-dialogue-card__label {
@@ -49,12 +62,20 @@
 }
 
 .large-dialogue-card__characters {
-	grid-area: characters;
+	margin-top: .6rem;
 	min-width: 0;
 }
 
 .large-dialogue-card__scene {
-	grid-area: scene;
+	min-width: 0;
+
+	@include mix.container-width(50rem) {
+		flex: 0 0 calc((100% - 20px) / 2);
+	}
+
+	@include mix.container-width(90rem) {
+		flex-basis: 260px;
+	}
 
 	img {
 		max-width: 32rem;
@@ -66,28 +87,26 @@
 }
 
 .large-dialogue-card__message {
-	grid-area: message;
 	display: none;
+	min-width: 0;
 
 	@include mix.container-width(90rem) {
 		display: block;
+		flex: 1;
 	}
 }
 
 .large-dialogue-card__actions {
-	grid-area: actions;
 	min-width: 0;
 
 	@include mix.container-width(50rem) {
-		justify-self: end;
-		align-self: end;
+		align-self: flex-end;
+		margin-top: auto;
 	}
 
 	@include mix.container-width(90rem) {
-		justify-self: stretch;
+		flex: 0 0 auto;
 		align-self: center;
-		grid-area: auto;
-		grid-column: delete-start / reply-end;
-		grid-row: 1 / -1;
+		margin-top: 0;
 	}
 }
