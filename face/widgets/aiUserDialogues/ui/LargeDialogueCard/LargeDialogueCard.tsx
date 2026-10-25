@@ -19,9 +19,9 @@ export default function LargeDialogueCard({ dialogue, locale, onDelete }: Dialog
 				<p className='large-dialogue-card__label'>Последний диалог</p>
 				<h4 className='large-dialogue-card__title'>{title}</h4>
 				<DialogueMeta dialogue={dialogue} locale={locale} />
-				<div className='large-dialogue-card__characters'>
-					<DialogueCharacters characters={dialogue.characters} size='small' maxVisible={8} />
-				</div>
+			</div>
+			<div className='large-dialogue-card__characters'>
+				<DialogueCharacters characters={dialogue.characters} size='small' maxVisible={8} />
 			</div>
 			<div className='large-dialogue-card__message'>
 				<DialogueLastMessage message={dialogue.lastMessage} />

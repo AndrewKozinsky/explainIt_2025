@@ -5,16 +5,27 @@
 	flex-direction: column;
 	gap: .6rem;
 
+	@include mix.container-width(500px) {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-areas: 'scene summary' 'scene characters' 'scene actions';
+		grid-template-rows: auto auto 1fr;
+		column-gap: 20px;
+		align-items: start;
+	}
+
 	@include mix.container-width(1000px) {
 		display: grid;
 		grid-template-columns: 120px 230px 100px minmax(0, 1fr) 32px 125px;
 		grid-template-areas: 'scene summary characters message delete reply';
+		grid-template-rows: auto;
 		column-gap: 12px;
 		align-items: center;
 	}
 }
 
 .medium-dialogue-card__summary {
+	min-width: 0;
 	grid-area: summary;
 }
 
@@ -33,6 +44,10 @@
 
 	img {
 		max-width: 32rem;
+
+		@include mix.container-width(500px) {
+			max-width: none;
+		}
 	}
 }
 
@@ -46,10 +61,22 @@
 }
 
 .medium-dialogue-card__actions {
-	grid-column: delete-start / reply-end;
-	grid-row: 1 / -1;
+	grid-area: actions;
+	min-width: 0;
+
+	@include mix.container-width(500px) {
+		justify-self: end;
+	}
+
+	@include mix.container-width(1000px) {
+		justify-self: stretch;
+		grid-area: auto;
+		grid-column: delete-start / reply-end;
+		grid-row: 1 / -1;
+	}
 }
 
 .medium-dialogue-card__characters {
+	min-width: 0;
 	grid-area: characters;
 }
