@@ -14,7 +14,7 @@ export default function LargeDialogueCard({ dialogue, locale, onDelete }: Dialog
 	return (
 		<article className='large-dialogue-card'>
 			<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
-			<div className='ai-dialogue-card__summary'>
+			<div className='large-dialogue-card__summary'>
 				<p className='large-dialogue-card__label'>Последний диалог</p>
 				<DialogueTitle title={title} />
 				<DialogueMeta dialogue={dialogue} locale={locale} />

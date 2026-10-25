@@ -14,7 +14,7 @@ export default function MediumDialogueCard({ dialogue, locale, onDelete }: Dialo
 	return (
 		<article className='medium-dialogue-card'>
 			<DialogueSceneImage url={dialogue.sceneImage?.url} title={title} />
-			<div className='ai-dialogue-card__summary'>
+			<div className='medium-dialogue-card__summary'>
 				<DialogueTitle title={title} />
 				<DialogueMeta dialogue={dialogue} locale={locale} />
 			</div>

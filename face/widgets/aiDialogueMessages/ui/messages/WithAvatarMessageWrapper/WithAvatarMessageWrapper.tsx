@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react'
+import cn from 'classnames'
+import DotSeparator from '@/shared/ui/DotSeparator/DotSeparator'
 import '../PendingAnswerMessage/PendingAnswerMessage.scss'
 import './WithAvatarMessageWrapper.scss'
-import cn from 'classnames'
 
 type WithAvatarMessageWrapperProps = {
 	avatar: ReactNode
@@ -22,7 +23,7 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 					<span className='ai-dialogue-message-with-avatar__name'>{name}</span>
 					{role && (
 						<>
-							<span className='ai-dialogue-message-with-avatar__circle' />
+							<DotSeparator />
 							<span className='ai-dialogue-message-with-avatar__role'>{role}</span>
 						</>
 					)}

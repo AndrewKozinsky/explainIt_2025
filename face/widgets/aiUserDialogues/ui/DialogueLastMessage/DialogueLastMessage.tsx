@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
-
+import DotSeparator from '@/shared/ui/DotSeparator/DotSeparator'
 import './DialogueLastMessage.scss'
 
 export default function DialogueLastMessage({ message }: { message: AiDialogueListItemModel['lastMessage'] }) {
@@ -12,6 +12,7 @@ export default function DialogueLastMessage({ message }: { message: AiDialogueLi
 		<div className='ai-dialogue-card__message'>
 			<p className='ai-dialogue-card__speaker'>
 				{message.name || 'Персонаж'}
+				<DotSeparator />
 				{message.role && <span>{message.role}</span>}
 			</p>
 			<p
