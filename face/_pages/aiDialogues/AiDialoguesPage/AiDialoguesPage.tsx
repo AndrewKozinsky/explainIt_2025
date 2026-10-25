@@ -1,7 +1,5 @@
 'use client'
 
-import { useQuery } from '@tanstack/react-query'
-import { aiDialogueScenarioQueries } from '@/entities/aiDialogueScenario/AiDialogueScenarioQueryFacade'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import Header from '@/shared/ui/Header/Header'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
@@ -12,8 +10,6 @@ import UserAiDialoguesList from '@/widgets/aiUserDialogues/ui/UserAiDialoguesLis
 import './AiDialoguesPage.scss'
 
 export default function AiDialoguesPage() {
-	const { data: scenarios } = useQuery(aiDialogueScenarioQueries.getAiDialogueScenarios())
-
 	const user = useUser()
 
 	return (
@@ -21,8 +17,10 @@ export default function AiDialoguesPage() {
 			<div className='ai-dialogues-page'>
 				{user && <MyDialogues userId={user.id} />}
 				<div className='ai-dialogues-page__part'>
-					<Header hTag={3}>Сценарии</Header>
-					<PublicAiDialogueScenariosList scenarios={scenarios ?? []} />
+					<Header hTag={2} hStyle={3}>
+						Сценарии диалогов
+					</Header>
+					<PublicAiDialogueScenariosList />
 				</div>
 			</div>
 		</MediaPageContentWrapper>

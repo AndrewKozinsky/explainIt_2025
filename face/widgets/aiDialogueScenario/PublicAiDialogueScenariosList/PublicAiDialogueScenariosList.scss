@@ -1,5 +1,12 @@
 .public-ai-dialogue-scenarios-list {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 2.4rem;
+}
+
+.public-ai-dialogue-scenarios-list__error {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
 }

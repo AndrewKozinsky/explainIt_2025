@@ -5,7 +5,7 @@ import { defineConfig } from '@playwright/test'
 export default defineConfig({
 	testDir: './tests/browser',
 	outputDir: join(tmpdir(), 'explainit-ai-dialogues-playwright'),
-	testMatch: 'aiDialogueList.spec.ts',
+	testMatch: ['aiDialogueList.spec.ts', 'aiDialogueScenarios.spec.ts'],
 	workers: 1,
 	use: {
 		baseURL: 'http://127.0.0.1:4179',

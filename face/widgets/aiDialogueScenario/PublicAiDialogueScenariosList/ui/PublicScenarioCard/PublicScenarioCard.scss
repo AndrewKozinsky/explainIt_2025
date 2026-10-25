@@ -1,0 +1,27 @@
+@use '@/styles/variables' as vars;
+
+.public-scenario-card {
+	min-width: 0;
+	box-sizing: border-box;
+	text-align: left;
+	background-color: white;
+	overflow-wrap: anywhere;
+
+	.media-card-button__cover {
+		aspect-ratio: 2 / 1;
+		background-color: vars.$grayColor-1;
+	}
+
+	&:disabled {
+		opacity: 0.7;
+	}
+}
+
+.public-scenario-card__pending {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(white, 0.6);
+}

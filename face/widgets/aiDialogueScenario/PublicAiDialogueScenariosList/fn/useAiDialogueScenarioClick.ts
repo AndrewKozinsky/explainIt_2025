@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useContext, useState } from 'react'
+import { useCallback, useContext, useRef, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { useLocale } from 'next-intl'
 import { aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
@@ -25,6 +25,8 @@ export function useAiDialogueScenarioClick() {
 	const { notify } = useContext(NotificationContext)
 	const queryClient = useQueryClient()
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+	const [creatingScenarioId, setCreatingScenarioId] = useState<number | null>(null)
+	const isCreating = useRef(false)
 
 	const closeLoginModal = useCallback(function () {
 		setIsLoginModalOpen(false)
@@ -32,32 +34,41 @@ export function useAiDialogueScenarioClick() {
 
 	const onScenarioClick = useCallback(
 		async function (scenarioId: number) {
+			if (isCreating.current) return
+
 			if (!user) {
 				setIsLoginModalOpen(true)
 				return
 			}
 
-			// TODO: временно передаём английский как язык практики — позже дадим пользователю выбор.
-			const result = await aiDialogueService.createDialogue({
-				scenarioId,
-				sourceLanguageCode: 'en',
-				targetLanguageCode: locale as LanguageCode,
-			})
+			isCreating.current = true
+			setCreatingScenarioId(scenarioId)
+			try {
+				// TODO: временно передаём английский как язык практики — позже дадим пользователю выбор.
+				const result = await aiDialogueService.createDialogue({
+					scenarioId,
+					sourceLanguageCode: 'en',
+					targetLanguageCode: locale as LanguageCode,
+				})
 
-			if (result.error) {
-				notify({ type: 'error', message: result.error })
-				return
-			}
+				if (result.error) {
+					notify({ type: 'error', message: result.error })
+					return
+				}
 
-			if (result.errors && result.errors.length > 0) {
-				const text = result.errors.map((e) => `${e.field}: ${e.messages.join(', ')}`).join('; ')
-				notify({ type: 'error', message: text })
-				return
-			}
+				if (result.errors && result.errors.length > 0) {
+					const text = result.errors.map((e) => `${e.field}: ${e.messages.join(', ')}`).join('; ')
+					notify({ type: 'error', message: text })
+					return
+				}
 
-			if (result.data) {
-				queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
-				router.push(pageUrls.aiDialogues.dialog(result.data.id).path)
+				if (result.data) {
+					await queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
+					router.push(pageUrls.aiDialogues.dialog(result.data.id).path)
+				}
+			} finally {
+				isCreating.current = false
+				setCreatingScenarioId(null)
 			}
 		},
 		[user, locale, notify, queryClient, router],
@@ -79,5 +90,5 @@ export function useAiDialogueScenarioClick() {
 		[closeLoginModal, router],
 	)
 
-	return { onScenarioClick, isLoginModalOpen, closeLoginModal, onLoginClick, onRegisterClick }
+	return { onScenarioClick, creatingScenarioId, isLoginModalOpen, closeLoginModal, onLoginClick, onRegisterClick }
 }

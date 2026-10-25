@@ -1,0 +1,41 @@
+@use '@/styles/variables' as vars;
+
+.public-scenario-group {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	min-width: 0;
+}
+
+.public-scenario-group__heading {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	font-size: 2.6rem;
+	line-height: 3.2rem;
+	font-weight: 600;
+}
+
+.public-scenario-group__count {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+	min-width: 2.6rem;
+	height: 2.6rem;
+	box-sizing: border-box;
+	padding-inline: 0.5rem;
+	border: 1px solid vars.$grayColor-3;
+	border-radius: 50%;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 300;
+	color: vars.$grayColor-5;
+}
+
+.public-scenario-group__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(min(100%, 28rem), 1fr));
+	align-items: start;
+	gap: 2rem;
+}

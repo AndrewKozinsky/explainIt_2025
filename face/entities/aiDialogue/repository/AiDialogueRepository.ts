@@ -2,7 +2,7 @@
  * Унифицированный тип диалога с ИИ.
  * Компоненты работают только с этим типом — он не зависит от API.
  */
-import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioRepository'
+import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/AiDialogueScenarioModel'
 import type { AiDialogueVisualsOutModel } from '@/shared/api/generated/models'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'

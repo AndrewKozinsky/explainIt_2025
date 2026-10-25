@@ -1,4 +1,4 @@
-import { mapToAiDialogueScenario } from '@/entities/aiDialogueScenario/repository/AiDialogueScenarioApi'
+import { mapToAiDialogueScenario } from '@/entities/aiDialogueScenario/repository/mapToAiDialogueScenario'
 import {
 	aiDialogueControllerCheckAiDialogueUserMessageText,
 	aiDialogueControllerCreateAiDialogue,
@@ -20,6 +20,11 @@ import { extractString } from '@/shared/utils/extractors'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
+import type {
+	AiDialogueClientEvent,
+	AiDialogueEvent,
+	DialogueServerMessage,
+} from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { mapToAiDialoguesPage } from './mapToAiDialoguesPage'
 import type {
 	AiDialogueModel,
@@ -28,11 +33,6 @@ import type {
 	CreateAiDialogueInput,
 	UpdateAiDialogueInput,
 } from './AiDialogueRepository'
-import type {
-	AiDialogueClientEvent,
-	AiDialogueEvent,
-	DialogueServerMessage,
-} from '../../../widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'

@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+import cn from 'classnames'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import './MediaCardButton.scss'
 
@@ -12,6 +14,11 @@ type MediaCardProps = {
 	defaultMediaName: string
 	size?: 'small' | 'medium'
 	onClick?: () => void
+	disabled?: boolean
+	extraClass?: string
+	'aria-label'?: string
+	/** Содержимое поверх обложки, например индикатор выполнения действия. */
+	coverOverlay?: ReactNode
 }
 
 function MediaCardButton(props: MediaCardProps) {
@@ -26,14 +33,20 @@ function MediaCardButton(props: MediaCardProps) {
 		defaultMediaName,
 		size = 'medium',
 		onClick,
+		disabled,
+		extraClass,
+		'aria-label': ariaLabel,
+		coverOverlay,
 	} = props
 
 	return (
 		<BaseButton
 			href={url ?? undefined}
 			onClick={onClick}
-			extraClass={`media-card-button media-card-button--${size}`}
+			extraClass={cn('media-card-button', `media-card-button--${size}`, extraClass)}
 			theme='outline'
+			disabled={disabled}
+			aria-label={ariaLabel}
 		>
 			<div className='media-card-button__cover' style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}>
 				<div className='media-card-button__cover-shelf'>
@@ -52,6 +65,7 @@ function MediaCardButton(props: MediaCardProps) {
 						</span>
 					)}
 				</div>
+				{coverOverlay}
 			</div>
 			<div className='media-card-button__text-wrapper'>
 				{<p className='media-card-button__title'>{title ?? defaultMediaName}</p>}
