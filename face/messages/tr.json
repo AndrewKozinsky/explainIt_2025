@@ -4,6 +4,13 @@
       "realism": "Gerçekçilik",
       "drawing": "Çizim",
       "watercolor": "Suluboya"
+    },
+    "illustrationStyleSelector": {
+      "label": "Görsel stili",
+      "loading": "Stiller yükleniyor…",
+      "error": "Stiller yüklenemedi.",
+      "empty": "Kullanılabilir stil yok.",
+      "retry": "Tekrar dene"
     }
   }
 }

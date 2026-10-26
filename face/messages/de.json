@@ -4,6 +4,13 @@
       "realism": "Realismus",
       "drawing": "Zeichnung",
       "watercolor": "Aquarell"
+    },
+    "illustrationStyleSelector": {
+      "label": "Illustrationsstil",
+      "loading": "Stile werden geladen…",
+      "error": "Stile konnten nicht geladen werden.",
+      "empty": "Keine Stile verfügbar.",
+      "retry": "Erneut versuchen"
     }
   }
 }

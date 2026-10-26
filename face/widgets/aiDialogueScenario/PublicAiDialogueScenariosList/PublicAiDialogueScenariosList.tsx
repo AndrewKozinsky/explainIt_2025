@@ -14,6 +14,7 @@ import './PublicAiDialogueScenariosList.scss'
 export default function PublicAiDialogueScenariosList() {
 	const locale = useLocale()
 	const query = useQuery(aiDialogueScenarioGroupQueries.getAiDialogueScenarioGroups())
+
 	const {
 		onScenarioClick,
 		selectedScenarioId,

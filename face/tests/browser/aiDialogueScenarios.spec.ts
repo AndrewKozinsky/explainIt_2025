@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import { expect, type Page, test } from '@playwright/test'
 
 const titles = [
@@ -32,16 +33,70 @@ function scenarios(start: number, end: number) {
 
 async function setup(
 	page: Page,
-	options: { authenticated?: boolean; fail?: boolean; empty?: boolean; brokenCover?: boolean } = {},
+	options: {
+		authenticated?: boolean
+		fail?: boolean
+		empty?: boolean
+		brokenCover?: boolean
+		failStyles?: boolean
+		emptyStyles?: boolean
+		extraStyle?: boolean
+		brokenStyle?: boolean
+		styleExpiry?: string
+		locale?: string
+		defaultStyleId?: string
+	} = {},
 ) {
 	let fail = options.fail
 	let requests = 0
 	let coverRequests = 0
+	let styleRequests = 0
+	let failStyles = options.failStyles
 	let releaseCreation: (() => void) | undefined
 	let failCreation = false
 	const posts: unknown[] = []
 	const errors: string[] = []
+
 	page.on('pageerror', (error) => errors.push(error.message))
+
+	await page.route('**/test-style-*.webp*', (route) => {
+		if (options.brokenStyle) return route.abort()
+		const requestedStyle = /test-style-([a-z]+)\.webp/.exec(route.request().url())![1]
+		const imageName = requestedStyle === 'pastel' ? 'drawing' : requestedStyle
+
+		if (process.env.AI_DIALOGUE_STYLE_PREVIEW_DIR) {
+			return route.fulfill({
+				path: resolve(process.env.AI_DIALOGUE_STYLE_PREVIEW_DIR, `${imageName}.png`),
+				contentType: 'image/png',
+			})
+		}
+
+		return route.fulfill({
+			contentType: 'image/svg+xml',
+			body: `<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect width="512" height="512" fill="${imageName === 'realism' ? '#a6b7b4' : imageName === 'drawing' ? '#c8aa8b' : '#d5c8c4'}"/><circle cx="150" cy="160" r="65" fill="#b97e58"/><circle cx="365" cy="160" r="65" fill="#d5ac86"/><path d="M50 400V280Q150 210 250 280V400" fill="#aa5733"/><path d="M265 400V280Q365 210 465 280V400" fill="#47678b"/><rect y="390" width="512" height="122" fill="#9b7555"/></svg>`,
+		})
+	})
+	await page.route('**/api/ai-dialogue/illustration-styles', (route) => {
+		styleRequests++
+		if (failStyles) {
+			failStyles = false
+			return route.fulfill({ status: 500, json: { message: 'Unavailable' } })
+		}
+		const ids = options.emptyStyles
+			? []
+			: ['realism', 'drawing', 'watercolor', ...(options.extraStyle ? ['pastel'] : [])]
+		return route.fulfill({
+			json: {
+				defaultStyleId: options.defaultStyleId ?? 'realism',
+				urlsExpireAt: styleRequests === 1 && options.styleExpiry ? options.styleExpiry : '2099-01-01T00:00:00Z',
+				styles: ids.map((id) => ({
+					id,
+					titleKey: `aiDialogue.illustrationStyles.${id}`,
+					previewUrl: `/test-style-${id}.webp?revision=${styleRequests}`,
+				})),
+			},
+		})
+	})
 
 	await page.route('**/test-cover.svg', (route) => {
 		coverRequests++
@@ -72,6 +127,7 @@ async function setup(
 				messages: [],
 				sourceLanguageCode: 'en',
 				targetLanguageCode: 'ru',
+				illustrationStyleId: route.request().postDataJSON().illustrationStyleId,
 				createdAt: '2026-10-25T00:00:00Z',
 				updatedAt: '2026-10-25T00:00:00Z',
 			},
@@ -82,12 +138,15 @@ async function setup(
 			json: { page: 1, pageSize: 10, total: 0, totalPages: 0, urlsExpireAt: '2099-01-01T00:00:00Z', items: [] },
 		}),
 	)
-	await page.goto(`/?scenarios${options.authenticated ? '&authenticated' : ''}`)
+	await page.goto(
+		`/?scenarios${options.authenticated ? '&authenticated' : ''}${options.locale ? `&locale=${options.locale}` : ''}`,
+	)
 	return {
 		posts,
 		errors,
 		requests: () => requests,
 		coverRequests: () => coverRequests,
+		styleRequests: () => styleRequests,
 		finishCreation: (failed = false) => {
 			failCreation = failed
 			releaseCreation?.()
@@ -122,6 +181,13 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveJSProperty('naturalWidth', 1152)
 	await expect(page.locator('.modal .switcher--size-medium')).toBeVisible()
 	await expect(page.locator('.modal .label-with-field__description')).toHaveText('Можно изменить во время разговора')
+	await expect(page.getByRole('radio', { name: 'Реализм', exact: true })).toBeChecked()
+	await expect(page.getByRole('radio')).toHaveCount(3)
+	const previews = page.locator('.illustration-style-switcher__preview')
+	for (const preview of await previews.all()) {
+		const box = (await preview.boundingBox())!
+		expect(box.width).toBeCloseTo(box.height)
+	}
 	await page
 		.locator('.start-dialogue-modal')
 		.screenshot({ path: testInfo.outputPath('scenario-start-modal-desktop.png') })
@@ -155,10 +221,15 @@ test('mobile cards stay within the viewport and keep their cover slot after imag
 	expect(cover.width / cover.height).toBeCloseTo(2)
 	await page.screenshot({ path: testInfo.outputPath('scenario-groups-mobile.png'), fullPage: true })
 	await cards.first().click()
+	await expect(page.getByRole('radio')).toHaveCount(3)
 	await expect(page.getByRole('button', { name: /Начать диалог$/ })).toBeVisible()
 	const modal = (await page.locator('.start-dialogue-modal').boundingBox())!
 	expect(modal.x).toBeGreaterThanOrEqual(0)
 	expect(modal.x + modal.width).toBeLessThanOrEqual(390)
+	for (const preview of await page.locator('.illustration-style-switcher__preview').all()) {
+		const box = (await preview.boundingBox())!
+		expect(box.width).toBeCloseTo(box.height)
+	}
 	await page
 		.locator('.start-dialogue-modal')
 		.screenshot({ path: testInfo.outputPath('scenario-start-modal-mobile.png') })
@@ -202,7 +273,15 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 	await expect(page.getByRole('status', { name: 'Создаю диалог' })).toBeVisible()
 
 	for (const button of await page.locator('.public-scenario-card').all()) await expect(button).toBeDisabled()
-	expect(h.posts).toEqual([{ scenarioId: 1, sourceLanguageCode: 'fr', targetLanguageCode: 'ru', maxCefrLevel: 'B1' }])
+	expect(h.posts).toEqual([
+		{
+			scenarioId: 1,
+			sourceLanguageCode: 'fr',
+			targetLanguageCode: 'ru',
+			maxCefrLevel: 'B1',
+			illustrationStyleId: 'realism',
+		},
+	])
 	h.finishCreation(true)
 	await expect(page.getByRole('alert')).toBeVisible()
 	await expect(card).toBeEnabled()
@@ -250,8 +329,117 @@ test('language and level persist independently of video filters; Any persists an
 	expect(await page.evaluate(() => localStorage.getItem('lastVideoProficiency'))).toBe('C1')
 	await page.getByRole('button', { name: /Начать диалог$/ }).click()
 	await expect.poll(() => h.posts.length).toBe(1)
-	expect(h.posts).toEqual([{ scenarioId: 1, sourceLanguageCode: 'de', targetLanguageCode: 'ru', maxCefrLevel: null }])
+	expect(h.posts).toEqual([
+		{
+			scenarioId: 1,
+			sourceLanguageCode: 'de',
+			targetLanguageCode: 'ru',
+			maxCefrLevel: null,
+			illustrationStyleId: 'realism',
+		},
+	])
 	h.finishCreation()
 	await expect(page).toHaveURL(/\/ru\/dialogues\/42$/)
+	expect(h.errors).toEqual([])
+})
+
+test('style selection supports keyboard input, persists across reloads and sends a fourth server style', async ({
+	page,
+}) => {
+	const h = await setup(page, { authenticated: true, extraStyle: true })
+	const card = page.getByRole('button', { name: titles[0], exact: true })
+	await card.click()
+	const realism = page.getByRole('radio', { name: 'Реализм', exact: true })
+	await expect(realism).toBeChecked()
+	await expect(page.getByRole('radio')).toHaveCount(4)
+	await realism.focus()
+	await page.keyboard.press('ArrowRight')
+	await expect(page.getByRole('radio', { name: 'Рисунок', exact: true })).toBeChecked()
+	await page.keyboard.press('ArrowRight')
+	await expect(page.getByRole('radio', { name: 'Акварель', exact: true })).toBeChecked()
+	expect(await page.evaluate(() => localStorage.getItem('lastAiDialogueIllustrationStyle'))).toBe('watercolor')
+	await page.locator('.modal__close-button').click()
+	await card.click()
+	await expect(page.getByRole('radio', { name: 'Акварель', exact: true })).toBeChecked()
+	await page.reload()
+	await card.click()
+	await expect(page.getByRole('radio', { name: 'Акварель', exact: true })).toBeChecked()
+	await page.getByText('pastel', { exact: true }).click()
+	await page.getByRole('button', { name: /Начать диалог$/ }).click()
+	await expect.poll(() => h.posts.length).toBe(1)
+	expect(h.posts[0]).toMatchObject({ illustrationStyleId: 'pastel' })
+	for (const radio of await page.getByRole('radio').all()) await expect(radio).toBeDisabled()
+	h.finishCreation()
+	await expect(page).toHaveURL(/\/ru\/dialogues\/42$/)
+	expect(h.errors).toEqual([])
+})
+
+test('an unavailable saved style falls back to the server default without overwriting storage', async ({ page }) => {
+	const h = await setup(page, { defaultStyleId: 'drawing' })
+	await page.evaluate(() => localStorage.setItem('lastAiDialogueIllustrationStyle', 'removed-style'))
+	await page.getByRole('button', { name: titles[0], exact: true }).click()
+	await expect(page.getByRole('radio', { name: 'Рисунок', exact: true })).toBeChecked()
+	expect(await page.evaluate(() => localStorage.getItem('lastAiDialogueIllustrationStyle'))).toBe('removed-style')
+	expect(h.errors).toEqual([])
+})
+
+test('a failed catalog can be retried and creation waits for a valid style', async ({ page }) => {
+	const h = await setup(page, { failStyles: true })
+	await page.getByRole('button', { name: titles[0], exact: true }).click()
+	await expect(page.getByText('Не удалось загрузить стили.', { exact: true })).toBeVisible()
+	const start = page.getByRole('button', { name: /Начать диалог$/ })
+	await expect(start).toBeDisabled()
+	await page.getByRole('button', { name: 'Повторить', exact: true }).click()
+	await expect(page.getByRole('radio', { name: 'Реализм', exact: true })).toBeChecked()
+	await expect(start).toBeEnabled()
+	expect(h.posts).toHaveLength(0)
+	expect(h.errors).toEqual([])
+})
+
+test('an empty style catalog keeps creation disabled', async ({ page }) => {
+	const h = await setup(page, { emptyStyles: true })
+	await page.getByRole('button', { name: titles[0], exact: true }).click()
+	await expect(page.getByText('Нет доступных стилей.', { exact: true })).toBeVisible()
+	await expect(page.getByRole('button', { name: /Начать диалог$/ })).toBeDisabled()
+	expect(h.posts).toHaveLength(0)
+})
+
+test('broken previews preserve square slots and allow choosing a style by its label', async ({ page }) => {
+	const h = await setup(page, { brokenStyle: true, authenticated: true })
+	await page.getByRole('button', { name: titles[0], exact: true }).click()
+	await expect(page.getByRole('radio')).toHaveCount(3)
+	await expect(page.locator('.illustration-style-switcher__preview img')).toHaveCount(0)
+	await page.getByText('Рисунок', { exact: true }).click()
+	await page.getByRole('button', { name: /Начать диалог$/ }).click()
+	await expect.poll(() => h.posts.length).toBe(1)
+	expect(h.posts[0]).toMatchObject({ illustrationStyleId: 'drawing' })
+	h.finishCreation()
+	await expect(page).toHaveURL(/\/ru\/dialogues\/42$/)
+	expect(h.errors).toEqual([])
+})
+
+test('preview URL renewal preserves the choice without creating a dialogue', async ({ page }) => {
+	const now = new Date()
+	await page.clock.install({ time: now })
+	const h = await setup(page, { styleExpiry: new Date(now.getTime() + 70_000).toISOString() })
+	await page.getByRole('button', { name: titles[0], exact: true }).click()
+	await expect(page.getByRole('radio')).toHaveCount(3)
+	await page.getByText('Акварель', { exact: true }).click()
+	await expect(page.locator('.illustration-style-switcher__preview img').first()).toHaveAttribute('src', /revision=1/)
+	await page.clock.fastForward(12_000)
+	await expect.poll(h.styleRequests).toBe(2)
+	await expect(page.locator('.illustration-style-switcher__preview img').first()).toHaveAttribute('src', /revision=2/)
+	await expect(page.getByRole('radio', { name: 'Акварель', exact: true })).toBeChecked()
+	expect(h.posts).toHaveLength(0)
+	expect(h.errors).toEqual([])
+})
+
+test('style titles and the selector label are translated on the client', async ({ page }) => {
+	const h = await setup(page, { locale: 'en' })
+	await page.locator('.public-scenario-card').first().click()
+	await expect(page.getByRole('radiogroup', { name: 'Illustration style' })).toBeVisible()
+	await expect(page.getByRole('radio')).toHaveCount(3)
+	await expect(page.getByRole('radio', { name: 'Realism', exact: true })).toBeChecked()
+	await expect(page.getByRole('radio', { name: 'Watercolor', exact: true })).toBeVisible()
 	expect(h.errors).toEqual([])
 })

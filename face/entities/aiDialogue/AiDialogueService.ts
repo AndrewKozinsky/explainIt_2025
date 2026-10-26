@@ -10,6 +10,7 @@ import type {
 	CreateAiDialogueInput,
 	UpdateAiDialogueInput,
 } from './repository/AiDialogueRepository'
+import type { AiDialogueIllustrationStylesModel } from './types/aiDialogueIllustrationStyles'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from './types/aiDialogueList'
 
 export type { AiDialogueModel, AiDialogueRepository, CreateAiDialogueInput, UpdateAiDialogueInput }
@@ -29,6 +30,10 @@ export class AiDialogueService {
 
 	constructor(aiDialogueRepository: AiDialogueRepository) {
 		this.aiDialogueRepository = aiDialogueRepository
+	}
+
+	getIllustrationStyles(signal?: AbortSignal): Promise<ApiResult<AiDialogueIllustrationStylesModel>> {
+		return this.aiDialogueRepository.getIllustrationStyles(signal)
 	}
 
 	checkUserMessageText(

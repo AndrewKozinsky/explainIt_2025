@@ -4,6 +4,13 @@
       "realism": "Realismo",
       "drawing": "Disegno",
       "watercolor": "Acquerello"
+    },
+    "illustrationStyleSelector": {
+      "label": "Stile delle illustrazioni",
+      "loading": "Caricamento degli stili…",
+      "error": "Impossibile caricare gli stili.",
+      "empty": "Nessuno stile disponibile.",
+      "retry": "Riprova"
     }
   }
 }

@@ -16,6 +16,16 @@
 	padding: 2rem;
 }
 
+.start-dialogue-modal__settings {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 .start-dialogue-modal__description {
 	display: flex;
 	flex-direction: column;

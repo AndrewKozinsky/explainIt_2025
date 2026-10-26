@@ -5,6 +5,7 @@ import {
 	aiDialogueControllerCreateAiDialogueMessage,
 	aiDialogueControllerDeleteAiDialogue,
 	aiDialogueControllerGetAiDialogue,
+	aiDialogueControllerGetAiDialogueIllustrationStyles,
 	aiDialogueControllerGetAiDialogueAudio,
 	aiDialogueControllerGetAiDialogues,
 	aiDialogueControllerGetAiDialogueVisuals,
@@ -25,6 +26,7 @@ import type {
 	AiDialogueEvent,
 	DialogueServerMessage,
 } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { mapToAiDialogueIllustrationStyles } from './mapToAiDialogueIllustrationStyles'
 import { mapToAiDialoguesPage } from './mapToAiDialoguesPage'
 import type {
 	AiDialogueModel,
@@ -35,12 +37,20 @@ import type {
 } from './AiDialogueRepository'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
+import type { AiDialogueIllustrationStylesModel } from '../types/aiDialogueIllustrationStyles'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
 
 /**
  * Реализация AiDialogueRepository через REST API.
  */
 export class AiDialogueApi implements AiDialogueRepository {
+	getIllustrationStyles(signal?: AbortSignal): Promise<ApiResult<AiDialogueIllustrationStylesModel>> {
+		return executeApiCall(
+			() => aiDialogueControllerGetAiDialogueIllustrationStyles({ signal, cache: 'no-store' }),
+			mapToAiDialogueIllustrationStyles,
+		)
+	}
+
 	async checkUserMessageText(
 		id: number,
 		input: CheckUserMessageInput,
@@ -160,6 +170,7 @@ function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {
 		sourceLanguageCode: extractString(raw.sourceLanguageCode) as LanguageCode,
 		targetLanguageCode: extractString(raw.targetLanguageCode) as LanguageCode,
 		maxCefrLevel: raw.maxCefrLevel,
+		illustrationStyleId: raw.illustrationStyleId,
 		createdAt: raw.createdAt,
 		updatedAt: raw.updatedAt,
 	}

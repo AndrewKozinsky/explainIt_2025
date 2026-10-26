@@ -24,6 +24,7 @@ export function useAiDialogueScenarioClick() {
 	const locale = useLocale()
 	const { notify } = useContext(NotificationContext)
 	const queryClient = useQueryClient()
+
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
 	const [selectedScenarioId, setSelectedScenarioId] = useState<number | null>(null)
 	const [creatingScenarioId, setCreatingScenarioId] = useState<number | null>(null)
@@ -53,11 +54,13 @@ export function useAiDialogueScenarioClick() {
 
 			isCreating.current = true
 			setCreatingScenarioId(selectedScenarioId)
+
 			try {
 				const result = await aiDialogueService.createDialogue({
 					scenarioId: selectedScenarioId,
 					sourceLanguageCode: options.sourceLanguageCode,
 					maxCefrLevel: options.maxCefrLevel,
+					illustrationStyleId: options.illustrationStyleId,
 					targetLanguageCode: locale as LanguageCode,
 				})
 
@@ -74,6 +77,7 @@ export function useAiDialogueScenarioClick() {
 
 				if (result.data) {
 					await queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
+
 					setSelectedScenarioId(null)
 					router.push(pageUrls.aiDialogues.dialog(result.data.id).path)
 				}

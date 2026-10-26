@@ -3,12 +3,17 @@ import type { CreateAiDialogueInput } from '@/entities/aiDialogue/AiDialogueServ
 import { type AiDialogueTextLevel, textLevels } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
+import { useStartDialogueIllustrationStyle } from './useStartDialogueIllustrationStyle'
 
 export const practiceLanguages: LanguageCode[] = ['en', 'de', 'fr', 'it', 'es']
-export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCode' | 'maxCefrLevel'>
+export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCode' | 'maxCefrLevel'> & {
+	illustrationStyleId: string
+}
 
-/** Язык и сложность нового диалога восстанавливаются из localStorage. */
+/** Язык, сложность и стиль нового диалога восстанавливаются из localStorage. */
 export function useStartDialogueOptions() {
+	const illustrationStyles = useStartDialogueIllustrationStyle()
+
 	const [practiceLanguage, setPracticeLanguage] = useState<LanguageCode>(function () {
 		const savedLanguage = localStorageManager.lastLanguage.get()
 		return savedLanguage && practiceLanguages.includes(savedLanguage) ? savedLanguage : 'en'
@@ -28,10 +33,14 @@ export function useStartDialogueOptions() {
 		localStorageManager.lastAiDialogProficiency.set(level)
 	}
 
-	const options: StartDialogueOptions = {
-		sourceLanguageCode: practiceLanguage,
-		maxCefrLevel: textLevel === 'Any' ? null : textLevel,
+	let options: StartDialogueOptions | null = null
+	if (illustrationStyles.selectedStyleId) {
+		options = {
+			sourceLanguageCode: practiceLanguage,
+			maxCefrLevel: textLevel === 'Any' ? null : textLevel,
+			illustrationStyleId: illustrationStyles.selectedStyleId,
+		}
 	}
 
-	return { practiceLanguage, changePracticeLanguage, textLevel, changeTextLevel, options }
+	return { practiceLanguage, changePracticeLanguage, textLevel, changeTextLevel, options, illustrationStyles }
 }

@@ -4,6 +4,13 @@
       "realism": "Realism",
       "drawing": "Drawing",
       "watercolor": "Watercolor"
+    },
+    "illustrationStyleSelector": {
+      "label": "Illustration style",
+      "loading": "Loading styles…",
+      "error": "Could not load styles.",
+      "empty": "No styles available.",
+      "retry": "Retry"
     }
   }
 }

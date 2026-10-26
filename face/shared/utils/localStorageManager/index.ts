@@ -1,4 +1,5 @@
 import { lastAiDialogProficiency } from './lastAiDialogProficiency'
+import { lastAiDialogueIllustrationStyle } from './lastAiDialogueIllustrationStyle'
 import { lastBookChapter } from './lastBookChapter'
 import { lastMediaTab } from './lastMediaTab'
 import { oauth } from './oauth'
@@ -15,6 +16,7 @@ export const localStorageManager = {
 	lastDuration,
 	lastVideoProficiency,
 	lastAiDialogProficiency,
+	lastAiDialogueIllustrationStyle,
 	lastTopic,
 	lastSort,
 	lastLanguage,

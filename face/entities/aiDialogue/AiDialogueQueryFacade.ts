@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { aiDialogueService } from './AiDialogueService'
+import { illustrationStylesRefreshInterval, illustrationStylesStaleTime } from './fn/illustrationStylesRefresh'
 import { updateDialogueListLevel } from './fn/updateDialogueListLevel'
 import type { AiDialogueService } from './AiDialogueService'
 import type { UpdateAiDialogueInput } from './repository/AiDialogueRepository'
@@ -17,6 +18,7 @@ import type { AiDialoguesPageModel } from './types/aiDialogueList'
  */
 export const aiDialogueQueryKeys = {
 	all: ['ai-dialogue'] as const,
+	illustrationStyles: () => [...aiDialogueQueryKeys.all, 'illustration-styles'] as const,
 	list: () => [...aiDialogueQueryKeys.all, 'list'] as const,
 	userList: (userId: number) => [...aiDialogueQueryKeys.list(), userId, { pageSize: 10 }] as const,
 	detail: (id: number) => [...aiDialogueQueryKeys.all, 'detail', id] as const,
@@ -33,6 +35,19 @@ export const aiDialogueQueryKeys = {
  */
 export class AiDialogueQueryFacade {
 	constructor(private readonly service: AiDialogueService) {}
+
+	getIllustrationStyles() {
+		return queryOptions({
+			queryKey: aiDialogueQueryKeys.illustrationStyles(),
+			queryFn: ({ signal }) => unwrapApiResult(this.service.getIllustrationStyles(signal)),
+			staleTime: (query) => illustrationStylesStaleTime(query.state.data, query.state.dataUpdatedAt),
+			refetchInterval: (query) => illustrationStylesRefreshInterval(query.state.data),
+			refetchOnMount: 'always',
+			refetchOnWindowFocus: true,
+			refetchOnReconnect: true,
+			retry: false,
+		})
+	}
 
 	updateDialogue(id: number, queryClient: QueryClient) {
 		return mutationOptions({

@@ -5,6 +5,8 @@ import AiDialoguesPage from '@/_pages/aiDialogues/AiDialoguesPage/AiDialoguesPag
 import type { UserModel } from '@/entities/user/UserService'
 import { UserProvider } from '@/shared/api/auth/UserProvider'
 import { NotificationContext, type NotifyArg } from '@/shared/ui/Notification/fn/context'
+import enMessages from '../../../messages/en.json'
+import ruMessages from '../../../messages/ru.json'
 
 const client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0 } } })
 const user: UserModel = {
@@ -37,9 +39,14 @@ export default function ScenarioPageFixture() {
 
 function FixtureProviders({ children }: { children: ReactNode }) {
 	const authenticated = new URLSearchParams(location.search).has('authenticated')
+	const locale = new URLSearchParams(location.search).get('locale') === 'en' ? 'en' : 'ru'
 
 	return (
-		<NextIntlClientProvider locale='ru' messages={{}} timeZone='Asia/Yekaterinburg'>
+		<NextIntlClientProvider
+			locale={locale}
+			messages={locale === 'en' ? enMessages : ruMessages}
+			timeZone='Asia/Yekaterinburg'
+		>
 			<QueryClientProvider client={client}>
 				<UserProvider user={authenticated ? user : null}>{children}</UserProvider>
 			</QueryClientProvider>

@@ -9,6 +9,7 @@ import { LanguageCode } from '@/shared/utils/languages'
 import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
+import type { AiDialogueIllustrationStylesModel } from '../types/aiDialogueIllustrationStyles'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
 
 export type AiDialogueModel = {
@@ -17,6 +18,7 @@ export type AiDialogueModel = {
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
 	maxCefrLevel: AiDialogueCefrLevel | null
+	illustrationStyleId: string
 	createdAt: string
 	updatedAt: string
 }
@@ -37,6 +39,7 @@ export type CreateAiDialogueInput = {
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
 	maxCefrLevel?: AiDialogueCefrLevel | null
+	illustrationStyleId?: string
 }
 
 /**
@@ -48,6 +51,7 @@ export type CreateAiDialogueInput = {
  * в читаемый текст.
  */
 export type AiDialogueRepository = {
+	getIllustrationStyles(signal?: AbortSignal): Promise<ApiResult<AiDialogueIllustrationStylesModel>>
 	/** Проверить текст черновика пользователя без отправки в диалог. */
 	checkUserMessageText(
 		id: number,
