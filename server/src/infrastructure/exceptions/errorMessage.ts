@@ -155,6 +155,8 @@ export const errorMessage = {
 		insufficientBalance: { code: 'SENTENCE_CHAT_INSUFFICIENT_BALANCE' }, // Недостаточно средств на балансе для генерации ответа.
 	},
 	aiDialogue: {
+		illustrationStyleNotFound: { code: 'AI_DIALOGUE_ILLUSTRATION_STYLE_NOT_FOUND' }, // Выберите доступный стиль иллюстраций.
+		invalidIllustrationStyleCatalog: { code: 'AI_DIALOGUE_INVALID_ILLUSTRATION_STYLE_CATALOG' }, // Неверная конфигурация каталога стилей или MODE.
 		dictationInvalidInput: { code: 'AI_DIALOGUE_DICTATION_INVALID_INPUT' }, // Неверный формат или порядок данных диктовки.
 		dictationProviderFailed: { code: 'AI_DIALOGUE_DICTATION_PROVIDER_FAILED' }, // Сервис распознавания недоступен.
 		dictationTimeout: { code: 'AI_DIALOGUE_DICTATION_TIMEOUT' }, // Время ожидания диктовки истекло.

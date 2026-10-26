@@ -11,6 +11,13 @@ import type { CreateAiDialogueInputTargetLanguageCode } from './createAiDialogue
 
 export interface CreateAiDialogueInput {
   /**
+     * Stable illustration style ID selected once at creation. Existing dialogues default to realism.
+     * @minLength 1
+     * @maxLength 64
+     * @nullable
+     */
+  illustrationStyleId?: string | null;
+  /**
      * Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.
      * @nullable
      */

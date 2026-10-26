@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
 import { PrismaService } from 'db/prisma.service'
 import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import { getNewAiDialogueIllustrationStyle } from 'features/aiDialogue/illustrationStyles/aiDialogueIllustrationStyles'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { Prisma } from 'prisma/generated/client'
 
@@ -16,6 +17,7 @@ export class AiDialogueRepository {
 		sourceLanguageCode: Language
 		targetLanguageCode: Language
 		maxCefrLevel?: AiDialogueCefrLevel | null
+		illustrationStyleId?: string | null
 	}) {
 		return this.prisma.aiDialogue.create({
 			data: {
@@ -24,6 +26,7 @@ export class AiDialogueRepository {
 				source_language_code: dto.sourceLanguageCode,
 				target_language_code: dto.targetLanguageCode,
 				max_cefr_level: dto.maxCefrLevel ?? null,
+				illustration_style_id: getNewAiDialogueIllustrationStyle(dto.illustrationStyleId).id,
 			},
 		})
 	}

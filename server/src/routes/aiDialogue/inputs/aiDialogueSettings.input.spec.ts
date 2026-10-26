@@ -18,6 +18,35 @@ import { UpdateAiDialogueInput } from './updateAiDialogue.input'
 
 const creation = { scenarioId: 1, sourceLanguageCode: 'en', targetLanguageCode: 'ru' }
 
+describe('illustration style input', () => {
+	it.each(['realism', 'new-style', undefined, null])('allows a style ID or default %s', (illustrationStyleId) => {
+		const input = plainToInstance(CreateAiDialogueInput, { ...creation, illustrationStyleId })
+		expect(validateSync(input, { whitelist: true, forbidNonWhitelisted: true })).toEqual([])
+	})
+
+	it.each(['', '../photo', 'file.webp', 'Aquarelle', 'x'.repeat(65), 5, true, ['realism']])(
+		'rejects malformed value %j',
+		(illustrationStyleId) => {
+			const input = plainToInstance(CreateAiDialogueInput, { ...creation, illustrationStyleId })
+			expect(validateSync(input)).toEqual([expect.objectContaining({ property: 'illustrationStyleId' })])
+		},
+	)
+
+	it('forbids changing illustration style via PATCH', () => {
+		const input = plainToInstance(UpdateAiDialogueInput, { illustrationStyleId: 'watercolor' })
+		expect(validateSync(input, { whitelist: true, forbidNonWhitelisted: true })).toEqual([
+			expect.objectContaining({ property: 'illustrationStyleId' }),
+		])
+	})
+
+	it('uses a plain string in OpenAPI instead of a fixed enum', () => {
+		const options = getApiPropertyOptions(bdConfig.AiDialogue.dbFields.illustration_style_id)
+
+		expect(options).toMatchObject({ type: 'string', required: true })
+		expect(options).not.toHaveProperty('enum')
+	})
+})
+
 describe.each([
 	{ metatype: CreateAiDialogueInput, base: creation },
 	{ metatype: UpdateAiDialogueInput, base: {} },
@@ -31,6 +60,7 @@ describe.each([
 
 	it('preserves omission rather than turning it into null', () => {
 		const result = plainToInstance(metatype, base)
+
 		expect(validateSync(result)).toEqual([])
 		expect(result.maxCefrLevel).toBeUndefined()
 	})

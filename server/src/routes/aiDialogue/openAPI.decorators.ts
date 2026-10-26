@@ -2,6 +2,7 @@ import { applyDecorators } from '@nestjs/common'
 import { ApiBody, ApiCookieAuth, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
+import { AiDialogueIllustrationStylesOutModel } from 'models/aiDialogue/aiDialogueIllustrationStyles.out.model'
 import { AiDialoguesPageOutModel } from 'models/aiDialogue/aiDialogueList.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
@@ -10,6 +11,17 @@ import { CheckAiDialogueUserMessageInput } from './inputs/checkAiDialogueUserMes
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
 import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
+
+export function ApiGetAiDialogueIllustrationStyles() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Get available AI dialogue illustration styles',
+			description:
+				'Public catalog with client translation keys for titles, square signed preview URLs and the default style ID. Does not generate images. URLs last six hours; refresh at urlsExpireAt.',
+		}),
+		ApiResponse({ status: 200, description: 'OK', type: AiDialogueIllustrationStylesOutModel }),
+	)
+}
 
 export function ApiCheckAiDialogueUserMessage() {
 	return applyDecorators(
@@ -61,7 +73,8 @@ export function ApiCreateAiDialogue() {
 	return applyDecorators(
 		ApiOperation({
 			summary: 'Create AI dialogue',
-			description: 'Creates a new dialogue that follows the given scenario for the authenticated user.',
+			description:
+				'Creates a new dialogue for the authenticated user. illustrationStyleId is selected once from the public catalog; omission or null uses its default. The style cannot be changed through PATCH.',
 		}),
 		ApiCookieAuth(),
 		ApiBody({ type: CreateAiDialogueInput }),

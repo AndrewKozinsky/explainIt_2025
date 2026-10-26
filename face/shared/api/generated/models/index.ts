@@ -18,6 +18,8 @@ export * from './aiDialogueCharacterVisualOutModel';
 export * from './aiDialogueCharacterVisualOutModelGenerationStatus';
 export * from './aiDialogueControllerGetAiDialoguesParams';
 export * from './aiDialogueControllerStream200';
+export * from './aiDialogueIllustrationStyleOutModel';
+export * from './aiDialogueIllustrationStylesOutModel';
 export * from './aiDialogueImageOutModel';
 export * from './aiDialogueLastMessageOutModel';
 export * from './aiDialogueLastMessageOutModelTextType';

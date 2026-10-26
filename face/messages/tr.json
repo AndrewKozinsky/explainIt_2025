@@ -1,1 +1,9 @@
-{}
+{
+  "aiDialogue": {
+    "illustrationStyles": {
+      "realism": "Gerçekçilik",
+      "drawing": "Çizim",
+      "watercolor": "Suluboya"
+    }
+  }
+}

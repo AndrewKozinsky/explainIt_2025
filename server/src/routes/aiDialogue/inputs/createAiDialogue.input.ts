@@ -4,6 +4,9 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 
 export class CreateAiDialogueInput {
+	@DtoFieldDecorators('illustrationStyleId', bdConfig.AiDialogue.dbFields.illustration_style_id, { required: false })
+	illustrationStyleId?: string | null
+
 	@DtoFieldDecorators('maxCefrLevel', bdConfig.AiDialogue.dbFields.max_cefr_level)
 	maxCefrLevel?: AiDialogueCefrLevel | null
 

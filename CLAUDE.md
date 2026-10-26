@@ -34,6 +34,7 @@ Topic files in `aiDocsRus/topics/` contain deep-dive documentation on specific f
 | `aiDocsRus/topics/aiDialogue/aiDialogueWordMaps.md`   | карта выбора словарных фраз в диалогах, wordMap, связанные слова, put away, разрывные выражения                                |
 | `aiDocsRus/topics/aiDialogue/aiDialogueAudio.md`      | озвучка диалога, голоса NPC, диктор, ранний TTS, audioReady, очередь аудио                                               |
 | `aiDocsRus/topics/aiDialogue/aiDialogueImages.md`     | изображения диалога, аватары, эмоции, NPC, сцены, image generation, R2, FLUX, GPT Image                                      |
+| `aiDocsRus/topics/aiDialogue/aiDialogueIllustrationStyles.md` | стили иллюстраций, выбор стиля, каталог стилей, illustrationStyleId, эталоны стиля |
 | `aiDocsRus/topics/imageGenerationProviderAdapter.md` | универсальный адаптер изображений, ImageGenerationAdapterService, ImageGenerationProvider, внешний запрос изображений |
 | `aiDocsRus/topics/universalPhraseTranslation.md`      | перевод универсальной фразы, universal phrase translation, GetOrCreateUniversalPhraseTranslation                               |
 | `aiDocsRus/topics/clientRepositories.md`              | репозиторий, repository, BooksRepository, BooksApi, useFetchData, resolveError, extractString, маппинг данных, клиентский API  |

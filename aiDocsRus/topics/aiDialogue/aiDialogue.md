@@ -69,10 +69,12 @@
 > префиксом `/api/` (задан в `infrastructure/applyAppSettings.ts`: `app.setGlobalPrefix('api')`).
 > SSE-соединение клиент открывает по `/api/ai-dialogue/:id/stream`.
 
-Все эндпоинты требуют авторизации (`CheckSessionCookieGuard`).
+Каталог стилей `GET /ai-dialogue/illustration-styles` публичный. Остальные эндпоинты
+требуют авторизации (`CheckSessionCookieGuard`).
 
 ```
-POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel? } → 201 AiDialogueOutModel
+GET    /ai-dialogue/illustration-styles → 200 AiDialogueIllustrationStylesOutModel (публичный)
+POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel?, illustrationStyleId? } → 201 AiDialogueOutModel
 GET    /ai-dialogue?page=1&pageSize=3 → 200 AiDialoguesPageOutModel
 GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
 PATCH  /ai-dialogue/:id            body: { maxCefrLevel? } → 200 AiDialogueOutModel
@@ -99,6 +101,7 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
   "sourceLanguageCode": "en",
   "targetLanguageCode": "ru",
   "maxCefrLevel": null,
+  "illustrationStyleId": "realism",
   "scenario": {
     "id": 1,
     "slug": "at-the-dentist",
@@ -143,6 +146,10 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 
 ### Создание диалога
 
+- `illustrationStyleId` — строковый id из публичного каталога; отсутствие/null выбирает его default
+  (сейчас realism). Сохраняется один раз; PATCH не принимает это поле. Существующие диалоги
+  получают realism. На этапе 2 сохранён только выбор: генератор и UI подключаются далее.
+  Контракт, миграция и этапы — [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md).
 - При создании передаётся `scenarioId` и два языка:
     - `sourceLanguageCode` — язык диалога (тот, который практикует ученик; реплики NPC будут на нём);
     - `targetLanguageCode` — язык перевода (родной язык ученика; для текстовых полей LLM добавляет `translation`).

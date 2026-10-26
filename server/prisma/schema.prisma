@@ -294,6 +294,7 @@ model AiDialogueScenario {
 }
 
 model AiDialogue {
+	illustration_style_id  String                   @default("realism")
 	max_cefr_level         CefrSimplificationLevel?
 	id                     Int                      @id @default(autoincrement())
 	scenario               AiDialogueScenario       @relation(fields: [scenario_id], references: [id], onDelete: Cascade)

@@ -29,6 +29,7 @@ import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTu
 import { GetAiDialogueHandler } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetAiDialogueVisualsHandler } from 'features/aiDialogue/GetAiDialogueVisuals.command'
 import { GetUserDialoguesHandler } from 'features/aiDialogue/GetUserDialogues.command'
+import { GetAiDialogueIllustrationStylesHandler } from 'features/aiDialogue/illustrationStyles/GetAiDialogueIllustrationStyles.command'
 import { CheckAiDialogueUserMessageHandler } from 'features/aiDialogue/messageCheck/CheckAiDialogueUserMessage.command'
 import { OpenAiDialogueStreamHandler } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { PublishImageGenerationOutbox } from 'features/aiDialogue/PublishImageGenerationOutbox.service'
@@ -58,6 +59,7 @@ const services = [
 	CleanupAiDialogueImages,
 ]
 const commandHandlers = [
+	GetAiDialogueIllustrationStylesHandler,
 	CheckAiDialogueUserMessageHandler,
 	UpdateAiDialogueHandler,
 	GetAiDialogueAudioHandler,

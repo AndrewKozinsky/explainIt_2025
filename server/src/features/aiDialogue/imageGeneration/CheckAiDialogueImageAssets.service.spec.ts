@@ -59,6 +59,25 @@ describe('read-only dialogue image assets check', () => {
 			],
 		})
 	})
+
+	it('checks every style in an extensible catalog without fixed asset names', async () => {
+		const { storage, check } = harness()
+
+		const styles = {
+			realism: 'realism.webp',
+			drawing: 'drawing.webp',
+			watercolor: 'watercolor.webp',
+			newStyle: 'new.webp',
+		}
+		const report = await check.checkSharedImageAssets(styles)
+
+		expect(report.ready).toBe(true)
+		expect(report.assets.map((asset) => asset.asset)).toEqual(Object.keys(styles))
+		expect(storage.readFile.mock.calls).toEqual(Object.values(styles).map((key) => [key]))
+		expect(storage.uploadFile).not.toHaveBeenCalled()
+		expect(storage.deleteFile).not.toHaveBeenCalled()
+	})
+
 	it('continues after inaccessible objects and does not expose SDK error details', async () => {
 		const { storage, check } = harness()
 		storage.readFile.mockRejectedValueOnce(new Error('secret access key and signed URL'))

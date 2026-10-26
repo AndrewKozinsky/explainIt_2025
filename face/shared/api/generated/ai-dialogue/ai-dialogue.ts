@@ -28,6 +28,7 @@ import type {
   AiDialogueAudioOutModel,
   AiDialogueControllerGetAiDialoguesParams,
   AiDialogueControllerStream200,
+  AiDialogueIllustrationStylesOutModel,
   AiDialogueMessageOutModel,
   AiDialogueOutModel,
   AiDialogueUserMessageCheckOutModel,
@@ -60,6 +61,119 @@ const withQueryKey = <T extends object, K>(query: T, queryKey: K): T & { queryKe
   }
   return result;
 };
+
+export type aiDialogueControllerGetAiDialogueIllustrationStylesResponse200 = {
+  data: AiDialogueIllustrationStylesOutModel
+  status: 200
+}
+
+export type aiDialogueControllerGetAiDialogueIllustrationStylesResponseSuccess = (aiDialogueControllerGetAiDialogueIllustrationStylesResponse200) & {
+  headers: Headers;
+};
+;
+
+export type aiDialogueControllerGetAiDialogueIllustrationStylesResponse = (aiDialogueControllerGetAiDialogueIllustrationStylesResponseSuccess)
+
+export const getAiDialogueControllerGetAiDialogueIllustrationStylesUrl = () => {
+
+
+
+
+  return `/api/ai-dialogue/illustration-styles`
+}
+
+/**
+ * Public catalog with client translation keys for titles, square signed preview URLs and the default style ID. Does not generate images. URLs last six hours; refresh at urlsExpireAt.
+ * @summary Get available AI dialogue illustration styles
+ */
+export const aiDialogueControllerGetAiDialogueIllustrationStyles = async ( options?: RequestInit): Promise<aiDialogueControllerGetAiDialogueIllustrationStylesResponse> => {
+
+  return customMutator<aiDialogueControllerGetAiDialogueIllustrationStylesResponse>(getAiDialogueControllerGetAiDialogueIllustrationStylesUrl(),
+  {
+    ...options,
+    method: 'GET'
+
+
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerGetAiDialogueIllustrationStylesQueryKey = () => {
+    return [
+    `/api/ai-dialogue/illustration-styles`
+    ] as const;
+    }
+
+
+export const getAiDialogueControllerGetAiDialogueIllustrationStylesQueryOptions = <TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError = unknown>( options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+) => {
+
+const {query: queryOptions, request: requestOptions} = options ?? {};
+
+  const queryKey =  queryOptions?.queryKey ?? getAiDialogueControllerGetAiDialogueIllustrationStylesQueryKey();
+
+
+
+    const queryFn: QueryFunction<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>> = ({ signal }) => aiDialogueControllerGetAiDialogueIllustrationStyles({ signal, ...requestOptions });
+
+
+
+
+
+   return  { queryKey, queryFn, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
+}
+
+export type AiDialogueControllerGetAiDialogueIllustrationStylesQueryResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>>
+export type AiDialogueControllerGetAiDialogueIllustrationStylesQueryError = unknown
+
+
+export function useAiDialogueControllerGetAiDialogueIllustrationStyles<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError = unknown>(
+  options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError, TData>> & Pick<
+        DefinedInitialDataOptions<
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>,
+          TError,
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useAiDialogueControllerGetAiDialogueIllustrationStyles<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError = unknown>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError, TData>> & Pick<
+        UndefinedInitialDataOptions<
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>,
+          TError,
+          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>
+        > , 'initialData'
+      >, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+export function useAiDialogueControllerGetAiDialogueIllustrationStyles<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError = unknown>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
+/**
+ * @summary Get available AI dialogue illustration styles
+ */
+
+export function useAiDialogueControllerGetAiDialogueIllustrationStyles<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError = unknown>(
+  options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueIllustrationStyles>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient
+ ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
+
+  const queryOptions = getAiDialogueControllerGetAiDialogueIllustrationStylesQueryOptions(options)
+
+  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
+
+  return withQueryKey(query, queryOptions.queryKey);
+}
+
+
+
+
+
 
 export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse200 = {
   data: AiDialogueUserMessageCheckOutModel
@@ -198,7 +312,7 @@ export const getAiDialogueControllerCreateAiDialogueUrl = () => {
 }
 
 /**
- * Creates a new dialogue that follows the given scenario for the authenticated user.
+ * Creates a new dialogue for the authenticated user. illustrationStyleId is selected once from the public catalog; omission or null uses its default. The style cannot be changed through PATCH.
  * @summary Create AI dialogue
  */
 export const aiDialogueControllerCreateAiDialogue = async (createAiDialogueInput: CreateAiDialogueInput, options?: RequestInit): Promise<aiDialogueControllerCreateAiDialogueResponse> => {

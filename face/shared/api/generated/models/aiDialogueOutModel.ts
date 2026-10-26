@@ -12,6 +12,12 @@ import type { AiDialogueScenarioOutModel } from './aiDialogueScenarioOutModel';
 
 export interface AiDialogueOutModel {
   /**
+     * Stable illustration style ID selected once at creation. Existing dialogues default to realism.
+     * @minLength 1
+     * @maxLength 64
+     */
+  illustrationStyleId: string;
+  /**
      * AI dialogue ID
      * @minimum 1
      */

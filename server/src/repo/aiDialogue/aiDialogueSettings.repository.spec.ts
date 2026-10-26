@@ -22,10 +22,43 @@ function harness() {
 }
 
 describe('dialogue language setting persistence', () => {
+	it.each(['realism', 'drawing', 'watercolor', undefined])(
+		'stores illustration style %s',
+		async (illustrationStyleId) => {
+			const { repository, prisma } = harness()
+
+			await repository.createDialogue({
+				userId: 7,
+				scenarioId: 2,
+				sourceLanguageCode: 'en',
+				targetLanguageCode: 'ru',
+				illustrationStyleId,
+			})
+
+			expect(prisma.aiDialogue.create).toHaveBeenCalledWith({
+				data: expect.objectContaining({ illustration_style_id: illustrationStyleId ?? 'realism' }),
+			})
+		},
+	)
+
+	it.each(['realism', 'watercolor'])('returns saved illustration style %s', async (illustrationStyleId) => {
+		const { prisma, query } = harness()
+
+		prisma.aiDialogue.findUnique.mockResolvedValue({
+			id: 1,
+			illustration_style_id: illustrationStyleId,
+			created_at: new Date(),
+			updated_at: new Date(),
+		})
+
+		await expect(query.getDialogueById(1)).resolves.toMatchObject({ illustrationStyleId })
+	})
+
 	it.each([undefined, null, 'A2'] as const)(
 		'persists %s and defaults omitted creation settings to null',
 		async (maxCefrLevel) => {
 			const { repository, prisma } = harness()
+
 			await repository.createDialogue({
 				userId: 7,
 				scenarioId: 2,

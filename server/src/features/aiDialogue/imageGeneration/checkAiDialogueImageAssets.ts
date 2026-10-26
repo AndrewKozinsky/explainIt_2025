@@ -4,6 +4,11 @@ import { NestFactory } from '@nestjs/core'
 import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import {
+	getAiDialogueIllustrationStyleCatalog,
+	getAiDialogueIllustrationStyleKey,
+} from '../illustrationStyles/aiDialogueIllustrationStyles'
 import { CheckAiDialogueImageAssets } from './CheckAiDialogueImageAssets.service'
 
 // Deliberately excludes AppModule/WorkerModule: no Prisma, Redis, schedules or paid jobs.
@@ -23,9 +28,21 @@ export async function checkDialogueImageAssets(): Promise<void> {
 	const storage = app.get(CloudflareS3Service)
 
 	try {
-		const report = await app.get(CheckAiDialogueImageAssets).checkSharedImageAssets()
-		console.log(JSON.stringify(report, null, 2))
-		process.exitCode = report.ready ? 0 : 1
+		const illustrationStyleReferenceKeys = process.argv.includes('--illustration-styles')
+			? Object.fromEntries(
+					getAiDialogueIllustrationStyleCatalog().styles.map((style) => [
+						style.id,
+						getAiDialogueIllustrationStyleKey(app.get(MainConfigService).get().mode, style.file),
+					]),
+				)
+			: undefined
+
+		const imageAssetsCheckResult = await app
+			.get(CheckAiDialogueImageAssets)
+			.checkSharedImageAssets(illustrationStyleReferenceKeys)
+
+		console.log(JSON.stringify(imageAssetsCheckResult, null, 2))
+		process.exitCode = imageAssetsCheckResult.ready ? 0 : 1
 	} finally {
 		storage.s3.destroy()
 		await app.close()

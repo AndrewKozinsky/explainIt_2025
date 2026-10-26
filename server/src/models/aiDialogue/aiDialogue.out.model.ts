@@ -8,6 +8,9 @@ import { AiDialogueScenarioOutModel } from 'models/aiDialogueScenario/aiDialogue
 const $ = bdConfig.AiDialogue.dbFields
 
 export class AiDialogueOutModel {
+	@ApiProperty(getApiPropertyOptions($.illustration_style_id))
+	illustrationStyleId: string
+
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
 

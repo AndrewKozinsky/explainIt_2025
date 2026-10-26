@@ -27,7 +27,11 @@ jest.mock('@nestjs/cqrs', () => ({ CommandBus: class {}, CommandHandler: () => (
 jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository: class {} }))
 jest.mock('repo/aiDialogue/aiDialogue.queryRepository', () => ({ AiDialogueQueryRepository: class {} }))
 jest.mock('features/aiDialogue/GenerateAiDialogueTurn.service', () => ({ GenerateAiDialogueTurn: class {} }))
-jest.mock('features/aiDialogue/CreateAiDialogue.command', () => ({ CreateAiDialogueCommand: class {} }))
+jest.mock('features/aiDialogue/CreateAiDialogue.command', () => ({
+	CreateAiDialogueCommand: class {
+		constructor(public dto: unknown) {}
+	},
+}))
 jest.mock('features/aiDialogue/CreateAiDialogueMessage.command', () => ({ CreateAiDialogueMessageCommand: class {} }))
 jest.mock('features/aiDialogue/DeleteAiDialogue.command', () => ({ DeleteAiDialogueCommand: class {} }))
 jest.mock('features/aiDialogue/GetAiDialogue.command', () => ({ GetAiDialogueCommand: class {} }))
@@ -60,6 +64,7 @@ jest.mock('./openAPI.decorators', () =>
 			'ApiCreateAiDialogueMessage',
 			'ApiDeleteAiDialogue',
 			'ApiGetAiDialogue',
+			'ApiGetAiDialogueIllustrationStyles',
 			'ApiGetAiDialogues',
 			'ApiGetAiDialogueVisuals',
 			'ApiGetAiDialogueAudio',
@@ -83,6 +88,33 @@ describe('AiDialogueController CQRS dispatch', () => {
 		return { controller, bus, request }
 	}
 
+	it('returns the public illustration style catalog without a user argument', async () => {
+		const { controller, bus } = harness()
+		const catalog = { defaultStyleId: 'realism', styles: [], urlsExpireAt: new Date().toISOString() }
+		bus.execute.mockResolvedValue(catalog)
+		await expect(controller.getAiDialogueIllustrationStyles()).resolves.toBe(catalog)
+	})
+
+	it('forwards the selected style when creating a dialogue', async () => {
+		const { controller, bus, request } = harness()
+		bus.execute.mockResolvedValue({ id: 1 })
+
+		await controller.createAiDialogue(
+			{
+				scenarioId: 2,
+				sourceLanguageCode: 'en',
+				targetLanguageCode: 'ru',
+				illustrationStyleId: 'watercolor',
+			},
+			request,
+		)
+		expect(bus.execute).toHaveBeenCalledWith(
+			expect.objectContaining({
+				dto: expect.objectContaining({ userId: 7, illustrationStyleId: 'watercolor' }),
+			}),
+		)
+	})
+
 	it.each([
 		{ query: {}, pagination: { page: 1, pageSize: 3 } },
 		{ query: { page: 2, pageSize: 5 }, pagination: { page: 2, pageSize: 5 } },
@@ -91,6 +123,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const result = { items: [], total: 0, page: pagination.page, pageSize: pagination.pageSize, totalPages: 0 }
 		bus.execute.mockResolvedValue(result)
 		await expect(controller.getAiDialogues(query, request)).resolves.toBe(result)
+
 		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, pagination }))
 	})
 
@@ -146,6 +179,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 	it('propagates command dispatch errors without opening another stream', async () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockRejectedValue(new Error('dispatch failed'))
+
 		await expect(controller.stream(1, request)).rejects.toThrow('dispatch failed')
 
 		expect(bus.execute).toHaveBeenCalledTimes(1)

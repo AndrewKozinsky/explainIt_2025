@@ -1,1 +1,9 @@
-{}
+{
+  "aiDialogue": {
+    "illustrationStyles": {
+      "realism": "Realism",
+      "drawing": "Drawing",
+      "watercolor": "Watercolor"
+    }
+  }
+}

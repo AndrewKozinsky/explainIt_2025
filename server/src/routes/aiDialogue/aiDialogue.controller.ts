@@ -28,12 +28,14 @@ import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.co
 import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
+import { GetAiDialogueIllustrationStylesCommand } from 'features/aiDialogue/illustrationStyles/GetAiDialogueIllustrationStyles.command'
 import { CheckAiDialogueUserMessageCommand } from 'features/aiDialogue/messageCheck/CheckAiDialogueUserMessage.command'
 import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { UpdateAiDialogueCommand } from 'features/aiDialogue/UpdateAiDialogue.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
+import { AiDialogueIllustrationStylesOutModel } from 'models/aiDialogue/aiDialogueIllustrationStyles.out.model'
 import { AiDialoguesPageOutModel } from 'models/aiDialogue/aiDialogueList.out.model'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
@@ -50,6 +52,7 @@ import {
 	ApiDeleteAiDialogue,
 	ApiGetAiDialogue,
 	ApiGetAiDialogueAudio,
+	ApiGetAiDialogueIllustrationStyles,
 	ApiGetAiDialogues,
 	ApiGetAiDialogueVisuals,
 	ApiUpdateAiDialogue,
@@ -59,6 +62,14 @@ import {
 @Controller('ai-dialogue')
 export class AiDialogueController {
 	constructor(private commandBus: CommandBus) {}
+
+	@ApiGetAiDialogueIllustrationStyles()
+	@Header('Cache-Control', 'no-store')
+	@HttpCode(HttpStatus.OK)
+	@Get('illustration-styles')
+	async getAiDialogueIllustrationStyles(): Promise<AiDialogueIllustrationStylesOutModel> {
+		return this.commandBus.execute(new GetAiDialogueIllustrationStylesCommand())
+	}
 
 	@ApiCheckAiDialogueUserMessage()
 	@UseGuards(CheckSessionCookieGuard)
@@ -92,6 +103,7 @@ export class AiDialogueController {
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode,
 				maxCefrLevel: input.maxCefrLevel,
+				illustrationStyleId: input.illustrationStyleId,
 			}),
 		)
 	}

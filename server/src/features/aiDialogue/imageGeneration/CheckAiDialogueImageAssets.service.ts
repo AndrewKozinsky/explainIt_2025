@@ -6,10 +6,7 @@ import {
 } from '../aiDialogueVisualConfig'
 import { inspectDialogueImage } from './dialogueImageFiles'
 
-export type DialogueSharedImageKeys = {
-	avatarStyle: string | null
-	sceneStyle: string | null
-}
+export type DialogueSharedImageKeys = Record<string, string | null>
 
 export type DialogueSharedImageCheck = {
 	asset: keyof DialogueSharedImageKeys
@@ -27,8 +24,8 @@ export class CheckAiDialogueImageAssets {
 	/**
 	 * Читает и декодирует эталоны стиля без записи в R2, БД и вызова генератора.
 	 * Ошибки отдельных объектов не прерывают остальные проверки и не раскрывают ответы SDK/секреты.
-	 * @param keys Актуальные ключи из visual config; подмена предназначена для изолированных проверок.
-	 * @returns Готовность обоих назначений эталона и безопасный отчёт с фактическими размерами/форматом.
+	 * @param keys Именованные эталоны; по умолчанию два назначения прежнего стиля из visual config.
+	 * @returns Готовность всех эталонов и безопасный отчёт с фактическими размерами/форматом.
 	 */
 	async checkSharedImageAssets(
 		keys: DialogueSharedImageKeys = {
@@ -37,9 +34,11 @@ export class CheckAiDialogueImageAssets {
 		},
 	): Promise<{ ready: boolean; assets: DialogueSharedImageCheck[] }> {
 		const assets: DialogueSharedImageCheck[] = []
-		for (const asset of ['avatarStyle', 'sceneStyle'] as const) {
+
+		for (const asset of Object.keys(keys)) {
 			assets.push(await this.checkSharedImage(asset, keys[asset]))
 		}
+
 		return { ready: assets.every((asset) => asset.status === 'ready'), assets }
 	}
 

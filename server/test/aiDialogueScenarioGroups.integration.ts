@@ -41,17 +41,22 @@ class TestDependenciesModule {}
 async function migrateWithExistingScenarios(sql: Client) {
 	const tables = await sql.query("SELECT tablename FROM pg_tables WHERE schemaname = 'public'")
 	assert.equal(tables.rowCount, 0, 'The dedicated test database must be empty')
+
 	const migrationsPath = resolve(__dirname, '../prisma/migrations')
 	const names = (await readdir(migrationsPath)).filter((name) => /^\d/.test(name)).sort()
 	const lastMigration = '20261025120000_public_ai_dialogue_scenario_groups'
-	assert.equal(names.at(-1), lastMigration, 'Update this test when adding subsequent migrations')
-	for (const name of names.filter((name) => name !== lastMigration)) {
+
+	assert.ok(names.includes(lastMigration), 'The public scenario groups migration must exist')
+
+	for (const name of names.filter((name) => name < lastMigration)) {
 		await sql.query(await readFile(resolve(migrationsPath, name, 'migration.sql'), 'utf8'))
 	}
 	const user = await sql.query(
 		'INSERT INTO "User" ("email") VALUES (\'scenario-groups@example.test\') RETURNING "id"',
 	)
+
 	const ids: number[] = []
+
 	for (const slug of ['at-the-dentist', 'passport-control', 'pool-membership', 'knock-at-the-door']) {
 		const row = await sql.query(
 			'INSERT INTO "AiDialogueScenario" ("slug", "title", "description", "system_prompt") VALUES ($1, \'Old title\', \'Old description\', \'Old prompt\') RETURNING "id"',
@@ -70,6 +75,31 @@ async function migrateWithExistingScenarios(sql: Client) {
 		ids,
 	)
 	assert.ok(migrated.rows.every((row) => row.group_id !== null && row.cover_s3_key !== null))
+
+	let chosenStyleDialogueId: number | undefined
+	for (const name of names.filter((name) => name > lastMigration)) {
+		await sql.query(await readFile(resolve(migrationsPath, name, 'migration.sql'), 'utf8'))
+		if (name === '20261026120000_ai_dialogue_illustration_style') {
+			const chosenStyleDialogue = await sql.query(
+				'INSERT INTO "AiDialogue" ("scenario_id", "user_id", "source_language_code", "target_language_code", "updated_at", "illustration_style_id") VALUES ($1, $2, \'en\', \'ru\', now(), \'watercolor\') RETURNING "id"',
+				[ids[0], user.rows[0].id],
+			)
+			chosenStyleDialogueId = chosenStyleDialogue.rows[0].id
+		}
+	}
+	const oldDialogue = await sql.query('SELECT "illustration_style_id" FROM "AiDialogue" WHERE "id" = $1', [
+		dialogue.rows[0].id,
+	])
+	assert.equal(oldDialogue.rows[0].illustration_style_id, 'realism')
+	const chosenStyleDialogue = await sql.query('SELECT "illustration_style_id" FROM "AiDialogue" WHERE "id" = $1', [
+		chosenStyleDialogueId,
+	])
+	assert.equal(chosenStyleDialogue.rows[0].illustration_style_id, 'watercolor')
+	const defaultStyleDialogue = await sql.query(
+		'INSERT INTO "AiDialogue" ("scenario_id", "user_id", "source_language_code", "target_language_code", "updated_at") VALUES ($1, $2, \'en\', \'ru\', now()) RETURNING "illustration_style_id"',
+		[ids[0], user.rows[0].id],
+	)
+	assert.equal(defaultStyleDialogue.rows[0].illustration_style_id, 'realism')
 
 	return { userId: user.rows[0].id as number, dialogueId: dialogue.rows[0].id as number, scenarioIds: ids }
 }
@@ -226,6 +256,7 @@ async function checkHttp(prisma: PrismaClient, expected: unknown) {
 		.compile()
 	const app = module.createNestApplication({ logger: false })
 	app.setGlobalPrefix('api')
+
 	try {
 		await app.listen(0, '127.0.0.1')
 		const url = await app.getUrl()

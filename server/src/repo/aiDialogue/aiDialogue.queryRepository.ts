@@ -54,6 +54,7 @@ export class AiDialogueQueryRepository {
 			sourceLanguageCode: dbDialogue.source_language_code,
 			targetLanguageCode: dbDialogue.target_language_code,
 			maxCefrLevel: dbDialogue.max_cefr_level,
+			illustrationStyleId: dbDialogue.illustration_style_id,
 			createdAt: dbDialogue.created_at.toISOString(),
 			updatedAt: dbDialogue.updated_at.toISOString(),
 		}

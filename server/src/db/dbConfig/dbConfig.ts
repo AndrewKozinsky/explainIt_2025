@@ -1399,6 +1399,24 @@ export const bdConfig = {
 	// Диалог пользователя с ИИ по сценарию (контейнер для будущих сообщений).
 	AiDialogue: {
 		dtoProps: {
+			illustrationStyleTitleKey: {
+				type: 'string',
+				required: true,
+				description: 'Client translation key for the illustration style title.',
+				example: 'aiDialogue.illustrationStyles.realism',
+			},
+			illustrationStylePreviewUrl: {
+				type: 'string',
+				required: true,
+				description: 'Signed URL for the square illustration style preview.',
+				example: 'https://r2.example/realism.webp?signature=temporary',
+			},
+			defaultIllustrationStyleId: {
+				type: 'string',
+				required: true,
+				description: 'Default style ID from the current illustration style catalog.',
+				example: 'realism',
+			},
 			lastMessageNpcId: {
 				type: 'string',
 				required: false,
@@ -1474,6 +1492,17 @@ export const bdConfig = {
 		},
 		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }, { fields: ['user_id', 'created_at', 'id'] }],
 		dbFields: {
+			illustration_style_id: {
+				type: 'string',
+				required: true,
+				default: 'realism',
+				minLength: 1,
+				maxLength: 64,
+				match: /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/,
+				description:
+					'Stable illustration style ID selected once at creation. Existing dialogues default to realism.',
+				example: 'realism',
+			},
 			max_cefr_level: {
 				type: 'enum',
 				enumName: 'CefrSimplificationLevel',

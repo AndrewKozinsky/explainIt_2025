@@ -12,8 +12,10 @@ const originalWindow = Object.getOwnPropertyDescriptor(globalThis, 'window')
 beforeEach(function () {
 	Object.defineProperty(globalThis, 'window', { configurable: true, value: {} })
 })
+
 afterEach(function () {
 	mock.restoreAll()
+
 	if (originalWindow) Object.defineProperty(globalThis, 'window', originalWindow)
 	else Reflect.deleteProperty(globalThis, 'window')
 })
@@ -21,6 +23,7 @@ afterEach(function () {
 function rawDialogue(maxCefrLevel: AiDialogueModel['maxCefrLevel'] = 'A2'): AiDialogueOutModel {
 	return {
 		id: 1,
+		illustrationStyleId: 'realism',
 		scenario: { id: 3, slug: 'customs', title: 'Customs', description: 'At customs' },
 		sourceLanguageCode: 'en',
 		targetLanguageCode: 'ru',
@@ -139,6 +142,7 @@ test('a failed PATCH leaves the saved selection and caches intact and permits an
 	mock.method(globalThis, 'fetch', async function () {
 		return Response.json({ message: [{ field: 'maxCefrLevel', messages: ['Unsupported level'] }] }, { status: 400 })
 	})
+
 	try {
 		await assert.rejects(observer.mutate({ maxCefrLevel: 'B2' }), /Unsupported level/)
 

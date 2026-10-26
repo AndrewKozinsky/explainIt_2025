@@ -8,6 +8,7 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { getNewAiDialogueIllustrationStyle } from './illustrationStyles/aiDialogueIllustrationStyles'
 
 export class CreateAiDialogueCommand implements ICommand {
 	constructor(
@@ -17,6 +18,7 @@ export class CreateAiDialogueCommand implements ICommand {
 			sourceLanguageCode: Language
 			targetLanguageCode: Language
 			maxCefrLevel?: AiDialogueCefrLevel | null
+			illustrationStyleId?: string | null
 		},
 	) {}
 }
@@ -31,6 +33,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
 		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel } = command.dto
+		const illustrationStyleId = getNewAiDialogueIllustrationStyle(command.dto.illustrationStyleId).id
 
 		const scenario = await this.aiDialogueScenarioRepository.getScenarioById(scenarioId)
 		if (!scenario) {
@@ -48,6 +51,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			sourceLanguageCode,
 			targetLanguageCode,
 			maxCefrLevel,
+			illustrationStyleId,
 		})
 
 		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogue.id)
