@@ -13,6 +13,8 @@ Try to avoid putting business logic into component. Use 'fn' folder for business
 
 Prefer ordinary functions rather than arrow functions. Use arrow functions only if this way gives better readability or scoping.
 
+Все стили задаются в SCSS-классах, а не через inline-атрибут `style` в JSX.
+
 Put reusable UI elements in the 'face/ui' directory.
 
 Данные пользователя можно взять из `face/stores/userStore.ts`.

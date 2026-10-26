@@ -1,23 +1,39 @@
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowRightPureButtonIcon'
 import Modal from '@/shared/ui/Modal/Modal'
-import ModalHeaderAndContent from '@/shared/ui/Modal/ModalHeaderAndContent'
+import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
+import ScenarioDescription from './ScenarioDescription'
+import StartDialogueSettings from './StartDialogueSettings'
+import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
+import './StartDialogueModal.scss'
 
 type Props = {
-	title: string
-	isOpen: boolean
+	scenario: ScenarioCardConfig
+	groupTitle: string
 	loading: boolean
 	onClose: () => void
-	onStart: () => void
+	onStart: (options: StartDialogueOptions) => void
 }
 
-export default function StartDialogueModal({ title, isOpen, loading, onClose, onStart }: Props) {
+export default function StartDialogueModal({ scenario, groupTitle, loading, onClose, onStart }: Props) {
+	const settings = useStartDialogueOptions()
+
 	return (
-		<Modal isOpen={isOpen} close={onClose}>
-			<ModalHeaderAndContent header={title}>
-				<Button theme='accent' loading={loading} onClick={onStart}>
+		<Modal isOpen close={onClose} extraClass='start-dialogue-modal'>
+			<img src={scenario.coverUrl} alt='' className='start-dialogue-modal__cover' />
+			<div className='start-dialogue-modal__content'>
+				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
+				<StartDialogueSettings settings={settings} disabled={loading} />
+				<Button
+					theme='accent'
+					icon={<ArrowRightPureButtonIcon />}
+					size='big'
+					loading={loading}
+					onClick={() => onStart(settings.options)}
+				>
 					Начать диалог
 				</Button>
-			</ModalHeaderAndContent>
+			</div>
 		</Modal>
 	)
 }

@@ -21,7 +21,7 @@ SSE-протокол, генерация хода, компакция) опис�
 ## Выбор сложности текста
 
 `AiDialogueModel.maxCefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | null` содержит сохранённую сервером границу сложности.
-`TextLevelSwitcher` в панели `AiDialogueSettings` показывает A1/A2/B1/B2/Any; `Any` соответствует `null`.
+`entities/aiDialogue/ui/TextLevelSwitcher.tsx` в панели `AiDialogueSettings` показывает A1/A2/B1/B2/Any; `Any` соответствует `null`.
 При загрузке и возвращении к диалогу выбранный уровень берётся из REST-модели, без локального значения A1 по умолчанию.
 
 Нажатие вызывает `AiDialogueService.updateDialogue(id, input)` через хук `useAiDialogueTextLevel`.

@@ -22,6 +22,7 @@
 .modal__body {
 	position: relative;
 	background-color: white;
+	overflow: hidden;
 	margin: auto;
 	border-radius: vars.$radius-2;
 }

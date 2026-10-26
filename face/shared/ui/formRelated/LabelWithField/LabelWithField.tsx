@@ -4,6 +4,8 @@ import './LabelWithField.scss'
 
 type LabelWithFieldProps = {
 	label?: string
+	/** Пояснение, которое выводится после поля. */
+	description?: string
 	disabled?: boolean
 	block?: boolean
 	htmlFor?: string
@@ -11,7 +13,7 @@ type LabelWithFieldProps = {
 }
 
 function LabelWithField(props: LabelWithFieldProps) {
-	const { label, disabled, block, htmlFor, children } = props
+	const { label, description, disabled, block, htmlFor, children } = props
 
 	return (
 		<div
@@ -27,6 +29,7 @@ function LabelWithField(props: LabelWithFieldProps) {
 				</label>
 			)}
 			{children}
+			{description && <p className='label-with-field__description'>{description}</p>}
 		</div>
 	)
 }

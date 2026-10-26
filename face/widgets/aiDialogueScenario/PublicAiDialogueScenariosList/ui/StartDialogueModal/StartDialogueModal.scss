@@ -1,0 +1,56 @@
+@use '@/styles/variables' as vars;
+
+.start-dialogue-modal {
+	width: 50rem;
+	max-width: 100%;
+}
+
+.start-dialogue-modal__cover {
+	width: 100%;
+}
+
+.start-dialogue-modal__content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 2rem;
+}
+
+.start-dialogue-modal__description {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.start-dialogue-modal__group {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+
+.start-dialogue-modal__title {
+	font-size: 3.2rem;
+	line-height: 3.6rem;
+	font-weight: 700;
+	color: vars.$accentColor-2;
+}
+
+.start-dialogue-modal__summary {
+	color: vars.$grayColor-5;
+}
+
+.start-dialogue-modal__settings {
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+
+	.language-switch {
+		flex-wrap: wrap;
+	}
+
+	.language-switch__button {
+		font-style: italic;
+		text-transform: capitalize;
+	}
+}

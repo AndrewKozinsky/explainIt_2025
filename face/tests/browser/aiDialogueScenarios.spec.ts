@@ -114,14 +114,27 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	await cards.first().focus()
 	await page.keyboard.press('Enter')
 	await expect(page.locator('.modal').getByRole('heading', { name: titles[0], exact: true })).toBeVisible()
+	await expect(page.locator('.modal').getByText('Поездка за границу', { exact: true })).toBeVisible()
+	await expect(page.locator('.start-dialogue-modal__summary')).toHaveText(
+		JSON.parse(groups[0].scenarios[0].description).ru,
+	)
+	await expect(page.locator('.start-dialogue-modal > img')).toHaveAttribute('src', '/test-cover.svg')
+	await expect(page.locator('.start-dialogue-modal > img')).toHaveJSProperty('naturalWidth', 1152)
+	await expect(page.locator('.modal .switcher--size-medium')).toBeVisible()
+	await expect(page.locator('.modal .label-with-field__description')).toHaveText('Можно изменить во время разговора')
+	await page
+		.locator('.start-dialogue-modal')
+		.screenshot({ path: testInfo.outputPath('scenario-start-modal-desktop.png') })
 
 	expect(h.posts).toHaveLength(0)
 	await page.getByRole('button', { name: 'Начать диалог', exact: true }).click()
 	await expect(page.getByText('Войдите в учётную запись', { exact: true })).toBeVisible()
 	await expect(page.locator('.modal')).toHaveCount(1)
+
 	expect(h.posts).toHaveLength(0)
 	await page.locator('.modal__close-button').click()
 	await page.screenshot({ path: testInfo.outputPath('scenario-groups-desktop.png'), fullPage: true })
+
 	expect(h.requests()).toBe(1)
 	expect(h.errors).toEqual([])
 })
@@ -141,6 +154,14 @@ test('mobile cards stay within the viewport and keep their cover slot after imag
 	const cover = (await cards.first().locator('.media-card-button__cover').boundingBox())!
 	expect(cover.width / cover.height).toBeCloseTo(2)
 	await page.screenshot({ path: testInfo.outputPath('scenario-groups-mobile.png'), fullPage: true })
+	await cards.first().click()
+	await expect(page.getByRole('button', { name: 'Начать диалог', exact: true })).toBeVisible()
+	const modal = (await page.locator('.start-dialogue-modal').boundingBox())!
+	expect(modal.x).toBeGreaterThanOrEqual(0)
+	expect(modal.x + modal.width).toBeLessThanOrEqual(390)
+	await page
+		.locator('.start-dialogue-modal')
+		.screenshot({ path: testInfo.outputPath('scenario-start-modal-mobile.png') })
 	expect(h.errors).toEqual([])
 })
 
@@ -170,17 +191,47 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 	await page.locator('.modal__close-button').click()
 	await card.click()
 	await expect(page.locator('.modal').getByRole('heading', { name: titles[0], exact: true })).toBeVisible()
+	await page.locator('.modal').getByRole('button', { name: /^fr$/i }).click()
+	await page.locator('.modal').getByRole('button', { name: 'B1', exact: true }).click()
 	await start.click()
 	await expect(start).toBeDisabled()
+
+	for (const control of await page.locator('.start-dialogue-modal__settings button').all())
+		await expect(control).toBeDisabled()
+
 	await expect(page.getByRole('status', { name: 'Создаю диалог' })).toBeVisible()
+
 	for (const button of await page.locator('.public-scenario-card').all()) await expect(button).toBeDisabled()
-	expect(h.posts).toEqual([{ scenarioId: 1, sourceLanguageCode: 'en', targetLanguageCode: 'ru' }])
+	expect(h.posts).toEqual([{ scenarioId: 1, sourceLanguageCode: 'fr', targetLanguageCode: 'ru', maxCefrLevel: 'B1' }])
 	h.finishCreation(true)
 	await expect(page.getByRole('alert')).toBeVisible()
 	await expect(card).toBeEnabled()
 	await expect(start).toBeEnabled()
+	await expect(page.locator('.modal').getByRole('button', { name: /^fr$/i })).toBeDisabled()
+	await expect(page.locator('.modal').getByRole('button', { name: 'B1', exact: true })).toBeDisabled()
 	await start.click()
 	await expect.poll(() => h.posts.length).toBe(2)
+	expect(h.posts[1]).toEqual(h.posts[0])
+	h.finishCreation()
+	await expect(page).toHaveURL(/\/ru\/dialogues\/42$/)
+	expect(h.errors).toEqual([])
+})
+
+test('new openings reset language and level to English and unrestricted; Any sends null', async ({ page }) => {
+	const h = await setup(page, { authenticated: true })
+	const card = page.getByRole('button', { name: titles[0], exact: true })
+	await card.click()
+	await page.locator('.modal').getByRole('button', { name: /^de$/i }).click()
+	await page.locator('.modal').getByRole('button', { name: 'A2', exact: true }).click()
+	await page.locator('.modal__close-button').click()
+	await card.click()
+	await expect(page.locator('.modal').getByRole('button', { name: /^en$/i })).toBeDisabled()
+	await expect(page.locator('.modal').getByRole('button', { name: 'Any', exact: true })).toBeDisabled()
+	await page.locator('.modal').getByRole('button', { name: 'A1', exact: true }).click()
+	await page.locator('.modal').getByRole('button', { name: 'Any', exact: true }).click()
+	await page.getByRole('button', { name: 'Начать диалог', exact: true }).click()
+	await expect.poll(() => h.posts.length).toBe(1)
+	expect(h.posts).toEqual([{ scenarioId: 1, sourceLanguageCode: 'en', targetLanguageCode: 'ru', maxCefrLevel: null }])
 	h.finishCreation()
 	await expect(page).toHaveURL(/\/ru\/dialogues\/42$/)
 	expect(h.errors).toEqual([])

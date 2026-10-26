@@ -10,6 +10,7 @@ import { useUser } from '@/shared/api/auth/UserProvider'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { LanguageCode } from '@/shared/utils/languages'
 import { pageUrls } from '@/shared/utils/pageUrls'
+import type { StartDialogueOptions } from './useStartDialogueOptions'
 
 /**
  * Хук клика по карточке сценария диалога.
@@ -41,7 +42,7 @@ export function useAiDialogueScenarioClick() {
 	}, [])
 
 	const onStartDialogue = useCallback(
-		async function () {
+		async function (options: StartDialogueOptions) {
 			if (isCreating.current || selectedScenarioId === null) return
 
 			if (!user) {
@@ -53,10 +54,10 @@ export function useAiDialogueScenarioClick() {
 			isCreating.current = true
 			setCreatingScenarioId(selectedScenarioId)
 			try {
-				// TODO: временно передаём английский как язык практики — позже дадим пользователю выбор.
 				const result = await aiDialogueService.createDialogue({
 					scenarioId: selectedScenarioId,
-					sourceLanguageCode: 'en',
+					sourceLanguageCode: options.sourceLanguageCode,
+					maxCefrLevel: options.maxCefrLevel,
 					targetLanguageCode: locale as LanguageCode,
 				})
 

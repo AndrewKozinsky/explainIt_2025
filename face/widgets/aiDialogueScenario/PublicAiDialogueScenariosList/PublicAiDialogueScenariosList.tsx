@@ -42,9 +42,8 @@ export default function PublicAiDialogueScenariosList() {
 	const groups = getScenarioGroupsConfig(query.data ?? [], locale)
 	if (!groups.length) return <p>Пока нет доступных сценариев.</p>
 
-	const selectedScenario = groups
-		.flatMap((group) => group.scenarios)
-		.find((scenario) => scenario.id === selectedScenarioId)
+	const selectedGroup = groups.find((group) => group.scenarios.some((scenario) => scenario.id === selectedScenarioId))
+	const selectedScenario = selectedGroup?.scenarios.find((scenario) => scenario.id === selectedScenarioId)
 
 	return (
 		<div className='public-ai-dialogue-scenarios-list'>
@@ -56,13 +55,15 @@ export default function PublicAiDialogueScenariosList() {
 					onScenarioClick={onScenarioClick}
 				/>
 			))}
-			<StartDialogueModal
-				title={selectedScenario?.title ?? ''}
-				isOpen={!!selectedScenario}
-				loading={creatingScenarioId !== null}
-				onClose={closeScenarioModal}
-				onStart={onStartDialogue}
-			/>
+			{selectedScenario && selectedGroup && (
+				<StartDialogueModal
+					scenario={selectedScenario}
+					groupTitle={selectedGroup.title}
+					loading={creatingScenarioId !== null}
+					onClose={closeScenarioModal}
+					onStart={onStartDialogue}
+				/>
+			)}
 			<LoginPromptModal
 				isOpen={isLoginModalOpen}
 				onClose={closeLoginModal}

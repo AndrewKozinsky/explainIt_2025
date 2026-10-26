@@ -1,8 +1,8 @@
-import TextLevelSwitcher, { type AiDialogueTextLevel } from './TextLevelSwitcher'
+import TextLevelSwitcher, { type AiDialogueTextLevel } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import UnlockAudioButton from './UnlockAudioButton'
 import './AiDialogueSettings.scss'
 
-export type { AiDialogueTextLevel } from './TextLevelSwitcher'
+export type { AiDialogueTextLevel } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 
 type AiDialogueSettingsProps = {
 	textLevel: AiDialogueTextLevel

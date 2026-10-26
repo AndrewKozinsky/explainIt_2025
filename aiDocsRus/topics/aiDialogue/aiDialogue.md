@@ -153,7 +153,8 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 
 Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см.
 `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`). На
-клиенте `sourceLanguageCode` пока временно захардкожен как `'en'` (см. `useAiDialogueScenarioClick`).
+клиенте `sourceLanguageCode` выбирается в окне запуска сценария; по умолчанию используется английский.
+В этом же окне выбирается максимальная сложность (`maxCefrLevel`), по умолчанию — без ограничения (`null`).
 
 ### Ограничение сложности текста по CEFR
 
@@ -616,7 +617,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `face/entities/aiDialogue/AiDialogueService.ts` — сервис.
 - `face/entities/aiDialogue/AiDialogueQueryFacade.ts` — TanStack Query фасад.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
-  (создаёт диалог; `sourceLanguageCode` пока `'en'`).
+  (выбор сценария, проверка входа и создание с параметрами окна запуска).
 - `face/shared/utils/pickLocalized.ts` — резолв JSON-строки переводов под локаль.
 - `face/shared/api/generated/ai-dialogue/ai-dialogue.ts` — сгенерированные функции (Orval).
 
@@ -647,11 +648,14 @@ Any передаёт `null`. На время сохранения заблоки
 
 ### Создание диалога по клику на сценарий
 
-1. Если пользователь не вошёл (`useUser()` → `null`) — `LoginPromptModal`.
-2. Иначе `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode })`.
-    - `sourceLanguageCode` — пока временно `'en'` (захардкожено, с TODO);
-    - `targetLanguageCode` — текущая локаль интерфейса (`locale`).
-3. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
+1. Карточка открывает `StartDialogueModal` с обложкой, группой, названием и описанием сценария.
+2. Пользователь выбирает язык практики (en/de/fr/it/es) и сложность (A1/A2/B1/B2/Any).
+   Исходные значения — en и Any; закрытие окна ничего не создаёт.
+3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
+4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel })`.
+   `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `maxCefrLevel: null`.
+   Во время POST настройки и повторный запуск заблокированы; ошибка сохраняет текущий выбор для повтора.
+5. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
 
 Список диалогов и состояние его клиентской реализации: [aiDialogueList.md](aiDialogueList.md).
 
@@ -669,7 +673,6 @@ Any передаёт `null`. На время сохранения заблоки
 ## Вне объёма (следующие шаги)
 
 - Отмена генерации пользователем (задействовать `AbortController` в registry) и выбор LLM-модели клиентом.
-- Выбор языка практики пользователем: сейчас `sourceLanguageCode` при создании диалога захардкожен как `'en'`.
 
 ## Изображения в диалогах
 

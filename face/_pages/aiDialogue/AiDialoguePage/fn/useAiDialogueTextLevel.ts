@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import type { AiDialogueModel } from '@/entities/aiDialogue/AiDialogueService'
+import type { AiDialogueTextLevel } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import type { AiDialogueTextLevel } from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/TextLevelSwitcher'
 
 /** Связывает переключатель с PATCH: Any → null, серверный выбор, состояние сохранения и уведомления об ошибках. */
 export function useAiDialogueTextLevel(dialogueId: number, dialogue: AiDialogueModel | undefined) {
