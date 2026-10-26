@@ -44,6 +44,9 @@ describe('CleanupAiDialogueImages', () => {
 		const { cleanup, repository, storage } = harness()
 		await cleanup.cleanupDeletedDialogueImages([
 			'ai-dialogue-images/shared/user-avatar.jpg',
+			'ai-dialogue-images/shared/styles/localtest/realism.webp',
+			'ai-dialogue-images/shared/styles/servermaster/watercolor.webp',
+			'ai-dialogue-images/shared/style-scene.jpg',
 			'style.png',
 			`${prefix}job-10/not-a-uuid.png`,
 			key.replace('/ru/', '/intl/'),
@@ -51,12 +54,14 @@ describe('CleanupAiDialogueImages', () => {
 		expect(repository.isGeneratedImageInUse).not.toHaveBeenCalled()
 		expect(storage.deleteFile).not.toHaveBeenCalled()
 	})
+
 	it('retains a bound file or an active generation', async () => {
 		const { cleanup, repository, storage } = harness()
 		repository.isGeneratedImageInUse.mockResolvedValue(true)
 		await cleanup.cleanupDeletedDialogueImages([key])
 		expect(storage.deleteFile).not.toHaveBeenCalled()
 	})
+
 	it('does not fail DELETE on DB or R2 errors and retries new keys during later scans', async () => {
 		const { cleanup, repository, storage } = harness()
 		repository.isGeneratedImageInUse.mockRejectedValueOnce(new Error('DB offline'))

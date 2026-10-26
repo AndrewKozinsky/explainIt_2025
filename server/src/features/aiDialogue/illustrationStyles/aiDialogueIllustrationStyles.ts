@@ -54,3 +54,33 @@ export function getAiDialogueIllustrationStyleKey(mode: string | undefined, file
 
 	return `ai-dialogue-images/shared/styles/${mode}/${file}`
 }
+
+export type AiDialogueImageStyleSnapshot = {
+	illustrationStyleId: string
+	stylePrompt: string
+	styleAvatarReferenceS3Key: string
+	styleSceneReferenceS3Key: string
+}
+
+/** Фиксирует выбранный в БД стиль для новых заданий; worker не перечитывает каталог. */
+export function getAiDialogueImageStyleSnapshot(
+	illustrationStyleId: string,
+	mode: string | undefined,
+): AiDialogueImageStyleSnapshot {
+	const style = getAiDialogueIllustrationStyleCatalog().styles.find((item) => item.id === illustrationStyleId)
+	if (!style) {
+		throw new CustomError(
+			errorMessage.aiDialogue.invalidIllustrationStyleCatalog,
+			ErrorStatusCode.InternalServerError_500,
+		)
+	}
+
+	const styleReferenceS3Key = getAiDialogueIllustrationStyleKey(mode, style.file)
+
+	return {
+		illustrationStyleId: style.id,
+		stylePrompt: style.stylePrompt,
+		styleAvatarReferenceS3Key: styleReferenceS3Key,
+		styleSceneReferenceS3Key: styleReferenceS3Key,
+	}
+}

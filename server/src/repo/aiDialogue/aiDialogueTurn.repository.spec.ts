@@ -1,19 +1,23 @@
 jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
+jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
 
 import { PrismaService } from 'db/prisma.service'
-import { parseAiDialogueEvents } from 'features/aiDialogue/parseAiDialogueEvents'
+import { aiDialogueIllustrationStyleCatalog } from 'features/aiDialogue/illustrationStyles/catalog'
 import {
 	buildImageGenerationInput,
 	parseImageGenerationSnapshot,
 } from 'features/aiDialogue/imageGeneration/buildImageGenerationPrompt'
+import { parseAiDialogueEvents } from 'features/aiDialogue/parseAiDialogueEvents'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueTurnRepository } from './aiDialogueTurn.repository'
 
-function createHarness() {
+function createHarness(illustrationStyleId = 'realism', mode = 'localdev') {
 	const tx = {
 		aiDialogue: {
-			findUniqueOrThrow: jest
-				.fn()
-				.mockResolvedValue({ user: { avatar_preset_id: 'female-2', avatar_s3_key: 'retained.webp' } }),
+			findUniqueOrThrow: jest.fn().mockResolvedValue({
+				illustration_style_id: illustrationStyleId,
+				user: { avatar_preset_id: 'female-2', avatar_s3_key: 'retained.webp' },
+			}),
 		},
 		aiDialogueCharacter: {
 			findUnique: jest.fn(),
@@ -24,14 +28,97 @@ function createHarness() {
 		imageGenerationJob: { create: jest.fn() },
 		imageGenerationOutbox: { create: jest.fn() },
 	}
+
 	const prisma = {
 		$transaction: jest.fn(async (callback: (client: typeof tx) => unknown) => callback(tx)),
 	} as unknown as PrismaService
 
-	return { repository: new AiDialogueTurnRepository(prisma), tx }
+	const config = { get: jest.fn(() => ({ mode })) }
+	return { repository: new AiDialogueTurnRepository(prisma, config as unknown as MainConfigService), tx, config }
 }
 
 describe('AiDialogueTurnRepository', () => {
+	it.each(['localdev', 'servermaster'])('uses each saved style for both new NPCs and scenes in %s', async (mode) => {
+		for (const style of aiDialogueIllustrationStyleCatalog.styles) {
+			const { repository, tx } = createHarness(style.id, mode)
+			tx.aiDialogueCharacter.findUnique.mockResolvedValue(null)
+			tx.aiDialogueCharacter.create.mockResolvedValue({ id: 10, appearance: 'dark hair' })
+			tx.aiDialogueMessage.create.mockResolvedValueOnce({ id: 100 }).mockResolvedValueOnce({ id: 101 })
+			tx.imageGenerationJob.create.mockResolvedValue({ id: 30 })
+
+			await repository.saveGeneratedTurn({
+				dialogueId: 5,
+				turn: parseAiDialogueEvents(
+					[
+						'sceneUpdate',
+						'An office.',
+						'Кабинет.',
+						'participants:npc_1',
+						'visual:A conversation in an office.',
+						'',
+						'npcActions|npc_1|Alex|receptionist|neutral',
+						'appearance:',
+						'dark hair',
+						'speech:',
+						'Hello.',
+						'Здравствуйте.',
+					].join('\n'),
+				),
+			})
+			expect(tx.aiDialogue.findUniqueOrThrow).toHaveBeenCalledTimes(1)
+			for (const [job] of tx.imageGenerationJob.create.mock.calls) {
+				const snapshot = parseImageGenerationSnapshot(job.data.type, job.data.input)
+				expect(snapshot).toMatchObject({
+					illustrationStyleId: style.id,
+					stylePrompt: style.stylePrompt,
+					styleAvatarReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+					styleSceneReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+				})
+			}
+			expect(tx.imageGenerationJob.create).toHaveBeenCalledTimes(2)
+			expect(tx.imageGenerationOutbox.create).toHaveBeenCalledTimes(2)
+		}
+	})
+
+	it('captures the saved style for a new NPC without sceneUpdate', async () => {
+		const { repository, tx } = createHarness('watercolor')
+		tx.aiDialogueCharacter.findUnique.mockResolvedValue(null)
+		tx.aiDialogueCharacter.create.mockResolvedValue({ id: 10, appearance: 'dark hair' })
+		tx.aiDialogueMessage.create.mockResolvedValue({ id: 100 })
+		tx.imageGenerationJob.create.mockResolvedValue({ id: 30 })
+		await repository.saveGeneratedTurn({
+			dialogueId: 5,
+			turn: parseAiDialogueEvents(
+				[
+					'npcActions|npc_1|Alex|receptionist|neutral',
+					'appearance:',
+					'dark hair',
+					'speech:',
+					'Hello.',
+					'Здравствуйте.',
+				].join('\n'),
+			),
+		})
+		expect(tx.imageGenerationJob.create).toHaveBeenCalledTimes(1)
+		expect(tx.imageGenerationJob.create.mock.calls[0][0].data.type).toBe('emotionSheet')
+		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).toMatchObject({
+			illustrationStyleId: 'watercolor',
+			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/watercolor.webp',
+		})
+	})
+
+	it('does not persist messages or jobs for an invalid saved style', async () => {
+		const { repository, tx } = createHarness('unknown')
+		await expect(
+			repository.saveGeneratedTurn({
+				dialogueId: 5,
+				turn: parseAiDialogueEvents('sceneUpdate\nAn office.\nКабинет.'),
+			}),
+		).rejects.toMatchObject({ statusCode: 500 })
+		expect(tx.aiDialogueMessage.create).not.toHaveBeenCalled()
+		expect(tx.imageGenerationJob.create).not.toHaveBeenCalled()
+	})
+
 	it.each([
 		{
 			avatar_preset_id: 'female-2',
@@ -41,7 +128,7 @@ describe('AiDialogueTurnRepository', () => {
 		{ avatar_preset_id: null, avatar_s3_key: 'uploaded.webp', expectedKey: 'uploaded.webp' },
 	])('persists scene metadata and the selected avatar $expectedKey in the same transaction', async (profile) => {
 		const { repository, tx } = createHarness()
-		tx.aiDialogue.findUniqueOrThrow.mockResolvedValue({ user: profile })
+		tx.aiDialogue.findUniqueOrThrow.mockResolvedValue({ illustration_style_id: 'realism', user: profile })
 		tx.aiDialogueCharacter.findUnique.mockResolvedValue(null)
 		tx.aiDialogueCharacter.create.mockResolvedValue({ id: 10, appearance: 'short dark hair' })
 		tx.aiDialogueMessage.create.mockResolvedValueOnce({ id: 100 }).mockResolvedValueOnce({ id: 101 })
@@ -83,14 +170,16 @@ describe('AiDialogueTurnRepository', () => {
 			quality: 'low',
 			format: 'png',
 			size: { width: 1152, height: 576 },
-			styleSceneReferenceS3Key: 'ai-dialogue-images/shared/style-scene.jpg',
+			illustrationStyleId: 'realism',
+			styleSceneReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/realism.webp',
 		})
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).toMatchObject({
 			model: 'gpt-image-2',
 			quality: 'low',
 			format: 'png',
 			size: { width: 960, height: 720 },
-			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/style-scene.jpg',
+			illustrationStyleId: 'realism',
+			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/realism.webp',
 		})
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).not.toHaveProperty(
 			'userAvatarS3Key',

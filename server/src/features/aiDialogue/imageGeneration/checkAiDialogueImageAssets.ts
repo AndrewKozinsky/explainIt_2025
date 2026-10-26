@@ -28,14 +28,14 @@ export async function checkDialogueImageAssets(): Promise<void> {
 	const storage = app.get(CloudflareS3Service)
 
 	try {
-		const illustrationStyleReferenceKeys = process.argv.includes('--illustration-styles')
-			? Object.fromEntries(
-					getAiDialogueIllustrationStyleCatalog().styles.map((style) => [
-						style.id,
-						getAiDialogueIllustrationStyleKey(app.get(MainConfigService).get().mode, style.file),
-					]),
-				)
-			: undefined
+		const mode = app.get(MainConfigService).get().mode
+
+		const illustrationStyleReferenceKeys = Object.fromEntries(
+			getAiDialogueIllustrationStyleCatalog().styles.map((style) => [
+				style.id,
+				getAiDialogueIllustrationStyleKey(mode, style.file),
+			]),
+		)
 
 		const imageAssetsCheckResult = await app
 			.get(CheckAiDialogueImageAssets)

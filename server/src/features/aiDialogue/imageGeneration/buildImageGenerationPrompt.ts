@@ -7,6 +7,8 @@ import { OPENAI_IMAGE_MODELS } from 'infrastructure/imageGenerationProviderAdapt
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 
 const common = {
+	// Старые задания не содержат id; их сохранённые промпты и ключи остаются достаточны.
+	illustrationStyleId: z.string().min(1).optional(),
 	model: z.enum(OPENAI_IMAGE_MODELS),
 	stylePrompt: z.string().min(1),
 	size: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
@@ -103,7 +105,7 @@ function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
 	return [
 		input.stylePrompt,
 		input.styleAvatarReferenceS3Key
-			? 'Use Image 1 only for palette, linework, texture and lighting. Do not copy any person, face, facial features, hairstyle or composition from it.'
+			? 'Use Image 1 only for visual style, medium, color treatment, texture and lighting, consistent with the requested style. Do not copy any person, face, facial features, hairstyle or composition from it.'
 			: '',
 		'Create one emotion sprite sheet with exactly 12 close-up facial portraits of the same adult character.',
 		'LAYOUT:',
@@ -122,9 +124,8 @@ function buildEmotionPrompt(input: z.infer<typeof emotionSchema>): string {
 		'Make each expression distinct and immediately readable at small avatar sizes. Communicate emotion through clear changes in eyebrows, eyes, and mouth. Use natural but pronounced expressions without distorting facial proportions. Avoid subtle expressions that disappear when the image is downscaled.',
 		'CONSISTENCY:',
 		'Keep identical identity, facial features, hairstyle, camera angle, lighting, and background across all cells. Only the facial expression changes.',
-		'STYLE:',
-		'Modern editorial illustration with subtle graphic-novel influence. Realistic adult facial proportions, clean soft outlines, simplified shapes, soft shadows, and a moderately warm palette. Prioritize clear facial features over fine texture and decorative detail.',
-		'No text, labels, visible grid lines, borders, gaps, or outer margins. No photorealism, caricature, or 3D rendering.',
+		'Use the requested visual style consistently in all cells. Preserve natural adult facial proportions and readable facial features.',
+		'No text, labels, visible grid lines, borders, gaps, or outer margins.',
 	]
 		.filter(Boolean)
 		.join('\n')
@@ -136,7 +137,7 @@ function buildScenePrompt(input: z.infer<typeof sceneSchema>): string {
 
 	return [
 		input.stylePrompt,
-		`Illustrate this exact scene: ${input.visualDescription}`,
+		`Depict this exact scene: ${input.visualDescription}`,
 		'Image 1 is the participant. Include the participant in the scene and preserve the identity and clothing of all participants.',
 		...participants,
 		input.participantNpcIds.length
@@ -147,7 +148,7 @@ function buildScenePrompt(input: z.infer<typeof sceneSchema>): string {
 		'Use participant references only to preserve identity, facial features, hairstyle and clothing. Reconstruct each person in the pose required by this scene. Do not copy the reference photo’s body pose, head angle, gaze direction, camera viewpoint or background; a front-facing portrait or an over-the-shoulder photo is not a pose instruction.',
 		'Only for a face-to-face conversation with a visible NPC and an unobstructed line of sight, orient the participant’s body, head and eyes toward that NPC’s face, and the speaking NPC toward the participant. With multiple visible NPCs, use the current speaker indicated by the scene description. When the speaker is unseen or the scene has another focus, direct attention toward the actual source of sound, object or activity instead; never invent eye contact through a barrier.',
 		'Choose a side or three-quarter camera view that respects these spatial and visibility constraints. Make mutual attention clear only when people can actually see each other. Do not force frontal faces for recognition: preserve identity in profile and three-quarter views as needed.',
-		'Keep each participant a separate recognizable person. Never transfer the participant’s face or facial features to an NPC, or blend the identities. Render all participants in the requested illustration style.',
+		'Keep each participant a separate recognizable person. Never transfer the participant’s face or facial features to an NPC, or blend the identities. Render all participants in the requested visual style.',
 		input.styleSceneReferenceS3Key
 			? `Image ${styleIndex} supplies visual style only; do not copy its composition or characters.`
 			: '',

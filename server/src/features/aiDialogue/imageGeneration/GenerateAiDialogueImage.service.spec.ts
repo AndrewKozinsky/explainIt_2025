@@ -3,8 +3,8 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 import OpenAI from 'openai'
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
-import { OpenAIImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/OpenAIImageGenerationProvider'
 import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
+import { OpenAIImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/OpenAIImageGenerationProvider'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION, AI_DIALOGUE_IMAGE_MODEL } from '../aiDialogueVisualConfig'
 import { GenerateAiDialogueImage } from './GenerateAiDialogueImage.service'
 import { ImageGenerationAssets } from './ImageGenerationAssets'
@@ -101,6 +101,21 @@ describe('GenerateAiDialogueImage with OpenAI', () => {
 			size: '1024x768',
 		})
 	})
+	it('uses the saved style prompt without resolving a style ID against the current catalog', async () => {
+		const { service, job, images } = harness()
+		job.input = JSON.stringify({
+			...snapshot,
+			illustrationStyleId: 'style-no-longer-in-catalog',
+			stylePrompt: 'Archived style instruction captured when the job was created.',
+		})
+
+		await service.processStep(10)
+
+		expect(images.generate).toHaveBeenCalledTimes(1)
+		expect(images.generate.mock.calls[0][0].prompt).toContain(
+			'Archived style instruction captured when the job was created.',
+		)
+	})
 	it('waits for dependencies without claiming or paid calls', async () => {
 		const { service, assets, repository, requests, images } = harness()
 		assets.prepareReferences.mockResolvedValue(null)
@@ -117,6 +132,7 @@ describe('GenerateAiDialogueImage with OpenAI', () => {
 		expect(requests.claimSubmission).not.toHaveBeenCalled()
 		expect(images.generate).not.toHaveBeenCalled()
 	})
+
 	it.each(['ready', 'failed', 'deleted'])('skips %s jobs', async (status) => {
 		const { service, job, repository, images } = harness()
 		job.status = status
@@ -124,6 +140,7 @@ describe('GenerateAiDialogueImage with OpenAI', () => {
 		await expect(service.processStep(10)).resolves.toEqual({ done: true })
 		expect(images.generate).not.toHaveBeenCalled()
 	})
+
 	it('recovers uploaded results after a crash without even requiring an API key', async () => {
 		const { service, job, assets, images, unconfigure } = harness()
 		job.status = 'generating'

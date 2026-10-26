@@ -91,6 +91,37 @@ describe('R2ImageGenerationAssets', () => {
 		expect(references![0]).toBe(`data:image/jpeg;base64,${portrait.toString('base64')}`)
 		expect(references![1]).toMatch(/^data:image\/png;base64,/)
 	})
+
+	it.each(['emotionSheet', 'scene'])(
+		'accepts a square WebP style reference for %s with a different result ratio',
+		async (type) => {
+			const { service, storage, job } = harness()
+			const styleKey = 'ai-dialogue-images/shared/styles/localdev/watercolor.webp'
+			const styleBytes = await sharp({ create: { width: 512, height: 512, channels: 3, background: 'green' } })
+				.webp()
+				.toBuffer()
+
+			job.message_id = type === 'scene' ? 3 : null
+			storage.readFile.mockImplementation(async (key) =>
+				key === styleKey ? styleBytes : key === 'npc.png' ? sprite : portrait,
+			)
+
+			const snapshot = parseImageGenerationSnapshot(
+				type,
+				JSON.stringify({
+					...(type === 'scene' ? scene : emotion),
+					styleAvatarReferenceS3Key: styleKey,
+					styleSceneReferenceS3Key: styleKey,
+				}),
+			)
+
+			const references = await service.prepareReferences(job, snapshot)
+
+			expect(storage.readFile).toHaveBeenCalledWith(styleKey)
+			expect(references!.at(-1)).toBe(`data:image/webp;base64,${styleBytes.toString('base64')}`)
+			expect(references).toHaveLength(type === 'scene' ? 3 : 1)
+		},
+	)
 	it('waits for an unfinished NPC without reading R2', async () => {
 		const { service, repository, storage, job } = harness()
 		job.message_id = 3

@@ -8,11 +8,13 @@ import {
 	AI_DIALOGUE_IMAGE_MODEL,
 	AI_DIALOGUE_IMAGE_QUALITY,
 	AI_DIALOGUE_SCENE_SIZE,
-	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-	AI_DIALOGUE_VISUAL_STYLE_PROMPT,
 } from 'features/aiDialogue/aiDialogueVisualConfig'
+import {
+	AiDialogueImageStyleSnapshot,
+	getAiDialogueImageStyleSnapshot,
+} from 'features/aiDialogue/illustrationStyles/aiDialogueIllustrationStyles'
 import { getUserAvatarS3Key } from 'features/user/avatarPresets'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { Prisma } from 'prisma/generated/client'
 
 type SaveGeneratedTurnInput = {
@@ -24,22 +26,31 @@ type SaveGeneratedTurnInput = {
 /** Сохраняет подтверждённый ход и все намерения визуальной генерации одной транзакцией. */
 @Injectable()
 export class AiDialogueTurnRepository {
-	constructor(private prisma: PrismaService) {}
+	constructor(
+		private prisma: PrismaService,
+		private config: MainConfigService,
+	) {}
 
 	async saveGeneratedTurn(input: SaveGeneratedTurnInput): Promise<number[]> {
 		return this.prisma.$transaction(async (tx) => {
-			const dialogue = input.turn.events.some((event) => event.type === 'sceneUpdate')
-				? await tx.aiDialogue.findUniqueOrThrow({
-						where: { id: input.dialogueId },
-						select: { user: { select: { avatar_preset_id: true, avatar_s3_key: true } } },
-					})
-				: null
+			const dialogue = await tx.aiDialogue.findUniqueOrThrow({
+				where: { id: input.dialogueId },
+				select: {
+					illustration_style_id: true,
+					user: { select: { avatar_preset_id: true, avatar_s3_key: true } },
+				},
+			})
+
+			const imageStyleSnapshot = getAiDialogueImageStyleSnapshot(
+				dialogue.illustration_style_id,
+				this.config.get().mode,
+			)
 
 			const appearanceByNpcId = new Map(
 				input.turn.visualMetadata.npcAppearances.map((item) => [item.npcId, item.appearance]),
 			)
 
-			await this.ensureCharacters(tx, input.dialogueId, input.turn.events, appearanceByNpcId)
+			await this.ensureCharacters(tx, input.dialogueId, input.turn.events, appearanceByNpcId, imageStyleSnapshot)
 
 			const characters = await tx.aiDialogueCharacter.findMany({
 				where: { dialogue_id: input.dialogueId },
@@ -66,7 +77,7 @@ export class AiDialogueTurnRepository {
 
 				if (savedEvent.type !== 'sceneUpdate') continue
 
-				await this.createJobWithOutbox(tx, {
+				await this.createJobWithOutbox(tx, imageStyleSnapshot, {
 					dedupKey: `scene-message:${message.id}`,
 					type: 'scene',
 					messageId: message.id,
@@ -75,7 +86,7 @@ export class AiDialogueTurnRepository {
 						visualDescription: savedEvent.visualDescription,
 						participantNpcIds,
 						participantCharacterIds: participantNpcIds.map((npcId) => characterIdByNpcId.get(npcId)),
-						userAvatarS3Key: getUserAvatarS3Key(dialogue!.user),
+						userAvatarS3Key: getUserAvatarS3Key(dialogue.user),
 						aspectRatio: '2:1',
 						size: AI_DIALOGUE_SCENE_SIZE,
 					},
@@ -97,6 +108,7 @@ export class AiDialogueTurnRepository {
 		dialogueId: number,
 		events: AiDialogueEvent[],
 		appearanceByNpcId: Map<string, string>,
+		imageStyleSnapshot: AiDialogueImageStyleSnapshot,
 	): Promise<void> {
 		for (const event of events) {
 			if (event.type !== 'npcActions' || !event.npcId) continue
@@ -107,6 +119,7 @@ export class AiDialogueTurnRepository {
 
 			const appearance =
 				appearanceByNpcId.get(event.npcId) || [event.npcName, event.npcRole].filter(Boolean).join(', ')
+
 			const character = await tx.aiDialogueCharacter.create({
 				data: {
 					dialogue_id: dialogueId,
@@ -116,7 +129,8 @@ export class AiDialogueTurnRepository {
 					appearance: appearance || 'adult person with neutral everyday appearance',
 				},
 			})
-			await this.createJobWithOutbox(tx, {
+
+			await this.createJobWithOutbox(tx, imageStyleSnapshot, {
 				dedupKey: `character:${character.id}:${AI_DIALOGUE_EMOTION_LAYOUT_VERSION}`,
 				type: 'emotionSheet',
 				characterId: character.id,
@@ -144,6 +158,7 @@ export class AiDialogueTurnRepository {
 
 	private async createJobWithOutbox(
 		tx: Prisma.TransactionClient,
+		imageStyleSnapshot: AiDialogueImageStyleSnapshot,
 		input: {
 			dedupKey: string
 			type: 'emotionSheet' | 'scene'
@@ -162,10 +177,8 @@ export class AiDialogueTurnRepository {
 					model: AI_DIALOGUE_IMAGE_MODEL,
 					quality: AI_DIALOGUE_IMAGE_QUALITY,
 					format: AI_DIALOGUE_IMAGE_FORMAT,
-					stylePrompt: AI_DIALOGUE_VISUAL_STYLE_PROMPT,
-					styleAvatarReferenceS3Key: AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-					styleSceneReferenceS3Key: AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
 					...input.input,
+					...imageStyleSnapshot,
 				}),
 			},
 		})

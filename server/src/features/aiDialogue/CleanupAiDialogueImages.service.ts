@@ -4,10 +4,6 @@ import { AiDialogueImageCleanupRepository } from 'repo/aiDialogue/aiDialogueImag
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
-	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-} from './aiDialogueVisualConfig'
-import {
 	GENERATED_DIALOGUE_IMAGES_PREFIX,
 	getGeneratedDialogueImageJobId,
 	getGeneratedDialogueImagesPrefix,
@@ -85,8 +81,7 @@ export class CleanupAiDialogueImages implements OnModuleDestroy {
 		const jobId = getGeneratedDialogueImageJobId(key)
 		if (!key.startsWith(this.generatedPrefix) && !key.startsWith(`${GENERATED_DIALOGUE_IMAGES_PREFIX}job-`)) return
 
-		const sharedKeys = [AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY, AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY]
-		if (jobId === null || sharedKeys.includes(key)) return
+		if (jobId === null) return
 
 		try {
 			if (await this.repository.isGeneratedImageInUse(key, jobId)) return

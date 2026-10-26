@@ -1,9 +1,5 @@
 import { Injectable } from '@nestjs/common'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
-import {
-	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-} from '../aiDialogueVisualConfig'
 import { inspectDialogueImage } from './dialogueImageFiles'
 
 export type DialogueSharedImageKeys = Record<string, string | null>
@@ -24,14 +20,11 @@ export class CheckAiDialogueImageAssets {
 	/**
 	 * Читает и декодирует эталоны стиля без записи в R2, БД и вызова генератора.
 	 * Ошибки отдельных объектов не прерывают остальные проверки и не раскрывают ответы SDK/секреты.
-	 * @param keys Именованные эталоны; по умолчанию два назначения прежнего стиля из visual config.
+	 * @param keys Именованные эталоны текущего каталога для проверяемого MODE.
 	 * @returns Готовность всех эталонов и безопасный отчёт с фактическими размерами/форматом.
 	 */
 	async checkSharedImageAssets(
-		keys: DialogueSharedImageKeys = {
-			avatarStyle: AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-			sceneStyle: AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-		},
+		keys: DialogueSharedImageKeys,
 	): Promise<{ ready: boolean; assets: DialogueSharedImageCheck[] }> {
 		const assets: DialogueSharedImageCheck[] = []
 

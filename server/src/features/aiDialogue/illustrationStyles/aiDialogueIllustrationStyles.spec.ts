@@ -2,10 +2,28 @@ import {
 	getAiDialogueIllustrationStyleCatalog,
 	getAiDialogueIllustrationStyleKey,
 	getNewAiDialogueIllustrationStyle,
+	getAiDialogueImageStyleSnapshot,
 } from './aiDialogueIllustrationStyles'
 import { aiDialogueIllustrationStyleCatalog } from './catalog'
 
 describe('AI dialogue illustration style catalog', () => {
+	it.each(['localdev', 'servermaster'])('captures the selected style and both reference roles for %s', (mode) => {
+		for (const style of aiDialogueIllustrationStyleCatalog.styles) {
+			expect(getAiDialogueImageStyleSnapshot(style.id, mode)).toEqual({
+				illustrationStyleId: style.id,
+				stylePrompt: style.stylePrompt,
+				styleAvatarReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+				styleSceneReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+			})
+		}
+	})
+
+	it('rejects an unknown saved style as a server invariant without choosing another style', () => {
+		expect(() => getAiDialogueImageStyleSnapshot('missing', 'localdev')).toThrow(
+			expect.objectContaining({ statusCode: 500 }),
+		)
+	})
+
 	it('allows another style and a new default without a database enum or resolver changes', () => {
 		const style = { ...aiDialogueIllustrationStyleCatalog.styles[0], id: 'new-style', file: 'new-style.webp' }
 		const extended = { defaultStyleId: style.id, styles: [...aiDialogueIllustrationStyleCatalog.styles, style] }

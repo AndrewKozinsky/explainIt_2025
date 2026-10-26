@@ -3,10 +3,6 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 
 import sharp from 'sharp'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
-import {
-	AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY,
-	AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY,
-} from '../aiDialogueVisualConfig'
 import { CheckAiDialogueImageAssets } from './CheckAiDialogueImageAssets.service'
 
 describe('read-only dialogue image assets check', () => {
@@ -18,6 +14,7 @@ describe('read-only dialogue image assets check', () => {
 			.png()
 			.toBuffer()
 	})
+
 	function harness() {
 		const storage = { readFile: jest.fn().mockResolvedValue(image), uploadFile: jest.fn(), deleteFile: jest.fn() }
 		return { storage, check: new CheckAiDialogueImageAssets(storage as unknown as CloudflareS3Service) }
@@ -41,14 +38,8 @@ describe('read-only dialogue image assets check', () => {
 		expect(storage.uploadFile).not.toHaveBeenCalled()
 		expect(storage.deleteFile).not.toHaveBeenCalled()
 	})
-	it('uses the configured avatar and style keys', async () => {
+	it('reports unconfigured references without reading R2', async () => {
 		const { storage, check } = harness()
-		const report = await check.checkSharedImageAssets()
-		expect(report.ready).toBe(true)
-		expect(storage.readFile.mock.calls).toEqual([
-			[AI_DIALOGUE_STYLE_AVATAR_REFERENCE_S3_KEY],
-			[AI_DIALOGUE_STYLE_SCENE_REFERENCE_S3_KEY],
-		])
 		await expect(
 			check.checkSharedImageAssets({ ...keys, avatarStyle: null, sceneStyle: null }),
 		).resolves.toMatchObject({
@@ -58,6 +49,7 @@ describe('read-only dialogue image assets check', () => {
 				{ asset: 'sceneStyle', key: null, status: 'unconfigured' },
 			],
 		})
+		expect(storage.readFile).not.toHaveBeenCalled()
 	})
 
 	it('checks every style in an extensible catalog without fixed asset names', async () => {

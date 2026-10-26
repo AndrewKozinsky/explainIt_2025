@@ -1,4 +1,6 @@
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
+import { getAiDialogueImageStyleSnapshot } from '../illustrationStyles/aiDialogueIllustrationStyles'
+import { aiDialogueIllustrationStyleCatalog } from '../illustrationStyles/catalog'
 import { buildImageGenerationInput, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 
 const common = {
@@ -12,6 +14,62 @@ const common = {
 }
 
 describe('image generation prompts', () => {
+	it.each(aiDialogueIllustrationStyleCatalog.styles)(
+		'uses the selected $id medium without adding the previous drawing style',
+		(style) => {
+			const snapshot = parseImageGenerationSnapshot(
+				'emotionSheet',
+				JSON.stringify({
+					...common,
+					...getAiDialogueImageStyleSnapshot(style.id, 'localdev'),
+					appearance: 'Adult wearing a green coat',
+					aspectRatio: '4:3',
+					layoutVersion: AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
+				}),
+			)
+
+			const reference = `data:image/webp;base64,${Buffer.from('style').toString('base64')}`
+			const { prompt } = buildImageGenerationInput(snapshot, [reference])
+			expect(prompt).toContain(style.stylePrompt)
+			expect(prompt.split(style.stylePrompt)).toHaveLength(2)
+			expect(prompt).not.toContain('Modern editorial illustration with subtle graphic-novel influence.')
+
+			if (style.id === 'realism') expect(prompt).not.toContain('No photorealism')
+
+			expect(prompt).toContain('4 columns and 3 rows')
+			expect(prompt).toContain('Top row: neutral | happy | sad | angry')
+		},
+	)
+
+	it('retains an already saved style snapshot when the catalog changes', () => {
+		const style = aiDialogueIllustrationStyleCatalog.styles[0]
+		const savedStylePrompt = style.stylePrompt
+		const savedStyleFile = style.file
+		const savedSnapshot = JSON.stringify({
+			...common,
+			...getAiDialogueImageStyleSnapshot(style.id, 'localdev'),
+			appearance: 'Adult',
+			aspectRatio: '4:3',
+			layoutVersion: AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
+		})
+
+		try {
+			style.stylePrompt = 'Changed catalog style'
+			style.file = 'changed.webp'
+			const snapshot = parseImageGenerationSnapshot('emotionSheet', savedSnapshot)
+			const { prompt } = buildImageGenerationInput(snapshot, ['data:image/png;base64,c3R5bGU='])
+
+			expect(snapshot.styleAvatarReferenceS3Key).toBe(
+				`ai-dialogue-images/shared/styles/localdev/${savedStyleFile}`,
+			)
+			expect(prompt).toContain(savedStylePrompt)
+			expect(prompt).not.toContain('Changed catalog style')
+		} finally {
+			style.stylePrompt = savedStylePrompt
+			style.file = savedStyleFile
+		}
+	})
+
 	it('rejects inconsistent saved geometry before submitting a paid request', () => {
 		expect(() =>
 			parseImageGenerationSnapshot(
