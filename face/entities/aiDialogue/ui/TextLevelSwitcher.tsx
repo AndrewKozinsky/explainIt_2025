@@ -2,7 +2,7 @@ import type { AiDialogueCefrLevel } from '@/entities/aiDialogue/repository/AiDia
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import Switcher from '@/shared/ui/Switcher/Switcher'
 
-const textLevels = ['A1', 'A2', 'B1', 'B2', 'Any'] as const
+export const textLevels = ['A1', 'A2', 'B1', 'B2', 'Any'] as const
 
 export type AiDialogueTextLevel = AiDialogueCefrLevel | 'Any'
 
@@ -22,7 +22,7 @@ function TextLevelSwitcher({
 	description,
 }: TextLevelSwitcherProps) {
 	return (
-		<LabelWithField label='Language level:' description={description}>
+		<LabelWithField label='Language level' description={description}>
 			<Switcher
 				type='fit'
 				size={size}

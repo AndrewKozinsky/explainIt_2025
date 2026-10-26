@@ -4,12 +4,12 @@ import { ProficiencyKey } from '../../VideosFilterForm/fn/proficiency'
 
 function useProficiencyFilter() {
 	const [proficiencyKey, setProficiencyKey] = useState<ProficiencyKey>(function () {
-		return localStorageManager.lastProficiency.get() as ProficiencyKey
+		return localStorageManager.lastVideoProficiency.get() as ProficiencyKey
 	})
 
 	useEffect(
 		function () {
-			localStorageManager.lastProficiency.set(proficiencyKey)
+			localStorageManager.lastVideoProficiency.set(proficiencyKey)
 		},
 		[proficiencyKey],
 	)

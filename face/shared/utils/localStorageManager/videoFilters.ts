@@ -11,7 +11,7 @@ export const lastDuration = {
 	set: (value: string) => set(LAST_VIDEO_DURATION_KEY, value),
 }
 
-export const lastProficiency = {
+export const lastVideoProficiency = {
 	get: () => get(LAST_VIDEO_PROFICIENCY_KEY),
 	set: (value: string) => set(LAST_VIDEO_PROFICIENCY_KEY, value),
 }

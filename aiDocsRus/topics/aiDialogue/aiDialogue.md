@@ -153,8 +153,11 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 
 Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см.
 `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`). На
-клиенте `sourceLanguageCode` выбирается в окне запуска сценария; по умолчанию используется английский.
-В этом же окне выбирается максимальная сложность (`maxCefrLevel`), по умолчанию — без ограничения (`null`).
+клиенте `sourceLanguageCode` выбирается в окне запуска сценария и сохраняется через
+`localStorageManager.lastLanguage`. При открытии окна восстанавливается поддерживаемый сохранённый язык,
+иначе используется английский.
+В этом же окне выбирается максимальная сложность (`maxCefrLevel`), восстанавливаемая через
+`localStorageManager.lastAiDialogProficiency`. Если выбор не сохранён или некорректен — без ограничения (`null`).
 
 ### Ограничение сложности текста по CEFR
 
@@ -650,7 +653,7 @@ Any передаёт `null`. На время сохранения заблоки
 
 1. Карточка открывает `StartDialogueModal` с обложкой, группой, названием и описанием сценария.
 2. Пользователь выбирает язык практики (en/de/fr/it/es) и сложность (A1/A2/B1/B2/Any).
-   Исходные значения — en и Any; закрытие окна ничего не создаёт.
+   Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или Any); закрытие окна ничего не создаёт.
 3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
 4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel })`.
    `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `maxCefrLevel: null`.

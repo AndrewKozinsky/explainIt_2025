@@ -1,9 +1,11 @@
+import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowRightPureButtonIcon'
+import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
-import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
+import { practiceLanguages, type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
 import ScenarioDescription from './ScenarioDescription'
-import StartDialogueSettings from './StartDialogueSettings'
 import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
 import './StartDialogueModal.scss'
 
@@ -23,7 +25,20 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 			<img src={scenario.coverUrl} alt='' className='start-dialogue-modal__cover' />
 			<div className='start-dialogue-modal__content'>
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
-				<StartDialogueSettings settings={settings} disabled={loading} />
+				<LabelWithField label='Язык практики'>
+					<LanguageSwitch
+						languages={practiceLanguages}
+						currentLang={settings.practiceLanguage}
+						onChange={settings.changePracticeLanguage}
+					/>
+				</LabelWithField>
+				<TextLevelSwitcher
+					textLevel={settings.textLevel}
+					onTextLevelChange={settings.changeTextLevel}
+					disabled={loading}
+					size='medium'
+					description='Можно изменить во время разговора'
+				/>
 				<Button
 					theme='accent'
 					icon={<ArrowRightPureButtonIcon />}
