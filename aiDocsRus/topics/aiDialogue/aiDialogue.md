@@ -657,8 +657,11 @@ Any передаёт `null`. На время сохранения заблоки
 3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
 4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel })`.
    `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `maxCefrLevel: null`.
-   Во время POST настройки и повторный запуск заблокированы; ошибка сохраняет текущий выбор для повтора.
+   Во время POST переключатель сложности и повторный запуск заблокированы, окно нельзя закрыть; ошибка сохраняет текущий выбор для повтора.
 5. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
+
+Устройство `StartDialogueModal`, состав компонентов и сохранение настроек описаны в
+[разделе о модальном окне создания диалога](aiDialogueScenario.md#модальное-окно-создания-диалога).
 
 Список диалогов и состояние его клиентской реализации: [aiDialogueList.md](aiDialogueList.md).
 

@@ -194,9 +194,10 @@ npm run migrate:deploy
 При ошибке изображения сохраняется нейтральное место обложки, название и описание остаются доступны.
 Таймеров, обновления при возврате фокуса или восстановлении сети нет.
 
+### Модальное окно создания диалога
+
 Клик по карточке открывает `StartDialogueModal`: обычное изображение обложки шириной 100%, локализованные группа,
-название и описание,
-переключатели языка практики и сложности, кнопка «Начать диалог».
+название и описание, переключатели языка практики и сложности, кнопка «Начать диалог».
 Закрытие окна до запуска ничего не создаёт. Кнопка запуска проверяет авторизацию: гостю вместо окна запуска
 показывается существующее окно входа/регистрации. Для авторизованного пользователя создаётся диалог
 с выбранным `sourceLanguageCode`, `maxCefrLevel` и языком перевода из локали интерфейса.
@@ -216,8 +217,15 @@ npm run migrate:deploy
 Пояснение передаётся через необязательный проп `description` у `TextLevelSwitcher`, который передаёт его
 в `LabelWithField` для вывода после поля. Текст «Можно изменить во время разговора» задаётся только
 в модальном окне; в настройках диалога описание не передаётся. Сам `Switcher` не менялся.
-Описание сценария вынесено в отдельный `ScenarioDescription.tsx`. Ширина обложки задаётся SCSS-классом.
-До завершения POST карточки, настройки и кнопка запуска блокируются, выбранная карточка и кнопка показывают индикатор;
+`StartDialogueModal.tsx` использует базовый `shared/ui/Modal/Modal.tsx`, который выводит произвольные `children`.
+Стандартная обёртка с заголовком и контентом `ModalHeaderAndContent` здесь не используется: окно задаёт собственную
+разметку с обложкой и блоком содержимого. Описание сценария вынесено в `ScenarioDescription.tsx`.
+`LabelWithField` с `LanguageSwitch` и `TextLevelSwitcher` находятся непосредственно в `StartDialogueModal.tsx`;
+отдельного компонента `StartDialogueSettings` нет. Состояние и сохранение настроек остаются в `useStartDialogueOptions`.
+Кнопка запуска имеет размер `big`, тему `accent` и иконку `ArrowRightPureButtonIcon`; она передаёт `settings.options`
+в `onStart`. `StartDialogueModal.scss` задаёт ширину окна 50rem (не более 100%), ширину обложки 100%
+и отступы блока содержимого.
+До завершения POST карточки, переключатель сложности и кнопка запуска блокируются, выбранная карточка и кнопка показывают индикатор;
 окно запуска в этот момент не закрывается. При ошибке выводится уведомление и можно повторить запуск
 в том же окне. После успеха окно закрывается, инвалидируется история и выполняется переход
 через локализованный router и pageUrls.
@@ -278,4 +286,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 - `server/test/aiDialogueScenarioGroups.integration.ts` — PostgreSQL/HTTP/OpenAPI-проверка.
 - `face/entities/aiDialogueScenarioGroup/` — клиентский слой групп.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/` — список, группы, карточки и создание диалога.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/StartDialogueModal/` — окно создания, описание сценария и стили.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useStartDialogueOptions.ts` — язык, сложность и сохранение выбора.
+- `face/shared/ui/Modal/Modal.tsx`, `face/shared/ui/Modal/ModalHeaderAndContent.tsx` — базовое окно и стандартная разметка заголовка с контентом.
 - `face/tests/aiDialogueScenarioGroups.test.ts`, `face/tests/browser/aiDialogueScenarios.spec.ts` — проверки клиента.
