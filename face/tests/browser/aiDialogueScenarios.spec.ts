@@ -42,7 +42,6 @@ async function setup(
 		emptyStyles?: boolean
 		extraStyle?: boolean
 		brokenStyle?: boolean
-		styleExpiry?: string
 		locale?: string
 		defaultStyleId?: string
 	} = {},
@@ -82,13 +81,15 @@ async function setup(
 			failStyles = false
 			return route.fulfill({ status: 500, json: { message: 'Unavailable' } })
 		}
+
 		const ids = options.emptyStyles
 			? []
 			: ['realism', 'drawing', 'watercolor', ...(options.extraStyle ? ['pastel'] : [])]
+
 		return route.fulfill({
 			json: {
 				defaultStyleId: options.defaultStyleId ?? 'realism',
-				urlsExpireAt: styleRequests === 1 && options.styleExpiry ? options.styleExpiry : '2099-01-01T00:00:00Z',
+				urlsExpireAt: new Date(Date.now() + 5 * 60 * 60_000).toISOString(),
 				styles: ids.map((id) => ({
 					id,
 					titleKey: `aiDialogue.illustrationStyles.${id}`,
@@ -267,8 +268,12 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 	await start.click()
 	await expect(start).toBeDisabled()
 
-	for (const control of await page.locator('.start-dialogue-modal__settings button').all())
-		await expect(control).toBeDisabled()
+	const settingsButtons = page.locator(
+		'.start-dialogue-modal .language-switch button, .start-dialogue-modal .switcher button',
+	)
+	expect(await settingsButtons.count()).toBeGreaterThan(0)
+	for (const control of await settingsButtons.all()) await expect(control).toBeDisabled()
+	for (const radio of await page.getByRole('radio').all()) await expect(radio).toBeDisabled()
 
 	await expect(page.getByRole('status', { name: 'Создаю диалог' })).toBeVisible()
 
@@ -418,17 +423,17 @@ test('broken previews preserve square slots and allow choosing a style by its la
 	expect(h.errors).toEqual([])
 })
 
-test('preview URL renewal preserves the choice without creating a dialogue', async ({ page }) => {
+test('an open selector does not automatically reload the catalog', async ({ page }) => {
 	const now = new Date()
 	await page.clock.install({ time: now })
-	const h = await setup(page, { styleExpiry: new Date(now.getTime() + 70_000).toISOString() })
+	const h = await setup(page)
 	await page.getByRole('button', { name: titles[0], exact: true }).click()
 	await expect(page.getByRole('radio')).toHaveCount(3)
 	await page.getByText('Акварель', { exact: true }).click()
 	await expect(page.locator('.illustration-style-switcher__preview img').first()).toHaveAttribute('src', /revision=1/)
-	await page.clock.fastForward(12_000)
-	await expect.poll(h.styleRequests).toBe(2)
-	await expect(page.locator('.illustration-style-switcher__preview img').first()).toHaveAttribute('src', /revision=2/)
+	await page.clock.fastForward(7 * 60 * 60_000)
+	expect(h.styleRequests()).toBe(1)
+	await expect(page.locator('.illustration-style-switcher__preview img').first()).toHaveAttribute('src', /revision=1/)
 	await expect(page.getByRole('radio', { name: 'Акварель', exact: true })).toBeChecked()
 	expect(h.posts).toHaveLength(0)
 	expect(h.errors).toEqual([])

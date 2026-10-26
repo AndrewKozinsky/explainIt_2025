@@ -3,10 +3,6 @@ import { afterEach, mock, test } from 'node:test'
 import { QueryClient } from '@tanstack/react-query'
 import { AiDialogueQueryFacade } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { AiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
-import {
-	illustrationStylesRefreshInterval,
-	illustrationStylesStaleTime,
-} from '@/entities/aiDialogue/fn/illustrationStylesRefresh'
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import { mapToAiDialogueIllustrationStyles } from '@/entities/aiDialogue/repository/mapToAiDialogueIllustrationStyles'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
@@ -40,11 +36,15 @@ test('the public catalog travels through Service/API/Orval and keeps arbitrary I
 	const client = new QueryClient({ defaultOptions: { queries: { gcTime: 0 } } })
 	const options = new AiDialogueQueryFacade(new AiDialogueService(new AiDialogueApi())).getIllustrationStyles()
 	try {
-		assert.deepEqual(await client.fetchQuery(options), catalog)
+		assert.deepEqual(await client.fetchQuery(options), {
+			defaultStyleId: catalog.defaultStyleId,
+			styles: catalog.styles,
+		})
+
 		assert.equal(fetch.mock.callCount(), 1)
-		assert.equal(options.refetchOnMount, 'always')
-		assert.equal(options.refetchOnWindowFocus, true)
-		assert.equal(options.refetchOnReconnect, true)
+		assert.equal(options.refetchInterval, false)
+		assert.equal(options.refetchOnWindowFocus, false)
+		assert.equal(options.refetchOnReconnect, false)
 	} finally {
 		client.clear()
 	}
@@ -52,6 +52,7 @@ test('the public catalog travels through Service/API/Orval and keeps arbitrary I
 
 test('creation sends the selected style and detail mapping preserves the saved style', async () => {
 	Object.defineProperty(globalThis, 'window', { configurable: true, value: {} })
+
 	const input = {
 		scenarioId: 2,
 		sourceLanguageCode: 'fr' as const,
@@ -59,9 +60,11 @@ test('creation sends the selected style and detail mapping preserves the saved s
 		maxCefrLevel: null,
 		illustrationStyleId: 'pastel',
 	}
+
 	mock.method(globalThis, 'fetch', async (url: RequestInfo | URL, init?: RequestInit) => {
 		assert.equal(url, '/api/ai-dialogue')
 		assert.deepEqual(JSON.parse(String(init?.body)), input)
+
 		return Response.json(
 			{
 				id: 42,
@@ -87,7 +90,6 @@ test('empty catalogs stay empty; malformed catalogs do not become selectable sty
 		null,
 		{},
 		{ ...catalog, defaultStyleId: 'missing' },
-		{ ...catalog, urlsExpireAt: 'invalid' },
 		{ ...catalog, styles: [catalog.styles[0], catalog.styles[0]] },
 		{ ...catalog, styles: [{ id: 'drawing', titleKey: '', previewUrl: '/image.webp' }] },
 	]) {
@@ -106,16 +108,6 @@ test('catalog HTTP failures remain errors and abort signals propagate', async ()
 		throw new DOMException('Cancelled', 'AbortError')
 	})
 	await assert.rejects(service.getIllustrationStyles(new AbortController().signal), { name: 'AbortError' })
-})
-
-test('signed links become stale relative to dataUpdatedAt and refresh without an expired-link loop', () => {
-	const updatedAt = Date.parse('2026-10-26T00:00:00Z')
-	const snapshot = { ...catalog, urlsExpireAt: '2026-10-26T05:00:00Z' }
-	assert.equal(illustrationStylesStaleTime(snapshot, updatedAt), 5 * 60 * 60_000 - 60_000)
-	assert.equal(illustrationStylesRefreshInterval(snapshot, updatedAt + 4 * 60 * 60_000), 59 * 60_000)
-	assert.equal(illustrationStylesRefreshInterval(snapshot, updatedAt + 5 * 60 * 60_000 - 70_000), 10_000)
-	assert.equal(illustrationStylesRefreshInterval(snapshot, updatedAt + 6 * 60 * 60_000), 60_000)
-	assert.equal(illustrationStylesRefreshInterval(undefined), false)
 })
 
 test('the last style uses its own storage key and remains optional when storage is blocked', () => {

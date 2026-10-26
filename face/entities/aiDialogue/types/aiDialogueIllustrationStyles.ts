@@ -7,5 +7,4 @@ export type AiDialogueIllustrationStyleModel = {
 export type AiDialogueIllustrationStylesModel = {
 	defaultStyleId: string
 	styles: AiDialogueIllustrationStyleModel[]
-	urlsExpireAt: string
 }

@@ -9,10 +9,11 @@ type LanguageSwitchProps = {
 	currentLang: LanguageCode
 	onChange: (lang: LanguageCode) => void
 	className?: string
+	disabled?: boolean
 }
 
 function LanguageSwitch(props: LanguageSwitchProps) {
-	const { languages, currentLang, onChange, className } = props
+	const { languages, currentLang, onChange, className, disabled } = props
 
 	return (
 		<div className={cn('language-switch', className)}>
@@ -21,6 +22,7 @@ function LanguageSwitch(props: LanguageSwitchProps) {
 				return (
 					<BaseButton
 						current={lang === currentLang}
+						disabled={disabled}
 						extraClass={cn('language-switch__button')}
 						onClick={() => onChange(lang)}
 						key={lang}

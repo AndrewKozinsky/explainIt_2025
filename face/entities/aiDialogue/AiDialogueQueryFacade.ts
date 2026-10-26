@@ -7,7 +7,6 @@ import {
 } from '@tanstack/react-query'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { aiDialogueService } from './AiDialogueService'
-import { illustrationStylesRefreshInterval, illustrationStylesStaleTime } from './fn/illustrationStylesRefresh'
 import { updateDialogueListLevel } from './fn/updateDialogueListLevel'
 import type { AiDialogueService } from './AiDialogueService'
 import type { UpdateAiDialogueInput } from './repository/AiDialogueRepository'
@@ -40,11 +39,9 @@ export class AiDialogueQueryFacade {
 		return queryOptions({
 			queryKey: aiDialogueQueryKeys.illustrationStyles(),
 			queryFn: ({ signal }) => unwrapApiResult(this.service.getIllustrationStyles(signal)),
-			staleTime: (query) => illustrationStylesStaleTime(query.state.data, query.state.dataUpdatedAt),
-			refetchInterval: (query) => illustrationStylesRefreshInterval(query.state.data),
-			refetchOnMount: 'always',
-			refetchOnWindowFocus: true,
-			refetchOnReconnect: true,
+			refetchInterval: false,
+			refetchOnWindowFocus: false,
+			refetchOnReconnect: false,
 			retry: false,
 		})
 	}

@@ -1,6 +1,7 @@
 import { useId, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import type { AiDialogueIllustrationStyleModel } from '../../types/aiDialogueIllustrationStyles'
 import './IllustrationStyleSwitcher.scss'
 
@@ -21,18 +22,22 @@ export default function IllustrationStyleSwitcher(props: Props) {
 	const groupName = useId()
 
 	return (
-		<fieldset className='illustration-style-switcher' disabled={disabled} role='radiogroup' aria-label={t('label')}>
-			<legend className='illustration-style-switcher__legend'>{t('label')}</legend>
+		<LabelWithField label={t('label')} disabled={disabled}>
 			{isPending && <p role='status'>{t('loading')}</p>}
 			{!isPending && (isError || !styles.length) && (
 				<div className='illustration-style-switcher__error'>
 					<p role='alert'>{t(isError ? 'error' : 'empty')}</p>
-					<Button onClick={onRetry} disabled={isFetching}>
+					<Button onClick={onRetry} disabled={disabled || isFetching}>
 						{t('retry')}
 					</Button>
 				</div>
 			)}
-			<div className='illustration-style-switcher__options'>
+			<div
+				className='illustration-style-switcher__options'
+				role='radiogroup'
+				aria-label={t('label')}
+				aria-disabled={disabled}
+			>
 				{styles.map((style) => (
 					<IllustrationStyleOption
 						key={style.id}
@@ -40,10 +45,11 @@ export default function IllustrationStyleSwitcher(props: Props) {
 						groupName={groupName}
 						checked={style.id === selectedStyleId}
 						onChange={() => onChange(style.id)}
+						disabled={disabled}
 					/>
 				))}
 			</div>
-		</fieldset>
+		</LabelWithField>
 	)
 }
 
@@ -52,11 +58,13 @@ function IllustrationStyleOption({
 	groupName,
 	checked,
 	onChange,
+	disabled,
 }: {
 	style: AiDialogueIllustrationStyleModel
 	groupName: string
 	checked: boolean
 	onChange: () => void
+	disabled: boolean
 }) {
 	const t = useTranslations()
 	const [failedPreviewUrl, setFailedPreviewUrl] = useState<string | null>(null)
@@ -71,6 +79,7 @@ function IllustrationStyleOption({
 				value={style.id}
 				checked={checked}
 				onChange={onChange}
+				disabled={disabled}
 			/>
 			<span className='illustration-style-switcher__preview'>
 				{failedPreviewUrl !== style.previewUrl && (

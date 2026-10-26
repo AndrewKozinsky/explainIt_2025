@@ -1,19 +1,5 @@
 @use '@/styles/variables' as vars;
 
-.illustration-style-switcher {
-	min-width: 0;
-	margin: 0;
-	padding: 0;
-	border: 0;
-}
-
-.illustration-style-switcher__legend {
-	margin-bottom: 0.5rem;
-	padding: 0;
-	font-size: 1.6rem;
-	line-height: 2.2rem;
-}
-
 .illustration-style-switcher__options {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -75,11 +61,7 @@
 	outline-offset: 2px;
 }
 
-.illustration-style-switcher:disabled {
-	opacity: 0.5;
-}
-
-.illustration-style-switcher:disabled .illustration-style-switcher__option {
+.illustration-style-switcher__options[aria-disabled='true'] .illustration-style-switcher__option {
 	cursor: default;
 }
 

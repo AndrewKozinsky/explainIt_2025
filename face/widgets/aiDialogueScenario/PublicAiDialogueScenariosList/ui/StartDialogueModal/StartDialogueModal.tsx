@@ -26,32 +26,31 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 			<img src={scenario.coverUrl} alt='' className='start-dialogue-modal__cover' />
 			<div className='start-dialogue-modal__content'>
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
-				<fieldset className='start-dialogue-modal__settings' disabled={loading}>
-					<LabelWithField label='Язык практики'>
-						<LanguageSwitch
-							languages={practiceLanguages}
-							currentLang={settings.practiceLanguage}
-							onChange={settings.changePracticeLanguage}
-						/>
-					</LabelWithField>
-					<TextLevelSwitcher
-						textLevel={settings.textLevel}
-						onTextLevelChange={settings.changeTextLevel}
+				<LabelWithField label='Язык практики'>
+					<LanguageSwitch
+						languages={practiceLanguages}
+						currentLang={settings.practiceLanguage}
+						onChange={settings.changePracticeLanguage}
 						disabled={loading}
-						size='medium'
-						description='Можно изменить во время разговора'
 					/>
-					<IllustrationStyleSwitcher
-						styles={settings.illustrationStyles.styles}
-						selectedStyleId={settings.illustrationStyles.selectedStyleId}
-						onChange={settings.illustrationStyles.changeIllustrationStyle}
-						disabled={loading}
-						isPending={settings.illustrationStyles.isPending}
-						isError={settings.illustrationStyles.isError}
-						isFetching={settings.illustrationStyles.isFetching}
-						onRetry={settings.illustrationStyles.retry}
-					/>
-				</fieldset>
+				</LabelWithField>
+				<TextLevelSwitcher
+					textLevel={settings.textLevel}
+					onTextLevelChange={settings.changeTextLevel}
+					disabled={loading}
+					size='medium'
+					description='Можно изменить во время разговора'
+				/>
+				<IllustrationStyleSwitcher
+					styles={settings.illustrationStyles.styles}
+					selectedStyleId={settings.illustrationStyles.selectedStyleId}
+					onChange={settings.illustrationStyles.changeIllustrationStyle}
+					disabled={loading}
+					isPending={settings.illustrationStyles.isPending}
+					isError={settings.illustrationStyles.isError}
+					isFetching={settings.illustrationStyles.isFetching}
+					onRetry={settings.illustrationStyles.retry}
+				/>
 				<Button
 					theme='accent'
 					icon={<ArrowRightPureButtonIcon />}
