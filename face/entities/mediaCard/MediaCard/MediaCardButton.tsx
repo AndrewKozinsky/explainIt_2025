@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react'
 import cn from 'classnames'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
+import Spinner from '@/shared/ui/Spinner/Spinner'
 import './MediaCardButton.scss'
 
 type MediaCardProps = {
@@ -15,10 +15,11 @@ type MediaCardProps = {
 	size?: 'small' | 'medium'
 	onClick?: () => void
 	disabled?: boolean
+	/** Показывает индикатор поверх обложки и блокирует действие карточки. */
+	loading?: boolean
+	loadingLabel?: string
 	extraClass?: string
 	'aria-label'?: string
-	/** Содержимое поверх обложки, например индикатор выполнения действия. */
-	coverOverlay?: ReactNode
 }
 
 function MediaCardButton(props: MediaCardProps) {
@@ -34,9 +35,10 @@ function MediaCardButton(props: MediaCardProps) {
 		size = 'medium',
 		onClick,
 		disabled,
+		loading = false,
+		loadingLabel = 'Загрузка',
 		extraClass,
 		'aria-label': ariaLabel,
-		coverOverlay,
 	} = props
 
 	return (
@@ -45,7 +47,7 @@ function MediaCardButton(props: MediaCardProps) {
 			onClick={onClick}
 			extraClass={cn('media-card-button', `media-card-button--${size}`, extraClass)}
 			theme='outline'
-			disabled={disabled}
+			disabled={disabled || loading}
 			aria-label={ariaLabel}
 		>
 			<div className='media-card-button__cover' style={{ backgroundImage: coverUrl ? `url(${coverUrl})` : '' }}>
@@ -65,13 +67,21 @@ function MediaCardButton(props: MediaCardProps) {
 						</span>
 					)}
 				</div>
-				{coverOverlay}
+				{loading && <LoadingIndicator label={loadingLabel} />}
 			</div>
 			<div className='media-card-button__text-wrapper'>
 				{<p className='media-card-button__title'>{title ?? defaultMediaName}</p>}
 				{subTitle && <p className='media-card-button__sub-title'>{subTitle}</p>}
 			</div>
 		</BaseButton>
+	)
+}
+
+function LoadingIndicator({ label }: { label: string }) {
+	return (
+		<span className='media-card-button__loading' role='status' aria-label={label}>
+			<Spinner size='small' />
+		</span>
 	)
 }
 

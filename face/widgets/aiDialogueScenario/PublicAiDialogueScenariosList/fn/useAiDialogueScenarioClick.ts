@@ -14,9 +14,8 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 /**
  * Хук клика по карточке сценария диалога.
  *
- * Обрабатывает клик по сценарию:
- * 1. Если пользователь не вошёл — открывает модалку с просьбой войти.
- * 2. Иначе создаёт диалог по сценарию и переадресовывает на него.
+ * Клик выбирает сценарий и открывает окно запуска. Кнопка запуска проверяет вход,
+ * затем создаёт диалог и переадресовывает на него.
  */
 export function useAiDialogueScenarioClick() {
 	const router = useRouter()
@@ -25,6 +24,7 @@ export function useAiDialogueScenarioClick() {
 	const { notify } = useContext(NotificationContext)
 	const queryClient = useQueryClient()
 	const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
+	const [selectedScenarioId, setSelectedScenarioId] = useState<number | null>(null)
 	const [creatingScenarioId, setCreatingScenarioId] = useState<number | null>(null)
 	const isCreating = useRef(false)
 
@@ -32,21 +32,30 @@ export function useAiDialogueScenarioClick() {
 		setIsLoginModalOpen(false)
 	}, [])
 
-	const onScenarioClick = useCallback(
-		async function (scenarioId: number) {
-			if (isCreating.current) return
+	const onScenarioClick = useCallback(function (scenarioId: number) {
+		if (!isCreating.current) setSelectedScenarioId(scenarioId)
+	}, [])
+
+	const closeScenarioModal = useCallback(function () {
+		if (!isCreating.current) setSelectedScenarioId(null)
+	}, [])
+
+	const onStartDialogue = useCallback(
+		async function () {
+			if (isCreating.current || selectedScenarioId === null) return
 
 			if (!user) {
+				setSelectedScenarioId(null)
 				setIsLoginModalOpen(true)
 				return
 			}
 
 			isCreating.current = true
-			setCreatingScenarioId(scenarioId)
+			setCreatingScenarioId(selectedScenarioId)
 			try {
 				// TODO: временно передаём английский как язык практики — позже дадим пользователю выбор.
 				const result = await aiDialogueService.createDialogue({
-					scenarioId,
+					scenarioId: selectedScenarioId,
 					sourceLanguageCode: 'en',
 					targetLanguageCode: locale as LanguageCode,
 				})
@@ -64,6 +73,7 @@ export function useAiDialogueScenarioClick() {
 
 				if (result.data) {
 					await queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
+					setSelectedScenarioId(null)
 					router.push(pageUrls.aiDialogues.dialog(result.data.id).path)
 				}
 			} finally {
@@ -71,7 +81,7 @@ export function useAiDialogueScenarioClick() {
 				setCreatingScenarioId(null)
 			}
 		},
-		[user, locale, notify, queryClient, router],
+		[selectedScenarioId, user, locale, notify, queryClient, router],
 	)
 
 	const onLoginClick = useCallback(
@@ -90,5 +100,15 @@ export function useAiDialogueScenarioClick() {
 		[closeLoginModal, router],
 	)
 
-	return { onScenarioClick, creatingScenarioId, isLoginModalOpen, closeLoginModal, onLoginClick, onRegisterClick }
+	return {
+		onScenarioClick,
+		selectedScenarioId,
+		closeScenarioModal,
+		onStartDialogue,
+		creatingScenarioId,
+		isLoginModalOpen,
+		closeLoginModal,
+		onLoginClick,
+		onRegisterClick,
+	}
 }

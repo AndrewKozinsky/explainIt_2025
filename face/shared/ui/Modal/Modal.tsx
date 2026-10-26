@@ -7,7 +7,6 @@ import { useFixBodyScrolling } from './fn/fixBodyScrolling'
 import './Modal.scss'
 
 type ModalProps = {
-	header: string
 	children: ReactNode
 	isOpen: boolean
 	close: () => void
@@ -15,7 +14,7 @@ type ModalProps = {
 }
 
 function Modal(props: ModalProps) {
-	const { header, children, isOpen, close, extraClass } = props
+	const { children, isOpen, close, extraClass } = props
 
 	useFixBodyScrolling(isOpen)
 
@@ -32,10 +31,7 @@ function Modal(props: ModalProps) {
 				<div className='modal__close-button-wrapper'>
 					<CloseButton onClick={close} extraClass='modal__close-button' />
 				</div>
-				<div className='modal__content-wrapper'>
-					<h2 className='modal__header'>{header}</h2>
-					<div className='modal__content'>{children}</div>
-				</div>
+				{children}
 			</div>
 		</div>
 	)

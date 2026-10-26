@@ -8,13 +8,23 @@ import { getScenarioGroupsConfig } from './fn/getScenarioGroupsConfig'
 import { useAiDialogueScenarioClick } from './fn/useAiDialogueScenarioClick'
 import LoginPromptModal from './ui/LoginPromptModal/LoginPromptModal'
 import PublicScenarioGroup from './ui/PublicScenarioGroup/PublicScenarioGroup'
+import StartDialogueModal from './ui/StartDialogueModal/StartDialogueModal'
 import './PublicAiDialogueScenariosList.scss'
 
 export default function PublicAiDialogueScenariosList() {
 	const locale = useLocale()
 	const query = useQuery(aiDialogueScenarioGroupQueries.getAiDialogueScenarioGroups())
-	const { onScenarioClick, creatingScenarioId, isLoginModalOpen, closeLoginModal, onLoginClick, onRegisterClick } =
-		useAiDialogueScenarioClick()
+	const {
+		onScenarioClick,
+		selectedScenarioId,
+		closeScenarioModal,
+		onStartDialogue,
+		creatingScenarioId,
+		isLoginModalOpen,
+		closeLoginModal,
+		onLoginClick,
+		onRegisterClick,
+	} = useAiDialogueScenarioClick()
 
 	if (query.isPending) return <p role='status'>Загружаю сценарии…</p>
 
@@ -32,6 +42,10 @@ export default function PublicAiDialogueScenariosList() {
 	const groups = getScenarioGroupsConfig(query.data ?? [], locale)
 	if (!groups.length) return <p>Пока нет доступных сценариев.</p>
 
+	const selectedScenario = groups
+		.flatMap((group) => group.scenarios)
+		.find((scenario) => scenario.id === selectedScenarioId)
+
 	return (
 		<div className='public-ai-dialogue-scenarios-list'>
 			{groups.map((group) => (
@@ -42,6 +56,13 @@ export default function PublicAiDialogueScenariosList() {
 					onScenarioClick={onScenarioClick}
 				/>
 			))}
+			<StartDialogueModal
+				title={selectedScenario?.title ?? ''}
+				isOpen={!!selectedScenario}
+				loading={creatingScenarioId !== null}
+				onClose={closeScenarioModal}
+				onStart={onStartDialogue}
+			/>
 			<LoginPromptModal
 				isOpen={isLoginModalOpen}
 				onClose={closeLoginModal}

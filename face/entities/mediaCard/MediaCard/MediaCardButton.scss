@@ -4,7 +4,12 @@
 	display: block;
 	overflow: hidden;
 	width: 100%;
+	box-sizing: border-box;
 	border-radius: vars.$radius-1;
+
+	&:disabled {
+		opacity: .7;
+	}
 }
 
 .media-card-button__cover {
@@ -22,6 +27,15 @@
 	gap: .6rem;
 	width: 100%;
 	box-sizing: border-box;
+}
+
+.media-card-button__loading {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(white, .6);
 }
 
 .media-card-button__brick {
