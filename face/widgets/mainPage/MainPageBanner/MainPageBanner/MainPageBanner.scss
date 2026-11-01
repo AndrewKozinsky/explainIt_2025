@@ -30,13 +30,16 @@ $overlap-width: 110rem;
 		--content-width: 42%;
 
 		position: relative;
-		min-height: clamp(42rem, 39cqi, 56rem);
+		// Запас под заголовок в 5 строк: в узкой колонке длинные названия языков добавляют строку
+		min-height: 50rem;
 	}
 
 	// 450px сплошной части из 1300px макета, текст заходит на картинку
 	@include mix.container-width($overlap-width) {
 		--solid-part-width: 35%;
 		--content-width: 47%;
+
+		min-height: clamp(42rem, 39cqi, 56rem);
 	}
 }
 
@@ -44,9 +47,20 @@ $overlap-width: 110rem;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem 1.6rem;
+	// Запас высоты под самый длинный заголовок, чтобы баннер не прыгал при смене языка.
+	// Смена языка меняет число строк только на самых узких экранах и перед переходом в две колонки
+	min-height: 44.5rem;
+
+	@include mix.container-width(400px) {
+		min-height: auto;
+	}
 
 	@include mix.container-width(500px) {
 		padding: 3.2rem;
+	}
+
+	@include mix.container-width(750px) {
+		min-height: 38rem;
 	}
 
 	// Текст шире коричневой части и заходит на картинку, как в макете
@@ -55,6 +69,8 @@ $overlap-width: 110rem;
 		z-index: 1;
 		flex-grow: 1;
 		width: var(--content-width);
+		// Запас высоты здесь задаёт вся карточка
+		min-height: auto;
 		padding: 2.4rem 2.4rem;
 	}
 }
