@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Le lingue straniere conversando con l'IA",
+  "header": "Vivi storie in <language></language> e impara la lingua strada facendo",
+  "headerLanguages": {
+    "en": "inglese",
+    "de": "tedesco",
+    "fr": "francese",
+    "it": "italiano",
+    "es": "spagnolo",
+    "tr": "turco",
+    "ru": "russo"
+  },
+  "text": "Parla e agisci come preferisci. I personaggi reagiscono, gli eventi si evolvono. Proprio come nella vita reale. E non vedi l'ora di scoprire cosa succederà.",
+  "button": "Scegli una scena",
+  "note": "Completamente gratuito.",
+  "caption": "Il tuo {language} ti servirà già dalla prima scena.",
+  "captionLanguages": {
+    "en": "inglese",
+    "de": "tedesco",
+    "fr": "francese",
+    "it": "italiano",
+    "es": "spagnolo",
+    "tr": "turco",
+    "ru": "russo"
+  },
+  "scenes": {
+    "en": {
+      "place": "Caffè a Londra · sera",
+      "alt": "Un ragazzo con un caffè parla con una barista in un locale accogliente"
+    },
+    "de": {
+      "place": "Mercatino di Natale a Norimberga · sera",
+      "alt": "Un ragazzo compra vin brulé da una venditrice a un mercatino di Natale"
+    },
+    "fr": {
+      "place": "Lungosenna a Parigi · mattina",
+      "alt": "Un ragazzo parla con un venditore di libri usati sul lungosenna"
+    },
+    "it": {
+      "place": "Mercato a Roma · mezzogiorno",
+      "alt": "Una venditrice di un mercato romano porge un limone a un ragazzo"
+    },
+    "es": {
+      "place": "Patio a Siviglia · tramonto",
+      "alt": "La proprietaria di una pensione consegna una chiave a un ragazzo in un cortile interno"
+    },
+    "tr": {
+      "place": "Gran Bazar di Istanbul · giorno",
+      "alt": "Un venditore di lampade al bazar offre del tè a un ragazzo"
+    },
+    "ru": {
+      "place": "Treno Mosca — San Pietroburgo · notte",
+      "alt": "Una compagna di viaggio in uno scompartimento del treno mette davanti a un ragazzo un bicchiere di tè in un portabicchiere di metallo"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Idiomas extranjeros conversando con la IA",
+  "header": "Vive historias en <language></language> y aprende el idioma sobre la marcha",
+  "headerLanguages": {
+    "en": "inglés",
+    "de": "alemán",
+    "fr": "francés",
+    "it": "italiano",
+    "es": "español",
+    "tr": "turco",
+    "ru": "ruso"
+  },
+  "text": "Habla y actúa como quieras. Los personajes reaccionan, los acontecimientos avanzan. Como en la vida real. Y te mueres por saber qué pasará después.",
+  "button": "Elegir una escena",
+  "note": "Totalmente gratis.",
+  "caption": "Tu {language} te servirá desde la primera escena.",
+  "captionLanguages": {
+    "en": "inglés",
+    "de": "alemán",
+    "fr": "francés",
+    "it": "italiano",
+    "es": "español",
+    "tr": "turco",
+    "ru": "ruso"
+  },
+  "scenes": {
+    "en": {
+      "place": "Cafetería en Londres · noche",
+      "alt": "Un joven con un café habla con una barista en una cafetería acogedora"
+    },
+    "de": {
+      "place": "Mercado navideño en Núremberg · noche",
+      "alt": "Un joven compra vino caliente a una vendedora en un mercado navideño"
+    },
+    "fr": {
+      "place": "Orillas del Sena en París · mañana",
+      "alt": "Un joven habla con un librero de viejo a orillas del Sena"
+    },
+    "it": {
+      "place": "Mercado en Roma · mediodía",
+      "alt": "Una vendedora de un mercado romano le da un limón a un joven"
+    },
+    "es": {
+      "place": "Patio en Sevilla · atardecer",
+      "alt": "La dueña de una casa de huéspedes le entrega una llave a un joven en un patio"
+    },
+    "tr": {
+      "place": "Gran Bazar de Estambul · día",
+      "alt": "Un vendedor de lámparas del bazar le ofrece té a un joven"
+    },
+    "ru": {
+      "place": "Tren Moscú — San Petersburgo · madrugada",
+      "alt": "Una compañera de viaje en un compartimento de tren le sirve a un joven un vaso de té con portavasos de metal"
+    }
+  }
+}

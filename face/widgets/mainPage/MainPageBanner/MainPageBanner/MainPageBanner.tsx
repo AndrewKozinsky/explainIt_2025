@@ -1,7 +1,9 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/ActionButtonIcon'
+import { languageKeys } from '@/shared/utils/languages'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import BannerFigure from '../BannerFigure/BannerFigure'
 import BannerLanguage from '../BannerLanguage/BannerLanguage'
@@ -11,19 +13,35 @@ import './MainPageBanner.scss'
 /** Главный баннер главной страницы: приглашение в диалоги с ИИ */
 function MainPageBanner() {
 	const { languageCode, nextLanguageCode } = useBannerLanguage()
+	const t = useTranslations('mainPageBanner')
 
 	return (
 		<section className='main-page-banner'>
 			<div className='main-page-banner__card'>
 				<div className='main-page-banner__content'>
-					<p className='main-page-banner__eyebrow'>Иностранный язык через диалог с ИИ</p>
+					<p className='main-page-banner__eyebrow'>{t('eyebrow')}</p>
 					<h2 className='main-page-banner__header'>
-						Проживайте истории на <BannerLanguage languageCode={languageCode} />, попутно осваивая его
+						<span className='main-page-banner__header-text'>
+							{t.rich('header', {
+								// Название языка стоит в своём месте фразы для каждой локали
+								language: () => <BannerLanguage languageCode={languageCode} />,
+							})}
+						</span>
+						{/* Невидимые копии заголовка с каждым языком: заголовок занимает высоту самой высокой,
+						поэтому баннер не меняет высоту при смене языка */}
+						{languageKeys.map((code) => (
+							<span className='main-page-banner__header-sizer' aria-hidden='true' key={code}>
+								{t.rich('header', {
+									language: () => (
+										<span className='main-page-banner__header-sizer-language'>
+											{t(`headerLanguages.${code}`)}
+										</span>
+									),
+								})}
+							</span>
+						))}
 					</h2>
-					<p className='main-page-banner__text'>
-						Говорите и действуйте так, как хочется вам. Персонажи реагируют, события развиваются. Всё как в
-						нашей жизни. А вам интересно, что будет дальше.
-					</p>
+					<p className='main-page-banner__text'>{t('text')}</p>
 					<div className='main-page-banner__action'>
 						<Button
 							theme='accent'
@@ -32,9 +50,9 @@ function MainPageBanner() {
 							icon={<ActionButtonIcon />}
 							extraClass='main-page-banner__button'
 						>
-							Выбрать сцену
+							{t('button')}
 						</Button>
-						<p className='main-page-banner__note'>Полностью бесплатно.</p>
+						<p className='main-page-banner__note'>{t('note')}</p>
 					</div>
 				</div>
 				<BannerFigure

@@ -10,7 +10,7 @@
 | `i18n/request.ts` | Загрузка JSON-файла с переводами для текущей локали |
 | `i18n/serverRedirect.ts` | Серверный редирект с автоматической подстановкой локали |
 | `proxy.ts` | Middleware для Next.js 16: редирект с `/` на `/{locale}`, определение языка по cookie/заголовкам |
-| `messages/*.json` | JSON-файлы с переводами (en.json, ru.json, es.json и т.д.) |
+| `messages/{locale}/{раздел}.json` | JSON-файлы с переводами: папка на каждый язык, файл на каждый раздел (`messages/ru/mainPageBanner.json`) |
 | `utils/languages.ts` | Определения языков (код, названия), `languageKeys`, `LanguageCode` |
 | `utils/pageUrls.ts` | Адреса страниц **без** языкового префикса (`/books`, а не `/en/books`) |
 
@@ -108,25 +108,40 @@ function MyComponent() {
 
 ### Переводы (JSON)
 
-Переводы хранятся в `messages/*.json`. Наполняются **постепенно** — не нужно переводить всё сразу.
+Переводы хранятся в `messages/{locale}/{раздел}.json`: папка на каждый язык и отдельный файл на каждый раздел (страницу или крупный виджет). Наполняются **постепенно** — не нужно переводить всё сразу.
+
+```
+messages/
+├── en/
+│   ├── aiDialogue.json
+│   └── books.json
+└── ru/
+    ├── aiDialogue.json
+    └── books.json
+```
+
+Имя файла становится ключом верхнего уровня — пространством имён для `useTranslations('books')`. Внутри файла этого ключа нет:
 
 ```json
-// messages/en.json
+// messages/en/books.json
 {
-  "books": {
-    "title": "Books",
-    "description": "Browse our collection"
-  }
+  "title": "Books",
+  "description": "Browse our collection"
 }
 
-// messages/ru.json
+// messages/ru/books.json
 {
-  "books": {
-    "title": "Книги",
-    "description": "Просмотрите нашу коллекцию"
-  }
+  "title": "Книги",
+  "description": "Просмотрите нашу коллекцию"
 }
 ```
+
+`i18n/request.ts` загружает файлы разделов текущего языка и собирает их в один объект `{ aiDialogue: {...}, books: {...} }`.
+
+#### Добавление раздела переводов
+
+1. Создать файл `messages/{locale}/{раздел}.json` **во всех** папках языков. Если перевода пока нет — положить пустой объект `{}`: отсутствующий файл ломает загрузку страницы.
+2. Добавить имя раздела в массив `messageNamespaces` в `i18n/request.ts`.
 
 #### Использование в серверных компонентах
 
@@ -186,11 +201,11 @@ function LanguageSwitcher() {
    ```
    `languageKeys` обновится автоматически.
 
-2. Создать `messages/zh.json` (можно пустой `{}`).
+2. Создать папку `messages/zh/` и в ней файл для каждого раздела из `messageNamespaces` в `i18n/request.ts` (можно с пустым `{}`).
 
 3. `i18n/routing.ts` использует `languageKeys` из `languages.ts`, поэтому новая локаль автоматически добавится в роутинг.
 
-4. Добавить переводы в `messages/zh.json`.
+4. Добавить переводы в файлы `messages/zh/*.json`.
 
 Готово — язык появится в LanguageSwitcher и маршрутизации.
 

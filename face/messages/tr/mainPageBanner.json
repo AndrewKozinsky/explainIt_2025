@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Yapay zekâyla sohbet ederek yabancı dil",
+  "header": "Hikâyeleri <language></language> yaşayın, dili de bu sırada öğrenin",
+  "headerLanguages": {
+    "en": "İngilizce",
+    "de": "Almanca",
+    "fr": "Fransızca",
+    "it": "İtalyanca",
+    "es": "İspanyolca",
+    "tr": "Türkçe",
+    "ru": "Rusça"
+  },
+  "text": "İstediğiniz gibi konuşun ve davranın. Karakterler tepki verir, olaylar gelişir. Tıpkı gerçek hayattaki gibi. Ve sonra ne olacağını merak edersiniz.",
+  "button": "Sahne seç",
+  "note": "Tamamen ücretsiz.",
+  "caption": "{language} daha ilk sahnede işinize yarayacak.",
+  "captionLanguages": {
+    "en": "İngilizceniz",
+    "de": "Almancanız",
+    "fr": "Fransızcanız",
+    "it": "İtalyancanız",
+    "es": "İspanyolcanız",
+    "tr": "Türkçeniz",
+    "ru": "Rusçanız"
+  },
+  "scenes": {
+    "en": {
+      "place": "Londra'da bir kafe · akşam",
+      "alt": "Elinde kahvesiyle genç bir adam, sıcak bir kafede baristayla konuşuyor"
+    },
+    "de": {
+      "place": "Nürnberg'de Noel pazarı · akşam",
+      "alt": "Genç bir adam Noel pazarında bir satıcıdan sıcak şarap alıyor"
+    },
+    "fr": {
+      "place": "Paris'te Sen Nehri kıyısı · sabah",
+      "alt": "Genç bir adam Sen Nehri kıyısında bir sahafla sohbet ediyor"
+    },
+    "it": {
+      "place": "Roma'da bir pazar · öğle",
+      "alt": "Roma'daki bir pazarda satıcı kadın genç bir adama limon uzatıyor"
+    },
+    "es": {
+      "place": "Sevilla'da bir avlu · gün batımı",
+      "alt": "Bir pansiyon sahibi, iç avluda genç bir adama anahtar veriyor"
+    },
+    "tr": {
+      "place": "İstanbul Kapalıçarşı · gündüz",
+      "alt": "Çarşıdaki bir lamba satıcısı genç bir adama çay ikram ediyor"
+    },
+    "ru": {
+      "place": "Moskova — St. Petersburg treni · gece",
+      "alt": "Tren kompartımanındaki bir yolcu, genç bir adamın önüne zarf içinde bir bardak çay koyuyor"
+    }
+  }
+}

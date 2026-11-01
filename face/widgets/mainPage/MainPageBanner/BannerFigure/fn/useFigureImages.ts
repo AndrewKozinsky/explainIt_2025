@@ -1,26 +1,23 @@
 import { useState } from 'react'
 import { LanguageCode } from '@/shared/utils/languages'
-import { FigureImage, getFigureImage } from './figureScenes'
 
 /**
- * Возвращает активную картинку и картинки, которые нужно держать в разметке:
- * уже показанные (для плавной смены) и следующую — она загружается заранее, чтобы смена была без мигания.
+ * Возвращает языки, чьи картинки нужно держать в разметке:
+ * уже показанные (для плавной смены) и следующий — его картинка загружается заранее, чтобы смена была без мигания.
  */
 export function useFigureImages(languageCode: LanguageCode, nextLanguageCode?: LanguageCode) {
-	const activeImage = getFigureImage(languageCode)
-	const [shownImages, setShownImages] = useState<FigureImage[]>([activeImage])
+	const [shownCodes, setShownCodes] = useState<LanguageCode[]>([languageCode])
 
-	// Новая картинка — запоминаем её прямо во время рендера, чтобы она сразу осталась в разметке
-	if (!shownImages.includes(activeImage)) {
-		setShownImages([...shownImages, activeImage])
+	// Новый язык — запоминаем его прямо во время рендера, чтобы картинка сразу осталась в разметке
+	if (!shownCodes.includes(languageCode)) {
+		setShownCodes([...shownCodes, languageCode])
 	}
 
-	const renderedImages = [...shownImages]
-	const nextImage = nextLanguageCode && getFigureImage(nextLanguageCode)
+	const renderedCodes = [...shownCodes]
 
-	if (nextImage && !renderedImages.includes(nextImage)) {
-		renderedImages.push(nextImage)
+	if (nextLanguageCode && !renderedCodes.includes(nextLanguageCode)) {
+		renderedCodes.push(nextLanguageCode)
 	}
 
-	return { activeImage, renderedImages }
+	return renderedCodes
 }

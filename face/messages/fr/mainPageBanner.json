@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Les langues étrangères en conversant avec l'IA",
+  "header": "Vivez des histoires en <language></language> et apprenez la langue au passage",
+  "headerLanguages": {
+    "en": "anglais",
+    "de": "allemand",
+    "fr": "français",
+    "it": "italien",
+    "es": "espagnol",
+    "tr": "turc",
+    "ru": "russe"
+  },
+  "text": "Parlez et agissez comme bon vous semble. Les personnages réagissent, l'histoire avance. Comme dans la vraie vie. Et vous avez hâte de découvrir la suite.",
+  "button": "Choisir une scène",
+  "note": "Entièrement gratuit.",
+  "caption": "Votre {language} vous servira dès la première scène.",
+  "captionLanguages": {
+    "en": "anglais",
+    "de": "allemand",
+    "fr": "français",
+    "it": "italien",
+    "es": "espagnol",
+    "tr": "turc",
+    "ru": "russe"
+  },
+  "scenes": {
+    "en": {
+      "place": "Café à Londres · soir",
+      "alt": "Un jeune homme, un café à la main, discute avec une barista dans un café chaleureux"
+    },
+    "de": {
+      "place": "Marché de Noël à Nuremberg · soir",
+      "alt": "Un jeune homme achète du vin chaud à une vendeuse sur un marché de Noël"
+    },
+    "fr": {
+      "place": "Quais de Seine à Paris · matin",
+      "alt": "Un jeune homme discute avec un bouquiniste sur les quais de Seine"
+    },
+    "it": {
+      "place": "Marché à Rome · midi",
+      "alt": "Une marchande d'un marché romain tend un citron à un jeune homme"
+    },
+    "es": {
+      "place": "Patio à Séville · coucher du soleil",
+      "alt": "La propriétaire d'une maison d'hôtes remet une clé à un jeune homme dans un patio"
+    },
+    "tr": {
+      "place": "Grand Bazar d'Istanbul · jour",
+      "alt": "Un vendeur de lampes du bazar offre du thé à un jeune homme"
+    },
+    "ru": {
+      "place": "Train Moscou — Saint-Pétersbourg · nuit",
+      "alt": "Une voyageuse dans un compartiment de train pose devant un jeune homme un verre de thé dans un porte-verre en métal"
+    }
+  }
+}

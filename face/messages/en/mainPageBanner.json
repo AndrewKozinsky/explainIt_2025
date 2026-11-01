@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Foreign languages through conversations with AI",
+  "header": "Live stories in <language></language> and learn it along the way",
+  "headerLanguages": {
+    "en": "English",
+    "de": "German",
+    "fr": "French",
+    "it": "Italian",
+    "es": "Spanish",
+    "tr": "Turkish",
+    "ru": "Russian"
+  },
+  "text": "Speak and act however you like. Characters react, events unfold. Just like in real life. And you can't wait to see what happens next.",
+  "button": "Choose a scene",
+  "note": "Completely free.",
+  "caption": "Your {language} will come in handy from the very first scene.",
+  "captionLanguages": {
+    "en": "English",
+    "de": "German",
+    "fr": "French",
+    "it": "Italian",
+    "es": "Spanish",
+    "tr": "Turkish",
+    "ru": "Russian"
+  },
+  "scenes": {
+    "en": {
+      "place": "Café in London · evening",
+      "alt": "A young man with a coffee talks to a barista in a cozy café"
+    },
+    "de": {
+      "place": "Christmas market in Nuremberg · evening",
+      "alt": "A young man buys mulled wine from a vendor at a Christmas market"
+    },
+    "fr": {
+      "place": "Banks of the Seine in Paris · morning",
+      "alt": "A young man talks to a bookseller on the banks of the Seine"
+    },
+    "it": {
+      "place": "Market in Rome · noon",
+      "alt": "A vendor at a Roman market hands a young man a lemon"
+    },
+    "es": {
+      "place": "Patio in Seville · sunset",
+      "alt": "A guesthouse owner hands a young man a key in an inner courtyard"
+    },
+    "tr": {
+      "place": "Grand Bazaar in Istanbul · day",
+      "alt": "A lamp seller at the bazaar offers a young man tea"
+    },
+    "ru": {
+      "place": "Moscow — St. Petersburg train · night",
+      "alt": "A fellow passenger in a train compartment puts a glass of tea in a metal holder in front of a young man"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "eyebrow": "Fremdsprachen im Dialog mit KI",
+  "header": "Erleben Sie Geschichten auf <language></language> und lernen Sie die Sprache ganz nebenbei",
+  "headerLanguages": {
+    "en": "Englisch",
+    "de": "Deutsch",
+    "fr": "Französisch",
+    "it": "Italienisch",
+    "es": "Spanisch",
+    "tr": "Türkisch",
+    "ru": "Russisch"
+  },
+  "text": "Sprechen und handeln Sie, wie Sie möchten. Die Figuren reagieren, die Ereignisse entwickeln sich. Ganz wie im echten Leben. Und Sie wollen unbedingt wissen, wie es weitergeht.",
+  "button": "Szene wählen",
+  "note": "Völlig kostenlos.",
+  "caption": "Ihr {language} hilft Ihnen schon in der ersten Szene.",
+  "captionLanguages": {
+    "en": "Englisch",
+    "de": "Deutsch",
+    "fr": "Französisch",
+    "it": "Italienisch",
+    "es": "Spanisch",
+    "tr": "Türkisch",
+    "ru": "Russisch"
+  },
+  "scenes": {
+    "en": {
+      "place": "Café in London · Abend",
+      "alt": "Ein junger Mann mit Kaffee spricht mit einer Barista in einem gemütlichen Café"
+    },
+    "de": {
+      "place": "Weihnachtsmarkt in Nürnberg · Abend",
+      "alt": "Ein junger Mann kauft auf dem Weihnachtsmarkt Glühwein bei einer Verkäuferin"
+    },
+    "fr": {
+      "place": "Seine-Ufer in Paris · Morgen",
+      "alt": "Ein junger Mann unterhält sich mit einem Bouquinisten am Seine-Ufer"
+    },
+    "it": {
+      "place": "Markt in Rom · Mittag",
+      "alt": "Eine Marktverkäuferin in Rom reicht einem jungen Mann eine Zitrone"
+    },
+    "es": {
+      "place": "Patio in Sevilla · Sonnenuntergang",
+      "alt": "Die Wirtin einer Pension überreicht einem jungen Mann im Innenhof einen Schlüssel"
+    },
+    "tr": {
+      "place": "Großer Basar in Istanbul · Tag",
+      "alt": "Ein Lampenhändler auf dem Basar bietet einem jungen Mann Tee an"
+    },
+    "ru": {
+      "place": "Zug Moskau — St. Petersburg · Nacht",
+      "alt": "Eine Mitreisende im Zugabteil stellt einem jungen Mann ein Glas Tee im Metallhalter hin"
+    }
+  }
+}
