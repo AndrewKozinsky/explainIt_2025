@@ -9,7 +9,7 @@ type ScenarioCardProps = {
 
 /** Сценарий: что вы делаете, как отвечает персонаж и к чему это приводит */
 function ScenarioCard(props: ScenarioCardProps) {
-	const { id, Icon, imagePath, imageWidth, imageHeight } = props.config
+	const { id, Icon, imagePath } = props.config
 
 	const t = useTranslations(`mainPageScenarios.scenarios.${id}`)
 	const lines = t.raw('lines') as string[]
@@ -19,7 +19,7 @@ function ScenarioCard(props: ScenarioCardProps) {
 			<div className='scenario-card__main'>
 				<h3 className='scenario-card__header'>
 					<span className='scenario-card__icon-wrapper'>
-						<Icon extraClass='scenario-card__icon' />
+						<Icon />
 					</span>
 					{t('title')}
 				</h3>
@@ -39,14 +39,16 @@ function ScenarioCard(props: ScenarioCardProps) {
 			</div>
 			{/* Иллюстрация с подписью: на узких экранах скрыта целиком */}
 			<figure className='scenario-card__figure'>
-				<img
-					className='scenario-card__image'
-					src={imagePath}
-					width={imageWidth}
-					height={imageHeight}
-					alt={t('alt')}
-					loading='lazy'
-				/>
+				<div className='scenario-card__image-wrapper'>
+					<img
+						className='scenario-card__image'
+						src={imagePath}
+						// Иллюстрации подготовлены для ретины, поэтому показываются вдвое меньше своего размера
+						srcSet={imagePath + ' 2x'}
+						alt={t('alt')}
+						loading='lazy'
+					/>
+				</div>
 				<figcaption className='scenario-card__caption'>{t('caption')}</figcaption>
 			</figure>
 		</article>

@@ -52,11 +52,6 @@ $image-visible-height: 17rem;
 	background-color: vars.$grayColor-1;
 }
 
-.scenario-card__icon {
-	width: 2.2rem;
-	height: 2.2rem;
-}
-
 .scenario-card__text {
 	font-size: 1.6rem;
 	line-height: 2.4rem;
@@ -101,16 +96,29 @@ $image-visible-height: 17rem;
 	}
 }
 
-// Иллюстрация показывается сверху, низ обрезается по видимой высоте.
-// overflow нужен явно: глобальный сброс стилей делает его visible, и картинка рисуется за пределами своего блока
+// Иллюстрация в своём размере: srcSet с плотностью 2x показывает её вдвое меньше файла
 .scenario-card__image {
 	display: block;
+	max-width: 100%;
+}
+
+// Иллюстрация показывается сверху, всё ниже видимой высоты отсекается.
+// overflow нужен явно: глобальный сброс стилей делает его visible.
+// Линия по нижнему краю лежит поверх иллюстрации и не добавляет ей высоты
+.scenario-card__image-wrapper {
+	position: relative;
 	overflow: hidden;
-	width: 100%;
-	height: $image-visible-height;
-	object-fit: cover;
-	object-position: top;
-	border-bottom: 1px solid vars.$grayColor-2;
+	max-height: $image-visible-height;
+
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		height: 1px;
+		background-color: rgba(0, 0, 0, .1);
+	}
 }
 
 .scenario-card__caption {
