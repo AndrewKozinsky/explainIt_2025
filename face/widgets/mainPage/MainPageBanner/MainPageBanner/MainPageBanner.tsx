@@ -3,7 +3,6 @@
 import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/ActionButtonIcon'
-import { languageKeys } from '@/shared/utils/languages'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import BannerFigure from '../BannerFigure/BannerFigure'
 import BannerLanguage from '../BannerLanguage/BannerLanguage'
@@ -12,7 +11,7 @@ import './MainPageBanner.scss'
 
 /** Главный баннер главной страницы: приглашение в диалоги с ИИ */
 function MainPageBanner() {
-	const { languageCode, nextLanguageCode } = useBannerLanguage()
+	const { languageCodes, languageCode, nextLanguageCode } = useBannerLanguage()
 	const t = useTranslations('mainPageBanner')
 
 	return (
@@ -24,12 +23,14 @@ function MainPageBanner() {
 						<span className='main-page-banner__header-text'>
 							{t.rich('header', {
 								// Название языка стоит в своём месте фразы для каждой локали
-								language: () => <BannerLanguage languageCode={languageCode} />,
+								language: () => (
+									<BannerLanguage languageCode={languageCode} languageCodes={languageCodes} />
+								),
 							})}
 						</span>
 						{/* Невидимые копии заголовка с каждым языком: заголовок занимает высоту самой высокой,
 						поэтому баннер не меняет высоту при смене языка */}
-						{languageKeys.map((code) => (
+						{languageCodes.map((code) => (
 							<span className='main-page-banner__header-sizer' aria-hidden='true' key={code}>
 								{t.rich('header', {
 									language: () => (

@@ -1,29 +1,33 @@
 import { useEffect, useState } from 'react'
-import { LanguageCode } from '@/shared/utils/languages'
-
-// Порядок, в котором языки сменяют друг друга в баннере
-const bannerLanguageCodes: LanguageCode[] = ['en', 'de', 'fr', 'it', 'es', 'tr', 'ru']
+import { useLanguagesToLearn } from '@/shared/utils/useLanguagesToLearn'
 
 // Как часто меняется язык
 const bannerLanguageIntervalMs = 4000
 
 /**
  * Переключает язык баннера по кругу.
- * Возвращает код текущего языка и код следующего, чтобы его картинку можно было загрузить заранее.
+ * Язык интерфейса пропускается: изучать язык, на котором читаешь сайт, не нужно.
+ * Возвращает показываемые языки, код текущего и код следующего, чтобы его картинку можно было загрузить заранее.
  */
 export function useBannerLanguage() {
+	const languageCodes = useLanguagesToLearn()
+
 	const [index, setIndex] = useState(0)
 
-	useEffect(function () {
-		const timerId = setInterval(function () {
-			setIndex((prevIndex) => (prevIndex + 1) % bannerLanguageCodes.length)
-		}, bannerLanguageIntervalMs)
+	useEffect(
+		function () {
+			const timerId = setInterval(function () {
+				setIndex((prevIndex) => (prevIndex + 1) % languageCodes.length)
+			}, bannerLanguageIntervalMs)
 
-		return () => clearInterval(timerId)
-	}, [])
+			return () => clearInterval(timerId)
+		},
+		[languageCodes.length],
+	)
 
 	return {
-		languageCode: bannerLanguageCodes[index],
-		nextLanguageCode: bannerLanguageCodes[(index + 1) % bannerLanguageCodes.length],
+		languageCodes,
+		languageCode: languageCodes[index % languageCodes.length],
+		nextLanguageCode: languageCodes[(index + 1) % languageCodes.length],
 	}
 }

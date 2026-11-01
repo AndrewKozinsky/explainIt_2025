@@ -1,10 +1,12 @@
 import { useTranslations } from 'next-intl'
-import { LanguageCode, languageKeys } from '@/shared/utils/languages'
+import { LanguageCode } from '@/shared/utils/languages'
 import { useLanguageTransition } from './fn/useLanguageTransition'
 import './BannerLanguage.scss'
 
 type BannerLanguageProps = {
 	languageCode: LanguageCode
+	// Все языки, которые сменяют друг друга: экранный диктор зачитывает их одним списком
+	languageCodes: LanguageCode[]
 }
 
 /** Меняющееся название языка внутри текста: старое уходит вверх, новое поднимается на его место */
@@ -15,7 +17,7 @@ function BannerLanguage(props: BannerLanguageProps) {
 	const t = useTranslations('mainPageBanner.headerLanguages')
 
 	// Экранный диктор читает все языки один раз, меняющееся слово от него скрыто
-	const allLanguagesText = languageKeys.map((code) => t(code)).join(', ')
+	const allLanguagesText = props.languageCodes.map((code) => t(code)).join(', ')
 
 	return (
 		<>
