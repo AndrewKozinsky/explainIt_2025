@@ -1,7 +1,6 @@
 import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
+import MainPageBanner from '@/widgets/mainPage/MainPageBanner/MainPageBanner'
 import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
-import MainPageTop from '@/widgets/mainPage/MainPageTop/MainPageTop'
-import VideosCollection from '@/widgets/videosCollection/ui/VideosCollection/VideosCollection'
 import './MainPage.scss'
 
 function MainPage() {
@@ -9,8 +8,7 @@ function MainPage() {
 		<PageWrapper withTop withBottom>
 			<main className='main-page'>
 				{/* Do not forget to use STATE MACHINE FOR COMPONENTS !!! https://zagjs.com/ */}
-				<MainPageTop />
-				<VideosCollection withInfiniteScroll={false} />
+				<MainPageBanner />
 				<MainPageFaq />
 			</main>
 		</PageWrapper>
