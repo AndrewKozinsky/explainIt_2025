@@ -1,0 +1,122 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+// Ширина карточки, после которой справа помещается иллюстрация персонажа с подписью
+$figure-visible-width: 36rem;
+
+// Ширина правой части с иллюстрацией
+$figure-width: 14rem;
+
+// Высота видимой части иллюстрации: всё, что ниже, отсекается
+$image-visible-height: 17rem;
+
+// Слева основной текст сценария, справа иллюстрация с подписью.
+// Показывать ли иллюстрацию, карточка решает по своей ширине
+.scenario-card {
+	container-type: inline-size;
+	display: flex;
+	gap: 1.2rem;
+	padding-top: 2.4rem;
+	border-top: 1px solid vars.$grayColor-2;
+
+	@include mix.container-width(400px) {
+		padding-top: 3.2rem;
+	}
+}
+
+.scenario-card__main {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	min-width: 0;
+}
+
+.scenario-card__header {
+	display: flex;
+	align-items: center;
+	gap: 1.2rem;
+	font-size: 2.2rem;
+	line-height: 2.6rem;
+	font-weight: 600;
+}
+
+.scenario-card__icon-wrapper {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: vars.$radius-1;
+	background-color: vars.$grayColor-1;
+}
+
+.scenario-card__icon {
+	width: 2.2rem;
+	height: 2.2rem;
+}
+
+.scenario-card__text {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	color: vars.$grayColor-6;
+}
+
+.scenario-card__lines {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	margin: 0;
+	font-family: 'Roboto Serif', serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 2.2rem;
+	line-height: 3rem;
+	color: vars.$grayColor-6;
+}
+
+.scenario-card__result {
+	display: flex;
+	align-items: baseline;
+	gap: .8rem;
+	font-size: 1.4rem;
+	line-height: 2.2rem;
+	font-weight: 400;
+}
+
+.scenario-card__result-icon {
+	flex-shrink: 0;
+	color: vars.$grayColor-5;
+}
+
+.scenario-card__figure {
+	display: none;
+	margin: 0;
+
+	@include mix.container-width($figure-visible-width) {
+		display: block;
+		flex-shrink: 0;
+		width: $figure-width;
+	}
+}
+
+// Иллюстрация показывается сверху, низ обрезается по видимой высоте.
+// overflow нужен явно: глобальный сброс стилей делает его visible, и картинка рисуется за пределами своего блока
+.scenario-card__image {
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	height: $image-visible-height;
+	object-fit: cover;
+	object-position: top;
+	border-bottom: 1px solid vars.$grayColor-2;
+}
+
+.scenario-card__caption {
+	margin-top: 1.4rem;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	font-style: italic;
+	color: vars.$grayColor-5;
+}

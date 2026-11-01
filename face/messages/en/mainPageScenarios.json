@@ -1,0 +1,40 @@
+{
+  "eyebrow": "One scene — different endings",
+  "header": "You decide who to be, and the world reacts to your words and actions",
+  "scenarios": {
+    "origin": {
+      "title": "Say where you’re from",
+      "text": "Tell the taxi driver you’re from Spain, and he’ll tell you how his father came to America from Madrid in the 70s.",
+      "lines": [
+        "I’m from Spain.",
+        "Spain? My father came from Madrid…"
+      ],
+      "result": "Learn something new about a person",
+      "caption": "The driver will say he has long wanted to see his father’s hometown but can’t because of work.",
+      "alt": "A taxi driver holding a coffee"
+    },
+    "leave": {
+      "title": "Leave without paying",
+      "text": "Slam the door without paying — and the owner will remember you. The evening may end at the police station: “I’m just practicing the language” is no excuse here.",
+      "lines": [
+        "Sorry, I’m late! Bye!",
+        "Hey! Come back! You haven’t paid!"
+      ],
+      "result": "Actions have consequences",
+      "caption": "Next time Sofia won’t serve you and will show you the door.",
+      "alt": "A café owner in an apron looking at you angrily"
+    },
+    "director": {
+      "title": "Become a film director",
+      "text": "Tell the hotel receptionist you’re a famous director. She’ll greet you like a star and ask about your next film right away.",
+      "lines": [
+        "I’m Michael Bay.",
+        "No way! Are you going to blow up our hotel in your next movie?"
+      ],
+      "result": "A role changes how people treat you",
+      "caption": "She’ll pitch you her idea for a film and ask for a role.",
+      "alt": "A hotel receptionist"
+    }
+  },
+  "note": "Language becomes the tool that moves the story forward."
+}

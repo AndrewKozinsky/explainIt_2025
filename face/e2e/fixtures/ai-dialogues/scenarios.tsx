@@ -3,10 +3,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NextIntlClientProvider } from 'next-intl'
 import AiDialoguesPage from '@/_pages/aiDialogues/AiDialoguesPage/AiDialoguesPage'
 import type { UserModel } from '@/entities/user/UserService'
+import enAiDialogueMessages from '@/messages/en/aiDialogue.json'
+import ruAiDialogueMessages from '@/messages/ru/aiDialogue.json'
 import { UserProvider } from '@/shared/api/auth/UserProvider'
 import { NotificationContext, type NotifyArg } from '@/shared/ui/Notification/fn/context'
-import enMessages from '../../../messages/en.json'
-import ruMessages from '../../../messages/ru.json'
+
+// Странице диалогов нужен только раздел переводов aiDialogue
+const enMessages = { aiDialogue: enAiDialogueMessages }
+const ruMessages = { aiDialogue: ruAiDialogueMessages }
 
 const client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0 } } })
 const user: UserModel = {

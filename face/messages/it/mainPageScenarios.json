@@ -1,0 +1,40 @@
+{
+  "eyebrow": "Una scena — finali diversi",
+  "header": "Decidi tu chi essere, e il mondo reagisce alle tue parole e azioni",
+  "scenarios": {
+    "origin": {
+      "title": "Dire da dove vieni",
+      "text": "Di’ al tassista che vieni dall’Italia, e ti racconterà come suo padre arrivò in America da Napoli negli anni ’70.",
+      "lines": [
+        "I’m from Italy.",
+        "Italy? My father came from Naples…"
+      ],
+      "result": "Scopri qualcosa di nuovo su una persona",
+      "caption": "Il tassista ti dirà che da tempo vuole vedere la città natale di suo padre, ma non può per via del lavoro.",
+      "alt": "Un tassista con un caffè in mano"
+    },
+    "leave": {
+      "title": "Andartene senza pagare",
+      "text": "Sbatti la porta senza pagare — e la proprietaria si ricorderà di te. La serata potrebbe finire in questura: «sto solo facendo pratica con la lingua» qui non è una scusa.",
+      "lines": [
+        "Sorry, I’m late! Bye!",
+        "Hey! Come back! You haven’t paid!"
+      ],
+      "result": "Le azioni hanno conseguenze",
+      "caption": "La prossima volta Sofia non ti servirà e ti metterà alla porta.",
+      "alt": "La proprietaria di un caffè in grembiule ti guarda arrabbiata"
+    },
+    "director": {
+      "title": "Diventare regista",
+      "text": "Di’ alla receptionist dell’hotel che sei un regista famoso. Ti accoglierà come una star e ti chiederà subito del tuo prossimo film.",
+      "lines": [
+        "I’m Michael Bay.",
+        "No way! Are you going to blow up our hotel in your next movie?"
+      ],
+      "result": "Il ruolo cambia il modo in cui ti trattano",
+      "caption": "Ti racconterà la sua idea per un film e ti chiederà una parte.",
+      "alt": "Una receptionist d’albergo"
+    }
+  },
+  "note": "La lingua diventa lo strumento che fa andare avanti la storia."
+}

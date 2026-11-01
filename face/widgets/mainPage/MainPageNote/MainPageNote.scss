@@ -1,0 +1,12 @@
+@use '@/styles/variables' as vars;
+
+.main-page-note {
+	align-self: flex-start;
+	max-width: 100%;
+	padding: 1.2rem 1.6rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+	color: vars.$grayColor-6;
+}

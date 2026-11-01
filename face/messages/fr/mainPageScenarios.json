@@ -1,0 +1,40 @@
+{
+  "eyebrow": "Une scène — des suites différentes",
+  "header": "Vous décidez qui être, et le monde réagit à vos paroles et à vos actes",
+  "scenarios": {
+    "origin": {
+      "title": "Dire d’où vous venez",
+      "text": "Dites au chauffeur de taxi que vous venez de France, et il vous racontera comment son père est arrivé en Amérique depuis Lyon dans les années 70.",
+      "lines": [
+        "I’m from France.",
+        "France? My father came from Lyon…"
+      ],
+      "result": "Découvrez quelque chose de nouveau sur quelqu’un",
+      "caption": "Le chauffeur vous dira qu’il rêve depuis longtemps de voir la ville natale de son père, mais que son travail l’en empêche.",
+      "alt": "Un chauffeur de taxi, un café à la main"
+    },
+    "leave": {
+      "title": "Partir sans payer",
+      "text": "Claquez la porte sans payer — et la patronne se souviendra de vous. La soirée peut finir au commissariat : « je pratique juste la langue » n’est pas une excuse ici.",
+      "lines": [
+        "Sorry, I’m late! Bye!",
+        "Hey! Come back! You haven’t paid!"
+      ],
+      "result": "Les actes ont des conséquences",
+      "caption": "La prochaine fois, Sofia refusera de vous servir et vous mettra à la porte.",
+      "alt": "Une patronne de café en tablier vous regarde avec colère"
+    },
+    "director": {
+      "title": "Devenir réalisateur",
+      "text": "Dites à la réceptionniste de l’hôtel que vous êtes un réalisateur célèbre. Elle vous accueillera comme une star et vous interrogera aussitôt sur votre prochain film.",
+      "lines": [
+        "I’m Michael Bay.",
+        "No way! Are you going to blow up our hotel in your next movie?"
+      ],
+      "result": "Un rôle change la façon dont on vous traite",
+      "caption": "Elle vous racontera son idée de film et vous demandera un rôle.",
+      "alt": "Une réceptionniste d’hôtel"
+    }
+  },
+  "note": "La langue devient l’outil qui fait avancer l’histoire."
+}

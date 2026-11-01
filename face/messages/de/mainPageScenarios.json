@@ -1,0 +1,40 @@
+{
+  "eyebrow": "Eine Szene — verschiedene Fortsetzungen",
+  "header": "Sie entscheiden, wer Sie sind, und die Welt reagiert auf Worte und Taten",
+  "scenarios": {
+    "origin": {
+      "title": "Sagen, woher Sie kommen",
+      "text": "Sagen Sie dem Taxifahrer, dass Sie aus Deutschland kommen, und er erzählt, wie sein Vater in den 70er-Jahren aus Hamburg nach Amerika kam.",
+      "lines": [
+        "I’m from Germany.",
+        "Germany? My father came from Hamburg…"
+      ],
+      "result": "Erfahren Sie etwas Neues über einen Menschen",
+      "caption": "Der Taxifahrer erzählt, dass er schon lange die Heimatstadt seines Vaters besuchen möchte, aber wegen der Arbeit nicht kann.",
+      "alt": "Ein Taxifahrer mit einem Kaffee in der Hand"
+    },
+    "leave": {
+      "title": "Gehen, ohne zu bezahlen",
+      "text": "Schlagen Sie die Tür zu, ohne zu bezahlen — und die Wirtin wird sich an Sie erinnern. Der Abend kann auf der Wache enden: „Ich übe nur die Sprache“ ist hier keine Ausrede.",
+      "lines": [
+        "Sorry, I’m late! Bye!",
+        "Hey! Come back! You haven’t paid!"
+      ],
+      "result": "Taten haben Folgen",
+      "caption": "Beim nächsten Mal bedient Sofia Sie nicht und setzt Sie vor die Tür.",
+      "alt": "Eine Café-Wirtin in Schürze schaut Sie verärgert an"
+    },
+    "director": {
+      "title": "Regisseur werden",
+      "text": "Sagen Sie der Hotelrezeptionistin, dass Sie ein berühmter Regisseur sind. Sie empfängt Sie wie einen Star und fragt sofort nach Ihrem nächsten Film.",
+      "lines": [
+        "I’m Michael Bay.",
+        "No way! Are you going to blow up our hotel in your next movie?"
+      ],
+      "result": "Die Rolle verändert, wie man Sie behandelt",
+      "caption": "Sie erzählt Ihnen ihre Idee für einen Film und bittet um eine Rolle.",
+      "alt": "Eine Hotelrezeptionistin"
+    }
+  },
+  "note": "Die Sprache wird zum Werkzeug, das die Geschichte vorantreibt."
+}

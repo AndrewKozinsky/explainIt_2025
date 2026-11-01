@@ -1,0 +1,40 @@
+{
+  "eyebrow": "Tek sahne — farklı devamlar",
+  "header": "Kim olacağınıza siz karar verirsiniz, dünya da sözlerinize ve davranışlarınıza tepki verir",
+  "scenarios": {
+    "origin": {
+      "title": "Nereli olduğunuzu söyleyin",
+      "text": "Taksiciye Türkiye’den geldiğinizi söyleyin, o da babasının 70’lerde İzmir’den Amerika’ya nasıl geldiğini anlatsın.",
+      "lines": [
+        "I’m from Turkey.",
+        "Turkey? My father came from Izmir…"
+      ],
+      "result": "Bir insan hakkında yeni bir şey öğrenin",
+      "caption": "Taksici uzun zamandır babasının memleketini görmek istediğini ama işi yüzünden gidemediğini anlatacak.",
+      "alt": "Elinde kahveyle bir taksici"
+    },
+    "leave": {
+      "title": "Ödemeden çıkın",
+      "text": "Ödemeden kapıyı çarpıp çıkın — kafenin sahibi sizi unutmayacak. Akşam karakolda bitebilir: “Sadece dil pratiği yapıyorum” burada mazeret değil.",
+      "lines": [
+        "Sorry, I’m late! Bye!",
+        "Hey! Come back! You haven’t paid!"
+      ],
+      "result": "Davranışların sonuçları vardır",
+      "caption": "Bir dahaki sefere Sofia size servis yapmayacak ve sizi kapı dışarı edecek.",
+      "alt": "Önlüklü kafe sahibi size öfkeyle bakıyor"
+    },
+    "director": {
+      "title": "Yönetmen olun",
+      "text": "Otel resepsiyonistine ünlü bir yönetmen olduğunuzu söyleyin. Sizi bir yıldız gibi karşılayacak ve hemen bir sonraki filminizi soracak.",
+      "lines": [
+        "I’m Michael Bay.",
+        "No way! Are you going to blow up our hotel in your next movie?"
+      ],
+      "result": "Rol, size nasıl davranıldığını değiştirir",
+      "caption": "Size bir film fikrini anlatacak ve bir rol isteyecek.",
+      "alt": "Bir otel resepsiyonisti"
+    }
+  },
+  "note": "Dil, hikâyeyi ilerleten bir araca dönüşür."
+}

@@ -1,0 +1,40 @@
+{
+  "eyebrow": "Una escena — distintos desenlaces",
+  "header": "Tú decides quién ser, y el mundo reacciona a tus palabras y actos",
+  "scenarios": {
+    "origin": {
+      "title": "Decir de dónde eres",
+      "text": "Dile al taxista que eres de España, y te contará cómo su padre llegó a América desde Madrid en los años 70.",
+      "lines": [
+        "I’m from Spain.",
+        "Spain? My father came from Madrid…"
+      ],
+      "result": "Descubre algo nuevo sobre una persona",
+      "caption": "El taxista te dirá que hace tiempo quiere conocer la ciudad natal de su padre, pero no puede por el trabajo.",
+      "alt": "Un taxista con un café en la mano"
+    },
+    "leave": {
+      "title": "Irte sin pagar",
+      "text": "Da un portazo sin pagar — y la dueña te recordará. La noche puede acabar en comisaría: «solo estoy practicando el idioma» no es excusa aquí.",
+      "lines": [
+        "Sorry, I’m late! Bye!",
+        "Hey! Come back! You haven’t paid!"
+      ],
+      "result": "Los actos tienen consecuencias",
+      "caption": "La próxima vez Sofía no te atenderá y te echará a la calle.",
+      "alt": "La dueña de un café con delantal te mira enfadada"
+    },
+    "director": {
+      "title": "Convertirte en director de cine",
+      "text": "Dile a la recepcionista del hotel que eres un director famoso. Te recibirá como a una estrella y enseguida te preguntará por tu próxima película.",
+      "lines": [
+        "I’m Michael Bay.",
+        "No way! Are you going to blow up our hotel in your next movie?"
+      ],
+      "result": "El papel cambia cómo te tratan",
+      "caption": "Te contará su idea para una película y te pedirá un papel.",
+      "alt": "Una recepcionista de hotel"
+    }
+  },
+  "note": "El idioma se convierte en la herramienta que hace avanzar la historia."
+}
