@@ -1,5 +1,5 @@
 import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
-import MainPageBanner from '@/widgets/mainPage/MainPageBanner/MainPageBanner'
+import MainPageBanner from '@/widgets/mainPage/mainPageBanner/MainPageBanner/MainPageBanner'
 import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
 import './MainPage.scss'
 

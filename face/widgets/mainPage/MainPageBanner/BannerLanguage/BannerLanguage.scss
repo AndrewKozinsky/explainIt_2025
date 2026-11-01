@@ -1,0 +1,72 @@
+// Как барабан: новое название стоит под старым,
+// и оба одновременно сдвигаются вверх — старое гаснет, новое проявляется
+.banner-language {
+	// Расстояние между старым и новым названием перед стартом анимации
+	// и путь, который они проходят. 1lh — новое стоит строго под старым, меньше — ближе
+	--language-shift: 0.7em;
+
+	position: relative;
+	display: inline-block;
+}
+
+.banner-language__in {
+	display: inline-block;
+	animation: banner-language-in 0.6s ease-in-out;
+}
+
+// Уходящее название лежит поверх нового и не влияет на ширину строки
+.banner-language__out {
+	position: absolute;
+	top: 0;
+	left: 0;
+	white-space: nowrap;
+	pointer-events: none;
+	animation: banner-language-out 0.6s ease-in-out forwards;
+}
+
+.banner-language__in,
+.banner-language__out {
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+	}
+}
+
+.banner-language__out {
+	@media (prefers-reduced-motion: reduce) {
+		display: none;
+	}
+}
+
+@keyframes banner-language-in {
+	from {
+		opacity: 0;
+		transform: translateY(var(--language-shift));
+	}
+
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes banner-language-out {
+	from {
+		opacity: 1;
+		transform: none;
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(calc(-1 * var(--language-shift)));
+	}
+}
+
+// Текст только для экранного диктора
+.banner-language__visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
