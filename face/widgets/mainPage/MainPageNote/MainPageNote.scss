@@ -10,3 +10,10 @@
 	line-height: 2.6rem;
 	color: vars.$grayColor-6;
 }
+
+// Иконка внутри текста вывода
+.main-page-note__icon {
+	display: inline-block;
+	margin-inline: 0.4rem;
+	vertical-align: middle;
+}

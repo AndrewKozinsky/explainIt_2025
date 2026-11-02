@@ -4,7 +4,7 @@ import { routing } from './routing'
 
 // Разделы переводов. Каждый раздел — отдельный файл messages/{locale}/{раздел}.json,
 // а его имя — ключ верхнего уровня: useTranslations('mainPageBanner')
-const messageNamespaces = ['aiDialogue', 'mainPageBanner', 'mainPageScenarios'] as const
+const messageNamespaces = ['aiDialogue', 'mainPageAnyLevel', 'mainPageBanner', 'mainPageScenarios'] as const
 
 export default getRequestConfig(async ({ requestLocale }) => {
 	const requested = await requestLocale
