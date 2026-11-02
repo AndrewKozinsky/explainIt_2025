@@ -3,6 +3,7 @@ import { CameraIcon } from '@/shared/ui/icons/mainPage/CameraIcon'
 import { DoorExitIcon } from '@/shared/ui/icons/mainPage/DoorExitIcon'
 import { MainPageIconProps } from '@/shared/ui/icons/mainPage/iconProps'
 import { MessagesIcon } from '@/shared/ui/icons/mainPage/MessagesIcon'
+import { filesUrls } from '@/shared/utils/filesUrls'
 
 export type ScenarioId = 'origin' | 'leave' | 'director'
 
@@ -19,17 +20,17 @@ export const scenarioConfigs: ScenarioConfig[] = [
 	{
 		id: 'origin',
 		Icon: MessagesIcon,
-		imagePath: '/mainPage/scenarios/scenario-taxi-driver.webp',
+		imagePath: filesUrls.mainPage.scenarios.taxiDriver,
 	},
 	{
 		id: 'leave',
 		Icon: DoorExitIcon,
-		imagePath: '/mainPage/scenarios/scenario-cafe-owner.webp',
+		imagePath: filesUrls.mainPage.scenarios.cafeOwner,
 	},
 	{
 		id: 'director',
 		Icon: CameraIcon,
 		// Заглушка: замените на иллюстрацию администратора отеля
-		imagePath: '/mainPage/scenarios/scenario-hotel-admin.webp',
+		imagePath: filesUrls.mainPage.scenarios.hotelAdmin,
 	},
 ]

@@ -1,9 +1,9 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
-@use '../MainPageAnyLevel/anyLevelVars' as anyLevelVars;
 
-// Ширина карточки, после которой слева от текста помещается парень
-$guy-visible-width: anyLevelVars.$dont-know-guy-visible-width;
+// Ширина карточки, после которой слева от текста помещается парень.
+// Совпадает с $full-first-step-width в MainPageAnyLevel.scss: с этой ширины первый шаг встаёт во всю ширину раздела
+$guy-visible-width: 90rem;
 
 // Ширина карточки, после которой справа помещается и девушка
 $barista-visible-width: 135rem;

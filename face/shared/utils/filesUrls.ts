@@ -28,49 +28,28 @@ export const filesUrls = {
 		},
 	},
 	mainPage: {
-		anyDevices: '/mainPage/anyDevices.svg',
-		roundPlay: '/mainPage/roundPlay.svg',
-		roundArrow: '/mainPage/roundArrow.svg',
-		bookIcon: '/mainPage/bookIcon.svg',
-		videoIcon: '/mainPage/videoIcon.svg',
-		booksCovers: [
-			s3AssetsUrl + 'mainPage/covers/1.webp',
-			s3AssetsUrl + 'mainPage/covers/2.webp',
-			s3AssetsUrl + 'mainPage/covers/3.webp',
-			s3AssetsUrl + 'mainPage/covers/4.webp',
-			s3AssetsUrl + 'mainPage/covers/5.webp',
-			s3AssetsUrl + 'mainPage/covers/6.webp',
-			s3AssetsUrl + 'mainPage/covers/7.webp',
-			s3AssetsUrl + 'mainPage/covers/8.webp',
-			s3AssetsUrl + 'mainPage/covers/9.webp',
-			s3AssetsUrl + 'mainPage/covers/10.webp',
-			s3AssetsUrl + 'mainPage/covers/11.webp',
-			s3AssetsUrl + 'mainPage/covers/12.webp',
-			s3AssetsUrl + 'mainPage/covers/13.webp',
-			s3AssetsUrl + 'mainPage/covers/14.webp',
-			s3AssetsUrl + 'mainPage/covers/15.webp',
-			s3AssetsUrl + 'mainPage/covers/17.webp',
-			s3AssetsUrl + 'mainPage/covers/18.webp',
-			s3AssetsUrl + 'mainPage/covers/19.webp',
-			s3AssetsUrl + 'mainPage/covers/20.webp',
-			s3AssetsUrl + 'mainPage/covers/21.webp',
-			s3AssetsUrl + 'mainPage/covers/22.webp',
-			s3AssetsUrl + 'mainPage/covers/23.webp',
-		],
-		features: {
-			phone: {
-				'1x': s3AssetsUrl + 'mainPage/features/phone@1x.webp',
-				'2x': s3AssetsUrl + 'mainPage/features/phone@2x.webp',
-			},
-
-			dictionary: {
-				'1x': s3AssetsUrl + 'mainPage/features/dictionary@1x.webp',
-				'2x': s3AssetsUrl + 'mainPage/features/dictionary@2x.webp',
-			},
-			assistant: {
-				'1x': s3AssetsUrl + 'mainPage/features/assistent@1x.webp',
-				'2x': s3AssetsUrl + 'mainPage/features/assistent@2x.webp',
-			},
+		// Иллюстрации баннера, передающие дух каждого языка
+		banner: {
+			en: '/mainPage/banner/main-banner-en.webp',
+			de: '/mainPage/banner/main-banner-de.webp',
+			fr: '/mainPage/banner/main-banner-fr.webp',
+			it: '/mainPage/banner/main-banner-it.webp',
+			es: '/mainPage/banner/main-banner-es.webp',
+			tr: '/mainPage/banner/main-banner-tr.webp',
+			ru: '/mainPage/banner/main-banner-ru.webp',
+		},
+		// Персонажи сценариев
+		scenarios: {
+			taxiDriver: '/mainPage/scenarios/scenario-taxi-driver.webp',
+			cafeOwner: '/mainPage/scenarios/scenario-cafe-owner.webp',
+			hotelAdmin: '/mainPage/scenarios/scenario-hotel-admin.webp',
+		},
+		// Иллюстрации раздела «Уровень языка не важен»
+		anyLevel: {
+			guyThinking: '/mainPage/anyLevel/any-level-guy-thinking.webp',
+			baristaListening: '/mainPage/anyLevel/any-level-barista-listening.webp',
+			guyCafe: '/mainPage/anyLevel/any-level-guy-cafe.webp',
+			baristaCafe: '/mainPage/anyLevel/any-level-barista-cafe.webp',
 		},
 	},
 	onboardingModal: {

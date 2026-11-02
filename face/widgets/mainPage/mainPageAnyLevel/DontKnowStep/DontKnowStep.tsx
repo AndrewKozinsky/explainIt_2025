@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl'
+import { filesUrls } from '@/shared/utils/filesUrls'
 import StepCard from '../StepCard/StepCard'
 import StepCardText from '../StepCard/StepCardText'
 import StepImage from '../StepImage/StepImage'
@@ -13,7 +14,7 @@ function DontKnowStep() {
 		<StepCard number='01' title={t('title')}>
 			<div className='any-level-dont-know-step'>
 				<StepImage
-					imagePath='/mainPage/anyLevel/any-level-guy-thinking.webp'
+					imagePath={filesUrls.mainPage.anyLevel.guyThinking}
 					extraClass='any-level-dont-know-step__guy'
 				/>
 				{/* Мысли парня: при показанной иллюстрации стоят вплотную к нему */}
@@ -31,7 +32,7 @@ function DontKnowStep() {
 					</div>
 				</StepCardText>
 				<StepImage
-					imagePath='/mainPage/anyLevel/any-level-barista-listening.webp'
+					imagePath={filesUrls.mainPage.anyLevel.baristaListening}
 					extraClass='any-level-dont-know-step__barista'
 				/>
 			</div>

@@ -1,5 +1,6 @@
 import { useTranslations } from 'next-intl'
 import SpeechBubble from '@/shared/ui/SpeechBubble/SpeechBubble'
+import { filesUrls } from '@/shared/utils/filesUrls'
 import StepCard from '../StepCard/StepCard'
 import StepCardText from '../StepCard/StepCardText'
 import StepImage from '../StepImage/StepImage'
@@ -12,10 +13,7 @@ function SayRightStep() {
 	return (
 		<StepCard number='03' title={t('sayRight.title')}>
 			<div className='any-level-say-right-step'>
-				<StepImage
-					imagePath='/mainPage/anyLevel/any-level-guy-cafe.webp'
-					extraClass='any-level-say-right-step__guy'
-				/>
+				<StepImage imagePath={filesUrls.mainPage.anyLevel.guyCafe} extraClass='any-level-say-right-step__guy' />
 				<StepCardText extraClass='any-level-say-right-step__main'>
 					<SpeechBubble
 						size='middle'
@@ -41,7 +39,7 @@ function SayRightStep() {
 					<p className='any-level-say-right-step__text'>{t('sayRight.text')}</p>
 				</StepCardText>
 				<StepImage
-					imagePath='/mainPage/anyLevel/any-level-barista-cafe.webp'
+					imagePath={filesUrls.mainPage.anyLevel.baristaCafe}
 					extraClass='any-level-say-right-step__barista'
 				/>
 			</div>
