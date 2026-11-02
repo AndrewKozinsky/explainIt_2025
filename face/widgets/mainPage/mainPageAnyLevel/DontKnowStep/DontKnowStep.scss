@@ -42,6 +42,15 @@ $barista-visible-width: 100rem;
 	}
 }
 
+// Кружки от облаков мыслей ведут к голове парня, поэтому видны только вместе с ним
+.any-level-dont-know-step__thought-tail {
+	display: none;
+
+	@include mix.container-width($guy-visible-width) {
+		display: block;
+	}
+}
+
 .any-level-dont-know-step__main {
 	grid-column: 2;
 	display: flex;
@@ -58,7 +67,10 @@ $barista-visible-width: 100rem;
 	margin-top: .4rem;
 }
 
+// Блок ответа по ширине текста, как облака мыслей над ним
 .any-level-dont-know-step__answer {
+	width: fit-content;
+	max-width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;

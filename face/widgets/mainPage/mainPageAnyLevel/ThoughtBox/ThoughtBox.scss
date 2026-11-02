@@ -1,12 +1,67 @@
 @use '@/styles/variables' as vars;
 
+// Цвет облака и кружков, которые ведут от него к голове персонажа
+$cloud-color: #fff;
+
+// Отступы больше радиуса бугорков (cloudBumpInset в fn/getCloudPath.ts), поэтому вокруг текста всегда остаётся белое поле.
+// Облако по ширине текста, а не во всю доступную ширину.
+// isolation нужен, чтобы облако с отрицательным z-index осталось под текстом, но над фоном карточки
 .any-level-thought-box {
+	position: relative;
+	width: fit-content;
+	max-width: 100%;
+	isolation: isolate;
 	display: flex;
 	flex-direction: column;
 	gap: .2rem;
-	padding: 0.8rem 1rem;
-	border: 1px dashed vars.$grayColor-3;
-	border-radius: vars.$radius-2;
+	padding: 2rem 2.6rem;
+
+}
+
+// Пока облако не построено (до первого измерения блока), под текстом простая белая подложка
+.any-level-thought-box--unmeasured {
+	border-radius: 2.4rem;
+	background-color: $cloud-color;
+}
+
+.any-level-thought-box__cloud {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	color: $cloud-color;
+}
+
+// Два кружка слева снизу ведут от облака к голове персонажа: больший ближе к облаку, меньший к голове.
+// Показывать ли их, решает шаг через tailExtraClass: без персонажа рядом им некуда вести.
+// Сам элемент повторяет размеры облака и не занимает места в потоке
+.any-level-thought-box__tail {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		border-radius: 50%;
+		background-color: $cloud-color;
+	}
+
+	&::before {
+		left: -.8rem;
+		bottom: 1.2rem;
+		width: 1.2rem;
+		height: 1rem;
+	}
+
+	&::after {
+		left: -1.8rem;
+		bottom: .6rem;
+		width: .7rem;
+		height: .6rem;
+	}
 }
 
 .any-level-thought-box__label {

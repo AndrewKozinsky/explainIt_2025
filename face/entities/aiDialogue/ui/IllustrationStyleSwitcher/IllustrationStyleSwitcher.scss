@@ -29,7 +29,7 @@
 	box-sizing: border-box;
 	overflow: hidden;
 	border: 3px solid vars.$grayColor-2;
-	border-radius: 0.6rem;
+	border-radius: vars.$radius-1;
 	background: vars.$grayColor-1;
 
 	img {

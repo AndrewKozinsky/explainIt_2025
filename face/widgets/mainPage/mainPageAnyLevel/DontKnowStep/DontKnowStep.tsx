@@ -19,8 +19,16 @@ function DontKnowStep() {
 				/>
 				{/* Мысли парня: при показанной иллюстрации стоят вплотную к нему */}
 				<StepCardText extraClass='any-level-dont-know-step__main'>
-					<ThoughtBox label={t('thoughtLabel')} text={t('thought')} />
-					<ThoughtBox label={t('doubtLabel')} text={t('doubt')} />
+					<ThoughtBox
+						label={t('thoughtLabel')}
+						text={t('thought')}
+						tailExtraClass='any-level-dont-know-step__thought-tail'
+					/>
+					<ThoughtBox
+						label={t('doubtLabel')}
+						text={t('doubt')}
+						tailExtraClass='any-level-dont-know-step__thought-tail'
+					/>
 					<p className='any-level-dont-know-step__call'>{t('call')}</p>
 					<div className='any-level-dont-know-step__answer'>
 						<p className='any-level-dont-know-step__answer-label'>{t('answerLabel')}</p>
