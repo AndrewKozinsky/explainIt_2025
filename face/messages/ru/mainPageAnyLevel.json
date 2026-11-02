@@ -38,7 +38,7 @@
   "sayRight": {
     "title": "Скажите правильно",
     "userLine": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
-    "action": "София улыбается",
+    "action": "Молли улыбается",
     "npcLine": "Of course! Coming right up. Rainy evening, isn’t it?",
     "text": "Вас поняли, и история пошла дальше."
   }

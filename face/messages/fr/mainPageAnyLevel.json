@@ -38,7 +38,7 @@
   "sayRight": {
     "title": "Dites-le correctement",
     "userLine": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
-    "action": "Sofia sourit",
+    "action": "Molly sourit",
     "npcLine": "Of course! Coming right up. Rainy evening, isn’t it?",
     "text": "On vous a compris, et l’histoire a continué."
   }

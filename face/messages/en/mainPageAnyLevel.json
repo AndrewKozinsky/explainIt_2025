@@ -38,7 +38,7 @@
   "sayRight": {
     "title": "Say it right",
     "userLine": "¿Me pones un capuchino para llevar, por favor? Voy con un poco de prisa.",
-    "action": "Sofía smiles",
+    "action": "Lucía smiles",
     "npcLine": "¡Claro! Ahora mismo te lo preparo. Qué tarde tan lluviosa, ¿verdad?",
     "text": "You were understood, and the story moved on."
   }
