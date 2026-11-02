@@ -12,6 +12,7 @@ function ScenarioCard(props: ScenarioCardProps) {
 	const { id, Icon, imagePath } = props.config
 
 	const t = useTranslations(`mainPageScenarios.scenarios.${id}`)
+	const tScenarios = useTranslations('mainPageScenarios')
 	const lines = t.raw('lines') as string[]
 
 	return (
@@ -24,8 +25,8 @@ function ScenarioCard(props: ScenarioCardProps) {
 					{t('title')}
 				</h3>
 				<p className='scenario-card__text'>{t('text')}</p>
-				{/* Реплики всегда на изучаемом языке */}
-				<blockquote className='scenario-card__lines' lang='en'>
+				{/* Реплики на языке, который изучают: на английской версии — испанский, на остальных — английский */}
+				<blockquote className='scenario-card__lines' lang={tScenarios('linesLanguage')}>
 					{lines.map((line) => (
 						<p className='scenario-card__line' key={line}>
 							— {line}
