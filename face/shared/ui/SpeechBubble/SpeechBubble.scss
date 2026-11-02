@@ -1,0 +1,44 @@
+@use '@/styles/variables' as vars;
+
+// Цвет кончика берётся из --speech-bubble-bg, поэтому он всегда совпадает с фоном бабла
+.speech-bubble {
+	position: relative;
+	border-radius: 1.4rem;
+	background-color: var(--speech-bubble-bg);
+}
+
+.speech-bubble--small {
+	padding: .8rem 1rem;
+}
+
+.speech-bubble--middle {
+	padding: 1rem 1.2rem;
+}
+
+.speech-bubble--dark {
+	--speech-bubble-bg: #{vars.$textColor};
+	color: white;
+}
+
+.speech-bubble--white {
+	--speech-bubble-bg: #fff;
+	color: vars.$textColor;
+}
+
+// Кончик выступает за нижний угол бабла
+.speech-bubble__tip {
+	position: absolute;
+	bottom: -.3rem;
+	width: 1.4rem;
+	height: 1.6rem;
+	color: var(--speech-bubble-bg);
+}
+
+.speech-bubble--tip-left .speech-bubble__tip {
+	left: -.45rem;
+}
+
+.speech-bubble--tip-right .speech-bubble__tip {
+	right: -.45rem;
+	transform: scaleX(-1);
+}

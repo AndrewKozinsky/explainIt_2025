@@ -2,5 +2,44 @@
   "eyebrow": "Dil seviyeniz önemli değil",
   "header": "Ne demek istediğinizi biliyorsunuz ama kelimeleri bilmiyor musunuz? No problem.",
   "text": "Tanıdık geldi mi? Ne söylemek istediğinizi biliyorsunuz ama nasıl söyleyeceğinizi bilmiyorsunuz. Burada bu bir çıkmaz değil: öğrendiğiniz dilde ya da ana dilinizde, tek bir kelimeyle ya da tüm cümlelerle, nasıl söyleyebiliyorsanız öyle söyleyin; asistan doğrusunu gösterecek.",
-  "note": "Cevabınızı yazabilir <keyboard></keyboard> ya da sesle söyleyebilirsiniz <wave></wave>"
+  "note": "Cevabınızı yazabilir <keyboard></keyboard> ya da sesle söyleyebilirsiniz <wave></wave>",
+  "learnedLang": "en",
+  "dontKnow": {
+    "title": "Nasıl söyleyeceğinizi bilmiyorsunuz",
+    "thoughtLabel": "Söylemek istediğiniz düşünce",
+    "thought": "Paket bir kapuçino, hem de çabuk: geç kalıyorum.",
+    "doubtLabel": "Emin olmamak ve bilmemek normal",
+    "doubt": "Cappuccino… peki “paket” nasıl denir? Ya “çabuk”?",
+    "call": "Nasıl söyleyebiliyorsanız öyle söyleyin!",
+    "answerLabel": "Cevabınız",
+    "answer": "I want cappuccino, paket, ve çabuk",
+    "check": "Kontrol et"
+  },
+  "hint": {
+    "title": "İpucu alın",
+    "phrase": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "replacements": [
+      {
+        "source": "I want",
+        "target": "Could I get",
+        "note": "daha kibar"
+      },
+      {
+        "source": "paket",
+        "target": "to go"
+      },
+      {
+        "source": "çabuk",
+        "target": "I’m in a bit of a hurry"
+      }
+    ],
+    "text": "Gerçekte nasıl söylendiğini ve neyin değiştiğini görürsünüz."
+  },
+  "sayRight": {
+    "title": "Doğru söyleyin",
+    "userLine": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "action": "Sofia gülümsüyor",
+    "npcLine": "Of course! Coming right up. Rainy evening, isn’t it?",
+    "text": "Sizi anladılar ve hikâye devam etti."
+  }
 }

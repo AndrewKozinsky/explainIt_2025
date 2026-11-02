@@ -2,5 +2,44 @@
   "eyebrow": "Votre niveau de langue n’a pas d’importance",
   "header": "Vous avez l’idée, mais pas les mots ? No problem.",
   "text": "Ça vous parle ? Vous savez ce que vous voulez dire, mais pas comment. Ici, ce n’est pas une impasse : dites-le comme vous pouvez — dans la langue que vous apprenez ou dans votre langue maternelle, un seul mot ou des phrases entières, et l’assistant vous montrera la bonne formulation.",
-  "note": "Vous pouvez taper votre réponse <keyboard></keyboard> ou la dicter <wave></wave>"
+  "note": "Vous pouvez taper votre réponse <keyboard></keyboard> ou la dicter <wave></wave>",
+  "learnedLang": "en",
+  "dontKnow": {
+    "title": "Vous ne savez pas comment le dire",
+    "thoughtLabel": "Ce que vous voulez dire",
+    "thought": "Un cappuccino à emporter, et vite : je suis en retard.",
+    "doubtLabel": "Douter et ne pas savoir, c’est normal",
+    "doubt": "Cappuccino… mais « à emporter », ça se dit comment ? Et « vite » ?",
+    "call": "Dites-le simplement comme vous pouvez !",
+    "answerLabel": "Votre réponse",
+    "answer": "I want cappuccino, à emporter, et vite",
+    "check": "Vérifier"
+  },
+  "hint": {
+    "title": "Obtenez un indice",
+    "phrase": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "replacements": [
+      {
+        "source": "I want",
+        "target": "Could I get",
+        "note": "plus poli"
+      },
+      {
+        "source": "à emporter",
+        "target": "to go"
+      },
+      {
+        "source": "vite",
+        "target": "I’m in a bit of a hurry"
+      }
+    ],
+    "text": "Vous voyez comment ça sonne vraiment et ce qui a changé."
+  },
+  "sayRight": {
+    "title": "Dites-le correctement",
+    "userLine": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "action": "Sofia sourit",
+    "npcLine": "Of course! Coming right up. Rainy evening, isn’t it?",
+    "text": "On vous a compris, et l’histoire a continué."
+  }
 }

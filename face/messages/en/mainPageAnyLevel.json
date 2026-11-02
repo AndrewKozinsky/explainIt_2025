@@ -2,5 +2,44 @@
   "eyebrow": "Your language level doesn't matter",
   "header": "You have the thought but not the words? No problem.",
   "text": "Sound familiar? You know what you want to say, but not how. Here it's not a dead end: say it however you can — in the language you're learning or in your native one, a single word or whole sentences, and the assistant will show you how to say it right.",
-  "note": "You can type your answer <keyboard></keyboard> or dictate it <wave></wave>"
+  "note": "You can type your answer <keyboard></keyboard> or dictate it <wave></wave>",
+  "learnedLang": "es",
+  "dontKnow": {
+    "title": "Don’t know how to say it",
+    "thoughtLabel": "What you want to say",
+    "thought": "A cappuccino to go, and quick: I’m running late.",
+    "doubtLabel": "Doubting and not knowing is fine",
+    "doubt": "Capuchino… but how do you say “to go”? And “quick”?",
+    "call": "Just say it however you can!",
+    "answerLabel": "Your answer",
+    "answer": "Quiero capuchino, to go, and quick",
+    "check": "Check"
+  },
+  "hint": {
+    "title": "Get a hint",
+    "phrase": "¿Me pones un capuchino para llevar, por favor? Voy con un poco de prisa.",
+    "replacements": [
+      {
+        "source": "Quiero",
+        "target": "¿Me pones…?",
+        "note": "more polite"
+      },
+      {
+        "source": "to go",
+        "target": "para llevar"
+      },
+      {
+        "source": "quick",
+        "target": "Voy con un poco de prisa"
+      }
+    ],
+    "text": "See how it really sounds and what changed."
+  },
+  "sayRight": {
+    "title": "Say it right",
+    "userLine": "¿Me pones un capuchino para llevar, por favor? Voy con un poco de prisa.",
+    "action": "Sofía smiles",
+    "npcLine": "¡Claro! Ahora mismo te lo preparo. Qué tarde tan lluviosa, ¿verdad?",
+    "text": "You were understood, and the story moved on."
+  }
 }

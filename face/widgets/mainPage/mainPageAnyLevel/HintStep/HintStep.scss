@@ -1,0 +1,53 @@
+@use '@/styles/variables' as vars;
+
+.any-level-hint-step {
+	display: flex;
+	flex-direction: column;
+	gap: 1.8rem;
+}
+
+.any-level-hint-step__phrase {
+	padding: 1rem 1.2rem;
+	border-radius: 1.4rem;
+	background-color: #fff;
+	font-family: 'Roboto Serif', serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 2rem;
+	line-height: 2.8rem;
+}
+
+// Строки списка встают в общую сетку, поэтому стрелки выровнены по вертикали
+.any-level-hint-step__replacements {
+	display: grid;
+	grid-template-columns: max-content minmax(0, 1fr);
+	gap: .6rem 2.4rem;
+	margin: 0;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+}
+
+.any-level-hint-step__replacement {
+	display: contents;
+}
+
+.any-level-hint-step__replacement-target {
+	display: flex;
+	gap: 1.2rem;
+	margin: 0;
+}
+
+.any-level-hint-step__arrow {
+	color: vars.$grayColor-4;
+}
+
+.any-level-hint-step__target {
+	font-weight: 600;
+}
+
+.any-level-hint-step__text {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	font-weight: 400;
+	color: vars.$grayColor-5;
+}

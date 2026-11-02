@@ -1,0 +1,35 @@
+@use '@/styles/mixins' as mix;
+@use './anyLevelVars' as anyLevelVars;
+
+// Ширина раздела, после которой первый и второй шаги встают рядом
+$first-row-width: 64rem;
+
+// Ширина раздела, после которой первый шаг занимает всю ширину, а второй и третий встают рядом под ним
+$full-first-step-width: anyLevelVars.$dont-know-guy-visible-width;
+
+// На узком разделе шаги друг под другом. Шире — первый и второй шаги рядом, третий под ними во всю ширину.
+// Ещё шире — первый шаг во всю ширину, под ним второй и третий, причём третьему нужно больше места под иллюстрации
+.any-level-steps {
+	display: grid;
+	gap: 2.4rem;
+
+	@include mix.container-width($first-row-width) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+
+		> :nth-child(3) {
+			grid-column: 1 / -1;
+		}
+	}
+
+	@include mix.container-width($full-first-step-width) {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+
+		> :first-child {
+			grid-column: 1 / -1;
+		}
+
+		> :nth-child(3) {
+			grid-column: auto;
+		}
+	}
+}

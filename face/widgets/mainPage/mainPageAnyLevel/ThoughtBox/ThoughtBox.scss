@@ -1,0 +1,23 @@
+@use '@/styles/variables' as vars;
+
+.any-level-thought-box {
+	display: flex;
+	flex-direction: column;
+	gap: .2rem;
+	padding: 0.8rem 1rem;
+	border: 1px dashed vars.$grayColor-3;
+	border-radius: vars.$radius-2;
+}
+
+.any-level-thought-box__label {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	font-weight: 400;
+	color: vars.$grayColor-5;
+}
+
+.any-level-thought-box__text {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 400;
+}

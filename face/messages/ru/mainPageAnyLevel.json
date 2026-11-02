@@ -2,5 +2,44 @@
   "eyebrow": "Уровень языка не важен",
   "header": "Мысль есть, но не знаете слова? No problem.",
   "text": "Знакомо? Вы знаете, что хотите сказать, но не знаете, как. Здесь это не тупик: говорите как можете — на изучаемом или родном языке хоть одно слово, хоть все предложения, а помощник покажет, как правильно.",
-  "note": "Ответ можно напечатать <keyboard></keyboard> или продиктовать <wave></wave>"
+  "note": "Ответ можно напечатать <keyboard></keyboard> или продиктовать <wave></wave>",
+  "learnedLang": "en",
+  "dontKnow": {
+    "title": "Не знаете, как сказать",
+    "thoughtLabel": "Какую мысль хотите сказать",
+    "thought": "Мне капучино с собой, и побыстрее: я опаздываю.",
+    "doubtLabel": "Сомневаться и не знать — нормально",
+    "doubt": "Cappuccino… а «с собой» как? И «побыстрее»?",
+    "call": "Просто скажите как можете!",
+    "answerLabel": "Ваш ответ",
+    "answer": "I want cappuccino, с собой, и побыстрее",
+    "check": "Проверить"
+  },
+  "hint": {
+    "title": "Получите подсказку",
+    "phrase": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "replacements": [
+      {
+        "source": "I want",
+        "target": "Could I get",
+        "note": "вежливее"
+      },
+      {
+        "source": "с собой",
+        "target": "to go"
+      },
+      {
+        "source": "побыстрее",
+        "target": "I’m in a bit of a hurry"
+      }
+    ],
+    "text": "Видите, как это звучит на самом деле и что поменялось."
+  },
+  "sayRight": {
+    "title": "Скажите правильно",
+    "userLine": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "action": "София улыбается",
+    "npcLine": "Of course! Coming right up. Rainy evening, isn’t it?",
+    "text": "Вас поняли, и история пошла дальше."
+  }
 }

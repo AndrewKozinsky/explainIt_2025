@@ -1,0 +1,15 @@
+// Иллюстрация задаёт ширину колонки, но не высоту карточки:
+// нулевая высота не даёт ей растянуть строку сетки, а min-height растягивает её на всю строку.
+// overflow нужен явно: глобальный сброс стилей делает его visible.
+// Из-за overflow сетка могла бы сжать колонку уже иллюстрации, min-width этого не даёт
+.any-level-step-image {
+	min-width: max-content;
+	height: 0;
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.any-level-step-image__image {
+	display: block;
+	max-width: none;
+}

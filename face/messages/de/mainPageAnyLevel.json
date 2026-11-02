@@ -2,5 +2,44 @@
   "eyebrow": "Dein Sprachniveau spielt keine Rolle",
   "header": "Du hast den Gedanken, aber nicht die Worte? No problem.",
   "text": "Kommt dir das bekannt vor? Du weißt, was du sagen willst, aber nicht, wie. Hier ist das keine Sackgasse: Sag es, so gut du kannst — in der Sprache, die du lernst, oder in deiner Muttersprache, ein einzelnes Wort oder ganze Sätze, und der Assistent zeigt dir, wie es richtig heißt.",
-  "note": "Du kannst deine Antwort tippen <keyboard></keyboard> oder diktieren <wave></wave>"
+  "note": "Du kannst deine Antwort tippen <keyboard></keyboard> oder diktieren <wave></wave>",
+  "learnedLang": "en",
+  "dontKnow": {
+    "title": "Du weißt nicht, wie man es sagt",
+    "thoughtLabel": "Was du sagen möchtest",
+    "thought": "Einen Cappuccino zum Mitnehmen, und bitte schnell: Ich bin spät dran.",
+    "doubtLabel": "Zweifeln und nicht wissen ist normal",
+    "doubt": "Cappuccino… aber wie heißt „zum Mitnehmen“? Und „schnell“?",
+    "call": "Sag es einfach, so gut du kannst!",
+    "answerLabel": "Deine Antwort",
+    "answer": "I want cappuccino, zum Mitnehmen, und schnell",
+    "check": "Prüfen"
+  },
+  "hint": {
+    "title": "Hol dir einen Tipp",
+    "phrase": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "replacements": [
+      {
+        "source": "I want",
+        "target": "Could I get",
+        "note": "höflicher"
+      },
+      {
+        "source": "zum Mitnehmen",
+        "target": "to go"
+      },
+      {
+        "source": "schnell",
+        "target": "I’m in a bit of a hurry"
+      }
+    ],
+    "text": "Du siehst, wie es wirklich klingt und was sich geändert hat."
+  },
+  "sayRight": {
+    "title": "Sag es richtig",
+    "userLine": "Could I get a cappuccino to go, please? I’m in a bit of a hurry.",
+    "action": "Sofia lächelt",
+    "npcLine": "Of course! Coming right up. Rainy evening, isn’t it?",
+    "text": "Du wurdest verstanden, und die Geschichte geht weiter."
+  }
 }

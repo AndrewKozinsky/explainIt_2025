@@ -1,0 +1,90 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+@use '../MainPageAnyLevel/anyLevelVars' as anyLevelVars;
+
+// Ширина карточки, после которой слева от текста помещается парень
+$guy-visible-width: anyLevelVars.$dont-know-guy-visible-width;
+
+// Ширина карточки, после которой справа помещается и девушка
+$barista-visible-width: 135rem;
+
+// На узкой карточке только текст во всю ширину. Шире — слева парень, текст занимает остальное место.
+// Ещё шире — справа девушка, текст стоит вплотную к парню, а всё свободное место остаётся между текстом и девушкой
+.any-level-dont-know-step {
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr) auto;
+
+	@include mix.container-width($barista-visible-width) {
+		grid-template-columns: auto minmax(0, 44rem) 1fr auto;
+	}
+}
+
+.any-level-dont-know-step__guy {
+	display: none;
+	grid-column: 1;
+
+	@include mix.container-width($guy-visible-width) {
+		display: block;
+	}
+}
+
+.any-level-dont-know-step__barista {
+	display: none;
+	// Последняя колонка: их число зависит от того, показана ли девушка
+	grid-column: -2;
+
+	@include mix.container-width($barista-visible-width) {
+		display: block;
+	}
+}
+
+.any-level-dont-know-step__main {
+	grid-column: 2;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.any-level-dont-know-step__call {
+	font-family: 'Roboto Serif', serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: 2.4rem;
+	line-height: 3rem;
+	margin-top: .4rem;
+}
+
+.any-level-dont-know-step__answer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: .2rem;
+	background-color: #fff;
+	padding: 1rem 1.2rem;
+	border-radius: vars.$radius-2;
+}
+
+.any-level-dont-know-step__answer-label {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	font-weight: 400;
+	color: vars.$grayColor-5;
+}
+
+.any-level-dont-know-step__answer-text {
+	font-size: 2rem;
+	line-height: 2.8rem;
+	font-weight: 300;
+}
+
+.any-level-dont-know-step__check {
+	border-radius: vars.$radius-1;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	font-weight: 400;
+	color: white;
+	background-color: vars.$textColor;
+	user-select: none;
+	padding: .8rem 1.6rem;
+	margin-top: .8rem;
+}
