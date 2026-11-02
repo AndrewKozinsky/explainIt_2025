@@ -7,6 +7,9 @@ $barista-visible-width: 58rem;
 // Ширина карточки, после которой слева помещается и парень
 $guy-visible-width: 76rem;
 
+// Ширина колонок с иллюстрациями: у парня и девушки она одинаковая
+$image-width: 23rem;
+
 // Наибольшая ширина реплики
 $line-max-width: 38rem;
 
@@ -19,6 +22,7 @@ $line-max-width: 38rem;
 .any-level-say-right-step__guy {
 	display: none;
 	grid-column: 1;
+	width: $image-width;
 
 	@include mix.container-width($guy-visible-width) {
 		display: block;
@@ -28,6 +32,7 @@ $line-max-width: 38rem;
 .any-level-say-right-step__barista {
 	display: none;
 	grid-column: 3;
+	width: $image-width;
 
 	@include mix.container-width($barista-visible-width) {
 		display: block;

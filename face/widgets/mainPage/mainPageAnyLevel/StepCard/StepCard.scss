@@ -24,7 +24,7 @@ $wide-padding-width: 40rem;
 	align-items: baseline;
 	gap: 0.8rem;
 	margin: 0 $padding;
-	padding: 1rem 0 .6rem;
+	padding: .8rem 0 .6rem;
 	border-bottom: 1px solid vars.$grayColor-2;
 
 	@include mix.container-width($wide-padding-width) {
@@ -59,8 +59,10 @@ $wide-padding-width: 40rem;
 }
 
 // Текстовая часть карточки: отступы по краям такие же, как у заголовка.
-// Иллюстрации стоят без отступов, вплотную к краям карточки
+// Иллюстрации стоят без отступов, вплотную к краям карточки, и могут заходить под текстовую часть
 .any-level-step-card__text {
+	position: relative;
+	z-index: 1;
 	padding: $padding;
 
 	@include mix.container-width($wide-padding-width) {

@@ -6,16 +6,21 @@
 $guy-visible-width: 90rem;
 
 // Ширина карточки, после которой справа помещается и девушка
-$barista-visible-width: 135rem;
+$barista-visible-width: 100rem;
 
-// На узкой карточке только текст во всю ширину. Шире — слева парень, текст занимает остальное место.
-// Ещё шире — справа девушка, текст стоит вплотную к парню, а всё свободное место остаётся между текстом и девушкой
+// Колонки задаёт сетка, а не иллюстрации: те обрезаются по ширине своей колонки.
+// На узкой карточке только текст во всю ширину. Шире — парень и текст делят карточку пополам.
+// Ещё шире — справа девушка: текст занимает половину, парень и девушка по четверти
 .any-level-dont-know-step {
 	display: grid;
 	grid-template-columns: auto minmax(0, 1fr) auto;
 
+	@include mix.container-width($guy-visible-width) {
+		grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+	}
+
 	@include mix.container-width($barista-visible-width) {
-		grid-template-columns: auto minmax(0, 44rem) 1fr auto;
+		grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
 	}
 }
 
@@ -30,8 +35,7 @@ $barista-visible-width: 135rem;
 
 .any-level-dont-know-step__barista {
 	display: none;
-	// Последняя колонка: их число зависит от того, показана ли девушка
-	grid-column: -2;
+	grid-column: 3;
 
 	@include mix.container-width($barista-visible-width) {
 		display: block;
@@ -85,6 +89,6 @@ $barista-visible-width: 135rem;
 	color: white;
 	background-color: vars.$textColor;
 	user-select: none;
-	padding: .8rem 1.6rem;
+	padding: .6rem 1.6rem;
 	margin-top: .8rem;
 }
