@@ -1,8 +1,22 @@
+@use 'sass:map';
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 
-// Цвет текстовой колонки баннера (тёплый коричневый в тон иллюстрации)
-$banner-bg: #6E3F28;
+// Цвет текстовой колонки для каждого языка — основной цвет его иллюстрации,
+// затемнённый так, чтобы белый текст читался (контраст не ниже 4.5:1)
+$banner-colors: (
+	en: #855E40, // тёплое дерево кафе
+	de: #714523, // коричневые лавки ярмарки
+	fr: #866C53, // приглушённый коричневый набережной
+	it: #8F7019, // жёлтый лимонов, насколько позволяет белый текст
+	es: #B95A1A, // оранжевый, чуть ярче основного цвета патио
+	tr: #765337, // коричневый базара
+	ru: #533520, // тёмное дерево купе
+);
+
+// Длительность и плавность смены цвета — те же, что у названия языка и картинки
+$color-change-duration: 0.6s;
+$color-change-easing: ease-in-out;
 
 // Ширина контейнера, после которой текст и картинка встают в две колонки
 $two-columns-width: 86rem;
@@ -20,11 +34,16 @@ $overlap-width: 110rem;
 	flex-direction: column;
 	overflow: hidden;
 	border-radius: vars.$radius-2;
-	background-color: $banner-bg;
+	background-color: map.get($banner-colors, en);
 	color: white;
+	transition: background-color $color-change-duration $color-change-easing;
+
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 
 	@include mix.container-width($two-columns-width) {
-		// Ширина сплошной коричневой части и ширина текста.
+		// Ширина сплошной одноцветной части и ширина текста.
 		// На средних ширинах колонки стоят рядом, чтобы текст не закрывал персонажей
 		--solid-part-width: 42%;
 		--content-width: 42%;
@@ -40,6 +59,12 @@ $overlap-width: 110rem;
 	}
 }
 
+@each $code, $color in $banner-colors {
+	.main-page-banner__card--#{$code} {
+		background-color: $color;
+	}
+}
+
 .main-page-banner__content {
 	display: flex;
 	flex-direction: column;
@@ -49,7 +74,7 @@ $overlap-width: 110rem;
 		padding: 3.2rem;
 	}
 
-	// Текст шире коричневой части и заходит на картинку, как в макете
+	// Текст шире одноцветной части и заходит на картинку, как в макете
 	@include mix.container-width($two-columns-width) {
 		position: relative;
 		z-index: 1;

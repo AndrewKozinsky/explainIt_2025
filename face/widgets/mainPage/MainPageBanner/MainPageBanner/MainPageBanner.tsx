@@ -1,5 +1,6 @@
 'use client'
 
+import cn from 'classnames'
 import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { ActionButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/ActionButtonIcon'
@@ -16,7 +17,8 @@ function MainPageBanner() {
 
 	return (
 		<section className='main-page-banner'>
-			<div className='main-page-banner__card'>
+			{/* Цвет фона карточки меняется вместе с языком */}
+			<div className={cn('main-page-banner__card', 'main-page-banner__card--' + languageCode)}>
 				<div className='main-page-banner__content'>
 					<p className='main-page-banner__eyebrow'>{t('eyebrow')}</p>
 					<h2 className='main-page-banner__header'>
