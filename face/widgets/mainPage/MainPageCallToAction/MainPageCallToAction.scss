@@ -7,9 +7,39 @@ $side-link-width: 70rem;
 // Ширина блока, после которой внутренние отступы становятся крупными, как в макете.
 // На более узком блоке они меньше, чтобы освободить место под текст
 $wide-padding-width: 110rem;
+
+// Длительность раскрытия, сворачивания и появления блока
+$duration: 0.3s;
+
+// Пока до блока не докрутили, он прилипает к низу экрана. На своём месте ведёт себя как обычный блок.
+// Невидимая раскрытая копия и видимая карточка лежат в одной ячейке сетки: копия задаёт высоту,
+// карточка прижата к низу. Пустое место над свёрнутой карточкой пропускает клики к странице под ним.
 // Содержимое блока подстраивается под ширину блока, а не окна
 .call-to-action {
 	container-type: inline-size;
+	position: sticky;
+	bottom: calc(1rem + env(safe-area-inset-bottom));
+	z-index: 10;
+	display: grid;
+	pointer-events: none;
+}
+
+.call-to-action__sizer {
+	grid-area: 1 / 1;
+	visibility: hidden;
+}
+
+.call-to-action__card--live {
+	grid-area: 1 / 1;
+	align-self: end;
+	pointer-events: auto;
+}
+
+// Прилипший блок спрятан, пока на экране баннер со своей кнопкой
+.call-to-action--hidden .call-to-action__card--live {
+	visibility: hidden;
+	opacity: 0;
+	transform: translateY(1rem);
 }
 
 // На узком блоке ссылка под текстом во всю ширину, на широком — колонкой справа.
@@ -27,30 +57,77 @@ $wide-padding-width: 110rem;
 	}
 }
 
+// Сворачиваемая часть: высота меняется от нуля до высоты содержимого через строку сетки
+.call-to-action__collapse {
+	display: grid;
+	grid-template-rows: 0fr;
+
+	.call-to-action__card--expanded & {
+		grid-template-rows: 1fr;
+	}
+}
+
+.call-to-action__collapse-inner {
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+	overflow: hidden;
+}
+
+// Тёмная часть сворачивается целиком только на узком блоке, где кнопка под ней.
+// На широком в свёрнутом виде остаётся заголовок
+.call-to-action__content-collapse {
+	flex-grow: 1;
+	min-width: 0;
+
+	@include mix.container-width($side-link-width) {
+		grid-template-rows: 1fr;
+	}
+}
+
+// В свёрнутом виде отступы сверху и снизу такие же, как у кнопки, поэтому заголовок стоит на одной линии с её текстом
 .call-to-action__content {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
-	gap: 0.8rem;
-	min-width: 0;
-	padding: 1.6rem 1.4rem;
+	justify-content: center;
+	padding: 1.4rem;
 
 	@include mix.container-width($wide-padding-width) {
-		padding: 2.4rem;
+		padding: 1.6rem 2.4rem;
+	}
+
+	.call-to-action__card--expanded & {
+		padding: 1.6rem 1.4rem;
+
+		@include mix.container-width($wide-padding-width) {
+			padding: 2.4rem;
+		}
 	}
 }
 
+// В свёрнутом виде заголовок размером с текст кнопки, чтобы блок занимал мало места
 .call-to-action__header {
 	color: white;
+
+	.call-to-action__card:not(.call-to-action__card--expanded) & {
+		font-size: 1.8rem;
+		line-height: 2.4rem;
+	}
 }
 
 .call-to-action__text {
+	padding-top: 0.8rem;
 	font-size: 1.6rem;
 	line-height: 2.4rem;
 
 	@include mix.container-width($side-link-width) {
 		font-size: 1.8rem;
 		line-height: 2.8rem;
+	}
+
+	.call-to-action__card:not(.call-to-action__card--expanded) & {
+		opacity: 0;
 	}
 }
 
@@ -87,6 +164,10 @@ $wide-padding-width: 110rem;
 	font-size: 1.4rem;
 	line-height: 2rem;
 	opacity: 0.7;
+
+	.call-to-action__card:not(.call-to-action__card--expanded) & {
+		opacity: 0;
+	}
 }
 
 // При наведении на кнопку стрелка плавно отъезжает вправо, при уводе возвращается
@@ -96,5 +177,34 @@ $wide-padding-width: 110rem;
 
 	.call-to-action__link:hover & {
 		transform: translateX(0.3rem);
+	}
+}
+
+// Анимации раскрытия и появления. Если в системе просят меньше движения, блок меняется сразу
+@media (prefers-reduced-motion: no-preference) {
+	.call-to-action__card--live {
+		transition:
+			opacity $duration ease,
+			transform $duration ease,
+			visibility $duration;
+	}
+
+	.call-to-action__collapse {
+		transition: grid-template-rows $duration ease;
+	}
+
+	.call-to-action__content {
+		transition: padding $duration ease;
+	}
+
+	.call-to-action__header {
+		transition:
+			font-size $duration ease,
+			line-height $duration ease;
+	}
+
+	.call-to-action__text,
+	.call-to-action__link-note {
+		transition: opacity $duration ease;
 	}
 }

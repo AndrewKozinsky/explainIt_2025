@@ -1,29 +1,31 @@
-import { useTranslations } from 'next-intl'
-import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import { CircleArrowRightIcon } from '@/shared/ui/icons/mainPage/CircleArrowRightIcon'
-import { pageUrls } from '@/shared/utils/pageUrls'
-import MainPageHeader from '../MainPageHeader/MainPageHeader'
+'use client'
+
+import { useRef } from 'react'
+import cn from 'classnames'
+import CallToActionCard from './CallToActionCard'
+import { useCallToActionState } from './fn/useCallToActionState'
 import './MainPageCallToAction.scss'
 
-/** Блок главной страницы: призыв выбрать сюжет и начать диалог */
+/**
+ * Блок главной страницы: призыв выбрать сюжет и начать диалог.
+ * Пока до блока не докрутили, он прилипает к низу экрана в свёрнутом виде,
+ * а на своём месте раскрывается. Пока виден баннер со своей кнопкой, прилипший блок спрятан
+ */
 function MainPageCallToAction() {
-	const t = useTranslations('mainPageCallToAction')
+	const sectionRef = useRef<HTMLElement>(null)
+	const { isInPlace, isBannerVisible } = useCallToActionState(sectionRef)
 
 	return (
-		<section className='call-to-action'>
-			<div className='call-to-action__card'>
-				<div className='call-to-action__content'>
-					<MainPageHeader text={t('header')} extraClass='call-to-action__header' />
-					<p className='call-to-action__text'>{t('text')}</p>
-				</div>
-				<BaseButton theme='accent' href={pageUrls.aiDialogues.path} extraClass='call-to-action__link'>
-					<span className='call-to-action__link-texts'>
-						<span className='call-to-action__link-text'>{t('button')}</span>
-						<span className='call-to-action__link-note'>{t('note')}</span>
-					</span>
-					<CircleArrowRightIcon extraClass='call-to-action__link-icon' />
-				</BaseButton>
+		<section
+			className={cn('call-to-action', !isInPlace && isBannerVisible && 'call-to-action--hidden')}
+			ref={sectionRef}
+		>
+			{/* Невидимая раскрытая копия задаёт секции постоянную высоту: свёрнутая карточка прижата к её низу
+			и раскрывается вверх, не сдвигая страницу */}
+			<div className='call-to-action__sizer' aria-hidden='true' inert>
+				<CallToActionCard isExpanded />
 			</div>
+			<CallToActionCard isExpanded={isInPlace} extraClass='call-to-action__card--live' />
 		</section>
 	)
 }
