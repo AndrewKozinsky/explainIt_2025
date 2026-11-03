@@ -5,16 +5,18 @@
 $wide-padding-width: 50rem;
 
 // Ширина раздела, после которой карточки встают в две колонки
-$two-columns-width: 70rem;
+$two-columns-width: 65rem;
 
 // Ширина раздела, после которой карточки раскладываются по трём колонкам, как в макете
-$three-columns-width: 110rem;
+$three-columns-width: 100rem;
 
 $gap: 1.2rem;
 $wide-gap: 2rem;
 
-// На узком разделе карточки идут друг под другом, шире — сеткой в две колонки.
-// На самом широком колонки из разметки становятся настоящими: карточки в них разной высоты и не выравниваются по строкам
+// На узком разделе карточки идут друг под другом.
+// Шире — в две колонки текста: карточки по порядку заполняют сначала левую колонку, потом правую,
+// у каждой своя высота, поэтому в карточках нет пустого места.
+// На самом широком колонки из разметки становятся настоящими, как в макете
 .features-list {
 	display: flex;
 	flex-direction: column;
@@ -29,14 +31,16 @@ $wide-gap: 2rem;
 	}
 
 	@include mix.container-width($two-columns-width) {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		display: block;
+		columns: 2;
+		column-gap: $wide-gap;
 	}
 
 	@include mix.container-width($three-columns-width) {
 		display: flex;
 		flex-direction: row;
 		align-items: flex-start;
+		columns: auto;
 	}
 }
 
@@ -44,11 +48,29 @@ $wide-gap: 2rem;
 .features-list__column {
 	display: contents;
 
+	// В колонках текста gap не работает, поэтому карточки разделены отступом сверху.
+	// Браузер отбрасывает его у карточки, с которой начинается колонка, поэтому колонки начинаются вровень.
+	// Карточка не разрывается между колонками
+	@include mix.container-width($two-columns-width) {
+		> * {
+			margin-top: $wide-gap;
+			break-inside: avoid;
+		}
+
+		&:first-child > :first-child {
+			margin-top: 0;
+		}
+	}
+
 	@include mix.container-width($three-columns-width) {
 		flex: 1 1 0;
 		display: flex;
 		flex-direction: column;
 		gap: $wide-gap;
 		min-width: 0;
+
+		> * {
+			margin-top: 0;
+		}
 	}
 }
