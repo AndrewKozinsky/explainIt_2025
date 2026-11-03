@@ -12,6 +12,7 @@ const messageNamespaces = [
 	'mainPageFeatures',
 	'mainPageNoTrip',
 	'mainPageScenarios',
+	'siteMeta',
 ] as const
 
 export default getRequestConfig(async ({ requestLocale }) => {

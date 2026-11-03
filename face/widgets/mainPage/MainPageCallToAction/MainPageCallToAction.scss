@@ -85,16 +85,19 @@ $duration: 0.3s;
 	}
 }
 
-// В свёрнутом виде отступы сверху и снизу такие же, как у кнопки, поэтому заголовок стоит на одной линии с её текстом
+// Отступы сверху и снизу в свёрнутом виде.
+// Такие же у кнопки, поэтому заголовок стоит на одной линии с её текстом, а плашка получается низкой
+$collapsed-padding-block: 1rem;
+
 .call-to-action__content {
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 1.4rem;
+	padding: $collapsed-padding-block 1.4rem;
 
 	@include mix.container-width($wide-padding-width) {
-		padding: 1.6rem 2.4rem;
+		padding: $collapsed-padding-block 2.4rem;
 	}
 
 	.call-to-action__card--expanded & {
@@ -148,6 +151,10 @@ $duration: 0.3s;
 	@include mix.container-width($wide-padding-width) {
 		padding: 1.6rem 4rem;
 	}
+
+	.call-to-action__card:not(.call-to-action__card--expanded) & {
+		padding-block: $collapsed-padding-block;
+	}
 }
 
 .call-to-action__link-texts {
@@ -183,10 +190,9 @@ $duration: 0.3s;
 // Анимации раскрытия и появления. Если в системе просят меньше движения, блок меняется сразу
 @media (prefers-reduced-motion: no-preference) {
 	.call-to-action__card--live {
-		transition:
-			opacity $duration ease,
-			transform $duration ease,
-			visibility $duration;
+		transition: opacity $duration ease,
+		transform $duration ease,
+		visibility $duration;
 	}
 
 	.call-to-action__collapse {
@@ -197,10 +203,17 @@ $duration: 0.3s;
 		transition: padding $duration ease;
 	}
 
+	// Переходы цвета и нажатия повторяют стили базовой кнопки: свойство transition заменяется целиком
+	.call-to-action__link {
+		transition: padding $duration ease,
+		background-color 0.15s ease,
+		color 0.1s ease,
+		transform 0.2s ease;
+	}
+
 	.call-to-action__header {
-		transition:
-			font-size $duration ease,
-			line-height $duration ease;
+		transition: font-size $duration ease,
+		line-height $duration ease;
 	}
 
 	.call-to-action__text,

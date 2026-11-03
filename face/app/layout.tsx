@@ -1,17 +1,23 @@
 import React from 'react'
-import { getLocale } from 'next-intl/server'
+import { getLocale, getTranslations } from 'next-intl/server'
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-	title: 'Изучение английского языка через видео с Ютуба',
-	description: 'Изучение английского языка через видео с Ютуба',
-	verification: {
-		yandex: '1611c5fab3b46857',
-	},
-	keywords: ['адаптированные фильмы на английском', 'ютуб', 'смотреть видео в оригинале'],
-	icons: {
-		icon: '/favicon.svg',
-	},
+/** Заголовок вкладки, описание и ключевые слова сайта на языке интерфейса. Страницы могут задать свои */
+export async function generateMetadata(): Promise<Metadata> {
+	const locale = await getLocale()
+	const t = await getTranslations({ locale, namespace: 'siteMeta' })
+
+	return {
+		title: t('title'),
+		description: t('description'),
+		verification: {
+			yandex: '1611c5fab3b46857',
+		},
+		keywords: t.raw('keywords') as string[],
+		icons: {
+			icon: '/favicon.svg',
+		},
+	}
 }
 
 export default async function RootLayout({
