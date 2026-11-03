@@ -138,17 +138,13 @@
 
 ## Подключение формы
 
-Клиентское подключение реализовано в `face/entities/aiDialogue/dictation/openAiDialogueDictation.ts`
-и форме ответа. Браузер использует URL текущего сайта (`ws:` локально, `wss:` при HTTPS),
+Клиент подключается через `face/entities/aiDialogue/dictation/openAiDialogueDictation.ts` из формы ответа. Браузер использует URL текущего сайта (`ws:` локально, `wss:` при HTTPS),
 дожидается ready и начинает запись; cookie передаётся автоматически.
 Вставка в реплику/действие, видимое выделение, сохранение окружающего текста, readOnly,
 статусы и сброс грамматической проверки описаны в [`aiDialogueForm.md`](aiDialogueForm.md).
 Сервер не знает положение курсора.
 
-Обновление названий проверки: метод REST-контроллера теперь `checkAiDialogueUserMessageText`,
-operationId — `AiDialogueController_checkAiDialogueUserMessageText`; URL `/check-message` сохранён.
-
-## Файлы и проверки
+## Файлы и тесты
 
 - `server/src/routes/aiDialogue/aiDialogueDictationWebSocket.service.ts` — upgrade, сессия, Origin, права и лимиты соединений.
 - `server/src/features/aiDialogue/dictation/AiDialogueDictationSession.ts` — жизнь диктовки, аудиоочередь, partial/final/stop/cancel.
@@ -164,9 +160,5 @@ npm test -- --testPathPatterns='dictation/|aiDialogueDictationWebSocket|aiDialog
 npm run test:ai-dialogue-dictation
 ```
 
-Unit-тесты покрывают строгие языки и их дедупликацию, валидацию, порядок аудио,
-partial/final, ожидание окончания распознавания, отмену, ошибки, таймауты и переполнение очереди.
-Интеграционный тест проверяет реальные подписанные cookie (включая испорченную подпись),
-Origin, владельца, параллельное соединение, аудио, финализацию и разрыв связи.
-Настоящее качество распознавания и совместимость MediaRecorder в целевых браузерах требуют
-отдельной проверки с микрофоном и реальным Soniox; автоматические тесты платные запросы не делают.
+Интеграционный тест (`test:ai-dialogue-dictation`) использует настоящие HTTP/WebSocket и подписанные cookie;
+Soniox и БД подменены, платных запросов тесты не делают.

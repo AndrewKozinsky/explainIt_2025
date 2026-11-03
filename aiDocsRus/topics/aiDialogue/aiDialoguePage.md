@@ -42,8 +42,7 @@ SSE-протокол, генерация хода, компакция) опис�
 следующий использует новый. SSE не переподключается, его формат, сообщения и превью не меняются.
 Подробная серверная семантика и ограничения адаптации описаны в `aiDialogue.md`.
 
-При создании entity-метод также принимает необязательный `maxCefrLevel`; интерфейс выбора до создания пока не добавлен,
-поэтому новые диалоги из существующего списка сценариев начинаются с `null` (Any).
+При создании entity-метод принимает необязательный `maxCefrLevel`; его выбирают в окне запуска сценария.
 Сервер адаптирует все новые видимые тексты на изучаемом языке; переводы сохраняют смысл, озвучка получает адаптированный
 текст.
 
@@ -63,7 +62,7 @@ SSE-протокол, генерация хода, компакция) опис�
 
 ## Клиентские типы (зеркало серверных)
 
-`entities/aiDialogue/types/aiDialogueMessage.ts` — клиентское зеркало
+`face/widgets/aiDialogueMessages/types/aiDialogueMessage.ts` — клиентское зеркало
 `server/src/types/aiDialogueMessage.ts`:
 
 - `AiDialogueEvent` — union из 6 событий (дискриминатор `type`);
@@ -72,13 +71,13 @@ SSE-протокол, генерация хода, компакция) опис�
 - `AiDialogueStreamEvent` — события SSE-потока (`message` / `chunk` / `turnStarted` / `turnReset` / `turnDone` /
   `turnError` / `visualsChanged`).
 
-`types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного построчного текста: все поля
-опциональны, `type` может отсутствовать. `types/aiDialogueUi.ts` — `AiDialogueWordSelection` (`word`, `sentence`) и
+`widgets/aiDialogueMessages/types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного построчного текста: все поля
+опциональны, `type` может отсутствовать. `widgets/aiDialogueMessages/types/aiDialogueUi.ts` — `AiDialogueWordSelection` (`word`, `sentence`) и
 `AiDialogueWordSelectHandler`.
 
 ## SSE-клиент
 
-`ui/fn/openAiDialogueStream.ts` открывает `EventSource('/api/ai-dialogue/:id/stream')` и разбирает события в стор:
+`_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` открывает `EventSource('/api/ai-dialogue/:id/stream')` и разбирает события в стор:
 
 - `message` → `upsertMessage(message)` + очистить превью (финализированное сообщение заменяет превью);
 - `turnStarted` → сбросить превью и ошибку + `setGenerating(true)` (плейсхолдер «ответ готовится» до первого `chunk`);
@@ -92,14 +91,14 @@ SSE-протокол, генерация хода, компакция) опис�
 - `onopen` → запросить визуальный снимок после подключения или переподключения;
 - `onerror` → сбросить превью и `setGenerating(false)` (EventSource переподключится сам и сервер отдаст replay).
 
-`ui/fn/useAiDialogueStream.ts` — хук-обёртка: открывает соединение в `useEffect` (и закрывает при unmount), при старте
+`_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-обёртка: открывает соединение в `useEffect` (и закрывает при unmount), при старте
 вызывает `clearStore()`, возвращает `{ messages, preview, isGenerating, turnError }`. Сообщения возвращает
 отсортированными по `id`. Второй параметр `enabled` (страница передаёт `Boolean(dialogue)`) — SSE открывается только
 после загрузки диалога.
 
 ## Zustand-стор (aiDialogueStore)
 
-`entities/aiDialogue/ui/aiDialogueStore.ts` — глобальный стор страницы:
+`_pages/aiDialogue/aiDialogueStore.ts` — глобальный стор страницы:
 
 | Поле           | Тип                                  | Описание                                              |
 |----------------|--------------------------------------|-------------------------------------------------------|
@@ -172,13 +171,11 @@ NPC/сценах, возвращении фокуса и восстановле�
 слот и показывает «Иллюстрация недоступна»; при ошибке скачивания доступна «Повторить загрузку».
 Кнопка повторяет только чтение снимка/скачивание, не генерацию. Ошибка аватара оставляет серую заглушку.
 Изображения не вызывают программную прокрутку или перемонтирование текстовых блоков с раскрытым переводом.
-Мобильная компоновка в этом этапе не менялась.
 
 Парсер превью пропускает participants:/visual: и завершает чтение текстового события после translation,
 поэтому даже частичные строки визуальных метаданных не заменяют видимое описание сцены.
 
-Изолированные проверки клиента: `cd face && npm run test:ai-dialogue`. Используются подменённые EventSource/Image,
-без API диалога, R2 или генерации. Реальные изображения и художественное качество требуют отдельной проверки.
+Клиентские тесты: `cd face && npm run test:ai-dialogue` (EventSource/Image подменены).
 
 ## Выбор словарной фразы (SegmentedText)
 
@@ -195,7 +192,7 @@ AiDialogueContentBlock раскрывает существующий перев�
 
 ## Частичное превью (построчный разбор)
 
-`lib/parseAiDialoguePreview.ts` разбирает накопленный частичный текст ответа LLM (плоский построчный формат, см.
+`_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview.ts` разбирает накопленный частичный текст ответа LLM (плоский построчный формат, см.
 «Стриминг и формат ответа» в `aiDialogue.md`) в `AiDialoguePreviewEvent[]`. Последняя строка без завершающего `\n`
 трактуется как «дописываемый» `content`/`translation` текущего блока — поэтому реплика растёт посимвольно по мере
 генерации. Недостающие поля не роняют парсер — они просто отсутствуют. Возвращает `null`, если пока нечего показать —
@@ -223,13 +220,13 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 
 ### Entity-метод createMessage
 
-`createMessage(id, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>>` добавлен в
+`createMessage(id, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>>` проходит цепочку
 `AiDialogueRepository` → `AiDialogueApi` (через сгенерированный `aiDialogueControllerCreateAiDialogueMessage`
 и маппинг `AiDialogueMessageOutModel` → `DialogueServerMessage`) → `AiDialogueService`.
 
 ## Ошибки
 
-- Ошибка хода приходит событием `turnError`; читаемый текст резолвится в `lib/resolveTurnError.ts`
+- Ошибка хода приходит событием `turnError`; читаемый текст резолвится в `_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError.ts`
   (JSON `{"code": "..."}` → `resolveErrorByCode`, иначе строка как есть). Показывается над списком сообщений
   (`ErrorMessage`).
 - Попытка отправить сообщение во время генерации → `400 AI_DIALOGUE_GENERATION_ALREADY_ACTIVE`; клиент упреждающе
@@ -240,11 +237,11 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 
 ### Типы и логика
 
-- `../../face/widgets/aiDialogueMessages/types/aiDialogueMessage.ts` — зеркало серверных типов.
-- `../../face/widgets/aiDialogueMessages/types/aiDialoguePreview.ts` — ленивое превью.
-- `../../face/widgets/aiDialogueMessages/types/aiDialogueUi.ts` — выбор слова.
-- `../../face/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview.ts` — толерантный построчный разбор превью.
-- `../../face/_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError.ts` — текст ошибки хода.
+- `face/widgets/aiDialogueMessages/types/aiDialogueMessage.ts` — зеркало серверных типов.
+- `face/widgets/aiDialogueMessages/types/aiDialoguePreview.ts` — ленивое превью.
+- `face/widgets/aiDialogueMessages/types/aiDialogueUi.ts` — выбор слова.
+- `face/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview.ts` — толерантный построчный разбор превью.
+- `face/_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError.ts` — текст ошибки хода.
 
 ### Entity-слой
 
@@ -255,19 +252,19 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 
 ### Стор и SSE
 
-- `../../face/_pages/aiDialogue/aiDialogueStore.ts` — zustand-стор.
-- `../../face/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` — EventSource + разбор событий.
-- `../../face/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-подключение.
-- `../../face/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage.ts` — отправка действия/реплики и завершение.
+- `face/_pages/aiDialogue/aiDialogueStore.ts` — zustand-стор.
+- `face/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` — EventSource + разбор событий.
+- `face/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-подключение.
+- `face/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage.ts` — отправка действия/реплики и завершение.
 
 ### UI
 
-- `../../face/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter.tsx` — маршрутизация по `type`.
-- `../../face/widgets/aiDialogueMessages/ui/messages/*` — компоненты сообщений.
-- `../../face/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText.tsx` — разбивка на слова.
-- `../../face/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock.tsx` — контент + перевод.
-- `../../face/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList.tsx` — список сообщений.
-- `../../face/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput.tsx` — форма ввода + кнопка завершения.
+- `face/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter.tsx` — маршрутизация по `type`.
+- `face/widgets/aiDialogueMessages/ui/messages/*` — компоненты сообщений.
+- `face/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText.tsx` — разбивка на слова.
+- `face/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock.tsx` — контент + перевод.
+- `face/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList.tsx` — список сообщений.
+- `face/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput.tsx` — форма ввода + кнопка завершения.
 
 ### Страница
 
@@ -281,12 +278,9 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 у каждого speech/описания сцены. Автоматическое воспроизведение возможно уже во время превью.
 Ручная остановка сохраняет время; выбор другого файла сбрасывает позицию предыдущего.
 Ручное управление снимает очередь текущего ответа; следующий ответ снова озвучивается автоматически.
-Глобальный переключатель не добавлен. При запрете autoplay показывается «Включить звук».
-Подробный контракт, ошибки, порядок и проверки: [`aiDialogueAudio.md`](aiDialogueAudio.md).
+Глобального переключателя автоозвучки нет. При запрете autoplay показывается «Включить звук».
+Подробный контракт, ошибки и порядок: [`aiDialogueAudio.md`](aiDialogueAudio.md).
 
-## Проверки настроек сложности
+## Тесты
 
-`tests/aiDialogueSettings.test.ts` проверяет фактический PATCH через Service/API/Orval с подменой fetch,
-передачу всех уровней и null, загрузку сохранённого значения, pending-состояние мутации,
-обновление detail/list при успехе, сохранение кэша при ошибке и повторную попытку.
-Запуск: `cd face && npm run test:ai-dialogue`.
+`cd face && npm run test:ai-dialogue` — все клиентские тесты диалогов (`face/tests/aiDialogue*.test.ts`).

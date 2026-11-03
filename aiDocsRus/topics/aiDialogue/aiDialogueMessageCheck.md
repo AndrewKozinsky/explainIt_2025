@@ -83,7 +83,7 @@ Markdown ограничен однострочным inline-форматом. П
 
 Клиент должен связать результат с точным снимком обоих отправленных полей. После любой правки
 соответствующее поле требует новой проверки; запоздавший ответ для старого снимка не подтверждает новый текст.
-Для интерфейса из макета отправка доступна, когда каждое заполненное поле проверено и не имеет `critical`.
+В интерфейсе отправка доступна, когда каждое заполненное поле проверено и не имеет `critical`.
 Техническая ошибка запроса не должна отображаться как успешная проверка без ошибок.
 Клиент проверяет активную часть отдельным запросом и хранит версию результата для каждой вкладки.
 Подключение, состояния и отмена запросов описаны в [`aiDialogueForm.md`](aiDialogueForm.md).
@@ -153,7 +153,7 @@ code fences, неизвестные маркеры, смешение `ok` с о�
 - `504 LLM_TIMEOUT`: превышен таймаут ожидания.
 - Другие ошибки провайдера/БД проходят через существующую обработку ошибок проекта.
 
-## Файлы и проверки
+## Файлы и тесты
 
 Имена команды и моделей содержат `UserMessage`: проверяется только пользовательский черновик,
 а не сообщения NPC. В `AiDialogue.dtoProps` входные поля описаны как
@@ -165,7 +165,7 @@ code fences, неизвестные маркеры, смешение `ok` с о�
 - `server/src/models/aiDialogue/aiDialogueUserMessageCheck.out.model.ts` — внешний контракт.
 - `server/src/features/aiDialogue/messageCheck/` — команда, промпт, парсер и тесты.
 - `server/src/repo/aiDialogue/aiDialogueMessage.repository.ts` — чтение контекста.
-- `server/src/db/dbConfig/dbConfig.ts`, `AiDialogue.dtoProps` — метаданные DTO; изменений схемы БД нет.
+- `server/src/db/dbConfig/dbConfig.ts`, `AiDialogue.dtoProps` — метаданные DTO.
 - `server/src/routes/aiDialogue/aiDialogue.controller.ts`, `openAPI.decorators.ts`, `aiDialogue.module.ts` — подключение маршрута.
 
 ```bash
@@ -173,13 +173,7 @@ cd server
 npm test -- --testPathPatterns='messageCheck/|checkAiDialogueUserMessage.input|aiDialogue.controller|aiDialogueMessage.repository'
 ```
 
-Проверяются доступ, обязательность одного поля, лимиты/типы DTO, серверные языки и контекст,
-разделение ошибок по полям, Markdown, обрывы и некорректный протокол, ошибки провайдера/таймауты.
-Тесты не вызывают платные модели и настоящую БД.
+Тесты подменяют LLM и БД. Клиентская функция генерируется Orval (`cd face && npm run orval`);
+operationId — `AiDialogueController_checkAiDialogueUserMessageText`.
 
-После запуска обновлённого сервера клиентские типы и функцию можно сгенерировать через
-`cd face && npm run orval`; operationId — `AiDialogueController_checkAiDialogueUserMessageText`.
-
-Потоковая диктовка реализована отдельным WebSocket-маршрутом. Языки берутся из диалога;
-контракт, авторизация, строгие языковые подсказки и ограничения — в
-[`aiDialogueDictation.md`](aiDialogueDictation.md).
+Диктовка черновика — отдельный WebSocket-маршрут: [`aiDialogueDictation.md`](aiDialogueDictation.md).
