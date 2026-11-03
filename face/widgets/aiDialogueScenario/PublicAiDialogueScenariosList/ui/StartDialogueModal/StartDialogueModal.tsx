@@ -5,7 +5,7 @@ import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithFiel
 import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowRightPureButtonIcon'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
-import { practiceLanguages, type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
+import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
 import ScenarioDescription from './ScenarioDescription'
 import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
 import './StartDialogueModal.scss'
@@ -28,7 +28,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
 				<LabelWithField label='Язык практики'>
 					<LanguageSwitch
-						languages={practiceLanguages}
+						languages={settings.practiceLanguages}
 						currentLang={settings.practiceLanguage}
 						onChange={settings.changePracticeLanguage}
 						disabled={loading}

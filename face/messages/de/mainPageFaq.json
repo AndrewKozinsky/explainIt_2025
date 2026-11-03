@@ -1,0 +1,91 @@
+{
+  "header": "Häufig gestellte Fragen",
+  "items": [
+    {
+      "question": "Was ist der Unterschied zum Chatten mit ChatGPT?",
+      "answer": [
+        "Sie schreiben nicht mit einem Bot, sondern stehen mitten in einer Szene. Die Figuren bleiben ihrer Rolle treu, die Geschichte entwickelt sich aus Ihren Worten und Handlungen, und jede neue Szene wird illustriert.",
+        "Alles zum Sprachenlernen ist schon eingebaut: Übersetzung per Tippen, ein Wörterbuch, das den Kontext versteht, vertonte Repliken und eine Prüfung Ihrer Antwort vor dem Absenden."
+      ]
+    },
+    {
+      "question": "Ich fange gerade erst mit der Sprache an. Schaffe ich das?",
+      "answer": [
+        "Ja. Wählen Sie Niveau A1, und die Figuren sprechen in kurzen, einfachen Sätzen. Die Übersetzung jedes Satzes erscheint per Tippen, und das Niveau lässt sich mitten im Gespräch ändern."
+      ]
+    },
+    {
+      "question": "Was, wenn ich nicht weiß, wie ich etwas sagen soll?",
+      "answer": [
+        "Schreiben Sie, wie es eben geht, gern auch gemischt mit Ihrer Muttersprache: „I want cappuccino, zum Mitnehmen“. Die Prüfung zeigt, wie es richtig klingt, und erklärt auf Deutsch, was sich geändert hat."
+      ]
+    },
+    {
+      "question": "Ich habe Angst vor Fehlern. Werde ich korrigiert?",
+      "answer": [
+        "Ihre Antwort wird schon vor dem Absenden auf Fehler geprüft. Gibt es welche, sehen Sie, wie Sie sie korrigieren, und in den Dialog schicken können Sie die Antwort erst, wenn alle Grammatikfehler behoben sind.",
+        "So gelangen nur korrekte Repliken ins Gespräch, und Ihre Fehler sehen nur Sie. Die Figuren korrigieren Sie nicht und machen keine Unterrichtsstunde daraus: Die Geschichte geht einfach weiter."
+      ]
+    },
+    {
+      "question": "Muss ich laut sprechen?",
+      "answer": [
+        "Nein, Sie können Ihre Antwort tippen. Wenn Sie das Sprechen üben möchten, schalten Sie das Diktat ein: Es versteht sowohl die Lernsprache als auch Ihre Muttersprache, Sie können also mitten im Satz wechseln."
+      ]
+    },
+    {
+      "question": "Sind die Figuren vertont?",
+      "answer": [
+        "Ja, und jede hat ihre eigene Stimme. Repliken und Szenenbeschreibungen werden automatisch abgespielt, sobald sie fertig sind, und jeden Satz können Sie mit der Taste daneben erneut anhören."
+      ]
+    },
+    {
+      "question": "Und wenn ich vom Drehbuch abweiche?",
+      "answer": [
+        "Nur zu. Die Handlung legt nur den Anfang fest, danach passt sich die Geschichte Ihnen an. Keine Lust mehr auf Ihr Gegenüber? Verlassen Sie das Gespräch, und eine neue Figur erscheint."
+      ]
+    },
+    {
+      "question": "Wie verstehe ich ein unbekanntes Wort?",
+      "answer": [
+        "Tippen Sie darauf, und das Wörterbuch zeigt die Bedeutung genau in diesem Satz. Gehört das Wort mit anderen zusammen, wie bei „rufe … an“, zeigt das Wörterbuch den ganzen Ausdruck."
+      ]
+    },
+    {
+      "question": "Kann ich eine Pause machen und später weitermachen?",
+      "answer": [
+        "Ja. Alle Gespräche werden unter „Meine Dialoge“ gespeichert, und Sie machen genau dort weiter, wo Sie aufgehört haben."
+      ]
+    },
+    {
+      "question": "Welche Sprachen kann ich lernen?",
+      "answer": [
+        "Derzeit verfügbar: {languages}. Die Sprache wählen Sie beim Start einer Handlung, Übersetzungen und Erklärungen erscheinen in der Sprache der Website."
+      ]
+    },
+    {
+      "question": "Ist das wirklich kostenlos?",
+      "answer": [
+        "Ja, komplett kostenlos: ohne Testphase und ohne Bankkarte."
+      ]
+    },
+    {
+      "question": "Muss ich mich registrieren?",
+      "answer": [
+        "Ja, damit Ihre Gespräche gespeichert werden. Die Handlungen können Sie sich auch ohne Anmeldung ansehen."
+      ]
+    },
+    {
+      "question": "Funktioniert es auf dem Handy?",
+      "answer": [
+        "Ja, die Website ist für Smartphones und Tablets angepasst. Eine eigene App gibt es nicht: Öffnen Sie die Website einfach im Browser."
+      ]
+    },
+    {
+      "question": "Kann ich meine eigene Handlung erstellen?",
+      "answer": [
+        "Im Moment können Sie aus fertigen Handlungen wählen. Eigene Handlungen zu erstellen wird später möglich sein."
+      ]
+    }
+  ]
+}

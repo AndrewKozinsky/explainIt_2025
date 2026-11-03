@@ -1,0 +1,91 @@
+{
+  "header": "Questions fréquentes",
+  "items": [
+    {
+      "question": "Quelle différence avec une conversation sur ChatGPT ?",
+      "answer": [
+        "Vous n’échangez pas des messages avec un robot : vous entrez dans une scène. Les personnages restent fidèles à leur rôle, l’histoire avance selon vos paroles et vos actes, et chaque nouvelle scène est illustrée.",
+        "Tout ce qu’il faut pour apprendre est déjà intégré : traduction d’un simple toucher, dictionnaire qui tient compte du contexte, répliques sonorisées et vérification de votre réponse avant l’envoi."
+      ]
+    },
+    {
+      "question": "Je débute dans la langue. Est-ce que j’y arriverai ?",
+      "answer": [
+        "Oui. Choisissez le niveau A1 et les personnages parleront avec des phrases courtes et simples. La traduction de chaque phrase s’affiche d’un toucher, et vous pouvez changer de niveau en pleine conversation."
+      ]
+    },
+    {
+      "question": "Et si je ne sais pas comment dire ce que je veux ?",
+      "answer": [
+        "Écrivez comme vous pouvez, même en mélangeant avec votre langue maternelle : « I want cappuccino, à emporter ». La vérification montre la bonne formulation et explique en français ce qui a changé."
+      ]
+    },
+    {
+      "question": "J’ai peur de faire des fautes. Vais-je être corrigé ?",
+      "answer": [
+        "Votre réponse est vérifiée avant l’envoi. S’il y a des fautes, vous voyez comment les corriger, et vous ne pouvez envoyer la réponse dans le dialogue qu’une fois toutes les fautes de grammaire corrigées.",
+        "Seules des répliques correctes arrivent donc dans la conversation, et vous seul voyez vos fautes. Les personnages ne vous corrigent pas et ne transforment pas la scène en cours : l’histoire continue, tout simplement."
+      ]
+    },
+    {
+      "question": "Faut-il parler à voix haute ?",
+      "answer": [
+        "Non, vous pouvez taper votre réponse. Pour travailler l’oral, activez la dictée : elle comprend la langue que vous apprenez et votre langue maternelle, vous pouvez donc passer de l’une à l’autre au milieu d’une phrase."
+      ]
+    },
+    {
+      "question": "Les personnages ont-ils une voix ?",
+      "answer": [
+        "Oui, et chacun a la sienne. Les répliques et les descriptions de scène se lisent automatiquement dès qu’elles sont prêtes, et vous pouvez réécouter n’importe quelle phrase avec le bouton à côté."
+      ]
+    },
+    {
+      "question": "Et si je sors du scénario ?",
+      "answer": [
+        "Allez-y. L’intrigue ne fixe que le point de départ, ensuite l’histoire s’adapte à vous. Votre interlocuteur vous lasse ? Quittez la conversation et un nouveau personnage apparaîtra."
+      ]
+    },
+    {
+      "question": "Comment comprendre un mot inconnu ?",
+      "answer": [
+        "Touchez-le : le dictionnaire montre son sens dans cette phrase précise. Si le mot fonctionne avec d’autres, comme « put … away », le dictionnaire affiche l’expression entière."
+      ]
+    },
+    {
+      "question": "Puis-je faire une pause et reprendre plus tard ?",
+      "answer": [
+        "Oui. Toutes vos conversations sont enregistrées dans « Mes dialogues », et vous reprenez exactement là où vous vous êtes arrêté."
+      ]
+    },
+    {
+      "question": "Quelles langues puis-je apprendre ?",
+      "answer": [
+        "Langues disponibles : {languages}. Vous choisissez la langue au lancement d’une intrigue ; les traductions et les explications s’affichent dans la langue de l’interface du site."
+      ]
+    },
+    {
+      "question": "C’est vraiment gratuit ?",
+      "answer": [
+        "Oui, entièrement gratuit : sans période d’essai et sans carte bancaire."
+      ]
+    },
+    {
+      "question": "Faut-il créer un compte ?",
+      "answer": [
+        "Oui, pour que vos conversations soient enregistrées. Vous pouvez parcourir les intrigues sans vous connecter."
+      ]
+    },
+    {
+      "question": "Est-ce que ça marche sur téléphone ?",
+      "answer": [
+        "Oui, le site est adapté aux téléphones et aux tablettes. Il n’y a pas d’application à part : ouvrez simplement le site dans votre navigateur."
+      ]
+    },
+    {
+      "question": "Puis-je créer ma propre intrigue ?",
+      "answer": [
+        "Pour l’instant, vous pouvez choisir parmi les intrigues proposées. La création de vos propres intrigues arrivera plus tard."
+      ]
+    }
+  ]
+}

@@ -3,9 +3,9 @@ import type { CreateAiDialogueInput } from '@/entities/aiDialogue/AiDialogueServ
 import { type AiDialogueTextLevel, textLevels } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import type { LanguageCode } from '@/shared/utils/languages'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
+import { useLanguagesToLearn } from '@/shared/utils/useLanguagesToLearn'
 import { useStartDialogueIllustrationStyle } from './useStartDialogueIllustrationStyle'
 
-export const practiceLanguages: LanguageCode[] = ['en', 'de', 'fr', 'it', 'es']
 export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCode' | 'maxCefrLevel'> & {
 	illustrationStyleId: string
 }
@@ -13,10 +13,13 @@ export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCo
 /** Язык, сложность и стиль нового диалога восстанавливаются из localStorage. */
 export function useStartDialogueOptions() {
 	const illustrationStyles = useStartDialogueIllustrationStyle()
+	// Переводы в диалоге идут на язык интерфейса, поэтому изучать его самого нет смысла
+	const practiceLanguages = useLanguagesToLearn()
 
 	const [practiceLanguage, setPracticeLanguage] = useState<LanguageCode>(function () {
 		const savedLanguage = localStorageManager.lastLanguage.get()
-		return savedLanguage && practiceLanguages.includes(savedLanguage) ? savedLanguage : 'en'
+		if (savedLanguage && practiceLanguages.includes(savedLanguage)) return savedLanguage
+		return practiceLanguages.includes('en') ? 'en' : practiceLanguages[0]
 	})
 	const [textLevel, setTextLevel] = useState<AiDialogueTextLevel>(function () {
 		const savedLevel = localStorageManager.lastAiDialogProficiency.get()
@@ -42,5 +45,13 @@ export function useStartDialogueOptions() {
 		}
 	}
 
-	return { practiceLanguage, changePracticeLanguage, textLevel, changeTextLevel, options, illustrationStyles }
+	return {
+		practiceLanguages,
+		practiceLanguage,
+		changePracticeLanguage,
+		textLevel,
+		changeTextLevel,
+		options,
+		illustrationStyles,
+	}
 }

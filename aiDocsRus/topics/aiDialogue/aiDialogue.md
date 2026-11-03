@@ -635,7 +635,7 @@ Any передаёт `null`. На время сохранения заблоки
 ### Создание диалога по клику на сценарий
 
 1. Карточка открывает `StartDialogueModal` с обложкой, группой, названием и описанием сценария.
-2. Пользователь выбирает язык практики (en/de/fr/it/es) и сложность (A1/A2/B1/B2/Any).
+2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`)) и сложность (A1/A2/B1/B2/Any).
    Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или Any); закрытие окна ничего не создаёт.
 3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
 4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel })`.

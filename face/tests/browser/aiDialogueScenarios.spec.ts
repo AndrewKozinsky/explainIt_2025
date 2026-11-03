@@ -303,16 +303,18 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 
 test('language and level persist independently of video filters; Any persists and sends null', async ({ page }) => {
 	const h = await setup(page, { authenticated: true })
-	await page.evaluate(() => localStorage.setItem('lastLanguage', 'tr'))
+
+	await page.evaluate(() => localStorage.setItem('lastLanguage', 'ru'))
 	await page.evaluate(() => {
 		localStorage.setItem('lastVideoProficiency', 'C1')
 		localStorage.setItem('lastAiDialogProficiency', 'C2')
 	})
+
 	const card = page.getByRole('button', { name: titles[0], exact: true })
 	await card.click()
 	await expect(page.locator('.modal').getByRole('button', { name: /^en$/i })).toBeDisabled()
 	await expect(page.locator('.modal').getByRole('button', { name: 'Any', exact: true })).toBeDisabled()
-	expect(await page.evaluate(() => localStorage.getItem('lastLanguage'))).toBe('tr')
+	expect(await page.evaluate(() => localStorage.getItem('lastLanguage'))).toBe('ru')
 	await page.locator('.modal').getByRole('button', { name: /^de$/i }).click()
 	expect(await page.evaluate(() => localStorage.getItem('lastLanguage'))).toBe('de')
 	await page.locator('.modal').getByRole('button', { name: 'A2', exact: true }).click()

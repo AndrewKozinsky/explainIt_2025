@@ -1,0 +1,91 @@
+{
+  "header": "Domande frequenti",
+  "items": [
+    {
+      "question": "In cosa è diverso dal chattare con ChatGPT?",
+      "answer": [
+        "Non scrivi a un bot: entri in una scena. I personaggi restano nel loro ruolo, la storia si sviluppa in base a ciò che dici e fai, e ogni nuova scena viene illustrata.",
+        "Tutto ciò che serve per imparare è già integrato: traduzione con un tocco, un dizionario che capisce il contesto, battute doppiate e un controllo della tua risposta prima dell’invio."
+      ]
+    },
+    {
+      "question": "Ho appena iniziato a studiare la lingua. Ce la farò?",
+      "answer": [
+        "Sì. Scegli il livello A1 e i personaggi parleranno con frasi brevi e semplici. La traduzione di ogni frase compare con un tocco, e il livello si può cambiare durante la conversazione."
+      ]
+    },
+    {
+      "question": "E se non so come dire quello che voglio?",
+      "answer": [
+        "Scrivi come riesci, anche mescolando con la tua lingua madre: «I want cappuccino, da portare via». Il controllo mostra come si dice correttamente e spiega in italiano cosa è cambiato."
+      ]
+    },
+    {
+      "question": "Ho paura di sbagliare. Verrò corretto?",
+      "answer": [
+        "La tua risposta viene controllata prima dell’invio. Se ci sono errori, vedrai come correggerli, e potrai inviarla nel dialogo solo dopo aver corretto tutti gli errori di grammatica.",
+        "Così nella conversazione arrivano solo battute corrette, e gli errori li vedi solo tu. I personaggi non ti correggono e non trasformano la scena in una lezione: la storia va semplicemente avanti."
+      ]
+    },
+    {
+      "question": "Devo parlare ad alta voce?",
+      "answer": [
+        "No, puoi scrivere la risposta. Se vuoi allenare la pronuncia, attiva la dettatura: capisce sia la lingua che studi sia la tua lingua madre, quindi puoi passare dall’una all’altra a metà frase."
+      ]
+    },
+    {
+      "question": "I personaggi sono doppiati?",
+      "answer": [
+        "Sì, e ognuno ha la sua voce. Battute e descrizioni delle scene partono da sole appena sono pronte, e puoi riascoltare qualsiasi frase con il pulsante accanto."
+      ]
+    },
+    {
+      "question": "E se non seguo il copione?",
+      "answer": [
+        "Fai pure. La trama stabilisce solo l’inizio, poi la storia si adatta a te. Ti sei stancato dell’interlocutore? Allontanati dalla conversazione e apparirà un nuovo personaggio."
+      ]
+    },
+    {
+      "question": "Come capisco una parola sconosciuta?",
+      "answer": [
+        "Toccala e il dizionario mostrerà il significato proprio in quella frase. Se la parola funziona insieme ad altre, come in «put … away», il dizionario mostra l’intera espressione."
+      ]
+    },
+    {
+      "question": "Posso fermarmi e continuare più tardi?",
+      "answer": [
+        "Sì. Tutte le conversazioni vengono salvate in «I miei dialoghi» e puoi riprendere esattamente da dove avevi lasciato."
+      ]
+    },
+    {
+      "question": "Quali lingue posso studiare?",
+      "answer": [
+        "Lingue disponibili: {languages}. La lingua si sceglie all’avvio di una trama; traduzioni e spiegazioni compaiono nella lingua dell’interfaccia del sito."
+      ]
+    },
+    {
+      "question": "È davvero gratis?",
+      "answer": [
+        "Sì, completamente gratis: niente periodo di prova e niente carta di credito."
+      ]
+    },
+    {
+      "question": "Serve registrarsi?",
+      "answer": [
+        "Sì, così le tue conversazioni vengono salvate. Le trame si possono consultare anche senza accedere."
+      ]
+    },
+    {
+      "question": "Funziona sul telefono?",
+      "answer": [
+        "Sì, il sito è adattato a smartphone e tablet. Non esiste un’app separata: basta aprire il sito nel browser."
+      ]
+    },
+    {
+      "question": "Posso creare una trama tutta mia?",
+      "answer": [
+        "Per ora puoi scegliere tra le trame già pronte. La possibilità di crearne di tue arriverà più avanti."
+      ]
+    }
+  ]
+}

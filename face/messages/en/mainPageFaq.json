@@ -1,0 +1,91 @@
+{
+  "header": "Frequently asked questions",
+  "items": [
+    {
+      "question": "How is this different from chatting with ChatGPT?",
+      "answer": [
+        "You’re not texting a bot: you step inside a scene. Characters stay in character, the story unfolds from what you say and do, and every new scene gets its own illustration.",
+        "Everything you need for learning is built in: tap-to-translate, a dictionary that understands context, voiced lines and a check of your reply before you send it."
+      ]
+    },
+    {
+      "question": "I’m just starting out with the language. Will I manage?",
+      "answer": [
+        "Yes. Choose level A1 and the characters will speak in short, simple sentences. Tap any line to see its translation, and change the level at any time during the conversation."
+      ]
+    },
+    {
+      "question": "What if I don’t know how to say what I mean?",
+      "answer": [
+        "Write it however you can, even mixed with your native language: “Quiero un cappuccino, to go”. The check shows how it should sound and explains in English what changed."
+      ]
+    },
+    {
+      "question": "I’m afraid of making mistakes. Will I be corrected?",
+      "answer": [
+        "Your reply is checked for mistakes before it’s sent. If there are any, you’ll see how to fix them, and you can send the reply into the dialogue only once all grammar mistakes are fixed.",
+        "So only correct lines make it into the conversation, and only you see your mistakes. The characters don’t correct you or turn the scene into a lesson: the story simply moves on."
+      ]
+    },
+    {
+      "question": "Do I have to speak out loud?",
+      "answer": [
+        "No, you can type your reply. If you want to practise speaking, turn on dictation: it understands both the language you’re learning and your native one, so you can switch between them mid-sentence."
+      ]
+    },
+    {
+      "question": "Are the characters voiced?",
+      "answer": [
+        "Yes, and each one has their own voice. Lines and scene descriptions play automatically as soon as they’re ready, and you can replay any line with the button next to it."
+      ]
+    },
+    {
+      "question": "What if I go off script?",
+      "answer": [
+        "Go ahead. The storyline only sets the opening; after that, the story adapts to you. Tired of the person you’re talking to? Walk away from the conversation and a new character will appear."
+      ]
+    },
+    {
+      "question": "How do I understand an unfamiliar word?",
+      "answer": [
+        "Tap it, and the dictionary shows what it means in that exact sentence. If the word works together with others, as in “put … away”, the dictionary shows the whole expression."
+      ]
+    },
+    {
+      "question": "Can I take a break and continue later?",
+      "answer": [
+        "Yes. All your conversations are saved in “My dialogues”, and you can pick up right where you left off."
+      ]
+    },
+    {
+      "question": "Which languages can I learn?",
+      "answer": [
+        "Available right now: {languages}. You choose the language when you start a storyline, and translations and explanations are shown in the site’s interface language."
+      ]
+    },
+    {
+      "question": "Is it really free?",
+      "answer": [
+        "Yes, completely free: no trial period and no bank card required."
+      ]
+    },
+    {
+      "question": "Do I need to sign up?",
+      "answer": [
+        "Yes, so that your conversations are saved. You can browse the storylines without signing in."
+      ]
+    },
+    {
+      "question": "Does it work on my phone?",
+      "answer": [
+        "Yes, the site is adapted for phones and tablets. There’s no separate app: just open the site in your browser."
+      ]
+    },
+    {
+      "question": "Can I create my own storyline?",
+      "answer": [
+        "For now, you can choose from the ready-made storylines. Creating your own is coming later."
+      ]
+    }
+  ]
+}
