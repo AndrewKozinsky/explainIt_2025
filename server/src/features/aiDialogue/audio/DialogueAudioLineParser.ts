@@ -1,3 +1,4 @@
+import { readNpcMetadataField } from '../readNpcMetadataField'
 import { DialogueVoice, dialogueVoiceSchema } from './aiDialogueAudioConfig'
 
 export type DialogueAudioCandidate = {
@@ -6,6 +7,8 @@ export type DialogueAudioCandidate = {
 	npcId: string | null
 	text: string
 	voice: DialogueVoice | null
+	/** Block lines received so far, for diagnostics when an NPC speech arrives without a voice profile. */
+	block: string
 }
 
 /** Consumes complete protocol lines only. Text/translation/footer are never confused by chunk boundaries. */
@@ -52,6 +55,7 @@ export class DialogueAudioLineParser {
 			this.block = []
 			return null
 		}
+
 		if (!this.block.length) {
 			if (line.trim() === 'wordMaps:') {
 				this.footer = true
@@ -59,31 +63,47 @@ export class DialogueAudioLineParser {
 			}
 			this.eventIndex += 1
 		}
+
 		this.block.push(line)
 		const type = this.block[0].trim().split('|')[0]
+
 		if (type === 'sceneUpdate' && this.block.length === 2)
-			return { eventIndex: this.eventIndex, actionIndex: -1, npcId: null, text: line, voice: null }
+			return { eventIndex: this.eventIndex, actionIndex: -1, npcId: null, text: line, voice: null, block: '' }
 		if (type !== 'npcActions') return null
 
 		// Walk triples instead of matching the preceding label: literal "speech:" is valid spoken text.
 		let actionIndex = 0
 		let voice: DialogueVoice | null = null
+
 		for (let i = 1; i < this.block.length;) {
-			const label = this.block[i].trim()
-			if (label === 'voice:' || label === 'appearance:') {
-				if (label === 'voice:') {
-					voice = parseVoice(this.block[i + 1])
+			const field = readNpcMetadataField(this.block, i)
+			if (field) {
+				if (field.name === 'voice') {
+					voice = parseVoice(field.value)
 					const npcId = this.block[0].split('|')[1]?.trim()
-					if (voice && npcId && i + 1 === this.block.length - 1) this.voices.push({ npcId, profile: voice })
+					if (voice && npcId && field.valueIndex === this.block.length - 1)
+						this.voices.push({ npcId, profile: voice })
 				}
-				i += 2
+				i = field.next
 				continue
 			}
+
+			const label = this.block[i].trim()
 			if (label !== 'action:' && label !== 'speech:') return null
+
 			if (label === 'speech:' && i + 1 === this.block.length - 1) {
 				const npcId = this.block[0].split('|')[1]?.trim()
-				return npcId ? { eventIndex: this.eventIndex, actionIndex, npcId, text: line, voice } : null
+				if (!npcId) return null
+				return {
+					eventIndex: this.eventIndex,
+					actionIndex,
+					npcId,
+					text: line,
+					voice,
+					block: this.block.join('\n'),
+				}
 			}
+
 			actionIndex += 1
 			i += 3
 		}

@@ -11,8 +11,10 @@ export function useDialogueAudioButton(address: DialogueAudioAddress) {
 	const item = player.findItem(address)
 	const selected = item?.id === audio.state.selectedId
 	const playing = selected && (audio.state.playbackStatus === 'playing' || audio.state.playbackStatus === 'loading')
-	const failed = Boolean(item && ['failed', 'outcomeUnknown', 'cancelled'].includes(item.status))
-	const waiting = !item || item.status === 'queued' || item.status === 'generating'
+	const failed =
+		Boolean(item && ['failed', 'outcomeUnknown', 'cancelled'].includes(item.status)) ||
+		player.isUnavailable(address)
+	const waiting = !failed && (!item || item.status === 'queued' || item.status === 'generating')
 	const loading = waiting || (selected && audio.state.playbackStatus === 'loading')
 	const downloadError = Boolean(item && audio.state.loadErrors.has(item.id))
 	const text = getButtonText(failed, playing, downloadError)

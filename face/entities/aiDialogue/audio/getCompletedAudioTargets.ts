@@ -39,6 +39,13 @@ export function getCompletedAudioTargets(raw: string): DialogueAudioTarget[] {
 				i += 2
 				continue
 			}
+
+			// The model occasionally writes "voice: {...}" on one line.
+			if (label.startsWith('appearance:') || label.startsWith('voice:')) {
+				i += 1
+				continue
+			}
+
 			if (label !== 'action:' && label !== 'speech:') break
 			if (label === 'speech:' && current[i + 1]) targets.push({ eventIndex, actionIndex, npcId })
 			actionIndex += 1

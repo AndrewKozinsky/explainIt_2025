@@ -28,6 +28,27 @@ describe('parseAiDialogueEvents', () => {
 		])
 	})
 
+	it('extracts a single-line appearance written before actions', () => {
+		const result = parseAiDialogueEvents(
+			[
+				'npcActions|clerk|Giulia|clerk|happy',
+				'appearance: woman with curly chestnut hair',
+				'voice: {"voice":"coral","instructions":"Warm friendly voice"}',
+				'speech:',
+				'Ciao!',
+				'Привет!',
+			].join('\n'),
+		)
+
+		expect(result.visualMetadata.npcAppearances).toEqual([
+			{ npcId: 'clerk', appearance: 'woman with curly chestnut hair' },
+		])
+
+		expect(result.events[0]).toMatchObject({
+			actions: [{ type: 'speech', content: 'Ciao!', translation: 'Привет!' }],
+		})
+	})
+
 	it('extracts scene participants and visual description', () => {
 		const result = parseAiDialogueEvents(
 			[
@@ -44,6 +65,7 @@ describe('parseAiDialogueEvents', () => {
 			content: 'You enter a small dental office.',
 			translation: 'Вы входите в небольшой стоматологический кабинет.',
 		})
+
 		expect(result.visualMetadata.scenes).toEqual([
 			{
 				eventIndex: 0,

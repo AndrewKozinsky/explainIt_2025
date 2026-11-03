@@ -10,6 +10,7 @@ import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { readNpcMetadataField } from './readNpcMetadataField'
 import { attachInlineWordMaps, splitWordMapFooter } from './wordMap/inlineWordMaps'
 
 type TextEventType = 'sceneUpdate' | 'help' | 'worldEvent'
@@ -103,8 +104,7 @@ function parseNpcActions(block: string[]): ParsedBlock {
 	const actions = parseNpcActionItems(block.slice(1))
 	if (actions.length === 0) return EMPTY_BLOCK
 
-	const appearanceIndex = block.findIndex((line) => line.trim() === 'appearance:')
-	const appearance = appearanceIndex >= 0 ? (block[appearanceIndex + 1]?.trim() ?? '') : ''
+	const appearance = findAppearance(block)
 	const event: AiDialogueEvent = {
 		type: 'npcActions',
 		npcId,
@@ -114,6 +114,20 @@ function parseNpcActions(block: string[]): ParsedBlock {
 		actions,
 	}
 	return { ...EMPTY_BLOCK, event, npcAppearance: appearance ? { npcId, appearance } : null }
+}
+
+/** The single-line form is trusted only before the first action/speech, where content lines cannot occur. */
+function findAppearance(block: string[]): string {
+	const firstAction = block.findIndex((line) => line.trim() === 'action:' || line.trim() === 'speech:')
+
+	for (let i = 1; i < block.length; i += 1) {
+		const field = readNpcMetadataField(block, i)
+		if (field?.name !== 'appearance') continue
+		if (field.valueIndex === i && firstAction >= 0 && i > firstAction) continue
+		if (field.value) return field.value
+	}
+
+	return ''
 }
 
 function parseNpcActionItems(body: string[]): AiDialogueNpcActionItem[] {

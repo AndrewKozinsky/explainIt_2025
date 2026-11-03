@@ -28,8 +28,11 @@ const browserClock: AudioClock = {
 }
 
 export type PlaybackStatus = 'idle' | 'loading' | 'playing' | 'paused' | 'error'
+type AttemptStatus = DialogueAudioSnapshot['attempts'][number]['status']
 export type DialogueAudioState = {
 	items: ReadonlyMap<number, DialogueAudioItem>
+	attempts: ReadonlyMap<string, AttemptStatus>
+	snapshotLoaded: boolean
 	attemptId?: string
 	selectedId?: number
 	playbackStatus: PlaybackStatus
@@ -42,6 +45,8 @@ export type DialogueAudioState = {
 export class DialogueAudioPlayer {
 	private state: DialogueAudioState = {
 		items: new Map(),
+		attempts: new Map(),
+		snapshotLoaded: false,
 		playbackStatus: 'idle',
 		blocked: false,
 		cancelledAttempts: new Set(),
@@ -87,7 +92,12 @@ export class DialogueAudioPlayer {
 
 	startAttempt(attemptId: string, turnId: string) {
 		this.turns.set(attemptId, turnId)
-		this.update({ attemptId })
+		const attempts = new Map(this.state.attempts)
+		if (!attempts.has(attemptId)) {
+			attempts.set(attemptId, 'active')
+		}
+
+		this.update({ attemptId, attempts })
 	}
 
 	registerTargets(attemptId: string, targets: DialogueAudioTarget[]) {
@@ -132,10 +142,32 @@ export class DialogueAudioPlayer {
 	}
 
 	mergeSnapshot(snapshot: DialogueAudioSnapshot) {
+		const attempts = new Map(this.state.attempts)
+		for (const attempt of snapshot.attempts) {
+			// A stale snapshot cannot reopen an attempt that is already terminal.
+			if (attempts.get(attempt.id) === 'active' || !attempts.has(attempt.id))
+				attempts.set(attempt.id, attempt.status)
+		}
+		this.update({ attempts, snapshotLoaded: true })
 		for (const attempt of snapshot.attempts) {
 			if (attempt.status === 'cancelled') this.cancelAttempt(attempt.id)
 		}
 		for (const item of snapshot.items) this.mergeItem(item)
+	}
+
+	/**
+	 * The server binds message IDs and cancels unmatched jobs in the same transaction that confirms an attempt.
+	 * So a missing item of a finished attempt will never arrive: e.g. the NPC had no valid voice profile.
+	 */
+	isUnavailable(address: DialogueAudioAddress) {
+		if (!this.state.snapshotLoaded || this.findItem(address)) return false
+		if (address.messageId !== undefined)
+			return ![...this.state.attempts.values()].some(function (status) {
+				return status === 'active'
+			})
+		if (!address.attemptId) return false
+		const status = this.state.attempts.get(address.attemptId)
+		return status === 'confirmed' || status === 'cancelled'
 	}
 
 	findItem(address: DialogueAudioAddress) {
@@ -151,7 +183,8 @@ export class DialogueAudioPlayer {
 		const items = new Map(this.state.items)
 		for (const [id, item] of items)
 			if (item.attemptId === attemptId) items.set(id, { ...item, status: 'cancelled', url: null })
-		this.update({ cancelledAttempts, items })
+		const attempts = new Map(this.state.attempts).set(attemptId, 'cancelled')
+		this.update({ cancelledAttempts, items, attempts })
 
 		if (this.autoAttempt === attemptId) this.clearQueue()
 		if (this.state.selectedId !== undefined && items.get(this.state.selectedId)?.attemptId === attemptId)

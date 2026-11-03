@@ -100,8 +100,17 @@ export class AiDialogueAudioStream {
 			const parsed = dialogueVoiceSchema.safeParse(
 				proposed && { voice: proposed.voice, instructions: proposed.instructions },
 			)
-			if (!parsed.success) return
+
+			if (!parsed.success) {
+				// The response omitted or malformed "voice:" for a new NPC; without a profile the speech stays silent.
+				this.logger.warn(
+					`No voice profile for NPC "${candidate.npcId}" in dialogue ${dialogueId}; speech audio skipped. Block:\n${candidate.block.slice(0, 2000)}`,
+				)
+				return
+			}
+
 			profile = parsed.data
+
 			if (!existing) {
 				const saved = await this.repository.ensureVoice(dialogueId, candidate.npcId, parsed.data)
 				profile = dialogueVoiceSchema.parse({ voice: saved.voice, instructions: saved.instructions })

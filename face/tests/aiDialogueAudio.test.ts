@@ -418,3 +418,38 @@ test('a spoken protocol-looking word remains speech, not a new scene header', fu
 	assert.equal(preview.length, 1)
 	assert.equal(preview[0].actions?.[0].content, 'sceneUpdate')
 })
+
+test('speech without a job is unavailable only after its attempt finishes', function () {
+	const { player } = harness()
+	const preview = { attemptId: 'attempt', eventIndex: 1, actionIndex: 0 }
+	assert.equal(player.isUnavailable(preview), false)
+	player.mergeSnapshot({ dialogueId: 1, attempts: [{ id: 'attempt', turnId: 'turn', status: 'active' }], items: [] })
+	assert.equal(player.isUnavailable(preview), false)
+	assert.equal(player.isUnavailable({ messageId: 5, actionIndex: 0 }), false)
+
+	player.mergeSnapshot({
+		dialogueId: 1,
+		attempts: [{ id: 'attempt', turnId: 'turn', status: 'confirmed' }],
+		items: [{ ...item(1, -1), eventIndex: 0, attemptStatus: 'confirmed', messageId: 4, npcId: null }],
+	})
+
+	assert.equal(player.isUnavailable(preview), true)
+	assert.equal(player.isUnavailable({ messageId: 5, actionIndex: 0 }), true)
+	assert.equal(player.isUnavailable({ messageId: 4, actionIndex: -1 }), false)
+
+	player.startAttempt('next', 'next-turn')
+	assert.equal(player.isUnavailable({ messageId: 5, actionIndex: 0 }), false)
+})
+
+test('single-line voice and appearance keep speech targets', function () {
+	assert.deepEqual(
+		getCompletedAudioTargets(
+			'npcActions|clerk|Giulia|clerk|happy\nappearance: curly hair\nvoice: {"voice":"coral","instructions":"Warm"}\n' +
+				'speech:\nCiao!\nПривет!\naction:\nsmiles\nулыбается\nspeech:\nPosso aiutarti?\nМогу помочь?\n',
+		),
+		[
+			{ eventIndex: 0, actionIndex: 0, npcId: 'clerk' },
+			{ eventIndex: 0, actionIndex: 2, npcId: 'clerk' },
+		],
+	)
+})
