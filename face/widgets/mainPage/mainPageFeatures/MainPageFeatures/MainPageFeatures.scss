@@ -27,7 +27,7 @@ $wide-gap: 2rem;
 
 	@include mix.container-width($wide-padding-width) {
 		gap: $wide-gap;
-		padding: $wide-gap;
+
 	}
 
 	@include mix.container-width($two-columns-width) {
@@ -41,6 +41,7 @@ $wide-gap: 2rem;
 		flex-direction: row;
 		align-items: flex-start;
 		columns: auto;
+		padding: $wide-gap;
 	}
 }
 
