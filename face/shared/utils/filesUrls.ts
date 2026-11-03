@@ -51,6 +51,18 @@ export const filesUrls = {
 			guyCafe: '/mainPage/anyLevel/any-level-guy-cafe.webp',
 			baristaCafe: '/mainPage/anyLevel/any-level-barista-cafe.webp',
 		},
+		// Картинки раздела «6 дополнительных функций»
+		features: {
+			emotionNeutral: '/mainPage/features/features-emotion-neutral.webp',
+			emotionCheerful: '/mainPage/features/features-emotion-cheerful.webp',
+			emotionAnnoyed: '/mainPage/features/features-emotion-annoyed.webp',
+			emotionSad: '/mainPage/features/features-emotion-sad.webp',
+			plotCafe: '/mainPage/features/features-plot-cafe.webp',
+			plotTicket: '/mainPage/features/features-plot-ticket.webp',
+			plotClothes: '/mainPage/features/features-plot-clothes.webp',
+			plotApple: '/mainPage/features/features-plot-apple.webp',
+			plotCircus: '/mainPage/features/features-plot-circus.webp',
+		},
 	},
 	onboardingModal: {
 		selectedWord: s3AssetsUrl + 'onboardingModal/selectWords.mp4',

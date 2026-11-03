@@ -1,0 +1,36 @@
+{
+  "eyebrow": "E inoltre",
+  "header": "6 funzioni in più che ti piaceranno",
+  "text": "Ti tengono dentro la storia e non ti fanno perdere il senso.",
+  "learnedLang": "en",
+  "hero": {
+    "title": "Il protagonista sei tu",
+    "text": "Ogni nuova scena è illustrata come un fotogramma di un film. Carica il tuo ritratto e ti ritroverai dentro l’immagine."
+  },
+  "emotions": {
+    "title": "Emozioni sui ritratti dei personaggi",
+    "text": "Vedrai come ti trattano ancora prima di leggere la risposta: in modo neutro, allegro, seccato, cordiale e non solo."
+  },
+  "speechLevel": {
+    "title": "La difficoltà del parlato la scegli tu",
+    "text": "Ai livelli iniziali i personaggi parlano con frasi brevi e semplici. Togli il limite e parleranno come i madrelingua.",
+    "beginnerLabel": "Iniziale",
+    "beginnerLine": "Hello! Coffee? Tea?",
+    "freeLabel": "Senza limiti",
+    "freeLine": "Hiya! Bear with me a sec, I’ll be right with you."
+  },
+  "translation": {
+    "title": "Traduzione di ogni frase",
+    "text": "Tocca il testo e la traduzione apparirà proprio accanto."
+  },
+  "dictionary": {
+    "title": "Un dizionario che vede il contesto",
+    "text": "Tocca una parola e il dizionario ti spiegherà cosa significa proprio qui. Se le parole vicine cambiano il senso, te le mostrerà insieme.",
+    "phrase": "She <word>picked</word> up the phone",
+    "meaning": "pick up"
+  },
+  "plots": {
+    "title": "44 trame tra cui scegliere",
+    "text": "Dalle più comuni (bar, aeroporto, hotel) alle più inaspettate: ti scambiano per una guida turistica, ti consegnano la valigia di un altro, hai abbellito il tuo curriculum."
+  }
+}

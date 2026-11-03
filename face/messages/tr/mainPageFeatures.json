@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Dahası da var",
+  "header": "Seveceğiniz 6 ek özellik",
+  "text": "Hikâyeden kopmamanızı ve anlamı kaçırmamanızı sağlarlar.",
+  "learnedLang": "en",
+  "hero": {
+    "title": "Başrolde sizsiniz",
+    "text": "Her yeni sahne bir film karesi gibi resmedilir. Portrenizi yükleyin, kendinizi resmin içinde bulun."
+  },
+  "emotions": {
+    "title": "Karakter portrelerinde duygular",
+    "text": "Cevabı okumaya başlamadan önce size nasıl yaklaşıldığını görürsünüz: tarafsız, neşeli, sinirli, sıcak ve daha fazlası."
+  },
+  "speechLevel": {
+    "title": "Konuşmanın zorluğunu siz seçersiniz",
+    "text": "Başlangıç seviyelerinde karakterler kısa ve basit cümlelerle konuşur. Sınırı kapatın, ana dili konuşanlar gibi konuşsunlar.",
+    "beginnerLabel": "Başlangıç",
+    "beginnerLine": "Hello! Coffee? Tea?",
+    "freeLabel": "Sınırsız",
+    "freeLine": "Hiya! Bear with me a sec, I’ll be right with you."
+  },
+  "translation": {
+    "title": "Her cümlenin çevirisi",
+    "text": "Metne dokunun, çevirisi hemen yanında belirsin."
+  },
+  "dictionary": {
+    "title": "Bağlamı gören sözlük",
+    "text": "Bir kelimeye dokunun, sözlük onun tam burada ne anlama geldiğini açıklasın. Komşu kelimeler anlamı değiştiriyorsa onları birlikte gösterir.",
+    "phrase": "She <word>picked</word> up the phone",
+    "meaning": "pick up"
+  },
+  "plots": {
+    "title": "Seçebileceğiniz 44 senaryo",
+    "text": "Alışıldık olanlardan (kafe, havalimanı, otel) beklenmedik olanlara: sizi rehber sanıyorlar, size başkasının bavulunu veriyorlar, özgeçmişinizi biraz süslediniz."
+  }
+}

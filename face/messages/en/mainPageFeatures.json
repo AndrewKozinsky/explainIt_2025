@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Also inside",
+  "header": "6 extra features you’ll love",
+  "text": "They keep you inside the story and make sure you never lose the meaning.",
+  "learnedLang": "es",
+  "hero": {
+    "title": "You’re the main character",
+    "text": "Every new scene is illustrated like a film still. Upload your portrait, and you’ll find yourself inside the picture."
+  },
+  "emotions": {
+    "title": "Emotions on character portraits",
+    "text": "You’ll see how they feel about you before you even start reading the reply: neutral, cheerful, annoyed, friendly and more."
+  },
+  "speechLevel": {
+    "title": "You choose how complex the speech is",
+    "text": "At beginner levels, characters speak in short, simple phrases. Turn off the limit, and they’ll talk the way native speakers do.",
+    "beginnerLabel": "Beginner",
+    "beginnerLine": "¡Hola! ¿Café? ¿Té?",
+    "freeLabel": "No limits",
+    "freeLine": "¡Buenas! Dame un segundito, enseguida te atiendo."
+  },
+  "translation": {
+    "title": "Translation of every phrase",
+    "text": "Tap the text, and the translation appears right next to it."
+  },
+  "dictionary": {
+    "title": "A dictionary that sees context",
+    "text": "Tap a word, and the dictionary explains what it means right here. If neighbouring words change the meaning, it shows them together.",
+    "phrase": "Ella se <word>dio</word> cuenta del error",
+    "meaning": "darse cuenta"
+  },
+  "plots": {
+    "title": "44 storylines to choose from",
+    "text": "From the familiar (café, airport, hotel) to the unexpected: you’re mistaken for a tour guide, you’re handed someone else’s suitcase, you’ve embellished your CV."
+  }
+}

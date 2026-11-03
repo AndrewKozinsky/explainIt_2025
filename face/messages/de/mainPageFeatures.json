@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Außerdem dabei",
+  "header": "6 weitere Funktionen, die Ihnen gefallen werden",
+  "text": "Sie halten Sie in der Geschichte und sorgen dafür, dass Sie den Sinn nicht verlieren.",
+  "learnedLang": "en",
+  "hero": {
+    "title": "Sie sind die Hauptfigur",
+    "text": "Jede neue Szene wird wie ein Filmstill illustriert. Laden Sie Ihr Porträt hoch – und Sie stehen mitten im Bild."
+  },
+  "emotions": {
+    "title": "Emotionen auf den Porträts der Figuren",
+    "text": "Sie sehen, wie man Ihnen gegenübersteht, noch bevor Sie die Antwort lesen: neutral, fröhlich, verärgert, freundlich und mehr."
+  },
+  "speechLevel": {
+    "title": "Sie bestimmen, wie schwierig gesprochen wird",
+    "text": "Auf den Anfängerstufen sprechen die Figuren in kurzen, einfachen Sätzen. Schalten Sie die Begrenzung aus, und sie reden wie Muttersprachler.",
+    "beginnerLabel": "Anfänger",
+    "beginnerLine": "Hello! Coffee? Tea?",
+    "freeLabel": "Ohne Begrenzung",
+    "freeLine": "Hiya! Bear with me a sec, I’ll be right with you."
+  },
+  "translation": {
+    "title": "Übersetzung jedes Satzes",
+    "text": "Tippen Sie auf den Text, und die Übersetzung erscheint direkt daneben."
+  },
+  "dictionary": {
+    "title": "Ein Wörterbuch, das den Kontext sieht",
+    "text": "Tippen Sie auf ein Wort, und das Wörterbuch erklärt, was es genau hier bedeutet. Verändern Nachbarwörter den Sinn, zeigt es sie zusammen.",
+    "phrase": "She <word>picked</word> up the phone",
+    "meaning": "pick up"
+  },
+  "plots": {
+    "title": "44 Handlungen zur Auswahl",
+    "text": "Von vertrauten (Café, Flughafen, Hotel) bis zu unerwarteten: Man hält Sie für einen Reiseführer, Sie bekommen einen fremden Koffer, Sie haben Ihren Lebenslauf geschönt."
+  }
+}

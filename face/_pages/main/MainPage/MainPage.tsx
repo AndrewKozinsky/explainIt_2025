@@ -2,6 +2,7 @@ import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 import MainPageAnyLevel from '@/widgets/mainPage/mainPageAnyLevel/MainPageAnyLevel/MainPageAnyLevel'
 import MainPageBanner from '@/widgets/mainPage/mainPageBanner/MainPageBanner/MainPageBanner'
 import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
+import MainPageFeatures from '@/widgets/mainPage/mainPageFeatures/MainPageFeatures/MainPageFeatures'
 import MainPageScenarios from '@/widgets/mainPage/mainPageScenarios/MainPageScenarios/MainPageScenarios'
 import './MainPage.scss'
 
@@ -13,6 +14,7 @@ function MainPage() {
 				<MainPageBanner />
 				<MainPageScenarios />
 				<MainPageAnyLevel />
+				<MainPageFeatures />
 				<MainPageFaq />
 			</main>
 		</PageWrapper>

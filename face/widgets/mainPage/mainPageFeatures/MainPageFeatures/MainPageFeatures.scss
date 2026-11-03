@@ -1,0 +1,54 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+// Ширина раздела, после которой у подложки появляются большие отступы
+$wide-padding-width: 50rem;
+
+// Ширина раздела, после которой карточки встают в две колонки
+$two-columns-width: 70rem;
+
+// Ширина раздела, после которой карточки раскладываются по трём колонкам, как в макете
+$three-columns-width: 110rem;
+
+$gap: 1.2rem;
+$wide-gap: 2rem;
+
+// На узком разделе карточки идут друг под другом, шире — сеткой в две колонки.
+// На самом широком колонки из разметки становятся настоящими: карточки в них разной высоты и не выравниваются по строкам
+.features-list {
+	display: flex;
+	flex-direction: column;
+	gap: $gap;
+	padding: $gap;
+	border-radius: vars.$radius-2;
+	background-color: vars.$grayColor-1;
+
+	@include mix.container-width($wide-padding-width) {
+		gap: $wide-gap;
+		padding: $wide-gap;
+	}
+
+	@include mix.container-width($two-columns-width) {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	@include mix.container-width($three-columns-width) {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+	}
+}
+
+// Пока колонок нет, обёртка не влияет на раскладку и карточки ведут себя как прямые потомки списка
+.features-list__column {
+	display: contents;
+
+	@include mix.container-width($three-columns-width) {
+		flex: 1 1 0;
+		display: flex;
+		flex-direction: column;
+		gap: $wide-gap;
+		min-width: 0;
+	}
+}

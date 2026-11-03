@@ -103,12 +103,13 @@ $image-visible-height: 17rem;
 }
 
 // Иллюстрация показывается сверху, всё ниже видимой высоты отсекается.
+// Высота задана заранее, поэтому место под иллюстрацию занято ещё до её загрузки и блок не дёргается.
 // overflow нужен явно: глобальный сброс стилей делает его visible.
 // Линия по нижнему краю лежит поверх иллюстрации и не добавляет ей высоты
 .scenario-card__image-wrapper {
 	position: relative;
 	overflow: hidden;
-	max-height: $image-visible-height;
+	height: $image-visible-height;
 
 	&::after {
 		content: '';

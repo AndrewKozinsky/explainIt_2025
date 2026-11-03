@@ -1,0 +1,35 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+// Ширина карточки, после которой между иконками помещаются точки и ряд остаётся в одну строку
+$dots-visible-width: 36rem;
+
+// Иконки разной высоты стоят на одной линии по нижнему краю, точки между ними — чуть ниже центра
+.feature-plots {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 1.2rem;
+	margin-top: 0.6rem;
+}
+
+.feature-plots__icon {
+	display: block;
+}
+
+// На узкой карточке точки скрыты, чтобы иконки поместились в одну строку
+.feature-plots__dot {
+	display: none;
+	position: relative;
+	top: .8rem;
+	align-self: center;
+	width: 0.5rem;
+	height: 0.5rem;
+	border: 1px solid vars.$textColor;
+	border-radius: 50%;
+	box-sizing: border-box;
+
+	@include mix.container-width($dots-visible-width) {
+		display: block;
+	}
+}

@@ -1,0 +1,36 @@
+{
+  "eyebrow": "Et aussi",
+  "header": "6 fonctionnalités en plus que vous allez adorer",
+  "text": "Elles vous gardent dans l’histoire et vous évitent de perdre le fil.",
+  "learnedLang": "en",
+  "hero": {
+    "title": "Vous êtes le personnage principal",
+    "text": "Chaque nouvelle scène est illustrée comme un plan de film. Téléchargez votre portrait, et vous vous retrouverez dans l’image."
+  },
+  "emotions": {
+    "title": "Des émotions sur les portraits des personnages",
+    "text": "Vous voyez ce qu’on pense de vous avant même de lire la réponse : neutre, joyeux, agacé, aimable et bien d’autres."
+  },
+  "speechLevel": {
+    "title": "Vous choisissez la difficulté du langage",
+    "text": "Aux niveaux débutants, les personnages parlent par phrases courtes et simples. Désactivez la limite, et ils parleront comme des natifs.",
+    "beginnerLabel": "Débutant",
+    "beginnerLine": "Hello! Coffee? Tea?",
+    "freeLabel": "Sans limite",
+    "freeLine": "Hiya! Bear with me a sec, I’ll be right with you."
+  },
+  "translation": {
+    "title": "La traduction de chaque phrase",
+    "text": "Touchez le texte, et la traduction apparaît juste à côté."
+  },
+  "dictionary": {
+    "title": "Un dictionnaire qui voit le contexte",
+    "text": "Touchez un mot, et le dictionnaire explique ce qu’il veut dire ici précisément. Si les mots voisins changent le sens, il les montre ensemble.",
+    "phrase": "She <word>picked</word> up the phone",
+    "meaning": "pick up"
+  },
+  "plots": {
+    "title": "44 intrigues au choix",
+    "text": "Des plus familières (café, aéroport, hôtel) aux plus inattendues : on vous prend pour un guide, on vous remet la valise de quelqu’un d’autre, vous avez embelli votre CV."
+  }
+}
