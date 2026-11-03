@@ -1,0 +1,21 @@
+@use '@/styles/variables' as vars;
+
+// Подпись и флаги в один ряд, на узком экране флаги переносятся.
+// Над ними тонкая линия, отделяющая их от заголовка блока
+.available-languages {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 1rem;
+	padding-top: 2rem;
+	border-top: 1px solid vars.$grayColor-2;
+	font-size: 1.8rem;
+	line-height: 2.8rem;
+	color: vars.$grayColor-6;
+}
+
+.available-languages__flag {
+	display: block;
+	width: 3rem;
+	height: 3rem;
+}

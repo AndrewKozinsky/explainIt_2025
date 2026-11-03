@@ -3,6 +3,7 @@ import MainPageAnyLevel from '@/widgets/mainPage/mainPageAnyLevel/MainPageAnyLev
 import MainPageBanner from '@/widgets/mainPage/mainPageBanner/MainPageBanner/MainPageBanner'
 import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
 import MainPageFeatures from '@/widgets/mainPage/mainPageFeatures/MainPageFeatures/MainPageFeatures'
+import MainPageNoTrip from '@/widgets/mainPage/mainPageNoTrip/MainPageNoTrip/MainPageNoTrip'
 import MainPageScenarios from '@/widgets/mainPage/mainPageScenarios/MainPageScenarios/MainPageScenarios'
 import './MainPage.scss'
 
@@ -15,6 +16,7 @@ function MainPage() {
 				<MainPageScenarios />
 				<MainPageAnyLevel />
 				<MainPageFeatures />
+				<MainPageNoTrip />
 				<MainPageFaq />
 			</main>
 		</PageWrapper>

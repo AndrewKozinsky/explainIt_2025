@@ -1,3 +1,5 @@
+import { LanguageCode } from '@/shared/utils/languages'
+
 const yaS3Url = 'https://storage.yandexcloud.net/explain/'
 const s3AssetsUrl = yaS3Url + 'assets/'
 
@@ -26,6 +28,16 @@ export const filesUrls = {
 			filesGray: '/images/common/filesGray.svg',
 			filesBlue: '/images/common/filesBlue.svg',
 		},
+		// Круглые флаги языков для ретины: показываются вдвое меньше своего размера
+		flags: {
+			en: '/images/flags/flag-en.webp',
+			es: '/images/flags/flag-es.webp',
+			fr: '/images/flags/flag-fr.webp',
+			de: '/images/flags/flag-de.webp',
+			it: '/images/flags/flag-it.webp',
+			tr: '/images/flags/flag-tr.webp',
+			ru: '/images/flags/flag-ru.webp',
+		} satisfies Record<LanguageCode, string>,
 	},
 	mainPage: {
 		// Иллюстрации баннера, передающие дух каждого языка

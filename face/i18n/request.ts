@@ -9,6 +9,7 @@ const messageNamespaces = [
 	'mainPageAnyLevel',
 	'mainPageBanner',
 	'mainPageFeatures',
+	'mainPageNoTrip',
 	'mainPageScenarios',
 ] as const
 

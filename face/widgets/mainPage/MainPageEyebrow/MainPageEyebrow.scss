@@ -1,0 +1,10 @@
+@use '@/styles/variables' as vars;
+
+.main-page-eyebrow {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	font-weight: 400;
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+	color: vars.$grayColor-5;
+}

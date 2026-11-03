@@ -1,0 +1,43 @@
+@use '@/styles/mixins' as mix;
+
+// Ширина блока, после которой содержимое отступает слева, как в макете
+$left-offset-width: 100rem;
+
+// Ширина блока, после которой надпись отходит от заголовка дальше
+$wide-top-gap-width: 50rem;
+
+// Содержимое блока подстраивается под ширину блока, а не окна
+.no-trip {
+	container-type: inline-size;
+}
+
+.no-trip__content {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+
+	@include mix.container-width($left-offset-width) {
+		padding-left: 30rem;
+	}
+}
+
+// Надпись и заголовок: на узком блоке стоят ближе друг к другу
+.no-trip__top {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+
+	@include mix.container-width($wide-top-gap-width) {
+		gap: 2rem;
+	}
+}
+
+// Шрифт и интервал растут вместе с шириной блока от ≈61rem до 100rem:
+// на узком блоке 2.8rem при интервале 3.6rem, на широком 4.6rem при интервале 5.6rem
+.no-trip__statement {
+	font-family: 'Roboto Serif', serif;
+	font-style: italic;
+	font-weight: 400;
+	font-size: clamp(2.8rem, 4.6cqi, 4.6rem);
+	line-height: clamp(3.6rem, 0.5rem + 5.1cqi, 5.6rem);
+}

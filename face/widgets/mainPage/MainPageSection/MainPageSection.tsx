@@ -1,5 +1,7 @@
 import { ReactNode } from 'react'
 import cn from 'classnames'
+import MainPageEyebrow from '../MainPageEyebrow/MainPageEyebrow'
+import MainPageHeader from '../MainPageHeader/MainPageHeader'
 import './MainPageSection.scss'
 
 type MainPageSectionProps = {
@@ -19,8 +21,8 @@ function MainPageSection(props: MainPageSectionProps) {
 	return (
 		<section className={cn('main-page-section', extraClass)}>
 			<div className='main-page-section__top'>
-				{eyebrow && <p className='main-page-section__eyebrow'>{eyebrow}</p>}
-				<h2 className='main-page-section__header'>{header}</h2>
+				{eyebrow && <MainPageEyebrow text={eyebrow} />}
+				<MainPageHeader text={header} />
 				{text && <p className='main-page-section__text'>{text}</p>}
 			</div>
 			{children}
