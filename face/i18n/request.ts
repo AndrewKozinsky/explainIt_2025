@@ -8,6 +8,7 @@ const messageNamespaces = [
 	'aiDialogue',
 	'mainPageAnyLevel',
 	'mainPageBanner',
+	'mainPageCallToAction',
 	'mainPageFeatures',
 	'mainPageNoTrip',
 	'mainPageScenarios',

@@ -1,0 +1,100 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
+// Ширина блока, после которой ссылка встаёт справа от текста
+$side-link-width: 70rem;
+
+// Ширина блока, после которой внутренние отступы становятся крупными, как в макете.
+// На более узком блоке они меньше, чтобы освободить место под текст
+$wide-padding-width: 110rem;
+// Содержимое блока подстраивается под ширину блока, а не окна
+.call-to-action {
+	container-type: inline-size;
+}
+
+// На узком блоке ссылка под текстом во всю ширину, на широком — колонкой справа.
+// overflow нужен явно: глобальный сброс стилей делает его visible
+.call-to-action__card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: vars.$radius-2;
+	background-color: vars.$textColor;
+	color: white;
+
+	@include mix.container-width($side-link-width) {
+		flex-direction: row;
+	}
+}
+
+.call-to-action__content {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+	min-width: 0;
+	padding: 1.6rem 1.4rem;
+
+	@include mix.container-width($wide-padding-width) {
+		padding: 2.4rem;
+	}
+}
+
+.call-to-action__header {
+	color: white;
+}
+
+.call-to-action__text {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+
+	@include mix.container-width($side-link-width) {
+		font-size: 1.8rem;
+		line-height: 2.8rem;
+	}
+}
+
+// Вся оранжевая часть — акцентная кнопка-ссылка
+.call-to-action__link {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 1.4rem 1.6rem;
+	text-decoration: none;
+
+	// Справа ширина ссылки складывается из текста, стрелки и отступов
+	@include mix.container-width($side-link-width) {
+		flex-shrink: 0;
+	}
+
+	@include mix.container-width($wide-padding-width) {
+		padding: 1.6rem 4rem;
+	}
+}
+
+.call-to-action__link-texts {
+	display: flex;
+	flex-direction: column;
+}
+
+.call-to-action__link-text {
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+}
+
+.call-to-action__link-note {
+	font-size: 1.4rem;
+	line-height: 2rem;
+	opacity: 0.7;
+}
+
+// При наведении на кнопку стрелка плавно отъезжает вправо, при уводе возвращается
+.call-to-action__link-icon {
+	flex-shrink: 0;
+	transition: transform 0.2s ease;
+
+	.call-to-action__link:hover & {
+		transform: translateX(0.3rem);
+	}
+}

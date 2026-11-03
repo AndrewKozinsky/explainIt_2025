@@ -1,6 +1,7 @@
 import { PageWrapper } from '@/shared/ui/pageRelated/PageWrapper/PageWrapper'
 import MainPageAnyLevel from '@/widgets/mainPage/mainPageAnyLevel/MainPageAnyLevel/MainPageAnyLevel'
 import MainPageBanner from '@/widgets/mainPage/mainPageBanner/MainPageBanner/MainPageBanner'
+import MainPageCallToAction from '@/widgets/mainPage/MainPageCallToAction/MainPageCallToAction'
 import MainPageFaq from '@/widgets/mainPage/MainPageFaq/MainPageFaq'
 import MainPageFeatures from '@/widgets/mainPage/mainPageFeatures/MainPageFeatures/MainPageFeatures'
 import MainPageNoTrip from '@/widgets/mainPage/mainPageNoTrip/MainPageNoTrip/MainPageNoTrip'
@@ -17,6 +18,7 @@ function MainPage() {
 				<MainPageAnyLevel />
 				<MainPageFeatures />
 				<MainPageNoTrip />
+				<MainPageCallToAction />
 				<MainPageFaq />
 			</main>
 		</PageWrapper>

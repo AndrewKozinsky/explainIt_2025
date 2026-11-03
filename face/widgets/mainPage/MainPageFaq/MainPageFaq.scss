@@ -1,26 +1,32 @@
-@use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
-@use '@/styles/inherit' as inh;
 
+// Ширина блока, после которой заголовок встаёт слева от вопросов.
+// Совпадает с $left-offset-width в MainPageNoTrip.scss, чтобы вопросы начинались вровень с блоком над ними
+$side-header-width: 100rem;
+
+// Ширина колонки с заголовком. Совпадает с отступом слева в MainPageNoTrip.scss
+$header-column-width: 30rem;
+
+// Содержимое блока подстраивается под ширину блока, а не окна
 .main-page-faq {
+	container-type: inline-size;
+}
+
+// На узком блоке заголовок над вопросами, на широком — в колонке слева
+.main-page-faq__content {
 	display: flex;
 	flex-direction: column;
-	gap: 1.8rem;
+	gap: 1.2rem;
 
-	@include mix.page-width(900px) {
-		flex-direction: row;
-		gap: 5rem;
+	@include mix.container-width($side-header-width) {
+		display: grid;
+		grid-template-columns: $header-column-width minmax(0, 1fr);
+		gap: 0;
 	}
 }
 
 .main-page-faq__header {
-	font-size: 3.4rem;
-	line-height: 3.8rem;
-	font-weight: 600;
-
-	@include mix.page-width(500px) {
-		flex-shrink: 10;
-		font-size: 5rem;
-		line-height: 5.6rem;
+	@include mix.container-width($side-header-width) {
+		padding-right: 2rem;
 	}
 }

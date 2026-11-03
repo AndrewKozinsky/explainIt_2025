@@ -21,16 +21,9 @@ function Faq(props: FaqProps) {
 
 	return (
 		<section className={cn('faq', extraClass)}>
-			{store.items.map((faqItemData, i) => {
-				const isLastItem = store.items.length - 1 === i
-
-				return (
-					<React.Fragment key={faqItemData.itemId}>
-						<FaqItem store={store} setStore={setStore} faqItemData={faqItemData} />
-						{!isLastItem && <div className='faq__divider' />}
-					</React.Fragment>
-				)
-			})}
+			{store.items.map((faqItemData) => (
+				<FaqItem store={store} setStore={setStore} faqItemData={faqItemData} key={faqItemData.itemId} />
+			))}
 		</section>
 	)
 }

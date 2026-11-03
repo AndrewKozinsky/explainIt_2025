@@ -1,4 +1,5 @@
 import Faq from '@/shared/ui/FAQ/FAQ'
+import MainPageHeader from '../MainPageHeader/MainPageHeader'
 import { config } from './fn/getConfig'
 import './MainPageFaq.scss'
 
@@ -6,8 +7,10 @@ import './MainPageFaq.scss'
 function MainPageFaq() {
 	return (
 		<div className='main-page-faq'>
-			<h2 className='main-page-faq__header'>Часто задаваемые вопросы</h2>
-			<Faq config={config} />
+			<div className='main-page-faq__content'>
+				<MainPageHeader text='Часто задаваемые вопросы' extraClass='main-page-faq__header' />
+				<Faq config={config} />
+			</div>
 		</div>
 	)
 }
