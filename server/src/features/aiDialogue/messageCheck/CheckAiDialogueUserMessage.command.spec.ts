@@ -2,6 +2,7 @@ jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => ta
 jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository: class {} }))
 jest.mock('repo/aiDialogue/aiDialogueMessage.repository', () => ({ AiDialogueMessageRepository: class {} }))
 jest.mock('infrastructure/llmProviderAdapter/LlmAdapter.service', () => ({ LlmAdapterService: class {} }))
+jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -18,14 +19,22 @@ function harness() {
 		target_language_code: 'de',
 		summary: JSON.stringify([{ history: 'Older history' }, { history: 'Recent history' }]),
 	}
+
 	const repository = { getDialogueById: jest.fn().mockResolvedValue(dialogue) }
 	const messages = {
 		getTextCheckContext: jest.fn().mockResolvedValue({ scene: { content: 'A cafe' }, recentMessages: [] }),
 	}
 	const llm = { generate: jest.fn().mockResolvedValue({ content: 'speech\nok\naction\nok\nend' }) }
-	const handler = new CheckAiDialogueUserMessageHandler(repository as never, messages as never, llm as never)
+	const user = { getUserById: jest.fn().mockResolvedValue({ id: 7, gender: 'FEMALE' }) }
 
-	return { handler, repository, messages, llm, dialogue }
+	const handler = new CheckAiDialogueUserMessageHandler(
+		repository as never,
+		messages as never,
+		llm as never,
+		user as never,
+	)
+
+	return { handler, repository, messages, llm, dialogue, user }
 }
 
 describe('CheckAiDialogueUserMessage', () => {
@@ -43,6 +52,7 @@ describe('CheckAiDialogueUserMessage', () => {
 			expect(input).toMatchObject({ responseFormat: 'text', timeoutMs: 45_000 })
 			expect(input.messages[0].content).toContain('french (fr)')
 			expect(input.messages[0].content).toContain('german (de)')
+			expect(input.messages[0].content).toContain('The participant is a woman.')
 			expect(JSON.parse(input.messages[1].content)).toEqual({
 				context: { scene: { content: 'A cafe' }, recentMessages: [], summary: 'Recent history' },
 				draft: { speech: '', action: '', ...draft },

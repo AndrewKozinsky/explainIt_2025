@@ -4,6 +4,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueTurnRepository } from 'repo/aiDialogue/aiDialogueTurn.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
+import { UserRepository } from 'repo/user.repository'
 import { ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
 import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
 import { Language } from 'utils/languages'
@@ -43,6 +44,7 @@ export class GenerateAiDialogueTurn {
 		private sseHub: AiDialogueSseHub,
 		private summarizeAiDialogue: SummarizeAiDialogue,
 		private audio: AiDialogueAudioStream,
+		private userRepository: UserRepository,
 	) {}
 
 	// Проверяет, «ждёт ли диалог хода» (нет сообщений или последнее — событие
@@ -77,6 +79,9 @@ export class GenerateAiDialogueTurn {
 			const scenario = await this.aiDialogueScenarioRepository.getScenarioById(dialogue.scenario_id)
 			if (!scenario) return
 
+			const user = await this.userRepository.getUserById(dialogue.user_id)
+			if (!user) return
+
 			const messages = await this.aiDialogueQueryRepository.getMessagesByDialogueId(dialogueId)
 
 			const summary = parseAiDialogueSummary(dialogue.summary)
@@ -90,6 +95,7 @@ export class GenerateAiDialogueTurn {
 				},
 				sourceLanguageCode: dialogue.source_language_code,
 				targetLanguageCode: dialogue.target_language_code,
+				participantGender: user.gender,
 				maxCefrLevel: dialogue.max_cefr_level,
 				summary,
 				recentEvents,
@@ -214,6 +220,7 @@ export class GenerateAiDialogueTurn {
 	private extractErrorMessage(error: unknown): string {
 		if (error instanceof CustomError) return error.message
 		if (error instanceof Error) return error.message
+
 		return serializeErrorMessage(errorMessage.unknownError)
 	}
 }

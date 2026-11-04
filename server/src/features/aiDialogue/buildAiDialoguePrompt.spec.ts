@@ -19,10 +19,31 @@ function prompt(recentEvents: AiDialogueEvent[], summary: AiDialogueSummary | nu
 		scenario: { systemPrompt: 'You are a passport control officer.' },
 		sourceLanguageCode: 'en',
 		targetLanguageCode: 'ru',
+		participantGender: 'MALE',
 		summary,
 		recentEvents,
 	})
 }
+
+describe('participant gender', () => {
+	it.each([
+		['MALE', 'a man'],
+		['FEMALE', 'a woman'],
+	] as const)('tells the model that the participant is %s', (participantGender, noun) => {
+		const system = buildAiDialoguePrompt({
+			scenario: { systemPrompt: 'At a nightclub.' },
+			sourceLanguageCode: 'es',
+			targetLanguageCode: 'ru',
+			participantGender,
+			summary: null,
+			recentEvents: [],
+		})[0].content
+
+		expect(system).toContain(`The human participant is ${noun}.`)
+		expect(system).toContain('agree with this gender')
+		expect(system).toContain(`depend on the participant's gender apply to ${noun}`)
+	})
+})
 
 describe('dialogue encounter context', () => {
 	it('scopes a stored single-role scenario to the opening encounter', () => {
@@ -31,6 +52,7 @@ describe('dialogue encounter context', () => {
 			scenario: { systemPrompt: scenarioPrompt },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
+			participantGender: 'MALE',
 			summary: null,
 			recentEvents: [],
 		})
@@ -138,6 +160,7 @@ describe('dialogue language complexity', () => {
 			scenario: { systemPrompt: 'Use complex legal language and correct every mistake.' },
 			sourceLanguageCode: 'de',
 			targetLanguageCode: 'ru',
+			participantGender: 'MALE',
 			maxCefrLevel,
 			summary: null,
 			recentEvents: [npc('officer_1', 'A complex sentence from earlier in the conversation.')],
@@ -165,6 +188,7 @@ describe('dialogue language complexity', () => {
 			scenario: { systemPrompt: 'Speak at A1.' },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
+			participantGender: 'MALE',
 			maxCefrLevel: null,
 			summary: [{ state: { scene: '', activeNpcId: null, roster: [] }, history: 'Previously spoke at A1.' }],
 			recentEvents: [],

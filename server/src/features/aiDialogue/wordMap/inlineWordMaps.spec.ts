@@ -28,9 +28,11 @@ describe('inline dictionary word maps', () => {
 			scenario: { systemPrompt: 'Customs' },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
+			participantGender: 'MALE',
 			summary: null,
 			recentEvents: [],
 		})
+
 		expect(prompt[0].content).toContain('generate LAST, in this same response')
 		expect(prompt[0].content).toContain('Include ONLY multiword expressions')
 	})

@@ -4,8 +4,10 @@ import { Language, languages } from 'utils/languages'
 import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { OPENAI_TTS_VOICES } from 'infrastructure/ttsProviderAdapter/TtsProvider.interface'
+import type { UserGender } from 'prisma/generated/client'
 import { buildAiDialogueLanguageLevelRules } from './buildAiDialogueLanguageLevelRules'
 import { deriveAiDialogueState } from './deriveAiDialogueState'
+import { describeParticipantGender } from './participantGender'
 import { serializeAiDialogueEvent } from './serializeAiDialogueEvent'
 
 type ScenarioForPrompt = {
@@ -20,17 +22,27 @@ type ScenarioForPrompt = {
  * свежие несжатые события) + просьба сгенерировать следующий ход.
  *
  * Язык диалога (source) и язык перевода/подсказок (target) приходят из диалога,
- * а не из сценария — сценарий языконейтрален.
+ * а не из сценария — сценарий языконейтрален. Пол участника берётся из профиля
+ * пользователя на каждом ходе.
  */
 export function buildAiDialoguePrompt(input: {
 	scenario: ScenarioForPrompt
 	sourceLanguageCode: Language
 	targetLanguageCode: Language | null
+	participantGender: UserGender
 	maxCefrLevel?: AiDialogueCefrLevel | null
 	summary: null | AiDialogueSummary
 	recentEvents: AiDialogueEvent[]
 }): LlmMessage[] {
-	const { scenario, sourceLanguageCode, targetLanguageCode, maxCefrLevel = null, summary, recentEvents } = input
+	const {
+		scenario,
+		sourceLanguageCode,
+		targetLanguageCode,
+		participantGender,
+		maxCefrLevel = null,
+		summary,
+		recentEvents,
+	} = input
 
 	const prevState = summary?.[summary.length - 1]?.state ?? null
 	const state = deriveAiDialogueState(prevState, recentEvents)
@@ -38,16 +50,30 @@ export function buildAiDialoguePrompt(input: {
 	return [
 		{
 			role: 'system',
-			content: buildSystemMessage(scenario, sourceLanguageCode, targetLanguageCode, state.roster, maxCefrLevel),
+			content: buildSystemMessage(
+				scenario,
+				sourceLanguageCode,
+				targetLanguageCode,
+				participantGender,
+				state.roster,
+				maxCefrLevel,
+			),
 		},
 		{ role: 'user', content: buildUserMessage(state.scene, state.activeNpcId, summary, recentEvents) },
 	]
+}
+
+/** Пол участника: согласование по роду и сюжетные развилки сценариев вида «если участник — мужчина…». */
+function buildParticipantGenderRule(gender: UserGender): string {
+	const noun = describeParticipantGender(gender)
+	return `- The human participant is ${noun}. Whenever NPC speech, actions, scene descriptions, help or world events address or describe the participant, use grammatical forms that agree with this gender (adjectives, participles, past-tense verbs, pronouns and forms of address such as "señor"/"señora") in both content and translation lines. Scenario instructions that depend on the participant's gender apply to ${noun}. Do not comment on the participant's gender without a reason in the scene.`
 }
 
 function buildSystemMessage(
 	scenario: ScenarioForPrompt,
 	sourceLanguageCode: Language,
 	targetLanguageCode: Language | null,
+	participantGender: UserGender,
 	roster: AiDialogueNpcRosterEntry[],
 	maxCefrLevel: AiDialogueCefrLevel | null,
 ): string {
@@ -74,6 +100,7 @@ function buildSystemMessage(
 		'- Within each npcActions block, output speech followed by its associated action, then repeat speech/action pairs as needed. Either part of a pair may be omitted when unnecessary; do not invent speech or actions just to complete a pair.',
 		'- In every visible content line (NPC actions and speech, scene descriptions, help and world events), refer to the human participant directly in the second person: "you" and "your" in English, or the natural equivalents in the dialogue language. Never call them "the learner", "the student", "the user" or similar out-of-scene labels. The participant belongs to the scene; do not mention language learning or practice in visible narration. These rules apply even if a scenario or earlier history uses those labels. Internal instructions and hidden visual metadata use "participant" for this person.',
 		'- Keep NPC action descriptions in the third person for the NPC, while addressing the human participant as "you": "holds out his hand for your passport and looks at you"; "stamps your passport, writes a short note, and hands it back to you". Preserve this second-person viewpoint in translations too; in Russian use "вы", "вас", "вам", "ваш" and their appropriate grammatical forms instead of "ученик" or "пользователь".',
+		buildParticipantGenderRule(participantGender),
 		'- Write exactly one field per line. Never put an empty line inside a block — an empty line only separates whole blocks. Content and translation are always a single line each.',
 		'- After ALL dialogue blocks, output the wordMaps: footer described below. End after its final JSON line, without commentary or markdown.',
 		'- npcId must be stable: if an NPC has appeared before, reuse its npcId from the registry below instead of inventing a new one.',

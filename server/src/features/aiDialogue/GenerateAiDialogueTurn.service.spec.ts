@@ -12,6 +12,7 @@ jest.mock('repo/aiDialogueScenario/aiDialogueScenario.repository', () => ({ AiDi
 jest.mock('infrastructure/llmProviderAdapter/LlmAdapter.service', () => ({ LlmAdapterService: class {} }))
 jest.mock('./audio/AiDialogueAudioStream.service', () => ({ AiDialogueAudioStream: class {} }))
 jest.mock('./SummarizeAiDialogue.service', () => ({ SummarizeAiDialogue: class {} }))
+jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
@@ -26,6 +27,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 
 	const dialogue = {
 		getDialogueById: jest.fn().mockResolvedValue({
+			user_id: 5,
 			scenario_id: 1,
 			source_language_code: 'en',
 			target_language_code: 'ru',
@@ -36,6 +38,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 	}
 	const scenario = { getScenarioById: jest.fn().mockResolvedValue({ system_prompt: 'At customs' }) }
 	const turn = { saveGeneratedTurn: jest.fn().mockResolvedValue([7]) }
+
 	const query = {
 		getMessagesByDialogueId: jest.fn().mockResolvedValue([]),
 		getMessageById: jest.fn(async () => ({
@@ -45,6 +48,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 				.events[0],
 		})),
 	}
+
 	const registry = {
 		hasActiveForDialogue: jest.fn().mockReturnValue(false),
 		register: jest.fn().mockReturnValue(new AbortController()),
@@ -61,6 +65,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 		confirm: jest.fn().mockResolvedValue(undefined),
 	}
 	const audio = { start: jest.fn(() => audioSession) }
+	const user = { getUserById: jest.fn().mockResolvedValue({ id: 5, gender: 'FEMALE' }) }
 
 	const service = new GenerateAiDialogueTurn(
 		llm as never,
@@ -72,10 +77,20 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 		hub as never,
 		summary as never,
 		audio as never,
+		user as never,
 	)
 
-	return { service, timeline, turn, query, registry, hub, llm, audioSession, dialogue }
+	return { service, timeline, turn, query, registry, hub, llm, audioSession, dialogue, user }
 }
+
+describe('participant gender', () => {
+	it('reads the gender from the dialogue owner profile into the system prompt', async () => {
+		const { service, llm, user } = harness()
+		await service.generate(3)
+		expect(user.getUserById).toHaveBeenCalledWith(5)
+		expect(llm.stream.mock.calls[0][0].messages[0].content).toContain('The human participant is a woman.')
+	})
+})
 
 describe('text turn with inline word maps', () => {
 	it('streams the text first and saves ready maps before sending messages', async () => {

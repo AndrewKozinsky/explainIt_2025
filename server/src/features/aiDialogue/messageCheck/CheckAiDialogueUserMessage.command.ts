@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
+import { UserRepository } from 'repo/user.repository'
 import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -31,6 +32,7 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 		private dialogueRepository: AiDialogueRepository,
 		private messageRepository: AiDialogueMessageRepository,
 		private llmAdapter: LlmAdapterService,
+		private userRepository: UserRepository,
 	) {}
 
 	async execute({ dto }: CheckAiDialogueUserMessageCommand): Promise<AiDialogueUserMessageCheckOutModel> {
@@ -47,6 +49,9 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 			throw new CustomError(errorMessage.aiDialogue.checkTextRequired, ErrorStatusCode.BadRequest_400)
 		}
 
+		const user = await this.userRepository.getUserById(dialogue.user_id)
+		if (!user) throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.NotFound_404)
+
 		const context = await this.messageRepository.getTextCheckContext(dto.dialogueId)
 		const summary = parseAiDialogueSummary(dialogue.summary)?.at(-1)
 		const messages = buildAiDialogueUserMessageCheckPrompt({
@@ -54,6 +59,7 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 			action,
 			sourceLanguageCode: dialogue.source_language_code,
 			targetLanguageCode: dialogue.target_language_code,
+			participantGender: user.gender,
 			context: { ...context, summary: summary?.history?.slice(-3_000) ?? '' },
 		})
 
