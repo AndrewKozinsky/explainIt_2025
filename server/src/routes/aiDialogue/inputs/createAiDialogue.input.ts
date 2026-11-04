@@ -13,6 +13,9 @@ export class CreateAiDialogueInput {
 	@DtoFieldDecorators('scenarioId', bdConfig.AiDialogueScenario.dbFields.id)
 	scenarioId: number
 
+	@DtoFieldDecorators('userScenarioAmendment', bdConfig.AiDialogue.dbFields.user_scenario_amendment)
+	userScenarioAmendment?: string | null
+
 	@DtoFieldDecorators('sourceLanguageCode', bdConfig.AiDialogue.dbFields.source_language_code)
 	sourceLanguageCode: Language
 

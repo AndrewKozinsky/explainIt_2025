@@ -1369,6 +1369,14 @@ export const bdConfig = {
 				example: 'You are a friendly dentist named Dr. Collins...',
 				required: true,
 			},
+			user_scenario_amendment_hint: {
+				type: 'string',
+				description:
+					'Example of a user amendment to this scenario, shown as a placeholder in the dialogue start window (null when the scenario has no hint)',
+				example: 'A little girl is knocking at the door',
+				required: false,
+				maxLength: 2000,
+			},
 			group_id: {
 				type: 'manyToOne',
 				thisField: 'group_id',
@@ -1510,6 +1518,14 @@ export const bdConfig = {
 				description:
 					'Stable illustration style ID selected once at creation. Existing dialogues default to realism.',
 				example: 'realism',
+			},
+			user_scenario_amendment: {
+				type: 'string',
+				required: false,
+				maxLength: 400,
+				description:
+					'Optional user-written amendment to the initial scenario prompt (who the NPCs are, country, place). Set once at dialogue creation and added after the scenario prompt on every turn.',
+				example: 'The embassy of Canada; the consul is suspicious',
 			},
 			max_cefr_level: {
 				type: 'enum',

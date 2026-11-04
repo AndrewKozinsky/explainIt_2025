@@ -61,6 +61,7 @@ export function useAiDialogueScenarioClick() {
 					sourceLanguageCode: options.sourceLanguageCode,
 					maxCefrLevel: options.maxCefrLevel,
 					illustrationStyleId: options.illustrationStyleId,
+					userScenarioAmendment: options.userScenarioAmendment,
 					targetLanguageCode: locale as LanguageCode,
 				})
 

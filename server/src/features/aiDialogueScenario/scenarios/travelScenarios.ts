@@ -22,6 +22,15 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Havaalanında pasaport kontrolünden geçiyorsunuz: memur ziyaret amacınızı, kalış sürenizi ve kalacağınız yeri soruyor.',
 			ru: 'Вы проходите паспортный контроль в аэропорту: офицер спрашивает о цели визита, сроке пребывания и месте жительства.',
 		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: Tokyo airport, the border officer is strict and picky',
+			es: 'Por ejemplo: el aeropuerto de Tokio, el agente de fronteras es estricto y quisquilloso',
+			fr: 'Par exemple : l’aéroport de Tokyo, le policier aux frontières est strict et pointilleux',
+			de: 'Zum Beispiel: Flughafen Tokio, der Grenzbeamte ist streng und pingelig',
+			it: 'Per esempio: l’aeroporto di Tokyo, l’agente di frontiera è severo e pignolo',
+			tr: 'Örneğin: Tokyo havalimanı, sınır polisi sert ve titiz',
+			ru: 'Например: аэропорт Токио, пограничник строгий и придирчивый',
+		}),
 		systemPrompt:
 			'You are a polite passport control officer at an airport. The participant is a traveller going through passport control. Ask for the passport, the purpose and length of the visit, where the traveller will stay, and if they have anything to declare. Speak naturally as a passport control officer, with wording and detail appropriate to the situation. Stay in character and never step out of the officer role.',
 	},
@@ -45,6 +54,15 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'La tua valigia non è arrivata. Chiedi aiuto al servizio bagagli dell’aeroporto.',
 			tr: 'Valiziniz gelmedi. Havaalanındaki bagaj hizmetleri görevlisinden yardım istiyorsunuz.',
 			ru: 'Ваш чемодан не прилетел. Вы обращаетесь за помощью в службу розыска багажа в аэропорту.',
+		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: my suitcase had a suit for tomorrow’s wedding in it',
+			es: 'Por ejemplo: en mi maleta iba el traje para la boda de mañana',
+			fr: 'Par exemple : dans ma valise, il y avait le costume pour le mariage de demain',
+			de: 'Zum Beispiel: In meinem Koffer war der Anzug für die Hochzeit morgen',
+			it: 'Per esempio: nella valigia c’era l’abito per il matrimonio di domani',
+			tr: 'Örneğin: bavulumda yarınki düğün için takım elbisem vardı',
+			ru: 'Например: в чемодане был костюм для завтрашней свадьбы',
 		}),
 		systemPrompt:
 			'The participant is at an airport baggage service desk because their suitcase has not arrived. You play a baggage service agent with a consistent personality. Begin by greeting them and asking how you can help. Ask relevant follow-up questions about their flight, baggage tag and suitcase, one or two at a time. Explain the tracing process and discuss contact details or delivery when relevant. Let the participant describe the problem and make their own choices. Do not assume their personal details or promise that the suitcase has already been found. Stay in character and respond naturally to the conversation.',
@@ -70,6 +88,15 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Otele geliyorsunuz ve giriş işlemleri için resepsiyon görevlisiyle konuşuyorsunuz.',
 			ru: 'Вы приезжаете в отель и обращаетесь к администратору, чтобы заселиться.',
 		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: a small family hotel in Rome, I have a dog with me',
+			es: 'Por ejemplo: un pequeño hotel familiar en Roma, viajo con mi perro',
+			fr: 'Par exemple : un petit hôtel familial à Rome, j’ai un chien avec moi',
+			de: 'Zum Beispiel: ein kleines Familienhotel in Rom, ich habe einen Hund dabei',
+			it: 'Per esempio: un piccolo hotel a conduzione familiare a Roma, ho con me un cane',
+			tr: 'Örneğin: Roma’da küçük bir aile oteli, yanımda köpeğim var',
+			ru: 'Например: маленький семейный отель в Риме, со мной собака',
+		}),
 		systemPrompt:
 			'The participant has just arrived at a hotel reception. You play the receptionist, with a consistent personality and a believable hotel setting. Welcome them and ask whether they have a reservation. Let them provide their own name, booking details and preferences. Discuss room availability, check-in requirements, breakfast or hotel facilities as these become relevant. Give only as much information as the moment calls for. Do not complete the check-in, invent payment or consent, or make decisions on behalf of the participant. Stay in character and react naturally to their questions and social contributions.',
 	},
@@ -93,6 +120,15 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'L’aria condizionata della tua camera non funziona. Discuti una soluzione alla reception.',
 			tr: 'Otel odanızdaki klima çalışmıyor. Resepsiyonda bir çözüm arıyorsunuz.',
 			ru: 'В вашем номере не работает кондиционер. Вы обсуждаете решение с администратором отеля.',
+		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: the air conditioning in the room is broken, and it is very hot outside',
+			es: 'Por ejemplo: el aire acondicionado de la habitación no funciona y fuera hace mucho calor',
+			fr: 'Par exemple : la climatisation de la chambre ne marche pas et il fait très chaud dehors',
+			de: 'Zum Beispiel: Die Klimaanlage im Zimmer funktioniert nicht, und draußen ist es sehr heiß',
+			it: 'Per esempio: l’aria condizionata in camera non funziona e fuori fa molto caldo',
+			tr: 'Örneğin: odadaki klima çalışmıyor ve dışarısı çok sıcak',
+			ru: 'Например: в номере не работает кондиционер, а на улице жара',
 		}),
 		systemPrompt:
 			'The participant is staying at a hotel where the air conditioning in their room is not working. The opening scene places them at the reception desk. You play a hotel receptionist with a consistent personality. Greet them and invite them to explain what is wrong. Ask relevant questions and offer plausible options such as maintenance or an available alternative room. Discuss timing and preferences through the conversation instead of listing every option at once. Do not assume that the participant has accepted a solution or moved rooms. Keep the encounter polite and believable, and stay in character.',

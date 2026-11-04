@@ -197,3 +197,35 @@ describe('dialogue language complexity', () => {
 		expect(messages[1].content).toContain('Previously spoke at A1.')
 	})
 })
+
+describe('participant setting note', () => {
+	function systemWithNote(userScenarioAmendment?: string | null) {
+		return buildAiDialoguePrompt({
+			scenario: { systemPrompt: 'Someone knocks at the door.' },
+			sourceLanguageCode: 'en',
+			targetLanguageCode: 'ru',
+			participantGender: 'MALE',
+			userScenarioAmendment,
+			summary: null,
+			recentEvents: [],
+		})[0].content
+	}
+
+	it('adds the wishes after the scenario prompt and before the role scope and response format', () => {
+		const system = systemWithNote('A little girl is knocking at the door.')
+		const scenarioIndex = system.indexOf('Someone knocks at the door.')
+		const sectionIndex = system.indexOf("## Participant's wishes for this scene")
+
+		expect(sectionIndex).toBeGreaterThan(scenarioIndex)
+		expect(system.indexOf('## Scope of scenario roles')).toBeGreaterThan(sectionIndex)
+		expect(system.indexOf('## Response format')).toBeGreaterThan(sectionIndex)
+		expect(system).toContain('<<<\nA little girl is knocking at the door.\n>>>')
+		expect(system).toContain('override the matching details of the scenario')
+		expect(system).toContain('never override the response format')
+		expect(system).toContain('all content lines are still written in english')
+	})
+
+	it.each([undefined, null, '', '   '])('omits the section when the note is empty: %j', (userScenarioAmendment) => {
+		expect(systemWithNote(userScenarioAmendment)).not.toContain("Participant's wishes")
+	})
+})

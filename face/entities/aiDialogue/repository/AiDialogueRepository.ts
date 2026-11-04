@@ -40,6 +40,8 @@ export type CreateAiDialogueInput = {
 	targetLanguageCode: LanguageCode
 	maxCefrLevel?: AiDialogueCefrLevel | null
 	illustrationStyleId?: string
+	/** Пожелания пользователя к сцене; задаются только при создании диалога. */
+	userScenarioAmendment?: string | null
 }
 
 /**

@@ -114,6 +114,7 @@ export class AiDialogueScenarioRepository {
 			title: scenario.title,
 			description: scenario.description,
 			system_prompt: scenario.systemPrompt,
+			user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
 			group_id: groupId,
 			cover_s3_key: scenario.coverS3Key,
 		}

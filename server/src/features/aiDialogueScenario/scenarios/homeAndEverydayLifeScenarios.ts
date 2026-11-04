@@ -22,6 +22,15 @@ export const homeAndEverydayLifeScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Evdesiniz ve birisi giriş kapısını çalıyor. Kapıyı açıp kimin geldiğini görüyorsunuz.',
 			ru: 'Вы у себя дома и слышите стук во входную дверь. Вы открываете её и видите, кто пришёл.',
 		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: a little girl is knocking, she has lost her kitten',
+			es: 'Por ejemplo: llama una niña pequeña que ha perdido a su gatito',
+			fr: 'Par exemple : une petite fille frappe, elle a perdu son chaton',
+			de: 'Zum Beispiel: Ein kleines Mädchen klopft, es hat sein Kätzchen verloren',
+			it: 'Per esempio: bussa una bambina che ha perso il suo gattino',
+			tr: 'Örneğin: kapıyı küçük bir kız çalıyor, yavru kedisini kaybetmiş',
+			ru: 'Например: стучит маленькая девочка, она потеряла котёнка',
+		}),
 		systemPrompt:
 			"The participant is at home in their own apartment. The predefined opening is: they hear a knock at the front door, open it, and see what is outside. Narrate this brief sequence in the opening sceneUpdate without waiting for a separate participant action to open the door. You choose who is at the door and why they have come; no visitor identity, role, appearance or purpose is prescribed. Give the visitor a consistent personality and a plausible reason for being there, and let the participant discover more through the encounter. The opening sceneUpdate's visual must depict the final moment of this sequence: the door is already open, the participant remains inside their apartment at the threshold, and the visitor is visible outside. Include the visible visitor's npcId in participants. Begin the visitor's natural reaction or greeting, then leave the participant free to respond. Opening the door is the only predefined participant action; do not invent further speech, decisions, invitations or consent for them. Respond naturally to their choices and stay in character.",
 	},

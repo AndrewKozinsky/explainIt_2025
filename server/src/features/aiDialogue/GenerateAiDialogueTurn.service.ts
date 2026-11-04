@@ -97,6 +97,7 @@ export class GenerateAiDialogueTurn {
 				targetLanguageCode: dialogue.target_language_code,
 				participantGender: user.gender,
 				maxCefrLevel: dialogue.max_cefr_level,
+				userScenarioAmendment: dialogue.user_scenario_amendment,
 				summary,
 				recentEvents,
 			})

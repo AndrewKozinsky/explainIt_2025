@@ -1,7 +1,9 @@
 import IllustrationStyleSwitcher from '@/entities/aiDialogue/ui/IllustrationStyleSwitcher/IllustrationStyleSwitcher'
 import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
+import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
+import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowRightPureButtonIcon'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
@@ -50,6 +52,19 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 					isError={settings.illustrationStyles.isError}
 					isFetching={settings.illustrationStyles.isFetching}
 					onRetry={settings.illustrationStyles.retry}
+				/>
+				<TextInput
+					block
+					label='Пожелания к сцене'
+					maxCharacters={aiDialogueScenarioConfig.userScenarioAmendmentMaxLength}
+					currentText={settings.userScenarioAmendment}
+					textareaProps={{
+						value: settings.userScenarioAmendment,
+						onChange: (event) => settings.changeUserScenarioAmendment(event.target.value),
+						placeholder: scenario.userScenarioAmendmentHint,
+						disabled: loading,
+						rows: 3,
+					}}
 				/>
 				<Button
 					theme='accent'

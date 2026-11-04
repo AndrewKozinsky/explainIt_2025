@@ -10,6 +10,12 @@ export class PublicAiDialogueScenarioOutModel extends AiDialogueScenarioOutModel
 	@ApiProperty(getApiPropertyOptions($$.publicSlug))
 	declare slug: string
 
+	@ApiProperty({
+		...getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.user_scenario_amendment_hint),
+		description: 'Example of user wishes for the scene in the interface language (placeholder of the wishes field)',
+	})
+	userScenarioAmendmentHint: null | string
+
 	@ApiProperty(getApiPropertyOptions($$.coverUrl))
 	coverUrl: string
 }

@@ -13,7 +13,14 @@ import {
 } from 'models/aiDialogueScenarioGroup/aiDialogueScenarioGroup.out.model'
 import { Prisma } from 'prisma/generated/client'
 
-const scenarioSelect = { id: true, slug: true, title: true, description: true, cover_s3_key: true } as const
+const scenarioSelect = {
+	id: true,
+	slug: true,
+	title: true,
+	description: true,
+	user_scenario_amendment_hint: true,
+	cover_s3_key: true,
+} as const
 type PublicScenarioDb = Prisma.AiDialogueScenarioGetPayload<{ select: typeof scenarioSelect }>
 
 @Injectable()
@@ -76,6 +83,9 @@ export class AiDialogueScenarioGroupQueryRepository {
 			slug: scenario.slug,
 			title: pickLocalized(scenario.title, locale),
 			description: pickLocalized(scenario.description, locale),
+			userScenarioAmendmentHint: scenario.user_scenario_amendment_hint
+				? pickLocalized(scenario.user_scenario_amendment_hint, locale)
+				: null,
 			coverUrl: await this.storage.getFileUrl(scenario.cover_s3_key),
 		}
 	}

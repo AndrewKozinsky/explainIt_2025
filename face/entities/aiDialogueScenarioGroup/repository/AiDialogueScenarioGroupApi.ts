@@ -27,6 +27,7 @@ export function mapToAiDialogueScenarioGroup(raw: AiDialogueScenarioGroupOutMode
 			slug: scenario.slug,
 			title: scenario.title,
 			description: scenario.description,
+			userScenarioAmendmentHint: scenario.userScenarioAmendmentHint ?? null,
 			coverUrl: scenario.coverUrl,
 		})),
 	}

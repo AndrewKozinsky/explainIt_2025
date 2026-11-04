@@ -31,6 +31,7 @@
 | `source_language_code`      | `LanguageCode`             | Язык диалога — тот, который практикует ученик (реплики NPC)     |
 | `target_language_code`      | `LanguageCode`             | Язык перевода — родной язык ученика (поле `translation`)        |
 | `max_cefr_level`            | `CefrSimplificationLevel?` | Верхняя граница сложности A1/A2/B1/B2; `null` — без ограничения |
+| `user_scenario_amendment`         | `String?`                  | Пожелания пользователя к сцене (до 400 символов); задаются при создании |
 | `summary`                   | `String?`                  | Компактная сводка истории (JSON-строка, см. «Компакция»)        |
 | `summary_up_to`             | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`)      |
 | `created_at` / `updated_at` | `DateTime`                 | Даты                                                            |
@@ -59,7 +60,7 @@
 
 ```
 GET    /ai-dialogue/illustration-styles → 200 AiDialogueIllustrationStylesOutModel (публичный)
-POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel?, illustrationStyleId? } → 201 AiDialogueOutModel
+POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel?, illustrationStyleId?, userScenarioAmendment? } → 201 AiDialogueOutModel
 GET    /ai-dialogue?page=1&pageSize=3 → 200 AiDialoguesPageOutModel
 GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
 PATCH  /ai-dialogue/:id            body: { maxCefrLevel? } → 200 AiDialogueOutModel
@@ -135,6 +136,10 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
   (сейчас realism; это же значение по умолчанию в БД). Сохраняется один раз; PATCH не принимает это поле.
   Генератор использует выбор для новых NPC/сцен; переключатель — в окне запуска.
   Подробности — [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md).
+- `userScenarioAmendment` — необязательные пожелания к сцене, до 400 символов: кто NPC, страна, место, обстоятельства
+  («стучит маленькая девочка», «посольство Канады»). Пробелы по краям обрезаются, пустая строка сохраняется
+  как `null` в `user_scenario_amendment`. Задаётся один раз: PATCH поле не принимает, в моделях ответа его нет.
+  Как пожелание попадает в промпт — в разделе «Генерация хода».
 - При создании передаётся `scenarioId` и два языка:
     - `sourceLanguageCode` — язык диалога (тот, который практикует ученик; реплики NPC будут на нём);
     - `targetLanguageCode` — язык перевода (родной язык ученика; для текстовых полей LLM добавляет `translation`).
@@ -381,12 +386,18 @@ Registry генерации и шину SSE команда не использу
 
 1. Guard: если для диалога уже идёт генерация — выход (идемпотентно). Иначе регистрирует
    `AbortController` в `ActiveAiDialogueGenerationRegistry` (лимит — **1 активная генерация на диалог**).
-2. Читает диалог (нужны `summary`, `summary_up_to`, `scenario_id`, `max_cefr_level`) и сценарий.
+2. Читает диалог (нужны `summary`, `summary_up_to`, `scenario_id`, `max_cefr_level`, `user_scenario_amendment`) и сценарий.
    Уровень сложности фиксируется этим чтением на весь ход, включая повторные попытки парсинга.
 3. Читает все сообщения; «свежие» события = сообщения с `id > summary_up_to`.
 4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий построчный контракт
    ответа + реестр NPC + правила языка; user = текущая сцена + сжатая история + свежие события). Язык диалога берётся из
    `source_language_code`, язык перевода/подсказок — из `target_language_code`.
+   Непустой `user_scenario_amendment` идёт отдельным разделом «Participant's wishes for this scene» сразу после
+   `system_prompt` сценария, на каждом ходе, включая первый. Текст обрамлён маркерами `<<<`/`>>>` и описан как
+   данные о мире: пожелания заменяют совпадающие детали сценария (страна, кто пришёл) и держатся весь диалог,
+   но не меняют формат ответа, язык, перевод, уровень и общие правила. Пожелание может быть на любом языке.
+   Картинки и голоса следуют пожеланию сами: `appearance:`, `voice:` и `visual:` пишет та же LLM.
+   Сводка истории (компакция) и проверка черновика пожелание не получают.
 5. Стримит ответ: `LlmAdapterService.stream({ responseFormat: 'text' })`, накапливает текст и рассылает сырые `chunk`
    -события в шину.
 6. В конце парсит накопленный текст через `parseAiDialogueEvents` («спасающий» построчный разбор — недостающий
@@ -506,6 +517,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 | `source_language_code` | `LanguageCode`             | Язык диалога (практикуемый язык, реплики NPC)              |
 | `target_language_code` | `LanguageCode`             | Язык перевода (родной язык, поле `translation`)            |
 | `max_cefr_level`       | `CefrSimplificationLevel?` | A1/A2/B1/B2 или `null` (без ограничения)                   |
+| `user_scenario_amendment`    | `String?`                  | Пожелания пользователя к сцене; не меняется после создания |
 | `summary`              | `String?`                  | Сводка истории (JSON-строка, см. «Компакция»)              |
 | `summary_up_to`        | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`) |
 | `created_at`           | `DateTime`                 | Дата создания                                              |
@@ -641,11 +653,14 @@ Any передаёт `null`. На время сохранения заблоки
 ### Создание диалога по клику на сценарий
 
 1. Карточка открывает `StartDialogueModal` с обложкой, группой, названием и описанием сценария.
-2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`)) и сложность (A1/A2/B1/B2/Any).
-   Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или Any); закрытие окна ничего не создаёт.
+2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`)), сложность (A1/A2/B1/B2/Any)
+   и может написать пожелания к сцене.
+   Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или Any);
+   пожелания не сохраняются и при каждом открытии окна пустые. Закрытие окна ничего не создаёт.
 3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
-4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel })`.
-   `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `maxCefrLevel: null`.
+4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel, illustrationStyleId, userScenarioAmendment })`.
+   `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `maxCefrLevel: null`,
+   пустые пожелания передаются как `userScenarioAmendment: null`.
    Во время POST переключатель сложности и повторный запуск заблокированы, окно нельзя закрыть; ошибка сохраняет текущий выбор для повтора.
 5. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
 

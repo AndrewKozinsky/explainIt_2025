@@ -44,6 +44,7 @@ export type AiDialogueScenarioMinAggregateOutputType = {
   title: string | null
   description: string | null
   system_prompt: string | null
+  user_scenario_amendment_hint: string | null
   group_id: number | null
   cover_s3_key: string | null
   user_id: number | null
@@ -56,6 +57,7 @@ export type AiDialogueScenarioMaxAggregateOutputType = {
   title: string | null
   description: string | null
   system_prompt: string | null
+  user_scenario_amendment_hint: string | null
   group_id: number | null
   cover_s3_key: string | null
   user_id: number | null
@@ -68,6 +70,7 @@ export type AiDialogueScenarioCountAggregateOutputType = {
   title: number
   description: number
   system_prompt: number
+  user_scenario_amendment_hint: number
   group_id: number
   cover_s3_key: number
   user_id: number
@@ -94,6 +97,7 @@ export type AiDialogueScenarioMinAggregateInputType = {
   title?: true
   description?: true
   system_prompt?: true
+  user_scenario_amendment_hint?: true
   group_id?: true
   cover_s3_key?: true
   user_id?: true
@@ -106,6 +110,7 @@ export type AiDialogueScenarioMaxAggregateInputType = {
   title?: true
   description?: true
   system_prompt?: true
+  user_scenario_amendment_hint?: true
   group_id?: true
   cover_s3_key?: true
   user_id?: true
@@ -118,6 +123,7 @@ export type AiDialogueScenarioCountAggregateInputType = {
   title?: true
   description?: true
   system_prompt?: true
+  user_scenario_amendment_hint?: true
   group_id?: true
   cover_s3_key?: true
   user_id?: true
@@ -217,6 +223,7 @@ export type AiDialogueScenarioGroupByOutputType = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint: string | null
   group_id: number | null
   cover_s3_key: string | null
   user_id: number | null
@@ -252,6 +259,7 @@ export type AiDialogueScenarioWhereInput = {
   title?: Prisma.StringFilter<"AiDialogueScenario"> | string
   description?: Prisma.StringFilter<"AiDialogueScenario"> | string
   system_prompt?: Prisma.StringFilter<"AiDialogueScenario"> | string
+  user_scenario_amendment_hint?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   group_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
   cover_s3_key?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   user_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
@@ -267,6 +275,7 @@ export type AiDialogueScenarioOrderByWithRelationInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   system_prompt?: Prisma.SortOrder
+  user_scenario_amendment_hint?: Prisma.SortOrderInput | Prisma.SortOrder
   group_id?: Prisma.SortOrderInput | Prisma.SortOrder
   cover_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   user_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -285,6 +294,7 @@ export type AiDialogueScenarioWhereUniqueInput = Prisma.AtLeast<{
   title?: Prisma.StringFilter<"AiDialogueScenario"> | string
   description?: Prisma.StringFilter<"AiDialogueScenario"> | string
   system_prompt?: Prisma.StringFilter<"AiDialogueScenario"> | string
+  user_scenario_amendment_hint?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   group_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
   cover_s3_key?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   user_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
@@ -300,6 +310,7 @@ export type AiDialogueScenarioOrderByWithAggregationInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   system_prompt?: Prisma.SortOrder
+  user_scenario_amendment_hint?: Prisma.SortOrderInput | Prisma.SortOrder
   group_id?: Prisma.SortOrderInput | Prisma.SortOrder
   cover_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
   user_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -320,6 +331,7 @@ export type AiDialogueScenarioScalarWhereWithAggregatesInput = {
   title?: Prisma.StringWithAggregatesFilter<"AiDialogueScenario"> | string
   description?: Prisma.StringWithAggregatesFilter<"AiDialogueScenario"> | string
   system_prompt?: Prisma.StringWithAggregatesFilter<"AiDialogueScenario"> | string
+  user_scenario_amendment_hint?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueScenario"> | string | null
   group_id?: Prisma.IntNullableWithAggregatesFilter<"AiDialogueScenario"> | number | null
   cover_s3_key?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueScenario"> | string | null
   user_id?: Prisma.IntNullableWithAggregatesFilter<"AiDialogueScenario"> | number | null
@@ -331,6 +343,7 @@ export type AiDialogueScenarioCreateInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   cover_s3_key?: string | null
   created_at?: Date | string
   group?: Prisma.AiDialogueScenarioGroupCreateNestedOneWithoutAiDialogueScenarioInput
@@ -344,6 +357,7 @@ export type AiDialogueScenarioUncheckedCreateInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   group_id?: number | null
   cover_s3_key?: string | null
   user_id?: number | null
@@ -356,6 +370,7 @@ export type AiDialogueScenarioUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   group?: Prisma.AiDialogueScenarioGroupUpdateOneWithoutAiDialogueScenarioNestedInput
@@ -369,6 +384,7 @@ export type AiDialogueScenarioUncheckedUpdateInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -382,6 +398,7 @@ export type AiDialogueScenarioCreateManyInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   group_id?: number | null
   cover_s3_key?: string | null
   user_id?: number | null
@@ -393,6 +410,7 @@ export type AiDialogueScenarioUpdateManyMutationInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -403,6 +421,7 @@ export type AiDialogueScenarioUncheckedUpdateManyInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -425,6 +444,7 @@ export type AiDialogueScenarioCountOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   system_prompt?: Prisma.SortOrder
+  user_scenario_amendment_hint?: Prisma.SortOrder
   group_id?: Prisma.SortOrder
   cover_s3_key?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -443,6 +463,7 @@ export type AiDialogueScenarioMaxOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   system_prompt?: Prisma.SortOrder
+  user_scenario_amendment_hint?: Prisma.SortOrder
   group_id?: Prisma.SortOrder
   cover_s3_key?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -455,6 +476,7 @@ export type AiDialogueScenarioMinOrderByAggregateInput = {
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
   system_prompt?: Prisma.SortOrder
+  user_scenario_amendment_hint?: Prisma.SortOrder
   group_id?: Prisma.SortOrder
   cover_s3_key?: Prisma.SortOrder
   user_id?: Prisma.SortOrder
@@ -575,6 +597,7 @@ export type AiDialogueScenarioCreateWithoutUserInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   cover_s3_key?: string | null
   created_at?: Date | string
   group?: Prisma.AiDialogueScenarioGroupCreateNestedOneWithoutAiDialogueScenarioInput
@@ -587,6 +610,7 @@ export type AiDialogueScenarioUncheckedCreateWithoutUserInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   group_id?: number | null
   cover_s3_key?: string | null
   created_at?: Date | string
@@ -628,6 +652,7 @@ export type AiDialogueScenarioScalarWhereInput = {
   title?: Prisma.StringFilter<"AiDialogueScenario"> | string
   description?: Prisma.StringFilter<"AiDialogueScenario"> | string
   system_prompt?: Prisma.StringFilter<"AiDialogueScenario"> | string
+  user_scenario_amendment_hint?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   group_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
   cover_s3_key?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   user_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
@@ -639,6 +664,7 @@ export type AiDialogueScenarioCreateWithoutGroupInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   cover_s3_key?: string | null
   created_at?: Date | string
   user?: Prisma.UserCreateNestedOneWithoutAiDialogueScenarioInput
@@ -651,6 +677,7 @@ export type AiDialogueScenarioUncheckedCreateWithoutGroupInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   cover_s3_key?: string | null
   user_id?: number | null
   created_at?: Date | string
@@ -688,6 +715,7 @@ export type AiDialogueScenarioCreateWithoutAiDialogueInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   cover_s3_key?: string | null
   created_at?: Date | string
   group?: Prisma.AiDialogueScenarioGroupCreateNestedOneWithoutAiDialogueScenarioInput
@@ -700,6 +728,7 @@ export type AiDialogueScenarioUncheckedCreateWithoutAiDialogueInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   group_id?: number | null
   cover_s3_key?: string | null
   user_id?: number | null
@@ -727,6 +756,7 @@ export type AiDialogueScenarioUpdateWithoutAiDialogueInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   group?: Prisma.AiDialogueScenarioGroupUpdateOneWithoutAiDialogueScenarioNestedInput
@@ -739,6 +769,7 @@ export type AiDialogueScenarioUncheckedUpdateWithoutAiDialogueInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -751,6 +782,7 @@ export type AiDialogueScenarioCreateManyUserInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   group_id?: number | null
   cover_s3_key?: string | null
   created_at?: Date | string
@@ -761,6 +793,7 @@ export type AiDialogueScenarioUpdateWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   group?: Prisma.AiDialogueScenarioGroupUpdateOneWithoutAiDialogueScenarioNestedInput
@@ -773,6 +806,7 @@ export type AiDialogueScenarioUncheckedUpdateWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -785,6 +819,7 @@ export type AiDialogueScenarioUncheckedUpdateManyWithoutUserInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -796,6 +831,7 @@ export type AiDialogueScenarioCreateManyGroupInput = {
   title: string
   description: string
   system_prompt: string
+  user_scenario_amendment_hint?: string | null
   cover_s3_key?: string | null
   user_id?: number | null
   created_at?: Date | string
@@ -806,6 +842,7 @@ export type AiDialogueScenarioUpdateWithoutGroupInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneWithoutAiDialogueScenarioNestedInput
@@ -818,6 +855,7 @@ export type AiDialogueScenarioUncheckedUpdateWithoutGroupInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -830,6 +868,7 @@ export type AiDialogueScenarioUncheckedUpdateManyWithoutGroupInput = {
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
+  user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -872,6 +911,7 @@ export type AiDialogueScenarioSelect<ExtArgs extends runtime.Types.Extensions.In
   title?: boolean
   description?: boolean
   system_prompt?: boolean
+  user_scenario_amendment_hint?: boolean
   group_id?: boolean
   cover_s3_key?: boolean
   user_id?: boolean
@@ -888,6 +928,7 @@ export type AiDialogueScenarioSelectCreateManyAndReturn<ExtArgs extends runtime.
   title?: boolean
   description?: boolean
   system_prompt?: boolean
+  user_scenario_amendment_hint?: boolean
   group_id?: boolean
   cover_s3_key?: boolean
   user_id?: boolean
@@ -902,6 +943,7 @@ export type AiDialogueScenarioSelectUpdateManyAndReturn<ExtArgs extends runtime.
   title?: boolean
   description?: boolean
   system_prompt?: boolean
+  user_scenario_amendment_hint?: boolean
   group_id?: boolean
   cover_s3_key?: boolean
   user_id?: boolean
@@ -916,13 +958,14 @@ export type AiDialogueScenarioSelectScalar = {
   title?: boolean
   description?: boolean
   system_prompt?: boolean
+  user_scenario_amendment_hint?: boolean
   group_id?: boolean
   cover_s3_key?: boolean
   user_id?: boolean
   created_at?: boolean
 }
 
-export type AiDialogueScenarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "system_prompt" | "group_id" | "cover_s3_key" | "user_id" | "created_at", ExtArgs["result"]["aiDialogueScenario"]>
+export type AiDialogueScenarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "system_prompt" | "user_scenario_amendment_hint" | "group_id" | "cover_s3_key" | "user_id" | "created_at", ExtArgs["result"]["aiDialogueScenario"]>
 export type AiDialogueScenarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   group?: boolean | Prisma.AiDialogueScenario$groupArgs<ExtArgs>
   user?: boolean | Prisma.AiDialogueScenario$userArgs<ExtArgs>
@@ -951,6 +994,7 @@ export type $AiDialogueScenarioPayload<ExtArgs extends runtime.Types.Extensions.
     title: string
     description: string
     system_prompt: string
+    user_scenario_amendment_hint: string | null
     group_id: number | null
     cover_s3_key: string | null
     user_id: number | null
@@ -1386,6 +1430,7 @@ export interface AiDialogueScenarioFieldRefs {
   readonly title: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly description: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly system_prompt: Prisma.FieldRef<"AiDialogueScenario", 'String'>
+  readonly user_scenario_amendment_hint: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly group_id: Prisma.FieldRef<"AiDialogueScenario", 'Int'>
   readonly cover_s3_key: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly user_id: Prisma.FieldRef<"AiDialogueScenario", 'Int'>

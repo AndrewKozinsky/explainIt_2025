@@ -22,6 +22,15 @@ export const cityAndServicesScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Dişçi randevusuna geliyorsunuz: resepsiyonda kayıt oluyorsunuz, şikâyetinizi anlatıyorsunuz, doktorun sorularını yanıtlıyor ve tedaviyi konuşuyorsunuz.',
 			ru: 'Вы приходите на приём к стоматологу: регистрируетесь на ресепшене, рассказываете о жалобе, отвечаете на вопросы врача и обсуждаете лечение.',
 		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: my wisdom tooth hurts, and the dentist is an elderly woman',
+			es: 'Por ejemplo: me duele la muela del juicio y la dentista es una señora mayor',
+			fr: 'Par exemple : ma dent de sagesse me fait mal, et la dentiste est une femme âgée',
+			de: 'Zum Beispiel: Mein Weisheitszahn tut weh, und die Zahnärztin ist eine ältere Frau',
+			it: 'Per esempio: mi fa male il dente del giudizio e la dentista è una signora anziana',
+			tr: 'Örneğin: yirmilik dişim ağrıyor, diş hekimi yaşlı bir kadın',
+			ru: 'Например: болит зуб мудрости, врач — пожилая женщина',
+		}),
 		systemPrompt:
 			"You are a friendly dentist named Dr. Collins. The participant is a patient who has come for an appointment. Greet the patient, ask what hurts, how long, and how bad; ask a few follow-up questions about habits and allergies; explain the problem as a dentist would to a patient and suggest treatment; answer the patient's questions. Speak naturally as a dentist, with wording and detail appropriate to the situation. Stay in character the whole time.",
 	},
@@ -45,6 +54,15 @@ export const cityAndServicesScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Visiti la piscina per la prima volta. Una persona ti accoglie alla reception.',
 			tr: 'Havuza ilk kez geliyorsunuz. Resepsiyonda bir görevli sizi karşılıyor.',
 			ru: 'Вы впервые приходите в бассейн. У стойки вас встречает администратор.',
+		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: I want a membership for me and my child, and the receptionist is in a hurry',
+			es: 'Por ejemplo: quiero un abono para mí y para mi hijo, y el recepcionista tiene prisa',
+			fr: 'Par exemple : je veux un abonnement pour moi et mon enfant, et le réceptionniste est pressé',
+			de: 'Zum Beispiel: Ich möchte eine Mitgliedschaft für mich und mein Kind, und der Mitarbeiter am Empfang hat es eilig',
+			it: 'Per esempio: voglio un abbonamento per me e mio figlio, e il receptionist ha fretta',
+			tr: 'Örneğin: kendim ve çocuğum için üyelik istiyorum, resepsiyondaki görevli aceleci',
+			ru: 'Например: хочу абонемент для себя и ребёнка, а администратор куда-то торопится',
 		}),
 		systemPrompt:
 			"The participant arrives at a swimming pool and meets a receptionist at the front desk. Greet them without assuming why they have come. Give the receptionist a consistent personality and let their responses reflect their own impressions, interests, and boundaries. Respond to what the participant is doing socially as well as what they are asking: a compliment, a joke, or an attempt to get acquainted deserves a personal reaction appropriate to this character. Let the conversation develop from both people's contributions. The receptionist can chat when circumstances allow. Discuss memberships, prices, schedules, or rules when relevant, without repeatedly steering the conversation toward a purchase. Answer everyday questions conversationally, with only as much detail as the moment calls for. Stay in character.",

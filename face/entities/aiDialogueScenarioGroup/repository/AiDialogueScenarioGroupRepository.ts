@@ -3,6 +3,8 @@ import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 
 export type PublicAiDialogueScenarioModel = AiDialogueScenarioModel & {
 	slug: string
+	/** Пример пожеланий к сцене для плейсхолдера окна запуска; null, если у сценария его нет. */
+	userScenarioAmendmentHint: string | null
 	coverUrl: string
 }
 

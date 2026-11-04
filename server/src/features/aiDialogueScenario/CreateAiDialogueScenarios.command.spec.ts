@@ -47,6 +47,7 @@ describe('Public scenario seeds', () => {
 		const texts = [
 			...aiDialogueScenarioGroups.map((group) => group.title),
 			...scenarios.flatMap((s) => [s.title, s.description]),
+			...scenarios.flatMap((s) => (s.userScenarioAmendmentHint ? [s.userScenarioAmendmentHint] : [])),
 		]
 
 		for (const text of texts) {

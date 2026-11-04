@@ -110,6 +110,7 @@ export class AiDialogueController {
 				targetLanguageCode: input.targetLanguageCode,
 				maxCefrLevel: input.maxCefrLevel,
 				illustrationStyleId: input.illustrationStyleId,
+				userScenarioAmendment: input.userScenarioAmendment,
 				locale,
 			}),
 		)

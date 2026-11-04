@@ -277,41 +277,43 @@ model AiDialogueScenarioGroup {
 }
 
 model AiDialogueScenario {
-	id            Int                      @id @default(autoincrement())
-	slug          String?                  @unique
-	title         String
-	description   String
-	system_prompt String
-	group         AiDialogueScenarioGroup? @relation(fields: [group_id], references: [id], onDelete: Restrict)
-	group_id      Int?
-	cover_s3_key  String?
-	user          User?                    @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id       Int?
-	AiDialogue    AiDialogue[]
-	created_at    DateTime                 @default(now())
+	id                           Int                      @id @default(autoincrement())
+	slug                         String?                  @unique
+	title                        String
+	description                  String
+	system_prompt                String
+	user_scenario_amendment_hint String?
+	group                        AiDialogueScenarioGroup? @relation(fields: [group_id], references: [id], onDelete: Restrict)
+	group_id                     Int?
+	cover_s3_key                 String?
+	user                         User?                    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	user_id                      Int?
+	AiDialogue                   AiDialogue[]
+	created_at                   DateTime                 @default(now())
 
 	@@index([user_id])
 	@@index([group_id, created_at, id])
 }
 
 model AiDialogue {
-	illustration_style_id  String                   @default("realism")
-	max_cefr_level         CefrSimplificationLevel?
-	id                     Int                      @id @default(autoincrement())
-	scenario               AiDialogueScenario       @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
-	scenario_id            Int
-	user                   User                     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id                Int
-	source_language_code   LanguageCode
-	target_language_code   LanguageCode
-	summary                String?
-	summary_up_to          Int                      @default(0)
-	AiDialogueVoice        AiDialogueVoice[]
-	AiDialogueAudioAttempt AiDialogueAudioAttempt[]
-	AiDialogueMessage      AiDialogueMessage[]
-	AiDialogueCharacter    AiDialogueCharacter[]
-	created_at             DateTime                 @default(now())
-	updated_at             DateTime                 @default(now())
+	illustration_style_id   String                   @default("realism")
+	user_scenario_amendment String?
+	max_cefr_level          CefrSimplificationLevel?
+	id                      Int                      @id @default(autoincrement())
+	scenario                AiDialogueScenario       @relation(fields: [scenario_id], references: [id], onDelete: Cascade)
+	scenario_id             Int
+	user                    User                     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+	user_id                 Int
+	source_language_code    LanguageCode
+	target_language_code    LanguageCode
+	summary                 String?
+	summary_up_to           Int                      @default(0)
+	AiDialogueVoice         AiDialogueVoice[]
+	AiDialogueAudioAttempt  AiDialogueAudioAttempt[]
+	AiDialogueMessage       AiDialogueMessage[]
+	AiDialogueCharacter     AiDialogueCharacter[]
+	created_at              DateTime                 @default(now())
+	updated_at              DateTime                 @default(now())
 
 	@@index([user_id])
 	@@index([scenario_id])

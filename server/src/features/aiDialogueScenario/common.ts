@@ -16,6 +16,8 @@ export type AiDialogueScenarioSeedData = {
 	title: string
 	description: string
 	systemPrompt: string
+	/** Локализованный пример пожеланий к сцене для плейсхолдера окна запуска (localized). */
+	userScenarioAmendmentHint?: string
 }
 
 export type PublicAiDialogueScenarioSeedData = AiDialogueScenarioSeedData & { coverS3Key: string }

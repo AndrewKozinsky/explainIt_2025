@@ -42,6 +42,7 @@ describe('Scenario synchronization', () => {
 				title: scenario.title,
 				description: scenario.description,
 				system_prompt: scenario.systemPrompt,
+				user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
 				cover_s3_key: scenario.coverS3Key,
 			},
 			update: {
@@ -49,6 +50,7 @@ describe('Scenario synchronization', () => {
 				title: scenario.title,
 				description: scenario.description,
 				system_prompt: scenario.systemPrompt,
+				user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
 				cover_s3_key: scenario.coverS3Key,
 			},
 		})
@@ -69,6 +71,7 @@ describe('Scenario synchronization', () => {
 		const { repository, tx } = harness()
 		tx.aiDialogueScenario.findUnique.mockResolvedValue({ user_id: 7 } as never)
 		const scenario = { ...travelScenarios[0], coverS3Key: 'covers/localdev/passport-control.webp' }
+
 		await expect(repository.synchronizePublicScenarios(aiDialogueScenarioGroups, [scenario])).rejects.toMatchObject(
 			{
 				constructor: CustomError,

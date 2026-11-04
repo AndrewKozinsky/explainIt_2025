@@ -27,6 +27,12 @@ export interface PublicAiDialogueScenarioOutModel {
      * @maxLength 2000
      */
   description: string;
+  /**
+     * Example of user wishes for the scene in the interface language (placeholder of the wishes field)
+     * @maxLength 2000
+     * @nullable
+     */
+  userScenarioAmendmentHint?: string | null;
   /** Temporary signed URL of the public scenario cover in R2 */
   coverUrl: string;
 }

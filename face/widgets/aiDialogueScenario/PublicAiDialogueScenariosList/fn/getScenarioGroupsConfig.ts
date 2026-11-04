@@ -11,6 +11,8 @@ export function getScenarioGroupsConfig(groups: AiDialogueScenarioGroupModel[]) 
 			id: scenario.id,
 			title: scenario.title || aiDialogueScenarioConfig.emptyScenarioName,
 			description: scenario.description,
+			userScenarioAmendmentHint:
+				scenario.userScenarioAmendmentHint || aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint,
 			coverUrl: scenario.coverUrl,
 		})),
 	}))

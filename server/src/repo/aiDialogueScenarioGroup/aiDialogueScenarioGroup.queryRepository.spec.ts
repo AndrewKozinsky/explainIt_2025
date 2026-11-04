@@ -27,6 +27,7 @@ function group() {
 				slug: 'hotel-check-in',
 				title: '{"ru":"Заселение в отель"}',
 				description: '{"ru":"Описание"}',
+				user_scenario_amendment_hint: '{"en":"A hotel in Rome","ru":"Отель в Риме"}',
 				cover_s3_key: 'covers/localdev/hotel-check-in.webp',
 			},
 			{
@@ -34,6 +35,7 @@ function group() {
 				slug: 'passport-control',
 				title: '{"ru":"Паспортный контроль"}',
 				description: '{"ru":"Описание"}',
+				user_scenario_amendment_hint: null,
 				cover_s3_key: 'covers/localdev/passport-control.webp',
 			},
 		],
@@ -56,7 +58,14 @@ describe('Public AI dialogue scenario groups', () => {
 				AiDialogueScenario: {
 					where: { user_id: null },
 					orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
-					select: { id: true, slug: true, title: true, description: true, cover_s3_key: true },
+					select: {
+						id: true,
+						slug: true,
+						title: true,
+						description: true,
+						user_scenario_amendment_hint: true,
+						cover_s3_key: true,
+					},
 				},
 			},
 		})
@@ -79,6 +88,7 @@ describe('Public AI dialogue scenario groups', () => {
 						slug: 'hotel-check-in',
 						title: 'Заселение в отель',
 						description: 'Описание',
+						userScenarioAmendmentHint: 'Отель в Риме',
 						coverUrl: 'https://signed.example/covers/localdev/hotel-check-in.webp',
 					},
 					{
@@ -86,6 +96,7 @@ describe('Public AI dialogue scenario groups', () => {
 						slug: 'passport-control',
 						title: 'Паспортный контроль',
 						description: 'Описание',
+						userScenarioAmendmentHint: null,
 						coverUrl: 'https://signed.example/covers/localdev/passport-control.webp',
 					},
 				],
@@ -94,7 +105,14 @@ describe('Public AI dialogue scenario groups', () => {
 
 		expect(storage.getFileUrl.mock.calls).toEqual(row.AiDialogueScenario.map((s) => [s.cover_s3_key]))
 		expect(Object.keys(result[0])).toEqual(['id', 'slug', 'title', 'description', 'scenarios'])
-		expect(Object.keys(result[0].scenarios[0])).toEqual(['id', 'slug', 'title', 'description', 'coverUrl'])
+		expect(Object.keys(result[0].scenarios[0])).toEqual([
+			'id',
+			'slug',
+			'title',
+			'description',
+			'userScenarioAmendmentHint',
+			'coverUrl',
+		])
 	})
 
 	it('falls back to English when the requested locale has no translation', async () => {
@@ -116,6 +134,7 @@ describe('Public AI dialogue scenario groups', () => {
 			const row = group()
 			row.AiDialogueScenario[0][field] = ''
 			const { repository } = harness([row])
+
 			await expect(repository.getPublicScenarioGroups('ru')).rejects.toMatchObject({
 				constructor: CustomError,
 				errorMessage: errorMessage.aiDialogue.invalidPublicScenario,

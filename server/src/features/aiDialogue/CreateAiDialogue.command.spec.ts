@@ -85,4 +85,32 @@ describe('CreateAiDialogue language settings', () => {
 			expect(repository.createDialogue).toHaveBeenCalledWith(expect.objectContaining({ maxCefrLevel }))
 		},
 	)
+
+	it.each([
+		['  Embassy of Canada  ', 'Embassy of Canada'],
+		['   ', null],
+		['', null],
+		[null, null],
+		[undefined, null],
+	])('stores the setting note %j as %j', async (userScenarioAmendment, expected) => {
+		const scenario = { getScenarioById: jest.fn().mockResolvedValue({ user_id: null }) }
+		const repository = { createDialogue: jest.fn().mockResolvedValue({ id: 1 }) }
+		const query = { getDialogueById: jest.fn().mockResolvedValue({ id: 1 }) }
+		const handler = new CreateAiDialogueHandler(scenario as never, repository as never, query as never)
+
+		await handler.execute(
+			new CreateAiDialogueCommand({
+				userId: 7,
+				scenarioId: 2,
+				sourceLanguageCode: 'en',
+				targetLanguageCode: 'ru',
+				locale: 'ru',
+				userScenarioAmendment,
+			}),
+		)
+
+		expect(repository.createDialogue).toHaveBeenCalledWith(
+			expect.objectContaining({ userScenarioAmendment: expected }),
+		)
+	})
 })

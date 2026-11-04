@@ -25,6 +25,7 @@ test('groups travel through generated API, repository, service and query without
 			slug: `scenario-${scenarioId}`,
 			title: scenarioId === 1 ? '' : `Сценарий ${scenarioId}`,
 			description: 'Описание',
+			userScenarioAmendmentHint: scenarioId === 1 ? null : 'Посольство Канады',
 			coverUrl: `https://example.test/${scenarioId}.webp`,
 		})),
 	}))
@@ -63,6 +64,11 @@ test('groups travel through generated API, repository, service and query without
 		assert.equal(config[0].scenarios[1].title, aiDialogueScenarioConfig.emptyScenarioName)
 		assert.equal(config[0].scenarios[0].description, 'Описание')
 		assert.equal(config[0].scenarios[0].coverUrl, groups[0].scenarios[0].coverUrl)
+		assert.equal(config[0].scenarios[0].userScenarioAmendmentHint, 'Посольство Канады')
+		assert.equal(
+			config[0].scenarios[1].userScenarioAmendmentHint,
+			aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint,
+		)
 	} finally {
 		fetch.mock.restore()
 		client.clear()

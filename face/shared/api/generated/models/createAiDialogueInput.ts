@@ -27,6 +27,12 @@ export interface CreateAiDialogueInput {
      * @minimum 1
      */
   scenarioId: number;
+  /**
+     * Optional user-written amendment to the initial scenario prompt (who the NPCs are, country, place). Set once at dialogue creation and added after the scenario prompt on every turn.
+     * @maxLength 400
+     * @nullable
+     */
+  userScenarioAmendment?: string | null;
   /** Language of the dialogue (the language the learner practices) */
   sourceLanguageCode: CreateAiDialogueInputSourceLanguageCode;
   /** Language into which NPC lines are translated (the learner native language) */

@@ -18,6 +18,7 @@ export class AiDialogueRepository {
 		targetLanguageCode: Language
 		maxCefrLevel?: AiDialogueCefrLevel | null
 		illustrationStyleId?: string | null
+		userScenarioAmendment?: string | null
 	}) {
 		return this.prisma.aiDialogue.create({
 			data: {
@@ -27,6 +28,7 @@ export class AiDialogueRepository {
 				target_language_code: dto.targetLanguageCode,
 				max_cefr_level: dto.maxCefrLevel ?? null,
 				illustration_style_id: getNewAiDialogueIllustrationStyle(dto.illustrationStyleId).id,
+				user_scenario_amendment: dto.userScenarioAmendment ?? null,
 			},
 		})
 	}
