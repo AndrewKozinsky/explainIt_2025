@@ -1,4 +1,6 @@
+import { Language } from 'utils/languages'
 import { buildPage, toPrismaPagination } from 'utils/pagination'
+import { pickLocalized } from 'utils/pickLocalized'
 import { getAiDialogueLastMessage } from 'features/aiDialogue/getAiDialogueLastMessage'
 import { AiDialoguesPageOutModel } from 'models/aiDialogue/aiDialogueList.out.model'
 import { AiDialogueImageOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
@@ -61,6 +63,7 @@ export async function mapAiDialogueListPage(
 	snapshot: AiDialogueListPage,
 	pagination: PaginationParams,
 	getFileUrl: GetFileUrl,
+	locale: Language,
 ): Promise<AiDialoguesPageOutModel> {
 	const { total, dialogues, messages, legacyCharacters } = snapshot
 	const sceneByDialogueId = new Map(
@@ -115,7 +118,7 @@ export async function mapAiDialogueListPage(
 	const items = await Promise.all(
 		dialogues.map(async (dialogue) => ({
 			id: dialogue.id,
-			scenario: dialogue.scenario,
+			scenario: { id: dialogue.scenario.id, title: pickLocalized(dialogue.scenario.title, locale) },
 			sourceLanguageCode: dialogue.source_language_code,
 			maxCefrLevel: dialogue.max_cefr_level,
 			createdAt: dialogue.created_at.toISOString(),

@@ -21,6 +21,7 @@ import { ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
 import { Observable } from 'rxjs'
 import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
+import { Language } from 'utils/languages'
 import { GetAiDialogueAudioCommand } from 'features/aiDialogue/audio/GetAiDialogueAudio.command'
 import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
@@ -33,6 +34,7 @@ import { CheckAiDialogueUserMessageCommand } from 'features/aiDialogue/messageCh
 import { OpenAiDialogueStreamCommand } from 'features/aiDialogue/OpenAiDialogueStream.command'
 import { UpdateAiDialogueCommand } from 'features/aiDialogue/UpdateAiDialogue.command'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { RequestLocale } from 'infrastructure/requestLocale/requestLocale.decorator'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
 import { AiDialogueIllustrationStylesOutModel } from 'models/aiDialogue/aiDialogueIllustrationStyles.out.model'
@@ -95,7 +97,11 @@ export class AiDialogueController {
 	@UseGuards(CheckSessionCookieGuard)
 	@HttpCode(HttpStatus.CREATED)
 	@Post()
-	async createAiDialogue(@Body() input: CreateAiDialogueInput, @Req() request: Request): Promise<AiDialogueOutModel> {
+	async createAiDialogue(
+		@Body() input: CreateAiDialogueInput,
+		@Req() request: Request,
+		@RequestLocale() locale: Language,
+	): Promise<AiDialogueOutModel> {
 		return await this.commandBus.execute(
 			new CreateAiDialogueCommand({
 				userId: request.user!.id,
@@ -104,6 +110,7 @@ export class AiDialogueController {
 				targetLanguageCode: input.targetLanguageCode,
 				maxCefrLevel: input.maxCefrLevel,
 				illustrationStyleId: input.illustrationStyleId,
+				locale,
 			}),
 		)
 	}
@@ -116,12 +123,17 @@ export class AiDialogueController {
 	async getAiDialogues(
 		@Query() query: GetUserDialoguesInput,
 		@Req() request: Request,
+		@RequestLocale() locale: Language,
 	): Promise<AiDialoguesPageOutModel> {
 		return this.commandBus.execute(
-			new GetUserDialoguesCommand(request.user!.id, {
-				page: query.page ?? 1,
-				pageSize: query.pageSize ?? 3,
-			}),
+			new GetUserDialoguesCommand(
+				request.user!.id,
+				{
+					page: query.page ?? 1,
+					pageSize: query.pageSize ?? 3,
+				},
+				locale,
+			),
 		)
 	}
 
@@ -129,8 +141,12 @@ export class AiDialogueController {
 	@UseGuards(CheckSessionCookieGuard)
 	@HttpCode(HttpStatus.OK)
 	@Get(':id')
-	async getAiDialogue(@Param('id', ParseIntPipe) id: number, @Req() request: Request): Promise<AiDialogueOutModel> {
-		return await this.commandBus.execute(new GetAiDialogueCommand(request.user!.id, id))
+	async getAiDialogue(
+		@Param('id', ParseIntPipe) id: number,
+		@Req() request: Request,
+		@RequestLocale() locale: Language,
+	): Promise<AiDialogueOutModel> {
+		return await this.commandBus.execute(new GetAiDialogueCommand(request.user!.id, id, locale))
 	}
 
 	@ApiUpdateAiDialogue()
@@ -141,12 +157,14 @@ export class AiDialogueController {
 		@Param('id', ParseIntPipe) id: number,
 		@Body() input: UpdateAiDialogueInput,
 		@Req() request: Request,
+		@RequestLocale() locale: Language,
 	): Promise<AiDialogueOutModel> {
 		return await this.commandBus.execute(
 			new UpdateAiDialogueCommand({
 				userId: request.user!.id,
 				dialogueId: id,
 				maxCefrLevel: input.maxCefrLevel,
+				locale,
 			}),
 		)
 	}

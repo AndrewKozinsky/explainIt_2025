@@ -20,6 +20,7 @@ function group() {
 		id: 5,
 		slug: 'travel-abroad',
 		title: '{"en":"Travel abroad","ru":"Поездка за границу"}',
+		description: '{"en":"Useful before a trip","ru":"Пригодится в поездке"}',
 		AiDialogueScenario: [
 			{
 				id: 12,
@@ -42,7 +43,7 @@ function group() {
 describe('Public AI dialogue scenario groups', () => {
 	it('selects nonempty public groups and public scenarios, ordered by creation date and ID descending', async () => {
 		const { repository, prisma } = harness()
-		await repository.getPublicScenarioGroups()
+		await repository.getPublicScenarioGroups('ru')
 
 		expect(prisma.aiDialogueScenarioGroup.findMany).toHaveBeenCalledWith({
 			where: { AiDialogueScenario: { some: { user_id: null } } },
@@ -51,6 +52,7 @@ describe('Public AI dialogue scenario groups', () => {
 				id: true,
 				slug: true,
 				title: true,
+				description: true,
 				AiDialogueScenario: {
 					where: { user_id: null },
 					orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
@@ -60,29 +62,51 @@ describe('Public AI dialogue scenario groups', () => {
 		})
 	})
 
-	it('preserves DB ordering and translations, signs covers, and exposes no storage keys or prompts', async () => {
+	it('preserves DB ordering, localizes texts, signs covers, and exposes no storage keys or prompts', async () => {
 		const row = group()
 		const { repository, storage } = harness([row])
-		const result = await repository.getPublicScenarioGroups()
+		const result = await repository.getPublicScenarioGroups('ru')
+
 		expect(result).toEqual([
 			{
 				id: row.id,
 				slug: row.slug,
-				title: row.title,
-				scenarios: row.AiDialogueScenario.map(({ cover_s3_key, ...scenario }) => ({
-					...scenario,
-					coverUrl: `https://signed.example/${cover_s3_key}`,
-				})),
+				title: 'Поездка за границу',
+				description: 'Пригодится в поездке',
+				scenarios: [
+					{
+						id: 12,
+						slug: 'hotel-check-in',
+						title: 'Заселение в отель',
+						description: 'Описание',
+						coverUrl: 'https://signed.example/covers/localdev/hotel-check-in.webp',
+					},
+					{
+						id: 2,
+						slug: 'passport-control',
+						title: 'Паспортный контроль',
+						description: 'Описание',
+						coverUrl: 'https://signed.example/covers/localdev/passport-control.webp',
+					},
+				],
 			},
 		])
+
 		expect(storage.getFileUrl.mock.calls).toEqual(row.AiDialogueScenario.map((s) => [s.cover_s3_key]))
-		expect(Object.keys(result[0])).toEqual(['id', 'slug', 'title', 'scenarios'])
+		expect(Object.keys(result[0])).toEqual(['id', 'slug', 'title', 'description', 'scenarios'])
 		expect(Object.keys(result[0].scenarios[0])).toEqual(['id', 'slug', 'title', 'description', 'coverUrl'])
+	})
+
+	it('falls back to English when the requested locale has no translation', async () => {
+		const { repository } = harness([group()])
+		const [result] = await repository.getPublicScenarioGroups('de')
+
+		expect(result).toMatchObject({ title: 'Travel abroad', description: 'Useful before a trip' })
 	})
 
 	it('returns an empty array without signing any URL when there are no public groups', async () => {
 		const { repository, storage } = harness()
-		await expect(repository.getPublicScenarioGroups()).resolves.toEqual([])
+		await expect(repository.getPublicScenarioGroups('ru')).resolves.toEqual([])
 		expect(storage.getFileUrl).not.toHaveBeenCalled()
 	})
 
@@ -92,7 +116,7 @@ describe('Public AI dialogue scenario groups', () => {
 			const row = group()
 			row.AiDialogueScenario[0][field] = ''
 			const { repository } = harness([row])
-			await expect(repository.getPublicScenarioGroups()).rejects.toMatchObject({
+			await expect(repository.getPublicScenarioGroups('ru')).rejects.toMatchObject({
 				constructor: CustomError,
 				errorMessage: errorMessage.aiDialogue.invalidPublicScenario,
 				statusCode: ErrorStatusCode.InternalServerError_500,
@@ -105,7 +129,7 @@ describe('Public AI dialogue scenario groups', () => {
 		storage.getFileUrl.mockRejectedValue(new Error('storage unavailable'))
 		const log = jest.spyOn(console, 'error').mockImplementation(() => undefined)
 		try {
-			await expect(repository.getPublicScenarioGroups()).rejects.toBeDefined()
+			await expect(repository.getPublicScenarioGroups('ru')).rejects.toBeDefined()
 		} finally {
 			log.mockRestore()
 		}

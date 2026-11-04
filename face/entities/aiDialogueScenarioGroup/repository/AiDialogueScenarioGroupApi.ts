@@ -21,6 +21,7 @@ export function mapToAiDialogueScenarioGroup(raw: AiDialogueScenarioGroupOutMode
 		id: raw.id,
 		slug: raw.slug,
 		title: raw.title,
+		description: raw.description,
 		scenarios: raw.scenarios.map((scenario) => ({
 			id: scenario.id,
 			slug: scenario.slug,

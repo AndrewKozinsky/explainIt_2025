@@ -19,6 +19,8 @@ export class CreateAiDialogueCommand implements ICommand {
 			targetLanguageCode: Language
 			maxCefrLevel?: AiDialogueCefrLevel | null
 			illustrationStyleId?: string | null
+			/** Язык интерфейса для текстов сценария в ответе. */
+			locale: Language
 		},
 	) {}
 }
@@ -32,7 +34,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 	) {}
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel } = command.dto
+		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel, locale } = command.dto
 		const illustrationStyleId = getNewAiDialogueIllustrationStyle(command.dto.illustrationStyleId).id
 
 		const scenario = await this.aiDialogueScenarioRepository.getScenarioById(scenarioId)
@@ -54,7 +56,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			illustrationStyleId,
 		})
 
-		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogue.id)
+		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogue.id, locale)
 		if (!dialogueOut) {
 			throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.InternalServerError_500)
 		}

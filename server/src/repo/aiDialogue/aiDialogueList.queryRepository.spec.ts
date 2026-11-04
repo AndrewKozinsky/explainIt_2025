@@ -36,7 +36,7 @@ function harness() {
 		source_language_code: 'en',
 		max_cefr_level: null,
 		created_at: createdAt,
-		scenario: { id: 2, title: '{"ru":"Покупка абонемента в бассейн"}' },
+		scenario: { id: 2, title: 'Покупка абонемента в бассейн' },
 		AiDialogueCharacter: [
 			{
 				id: 8,
@@ -83,13 +83,14 @@ function harness() {
 		}),
 	}
 	const repository = new AiDialogueListQueryRepository(prisma as never, storage as never)
+
 	return { repository, prisma, storage, tx, dialogue }
 }
 
 describe('AiDialogueListQueryRepository', () => {
 	it('reads only the owner page in a consistent snapshot, ordered by creation date and ID', async () => {
 		const { repository, prisma, tx } = harness()
-		const result = await repository.getUserDialogues(7, { page: 2, pageSize: 3 })
+		const result = await repository.getUserDialogues(7, { page: 2, pageSize: 3 }, 'ru')
 
 		expect(result).toMatchObject({ page: 2, pageSize: 3, total: 7, totalPages: 3 })
 		expect(tx.aiDialogue.count).toHaveBeenCalledWith({ where: { user_id: 7 } })
@@ -107,7 +108,8 @@ describe('AiDialogueListQueryRepository', () => {
 
 	it('fetches at most the selected NPC message and scene per dialogue without loading the history', async () => {
 		const { repository, tx } = harness()
-		await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
+
 		expect(tx.aiDialogueMessage.groupBy).toHaveBeenCalledWith({
 			by: ['dialogue_id', 'type'],
 			where: { dialogue_id: { in: [5] }, type: { in: ['npcActions', 'sceneUpdate'] } },
@@ -124,9 +126,9 @@ describe('AiDialogueListQueryRepository', () => {
 
 	it('maps the NPC text, name, role and its own date, preserving localized titles and unrestricted CEFR', async () => {
 		const { repository } = harness()
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 		expect(items[0]).toMatchObject({
-			scenario: { id: 2, title: '{"ru":"Покупка абонемента в бассейн"}' },
+			scenario: { id: 2, title: 'Покупка абонемента в бассейн' },
 			sourceLanguageCode: 'en',
 			maxCefrLevel: null,
 			createdAt: createdAt.toISOString(),
@@ -154,7 +156,7 @@ describe('AiDialogueListQueryRepository', () => {
 			ImageGenerationJob: [{ status: 'generating' }],
 		})
 
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
 		expect(items[0].maxCefrLevel).toBe('B2')
 		expect(items[0].characters).toHaveLength(2)
@@ -193,7 +195,7 @@ describe('AiDialogueListQueryRepository', () => {
 			{ dialogueId: 6, firstMessageId: 20, npcId: 'old_officer', name: 'Sam', role: 'guard' },
 		])
 
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
 		expect(items[0].scenario.id).toBe(items[1].scenario.id)
 		expect(items.map((item) => item.characters.map((character) => character.name))).toEqual([
@@ -209,7 +211,7 @@ describe('AiDialogueListQueryRepository', () => {
 	it('returns the image of the latest scene, not the most recently generated asset', async () => {
 		const { repository } = harness()
 		const before = Date.now()
-		const result = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		const result = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
 		expect(result.items[0].sceneImage).toEqual({
 			id: 101,
@@ -238,7 +240,7 @@ describe('AiDialogueListQueryRepository', () => {
 			{ id: 95, dialogue_id: 5, type: 'sceneUpdate', AiDialogueImage: [] },
 		])
 
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
 		expect(items[0].sceneImage).toBeNull()
 		expect(items[0].lastMessage).toBeNull()
@@ -250,7 +252,9 @@ describe('AiDialogueListQueryRepository', () => {
 		const { repository, tx, dialogue } = harness()
 		dialogue.AiDialogueCharacter = []
 		tx.aiDialogueMessage.groupBy.mockResolvedValue([])
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
+
 		expect(items[0]).toMatchObject({ lastMessage: null, sceneImage: null, characters: [] })
 		expect(tx.aiDialogueMessage.findMany).not.toHaveBeenCalled()
 	})
@@ -260,7 +264,7 @@ describe('AiDialogueListQueryRepository', () => {
 		tx.$queryRaw.mockResolvedValue([
 			{ dialogueId: 5, firstMessageId: 10, npcId: 'old_officer', name: 'Alex', role: 'officer' },
 		])
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 })
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 		expect(items[0].characters).toHaveLength(2)
 		expect(items[0].characters[0]).toEqual({
 			npcId: 'old_officer',
@@ -279,7 +283,7 @@ describe('AiDialogueListQueryRepository', () => {
 		const { repository, tx, storage } = harness()
 		tx.aiDialogue.count.mockResolvedValue(total)
 		tx.aiDialogue.findMany.mockResolvedValue([])
-		await expect(repository.getUserDialogues(7, { page: 10, pageSize: 3 })).resolves.toMatchObject({
+		await expect(repository.getUserDialogues(7, { page: 10, pageSize: 3 }, 'ru')).resolves.toMatchObject({
 			items: [],
 			total,
 			page: 10,

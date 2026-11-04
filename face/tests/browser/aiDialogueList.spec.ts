@@ -22,7 +22,7 @@ function dialogues(count = 5): AiDialogueListItemModel[] {
 
 	return Array.from({ length: count }, (_, index) => ({
 		id: index + 1,
-		scenario: { id: 2, title: JSON.stringify({ ru: titles[index] ?? `Диалог ${index + 1}` }) },
+		scenario: { id: 2, title: titles[index] ?? `Диалог ${index + 1}` },
 		sourceLanguageCode: index === 2 ? 'de' : 'en',
 		maxCefrLevel: index === 2 ? null : 'A2',
 		createdAt: new Date(Date.now() - index * 86_400_000).toISOString(),
@@ -95,6 +95,7 @@ async function setup(page: Page, items = dialogues(), failFirst = false) {
 		return route.fulfill({ json: data })
 	})
 	await page.goto('/')
+
 	return {
 		requests,
 		deleted,
@@ -144,7 +145,7 @@ test('load-more errors preserve cards; retry and deletion refresh all loaded pag
 	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(13)
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card) h4')).toHaveText(
-		items.slice(0, 13).map((item) => JSON.parse(item.scenario.title).ru),
+		items.slice(0, 13).map((item) => item.scenario.title),
 	)
 	await page.getByRole('button', { name: 'Предыдущие диалоги' }).click()
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(23)
@@ -159,7 +160,7 @@ test('load-more errors preserve cards; retry and deletion refresh all loaded pag
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card)')).toHaveCount(24)
 	await expect(page.locator('.large-dialogue-card h4')).toHaveText('Заселение в отель')
 	await expect(page.locator(':is(.medium-dialogue-card, .large-dialogue-card) h4')).toHaveText(
-		items.slice(1).map((item) => JSON.parse(item.scenario.title).ru),
+		items.slice(1).map((item) => item.scenario.title),
 	)
 	expect(h.deleted).toEqual([1])
 	expect(h.requests).toEqual([1, 2, 2, 3, 1, 2, 3])

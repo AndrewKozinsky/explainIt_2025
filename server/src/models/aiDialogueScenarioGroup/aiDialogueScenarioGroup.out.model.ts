@@ -21,8 +21,19 @@ export class AiDialogueScenarioGroupOutModel {
 	@ApiProperty(getApiPropertyOptions($.slug))
 	slug: string
 
-	@ApiProperty(getApiPropertyOptions($.title))
+	@ApiProperty({
+		...getApiPropertyOptions($.title),
+		description: 'Group title in the interface language',
+		example: 'Travel abroad',
+	})
 	title: string
+
+	@ApiProperty({
+		...getApiPropertyOptions($.description),
+		description: 'Why to choose a scenario from this group, in the interface language',
+		example: 'Useful before a trip: get through passport control and check in to a hotel.',
+	})
+	description: string
 
 	@ApiProperty({
 		type: [PublicAiDialogueScenarioOutModel],

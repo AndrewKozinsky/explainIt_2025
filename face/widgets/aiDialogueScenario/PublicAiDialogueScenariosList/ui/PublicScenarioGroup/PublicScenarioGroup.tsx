@@ -18,6 +18,7 @@ export default function PublicScenarioGroup({ group, creatingScenarioId, onScena
 				{group.title}
 				<span className='public-scenario-group__count'>{group.scenarios.length}</span>
 			</h3>
+			{group.description && <p className='public-scenario-group__description'>{group.description}</p>}
 			<div className='public-scenario-group__grid'>
 				{group.scenarios.map((scenario) => (
 					<PublicScenarioCard

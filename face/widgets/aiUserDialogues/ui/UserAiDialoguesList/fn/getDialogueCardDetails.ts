@@ -1,10 +1,10 @@
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { pickLocalized } from '@/shared/utils/pickLocalized'
 
-export function getDialogueCardDetails(dialogue: AiDialogueListItemModel, locale: string) {
+/** Название сценария уже приходит с сервера на языке интерфейса. */
+export function getDialogueCardDetails(dialogue: AiDialogueListItemModel) {
 	return {
-		title: pickLocalized(dialogue.scenario.title, locale) || 'Диалог',
+		title: dialogue.scenario.title || 'Диалог',
 		url: pageUrls.aiDialogues.dialog(dialogue.id).path,
 	}
 }

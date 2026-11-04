@@ -22,6 +22,7 @@ describe('CreateAiDialogue language settings', () => {
 					scenarioId: 2,
 					sourceLanguageCode: 'en',
 					targetLanguageCode: 'ru',
+					locale: 'ru',
 					illustrationStyleId,
 				}),
 			)
@@ -48,6 +49,7 @@ describe('CreateAiDialogue language settings', () => {
 						scenarioId: 2,
 						sourceLanguageCode: 'en',
 						targetLanguageCode: 'ru',
+						locale: 'ru',
 						illustrationStyleId,
 					}),
 				),
@@ -74,6 +76,7 @@ describe('CreateAiDialogue language settings', () => {
 						scenarioId: 2,
 						sourceLanguageCode: 'en',
 						targetLanguageCode: 'ru',
+						locale: 'ru',
 						maxCefrLevel,
 					}),
 				),

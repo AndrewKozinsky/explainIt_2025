@@ -1,24 +1,30 @@
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
 import { QueryClient } from '@tanstack/react-query'
+import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import { AiDialogueScenarioGroupQueryFacade } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupQueryFacade'
 import { AiDialogueScenarioGroupService } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupService'
 import { AiDialogueScenarioGroupApi } from '@/entities/aiDialogueScenarioGroup/repository/AiDialogueScenarioGroupApi'
 import { getScenarioGroupsConfig } from '@/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioGroupsConfig'
 
-test('groups travel through generated API, repository, service and query without reordering; cards use locale and fallback', async () => {
+test('groups travel through generated API, repository, service and query without reordering; locale goes to Accept-Language', async () => {
 	const original = Object.getOwnPropertyDescriptor(globalThis, 'window')
-	Object.defineProperty(globalThis, 'window', { configurable: true, value: {} })
+
+	Object.defineProperty(globalThis, 'window', {
+		configurable: true,
+		value: { location: { pathname: '/ru/dialogues' } },
+	})
 
 	const groups = [9, 2].map((id) => ({
 		id,
 		slug: `group-${id}`,
-		title: JSON.stringify({ ru: `Группа ${id}`, en: 'Group' }),
+		title: `Группа ${id}`,
+		description: `Зачем выбрать группу ${id}`,
 		scenarios: [8, 1].map((scenarioId) => ({
 			id: scenarioId,
 			slug: `scenario-${scenarioId}`,
-			title: JSON.stringify({ ru: `Сценарий ${scenarioId}`, '*': 'Fallback' }),
-			description: JSON.stringify({ '*': 'Description' }),
+			title: scenarioId === 1 ? '' : `Сценарий ${scenarioId}`,
+			description: 'Описание',
 			coverUrl: `https://example.test/${scenarioId}.webp`,
 		})),
 	}))
@@ -27,7 +33,9 @@ test('groups travel through generated API, repository, service and query without
 		assert.equal(url, '/api/ai-dialogue-scenario-group')
 		assert.equal(init?.credentials, 'include')
 		assert.equal(init?.cache, 'no-store')
+		assert.equal(new Headers(init?.headers).get('Accept-Language'), 'ru')
 		assert.ok(init?.signal)
+
 		return Response.json(groups)
 	})
 
@@ -43,18 +51,18 @@ test('groups travel through generated API, repository, service and query without
 		assert.equal(options.refetchInterval, false)
 		assert.equal(options.refetchOnWindowFocus, false)
 		assert.equal(options.refetchOnReconnect, false)
-		const localized = getScenarioGroupsConfig(data, 'ru')
+		const config = getScenarioGroupsConfig(data)
 		assert.deepEqual(
-			localized.map((group) => group.title),
-			['Группа 9', 'Группа 2'],
+			config.map((group) => [group.title, group.description]),
+			[
+				['Группа 9', 'Зачем выбрать группу 9'],
+				['Группа 2', 'Зачем выбрать группу 2'],
+			],
 		)
-		assert.deepEqual(
-			localized[0].scenarios.map((scenario) => scenario.title),
-			['Сценарий 8', 'Сценарий 1'],
-		)
-		assert.equal(localized[0].scenarios[0].description, 'Description')
-		assert.equal(localized[0].scenarios[0].coverUrl, groups[0].scenarios[0].coverUrl)
-		assert.equal(getScenarioGroupsConfig(data, 'de')[0].scenarios[0].title, 'Fallback')
+		assert.equal(config[0].scenarios[0].title, 'Сценарий 8')
+		assert.equal(config[0].scenarios[1].title, aiDialogueScenarioConfig.emptyScenarioName)
+		assert.equal(config[0].scenarios[0].description, 'Описание')
+		assert.equal(config[0].scenarios[0].coverUrl, groups[0].scenarios[0].coverUrl)
 	} finally {
 		fetch.mock.restore()
 		client.clear()

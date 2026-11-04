@@ -102,7 +102,7 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 
 - `system_prompt` сценария не попадает в ответ (как и в списке сценариев) — он не отдаётся клиенту.
 - `sourceLanguageCode` — язык практики, `targetLanguageCode` — язык перевода (см. «Доменная модель»).
-- `scenario.title`/`scenario.description` — сырые JSON-строки переводов; резолвит их клиент через `pickLocalized`.
+- `scenario.title`/`scenario.description` — тексты на языке интерфейса из `Accept-Language` (GET, POST и PATCH).
 
 Список «Мои диалоги», контракт карточек и пагинация описаны отдельно: [aiDialogueList.md](aiDialogueList.md).
 
@@ -604,7 +604,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `face/entities/aiDialogue/AiDialogueQueryFacade.ts` — TanStack Query фасад.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
   (выбор сценария, проверка входа и создание с параметрами окна запуска).
-- `face/shared/utils/pickLocalized.ts` — резолв JSON-строки переводов под локаль.
+- `face/shared/api/getRequestLocale.ts` — локаль интерфейса для `Accept-Language` запросов к API.
 - `face/shared/api/generated/ai-dialogue/ai-dialogue.ts` — сгенерированные функции (Orval).
 
 ## Как работает клиент
@@ -620,8 +620,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `AiDialogueService` — прослойка между компонентами и репозиторием.
 - `AiDialogueQueryFacade` — TanStack Query `queryOptions` (`aiDialogueQueries`).
 
-`scenario.title`/`scenario.description` — сырые JSON-строки,
-резолв под локаль — через `pickLocalized` (см. `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`).
+`scenario.title`/`scenario.description` приходят на языке интерфейса и выводятся как есть
+(см. `aiDocsRus/topics/internationalization.md`).
 
 ### Изменение сложности на клиенте
 

@@ -51,7 +51,7 @@ describe('dialogue language setting persistence', () => {
 			updated_at: new Date(),
 		})
 
-		await expect(query.getDialogueById(1)).resolves.toMatchObject({ illustrationStyleId })
+		await expect(query.getDialogueById(1, 'ru')).resolves.toMatchObject({ illustrationStyleId })
 	})
 
 	it.each([undefined, null, 'A2'] as const)(
@@ -66,6 +66,7 @@ describe('dialogue language setting persistence', () => {
 				targetLanguageCode: 'ru',
 				maxCefrLevel,
 			})
+
 			expect(prisma.aiDialogue.create).toHaveBeenCalledWith({
 				data: expect.objectContaining({ max_cefr_level: maxCefrLevel ?? null }),
 			})
@@ -107,6 +108,6 @@ describe('dialogue language setting persistence', () => {
 
 		prisma.aiDialogue.findUnique.mockResolvedValue(row)
 
-		await expect(query.getDialogueById(1)).resolves.toMatchObject({ maxCefrLevel })
+		await expect(query.getDialogueById(1, 'ru')).resolves.toMatchObject({ maxCefrLevel })
 	})
 })

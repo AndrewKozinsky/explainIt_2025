@@ -18,8 +18,13 @@ export interface AiDialogueScenarioGroupOutModel {
      * @maxLength 255
      */
   slug: string;
-  /** Group title as a JSON string of translations */
+  /** Group title in the interface language */
   title: string;
+  /**
+     * Why to choose a scenario from this group, in the interface language
+     * @maxLength 2000
+     */
+  description: string;
   /** All public scenarios in this group, newest first */
   scenarios: PublicAiDialogueScenarioOutModel[];
 }

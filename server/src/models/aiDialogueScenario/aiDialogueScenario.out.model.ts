@@ -11,9 +11,12 @@ export class AiDialogueScenarioOutModel {
 	@ApiProperty(getApiPropertyOptions($.slug))
 	slug: null | string
 
-	@ApiProperty(getApiPropertyOptions($.title))
+	@ApiProperty({ ...getApiPropertyOptions($.title), description: 'Scenario title in the interface language' })
 	title: string
 
-	@ApiProperty(getApiPropertyOptions($.description))
+	@ApiProperty({
+		...getApiPropertyOptions($.description),
+		description: 'Short scenario description in the interface language',
+	})
 	description: string
 }

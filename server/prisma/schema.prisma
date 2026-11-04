@@ -269,6 +269,7 @@ model AiDialogueScenarioGroup {
 	id                 Int                  @id @default(autoincrement())
 	slug               String               @unique
 	title              String
+	description        String
 	AiDialogueScenario AiDialogueScenario[]
 	created_at         DateTime             @default(now())
 

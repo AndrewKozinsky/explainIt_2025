@@ -2,8 +2,10 @@
 
 Сценарий AiDialogueScenario задаёт начальную ситуацию для ролевого диалога с ИИ.
 Он языконейтрален: язык практики и перевода задаётся при создании AiDialogue.
-`title` и `description` — JSON-строки переводов на en/es/fr/de/it/tr/ru;
-клиент выбирает перевод через `pickLocalized`. `system_prompt` — английская инструкция только для сервера.
+В БД `title` и `description` — JSON-строки переводов на en/es/fr/de/it/tr/ru.
+API возвращает их уже на языке интерфейса из заголовка `Accept-Language` (по умолчанию en), выбор перевода —
+`server/src/utils/pickLocalized.ts`; общий механизм описан в [internationalization.md](../internationalization.md).
+`system_prompt` — английская инструкция только для сервера.
 Создание и работа диалога описаны в [aiDialogue.md](aiDialogue.md), история — в [aiDialogueList.md](aiDialogueList.md).
 
 ## Состояние реализации
@@ -13,7 +15,7 @@
 принадлежат пользователю и не могут входить в группы. Их создание через интерфейс и REST пока не реализовано.
 
 Клиентский список использует GET /api/ai-dialogue-scenario-group через новый entity-слой групп.
-Страница показывает секции с названием группы, количеством карточек и обложками из R2.
+Страница показывает секции с названием группы, количеством карточек, описанием группы и обложками из R2.
 Модель сценария внутри GET/POST/PATCH отдельного диалога не содержит группы и обложки.
 
 ## База данных
@@ -22,12 +24,13 @@
 
 AiDialogueScenarioGroup содержит только публичные группы:
 
-| Поле       | Назначение                              |
-|------------|-----------------------------------------|
-| id         | Int, первичный ключ                     |
-| slug       | Обязательный уникальный стабильный ключ |
-| title      | JSON-строка переводов названия          |
-| created_at | Дата добавления                         |
+| Поле        | Назначение                                                    |
+|-------------|---------------------------------------------------------------|
+| id          | Int, первичный ключ                                           |
+| slug        | Обязательный уникальный стабильный ключ                       |
+| title       | JSON-строка переводов названия                                |
+| description | JSON-строка переводов: почему стоит выбрать сценарий группы   |
+| created_at  | Дата добавления                                               |
 
 AiDialogueScenario:
 
@@ -63,20 +66,23 @@ Nullable-поля схемы сами по себе не означают, чт�
 GET /api/ai-dialogue-scenario-group
 ```
 
-Не требует авторизации. Возвращает массив AiDialogueScenarioGroupOutModel:
+Не требует авторизации. Тексты возвращаются на языке из `Accept-Language`
+(первый поддерживаемый язык с наибольшим весом, иначе en; при отсутствии перевода — en). Возвращает массив
+AiDialogueScenarioGroupOutModel:
 
 ```json
 [
   {
     "id": 1,
     "slug": "travel-abroad",
-    "title": "{\"en\":\"Travel abroad\",\"ru\":\"Поездка за границу\"}",
+    "title": "Поездка за границу",
+    "description": "Пригодится перед поездкой: пройдёте паспортный контроль, заселитесь в отель…",
     "scenarios": [
       {
         "id": 2,
         "slug": "passport-control",
-        "title": "{\"en\":\"Passport control\",\"ru\":\"Паспортный контроль\"}",
-        "description": "{\"en\":\"...\",\"ru\":\"...\"}",
+        "title": "Паспортный контроль",
+        "description": "...",
         "coverUrl": "https://r2.example/passport-control.webp?signature=temporary"
       }
     ]
@@ -106,7 +112,7 @@ StartServerTasksRunner сначала применяет миграции, за�
 Группы upsert по slug; сценарии upsert по slug с предварительной проверкой, что существующая запись публичная.
 Конфликт slug с пользовательским сценарием отменяет транзакцию, не меняет владельца и не обновляет его сценарий.
 
-Обновляются названия, переводы, описания, промпты, группы и ключи обложек. ID и created_at не переписываются,
+Обновляются названия и описания групп и сценариев, промпты, группы и ключи обложек. ID и created_at не переписываются,
 поэтому повторный запуск не меняет порядок и не создаёт дубликаты. Неназванные в сиде записи не удаляются.
 Неверный MODE отклоняется до записи в БД. Обновление промпта влияет на последующие ходы существующих диалогов;
 сохранённые сообщения и изображения не переписываются.
@@ -118,7 +124,7 @@ StartServerTasksRunner сначала применяет миграции, за�
 | city-and-services      | at-the-dentist, pool-membership                                                               |
 | home-and-everyday-life | knock-at-the-door                                                                             |
 
-Данные групп — `features/aiDialogueScenario/groups.ts`. В папке `scenarios` каждому набору
+Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` каждому набору
 соответствует файл своей группы: `travelScenarios.ts`, `foodAndShoppingScenarios.ts`,
 `cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts`. Сценарии языконейтральны;
 у каждого один английский промпт и семь переводов карточки.
@@ -161,7 +167,9 @@ Worker для сидов и обложек не нужен.
 `AiDialogueScenarioGroupRepository → AiDialogueScenarioGroupService → AiDialogueScenarioGroupQueryFacade`
 используют сгенерированный Orval-клиент. `AbortSignal` передаётся до fetch. Порядок групп и карточек
 сохраняется из ответа сервера; счётчик вычисляется по `scenarios.length`.
-`getScenarioGroupsConfig` выбирает переводы заголовков и описаний через `pickLocalized`.
+Тексты приходят с сервера на языке интерфейса; `getScenarioGroupsConfig` только готовит данные для вывода
+и подставляет `emptyScenarioName` вместо пустого названия сценария. `PublicScenarioGroup` выводит описание группы
+одной приглушённой строкой под заголовком; пустое описание не выводится.
 Модель сценария и маппер `mapToAiDialogueScenario` используются в ответах диалога.
 
 `PublicAiDialogueScenariosList` показывает загрузку, ошибку с кнопкой повтора или пустое состояние.
@@ -237,6 +245,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 
 - `server/src/db/dbConfig/dbConfig.ts` — структура БД и метаданные OpenAPI.
 - `server/src/features/aiDialogueScenario/` — сиды, генерация ключа и команды.
+- `server/src/utils/pickLocalized.ts`, `server/src/infrastructure/requestLocale/` — выбор перевода и язык запроса.
 - `server/src/repo/aiDialogueScenario/aiDialogueScenario.repository.ts` — бизнес-чтение, создание и синхронизация.
 - `server/src/repo/aiDialogueScenarioGroup/aiDialogueScenarioGroup.queryRepository.ts` — список групп/карточек.
 - `server/src/models/aiDialogueScenarioGroup/aiDialogueScenarioGroup.out.model.ts` — OutModel.

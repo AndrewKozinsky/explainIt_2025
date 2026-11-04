@@ -1,4 +1,6 @@
 import { Injectable } from '@nestjs/common'
+import { Language } from 'utils/languages'
+import { pickLocalized } from 'utils/pickLocalized'
 import { PrismaService } from 'db/prisma.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
@@ -21,16 +23,18 @@ export class AiDialogueScenarioGroupQueryRepository {
 		private storage: CloudflareS3Service,
 	) {}
 
-	async getPublicScenarioGroups(): Promise<AiDialogueScenarioGroupOutModel[]> {
+	/** @param locale язык интерфейса, на котором возвращаются названия и описания групп и сценариев. */
+	async getPublicScenarioGroups(locale: Language): Promise<AiDialogueScenarioGroupOutModel[]> {
 		const groups = await this.getDbGroups()
 
 		return Promise.all(
 			groups.map(async (group) => ({
 				id: group.id,
 				slug: group.slug,
-				title: group.title,
+				title: pickLocalized(group.title, locale),
+				description: pickLocalized(group.description, locale),
 				scenarios: await Promise.all(
-					group.AiDialogueScenario.map((scenario) => this.mapPublicScenario(scenario)),
+					group.AiDialogueScenario.map((scenario) => this.mapPublicScenario(scenario, locale)),
 				),
 			})),
 		)
@@ -46,6 +50,7 @@ export class AiDialogueScenarioGroupQueryRepository {
 				id: true,
 				slug: true,
 				title: true,
+				description: true,
 				AiDialogueScenario: {
 					where: { user_id: null },
 					orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
@@ -55,7 +60,10 @@ export class AiDialogueScenarioGroupQueryRepository {
 		})
 	}
 
-	private async mapPublicScenario(scenario: PublicScenarioDb): Promise<PublicAiDialogueScenarioOutModel> {
+	private async mapPublicScenario(
+		scenario: PublicScenarioDb,
+		locale: Language,
+	): Promise<PublicAiDialogueScenarioOutModel> {
 		if (!scenario.slug || !scenario.cover_s3_key) {
 			throw new CustomError(
 				errorMessage.aiDialogue.invalidPublicScenario,
@@ -66,8 +74,8 @@ export class AiDialogueScenarioGroupQueryRepository {
 		return {
 			id: scenario.id,
 			slug: scenario.slug,
-			title: scenario.title,
-			description: scenario.description,
+			title: pickLocalized(scenario.title, locale),
+			description: pickLocalized(scenario.description, locale),
 			coverUrl: await this.storage.getFileUrl(scenario.cover_s3_key),
 		}
 	}

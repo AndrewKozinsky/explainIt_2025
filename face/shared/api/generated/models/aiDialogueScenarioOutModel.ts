@@ -19,12 +19,12 @@ export interface AiDialogueScenarioOutModel {
      */
   slug?: string | null;
   /**
-     * Scenario title shown on the button
+     * Scenario title in the interface language
      * @maxLength 255
      */
   title: string;
   /**
-     * Short description of the scenario
+     * Short scenario description in the interface language
      * @maxLength 2000
      */
   description: string;

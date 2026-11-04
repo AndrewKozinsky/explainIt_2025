@@ -1,15 +1,17 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
-import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
+import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
 
 export class GetAiDialogueCommand implements ICommand {
 	constructor(
 		public userId: number,
 		public id: number,
+		public locale: Language,
 	) {}
 }
 
@@ -21,7 +23,7 @@ export class GetAiDialogueHandler implements ICommandHandler<GetAiDialogueComman
 	) {}
 
 	async execute(command: GetAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, id } = command
+		const { userId, id, locale } = command
 
 		const dialogue = await this.aiDialogueRepository.getDialogueById(id)
 		if (!dialogue) {
@@ -32,7 +34,7 @@ export class GetAiDialogueHandler implements ICommandHandler<GetAiDialogueComman
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
 
-		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(id)
+		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(id, locale)
 		if (!dialogueOut) {
 			throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
 		}

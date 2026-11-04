@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { AiDialogueScenarioQueryRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.queryRepository'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
+import { Language } from 'utils/languages'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { AiDialogueOutModel } from 'models/aiDialogue/aiDialogue.out.model'
@@ -17,15 +18,16 @@ export class AiDialogueQueryRepository {
 		private aiDialogueScenarioQueryRepository: AiDialogueScenarioQueryRepository,
 	) {}
 
+	/** @param locale язык интерфейса, на котором возвращаются тексты сценария. */
 	@CatchDbError()
-	async getDialogueById(id: number): Promise<null | AiDialogueOutModel> {
+	async getDialogueById(id: number, locale: Language): Promise<null | AiDialogueOutModel> {
 		const dialogue = await this.prisma.aiDialogue.findUnique({
 			where: { id },
 			include: { scenario: true },
 		})
 		if (!dialogue) return null
 
-		return this.mapDbToOutModel(dialogue)
+		return this.mapDbToOutModel(dialogue, locale)
 	}
 
 	// Возвращает все сообщения диалога в хронологическом порядке.
@@ -47,10 +49,10 @@ export class AiDialogueQueryRepository {
 		return this.mapDbMessageToOutModel(message)
 	}
 
-	mapDbToOutModel(dbDialogue: AiDialogueDb): AiDialogueOutModel {
+	mapDbToOutModel(dbDialogue: AiDialogueDb, locale: Language): AiDialogueOutModel {
 		return {
 			id: dbDialogue.id,
-			scenario: this.aiDialogueScenarioQueryRepository.mapDbToOutModel(dbDialogue.scenario),
+			scenario: this.aiDialogueScenarioQueryRepository.mapDbToOutModel(dbDialogue.scenario, locale),
 			sourceLanguageCode: dbDialogue.source_language_code,
 			targetLanguageCode: dbDialogue.target_language_code,
 			maxCefrLevel: dbDialogue.max_cefr_level,

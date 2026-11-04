@@ -1,7 +1,9 @@
 import { Controller, Get, Header, HttpCode, HttpStatus } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { ApiTags } from '@nestjs/swagger'
+import { Language } from 'utils/languages'
 import { GetAiDialogueScenarioGroupsCommand } from 'features/aiDialogueScenario/GetAiDialogueScenarioGroups.command'
+import { RequestLocale } from 'infrastructure/requestLocale/requestLocale.decorator'
 import { AiDialogueScenarioGroupOutModel } from 'models/aiDialogueScenarioGroup/aiDialogueScenarioGroup.out.model'
 import { ApiGetAiDialogueScenarioGroups } from './openAPI.decorators'
 
@@ -14,7 +16,7 @@ export class AiDialogueScenarioGroupController {
 	@Header('Cache-Control', 'no-store')
 	@HttpCode(HttpStatus.OK)
 	@Get()
-	async getAiDialogueScenarioGroups(): Promise<AiDialogueScenarioGroupOutModel[]> {
-		return await this.commandBus.execute(new GetAiDialogueScenarioGroupsCommand())
+	async getAiDialogueScenarioGroups(@RequestLocale() locale: Language): Promise<AiDialogueScenarioGroupOutModel[]> {
+		return await this.commandBus.execute(new GetAiDialogueScenarioGroupsCommand(locale))
 	}
 }

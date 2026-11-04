@@ -1,8 +1,8 @@
 import type { AiDialogueModel } from '@/entities/aiDialogue/AiDialogueService'
-import { pickLocalized } from '@/shared/utils/pickLocalized'
 
-export function getHeaderAndSubHeader(dialogue: AiDialogueModel, locale: string) {
+/** Название сценария уже приходит с сервера на языке интерфейса. */
+export function getHeaderAndSubHeader(dialogue: AiDialogueModel) {
 	return {
-		header: pickLocalized(dialogue.scenario.title, locale),
+		header: dialogue.scenario.title,
 	}
 }

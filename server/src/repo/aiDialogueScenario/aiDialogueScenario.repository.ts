@@ -83,8 +83,8 @@ export class AiDialogueScenarioRepository {
 	private upsertGroup(tx: Prisma.TransactionClient, group: AiDialogueScenarioGroupSeedData) {
 		return tx.aiDialogueScenarioGroup.upsert({
 			where: { slug: group.slug },
-			create: { slug: group.slug, title: group.title },
-			update: { title: group.title },
+			create: { slug: group.slug, title: group.title, description: group.description },
+			update: { title: group.title, description: group.description },
 		})
 	}
 

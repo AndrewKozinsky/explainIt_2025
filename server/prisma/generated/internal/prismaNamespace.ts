@@ -2806,6 +2806,7 @@ export const AiDialogueScenarioGroupScalarFieldEnum = {
   id: 'id',
   slug: 'slug',
   title: 'title',
+  description: 'description',
   created_at: 'created_at'
 } as const
 

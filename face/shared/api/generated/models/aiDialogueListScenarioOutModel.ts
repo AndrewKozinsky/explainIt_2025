@@ -13,7 +13,7 @@ export interface AiDialogueListScenarioOutModel {
      */
   id: number;
   /**
-     * Scenario title shown on the button
+     * Scenario title in the interface language
      * @maxLength 255
      */
   title: string;

@@ -1,15 +1,16 @@
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import type { AiDialogueScenarioGroupModel } from '@/entities/aiDialogueScenarioGroup/repository/AiDialogueScenarioGroupRepository'
-import { pickLocalized } from '@/shared/utils/pickLocalized'
 
-export function getScenarioGroupsConfig(groups: AiDialogueScenarioGroupModel[], locale: string) {
+/** Готовит группы и карточки для вывода; тексты уже приходят с сервера на языке интерфейса. */
+export function getScenarioGroupsConfig(groups: AiDialogueScenarioGroupModel[]) {
 	return groups.map((group) => ({
 		id: group.id,
-		title: pickLocalized(group.title, locale),
+		title: group.title,
+		description: group.description,
 		scenarios: group.scenarios.map((scenario) => ({
 			id: scenario.id,
-			title: pickLocalized(scenario.title, locale) || aiDialogueScenarioConfig.emptyScenarioName,
-			description: pickLocalized(scenario.description, locale),
+			title: scenario.title || aiDialogueScenarioConfig.emptyScenarioName,
+			description: scenario.description,
 			coverUrl: scenario.coverUrl,
 		})),
 	}))

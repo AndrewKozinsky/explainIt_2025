@@ -8,7 +8,7 @@ import type { DialogueCardProps } from '../UserAiDialoguesList/ui/dialogueCardTy
 import './LargeDialogueCard.scss'
 
 export default function LargeDialogueCard({ dialogue, locale, onDelete }: DialogueCardProps) {
-	const { title, url } = getDialogueCardDetails(dialogue, locale)
+	const { title, url } = getDialogueCardDetails(dialogue)
 
 	return (
 		<article className='large-dialogue-card'>

@@ -20,23 +20,27 @@ describe('UpdateAiDialogue settings', () => {
 		const { handler, repository, query } = harness()
 		query.getDialogueById.mockResolvedValue({ id: 1, maxCefrLevel })
 		await expect(
-			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel })),
+			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel, locale: 'ru' })),
 		).resolves.toEqual({ id: 1, maxCefrLevel })
 		expect(repository.updateDialogue).toHaveBeenCalledWith(1, 7, { max_cefr_level: maxCefrLevel })
 	})
 
 	it('preserves settings and updatedAt for an empty PATCH', async () => {
 		const { handler, repository } = harness()
-		await handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1 }))
+		await handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, locale: 'ru' }))
 		expect(repository.updateDialogue).not.toHaveBeenCalled()
 	})
 
 	it.each([null, { user_id: 8 }])('rejects missing or foreign dialogues: %j', async (dialogue) => {
 		const { handler, repository, query } = harness()
 		repository.getDialogueById.mockResolvedValue(dialogue)
+
 		await expect(
-			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel: 'A1' })),
+			handler.execute(
+				new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel: 'A1', locale: 'ru' }),
+			),
 		).rejects.toMatchObject({ statusCode: dialogue ? 403 : 404 })
+
 		expect(repository.updateDialogue).not.toHaveBeenCalled()
 		expect(query.getDialogueById).not.toHaveBeenCalled()
 	})
@@ -45,7 +49,9 @@ describe('UpdateAiDialogue settings', () => {
 		const { handler, repository } = harness()
 		repository.updateDialogue.mockResolvedValue(false)
 		await expect(
-			handler.execute(new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel: 'A1' })),
+			handler.execute(
+				new UpdateAiDialogueCommand({ userId: 7, dialogueId: 1, maxCefrLevel: 'A1', locale: 'ru' }),
+			),
 		).rejects.toMatchObject({ statusCode: 404 })
 	})
 })

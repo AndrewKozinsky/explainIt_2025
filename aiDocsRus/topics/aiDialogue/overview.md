@@ -18,7 +18,8 @@
 ## Модель данных
 
 - `AiDialogueScenarioGroup` → `AiDialogueScenario` → `AiDialogue` → `AiDialogueMessage`.
-- Сценарий языконейтрален: `title`/`description` — JSON-строки переводов, `system_prompt` — английский,
+- Сценарий языконейтрален: `title`/`description` (у групп тоже) хранятся JSON-строками переводов, API отдаёт их
+  на языке из `Accept-Language`; `system_prompt` — английский,
   клиенту не отдаётся. Публичный сценарий (`user_id IS NULL`) обязан иметь группу и обложку.
   Публичные группы и сценарии синхронизируются сидом при старте сервера.
 - `AiDialogue`: владелец, сценарий, `source_language_code` (практика), `target_language_code` (перевод),

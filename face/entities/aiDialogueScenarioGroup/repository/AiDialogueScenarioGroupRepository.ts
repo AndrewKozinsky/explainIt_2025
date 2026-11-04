@@ -10,6 +10,8 @@ export type AiDialogueScenarioGroupModel = {
 	id: number
 	slug: string
 	title: string
+	/** Почему стоит выбрать сценарий этой группы; пустая строка, если описания нет. */
+	description: string
 	scenarios: PublicAiDialogueScenarioModel[]
 }
 

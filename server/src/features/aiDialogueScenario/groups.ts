@@ -12,6 +12,15 @@ export const aiDialogueScenarioGroups: AiDialogueScenarioGroupSeedData[] = [
 			tr: 'Yurt dışı seyahati',
 			ru: 'Поездка за границу',
 		}),
+		description: localized({
+			en: 'Useful before a trip: get through passport control, check in to a hotel and sort out problems with luggage or your room.',
+			es: 'Útil antes de un viaje: pasa el control de pasaportes, regístrate en el hotel y resuelve problemas con el equipaje o la habitación.',
+			fr: 'Utile avant un voyage : passez le contrôle des passeports, enregistrez-vous à l’hôtel et réglez un souci de bagages ou de chambre.',
+			de: 'Nützlich vor einer Reise: die Passkontrolle meistern, im Hotel einchecken und Probleme mit Gepäck oder Zimmer klären.',
+			it: 'Utile prima di un viaggio: supera il controllo passaporti, fai il check-in in hotel e risolvi problemi con i bagagli o la camera.',
+			tr: 'Seyahatten önce işinize yarar: pasaport kontrolünden geçin, otele giriş yapın, bavul ya da oda sorunlarını çözün.',
+			ru: 'Пригодится перед поездкой: пройдёте паспортный контроль, заселитесь в отель и решите проблему с багажом или номером.',
+		}),
 	},
 	{
 		slug: 'food-and-shopping',
@@ -23,6 +32,15 @@ export const aiDialogueScenarioGroups: AiDialogueScenarioGroupSeedData[] = [
 			it: 'Cibo e acquisti',
 			tr: 'Yemek ve alışveriş',
 			ru: 'Еда и покупки',
+		}),
+		description: localized({
+			en: 'The conversations you’ll have most often abroad: order food, ask what’s in a dish, find clothes that fit and return a purchase.',
+			es: 'Las conversaciones más habituales en el extranjero: pide comida, pregunta qué lleva un plato, encuentra ropa de tu talla y devuelve una compra.',
+			fr: 'Les échanges les plus fréquents à l’étranger : commandez à manger, demandez la composition d’un plat, trouvez des vêtements à votre taille et rendez un achat.',
+			de: 'Die häufigsten Gespräche im Ausland: Essen bestellen, nach den Zutaten fragen, passende Kleidung finden und einen Kauf zurückgeben.',
+			it: 'Le conversazioni più frequenti all’estero: ordina da mangiare, chiedi gli ingredienti di un piatto, trova vestiti della tua taglia e restituisci un acquisto.',
+			tr: 'Yurt dışında en sık yapacağınız konuşmalar: yemek sipariş edin, bir yemeğin içeriğini sorun, bedeninize uygun kıyafet bulun ve aldığınız bir ürünü iade edin.',
+			ru: 'Самые частые разговоры за границей: закажете еду, спросите о составе блюда, подберёте одежду и вернёте неподходящую покупку.',
 		}),
 	},
 	{
@@ -36,6 +54,15 @@ export const aiDialogueScenarioGroups: AiDialogueScenarioGroupSeedData[] = [
 			tr: 'Şehir ve hizmetler',
 			ru: 'Город и услуги',
 		}),
+		description: localized({
+			en: 'For life in another country: explain to a doctor what’s wrong and find out the terms before you pay for a service.',
+			es: 'Para vivir en otro país: explica al médico qué te pasa y entérate de las condiciones antes de pagar un servicio.',
+			fr: 'Pour vivre dans un autre pays : expliquez au médecin ce qui ne va pas et renseignez-vous sur les conditions avant de payer un service.',
+			de: 'Für das Leben in einem anderen Land: dem Arzt die Beschwerden erklären und die Bedingungen klären, bevor Sie für eine Leistung bezahlen.',
+			it: 'Per vivere in un altro paese: spiega al medico cosa non va e informati sulle condizioni prima di pagare un servizio.',
+			tr: 'Başka bir ülkede yaşamak için: doktora şikâyetinizi anlatın ve bir hizmet için ödeme yapmadan önce koşulları öğrenin.',
+			ru: 'Для жизни в другой стране: объясните врачу, что беспокоит, и узнайте условия, прежде чем за что-то платить.',
+		}),
 	},
 	{
 		slug: 'home-and-everyday-life',
@@ -47,6 +74,15 @@ export const aiDialogueScenarioGroups: AiDialogueScenarioGroupSeedData[] = [
 			it: 'Casa e vita quotidiana',
 			tr: 'Ev ve günlük yaşam',
 			ru: 'Дом и повседневная жизнь',
+		}),
+		description: localized({
+			en: 'Unexpected moments at home: learn to react quickly when a stranger comes to talk to you.',
+			es: 'Situaciones inesperadas en casa: aprende a reaccionar rápido cuando un desconocido viene a hablar contigo.',
+			fr: 'Imprévus à la maison : apprenez à réagir vite quand un inconnu vient vous parler.',
+			de: 'Unerwartetes zu Hause: Lernen Sie, schnell zu reagieren, wenn ein Fremder Sie anspricht.',
+			it: 'Imprevisti a casa: impara a reagire in fretta quando uno sconosciuto viene a parlarti.',
+			tr: 'Evde beklenmedik anlar: bir yabancı sizinle konuşmaya geldiğinde hızlıca tepki vermeyi öğrenin.',
+			ru: 'Неожиданные ситуации дома: научитесь быстро реагировать, когда к вам обращается незнакомый человек.',
 		}),
 	},
 ]

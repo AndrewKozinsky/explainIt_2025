@@ -1,7 +1,6 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import { useLocale } from 'next-intl'
 import { aiDialogueScenarioGroupQueries } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupQueryFacade'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { getScenarioGroupsConfig } from './fn/getScenarioGroupsConfig'
@@ -12,7 +11,6 @@ import StartDialogueModal from './ui/StartDialogueModal/StartDialogueModal'
 import './PublicAiDialogueScenariosList.scss'
 
 export default function PublicAiDialogueScenariosList() {
-	const locale = useLocale()
 	const query = useQuery(aiDialogueScenarioGroupQueries.getAiDialogueScenarioGroups())
 
 	const {
@@ -40,7 +38,7 @@ export default function PublicAiDialogueScenariosList() {
 		)
 	}
 
-	const groups = getScenarioGroupsConfig(query.data ?? [], locale)
+	const groups = getScenarioGroupsConfig(query.data ?? [])
 	if (!groups.length) return <p>Пока нет доступных сценариев.</p>
 
 	const selectedGroup = groups.find((group) => group.scenarios.some((scenario) => scenario.id === selectedScenarioId))

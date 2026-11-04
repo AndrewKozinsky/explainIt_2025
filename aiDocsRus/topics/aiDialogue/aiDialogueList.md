@@ -60,7 +60,7 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
 }
 ```
 
-- `scenario` — вложенный объект с id и title; title остаётся JSON-строкой переводов.
+- `scenario` — вложенный объект с id и title; title — на языке интерфейса из `Accept-Language`.
 - `maxCefrLevel: null` означает «без ограничения». Названия языка, подписи CEFR и относительных дат формирует клиент.
 - `lastMessage` — именно последнее сохранённое `npcActions`. Более поздние userActions, userAvoidsNPC,
   help, worldEvent или sceneUpdate его не заменяют. Дата относится к этому же сообщению NPC;
@@ -108,7 +108,7 @@ AiDialoguesPage монтирует UserAiDialoguesList только для ав�
 LargeDialogueCard и MediumDialogueCard — отдельные обёртки; иллюстрация, описание, аватары, сообщение
 и кнопки вынесены в общие компоненты ui/parts. Кнопки удаления и ответа используют Button;
 href сохраняет ссылку, size="custom" оставляет размеры существующим стилям карточки.
-Название берётся из scenario.title через pickLocalized, язык — через Intl.DisplayNames по локали интерфейса.
+Название берётся из scenario.title как есть (пустое заменяется на «Диалог»), язык — через Intl.DisplayNames по локали интерфейса.
 При maxCefrLevel=null выводится «Без ограничения».
 
 Дата выводится из lastMessage.createdAt, по календарным дням в часовом поясе браузера:

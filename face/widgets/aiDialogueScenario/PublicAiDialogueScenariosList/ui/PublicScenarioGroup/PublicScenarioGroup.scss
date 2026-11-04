@@ -33,6 +33,12 @@
 	color: white;
 }
 
+.public-scenario-group__description {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+	color: vars.$grayColor-5;
+}
+
 .public-scenario-group__grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(min(100%, 28rem), 1fr));

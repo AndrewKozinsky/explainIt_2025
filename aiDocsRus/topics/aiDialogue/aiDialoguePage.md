@@ -57,7 +57,7 @@ SSE-протокол, генерация хода, компакция) опис�
 - Правая панель — `DetailsBlock` с вкладками «Словарь» (`PhraseDictionary` с `languageCode` и `currentWord`)
   и «Диалог» (выбранное предложение).
 
-Заголовок страницы резолвится из `dialogue.scenario.title` через `pickLocalized` (см.
+Заголовок страницы — `dialogue.scenario.title`, который сервер уже вернул на языке интерфейса (см.
 `getHeaderAndSubHeader`).
 
 ## Клиентские типы (зеркало серверных)
@@ -270,7 +270,7 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 
 - `face/_pages/aiDialogue/AiDialoguePage/AiDialoguePage.tsx` — страница.
 - `face/_pages/aiDialogue/AiDialogueLeftWrapper/AiDialogueLeftWrapper.tsx` — левая колонка (сообщения + ввод).
-- `face/_pages/aiDialogue/AiDialoguePage/fn/getHeaderAndSubHeader.ts` — заголовок через `pickLocalized`.
+- `face/_pages/aiDialogue/AiDialoguePage/fn/getHeaderAndSubHeader.ts` — заголовок страницы из названия сценария.
 
 ## Озвучка на клиенте
 

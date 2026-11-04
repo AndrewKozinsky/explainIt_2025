@@ -1,6 +1,7 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
+import { Language } from 'utils/languages'
 import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -13,6 +14,8 @@ export class UpdateAiDialogueCommand implements ICommand {
 			userId: number
 			dialogueId: number
 			maxCefrLevel?: AiDialogueCefrLevel | null
+			/** Язык интерфейса для текстов сценария в ответе. */
+			locale: Language
 		},
 	) {}
 }
@@ -25,7 +28,8 @@ export class UpdateAiDialogueHandler implements ICommandHandler<UpdateAiDialogue
 	) {}
 
 	async execute(command: UpdateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, dialogueId, maxCefrLevel } = command.dto
+		const { userId, dialogueId, maxCefrLevel, locale } = command.dto
+
 		const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
 		if (!dialogue) {
 			throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
@@ -46,7 +50,7 @@ export class UpdateAiDialogueHandler implements ICommandHandler<UpdateAiDialogue
 			}
 		}
 
-		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogueId)
+		const dialogueOut = await this.aiDialogueQueryRepository.getDialogueById(dialogueId, locale)
 		if (!dialogueOut) {
 			throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
 		}

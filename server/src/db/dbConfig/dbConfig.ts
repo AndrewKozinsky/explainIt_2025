@@ -1306,6 +1306,14 @@ export const bdConfig = {
 				description: 'Group title as a JSON string of translations',
 				example: '{"en":"Travel abroad","ru":"Поездка за границу"}',
 			},
+			description: {
+				type: 'string',
+				required: true,
+				maxLength: 2000,
+				description: 'Why to choose a scenario from this group, as a JSON string of translations',
+				example:
+					'{"en":"Practise what you will need on a trip","ru":"Отработайте то, что пригодится в поездке"}',
+			},
 			AiDialogueScenario: { type: 'oneToMany' },
 			created_at: { type: 'createdAt' },
 		},

@@ -11,7 +11,10 @@ export class AiDialogueListScenarioOutModel {
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.id))
 	id: number
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.title))
+	@ApiProperty({
+		...getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.title),
+		description: 'Scenario title in the interface language',
+	})
 	title: string
 }
 

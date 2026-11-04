@@ -202,15 +202,19 @@ async function checkSynchronization(prisma: PrismaClient, userId: number) {
 }
 
 async function checkGroups(prisma: PrismaClient) {
-	await prisma.aiDialogueScenarioGroup.create({ data: { slug: 'empty', title: 'Empty group' } })
+	await prisma.aiDialogueScenarioGroup.create({
+		data: { slug: 'empty', title: 'Empty group', description: 'Empty group description' },
+	})
+
 	const sameDate = new Date('2026-10-25T00:00:00Z')
+
 	await prisma.aiDialogueScenarioGroup.updateMany({ data: { created_at: sameDate } })
 	await prisma.aiDialogueScenario.updateMany({ where: { user_id: null }, data: { created_at: sameDate } })
 	const repository = new AiDialogueScenarioGroupQueryRepository(
 		prisma as PrismaService,
 		storage as CloudflareS3Service,
 	)
-	const groups = await repository.getPublicScenarioGroups()
+	const groups = await repository.getPublicScenarioGroups('en')
 	assert.equal(groups.length, 4)
 	assert.deepEqual(
 		groups.map((group) => group.id),
@@ -223,7 +227,7 @@ async function checkGroups(prisma: PrismaClient) {
 		'travel-abroad': 4,
 	})
 	for (const group of groups) {
-		assert.deepEqual(Object.keys(group).sort(), ['id', 'scenarios', 'slug', 'title'])
+		assert.deepEqual(Object.keys(group).sort(), ['description', 'id', 'scenarios', 'slug', 'title'])
 		const ids = group.scenarios.map((scenario) => scenario.id)
 		assert.deepEqual(
 			ids,
@@ -239,12 +243,12 @@ async function checkGroups(prisma: PrismaClient) {
 		where: { id: oldest.id },
 		data: { created_at: new Date('2020-01-01') },
 	})
-	const reordered = await repository.getPublicScenarioGroups()
+	const reordered = await repository.getPublicScenarioGroups('en')
 	assert.equal(reordered.at(-1)?.id, oldest.id)
 	const travel = groups.find((group) => group.slug === 'travel-abroad')!
 	const scenario = travel.scenarios[0]
 	await prisma.aiDialogueScenario.update({ where: { id: scenario.id }, data: { created_at: new Date('2020-01-01') } })
-	const next = await repository.getPublicScenarioGroups()
+	const next = await repository.getPublicScenarioGroups('en')
 	assert.equal(next.find((group) => group.slug === 'travel-abroad')?.scenarios.at(-1)?.id, scenario.id)
 	return next
 }
@@ -264,6 +268,11 @@ async function checkHttp(prisma: PrismaClient, expected: unknown) {
 		assert.equal(response.status, 200)
 		assert.equal(response.headers.get('cache-control'), 'no-store')
 		assert.deepEqual(await response.json(), expected)
+		const russian = await fetch(`${url}/api/ai-dialogue-scenario-group`, { headers: { 'Accept-Language': 'ru' } })
+		const russianGroups = (await russian.json()) as { slug: string; title: string; description: string }[]
+		const travel = russianGroups.find((group) => group.slug === 'travel-abroad')
+		assert.equal(travel?.title, 'Поездка за границу')
+		assert.ok(travel?.description.startsWith('Пригодится перед поездкой'))
 		assert.equal((await fetch(`${url}/api/ai-dialogue-scenario`)).status, 404)
 		const document = SwaggerModule.createDocument(app, new DocumentBuilder().build())
 		assert.deepEqual(Object.keys(document.paths), ['/api/ai-dialogue-scenario-group'])
@@ -276,7 +285,7 @@ async function checkHttp(prisma: PrismaClient, expected: unknown) {
 		const group = document.components?.schemas?.AiDialogueScenarioGroupOutModel as {
 			properties: Record<string, unknown>
 		}
-		assert.deepEqual(Object.keys(group.properties).sort(), ['id', 'scenarios', 'slug', 'title'])
+		assert.deepEqual(Object.keys(group.properties).sort(), ['description', 'id', 'scenarios', 'slug', 'title'])
 	} finally {
 		await app.close()
 	}

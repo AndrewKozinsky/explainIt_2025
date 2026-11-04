@@ -23,6 +23,7 @@ jest.mock('@nestjs/common', () => {
 })
 jest.mock('@nestjs/swagger', () => ({ ApiTags: () => () => undefined }))
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
+jest.mock('infrastructure/requestLocale/requestLocale.decorator', () => ({ RequestLocale: () => () => undefined }))
 jest.mock('@nestjs/cqrs', () => ({ CommandBus: class {}, CommandHandler: () => (target: unknown) => target }))
 jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository: class {} }))
 jest.mock('repo/aiDialogue/aiDialogue.queryRepository', () => ({ AiDialogueQueryRepository: class {} }))
@@ -40,6 +41,7 @@ jest.mock('features/aiDialogue/GetUserDialogues.command', () => ({
 		constructor(
 			public userId: number,
 			public pagination: { page: number; pageSize: number },
+			public locale: string,
 		) {}
 	},
 }))
@@ -107,10 +109,11 @@ describe('AiDialogueController CQRS dispatch', () => {
 				illustrationStyleId: 'watercolor',
 			},
 			request,
+			'ru',
 		)
 		expect(bus.execute).toHaveBeenCalledWith(
 			expect.objectContaining({
-				dto: expect.objectContaining({ userId: 7, illustrationStyleId: 'watercolor' }),
+				dto: expect.objectContaining({ userId: 7, illustrationStyleId: 'watercolor', locale: 'ru' }),
 			}),
 		)
 	})
@@ -122,9 +125,10 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const { controller, bus, request } = harness()
 		const result = { items: [], total: 0, page: pagination.page, pageSize: pagination.pageSize, totalPages: 0 }
 		bus.execute.mockResolvedValue(result)
-		await expect(controller.getAiDialogues(query, request)).resolves.toBe(result)
 
-		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, pagination }))
+		await expect(controller.getAiDialogues(query, request, 'ru')).resolves.toBe(result)
+
+		expect(bus.execute).toHaveBeenCalledWith(expect.objectContaining({ userId: 7, pagination, locale: 'ru' }))
 	})
 
 	it('checks a draft with authenticated identity and forwards only the optional draft fields', async () => {
@@ -155,13 +159,13 @@ describe('AiDialogueController CQRS dispatch', () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockResolvedValue({ id: 1, maxCefrLevel: null })
 
-		await expect(controller.updateAiDialogue(1, { maxCefrLevel: null }, request)).resolves.toEqual({
+		await expect(controller.updateAiDialogue(1, { maxCefrLevel: null }, request, 'ru')).resolves.toEqual({
 			id: 1,
 			maxCefrLevel: null,
 		})
 
 		expect(bus.execute).toHaveBeenCalledWith(
-			expect.objectContaining({ dto: { userId: 7, dialogueId: 1, maxCefrLevel: null } }),
+			expect.objectContaining({ dto: { userId: 7, dialogueId: 1, maxCefrLevel: null, locale: 'ru' } }),
 		)
 	})
 

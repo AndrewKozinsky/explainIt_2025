@@ -6,6 +6,8 @@ export type AiDialogueScenarioGroupSlug =
 export type AiDialogueScenarioGroupSeedData = {
 	slug: AiDialogueScenarioGroupSlug
 	title: string
+	/** Почему стоит выбрать сценарий этой группы: польза для пользователя, а не пересказ названия. */
+	description: string
 }
 
 export type AiDialogueScenarioSeedData = {

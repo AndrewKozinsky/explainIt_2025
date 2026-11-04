@@ -13,20 +13,19 @@ const groups = [
 	{
 		id: 8,
 		slug: 'travel',
-		title: JSON.stringify({ en: 'Travel', ru: 'Поездка за границу' }),
+		title: 'Поездка за границу',
+		description: 'Пригодится перед поездкой.',
 		scenarios: scenarios(0, 2),
 	},
-	{ id: 2, slug: 'food', title: JSON.stringify({ ru: 'Еда и покупки' }), scenarios: scenarios(2, 6) },
+	{ id: 2, slug: 'food', title: 'Еда и покупки', description: '', scenarios: scenarios(2, 6) },
 ]
 
 function scenarios(start: number, end: number) {
 	return titles.slice(start, end).map((title, index) => ({
 		id: start + index + 1,
 		slug: `scenario-${start + index}`,
-		title: JSON.stringify({ ru: title }),
-		description: JSON.stringify({
-			ru: 'Вы обсуждаете ситуацию с собеседником. Уточните детали и договоритесь о решении.',
-		}),
+		title,
+		description: 'Вы обсуждаете ситуацию с собеседником. Уточните детали и договоритесь о решении.',
 		coverUrl: '/test-cover.svg',
 	}))
 }
@@ -124,7 +123,7 @@ async function setup(
 		return route.fulfill({
 			json: {
 				id: 42,
-				scenario: { id: 1, title: '{}' },
+				scenario: { id: 1, title: '' },
 				messages: [],
 				sourceLanguageCode: 'en',
 				targetLanguageCode: 'ru',
@@ -161,6 +160,7 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	const h = await setup(page)
 	await expect(page.locator('.public-scenario-card')).toHaveCount(6)
 	await expect(page.locator('.public-scenario-group__heading')).toHaveText(['Поездка за границу2', 'Еда и покупки4'])
+	await expect(page.locator('.public-scenario-group__description')).toHaveText(['Пригодится перед поездкой.'])
 	await expect(page.locator('.public-scenario-card .media-card-button__title')).toHaveText(titles)
 	const cards = page.locator('.public-scenario-card')
 	const first = (await cards.nth(0).boundingBox())!
@@ -176,7 +176,7 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	await expect(page.locator('.modal').getByRole('heading', { name: titles[0], exact: true })).toBeVisible()
 	await expect(page.locator('.modal').getByText('Поездка за границу', { exact: true })).toBeVisible()
 	await expect(page.locator('.start-dialogue-modal__summary')).toHaveText(
-		JSON.parse(groups[0].scenarios[0].description).ru,
+		groups[0].scenarios[0].description,
 	)
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveAttribute('src', '/test-cover.svg')
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveJSProperty('naturalWidth', 1152)

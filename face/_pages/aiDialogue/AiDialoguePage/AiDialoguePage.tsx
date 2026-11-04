@@ -1,7 +1,6 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
-import { useLocale } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
@@ -29,8 +28,6 @@ type Props = {
 }
 
 export default function AiDialoguePage({ dialogueId }: Props) {
-	const locale = useLocale()
-
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
@@ -53,7 +50,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 		return <LoadingMessage text='Загрузка диалога…' />
 	}
 
-	const { header } = getHeaderAndSubHeader(dialogue, locale)
+	const { header } = getHeaderAndSubHeader(dialogue)
 
 	return (
 		<DialogueAudioProvider player={audio.player} state={audio.state}>

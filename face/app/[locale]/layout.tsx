@@ -26,7 +26,8 @@ export default async function LocaleLayout({
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
 			<NotificationProvider>
-				<Providers>
+				{/* Новый кэш запросов для каждой локали: сервер отдаёт тексты контента на языке интерфейса. */}
+				<Providers key={locale}>
 					<UserProvider user={user}>
 						<MainPageLayout>{children}</MainPageLayout>
 					</UserProvider>
