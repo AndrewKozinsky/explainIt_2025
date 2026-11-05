@@ -75,6 +75,54 @@ ai-dialogue-public-scenarios/covers/<mode>/
 | Потоп сверху | `leak-from-upstairs.webp` |
 | Жалоба на шум | `noise-complaint.webp` |
 | Полиция ищет свидетелей | `police-looking-for-witnesses.webp` |
+| Двойник знаменитости | `celebrity-lookalike.webp` |
+| Туристическая ловушка | `tourist-trap.webp` |
+| Вас неправильно поняли | `misunderstood-gesture.webp` |
+| Застряли в лифте | `stuck-in-elevator.webp` |
+| Последний автобус ушёл | `last-bus-gone.webp` |
+| Соседка в самолёте | `nervous-flyer.webp` |
+| Интервью на улице | `street-interview.webp` |
+| В автобусе | `on-the-bus.webp` |
+| Общий зонт | `shared-umbrella.webp` |
+| Клиент на работе | `client-at-work.webp` |
+| Предложение о работе | `job-offer-meeting.webp` |
+| Отпроситься с работы | `ask-day-off.webp` |
+| Разговор о зарплате | `salary-negotiation.webp` |
+| Оценка работы | `performance-review.webp` |
+| Корпоратив | `office-party.webp` |
+| Ошибка в зарплате | `payroll-error.webp` |
+| Увольняется лучший коллега | `colleague-quits.webp` |
+| В аптеке без рецепта | `pharmacy-symptoms.webp` |
+| В аптеке с рецептом | `pharmacy-prescription.webp` |
+| Аллергическая реакция | `allergy-reaction.webp` |
+| Свидетель аварии | `car-accident-witness.webp` |
+| Приёмный покой | `er-triage.webp` |
+| Страховой случай | `insurance-claim.webp` |
+| Донорский центр | `blood-donor.webp` |
+| Украли телефон | `phone-stolen-police.webp` |
+| Прокат машины | `car-rental-upsell.webp` |
+| Приём арендованной машины | `rental-car-check.webp` |
+| Машину эвакуировали | `car-towed.webp` |
+| Остановила полиция | `traffic-stop.webp` |
+| Прокат велосипеда | `bike-rental.webp` |
+| Прокол колеса | `flat-tire.webp` |
+| Автобус опаздывает | `public-transport-delay.webp` |
+| Царапина на парковке | `parking-scratch.webp` |
+| Ошибочный перевод | `wrong-transfer.webp` |
+| Заявка на кредит | `loan-application.webp` |
+| Обменник | `currency-exchange.webp` |
+| Просрочка по кредиту | `missed-payment.webp` |
+| Ломбард | `pawn-shop.webp` |
+| Делим счёт | `split-the-bill.webp` |
+| Тест на уровень языка | `placement-interview.webp` |
+| Пропущенные занятия | `missed-class.webp` |
+| Первое занятие с репетитором | `tutor-first-lesson.webp` |
+| Вызвали к учителю | `teacher-meeting.webp` |
+| Собеседование с няней | `nanny-interview.webp` |
+| Няня в первый день | `babysitter-first-day.webp` |
+| Подарок племяннику | `gift-for-nephew.webp` |
+| Семейный ужин | `family-dinner.webp` |
+| Потерявшийся ребёнок | `lost-child-mall.webp` |
 
 ## Подключение
 

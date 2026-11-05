@@ -142,10 +142,17 @@ StartServerTasksRunner сначала применяет миграции, за�
 | door-knocks            | knock-at-the-door, plumber-visit, neighbors-cat-on-balcony, leak-from-upstairs, noise-complaint, police-looking-for-witnesses |
 | immigration            | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
 | relationships          | street-acquaintance, first-date, morning-after, anniversary-dinner, forgotten-anniversary, chores-argument, jealousy, meeting-partners-parents, planning-a-vacation, moving-in-together, job-offer-abroad, partner-is-sick, partner-wants-dog, ex-in-supermarket, friend-asks-loan |
+| misunderstandings-and-conflicts | celebrity-lookalike, tourist-trap, misunderstood-gesture |
+| unexpected-encounters  | stuck-in-elevator, last-bus-gone, nervous-flyer, street-interview, on-the-bus, shared-umbrella |
+| work                   | client-at-work, job-offer-meeting, ask-day-off, salary-negotiation, performance-review, office-party, payroll-error, colleague-quits |
+| health-emergency       | pharmacy-symptoms, pharmacy-prescription, allergy-reaction, car-accident-witness, er-triage, insurance-claim, blood-donor, phone-stolen-police |
+| transport-car          | car-rental-upsell, rental-car-check, car-towed, traffic-stop, bike-rental, flat-tire, public-transport-delay, parking-scratch |
+| money-banking          | wrong-transfer, loan-application, currency-exchange, missed-payment, pawn-shop, split-the-bill |
+| study                  | placement-interview, missed-class, tutor-first-lesson |
+| kids-family            | teacher-meeting, nanny-interview, babysitter-first-day, gift-for-nephew, family-dinner, lost-child-mall |
 
 В `groups.ts` 18 групп. Остальные пока без сценариев и на странице не выводятся: home-and-everyday-life,
-misunderstandings-and-conflicts, unexpected-encounters, work, health-emergency, transport-car,
-money-banking, study, kids-family, tech-services, local-services, sports-leisure.
+tech-services, local-services, sports-leisure.
 
 Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` каждому набору
 соответствует файл своей группы: `travelScenarios.ts`, `foodAndShoppingScenarios.ts`,
@@ -158,7 +165,15 @@ money-banking, study, kids-family, tech-services, local-services, sports-leisure
 участник может дополнять и поправлять детали. «Друг просит в долг» правило не получает.
 В `doorKnocksScenarios.ts` новые сценарии, где стучат к участнику, начинаются с общей завязки `withDoorOpening`
 (та же, что у `knock-at-the-door`). В `leak-from-upstairs` наоборот: участник поднимается к соседу сверху и стучит,
-кадр показывает его на площадке у открытой двери. Сценарии языконейтральны;
+кадр показывает его на площадке у открытой двери.
+В `misunderstandingsAndConflictsScenarios.ts` `tourist-trap` зашит на Египет и ведёт цепочку встреч с разными
+местными; `misunderstood-gesture` описывает в первой сцене безобидное действие участника, вызвавшее недоразумение
+(повод выбирает модель), конфликт остаётся словесным.
+В `healthEmergencyScenarios.ts` травмы и симптомы описываются реалистично, но без натурализма; симптомы, травму
+и обстоятельства описывает участник. В `car-accident-witness` скорую уже вызвал прохожий, затем приезжают медики
+и полиция и расспрашивают участника.
+В `studyScenarios.ts` общее правило диалога «не исправлять язык участника и не превращать разговор в урок» сильнее
+сценария: репетитор в `tutor-first-lesson` говорит об учёбе, а письменную работу оценивает только в общих словах. Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
 и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
 сейчас она задана у всех двенадцати сценариев.

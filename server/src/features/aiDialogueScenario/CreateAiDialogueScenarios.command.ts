@@ -7,10 +7,18 @@ import { getPublicScenarioCoverKey } from './publicScenarioCoverKey'
 import { cityAndServicesScenarios } from './scenarios/cityAndServicesScenarios'
 import { doorKnocksScenarios } from './scenarios/doorKnocksScenarios'
 import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
+import { healthEmergencyScenarios } from './scenarios/healthEmergencyScenarios'
 import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
 import { immigrationScenarios } from './scenarios/immigrationScenarios'
+import { kidsFamilyScenarios } from './scenarios/kidsFamilyScenarios'
+import { misunderstandingsAndConflictsScenarios } from './scenarios/misunderstandingsAndConflictsScenarios'
+import { moneyBankingScenarios } from './scenarios/moneyBankingScenarios'
 import { relationshipsScenarios } from './scenarios/relationshipsScenarios'
+import { studyScenarios } from './scenarios/studyScenarios'
+import { transportCarScenarios } from './scenarios/transportCarScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
+import { unexpectedEncountersScenarios } from './scenarios/unexpectedEncountersScenarios'
+import { workScenarios } from './scenarios/workScenarios'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
 	constructor() {}
@@ -60,6 +68,14 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			...doorKnocksScenarios,
 			...immigrationScenarios,
 			...relationshipsScenarios,
+			...misunderstandingsAndConflictsScenarios,
+			...unexpectedEncountersScenarios,
+			...workScenarios,
+			...healthEmergencyScenarios,
+			...transportCarScenarios,
+			...moneyBankingScenarios,
+			...studyScenarios,
+			...kidsFamilyScenarios,
 		]
 	}
 }
