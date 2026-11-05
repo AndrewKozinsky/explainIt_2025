@@ -3,7 +3,6 @@
 import React from 'react'
 import { useLocale } from 'next-intl'
 import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
-import Divider from '@/shared/ui/Divider/Divider'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import LargeDialogueCard from '../LargeDialogueCard/LargeDialogueCard'
 import MediumDialogueCard from '../MediumDialogueCard/MediumDialogueCard'
@@ -40,12 +39,7 @@ export default function UserAiDialoguesList({ userId }: Props) {
 	const cards = query.dialogues.map((dialogue, index) => {
 		const Card = index === 0 ? LargeDialogueCard : MediumDialogueCard
 
-		return (
-			<React.Fragment key={dialogue.id}>
-				<Card dialogue={dialogue} locale={locale} onDelete={openDeleteModal} />
-				<Divider />
-			</React.Fragment>
-		)
+		return <Card dialogue={dialogue} locale={locale} onDelete={openDeleteModal} key={dialogue.id} />
 	})
 
 	return (

@@ -95,18 +95,3 @@
 		flex: 1;
 	}
 }
-
-.large-dialogue-card__actions {
-	min-width: 0;
-
-	@include mix.container-width(50rem) {
-		align-self: flex-end;
-		margin-top: auto;
-	}
-
-	@include mix.container-width(90rem) {
-		flex: 0 0 auto;
-		align-self: center;
-		margin-top: 0;
-	}
-}
