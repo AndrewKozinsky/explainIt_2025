@@ -270,10 +270,11 @@ model AiDialogueScenarioGroup {
 	slug               String               @unique
 	title              String
 	description        String
+	position           Int                  @default(0)
 	AiDialogueScenario AiDialogueScenario[]
 	created_at         DateTime             @default(now())
 
-	@@index([created_at, id])
+	@@index([position, id])
 }
 
 model AiDialogueScenario {
@@ -283,6 +284,9 @@ model AiDialogueScenario {
 	description                  String
 	system_prompt                String
 	user_scenario_amendment_hint String?
+	conversation_ideas           String?
+	trained_skills               String?
+	position                     Int                      @default(0)
 	group                        AiDialogueScenarioGroup? @relation(fields: [group_id], references: [id], onDelete: Restrict)
 	group_id                     Int?
 	cover_s3_key                 String?
@@ -292,7 +296,7 @@ model AiDialogueScenario {
 	created_at                   DateTime                 @default(now())
 
 	@@index([user_id])
-	@@index([group_id, created_at, id])
+	@@index([group_id, position, id])
 }
 
 model AiDialogue {

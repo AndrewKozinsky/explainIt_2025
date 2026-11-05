@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
-import { pickLocalized } from 'utils/pickLocalized'
+import { pickLocalized, pickLocalizedList } from 'utils/pickLocalized'
 import { PrismaService } from 'db/prisma.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
@@ -19,6 +19,8 @@ const scenarioSelect = {
 	title: true,
 	description: true,
 	user_scenario_amendment_hint: true,
+	conversation_ideas: true,
+	trained_skills: true,
 	cover_s3_key: true,
 } as const
 type PublicScenarioDb = Prisma.AiDialogueScenarioGetPayload<{ select: typeof scenarioSelect }>
@@ -52,7 +54,7 @@ export class AiDialogueScenarioGroupQueryRepository {
 	private async getDbGroups() {
 		return this.prisma.aiDialogueScenarioGroup.findMany({
 			where: { AiDialogueScenario: { some: { user_id: null } } },
-			orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
+			orderBy: [{ position: 'asc' }, { id: 'asc' }],
 			select: {
 				id: true,
 				slug: true,
@@ -60,7 +62,7 @@ export class AiDialogueScenarioGroupQueryRepository {
 				description: true,
 				AiDialogueScenario: {
 					where: { user_id: null },
-					orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
+					orderBy: [{ position: 'asc' }, { id: 'asc' }],
 					select: scenarioSelect,
 				},
 			},
@@ -71,7 +73,7 @@ export class AiDialogueScenarioGroupQueryRepository {
 		scenario: PublicScenarioDb,
 		locale: Language,
 	): Promise<PublicAiDialogueScenarioOutModel> {
-		if (!scenario.slug || !scenario.cover_s3_key) {
+		if (!scenario.slug || !scenario.cover_s3_key || !scenario.conversation_ideas || !scenario.trained_skills) {
 			throw new CustomError(
 				errorMessage.aiDialogue.invalidPublicScenario,
 				ErrorStatusCode.InternalServerError_500,
@@ -86,6 +88,8 @@ export class AiDialogueScenarioGroupQueryRepository {
 			userScenarioAmendmentHint: scenario.user_scenario_amendment_hint
 				? pickLocalized(scenario.user_scenario_amendment_hint, locale)
 				: null,
+			conversationIdeas: pickLocalizedList(scenario.conversation_ideas, locale),
+			trainedSkills: pickLocalized(scenario.trained_skills, locale),
 			coverUrl: await this.storage.getFileUrl(scenario.cover_s3_key),
 		}
 	}

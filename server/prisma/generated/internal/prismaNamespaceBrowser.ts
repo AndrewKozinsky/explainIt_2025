@@ -349,6 +349,7 @@ export const AiDialogueScenarioGroupScalarFieldEnum = {
   slug: 'slug',
   title: 'title',
   description: 'description',
+  position: 'position',
   created_at: 'created_at'
 } as const
 
@@ -362,6 +363,9 @@ export const AiDialogueScenarioScalarFieldEnum = {
   description: 'description',
   system_prompt: 'system_prompt',
   user_scenario_amendment_hint: 'user_scenario_amendment_hint',
+  conversation_ideas: 'conversation_ideas',
+  trained_skills: 'trained_skills',
+  position: 'position',
   group_id: 'group_id',
   cover_s3_key: 'cover_s3_key',
   user_id: 'user_id',

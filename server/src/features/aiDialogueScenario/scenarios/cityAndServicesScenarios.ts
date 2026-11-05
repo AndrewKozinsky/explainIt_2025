@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData, localized } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const cityAndServicesScenarios: AiDialogueScenarioSeedData[] = [
 	{
@@ -30,6 +30,52 @@ export const cityAndServicesScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: mi fa male il dente del giudizio e la dentista è una signora anziana',
 			tr: 'Örneğin: yirmilik dişim ağrıyor, diş hekimi yaşlı bir kadın',
 			ru: 'Например: болит зуб мудрости, врач — пожилая женщина',
+		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Describe where it hurts and how',
+				'Ask about treatment options and the cost',
+				'Admit you are scared and ask for an anaesthetic',
+			],
+			es: [
+				'Describir dónde y cómo te duele',
+				'Preguntar por las opciones de tratamiento y el precio',
+				'Confesar que tienes miedo y pedir anestesia',
+			],
+			fr: [
+				'Décrire où et comment vous avez mal',
+				'Se renseigner sur les traitements et leur prix',
+				'Avouer que vous avez peur et demander une anesthésie',
+			],
+			de: [
+				'Beschreiben, wo und wie es wehtut',
+				'Nach Behandlungsmöglichkeiten und Kosten fragen',
+				'Zugeben, dass Sie Angst haben, und um Betäubung bitten',
+			],
+			it: [
+				'Descrivere dove e come fa male',
+				'Chiedere le opzioni di cura e il prezzo',
+				'Ammettere di avere paura e chiedere l’anestesia',
+			],
+			tr: [
+				'Nerenizin ve nasıl ağrıdığını anlatmak',
+				'Tedavi seçeneklerini ve fiyatı sormak',
+				'Korktuğunuzu söyleyip uyuşturma istemek',
+			],
+			ru: [
+				'Описать, где и как болит',
+				'Расспросить о вариантах лечения и цене',
+				'Признаться, что боитесь, и попросить обезболивание',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Describe pain and symptoms and discuss treatment',
+			es: 'Describir el dolor y los síntomas y hablar del tratamiento',
+			fr: 'Décrire la douleur et les symptômes et discuter du traitement',
+			de: 'Schmerzen und Symptome beschreiben und die Behandlung besprechen',
+			it: 'Descrivere dolore e sintomi e discutere la cura',
+			tr: 'Ağrıyı ve belirtileri anlatmak, tedaviyi konuşmak',
+			ru: 'Описывать боль и симптомы и обсуждать лечение',
 		}),
 		systemPrompt:
 			"You are a friendly dentist named Dr. Collins. The participant is a patient who has come for an appointment. Greet the patient, ask what hurts, how long, and how bad; ask a few follow-up questions about habits and allergies; explain the problem as a dentist would to a patient and suggest treatment; answer the patient's questions. Speak naturally as a dentist, with wording and detail appropriate to the situation. Stay in character the whole time.",
@@ -63,6 +109,36 @@ export const cityAndServicesScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: voglio un abbonamento per me e mio figlio, e il receptionist ha fretta',
 			tr: 'Örneğin: kendim ve çocuğum için üyelik istiyorum, resepsiyondaki görevli aceleci',
 			ru: 'Например: хочу абонемент для себя и ребёнка, а администратор куда-то торопится',
+		}),
+		conversationIdeas: localizedList({
+			en: ['Ask about memberships and prices', 'Ask about opening hours and rules', 'Ask for a trial visit'],
+			es: [
+				'Preguntar por los abonos y los precios',
+				'Preguntar por el horario y las normas',
+				'Pedir una visita de prueba',
+			],
+			fr: [
+				'Se renseigner sur les abonnements et les tarifs',
+				'Demander les horaires et le règlement',
+				'Demander une séance d’essai',
+			],
+			de: [
+				'Nach Abos und Preisen fragen',
+				'Nach Öffnungszeiten und Regeln fragen',
+				'Um einen Probebesuch bitten',
+			],
+			it: ['Informarsi su abbonamenti e prezzi', 'Chiedere orari e regolamento', 'Chiedere un ingresso di prova'],
+			tr: ['Üyelikleri ve fiyatları sormak', 'Çalışma saatlerini ve kuralları sormak', 'Deneme girişi istemek'],
+			ru: ['Узнать про абонементы и цены', 'Спросить про расписание и правила', 'Попросить пробное посещение'],
+		}),
+		trainedSkills: localized({
+			en: 'Ask about services, terms and prices before you pay',
+			es: 'Preguntar por servicios, condiciones y precios antes de pagar',
+			fr: 'Se renseigner sur les services, les conditions et les prix avant de payer',
+			de: 'Vor dem Bezahlen nach Leistungen, Bedingungen und Preisen fragen',
+			it: 'Informarsi su servizi, condizioni e prezzi prima di pagare',
+			tr: 'Ödemeden önce hizmetleri, koşulları ve fiyatları sormak',
+			ru: 'Расспрашивать об услугах, условиях и ценах перед покупкой',
 		}),
 		systemPrompt:
 			"The participant arrives at a swimming pool and meets a receptionist at the front desk. Greet them without assuming why they have come. Give the receptionist a consistent personality and let their responses reflect their own impressions, interests, and boundaries. Respond to what the participant is doing socially as well as what they are asking: a compliment, a joke, or an attempt to get acquainted deserves a personal reaction appropriate to this character. Let the conversation develop from both people's contributions. The receptionist can chat when circumstances allow. Discuss memberships, prices, schedules, or rules when relevant, without repeatedly steering the conversation toward a purchase. Answer everyday questions conversationally, with only as much detail as the moment calls for. Stay in character.",

@@ -12,8 +12,22 @@ type CreateScenarioData = {
 	description: string
 	systemPrompt: string
 } & (
-	| { userId: number; slug?: null | string; groupId?: never; coverS3Key?: null | string }
-	| { userId?: null; slug: string; groupId: number; coverS3Key: string }
+	| {
+			userId: number
+			slug?: null | string
+			groupId?: never
+			coverS3Key?: null | string
+			conversationIdeas?: never
+			trainedSkills?: never
+	  }
+	| {
+			userId?: null
+			slug: string
+			groupId: number
+			coverS3Key: string
+			conversationIdeas: string
+			trainedSkills: string
+	  }
 )
 
 @Injectable()
@@ -32,16 +46,19 @@ export class AiDialogueScenarioRepository {
 				user_id: dto.userId ?? null,
 				group_id: dto.groupId ?? null,
 				cover_s3_key: dto.coverS3Key ?? null,
+				conversation_ideas: dto.conversationIdeas ?? null,
+				trained_skills: dto.trainedSkills ?? null,
 			},
 		})
 	}
 
 	/**
 	 * Синхронизирует публичные группы и сценарии по slug одной транзакцией.
-	 * Обновляет содержимое, принадлежность к группе и ключ обложки, сохраняя ID и дату создания.
+	 * Обновляет содержимое, принадлежность к группе, ключ обложки и позицию, сохраняя ID и дату создания.
+	 * Позиция записи — её индекс в переданном массиве: в этом порядке список выводится на странице.
 	 * Не удаляет отсутствующие в сиде записи; конфликт с пользовательским slug отменяет всю транзакцию.
-	 * @param groups Группы с локализованными названиями.
-	 * @param scenarios Сценарии с ключами обложек, уже подготовленными для текущего MODE.
+	 * @param groups Группы с локализованными названиями в порядке вывода.
+	 * @param scenarios Сценарии с ключами обложек для текущего MODE в порядке вывода.
 	 */
 	@CatchDbError()
 	async synchronizePublicScenarios(
@@ -60,14 +77,14 @@ export class AiDialogueScenarioRepository {
 			async (tx) => {
 				const groupIds = new Map<string, number>()
 
-				for (const group of groups) {
-					const row = await this.upsertGroup(tx, group)
+				for (const [position, group] of groups.entries()) {
+					const row = await this.upsertGroup(tx, group, position)
 					groupIds.set(group.slug, row.id)
 				}
 
-				for (const scenario of scenarios) {
+				for (const [position, scenario] of scenarios.entries()) {
 					const groupId = groupIds.get(scenario.groupSlug)!
-					await this.upsertPublicScenario(tx, scenario, groupId)
+					await this.upsertPublicScenario(tx, scenario, groupId, position)
 				}
 			},
 			{ timeout: 30_000 },
@@ -79,12 +96,14 @@ export class AiDialogueScenarioRepository {
 		return this.prisma.aiDialogueScenario.findUnique({ where: { id } })
 	}
 
-	/** Создаёт группу либо обновляет её название в переданной транзакции, сохраняя ID и created_at. */
-	private upsertGroup(tx: Prisma.TransactionClient, group: AiDialogueScenarioGroupSeedData) {
+	/** Создаёт группу либо обновляет её тексты и позицию в переданной транзакции, сохраняя ID и created_at. */
+	private upsertGroup(tx: Prisma.TransactionClient, group: AiDialogueScenarioGroupSeedData, position: number) {
+		const data = { title: group.title, description: group.description, position }
+
 		return tx.aiDialogueScenarioGroup.upsert({
 			where: { slug: group.slug },
-			create: { slug: group.slug, title: group.title, description: group.description },
-			update: { title: group.title, description: group.description },
+			create: { ...data, slug: group.slug },
+			update: data,
 		})
 	}
 
@@ -92,11 +111,13 @@ export class AiDialogueScenarioRepository {
 	 * Создаёт или обновляет публичный сценарий в переданной транзакции.
 	 * Проверяет владельца до upsert, чтобы сид не изменил пользовательский сценарий с таким же slug.
 	 * @param groupId ID группы, полученный при синхронизации групп этой же транзакции.
+	 * @param position Порядок вывода сценария на странице.
 	 */
 	private async upsertPublicScenario(
 		tx: Prisma.TransactionClient,
 		scenario: PublicAiDialogueScenarioSeedData,
 		groupId: number,
+		position: number,
 	) {
 		const existing = await tx.aiDialogueScenario.findUnique({
 			where: { slug: scenario.slug },
@@ -115,9 +136,13 @@ export class AiDialogueScenarioRepository {
 			description: scenario.description,
 			system_prompt: scenario.systemPrompt,
 			user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
+			conversation_ideas: scenario.conversationIdeas,
+			trained_skills: scenario.trainedSkills,
+			position,
 			group_id: groupId,
 			cover_s3_key: scenario.coverS3Key,
 		}
+
 		// The owner precheck rejects private collisions; SQL CHECK also protects concurrent changes.
 		return tx.aiDialogueScenario.upsert({
 			where: { slug: scenario.slug },

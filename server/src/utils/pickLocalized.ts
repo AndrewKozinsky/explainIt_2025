@@ -12,18 +12,53 @@ const FALLBACK_LANGUAGE: Language = 'en'
  * @param locale язык интерфейса, на котором клиент показывает текст.
  */
 export function pickLocalized(raw: string, locale: Language): string {
+	const translations = parseTranslations(raw)
+	if (!translations) return raw
+
+	const text = pickTranslation(translations, locale, (value) => typeof value === 'string')
+
+	return typeof text === 'string' ? text : ''
+}
+
+/**
+ * Возвращает список на нужном языке из JSON-строки переводов вида `{"en":["...","..."],"ru":["..."]}`.
+ * Порядок выбора перевода тот же, что у pickLocalized. Нестроковые элементы отбрасываются.
+ * Если строка не JSON-объект или подходящего перевода нет, возвращает пустой массив.
+ * @param raw JSON-строка переводов списков.
+ * @param locale язык интерфейса, на котором клиент показывает текст.
+ */
+export function pickLocalizedList(raw: string, locale: Language): string[] {
+	const translations = parseTranslations(raw)
+	if (!translations) return []
+
+	const list = pickTranslation(translations, locale, Array.isArray)
+	if (!Array.isArray(list)) return []
+
+	return list.filter((item): item is string => typeof item === 'string')
+}
+
+/** Разбирает JSON-объект переводов; для не-JSON и не-объекта возвращает null. */
+function parseTranslations(raw: string): null | Record<string, unknown> {
 	let parsed: unknown
+
 	try {
 		parsed = JSON.parse(raw)
 	} catch {
-		return raw
+		return null
 	}
 
-	if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) return raw
+	if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) return null
 
-	const translations = parsed as Record<string, unknown>
+	return parsed as Record<string, unknown>
+}
+
+/** Первый подходящий перевод: язык интерфейса, английский, без языка, затем любой. */
+function pickTranslation(
+	translations: Record<string, unknown>,
+	locale: Language,
+	isSuitable: (value: unknown) => boolean,
+): unknown {
 	const keys = [locale, FALLBACK_LANGUAGE, UNSPECIFIED_LANGUAGE_KEY, ...Object.keys(translations)]
-	const text = keys.map((key) => translations[key]).find((value) => typeof value === 'string')
 
-	return typeof text === 'string' ? text : ''
+	return keys.map((key) => translations[key]).find(isSuitable)
 }

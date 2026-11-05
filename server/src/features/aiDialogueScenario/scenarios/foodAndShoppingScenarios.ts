@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData, localized } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const foodAndShoppingScenarios: AiDialogueScenarioSeedData[] = [
 	{
@@ -30,6 +30,44 @@ export const foodAndShoppingScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: un caffè vegano a Berlino, il cameriere è uno studente chiacchierone',
 			tr: 'Örneğin: Berlin’de vegan bir kafe, garson konuşkan bir öğrenci',
 			ru: 'Например: веганское кафе в Берлине, официант — болтливый студент',
+		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Ask the waiter for a recommendation',
+				'Order with your own preferences',
+				'Ask for the bill and pay by card',
+			],
+			es: ['Pedir una recomendación al camarero', 'Pedir a tu gusto', 'Pedir la cuenta y pagar con tarjeta'],
+			fr: [
+				'Demander un conseil au serveur',
+				'Commander selon ses préférences',
+				'Demander l’addition et payer par carte',
+			],
+			de: [
+				'Den Kellner um eine Empfehlung bitten',
+				'Mit eigenen Sonderwünschen bestellen',
+				'Die Rechnung verlangen und mit Karte zahlen',
+			],
+			it: [
+				'Chiedere un consiglio al cameriere',
+				'Ordinare secondo i propri gusti',
+				'Chiedere il conto e pagare con la carta',
+			],
+			tr: ['Garsondan öneri istemek', 'Kendi isteklerinize göre sipariş vermek', 'Hesabı isteyip kartla ödemek'],
+			ru: [
+				'Спросить, что посоветует официант',
+				'Заказать со своими пожеланиями',
+				'Попросить счёт и оплатить картой',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Order, ask about the menu and pay the bill',
+			es: 'Pedir, preguntar por la carta y pagar la cuenta',
+			fr: 'Commander, se renseigner sur la carte et régler l’addition',
+			de: 'Bestellen, nach der Karte fragen und bezahlen',
+			it: 'Ordinare, chiedere del menù e pagare il conto',
+			tr: 'Sipariş vermek, menüyü sormak ve hesabı ödemek',
+			ru: 'Делать заказ, расспрашивать о меню и расплачиваться',
 		}),
 		systemPrompt:
 			'The participant is seated at a table in a café. You play a waiter with a consistent personality. Approach, greet them and ask what they would like. Invent a small believable selection of drinks and snacks, explaining choices or prices only when relevant. Handle requests, preferences and small talk naturally. Do not choose or order for the participant, assume allergies, or jump straight to payment. Let the encounter develop from their contributions and stay in character.',
@@ -64,6 +102,48 @@ export const foodAndShoppingScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Örneğin: bir Meksika restoranı ve fındık fıstığa alerjim var',
 			ru: 'Например: ресторан мексиканской кухни, у меня аллергия на орехи',
 		}),
+		conversationIdeas: localizedList({
+			en: ['Ask what the dish is made of and how', 'Mention an allergy or a diet', 'Ask to swap an ingredient'],
+			es: [
+				'Preguntar de qué está hecho el plato y cómo se prepara',
+				'Avisar de una alergia o una dieta',
+				'Pedir que cambien un ingrediente',
+			],
+			fr: [
+				'Demander la composition et la préparation du plat',
+				'Signaler une allergie ou un régime',
+				'Demander de remplacer un ingrédient',
+			],
+			de: [
+				'Fragen, woraus und wie das Gericht zubereitet wird',
+				'Auf eine Allergie oder Diät hinweisen',
+				'Um den Austausch einer Zutat bitten',
+			],
+			it: [
+				'Chiedere di cosa è fatto il piatto e come si prepara',
+				'Segnalare un’allergia o una dieta',
+				'Chiedere di sostituire un ingrediente',
+			],
+			tr: [
+				'Yemeğin içinde ne olduğunu ve nasıl yapıldığını sormak',
+				'Alerjinizi ya da diyetinizi belirtmek',
+				'Bir malzemenin değiştirilmesini istemek',
+			],
+			ru: [
+				'Спросить, из чего и как готовят блюдо',
+				'Предупредить об аллергии или диете',
+				'Попросить заменить ингредиент',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Ask about ingredients and explain what you can’t eat',
+			es: 'Preguntar por los ingredientes y explicar lo que no puedes comer',
+			fr: 'Se renseigner sur les ingrédients et expliquer ce qu’on ne peut pas manger',
+			de: 'Nach Zutaten fragen und erklären, was man nicht essen darf',
+			it: 'Informarsi sugli ingredienti e spiegare cosa non puoi mangiare',
+			tr: 'Malzemeleri sormak ve neleri yiyemediğinizi açıklamak',
+			ru: 'Расспрашивать о составе и объяснять, что вам нельзя',
+		}),
 		systemPrompt:
 			'The participant is at a restaurant table and wants to ask about a dish and its ingredients. You play the waiter. Greet them and ask how you can help. Establish a plausible dish if the participant has not specified one, keeping its ingredients consistent. Discuss preparation, substitutions and dietary preferences when asked. Do not invent an allergy for the participant. If asked about allergen safety, offer to check with the kitchen rather than guessing or making an unsupported guarantee. Keep this an ordinary in-character restaurant conversation, and let the participant decide what to order.',
 	},
@@ -96,6 +176,52 @@ export const foodAndShoppingScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: cerco un abito per un colloquio di lavoro, con un budget limitato',
 			tr: 'Örneğin: iş görüşmesi için takım elbise arıyorum, bütçem kısıtlı',
 			ru: 'Например: ищу костюм на собеседование, бюджет небольшой',
+		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Explain what you are looking for and for what occasion',
+				'Ask for another size or colour',
+				'Try it on and decide whether to buy',
+			],
+			es: [
+				'Explicar qué buscas y para qué ocasión',
+				'Pedir otra talla u otro color',
+				'Probártelo y decidir si lo compras',
+			],
+			fr: [
+				'Expliquer ce que vous cherchez et pour quelle occasion',
+				'Demander une autre taille ou couleur',
+				'Essayer et décider si vous l’achetez',
+			],
+			de: [
+				'Erklären, was Sie suchen und für welchen Anlass',
+				'Nach einer anderen Größe oder Farbe fragen',
+				'Anprobieren und entscheiden, ob Sie es kaufen',
+			],
+			it: [
+				'Spiegare cosa cerchi e per quale occasione',
+				'Chiedere un’altra taglia o un altro colore',
+				'Provarlo e decidere se comprarlo',
+			],
+			tr: [
+				'Ne aradığınızı ve hangi durum için olduğunu anlatmak',
+				'Başka beden ya da renk istemek',
+				'Deneyip almaya karar vermek',
+			],
+			ru: [
+				'Объяснить, что ищете и для какого случая',
+				'Попросить другой размер или цвет',
+				'Примерить и решить, брать ли',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Talk about sizes, colours and fit and ask for advice',
+			es: 'Hablar de tallas, colores y de cómo sienta la ropa y pedir consejo',
+			fr: 'Parler de tailles, de couleurs et de coupe et demander conseil',
+			de: 'Über Größen, Farben und Passform sprechen und um Rat bitten',
+			it: 'Parlare di taglie, colori e vestibilità e chiedere consiglio',
+			tr: 'Beden, renk ve kalıp hakkında konuşmak ve tavsiye istemek',
+			ru: 'Говорить о размерах, цветах и посадке, просить совета',
 		}),
 		systemPrompt:
 			'The participant is browsing a clothing shop. You play a shop assistant with a consistent personality. Greet them and offer help without assuming what they want to buy. Respond to their preferences about garments, sizes, colours, budget and fitting rooms. Invent plausible stock and prices when needed, and keep those details consistent. Allow casual conversation as circumstances permit. Do not narrate trying on or purchasing clothes on their behalf. Let the participant make their own choices and stay in character.',
@@ -130,6 +256,52 @@ export const foodAndShoppingScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Örneğin: kulaklığı fişsiz iade ediyorum, satıcı geri almak istemiyor',
 			ru: 'Например: возвращаю наушники без чека, а продавец не хочет их принимать',
 		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Explain why you are returning the item',
+				'Ask for an exchange instead of a refund',
+				'Stand up for your rights if they refuse',
+			],
+			es: [
+				'Explicar por qué devuelves el artículo',
+				'Pedir un cambio en lugar del reembolso',
+				'Defender tus derechos si se niegan',
+			],
+			fr: [
+				'Expliquer pourquoi vous rapportez l’article',
+				'Demander un échange plutôt qu’un remboursement',
+				'Faire valoir vos droits en cas de refus',
+			],
+			de: [
+				'Erklären, warum Sie den Artikel zurückbringen',
+				'Einen Umtausch statt einer Erstattung verlangen',
+				'Auf Ihren Rechten bestehen, wenn abgelehnt wird',
+			],
+			it: [
+				'Spiegare perché restituisci l’articolo',
+				'Chiedere un cambio invece del rimborso',
+				'Far valere i tuoi diritti se rifiutano',
+			],
+			tr: [
+				'Ürünü neden iade ettiğinizi anlatmak',
+				'Para iadesi yerine değişim istemek',
+				'Reddederlerse haklarınızda ısrar etmek',
+			],
+			ru: [
+				'Объяснить, почему возвращаете вещь',
+				'Попросить обмен вместо возврата денег',
+				'Настоять на своих правах, если отказывают',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Explain a problem with a purchase and get a refund or exchange',
+			es: 'Explicar el problema con una compra y conseguir el reembolso o el cambio',
+			fr: 'Expliquer un problème d’achat et obtenir un remboursement ou un échange',
+			de: 'Ein Problem mit einem Kauf erklären und Erstattung oder Umtausch erreichen',
+			it: 'Spiegare un problema con un acquisto e ottenere rimborso o cambio',
+			tr: 'Bir üründeki sorunu anlatıp iade ya da değişim sağlamak',
+			ru: 'Объяснять проблему с покупкой и добиваться возврата или обмена',
+		}),
 		systemPrompt:
 			'The participant is at a shop service counter with an item they want to return or exchange. You play a sales assistant. Greet them and ask how you can help, letting them explain what the item is and why they brought it back. Ask relevant questions about the receipt, purchase and condition, one or two at a time. Use a believable fictional shop policy, clearly tied to this shop, without presenting it as a universal law. Discuss available solutions without assuming their agreement or completing a refund on their behalf. Stay in character and respond naturally.',
 	},
@@ -162,6 +334,24 @@ export const foodAndShoppingScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: un mercato a Barcellona, il fruttivendolo adora contrattare',
 			tr: 'Örneğin: Barselona’da bir pazar, meyveci pazarlık yapmayı çok seviyor',
 			ru: 'Например: рынок в Барселоне, продавец фруктов любит торговаться',
+		}),
+		conversationIdeas: localizedList({
+			en: ['Ask what is freshest today', 'Ask to taste something', 'Haggle over the price'],
+			es: ['Preguntar qué es lo más fresco hoy', 'Pedir probar algo', 'Regatear el precio'],
+			fr: ['Demander ce qui est le plus frais aujourd’hui', 'Demander à goûter', 'Marchander le prix'],
+			de: ['Fragen, was heute am frischesten ist', 'Um eine Kostprobe bitten', 'Über den Preis verhandeln'],
+			it: ['Chiedere cosa c’è di più fresco oggi', 'Chiedere di assaggiare', 'Contrattare sul prezzo'],
+			tr: ['Bugün en taze neyin olduğunu sormak', 'Tadına bakmak istemek', 'Fiyat için pazarlık yapmak'],
+			ru: ['Спросить, что сегодня самое свежее', 'Попросить попробовать', 'Поторговаться о цене'],
+		}),
+		trainedSkills: localized({
+			en: 'Name quantities and weights, ask prices and haggle',
+			es: 'Decir cantidades y pesos, preguntar precios y regatear',
+			fr: 'Indiquer quantités et poids, demander les prix et marchander',
+			de: 'Mengen und Gewichte nennen, nach Preisen fragen und handeln',
+			it: 'Indicare quantità e peso, chiedere i prezzi e contrattare',
+			tr: 'Miktar ve ağırlık söylemek, fiyat sormak ve pazarlık yapmak',
+			ru: 'Называть количество и вес, спрашивать цену и торговаться',
 		}),
 		systemPrompt:
 			'The participant is standing at a fruit and vegetable stall in an outdoor market. You play the vendor, with a consistent personality and a small believable selection of seasonal produce. Greet them and ask what they are looking for. Discuss freshness, taste, prices, quantities, weighing or payment as the conversation develops. Keep stock and prices consistent, and handle bargaining in a way appropriate to the vendor. Do not decide what the participant buys, invent their payment or pack an order they have not agreed to. Stay in character.',

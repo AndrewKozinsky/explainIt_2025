@@ -38,6 +38,17 @@ const storage = { getFileUrl: async (key: string) => `https://covers.example/${k
 })
 class TestDependenciesModule {}
 
+const publicScenarioKeys = [
+	'conversationIdeas',
+	'coverUrl',
+	'description',
+	'id',
+	'slug',
+	'title',
+	'trainedSkills',
+	'userScenarioAmendmentHint',
+]
+
 async function migrateWithExistingScenarios(sql: Client) {
 	const tables = await sql.query("SELECT tablename FROM pg_tables WHERE schemaname = 'public'")
 	assert.equal(tables.rowCount, 0, 'The dedicated test database must be empty')
@@ -134,8 +145,13 @@ async function checkSynchronization(prisma: PrismaClient, userId: number) {
 	const before = await prisma.aiDialogueScenario.findMany({ orderBy: { id: 'asc' } })
 	await handler.execute()
 	assert.deepEqual(await prisma.aiDialogueScenario.findMany({ orderBy: { id: 'asc' } }), before)
-	assert.equal(await prisma.aiDialogueScenarioGroup.count(), 4)
-	assert.equal(before.length, 12)
+	assert.equal(await prisma.aiDialogueScenarioGroup.count(), aiDialogueScenarioGroups.length)
+	assert.equal(before.length, handler.getScenariosData().length)
+	assert.deepEqual(
+		[...before].sort((a, b) => a.position - b.position).map((row) => row.slug),
+		handler.getScenariosData().map((seed) => seed.slug),
+	)
+	assert.ok(before.every((row) => row.conversation_ideas && row.trained_skills))
 	assert.ok(before.every((row) => row.cover_s3_key === getPublicScenarioCoverKey('localdev', row.slug!)))
 	const privateScenario = await repository.createScenario({
 		userId,
@@ -215,41 +231,32 @@ async function checkGroups(prisma: PrismaClient) {
 		storage as CloudflareS3Service,
 	)
 	const groups = await repository.getPublicScenarioGroups('en')
-	assert.equal(groups.length, 4)
+	// Порядок групп и сценариев совпадает с getScenariosData(), а не с датой создания.
+	const seedSlugs = new CreateAiDialogueScenariosHandler({} as never, config as MainConfigService)
+		.getScenariosData()
+		.map((seed) => seed.slug)
 	assert.deepEqual(
-		groups.map((group) => group.id),
-		groups.map((group) => group.id).sort((a, b) => b - a),
+		groups.flatMap((group) => group.scenarios.map((scenario) => scenario.slug)),
+		seedSlugs,
 	)
-	assert.deepEqual(Object.fromEntries(groups.map((group) => [group.slug, group.scenarios.length])), {
-		'home-and-everyday-life': 1,
-		'city-and-services': 2,
-		'food-and-shopping': 5,
-		'travel-abroad': 4,
-	})
+	assert.ok(groups.every((group) => group.slug !== 'empty'))
 	for (const group of groups) {
 		assert.deepEqual(Object.keys(group).sort(), ['description', 'id', 'scenarios', 'slug', 'title'])
-		const ids = group.scenarios.map((scenario) => scenario.id)
-		assert.deepEqual(
-			ids,
-			[...ids].sort((a, b) => b - a),
-		)
 		for (const scenario of group.scenarios) {
-			assert.deepEqual(Object.keys(scenario).sort(), ['coverUrl', 'description', 'id', 'slug', 'title'])
+			assert.deepEqual(Object.keys(scenario).sort(), publicScenarioKeys)
 			assert.ok(scenario.coverUrl.includes(`/covers/localdev/${scenario.slug}.webp?signed=test`))
+			assert.ok(scenario.conversationIdeas.length >= 2 && scenario.conversationIdeas.length <= 4)
+			assert.ok(scenario.trainedSkills.length > 0)
 		}
 	}
-	const oldest = groups[0]
-	await prisma.aiDialogueScenarioGroup.update({
-		where: { id: oldest.id },
-		data: { created_at: new Date('2020-01-01') },
-	})
+	const first = groups[0]
+	await prisma.aiDialogueScenarioGroup.update({ where: { id: first.id }, data: { position: 1000 } })
 	const reordered = await repository.getPublicScenarioGroups('en')
-	assert.equal(reordered.at(-1)?.id, oldest.id)
-	const travel = groups.find((group) => group.slug === 'travel-abroad')!
-	const scenario = travel.scenarios[0]
-	await prisma.aiDialogueScenario.update({ where: { id: scenario.id }, data: { created_at: new Date('2020-01-01') } })
+	assert.equal(reordered.at(-1)?.id, first.id)
+	const scenario = first.scenarios[0]
+	await prisma.aiDialogueScenario.update({ where: { id: scenario.id }, data: { position: 1000 } })
 	const next = await repository.getPublicScenarioGroups('en')
-	assert.equal(next.find((group) => group.slug === 'travel-abroad')?.scenarios.at(-1)?.id, scenario.id)
+	assert.equal(next.find((group) => group.id === first.id)?.scenarios.at(-1)?.id, scenario.id)
 	return next
 }
 
@@ -280,8 +287,11 @@ async function checkHttp(prisma: PrismaClient, expected: unknown) {
 			required: string[]
 			properties: Record<string, unknown>
 		}
-		assert.deepEqual([...item.required].sort(), ['coverUrl', 'description', 'id', 'slug', 'title'])
-		assert.deepEqual(Object.keys(item.properties).sort(), ['coverUrl', 'description', 'id', 'slug', 'title'])
+		assert.deepEqual(
+			[...item.required].sort(),
+			publicScenarioKeys.filter((key) => key !== 'userScenarioAmendmentHint'),
+		)
+		assert.deepEqual(Object.keys(item.properties).sort(), publicScenarioKeys)
 		const group = document.components?.schemas?.AiDialogueScenarioGroupOutModel as {
 			properties: Record<string, unknown>
 		}

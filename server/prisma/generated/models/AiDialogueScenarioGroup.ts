@@ -28,10 +28,12 @@ export type AggregateAiDialogueScenarioGroup = {
 
 export type AiDialogueScenarioGroupAvgAggregateOutputType = {
   id: number | null
+  position: number | null
 }
 
 export type AiDialogueScenarioGroupSumAggregateOutputType = {
   id: number | null
+  position: number | null
 }
 
 export type AiDialogueScenarioGroupMinAggregateOutputType = {
@@ -39,6 +41,7 @@ export type AiDialogueScenarioGroupMinAggregateOutputType = {
   slug: string | null
   title: string | null
   description: string | null
+  position: number | null
   created_at: Date | null
 }
 
@@ -47,6 +50,7 @@ export type AiDialogueScenarioGroupMaxAggregateOutputType = {
   slug: string | null
   title: string | null
   description: string | null
+  position: number | null
   created_at: Date | null
 }
 
@@ -55,6 +59,7 @@ export type AiDialogueScenarioGroupCountAggregateOutputType = {
   slug: number
   title: number
   description: number
+  position: number
   created_at: number
   _all: number
 }
@@ -62,10 +67,12 @@ export type AiDialogueScenarioGroupCountAggregateOutputType = {
 
 export type AiDialogueScenarioGroupAvgAggregateInputType = {
   id?: true
+  position?: true
 }
 
 export type AiDialogueScenarioGroupSumAggregateInputType = {
   id?: true
+  position?: true
 }
 
 export type AiDialogueScenarioGroupMinAggregateInputType = {
@@ -73,6 +80,7 @@ export type AiDialogueScenarioGroupMinAggregateInputType = {
   slug?: true
   title?: true
   description?: true
+  position?: true
   created_at?: true
 }
 
@@ -81,6 +89,7 @@ export type AiDialogueScenarioGroupMaxAggregateInputType = {
   slug?: true
   title?: true
   description?: true
+  position?: true
   created_at?: true
 }
 
@@ -89,6 +98,7 @@ export type AiDialogueScenarioGroupCountAggregateInputType = {
   slug?: true
   title?: true
   description?: true
+  position?: true
   created_at?: true
   _all?: true
 }
@@ -184,6 +194,7 @@ export type AiDialogueScenarioGroupGroupByOutputType = {
   slug: string
   title: string
   description: string
+  position: number
   created_at: Date
   _count: AiDialogueScenarioGroupCountAggregateOutputType | null
   _avg: AiDialogueScenarioGroupAvgAggregateOutputType | null
@@ -215,6 +226,7 @@ export type AiDialogueScenarioGroupWhereInput = {
   slug?: Prisma.StringFilter<"AiDialogueScenarioGroup"> | string
   title?: Prisma.StringFilter<"AiDialogueScenarioGroup"> | string
   description?: Prisma.StringFilter<"AiDialogueScenarioGroup"> | string
+  position?: Prisma.IntFilter<"AiDialogueScenarioGroup"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogueScenarioGroup"> | Date | string
   AiDialogueScenario?: Prisma.AiDialogueScenarioListRelationFilter
 }
@@ -224,6 +236,7 @@ export type AiDialogueScenarioGroupOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   AiDialogueScenario?: Prisma.AiDialogueScenarioOrderByRelationAggregateInput
 }
@@ -236,6 +249,7 @@ export type AiDialogueScenarioGroupWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.AiDialogueScenarioGroupWhereInput | Prisma.AiDialogueScenarioGroupWhereInput[]
   title?: Prisma.StringFilter<"AiDialogueScenarioGroup"> | string
   description?: Prisma.StringFilter<"AiDialogueScenarioGroup"> | string
+  position?: Prisma.IntFilter<"AiDialogueScenarioGroup"> | number
   created_at?: Prisma.DateTimeFilter<"AiDialogueScenarioGroup"> | Date | string
   AiDialogueScenario?: Prisma.AiDialogueScenarioListRelationFilter
 }, "id" | "slug">
@@ -245,6 +259,7 @@ export type AiDialogueScenarioGroupOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.AiDialogueScenarioGroupCountOrderByAggregateInput
   _avg?: Prisma.AiDialogueScenarioGroupAvgOrderByAggregateInput
@@ -261,6 +276,7 @@ export type AiDialogueScenarioGroupScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"AiDialogueScenarioGroup"> | string
   title?: Prisma.StringWithAggregatesFilter<"AiDialogueScenarioGroup"> | string
   description?: Prisma.StringWithAggregatesFilter<"AiDialogueScenarioGroup"> | string
+  position?: Prisma.IntWithAggregatesFilter<"AiDialogueScenarioGroup"> | number
   created_at?: Prisma.DateTimeWithAggregatesFilter<"AiDialogueScenarioGroup"> | Date | string
 }
 
@@ -268,6 +284,7 @@ export type AiDialogueScenarioGroupCreateInput = {
   slug: string
   title: string
   description: string
+  position?: number
   created_at?: Date | string
   AiDialogueScenario?: Prisma.AiDialogueScenarioCreateNestedManyWithoutGroupInput
 }
@@ -277,6 +294,7 @@ export type AiDialogueScenarioGroupUncheckedCreateInput = {
   slug: string
   title: string
   description: string
+  position?: number
   created_at?: Date | string
   AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedCreateNestedManyWithoutGroupInput
 }
@@ -285,6 +303,7 @@ export type AiDialogueScenarioGroupUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueScenario?: Prisma.AiDialogueScenarioUpdateManyWithoutGroupNestedInput
 }
@@ -294,6 +313,7 @@ export type AiDialogueScenarioGroupUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueScenario?: Prisma.AiDialogueScenarioUncheckedUpdateManyWithoutGroupNestedInput
 }
@@ -303,6 +323,7 @@ export type AiDialogueScenarioGroupCreateManyInput = {
   slug: string
   title: string
   description: string
+  position?: number
   created_at?: Date | string
 }
 
@@ -310,6 +331,7 @@ export type AiDialogueScenarioGroupUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -318,6 +340,7 @@ export type AiDialogueScenarioGroupUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -326,11 +349,13 @@ export type AiDialogueScenarioGroupCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type AiDialogueScenarioGroupAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  position?: Prisma.SortOrder
 }
 
 export type AiDialogueScenarioGroupMaxOrderByAggregateInput = {
@@ -338,6 +363,7 @@ export type AiDialogueScenarioGroupMaxOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -346,11 +372,13 @@ export type AiDialogueScenarioGroupMinOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   title?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  position?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
 export type AiDialogueScenarioGroupSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  position?: Prisma.SortOrder
 }
 
 export type AiDialogueScenarioGroupNullableScalarRelationFilter = {
@@ -378,6 +406,7 @@ export type AiDialogueScenarioGroupCreateWithoutAiDialogueScenarioInput = {
   slug: string
   title: string
   description: string
+  position?: number
   created_at?: Date | string
 }
 
@@ -386,6 +415,7 @@ export type AiDialogueScenarioGroupUncheckedCreateWithoutAiDialogueScenarioInput
   slug: string
   title: string
   description: string
+  position?: number
   created_at?: Date | string
 }
 
@@ -409,6 +439,7 @@ export type AiDialogueScenarioGroupUpdateWithoutAiDialogueScenarioInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -417,6 +448,7 @@ export type AiDialogueScenarioGroupUncheckedUpdateWithoutAiDialogueScenarioInput
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  position?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -456,6 +488,7 @@ export type AiDialogueScenarioGroupSelect<ExtArgs extends runtime.Types.Extensio
   slug?: boolean
   title?: boolean
   description?: boolean
+  position?: boolean
   created_at?: boolean
   AiDialogueScenario?: boolean | Prisma.AiDialogueScenarioGroup$AiDialogueScenarioArgs<ExtArgs>
   _count?: boolean | Prisma.AiDialogueScenarioGroupCountOutputTypeDefaultArgs<ExtArgs>
@@ -466,6 +499,7 @@ export type AiDialogueScenarioGroupSelectCreateManyAndReturn<ExtArgs extends run
   slug?: boolean
   title?: boolean
   description?: boolean
+  position?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["aiDialogueScenarioGroup"]>
 
@@ -474,6 +508,7 @@ export type AiDialogueScenarioGroupSelectUpdateManyAndReturn<ExtArgs extends run
   slug?: boolean
   title?: boolean
   description?: boolean
+  position?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["aiDialogueScenarioGroup"]>
 
@@ -482,10 +517,11 @@ export type AiDialogueScenarioGroupSelectScalar = {
   slug?: boolean
   title?: boolean
   description?: boolean
+  position?: boolean
   created_at?: boolean
 }
 
-export type AiDialogueScenarioGroupOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "created_at", ExtArgs["result"]["aiDialogueScenarioGroup"]>
+export type AiDialogueScenarioGroupOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "position" | "created_at", ExtArgs["result"]["aiDialogueScenarioGroup"]>
 export type AiDialogueScenarioGroupInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   AiDialogueScenario?: boolean | Prisma.AiDialogueScenarioGroup$AiDialogueScenarioArgs<ExtArgs>
   _count?: boolean | Prisma.AiDialogueScenarioGroupCountOutputTypeDefaultArgs<ExtArgs>
@@ -503,6 +539,7 @@ export type $AiDialogueScenarioGroupPayload<ExtArgs extends runtime.Types.Extens
     slug: string
     title: string
     description: string
+    position: number
     created_at: Date
   }, ExtArgs["result"]["aiDialogueScenarioGroup"]>
   composites: {}
@@ -932,6 +969,7 @@ export interface AiDialogueScenarioGroupFieldRefs {
   readonly slug: Prisma.FieldRef<"AiDialogueScenarioGroup", 'String'>
   readonly title: Prisma.FieldRef<"AiDialogueScenarioGroup", 'String'>
   readonly description: Prisma.FieldRef<"AiDialogueScenarioGroup", 'String'>
+  readonly position: Prisma.FieldRef<"AiDialogueScenarioGroup", 'Int'>
   readonly created_at: Prisma.FieldRef<"AiDialogueScenarioGroup", 'DateTime'>
 }
     

@@ -16,6 +16,23 @@ export class PublicAiDialogueScenarioOutModel extends AiDialogueScenarioOutModel
 	})
 	userScenarioAmendmentHint: null | string
 
+	@ApiProperty({
+		type: [String],
+		description:
+			'Ideas of how the participant can steer the conversation, in the interface language (2–4 items, written as user actions)',
+		example: ['Ask for a discount', 'Refuse and leave'],
+	})
+	conversationIdeas: string[]
+
+	@ApiProperty({
+		...getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.trained_skills),
+		required: true,
+		nullable: false,
+		description: 'One line on what the scenario trains, in the interface language',
+		example: 'Ask about the rate and the fee, notice a bad deal',
+	})
+	trainedSkills: string
+
 	@ApiProperty(getApiPropertyOptions($$.coverUrl))
 	coverUrl: string
 }
@@ -43,7 +60,7 @@ export class AiDialogueScenarioGroupOutModel {
 
 	@ApiProperty({
 		type: [PublicAiDialogueScenarioOutModel],
-		description: 'All public scenarios in this group, newest first',
+		description: 'All public scenarios in this group, in the seed order',
 	})
 	scenarios: PublicAiDialogueScenarioOutModel[]
 }

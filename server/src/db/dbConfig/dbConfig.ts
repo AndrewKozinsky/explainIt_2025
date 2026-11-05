@@ -1285,7 +1285,7 @@ export const bdConfig = {
 	// Группы только общедоступных сценариев. Пользовательские сценарии не группируются.
 	AiDialogueScenarioGroup: {
 		dtoProps: {},
-		indexes: [{ fields: ['created_at', 'id'] }],
+		indexes: [{ fields: ['position', 'id'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -1314,6 +1314,13 @@ export const bdConfig = {
 				example:
 					'{"en":"Practise what you will need on a trip","ru":"Отработайте то, что пригодится в поездке"}',
 			},
+			position: {
+				type: 'number',
+				required: true,
+				default: 0,
+				description: 'Display order of the group: the order of its first scenario in the seed (ascending)',
+				example: 0,
+			},
 			AiDialogueScenario: { type: 'oneToMany' },
 			created_at: { type: 'createdAt' },
 		},
@@ -1334,7 +1341,7 @@ export const bdConfig = {
 				example: 'https://r2.example/passport-control.webp?signature=temporary',
 			},
 		},
-		indexes: [{ fields: ['user_id'] }, { fields: ['group_id', 'created_at', 'id'] }],
+		indexes: [{ fields: ['user_id'] }, { fields: ['group_id', 'position', 'id'] }],
 		dbFields: {
 			id: {
 				type: 'index',
@@ -1376,6 +1383,30 @@ export const bdConfig = {
 				example: 'A little girl is knocking at the door',
 				required: false,
 				maxLength: 2000,
+			},
+			conversation_ideas: {
+				type: 'string',
+				description:
+					'Ideas of how the participant can steer the conversation, as a JSON string of translated arrays; shown only to the user, never sent to the LLM (required for public scenarios, SQL CHECK)',
+				example:
+					'{"en":["Ask for a discount","Refuse and leave"],"ru":["Попросить скидку","Отказаться и уйти"]}',
+				required: false,
+			},
+			trained_skills: {
+				type: 'string',
+				description:
+					'One line on what the scenario trains, as a JSON string of translations; shown only to the user, never sent to the LLM (required for public scenarios, SQL CHECK)',
+				example: '{"en":"Ask about the rate and the fee","ru":"Спрашивать курс и комиссию"}',
+				required: false,
+				maxLength: 2000,
+			},
+			position: {
+				type: 'number',
+				required: true,
+				default: 0,
+				description:
+					'Display order of a public scenario: its index in the seed (ascending); 0 for user scenarios',
+				example: 0,
 			},
 			group_id: {
 				type: 'manyToOne',

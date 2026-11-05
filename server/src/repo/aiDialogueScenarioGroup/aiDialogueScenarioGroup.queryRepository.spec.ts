@@ -28,6 +28,9 @@ function group() {
 				title: '{"ru":"Заселение в отель"}',
 				description: '{"ru":"Описание"}',
 				user_scenario_amendment_hint: '{"en":"A hotel in Rome","ru":"Отель в Риме"}',
+				conversation_ideas:
+					'{"en":["Ask about breakfast"],"ru":["Спросить про завтрак","Попросить номер с видом"]}',
+				trained_skills: '{"en":"Check in smoothly","ru":"Заселяться без заминок"}',
 				cover_s3_key: 'covers/localdev/hotel-check-in.webp',
 			},
 			{
@@ -36,6 +39,8 @@ function group() {
 				title: '{"ru":"Паспортный контроль"}',
 				description: '{"ru":"Описание"}',
 				user_scenario_amendment_hint: null,
+				conversation_ideas: '{"en":["Explain the purpose of your trip"]}',
+				trained_skills: '{"en":"Answer a border officer"}',
 				cover_s3_key: 'covers/localdev/passport-control.webp',
 			},
 		],
@@ -43,13 +48,13 @@ function group() {
 }
 
 describe('Public AI dialogue scenario groups', () => {
-	it('selects nonempty public groups and public scenarios, ordered by creation date and ID descending', async () => {
+	it('selects nonempty public groups and public scenarios, ordered by seed position and ID ascending', async () => {
 		const { repository, prisma } = harness()
 		await repository.getPublicScenarioGroups('ru')
 
 		expect(prisma.aiDialogueScenarioGroup.findMany).toHaveBeenCalledWith({
 			where: { AiDialogueScenario: { some: { user_id: null } } },
-			orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
+			orderBy: [{ position: 'asc' }, { id: 'asc' }],
 			select: {
 				id: true,
 				slug: true,
@@ -57,13 +62,15 @@ describe('Public AI dialogue scenario groups', () => {
 				description: true,
 				AiDialogueScenario: {
 					where: { user_id: null },
-					orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
+					orderBy: [{ position: 'asc' }, { id: 'asc' }],
 					select: {
 						id: true,
 						slug: true,
 						title: true,
 						description: true,
 						user_scenario_amendment_hint: true,
+						conversation_ideas: true,
+						trained_skills: true,
 						cover_s3_key: true,
 					},
 				},
@@ -74,6 +81,7 @@ describe('Public AI dialogue scenario groups', () => {
 	it('preserves DB ordering, localizes texts, signs covers, and exposes no storage keys or prompts', async () => {
 		const row = group()
 		const { repository, storage } = harness([row])
+
 		const result = await repository.getPublicScenarioGroups('ru')
 
 		expect(result).toEqual([
@@ -89,6 +97,8 @@ describe('Public AI dialogue scenario groups', () => {
 						title: 'Заселение в отель',
 						description: 'Описание',
 						userScenarioAmendmentHint: 'Отель в Риме',
+						conversationIdeas: ['Спросить про завтрак', 'Попросить номер с видом'],
+						trainedSkills: 'Заселяться без заминок',
 						coverUrl: 'https://signed.example/covers/localdev/hotel-check-in.webp',
 					},
 					{
@@ -97,6 +107,8 @@ describe('Public AI dialogue scenario groups', () => {
 						title: 'Паспортный контроль',
 						description: 'Описание',
 						userScenarioAmendmentHint: null,
+						conversationIdeas: ['Explain the purpose of your trip'],
+						trainedSkills: 'Answer a border officer',
 						coverUrl: 'https://signed.example/covers/localdev/passport-control.webp',
 					},
 				],
@@ -111,6 +123,8 @@ describe('Public AI dialogue scenario groups', () => {
 			'title',
 			'description',
 			'userScenarioAmendmentHint',
+			'conversationIdeas',
+			'trainedSkills',
 			'coverUrl',
 		])
 	})
@@ -125,10 +139,11 @@ describe('Public AI dialogue scenario groups', () => {
 	it('returns an empty array without signing any URL when there are no public groups', async () => {
 		const { repository, storage } = harness()
 		await expect(repository.getPublicScenarioGroups('ru')).resolves.toEqual([])
+
 		expect(storage.getFileUrl).not.toHaveBeenCalled()
 	})
 
-	it.each(['slug', 'cover_s3_key'] as const)(
+	it.each(['slug', 'cover_s3_key', 'conversation_ideas', 'trained_skills'] as const)(
 		'preserves CustomError 500 when a public scenario has no %s',
 		async (field) => {
 			const row = group()
@@ -147,6 +162,7 @@ describe('Public AI dialogue scenario groups', () => {
 		const { repository, storage } = harness([group()])
 		storage.getFileUrl.mockRejectedValue(new Error('storage unavailable'))
 		const log = jest.spyOn(console, 'error').mockImplementation(() => undefined)
+
 		try {
 			await expect(repository.getPublicScenarioGroups('ru')).rejects.toBeDefined()
 		} finally {

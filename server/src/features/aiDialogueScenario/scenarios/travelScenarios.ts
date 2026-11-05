@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData, localized } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const travelScenarios: AiDialogueScenarioSeedData[] = [
 	{
@@ -30,6 +30,52 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: l’aeroporto di Tokyo, l’agente di frontiera è severo e pignolo',
 			tr: 'Örneğin: Tokyo havalimanı, sınır polisi sert ve titiz',
 			ru: 'Например: аэропорт Токио, пограничник строгий и придирчивый',
+		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Explain the purpose of your trip',
+				'Show your hotel booking and return ticket',
+				'Ask the officer to repeat a question',
+			],
+			es: [
+				'Explicar el motivo del viaje',
+				'Mostrar la reserva del hotel y el billete de vuelta',
+				'Pedir que repita una pregunta',
+			],
+			fr: [
+				'Expliquer le but du voyage',
+				'Montrer la réservation d’hôtel et le billet retour',
+				'Demander de répéter une question',
+			],
+			de: [
+				'Den Zweck der Reise erklären',
+				'Hotelbuchung und Rückflugticket zeigen',
+				'Um Wiederholung einer Frage bitten',
+			],
+			it: [
+				'Spiegare lo scopo del viaggio',
+				'Mostrare la prenotazione dell’hotel e il biglietto di ritorno',
+				'Chiedere di ripetere una domanda',
+			],
+			tr: [
+				'Seyahatin amacını anlatmak',
+				'Otel rezervasyonunu ve dönüş biletini göstermek',
+				'Bir soruyu tekrar etmesini istemek',
+			],
+			ru: [
+				'Рассказать о цели поездки',
+				'Показать бронь отеля и обратный билет',
+				'Переспросить непонятный вопрос',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Answer a border officer briefly and confidently: purpose of the trip, length of stay, where you will stay',
+			es: 'Responder al agente de fronteras con frases breves y seguras: motivo del viaje, duración de la estancia y alojamiento',
+			fr: 'Répondre à l’agent de manière brève et assurée : but du voyage, durée du séjour, lieu d’hébergement',
+			de: 'Dem Grenzbeamten kurz und sicher antworten: Reisezweck, Aufenthaltsdauer, Unterkunft',
+			it: 'Rispondere all’agente in modo breve e sicuro: scopo del viaggio, durata del soggiorno, alloggio',
+			tr: 'Sınır görevlisine kısa ve net cevap vermek: seyahatin amacı, kalış süresi, nerede kalacağınız',
+			ru: 'Отвечать пограничнику коротко и уверенно: цель поездки, срок, где будете жить',
 		}),
 		systemPrompt:
 			'You are a polite passport control officer at an airport. The participant is a traveller going through passport control. Ask for the passport, the purpose and length of the visit, where the traveller will stay, and if they have anything to declare. Speak naturally as a passport control officer, with wording and detail appropriate to the situation. Stay in character and never step out of the officer role.',
@@ -64,6 +110,52 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Örneğin: bavulumda yarınki düğün için takım elbisem vardı',
 			ru: 'Например: в чемодане был костюм для завтрашней свадьбы',
 		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Describe your suitcase and what was inside',
+				'Ask when your luggage will be returned',
+				'Ask for compensation for essentials',
+			],
+			es: [
+				'Describir la maleta y lo que había dentro',
+				'Preguntar cuándo te devolverán el equipaje',
+				'Pedir una compensación por lo imprescindible',
+			],
+			fr: [
+				'Décrire la valise et son contenu',
+				'Demander quand le bagage sera rendu',
+				'Demander un dédommagement pour le strict nécessaire',
+			],
+			de: [
+				'Den Koffer und seinen Inhalt beschreiben',
+				'Fragen, wann das Gepäck zurückkommt',
+				'Eine Entschädigung für das Nötigste verlangen',
+			],
+			it: [
+				'Descrivere la valigia e il suo contenuto',
+				'Chiedere quando verrà restituito il bagaglio',
+				'Chiedere un rimborso per il necessario',
+			],
+			tr: [
+				'Bavulu ve içindekileri tarif etmek',
+				'Bavulun ne zaman teslim edileceğini sormak',
+				'Zorunlu ihtiyaçlar için tazminat istemek',
+			],
+			ru: [
+				'Описать чемодан и что в нём было',
+				'Узнать, когда вернут багаж',
+				'Попросить компенсацию за самое необходимое',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Describe things by colour, size and material and get a clear timeline',
+			es: 'Describir objetos por color, tamaño y material y conseguir plazos claros',
+			fr: 'Décrire des objets par la couleur, la taille et la matière et obtenir des délais clairs',
+			de: 'Gegenstände nach Farbe, Größe und Material beschreiben und klare Fristen erfragen',
+			it: 'Descrivere oggetti per colore, dimensioni e materiale e ottenere tempi chiari',
+			tr: 'Eşyaları renk, boyut ve malzemeye göre tarif etmek ve net bir süre öğrenmek',
+			ru: 'Описывать вещи — цвет, размер, материал — и добиваться понятных сроков',
+		}),
 		systemPrompt:
 			'The participant is at an airport baggage service desk because their suitcase has not arrived. You play a baggage service agent with a consistent personality. Begin by greeting them and asking how you can help. Ask relevant follow-up questions about their flight, baggage tag and suitcase, one or two at a time. Explain the tracing process and discuss contact details or delivery when relevant. Let the participant describe the problem and make their own choices. Do not assume their personal details or promise that the suitcase has already been found. Stay in character and respond naturally to the conversation.',
 	},
@@ -97,6 +189,52 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			tr: 'Örneğin: Roma’da küçük bir aile oteli, yanımda köpeğim var',
 			ru: 'Например: маленький семейный отель в Риме, со мной собака',
 		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Give your booking details and check what is included',
+				'Ask for a quieter room or one with a view',
+				'Ask about breakfast and Wi-Fi',
+			],
+			es: [
+				'Dar los datos de la reserva y preguntar qué incluye',
+				'Pedir una habitación más tranquila o con vistas',
+				'Preguntar por el desayuno y el wifi',
+			],
+			fr: [
+				'Donner sa réservation et vérifier ce qui est inclus',
+				'Demander une chambre plus calme ou avec vue',
+				'Se renseigner sur le petit-déjeuner et le wifi',
+			],
+			de: [
+				'Die Buchung nennen und fragen, was inbegriffen ist',
+				'Um ein ruhigeres Zimmer oder eines mit Aussicht bitten',
+				'Nach Frühstück und WLAN fragen',
+			],
+			it: [
+				'Dare i dati della prenotazione e chiedere cosa è incluso',
+				'Chiedere una camera più tranquilla o con vista',
+				'Informarsi su colazione e wifi',
+			],
+			tr: [
+				'Rezervasyonu söyleyip nelerin dahil olduğunu sormak',
+				'Daha sessiz ya da manzaralı bir oda istemek',
+				'Kahvaltı ve Wi-Fi hakkında sormak',
+			],
+			ru: [
+				'Назвать бронь и уточнить, что в неё входит',
+				'Попросить номер потише или с видом',
+				'Спросить про завтрак и Wi-Fi',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Check in smoothly: booking, documents and the terms of your stay',
+			es: 'Registrarte sin tropiezos: reserva, documentos y condiciones de la estancia',
+			fr: 'S’enregistrer sans accroc : réservation, documents, conditions du séjour',
+			de: 'Reibungslos einchecken: Buchung, Dokumente, Bedingungen des Aufenthalts',
+			it: 'Fare il check-in senza intoppi: prenotazione, documenti, condizioni del soggiorno',
+			tr: 'Sorunsuz giriş yapmak: rezervasyon, belgeler ve konaklama koşulları',
+			ru: 'Заселяться без заминок: бронь, документы, условия проживания',
+		}),
 		systemPrompt:
 			'The participant has just arrived at a hotel reception. You play the receptionist, with a consistent personality and a believable hotel setting. Welcome them and ask whether they have a reservation. Let them provide their own name, booking details and preferences. Discuss room availability, check-in requirements, breakfast or hotel facilities as these become relevant. Give only as much information as the moment calls for. Do not complete the check-in, invent payment or consent, or make decisions on behalf of the participant. Stay in character and react naturally to their questions and social contributions.',
 	},
@@ -129,6 +267,44 @@ export const travelScenarios: AiDialogueScenarioSeedData[] = [
 			it: 'Per esempio: l’aria condizionata in camera non funziona e fuori fa molto caldo',
 			tr: 'Örneğin: odadaki klima çalışmıyor ve dışarısı çok sıcak',
 			ru: 'Например: в номере не работает кондиционер, а на улице жара',
+		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Explain what is wrong with the room',
+				'Ask for a different room',
+				'Ask for a discount for the inconvenience',
+			],
+			es: [
+				'Explicar qué le pasa a la habitación',
+				'Pedir otra habitación',
+				'Pedir un descuento por las molestias',
+			],
+			fr: [
+				'Expliquer ce qui ne va pas dans la chambre',
+				'Demander une autre chambre',
+				'Demander une réduction pour le désagrément',
+			],
+			de: [
+				'Erklären, was mit dem Zimmer nicht stimmt',
+				'Um ein anderes Zimmer bitten',
+				'Einen Preisnachlass für die Unannehmlichkeiten verlangen',
+			],
+			it: ['Spiegare cosa non va nella camera', 'Chiedere un’altra camera', 'Chiedere uno sconto per il disagio'],
+			tr: [
+				'Odada neyin yanlış olduğunu anlatmak',
+				'Başka bir oda istemek',
+				'Yaşanan sıkıntı için indirim istemek',
+			],
+			ru: ['Объяснить, что не так с номером', 'Попросить другой номер', 'Попросить скидку за неудобства'],
+		}),
+		trainedSkills: localized({
+			en: 'Complain calmly but firmly and get the problem solved',
+			es: 'Quejarte con calma pero con firmeza y conseguir una solución',
+			fr: 'Se plaindre calmement mais fermement et obtenir une solution',
+			de: 'Ruhig, aber bestimmt reklamieren und eine Lösung durchsetzen',
+			it: 'Lamentarsi con calma ma con fermezza e ottenere una soluzione',
+			tr: 'Sakin ama kararlı şekilde şikâyet etmek ve sorunu çözdürmek',
+			ru: 'Спокойно, но настойчиво жаловаться и добиваться решения',
 		}),
 		systemPrompt:
 			'The participant is staying at a hotel where the air conditioning in their room is not working. The opening scene places them at the reception desk. You play a hotel receptionist with a consistent personality. Greet them and invite them to explain what is wrong. Ask relevant questions and offer plausible options such as maintenance or an available alternative room. Discuss timing and preferences through the conversation instead of listing every option at once. Do not assume that the participant has accepted a solution or moved rooms. Keep the encounter polite and believable, and stay in character.',
