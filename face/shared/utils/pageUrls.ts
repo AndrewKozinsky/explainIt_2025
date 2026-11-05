@@ -1,36 +1,41 @@
 import { ParamValue } from 'next/dist/server/request/params'
+import pageNameMessages from '@/messages/en/pageUrls.json'
+
+/** Ключ названия страницы в разделе переводов pageUrls (messages/{locale}/pageUrls.json) */
+export type PageNameKey = keyof typeof pageNameMessages
 
 // ── Адреса страниц (без языкового префикса — локаль добавляет next-intl) ───────
+// nameKey — ключ названия страницы: useTranslations('pageUrls')(nameKey)
 
 export const pageUrls = {
 	main: {
-		name: 'Главная',
+		nameKey: 'main' as const satisfies PageNameKey,
 		path: '/',
 	},
 	auth: {
-		name: 'Авторизация',
+		nameKey: 'auth' as const satisfies PageNameKey,
 		path: '/auth',
 		login: {
-			name: 'Вход',
+			nameKey: 'authLogin' as const satisfies PageNameKey,
 			path: '/auth/login',
 		},
 		register: {
-			name: 'Регистрация',
+			nameKey: 'authRegister' as const satisfies PageNameKey,
 			path: '/auth/register',
 		},
 		emailConfirmation: {
-			name: 'Подтверждение эл. почты',
+			nameKey: 'authEmailConfirmation' as const satisfies PageNameKey,
 			path: '/auth/email-confirmation',
 		},
 		resendConfirmationLetter: {
-			name: 'Повторная отправка письма подтверждения почты',
+			nameKey: 'authResendConfirmationLetter' as const satisfies PageNameKey,
 			path: '/auth/resend-confirmation-letter',
 		},
 		oauth: {
 			github: {
 				getPermissions(input: { clientId: string; redirectUri: string; state: string }) {
 					return {
-						name: 'Получение прав на запрос данных пользователя у GutHub',
+						nameKey: 'oauthGithub' as const satisfies PageNameKey,
 						path: `https://github.com/login/oauth/authorize?client_id=${input.clientId}&response_type=code&scope=user&redirect_uri=${input.redirectUri}&state=${input.state}`,
 					}
 				},
@@ -38,7 +43,7 @@ export const pageUrls = {
 			google: {
 				getPermissions(input: { clientId: string; redirectUri: string; state: string }) {
 					return {
-						name: 'Получение прав на запрос данных пользователя у Google',
+						nameKey: 'oauthGoogle' as const satisfies PageNameKey,
 						path: `https://accounts.google.com/o/oauth2/v2/auth?client_id=${input.clientId}&response_type=code&scope=email profile&redirect_uri=${input.redirectUri}&state=${input.state}`,
 					}
 				},
@@ -46,7 +51,7 @@ export const pageUrls = {
 			yandex: {
 				getPermissions(input: { clientId: string; redirectUri: string; state: string }) {
 					return {
-						name: 'Получение прав на запрос данных пользователя у Google',
+						nameKey: 'oauthYandex' as const satisfies PageNameKey,
 						path: `https://oauth.yandex.ru/authorize?response_type=code&client_id=${input.clientId}&redirect_uri=${input.redirectUri}&scope=login:email login:info&state=fgg`,
 					}
 				},
@@ -54,15 +59,15 @@ export const pageUrls = {
 		},
 	},
 	books: {
-		name: 'Книги',
+		nameKey: 'books' as const satisfies PageNameKey,
 		path: '/books',
 		book(bookId: number | string) {
 			return {
-				name: 'Книга',
+				nameKey: 'book' as const satisfies PageNameKey,
 				path: '/books/' + bookId,
 				chapter(chapterId: string | number) {
 					return {
-						name: 'Книга',
+						nameKey: 'bookChapter' as const satisfies PageNameKey,
 						path: '/books/' + bookId + '/' + chapterId,
 					}
 				},
@@ -70,54 +75,54 @@ export const pageUrls = {
 		},
 	},
 	videos: {
-		name: 'Видео',
+		nameKey: 'videos' as const satisfies PageNameKey,
 		path: '/videos',
 		video(videoId: string | number, withDetails?: boolean) {
 			const detailsParam = withDetails ? '?details' : ''
 
 			return {
-				name: 'Видео',
+				nameKey: 'video' as const satisfies PageNameKey,
 				path: '/videos/' + videoId + detailsParam,
 			}
 		},
 	},
 	aiDialogues: {
-		name: 'Диалоги',
+		nameKey: 'aiDialogues' as const satisfies PageNameKey,
 		path: '/dialogues',
 		dialog(dialogId: number | string) {
 			return {
-				name: 'Сценарий',
+				nameKey: 'aiDialogue' as const satisfies PageNameKey,
 				path: '/dialogues/' + dialogId,
 			}
 		},
 	},
 	contacts: {
-		name: 'Контакты',
+		nameKey: 'contacts' as const satisfies PageNameKey,
 		path: '/contacts',
 	},
 	dictionary: {
-		name: 'Словарь',
+		nameKey: 'dictionary' as const satisfies PageNameKey,
 		path: '/dictionary',
 	},
 	help: {
-		name: 'Справка',
+		nameKey: 'help' as const satisfies PageNameKey,
 		path: '/help',
 	},
 	me: {
-		name: 'Личный кабинет',
+		nameKey: 'me' as const satisfies PageNameKey,
 		path: '/me',
 	},
 	docs: {
 		privacyPolicy: {
-			name: 'Политика обработки персональных данных',
+			nameKey: 'privacyPolicy' as const satisfies PageNameKey,
 			path: '/docs/privacy-policy',
 		},
 		offer: {
-			name: 'Пользовательское соглашение (Оферта)',
+			nameKey: 'offer' as const satisfies PageNameKey,
 			path: '/docs/offer',
 		},
 		contentUsePolicy: {
-			name: 'Политика использования контента',
+			nameKey: 'contentUsePolicy' as const satisfies PageNameKey,
 			path: '/docs/content-use-policy',
 		},
 	},

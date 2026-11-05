@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaDialogContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaDialogContent/MediaDialogContent'
 import MediaDictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaDictionaryContent/MediaDictionaryContent'
@@ -28,6 +29,7 @@ type VideoRootProps = {
 
 function VideoPage(props: VideoRootProps) {
 	const { videoId } = props
+	const t = useTranslations('pageUrls')
 
 	const { video, refetch, error } = useVideoData(videoId)
 
@@ -59,7 +61,7 @@ function VideoPage(props: VideoRootProps) {
 	return (
 		<MediaStoreProvider store={useMediaStore}>
 			<MediaRoot
-				breadCrumbsConfig={[pageUrls.videos]}
+				breadCrumbsConfig={[{ name: t(pageUrls.videos.nameKey), path: pageUrls.videos.path }]}
 				header={header}
 				leftBlock={
 					<VideoClientWrapper

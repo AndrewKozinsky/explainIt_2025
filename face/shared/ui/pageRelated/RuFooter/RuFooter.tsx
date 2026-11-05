@@ -8,10 +8,10 @@ function RuFooter() {
 		<footer className='page-wrapper__bottom'>
 			{/*<p className='page-wrapper__legal-text-wrapper'>
 				<Link className='link' href={pageUrls.docs.privacyPolicy.path}>
-					{pageUrls.docs.privacyPolicy.name}
+					{t(pageUrls.docs.privacyPolicy.nameKey)}
 				</Link>
 				<Link className='link' href={pageUrls.docs.offer.path}>
-					{pageUrls.docs.offer.name}
+					{t(pageUrls.docs.offer.nameKey)}
 				</Link>
 			</p>*/}
 			{/*<p className='page-wrapper__legal-text-wrapper'>

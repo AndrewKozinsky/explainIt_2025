@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { videosService } from '@/entities/video/VideosService'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
@@ -11,6 +12,7 @@ type Props = {
 }
 
 export default async function VideoDetailsPage({ videoId }: Props) {
+	const t = await getTranslations('pageUrls')
 	const { error, data: video } = await videosService.getVideo(videoId)
 
 	if (error) {
@@ -24,7 +26,10 @@ export default async function VideoDetailsPage({ videoId }: Props) {
 	const { header } = getHeaderAndSubHeader(video)
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[pageUrls.videos]} />} header={header}>
+		<MediaPageContentWrapper
+			breadCrumbs={<BreadCrumbs items={[{ name: t(pageUrls.videos.nameKey), path: pageUrls.videos.path }]} />}
+			header={header}
+		>
 			<PrivateVideo video={video} />
 		</MediaPageContentWrapper>
 	)

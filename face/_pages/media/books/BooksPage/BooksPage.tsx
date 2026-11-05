@@ -1,6 +1,7 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { booksQueries } from '@/entities/book/BooksQueryFacade'
 import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPageContentTabs'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
@@ -11,12 +12,13 @@ import PublicBooksList from '@/widgets/book/PublicBooksList/PublicBooksList'
 import { useBooksPageTabs } from './fn/useBooksPageTabs'
 
 export default function BooksPage() {
+	const t = useTranslations('pageUrls')
 	const { data: allBooks } = useQuery(booksQueries.getBooks())
 
 	const { defaultTab, onTabChange } = useBooksPageTabs()
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.books.name}>
+		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={t(pageUrls.books.nameKey)}>
 			<MediaPageContentTabs
 				tabs={[
 					{

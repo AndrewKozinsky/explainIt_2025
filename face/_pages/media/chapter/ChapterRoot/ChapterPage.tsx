@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { bookConfig } from '@/entities/book/lib/bookConfig'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaDictionaryContent from '@/entities/detailsBlock/ui/mediaSpecific/MediaDictionaryContent/MediaDictionaryContent'
@@ -11,6 +12,7 @@ import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import Sentences from '@/entities/sentencesAndSubtitles/ui/Sentences/Sentences'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
+import { pageUrls } from '@/shared/utils/pageUrls'
 import { getChapterBreadCrumbsConfig } from './fn/getChapterBreadCrumbsItems'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { getMediaNavigationData } from './fn/getMediaNavigationData'
@@ -26,6 +28,7 @@ type ChapterRootProps = {
 
 function ChapterPage(props: ChapterRootProps) {
 	const { chapterId, bookId } = props
+	const t = useTranslations('pageUrls')
 
 	const { book, chapter, loading, bookError, chapterError } = useChapterData(Number(bookId), Number(chapterId))
 
@@ -62,7 +65,12 @@ function ChapterPage(props: ChapterRootProps) {
 	}
 
 	const { header, subHeader } = getHeaderAndSubHeader(chapter)
-	const breadCrumbsConfig = getChapterBreadCrumbsConfig(bookId.toString(), book.name ?? bookConfig.emptyBookName)
+
+	const breadCrumbsConfig = getChapterBreadCrumbsConfig({
+		bookId: bookId.toString(),
+		bookName: book.name ?? bookConfig.emptyBookName,
+		booksPageName: t(pageUrls.books.nameKey),
+	})
 
 	return (
 		<MediaStoreProvider store={useMediaStore}>

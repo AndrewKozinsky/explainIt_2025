@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import MediaPageContentTabs from '@/shared/ui/media/MediaPageContentTabs/MediaPageContentTabs'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
@@ -10,10 +11,11 @@ import YouTubeVideosSearch from '@/widgets/youTubeVideosSearch/ui/YouTubeVideosS
 import { useVideosPageTabs } from './fn/useVideosPageTabs'
 
 export default function VideosPage() {
+	const t = useTranslations('pageUrls')
 	const { defaultTab, onTabChange } = useVideosPageTabs()
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.videos.name}>
+		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={t(pageUrls.videos.nameKey)}>
 			<MediaPageContentTabs
 				tabs={[
 					{ key: 'saved', label: 'Подборка', content: <VideosCollection /> },

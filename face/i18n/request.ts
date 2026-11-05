@@ -13,6 +13,7 @@ const messageNamespaces = [
 	'mainPageFeatures',
 	'mainPageNoTrip',
 	'mainPageScenarios',
+	'pageUrls',
 	'siteMeta',
 ] as const
 

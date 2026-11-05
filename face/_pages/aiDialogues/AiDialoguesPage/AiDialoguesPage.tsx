@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import Header from '@/shared/ui/Header/Header'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
@@ -10,10 +11,11 @@ import UserAiDialoguesList from '@/widgets/aiUserDialogues/ui/UserAiDialoguesLis
 import './AiDialoguesPage.scss'
 
 export default function AiDialoguesPage() {
+	const t = useTranslations('pageUrls')
 	const user = useUser()
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={pageUrls.aiDialogues.name}>
+		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={t(pageUrls.aiDialogues.nameKey)}>
 			<div className='ai-dialogues-page'>
 				{user && <MyDialogues userId={user.id} />}
 				<div className='ai-dialogues-page__part'>

@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
@@ -28,6 +29,7 @@ type Props = {
 }
 
 export default function AiDialoguePage({ dialogueId }: Props) {
+	const t = useTranslations('pageUrls')
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
@@ -55,7 +57,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	return (
 		<DialogueAudioProvider player={audio.player} state={audio.state}>
 			<MediaRoot
-				breadCrumbsConfig={[pageUrls.aiDialogues]}
+				breadCrumbsConfig={[{ name: t(pageUrls.aiDialogues.nameKey), path: pageUrls.aiDialogues.path }]}
 				header={header}
 				leftBlock={
 					<AiDialogueLeftWrapper>

@@ -190,6 +190,29 @@ function LanguageSwitcher() {
 
 `router.replace(pathname, { locale })` сохраняет текущую страницу и меняет только язык в URL. Next-intl автоматически обновляет cookie `NEXT_LOCALE`.
 
+### Названия страниц в pageUrls
+
+Названия страниц переводятся в разделе `pageUrls` (`messages/{locale}/pageUrls.json`). В `shared/utils/pageUrls.ts`
+у страницы вместо названия лежит ключ перевода `nameKey`:
+
+```typescript
+books: {
+    nameKey: 'books' as const satisfies PageNameKey,
+    path: '/books',
+},
+```
+
+`PageNameKey` — ключи из `messages/en/pageUrls.json`: ключ, которого нет в переводах, — ошибка TypeScript.
+`as const` сохраняет буквальный тип ключа, чтобы объект из `pageUrls` можно было передать туда, где ждут `PageNameKey`.
+
+Текст выводится через `useTranslations('pageUrls')`: `t(pageUrls.books.nameKey)`. `MainMenuLink` и `AuthFormParent`
+(`afterFormLinks`) принимают `nameKey` и переводят сами. `BreadCrumbs` и `MediaRoot` (`breadCrumbsConfig`) принимают
+элементы `{ name, path }` с готовым текстом: название страницы переводит вызывающий код —
+`{ name: t(pageUrls.books.nameKey), path: pageUrls.books.path }`, а название книги передаётся как есть.
+
+В клиентский компонент из серверного передаются только `nameKey` и `path`, а не объект из `pageUrls` целиком: в нём
+бывают функции (`books.book()`), а функции нельзя передать в клиентский компонент.
+
 ## Тексты интерфейса и тексты контента
 
 - **Тексты интерфейса** (кнопки, подписи, сообщения об ошибках по коду) хранятся на клиенте в `messages/{locale}/*.json`.

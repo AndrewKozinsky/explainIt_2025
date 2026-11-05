@@ -1,17 +1,19 @@
 import { ReactNode } from 'react'
 import cn from 'classnames'
+import { useTranslations } from 'next-intl'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import LogoSign from '../../logo/LogoSign/LogoSign'
 import './Pagination.scss'
 
-type PagItemType = {
+/** Элемент хлебных крошек. name — уже готовый текст: название страницы переводит вызывающий код (t(pageUrls.books.nameKey)) */
+export type BreadCrumbsItem = {
 	name: string
 	path: string
 }
 
 type PaginationProps = {
-	items?: PagItemType[]
+	items?: BreadCrumbsItem[]
 }
 
 /** Хлебные крошки */
@@ -34,18 +36,19 @@ type PaginationRootItemProps = {
 /** Корневой элемент хлебных крошек */
 function PaginationRootItem(props: PaginationRootItemProps) {
 	const { withText = false } = props
+	const t = useTranslations('pageUrls')
 
 	const logo = <LogoSign extraClass='pagination-icon' />
 
 	return withText ? (
-		<PaginationItem item={pageUrls.main} icon={logo} />
+		<PaginationItem item={{ path: pageUrls.main.path, name: t(pageUrls.main.nameKey) }} icon={logo} />
 	) : (
 		<PaginationItem item={{ path: pageUrls.main.path, name: '' }} icon={logo} />
 	)
 }
 
 type PaginationItemProps = {
-	item: PagItemType
+	item: BreadCrumbsItem
 	icon?: ReactNode
 }
 

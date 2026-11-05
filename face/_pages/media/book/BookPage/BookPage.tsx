@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import { booksService } from '@/entities/book/BooksService'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
@@ -13,6 +14,7 @@ type Props = {
 }
 
 export default async function BookPage({ bookId }: Props) {
+	const t = await getTranslations('pageUrls')
 	const { error, data: book } = await booksService.getBook(Number(bookId))
 
 	if (error) {
@@ -27,7 +29,7 @@ export default async function BookPage({ bookId }: Props) {
 
 	return (
 		<MediaPageContentWrapper
-			breadCrumbs={<BreadCrumbs items={[pageUrls.books]} />}
+			breadCrumbs={<BreadCrumbs items={[{ name: t(pageUrls.books.nameKey), path: pageUrls.books.path }]} />}
 			header={header}
 			subHeader={subHeader}
 		>

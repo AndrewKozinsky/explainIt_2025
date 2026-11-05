@@ -7,19 +7,21 @@ export function MainMenu() {
 		<nav>
 			<ul className='main-menu__ul'>
 				<li>
-					<MainMenuLink linkData={{ name: pageUrls.aiDialogues.name, path: pageUrls.aiDialogues.path }} />
+					<MainMenuLink
+						linkData={{ nameKey: pageUrls.aiDialogues.nameKey, path: pageUrls.aiDialogues.path }}
+					/>
 				</li>
 				<li>
-					<MainMenuLink linkData={{ name: pageUrls.videos.name, path: pageUrls.videos.path }} />
+					<MainMenuLink linkData={{ nameKey: pageUrls.videos.nameKey, path: pageUrls.videos.path }} />
 				</li>
 				<li>
-					<MainMenuLink linkData={{ name: pageUrls.books.name, path: pageUrls.books.path }} />
+					<MainMenuLink linkData={{ nameKey: pageUrls.books.nameKey, path: pageUrls.books.path }} />
 				</li>
 				{/*<li>
-					<MainMenuLink linkData={{ name: pageUrls.dictionary.name, path: pageUrls.dictionary.path }} />
+					<MainMenuLink linkData={{ nameKey: pageUrls.dictionary.nameKey, path: pageUrls.dictionary.path }} />
 				</li>*/}
 				<li>
-					<MainMenuLink linkData={pageUrls.contacts} />
+					<MainMenuLink linkData={{ nameKey: pageUrls.contacts.nameKey, path: pageUrls.contacts.path }} />
 				</li>
 			</ul>
 		</nav>
