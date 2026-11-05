@@ -29,7 +29,7 @@ describe('Public scenario seeds', () => {
 		expect(groups).toEqual(handler.getGroupsData())
 		expect(groups).toHaveLength(aiDialogueScenarioGroups.length)
 		expect(scenarios.map((scenario: { slug: string }) => scenario.slug)).toEqual(
-			handler.getScenariosData().map((s) => s.slug),
+			handler.getScenariosData().map((seed) => seed.slug),
 		)
 
 		for (const scenario of scenarios) {
@@ -40,14 +40,14 @@ describe('Public scenario seeds', () => {
 	it('orders groups by their first scenario in getScenariosData and keeps the scenarios of a group together', () => {
 		const { handler } = harness()
 		const scenarioGroupOrder = handler.getScenariosData().map((scenario) => scenario.groupSlug)
-		const firstAppearance = [...new Set(scenarioGroupOrder)]
+		const groupsByFirstScenario = [...new Set(scenarioGroupOrder)]
 		const groupOrder = handler.getGroupsData().map((group) => group.slug)
 
-		expect(groupOrder.slice(0, firstAppearance.length)).toEqual(firstAppearance)
+		expect(groupOrder.slice(0, groupsByFirstScenario.length)).toEqual(groupsByFirstScenario)
 
 		// Сценарии одной группы идут подряд: иначе порядок на странице не совпадёт с getScenariosData.
-		const runs = scenarioGroupOrder.filter((slug, index) => slug !== scenarioGroupOrder[index - 1])
-		expect(runs).toEqual(firstAppearance)
+		const groupSequence = scenarioGroupOrder.filter((slug, index) => slug !== scenarioGroupOrder[index - 1])
+		expect(groupSequence).toEqual(groupsByFirstScenario)
 	})
 
 	it('has unique keys, valid group membership and translations on all seven interface languages', () => {
@@ -65,13 +65,16 @@ describe('Public scenario seeds', () => {
 
 		const texts = [
 			...aiDialogueScenarioGroups.flatMap((group) => [group.title, group.description]),
-			...scenarios.flatMap((s) => [s.title, s.description, s.trainedSkills]),
-			...scenarios.flatMap((s) => (s.userScenarioAmendmentHint ? [s.userScenarioAmendmentHint] : [])),
+			...scenarios.flatMap((scenario) => [scenario.title, scenario.description, scenario.trainedSkills]),
+			...scenarios.flatMap((scenario) =>
+				scenario.userScenarioAmendmentHint ? [scenario.userScenarioAmendmentHint] : [],
+			),
 		]
 
 		for (const text of texts) {
 			const translations = JSON.parse(text)
 			expect(Object.keys(translations).sort()).toEqual(languageCodes)
+
 			for (const value of Object.values(translations)) expect(value).toEqual(expect.stringMatching(/\S/))
 		}
 	})
@@ -83,19 +86,19 @@ describe('Public scenario seeds', () => {
 			const translations: Record<string, unknown> = JSON.parse(scenario.conversationIdeas)
 			expect(Object.keys(translations).sort()).toEqual(languageCodes)
 
-			const counts = new Set<number>()
+			const ideaCounts = new Set<number>()
 
 			for (const ideas of Object.values(translations)) {
 				expect(Array.isArray(ideas)).toBe(true)
-				const list = ideas as unknown[]
-				counts.add(list.length)
-				for (const idea of list) expect(idea).toEqual(expect.stringMatching(/\S/))
+				const languageIdeas = ideas as unknown[]
+				ideaCounts.add(languageIdeas.length)
+				for (const idea of languageIdeas) expect(idea).toEqual(expect.stringMatching(/\S/))
 			}
 
-			expect(counts.size).toBe(1)
-			const [count] = counts
-			expect(count).toBeGreaterThanOrEqual(2)
-			expect(count).toBeLessThanOrEqual(4)
+			expect(ideaCounts.size).toBe(1)
+			const [ideaCount] = ideaCounts
+			expect(ideaCount).toBeGreaterThanOrEqual(2)
+			expect(ideaCount).toBeLessThanOrEqual(4)
 		}
 	})
 

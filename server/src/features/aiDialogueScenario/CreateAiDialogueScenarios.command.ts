@@ -5,6 +5,7 @@ import { AiDialogueScenarioGroupSeedData, AiDialogueScenarioSeedData } from './c
 import { aiDialogueScenarioGroups } from './groups'
 import { getPublicScenarioCoverKey } from './publicScenarioCoverKey'
 import { cityAndServicesScenarios } from './scenarios/cityAndServicesScenarios'
+import { doorKnocksScenarios } from './scenarios/doorKnocksScenarios'
 import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
 import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
@@ -37,13 +38,14 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 	 */
 	getGroupsData(): AiDialogueScenarioGroupSeedData[] {
 		const groupOrder = [...new Set(this.getScenariosData().map((scenario) => scenario.groupSlug))]
+
 		const getRank = (group: AiDialogueScenarioGroupSeedData) => {
-			const index = groupOrder.indexOf(group.slug)
-			return index === -1 ? groupOrder.length : index
+			const firstScenarioIndex = groupOrder.indexOf(group.slug)
+			return firstScenarioIndex === -1 ? groupOrder.length : firstScenarioIndex
 		}
 
 		// Array.prototype.sort стабильна: группы без сценариев сохраняют порядок groups.ts.
-		return [...aiDialogueScenarioGroups].sort((a, b) => getRank(a) - getRank(b))
+		return [...aiDialogueScenarioGroups].sort((groupA, groupB) => getRank(groupA) - getRank(groupB))
 	}
 
 	/** Все публичные сценарии в порядке вывода на странице: порядок групп и сценариев внутри них. */
@@ -53,6 +55,7 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			...foodAndShoppingScenarios,
 			...cityAndServicesScenarios,
 			...homeAndEverydayLifeScenarios,
+			...doorKnocksScenarios,
 		]
 	}
 }

@@ -139,11 +139,15 @@ StartServerTasksRunner сначала применяет миграции, за�
 | travel-abroad          | passport-control, lost-luggage, hotel-check-in, hotel-room-problem                            |
 | food-and-shopping      | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market |
 | city-and-services      | at-the-dentist, pool-membership                                                               |
-| home-and-everyday-life | knock-at-the-door                                                                             |
+| door-knocks            | knock-at-the-door                                                                             |
+
+В `groups.ts` 18 групп. Остальные пока без сценариев и на странице не выводятся: home-and-everyday-life, immigration,
+relationships, misunderstandings-and-conflicts, unexpected-encounters, work, health-emergency, transport-car,
+money-banking, study, kids-family, tech-services, local-services, sports-leisure.
 
 Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` каждому набору
 соответствует файл своей группы: `travelScenarios.ts`, `foodAndShoppingScenarios.ts`,
-`cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts`. Сценарии языконейтральны;
+`cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts` (пока пустой), `doorKnocksScenarios.ts`. Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
 и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
 сейчас она задана у всех двенадцати сценариев.

@@ -1,7 +1,24 @@
 import { Language } from 'utils/languages'
 
 export type AiDialogueScenarioGroupSlug =
-	'travel-abroad' | 'food-and-shopping' | 'city-and-services' | 'home-and-everyday-life'
+	| 'travel-abroad'
+	| 'food-and-shopping'
+	| 'city-and-services'
+	| 'home-and-everyday-life'
+	| 'immigration'
+	| 'relationships'
+	| 'door-knocks'
+	| 'misunderstandings-and-conflicts'
+	| 'unexpected-encounters'
+	| 'work'
+	| 'health-emergency'
+	| 'transport-car'
+	| 'money-banking'
+	| 'study'
+	| 'kids-family'
+	| 'tech-services'
+	| 'local-services'
+	| 'sports-leisure'
 
 export type AiDialogueScenarioGroupSeedData = {
 	slug: AiDialogueScenarioGroupSlug

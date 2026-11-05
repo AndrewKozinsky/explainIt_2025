@@ -78,8 +78,8 @@ export class AiDialogueScenarioRepository {
 				const groupIds = new Map<string, number>()
 
 				for (const [position, group] of groups.entries()) {
-					const row = await this.upsertGroup(tx, group, position)
-					groupIds.set(group.slug, row.id)
+					const savedGroup = await this.upsertGroup(tx, group, position)
+					groupIds.set(group.slug, savedGroup.id)
 				}
 
 				for (const [position, scenario] of scenarios.entries()) {
@@ -98,12 +98,12 @@ export class AiDialogueScenarioRepository {
 
 	/** Создаёт группу либо обновляет её тексты и позицию в переданной транзакции, сохраняя ID и created_at. */
 	private upsertGroup(tx: Prisma.TransactionClient, group: AiDialogueScenarioGroupSeedData, position: number) {
-		const data = { title: group.title, description: group.description, position }
+		const groupFields = { title: group.title, description: group.description, position }
 
 		return tx.aiDialogueScenarioGroup.upsert({
 			where: { slug: group.slug },
-			create: { ...data, slug: group.slug },
-			update: data,
+			create: { ...groupFields, slug: group.slug },
+			update: groupFields,
 		})
 	}
 
@@ -131,7 +131,7 @@ export class AiDialogueScenarioRepository {
 			)
 		}
 
-		const data = {
+		const scenarioFields = {
 			title: scenario.title,
 			description: scenario.description,
 			system_prompt: scenario.systemPrompt,
@@ -146,8 +146,8 @@ export class AiDialogueScenarioRepository {
 		// The owner precheck rejects private collisions; SQL CHECK also protects concurrent changes.
 		return tx.aiDialogueScenario.upsert({
 			where: { slug: scenario.slug },
-			create: { ...data, slug: scenario.slug, user_id: null },
-			update: data,
+			create: { ...scenarioFields, slug: scenario.slug, user_id: null },
+			update: scenarioFields,
 		})
 	}
 }

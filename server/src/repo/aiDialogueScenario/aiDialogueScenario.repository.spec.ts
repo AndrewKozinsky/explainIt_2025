@@ -32,7 +32,7 @@ describe('Scenario synchronization', () => {
 		await repository.synchronizePublicScenarios(aiDialogueScenarioGroups, [scenario])
 
 		expect(prisma.$transaction).toHaveBeenCalledTimes(1)
-		expect(tx.aiDialogueScenarioGroup.upsert).toHaveBeenCalledTimes(4)
+		expect(tx.aiDialogueScenarioGroup.upsert).toHaveBeenCalledTimes(aiDialogueScenarioGroups.length)
 		expect(tx.aiDialogueScenario.upsert).toHaveBeenCalledWith({
 			where: { slug: 'passport-control' },
 			create: {
@@ -64,26 +64,29 @@ describe('Scenario synchronization', () => {
 
 	it('stores the index in the passed arrays as the display position of groups and scenarios', async () => {
 		const { repository, tx } = harness()
-		const [first, second] = travelScenarios.map((s) => ({ ...s, coverS3Key: `covers/localdev/${s.slug}.webp` }))
+		const [passportControl, lostLuggage] = travelScenarios.map((seed) => ({
+			...seed,
+			coverS3Key: `covers/localdev/${seed.slug}.webp`,
+		}))
 
-		await repository.synchronizePublicScenarios(aiDialogueScenarioGroups, [second, first])
+		await repository.synchronizePublicScenarios(aiDialogueScenarioGroups, [lostLuggage, passportControl])
 
-		const groupPositions = tx.aiDialogueScenarioGroup.upsert.mock.calls.map(([args]) => [
-			args.where.slug,
-			args.update.position,
+		const groupPositions = tx.aiDialogueScenarioGroup.upsert.mock.calls.map(([upsertArgs]) => [
+			upsertArgs.where.slug,
+			upsertArgs.update.position,
 		])
 		expect(groupPositions).toEqual(aiDialogueScenarioGroups.map((group, index) => [group.slug, index]))
 		expect(tx.aiDialogueScenarioGroup.upsert.mock.calls[0][0].create.position).toBe(0)
 
-		const scenarioPositions = tx.aiDialogueScenario.upsert.mock.calls.map(([args]) => [
-			args.where.slug,
-			args.create.position,
-			args.update.position,
+		const scenarioPositions = tx.aiDialogueScenario.upsert.mock.calls.map(([upsertArgs]) => [
+			upsertArgs.where.slug,
+			upsertArgs.create.position,
+			upsertArgs.update.position,
 		])
 
 		expect(scenarioPositions).toEqual([
-			[second.slug, 0, 0],
-			[first.slug, 1, 1],
+			[lostLuggage.slug, 0, 0],
+			[passportControl.slug, 1, 1],
 		])
 	})
 

@@ -148,10 +148,11 @@ async function checkSynchronization(prisma: PrismaClient, userId: number) {
 	assert.equal(await prisma.aiDialogueScenarioGroup.count(), aiDialogueScenarioGroups.length)
 	assert.equal(before.length, handler.getScenariosData().length)
 	assert.deepEqual(
-		[...before].sort((a, b) => a.position - b.position).map((row) => row.slug),
+		[...before].sort((rowA, rowB) => rowA.position - rowB.position).map((scenarioRow) => scenarioRow.slug),
 		handler.getScenariosData().map((seed) => seed.slug),
 	)
-	assert.ok(before.every((row) => row.conversation_ideas && row.trained_skills))
+
+	assert.ok(before.every((scenarioRow) => scenarioRow.conversation_ideas && scenarioRow.trained_skills))
 	assert.ok(before.every((row) => row.cover_s3_key === getPublicScenarioCoverKey('localdev', row.slug!)))
 	const privateScenario = await repository.createScenario({
 		userId,
@@ -180,6 +181,7 @@ async function checkSynchronization(prisma: PrismaClient, userId: number) {
 		include: { group: true },
 	})
 	const originalScenario = before.find((row) => row.slug === scenario.slug)!
+
 	assert.equal(updated.id, originalScenario.id)
 	assert.equal(updated.created_at.toISOString(), originalScenario.created_at.toISOString())
 	assert.equal(updated.title, 'Updated title')
@@ -249,15 +251,15 @@ async function checkGroups(prisma: PrismaClient) {
 			assert.ok(scenario.trainedSkills.length > 0)
 		}
 	}
-	const first = groups[0]
-	await prisma.aiDialogueScenarioGroup.update({ where: { id: first.id }, data: { position: 1000 } })
-	const reordered = await repository.getPublicScenarioGroups('en')
-	assert.equal(reordered.at(-1)?.id, first.id)
-	const scenario = first.scenarios[0]
+	const firstGroup = groups[0]
+	await prisma.aiDialogueScenarioGroup.update({ where: { id: firstGroup.id }, data: { position: 1000 } })
+	const afterGroupMove = await repository.getPublicScenarioGroups('en')
+	assert.equal(afterGroupMove.at(-1)?.id, firstGroup.id)
+	const scenario = firstGroup.scenarios[0]
 	await prisma.aiDialogueScenario.update({ where: { id: scenario.id }, data: { position: 1000 } })
-	const next = await repository.getPublicScenarioGroups('en')
-	assert.equal(next.find((group) => group.id === first.id)?.scenarios.at(-1)?.id, scenario.id)
-	return next
+	const afterScenarioMove = await repository.getPublicScenarioGroups('en')
+	assert.equal(afterScenarioMove.find((group) => group.id === firstGroup.id)?.scenarios.at(-1)?.id, scenario.id)
+	return afterScenarioMove
 }
 
 async function checkHttp(prisma: PrismaClient, expected: unknown) {

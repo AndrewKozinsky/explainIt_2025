@@ -15,7 +15,7 @@ export function pickLocalized(raw: string, locale: Language): string {
 	const translations = parseTranslations(raw)
 	if (!translations) return raw
 
-	const text = pickTranslation(translations, locale, (value) => typeof value === 'string')
+	const text = pickTranslation(translations, locale, (translation) => typeof translation === 'string')
 
 	return typeof text === 'string' ? text : ''
 }
@@ -31,10 +31,10 @@ export function pickLocalizedList(raw: string, locale: Language): string[] {
 	const translations = parseTranslations(raw)
 	if (!translations) return []
 
-	const list = pickTranslation(translations, locale, Array.isArray)
-	if (!Array.isArray(list)) return []
+	const translatedList = pickTranslation(translations, locale, Array.isArray)
+	if (!Array.isArray(translatedList)) return []
 
-	return list.filter((item): item is string => typeof item === 'string')
+	return translatedList.filter((listItem): listItem is string => typeof listItem === 'string')
 }
 
 /** Разбирает JSON-объект переводов; для не-JSON и не-объекта возвращает null. */
@@ -56,7 +56,7 @@ function parseTranslations(raw: string): null | Record<string, unknown> {
 function pickTranslation(
 	translations: Record<string, unknown>,
 	locale: Language,
-	isSuitable: (value: unknown) => boolean,
+	isSuitable: (translation: unknown) => boolean,
 ): unknown {
 	const keys = [locale, FALLBACK_LANGUAGE, UNSPECIFIED_LANGUAGE_KEY, ...Object.keys(translations)]
 
