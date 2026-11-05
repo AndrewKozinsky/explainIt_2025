@@ -9,6 +9,7 @@ import { doorKnocksScenarios } from './scenarios/doorKnocksScenarios'
 import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
 import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
 import { immigrationScenarios } from './scenarios/immigrationScenarios'
+import { relationshipsScenarios } from './scenarios/relationshipsScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
@@ -58,6 +59,7 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			...homeAndEverydayLifeScenarios,
 			...doorKnocksScenarios,
 			...immigrationScenarios,
+			...relationshipsScenarios,
 		]
 	}
 }

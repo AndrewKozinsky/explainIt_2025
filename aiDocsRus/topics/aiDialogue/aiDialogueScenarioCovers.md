@@ -55,6 +55,21 @@ ai-dialogue-public-scenarios/covers/<mode>/
 | Приём у врача | `doctor-appointment.webp` |
 | Знакомство с соседями | `meeting-the-neighbors.webp` |
 | Первый день на работе | `first-day-at-new-job.webp` |
+| Знакомство на улице | `street-acquaintance.webp` |
+| Первое свидание | `first-date.webp` |
+| Утро после первой ночи | `morning-after.webp` |
+| Ужин в годовщину | `anniversary-dinner.webp` |
+| Забыли про годовщину | `forgotten-anniversary.webp` |
+| Ссора из-за домашних дел | `chores-argument.webp` |
+| Ревность | `jealousy.webp` |
+| Знакомство с родителями | `meeting-partners-parents.webp` |
+| Планируем отпуск | `planning-a-vacation.webp` |
+| Съезжаемся | `moving-in-together.webp` |
+| Работа в другой стране | `job-offer-abroad.webp` |
+| Партнёр заболел | `partner-is-sick.webp` |
+| Партнёр хочет собаку | `partner-wants-dog.webp` |
+| Встреча с бывшим | `ex-in-supermarket.webp` |
+| Друг просит в долг | `friend-asks-loan.webp` |
 
 ## Подключение
 

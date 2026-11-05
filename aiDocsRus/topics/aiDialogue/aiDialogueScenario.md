@@ -141,9 +141,10 @@ StartServerTasksRunner сначала применяет миграции, за�
 | city-and-services      | at-the-dentist, pool-membership                                                               |
 | door-knocks            | knock-at-the-door                                                                             |
 | immigration            | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
+| relationships          | street-acquaintance, first-date, morning-after, anniversary-dinner, forgotten-anniversary, chores-argument, jealousy, meeting-partners-parents, planning-a-vacation, moving-in-together, job-offer-abroad, partner-is-sick, partner-wants-dog, ex-in-supermarket, friend-asks-loan |
 
 В `groups.ts` 18 групп. Остальные пока без сценариев и на странице не выводятся: home-and-everyday-life,
-relationships, misunderstandings-and-conflicts, unexpected-encounters, work, health-emergency, transport-car,
+misunderstandings-and-conflicts, unexpected-encounters, work, health-emergency, transport-car,
 money-banking, study, kids-family, tech-services, local-services, sports-leisure.
 
 Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` каждому набору
@@ -151,7 +152,10 @@ money-banking, study, kids-family, tech-services, local-services, sports-leisure
 `cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts` (пока пустой), `doorKnocksScenarios.ts`,
 `immigrationScenarios.ts`. Сценарии «Иммиграции» идут в порядке переезда; их промпты дополняет общее правило
 `withImmigrationCountryRule`: страна — из пожеланий, иначе страна языка практики; все говорят с участником на языке
-практики; визовые требования типовые, без точных сумм и сроков. Сценарии языконейтральны;
+практики; визовые требования типовые, без точных сумм и сроков. В `relationshipsScenarios.ts` романтические сценарии
+дополняет правило `withRomanticPartnerRule`: партнёр, свидание или бывший по умолчанию противоположного пола
+(пожелания могут это изменить), романтика без откровенного содержания. Общее прошлое пары складывается в разговоре,
+участник может дополнять и поправлять детали. «Друг просит в долг» правило не получает. Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
 и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
 сейчас она задана у всех двенадцати сценариев.
