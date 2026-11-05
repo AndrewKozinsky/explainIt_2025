@@ -70,6 +70,11 @@ ai-dialogue-public-scenarios/covers/<mode>/
 | Партнёр хочет собаку | `partner-wants-dog.webp` |
 | Встреча с бывшим | `ex-in-supermarket.webp` |
 | Друг просит в долг | `friend-asks-loan.webp` |
+| Сантехник по вызову | `plumber-visit.webp` |
+| Кошка на балконе | `neighbors-cat-on-balcony.webp` |
+| Потоп сверху | `leak-from-upstairs.webp` |
+| Жалоба на шум | `noise-complaint.webp` |
+| Полиция ищет свидетелей | `police-looking-for-witnesses.webp` |
 
 ## Подключение
 

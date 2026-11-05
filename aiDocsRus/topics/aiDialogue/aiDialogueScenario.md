@@ -139,7 +139,7 @@ StartServerTasksRunner сначала применяет миграции, за�
 | travel-abroad          | passport-control, lost-luggage, hotel-check-in, hotel-room-problem                            |
 | food-and-shopping      | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market |
 | city-and-services      | at-the-dentist, pool-membership                                                               |
-| door-knocks            | knock-at-the-door                                                                             |
+| door-knocks            | knock-at-the-door, plumber-visit, neighbors-cat-on-balcony, leak-from-upstairs, noise-complaint, police-looking-for-witnesses |
 | immigration            | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
 | relationships          | street-acquaintance, first-date, morning-after, anniversary-dinner, forgotten-anniversary, chores-argument, jealousy, meeting-partners-parents, planning-a-vacation, moving-in-together, job-offer-abroad, partner-is-sick, partner-wants-dog, ex-in-supermarket, friend-asks-loan |
 
@@ -155,7 +155,10 @@ money-banking, study, kids-family, tech-services, local-services, sports-leisure
 практики; визовые требования типовые, без точных сумм и сроков. В `relationshipsScenarios.ts` романтические сценарии
 дополняет правило `withRomanticPartnerRule`: партнёр, свидание или бывший по умолчанию противоположного пола
 (пожелания могут это изменить), романтика без откровенного содержания. Общее прошлое пары складывается в разговоре,
-участник может дополнять и поправлять детали. «Друг просит в долг» правило не получает. Сценарии языконейтральны;
+участник может дополнять и поправлять детали. «Друг просит в долг» правило не получает.
+В `doorKnocksScenarios.ts` новые сценарии, где стучат к участнику, начинаются с общей завязки `withDoorOpening`
+(та же, что у `knock-at-the-door`). В `leak-from-upstairs` наоборот: участник поднимается к соседу сверху и стучит,
+кадр показывает его на площадке у открытой двери. Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
 и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
 сейчас она задана у всех двенадцати сценариев.
