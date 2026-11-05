@@ -1,7 +1,5 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
-// ЧЕРНОВИК на проверку: тексты пока только на en и ru, в getScenariosData() не подключён.
-
 /**
  * Добавляет к промпту общее для группы правило о стране переезда и языке.
  * Страну задаёт пользователь в пожеланиях; визовые требования — типовые, без точных сумм и сроков.
@@ -16,22 +14,67 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Visa Interview at the Embassy',
+			es: 'Entrevista en la embajada',
+			fr: 'Entretien à l’ambassade',
+			de: 'Visumgespräch in der Botschaft',
+			it: 'Colloquio in ambasciata',
+			tr: 'Elçilikte vize mülakatı',
 			ru: 'Собеседование в посольстве',
 		}),
 		description: localized({
 			en: 'You have come to the embassy of the country you plan to move to. The consular officer behind the glass asks about the purpose of your trip, your job and your finances.',
+			es: 'Has venido a la embajada del país al que piensas mudarte. El funcionario consular, tras el cristal, te pregunta por el motivo del viaje, tu trabajo y tu dinero.',
+			fr: 'Vous vous présentez à l’ambassade du pays où vous comptez vous installer. Derrière la vitre, l’agent consulaire vous interroge sur le but du voyage, votre travail et vos moyens.',
+			de: 'Sie sind in der Botschaft des Landes, in das Sie ziehen möchten. Der Konsularbeamte hinter der Glasscheibe fragt nach dem Reisezweck, Ihrer Arbeit und Ihren Finanzen.',
+			it: 'Sei all’ambasciata del paese in cui vuoi trasferirti. Il funzionario consolare dietro il vetro ti chiede lo scopo del viaggio, il lavoro e le tue finanze.',
+			tr: 'Taşınmayı planladığınız ülkenin elçiliğindesiniz. Camın arkasındaki konsolosluk görevlisi seyahatin amacını, işinizi ve maddi durumunuzu soruyor.',
 			ru: 'Вы пришли в посольство страны, куда собираетесь переехать. Консул за стеклом расспрашивает о цели поездки, работе и деньгах.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I’m moving to Canada on a work visa, the consul is suspicious',
+			es: 'Por ejemplo: me mudo a Canadá con un visado de trabajo y el cónsul desconfía',
+			fr: 'Par exemple : je pars au Canada avec un visa de travail, le consul est méfiant',
+			de: 'Zum Beispiel: Ich ziehe mit einem Arbeitsvisum nach Kanada, der Konsul ist misstrauisch',
+			it: 'Per esempio: mi trasferisco in Canada con un visto di lavoro, il console è diffidente',
+			tr: 'Örneğin: çalışma vizesiyle Kanada’ya taşınıyorum, konsolos şüpheci',
 			ru: 'Например: переезжаю в Канаду по рабочей визе, консул недоверчивый',
 		}),
 		conversationIdeas: localizedList({
 			en: ['Explain why you are moving', 'Talk about your job and income', 'Ask which documents are needed'],
+			es: [
+				'Explicar por qué te mudas',
+				'Hablar de tu trabajo e ingresos',
+				'Preguntar qué documentos hacen falta',
+			],
+			fr: [
+				'Expliquer pourquoi vous partez',
+				'Parler de votre travail et de vos revenus',
+				'Demander quels documents sont nécessaires',
+			],
+			de: [
+				'Erklären, warum Sie umziehen',
+				'Über Arbeit und Einkommen sprechen',
+				'Fragen, welche Unterlagen nötig sind',
+			],
+			it: [
+				'Spiegare perché ti trasferisci',
+				'Parlare del tuo lavoro e del reddito',
+				'Chiedere quali documenti servono',
+			],
+			tr: [
+				'Neden taşındığınızı anlatmak',
+				'İşinizden ve gelirinizden bahsetmek',
+				'Hangi belgelerin gerektiğini sormak',
+			],
 			ru: ['Объяснить, зачем переезжаете', 'Рассказать о работе и доходах', 'Спросить, какие документы нужны'],
 		}),
 		trainedSkills: localized({
 			en: 'Talk confidently about your plans, work and money in an official interview',
+			es: 'Hablar con seguridad de tus planes, tu trabajo y tu dinero en una entrevista oficial',
+			fr: 'Parler avec assurance de vos projets, de votre travail et de votre argent lors d’un entretien officiel',
+			de: 'In einem offiziellen Gespräch sicher über Pläne, Arbeit und Geld sprechen',
+			it: 'Parlare con sicurezza di progetti, lavoro e soldi in un colloquio ufficiale',
+			tr: 'Resmî bir mülakatta planlarınızı, işinizi ve paranızı güvenle anlatmak',
 			ru: 'Уверенно рассказывать о своих планах, работе и деньгах на официальном собеседовании',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -43,14 +86,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Checking In for the Flight',
+			es: 'Facturación del vuelo',
+			fr: 'Enregistrement du vol',
+			de: 'Check-in für den Flug',
+			it: 'Check-in del volo',
+			tr: 'Uçuş için check-in',
 			ru: 'Регистрация на рейс',
 		}),
 		description: localized({
 			en: 'You are flying to your new country and come up to the check-in desk. An airline agent checks you in for the flight.',
+			es: 'Vuelas a tu nuevo país y te acercas al mostrador de facturación. Un empleado de la aerolínea te registra en el vuelo.',
+			fr: 'Vous partez pour votre nouveau pays et vous approchez du comptoir d’enregistrement. Un agent de la compagnie vous enregistre sur le vol.',
+			de: 'Sie fliegen in Ihr neues Land und gehen zum Check-in-Schalter. Ein Mitarbeiter der Fluggesellschaft checkt Sie ein.',
+			it: 'Stai volando nel tuo nuovo paese e ti avvicini al banco del check-in. Un addetto della compagnia aerea ti registra sul volo.',
+			tr: 'Yeni ülkenize uçuyorsunuz ve check-in bankosuna yaklaşıyorsunuz. Havayolu görevlisi uçuş kaydınızı yapıyor.',
 			ru: 'Вы улетаете в новую страну и подходите к стойке регистрации. Сотрудник авиакомпании оформляет вас на рейс.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I have two big suitcases and a cat in a carrier',
+			es: 'Por ejemplo: llevo dos maletas grandes y un gato en un transportín',
+			fr: 'Par exemple : j’ai deux grosses valises et un chat dans une caisse de transport',
+			de: 'Zum Beispiel: Ich habe zwei große Koffer und eine Katze in der Transportbox',
+			it: 'Per esempio: ho due valigie grandi e un gatto nel trasportino',
+			tr: 'Örneğin: iki büyük bavulum ve taşıma çantasında bir kedim var',
 			ru: 'Например: у меня два больших чемодана и кошка в переноске',
 		}),
 		conversationIdeas: localizedList({
@@ -58,6 +116,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Check in your luggage and ask about hand luggage',
 				'Ask for a window or aisle seat',
 				'Sort it out if your bag is overweight',
+			],
+			es: [
+				'Facturar el equipaje y preguntar por el equipaje de mano',
+				'Pedir un asiento de ventanilla o de pasillo',
+				'Resolverlo si la maleta pesa demasiado',
+			],
+			fr: [
+				'Enregistrer les bagages et se renseigner sur le bagage cabine',
+				'Demander une place côté hublot ou couloir',
+				'Trouver une solution si la valise est trop lourde',
+			],
+			de: [
+				'Gepäck aufgeben und nach dem Handgepäck fragen',
+				'Um einen Fenster- oder Gangplatz bitten',
+				'Eine Lösung finden, wenn der Koffer zu schwer ist',
+			],
+			it: [
+				'Imbarcare i bagagli e chiedere del bagaglio a mano',
+				'Chiedere un posto finestrino o corridoio',
+				'Trovare una soluzione se la valigia pesa troppo',
+			],
+			tr: [
+				'Bagajı teslim edip el bagajını sormak',
+				'Cam kenarı ya da koridor koltuğu istemek',
+				'Bavul fazla ağırsa çözüm bulmak',
 			],
 			ru: [
 				'Сдать багаж и узнать про ручную кладь',
@@ -67,6 +150,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Sort out luggage, seats and documents before a flight',
+			es: 'Resolver cuestiones de equipaje, asiento y documentos antes de un vuelo',
+			fr: 'Régler les questions de bagages, de place et de documents avant un vol',
+			de: 'Fragen zu Gepäck, Sitzplatz und Dokumenten vor dem Flug klären',
+			it: 'Risolvere questioni di bagagli, posto e documenti prima di un volo',
+			tr: 'Uçuştan önce bagaj, koltuk ve belge meselelerini halletmek',
 			ru: 'Решать вопросы с багажом, местом и документами перед вылетом',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -78,14 +166,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Passport Control on Departure',
+			es: 'Control de pasaportes a la salida',
+			fr: 'Contrôle des passeports au départ',
+			de: 'Passkontrolle bei der Ausreise',
+			it: 'Controllo passaporti in partenza',
+			tr: 'Gidişte pasaport kontrolü',
 			ru: 'Паспортный контроль на вылете',
 		}),
 		description: localized({
 			en: 'You are leaving the country for good. A border officer flips through your passport and asks questions.',
+			es: 'Te vas del país para siempre. Un agente de fronteras hojea tu pasaporte y te hace preguntas.',
+			fr: 'Vous quittez le pays pour de bon. Un agent de la police aux frontières feuillette votre passeport et vous pose des questions.',
+			de: 'Sie verlassen das Land für immer. Ein Grenzbeamter blättert in Ihrem Pass und stellt Fragen.',
+			it: 'Lasci il paese per sempre. Un agente di frontiera sfoglia il tuo passaporto e ti fa delle domande.',
+			tr: 'Ülkeden temelli ayrılıyorsunuz. Sınır görevlisi pasaportunuzu karıştırıp sorular soruyor.',
 			ru: 'Вы улетаете из страны насовсем. Пограничник листает ваш паспорт и задаёт вопросы.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: the officer notices I have a one-way ticket',
+			es: 'Por ejemplo: el agente se da cuenta de que tengo un billete solo de ida',
+			fr: 'Par exemple : l’agent remarque que j’ai un billet aller simple',
+			de: 'Zum Beispiel: Der Beamte bemerkt, dass ich nur ein Hinflugticket habe',
+			it: 'Per esempio: l’agente nota che ho un biglietto di sola andata',
+			tr: 'Örneğin: görevli, biletimin tek yön olduğunu fark ediyor',
 			ru: 'Например: пограничник замечает, что у меня билет в один конец',
 		}),
 		conversationIdeas: localizedList({
@@ -93,6 +196,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Explain where you are flying and why',
 				'Show your visa and documents',
 				'Calmly answer an unexpected question',
+			],
+			es: [
+				'Explicar adónde vuelas y por qué',
+				'Enseñar el visado y los documentos',
+				'Responder con calma a una pregunta inesperada',
+			],
+			fr: [
+				'Expliquer où vous allez et pourquoi',
+				'Montrer votre visa et vos documents',
+				'Répondre calmement à une question inattendue',
+			],
+			de: [
+				'Erklären, wohin und warum Sie fliegen',
+				'Visum und Unterlagen zeigen',
+				'Ruhig auf eine unerwartete Frage antworten',
+			],
+			it: [
+				'Spiegare dove vai e perché',
+				'Mostrare il visto e i documenti',
+				'Rispondere con calma a una domanda inaspettata',
+			],
+			tr: [
+				'Nereye ve neden uçtuğunuzu anlatmak',
+				'Vizenizi ve belgelerinizi göstermek',
+				'Beklenmedik bir soruya sakince cevap vermek',
 			],
 			ru: [
 				'Объяснить, куда и зачем летите',
@@ -102,6 +230,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Answer a border officer’s questions about your trip briefly and calmly',
+			es: 'Responder breve y tranquilamente a las preguntas del agente de fronteras sobre tu viaje',
+			fr: 'Répondre brièvement et calmement aux questions de l’agent sur votre voyage',
+			de: 'Kurz und ruhig auf die Fragen des Grenzbeamten zur Reise antworten',
+			it: 'Rispondere in modo breve e calmo alle domande dell’agente sul viaggio',
+			tr: 'Sınır görevlisinin seyahatle ilgili sorularına kısa ve sakin cevap vermek',
 			ru: 'Коротко и спокойно отвечать на вопросы пограничника о поездке',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -113,22 +246,63 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Seatmate on the Plane',
+			es: 'Compañero de asiento en el avión',
+			fr: 'Voisin de siège dans l’avion',
+			de: 'Sitznachbar im Flugzeug',
+			it: 'Vicino di posto in aereo',
+			tr: 'Uçaktaki yol arkadaşı',
 			ru: 'Попутчик в самолёте',
 		}),
 		description: localized({
 			en: 'The person next to you on the plane has lived for years in the country you are flying to and is happy to tell you what life there is like.',
+			es: 'La persona sentada a tu lado en el avión lleva años viviendo en el país al que vas y te cuenta con gusto cómo es la vida allí.',
+			fr: 'La personne assise à côté de vous dans l’avion vit depuis des années dans le pays où vous allez et vous raconte volontiers la vie là-bas.',
+			de: 'Ihr Sitznachbar im Flugzeug lebt seit Jahren in dem Land, in das Sie fliegen, und erzählt gern, wie das Leben dort ist.',
+			it: 'La persona seduta accanto a te in aereo vive da anni nel paese dove stai andando e ti racconta volentieri com’è la vita lì.',
+			tr: 'Uçakta yanınızda oturan kişi, gittiğiniz ülkede yıllardır yaşıyor ve oradaki hayatı seve seve anlatıyor.',
 			ru: 'Рядом с вами в самолёте сидит человек, который давно живёт в стране, куда вы летите. Он охотно рассказывает, как там живётся.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: my seatmate is an elderly teacher who has lived there for twenty years',
+			es: 'Por ejemplo: mi compañera de asiento es una maestra mayor que vive allí desde hace veinte años',
+			fr: 'Par exemple : ma voisine est une institutrice âgée qui vit là-bas depuis vingt ans',
+			de: 'Zum Beispiel: Meine Sitznachbarin ist eine ältere Lehrerin, die seit zwanzig Jahren dort lebt',
+			it: 'Per esempio: la mia vicina è un’anziana insegnante che vive lì da vent’anni',
+			tr: 'Örneğin: yanımdaki yolcu yirmi yıldır orada yaşayan yaşlı bir öğretmen',
 			ru: 'Например: попутчица — пожилая учительница, живёт там двадцать лет',
 		}),
 		conversationIdeas: localizedList({
 			en: ['Ask about life and prices there', 'Ask for advice on where to start', 'Share your own plans'],
+			es: [
+				'Preguntar por la vida y los precios',
+				'Pedir consejo sobre por dónde empezar',
+				'Contar tus propios planes',
+			],
+			fr: ['Se renseigner sur la vie et les prix', 'Demander par où commencer', 'Parler de vos projets'],
+			de: [
+				'Nach dem Leben und den Preisen fragen',
+				'Um Rat bitten, womit man anfängt',
+				'Von den eigenen Plänen erzählen',
+			],
+			it: [
+				'Chiedere della vita e dei prezzi',
+				'Chiedere consiglio su come iniziare',
+				'Raccontare i tuoi progetti',
+			],
+			tr: [
+				'Oradaki hayatı ve fiyatları sormak',
+				'Nereden başlamanız gerektiğine dair tavsiye istemek',
+				'Kendi planlarınızı anlatmak',
+			],
 			ru: ['Расспросить о жизни и ценах', 'Попросить совета, с чего начать', 'Рассказать о своих планах'],
 		}),
 		trainedSkills: localized({
 			en: 'Keep up small talk and ask about life in another country',
+			es: 'Mantener una charla informal y preguntar por la vida en otro país',
+			fr: 'Entretenir une conversation légère et se renseigner sur la vie dans un autre pays',
+			de: 'Smalltalk führen und nach dem Leben in einem anderen Land fragen',
+			it: 'Fare conversazione e chiedere della vita in un altro paese',
+			tr: 'Sohbeti sürdürmek ve başka bir ülkedeki hayatı sormak',
 			ru: 'Поддерживать светскую беседу и расспрашивать о жизни в другой стране',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -140,14 +314,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Passport Control on Arrival',
+			es: 'Control de pasaportes a la llegada',
+			fr: 'Contrôle des passeports à l’arrivée',
+			de: 'Passkontrolle bei der Einreise',
+			it: 'Controllo passaporti all’arrivo',
+			tr: 'Varışta pasaport kontrolü',
 			ru: 'Паспортный контроль по прилёте',
 		}),
 		description: localized({
 			en: 'You have landed in your new country. The border officer asks about the purpose of your stay, where you will live and whether you have a return ticket.',
+			es: 'Has aterrizado en tu nuevo país. El agente de fronteras te pregunta el motivo de tu estancia, dónde vivirás y si tienes billete de vuelta.',
+			fr: 'Vous avez atterri dans votre nouveau pays. L’agent vous demande le motif de votre séjour, où vous allez vivre et si vous avez un billet retour.',
+			de: 'Sie sind in Ihrem neuen Land gelandet. Der Grenzbeamte fragt nach dem Zweck des Aufenthalts, wo Sie wohnen werden und ob Sie ein Rückflugticket haben.',
+			it: 'L’aereo è atterrato nel tuo nuovo paese. L’agente ti chiede il motivo del soggiorno, dove vivrai e se hai il biglietto di ritorno.',
+			tr: 'Yeni ülkenize indiniz. Sınır görevlisi kalış amacınızı, nerede yaşayacağınızı ve dönüş biletiniz olup olmadığını soruyor.',
 			ru: 'Вы прилетели в новую страну. Офицер на границе спрашивает о цели приезда, где будете жить и есть ли обратный билет.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I have a student visa but haven’t found a place to live yet',
+			es: 'Por ejemplo: tengo un visado de estudiante pero aún no he encontrado piso',
+			fr: 'Par exemple : j’ai un visa étudiant mais pas encore de logement',
+			de: 'Zum Beispiel: Ich habe ein Studentenvisum, aber noch keine Wohnung',
+			it: 'Per esempio: ho un visto per studenti ma non ho ancora trovato casa',
+			tr: 'Örneğin: öğrenci vizem var ama henüz kalacak yer bulamadım',
 			ru: 'Например: у меня студенческая виза, а жильё ещё не найдено',
 		}),
 		conversationIdeas: localizedList({
@@ -155,6 +344,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Explain the purpose of your stay',
 				'Show your invitation or contract',
 				'Explain why you have no return ticket',
+			],
+			es: [
+				'Explicar el motivo de tu estancia',
+				'Enseñar la invitación o el contrato',
+				'Explicar por qué no tienes billete de vuelta',
+			],
+			fr: [
+				'Expliquer le motif de votre séjour',
+				'Montrer l’invitation ou le contrat',
+				'Expliquer pourquoi vous n’avez pas de billet retour',
+			],
+			de: [
+				'Den Zweck des Aufenthalts erklären',
+				'Einladung oder Vertrag zeigen',
+				'Erklären, warum Sie kein Rückflugticket haben',
+			],
+			it: [
+				'Spiegare il motivo del soggiorno',
+				'Mostrare l’invito o il contratto',
+				'Spiegare perché non hai il biglietto di ritorno',
+			],
+			tr: [
+				'Kalış amacınızı anlatmak',
+				'Davetiyeyi ya da sözleşmeyi göstermek',
+				'Neden dönüş biletiniz olmadığını açıklamak',
 			],
 			ru: [
 				'Объяснить цель приезда',
@@ -164,6 +378,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Explain to a border officer why you have come and for how long',
+			es: 'Explicar al agente de fronteras por qué has venido y para cuánto tiempo',
+			fr: 'Expliquer à l’agent pourquoi vous êtes là et pour combien de temps',
+			de: 'Dem Grenzbeamten erklären, warum Sie gekommen sind und wie lange Sie bleiben',
+			it: 'Spiegare all’agente perché sei qui e per quanto tempo',
+			tr: 'Sınır görevlisine neden geldiğinizi ve ne kadar kalacağınızı açıklamak',
 			ru: 'Объяснять пограничнику, зачем вы приехали и надолго ли',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -175,22 +394,47 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Taxi from the Airport',
+			es: 'Taxi desde el aeropuerto',
+			fr: 'Taxi depuis l’aéroport',
+			de: 'Taxi vom Flughafen',
+			it: 'Taxi dall’aeroporto',
+			tr: 'Havalimanından taksi',
 			ru: 'Такси из аэропорта',
 		}),
 		description: localized({
 			en: 'You have walked out of the airport in your new country and get into a taxi. The driver checks the address and the fare.',
+			es: 'Has salido del aeropuerto de tu nuevo país y subes a un taxi. El conductor confirma la dirección y la tarifa.',
+			fr: 'Vous sortez de l’aéroport de votre nouveau pays et montez dans un taxi. Le chauffeur vérifie l’adresse et le tarif.',
+			de: 'Sie verlassen den Flughafen Ihres neuen Landes und steigen in ein Taxi. Der Fahrer klärt Adresse und Fahrpreis.',
+			it: 'Esci dall’aeroporto del tuo nuovo paese e sali su un taxi. L’autista chiede l’indirizzo e la tariffa.',
+			tr: 'Yeni ülkenizde havalimanından çıkıp bir taksiye biniyorsunuz. Şoför adresi ve ücreti netleştiriyor.',
 			ru: 'Вы вышли из аэропорта в новой стране и садитесь в такси. Водитель уточняет адрес и тариф.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: the driver doesn’t know my address and offers to go by the meter',
+			es: 'Por ejemplo: el taxista no conoce mi dirección y propone ir con taxímetro',
+			fr: 'Par exemple : le chauffeur ne connaît pas mon adresse et propose de rouler au compteur',
+			de: 'Zum Beispiel: Der Fahrer kennt meine Adresse nicht und schlägt vor, nach Taxameter zu fahren',
+			it: 'Per esempio: l’autista non conosce il mio indirizzo e propone di andare a tassametro',
+			tr: 'Örneğin: şoför adresimi bilmiyor ve taksimetreyle gitmeyi öneriyor',
 			ru: 'Например: водитель не знает моего адреса и предлагает ехать по счётчику',
 		}),
 		conversationIdeas: localizedList({
 			en: ['Explain where to go', 'Agree on the price in advance', 'Ask the driver about the city'],
+			es: ['Explicar adónde ir', 'Acordar el precio de antemano', 'Preguntar al taxista por la ciudad'],
+			fr: ['Expliquer où aller', 'Convenir du prix à l’avance', 'Interroger le chauffeur sur la ville'],
+			de: ['Erklären, wohin es geht', 'Den Preis vorher vereinbaren', 'Den Fahrer über die Stadt ausfragen'],
+			it: ['Spiegare dove andare', 'Concordare il prezzo in anticipo', 'Chiedere all’autista della città'],
+			tr: ['Nereye gideceğinizi anlatmak', 'Fiyatta önceden anlaşmak', 'Şoföre şehri sormak'],
 			ru: ['Объяснить, куда ехать', 'Заранее договориться о цене', 'Расспросить водителя о городе'],
 		}),
 		trainedSkills: localized({
 			en: 'Give an address, agree on the fare and chat with the driver',
+			es: 'Dar una dirección, acordar la tarifa y charlar con el conductor',
+			fr: 'Donner une adresse, convenir du tarif et discuter avec le chauffeur',
+			de: 'Eine Adresse nennen, den Fahrpreis vereinbaren und mit dem Fahrer plaudern',
+			it: 'Dare un indirizzo, concordare la tariffa e chiacchierare con l’autista',
+			tr: 'Adres vermek, ücrette anlaşmak ve şoförle sohbet etmek',
 			ru: 'Называть адрес, договариваться о цене поездки и болтать с водителем',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -202,14 +446,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'A Hotel for the First Nights',
+			es: 'Un hotel para las primeras noches',
+			fr: 'Un hôtel pour les premières nuits',
+			de: 'Ein Hotel für die ersten Nächte',
+			it: 'Un hotel per le prime notti',
+			tr: 'İlk geceler için otel',
 			ru: 'Отель на первое время',
 		}),
 		description: localized({
 			en: 'You have just moved and are checking in to a hotel while you look for a place to live. The receptionist books your first nights in the new country.',
+			es: 'Acabas de mudarte y te alojas en un hotel mientras buscas piso. El recepcionista registra tus primeras noches en el nuevo país.',
+			fr: 'Vous venez d’arriver dans un nouveau pays et prenez un hôtel le temps de trouver un logement. Le réceptionniste enregistre vos premières nuits.',
+			de: 'Sie sind gerade umgezogen und checken in ein Hotel ein, während Sie eine Wohnung suchen. Der Rezeptionist bucht Ihre ersten Nächte im neuen Land.',
+			it: 'Hai appena traslocato e prendi un hotel mentre cerchi casa. Il receptionist registra le tue prime notti nel nuovo paese.',
+			tr: 'Yeni taşındınız ve ev ararken bir otele yerleşiyorsunuz. Resepsiyon görevlisi yeni ülkedeki ilk gecelerinizi kaydediyor.',
 			ru: 'Вы только что переехали и заселяетесь в отель, пока ищете жильё. Администратор оформляет первые ночи в новой стране.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I don’t know how many nights I’ll stay and want a discount for a long stay',
+			es: 'Por ejemplo: no sé cuántas noches me quedaré y quiero un descuento por estancia larga',
+			fr: 'Par exemple : je ne sais pas combien de nuits je vais rester et je veux une réduction pour un long séjour',
+			de: 'Zum Beispiel: Ich weiß nicht, wie viele Nächte ich bleibe, und möchte einen Rabatt für einen langen Aufenthalt',
+			it: 'Per esempio: non so quante notti resterò e voglio uno sconto per un soggiorno lungo',
+			tr: 'Örneğin: kaç gece kalacağımı bilmiyorum ve uzun konaklama indirimi istiyorum',
 			ru: 'Например: не знаю, на сколько ночей останусь, и хочу скидку за долгое проживание',
 		}),
 		conversationIdeas: localizedList({
@@ -217,6 +476,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Agree on the length of stay and a long-stay price',
 				'Ask about laundry and a kitchen',
 				'Ask for tips on finding an apartment',
+			],
+			es: [
+				'Acordar la duración y un precio por estancia larga',
+				'Preguntar por la lavandería y la cocina',
+				'Pedir consejo para encontrar piso',
+			],
+			fr: [
+				'Convenir de la durée et d’un tarif long séjour',
+				'Se renseigner sur la laverie et la cuisine',
+				'Demander des conseils pour trouver un appartement',
+			],
+			de: [
+				'Aufenthaltsdauer und einen Langzeitpreis vereinbaren',
+				'Nach Waschküche und Küche fragen',
+				'Um Tipps für die Wohnungssuche bitten',
+			],
+			it: [
+				'Concordare la durata e un prezzo per soggiorno lungo',
+				'Chiedere della lavanderia e della cucina',
+				'Chiedere consigli per trovare casa',
+			],
+			tr: [
+				'Kalış süresinde ve uzun konaklama fiyatında anlaşmak',
+				'Çamaşırhane ve mutfak hakkında sormak',
+				'Ev bulmak için tavsiye istemek',
 			],
 			ru: [
 				'Договориться о сроке и цене за долгое проживание',
@@ -226,6 +510,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Arrange a stay without fixed dates and ask locals for advice',
+			es: 'Organizar una estancia sin fechas fijas y pedir consejo a la gente del lugar',
+			fr: 'Organiser un séjour sans dates fixes et demander conseil aux gens du coin',
+			de: 'Einen Aufenthalt ohne feste Daten vereinbaren und Einheimische um Rat fragen',
+			it: 'Organizzare un soggiorno senza date fisse e chiedere consiglio alla gente del posto',
+			tr: 'Kesin tarih olmadan konaklama ayarlamak ve yerel halktan tavsiye istemek',
 			ru: 'Договариваться о проживании без точных дат и просить совета у местных',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -237,14 +526,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'SIM Card and Phone Plan',
+			es: 'Tarjeta SIM y tarifa',
+			fr: 'Carte SIM et forfait',
+			de: 'SIM-Karte und Tarif',
+			it: 'SIM e tariffa',
+			tr: 'SIM kart ve tarife',
 			ru: 'Сим-карта и тариф',
 		}),
 		description: localized({
 			en: 'You need a local phone number. A sales assistant at a mobile phone shop offers plans and asks for your documents.',
+			es: 'Necesitas un número local. El dependiente de una tienda de telefonía te ofrece tarifas y te pide la documentación.',
+			fr: 'Il vous faut un numéro local. Le vendeur d’une boutique de téléphonie vous propose des forfaits et demande vos papiers.',
+			de: 'Sie brauchen eine lokale Nummer. Der Verkäufer im Handyladen bietet Tarife an und verlangt Ihre Ausweisdokumente.',
+			it: 'Ti serve un numero locale. Il commesso di un negozio di telefonia ti propone delle tariffe e ti chiede i documenti.',
+			tr: 'Yerel bir numaraya ihtiyacınız var. Telefoncudaki satış görevlisi tarifeler öneriyor ve belgelerinizi istiyor.',
 			ru: 'Вам нужен местный номер. Продавец в салоне связи предлагает тарифы и просит документы.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I need unlimited data, and the assistant keeps pushing an expensive plan',
+			es: 'Por ejemplo: necesito datos ilimitados y el dependiente insiste en una tarifa cara',
+			fr: 'Par exemple : j’ai besoin d’internet illimité et le vendeur insiste pour un forfait cher',
+			de: 'Zum Beispiel: Ich brauche unbegrenzte Daten, und der Verkäufer drängt mir einen teuren Tarif auf',
+			it: 'Per esempio: mi servono dati illimitati e il commesso insiste con una tariffa costosa',
+			tr: 'Örneğin: sınırsız internet lazım, satıcı ise pahalı bir tarifeyi dayatıyor',
 			ru: 'Например: нужен безлимитный интернет, а продавец навязывает дорогой тариф',
 		}),
 		conversationIdeas: localizedList({
@@ -252,6 +556,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Explain how much you call and use data',
 				'Compare plans and ask about hidden fees',
 				'Turn down extras you don’t need',
+			],
+			es: [
+				'Explicar cuánto llamas y usas datos',
+				'Comparar tarifas y preguntar por costes ocultos',
+				'Rechazar extras que no necesitas',
+			],
+			fr: [
+				'Expliquer combien vous appelez et utilisez internet',
+				'Comparer les forfaits et demander les frais cachés',
+				'Refuser les options inutiles',
+			],
+			de: [
+				'Erklären, wie viel Sie telefonieren und surfen',
+				'Tarife vergleichen und nach versteckten Kosten fragen',
+				'Unnötige Extras ablehnen',
+			],
+			it: [
+				'Spiegare quanto chiami e usi internet',
+				'Confrontare le tariffe e chiedere dei costi nascosti',
+				'Rifiutare gli extra che non ti servono',
+			],
+			tr: [
+				'Ne kadar konuştuğunuzu ve internet kullandığınızı anlatmak',
+				'Tarifeleri karşılaştırıp gizli ücretleri sormak',
+				'Gereksiz ek hizmetleri reddetmek',
 			],
 			ru: [
 				'Объяснить, сколько звоните и пользуетесь интернетом',
@@ -261,6 +590,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Compare plans, ask about costs and say no to extras',
+			es: 'Comparar tarifas, preguntar por el precio y decir que no a los extras',
+			fr: 'Comparer des forfaits, se renseigner sur les coûts et refuser les options',
+			de: 'Tarife vergleichen, nach Kosten fragen und Extras ablehnen',
+			it: 'Confrontare tariffe, chiedere dei costi e rifiutare gli extra',
+			tr: 'Tarifeleri karşılaştırmak, fiyatı sormak ve ek hizmetlere hayır demek',
 			ru: 'Сравнивать тарифы, расспрашивать о цене и отказываться от лишнего',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -272,14 +606,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Opening a Bank Account',
+			es: 'Abrir una cuenta bancaria',
+			fr: 'Ouvrir un compte bancaire',
+			de: 'Ein Bankkonto eröffnen',
+			it: 'Aprire un conto in banca',
+			tr: 'Banka hesabı açmak',
 			ru: 'Открытие банковского счёта',
 		}),
 		description: localized({
 			en: 'You have come to a bank to open an account. The bank employee asks about your job, your address and your documents.',
+			es: 'Has ido al banco a abrir una cuenta. El empleado te pregunta por tu trabajo, tu dirección y tus documentos.',
+			fr: 'Vous êtes à la banque pour ouvrir un compte. Le conseiller vous interroge sur votre travail, votre adresse et vos documents.',
+			de: 'Sie sind in der Bank, um ein Konto zu eröffnen. Der Bankangestellte fragt nach Arbeit, Adresse und Unterlagen.',
+			it: 'Sei in banca per aprire un conto. L’impiegato ti chiede del lavoro, dell’indirizzo e dei documenti.',
+			tr: 'Hesap açmak için bankadasınız. Banka görevlisi işinizi, adresinizi ve belgelerinizi soruyor.',
 			ru: 'Вы пришли в банк открыть счёт. Сотрудник расспрашивает о работе, адресе и документах.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I don’t have a permanent address yet',
+			es: 'Por ejemplo: todavía no tengo dirección fija',
+			fr: 'Par exemple : je n’ai pas encore d’adresse fixe',
+			de: 'Zum Beispiel: Ich habe noch keine feste Adresse',
+			it: 'Per esempio: non ho ancora un indirizzo fisso',
+			tr: 'Örneğin: henüz sabit bir adresim yok',
 			ru: 'Например: у меня пока нет постоянного адреса',
 		}),
 		conversationIdeas: localizedList({
@@ -287,6 +636,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Find out which account suits you',
 				'Ask about fees and cards',
 				'Explain which documents you don’t have yet',
+			],
+			es: [
+				'Averiguar qué cuenta te conviene',
+				'Preguntar por comisiones y tarjetas',
+				'Explicar qué documentos aún no tienes',
+			],
+			fr: [
+				'Savoir quel compte vous convient',
+				'Se renseigner sur les frais et les cartes',
+				'Expliquer quels documents vous manquent encore',
+			],
+			de: [
+				'Herausfinden, welches Konto passt',
+				'Nach Gebühren und Karten fragen',
+				'Erklären, welche Unterlagen noch fehlen',
+			],
+			it: [
+				'Capire quale conto fa per te',
+				'Chiedere di commissioni e carte',
+				'Spiegare quali documenti non hai ancora',
+			],
+			tr: [
+				'Hangi hesabın size uygun olduğunu öğrenmek',
+				'Ücretleri ve kartları sormak',
+				'Henüz hangi belgelerinizin olmadığını açıklamak',
 			],
 			ru: [
 				'Узнать, какой счёт вам подойдёт',
@@ -296,6 +670,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Answer a bank’s questions about yourself and understand account terms',
+			es: 'Responder a las preguntas del banco sobre ti y entender las condiciones de la cuenta',
+			fr: 'Répondre aux questions de la banque et comprendre les conditions du compte',
+			de: 'Fragen der Bank zur eigenen Person beantworten und Kontobedingungen verstehen',
+			it: 'Rispondere alle domande della banca su di te e capire le condizioni del conto',
+			tr: 'Bankanın sizinle ilgili sorularını yanıtlamak ve hesap koşullarını anlamak',
 			ru: 'Отвечать на вопросы банка о себе и разбираться в условиях счёта',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -307,14 +686,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Apartment Viewing',
+			es: 'Visita a un piso',
+			fr: 'Visite d’un appartement',
+			de: 'Wohnungsbesichtigung',
+			it: 'Visita a un appartamento',
+			tr: 'Daire görmeye gitmek',
 			ru: 'Просмотр квартиры',
 		}),
 		description: localized({
 			en: 'You have come to view an apartment. The landlord shows you around, asks about your job and income and talks about the deposit and the contract.',
+			es: 'Has ido a ver un piso. El casero te lo enseña, te pregunta por tu trabajo e ingresos y habla de la fianza y el contrato.',
+			fr: 'Vous visitez un appartement. Le propriétaire vous le fait visiter, vous interroge sur votre travail et vos revenus et parle de la caution et du bail.',
+			de: 'Sie besichtigen eine Wohnung. Der Vermieter führt Sie herum, fragt nach Arbeit und Einkommen und spricht über Kaution und Vertrag.',
+			it: 'Visiti un appartamento. Il proprietario te lo mostra, ti chiede del lavoro e del reddito e parla di cauzione e contratto.',
+			tr: 'Bir daireye bakmaya geldiniz. Ev sahibi daireyi gezdiriyor, işinizi ve gelirinizi soruyor, depozito ve sözleşmeden bahsediyor.',
 			ru: 'Вы пришли посмотреть квартиру. Арендодатель показывает её, спрашивает о работе и доходе и говорит о залоге и договоре.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: an apartment in an old building, the landlady is elderly and very picky',
+			es: 'Por ejemplo: un piso en un edificio antiguo, la casera es mayor y muy exigente',
+			fr: 'Par exemple : un appartement dans un vieil immeuble, la propriétaire est âgée et très pointilleuse',
+			de: 'Zum Beispiel: eine Wohnung in einem Altbau, die Vermieterin ist älter und sehr pingelig',
+			it: 'Per esempio: un appartamento in un palazzo vecchio, la proprietaria è anziana e molto pignola',
+			tr: 'Örneğin: eski bir binada daire, ev sahibi yaşlı ve çok titiz bir kadın',
 			ru: 'Например: квартира в старом доме, хозяйка — пожилая и очень придирчивая',
 		}),
 		conversationIdeas: localizedList({
@@ -322,6 +716,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Ask about the apartment and the bills',
 				'Tell the landlord about yourself to make a good impression',
 				'Negotiate the rent or the deposit',
+			],
+			es: [
+				'Preguntar por el piso y los gastos',
+				'Hablarle de ti al casero para causar buena impresión',
+				'Negociar el alquiler o la fianza',
+			],
+			fr: [
+				'Se renseigner sur l’appartement et les charges',
+				'Parler de vous pour faire bonne impression',
+				'Négocier le loyer ou la caution',
+			],
+			de: [
+				'Nach der Wohnung und den Nebenkosten fragen',
+				'Von sich erzählen, um einen guten Eindruck zu machen',
+				'Über Miete oder Kaution verhandeln',
+			],
+			it: [
+				'Chiedere dell’appartamento e delle spese',
+				'Parlare di te per fare buona impressione',
+				'Trattare sull’affitto o sulla cauzione',
+			],
+			tr: [
+				'Daireyi ve faturaları sormak',
+				'İyi bir izlenim bırakmak için kendinizden bahsetmek',
+				'Kira ya da depozito için pazarlık yapmak',
 			],
 			ru: [
 				'Расспросить о квартире и счетах',
@@ -331,6 +750,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'View a home, ask about the rental and negotiate the terms',
+			es: 'Visitar una vivienda, preguntar por el alquiler y negociar las condiciones',
+			fr: 'Visiter un logement, poser des questions sur la location et négocier les conditions',
+			de: 'Eine Wohnung besichtigen, Fragen zur Miete stellen und Bedingungen aushandeln',
+			it: 'Visitare una casa, fare domande sull’affitto e trattare le condizioni',
+			tr: 'Ev gezmek, kira hakkında soru sormak ve koşulları pazarlık etmek',
 			ru: 'Осматривать жильё, задавать вопросы об аренде и договариваться об условиях',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -342,14 +766,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'At a Government Office',
+			es: 'En una oficina pública',
+			fr: 'Dans une administration',
+			de: 'Auf dem Amt',
+			it: 'In un ufficio pubblico',
+			tr: 'Devlet dairesinde',
 			ru: 'Госучреждение',
 		}),
 		description: localized({
 			en: 'You are at a government office counter to register your address, apply for a residence permit or get a tax number.',
+			es: 'Estás en la ventanilla de una oficina pública para empadronarte, pedir el permiso de residencia o sacar el número fiscal.',
+			fr: 'Vous êtes au guichet d’une administration pour déclarer votre adresse, demander un titre de séjour ou obtenir un numéro fiscal.',
+			de: 'Sie stehen am Schalter einer Behörde, um Ihren Wohnsitz anzumelden, eine Aufenthaltserlaubnis zu beantragen oder eine Steuernummer zu bekommen.',
+			it: 'Sei allo sportello di un ufficio pubblico per registrare la residenza, chiedere il permesso di soggiorno o il codice fiscale.',
+			tr: 'Adres kaydı, oturma izni ya da vergi numarası için bir devlet dairesinin gişesindesiniz.',
 			ru: 'Вы у окна госучреждения: оформляете регистрацию, вид на жительство или налоговый номер.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I’m applying for a residence permit, and the official is strict and always in a hurry',
+			es: 'Por ejemplo: pido el permiso de residencia y la funcionaria es estricta y siempre tiene prisa',
+			fr: 'Par exemple : je demande un titre de séjour, la fonctionnaire est stricte et toujours pressée',
+			de: 'Zum Beispiel: Ich beantrage eine Aufenthaltserlaubnis, und die Beamtin ist streng und immer in Eile',
+			it: 'Per esempio: chiedo il permesso di soggiorno, la funzionaria è severa e ha sempre fretta',
+			tr: 'Örneğin: oturma izni için başvuruyorum, memur kadın katı ve hep aceleci',
 			ru: 'Например: оформляю вид на жительство, а чиновница строгая и всё время торопится',
 		}),
 		conversationIdeas: localizedList({
@@ -357,6 +796,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Explain what you need to apply for',
 				'Ask again when something is unclear',
 				'Find out what to do if a document is missing',
+			],
+			es: [
+				'Explicar qué trámite necesitas',
+				'Volver a preguntar cuando algo no está claro',
+				'Averiguar qué hacer si falta un documento',
+			],
+			fr: [
+				'Expliquer la démarche dont vous avez besoin',
+				'Redemander quand quelque chose n’est pas clair',
+				'Savoir quoi faire s’il manque un document',
+			],
+			de: [
+				'Erklären, was Sie beantragen möchten',
+				'Nachfragen, wenn etwas unklar ist',
+				'Herausfinden, was zu tun ist, wenn ein Dokument fehlt',
+			],
+			it: [
+				'Spiegare quale pratica ti serve',
+				'Chiedere di nuovo quando qualcosa non è chiaro',
+				'Capire cosa fare se manca un documento',
+			],
+			tr: [
+				'Hangi işlemi yaptırmak istediğinizi anlatmak',
+				'Anlaşılmayan bir şeyi tekrar sormak',
+				'Bir belge eksikse ne yapılacağını öğrenmek',
 			],
 			ru: [
 				'Объяснить, что вам нужно оформить',
@@ -366,6 +830,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Understand official language, clarify requirements and get through red tape',
+			es: 'Entender el lenguaje administrativo, aclarar requisitos y no perderse en la burocracia',
+			fr: 'Comprendre le langage administratif, clarifier les exigences et s’en sortir avec la bureaucratie',
+			de: 'Amtssprache verstehen, Anforderungen klären und sich in der Bürokratie zurechtfinden',
+			it: 'Capire il linguaggio burocratico, chiarire i requisiti e non perdersi tra le pratiche',
+			tr: 'Resmî dili anlamak, gereklilikleri netleştirmek ve bürokraside kaybolmamak',
 			ru: 'Понимать канцелярский язык, уточнять требования и не теряться в бюрократии',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -377,14 +846,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Enrolling Your Child at School',
+			es: 'Matricular a tu hijo en el colegio',
+			fr: 'Inscrire son enfant à l’école',
+			de: 'Das Kind in der Schule anmelden',
+			it: 'Iscrivere il figlio a scuola',
+			tr: 'Çocuğu okula kaydettirmek',
 			ru: 'Запись ребёнка в школу',
 		}),
 		description: localized({
 			en: 'You have come to enrol your child at a local school. The school secretary asks about your child and the documents.',
+			es: 'Has ido a matricular a tu hijo en un colegio de la zona. La secretaria te pregunta por el niño y por los documentos.',
+			fr: 'Vous venez inscrire votre enfant dans une école du quartier. La secrétaire vous pose des questions sur l’enfant et les documents.',
+			de: 'Sie möchten Ihr Kind an einer Schule in der Nähe anmelden. Die Schulsekretärin fragt nach dem Kind und den Unterlagen.',
+			it: 'Sei a scuola per iscrivere tuo figlio. La segretaria ti chiede del bambino e dei documenti.',
+			tr: 'Çocuğunuzu yakındaki bir okula kaydettirmeye geldiniz. Okul sekreteri çocuğu ve belgeleri soruyor.',
 			ru: 'Вы пришли записать ребёнка в местную школу. Секретарь расспрашивает о ребёнке и документах.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: my son is eight and hardly speaks the local language',
+			es: 'Por ejemplo: mi hijo tiene ocho años y casi no habla el idioma local',
+			fr: 'Par exemple : mon fils a huit ans et parle à peine la langue locale',
+			de: 'Zum Beispiel: Mein Sohn ist acht und spricht kaum die Landessprache',
+			it: 'Per esempio: mio figlio ha otto anni e parla appena la lingua locale',
+			tr: 'Örneğin: oğlum sekiz yaşında ve yerel dili neredeyse hiç bilmiyor',
 			ru: 'Например: сыну восемь лет, он почти не знает местного языка',
 		}),
 		conversationIdeas: localizedList({
@@ -392,6 +876,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Tell them about your child and their previous school',
 				'Ask about language support',
 				'Ask about the timetable, lunches and clubs',
+			],
+			es: [
+				'Hablar del niño y de su colegio anterior',
+				'Preguntar por el apoyo con el idioma',
+				'Preguntar por el horario, el comedor y las actividades',
+			],
+			fr: [
+				'Parler de l’enfant et de son ancienne école',
+				'Se renseigner sur l’aide en langue',
+				'Demander l’emploi du temps, la cantine et les activités',
+			],
+			de: [
+				'Vom Kind und seiner bisherigen Schule erzählen',
+				'Nach Sprachförderung fragen',
+				'Nach Stundenplan, Mittagessen und AGs fragen',
+			],
+			it: [
+				'Parlare del bambino e della scuola precedente',
+				'Chiedere del supporto per la lingua',
+				'Chiedere dell’orario, della mensa e delle attività',
+			],
+			tr: [
+				'Çocuğu ve eski okulunu anlatmak',
+				'Dil desteğini sormak',
+				'Ders programını, öğle yemeğini ve kulüpleri sormak',
 			],
 			ru: [
 				'Рассказать о ребёнке и его прежней школе',
@@ -401,6 +910,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Talk about your child and ask about school rules',
+			es: 'Hablar de tu hijo y preguntar por las normas del colegio',
+			fr: 'Parler de votre enfant et vous renseigner sur le fonctionnement de l’école',
+			de: 'Über Ihr Kind sprechen und nach den Regeln der Schule fragen',
+			it: 'Parlare di tuo figlio e chiedere delle regole della scuola',
+			tr: 'Çocuğunuzu anlatmak ve okulun kurallarını sormak',
 			ru: 'Рассказывать о ребёнке и расспрашивать о школьных порядках',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -412,14 +926,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Job Interview at McDonald’s',
+			es: 'Entrevista de trabajo en McDonald’s',
+			fr: 'Entretien d’embauche chez McDonald’s',
+			de: 'Vorstellungsgespräch bei McDonald’s',
+			it: 'Colloquio di lavoro da McDonald’s',
+			tr: 'McDonald’s’ta iş görüşmesi',
 			ru: 'Собеседование в McDonald’s',
 		}),
 		description: localized({
 			en: 'You have come for a job interview at McDonald’s. The restaurant manager asks about your experience, your availability and why you want to work there.',
+			es: 'Tienes una entrevista de trabajo en McDonald’s. El gerente del restaurante te pregunta por tu experiencia, tu disponibilidad y por qué quieres trabajar allí.',
+			fr: 'Vous passez un entretien d’embauche chez McDonald’s. Le gérant du restaurant vous interroge sur votre expérience, vos disponibilités et vos motivations.',
+			de: 'Sie haben ein Vorstellungsgespräch bei McDonald’s. Der Filialleiter fragt nach Erfahrung, Verfügbarkeit und warum Sie dort arbeiten wollen.',
+			it: 'Hai un colloquio di lavoro da McDonald’s. Il responsabile del ristorante ti chiede dell’esperienza, della disponibilità e del perché vuoi lavorare lì.',
+			tr: 'McDonald’s’ta iş görüşmeniz var. Restoran müdürü deneyiminizi, çalışabileceğiniz saatleri ve neden orada çalışmak istediğinizi soruyor.',
 			ru: 'Вы пришли на собеседование в McDonald’s. Менеджер ресторана расспрашивает об опыте, графике и о том, почему вы хотите у них работать.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I have no experience but can work night shifts',
+			es: 'Por ejemplo: no tengo experiencia, pero puedo trabajar de noche',
+			fr: 'Par exemple : je n’ai pas d’expérience mais je peux travailler la nuit',
+			de: 'Zum Beispiel: Ich habe keine Erfahrung, kann aber nachts arbeiten',
+			it: 'Per esempio: non ho esperienza ma posso lavorare di notte',
+			tr: 'Örneğin: deneyimim yok ama gece çalışabilirim',
 			ru: 'Например: у меня нет опыта, но могу работать по ночам',
 		}),
 		conversationIdeas: localizedList({
@@ -428,10 +957,40 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Discuss shifts and your availability',
 				'Ask about pay and training',
 			],
+			es: [
+				'Hablar de ti y de tu experiencia',
+				'Hablar de turnos y disponibilidad',
+				'Preguntar por el sueldo y la formación',
+			],
+			fr: [
+				'Parler de vous et de votre expérience',
+				'Discuter des horaires et de vos disponibilités',
+				'Se renseigner sur le salaire et la formation',
+			],
+			de: [
+				'Über sich und die eigene Erfahrung sprechen',
+				'Schichten und Verfügbarkeit besprechen',
+				'Nach Lohn und Einarbeitung fragen',
+			],
+			it: [
+				'Parlare di te e della tua esperienza',
+				'Discutere di turni e disponibilità',
+				'Chiedere dello stipendio e della formazione',
+			],
+			tr: [
+				'Kendinizi ve deneyiminizi anlatmak',
+				'Vardiyaları ve uygun saatlerinizi konuşmak',
+				'Maaşı ve eğitimi sormak',
+			],
 			ru: ['Рассказать о себе и своём опыте', 'Обсудить график и смены', 'Спросить о зарплате и обучении'],
 		}),
 		trainedSkills: localized({
 			en: 'Get through a job interview: talk about yourself and agree on a schedule',
+			es: 'Superar una entrevista de trabajo: hablar de ti y acordar un horario',
+			fr: 'Réussir un entretien d’embauche : parler de vous et convenir d’un planning',
+			de: 'Ein Vorstellungsgespräch meistern: über sich sprechen und Arbeitszeiten vereinbaren',
+			it: 'Affrontare un colloquio di lavoro: parlare di te e concordare l’orario',
+			tr: 'İş görüşmesini atlatmak: kendinizi anlatmak ve çalışma saatlerinde anlaşmak',
 			ru: 'Проходить собеседование: рассказывать о себе и договариваться о графике',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -443,14 +1002,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Seeing a Doctor',
+			es: 'En la consulta del médico',
+			fr: 'Chez le médecin',
+			de: 'Beim Arzt',
+			it: 'Dal medico',
+			tr: 'Doktor muayenesi',
 			ru: 'Приём у врача',
 		}),
 		description: localized({
 			en: 'You are seeing a doctor in your new country for the first time. The doctor asks what is bothering you.',
+			es: 'Vas al médico por primera vez en tu nuevo país. El médico te pregunta qué te pasa.',
+			fr: 'Vous consultez un médecin pour la première fois dans votre nouveau pays. Il vous demande ce qui ne va pas.',
+			de: 'Sie gehen zum ersten Mal in Ihrem neuen Land zum Arzt. Der Arzt fragt, was Ihnen fehlt.',
+			it: 'Vai dal medico per la prima volta nel tuo nuovo paese. Il medico ti chiede che disturbi hai.',
+			tr: 'Yeni ülkenizde ilk kez doktora gidiyorsunuz. Doktor şikâyetinizin ne olduğunu soruyor.',
 			ru: 'Вы впервые пришли к врачу в новой стране. Врач спрашивает, на что вы жалуетесь.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I’ve had a sore throat for three days, and the doctor is in a hurry',
+			es: 'Por ejemplo: me duele la garganta desde hace tres días y el médico tiene prisa',
+			fr: 'Par exemple : j’ai mal à la gorge depuis trois jours et le médecin est pressé',
+			de: 'Zum Beispiel: Ich habe seit drei Tagen Halsschmerzen, und der Arzt hat es eilig',
+			it: 'Per esempio: ho mal di gola da tre giorni e il medico ha fretta',
+			tr: 'Örneğin: üç gündür boğazım ağrıyor, doktor ise aceleci',
 			ru: 'Например: третий день болит горло, а врач торопится',
 		}),
 		conversationIdeas: localizedList({
@@ -458,6 +1032,31 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Describe your symptoms and when they started',
 				'Mention chronic conditions and medication',
 				'Ask about treatment and insurance',
+			],
+			es: [
+				'Describir los síntomas y cuándo empezaron',
+				'Mencionar enfermedades crónicas y medicamentos',
+				'Preguntar por el tratamiento y el seguro',
+			],
+			fr: [
+				'Décrire vos symptômes et depuis quand',
+				'Parler de maladies chroniques et de médicaments',
+				'Se renseigner sur le traitement et l’assurance',
+			],
+			de: [
+				'Symptome beschreiben und sagen, seit wann',
+				'Chronische Krankheiten und Medikamente erwähnen',
+				'Nach Behandlung und Versicherung fragen',
+			],
+			it: [
+				'Descrivere i sintomi e quando sono iniziati',
+				'Parlare di malattie croniche e farmaci',
+				'Chiedere della cura e dell’assicurazione',
+			],
+			tr: [
+				'Belirtileri ve ne zaman başladıklarını anlatmak',
+				'Kronik hastalıklardan ve ilaçlardan bahsetmek',
+				'Tedaviyi ve sigortayı sormak',
 			],
 			ru: [
 				'Описать симптомы и когда они начались',
@@ -467,6 +1066,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Describe how you feel and understand a doctor’s advice',
+			es: 'Describir cómo te encuentras y entender los consejos del médico',
+			fr: 'Décrire votre état et comprendre les conseils du médecin',
+			de: 'Beschreiben, wie es Ihnen geht, und den Rat des Arztes verstehen',
+			it: 'Descrivere come ti senti e capire i consigli del medico',
+			tr: 'Nasıl hissettiğinizi anlatmak ve doktorun tavsiyelerini anlamak',
 			ru: 'Описывать самочувствие и понимать советы врача',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -478,14 +1082,29 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'Meeting the Neighbours',
+			es: 'Conocer a los vecinos',
+			fr: 'Faire connaissance avec les voisins',
+			de: 'Die Nachbarn kennenlernen',
+			it: 'Conoscere i vicini',
+			tr: 'Komşularla tanışmak',
 			ru: 'Знакомство с соседями',
 		}),
 		description: localized({
 			en: 'You have just moved into a new apartment. A neighbour on your landing strikes up a conversation with the newcomer.',
+			es: 'Acabas de instalarte en un piso nuevo. Un vecino del rellano se pone a charlar contigo.',
+			fr: 'Vous venez d’emménager. Un voisin de palier engage la conversation avec vous.',
+			de: 'Sie sind gerade in eine neue Wohnung gezogen. Ein Nachbar von Ihrem Stockwerk spricht Sie an.',
+			it: 'Hai appena traslocato in un nuovo appartamento. Un vicino di pianerottolo attacca discorso con te.',
+			tr: 'Yeni bir daireye taşındınız. Aynı kattaki bir komşu sizinle sohbet etmeye başlıyor.',
 			ru: 'Вы только что въехали в новую квартиру. Сосед по лестничной клетке заговаривает с новичком.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: my neighbour is a curious pensioner who knows everything about the building',
+			es: 'Por ejemplo: la vecina es una jubilada curiosa que lo sabe todo del edificio',
+			fr: 'Par exemple : la voisine est une retraitée curieuse qui sait tout sur l’immeuble',
+			de: 'Zum Beispiel: Die Nachbarin ist eine neugierige Rentnerin, die alles über das Haus weiß',
+			it: 'Per esempio: la vicina è una pensionata curiosa che sa tutto del palazzo',
+			tr: 'Örneğin: komşu, binayla ilgili her şeyi bilen meraklı bir emekli kadın',
 			ru: 'Например: соседка — любопытная пенсионерка, которая знает всё о доме',
 		}),
 		conversationIdeas: localizedList({
@@ -494,10 +1113,40 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 				'Ask about the building and the area',
 				'Invite your neighbour round for tea',
 			],
+			es: [
+				'Presentarte y contar algo de ti',
+				'Preguntar por el edificio y el barrio',
+				'Invitar al vecino a tomar un té',
+			],
+			fr: [
+				'Vous présenter et parler un peu de vous',
+				'Se renseigner sur l’immeuble et le quartier',
+				'Inviter le voisin à prendre le thé',
+			],
+			de: [
+				'Sich vorstellen und etwas von sich erzählen',
+				'Nach dem Haus und der Gegend fragen',
+				'Den Nachbarn auf einen Tee einladen',
+			],
+			it: [
+				'Presentarti e raccontare qualcosa di te',
+				'Chiedere del palazzo e del quartiere',
+				'Invitare il vicino per un tè',
+			],
+			tr: [
+				'Kendinizi tanıtıp biraz kendinizden bahsetmek',
+				'Binayı ve mahalleyi sormak',
+				'Komşuyu çaya davet etmek',
+			],
 			ru: ['Представиться и рассказать о себе', 'Расспросить о доме и районе', 'Пригласить соседа на чай'],
 		}),
 		trainedSkills: localized({
 			en: 'Introduce yourself and build good relations with neighbours',
+			es: 'Presentarte y llevarte bien con los vecinos',
+			fr: 'Vous présenter et entretenir de bonnes relations avec les voisins',
+			de: 'Sich vorstellen und gute Nachbarschaft pflegen',
+			it: 'Presentarti e costruire buoni rapporti con i vicini',
+			tr: 'Kendinizi tanıtmak ve komşularla iyi ilişkiler kurmak',
 			ru: 'Знакомиться, рассказывать о себе и налаживать добрососедские отношения',
 		}),
 		systemPrompt: withImmigrationCountryRule(
@@ -509,18 +1158,54 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'immigration',
 		title: localized({
 			en: 'First Day at a New Job',
+			es: 'Primer día en el nuevo trabajo',
+			fr: 'Premier jour dans un nouveau travail',
+			de: 'Erster Tag im neuen Job',
+			it: 'Primo giorno nel nuovo lavoro',
+			tr: 'Yeni işte ilk gün',
 			ru: 'Первый день на работе',
 		}),
 		description: localized({
 			en: 'It’s your first day at your new job. A colleague meets you and shows you around.',
+			es: 'Es tu primer día en el nuevo trabajo. Un compañero te recibe y te lo enseña todo.',
+			fr: 'C’est votre premier jour dans votre nouveau travail. Un collègue vous accueille et vous fait visiter.',
+			de: 'Es ist Ihr erster Tag im neuen Job. Ein Kollege empfängt Sie und zeigt Ihnen alles.',
+			it: 'È il tuo primo giorno nel nuovo lavoro. Un collega ti accoglie e ti mostra tutto.',
+			tr: 'Yeni işinizde ilk gününüz. Bir iş arkadaşı sizi karşılıyor ve her yeri gösteriyor.',
 			ru: 'Ваш первый день на новой работе. Коллега встречает вас и всё показывает.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: I’m a programmer at a small startup',
+			es: 'Por ejemplo: trabajo en desarrollo de software en una pequeña startup',
+			fr: 'Par exemple : je travaille dans le développement logiciel pour une petite start-up',
+			de: 'Zum Beispiel: Ich arbeite in der Softwareentwicklung bei einem kleinen Start-up',
+			it: 'Per esempio: lavoro nello sviluppo software in una piccola startup',
+			tr: 'Örneğin: küçük bir girişimde yazılımcıyım',
 			ru: 'Например: я программист в небольшом стартапе',
 		}),
 		conversationIdeas: localizedList({
 			en: ['Introduce yourself', 'Ask about the rules and customs at work', 'Ask for help with your first task'],
+			es: [
+				'Presentarte',
+				'Preguntar por las normas y costumbres del trabajo',
+				'Pedir ayuda con tu primera tarea',
+			],
+			fr: [
+				'Vous présenter',
+				'Se renseigner sur les règles et les habitudes au travail',
+				'Demander de l’aide pour votre première tâche',
+			],
+			de: ['Sich vorstellen', 'Nach Regeln und Gepflogenheiten fragen', 'Um Hilfe bei der ersten Aufgabe bitten'],
+			it: [
+				'Presentarti',
+				'Chiedere delle regole e delle abitudini sul lavoro',
+				'Chiedere aiuto con il primo compito',
+			],
+			tr: [
+				'Kendinizi tanıtmak',
+				'İşteki kuralları ve alışkanlıkları sormak',
+				'İlk göreviniz için yardım istemek',
+			],
 			ru: [
 				'Познакомиться и рассказать о себе',
 				'Расспросить о правилах и традициях',
@@ -529,6 +1214,11 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Meet colleagues and learn how things work in a new workplace',
+			es: 'Conocer a los compañeros y entender cómo funciona un nuevo lugar de trabajo',
+			fr: 'Faire connaissance avec vos collègues et comprendre le fonctionnement d’un nouveau poste',
+			de: 'Kollegen kennenlernen und verstehen, wie es am neuen Arbeitsplatz läuft',
+			it: 'Conoscere i colleghi e capire come funziona il nuovo posto di lavoro',
+			tr: 'İş arkadaşlarıyla tanışmak ve yeni iş yerinin işleyişini anlamak',
 			ru: 'Знакомиться с коллегами и разбираться в порядках на новом месте',
 		}),
 		systemPrompt: withImmigrationCountryRule(

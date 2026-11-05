@@ -140,14 +140,18 @@ StartServerTasksRunner сначала применяет миграции, за�
 | food-and-shopping      | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market |
 | city-and-services      | at-the-dentist, pool-membership                                                               |
 | door-knocks            | knock-at-the-door                                                                             |
+| immigration            | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
 
-В `groups.ts` 18 групп. Остальные пока без сценариев и на странице не выводятся: home-and-everyday-life, immigration,
+В `groups.ts` 18 групп. Остальные пока без сценариев и на странице не выводятся: home-and-everyday-life,
 relationships, misunderstandings-and-conflicts, unexpected-encounters, work, health-emergency, transport-car,
 money-banking, study, kids-family, tech-services, local-services, sports-leisure.
 
 Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` каждому набору
 соответствует файл своей группы: `travelScenarios.ts`, `foodAndShoppingScenarios.ts`,
-`cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts` (пока пустой), `doorKnocksScenarios.ts`. Сценарии языконейтральны;
+`cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts` (пока пустой), `doorKnocksScenarios.ts`,
+`immigrationScenarios.ts`. Сценарии «Иммиграции» идут в порядке переезда; их промпты дополняет общее правило
+`withImmigrationCountryRule`: страна — из пожеланий, иначе страна языка практики; все говорят с участником на языке
+практики; визовые требования типовые, без точных сумм и сроков. Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
 и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
 сейчас она задана у всех двенадцати сценариев.
