@@ -1,20 +1,20 @@
 export type AIProviderName = 'deepseek' | 'chatgpt' | 'gemini' | 'zai'
 
 export enum OpenAIModels {
-	Nano = 'gpt-5.6-luna',
-	Mini = 'gpt-5.6-terra',
-	Standard = 'gpt-5.6-sol',
+	Nano = 'gpt-6-luna',
+	Mini = 'gpt-6.1-terra',
+	Standard = 'gpt-6.1-sol',
 }
 
 export enum DeepSeekModels {
-	Flash = 'deepseek-v4-flash',
+	Flash = 'deepseek-flash',
 	Pro = 'deepseek-v4-pro',
 }
 
-// Идентификаторы моделей z.ai (GLM) — значения-заглушки, требуют уточнения.
+// Идентификаторы моделей z.ai (GLM).
 export enum ZaiModels {
-	Flash = 'glm-4.7-flash',
-	Pro = 'glm-4.7',
+	Flash = 'glm-5.3-flash',
+	Pro = 'glm-5.3',
 }
 
 export enum GoogleGeminiModels {
