@@ -55,6 +55,16 @@ export function getAiDialogueIllustrationStyleKey(mode: string | undefined, file
 	return `ai-dialogue-images/shared/styles/${mode}/${file}`
 }
 
+/**
+ * Ключ лёгкой версии эталона для переключателя стилей: тот же каталог MODE и постфикс .preview
+ * перед расширением (realism.webp → realism.preview.webp). Генератор её не использует.
+ * @param mode MODE текущего окружения.
+ * @param file Имя эталона из каталога.
+ */
+export function getAiDialogueIllustrationStylePreviewKey(mode: string | undefined, file: string): string {
+	return getAiDialogueIllustrationStyleKey(mode, file).replace(/\.([a-z]+)$/, '.preview.$1')
+}
+
 export type AiDialogueImageStyleSnapshot = {
 	illustrationStyleId: string
 	stylePrompt: string

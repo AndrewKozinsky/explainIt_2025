@@ -28,7 +28,12 @@ async function main() {
 			{ provide: MainConfigService, useValue: { get: () => ({ mode: 'localdev' }) } },
 			{
 				provide: CloudflareS3Service,
-				useValue: { getFileUrl: async (key: string) => `https://signed.example/${key}` },
+				useValue: {
+					getCacheableFileUrl: async (key: string) => ({
+						url: `https://signed.example/${key}`,
+						expiresAt: new Date(Date.now() + 6 * 60 * 60 * 1000),
+					}),
+				},
 			},
 			{ provide: AiDialogueScenarioRepository, useValue: { getScenarioById: async () => ({ user_id: null }) } },
 			{
@@ -80,6 +85,7 @@ async function main() {
 			['realism', 'drawing', 'watercolor'],
 		)
 		assert.ok(catalog.styles.every((style) => style.previewUrl.includes('/styles/localdev/')))
+		assert.ok(catalog.styles.every((style) => style.previewUrl.endsWith(`/${style.id}.preview.webp`)))
 		assert.ok(catalog.styles.every((style) => style.titleKey === `aiDialogue.illustrationStyles.${style.id}`))
 
 		async function create(extra: Record<string, unknown>, authenticated = true) {
@@ -125,9 +131,11 @@ async function main() {
 			'previewUrl',
 			'titleKey',
 		])
+
 		if (process.env.AI_DIALOGUE_OPENAPI_OUTPUT) {
 			await writeFile(process.env.AI_DIALOGUE_OPENAPI_OUTPUT, JSON.stringify(document))
 		}
+
 		console.log(
 			'Illustration styles: public HTTP, CQRS, creation, default, validation, immutable selection and OpenAPI passed',
 		)

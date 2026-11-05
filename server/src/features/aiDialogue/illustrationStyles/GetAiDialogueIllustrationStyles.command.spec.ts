@@ -3,10 +3,20 @@ jest.mock('infrastructure/cloudflareS3/cloudflareS3.service', () => ({ Cloudflar
 jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
 
 import { aiDialogueIllustrationStyleCatalog } from './catalog'
-import { GetAiDialogueIllustrationStylesHandler } from './GetAiDialogueIllustrationStyles.command'
+import {
+	GetAiDialogueIllustrationStylesHandler,
+	illustrationStylePreviewUrlWindowSeconds,
+} from './GetAiDialogueIllustrationStyles.command'
+
+const previewUrlsExpireAt = new Date('2026-11-05T18:00:00.000Z')
 
 function harness(mode = 'localdev') {
-	const storage = { getFileUrl: jest.fn(async (key: string) => `https://signed.example/${key}`) }
+	const storage = {
+		getCacheableFileUrl: jest.fn(async (key: string) => ({
+			url: `https://signed.example/${key}`,
+			expiresAt: previewUrlsExpireAt,
+		})),
+	}
 	const handler = new GetAiDialogueIllustrationStylesHandler(storage as never, { get: () => ({ mode }) } as never)
 
 	return { storage, handler }
@@ -14,10 +24,9 @@ function harness(mode = 'localdev') {
 
 describe('Get AI dialogue illustration styles', () => {
 	it.each(['localdev', 'servermaster'])(
-		'returns ordered public previews and client translation keys for %s without internal fields',
+		'returns ordered light previews and client translation keys for %s without internal fields',
 		async (mode) => {
 			const { handler, storage } = harness(mode)
-			const before = Date.now()
 			const result = await handler.execute()
 
 			expect(result.defaultStyleId).toBe(aiDialogueIllustrationStyleCatalog.defaultStyleId)
@@ -31,20 +40,20 @@ describe('Get AI dialogue illustration styles', () => {
 				expect(style.previewUrl).toContain(`/styles/${mode}/`)
 			}
 
-			expect(storage.getFileUrl.mock.calls).toEqual(
+			expect(storage.getCacheableFileUrl.mock.calls).toEqual(
 				aiDialogueIllustrationStyleCatalog.styles.map((style) => [
-					`ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+					`ai-dialogue-images/shared/styles/${mode}/${style.file.replace(/\.webp$/, '.preview.webp')}`,
+					illustrationStylePreviewUrlWindowSeconds,
 				]),
 			)
 
-			expect(Date.parse(result.urlsExpireAt)).toBeGreaterThanOrEqual(before + 5 * 60 * 60 * 1000)
-			expect(Date.parse(result.urlsExpireAt)).toBeLessThanOrEqual(Date.now() + 5 * 60 * 60 * 1000)
+			expect(result.urlsExpireAt).toBe('2026-11-05T17:00:00.000Z')
 		},
 	)
 
 	it('propagates signing failure instead of returning a partial catalog', async () => {
 		const { handler, storage } = harness()
-		storage.getFileUrl.mockRejectedValue(new Error('storage unavailable'))
+		storage.getCacheableFileUrl.mockRejectedValue(new Error('storage unavailable'))
 
 		await expect(handler.execute()).rejects.toThrow('storage unavailable')
 	})
@@ -53,6 +62,6 @@ describe('Get AI dialogue illustration styles', () => {
 		const { handler, storage } = harness('unknown')
 
 		await expect(handler.execute()).rejects.toMatchObject({ statusCode: 500 })
-		expect(storage.getFileUrl).not.toHaveBeenCalled()
+		expect(storage.getCacheableFileUrl).not.toHaveBeenCalled()
 	})
 })

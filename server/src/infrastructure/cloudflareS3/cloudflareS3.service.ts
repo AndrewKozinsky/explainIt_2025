@@ -57,6 +57,33 @@ export class CloudflareS3Service {
 		)
 	}
 
+	/**
+	 * Подписывает GET-ссылку, одинаковую для всех запросов внутри окна windowSeconds, чтобы браузер
+	 * мог переиспользовать скачанный файл. Время подписи округляется вниз до начала окна, ссылка живёт
+	 * два окна (не меньше одного окна от любого момента), а ответ R2 получает Cache-Control на тот же срок.
+	 * Замена файла становится видна не позже, чем начнётся следующее окно.
+	 * @param key Ключ объекта в R2.
+	 * @param windowSeconds Длина окна, в течение которого ссылка не меняется.
+	 * @returns Подписанная ссылка и момент окончания её действия.
+	 */
+	async getCacheableFileUrl(key: string, windowSeconds: number): Promise<{ url: string; expiresAt: Date }> {
+		const windowMs = windowSeconds * 1000
+		const signingDate = new Date(Math.floor(Date.now() / windowMs) * windowMs)
+		const expiresInSeconds = windowSeconds * 2
+
+		const url = await getSignedUrl(
+			this.s3,
+			new GetObjectCommand({
+				Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
+				Key: key,
+				ResponseCacheControl: `private, max-age=${expiresInSeconds}`,
+			}),
+			{ signingDate, expiresIn: expiresInSeconds },
+		)
+
+		return { url, expiresAt: new Date(signingDate.getTime() + expiresInSeconds * 1000) }
+	}
+
 	async uploadFile(fileKey: string, body: Buffer, contentType: string, timeoutMs?: number): Promise<void> {
 		const command = new PutObjectCommand({
 			Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,

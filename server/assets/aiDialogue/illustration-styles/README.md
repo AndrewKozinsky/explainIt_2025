@@ -25,8 +25,13 @@ ai-dialogue-images/shared/styles/<mode>/
 | Рисунок | drawing.webp | ai-dialogue-images/shared/styles/localdev/drawing.webp |
 | Акварель | watercolor.webp | ai-dialogue-images/shared/styles/localdev/watercolor.webp |
 
+Рядом с каждым эталоном лежит лёгкое превью для переключателя «Стиль иллюстраций» —
+то же имя с постфиксом .preview перед расширением: realism.preview.webp, drawing.preview.webp,
+watercolor.preview.webp. Превью готовится вручную; генератор его не читает. Рекомендуемая ширина —
+480 px (слот переключателя около 240 CSS px, ×2 для плотных экранов), WebP с качеством 75–80.
+
 Content-Type каждого файла: image/webp.
-Загрузить только три WebP из этой папки. originals/, README.md
+Загрузить только WebP эталонов и превью. originals/, README.md
 и generation-prompts.md загружать не нужно.
 
 MODE берётся из MainConfigService, а не из названия окружения, введённого вручную.
@@ -41,7 +46,7 @@ MODE берётся из MainConfigService, а не из названия окр
 
 Для рабочего сервера полный ключ реализма:
 ai-dialogue-images/shared/styles/servermaster/realism.webp.
-Один набор из трёх WebP можно загрузить в несколько папок MODE с теми же именами.
+Один набор WebP (эталоны и превью) можно загрузить в несколько папок MODE с теми же именами.
 Версионирования изображений и региональной папки нет: ru и intl могут использовать
 одни эталоны своего MODE. Префикс находится вне generated/ и не относится
 к изображениям конкретного диалога.

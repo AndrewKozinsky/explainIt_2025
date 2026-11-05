@@ -33,6 +33,31 @@ export async function inspectDialogueImage(bytes: Buffer, declaredMime?: string 
 }
 
 /**
+ * Проверяет лёгкое превью стиля для переключателя: формат, один кадр и полное декодирование.
+ * В отличие от эталонов не требует минимальных габаритов — превью не уходит в генератор.
+ * @param bytes Исходный файл превью.
+ * @returns Фактические размеры и MIME.
+ * @throws При неподдерживаемом формате, анимации или ошибке декодирования.
+ */
+export async function inspectDialoguePreviewImage(bytes: Buffer) {
+	if (!bytes.length || bytes.length > MAX_IMAGE_BYTES) throw new Error('Invalid dialogue preview file size')
+	const image = sharp(bytes, { limitInputPixels: MAX_IMAGE_PIXELS, failOn: 'warning' })
+
+	const metadata = await image.metadata()
+	if (!metadata.format || !(metadata.format in formats)) throw new Error('Unsupported dialogue preview format')
+	if (!metadata.width || !metadata.height || (metadata.pages ?? 1) !== 1)
+		throw new Error('Invalid dialogue preview image')
+
+	await image.raw().toBuffer()
+
+	return {
+		width: metadata.width,
+		height: metadata.height,
+		mime: formats[metadata.format as keyof typeof formats].mime,
+	}
+}
+
+/**
  * Проверяет соотношение сторон с относительным допуском 3% на округление сетки генератора.
  * @param width Ширина проверенного изображения в пикселях.
  * @param height Высота проверенного изображения в пикселях.

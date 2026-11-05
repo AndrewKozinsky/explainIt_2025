@@ -10,7 +10,7 @@ export type AiDialogueIllustrationStyleCatalog = {
 	styles: AiDialogueIllustrationStyle[]
 }
 
-/** Добавление стиля требует только записи здесь и файла в R2 для нужного MODE. */
+/** Добавление стиля требует только записи здесь, эталона и его превью (<имя>.preview.<расширение>) в R2 для нужного MODE. */
 export const aiDialogueIllustrationStyleCatalog: AiDialogueIllustrationStyleCatalog = {
 	defaultStyleId: 'realism',
 	styles: [

@@ -4,8 +4,13 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueIllustrationStylesOutModel } from 'models/aiDialogue/aiDialogueIllustrationStyles.out.model'
 import {
 	getAiDialogueIllustrationStyleCatalog,
-	getAiDialogueIllustrationStyleKey,
+	getAiDialogueIllustrationStylePreviewKey,
 } from './aiDialogueIllustrationStyles'
+
+/** Внутри окна ссылки на превью не меняются, и браузер берёт картинки из кэша. */
+export const illustrationStylePreviewUrlWindowSeconds = 6 * 60 * 60
+/** Клиенту рекомендуется перечитать каталог за час до окончания действия ссылок. */
+const urlsRefreshMarginMs = 60 * 60 * 1000
 
 export class GetAiDialogueIllustrationStylesCommand implements ICommand {}
 
@@ -19,15 +24,24 @@ export class GetAiDialogueIllustrationStylesHandler implements ICommandHandler<G
 	async execute(): Promise<AiDialogueIllustrationStylesOutModel> {
 		const catalog = getAiDialogueIllustrationStyleCatalog()
 		const mode = this.config.get().mode
-		const urlsExpireAt = new Date(Date.now() + 5 * 60 * 60 * 1000).toISOString()
-		const styles = await Promise.all(
-			catalog.styles.map(async (style) => ({
-				id: style.id,
-				titleKey: style.titleKey,
-				previewUrl: await this.storage.getFileUrl(getAiDialogueIllustrationStyleKey(mode, style.file)),
-			})),
+
+		const signedStyles = await Promise.all(
+			catalog.styles.map(async (style) => {
+				const preview = await this.storage.getCacheableFileUrl(
+					getAiDialogueIllustrationStylePreviewKey(mode, style.file),
+					illustrationStylePreviewUrlWindowSeconds,
+				)
+
+				return { style: { id: style.id, titleKey: style.titleKey, previewUrl: preview.url }, preview }
+			}),
 		)
 
-		return { defaultStyleId: catalog.defaultStyleId, styles, urlsExpireAt }
+		const earliestExpiresAtMs = Math.min(...signedStyles.map(({ preview }) => preview.expiresAt.getTime()))
+
+		return {
+			defaultStyleId: catalog.defaultStyleId,
+			styles: signedStyles.map(({ style }) => style),
+			urlsExpireAt: new Date(earliestExpiresAtMs - urlsRefreshMarginMs).toISOString(),
+		}
 	}
 }

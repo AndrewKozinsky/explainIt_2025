@@ -1,6 +1,7 @@
 import {
 	getAiDialogueIllustrationStyleCatalog,
 	getAiDialogueIllustrationStyleKey,
+	getAiDialogueIllustrationStylePreviewKey,
 	getNewAiDialogueIllustrationStyle,
 	getAiDialogueImageStyleSnapshot,
 } from './aiDialogueIllustrationStyles'
@@ -55,6 +56,19 @@ describe('AI dialogue illustration style catalog', () => {
 			)
 		},
 	)
+
+	it.each([
+		{ file: 'realism.webp', previewKey: 'ai-dialogue-images/shared/styles/localdev/realism.preview.webp' },
+		{ file: 'new-style.png', previewKey: 'ai-dialogue-images/shared/styles/localdev/new-style.preview.png' },
+	])('places the light preview of $file next to the reference with the .preview postfix', ({ file, previewKey }) => {
+		expect(getAiDialogueIllustrationStylePreviewKey('localdev', file)).toBe(previewKey)
+	})
+
+	it('validates MODE and file name for the preview key like for the reference', () => {
+		expect(() => getAiDialogueIllustrationStylePreviewKey('localdev', '../realism.webp')).toThrow(
+			expect.objectContaining({ statusCode: 500 }),
+		)
+	})
 
 	it.each([
 		{ mode: undefined, file: 'realism.webp' },

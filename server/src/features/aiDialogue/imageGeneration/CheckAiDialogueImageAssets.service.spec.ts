@@ -97,11 +97,52 @@ describe('read-only dialogue image assets check', () => {
 		const report = await check.checkSharedImageAssets(keys)
 		expect(report.assets.every((asset) => asset.status === 'invalid')).toBe(true)
 	})
+
 	it('skips empty keys without an R2 request', async () => {
 		const { storage, check } = harness()
 		const report = await check.checkSharedImageAssets({ avatarStyle: null, sceneStyle: ' ' })
 		expect(report.ready).toBe(false)
 		expect(storage.readFile).not.toHaveBeenCalled()
 		expect(report.assets.every((asset) => asset.status === 'unconfigured')).toBe(true)
+	})
+
+	it('accepts small light previews that would be too small as references', async () => {
+		const { storage, check } = harness()
+
+		const previewImage = await sharp({ create: { width: 480, height: 240, channels: 3, background: 'blue' } })
+			.webp()
+			.toBuffer()
+		storage.readFile.mockImplementation(async (key: string) => (key.includes('.preview.') ? previewImage : image))
+
+		const report = await check.checkSharedImageAssets(
+			{ realism: 'realism.webp' },
+			{ 'realism.preview': 'realism.preview.webp' },
+		)
+
+		expect(report.ready).toBe(true)
+		expect(report.assets[1]).toEqual({
+			asset: 'realism.preview',
+			key: 'realism.preview.webp',
+			status: 'ready',
+			width: 480,
+			height: 240,
+			mime: 'image/webp',
+		})
+	})
+
+	it('reports a missing preview without failing the reference checks', async () => {
+		const { storage, check } = harness()
+		storage.readFile.mockImplementation(async (key: string) => {
+			if (key.includes('.preview.')) throw new Error('NoSuchKey')
+			return image
+		})
+
+		const report = await check.checkSharedImageAssets(
+			{ realism: 'realism.webp' },
+			{ 'realism.preview': 'realism.preview.webp' },
+		)
+
+		expect(report.ready).toBe(false)
+		expect(report.assets.map((asset) => asset.status)).toEqual(['ready', 'unavailable'])
 	})
 })

@@ -8,6 +8,7 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
 	getAiDialogueIllustrationStyleCatalog,
 	getAiDialogueIllustrationStyleKey,
+	getAiDialogueIllustrationStylePreviewKey,
 } from '../illustrationStyles/aiDialogueIllustrationStyles'
 import { CheckAiDialogueImageAssets } from './CheckAiDialogueImageAssets.service'
 
@@ -37,9 +38,16 @@ export async function checkDialogueImageAssets(): Promise<void> {
 			]),
 		)
 
+		const illustrationStylePreviewKeys = Object.fromEntries(
+			getAiDialogueIllustrationStyleCatalog().styles.map((style) => [
+				`${style.id}.preview`,
+				getAiDialogueIllustrationStylePreviewKey(mode, style.file),
+			]),
+		)
+
 		const imageAssetsCheckResult = await app
 			.get(CheckAiDialogueImageAssets)
-			.checkSharedImageAssets(illustrationStyleReferenceKeys)
+			.checkSharedImageAssets(illustrationStyleReferenceKeys, illustrationStylePreviewKeys)
 
 		console.log(JSON.stringify(imageAssetsCheckResult, null, 2))
 		process.exitCode = imageAssetsCheckResult.ready ? 0 : 1
