@@ -5,7 +5,7 @@ export type PublicAiDialogueScenarioModel = AiDialogueScenarioModel & {
 	slug: string
 	/** Пример пожеланий к сцене для плейсхолдера окна запуска; null, если у сценария его нет. */
 	userScenarioAmendmentHint: string | null
-	/** «Куда может повернуть»: 2–4 идеи, как пользователь может повести разговор. */
+	/** «Идеи для диалога»: 2–4 идеи, как пользователь может повести разговор. */
 	conversationIdeas: string[]
 	/** «Что тренирует»: одна строка о том, чему научится пользователь. */
 	trainedSkills: string

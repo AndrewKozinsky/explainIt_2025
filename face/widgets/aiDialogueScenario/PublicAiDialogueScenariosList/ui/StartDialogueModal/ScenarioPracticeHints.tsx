@@ -4,7 +4,7 @@ type Props = {
 	scenario: ScenarioCardConfig
 }
 
-/** Блоки «Что тренирует» и «Куда может повернуть»; пустой блок не выводится. */
+/** Блоки «Идеи для диалога» и «Что тренирует»; пустой блок не выводится. */
 export default function ScenarioPracticeHints({ scenario }: Props) {
 	const hasTrainedSkills = scenario.trainedSkills.trim() !== ''
 	const hasConversationIdeas = scenario.conversationIdeas.length > 0
@@ -15,7 +15,7 @@ export default function ScenarioPracticeHints({ scenario }: Props) {
 		<div className='start-dialogue-modal__hints'>
 			{hasConversationIdeas && (
 				<section className='start-dialogue-modal__hint'>
-					<h3 className='start-dialogue-modal__hint-title'>Куда может повернуть</h3>
+					<h3 className='start-dialogue-modal__hint-title'>Идеи для диалога</h3>
 					<ul className='start-dialogue-modal__ideas'>
 						{scenario.conversationIdeas.map((idea) => (
 							<li key={idea} className='start-dialogue-modal__idea'>
