@@ -281,7 +281,7 @@ async function checkHttp(prisma: PrismaClient, expected: unknown) {
 		const russianGroups = (await russian.json()) as { slug: string; title: string; description: string }[]
 		const travel = russianGroups.find((group) => group.slug === 'travel-abroad')
 		assert.equal(travel?.title, 'Поездка за границу')
-		assert.ok(travel?.description.startsWith('Пригодится перед поездкой'))
+		assert.ok(travel?.description.startsWith('Пригодится в поездке'))
 		assert.equal((await fetch(`${url}/api/ai-dialogue-scenario`)).status, 404)
 		const document = SwaggerModule.createDocument(app, new DocumentBuilder().build())
 		assert.deepEqual(Object.keys(document.paths), ['/api/ai-dialogue-scenario-group'])

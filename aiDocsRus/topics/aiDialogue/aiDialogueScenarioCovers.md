@@ -123,6 +123,32 @@ ai-dialogue-public-scenarios/covers/<mode>/
 | Подарок племяннику | `gift-for-nephew.webp` |
 | Семейный ужин | `family-dinner.webp` |
 | Потерявшийся ребёнок | `lost-child-mall.webp` |
+| Ремонт телефона | `phone-repair.webp` |
+| Мятая посылка | `damaged-delivery.webp` |
+| Курьер не может найти дом | `courier-lost.webp` |
+| В парикмахерской | `at-the-hairdresser.webp` |
+| Сапожник | `shoe-repair.webp` |
+| Химчистка | `dry-cleaning.webp` |
+| Автомойка | `car-wash.webp` |
+| Фото на документы | `id-photo.webp` |
+| Первый визит в спортзал | `gym-trainer.webp` |
+| Травма на тренировке | `sports-injury.webp` |
+| Два билета на сегодня | `theater-tickets.webp` |
+| Таксист-болтун | `chatty-taxi-driver.webp` |
+| Перебронированный рейс | `overbooked-flight.webp` |
+| Заблудились в городе | `lost-with-map.webp` |
+| Встреча с хозяином жилья | `airbnb-host.webp` |
+| В турагентстве | `travel-agency.webp` |
+| Автобусная экскурсия | `bus-tour.webp` |
+| На почте | `post-office.webp` |
+| Хозяйка пришла чинить | `landlord-repair.webp` |
+| Выезд и залог | `move-out-inspection.webp` |
+| Ищем соседа | `roommate-candidate.webp` |
+| Сосед по общежитию | `dorm-roommate-rules.webp` |
+| Блошиный рынок | `flea-market.webp` |
+| В ресторане | `at-the-restaurant.webp` |
+| В музыкальном магазине | `music-store.webp` |
+| Винный магазин | `wine-shop.webp` |
 
 ## Подключение
 

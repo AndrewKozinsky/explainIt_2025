@@ -1,21 +1,34 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
-// ЧЕРНОВИК на проверку: тексты пока только на en и ru, в getScenariosData() не подключён.
-
 export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 	{
 		slug: 'phone-repair',
 		groupSlug: 'tech-services',
 		title: localized({
 			en: 'Phone Repair',
+			es: 'Reparar el móvil',
+			fr: 'Réparation de téléphone',
+			de: 'Handyreparatur',
+			it: 'Riparazione del telefono',
+			tr: 'Telefon tamiri',
 			ru: 'Ремонт телефона',
 		}),
 		description: localized({
 			en: 'You took your phone in for repair. The technician holds it in pieces: not only the screen but the board needs replacing, and it will cost three times as much.',
+			es: 'Has dejado el móvil para reparar. El técnico lo tiene desmontado: no solo hay que cambiar la pantalla, también la placa, y costará el triple.',
+			fr: 'Vous avez donné votre téléphone à réparer. Le réparateur le tient démonté : il faut changer non seulement l’écran mais aussi la carte mère, et ça coûtera trois fois plus cher.',
+			de: 'Sie haben Ihr Handy zur Reparatur gebracht. Der Techniker hält es zerlegt in der Hand: Nicht nur das Display, auch die Platine muss ersetzt werden, und es kostet dreimal so viel.',
+			it: 'Hai portato il telefono a riparare. Il tecnico lo tiene smontato: non bisogna cambiare solo lo schermo, ma anche la scheda, e costerà il triplo.',
+			tr: 'Telefonunuzu tamire verdiniz. Usta onu sökülmüş hâlde tutuyor: sadece ekran değil, anakart da değişmeli ve üç katı tutacak.',
 			ru: 'Вы отдали телефон в ремонт. Мастер держит его разобранным: менять нужно не только экран, но и плату, и выйдет в три раза дороже.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: the phone fell into water, and the technician is suspiciously pushing for a quick decision',
+			es: 'Por ejemplo: el móvil se cayó al agua y el técnico me mete prisa de forma sospechosa',
+			fr: 'Par exemple : le téléphone est tombé dans l’eau, et le réparateur me presse bizarrement de décider',
+			de: 'Zum Beispiel: Das Handy ist ins Wasser gefallen, und der Techniker drängt verdächtig auf eine schnelle Entscheidung',
+			it: 'Per esempio: il telefono è caduto in acqua e il tecnico mi mette fretta in modo sospetto',
+			tr: 'Örneğin: telefon suya düştü ve usta şüpheli bir şekilde acele karar vermemi istiyor',
 			ru: 'Например: телефон упал в воду, а мастер подозрительно торопит с решением',
 		}),
 		conversationIdeas: localizedList({
@@ -23,6 +36,31 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 				'Agree to the repair',
 				'Haggle and ask about the warranty',
 				'Take the phone back if you suspect a scam',
+			],
+			es: [
+				'Aceptar la reparación',
+				'Regatear y preguntar por la garantía',
+				'Llevarte el móvil si sospechas un engaño',
+			],
+			fr: [
+				'Accepter la réparation',
+				'Négocier et se renseigner sur la garantie',
+				'Reprendre le téléphone si vous soupçonnez une arnaque',
+			],
+			de: [
+				'Der Reparatur zustimmen',
+				'Handeln und nach der Garantie fragen',
+				'Das Handy wieder mitnehmen, wenn Sie Betrug vermuten',
+			],
+			it: [
+				'Accettare la riparazione',
+				'Trattare e chiedere della garanzia',
+				'Riprenderti il telefono se sospetti un imbroglio',
+			],
+			tr: [
+				'Tamiri kabul etmek',
+				'Pazarlık yapıp garantiyi sormak',
+				'Dolandırıcılıktan şüphelenirseniz telefonu geri almak',
 			],
 			ru: [
 				'Согласиться на ремонт',
@@ -32,6 +70,11 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Describe a fault, ask about the price and warranty and avoid being cheated',
+			es: 'Describir una avería, preguntar por el precio y la garantía y evitar que te engañen',
+			fr: 'Décrire une panne, vous renseigner sur le prix et la garantie et éviter de vous faire avoir',
+			de: 'Einen Defekt beschreiben, nach Preis und Garantie fragen und sich nicht übers Ohr hauen lassen',
+			it: 'Descrivere un guasto, chiedere del prezzo e della garanzia ed evitare di farti imbrogliare',
+			tr: 'Arızayı anlatmak, fiyatı ve garantiyi sormak ve kandırılmamak',
 			ru: 'Описывать поломку, спрашивать о цене и гарантии и не давать себя обмануть',
 		}),
 		systemPrompt:
@@ -42,14 +85,29 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'tech-services',
 		title: localized({
 			en: 'A Damaged Parcel',
+			es: 'Un paquete dañado',
+			fr: 'Un colis abîmé',
+			de: 'Ein beschädigtes Paket',
+			it: 'Un pacco danneggiato',
+			tr: 'Hasarlı paket',
 			ru: 'Мятая посылка',
 		}),
 		description: localized({
 			en: 'A courier is at your door with a dented box and asks whether you’ll accept the parcel as it is or refuse it.',
+			es: 'Un repartidor está en tu puerta con una caja abollada y te pregunta si aceptas el paquete tal como está o lo rechazas.',
+			fr: 'Un livreur est à votre porte avec un carton cabossé et vous demande si vous acceptez le colis en l’état ou si vous le refusez.',
+			de: 'Ein Kurier steht mit einem eingedellten Karton vor Ihrer Tür und fragt, ob Sie das Paket so annehmen oder ablehnen.',
+			it: 'Un corriere è alla tua porta con una scatola ammaccata e ti chiede se accetti il pacco così com’è o lo rifiuti.',
+			tr: 'Kapınızda ezik bir kutuyla bir kurye var ve paketi olduğu gibi mi alacağınızı yoksa reddedecek misiniz diye soruyor.',
 			ru: 'Курьер стоит у двери с помятой коробкой и спрашивает, примете ли вы посылку как есть или откажетесь.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: the parcel contains a fragile vase I ordered as a present',
+			es: 'Por ejemplo: dentro hay un jarrón frágil encargado como regalo',
+			fr: 'Par exemple : le colis contient un vase fragile commandé pour un cadeau',
+			de: 'Zum Beispiel: Im Paket ist eine zerbrechliche Vase, die als Geschenk bestellt wurde',
+			it: 'Per esempio: nel pacco c’è un vaso fragile ordinato come regalo',
+			tr: 'Örneğin: pakette hediye olarak sipariş edilmiş kırılgan bir vazo var',
 			ru: 'Например: в посылке хрупкая ваза, заказанная в подарок',
 		}),
 		conversationIdeas: localizedList({
@@ -57,6 +115,31 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 				'Accept it and photograph the damage',
 				'Refuse the parcel',
 				'Ask the courier to write up a damage report',
+			],
+			es: [
+				'Aceptarlo y fotografiar los daños',
+				'Rechazar el paquete',
+				'Pedir al repartidor que deje constancia de los daños',
+			],
+			fr: [
+				'Accepter et photographier les dégâts',
+				'Refuser le colis',
+				'Demander au livreur de noter les dégâts par écrit',
+			],
+			de: [
+				'Annehmen und die Schäden fotografieren',
+				'Das Paket ablehnen',
+				'Den Kurier bitten, den Schaden zu protokollieren',
+			],
+			it: [
+				'Accettarlo e fotografare i danni',
+				'Rifiutare il pacco',
+				'Chiedere al corriere di mettere per iscritto i danni',
+			],
+			tr: [
+				'Kabul edip hasarın fotoğrafını çekmek',
+				'Paketi reddetmek',
+				'Kuryeden hasar tutanağı tutmasını istemek',
 			],
 			ru: [
 				'Принять и сфотографировать повреждения',
@@ -66,6 +149,11 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		trainedSkills: localized({
 			en: 'Describe damage and stand up for your rights as a customer',
+			es: 'Describir daños y defender tus derechos como cliente',
+			fr: 'Décrire des dégâts et défendre vos droits de client',
+			de: 'Schäden beschreiben und Ihre Rechte als Kunde vertreten',
+			it: 'Descrivere i danni e difendere i tuoi diritti di cliente',
+			tr: 'Hasarları anlatmak ve müşteri haklarınızı savunmak',
 			ru: 'Описывать повреждения и отстаивать свои права покупателя',
 		}),
 		systemPrompt:
@@ -76,22 +164,67 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		groupSlug: 'tech-services',
 		title: localized({
 			en: 'A Lost Courier',
+			es: 'Un repartidor perdido',
+			fr: 'Un livreur perdu',
+			de: 'Ein Kurier findet die Adresse nicht',
+			it: 'Un corriere che si è perso',
+			tr: 'Kaybolan kurye',
 			ru: 'Курьер не может найти дом',
 		}),
 		description: localized({
 			en: 'You step out into the courtyard and see a confused courier with a parcel: he is looking for building 12 and can’t find entrance three.',
+			es: 'Sales al patio y ves a un repartidor desorientado con un paquete: busca el edificio 12 y no encuentra el portal tres.',
+			fr: 'Vous sortez dans la cour et voyez un livreur désorienté avec un colis : il cherche le bâtiment 12 et ne trouve pas l’entrée trois.',
+			de: 'Sie gehen in den Hof und sehen einen ratlosen Kurier mit einem Paket: Er sucht Haus 12 und findet den Eingang drei nicht.',
+			it: 'Esci in cortile e vedi un corriere disorientato con un pacco: cerca il palazzo 12 e non trova la scala tre.',
+			tr: 'Avluya çıkıyorsunuz ve elinde paketle şaşkın bir kurye görüyorsunuz: 12 numaralı binayı arıyor ve üçüncü girişi bulamıyor.',
 			ru: 'Вы выходите во двор и видите растерянного курьера с посылкой: он ищет дом 12 и никак не найдёт третий подъезд.',
 		}),
 		userScenarioAmendmentHint: localized({
 			en: 'For example: the parcel turns out to be mine, but the address on it is wrong',
+			es: 'Por ejemplo: el paquete resulta ser mío, pero tiene una dirección equivocada',
+			fr: 'Par exemple : le colis est pour moi, mais l’adresse est fausse',
+			de: 'Zum Beispiel: Das Paket ist für mich, aber die Adresse ist falsch',
+			it: 'Per esempio: il pacco è per me, ma l’indirizzo è sbagliato',
+			tr: 'Örneğin: paket benim çıkıyor ama üzerindeki adres yanlış',
 			ru: 'Например: посылка оказывается моей, но на ней неверный адрес',
 		}),
 		conversationIdeas: localizedList({
 			en: ['Give directions using landmarks', 'Walk him to the entrance', 'Help sort out a wrong address'],
+			es: [
+				'Indicar el camino con puntos de referencia',
+				'Acompañarle hasta el portal',
+				'Ayudar a aclarar una dirección equivocada',
+			],
+			fr: [
+				'Indiquer le chemin avec des repères',
+				'L’accompagner jusqu’à l’entrée',
+				'Aider à régler une erreur d’adresse',
+			],
+			de: [
+				'Den Weg anhand von Orientierungspunkten erklären',
+				'Ihn zum Eingang begleiten',
+				'Bei einer falschen Adresse helfen',
+			],
+			it: [
+				'Indicare la strada con punti di riferimento',
+				'Accompagnarlo fino all’ingresso',
+				'Aiutare a risolvere un indirizzo sbagliato',
+			],
+			tr: [
+				'Yer işaretleriyle yol tarif etmek',
+				'Onu girişe kadar götürmek',
+				'Yanlış adres sorununu çözmeye yardım etmek',
+			],
 			ru: ['Объяснить дорогу по ориентирам', 'Проводить до подъезда', 'Помочь разобраться с неверным адресом'],
 		}),
 		trainedSkills: localized({
 			en: 'Give directions and describe the surroundings',
+			es: 'Indicar el camino y describir el entorno',
+			fr: 'Indiquer le chemin et décrire les lieux',
+			de: 'Den Weg erklären und die Umgebung beschreiben',
+			it: 'Indicare la strada e descrivere i dintorni',
+			tr: 'Yol tarif etmek ve çevreyi anlatmak',
 			ru: 'Объяснять дорогу и описывать местность',
 		}),
 		systemPrompt:

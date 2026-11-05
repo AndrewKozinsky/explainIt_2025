@@ -25,6 +25,6 @@ export interface AiDialogueScenarioGroupOutModel {
      * @maxLength 2000
      */
   description: string;
-  /** All public scenarios in this group, newest first */
+  /** All public scenarios in this group, in the seed order */
   scenarios: PublicAiDialogueScenarioOutModel[];
 }

@@ -143,4 +143,83 @@ export const cityAndServicesScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt:
 			"The participant arrives at a swimming pool and meets a receptionist at the front desk. Greet them without assuming why they have come. Give the receptionist a consistent personality and let their responses reflect their own impressions, interests, and boundaries. Respond to what the participant is doing socially as well as what they are asking: a compliment, a joke, or an attempt to get acquainted deserves a personal reaction appropriate to this character. Let the conversation develop from both people's contributions. The receptionist can chat when circumstances allow. Discuss memberships, prices, schedules, or rules when relevant, without repeatedly steering the conversation toward a purchase. Answer everyday questions conversationally, with only as much detail as the moment calls for. Stay in character.",
 	},
+	{
+		slug: 'post-office',
+		groupSlug: 'city-and-services',
+		title: localized({
+			en: 'At the Post Office',
+			es: 'En correos',
+			fr: 'À la poste',
+			de: 'Auf der Post',
+			it: 'All’ufficio postale',
+			tr: 'Postanede',
+			ru: 'На почте',
+		}),
+		description: localized({
+			en: 'You are sending a parcel abroad. The post office clerk fills in the customs form and asks what’s inside and what it’s worth.',
+			es: 'Vas a enviar un paquete al extranjero. El empleado de correos rellena la declaración de aduana y te pregunta qué hay dentro y cuánto vale.',
+			fr: 'Vous envoyez un colis à l’étranger. L’employé de la poste remplit la déclaration de douane et demande ce qu’il contient et quelle est sa valeur.',
+			de: 'Sie schicken ein Paket ins Ausland. Der Postmitarbeiter füllt die Zollerklärung aus und fragt, was darin ist und wie viel es wert ist.',
+			it: 'Spedisci un pacco all’estero. L’impiegato delle poste compila la dichiarazione doganale e ti chiede cosa contiene e quanto vale.',
+			tr: 'Yurt dışına paket gönderiyorsunuz. Postane görevlisi gümrük beyannamesini dolduruyor ve içinde ne olduğunu ve değerini soruyor.',
+			ru: 'Вы отправляете посылку за границу. Сотрудник почты заполняет декларацию и спрашивает, что внутри и какая ценность.',
+		}),
+		userScenarioAmendmentHint: localized({
+			en: 'For example: the parcel contains presents for relatives and a jar of homemade jam',
+			es: 'Por ejemplo: en el paquete hay regalos para mi familia y un tarro de mermelada casera',
+			fr: 'Par exemple : le colis contient des cadeaux pour ma famille et un pot de confiture maison',
+			de: 'Zum Beispiel: Im Paket sind Geschenke für Verwandte und ein Glas selbst gemachte Marmelade',
+			it: 'Per esempio: nel pacco ci sono regali per i parenti e un barattolo di marmellata fatta in casa',
+			tr: 'Örneğin: pakette akrabalara hediyeler ve bir kavanoz ev yapımı reçel var',
+			ru: 'Например: в посылке подарки для родственников и банка домашнего варенья',
+		}),
+		conversationIdeas: localizedList({
+			en: [
+				'Describe the contents and their value',
+				'Ask what can’t be sent',
+				'Choose the shipping method and delivery time',
+			],
+			es: [
+				'Describir el contenido y su valor',
+				'Preguntar qué no se puede enviar',
+				'Elegir el tipo de envío y el plazo',
+			],
+			fr: [
+				'Décrire le contenu et sa valeur',
+				'Demander ce qu’on ne peut pas envoyer',
+				'Choisir le mode d’envoi et le délai',
+			],
+			de: [
+				'Inhalt und Wert beschreiben',
+				'Fragen, was man nicht verschicken darf',
+				'Versandart und Lieferzeit wählen',
+			],
+			it: [
+				'Descrivere il contenuto e il suo valore',
+				'Chiedere cosa non si può spedire',
+				'Scegliere il tipo di spedizione e i tempi',
+			],
+			tr: [
+				'İçeriği ve değerini anlatmak',
+				'Nelerin gönderilemeyeceğini sormak',
+				'Gönderim şeklini ve süresini seçmek',
+			],
+			ru: [
+				'Описать содержимое и его ценность',
+				'Уточнить, что нельзя отправлять',
+				'Выбрать способ отправки и срок',
+			],
+		}),
+		trainedSkills: localized({
+			en: 'Describe items, answer questions for a form and compare delivery options',
+			es: 'Describir objetos, responder preguntas para un formulario y comparar opciones de envío',
+			fr: 'Décrire des objets, répondre aux questions d’un formulaire et comparer les modes d’envoi',
+			de: 'Gegenstände beschreiben, Fragen für ein Formular beantworten und Versandoptionen vergleichen',
+			it: 'Descrivere oggetti, rispondere alle domande di un modulo e confrontare le opzioni di spedizione',
+			tr: 'Eşyaları tarif etmek, form için soruları yanıtlamak ve gönderim seçeneklerini karşılaştırmak',
+			ru: 'Описывать вещи, отвечать на вопросы для бланка и сравнивать варианты доставки',
+		}),
+		systemPrompt:
+			'The participant is at a post office counter to send a parcel abroad. You play the postal clerk, with a consistent personality. Greet them and fill in the customs declaration yourself, asking what is inside, what it is worth and where it is going, one or two questions at a time. Explain what cannot be sent, shipping options, prices and delivery times when asked; keep the figures consistent and present customs rules as typical rather than exact. The participant decides what is in the parcel; do not invent it. Stay in character.',
+	},
 ]

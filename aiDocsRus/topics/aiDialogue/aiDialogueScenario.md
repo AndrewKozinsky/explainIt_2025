@@ -83,7 +83,7 @@ AiDialogueScenarioGroupOutModel:
     "id": 1,
     "slug": "travel-abroad",
     "title": "Поездка за границу",
-    "description": "Пригодится перед поездкой: пройдёте паспортный контроль, заселитесь в отель…",
+    "description": "Пригодится в поездке: пройдёте паспортный контроль, заселитесь в отель…",
     "scenarios": [
       {
         "id": 2,
@@ -136,9 +136,10 @@ StartServerTasksRunner сначала применяет миграции, за�
 
 | Группа                 | Сценарии (slug)                                                                               |
 |------------------------|-----------------------------------------------------------------------------------------------|
-| travel-abroad          | passport-control, lost-luggage, hotel-check-in, hotel-room-problem                            |
-| food-and-shopping      | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market |
-| city-and-services      | at-the-dentist, pool-membership                                                               |
+| travel-abroad          | passport-control, lost-luggage, hotel-check-in, hotel-room-problem, chatty-taxi-driver, overbooked-flight, lost-with-map, airbnb-host, travel-agency, bus-tour |
+| food-and-shopping      | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market, flea-market, at-the-restaurant, music-store, wine-shop |
+| city-and-services      | at-the-dentist, pool-membership, post-office                                                  |
+| home-and-everyday-life | landlord-repair, move-out-inspection, roommate-candidate, dorm-roommate-rules                 |
 | door-knocks            | knock-at-the-door, plumber-visit, neighbors-cat-on-balcony, leak-from-upstairs, noise-complaint, police-looking-for-witnesses |
 | immigration            | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
 | relationships          | street-acquaintance, first-date, morning-after, anniversary-dinner, forgotten-anniversary, chores-argument, jealousy, meeting-partners-parents, planning-a-vacation, moving-in-together, job-offer-abroad, partner-is-sick, partner-wants-dog, ex-in-supermarket, friend-asks-loan |
@@ -150,14 +151,15 @@ StartServerTasksRunner сначала применяет миграции, за�
 | money-banking          | wrong-transfer, loan-application, currency-exchange, missed-payment, pawn-shop, split-the-bill |
 | study                  | placement-interview, missed-class, tutor-first-lesson |
 | kids-family            | teacher-meeting, nanny-interview, babysitter-first-day, gift-for-nephew, family-dinner, lost-child-mall |
+| tech-services          | phone-repair, damaged-delivery, courier-lost |
+| local-services         | at-the-hairdresser, shoe-repair, dry-cleaning, car-wash, id-photo |
+| sports-leisure         | gym-trainer, sports-injury, theater-tickets |
 
-В `groups.ts` 18 групп. Остальные пока без сценариев и на странице не выводятся: home-and-everyday-life,
-tech-services, local-services, sports-leisure.
+В `groups.ts` 18 групп, у всех есть сценарии.
 
-Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` каждому набору
-соответствует файл своей группы: `travelScenarios.ts`, `foodAndShoppingScenarios.ts`,
-`cityAndServicesScenarios.ts`, `homeAndEverydayLifeScenarios.ts` (пока пустой), `doorKnocksScenarios.ts`,
-`immigrationScenarios.ts`. Сценарии «Иммиграции» идут в порядке переезда; их промпты дополняет общее правило
+Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` у каждой группы
+свой файл (`travelScenarios.ts`, `immigrationScenarios.ts`, `relationshipsScenarios.ts` и т. д.), а
+`getScenariosData()` собирает их в порядке вывода на странице. Сценарии «Иммиграции» идут в порядке переезда; их промпты дополняет общее правило
 `withImmigrationCountryRule`: страна — из пожеланий, иначе страна языка практики; все говорят с участником на языке
 практики; визовые требования типовые, без точных сумм и сроков. В `relationshipsScenarios.ts` романтические сценарии
 дополняет правило `withRomanticPartnerRule`: партнёр, свидание или бывший по умолчанию противоположного пола
@@ -176,7 +178,7 @@ tech-services, local-services, sports-leisure.
 сценария: репетитор в `tutor-first-lesson` говорит об учёбе, а письменную работу оценивает только в общих словах. Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
 и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
-сейчас она задана у всех двенадцати сценариев.
+сейчас она задана у всех сценариев.
 Новый сценарий добавляется с уникальным slug и groupSlug, затем создаётся и вручную загружается его обложка.
 Новая группа требует записи в groups.ts и расширения AiDialogueScenarioGroupSlug.
 
@@ -187,6 +189,26 @@ tech-services, local-services, sports-leisure.
 В «Стуке в дверь» первое описание включает открытие двери и показывает видимого посетителя снаружи,
 но дальнейшие действия выбирает участник. Посетителя выбирает ИИ; обложка не фиксирует его личность.
 После завершения встречи общий промпт диалога может вводить следующего NPC.
+
+## Как писать сценарии
+
+- Сценарий задаёт только начальную сценку и тренирует то, с чем человек сталкивается в реальной жизни.
+  Сцена уже идёт: первый NPC виден и обращается к участнику, а у участника есть выбор.
+- Разговор идёт лицом к лицу, без телефонных звонков и чатов поддержки.
+- Не берём сюжеты, где участнику нужно выдавать сведения, которых он не может знать (доклад о работе неизвестной
+  компании, экскурсия по месту, где он не был). Ограничение «NPC спрашивает только то, что участник может знать»
+  в промпт не пишем.
+- Повороты сюжета в промпт не пишем, их придумывает модель. Если поворот нужен для смысла сцены, промпт говорит,
+  что модель выбирает его сама («You decide…»), и приводит варианты только как примеры.
+- Промпт не придумывает за участника ответы, документы, симптомы, чувства и решения. Заданное начальное действие
+  участника (открыть дверь, упасть на тренировке) явно называется единственным таким действием.
+- Модель держит придуманные детали неизменными: цены, курсы, суммы, адреса, меню.
+- Реальные бренды и национальные стереотипы допустимы (McDonald’s, туристическая ловушка в Египте).
+  Откровенных сексуальных сцен нет.
+- Сценарий языконейтрален: страна и язык практики не зашиты в сюжет, кроме случаев, когда место — суть сценария.
+- Тексты карточки не выдают пол участника там, где язык это позволяет.
+- `conversationIdeas` пишутся как действия участника («Попросить скидку»), а не как события сцены.
+  `trainedSkills` — одна строка о том, чему научится участник, без пересказа сюжета.
 
 ## Обложки и R2
 

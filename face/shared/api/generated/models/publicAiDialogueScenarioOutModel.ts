@@ -33,6 +33,13 @@ export interface PublicAiDialogueScenarioOutModel {
      * @nullable
      */
   userScenarioAmendmentHint?: string | null;
+  /** Ideas of how the participant can steer the conversation, in the interface language (2–4 items, written as user actions) */
+  conversationIdeas: string[];
+  /**
+     * One line on what the scenario trains, in the interface language
+     * @maxLength 2000
+     */
+  trainedSkills: string;
   /** Temporary signed URL of the public scenario cover in R2 */
   coverUrl: string;
 }
