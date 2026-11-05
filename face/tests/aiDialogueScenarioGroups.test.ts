@@ -26,6 +26,8 @@ test('groups travel through generated API, repository, service and query without
 			title: scenarioId === 1 ? '' : `Сценарий ${scenarioId}`,
 			description: 'Описание',
 			userScenarioAmendmentHint: scenarioId === 1 ? null : 'Посольство Канады',
+			conversationIdeas: scenarioId === 1 ? ['Попросить скидку', ' '] : ['Попросить скидку', 'Отказаться и уйти'],
+			trainedSkills: 'Спрашивать цену и торговаться',
 			coverUrl: `https://example.test/${scenarioId}.webp`,
 		})),
 	}))
@@ -47,12 +49,15 @@ test('groups travel through generated API, repository, service and query without
 
 	try {
 		const data = await client.fetchQuery(options)
+
 		assert.deepEqual(data, groups)
 		assert.equal(fetch.mock.callCount(), 1)
 		assert.equal(options.refetchInterval, false)
 		assert.equal(options.refetchOnWindowFocus, false)
 		assert.equal(options.refetchOnReconnect, false)
+
 		const config = getScenarioGroupsConfig(data)
+
 		assert.deepEqual(
 			config.map((group) => [group.title, group.description]),
 			[
@@ -69,6 +74,9 @@ test('groups travel through generated API, repository, service and query without
 			config[0].scenarios[1].userScenarioAmendmentHint,
 			aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint,
 		)
+		assert.deepEqual(config[0].scenarios[0].conversationIdeas, ['Попросить скидку', 'Отказаться и уйти'])
+		assert.deepEqual(config[0].scenarios[1].conversationIdeas, ['Попросить скидку'])
+		assert.equal(config[0].scenarios[0].trainedSkills, 'Спрашивать цену и торговаться')
 	} finally {
 		fetch.mock.restore()
 		client.clear()

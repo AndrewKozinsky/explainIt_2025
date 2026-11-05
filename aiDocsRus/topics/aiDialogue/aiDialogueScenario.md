@@ -244,6 +244,7 @@ Worker для сидов и обложек не нужен.
 и подставляет `emptyScenarioName` вместо пустого названия сценария. `PublicScenarioGroup` выводит описание группы
 одной приглушённой строкой под заголовком; пустое описание не выводится.
 Модель сценария и маппер `mapToAiDialogueScenario` используются в ответах диалога.
+`mapToAiDialogueScenarioGroup` передаёт в модель карточки также `conversationIdeas` и `trainedSkills`.
 
 `PublicAiDialogueScenariosList` показывает загрузку, ошибку с кнопкой повтора или пустое состояние.
 Группы выводятся адаптивной сеткой: четыре колонки на широком экране, одна на узком; короткие группы
@@ -258,7 +259,7 @@ Worker для сидов и обложек не нужен.
 ### Модальное окно создания диалога
 
 Клик по карточке открывает `StartDialogueModal`: обычное изображение обложки шириной 100%, локализованные группа,
-название и описание, переключатели языка практики, сложности и стиля иллюстраций, поле «Пожелания к сцене»,
+название и описание, блоки «Что тренирует» и «Куда может повернуть», переключатели языка практики, сложности и стиля иллюстраций, поле «Пожелания к сцене»,
 кнопка «Начать диалог».
 Поле пожеланий — общий `TextInput` с `textarea` и счётчиком символов. Плейсхолдер — `userScenarioAmendmentHint` сценария,
 а без него — `aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint` (подстановка в `getScenarioGroupsConfig`).
@@ -293,7 +294,11 @@ Worker для сидов и обложек не нужен.
 Стандартная обёртка с заголовком и контентом `ModalHeaderAndContent` здесь не используется: окно задаёт собственную
 разметку с обложкой и блоком содержимого. Описание сценария вынесено в `ScenarioDescription.tsx`.
 `LabelWithField` с `LanguageSwitch` и `TextLevelSwitcher` находятся непосредственно в `StartDialogueModal.tsx`;
-отдельного компонента `StartDialogueSettings` нет. Состояние и сохранение настроек остаются в `useStartDialogueOptions`.
+отдельного компонента `StartDialogueSettings` нет.
+Блоки «Что тренирует» (`trainedSkills`) и «Куда может повернуть» (`conversationIdeas`, маркированный список)
+выводит `ScenarioPracticeHints.tsx` сразу под описанием, на сером фоне. На широком окне блоки стоят в две колонки,
+на узком — друг под другом. Пустой блок не выводится; пустые идеи отбрасывает `getScenarioGroupsConfig`.
+Заголовки блоков, как и остальные подписи окна, пока заданы по-русски в коде. Состояние и сохранение настроек остаются в `useStartDialogueOptions`.
 Кнопка запуска имеет размер `big`, тему `accent` и иконку `ArrowRightPureButtonIcon`; она передаёт `settings.options`
 в `onStart`. `StartDialogueModal.scss` задаёт ширину окна 50rem (не более 100%), ширину обложки 100%
 и отступы блока содержимого.
@@ -332,7 +337,7 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 - `server/test/aiDialogueScenarioGroups.integration.ts` — PostgreSQL/HTTP/OpenAPI-проверка.
 - `face/entities/aiDialogueScenarioGroup/` — клиентский слой групп.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/` — список, группы, карточки и создание диалога.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/StartDialogueModal/` — окно создания, описание сценария и стили.
+- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/StartDialogueModal/` — окно создания, описание сценария, блоки «Что тренирует» и «Куда может повернуть», стили.
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useStartDialogueOptions.ts` — язык, сложность и сохранение выбора.
 - `face/shared/ui/Modal/Modal.tsx`, `face/shared/ui/Modal/ModalHeaderAndContent.tsx` — базовое окно и стандартная разметка заголовка с контентом.
 - `face/tests/aiDialogueScenarioGroups.test.ts`, `face/tests/browser/aiDialogueScenarios.spec.ts` — проверки клиента.

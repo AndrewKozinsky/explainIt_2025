@@ -26,6 +26,9 @@ function scenarios(start: number, end: number) {
 		slug: `scenario-${start + index}`,
 		title,
 		description: 'Вы обсуждаете ситуацию с собеседником. Уточните детали и договоритесь о решении.',
+		userScenarioAmendmentHint: null,
+		conversationIdeas: start + index === 1 ? [] : ['Уточнить детали', 'Договориться о решении'],
+		trainedSkills: start + index === 1 ? '' : 'Уточнять детали и договариваться',
 		coverUrl: '/test-cover.svg',
 	}))
 }
@@ -175,9 +178,13 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	await page.keyboard.press('Enter')
 	await expect(page.locator('.modal').getByRole('heading', { name: titles[0], exact: true })).toBeVisible()
 	await expect(page.locator('.modal').getByText('Поездка за границу', { exact: true })).toBeVisible()
-	await expect(page.locator('.start-dialogue-modal__summary')).toHaveText(
-		groups[0].scenarios[0].description,
-	)
+	await expect(page.locator('.start-dialogue-modal__summary')).toHaveText(groups[0].scenarios[0].description)
+	await expect(page.locator('.start-dialogue-modal__hint-title')).toHaveText([
+		'Что тренирует',
+		'Куда может повернуть',
+	])
+	await expect(page.locator('.start-dialogue-modal__hint-text')).toHaveText('Уточнять детали и договариваться')
+	await expect(page.locator('.start-dialogue-modal__idea')).toHaveText(['Уточнить детали', 'Договориться о решении'])
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveAttribute('src', '/test-cover.svg')
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveJSProperty('naturalWidth', 1152)
 	await expect(page.locator('.modal .switcher--size-medium')).toBeVisible()
@@ -285,6 +292,7 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 			targetLanguageCode: 'ru',
 			maxCefrLevel: 'B1',
 			illustrationStyleId: 'realism',
+			userScenarioAmendment: null,
 		},
 	])
 	h.finishCreation(true)
@@ -343,6 +351,7 @@ test('language and level persist independently of video filters; Any persists an
 			targetLanguageCode: 'ru',
 			maxCefrLevel: null,
 			illustrationStyleId: 'realism',
+			userScenarioAmendment: null,
 		},
 	])
 	h.finishCreation()

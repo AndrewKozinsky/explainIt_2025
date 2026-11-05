@@ -9,6 +9,7 @@ import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
 import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
 import ScenarioDescription from './ScenarioDescription'
+import ScenarioPracticeHints from './ScenarioPracticeHints'
 import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
 import './StartDialogueModal.scss'
 
@@ -28,6 +29,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 			<img src={scenario.coverUrl} alt='' className='start-dialogue-modal__cover' />
 			<div className='start-dialogue-modal__content'>
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
+				<ScenarioPracticeHints scenario={scenario} />
 				<LabelWithField label='Язык практики'>
 					<LanguageSwitch
 						languages={settings.practiceLanguages}

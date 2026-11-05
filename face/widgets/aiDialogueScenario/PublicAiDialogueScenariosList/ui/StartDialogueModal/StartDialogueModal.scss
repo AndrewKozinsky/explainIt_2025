@@ -39,3 +39,49 @@
 .start-dialogue-modal__summary {
 	color: vars.$grayColor-5;
 }
+
+.start-dialogue-modal__hints {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	padding: 1.2rem;
+	border-radius: vars.$radius-1;
+	background-color: vars.$grayColor-1;
+}
+
+.start-dialogue-modal__hint {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+}
+
+.start-dialogue-modal__hint-title {
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	font-weight: 400;
+	text-transform: uppercase;
+	color: vars.$grayColor-5;
+}
+
+.start-dialogue-modal__hint-text {
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+}
+
+.start-dialogue-modal__ideas {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	padding-left: 2rem;
+	list-style: disc;
+	font-size: 1.6rem;
+	line-height: 2.2rem;
+}
+
+.start-dialogue-modal__idea {
+	list-style: disc;
+}
+
+.start-dialogue-modal__idea::marker {
+	color: vars.$accentColor-2;
+}

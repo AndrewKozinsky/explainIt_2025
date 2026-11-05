@@ -28,6 +28,8 @@ export function mapToAiDialogueScenarioGroup(raw: AiDialogueScenarioGroupOutMode
 			title: scenario.title,
 			description: scenario.description,
 			userScenarioAmendmentHint: scenario.userScenarioAmendmentHint ?? null,
+			conversationIdeas: scenario.conversationIdeas,
+			trainedSkills: scenario.trainedSkills,
 			coverUrl: scenario.coverUrl,
 		})),
 	}

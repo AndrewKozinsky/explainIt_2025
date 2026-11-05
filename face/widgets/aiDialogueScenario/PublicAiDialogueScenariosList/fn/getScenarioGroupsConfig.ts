@@ -13,6 +13,8 @@ export function getScenarioGroupsConfig(groups: AiDialogueScenarioGroupModel[]) 
 			description: scenario.description,
 			userScenarioAmendmentHint:
 				scenario.userScenarioAmendmentHint || aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint,
+			conversationIdeas: scenario.conversationIdeas.filter((idea) => idea.trim() !== ''),
+			trainedSkills: scenario.trainedSkills,
 			coverUrl: scenario.coverUrl,
 		})),
 	}))

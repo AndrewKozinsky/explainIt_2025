@@ -1,0 +1,36 @@
+import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
+
+type Props = {
+	scenario: ScenarioCardConfig
+}
+
+/** Блоки «Что тренирует» и «Куда может повернуть»; пустой блок не выводится. */
+export default function ScenarioPracticeHints({ scenario }: Props) {
+	const hasTrainedSkills = scenario.trainedSkills.trim() !== ''
+	const hasConversationIdeas = scenario.conversationIdeas.length > 0
+
+	if (!hasTrainedSkills && !hasConversationIdeas) return null
+
+	return (
+		<div className='start-dialogue-modal__hints'>
+			{hasConversationIdeas && (
+				<section className='start-dialogue-modal__hint'>
+					<h3 className='start-dialogue-modal__hint-title'>Куда может повернуть</h3>
+					<ul className='start-dialogue-modal__ideas'>
+						{scenario.conversationIdeas.map((idea) => (
+							<li key={idea} className='start-dialogue-modal__idea'>
+								{idea}
+							</li>
+						))}
+					</ul>
+				</section>
+			)}
+			{hasTrainedSkills && (
+				<section className='start-dialogue-modal__hint'>
+					<h3 className='start-dialogue-modal__hint-title'>Что тренирует</h3>
+					<p className='start-dialogue-modal__hint-text'>{scenario.trainedSkills}</p>
+				</section>
+			)}
+		</div>
+	)
+}
