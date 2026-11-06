@@ -1,0 +1,24 @@
+{
+  "loading": "Cargando conversaciones…",
+  "loadError": "No se pudieron cargar las conversaciones.",
+  "retry": "Reintentar",
+  "empty": "Todavía no tienes ninguna conversación. Elige un escenario para empezar.",
+  "refreshError": "No se pudieron actualizar las conversaciones. Inténtalo de nuevo.",
+  "loadMore": "Conversaciones anteriores",
+  "deleteModal": {
+    "header": "Eliminar conversación",
+    "content": "¿Seguro que quieres eliminar la conversación?",
+    "confirm": "Eliminar conversación"
+  },
+  "card": {
+    "lastDialogue": "Última conversación",
+    "untitledDialogue": "Conversación",
+    "openDialogue": "Abrir la conversación «{title}»",
+    "sceneImageAlt": "Escena de la conversación «{title}»",
+    "deleteButton": "Eliminar conversación",
+    "deleteDialogue": "Eliminar la conversación «{title}»",
+    "noMessages": "Todavía no hay mensajes de los personajes.",
+    "characterFallback": "Personaje",
+    "anyLevel": "Sin límite"
+  }
+}

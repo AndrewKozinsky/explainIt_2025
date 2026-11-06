@@ -1,18 +1,23 @@
-import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import type { AiDialogueScenarioGroupModel } from '@/entities/aiDialogueScenarioGroup/repository/AiDialogueScenarioGroupRepository'
 
+/** Запасные тексты на языке интерфейса для сценария без названия или без подсказки к пожеланиям */
+export type ScenarioFallbackTexts = {
+	emptyScenarioName: string
+	defaultUserScenarioAmendmentHint: string
+}
+
 /** Готовит группы и карточки для вывода; тексты уже приходят с сервера на языке интерфейса. */
-export function getScenarioGroupsConfig(groups: AiDialogueScenarioGroupModel[]) {
+export function getScenarioGroupsConfig(groups: AiDialogueScenarioGroupModel[], fallbackTexts: ScenarioFallbackTexts) {
 	return groups.map((group) => ({
 		id: group.id,
 		title: group.title,
 		description: group.description,
 		scenarios: group.scenarios.map((scenario) => ({
 			id: scenario.id,
-			title: scenario.title || aiDialogueScenarioConfig.emptyScenarioName,
+			title: scenario.title || fallbackTexts.emptyScenarioName,
 			description: scenario.description,
 			userScenarioAmendmentHint:
-				scenario.userScenarioAmendmentHint || aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint,
+				scenario.userScenarioAmendmentHint || fallbackTexts.defaultUserScenarioAmendmentHint,
 			conversationIdeas: scenario.conversationIdeas.filter((idea) => idea.trim() !== ''),
 			trainedSkills: scenario.trainedSkills,
 			coverUrl: scenario.coverUrl,

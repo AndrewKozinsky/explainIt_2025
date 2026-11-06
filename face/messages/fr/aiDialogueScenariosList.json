@@ -1,0 +1,23 @@
+{
+  "loading": "Chargement des scénarios…",
+  "loadError": "Impossible de charger les scénarios.",
+  "retry": "Réessayer",
+  "empty": "Aucun scénario disponible pour le moment.",
+  "emptyScenarioName": "Sans titre…",
+  "creatingDialogue": "Création de la conversation",
+  "startModal": {
+    "practiceLanguage": "Langue à pratiquer",
+    "textLevelDescription": "Modifiable pendant la conversation",
+    "userScenarioAmendment": "Souhaits pour la scène",
+    "defaultUserScenarioAmendmentHint": "Par exemple, où se déroule l’action et qui est votre interlocuteur",
+    "start": "Commencer la conversation",
+    "conversationIdeas": "Idées de conversation",
+    "trainedSkills": "Ce que vous travaillez"
+  },
+  "loginModal": {
+    "header": "Connectez-vous à votre compte",
+    "text": "Connectez-vous pour commencer une conversation avec des personnages IA.",
+    "login": "Se connecter",
+    "register": "S’inscrire"
+  }
+}

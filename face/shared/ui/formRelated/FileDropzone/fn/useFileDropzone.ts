@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react'
+import { useTranslations } from 'next-intl'
 import { useDropzone } from 'react-dropzone'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { uploadBySignedUrl } from './uploadBySignedUrl'
@@ -29,6 +30,7 @@ export type UseFileDropzoneParams = FileUploadHandlers & {
 
 export function useFileDropzone(params: UseFileDropzoneParams) {
 	const { accept, supportedFormatsStr, disabled, maxSize } = params
+	const t = useTranslations('fileDropzone')
 	const { notify } = useContext(NotificationContext)
 	const uploading = useRef(false)
 	const [inputStatus, setInputStatus] = useState(FileDropzoneStatus.IDLE)
@@ -44,7 +46,7 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 		}
 
 		const uploadUrl = await params.onGetUploadUrl(file)
-		if (!uploadUrl) throw new Error('Не удалось получить ссылку для загрузки')
+		if (!uploadUrl) throw new Error(t('uploadUrlError'))
 
 		await uploadBySignedUrl(uploadUrl, file, function (loaded, total) {
 			setUploadedBytes(loaded)
@@ -78,7 +80,7 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 			try {
 				await uploadFile(files[0])
 			} catch (error) {
-				notify({ type: 'error', message: error instanceof Error ? error.message : 'Не удалось загрузить файл' })
+				notify({ type: 'error', message: error instanceof Error ? error.message : t('uploadError') })
 			} finally {
 				uploading.current = false
 				setInputStatus(FileDropzoneStatus.IDLE)
@@ -89,8 +91,8 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 			const tooLarge = files.some((file) => file.errors.some((error) => error.code === 'file-too-large'))
 			const message =
 				tooLarge && maxSize
-					? `Файл слишком большой. Максимальный размер — ${Math.round(maxSize / 1024 / 1024)} МБ.`
-					: `Выберите один файл: ${supportedFormatsStr}.`
+					? t('fileTooLarge', { maxSizeMb: Math.round(maxSize / 1024 / 1024) })
+					: t('wrongFile', { formats: supportedFormatsStr })
 
 			notify({ type: 'error', message })
 		},

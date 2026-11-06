@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
 import DotSeparator from '@/shared/ui/DotSeparator/DotSeparator'
 import DialogueTime from './DialogueTime'
@@ -6,7 +7,8 @@ import { getDialogueTime } from './fn/getDialogueTime'
 import './DialogueMeta.scss'
 
 export default function DialogueMeta({ dialogue, locale }: { dialogue: AiDialogueListItemModel; locale: string }) {
-	const { languageName, level } = getDialogueMeta(dialogue, locale)
+	const t = useTranslations('userAiDialogues.card')
+	const { languageName, level } = getDialogueMeta(dialogue, locale, t('anyLevel'))
 	const time = getDialogueTime(dialogue.lastMessage, locale)
 
 	return (

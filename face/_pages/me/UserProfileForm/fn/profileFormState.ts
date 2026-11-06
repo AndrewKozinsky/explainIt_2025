@@ -37,10 +37,7 @@ export function profileFormReducer(state: ProfileFormState, event: ProfileFormEv
 	return { status: 'error', error: event.error }
 }
 
-export function getProfileStatusText(state: ProfileFormState): string {
-	if (state.status === 'saving') return 'Сохраняем изменения…'
-	if (state.status === 'error') return state.error ?? 'Не удалось сохранить изменения'
-	if (state.status === 'saved') return 'Изменения сохранены'
-
-	return 'Изменения сохраняются автоматически'
+/** Текст ошибки с сервера, если он есть; иначе null — тогда выводится перевод статуса (mePage.profile.status) */
+export function getProfileErrorText(state: ProfileFormState): string | null {
+	return state.status === 'error' && state.error ? state.error : null
 }

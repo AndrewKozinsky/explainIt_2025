@@ -1,0 +1,23 @@
+{
+  "loading": "Caricamento degli scenari…",
+  "loadError": "Impossibile caricare gli scenari.",
+  "retry": "Riprova",
+  "empty": "Non ci sono ancora scenari disponibili.",
+  "emptyScenarioName": "Senza titolo…",
+  "creatingDialogue": "Creazione della conversazione",
+  "startModal": {
+    "practiceLanguage": "Lingua da praticare",
+    "textLevelDescription": "Puoi cambiarlo durante la conversazione",
+    "userScenarioAmendment": "Preferenze per la scena",
+    "defaultUserScenarioAmendmentHint": "Ad esempio, dove si svolge l’azione e chi è il tuo interlocutore",
+    "start": "Inizia la conversazione",
+    "conversationIdeas": "Idee per la conversazione",
+    "trainedSkills": "Cosa allena"
+  },
+  "loginModal": {
+    "header": "Accedi al tuo account",
+    "text": "Accedi per iniziare una conversazione con personaggi IA.",
+    "login": "Accedi",
+    "register": "Registrati"
+  }
+}

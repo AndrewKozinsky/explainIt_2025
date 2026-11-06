@@ -1,0 +1,31 @@
+{
+  "logout": "Cerrar sesión",
+  "profile": {
+    "ariaLabel": "Ajustes del perfil",
+    "saveError": "No se pudo guardar el perfil. Inténtalo de nuevo.",
+    "status": {
+      "idle": "Los cambios se guardan automáticamente",
+      "saving": "Guardando los cambios…",
+      "saved": "Cambios guardados",
+      "error": "No se pudieron guardar los cambios"
+    }
+  },
+  "gender": {
+    "label": "Género",
+    "male": "Masculino",
+    "female": "Femenino"
+  },
+  "avatar": {
+    "label": "Avatar",
+    "loading": "Cargando avatares predefinidos…",
+    "loadError": "No se pudieron cargar los avatares predefinidos.",
+    "retry": "Reintentar",
+    "photoHint": "Tu propia foto: JPEG, PNG, WebP · hasta 30 MB. Para cambiar la foto seleccionada, haz clic en ella otra vez.",
+    "presetLabel": "{gender, select, MALE {Avatar masculino {number}} other {Avatar femenino {number}}}",
+    "imageUnavailable": "Imagen no disponible",
+    "ownPhoto": "Tu foto",
+    "uploadOwnPhoto": "Subir tu foto",
+    "selectOwnPhoto": "Elegir tu foto",
+    "uploading": "Subiendo…"
+  }
+}

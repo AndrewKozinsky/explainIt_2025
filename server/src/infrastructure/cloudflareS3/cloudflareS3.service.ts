@@ -10,6 +10,22 @@ import { getSignedUrl } from '@aws-sdk/s3-request-presigner'
 import { Injectable } from '@nestjs/common'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
+/** Окно, внутри которого getFileUrl возвращает одну и ту же ссылку на файл. */
+export const signedFileUrlWindowSeconds = 6 * 60 * 60
+
+/**
+ * Окно подписи, в которое попадает момент now: подпись ставится на начало окна и действует два окна.
+ * @param windowSeconds Длина окна в секундах.
+ * @param now Момент запроса в миллисекундах.
+ */
+export function getSignedFileUrlWindow(windowSeconds = signedFileUrlWindowSeconds, now = Date.now()) {
+	const windowMs = windowSeconds * 1000
+	const signingDate = new Date(Math.floor(now / windowMs) * windowMs)
+	const expiresInSeconds = windowSeconds * 2
+
+	return { signingDate, expiresInSeconds, expiresAt: new Date(signingDate.getTime() + expiresInSeconds * 1000) }
+}
+
 @Injectable()
 export class CloudflareS3Service {
 	public readonly s3: S3Client
@@ -46,15 +62,14 @@ export class CloudflareS3Service {
 		})
 	}
 
+	/**
+	 * Подписывает GET-ссылку на файл. Внутри окна signedFileUrlWindowSeconds ссылка одинаковая,
+	 * поэтому повторный ответ API не заставляет браузер скачивать тот же файл заново.
+	 * От любого момента ссылка действует не меньше одного окна (6 часов).
+	 */
 	async getFileUrl(key: string) {
-		return await getSignedUrl(
-			this.s3,
-			new GetObjectCommand({
-				Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
-				Key: key,
-			}),
-			{ expiresIn: 60 * 60 * 6 }, // 6 часов
-		)
+		const { url } = await this.getCacheableFileUrl(key, signedFileUrlWindowSeconds)
+		return url
 	}
 
 	/**
@@ -67,9 +82,7 @@ export class CloudflareS3Service {
 	 * @returns Подписанная ссылка и момент окончания её действия.
 	 */
 	async getCacheableFileUrl(key: string, windowSeconds: number): Promise<{ url: string; expiresAt: Date }> {
-		const windowMs = windowSeconds * 1000
-		const signingDate = new Date(Math.floor(Date.now() / windowMs) * windowMs)
-		const expiresInSeconds = windowSeconds * 2
+		const { signingDate, expiresInSeconds, expiresAt } = getSignedFileUrlWindow(windowSeconds)
 
 		const url = await getSignedUrl(
 			this.s3,
@@ -81,7 +94,7 @@ export class CloudflareS3Service {
 			{ signingDate, expiresIn: expiresInSeconds },
 		)
 
-		return { url, expiresAt: new Date(signingDate.getTime() + expiresInSeconds * 1000) }
+		return { url, expiresAt }
 	}
 
 	async uploadFile(fileKey: string, body: Buffer, contentType: string, timeoutMs?: number): Promise<void> {
@@ -112,11 +125,13 @@ export class CloudflareS3Service {
 		}
 		const chunks: Buffer[] = []
 		let size = 0
+
 		for await (const chunk of response.Body as AsyncIterable<Uint8Array>) {
 			size += chunk.length
 			if (size > limit) throw new Error('R2 image is too large')
 			chunks.push(Buffer.from(chunk))
 		}
+
 		return Buffer.concat(chunks)
 	}
 

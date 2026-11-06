@@ -327,7 +327,7 @@ PhraseTranslationResult/
 
 ### Клиентские сообщения об ошибках
 
-- `face/utils/errorMessages.ts` — русские тексты для кодов ошибок
+- `face/messages/{locale}/serverErrors.json` — тексты для кодов ошибок на языках интерфейса (см. [internationalization.md](internationalization.md))
 
 ### Схема БД
 

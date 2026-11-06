@@ -1,0 +1,23 @@
+{
+  "loading": "Загружаю сценарии…",
+  "loadError": "Не удалось загрузить сценарии.",
+  "retry": "Повторить",
+  "empty": "Пока нет доступных сценариев.",
+  "emptyScenarioName": "Без названия...",
+  "creatingDialogue": "Создаю диалог",
+  "startModal": {
+    "practiceLanguage": "Язык практики",
+    "textLevelDescription": "Можно изменить во время разговора",
+    "userScenarioAmendment": "Пожелания к сцене",
+    "defaultUserScenarioAmendmentHint": "Например, где происходит действие и кто ваш собеседник",
+    "start": "Начать диалог",
+    "conversationIdeas": "Идеи для диалога",
+    "trainedSkills": "Что тренирует"
+  },
+  "loginModal": {
+    "header": "Войдите в учётную запись",
+    "text": "Войдите в учётную запись, чтобы создать диалог с ИИ.",
+    "login": "Войти",
+    "register": "Регистрация"
+  }
+}

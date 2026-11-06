@@ -1,0 +1,23 @@
+{
+  "loading": "Loading scenarios…",
+  "loadError": "Could not load scenarios.",
+  "retry": "Retry",
+  "empty": "No scenarios available yet.",
+  "emptyScenarioName": "Untitled…",
+  "creatingDialogue": "Creating conversation",
+  "startModal": {
+    "practiceLanguage": "Practice language",
+    "textLevelDescription": "You can change it during the conversation",
+    "userScenarioAmendment": "Scene wishes",
+    "defaultUserScenarioAmendmentHint": "For example, where the action takes place and who you are talking to",
+    "start": "Start conversation",
+    "conversationIdeas": "Conversation ideas",
+    "trainedSkills": "What it trains"
+  },
+  "loginModal": {
+    "header": "Sign in to your account",
+    "text": "Sign in to start a conversation with AI characters.",
+    "login": "Log in",
+    "register": "Sign up"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "loading": "Gespräche werden geladen…",
+  "loadError": "Gespräche konnten nicht geladen werden.",
+  "retry": "Erneut versuchen",
+  "empty": "Sie haben noch keine Gespräche. Wählen Sie ein Szenario, um zu beginnen.",
+  "refreshError": "Gespräche konnten nicht aktualisiert werden. Bitte versuchen Sie es erneut.",
+  "loadMore": "Frühere Gespräche",
+  "deleteModal": {
+    "header": "Gespräch löschen",
+    "content": "Möchten Sie das Gespräch wirklich löschen?",
+    "confirm": "Gespräch löschen"
+  },
+  "card": {
+    "lastDialogue": "Letztes Gespräch",
+    "untitledDialogue": "Gespräch",
+    "openDialogue": "Gespräch „{title}“ öffnen",
+    "sceneImageAlt": "Szene des Gesprächs „{title}“",
+    "deleteButton": "Gespräch löschen",
+    "deleteDialogue": "Gespräch „{title}“ löschen",
+    "noMessages": "Noch keine Nachrichten der Figuren.",
+    "characterFallback": "Figur",
+    "anyLevel": "Ohne Begrenzung"
+  }
+}

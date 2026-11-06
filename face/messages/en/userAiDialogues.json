@@ -1,0 +1,24 @@
+{
+  "loading": "Loading conversations…",
+  "loadError": "Could not load conversations.",
+  "retry": "Retry",
+  "empty": "You don't have any conversations yet. Choose a scenario to start.",
+  "refreshError": "Could not update conversations. Please try again.",
+  "loadMore": "Earlier conversations",
+  "deleteModal": {
+    "header": "Delete conversation",
+    "content": "Are you sure you want to delete this conversation?",
+    "confirm": "Delete conversation"
+  },
+  "card": {
+    "lastDialogue": "Last conversation",
+    "untitledDialogue": "Conversation",
+    "openDialogue": "Open conversation “{title}”",
+    "sceneImageAlt": "Scene of conversation “{title}”",
+    "deleteButton": "Delete conversation",
+    "deleteDialogue": "Delete conversation “{title}”",
+    "noMessages": "No character messages yet.",
+    "characterFallback": "Character",
+    "anyLevel": "No limit"
+  }
+}

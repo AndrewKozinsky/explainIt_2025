@@ -1,0 +1,23 @@
+{
+  "loading": "Senaryolar yükleniyor…",
+  "loadError": "Senaryolar yüklenemedi.",
+  "retry": "Tekrar dene",
+  "empty": "Henüz kullanılabilir senaryo yok.",
+  "emptyScenarioName": "Başlıksız…",
+  "creatingDialogue": "Sohbet oluşturuluyor",
+  "startModal": {
+    "practiceLanguage": "Pratik dili",
+    "textLevelDescription": "Konuşma sırasında değiştirebilirsiniz",
+    "userScenarioAmendment": "Sahne için istekler",
+    "defaultUserScenarioAmendmentHint": "Örneğin, olayın nerede geçtiği ve kiminle konuştuğunuz",
+    "start": "Sohbeti başlat",
+    "conversationIdeas": "Sohbet fikirleri",
+    "trainedSkills": "Neleri geliştirir"
+  },
+  "loginModal": {
+    "header": "Hesabınıza giriş yapın",
+    "text": "Yapay zekâ karakterleriyle sohbet başlatmak için giriş yapın.",
+    "login": "Giriş yap",
+    "register": "Kayıt ol"
+  }
+}

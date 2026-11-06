@@ -23,7 +23,7 @@
     {
       "question": "Me da miedo equivocarme. ¿Me van a corregir?",
       "answer": [
-        "Tu respuesta se revisa antes de enviarla. Si tiene errores, verás cómo corregirlos, y solo podrás enviarla al diálogo cuando hayas corregido todos los errores gramaticales.",
+        "Tu respuesta se revisa antes de enviarla. Si tiene errores, verás cómo corregirlos, y solo podrás enviarla a la conversación cuando hayas corregido todos los errores gramaticales.",
         "Así, a la conversación solo llegan réplicas correctas, y los errores solo los ves tú. Los personajes no te corrigen ni convierten la escena en una clase: la historia sigue sin más."
       ]
     },
@@ -54,7 +54,7 @@
     {
       "question": "¿Puedo hacer una pausa y seguir más tarde?",
       "answer": [
-        "Sí. Todas tus conversaciones se guardan en «Mis diálogos» y puedes continuar justo donde lo dejaste."
+        "Sí. Todas tus conversaciones se guardan en «Mis conversaciones» y puedes continuar justo donde lo dejaste."
       ]
     },
     {

@@ -6,6 +6,10 @@ import { routing } from './routing'
 // а его имя — ключ верхнего уровня: useTranslations('mainPageBanner')
 const messageNamespaces = [
 	'aiDialogue',
+	'aiDialoguesPage',
+	'aiDialogueScenariosList',
+	'auth',
+	'fileDropzone',
 	'mainPageAnyLevel',
 	'mainPageBanner',
 	'mainPageCallToAction',
@@ -13,8 +17,10 @@ const messageNamespaces = [
 	'mainPageFeatures',
 	'mainPageNoTrip',
 	'mainPageScenarios',
+	'mePage',
 	'pageUrls',
 	'siteMeta',
+	'userAiDialogues',
 ] as const
 
 export default getRequestConfig(async ({ requestLocale }) => {

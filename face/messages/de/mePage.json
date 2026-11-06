@@ -1,0 +1,31 @@
+{
+  "logout": "Abmelden",
+  "profile": {
+    "ariaLabel": "Profileinstellungen",
+    "saveError": "Das Profil konnte nicht gespeichert werden. Bitte versuchen Sie es erneut.",
+    "status": {
+      "idle": "Änderungen werden automatisch gespeichert",
+      "saving": "Änderungen werden gespeichert…",
+      "saved": "Änderungen gespeichert",
+      "error": "Änderungen konnten nicht gespeichert werden"
+    }
+  },
+  "gender": {
+    "label": "Geschlecht",
+    "male": "Männlich",
+    "female": "Weiblich"
+  },
+  "avatar": {
+    "label": "Avatar",
+    "loading": "Fertige Avatare werden geladen…",
+    "loadError": "Fertige Avatare konnten nicht geladen werden.",
+    "retry": "Erneut versuchen",
+    "photoHint": "Eigenes Foto: JPEG, PNG, WebP · bis 30 MB. Um das ausgewählte Foto zu ersetzen, klicken Sie erneut darauf.",
+    "presetLabel": "{gender, select, MALE {Männlicher Avatar {number}} other {Weiblicher Avatar {number}}}",
+    "imageUnavailable": "Bild nicht verfügbar",
+    "ownPhoto": "Eigenes Foto",
+    "uploadOwnPhoto": "Eigenes Foto hochladen",
+    "selectOwnPhoto": "Eigenes Foto auswählen",
+    "uploading": "Wird hochgeladen…"
+  }
+}

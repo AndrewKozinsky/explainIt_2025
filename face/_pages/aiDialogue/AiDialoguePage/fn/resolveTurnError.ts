@@ -7,13 +7,14 @@ import { resolveErrorByCode } from '@/shared/utils/fetchData/resolveError'
  * `{"code":"AI_DIALOGUE_CANNOT_PARSE_LLM_RESPONSE"}`. Если это JSON с полем
  * `code` — резолвим через resolveErrorByCode, иначе возвращаем как есть.
  */
-export function resolveAiDialogueTurnError(raw: string): string {
+export function resolveAiDialogueTurnError(raw: string, locale: string): string {
 	try {
 		const parsed: unknown = JSON.parse(raw)
 		if (typeof parsed === 'object' && parsed !== null) {
 			const code = (parsed as { code?: unknown }).code
+
 			if (typeof code === 'string') {
-				return resolveErrorByCode(code, parsed)
+				return resolveErrorByCode(code, parsed, locale)
 			}
 		}
 	} catch {

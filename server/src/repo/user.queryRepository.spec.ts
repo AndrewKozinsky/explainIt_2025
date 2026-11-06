@@ -2,6 +2,7 @@ jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => targ
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 
 import { PrismaService } from 'db/prisma.service'
+import { getAvatarUrlExpiresAt } from 'features/user/userAvatarConfig'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { User } from 'prisma/generated/client'
 import { UserQueryRepository } from './user.queryRepository'
@@ -29,6 +30,7 @@ describe('user output mapping', () => {
 			prisma as unknown as PrismaService,
 			storage as unknown as CloudflareS3Service,
 		)
+
 		const result = await repository.getUserById(1)
 
 		expect(storage.getFileUrl).toHaveBeenCalledWith(expected)
@@ -45,5 +47,13 @@ describe('user output mapping', () => {
 		})
 
 		expect(Date.parse(result!.avatarUrlExpiresAt) - Date.now()).toBeGreaterThan(4 * 60 * 60_000)
+	})
+
+	it('announces the refresh an hour before the windowed signature ends, keeping it stable inside the window', () => {
+		const windowStartExpiry = getAvatarUrlExpiresAt(Date.parse('2026-11-05T06:00:00.000Z'))
+		const windowEndExpiry = getAvatarUrlExpiresAt(Date.parse('2026-11-05T11:59:59.000Z'))
+
+		expect(windowStartExpiry).toBe('2026-11-05T17:00:00.000Z')
+		expect(windowEndExpiry).toBe(windowStartExpiry)
 	})
 })

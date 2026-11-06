@@ -23,7 +23,7 @@
     {
       "question": "Ho paura di sbagliare. Verrò corretto?",
       "answer": [
-        "La tua risposta viene controllata prima dell’invio. Se ci sono errori, vedrai come correggerli, e potrai inviarla nel dialogo solo dopo aver corretto tutti gli errori di grammatica.",
+        "La tua risposta viene controllata prima dell’invio. Se ci sono errori, vedrai come correggerli, e potrai inviarla nella conversazione solo dopo aver corretto tutti gli errori di grammatica.",
         "Così nella conversazione arrivano solo battute corrette, e gli errori li vedi solo tu. I personaggi non ti correggono e non trasformano la scena in una lezione: la storia va semplicemente avanti."
       ]
     },
@@ -54,7 +54,7 @@
     {
       "question": "Posso fermarmi e continuare più tardi?",
       "answer": [
-        "Sì. Tutte le conversazioni vengono salvate in «I miei dialoghi» e puoi riprendere esattamente da dove avevi lasciato."
+        "Sì. Tutte le conversazioni vengono salvate in «Le mie conversazioni» e puoi riprendere esattamente da dove avevi lasciato."
       ]
     },
     {

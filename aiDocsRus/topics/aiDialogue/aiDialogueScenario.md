@@ -241,7 +241,8 @@ Worker для сидов и обложек не нужен.
 используют сгенерированный Orval-клиент. `AbortSignal` передаётся до fetch. Порядок групп и карточек
 сохраняется из ответа сервера; счётчик вычисляется по `scenarios.length`.
 Тексты приходят с сервера на языке интерфейса; `getScenarioGroupsConfig` только готовит данные для вывода
-и подставляет `emptyScenarioName` вместо пустого названия сценария. `PublicScenarioGroup` выводит описание группы
+и подставляет запасные тексты из второго аргумента (`fallbackTexts`): `emptyScenarioName` вместо пустого названия
+сценария и `defaultUserScenarioAmendmentHint` вместо пустой подсказки. Их переводит `PublicAiDialogueScenariosList`. `PublicScenarioGroup` выводит описание группы
 одной приглушённой строкой под заголовком; пустое описание не выводится.
 Модель сценария и маппер `mapToAiDialogueScenario` используются в ответах диалога.
 `mapToAiDialogueScenarioGroup` передаёт в модель карточки также `conversationIdeas` и `trainedSkills`.
@@ -262,7 +263,7 @@ Worker для сидов и обложек не нужен.
 название и описание, блоки «Идеи для диалога» и «Что тренирует», переключатели языка практики, сложности и стиля иллюстраций, поле «Пожелания к сцене»,
 кнопка «Начать диалог».
 Поле пожеланий — общий `TextInput` с `textarea` и счётчиком символов. Плейсхолдер — `userScenarioAmendmentHint` сценария,
-а без него — `aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint` (подстановка в `getScenarioGroupsConfig`).
+а без него — перевод `aiDialogueScenariosList.startModal.defaultUserScenarioAmendmentHint` (подстановка в `getScenarioGroupsConfig`).
 Лимит `aiDialogueScenarioConfig.userScenarioAmendmentMaxLength` (400) совпадает с серверным; пока обрезанный текст длиннее,
 запуск заблокирован. Значение хранится в `useStartDialogueOptions` без localStorage и передаётся в POST как `userScenarioAmendment`
 (пустое — `null`). Как пожелание используется в промпте — [aiDialogue.md](aiDialogue.md).
@@ -286,7 +287,7 @@ Worker для сидов и обложек не нужен.
 Подробнее: [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md).
 Используются готовый `LanguageSwitch` и общий `entities/aiDialogue/ui/TextLevelSwitcher.tsx`.
 Переключатель сложности переиспользуется в окне запуска и настройках диалога, принимает `size`
-(small по умолчанию, medium в окне запуска). Подпись Language level и вариант Any сохранены.
+(small по умолчанию, medium в окне запуска). Подпись и вариант «любой уровень» переводятся в разделе `aiDialogue.textLevelSwitcher`; для `Any` выводится `anyLevel`.
 Пояснение передаётся через необязательный проп `description` у `TextLevelSwitcher`, который передаёт его
 в `LabelWithField` для вывода после поля. Текст «Можно изменить во время разговора» задаётся только
 в модальном окне; в настройках диалога описание не передаётся. Сам `Switcher` не менялся.

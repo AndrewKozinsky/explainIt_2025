@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import type { AvatarPresetModel, UserGender } from '@/entities/user/UserService'
 import AvatarImage from './AvatarImage'
 
@@ -10,7 +11,8 @@ type AvatarPresetCardProps = {
 }
 
 function AvatarPresetCard({ preset, selected, disabled, gender, onSelect }: AvatarPresetCardProps) {
-	const label = `${preset.gender === 'MALE' ? 'Мужской' : 'Женский'} аватар ${preset.id.endsWith('1') ? '1' : '2'}`
+	const t = useTranslations('mePage.avatar')
+	const label = t('presetLabel', { gender: preset.gender, number: preset.id.endsWith('1') ? '1' : '2' })
 
 	return (
 		<button

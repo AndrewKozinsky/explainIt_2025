@@ -15,6 +15,7 @@ type AuthPageLayoutProps = {
 export function AuthFormParent(props: AuthPageLayoutProps) {
 	const { pageTitle, form, afterFormLinks } = props
 	const t = useTranslations('pageUrls')
+	const tAuth = useTranslations('auth')
 
 	return (
 		<section className='auth-page-layout'>
@@ -32,11 +33,14 @@ export function AuthFormParent(props: AuthPageLayoutProps) {
 				))}
 			</p>
 			<p className='auth-page-layout__problems-info'>
-				В случае технических проблем обращайтесь на{' '}
-				<a className='link' href={'mailto:' + mainConfig.supportEmail}>
-					{mainConfig.supportEmail}
-				</a>
-				.
+				{tAuth.rich('problemsInfo', {
+					email: mainConfig.supportEmail,
+					link: (chunks) => (
+						<a className='link' href={'mailto:' + mainConfig.supportEmail}>
+							{chunks}
+						</a>
+					),
+				})}
 			</p>
 		</section>
 	)

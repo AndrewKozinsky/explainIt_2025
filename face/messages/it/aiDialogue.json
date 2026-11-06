@@ -10,5 +10,13 @@
     "error": "Impossibile caricare gli stili.",
     "empty": "Nessuno stile disponibile.",
     "retry": "Riprova"
+  },
+  "textLevelSwitcher": {
+    "label": "Livello di lingua",
+    "anyLevel": "Qualsiasi"
+  },
+  "characterAvatars": {
+    "participants": "Partecipanti alla conversazione",
+    "moreParticipants": "Altri partecipanti: {count}"
   }
 }

@@ -11,16 +11,20 @@ import UserAiDialoguesList from '@/widgets/aiUserDialogues/ui/UserAiDialoguesLis
 import './AiDialoguesPage.scss'
 
 export default function AiDialoguesPage() {
-	const t = useTranslations('pageUrls')
+	const tPageUrls = useTranslations('pageUrls')
+	const t = useTranslations('aiDialoguesPage')
 	const user = useUser()
 
 	return (
-		<MediaPageContentWrapper breadCrumbs={<BreadCrumbs items={[]} />} header={t(pageUrls.aiDialogues.nameKey)}>
+		<MediaPageContentWrapper
+			breadCrumbs={<BreadCrumbs items={[]} />}
+			header={tPageUrls(pageUrls.aiDialogues.nameKey)}
+		>
 			<div className='ai-dialogues-page'>
 				{user && <MyDialogues userId={user.id} />}
 				<div className='ai-dialogues-page__part'>
 					<Header hTag={2} hStyle={3}>
-						Сценарии диалогов
+						{t('scenariosHeader')}
 					</Header>
 					<PublicAiDialogueScenariosList />
 				</div>
@@ -30,10 +34,12 @@ export default function AiDialoguesPage() {
 }
 
 function MyDialogues({ userId }: { userId: number }) {
+	const t = useTranslations('aiDialoguesPage')
+
 	return (
 		<div className='ai-dialogues-page__part'>
 			<Header hTag={3} hStyle={4}>
-				Мои диалоги
+				{t('myDialoguesHeader')}
 			</Header>
 			<UserAiDialoguesList userId={userId} />
 		</div>

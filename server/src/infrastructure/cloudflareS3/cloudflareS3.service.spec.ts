@@ -47,6 +47,7 @@ describe('bounded R2 reads', () => {
 	it('reads private objects as bounded bytes without a signed URL', async () => {
 		const { service, send } = harness()
 		send.mockResolvedValue({ Body: Readable.from([Buffer.from('original'), Buffer.from(' bytes')]) } as never)
+
 		await expect(service.readFile('private.png')).resolves.toEqual(Buffer.from('original bytes'))
 		const command = send.mock.calls[0][0] as GetObjectCommand
 
@@ -93,6 +94,17 @@ describe('bounded R2 reads', () => {
 			const nextWindow = await signAt('2026-11-05T12:00:00.000Z')
 
 			expect(nextWindow.url).not.toBe(currentWindow.url)
+		})
+
+		it('signs getFileUrl by six-hour windows so repeated API responses keep the same link', async () => {
+			jest.useFakeTimers({ now: new Date('2026-11-05T06:00:00.000Z') })
+			const firstResponseUrl = await harness().service.getFileUrl('user-avatars/uploads/photo.webp')
+
+			jest.setSystemTime(new Date('2026-11-05T11:59:59.000Z'))
+			const laterResponseUrl = await harness().service.getFileUrl('user-avatars/uploads/photo.webp')
+
+			expect(laterResponseUrl).toBe(firstResponseUrl)
+			expect(new URL(laterResponseUrl).searchParams.get('X-Amz-Expires')).toBe(String(windowSeconds * 2))
 		})
 
 		it('keeps the URL valid for at least one window and asks the browser to cache it as long', async () => {

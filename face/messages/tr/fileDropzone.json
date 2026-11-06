@@ -1,0 +1,6 @@
+{
+  "uploadError": "Dosya yüklenemedi",
+  "uploadUrlError": "Yükleme bağlantısı alınamadı",
+  "fileTooLarge": "Dosya çok büyük. En fazla {maxSizeMb} MB olabilir.",
+  "wrongFile": "Bir dosya seçin: {formats}."
+}

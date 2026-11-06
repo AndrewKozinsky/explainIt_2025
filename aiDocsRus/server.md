@@ -115,6 +115,15 @@ Reuse an existing error message when one text already covers multiple forbidden 
 ```server/src/infrastructure/guards/userWithPositiveBalanceGuard.guard.ts```
 
 
+## Ссылки на файлы R2
+
+`CloudflareS3Service.getFileUrl` подписывает GET-ссылку по окнам `signedFileUrlWindowSeconds` (6 часов): время подписи
+округляется до начала окна, ссылка действует два окна (не меньше шести часов от любого момента), ответ R2 получает
+`Cache-Control: private` на тот же срок. Внутри окна ссылка на файл одинаковая, поэтому повторные ответы API не заставляют
+браузер скачивать файл заново. Ключи файлов уникальны, а замена файла под тем же ключом становится видна со следующего окна.
+Срок обновления ссылок для клиента считается от `getSignedFileUrlWindow`, а не от текущего момента.
+`getCacheableFileUrl(key, windowSeconds)` делает то же с другим окном и возвращает ещё и `expiresAt`.
+
 ## Общий справочник CEFR
 
 `server/src/utils/proficiencyLevel.ts` содержит `PROFICIENCY_LEVELS` (A1–C2), тип `ProficiencyLevel`

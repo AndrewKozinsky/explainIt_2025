@@ -213,6 +213,22 @@ books: {
 В клиентский компонент из серверного передаются только `nameKey` и `path`, а не объект из `pageUrls` целиком: в нём
 бывают функции (`books.book()`), а функции нельзя передать в клиентский компонент.
 
+### Ошибки сервера по кодам
+
+Сервер присылает не текст ошибки, а код: `{ message: { code: 'BOOK_NOT_FOUND' } }` или JSON-строку
+`'{"code":"BOOK_NOT_FOUND"}'` в `message`; у ошибок валидации — такие строки в `message[].messages`. Рядом с кодом
+бывают параметры текста: `fieldName`, `minNumber`, `maxNumber`.
+
+Тексты по кодам — в `messages/{locale}/serverErrors.json` (ключ — код, параметры в ICU: `{minNumber}`). Текст собирает
+`translateServerError(code, params, locale)` из `shared/utils/fetchData/serverErrorTexts.ts` через `createTranslator`
+next-intl, поэтому работает и вне React: в репозиториях и `executeApiCall`. Неизвестный язык заменяется на en,
+неизвестный код — на `UNKNOWN_ERROR`. Файлы импортируются в модуль напрямую и в `messageNamespaces` не входят.
+
+Язык передаётся явно: `executeApiCall` берёт его из `getRequestLocale()` (адрес в браузере, next-intl при серверном
+рендеринге) и передаёт в `resolveError(error, locale)` и `resolveErrorByCode(code, body, locale)`; в компонентах —
+`useLocale()`. Новый код ошибки добавляется во все 7 файлов `serverErrors.json`: тест `tests/serverErrors.test.ts`
+проверяет, что набор кодов во всех языках одинаков.
+
 ## Тексты интерфейса и тексты контента
 
 - **Тексты интерфейса** (кнопки, подписи, сообщения об ошибках по коду) хранятся на клиенте в `messages/{locale}/*.json`.

@@ -1,19 +1,21 @@
+import { useTranslations } from 'next-intl'
 import type { UserGender } from '@/entities/user/UserService'
 import RadioGroup from '@/shared/ui/formRelated/RadioGroup/RadioGroup'
 
 type UserGenderFieldProps = { gender: UserGender; disabled: boolean; onChange: (gender: UserGender) => void }
 
 function UserGenderField({ gender, disabled, onChange }: UserGenderFieldProps) {
+	const t = useTranslations('mePage.gender')
 	const config = [
 		{
-			label: 'Мужской',
+			label: t('male'),
 			value: 'MALE',
 			checked: gender === 'MALE',
 			disabled,
 			inputProps: { onChange: () => onChange('MALE') },
 		},
 		{
-			label: 'Женский',
+			label: t('female'),
 			value: 'FEMALE',
 			checked: gender === 'FEMALE',
 			disabled,
@@ -21,7 +23,7 @@ function UserGenderField({ gender, disabled, onChange }: UserGenderFieldProps) {
 		},
 	]
 
-	return <RadioGroup label='Пол' name='profile-gender' direction='horizontal' config={config} />
+	return <RadioGroup label={t('label')} name='profile-gender' direction='horizontal' config={config} />
 }
 
 export default UserGenderField

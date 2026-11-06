@@ -1,0 +1,6 @@
+{
+  "uploadError": "Impossible d’importer le fichier",
+  "uploadUrlError": "Impossible d’obtenir le lien d’importation",
+  "fileTooLarge": "Le fichier est trop volumineux. Taille maximale : {maxSizeMb} Mo.",
+  "wrongFile": "Choisissez un seul fichier : {formats}."
+}

@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import DialogueCharacters from '../DialogueCharacters/DialogueCharacters'
 import DialogueDeleteButton from '../DialogueDeleteButton/DialogueDeleteButton'
@@ -10,14 +11,15 @@ import '../DialogueCard/DialogueCard.scss'
 import './LargeDialogueCard.scss'
 
 export default function LargeDialogueCard({ dialogue, locale, onDelete }: DialogueCardProps) {
-	const { title, url } = getDialogueCardDetails(dialogue)
+	const t = useTranslations('userAiDialogues.card')
+	const { title, url } = getDialogueCardDetails(dialogue, t('untitledDialogue'))
 
 	return (
 		<article className='ai-dialogue-card'>
 			<BaseButton
 				theme='outline'
 				href={url}
-				aria-label={`Открыть диалог «${title}»`}
+				aria-label={t('openDialogue', { title })}
 				extraClass='ai-dialogue-card__link large-dialogue-card'
 			>
 				<div className='large-dialogue-card__scene'>
@@ -25,7 +27,7 @@ export default function LargeDialogueCard({ dialogue, locale, onDelete }: Dialog
 				</div>
 				<div className='large-dialogue-card__info'>
 					<div className='large-dialogue-card__summary'>
-						<p className='large-dialogue-card__label'>Последний диалог</p>
+						<p className='large-dialogue-card__label'>{t('lastDialogue')}</p>
 						<h4 className='large-dialogue-card__title'>{title}</h4>
 						<DialogueMeta dialogue={dialogue} locale={locale} />
 						<div className='large-dialogue-card__characters'>

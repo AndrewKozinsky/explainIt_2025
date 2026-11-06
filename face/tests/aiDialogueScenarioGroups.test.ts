@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
 import { QueryClient } from '@tanstack/react-query'
-import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import { AiDialogueScenarioGroupQueryFacade } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupQueryFacade'
 import { AiDialogueScenarioGroupService } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupService'
 import { AiDialogueScenarioGroupApi } from '@/entities/aiDialogueScenarioGroup/repository/AiDialogueScenarioGroupApi'
@@ -56,7 +55,11 @@ test('groups travel through generated API, repository, service and query without
 		assert.equal(options.refetchOnWindowFocus, false)
 		assert.equal(options.refetchOnReconnect, false)
 
-		const config = getScenarioGroupsConfig(data)
+		const fallbackTexts = {
+			emptyScenarioName: 'Без названия',
+			defaultUserScenarioAmendmentHint: 'Где происходит действие',
+		}
+		const config = getScenarioGroupsConfig(data, fallbackTexts)
 
 		assert.deepEqual(
 			config.map((group) => [group.title, group.description]),
@@ -66,14 +69,11 @@ test('groups travel through generated API, repository, service and query without
 			],
 		)
 		assert.equal(config[0].scenarios[0].title, 'Сценарий 8')
-		assert.equal(config[0].scenarios[1].title, aiDialogueScenarioConfig.emptyScenarioName)
+		assert.equal(config[0].scenarios[1].title, fallbackTexts.emptyScenarioName)
 		assert.equal(config[0].scenarios[0].description, 'Описание')
 		assert.equal(config[0].scenarios[0].coverUrl, groups[0].scenarios[0].coverUrl)
 		assert.equal(config[0].scenarios[0].userScenarioAmendmentHint, 'Посольство Канады')
-		assert.equal(
-			config[0].scenarios[1].userScenarioAmendmentHint,
-			aiDialogueScenarioConfig.defaultUserScenarioAmendmentHint,
-		)
+		assert.equal(config[0].scenarios[1].userScenarioAmendmentHint, fallbackTexts.defaultUserScenarioAmendmentHint)
 		assert.deepEqual(config[0].scenarios[0].conversationIdeas, ['Попросить скидку', 'Отказаться и уйти'])
 		assert.deepEqual(config[0].scenarios[1].conversationIdeas, ['Попросить скидку'])
 		assert.equal(config[0].scenarios[0].trainedSkills, 'Спрашивать цену и торговаться')

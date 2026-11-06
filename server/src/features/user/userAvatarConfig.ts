@@ -1,14 +1,21 @@
+import { getSignedFileUrlWindow, signedFileUrlWindowSeconds } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+
 export const USER_AVATAR_MAX_UPLOAD_BYTES = 30 * 1024 * 1024
 export const USER_AVATAR_MAX_INPUT_PIXELS = 80_000_000
 export const USER_AVATAR_SHORT_SIDE = 512
 
+/** Запас до окончания подписи: клиент обновляет ссылку за час до него, чтобы пережить задержки и расхождение часов. */
+const avatarUrlRefreshMarginMs = 60 * 60_000
+
 /**
- * Срок безопасного использования ссылки для клиента: обновить её через пять часов.
- * Подпись R2 действует шесть часов; час запаса оставлен на задержки и расхождение часов.
- * Функция не меняет срок подписи и сама не обновляет ссылку.
+ * Момент, когда клиенту пора перечитать ссылки на аватар: за час до окончания подписи getFileUrl.
+ * Подпись привязана к окну, поэтому до этого момента ссылка на тот же файл не меняется и браузер берёт его из кэша.
+ * Считать до подписи ссылок: если запрос попадёт на границу окна, срок окажется раньше, а не позже нужного.
  */
-export function getAvatarUrlExpiresAt() {
-	return new Date(Date.now() + 5 * 60 * 60_000).toISOString()
+export function getAvatarUrlExpiresAt(now = Date.now()) {
+	const { expiresAt } = getSignedFileUrlWindow(signedFileUrlWindowSeconds, now)
+
+	return new Date(expiresAt.getTime() - avatarUrlRefreshMarginMs).toISOString()
 }
 
 /** One region/mode namespace must correspond to exactly one database. */

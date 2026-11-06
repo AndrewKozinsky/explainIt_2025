@@ -1,5 +1,6 @@
 import { useContext, useEffect, useReducer, useRef } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { userQueries, userQueryKeys } from '@/entities/user/UserQueryFacade'
 import type { AvatarPresetId, AvatarPresetModel, UserGender, UserModel } from '@/entities/user/UserService'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
@@ -15,6 +16,7 @@ function getPresetsRefreshInterval(presets: AvatarPresetModel[] | undefined) {
 }
 
 export function useUserProfileForm(user: UserModel) {
+	const t = useTranslations('mePage.profile')
 	const [state, dispatch] = useReducer(profileFormReducer, { status: 'idle' })
 	const saving = useRef(false)
 	const active = useRef(true)
@@ -61,7 +63,7 @@ export function useUserProfileForm(user: UserModel) {
 		} catch (error) {
 			if (!active.current) return
 
-			const message = error instanceof Error ? error.message : 'Не удалось сохранить профиль. Попробуйте ещё раз.'
+			const message = error instanceof Error ? error.message : t('saveError')
 			dispatch({ type: 'failure', error: message })
 			// Ошибку загрузки показывает сама дропзона, чтобы уведомление не дублировалось.
 			if (operation === 'upload') throw new Error(message)

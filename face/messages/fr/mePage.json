@@ -1,0 +1,31 @@
+{
+  "logout": "Se déconnecter",
+  "profile": {
+    "ariaLabel": "Paramètres du profil",
+    "saveError": "Impossible d’enregistrer le profil. Réessayez.",
+    "status": {
+      "idle": "Les modifications sont enregistrées automatiquement",
+      "saving": "Enregistrement des modifications…",
+      "saved": "Modifications enregistrées",
+      "error": "Impossible d’enregistrer les modifications"
+    }
+  },
+  "gender": {
+    "label": "Genre",
+    "male": "Masculin",
+    "female": "Féminin"
+  },
+  "avatar": {
+    "label": "Avatar",
+    "loading": "Chargement des avatars prêts à l’emploi…",
+    "loadError": "Impossible de charger les avatars prêts à l’emploi.",
+    "retry": "Réessayer",
+    "photoHint": "Votre propre photo : JPEG, PNG, WebP · jusqu’à 30 Mo. Pour remplacer la photo choisie, cliquez à nouveau dessus.",
+    "presetLabel": "{gender, select, MALE {Avatar masculin {number}} other {Avatar féminin {number}}}",
+    "imageUnavailable": "Image indisponible",
+    "ownPhoto": "Votre photo",
+    "uploadOwnPhoto": "Importer votre photo",
+    "selectOwnPhoto": "Choisir votre photo",
+    "uploading": "Importation…"
+  }
+}

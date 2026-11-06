@@ -110,8 +110,8 @@ LargeDialogueCard и MediumDialogueCard — отдельные обёртки; �
 Карточка состоит из двух соседних областей: ссылки на диалог почти во всю ширину и кнопки удаления справа.
 Ссылка — BaseButton с theme="outline" и href; у неё aria-label «Открыть диалог „…“», отдельной кнопки
 «Продолжить» нет. Кнопка удаления не вложена в ссылку. Общие стили — DialogueCard/DialogueCard.scss.
-Название берётся из scenario.title как есть (пустое заменяется на «Диалог»), язык — через Intl.DisplayNames по локали интерфейса.
-При maxCefrLevel=null выводится «Без ограничения».
+Название берётся из scenario.title как есть (пустое заменяется на перевод `userAiDialogues.card.untitledDialogue`), язык — через Intl.DisplayNames по локали интерфейса.
+При maxCefrLevel=null выводится `userAiDialogues.card.anyLevel` («Без ограничения»).
 
 Дата выводится из lastMessage.createdAt, по календарным дням в часовом поясе браузера:
 сегодня/вчера/5 дней назад/месяц назад/2 года назад. При отсутствии сообщения дата не подменяется датой

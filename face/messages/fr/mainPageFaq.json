@@ -23,7 +23,7 @@
     {
       "question": "J’ai peur de faire des fautes. Vais-je être corrigé ?",
       "answer": [
-        "Votre réponse est vérifiée avant l’envoi. S’il y a des fautes, vous voyez comment les corriger, et vous ne pouvez envoyer la réponse dans le dialogue qu’une fois toutes les fautes de grammaire corrigées.",
+        "Votre réponse est vérifiée avant l’envoi. S’il y a des fautes, vous voyez comment les corriger, et vous ne pouvez envoyer la réponse dans la conversation qu’une fois toutes les fautes de grammaire corrigées.",
         "Seules des répliques correctes arrivent donc dans la conversation, et vous seul voyez vos fautes. Les personnages ne vous corrigent pas et ne transforment pas la scène en cours : l’histoire continue, tout simplement."
       ]
     },
@@ -54,7 +54,7 @@
     {
       "question": "Puis-je faire une pause et reprendre plus tard ?",
       "answer": [
-        "Oui. Toutes vos conversations sont enregistrées dans « Mes dialogues », et vous reprenez exactement là où vous vous êtes arrêté."
+        "Oui. Toutes vos conversations sont enregistrées dans « Mes conversations », et vous reprenez exactement là où vous vous êtes arrêté."
       ]
     },
     {

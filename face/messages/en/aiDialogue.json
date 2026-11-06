@@ -10,5 +10,13 @@
     "error": "Could not load styles.",
     "empty": "No styles available.",
     "retry": "Retry"
+  },
+  "textLevelSwitcher": {
+    "label": "Language level",
+    "anyLevel": "Any"
+  },
+  "characterAvatars": {
+    "participants": "Conversation participants",
+    "moreParticipants": "More participants: {count}"
   }
 }

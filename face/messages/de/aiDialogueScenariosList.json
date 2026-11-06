@@ -1,0 +1,23 @@
+{
+  "loading": "Szenarien werden geladen…",
+  "loadError": "Szenarien konnten nicht geladen werden.",
+  "retry": "Erneut versuchen",
+  "empty": "Noch keine Szenarien verfügbar.",
+  "emptyScenarioName": "Ohne Titel…",
+  "creatingDialogue": "Gespräch wird erstellt",
+  "startModal": {
+    "practiceLanguage": "Übungssprache",
+    "textLevelDescription": "Kann während des Gesprächs geändert werden",
+    "userScenarioAmendment": "Wünsche zur Szene",
+    "defaultUserScenarioAmendmentHint": "Zum Beispiel, wo die Handlung spielt und wer Ihr Gesprächspartner ist",
+    "start": "Gespräch starten",
+    "conversationIdeas": "Ideen für das Gespräch",
+    "trainedSkills": "Was trainiert wird"
+  },
+  "loginModal": {
+    "header": "Melden Sie sich an",
+    "text": "Melden Sie sich an, um ein Gespräch mit KI-Figuren zu beginnen.",
+    "login": "Anmelden",
+    "register": "Registrieren"
+  }
+}

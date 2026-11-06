@@ -10,5 +10,13 @@
     "error": "Не удалось загрузить стили.",
     "empty": "Нет доступных стилей.",
     "retry": "Повторить"
+  },
+  "textLevelSwitcher": {
+    "label": "Уровень языка",
+    "anyLevel": "Любой"
+  },
+  "characterAvatars": {
+    "participants": "Участники диалога",
+    "moreParticipants": "Ещё участников: {count}"
   }
 }

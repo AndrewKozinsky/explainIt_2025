@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/TrashButtonIcon'
 
@@ -5,14 +6,15 @@ type Props = { id: number; title: string; onDelete: (id: number) => void }
 
 export default function DialogueDeleteButton(props: Props) {
 	const { id, title, onDelete } = props
+	const t = useTranslations('userAiDialogues.card')
 
 	return (
 		<Button
 			size='medium'
 			theme='plain'
-			title='Удалить диалог'
+			title={t('deleteButton')}
 			icon={<TrashButtonIcon />}
-			aria-label={`Удалить диалог «${title}»`}
+			aria-label={t('deleteDialogue', { title })}
 			onClick={() => onDelete(id)}
 		/>
 	)

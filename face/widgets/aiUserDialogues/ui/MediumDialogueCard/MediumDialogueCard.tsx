@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import DialogueCharacters from '../DialogueCharacters/DialogueCharacters'
 import DialogueDeleteButton from '../DialogueDeleteButton/DialogueDeleteButton'
@@ -10,14 +11,15 @@ import '../DialogueCard/DialogueCard.scss'
 import './MediumDialogueCard.scss'
 
 export default function MediumDialogueCard({ dialogue, locale, onDelete }: DialogueCardProps) {
-	const { title, url } = getDialogueCardDetails(dialogue)
+	const t = useTranslations('userAiDialogues.card')
+	const { title, url } = getDialogueCardDetails(dialogue, t('untitledDialogue'))
 
 	return (
 		<article className='ai-dialogue-card'>
 			<BaseButton
 				theme='outline'
 				href={url}
-				aria-label={`Открыть диалог «${title}»`}
+				aria-label={t('openDialogue', { title })}
 				extraClass='ai-dialogue-card__link medium-dialogue-card'
 			>
 				<div className='medium-dialogue-card__scene'>

@@ -1,8 +1,9 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import type { UserModel } from '@/entities/user/UserService'
 import { useUser } from '@/shared/api/auth/UserProvider'
-import { getProfileStatusText } from './fn/profileFormState'
+import { getProfileErrorText } from './fn/profileFormState'
 import { useUserProfileForm } from './fn/useUserProfileForm'
 import AvatarPresetPicker from './ui/AvatarPresetPicker'
 import UserAvatarField from './ui/UserAvatarField'
@@ -17,10 +18,11 @@ function UserProfileForm() {
 }
 
 function ProfileFields({ user }: { user: UserModel }) {
+	const t = useTranslations('mePage.profile')
 	const { state, isSaving, presets, changeGender, selectPreset, selectPhoto, uploadPhoto } = useUserProfileForm(user)
 
 	return (
-		<section className='user-profile-form' aria-label='Настройки профиля' aria-busy={isSaving}>
+		<section className='user-profile-form' aria-label={t('ariaLabel')} aria-busy={isSaving}>
 			<UserGenderField gender={state.pendingGender ?? user.gender} disabled={isSaving} onChange={changeGender} />
 			<AvatarPresetPicker
 				user={user}
@@ -48,7 +50,7 @@ function ProfileFields({ user }: { user: UserModel }) {
 				role='status'
 				aria-live='polite'
 			>
-				{getProfileStatusText(state)}
+				{getProfileErrorText(state) ?? t(`status.${state.status}`)}
 			</p>
 		</section>
 	)

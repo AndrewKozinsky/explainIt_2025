@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { FileDropzoneStatus, useFileDropzone } from '@/shared/ui/formRelated/FileDropzone/fn/useFileDropzone'
 import AvatarImage from './AvatarImage'
 
@@ -12,6 +13,7 @@ type UserAvatarFieldProps = {
 const acceptedPhotoFormats = { 'image/jpeg': ['.jpg', '.jpeg'], 'image/png': ['.png'], 'image/webp': ['.webp'] }
 
 function UserAvatarField({ avatarUrl, selected, disabled, onSelect, onUploadFile }: UserAvatarFieldProps) {
+	const t = useTranslations('mePage.avatar')
 	const { getRootProps, getInputProps, open, inputStatus } = useFileDropzone({
 		accept: acceptedPhotoFormats,
 		supportedFormatsStr: 'JPEG, PNG, WebP',
@@ -31,25 +33,25 @@ function UserAvatarField({ avatarUrl, selected, disabled, onSelect, onUploadFile
 
 	return (
 		<div {...getRootProps({ role: 'presentation', className: 'user-profile-form__photo-tile' })}>
-			<input {...getInputProps()} disabled={disabled || uploading} aria-label='Загрузить свою фотографию' />
+			<input {...getInputProps()} disabled={disabled || uploading} aria-label={t('uploadOwnPhoto')} />
 			<button
 				type='button'
 				className={`user-profile-form__preset${selected ? ' user-profile-form__preset--selected' : ''}`}
 				aria-pressed={selected}
-				aria-label={avatarUrl && !selected ? 'Выбрать свою фотографию' : 'Загрузить свою фотографию'}
+				aria-label={avatarUrl && !selected ? t('selectOwnPhoto') : t('uploadOwnPhoto')}
 				disabled={disabled || uploading}
 				onClick={handleClick}
 			>
 				<span className='user-profile-form__preset-image'>
 					{avatarUrl ? (
-						<AvatarImage url={avatarUrl} alt='Своя фотография' />
+						<AvatarImage url={avatarUrl} alt={t('ownPhoto')} />
 					) : (
 						<span className='user-profile-form__upload-icon' aria-hidden>
 							+
 						</span>
 					)}
 				</span>
-				<span>{uploading ? 'Загружаем…' : 'Своя фотография'}</span>
+				<span>{uploading ? t('uploading') : t('ownPhoto')}</span>
 			</button>
 		</div>
 	)

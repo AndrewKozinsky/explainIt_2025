@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import LargeDialogueCard from '../LargeDialogueCard/LargeDialogueCard'
@@ -13,27 +13,24 @@ import './UserAiDialoguesList.scss'
 type Props = { userId: number }
 
 export default function UserAiDialoguesList({ userId }: Props) {
+	const t = useTranslations('userAiDialogues')
 	const locale = useLocale()
 	const query = useUserAiDialogues(userId)
 	const { isModalOpen, status, openDeleteModal, closeDeleteModal, onConfirmDelete } = useAiDialogueDelete()
 
-	if (query.isPending) return <p role='status'>Загружаю диалоги…</p>
+	if (query.isPending) return <p role='status'>{t('loading')}</p>
 
 	if (query.isError && !query.data) {
 		return (
 			<div role='alert' className='user-ai-dialogues-list__error'>
-				<p>Не удалось загрузить диалоги.</p>
-				<Button onClick={() => void query.refetch()}>Повторить</Button>
+				<p>{t('loadError')}</p>
+				<Button onClick={() => void query.refetch()}>{t('retry')}</Button>
 			</div>
 		)
 	}
 
 	if (!query.dialogues.length) {
-		return (
-			<p className='user-ai-dialogues-list__empty'>
-				У вас ещё нет ни одного диалога. Выберите сценарий чтобы начать.
-			</p>
-		)
+		return <p className='user-ai-dialogues-list__empty'>{t('empty')}</p>
 	}
 
 	const cards = query.dialogues.map((dialogue, index) => {
@@ -47,7 +44,7 @@ export default function UserAiDialoguesList({ userId }: Props) {
 			<div className='user-ai-dialogues-list__cards'>{cards}</div>
 			{query.isError && (
 				<p role='alert' className='user-ai-dialogues-list__error'>
-					Не удалось обновить диалоги. Попробуйте ещё раз.
+					{t('refreshError')}
 				</p>
 			)}
 			{query.hasMore && (
@@ -58,7 +55,7 @@ export default function UserAiDialoguesList({ userId }: Props) {
 						disabled={query.isFetching}
 						loading={query.isFetchingNextPage}
 					>
-						Предыдущие диалоги
+						{t('loadMore')}
 					</Button>
 				</div>
 			)}
@@ -68,9 +65,9 @@ export default function UserAiDialoguesList({ userId }: Props) {
 				onDeleteButtonClick={onConfirmDelete}
 				isDeleteButtonLoading={status === 'loading'}
 				modal={{
-					header: 'Удаление диалога',
-					content: 'Вы уверены, что хотите удалить диалог?',
-					confirmButtonText: 'Удалить диалог',
+					header: t('deleteModal.header'),
+					content: t('deleteModal.content'),
+					confirmButtonText: t('deleteModal.confirm'),
 				}}
 			/>
 		</div>

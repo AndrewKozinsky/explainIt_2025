@@ -1,0 +1,23 @@
+{
+  "loading": "Cargando escenarios…",
+  "loadError": "No se pudieron cargar los escenarios.",
+  "retry": "Reintentar",
+  "empty": "Todavía no hay escenarios disponibles.",
+  "emptyScenarioName": "Sin título…",
+  "creatingDialogue": "Creando la conversación",
+  "startModal": {
+    "practiceLanguage": "Idioma de práctica",
+    "textLevelDescription": "Puedes cambiarlo durante la conversación",
+    "userScenarioAmendment": "Preferencias para la escena",
+    "defaultUserScenarioAmendmentHint": "Por ejemplo, dónde ocurre la acción y quién es tu interlocutor",
+    "start": "Empezar la conversación",
+    "conversationIdeas": "Ideas para la conversación",
+    "trainedSkills": "Qué entrena"
+  },
+  "loginModal": {
+    "header": "Inicia sesión en tu cuenta",
+    "text": "Inicia sesión para empezar una conversación con personajes de IA.",
+    "login": "Iniciar sesión",
+    "register": "Registrarse"
+  }
+}

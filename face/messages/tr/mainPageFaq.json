@@ -23,7 +23,7 @@
     {
       "question": "Hata yapmaktan korkuyorum. Beni düzeltecekler mi?",
       "answer": [
-        "Cevabınız gönderilmeden önce hatalara karşı kontrol edilir. Hata varsa nasıl düzelteceğinizi görürsünüz; cevabı diyaloğa ancak tüm dil bilgisi hataları düzeltildikten sonra gönderebilirsiniz.",
+        "Cevabınız gönderilmeden önce hatalara karşı kontrol edilir. Hata varsa nasıl düzelteceğinizi görürsünüz; cevabı sohbete ancak tüm dil bilgisi hataları düzeltildikten sonra gönderebilirsiniz.",
         "Böylece konuşmaya yalnızca doğru replikler gider ve hatalarınızı yalnızca siz görürsünüz. Karakterler sizi düzeltmez ve sahneyi derse çevirmez: hikâye kaldığı yerden devam eder."
       ]
     },
@@ -54,7 +54,7 @@
     {
       "question": "Ara verip sonra devam edebilir miyim?",
       "answer": [
-        "Evet. Tüm konuşmalarınız “Diyaloglarım” bölümünde saklanır, kaldığınız yerden devam edebilirsiniz."
+        "Evet. Tüm sohbetleriniz “Sohbetlerim” bölümünde saklanır, kaldığınız yerden devam edebilirsiniz."
       ]
     },
     {

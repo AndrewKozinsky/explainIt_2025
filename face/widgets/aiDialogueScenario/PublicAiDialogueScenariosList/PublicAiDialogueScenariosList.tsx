@@ -1,6 +1,7 @@
 'use client'
 
 import { useQuery } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { aiDialogueScenarioGroupQueries } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupQueryFacade'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { getScenarioGroupsConfig } from './fn/getScenarioGroupsConfig'
@@ -11,6 +12,7 @@ import StartDialogueModal from './ui/StartDialogueModal/StartDialogueModal'
 import './PublicAiDialogueScenariosList.scss'
 
 export default function PublicAiDialogueScenariosList() {
+	const t = useTranslations('aiDialogueScenariosList')
 	const query = useQuery(aiDialogueScenarioGroupQueries.getAiDialogueScenarioGroups())
 
 	const {
@@ -25,21 +27,24 @@ export default function PublicAiDialogueScenariosList() {
 		onRegisterClick,
 	} = useAiDialogueScenarioClick()
 
-	if (query.isPending) return <p role='status'>Загружаю сценарии…</p>
+	if (query.isPending) return <p role='status'>{t('loading')}</p>
 
 	if (query.isError && !query.data) {
 		return (
 			<div role='alert' className='public-ai-dialogue-scenarios-list__error'>
-				<p>Не удалось загрузить сценарии.</p>
+				<p>{t('loadError')}</p>
 				<Button onClick={() => void query.refetch()} disabled={query.isFetching}>
-					Повторить
+					{t('retry')}
 				</Button>
 			</div>
 		)
 	}
 
-	const groups = getScenarioGroupsConfig(query.data ?? [])
-	if (!groups.length) return <p>Пока нет доступных сценариев.</p>
+	const groups = getScenarioGroupsConfig(query.data ?? [], {
+		emptyScenarioName: t('emptyScenarioName'),
+		defaultUserScenarioAmendmentHint: t('startModal.defaultUserScenarioAmendmentHint'),
+	})
+	if (!groups.length) return <p>{t('empty')}</p>
 
 	const selectedGroup = groups.find((group) => group.scenarios.some((scenario) => scenario.id === selectedScenarioId))
 	const selectedScenario = selectedGroup?.scenarios.find((scenario) => scenario.id === selectedScenarioId)

@@ -1,0 +1,31 @@
+{
+  "logout": "Çıkış yap",
+  "profile": {
+    "ariaLabel": "Profil ayarları",
+    "saveError": "Profil kaydedilemedi. Lütfen tekrar deneyin.",
+    "status": {
+      "idle": "Değişiklikler otomatik olarak kaydedilir",
+      "saving": "Değişiklikler kaydediliyor…",
+      "saved": "Değişiklikler kaydedildi",
+      "error": "Değişiklikler kaydedilemedi"
+    }
+  },
+  "gender": {
+    "label": "Cinsiyet",
+    "male": "Erkek",
+    "female": "Kadın"
+  },
+  "avatar": {
+    "label": "Avatar",
+    "loading": "Hazır avatarlar yükleniyor…",
+    "loadError": "Hazır avatarlar yüklenemedi.",
+    "retry": "Tekrar dene",
+    "photoHint": "Kendi fotoğrafınız: JPEG, PNG, WebP · en fazla 30 MB. Seçili fotoğrafı değiştirmek için ona tekrar tıklayın.",
+    "presetLabel": "{gender, select, MALE {Erkek avatarı {number}} other {Kadın avatarı {number}}}",
+    "imageUnavailable": "Görsel kullanılamıyor",
+    "ownPhoto": "Kendi fotoğrafınız",
+    "uploadOwnPhoto": "Kendi fotoğrafınızı yükleyin",
+    "selectOwnPhoto": "Kendi fotoğrafınızı seçin",
+    "uploading": "Yükleniyor…"
+  }
+}

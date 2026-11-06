@@ -1,6 +1,8 @@
+import { getRequestLocale } from '@/shared/api/getRequestLocale'
 import { ApiError } from '@/shared/api/mutator'
 import { isAbortError } from '@/shared/utils/fetchData/isAbortError'
 import { resolveError, resolveErrorByCode } from '@/shared/utils/fetchData/resolveError'
+import { translateServerError } from '@/shared/utils/fetchData/serverErrorTexts'
 
 /**
  * Одна валидационная ошибка от сервера — поле и список сообщений.
@@ -30,7 +32,7 @@ export type ApiResult<T> = {
  *
  * Выполняет fetcher, на успехе применяет mapper (если передан),
  * на ошибке анализирует тело ответа и возвращает {@link ApiResult}
- * с читаемыми ошибками.
+ * с читаемыми ошибками на языке интерфейса ({@link getRequestLocale}).
  *
  * @param fetcher — Orval-функция, возвращающая `{ data, status, headers }`
  * @param mapper — опциональный преобразователь сырых данных в доменный тип
@@ -58,7 +60,7 @@ export async function executeApiCall<TRaw, TMapped = TRaw>(
 			throw e
 		}
 
-		return handleApiError<TMapped>(e)
+		return handleApiError<TMapped>(e, await getRequestLocale())
 	}
 }
 
@@ -87,11 +89,11 @@ export async function executeApiCall<TRaw, TMapped = TRaw>(
  * ```
  * → Каждое сообщение резолвится через {@link resolveErrorByCode}
  */
-function handleApiError<T>(e: unknown): ApiResult<T> {
+function handleApiError<T>(e: unknown, locale: null | string): ApiResult<T> {
 	const emptyData = null as unknown as T
 
 	if (!(e instanceof ApiError)) {
-		return { error: 'Неизвестная ошибка сервера.', errors: null, data: emptyData }
+		return { error: translateServerError('UNKNOWN_ERROR', {}, locale), errors: null, data: emptyData }
 	}
 
 	const body = e.body
@@ -100,13 +102,13 @@ function handleApiError<T>(e: unknown): ApiResult<T> {
 	if (isValidationErrorBody(body)) {
 		const errors: FieldError[] = body.message.map((item: { field: string; messages: string[] }) => ({
 			field: item.field,
-			messages: item.messages.map((msg) => resolveMessageText(msg)),
+			messages: item.messages.map((msg) => resolveMessageText(msg, locale)),
 		}))
 		return { error: null, errors, data: emptyData }
 	}
 
 	// Бизнес-ошибка: одиночный объект с errorMessageCode
-	return { error: resolveError(e), errors: null, data: emptyData }
+	return { error: resolveError(e, locale), errors: null, data: emptyData }
 }
 
 function isValidationErrorBody(body: unknown): body is { message: Array<{ field: string; messages: string[] }> } {
@@ -121,11 +123,11 @@ function isValidationErrorBody(body: unknown): body is { message: Array<{ field:
  * Если сообщение — JSON-строка с полем `code`, резолвит его
  * через {@link resolveErrorByCode}. Иначе возвращает как есть.
  */
-function resolveMessageText(rawMessage: string): string {
+function resolveMessageText(rawMessage: string, locale: null | string): string {
 	try {
 		const parsed = JSON.parse(rawMessage)
 		if (typeof parsed === 'object' && parsed !== null && 'code' in parsed) {
-			return resolveErrorByCode(parsed.code, parsed)
+			return resolveErrorByCode(parsed.code, parsed, locale)
 		}
 		return rawMessage
 	} catch {

@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { redirect } from 'next/navigation'
-import { useLocale } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import FormError from '@/shared/ui/formRelated/FormError/FormError'
@@ -12,13 +12,17 @@ import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import OAuthButtons from '@/shared/ui/OAuthButtons/OAuthButtons'
 import { FormStatus } from '@/shared/utils/forms'
 import { localizePath, pageUrls } from '@/shared/utils/pageUrls'
-import { LoginFormData, loginFormSchema } from './fn/form'
+import { useAuthValidationTexts } from '../fn/useAuthValidationTexts'
+import { createLoginFormSchema, LoginFormData } from './fn/form'
 import { useGetOnLoginFormSubmit } from './fn/submit'
 
 function AuthLoginForm() {
 	const [formStatus, setFormStatus] = useState<FormStatus>('idle')
 	const [formError, setFormError] = useState<null | string>(null)
 	const locale = useLocale()
+	const t = useTranslations('auth')
+	const validationTexts = useAuthValidationTexts()
+	const loginFormSchema = useMemo(() => createLoginFormSchema(validationTexts), [validationTexts])
 
 	const {
 		register,
@@ -41,7 +45,7 @@ function AuthLoginForm() {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<FormFieldsWrapper>
 					<TextInput
-						label='Почта'
+						label={t('fields.email')}
 						error={errors.email?.message}
 						inputProps={{
 							...register('email', { required: true }),
@@ -49,7 +53,7 @@ function AuthLoginForm() {
 						}}
 					/>
 					<TextInput
-						label='Пароль'
+						label={t('fields.password')}
 						error={errors.password?.message}
 						inputProps={{
 							...register('password', { required: true }),
@@ -58,7 +62,7 @@ function AuthLoginForm() {
 						}}
 					/>
 					<Button type='submit' disabled={['success', 'submitting'].includes(formStatus)}>
-						Войти
+						{t('login.submit')}
 					</Button>
 					<FormError text={formError} />
 				</FormFieldsWrapper>

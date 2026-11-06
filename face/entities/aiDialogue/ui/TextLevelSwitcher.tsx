@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import type { AiDialogueCefrLevel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import Switcher from '@/shared/ui/Switcher/Switcher'
@@ -21,15 +22,17 @@ function TextLevelSwitcher({
 	size = 'small',
 	description,
 }: TextLevelSwitcherProps) {
+	const t = useTranslations('aiDialogue.textLevelSwitcher')
+
 	return (
-		<LabelWithField label='Language level' description={description}>
+		<LabelWithField label={t('label')} description={description}>
 			<Switcher
 				type='fit'
 				size={size}
 				orientation='horizontal'
 				disabled={disabled}
 				items={textLevels.map((level) => ({
-					text: level,
+					text: level === 'Any' ? t('anyLevel') : level,
 					isCurrent: textLevel === level,
 					onClick: () => onTextLevelChange(level),
 				}))}

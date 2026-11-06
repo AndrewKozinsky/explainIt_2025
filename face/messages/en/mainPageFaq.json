@@ -23,7 +23,7 @@
     {
       "question": "I’m afraid of making mistakes. Will I be corrected?",
       "answer": [
-        "Your reply is checked for mistakes before it’s sent. If there are any, you’ll see how to fix them, and you can send the reply into the dialogue only once all grammar mistakes are fixed.",
+        "Your reply is checked for mistakes before it’s sent. If there are any, you’ll see how to fix them, and you can send the reply into the conversation only once all grammar mistakes are fixed.",
         "So only correct lines make it into the conversation, and only you see your mistakes. The characters don’t correct you or turn the scene into a lesson: the story simply moves on."
       ]
     },
@@ -54,7 +54,7 @@
     {
       "question": "Can I take a break and continue later?",
       "answer": [
-        "Yes. All your conversations are saved in “My dialogues”, and you can pick up right where you left off."
+        "Yes. All your conversations are saved in “My conversations”, and you can pick up right where you left off."
       ]
     },
     {

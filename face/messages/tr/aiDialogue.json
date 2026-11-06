@@ -10,5 +10,13 @@
     "error": "Stiller yüklenemedi.",
     "empty": "Kullanılabilir stil yok.",
     "retry": "Tekrar dene"
+  },
+  "textLevelSwitcher": {
+    "label": "Dil seviyesi",
+    "anyLevel": "Herhangi"
+  },
+  "characterAvatars": {
+    "participants": "Sohbet katılımcıları",
+    "moreParticipants": "Diğer katılımcılar: {count}"
   }
 }

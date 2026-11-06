@@ -1,7 +1,7 @@
 'use client'
 
-import { useTranslations } from 'next-intl'
 import { useQuery } from '@tanstack/react-query'
+import { useLocale, useTranslations } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
@@ -30,6 +30,7 @@ type Props = {
 
 export default function AiDialoguePage({ dialogueId }: Props) {
 	const t = useTranslations('pageUrls')
+	const locale = useLocale()
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
@@ -62,7 +63,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 				leftBlock={
 					<AiDialogueLeftWrapper>
 						<>
-							{turnError && <ErrorMessage text={resolveAiDialogueTurnError(turnError)} />}
+							{turnError && <ErrorMessage text={resolveAiDialogueTurnError(turnError, locale)} />}
 							<AiDialogueMessageList
 								key={dialogueId}
 								messages={messages}

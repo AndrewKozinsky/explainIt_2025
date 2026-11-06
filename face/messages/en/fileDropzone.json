@@ -1,0 +1,6 @@
+{
+  "uploadError": "Could not upload the file",
+  "uploadUrlError": "Could not get the upload link",
+  "fileTooLarge": "The file is too large. Maximum size is {maxSizeMb} MB.",
+  "wrongFile": "Choose one file: {formats}."
+}

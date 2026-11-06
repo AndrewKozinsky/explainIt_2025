@@ -1,0 +1,24 @@
+{
+  "loading": "Sohbetler yükleniyor…",
+  "loadError": "Sohbetler yüklenemedi.",
+  "retry": "Tekrar dene",
+  "empty": "Henüz hiç sohbetiniz yok. Başlamak için bir senaryo seçin.",
+  "refreshError": "Sohbetler güncellenemedi. Lütfen tekrar deneyin.",
+  "loadMore": "Önceki sohbetler",
+  "deleteModal": {
+    "header": "Sohbeti sil",
+    "content": "Sohbeti silmek istediğinizden emin misiniz?",
+    "confirm": "Sohbeti sil"
+  },
+  "card": {
+    "lastDialogue": "Son sohbet",
+    "untitledDialogue": "Sohbet",
+    "openDialogue": "“{title}” sohbetini aç",
+    "sceneImageAlt": "“{title}” sohbetinin sahnesi",
+    "deleteButton": "Sohbeti sil",
+    "deleteDialogue": "“{title}” sohbetini sil",
+    "noMessages": "Henüz karakter mesajı yok.",
+    "characterFallback": "Karakter",
+    "anyLevel": "Sınırsız"
+  }
+}

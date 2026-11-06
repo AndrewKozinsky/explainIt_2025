@@ -23,7 +23,7 @@
     {
       "question": "Ich habe Angst vor Fehlern. Werde ich korrigiert?",
       "answer": [
-        "Ihre Antwort wird schon vor dem Absenden auf Fehler geprüft. Gibt es welche, sehen Sie, wie Sie sie korrigieren, und in den Dialog schicken können Sie die Antwort erst, wenn alle Grammatikfehler behoben sind.",
+        "Ihre Antwort wird schon vor dem Absenden auf Fehler geprüft. Gibt es welche, sehen Sie, wie Sie sie korrigieren, und ins Gespräch schicken können Sie die Antwort erst, wenn alle Grammatikfehler behoben sind.",
         "So gelangen nur korrekte Repliken ins Gespräch, und Ihre Fehler sehen nur Sie. Die Figuren korrigieren Sie nicht und machen keine Unterrichtsstunde daraus: Die Geschichte geht einfach weiter."
       ]
     },
@@ -54,7 +54,7 @@
     {
       "question": "Kann ich eine Pause machen und später weitermachen?",
       "answer": [
-        "Ja. Alle Gespräche werden unter „Meine Dialoge“ gespeichert, und Sie machen genau dort weiter, wo Sie aufgehört haben."
+        "Ja. Alle Gespräche werden unter „Meine Gespräche“ gespeichert, und Sie machen genau dort weiter, wo Sie aufgehört haben."
       ]
     },
     {

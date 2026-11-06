@@ -418,21 +418,34 @@ LLM отвечает **плоским построчным текстом** (`re
 обычными строками и рисуется на клиенте посимвольно. Один ход = один или несколько блоков, разделённых **ровно одной
 пустой строкой**; блок = строка-заголовок + поля по одной строке.
 
-```
-npcActions|<npcId>|<npcName>|<npcRole>|<emotion>
-action:
-<описание действия>
+Полный шаблон (все поля):
+
+```text
+sceneUpdate
+<описание сцены>
 <перевод>
+participants:<видимые npcId через запятую>
+visual:<английское описание кадра>
+
+npcActions|<npcId>|<npcName>|<npcRole>|<emotion>
+appearance:
+<английская внешность — только для нового NPC>
+voice:
+{"voice":"<голос OpenAI>","instructions":"<манера>"}
 speech:
 <реплика>
 <перевод>
+action:
+<действие>
+<перевод>
+
+wordMaps:
+<по одной JSON-строке на каждую content-строку>
 ```
 
-```
-sceneUpdate
-<описание новой сцены>
-<перевод>
-```
+`sceneUpdate` открывает новую встречу с NPC; всё внутри встречи — `npcActions`. `appearance`, `voice`,
+`participants`, `visual` и `wordMaps` скрыты от пользователя и не становятся сообщениями. Модель иногда пишет
+`appearance`/`voice` в одну строку — парсеры это принимают (`readNpcMetadataField`).
 
 Заголовки текстовых событий — `sceneUpdate`, `help`, `worldEvent` (без полей, затем `content` и
 `translation`). Внутри `npcActions` повторяются тройки `метка:` / `content` / `translation`, где метка —
@@ -605,6 +618,16 @@ SSE-соединения. Субъекты не вычищаются (диало
   вместе с визуальными сущностями и заданиями.
 - `server/src/models/aiDialogue/aiDialogue.out.model.ts` — `AiDialogueOutModel` с вложенным `scenario`.
 - `server/src/models/aiDialogue/aiDialogueMessage.out.model.ts` — `AiDialogueMessageOutModel`.
+
+### Процессы
+
+- HTTP-процесс (`server/src/main.ts`): REST, SSE, WebSocket диктовки, генерация текста, publisher'ы outbox,
+  фоновые очистки R2.
+- Worker (`server/src/main.worker.ts`, `worker.module.ts`): очереди BullMQ изображений и аудио,
+  а также генерация субтитров видео. Если worker упал, задания висят в `queued`.
+- Redis — сессии, BullMQ, Pub/Sub уведомлений worker → HTTP. R2 — файлы, ключи разделены по REGION/MODE.
+- Побочные конвейеры (изображения, озвучка) не блокируют текст хода: источник истины — БД и REST,
+  а Redis/SSE лишь сигналят клиенту «перечитай».
 
 ### Инфраструктура
 

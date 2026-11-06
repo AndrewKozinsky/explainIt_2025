@@ -1,5 +1,6 @@
 import { useCallback } from 'react'
 import { useMutation } from '@tanstack/react-query'
+import { useTranslations } from 'next-intl'
 import { authQueries } from '@/entities/auth/AuthQueryFacade'
 import { FormStatus } from '@/shared/utils/forms'
 import { RegisterFormData } from './form'
@@ -10,6 +11,7 @@ export function useGetOnRegisterFormSubmit(
 	setFormError: React.Dispatch<React.SetStateAction<string | null>>,
 	setFormSuccess: React.Dispatch<React.SetStateAction<string | null>>,
 ) {
+	const t = useTranslations('auth.register')
 	const { mutateAsync: registerUser } = useMutation(authQueries.register())
 
 	return useCallback(
@@ -37,8 +39,8 @@ export function useGetOnRegisterFormSubmit(
 			}
 
 			setFormStatus('success')
-			setFormSuccess('На почту ' + result.data.email + ' отправлено письмо с кодом подтверждения.')
+			setFormSuccess(t('success', { email: result.data.email }))
 		},
-		[registerUser, setFieldError, setFormError, setFormStatus, setFormSuccess],
+		[registerUser, setFieldError, setFormError, setFormStatus, setFormSuccess, t],
 	)
 }

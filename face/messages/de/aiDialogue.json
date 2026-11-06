@@ -10,5 +10,13 @@
     "error": "Stile konnten nicht geladen werden.",
     "empty": "Keine Stile verfügbar.",
     "retry": "Erneut versuchen"
+  },
+  "textLevelSwitcher": {
+    "label": "Sprachniveau",
+    "anyLevel": "Beliebig"
+  },
+  "characterAvatars": {
+    "participants": "Gesprächsteilnehmer",
+    "moreParticipants": "Weitere Teilnehmer: {count}"
   }
 }

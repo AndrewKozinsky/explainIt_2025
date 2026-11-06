@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import IllustrationStyleSwitcher from '@/entities/aiDialogue/ui/IllustrationStyleSwitcher/IllustrationStyleSwitcher'
 import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
@@ -22,6 +23,7 @@ type Props = {
 }
 
 export default function StartDialogueModal({ scenario, groupTitle, loading, onClose, onStart }: Props) {
+	const t = useTranslations('aiDialogueScenariosList.startModal')
 	const settings = useStartDialogueOptions()
 
 	return (
@@ -30,7 +32,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 			<div className='start-dialogue-modal__content'>
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
 				<ScenarioPracticeHints scenario={scenario} />
-				<LabelWithField label='Язык практики'>
+				<LabelWithField label={t('practiceLanguage')}>
 					<LanguageSwitch
 						languages={settings.practiceLanguages}
 						currentLang={settings.practiceLanguage}
@@ -43,7 +45,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 					onTextLevelChange={settings.changeTextLevel}
 					disabled={loading}
 					size='medium'
-					description='Можно изменить во время разговора'
+					description={t('textLevelDescription')}
 				/>
 				<IllustrationStyleSwitcher
 					styles={settings.illustrationStyles.styles}
@@ -57,7 +59,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 				/>
 				<TextInput
 					block
-					label='Пожелания к сцене'
+					label={t('userScenarioAmendment')}
 					maxCharacters={aiDialogueScenarioConfig.userScenarioAmendmentMaxLength}
 					currentText={settings.userScenarioAmendment}
 					textareaProps={{
@@ -78,7 +80,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 						if (settings.options) onStart(settings.options)
 					}}
 				>
-					Начать диалог
+					{t('start')}
 				</Button>
 			</div>
 		</Modal>

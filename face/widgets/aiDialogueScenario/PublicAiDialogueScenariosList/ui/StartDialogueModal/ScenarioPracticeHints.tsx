@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 
 /** Блоки «Идеи для диалога» и «Что тренирует»; пустой блок не выводится. */
 export default function ScenarioPracticeHints({ scenario }: Props) {
+	const t = useTranslations('aiDialogueScenariosList.startModal')
 	const hasTrainedSkills = scenario.trainedSkills.trim() !== ''
 	const hasConversationIdeas = scenario.conversationIdeas.length > 0
 
@@ -15,7 +17,7 @@ export default function ScenarioPracticeHints({ scenario }: Props) {
 		<div className='start-dialogue-modal__hints'>
 			{hasConversationIdeas && (
 				<section className='start-dialogue-modal__hint'>
-					<h3 className='start-dialogue-modal__hint-title'>Идеи для диалога</h3>
+					<h3 className='start-dialogue-modal__hint-title'>{t('conversationIdeas')}</h3>
 					<ul className='start-dialogue-modal__ideas'>
 						{scenario.conversationIdeas.map((idea) => (
 							<li key={idea} className='start-dialogue-modal__idea'>
@@ -27,7 +29,7 @@ export default function ScenarioPracticeHints({ scenario }: Props) {
 			)}
 			{hasTrainedSkills && (
 				<section className='start-dialogue-modal__hint'>
-					<h3 className='start-dialogue-modal__hint-title'>Что тренирует</h3>
+					<h3 className='start-dialogue-modal__hint-title'>{t('trainedSkills')}</h3>
 					<p className='start-dialogue-modal__hint-text'>{scenario.trainedSkills}</p>
 				</section>
 			)}
