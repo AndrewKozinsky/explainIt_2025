@@ -41,6 +41,8 @@
 
 .button--icon-only {
 	padding-inline: var(--button-padding-block);
+	// Ширина не меньше высоты: строка + вертикальные отступы + рамка 1px с двух сторон.
+	min-width: calc(1lh + 2 * var(--button-padding-block) + 2px);
 }
 
 .button__icon {

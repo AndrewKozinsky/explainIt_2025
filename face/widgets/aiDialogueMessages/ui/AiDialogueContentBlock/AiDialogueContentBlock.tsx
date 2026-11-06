@@ -8,6 +8,7 @@ import type {
 import AiDialogueTextWithTranslation from '../AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import DialogueAudioButton from '../audio/DialogueAudioButton'
 import DialogueTextVisibilityButton from '../DialogueTextVisibilityButton/DialogueTextVisibilityButton'
+import { getHiddenTextPreview } from './fn/getHiddenTextPreview'
 import { useDialogueContentSelection } from './fn/useDialogueContentSelection'
 import { useDialogueTextVisibility } from './fn/useDialogueTextVisibility'
 import './AiDialogueContentBlock.scss'
@@ -46,7 +47,7 @@ function AiDialogueContentBlock({
 					colorScheme={colorScheme}
 				/>
 			</div>
-			{isTextVisible && (
+			{isTextVisible ? (
 				<AiDialogueTextWithTranslation
 					content={content}
 					translation={translation}
@@ -54,6 +55,10 @@ function AiDialogueContentBlock({
 					isTranslationVisible={isTranslationVisible}
 					onWordClick={handleWordClick}
 				/>
+			) : (
+				<p className='ai-dialogue-content-block__hidden-text' aria-label='Текст скрыт'>
+					{getHiddenTextPreview(content)}
+				</p>
 			)}
 		</div>
 	)

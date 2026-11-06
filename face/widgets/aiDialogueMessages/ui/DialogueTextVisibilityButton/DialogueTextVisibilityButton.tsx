@@ -13,6 +13,8 @@ export default function DialogueTextVisibilityButton({
 	onClick,
 	colorScheme = 'dark',
 }: DialogueTextVisibilityButtonProps) {
+	const buttonLabel = isTextVisible ? 'Скрыть текст' : 'Показать текст'
+
 	return (
 		<Button
 			size='small'
@@ -20,10 +22,10 @@ export default function DialogueTextVisibilityButton({
 			colorScheme={colorScheme}
 			rounded
 			onClick={onClick}
+			aria-label={buttonLabel}
+			title={buttonLabel}
 			aria-pressed={isTextVisible}
 			icon={isTextVisible ? <EyeClosedSmallButtonIcon /> : <EyeOpenedSmallButtonIcon />}
-		>
-			{isTextVisible ? 'Скрыть текст' : 'Показать текст'}
-		</Button>
+		/>
 	)
 }

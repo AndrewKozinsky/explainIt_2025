@@ -39,8 +39,6 @@ export default function DialogueAudioButton({ address, colorScheme = 'dark' }: D
 					<PlaySmallButtonIcon />
 				)
 			}
-		>
-			{audioButtonConfig.text}
-		</Button>
+		/>
 	)
 }
