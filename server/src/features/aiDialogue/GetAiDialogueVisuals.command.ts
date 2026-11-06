@@ -32,8 +32,6 @@ export class GetAiDialogueVisualsHandler implements ICommandHandler<
 		if (dialogue.user_id !== command.userId)
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 
-		// Signer grants six hours; advertise five to leave a margin for generation and clock skew.
-		const urlsExpireAt = new Date(Date.now() + 5 * 60 * 60_000).toISOString()
 		const mapImage = async (
 			image: (typeof dialogue.AiDialogueCharacter)[number]['AiDialogueImage'][number] | undefined,
 		) =>
@@ -50,7 +48,6 @@ export class GetAiDialogueVisualsHandler implements ICommandHandler<
 
 		return {
 			dialogueId: dialogue.id,
-			urlsExpireAt,
 			userAvatarUrl: await this.storage.getFileUrl(getUserAvatarS3Key(dialogue.user)),
 			characters: await Promise.all(
 				dialogue.AiDialogueCharacter.map(async (character) => ({

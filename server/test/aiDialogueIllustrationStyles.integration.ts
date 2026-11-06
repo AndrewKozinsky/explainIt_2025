@@ -29,10 +29,7 @@ async function main() {
 			{
 				provide: CloudflareS3Service,
 				useValue: {
-					getCacheableFileUrl: async (key: string) => ({
-						url: `https://signed.example/${key}`,
-						expiresAt: new Date(Date.now() + 6 * 60 * 60 * 1000),
-					}),
+					getFileUrl: async (key: string) => `https://signed.example/${key}`,
 				},
 			},
 			{ provide: AiDialogueScenarioRepository, useValue: { getScenarioById: async () => ({ user_id: null }) } },

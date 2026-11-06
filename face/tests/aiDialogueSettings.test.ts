@@ -47,7 +47,6 @@ function harness() {
 				pageSize: 3,
 				total: 2,
 				totalPages: 1,
-				urlsExpireAt: '2099-01-01T00:00:00Z',
 				items: [current, { ...current, id: 2 }].map((item) => ({
 					...item,
 					lastMessage: null,

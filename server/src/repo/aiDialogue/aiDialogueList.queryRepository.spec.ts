@@ -210,7 +210,6 @@ describe('AiDialogueListQueryRepository', () => {
 
 	it('returns the image of the latest scene, not the most recently generated asset', async () => {
 		const { repository } = harness()
-		const before = Date.now()
 		const result = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
 		expect(result.items[0].sceneImage).toEqual({
@@ -228,8 +227,6 @@ describe('AiDialogueListQueryRepository', () => {
 			layoutVersion: 'emotion-grid-4x3-v1',
 		})
 
-		expect(Date.parse(result.urlsExpireAt)).toBeGreaterThanOrEqual(before + 5 * 60 * 60_000)
-		expect(Date.parse(result.urlsExpireAt)).toBeLessThanOrEqual(Date.now() + 5 * 60 * 60_000)
 		expect(JSON.stringify(result)).not.toMatch(/s3_key|payload|appearance|system_prompt|participantNpcIds/)
 	})
 

@@ -17,7 +17,7 @@ export function ApiGetAiDialogueIllustrationStyles() {
 		ApiOperation({
 			summary: 'Get available AI dialogue illustration styles',
 			description:
-				'Public catalog with client translation keys for titles, square signed preview URLs and the default style ID. Does not generate images. URLs last six hours; refresh at urlsExpireAt.',
+				'Public catalog with client translation keys for titles, square signed preview URLs and the default style ID. Does not generate images. URLs last at least six hours.',
 		}),
 		ApiResponse({ status: 200, description: 'OK', type: AiDialogueIllustrationStylesOutModel }),
 	)
@@ -87,7 +87,7 @@ export function ApiGetAiDialogues() {
 		ApiOperation({
 			summary: 'Get current user AI dialogues',
 			description:
-				'Returns the current user dialogues ordered by createdAt DESC, id DESC. Page defaults to 1 and pageSize to 3 (maximum 100). Includes the last NPC message, the ready image of the latest scene and all NPCs. Image URLs should be refreshed by urlsExpireAt.',
+				'Returns the current user dialogues ordered by createdAt DESC, id DESC. Page defaults to 1 and pageSize to 3 (maximum 100). Includes the last NPC message, the ready image of the latest scene and all NPCs.',
 		}),
 		ApiCookieAuth(),
 		ApiResponse({ status: 200, description: 'OK', type: AiDialoguesPageOutModel }),

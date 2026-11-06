@@ -23,7 +23,7 @@ export function getSignedFileUrlWindow(windowSeconds = signedFileUrlWindowSecond
 	const signingDate = new Date(Math.floor(now / windowMs) * windowMs)
 	const expiresInSeconds = windowSeconds * 2
 
-	return { signingDate, expiresInSeconds, expiresAt: new Date(signingDate.getTime() + expiresInSeconds * 1000) }
+	return { signingDate, expiresInSeconds }
 }
 
 @Injectable()
@@ -63,28 +63,16 @@ export class CloudflareS3Service {
 	}
 
 	/**
-	 * Подписывает GET-ссылку на файл. Внутри окна signedFileUrlWindowSeconds ссылка одинаковая,
-	 * поэтому повторный ответ API не заставляет браузер скачивать тот же файл заново.
-	 * От любого момента ссылка действует не меньше одного окна (6 часов).
+	 * Подписывает GET-ссылку на файл, одинаковую для всех запросов внутри окна signedFileUrlWindowSeconds,
+	 * чтобы повторный ответ API не заставлял браузер скачивать тот же файл заново. Время подписи округляется
+	 * вниз до начала окна, ссылка живёт два окна (не меньше 6 часов от любого момента), а ответ R2 получает
+	 * Cache-Control на тот же срок. Замена файла становится видна не позже, чем начнётся следующее окно.
+	 * @param key Ключ объекта в R2.
 	 */
 	async getFileUrl(key: string) {
-		const { url } = await this.getCacheableFileUrl(key, signedFileUrlWindowSeconds)
-		return url
-	}
+		const { signingDate, expiresInSeconds } = getSignedFileUrlWindow()
 
-	/**
-	 * Подписывает GET-ссылку, одинаковую для всех запросов внутри окна windowSeconds, чтобы браузер
-	 * мог переиспользовать скачанный файл. Время подписи округляется вниз до начала окна, ссылка живёт
-	 * два окна (не меньше одного окна от любого момента), а ответ R2 получает Cache-Control на тот же срок.
-	 * Замена файла становится видна не позже, чем начнётся следующее окно.
-	 * @param key Ключ объекта в R2.
-	 * @param windowSeconds Длина окна, в течение которого ссылка не меняется.
-	 * @returns Подписанная ссылка и момент окончания её действия.
-	 */
-	async getCacheableFileUrl(key: string, windowSeconds: number): Promise<{ url: string; expiresAt: Date }> {
-		const { signingDate, expiresInSeconds, expiresAt } = getSignedFileUrlWindow(windowSeconds)
-
-		const url = await getSignedUrl(
+		return getSignedUrl(
 			this.s3,
 			new GetObjectCommand({
 				Bucket: this.mainConfig.get().cloudflareR2.s3.bucketName,
@@ -93,8 +81,6 @@ export class CloudflareS3Service {
 			}),
 			{ signingDate, expiresIn: expiresInSeconds },
 		)
-
-		return { url, expiresAt }
 	}
 
 	async uploadFile(fileKey: string, body: Buffer, contentType: string, timeoutMs?: number): Promise<void> {

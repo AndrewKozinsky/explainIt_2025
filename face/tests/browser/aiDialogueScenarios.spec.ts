@@ -91,7 +91,6 @@ async function setup(
 		return route.fulfill({
 			json: {
 				defaultStyleId: options.defaultStyleId ?? 'realism',
-				urlsExpireAt: new Date(Date.now() + 5 * 60 * 60_000).toISOString(),
 				styles: ids.map((id) => ({
 					id,
 					titleKey: `aiDialogue.illustrationStyles.${id}`,
@@ -138,7 +137,7 @@ async function setup(
 	})
 	await page.route('**/api/ai-dialogue?**', (route) =>
 		route.fulfill({
-			json: { page: 1, pageSize: 10, total: 0, totalPages: 0, urlsExpireAt: '2099-01-01T00:00:00Z', items: [] },
+			json: { page: 1, pageSize: 10, total: 0, totalPages: 0, items: [] },
 		}),
 	)
 	await page.goto(

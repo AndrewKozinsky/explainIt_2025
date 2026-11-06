@@ -325,10 +325,6 @@ PhraseTranslationResult/
 - `server/src/infrastructure/routeNames.ts` — `UNIVERSAL_PHRASE_TRANSLATION.GET_OR_CREATE`
 - `server/src/infrastructure/exceptions/errorMessage.ts` — ошибки `universalPhraseTranslation.*`
 
-### Клиентские сообщения об ошибках
-
-- `face/messages/{locale}/serverErrors.json` — тексты для кодов ошибок на языках интерфейса (см. [internationalization.md](internationalization.md))
-
 ### Схема БД
 
 - `server/src/db/dbConfig/dbConfig.ts` — конфигурация таблицы `UniversalPhraseTranslation`

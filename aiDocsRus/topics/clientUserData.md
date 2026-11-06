@@ -19,7 +19,7 @@ getCurrentUser (SSR) / UserQueryFacade (React Query)
 ```
 
 `UserApi` преобразует ответ OpenAPI в доменную модель `UserModel` через общий `mapToUser`.
-Модель включает `gender`, `avatarPresetId`, `avatarUrl`, `uploadedAvatarUrl` и `avatarUrlExpiresAt` наряду с ID, почтой, подтверждением и балансом.
+Модель включает `gender`, `avatarPresetId`, `avatarUrl`, `uploadedAvatarUrl` наряду с ID, почтой, подтверждением и балансом.
 `UserService` принимает репозиторий в конструкторе, поэтому источник данных можно подменить.
 `UserQueryFacade` возвращает `queryOptions` для чтения и настройки мутаций для изменений.
 Запросы чтения вызывают `unwrapApiResult` внутри фасада. Мутации возвращают `ApiResult<UserModel>`;
@@ -36,7 +36,6 @@ getCurrentUser (SSR) / UserQueryFacade (React Query)
 | `avatarPresetId` | ID выбранного готового аватара; null означает, что выбрана своя фотография |
 | `avatarUrl` | Подписанная ссылка на выбранный аватар |
 | `uploadedAvatarUrl` | Подписанная ссылка на последнюю загруженную фотографию или null, если её нет |
-| `avatarUrlExpiresAt` | Общий срок обновления `avatarUrl` и `uploadedAvatarUrl` |
 
 Когда выбран готовый аватар, `uploadedAvatarUrl` остаётся заполненным, если пользователь ранее загрузил фото.
 Первая плитка ленты использует именно `uploadedAvatarUrl`; её выделение определяется `avatarPresetId === null`.
@@ -181,11 +180,10 @@ queryClient.invalidateQueries({ queryKey: userQueryKeys.me() })
 `pendingPresetId` различает undefined (выбор не меняется) и null (выбирается своя фотография).
 При отображении нельзя использовать `pendingPresetId ?? user.avatarPresetId`: это скроет выбор фотографии.
 
-### Обновление ссылок и загрузка
+### Загрузка
 
-`useRefreshUserAvatar` перечитывает пользователя и обновляет обе ссылки в контексте через фасад и `useSetUser`, учитывает сон вкладки,
-повторяет неудачное обновление не чаще раза в минуту и приостанавливается на время сохранения.
-Каталог обновляется по `avatarUrlExpiresAt` и при возвращении во вкладку; при ошибке доступен повтор.
+Подписанные ссылки по таймеру не обновляются: новые приходят при следующем чтении пользователя и каталога.
+При ошибке загрузки каталога доступен повтор.
 
 `UserAvatarField` использует общий `useFileDropzone` с обработчиком `onUploadFile` и явным открытием выбора файла:
 файл передаётся сервису через Orval/multipart. Дропзона ограничивает размер 30 MiB и форматы JPEG/PNG/WebP.
@@ -207,7 +205,6 @@ queryClient.invalidateQueries({ queryKey: userQueryKeys.me() })
 | `UserProfileForm.tsx` | Пол, общая лента аватаров и статус автосохранения |
 | `fn/useUserProfileForm.ts` | Запрос каталога, выбор пола/аватара, загрузка и обновление пользователя |
 | `fn/profileFormState.ts` | Состояния сохранения и временный выбор до ответа сервера |
-| `fn/useRefreshUserAvatar.ts` | Перечитывание пользователя для обновления подписанных ссылок |
 | `ui/UserGenderField.tsx` | Переключатели пола |
 | `ui/UserAvatarField.tsx` | Первая плитка: сохранённая фотография, выбор и загрузка замены |
 | `ui/AvatarPresetPicker.tsx` | Общая лента, загрузка каталога и повтор при ошибке |

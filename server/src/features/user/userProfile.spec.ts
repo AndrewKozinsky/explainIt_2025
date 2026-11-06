@@ -110,7 +110,6 @@ describe('user profile changes', () => {
 			id: 'male-1',
 			gender: 'MALE',
 			avatarUrl: 'signed:user-avatars/shared/male-1.jpg',
-			avatarUrlExpiresAt: expect.any(String),
 		})
 	})
 })

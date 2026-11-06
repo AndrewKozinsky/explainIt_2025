@@ -40,7 +40,6 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 			pageSize: 10,
 			total: 20,
 			totalPages: 2,
-			urlsExpireAt: '2099-01-01T00:00:00Z',
 			items: [
 				{
 					id: page,
@@ -58,6 +57,7 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 	const client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0 } } })
 	const facade = new AiDialogueQueryFacade(new AiDialogueService(new AiDialogueApi()))
 	const observer = new InfiniteQueryObserver(client, facade.getUserDialogues(7))
+
 	try {
 		await observer.refetch()
 		assert.equal(observer.getCurrentResult().hasNextPage, true)

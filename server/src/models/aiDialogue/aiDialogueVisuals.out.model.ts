@@ -60,8 +60,6 @@ export class AiDialogueVisualsOutModel {
 	dialogueId: number
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dtoProps.userAvatarUrl))
 	userAvatarUrl: string
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dtoProps.visualUrlsExpireAt))
-	urlsExpireAt: string
 	@ApiProperty({ type: [AiDialogueCharacterVisualOutModel], description: 'NPC диалога и их спрайты' })
 	characters: AiDialogueCharacterVisualOutModel[]
 	@ApiProperty({ type: [AiDialogueSceneVisualOutModel], description: 'Сцены по идентификаторам сообщений' })

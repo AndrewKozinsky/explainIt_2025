@@ -47,7 +47,7 @@
 | Метод и путь | Вход / результат |
 |---|---|
 | GET /api/user/me | Текущий `UserOutModel` |
-| GET /api/user/avatar-presets | Четыре общих варианта: `id`, `gender`, `avatarUrl`, `avatarUrlExpiresAt` |
+| GET /api/user/avatar-presets | Четыре общих варианта: `id`, `gender`, `avatarUrl` |
 | PATCH /api/user/me | JSON с `gender` и/или `avatarPresetId`; обновлённый `UserOutModel` |
 | POST /api/user/me/avatar | Multipart с одним полем файла `file`; обновлённый `UserOutModel`, HTTP 200 |
 
@@ -57,14 +57,14 @@
 Изменение только `gender` сохраняет картинку. Загрузка фотографии сохраняет текущий пол.
 User ID берётся исключительно из сессии.
 
-`UserOutModel` включает `gender`, `avatarPresetId` (null для выбранной фотографии), `avatarUrl`, `uploadedAvatarUrl`, `avatarUrlExpiresAt`
+`UserOutModel` включает `gender`, `avatarPresetId` (null для выбранной фотографии), `avatarUrl`, `uploadedAvatarUrl`
 в дополнение к прежним полям. Эти данные также возвращаются при регистрации, входе и OAuth через
 `UserQueryRepository`. Ключи фотографий, пароли и другие внутренние поля наружу не передаются.
 `avatarUrl` относится к выбранному аватару: готовый вариант имеет приоритет, если его ID задан.
 `uploadedAvatarUrl` содержит ссылку на сохранённое фото даже при выбранном готовом варианте, либо null.
-Обе ссылки обновляются по `avatarUrlExpiresAt`. URL подписывает `CloudflareS3Service.getFileUrl` по шестичасовым окнам
-(см. «Ссылки на файлы R2» в `server.md`), поэтому повторные ответы внутри окна дают те же адреса и браузер не скачивает
-фото заново. `avatarUrlExpiresAt` — окончание подписи минус час, не меньше пяти часов от момента ответа.
+URL подписывает `CloudflareS3Service.getFileUrl` по шестичасовым окнам (см. «Ссылки на файлы R2» в `server.md`),
+поэтому повторные ответы внутри окна дают те же адреса и браузер не скачивает фото заново. Клиент не обновляет ссылки
+по таймеру: свежие приходят при следующем чтении пользователя (загрузка страницы, повторный запрос).
 Ответы маршрутов профиля имеют `Cache-Control: private, no-store`.
 
 `GET /api/auth/me` удалён без alias. Клиентское чтение пользователя переведено на `/api/user/me` через `UserApi`/`UserService`.

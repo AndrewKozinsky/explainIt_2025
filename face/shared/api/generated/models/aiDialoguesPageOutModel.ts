@@ -18,6 +18,4 @@ export interface AiDialoguesPageOutModel {
   totalPages: number;
   /** Диалоги текущего пользователя */
   items: AiDialogueListItemOutModel[];
-  /** Время обновления подписанных ссылок визуального снимка (ISO 8601). */
-  urlsExpireAt: string;
 }

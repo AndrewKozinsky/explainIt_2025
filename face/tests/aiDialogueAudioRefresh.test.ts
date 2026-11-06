@@ -25,7 +25,6 @@ function queued(): DialogueAudioSnapshot {
 				status: 'queued',
 				url: null,
 				mimeType: 'audio/mpeg',
-				urlsExpireAt: null,
 			},
 		],
 	}
@@ -39,20 +38,21 @@ test('a stalled worker does not cause two-second polling forever', function () {
 	assert.equal(getAudioRefreshInterval(snapshot, now - 3_600_000, now), 60_000)
 	assert.equal(snapshot.items[0].status, 'queued')
 })
+
 test('an active text attempt without jobs also backs off', function () {
 	const snapshot = queued()
 	snapshot.items = []
 	snapshot.attempts[0].status = 'active'
 	assert.equal(getAudioRefreshInterval(snapshot, now - 300_000, now), 60_000)
 })
-test('terminal audio with no links stops polling; ready audio schedules URL renewal', function () {
+
+test('finished audio stops polling', function () {
 	const snapshot = queued()
-	snapshot.items[0].status = 'failed'
-	assert.equal(getAudioRefreshInterval(snapshot, now, now), false)
-	snapshot.items[0].status = 'ready'
-	snapshot.items[0].urlsExpireAt = new Date(now + 300_000).toISOString()
-	assert.equal(getAudioRefreshInterval(snapshot, now, now), 240_000)
-	assert.equal(getAudioRefreshInterval(snapshot, now, now + 300_000), 60_000)
+
+	for (const status of ['failed', 'ready'] as const) {
+		snapshot.items[0].status = status
+		assert.equal(getAudioRefreshInterval(snapshot, now, now), false)
+	}
 })
 test('REST errors back off instead of retrying every five seconds forever', function () {
 	assert.equal(getAudioRefreshInterval(undefined, now, now, true), 5000)

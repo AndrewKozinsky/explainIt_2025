@@ -92,8 +92,9 @@ describe('AiDialogueController CQRS dispatch', () => {
 
 	it('returns the public illustration style catalog without a user argument', async () => {
 		const { controller, bus } = harness()
-		const catalog = { defaultStyleId: 'realism', styles: [], urlsExpireAt: new Date().toISOString() }
+		const catalog = { defaultStyleId: 'realism', styles: [] }
 		bus.execute.mockResolvedValue(catalog)
+
 		await expect(controller.getAiDialogueIllustrationStyles()).resolves.toBe(catalog)
 	})
 

@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
 import { getUserAvatarS3Key } from 'features/user/avatarPresets'
-import { getAvatarUrlExpiresAt } from 'features/user/userAvatarConfig'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { UserOutModel } from 'models/user/user.out.model'
@@ -45,7 +44,6 @@ export class UserQueryRepository {
 	async mapDbUserToOutUser(dbUser: User): Promise<UserOutModel> {
 		const avatarKey = getUserAvatarS3Key(dbUser)
 
-		const avatarUrlExpiresAt = getAvatarUrlExpiresAt()
 		const uploadedAvatarUrl = dbUser.avatar_s3_key ? await this.storage.getFileUrl(dbUser.avatar_s3_key) : null
 		const avatarUrl =
 			dbUser.avatar_preset_id === null ? uploadedAvatarUrl! : await this.storage.getFileUrl(avatarKey)
@@ -59,7 +57,6 @@ export class UserQueryRepository {
 			avatarPresetId: dbUser.avatar_preset_id,
 			avatarUrl,
 			uploadedAvatarUrl,
-			avatarUrlExpiresAt,
 		}
 	}
 }

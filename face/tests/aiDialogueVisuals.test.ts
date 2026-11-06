@@ -16,7 +16,6 @@ function snapshot(): AiDialogueVisualsModel {
 	return {
 		dialogueId: 1,
 		userAvatarUrl: '/avatar',
-		urlsExpireAt: new Date(now + 300_000).toISOString(),
 		characters: [],
 		scenes: [],
 	}
@@ -24,6 +23,7 @@ function snapshot(): AiDialogueVisualsModel {
 
 const originalEventSource = globalThis.EventSource
 const originalImage = globalThis.Image
+
 afterEach(function () {
 	globalThis.EventSource = originalEventSource
 	globalThis.Image = originalImage
@@ -66,15 +66,14 @@ test('unfinished jobs keep polling with backoff, generating never times out loca
 	assert.equal(hasPendingDialogueVisuals(visuals), true)
 })
 
-test('ready, failed and absent assets only schedule URL renewal; errors still recover', function () {
+test('ready, failed and absent assets stop polling; errors still recover', function () {
 	const visuals = snapshot()
 	visuals.scenes = [
 		{ messageId: 1, generationStatus: 'failed', image: null },
 		{ messageId: 2, generationStatus: null, image: null },
 	]
 	assert.equal(hasPendingDialogueVisuals(visuals), false)
-	assert.equal(getVisualsRefreshInterval(visuals, now, now), 240_000)
-	assert.equal(getVisualsRefreshInterval(visuals, now, now + 300_000), 60_000)
+	assert.equal(getVisualsRefreshInterval(visuals, now, now), false)
 	assert.equal(getVisualsRefreshInterval(visuals, now, now, true), 60_000)
 	assert.equal(getVisualsRefreshInterval(undefined, now, now), 60_000)
 })

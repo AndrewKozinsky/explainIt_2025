@@ -15,6 +15,4 @@ export interface AvatarPresetOutModel {
   gender: AvatarPresetOutModelGender;
   /** Temporary URL of the current user avatar */
   avatarUrl: string;
-  /** Refresh the avatar URL before this time */
-  avatarUrlExpiresAt: string;
 }

@@ -231,14 +231,14 @@ OpenAI Images API возвращает готовые байты. Адаптер
 `GET /api/ai-dialogue/:id/visuals`: авторизация до подписания URL, 404 для отсутствующего, 403 для чужого диалога;
 `Cache-Control: private, no-store`. Ответ:
 
-- dialogueId, userAvatarUrl, urlsExpireAt;
+- dialogueId, userAvatarUrl;
 - characters: id, npcId, name/role, generationStatus, emotionSheet;
 - scenes: messageId, generationStatus, image;
 - image/emotionSheet: id, url, mimeType, width, height, layoutVersion (null для сцены).
 
 Нет отдельных ключей R2, промптов, ошибок, attempts, внешних реквизитов или байтов.
 Непривязанные/ещё не готовые ассеты равны null; владельцы без заданий имеют generationStatus=null.
-Чтение БД — RepeatableRead; затем подписываются URL на 6 часов, urlsExpireAt — через 5 часов.
+Чтение БД — RepeatableRead; затем подписываются URL (не меньше 6 часов).
 Подписывание не проверяет наличие R2-файла. NPC сопоставляется через npcId, сцена — через messageId.
 
 Worker посылает только `{ jobId }` через Redis-канал `ai-dialogue-visuals:<mode>:<region>`.

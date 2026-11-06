@@ -29,10 +29,8 @@ export interface UserOutModel {
   /** Temporary URL of the current user avatar */
   avatarUrl: string;
   /**
-     * Temporary URL of the saved custom photo, including when a preset is selected; uses avatarUrlExpiresAt
+     * Temporary URL of the saved custom photo, including when a preset is selected
      * @nullable
      */
   uploadedAvatarUrl?: string | null;
-  /** Refresh the avatar URL before this time */
-  avatarUrlExpiresAt: string;
 }

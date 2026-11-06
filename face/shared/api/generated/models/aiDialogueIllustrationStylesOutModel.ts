@@ -12,6 +12,4 @@ export interface AiDialogueIllustrationStylesOutModel {
   defaultStyleId: string;
   /** Available illustration styles in display order */
   styles: AiDialogueIllustrationStyleOutModel[];
-  /** Время обновления подписанных ссылок визуального снимка (ISO 8601). */
-  urlsExpireAt: string;
 }

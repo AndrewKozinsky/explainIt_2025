@@ -12,7 +12,4 @@ export class AvatarPresetOutModel {
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.User.dtoProps.avatarUrl))
 	avatarUrl: string
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.User.dtoProps.avatarUrlExpiresAt))
-	avatarUrlExpiresAt: string
 }

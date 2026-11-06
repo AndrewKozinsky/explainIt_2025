@@ -22,7 +22,6 @@ const user: UserModel = {
 	avatarPresetId: null,
 	avatarUrl: '',
 	uploadedAvatarUrl: null,
-	avatarUrlExpiresAt: '',
 }
 
 /** Настоящая страница и её клиентские слои; HTTP подменяет Playwright. */

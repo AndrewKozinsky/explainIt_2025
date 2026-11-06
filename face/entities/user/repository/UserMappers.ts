@@ -11,12 +11,11 @@ export function mapToUser(raw: UserOutModel): UserModel {
 		avatarPresetId: mapAvatarPresetId(raw.avatarPresetId),
 		avatarUrl: raw.avatarUrl,
 		uploadedAvatarUrl: raw.uploadedAvatarUrl ?? null,
-		avatarUrlExpiresAt: raw.avatarUrlExpiresAt,
 	}
 }
 
 export function mapToAvatarPreset(raw: AvatarPresetOutModel): AvatarPresetModel {
-	return { id: raw.id, gender: raw.gender, avatarUrl: raw.avatarUrl, avatarUrlExpiresAt: raw.avatarUrlExpiresAt }
+	return { id: raw.id, gender: raw.gender, avatarUrl: raw.avatarUrl }
 }
 
 function mapAvatarPresetId(id: string | null | undefined): AvatarPresetId | null {

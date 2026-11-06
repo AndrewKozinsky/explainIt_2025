@@ -29,7 +29,4 @@ export class UserOutModel {
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.User.dtoProps.uploadedAvatarUrl))
 	uploadedAvatarUrl: string | null
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.User.dtoProps.avatarUrlExpiresAt))
-	avatarUrlExpiresAt: string
 }

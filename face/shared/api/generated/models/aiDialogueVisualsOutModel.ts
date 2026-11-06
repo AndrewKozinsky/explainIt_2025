@@ -16,8 +16,6 @@ export interface AiDialogueVisualsOutModel {
   dialogueId: number;
   /** Подписанная ссылка на общий нейтральный аватар пользователя. */
   userAvatarUrl: string;
-  /** Время обновления подписанных ссылок визуального снимка (ISO 8601). */
-  urlsExpireAt: string;
   /** NPC диалога и их спрайты */
   characters: AiDialogueCharacterVisualOutModel[];
   /** Сцены по идентификаторам сообщений */

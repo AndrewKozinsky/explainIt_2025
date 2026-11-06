@@ -71,29 +71,29 @@ describe('bounded R2 reads', () => {
 		await expect(service.readFile('large.png')).rejects.toThrow('large')
 	})
 
-	describe('cacheable signed URLs', () => {
+	describe('windowed signed URLs', () => {
 		const windowSeconds = 6 * 60 * 60
 
 		afterEach(() => jest.useRealTimers())
 
 		async function signAt(isoTime: string, key = 'shared/realism.preview.webp') {
 			jest.useFakeTimers({ now: new Date(isoTime) })
-			return harness().service.getCacheableFileUrl(key, windowSeconds)
+
+			return harness().service.getFileUrl(key)
 		}
 
 		it('returns the same URL for every request inside one window', async () => {
 			const windowStart = await signAt('2026-11-05T06:00:00.000Z')
 			const windowEnd = await signAt('2026-11-05T11:59:59.000Z')
 
-			expect(windowEnd.url).toBe(windowStart.url)
-			expect(windowEnd.expiresAt.toISOString()).toBe('2026-11-05T18:00:00.000Z')
+			expect(windowEnd).toBe(windowStart)
 		})
 
 		it('changes the URL in the next window so a replaced file becomes visible', async () => {
 			const currentWindow = await signAt('2026-11-05T11:59:59.000Z')
 			const nextWindow = await signAt('2026-11-05T12:00:00.000Z')
 
-			expect(nextWindow.url).not.toBe(currentWindow.url)
+			expect(nextWindow).not.toBe(currentWindow)
 		})
 
 		it('signs getFileUrl by six-hour windows so repeated API responses keep the same link', async () => {
@@ -109,7 +109,7 @@ describe('bounded R2 reads', () => {
 
 		it('keeps the URL valid for at least one window and asks the browser to cache it as long', async () => {
 			const signed = await signAt('2026-11-05T11:59:59.000Z')
-			const signedUrl = new URL(signed.url)
+			const signedUrl = new URL(signed)
 
 			expect(signedUrl.searchParams.get('X-Amz-Date')).toBe('20261105T060000Z')
 			expect(signedUrl.searchParams.get('X-Amz-Expires')).toBe(String(windowSeconds * 2))

@@ -27,7 +27,6 @@ export async function mapDialogueAudio(
 		status: job.attempt.status === 'cancelled' ? 'cancelled' : job.status,
 		url: ready ? await storage.getFileUrl(job.s3_key) : null,
 		mimeType: 'audio/mpeg',
-		urlsExpireAt: ready ? new Date(Date.now() + 5 * 60 * 60_000).toISOString() : null,
 	}
 }
 

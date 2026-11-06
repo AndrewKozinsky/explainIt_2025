@@ -121,14 +121,18 @@ export class DialogueAudioPlayer {
 		const previous = items.get(item.id)
 		// A late preview notification cannot undo a confirmed binding or cancellation from REST.
 		const merged = { ...item, messageId: item.messageId ?? previous?.messageId ?? null }
+
 		if (previous?.status === 'cancelled') {
 			merged.status = 'cancelled'
 			merged.url = null
 		}
+
 		if (previous?.status === 'ready' && ['queued', 'generating'].includes(merged.status))
-			Object.assign(merged, { status: previous.status, url: previous.url, urlsExpireAt: previous.urlsExpireAt })
+			Object.assign(merged, { status: previous.status, url: previous.url })
+
 		if (previous?.attemptStatus === 'confirmed' && merged.attemptStatus === 'active')
 			merged.attemptStatus = 'confirmed'
+
 		if (this.state.cancelledAttempts.has(item.attemptId)) {
 			merged.status = 'cancelled'
 			merged.url = null
@@ -136,8 +140,10 @@ export class DialogueAudioPlayer {
 
 		items.set(item.id, merged)
 		this.update({ items })
+
 		if (item.attemptStatus === 'cancelled') this.cancelAttempt(item.attemptId)
 		else if (merged.status === 'cancelled' && this.state.selectedId === item.id) this.stop(false)
+
 		this.pump()
 	}
 
@@ -206,9 +212,7 @@ export class DialogueAudioPlayer {
 			return
 		}
 		const resume = this.state.selectedId === id && this.state.playbackStatus === 'paused'
-		const expired = item.urlsExpireAt && Date.parse(item.urlsExpireAt) <= Date.now()
-		const retry = this.state.loadErrors.has(id)
-		if ((expired || retry) && this.refresh) this.refreshAndPlay(id, resume)
+		if (this.state.loadErrors.has(id) && this.refresh) this.refreshAndPlay(id, resume)
 		else this.play(item, 'manual', resume)
 	}
 

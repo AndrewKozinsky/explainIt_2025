@@ -42,9 +42,4 @@ export interface AiDialogueAudioItemOutModel {
   url?: string | null;
   /** MIME аудиофайла. */
   mimeType: string;
-  /**
-     * Время обновления подписанной ссылки.
-     * @nullable
-     */
-  urlsExpireAt?: string | null;
 }

@@ -37,14 +37,8 @@ export const bdConfig = {
 				type: 'string',
 				required: false,
 				description:
-					'Temporary URL of the saved custom photo, including when a preset is selected; uses avatarUrlExpiresAt',
+					'Temporary URL of the saved custom photo, including when a preset is selected',
 				example: 'https://storage.example.com/photo.webp',
-			},
-			avatarUrlExpiresAt: {
-				type: 'dateString',
-				required: true,
-				description: 'Refresh the avatar URL before this time',
-				example: '2026-10-12T12:00:00.000Z',
 			},
 			avatarPresetId: {
 				type: 'enum',
@@ -1530,12 +1524,6 @@ export const bdConfig = {
 				description: 'Подписанная ссылка на общий нейтральный аватар пользователя.',
 				example: 'https://r2.example/avatar.jpg?signature=temporary',
 			},
-			visualUrlsExpireAt: {
-				type: 'string',
-				required: true,
-				description: 'Время обновления подписанных ссылок визуального снимка (ISO 8601).',
-				example: '2026-10-07T18:00:00.000Z',
-			},
 		},
 		indexes: [{ fields: ['user_id'] }, { fields: ['scenario_id'] }, { fields: ['user_id', 'created_at', 'id'] }],
 		dbFields: {
@@ -2011,12 +1999,6 @@ export const bdConfig = {
 				example: 'https://r2.example/audio.mp3',
 			},
 			mimeType: { type: 'string', required: true, description: 'MIME аудиофайла.', example: 'audio/mpeg' },
-			urlsExpireAt: {
-				type: 'string',
-				required: false,
-				description: 'Время обновления подписанной ссылки.',
-				example: '2026-10-13T12:00:00.000Z',
-			},
 		},
 		indexes: [
 			{ fields: ['attempt_id', 'event_index', 'action_index'], unique: true },

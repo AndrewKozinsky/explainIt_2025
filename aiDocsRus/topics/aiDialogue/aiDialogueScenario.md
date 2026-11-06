@@ -103,7 +103,7 @@ AiDialogueScenarioGroupOutModel:
 Группы и сценарии в каждой группе сортируются `position ASC, id ASC`, то есть в порядке `getScenariosData()`.
 `conversationIdeas` выбирается тем же правилом языка, что и строки (`pickLocalizedList`).
 Пустые группы и пользовательские сценарии исключаются. При отсутствии публичных сценариев возвращается `[]`.
-Пагинации, счётчиков, обёртки groups и urlsExpireAt нет. Количество — scenarios.length на клиенте.
+Пагинации, счётчиков и обёртки groups нет. Количество — scenarios.length на клиенте.
 Отдельных маршрутов группы по ID или плоского списка сценариев нет.
 
 Контроллер → GetAiDialogueScenarioGroupsCommand → AiDialogueScenarioGroupQueryRepository.

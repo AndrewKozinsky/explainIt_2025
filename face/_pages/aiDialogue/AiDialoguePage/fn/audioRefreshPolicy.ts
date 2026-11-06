@@ -19,9 +19,5 @@ export function getAudioRefreshInterval(
 	const pollIn = elapsed < 120_000 ? 2000 : elapsed < 300_000 ? 15_000 : 60_000
 	if (!snapshot || hasError) return Math.max(5000, pollIn)
 
-	const dates = snapshot.items.map((item) => Date.parse(item.urlsExpireAt ?? '')).filter(Number.isFinite)
-	const renewIn = dates.length ? Math.max(60_000, Math.min(...dates) - now - 60_000) : false
-	if (!hasPendingDialogueAudio(snapshot)) return renewIn
-
-	return renewIn === false ? pollIn : Math.min(pollIn, renewIn)
+	return hasPendingDialogueAudio(snapshot) ? pollIn : false
 }

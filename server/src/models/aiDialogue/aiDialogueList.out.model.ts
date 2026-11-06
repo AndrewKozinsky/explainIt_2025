@@ -89,7 +89,4 @@ export class AiDialogueListItemOutModel {
 export class AiDialoguesPageOutModel extends PaginatedOutModel<AiDialogueListItemOutModel> {
 	@ApiProperty({ type: [AiDialogueListItemOutModel], description: 'Диалоги текущего пользователя' })
 	items: AiDialogueListItemOutModel[]
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dtoProps.visualUrlsExpireAt))
-	urlsExpireAt: string
 }

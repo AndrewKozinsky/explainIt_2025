@@ -43,7 +43,6 @@ export type AiDialoguesPageModel = {
 	pageSize: number
 	total: number
 	totalPages: number
-	urlsExpireAt: string
 }
 
 export type GetUserDialoguesParams = { page: number; pageSize: number }

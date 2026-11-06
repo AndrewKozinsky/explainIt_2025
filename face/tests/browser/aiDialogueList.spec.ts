@@ -89,9 +89,9 @@ async function setup(page: Page, items = dialogues(), failFirst = false) {
 			pageSize: 10,
 			total: current.length,
 			totalPages: Math.ceil(current.length / 10),
-			urlsExpireAt: '2099-01-01T00:00:00Z',
 			items: current.slice((pageNumber - 1) * 10, pageNumber * 10),
 		}
+
 		return route.fulfill({ json: data })
 	})
 	await page.goto('/')

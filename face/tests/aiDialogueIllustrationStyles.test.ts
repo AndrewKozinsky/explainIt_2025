@@ -16,7 +16,6 @@ afterEach(function () {
 
 const catalog = {
 	defaultStyleId: 'drawing',
-	urlsExpireAt: '2099-01-01T00:00:00Z',
 	styles: ['drawing', 'realism', 'watercolor', 'pastel'].map((id) => ({
 		id,
 		titleKey: `aiDialogue.illustrationStyles.${id}`,
@@ -33,8 +32,10 @@ test('the public catalog travels through Service/API/Orval and keeps arbitrary I
 		assert.ok(init?.signal)
 		return Response.json(catalog)
 	})
+
 	const client = new QueryClient({ defaultOptions: { queries: { gcTime: 0 } } })
 	const options = new AiDialogueQueryFacade(new AiDialogueService(new AiDialogueApi())).getIllustrationStyles()
+
 	try {
 		assert.deepEqual(await client.fetchQuery(options), {
 			defaultStyleId: catalog.defaultStyleId,

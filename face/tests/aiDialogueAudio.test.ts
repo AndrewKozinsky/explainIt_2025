@@ -83,7 +83,6 @@ function item(id: number, actionIndex = id - 1, attemptId = 'attempt', turnId = 
 		status: 'ready',
 		url: `/audio-${id}.mp3`,
 		mimeType: 'audio/mpeg',
-		urlsExpireAt: '2099-01-01T00:00:00Z',
 	}
 }
 
@@ -279,8 +278,8 @@ test('manual selection before first source target suppresses that response witho
 	assert.equal(player.getState().playbackStatus, 'playing')
 	assert.equal(audio.plays.length, 1)
 })
-test('refreshing an expired URL cannot start the old selection after the user chose another', async function () {
-	const { player, audio } = harness()
+test('refreshing a failed URL cannot start the old selection after the user chose another', async function () {
+	const { player, audio, clock } = harness()
 	let resolve!: () => void
 	player.setRefresh(
 		() =>
@@ -288,15 +287,25 @@ test('refreshing an expired URL cannot start the old selection after the user ch
 				resolve = done
 			}),
 	)
-	player.mergeItem({ ...item(1), urlsExpireAt: '2000-01-01T00:00:00Z' })
+	player.mergeItem(item(1))
 	player.mergeItem(item(2))
+	player.mergeItem(item(3))
+	player.registerTargets('attempt', targets(0))
+	await flush()
+	clock.tick(10_000)
+	await flush()
+	assert.equal(player.getState().loadErrors.has(1), true)
+	const playsBeforeRetry = audio.plays.length
 	player.toggle(1)
-	player.toggle(2)
+	player.toggle(3)
 	await flush()
 	resolve()
 	await flush()
-	assert.equal(player.getState().selectedId, 2)
-	assert.equal(audio.plays.length, 1)
+	assert.equal(player.getState().selectedId, 3)
+	assert.deepEqual(
+		audio.plays.slice(playsBeforeRetry).map((play) => play.src),
+		['/audio-3.mp3'],
+	)
 })
 test('an authoritative job cancellation cannot be undone by an older ready snapshot', function () {
 	const { player, audio } = harness()

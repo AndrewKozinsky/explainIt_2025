@@ -83,7 +83,7 @@ export const getAiDialogueControllerGetAiDialogueIllustrationStylesUrl = () => {
 }
 
 /**
- * Public catalog with client translation keys for titles, square signed preview URLs and the default style ID. Does not generate images. URLs last six hours; refresh at urlsExpireAt.
+ * Public catalog with client translation keys for titles, square signed preview URLs and the default style ID. Does not generate images. URLs last at least six hours.
  * @summary Get available AI dialogue illustration styles
  */
 export const aiDialogueControllerGetAiDialogueIllustrationStyles = async ( options?: RequestInit): Promise<aiDialogueControllerGetAiDialogueIllustrationStylesResponse> => {
@@ -402,7 +402,7 @@ export const getAiDialogueControllerGetAiDialoguesUrl = (params?: AiDialogueCont
 }
 
 /**
- * Returns the current user dialogues ordered by createdAt DESC, id DESC. Page defaults to 1 and pageSize to 3 (maximum 100). Includes the last NPC message, the ready image of the latest scene and all NPCs. Image URLs should be refreshed by urlsExpireAt.
+ * Returns the current user dialogues ordered by createdAt DESC, id DESC. Page defaults to 1 and pageSize to 3 (maximum 100). Includes the last NPC message, the ready image of the latest scene and all NPCs.
  * @summary Get current user AI dialogues
  */
 export const aiDialogueControllerGetAiDialogues = async (params?: AiDialogueControllerGetAiDialoguesParams, options?: RequestInit): Promise<aiDialogueControllerGetAiDialoguesResponse> => {

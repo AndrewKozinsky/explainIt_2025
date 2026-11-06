@@ -63,6 +63,7 @@ describe('GetAiDialogueVisuals', () => {
 		expect(result).not.toHaveProperty('user_id')
 		expect(result.characters[0].emotionSheet).not.toHaveProperty('s3_key')
 	})
+
 	it.each([null, { user_id: 8 }])('rejects missing or foreign dialogues before signing URLs', async (dialogue) => {
 		const { service, storage, repository } = harness()
 		repository.getDialogueVisuals.mockResolvedValue(dialogue)
@@ -71,6 +72,7 @@ describe('GetAiDialogueVisuals', () => {
 		})
 		expect(storage.getFileUrl).not.toHaveBeenCalled()
 	})
+
 	it('returns the selected profile avatar even for a dialogue without NPCs or scenes', async () => {
 		const { service, dialogue } = harness()
 		dialogue.AiDialogueCharacter = []
@@ -81,8 +83,8 @@ describe('GetAiDialogueVisuals', () => {
 			characters: [],
 			scenes: [],
 		})
-		expect(Date.parse(result.urlsExpireAt)).toBeGreaterThan(Date.now())
 	})
+
 	it('uses the current uploaded photo and reflects subsequent profile changes', async () => {
 		const { service, dialogue } = harness()
 		dialogue.user.avatar_preset_id = null
@@ -92,6 +94,7 @@ describe('GetAiDialogueVisuals', () => {
 			'signed:replacement.webp',
 		)
 	})
+
 	it('propagates signing failures instead of marking missing URLs ready', async () => {
 		const { service, storage } = harness()
 		storage.getFileUrl.mockRejectedValueOnce(new Error('signing failed'))

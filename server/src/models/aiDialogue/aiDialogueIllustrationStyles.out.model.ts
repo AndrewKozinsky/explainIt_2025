@@ -24,7 +24,4 @@ export class AiDialogueIllustrationStylesOutModel {
 		description: 'Available illustration styles in display order',
 	})
 	styles: AiDialogueIllustrationStyleOutModel[]
-
-	@ApiProperty(getApiPropertyOptions($.visualUrlsExpireAt))
-	urlsExpireAt: string
 }

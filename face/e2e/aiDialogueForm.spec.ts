@@ -111,7 +111,6 @@ async function setup(page: Page, pcm = false) {
 					characters: [],
 					scenes: [],
 					userAvatarUrl: '',
-					urlsExpireAt: '2099-01-01T00:00:00Z',
 				},
 			})
 		if (path.endsWith('/audio')) return route.fulfill({ json: { dialogueId: 1, attempts: [], items: [] } })

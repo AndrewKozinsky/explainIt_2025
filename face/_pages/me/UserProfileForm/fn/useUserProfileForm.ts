@@ -2,18 +2,11 @@ import { useContext, useEffect, useReducer, useRef } from 'react'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
 import { userQueries, userQueryKeys } from '@/entities/user/UserQueryFacade'
-import type { AvatarPresetId, AvatarPresetModel, UserGender, UserModel } from '@/entities/user/UserService'
+import type { AvatarPresetId, UserGender, UserModel } from '@/entities/user/UserService'
 import { useSetUser } from '@/shared/api/auth/UserProvider'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { profileFormReducer, type ProfileOperation } from './profileFormState'
-import { useRefreshUserAvatar } from './useRefreshUserAvatar'
-
-function getPresetsRefreshInterval(presets: AvatarPresetModel[] | undefined) {
-	if (!presets?.length) return false
-	const expiresAt = Math.min(...presets.map((preset) => Date.parse(preset.avatarUrlExpiresAt)))
-	return Number.isFinite(expiresAt) ? Math.max(60_000, expiresAt - Date.now()) : false
-}
 
 export function useUserProfileForm(user: UserModel) {
 	const t = useTranslations('mePage.profile')
@@ -28,12 +21,9 @@ export function useUserProfileForm(user: UserModel) {
 	const presets = useQuery({
 		...userQueries.getAvatarPresets(),
 		retry: 1,
-		refetchInterval: (query) => getPresetsRefreshInterval(query.state.data),
 	})
 
 	const isSaving = state.status === 'saving'
-
-	useRefreshUserAvatar(user, isSaving)
 
 	useEffect(function () {
 		active.current = true

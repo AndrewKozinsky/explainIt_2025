@@ -17,6 +17,8 @@ Prefer ordinary functions rather than arrow functions. Use arrow functions only 
 
 Put reusable UI elements in the 'face/ui' directory.
 
+Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый код добавляется во все файлы локалей. Подробнее: `aiDocsRus/topics/internationalization.md`.
+
 Данные пользователя можно взять из `face/stores/userStore.ts`.
 
 Чтобы показать уведомление нужно подключить

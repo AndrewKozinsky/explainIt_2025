@@ -78,6 +78,7 @@ export async function mapAiDialogueListPage(
 	const mapImage = (image?: ImageDb) => {
 		if (!image) return Promise.resolve(null)
 		if (!signedImages.has(image.s3_key)) signedImages.set(image.s3_key, mapAiDialogueImage(image, getFileUrl))
+
 		return signedImages.get(image.s3_key)!
 	}
 
@@ -112,9 +113,6 @@ export async function mapAiDialogueListPage(
 			}))
 	}
 
-	// Срок подписанной ссылки — 6 часов; обновление рекомендуем через 5 часов, как в /visuals.
-	const urlsExpireAt = new Date(Date.now() + 5 * 60 * 60_000).toISOString()
-
 	const items = await Promise.all(
 		dialogues.map(async (dialogue) => ({
 			id: dialogue.id,
@@ -131,7 +129,7 @@ export async function mapAiDialogueListPage(
 		})),
 	)
 
-	return { ...buildPage(items, total, pagination), urlsExpireAt }
+	return buildPage(items, total, pagination)
 }
 
 /** Читает только страницу текущего пользователя и связанные с ней данные в переданной транзакции. */
@@ -142,12 +140,14 @@ export async function readAiDialogueListPage(
 ) {
 	const where = { user_id: userId }
 	const total = await tx.aiDialogue.count({ where })
+
 	const dialogues = await tx.aiDialogue.findMany({
 		where,
 		orderBy: [{ created_at: 'desc' }, { id: 'desc' }],
 		...toPrismaPagination(pagination),
 		select: dialogueSelect,
 	})
+
 	const dialogueIds = dialogues.map((dialogue) => dialogue.id)
 	const messages = dialogueIds.length ? await readLastMessages(tx, dialogueIds) : []
 	const legacyCharacters = dialogueIds.length ? await readLegacyCharacters(tx, dialogueIds) : []

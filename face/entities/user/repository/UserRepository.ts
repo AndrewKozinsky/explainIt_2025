@@ -13,14 +13,12 @@ export type UserModel = {
 	avatarPresetId: AvatarPresetId | null
 	avatarUrl: string
 	uploadedAvatarUrl: string | null
-	avatarUrlExpiresAt: string
 }
 
 export type AvatarPresetModel = {
 	id: AvatarPresetId
 	gender: UserGender
 	avatarUrl: string
-	avatarUrlExpiresAt: string
 }
 
 export type UpdateUserProfileInput = { gender?: UserGender; avatarPresetId?: AvatarPresetId | null }

@@ -3,19 +3,11 @@ jest.mock('infrastructure/cloudflareS3/cloudflareS3.service', () => ({ Cloudflar
 jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
 
 import { aiDialogueIllustrationStyleCatalog } from './catalog'
-import {
-	GetAiDialogueIllustrationStylesHandler,
-	illustrationStylePreviewUrlWindowSeconds,
-} from './GetAiDialogueIllustrationStyles.command'
-
-const previewUrlsExpireAt = new Date('2026-11-05T18:00:00.000Z')
+import { GetAiDialogueIllustrationStylesHandler } from './GetAiDialogueIllustrationStyles.command'
 
 function harness(mode = 'localdev') {
 	const storage = {
-		getCacheableFileUrl: jest.fn(async (key: string) => ({
-			url: `https://signed.example/${key}`,
-			expiresAt: previewUrlsExpireAt,
-		})),
+		getFileUrl: jest.fn(async (key: string) => `https://signed.example/${key}`),
 	}
 	const handler = new GetAiDialogueIllustrationStylesHandler(storage as never, { get: () => ({ mode }) } as never)
 
@@ -40,20 +32,17 @@ describe('Get AI dialogue illustration styles', () => {
 				expect(style.previewUrl).toContain(`/styles/${mode}/`)
 			}
 
-			expect(storage.getCacheableFileUrl.mock.calls).toEqual(
+			expect(storage.getFileUrl.mock.calls).toEqual(
 				aiDialogueIllustrationStyleCatalog.styles.map((style) => [
 					`ai-dialogue-images/shared/styles/${mode}/${style.file.replace(/\.webp$/, '.preview.webp')}`,
-					illustrationStylePreviewUrlWindowSeconds,
 				]),
 			)
-
-			expect(result.urlsExpireAt).toBe('2026-11-05T17:00:00.000Z')
 		},
 	)
 
 	it('propagates signing failure instead of returning a partial catalog', async () => {
 		const { handler, storage } = harness()
-		storage.getCacheableFileUrl.mockRejectedValue(new Error('storage unavailable'))
+		storage.getFileUrl.mockRejectedValue(new Error('storage unavailable'))
 
 		await expect(handler.execute()).rejects.toThrow('storage unavailable')
 	})
@@ -62,6 +51,6 @@ describe('Get AI dialogue illustration styles', () => {
 		const { handler, storage } = harness('unknown')
 
 		await expect(handler.execute()).rejects.toMatchObject({ statusCode: 500 })
-		expect(storage.getCacheableFileUrl).not.toHaveBeenCalled()
+		expect(storage.getFileUrl).not.toHaveBeenCalled()
 	})
 })
