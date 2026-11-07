@@ -49,6 +49,7 @@ export class LlmAdapterService {
 
 	async generate(input: LlmGenerateInput): Promise<LlmGenerateOutput> {
 		const provider = getProviderFromModel(input.model ?? DEFAULT_FLASH_AI_MODEL)
+
 		return withTimeout(
 			this.providerMap[provider].generate(input),
 			input.timeoutMs ?? LlmAdapterService.GENERATE_TIMEOUT_MS,
