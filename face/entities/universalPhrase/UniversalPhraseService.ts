@@ -12,7 +12,6 @@ import type {
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import { DeepSeekModels } from '@/shared/api/AIModels'
 import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
-import { normalizePhraseText } from './normalizePhraseText'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -524,7 +523,7 @@ function createEmptyTranslationEntry(): TranslationEntryData {
 }
 
 export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
-	return `${languageCode}:${normalizePhraseText(phrase)}`
+	return `${languageCode}:${phrase.trim().toLocaleLowerCase()}`
 }
 
 function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {

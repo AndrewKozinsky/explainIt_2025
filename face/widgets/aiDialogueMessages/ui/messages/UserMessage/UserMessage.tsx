@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
@@ -15,6 +16,7 @@ type UserActionsMessageProps = {
 }
 
 function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
+	const t = useTranslations('aiDialogueMessages')
 	const content = actions.map((action, index) => (
 		<UserMessageText key={index} content={action.content ?? ''} onWordSelect={onWordSelect} />
 	))
@@ -22,8 +24,8 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 	return (
 		<WithAvatarMessageWrapper
 			extraClass='user-message'
-			avatar={<DialogueUserAvatar name='You' />}
-			name='You'
+			avatar={<DialogueUserAvatar name={t('you')} />}
+			name={t('you')}
 			contentGroups={groupDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
 				key,
 				speech: speechIndex !== undefined ? content[speechIndex] : undefined,

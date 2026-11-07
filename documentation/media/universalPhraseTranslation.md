@@ -177,8 +177,8 @@ POST /universal-phrase-translation
 Функция идемпотентна. Тесты — `server/src/utils/stringUtils.spec.ts`.
 
 Нормализация применяется при создании фразы (`GetOrCreateUniversalPhraseCommand`, `UniversalPhraseRepository.findOrCreate`)
-и при поиске (`GetUniversalPhraseCommand`). Клиент строит ключ кэша `UniversalPhraseService` по тем же правилам
-(`face/entities/universalPhrase/normalizePhraseText.ts`), поэтому варианты одной фразы не запрашиваются повторно.
+и при поиске (`GetUniversalPhraseCommand`). Клиент фразу не нормализует: отправляет текст как есть,
+стандартную форму определяет только сервер.
 
 ### Ответ возвращается через QueryRepository
 
