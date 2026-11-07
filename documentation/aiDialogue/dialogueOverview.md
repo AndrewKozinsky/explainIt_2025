@@ -36,7 +36,10 @@
 - **Лица персонажей.** У каждого сообщения персонажа — его портрет с текущим выражением лица (нейтральное, весёлое,
   грустное, злое, удивлённое, растерянное, обеспокоенное и другие). Отношение персонажа видно не только по тексту,
   но и по лицу.
-- **Озвучка.** Каждая реплика персонажа и описание сцены озвучены: текст можно прочитать или попробовать понять на слух.
+- **Озвучка.** Каждую реплику персонажа и описание сцены можно прослушать. С включённой автоозвучкой новый ответ
+  звучит сам, с выключенной — по нажатию кнопки воспроизведения.
+- **Тренировка на слух.** Если выключить текст реплик, новые реплики и описания сцен приходят скрытыми: видны только
+  первые символы. Текст можно открыть, когда захочется проверить себя. Действия персонажа видны всегда.
 
 ## Понимание чужой речи
 
@@ -70,12 +73,12 @@
 | [aiDialogueScenario.md](aiDialogueScenario.md) | Сценарии, группы, сид, окно запуска. сценарий диалога, группы сценариев, AiDialogueScenarioGroup, AiDialogueScenario, ai-dialogue-scenario-group, ai-dialogue-scenario, обложки сценариев, сценка с ИИ, NPC, сид сценариев, ролевая сценка, новый сценарий, правила написания сценариев, порядок групп, getScenariosData, conversationIdeas, trainedSkills |
 | [aiDialogueScenarioCovers.md](aiDialogueScenarioCovers.md) | Файлы обложек сценариев в R2. обложки общедоступных сценариев, файлы обложек, загрузка обложек сценариев в R2, префиксы обложек по MODE |
 | [aiDialogueList.md](aiDialogueList.md) | «Мои диалоги», карточки, пагинация. Мои диалоги, список диалогов, история диалогов, карточки диалогов, пагинация диалогов, lastMessage, characters |
-| [aiDialoguePage.md](aiDialoguePage.md) | Клиентская страница, стор, превью, рендер. страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore |
+| [aiDialoguePage.md](aiDialoguePage.md) | Клиентская страница, стор, превью, рендер. страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore, текст реплик, скрытый текст, автоозвучка, настройки реплик |
 | [aiDialogueForm.md](aiDialogueForm.md) | Форма ответа: вкладки, проверка, отправка. форма ответа пользователя, вкладки Реплика/Действие, AiDialogueInput, курсор, выделение, клиентская диктовка, проверка перед отправкой |
 | [aiDialogueMessageCheck.md](aiDialogueMessageCheck.md) | Проверка черновика (сервер). проверка черновика, check-message, грамматика реплики/действия, критические ошибки, рекомендации, диктовка |
 | [aiDialogueDictation.md](aiDialogueDictation.md) | Диктовка. диктовка, микрофон, dictation, Soniox, WebSocket, распознавание речи, partial/final |
 | [aiDialogueWordMaps.md](aiDialogueWordMaps.md) | Карта слов (выражения для словаря). карта выбора словарных фраз в диалогах, wordMap, связанные слова, put away, разрывные выражения |
-| [aiDialogueAudio.md](aiDialogueAudio.md) | Озвучка. озвучка диалога, голоса NPC, диктор, ранний TTS, audioReady, очередь аудио |
+| [aiDialogueAudio.md](aiDialogueAudio.md) | Озвучка. озвучка диалога, голоса NPC, диктор, озвучка по запросу, автоозвучка, проигрыватель, AiDialogueAudio |
 | [aiDialogueImages.md](aiDialogueImages.md) | Изображения: портреты с эмоциями, сцены, очередь. изображения диалога, аватары, эмоции, NPC, сцены, image generation, R2, FLUX, GPT Image |
 | [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md) | Стили иллюстраций. стили иллюстраций, выбор стиля, каталог стилей, illustrationStyleId, эталоны стиля |
 | [../topics/userProfile.md](../topics/userProfile.md) | Аватар и пол пользователя. профиль пользователя, пол, gender, готовые аватары, avatar-presets, загрузка фотографии, ImageProcessingService |

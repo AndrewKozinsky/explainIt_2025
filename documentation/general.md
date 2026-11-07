@@ -25,7 +25,7 @@
 ## Структура корневой папки
 
 - `face` — фронтенд: Next.js, next-intl, SCSS, TanStack Query (клиент API генерируется Orval из OpenAPI), Zustand.
-- `server` — бэкенд: NestJS + CQRS, REST, Prisma (PostgreSQL), Redis, BullMQ worker (изображения, озвучка, субтитры),
+- `server` — бэкенд: NestJS + CQRS, REST, Prisma (PostgreSQL), Redis, BullMQ worker (изображения, субтитры),
   файлы в Cloudflare R2.
 - `nlp` — сервис деления текста на предложения (Python, FastAPI).
 - `help` — справка для пользователей на Docusaurus, отдаётся по `/help` через nginx.

@@ -7,6 +7,7 @@ import { PlaySmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/PlaySma
 import { StopSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/StopSmallButtonIcon'
 import { WarningSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/WarningSmallButtonIcon'
 import { useDialogueAudioButton } from './fn/useDialogueAudioButton'
+import './DialogueAudioButton.scss'
 
 type DialogueAudioButtonProps = {
 	address: DialogueAudioAddress
@@ -23,6 +24,7 @@ export default function DialogueAudioButton({ address, colorScheme = 'dark' }: D
 			theme='outline'
 			colorScheme={colorScheme}
 			rounded
+			extraClass='dialogue-audio-button'
 			onClick={audioButtonConfig.handleClick}
 			aria-label={audioButtonConfig.text}
 			title={audioButtonConfig.text}

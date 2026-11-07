@@ -31,7 +31,7 @@ SSE-протокол, генерация хода, компакция) опис�
 
 `AiDialogueQueryFacade.updateDialogue` предоставляет mutation options. Успешный ответ заменяет снимок
 конкретного диалога в TanStack Query и соответствующую запись списка; незавершённые чтения этих снимков отменяются,
-чтобы старый ответ не затёр сохранённую настройку. Ключи отмены точные: аудио и изображения не затрагиваются.
+чтобы старый ответ не затёр сохранённую настройку. Ключи отмены точные: снимок изображений не затрагивается.
 При ошибке через `NotificationContext` показывается читаемый текст; прежний выбранный уровень сохраняется.
 Подсветка переключается только после подтверждения сервера. Повторный выбор текущего уровня запрос не отправляет.
 
@@ -79,7 +79,8 @@ SSE-протокол, генерация хода, компакция) опис�
 
 `_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` открывает `EventSource('/api/ai-dialogue/:id/stream')` и разбирает события в стор:
 
-- `message` → `upsertMessage(message)` + очистить превью (финализированное сообщение заменяет превью);
+- `message` → `upsertMessage(message)` + очистить превью (финализированное сообщение заменяет превью).
+  Новое сообщение текущего хода (не replay) переносит видимость текста из превью и передаётся автоозвучке;
 - `turnStarted` → сбросить превью и ошибку + `setGenerating(true)` (плейсхолдер «ответ готовится» до первого `chunk`);
 - `chunk` → накопить текст; на первом чанке `setGenerating(true)` и сбросить ошибку; затем
   `parseAiDialoguePreview(accumulated)`;
@@ -89,10 +90,12 @@ SSE-протокол, генерация хода, компакция) опис�
 - `turnDone` → очистить превью + `setGenerating(false)`;
 - `visualsChanged` → запросить свежий REST-снимок изображений; сообщения, превью и `isGenerating` не меняются;
 - `onopen` → запросить визуальный снимок после подключения или переподключения;
-- `onerror` → сбросить превью и `setGenerating(false)` (EventSource переподключится сам и сервер отдаст replay).
+- `onerror` → сбросить превью и `setGenerating(false)`, снять автоозвучку (EventSource переподключится сам и
+  сервер отдаст replay).
 
 `_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-обёртка: открывает соединение в `useEffect` (и закрывает при unmount), при старте
-вызывает `clearStore()`, возвращает `{ messages, preview, isGenerating, turnError }`. Сообщения возвращает
+вызывает `clearStore()`, очищает видимость текста реплик и читает настройки «Автоозвучка» и «Текст реплик»
+из LocalStorage (до открытия SSE, чтобы первые реплики сразу получили сохранённые значения). Возвращает `{ messages, preview, isGenerating, turnError }`. Сообщения возвращает
 отсортированными по `id`. Второй параметр `enabled` (страница передаёт `Boolean(dialogue)`) — SSE открывается только
 после загрузки диалога.
 
@@ -253,6 +256,8 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 ### Стор и SSE
 
 - `face/_pages/aiDialogue/aiDialogueStore.ts` — zustand-стор.
+- `face/entities/aiDialogue/replySettings/replySettingsStore.ts` — настройки реплик (LocalStorage).
+- `face/entities/aiDialogue/replySettings/replyTextVisibilityStore.ts` — видимость текста показанных реплик.
 - `face/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` — EventSource + разбор событий.
 - `face/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-подключение.
 - `face/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage.ts` — отправка действия/реплики и завершение.
@@ -262,7 +267,10 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 - `face/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter.tsx` — маршрутизация по `type`.
 - `face/widgets/aiDialogueMessages/ui/messages/*` — компоненты сообщений.
 - `face/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText.tsx` — разбивка на слова.
-- `face/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock.tsx` — контент + перевод.
+- `face/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock.tsx` — контент + перевод,
+  кнопка воспроизведения и кнопка скрытого текста.
+- `face/widgets/aiDialogueSettings/ui/AiDialogueSettings/ReplySettingsToggles.tsx` — переключатели
+  «Автоозвучка» и «Текст реплик».
 - `face/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList.tsx` — список сообщений.
 - `face/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput.tsx` — форма ввода + кнопка завершения.
 
@@ -272,14 +280,36 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 - `face/_pages/aiDialogue/AiDialogueLeftWrapper/AiDialogueLeftWrapper.tsx` — левая колонка (сообщения + ввод).
 - `face/_pages/aiDialogue/AiDialoguePage/fn/getHeaderAndSubHeader.ts` — заголовок страницы из названия сценария.
 
-## Озвучка на клиенте
+## Настройки реплик
 
-Страница подключает отдельный аудио REST-снимок и технические события SSE, общий проигрыватель и кнопку
-у каждого speech/описания сцены. Автоматическое воспроизведение возможно уже во время превью.
-Ручная остановка сохраняет время; выбор другого файла сбрасывает позицию предыдущего.
-Ручное управление снимает очередь текущего ответа; следующий ответ снова озвучивается автоматически.
-Глобального переключателя автоозвучки нет. При запрете autoplay показывается «Включить звук».
-Подробный контракт, ошибки и порядок: [`aiDialogueAudio.md`](aiDialogueAudio.md).
+В панели `AiDialogueSettings` под уровнем языка два переключателя (`ReplySettingsToggles`, компонент `Toggle`):
+«Автоозвучка» и «Текст реплик». Значения хранятся в LocalStorage (`localStorageManager.aiDialogueReplySettings`),
+по умолчанию оба включены, и действуют только на будущие реплики. Подписи — `aiDialogue.replySettings`
+в `messages/*/aiDialogue.json`.
+
+### Текст реплик
+
+Правило касается реплик NPC и описаний сцен; невербальные действия видны всегда.
+
+- Реплика получает видимость по текущему значению переключателя, когда появляется на экране, и дальше от него
+  не зависит. Видимость хранится в памяти (`replyTextVisibilityStore`), пока открыта страница.
+- Скрытый текст заменяет кнопка с первыми символами и многоточием («You've…»). Её нет, пока текст ещё не пришёл.
+  Нажатие открывает текст; обратно он не скрывается.
+- При открытии или перезагрузке страницы все реплики показаны или скрыты по значению из LocalStorage:
+  какие реплики открывались вручную, не запоминается.
+- Ключ видимости — `${messageId}:${actionIndex}`, у превью — `preview:${eventIndex}:${actionIndex}`
+  (`actionIndex = -1` у сцены). Сохранённые сообщения хода по порядку заменяют события превью, и
+  `movePreviewReplies` переносит на них видимость, поэтому открытый во время генерации текст остаётся открытым.
+  `turnStarted` и `turnReset` забывают видимость отброшенного превью.
+
+### Озвучка
+
+Кнопка воспроизведения есть у каждой сохранённой реплики и описания сцены. Если текст виден, она стоит в начале
+первой строки (`leadingContent` в `AiDialogueTextWithTranslation`), если скрыт — рядом с кнопкой скрытого текста.
+Вертикальный отступ обеих кнопок на 1px меньше обычной маленькой кнопки, чтобы они не были выше строки текста.
+При включённой «Автоозвучке» новый ответ озвучивается сам; при выключенной — только по нажатию.
+При запрете autoplay браузером показывается «Включить звук».
+Запросы, порядок и ошибки: [`aiDialogueAudio.md`](aiDialogueAudio.md).
 
 ## Тесты
 

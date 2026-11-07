@@ -43,18 +43,20 @@ function AiDialogueContentBlock({
 
 	// Кнопка скрытого текста появляется, только когда текст уже пришёл.
 	const hasHiddenText = !isTextVisible && Boolean(content.trim())
+	const audioButton = audioAddress && <DialogueAudioButton address={audioAddress} colorScheme={colorScheme} />
 
 	return (
 		<div className='ai-dialogue-content-block'>
-			{(audioAddress || hasHiddenText) && (
+			{!isTextVisible && (audioAddress || hasHiddenText) && (
 				<div className='ai-dialogue-content-block__buttons'>
-					{audioAddress && <DialogueAudioButton address={audioAddress} colorScheme={colorScheme} />}
+					{audioButton}
 					{hasHiddenText && (
 						<Button
 							size='small'
 							theme='outline'
 							colorScheme={colorScheme}
 							rounded
+							extraClass='ai-dialogue-content-block__hidden-text-button'
 							onClick={revealText}
 							aria-label='Показать текст'
 							title='Показать текст'
@@ -67,6 +69,7 @@ function AiDialogueContentBlock({
 			{isTextVisible && (
 				<AiDialogueTextWithTranslation
 					content={content}
+					leadingContent={audioButton}
 					translation={translation}
 					wordMap={wordMap}
 					isTranslationVisible={isTranslationVisible}
