@@ -64,18 +64,18 @@
 
 ## Подробные документы
 
-| Задача про… | Документ |
+| Документ | Когда читать (темы / ключевые слова) |
 |---|---|
-| Устройство на сервере: модель данных, REST, события, SSE, генерация хода, протокол ответа LLM, компакция, CEFR, процессы | [aiDialogue.md](aiDialogue.md) |
-| Сценарии, группы, сид, окно запуска | [aiDialogueScenario.md](aiDialogueScenario.md) |
-| Файлы обложек сценариев в R2 | [aiDialogueScenarioCovers.md](aiDialogueScenarioCovers.md) |
-| «Мои диалоги», карточки, пагинация | [aiDialogueList.md](aiDialogueList.md) |
-| Клиентская страница, стор, превью, рендер | [aiDialoguePage.md](aiDialoguePage.md) |
-| Форма ответа: вкладки, проверка, отправка | [aiDialogueForm.md](aiDialogueForm.md) |
-| Проверка черновика (сервер) | [aiDialogueMessageCheck.md](aiDialogueMessageCheck.md) |
-| Диктовка | [aiDialogueDictation.md](aiDialogueDictation.md) |
-| Карта слов (выражения для словаря) | [aiDialogueWordMaps.md](aiDialogueWordMaps.md) |
-| Озвучка | [aiDialogueAudio.md](aiDialogueAudio.md) |
-| Изображения: портреты с эмоциями, сцены, очередь | [aiDialogueImages.md](aiDialogueImages.md) |
-| Стили иллюстраций | [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md) |
-| Аватар и пол пользователя | [../topics/userProfile.md](../topics/userProfile.md) |
+| [aiDialogue.md](aiDialogue.md) | Устройство на сервере: модель данных, REST, события, SSE, генерация хода, протокол ответа LLM, компакция, CEFR, процессы. диалог, AiDialogue, ai-dialogue, история диалогов, создать диалог, удалить диалог, сообщения диалога, пожелания к сцене, userScenarioAmendment, user_scenario_amendment |
+| [aiDialogueScenario.md](aiDialogueScenario.md) | Сценарии, группы, сид, окно запуска. сценарий диалога, группы сценариев, AiDialogueScenarioGroup, AiDialogueScenario, ai-dialogue-scenario-group, ai-dialogue-scenario, обложки сценариев, сценка с ИИ, NPC, сид сценариев, ролевая сценка, новый сценарий, правила написания сценариев, порядок групп, getScenariosData, conversationIdeas, trainedSkills |
+| [aiDialogueScenarioCovers.md](aiDialogueScenarioCovers.md) | Файлы обложек сценариев в R2. обложки общедоступных сценариев, файлы обложек, загрузка обложек сценариев в R2, префиксы обложек по MODE |
+| [aiDialogueList.md](aiDialogueList.md) | «Мои диалоги», карточки, пагинация. Мои диалоги, список диалогов, история диалогов, карточки диалогов, пагинация диалогов, lastMessage, characters |
+| [aiDialoguePage.md](aiDialoguePage.md) | Клиентская страница, стор, превью, рендер. страница диалога, AiDialoguePage, SegmentedText, partial json, форма ввода, завершить диалог, userAvoidsNPC, aiDialogueStore |
+| [aiDialogueForm.md](aiDialogueForm.md) | Форма ответа: вкладки, проверка, отправка. форма ответа пользователя, вкладки Реплика/Действие, AiDialogueInput, курсор, выделение, клиентская диктовка, проверка перед отправкой |
+| [aiDialogueMessageCheck.md](aiDialogueMessageCheck.md) | Проверка черновика (сервер). проверка черновика, check-message, грамматика реплики/действия, критические ошибки, рекомендации, диктовка |
+| [aiDialogueDictation.md](aiDialogueDictation.md) | Диктовка. диктовка, микрофон, dictation, Soniox, WebSocket, распознавание речи, partial/final |
+| [aiDialogueWordMaps.md](aiDialogueWordMaps.md) | Карта слов (выражения для словаря). карта выбора словарных фраз в диалогах, wordMap, связанные слова, put away, разрывные выражения |
+| [aiDialogueAudio.md](aiDialogueAudio.md) | Озвучка. озвучка диалога, голоса NPC, диктор, ранний TTS, audioReady, очередь аудио |
+| [aiDialogueImages.md](aiDialogueImages.md) | Изображения: портреты с эмоциями, сцены, очередь. изображения диалога, аватары, эмоции, NPC, сцены, image generation, R2, FLUX, GPT Image |
+| [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md) | Стили иллюстраций. стили иллюстраций, выбор стиля, каталог стилей, illustrationStyleId, эталоны стиля |
+| [../topics/userProfile.md](../topics/userProfile.md) | Аватар и пол пользователя. профиль пользователя, пол, gender, готовые аватары, avatar-presets, загрузка фотографии, ImageProcessingService |
