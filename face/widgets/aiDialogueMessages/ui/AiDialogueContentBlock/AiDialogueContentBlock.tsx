@@ -49,7 +49,7 @@ function AiDialogueContentBlock({
 	const hasHiddenText = !isTextVisible && Boolean(content.trim())
 
 	return (
-		<div className='ai-dialogue-content-block'>
+		<div className={`ai-dialogue-content-block ai-dialogue-content-block--${colorScheme}`}>
 			<div className='ai-dialogue-content-block__line'>
 				{audioAddress && (
 					<span className='ai-dialogue-content-block__button'>

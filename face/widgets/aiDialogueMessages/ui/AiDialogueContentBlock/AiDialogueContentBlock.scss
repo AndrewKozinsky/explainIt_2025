@@ -1,7 +1,15 @@
+@use '@/styles/variables' as vars;
+
 .ai-dialogue-content-block {
 	display: flex;
 	flex-direction: column;
 	gap: .2rem;
+}
+
+// Реплика NPC и описание сцены набраны одинаково.
+.ai-dialogue-content-block__line {
+	font-size: 2rem;
+	line-height: 3rem;
 }
 
 // Кнопки стоят в строке текста. Сдвиг вверх выравнивает их по строке текста одинаково
@@ -16,4 +24,13 @@
 .ai-dialogue-content-block__translation {
 	font-size: 1.6rem;
 	line-height: 2.4rem;
+}
+
+// Перевод на тёмном фоне сцены — полупрозрачный белый, на светлом фоне реплики — серый.
+.ai-dialogue-content-block--light .ai-dialogue-content-block__translation {
+	opacity: .75;
+}
+
+.ai-dialogue-content-block--dark .ai-dialogue-content-block__translation {
+	color: vars.$grayColor-5;
 }

@@ -1,7 +1,7 @@
 'use client'
 
 import { useLocale } from 'next-intl'
-import { useRouter, usePathname } from '@/i18n/routing'
+import { usePathname, useRouter } from '@/i18n/routing'
 import Select from '@/shared/ui/formRelated/Select/Select'
 import { languageKeys, languages } from '@/shared/utils/languages'
 
@@ -20,6 +20,7 @@ export function LanguageSwitcher() {
 
 	return (
 		<Select
+			size='small'
 			selectProps={{
 				value: locale,
 				onChange: handleChange,

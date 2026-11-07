@@ -2,6 +2,7 @@ import cn from 'classnames'
 import { LinkLogo } from '@/shared/ui/logo/LinkLogo/LinkLogo'
 import { MainMenu } from '@/shared/ui/pageRelated/MainMenu/MainMenu'
 import AuthButtons from '../AuthButtons/AuthButtons'
+import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher'
 import './Bar.scss'
 
 function Bar() {
@@ -12,7 +13,7 @@ function Bar() {
 				<MainMenu />
 			</div>
 			<div className='page-bar__right'>
-				{/*<LanguageSwitcher />*/}
+				<LanguageSwitcher />
 				<AuthButtons />
 			</div>
 		</div>
