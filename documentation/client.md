@@ -15,6 +15,15 @@ Prefer ordinary functions rather than arrow functions. Use arrow functions only 
 
 Все стили задаются в SCSS-классах, а не через inline-атрибут `style` в JSX.
 
+Классы, которые компонент указывает в разметке, описываются в его собственном SCSS-файле рядом с компонентом
+(`Button/Button.tsx` → `Button/Button.scss`), и компонент импортирует этот файл. Имена классов — по BEM от имени
+компонента (`.ai-dialogue-last-message`, `.ai-dialogue-last-message__text`). Нельзя:
+
+- указывать классы, которые нигде не описаны: если стилей нет, класс не нужен;
+- использовать классы, описанные в файле другого компонента, в том числе родительского;
+- стилизовать из своего SCSS классы или теги дочернего компонента. Родитель задаёт расположение ребёнка через
+  свою обёртку (`.ai-dialogue-card__scene`), а не через классы ребёнка.
+
 Put reusable UI elements in the 'face/ui' directory.
 
 Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый код добавляется во все файлы локалей. Подробнее: `documentation/topics/internationalization.md`.

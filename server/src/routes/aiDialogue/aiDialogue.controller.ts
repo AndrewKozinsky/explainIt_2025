@@ -131,7 +131,7 @@ export class AiDialogueController {
 				request.user!.id,
 				{
 					page: query.page ?? 1,
-					pageSize: query.pageSize ?? 3,
+					pageSize: query.pageSize ?? 10,
 				},
 				locale,
 			),

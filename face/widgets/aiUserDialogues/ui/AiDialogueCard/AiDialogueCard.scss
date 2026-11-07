@@ -1,6 +1,22 @@
+@use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 
-.medium-dialogue-card {
+// Карточка = ссылка на диалог (почти вся ширина) + отдельная кнопка удаления справа.
+.ai-dialogue-card {
+	display: flex;
+	align-items: center;
+	gap: .6rem;
+	min-width: 0;
+}
+
+.ai-dialogue-card__link {
+	flex: 1;
+	min-width: 0;
+	padding: 1rem;
+	border-radius: vars.$radius-1;
+	color: inherit;
+	text-align: left;
+	text-decoration: none;
 	display: flex;
 	flex-direction: column;
 	gap: .6rem;
@@ -23,9 +39,21 @@
 	}
 }
 
-.medium-dialogue-card__summary {
+.ai-dialogue-card__scene {
+	grid-area: scene;
+	max-width: 32rem;
+
+	@include mix.container-width(500px) {
+		max-width: none;
+	}
+}
+
+.ai-dialogue-card__summary {
 	min-width: 0;
 	grid-area: summary;
+	display: flex;
+	flex-direction: column;
+	gap: .2rem;
 }
 
 .ai-dialogue-card__title {
@@ -34,32 +62,16 @@
 	font-weight: 500;
 }
 
-.medium-dialogue-card .ai-dialogue-card__meta {
-	margin-top: .2rem;
+.ai-dialogue-card__characters {
+	min-width: 0;
+	grid-area: characters;
 }
 
-.medium-dialogue-card__scene {
-	grid-area: scene;
-
-	img {
-		max-width: 32rem;
-
-		@include mix.container-width(500px) {
-			max-width: none;
-		}
-	}
-}
-
-.medium-dialogue-card__message {
+.ai-dialogue-card__message {
 	grid-area: message;
 	display: none;
 
 	@include mix.container-width(90rem) {
 		display: block;
 	}
-}
-
-.medium-dialogue-card__characters {
-	min-width: 0;
-	grid-area: characters;
 }

@@ -61,7 +61,7 @@
 ```
 GET    /ai-dialogue/illustration-styles → 200 AiDialogueIllustrationStylesOutModel (публичный)
 POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel?, illustrationStyleId?, userScenarioAmendment? } → 201 AiDialogueOutModel
-GET    /ai-dialogue?page=1&pageSize=3 → 200 AiDialoguesPageOutModel
+GET    /ai-dialogue?page=1&pageSize=10 → 200 AiDialoguesPageOutModel
 GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
 PATCH  /ai-dialogue/:id            body: { maxCefrLevel? } → 200 AiDialogueOutModel
 DELETE /ai-dialogue/:id            → 200 boolean

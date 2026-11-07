@@ -4,7 +4,7 @@ import { TrashButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/TrashBut
 
 type Props = { id: number; title: string; onDelete: (id: number) => void }
 
-export default function DialogueDeleteButton(props: Props) {
+export default function AiDialogueDeleteButton(props: Props) {
 	const { id, title, onDelete } = props
 	const t = useTranslations('userAiDialogues.card')
 

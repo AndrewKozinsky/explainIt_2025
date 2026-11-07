@@ -1,4 +1,3 @@
-@use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 
 .user-ai-dialogues-list {
@@ -17,10 +16,6 @@
 	@include mix.page-width(900px) {
 		gap: .8rem;
 	}
-}
-
-.user-ai-dialogues-list__error {
-	color: vars.$dangerColor-1;
 }
 
 .user-ai-dialogues-list__more {

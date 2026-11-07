@@ -4,10 +4,13 @@ import React from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import DeleteEntityModal from '@/shared/ui/DeleteEntityButtonAndModal/DeleteEntityModal'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import LargeDialogueCard from '../LargeDialogueCard/LargeDialogueCard'
-import MediumDialogueCard from '../MediumDialogueCard/MediumDialogueCard'
+import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+import AiDialogueCard from '../AiDialogueCard/AiDialogueCard'
 import { useAiDialogueDelete } from './fn/useAiDialogueDelete'
 import { useUserAiDialogues } from './fn/useUserAiDialogues'
+import AiDialoguesEmpty from './ui/AiDialoguesEmpty/AiDialoguesEmpty'
+import AiDialoguesLoadError from './ui/AiDialoguesLoadError/AiDialoguesLoadError'
+import AiDialoguesLoading from './ui/AiDialoguesLoading/AiDialoguesLoading'
 import './UserAiDialoguesList.scss'
 
 type Props = { userId: number }
@@ -18,34 +21,23 @@ export default function UserAiDialoguesList({ userId }: Props) {
 	const query = useUserAiDialogues(userId)
 	const { isModalOpen, status, openDeleteModal, closeDeleteModal, onConfirmDelete } = useAiDialogueDelete()
 
-	if (query.isPending) return <p role='status'>{t('loading')}</p>
+	if (query.isPending) return <AiDialoguesLoading />
 
-	if (query.isError && !query.data) {
-		return (
-			<div role='alert' className='user-ai-dialogues-list__error'>
-				<p>{t('loadError')}</p>
-				<Button onClick={() => void query.refetch()}>{t('retry')}</Button>
-			</div>
-		)
-	}
+	if (query.isError && !query.data) return <AiDialoguesLoadError onRetry={() => void query.refetch()} />
 
-	if (!query.dialogues.length) {
-		return <p className='user-ai-dialogues-list__empty'>{t('empty')}</p>
-	}
+	if (!query.dialogues.length) return <AiDialoguesEmpty />
 
-	const cards = query.dialogues.map((dialogue, index) => {
-		const Card = index === 0 ? LargeDialogueCard : MediumDialogueCard
-
-		return <Card dialogue={dialogue} locale={locale} onDelete={openDeleteModal} key={dialogue.id} />
-	})
+	const cards = query.dialogues.map((dialogue) => (
+		<AiDialogueCard dialogue={dialogue} locale={locale} onDelete={openDeleteModal} key={dialogue.id} />
+	))
 
 	return (
 		<div className='user-ai-dialogues-list'>
 			<div className='user-ai-dialogues-list__cards'>{cards}</div>
 			{query.isError && (
-				<p role='alert' className='user-ai-dialogues-list__error'>
-					{t('refreshError')}
-				</p>
+				<div role='alert'>
+					<StatusBlock type='error'>{t('refreshError')}</StatusBlock>
+				</div>
 			)}
 			{query.hasMore && (
 				<div className='user-ai-dialogues-list__more'>

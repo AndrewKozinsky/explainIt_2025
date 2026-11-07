@@ -120,7 +120,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 	})
 
 	it.each([
-		{ query: {}, pagination: { page: 1, pageSize: 3 } },
+		{ query: {}, pagination: { page: 1, pageSize: 10 } },
 		{ query: { page: 2, pageSize: 5 }, pagination: { page: 2, pageSize: 5 } },
 	])('lists dialogues for the authenticated user with pagination $pagination', async ({ query, pagination }) => {
 		const { controller, bus, request } = harness()

@@ -11,7 +11,6 @@
     "confirm": "Удалить диалог"
   },
   "card": {
-    "lastDialogue": "Последний диалог",
     "untitledDialogue": "Диалог",
     "openDialogue": "Открыть диалог «{title}»",
     "sceneImageAlt": "Сцена диалога «{title}»",

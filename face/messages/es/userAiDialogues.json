@@ -11,7 +11,6 @@
     "confirm": "Eliminar conversación"
   },
   "card": {
-    "lastDialogue": "Última conversación",
     "untitledDialogue": "Conversación",
     "openDialogue": "Abrir la conversación «{title}»",
     "sceneImageAlt": "Escena de la conversación «{title}»",

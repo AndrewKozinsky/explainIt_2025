@@ -4,7 +4,7 @@ import CharacterAvatars from '@/shared/ui/CharacterAvatars/CharacterAvatars'
 
 type Props = { characters: DialogueListCharacter[]; size: 'small' | 'medium'; maxVisible: number }
 
-export default function DialogueCharacters({ characters, size, maxVisible }: Props) {
+export default function AiDialogueCharacters({ characters, size, maxVisible }: Props) {
 	const t = useTranslations('userAiDialogues.card')
 
 	const avatars = characters.map((character) => ({
@@ -13,9 +13,5 @@ export default function DialogueCharacters({ characters, size, maxVisible }: Pro
 		imageUrl: character.emotionSheet?.url ?? null,
 	}))
 
-	return (
-		<div className='ai-dialogue-card__characters'>
-			<CharacterAvatars characters={avatars} size={size} maxVisible={maxVisible} />
-		</div>
-	)
+	return <CharacterAvatars characters={avatars} size={size} maxVisible={maxVisible} />
 }

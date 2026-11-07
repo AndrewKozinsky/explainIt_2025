@@ -1,6 +1,6 @@
 @use '@/styles/variables' as vars;
 
-.ai-dialogue-card__message {
+.ai-dialogue-last-message {
 	display: flex;
 	flex-direction: column;
 	gap: .2rem;
@@ -9,23 +9,23 @@
 	line-height: 2.1rem;
 }
 
-.ai-dialogue-card__speaker {
+.ai-dialogue-last-message__speaker {
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
 	column-gap: .6rem;
 }
 
-.ai-dialogue-card__role {
+.ai-dialogue-last-message__role {
 	color: vars.$grayColor-5;
 }
 
-.ai-dialogue-card__text,
-.ai-dialogue-card__no-message {
+.ai-dialogue-last-message__text,
+.ai-dialogue-last-message--empty {
 	color: vars.$grayColor-5;
 }
 
-.ai-dialogue-card__text {
+.ai-dialogue-last-message__text {
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 4;
@@ -34,6 +34,6 @@
 	white-space: pre-line;
 }
 
-.ai-dialogue-card__text--action {
+.ai-dialogue-last-message__text--action {
 	font-style: italic;
 }

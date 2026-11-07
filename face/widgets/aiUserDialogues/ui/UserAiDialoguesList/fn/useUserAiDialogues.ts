@@ -2,17 +2,22 @@ import { useState } from 'react'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 
+/** Сколько последних диалогов видно сразу. */
+const initialVisibleCount = 5
+/** Сколько диалогов добавляет каждое нажатие «Предыдущие диалоги». */
+const loadMoreStep = 10
+
 export function useUserAiDialogues(userId: number) {
 	const query = useInfiniteQuery(aiDialogueQueries.getUserDialogues(userId))
-	// Страницы API всегда по 10; окно карточек начинается с 3 и расширяется независимо от кэша.
-	const [visibility, setVisibility] = useState({ userId, count: 3 })
-	const visibleCount = visibility.userId === userId ? visibility.count : 3
+	// Страницы API всегда по 10; окно карточек начинается с 5 и расширяется независимо от кэша.
+	const [visibility, setVisibility] = useState({ userId, count: initialVisibleCount })
+	const visibleCount = visibility.userId === userId ? visibility.count : initialVisibleCount
 	const items = query.data?.pages.flatMap((page) => page.items) ?? []
 	const total = query.data?.pages[0]?.total ?? 0
 
 	async function loadMore() {
 		if (query.isFetching) return
-		const nextCount = visibleCount + 10
+		const nextCount = visibleCount + loadMoreStep
 
 		if (items.length < nextCount && query.hasNextPage) {
 			const result = await query.fetchNextPage()
