@@ -1,8 +1,11 @@
+import { useTranslations } from 'next-intl'
 import NoticeMessageWrapper from '../NoticeMessageWrapper/NoticeMessageWrapper'
 import FootstepsIcon from './FootstepsIcon'
 
 function UserAvoidsNpcMessage() {
-	return <NoticeMessageWrapper text='Вы ушли от разговора.' icon={<FootstepsIcon />} />
+	const t = useTranslations('aiDialogueMessages')
+
+	return <NoticeMessageWrapper text={t('userLeft')} icon={<FootstepsIcon />} />
 }
 
 export default UserAvoidsNpcMessage

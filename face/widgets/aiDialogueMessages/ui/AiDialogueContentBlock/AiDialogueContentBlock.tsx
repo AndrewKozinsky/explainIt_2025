@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import type {
@@ -37,6 +38,7 @@ function AiDialogueContentBlock({
 	audioAddress,
 	colorScheme = 'dark',
 }: AiDialogueContentBlockProps) {
+	const t = useTranslations('aiDialogueMessages')
 	const { isTextVisible, revealText } = useReplyTextVisibility(replyTextKey)
 
 	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({
@@ -64,8 +66,8 @@ function AiDialogueContentBlock({
 							colorScheme={colorScheme}
 							rounded
 							onClick={revealText}
-							aria-label='Показать текст'
-							title='Показать текст'
+							aria-label={t('showText')}
+							title={t('showText')}
 						>
 							{getHiddenTextPreview(content)}
 						</Button>

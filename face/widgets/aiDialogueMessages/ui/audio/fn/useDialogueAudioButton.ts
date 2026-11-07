@@ -1,9 +1,11 @@
 import type { MouseEvent } from 'react'
+import { useTranslations } from 'next-intl'
 import { type DialogueAudioAddress, getDialogueAudioKey } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { useDialogueAudio } from '../DialogueAudioContext'
 
 export function useDialogueAudioButton(address: DialogueAudioAddress) {
 	const audio = useDialogueAudio()
+	const t = useTranslations('aiDialogueMessages.audio')
 	if (!audio) return null
 
 	const { player, state } = audio
@@ -23,13 +25,13 @@ export function useDialogueAudioButton(address: DialogueAudioAddress) {
 		isPlaying,
 		isLoading,
 		hasError,
-		text: getButtonText(isPlaying, hasError),
+		text: t(getButtonTextKey(isPlaying, hasError)),
 		handleClick,
 	}
 }
 
-function getButtonText(isPlaying: boolean, hasError: boolean) {
-	if (isPlaying) return 'Остановить'
-	if (hasError) return 'Не удалось озвучить. Повторить'
-	return 'Озвучить'
+function getButtonTextKey(isPlaying: boolean, hasError: boolean) {
+	if (isPlaying) return 'stop'
+	if (hasError) return 'failed'
+	return 'play'
 }

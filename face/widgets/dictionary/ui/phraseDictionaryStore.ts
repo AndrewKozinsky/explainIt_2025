@@ -29,7 +29,8 @@ export const usePhraseDictionaryStore = create<PhraseDictionaryStoreNext>()((set
 		) => {
 			set({ translation, transcription, audioUrl: audioUrl ?? null, status: 'ready', error: null })
 		},
-		setError: (error: string) => {
+		/** null — показать общее переведённое сообщение об ошибке. */
+		setError: (error: string | null) => {
 			set({ error, status: 'error', nonExistentWord: false })
 		},
 		setNonExistentWord: () => {
@@ -68,7 +69,7 @@ export type PhraseDictionaryStoreMethods = {
 		transcription: TranscriptionModel | null,
 		audioUrl?: string | null,
 	) => void
-	setError: (error: string) => void
+	setError: (error: string | null) => void
 	setNonExistentWord: () => void
 	setStatusLoading: () => void
 	triggerRetry: () => void

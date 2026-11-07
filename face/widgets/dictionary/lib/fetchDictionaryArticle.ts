@@ -43,7 +43,7 @@ export async function fetchDictionaryArticle(phrase: string): Promise<void> {
 		)
 
 		if (!translationResult.ok) {
-			if (translationResult.errorMessage === 'Слово не найдено.') {
+			if (translationResult.nonExistentWord) {
 				usePhraseDictionaryStore.getState().setNonExistentWord()
 				return
 			}
@@ -72,6 +72,6 @@ export async function fetchDictionaryArticle(phrase: string): Promise<void> {
 		usePhraseDictionaryStore.getState().setTranslationResult(translationData, transcriptionModel, audioUrl)
 	} catch (error: unknown) {
 		if (isAbortError(error)) return
-		usePhraseDictionaryStore.getState().setError('Не удалось получить перевод.')
+		usePhraseDictionaryStore.getState().setError(null)
 	}
 }

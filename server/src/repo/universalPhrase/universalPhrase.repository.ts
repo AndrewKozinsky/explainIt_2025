@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common'
-import { normalizeSentence } from 'utils/stringUtils'
+import { normalizePhraseString } from 'utils/stringUtils'
 import { PrismaService } from 'db/prisma.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
-import { LanguageCode, Prisma } from 'prisma/generated/client'
+import { Prisma } from 'prisma/generated/client'
 
 type DbUniversalPhraseWithRelations = Prisma.UniversalPhraseGetPayload<{
 	include: {
@@ -44,7 +44,7 @@ export class UniversalPhraseRepository {
 
 	@CatchDbError()
 	async findOrCreate(input: { sentenceText: string; sourceLanguage: string }): Promise<UniversalPhraseServiceModel> {
-		const normalizedText = normalizeSentence(input.sentenceText)
+		const normalizedText = normalizePhraseString(input.sentenceText)
 
 		// Атомарный upsert: один SQL-запрос INSERT ... ON CONFLICT ... DO NOTHING RETURNING *
 		// Нет окна для гонки между проверкой и вставкой, в отличие от findUnique + create.
@@ -82,30 +82,6 @@ export class UniversalPhraseRepository {
 
 		return this.mapDbToServiceModel(record as DbUniversalPhraseWithRelations)
 	}
-
-	/*@CatchDbError()
-	async findBySentenceTextAndLang(
-		sentenceText: string,
-		sourceLanguage: string,
-	): Promise<UniversalPhraseServiceModel | null> {
-		const normalizedText = normalizeSentence(sentenceText)
-
-		const record = await this.prisma.universalPhrase.findUnique({
-			where: {
-				source_language_code_text: {
-					text: normalizedText,
-					source_language_code: sourceLanguage as any,
-				},
-			},
-			include: {
-				UniversalTranscription: true,
-				UniversalAudioPronunciation: true,
-			},
-		})
-
-		if (!record) return null
-		return this.mapDbToServiceModel(record as DbUniversalPhraseWithRelations)
-	}*/
 
 	private mapDbToServiceModel(db: DbUniversalPhraseWithRelations): UniversalPhraseServiceModel {
 		return {

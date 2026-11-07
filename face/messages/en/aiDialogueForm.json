@@ -1,0 +1,69 @@
+{
+  "formLabel": "Reply in the conversation",
+  "parts": {
+    "speech": "Speech",
+    "action": "Action"
+  },
+  "inputLabel": {
+    "speech": "Speech text",
+    "action": "Action text"
+  },
+  "buttons": {
+    "leave": "Leave the conversation",
+    "dictate": "Dictate",
+    "stopDictation": "Finish",
+    "recognizing": "Recognizing",
+    "check": "Check",
+    "send": "Send"
+  },
+  "feedback": {
+    "stale": "Comments on the previous version of the text",
+    "critical": "Critical errors",
+    "suggestions": "Suggestions"
+  },
+  "emptyStatus": {
+    "speech": "Type <typeIcon></typeIcon> or dictate <micIcon></micIcon> what you say",
+    "action": "Type <typeIcon></typeIcon> or dictate <micIcon></micIcon> what you do"
+  },
+  "status": {
+    "sending": "Sending your reply…",
+    "connectingMicrophone": "Connecting the microphone…",
+    "listening": "Listening…",
+    "finishingRecognition": "Finishing recognition…",
+    "checking": "Checking the text…",
+    "needsCheck": "Send it for checking",
+    "fixErrors": "{count, plural, one {Fix # error to send your reply} other {Fix # errors to send your reply}}",
+    "speechHasErrors": "The speech text has errors.",
+    "actionHasErrors": "The action text has errors.",
+    "checkSpeech": "Check the speech text.",
+    "checkAction": "Check the action text.",
+    "ready": "Your reply is ready to send."
+  },
+  "errors": {
+    "checkFailed": "Could not check the text.",
+    "dictationStartFailed": "Could not start dictation.",
+    "sendFailed": "Could not send your reply. Please try again.",
+    "dictationTextLimit": "The 4000-character limit has been reached. The last fragment was not added.",
+    "textTooLong": "The text must not exceed 4000 characters.",
+    "microphoneConnectTimeout": "Could not connect the microphone. Please try again.",
+    "recordingFailed": "Could not record audio. Please try again.",
+    "recognitionConnectFailed": "Could not connect to speech recognition. Check your connection and try again.",
+    "recognitionInterrupted": "Recognition was interrupted. The recognized text has been kept; please dictate again.",
+    "recognitionFinishTimeout": "Could not finish recognition. Please dictate again.",
+    "stopRecordingFailed": "Could not stop recording.",
+    "microphoneDisconnected": "The microphone was disconnected. Connect it and dictate again.",
+    "dictationTimeLimit": "The dictation time limit has been reached.",
+    "recognizedTextFailed": "Could not get the recognized text. Please dictate again.",
+    "audioSendFailed": "Cannot send audio. Check your connection.",
+    "recordingInterrupted": "Recording was interrupted. Please dictate again.",
+    "audioTransferFinishFailed": "Could not finish sending audio.",
+    "recognitionConnectionLost": "The connection to speech recognition was lost.",
+    "browserUnsupported": "This browser does not support dictation. Type the text on your keyboard.",
+    "microphoneAccessDenied": "Allow microphone access in your browser settings and try again.",
+    "microphoneNotFound": "No microphone found. Connect one and try again.",
+    "microphoneEnableFailed": "Could not turn on the microphone. Check that it is connected and allowed in your browser.",
+    "recognitionTimeout": "Recognition stopped after a timeout. Please dictate again.",
+    "dictationLimitExceeded": "The dictation limit has been reached. Continue with a new recording.",
+    "recognitionUnavailable": "The speech recognition service is temporarily unavailable. Please try again."
+  }
+}

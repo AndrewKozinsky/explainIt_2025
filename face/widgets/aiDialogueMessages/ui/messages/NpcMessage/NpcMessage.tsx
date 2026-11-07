@@ -1,5 +1,6 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { getAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { getReplyTextKey } from '@/entities/aiDialogue/replySettings/replyTextVisibilityStore'
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
@@ -40,6 +41,7 @@ function NpcMessage({
 	onWordSelect,
 	wordMap,
 }: NpcMessageProps) {
+	const t = useTranslations('aiDialogueMessages')
 	const content = speechAndActions.map((item, index) => {
 		const textProps = {
 			content: item.content ?? '',
@@ -65,7 +67,7 @@ function NpcMessage({
 	return (
 		<WithAvatarMessageWrapper
 			extraClass='nps-message'
-			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || 'Участник'} />}
+			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || t('participant')} />}
 			name={npcName}
 			role={npcRole}
 			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(

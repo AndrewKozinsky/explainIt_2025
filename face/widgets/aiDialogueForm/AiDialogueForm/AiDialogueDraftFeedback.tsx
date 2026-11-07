@@ -1,22 +1,25 @@
+import { useTranslations } from 'next-intl'
 import type { UserMessagePartCheck } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
 import { LockSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/LockSmallButtonIcon'
 import { MicSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/MicSmallButtonIcon'
 import { TextSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/TextSmallButtonIcon'
 import { WarningSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/WarningSmallButtonIcon'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
-import { type DialogueDraftState, draftStatus } from './fn/aiDialogueDraftState'
+import { type DialogueDraftState, type DraftErrorKey, draftStatus } from './fn/aiDialogueDraftState'
 
 export function AiDialogueDraftFeedback({ result, stale }: { result: UserMessagePartCheck | null; stale: boolean }) {
+	const t = useTranslations('aiDialogueForm.feedback')
+
 	if (!result || (!result.critical.length && !result.suggestions.length)) return null
 	return (
 		<div className='ai-dialogue-input__feedback'>
-			{stale && <p className='ai-dialogue-input__stale'>Замечания к предыдущей версии текста</p>}
-			<ol className='ai-dialogue-input__critical' aria-label='Критические ошибки'>
+			{stale && <p className='ai-dialogue-input__stale'>{t('stale')}</p>}
+			<ol className='ai-dialogue-input__critical' aria-label={t('critical')}>
 				{result.critical.map((issue, index) => (
 					<CriticalIssue key={index} issue={issue} />
 				))}
 			</ol>
-			{result.suggestions.length > 0 && <Suggestions items={result.suggestions} />}
+			{result.suggestions.length > 0 && <Suggestions items={result.suggestions} label={t('suggestions')} />}
 		</div>
 	)
 }
@@ -39,9 +42,9 @@ function CriticalIssue({ issue }: { issue: UserMessagePartCheck['critical'][numb
 	)
 }
 
-function Suggestions({ items }: { items: UserMessagePartCheck['suggestions'] }) {
+function Suggestions({ items, label }: { items: UserMessagePartCheck['suggestions']; label: string }) {
 	return (
-		<div className='ai-dialogue-input__suggestions' aria-label='Рекомендации'>
+		<div className='ai-dialogue-input__suggestions' aria-label={label}>
 			{items.map((item, index) => (
 				<div className='ai-dialogue-input__suggestion' key={index}>
 					<div className='ai-dialogue-input__suggestion-top'>
@@ -55,36 +58,41 @@ function Suggestions({ items }: { items: UserMessagePartCheck['suggestions'] }) 
 }
 
 export function AiDialogueDraftStatus({ state }: { state: DialogueDraftState }) {
+	const t = useTranslations('aiDialogueForm')
 	const status = draftStatus(state)
 	return (
 		<div className='ai-dialogue-input__status' role='status' aria-live='polite'>
-			{status.empty ? (
-				<EmptyStatus action={state.activePart === 'action'} />
+			{'empty' in status ? (
+				<span>
+					{t.rich(`emptyStatus.${state.activePart}`, {
+						typeIcon: () => <TextSmallButtonIcon />,
+						micIcon: () => <MicSmallButtonIcon />,
+					})}
+				</span>
 			) : (
 				<>
 					{status.locked && <LockSmallButtonIcon />}
-					{status.text}
+					{t(`status.${status.key}`, { count: status.errorCount ?? 0 })}
 				</>
 			)}
 		</div>
 	)
 }
 
-function EmptyStatus({ action }: { action: boolean }) {
-	return (
-		<span>
-			Напечатайте <TextSmallButtonIcon /> или продиктуйте <MicSmallButtonIcon /> {action ? 'действие' : 'реплику'}
-		</span>
-	)
-}
-
-export function AiDialogueDraftRequestError({ text, dialogueId }: { text: string | null; dialogueId: number }) {
+export function AiDialogueDraftRequestError({
+	errorKey,
+	dialogueId,
+}: {
+	errorKey: DraftErrorKey | null
+	dialogueId: number
+}) {
+	const t = useTranslations('aiDialogueForm.errors')
 	return (
 		<div className='ai-dialogue-input__error-area' id={`ai-dialogue-draft-error-${dialogueId}`}>
-			{text && (
+			{errorKey && (
 				<p className='ai-dialogue-input__request-error' role='alert'>
 					<WarningSmallButtonIcon />
-					{text}
+					{t(errorKey)}
 				</p>
 			)}
 		</div>

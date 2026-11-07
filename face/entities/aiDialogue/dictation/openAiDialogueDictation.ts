@@ -1,10 +1,33 @@
 import { createDictationRecorder, type DictationRecorder } from './createDictationRecorder'
 
+/** Ключ текста ошибки диктовки: aiDialogueForm.errors.<ключ> в messages/{locale}/aiDialogueForm.json. */
+export type DictationErrorKey =
+	| 'audioSendFailed'
+	| 'audioTransferFinishFailed'
+	| 'browserUnsupported'
+	| 'dictationLimitExceeded'
+	| 'dictationTimeLimit'
+	| 'microphoneAccessDenied'
+	| 'microphoneConnectTimeout'
+	| 'microphoneDisconnected'
+	| 'microphoneEnableFailed'
+	| 'microphoneNotFound'
+	| 'recognitionConnectFailed'
+	| 'recognitionConnectionLost'
+	| 'recognitionFinishTimeout'
+	| 'recognitionInterrupted'
+	| 'recognitionTimeout'
+	| 'recognitionUnavailable'
+	| 'recognizedTextFailed'
+	| 'recordingFailed'
+	| 'recordingInterrupted'
+	| 'stopRecordingFailed'
+
 export type DictationCallbacks = {
 	onPhase(phase: 'recording' | 'finishing'): void
 	onText(committed: string, provisional: string): void
 	onDone(text: string): void
-	onError(message: string): void
+	onError(errorKey: DictationErrorKey): void
 }
 export type DictationSession = { stop(): void; cancel(): void }
 
@@ -20,6 +43,7 @@ const defaultEnvironment: DictationEnvironment = {
 		if (!navigator.mediaDevices?.getUserMedia) {
 			return Promise.reject(new Error('unsupported'))
 		}
+
 		return navigator.mediaDevices.getUserMedia({ audio: true })
 	},
 	createRecorder: createDictationRecorder,
@@ -65,12 +89,15 @@ class BrowserDictation implements DictationSession {
 	) {}
 
 	async open() {
-		this.armTimeout(30_000, 'Не удалось подключить микрофон. Попробуйте ещё раз.')
+		this.armTimeout(30_000, 'microphoneConnectTimeout')
+
 		try {
 			const stream = await this.environment.getUserMedia()
 			if (this.closed) return stopTracks(stream)
+
 			this.stream = stream
 			const recorder = await this.environment.createRecorder(stream, this.abortController.signal)
+
 			if (this.closed) {
 				recorder.dispose?.()
 				return stopTracks(stream)
@@ -79,17 +106,15 @@ class BrowserDictation implements DictationSession {
 			this.recorder = recorder
 			this.recorder.ondataavailable = (event) => this.enqueue(event.data)
 			this.recorder.onstop = () => this.recorderStopped()
-			this.recorder.onerror = () => this.fail('Не удалось записать звук. Попробуйте ещё раз.')
+			this.recorder.onerror = () => this.fail('recordingFailed')
 			stream.getAudioTracks().forEach((track) => track.addEventListener('ended', this.microphoneEnded))
 			const url = new URL(`/api/ai-dialogue/${this.dialogueId}/dictation`, this.environment.origin())
 			url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:'
 			this.socket = this.environment.createSocket(url.toString())
 			this.socket.onopen = () => this.sendControl('start')
 			this.socket.onmessage = (event) => this.receive(event.data)
-			this.socket.onerror = () =>
-				this.fail('Не удалось подключиться к распознаванию. Проверьте соединение и повторите попытку.')
-			this.socket.onclose = () =>
-				this.fail('Распознавание прервано. Распознанный текст сохранён; повторите диктовку.')
+			this.socket.onerror = () => this.fail('recognitionConnectFailed')
+			this.socket.onclose = () => this.fail('recognitionInterrupted')
 		} catch (error) {
 			this.fail(microphoneError(error))
 		}
@@ -101,12 +126,12 @@ class BrowserDictation implements DictationSession {
 
 		this.stopping = true
 		this.callbacks.onPhase('finishing')
-		this.armTimeout(60_000, 'Не удалось завершить распознавание. Повторите диктовку.')
+		this.armTimeout(60_000, 'recognitionFinishTimeout')
 
 		try {
 			this.recorder!.stop()
 		} catch {
-			this.fail('Не удалось остановить запись.')
+			this.fail('stopRecordingFailed')
 		}
 	}
 
@@ -122,7 +147,7 @@ class BrowserDictation implements DictationSession {
 	}
 
 	private microphoneEnded = () => {
-		if (!this.stopping && !this.closed) this.fail('Микрофон отключён. Подключите его и повторите диктовку.')
+		if (!this.stopping && !this.closed) this.fail('microphoneDisconnected')
 	}
 
 	private receive(data: unknown) {
@@ -134,7 +159,7 @@ class BrowserDictation implements DictationSession {
 
 			if (event.type === 'ready' && !this.recording && !this.stopping) {
 				this.recording = true
-				this.armTimeout(5 * 60_000, 'Достигнут лимит времени диктовки.')
+				this.armTimeout(5 * 60_000, 'dictationTimeLimit')
 				this.recorder!.start(200)
 				this.callbacks.onPhase('recording')
 			} else if (event.type === 'partial' && this.recording && typeof event.text === 'string') {
@@ -151,7 +176,7 @@ class BrowserDictation implements DictationSession {
 				throw new Error('Unexpected dictation event')
 			}
 		} catch {
-			this.fail('Не удалось получить распознанный текст. Повторите диктовку.')
+			this.fail('recognizedTextFailed')
 		}
 	}
 
@@ -159,8 +184,7 @@ class BrowserDictation implements DictationSession {
 		if (this.closed || !blob.size) return
 		this.queuedBytes += blob.size
 		this.queuedChunks++
-		if (this.queuedBytes > 1024 * 1024 || this.queuedChunks > 64)
-			return this.fail('Не удаётся отправить звук. Проверьте соединение.')
+		if (this.queuedBytes > 1024 * 1024 || this.queuedChunks > 64) return this.fail('audioSendFailed')
 		this.queue = this.queue
 			.then(async () => {
 				try {
@@ -173,14 +197,14 @@ class BrowserDictation implements DictationSession {
 					this.queuedChunks--
 				}
 			})
-			.catch(() => this.fail('Не удаётся отправить звук. Проверьте соединение.'))
+			.catch(() => this.fail('audioSendFailed'))
 	}
 
 	private recorderStopped() {
 		if (this.closed) return
 
 		stopTracks(this.stream)
-		if (!this.stopping) return this.fail('Запись прервана. Повторите диктовку.')
+		if (!this.stopping) return this.fail('recordingInterrupted')
 		void this.queue
 			.then(() => {
 				if (!this.closed) {
@@ -188,7 +212,7 @@ class BrowserDictation implements DictationSession {
 					this.sendControl('stop')
 				}
 			})
-			.catch(() => this.fail('Не удалось завершить передачу звука.'))
+			.catch(() => this.fail('audioTransferFinishFailed'))
 	}
 
 	private sendAudio(bytes: Uint8Array) {
@@ -205,19 +229,19 @@ class BrowserDictation implements DictationSession {
 			if (this.socket?.readyState !== 1) throw new Error('Socket not open')
 			this.socket.send(JSON.stringify(type === 'start' ? { type, ...this.recorder?.audioOptions } : { type }))
 		} catch {
-			this.fail('Соединение с распознаванием прервано.')
+			this.fail('recognitionConnectionLost')
 		}
 	}
 
-	private armTimeout(milliseconds: number, error: string) {
+	private armTimeout(milliseconds: number, errorKey: DictationErrorKey) {
 		clearTimeout(this.timeout)
-		this.timeout = setTimeout(() => this.fail(error), milliseconds)
+		this.timeout = setTimeout(() => this.fail(errorKey), milliseconds)
 	}
 
-	private fail(message: string) {
+	private fail(errorKey: DictationErrorKey) {
 		if (this.closed) return
 		this.cleanup()
-		this.callbacks.onError(message)
+		this.callbacks.onError(errorKey)
 	}
 
 	private cleanup() {
@@ -255,18 +279,16 @@ function stopTracks(stream?: MediaStream) {
 	stream?.getTracks().forEach((track) => track.stop())
 }
 
-function microphoneError(error: unknown): string {
-	if (error instanceof Error && error.message === 'unsupported')
-		return 'Этот браузер не поддерживает диктовку. Введите текст с клавиатуры.'
+function microphoneError(error: unknown): DictationErrorKey {
+	if (error instanceof Error && error.message === 'unsupported') return 'browserUnsupported'
 	const name = error instanceof Error ? error.name : ''
-	if (name === 'NotAllowedError' || name === 'SecurityError')
-		return 'Разрешите доступ к микрофону в настройках браузера и повторите попытку.'
-	if (name === 'NotFoundError') return 'Микрофон не найден. Подключите его и повторите попытку.'
-	return 'Не удалось включить микрофон. Проверьте его подключение и разрешения браузера.'
+	if (name === 'NotAllowedError' || name === 'SecurityError') return 'microphoneAccessDenied'
+	if (name === 'NotFoundError') return 'microphoneNotFound'
+	return 'microphoneEnableFailed'
 }
 
-function dictationError(code: unknown): string {
-	if (code === 'AI_DIALOGUE_DICTATION_TIMEOUT') return 'Распознавание остановлено по таймауту. Повторите диктовку.'
-	if (code === 'AI_DIALOGUE_DICTATION_LIMIT_EXCEEDED') return 'Достигнут лимит диктовки. Продолжите новой записью.'
-	return 'Сервис распознавания временно недоступен. Попробуйте ещё раз.'
+function dictationError(code: unknown): DictationErrorKey {
+	if (code === 'AI_DIALOGUE_DICTATION_TIMEOUT') return 'recognitionTimeout'
+	if (code === 'AI_DIALOGUE_DICTATION_LIMIT_EXCEEDED') return 'dictationLimitExceeded'
+	return 'recognitionUnavailable'
 }

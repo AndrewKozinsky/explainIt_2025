@@ -1,0 +1,15 @@
+{
+  "avatar": "Аватар: {name}",
+  "participant": "Участник",
+  "sceneIllustration": "Иллюстрация сцены",
+  "illustrationUnavailable": "Иллюстрация недоступна",
+  "retryLoading": "Повторить загрузку",
+  "waitingForReply": "Ожидание ответа",
+  "userLeft": "Вы ушли от разговора.",
+  "showText": "Показать текст",
+  "audio": {
+    "play": "Озвучить",
+    "stop": "Остановить",
+    "failed": "Не удалось озвучить. Повторить"
+  }
+}

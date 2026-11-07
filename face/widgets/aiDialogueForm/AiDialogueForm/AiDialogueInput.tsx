@@ -1,13 +1,14 @@
 'use client'
 
 import type { ChangeEvent, KeyboardEvent, PointerEvent } from 'react'
+import { useTranslations } from 'next-intl'
+import Divider from '@/shared/ui/Divider/Divider'
 import { AiDialogueDraftFooter, AiDialogueDraftHeader } from './AiDialogueDraftControls'
 import { AiDialogueDraftFeedback, AiDialogueDraftRequestError } from './AiDialogueDraftFeedback'
 import { isPartChecked, isPartReady, MAX_DRAFT_LENGTH } from './fn/aiDialogueDraftState'
 import { useAiDialogueDraft } from './fn/useAiDialogueDraft'
 import { useDraftTextarea } from './fn/useDraftTextarea'
 import './AiDialogueInput.scss'
-import Divider from '@/shared/ui/Divider/Divider'
 
 /** Новый dialogueId создаёт отдельный черновик и отменяет операции прежнего диалога. */
 export default function AiDialogueInput({ dialogueId }: { dialogueId: number }) {
@@ -15,6 +16,7 @@ export default function AiDialogueInput({ dialogueId }: { dialogueId: number }) 
 }
 
 function AiDialogueReplyForm({ dialogueId }: { dialogueId: number }) {
+	const t = useTranslations('aiDialogueForm')
 	const { state, controller, blocked } = useAiDialogueDraft(dialogueId)
 	const { activePart, parts, dictation } = state
 	const current = parts[activePart]
@@ -51,12 +53,12 @@ function AiDialogueReplyForm({ dialogueId }: { dialogueId: number }) {
 	}
 
 	return (
-		<section className='ai-dialogue-input' aria-label='Ответ в диалоге'>
+		<section className='ai-dialogue-input' aria-label={t('formLabel')}>
 			<AiDialogueDraftHeader state={state} controller={controller} blocked={blocked} />
 			<textarea
 				ref={inputRef}
 				className={`ai-dialogue-input__editor${current.checking || finishing || busy ? ' ai-dialogue-input__editor--pending' : ''}`}
-				aria-label={activePart === 'speech' ? 'Текст реплики' : 'Текст действия'}
+				aria-label={t(`inputLabel.${activePart}`)}
 				aria-describedby={`ai-dialogue-draft-error-${dialogueId}`}
 				aria-busy={current.checking || !!dictation}
 				placeholder={activePart === 'speech' ? 'Hi, how’s it going?' : 'I opened the door'}
@@ -70,7 +72,7 @@ function AiDialogueReplyForm({ dialogueId }: { dialogueId: number }) {
 				onBlur={rememberSelection}
 				onKeyDown={handleKeyDown}
 			/>
-			<AiDialogueDraftRequestError text={current.error} dialogueId={dialogueId} />
+			<AiDialogueDraftRequestError errorKey={current.error} dialogueId={dialogueId} />
 			<AiDialogueDraftFeedback
 				result={current.text.trim() ? (current.review?.result ?? null) : null}
 				stale={!isPartChecked(current)}

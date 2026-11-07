@@ -60,6 +60,11 @@ SSE-протокол, генерация хода, компакция) опис�
 Заголовок страницы — `dialogue.scenario.title`, который сервер уже вернул на языке интерфейса (см.
 `getHeaderAndSubHeader`).
 
+Тексты интерфейса страницы переведены на 7 языков и лежат в разделах `messages/{locale}/`: `aiDialoguePage`
+(загрузка, вкладки правой панели), `aiDialogueForm` (форма ответа), `aiDialogueMessages` (сообщения ленты,
+озвучка, иллюстрации), `aiDialogueSettings` (панель настроек), `aiDialogue` (уровень языка, переключатели)
+и `dictionary` (Словарь).
+
 ## Клиентские типы (зеркало серверных)
 
 `face/widgets/aiDialogueMessages/types/aiDialogueMessage.ts` — клиентское зеркало

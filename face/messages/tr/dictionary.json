@@ -1,0 +1,7 @@
+{
+  "inputPlaceholder": "Çevrilecek kelime...",
+  "loading": "Çeviri yükleniyor...",
+  "retry": "Tekrar dene",
+  "notExisting": "Böyle bir kelime yok.",
+  "loadError": "Çeviri alınamadı."
+}

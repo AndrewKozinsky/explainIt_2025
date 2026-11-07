@@ -1,0 +1,15 @@
+{
+  "avatar": "Avatar : {name}",
+  "participant": "Participant",
+  "sceneIllustration": "Illustration de la scène",
+  "illustrationUnavailable": "Illustration indisponible",
+  "retryLoading": "Recharger",
+  "waitingForReply": "En attente de réponse",
+  "userLeft": "Vous avez quitté la conversation.",
+  "showText": "Afficher le texte",
+  "audio": {
+    "play": "Écouter",
+    "stop": "Arrêter",
+    "failed": "Lecture impossible. Réessayer"
+  }
+}

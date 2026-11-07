@@ -164,15 +164,21 @@ POST /universal-phrase-translation
 
 ### Нормализация текста
 
-Текст фразы нормализуется функцией `normalizeSentence` (в `server/src/utils/stringUtils.ts`):
+Текст фразы приводится к стандартной форме функцией `normalizePhraseString` (`server/src/utils/stringUtils.ts`):
 
-- Обрезка пробелов по краям
-- Замена повторяющихся пробелов на один
-- Унификация кавычек (`'` → `'`, `"«»` → `"`)
+- пробелы по краям обрезаются, повторяющиеся пробелы заменяются одним;
+- типографские апострофы `‘ ’ ʼ` и знаки `` ` ``, `´` заменяются на `'`, кавычки `“ ” „ « »` — на `"`;
+- знаки препинания по краям (`. ! ? … ¿ ¡`, кавычки, скобки и т. п.) убираются; апострофы по краям остаются,
+  потому что входят в слово (`'cause`, `goin'`); знаки внутри фразы сохраняются (`mr. smith`, `yes, please`);
+- текст переводится в нижний регистр.
 
-Нормализация применяется при создании фразы, при поиске в репозитории (`findBySentenceTextAndLang`) и в
-query-репозитории (`getUniversalPhraseByTextAndLang`). Это гарантирует, что запрос `"catch her breath"` найдёт фразу,
-созданную как `"catch her breath"`.
+Поэтому «Pretty much.», «pretty much» и «“Pretty much!”» — одна фраза `pretty much` с одной статьёй.
+Если текст состоит только из знаков препинания, они сохраняются, чтобы не получилась пустая фраза.
+Функция идемпотентна. Тесты — `server/src/utils/stringUtils.spec.ts`.
+
+Нормализация применяется при создании фразы (`GetOrCreateUniversalPhraseCommand`, `UniversalPhraseRepository.findOrCreate`)
+и при поиске (`GetUniversalPhraseCommand`). Клиент строит ключ кэша `UniversalPhraseService` по тем же правилам
+(`face/entities/universalPhrase/normalizePhraseText.ts`), поэтому варианты одной фразы не запрашиваются повторно.
 
 ### Ответ возвращается через QueryRepository
 
@@ -332,4 +338,4 @@ PhraseTranslationResult/
 ### Схема БД
 
 - `server/src/db/dbConfig/dbConfig.ts` — конфигурация таблицы `UniversalPhraseTranslation`
-- `server/src/utils/stringUtils.ts` — `normalizeSentence` для унификации текста фраз
+- `server/src/utils/stringUtils.ts` — `normalizePhraseString`: стандартная форма текста фраз

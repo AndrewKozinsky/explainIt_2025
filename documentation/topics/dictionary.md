@@ -20,6 +20,8 @@
 - **Несуществующее слово** — если такого слова нет в языке, Словарь сообщает об этом вместо статьи.
 - Состояния загрузки и ошибки с возможностью повторить запрос.
 
+Тексты виджета переведены на 7 языков интерфейса (`messages/{locale}/dictionary.json`).
+
 Статья для одной и той же фразы и пары языков генерируется один раз и затем переиспользуется.
 
 ## Реализация
@@ -27,5 +29,8 @@
 - Клиент: виджет `face/widgets/dictionary/` (`PhraseDictionary`, стор `phraseDictionaryStore.ts`, загрузка статьи —
   `lib/fetchDictionaryArticle.ts`). В книгах и видео подключается через
   `face/entities/detailsBlock/ui/mediaSpecific/MediaDictionaryContent/`, в диалогах — в `AiDialoguePage`.
+- Ошибки: `UniversalPhraseService` возвращает `errorMessage` — переведённый текст ошибки сервера или `null`, тогда
+  виджет показывает общее сообщение `dictionary.loadError`. Несуществующее слово отмечается флагом
+  `nonExistentWord`, а не текстом ошибки.
 - Сервер: фраза хранится в `UniversalPhrase`, статья — в `UniversalPhraseTranslation`. Генерация и формат статьи —
   [../media/universalPhraseTranslation.md](../media/universalPhraseTranslation.md).

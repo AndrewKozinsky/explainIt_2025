@@ -1,0 +1,69 @@
+{
+  "formLabel": "Respuesta en la conversación",
+  "parts": {
+    "speech": "Frase",
+    "action": "Acción"
+  },
+  "inputLabel": {
+    "speech": "Texto de la frase",
+    "action": "Texto de la acción"
+  },
+  "buttons": {
+    "leave": "Salir de la conversación",
+    "dictate": "Dictar",
+    "stopDictation": "Terminar",
+    "recognizing": "Reconociendo",
+    "check": "Revisar",
+    "send": "Enviar"
+  },
+  "feedback": {
+    "stale": "Comentarios sobre la versión anterior del texto",
+    "critical": "Errores críticos",
+    "suggestions": "Recomendaciones"
+  },
+  "emptyStatus": {
+    "speech": "Escribe <typeIcon></typeIcon> o dicta <micIcon></micIcon> lo que dices",
+    "action": "Escribe <typeIcon></typeIcon> o dicta <micIcon></micIcon> lo que haces"
+  },
+  "status": {
+    "sending": "Enviando la respuesta…",
+    "connectingMicrophone": "Conectando el micrófono…",
+    "listening": "Escuchando…",
+    "finishingRecognition": "Terminando el reconocimiento…",
+    "checking": "Revisando el texto…",
+    "needsCheck": "Envíalo a revisar",
+    "fixErrors": "{count, plural, one {Corrige # error para enviar la respuesta} other {Corrige # errores para enviar la respuesta}}",
+    "speechHasErrors": "El texto de la frase tiene errores.",
+    "actionHasErrors": "El texto de la acción tiene errores.",
+    "checkSpeech": "Revisa el texto de la frase.",
+    "checkAction": "Revisa el texto de la acción.",
+    "ready": "La respuesta se puede enviar."
+  },
+  "errors": {
+    "checkFailed": "No se pudo revisar el texto.",
+    "dictationStartFailed": "No se pudo iniciar el dictado.",
+    "sendFailed": "No se pudo enviar la respuesta. Inténtalo de nuevo.",
+    "dictationTextLimit": "Se alcanzó el límite de 4000 caracteres. El último fragmento no se añadió.",
+    "textTooLong": "El texto no debe superar los 4000 caracteres.",
+    "microphoneConnectTimeout": "No se pudo conectar el micrófono. Inténtalo de nuevo.",
+    "recordingFailed": "No se pudo grabar el audio. Inténtalo de nuevo.",
+    "recognitionConnectFailed": "No se pudo conectar con el reconocimiento de voz. Comprueba la conexión e inténtalo de nuevo.",
+    "recognitionInterrupted": "El reconocimiento se interrumpió. El texto reconocido se ha guardado; vuelve a dictar.",
+    "recognitionFinishTimeout": "No se pudo terminar el reconocimiento. Vuelve a dictar.",
+    "stopRecordingFailed": "No se pudo detener la grabación.",
+    "microphoneDisconnected": "El micrófono se ha desconectado. Conéctalo y vuelve a dictar.",
+    "dictationTimeLimit": "Se alcanzó el tiempo máximo de dictado.",
+    "recognizedTextFailed": "No se pudo obtener el texto reconocido. Vuelve a dictar.",
+    "audioSendFailed": "No se puede enviar el audio. Comprueba la conexión.",
+    "recordingInterrupted": "La grabación se interrumpió. Vuelve a dictar.",
+    "audioTransferFinishFailed": "No se pudo terminar de enviar el audio.",
+    "recognitionConnectionLost": "Se perdió la conexión con el reconocimiento de voz.",
+    "browserUnsupported": "Este navegador no admite el dictado. Escribe el texto con el teclado.",
+    "microphoneAccessDenied": "Permite el acceso al micrófono en los ajustes del navegador e inténtalo de nuevo.",
+    "microphoneNotFound": "No se encontró ningún micrófono. Conéctalo e inténtalo de nuevo.",
+    "microphoneEnableFailed": "No se pudo activar el micrófono. Comprueba que esté conectado y permitido en el navegador.",
+    "recognitionTimeout": "El reconocimiento se detuvo por tiempo de espera. Vuelve a dictar.",
+    "dictationLimitExceeded": "Se alcanzó el límite de dictado. Continúa con una nueva grabación.",
+    "recognitionUnavailable": "El servicio de reconocimiento de voz no está disponible temporalmente. Inténtalo de nuevo."
+  }
+}

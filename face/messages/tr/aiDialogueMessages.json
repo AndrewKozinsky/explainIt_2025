@@ -1,0 +1,15 @@
+{
+  "avatar": "Avatar: {name}",
+  "participant": "Katılımcı",
+  "sceneIllustration": "Sahne illüstrasyonu",
+  "illustrationUnavailable": "İllüstrasyon kullanılamıyor",
+  "retryLoading": "Yeniden yükle",
+  "waitingForReply": "Yanıt bekleniyor",
+  "userLeft": "Sohbetten ayrıldınız.",
+  "showText": "Metni göster",
+  "audio": {
+    "play": "Dinle",
+    "stop": "Durdur",
+    "failed": "Seslendirilemedi. Tekrar dene"
+  }
+}

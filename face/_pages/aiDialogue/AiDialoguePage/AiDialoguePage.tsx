@@ -30,6 +30,7 @@ type Props = {
 
 export default function AiDialoguePage({ dialogueId }: Props) {
 	const t = useTranslations('pageUrls')
+	const tPage = useTranslations('aiDialoguePage')
 	const locale = useLocale()
 	const { data: dialogue, error, isPending } = useQuery(aiDialogueQueries.getDialogue(Number(dialogueId)))
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
@@ -50,7 +51,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	}
 
 	if (isPending || !dialogue) {
-		return <LoadingMessage text='Загрузка диалога…' />
+		return <LoadingMessage text={tPage('loading')} />
 	}
 
 	const { header } = getHeaderAndSubHeader(dialogue)
@@ -85,7 +86,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 								tabs={[
 									{
 										type: 'dictionary',
-										text: 'Словарь',
+										text: tPage('tabs.dictionary'),
 										content: (
 											<PhraseDictionary
 												languageCode={dialogue.sourceLanguageCode}
@@ -93,7 +94,11 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 											/>
 										),
 									},
-									{ type: 'ai_dialog', text: 'Диалог', content: <p>{selectedSentence}</p> },
+									{
+										type: 'ai_dialog',
+										text: tPage('tabs.dialogue'),
+										content: <p>{selectedSentence}</p>,
+									},
 								]}
 							/>
 							<AiDialogueSettings

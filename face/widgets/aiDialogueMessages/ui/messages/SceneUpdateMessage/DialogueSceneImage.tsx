@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import { useDialogueSceneImage } from './fn/useDialogueSceneImage'
 
 type Props = { messageId?: number; reserveSpace: boolean }
@@ -8,6 +9,8 @@ function DialogueSceneImage({ messageId, reserveSpace }: Props) {
 		reserveSpace,
 	)
 
+	const t = useTranslations('aiDialogueMessages')
+
 	if (!showSlot) return null
 
 	return (
@@ -15,14 +18,20 @@ function DialogueSceneImage({ messageId, reserveSpace }: Props) {
 			{/* Пока изображение генерируется или скачивается — точки, по которым «проводят кистью» */}
 			{!loadedUrl && !failed && <div className='ai-dialogue-message-scene-update__image-pending' aria-hidden />}
 			{loadedUrl && (
-				<img src={loadedUrl} onError={handleDisplayError} alt='Иллюстрация сцены' width={1152} height={576} />
+				<img
+					src={loadedUrl}
+					onError={handleDisplayError}
+					alt={t('sceneIllustration')}
+					width={1152}
+					height={576}
+				/>
 			)}
 			{failed && (
 				<div className='ai-dialogue-message-scene-update__image-error'>
-					<span>Иллюстрация недоступна</span>
+					<span>{t('illustrationUnavailable')}</span>
 					{isError && (
 						<button type='button' onClick={retryDownload}>
-							Повторить загрузку
+							{t('retryLoading')}
 						</button>
 					)}
 				</div>

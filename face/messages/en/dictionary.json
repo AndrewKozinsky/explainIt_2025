@@ -1,0 +1,7 @@
+{
+  "inputPlaceholder": "Word to translate...",
+  "loading": "Loading the translation...",
+  "retry": "Retry",
+  "notExisting": "This word does not exist.",
+  "loadError": "Could not get the translation."
+}

@@ -6,6 +6,7 @@ import {
 	canSendDraft,
 	createDraftPart,
 	type DialogueDraftState,
+	type DraftErrorKey,
 	type DraftPart,
 	type DraftSelection,
 	insertDictation,
@@ -115,7 +116,7 @@ export class AiDialogueDraftController {
 			})
 		} catch {
 			if (this.acceptsCheck(part, request, current.revision)) {
-				this.updatePart(part, { checking: false, error: 'Не удалось проверить текст.' })
+				this.updatePart(part, { checking: false, error: 'checkFailed' })
 			}
 		} finally {
 			if (this.checks.get(part) === request) this.checks.delete(part)
@@ -143,7 +144,7 @@ export class AiDialogueDraftController {
 			context.session = session
 			if (this.dictation !== context) session.cancel()
 		} catch {
-			this.finishDictation(context, '', 'Не удалось начать диктовку.')
+			this.finishDictation(context, '', 'dictationStartFailed')
 		}
 	}
 
@@ -182,8 +183,7 @@ export class AiDialogueDraftController {
 				this.update({ parts: { speech: createDraftPart(), action: createDraftPart() } })
 			}
 		} catch {
-			if (!this.disposed)
-				this.updatePart(this.state.activePart, { error: 'Не удалось отправить ответ. Попробуйте ещё раз.' })
+			if (!this.disposed) this.updatePart(this.state.activePart, { error: 'sendFailed' })
 		} finally {
 			if (!this.disposed) this.update({ sending: false })
 		}
@@ -194,11 +194,7 @@ export class AiDialogueDraftController {
 		const transcript = committed + provisional
 		const text = transcript ? insertDictation(context.original, context.selection, transcript) : context.original
 		if (text.length > MAX_DRAFT_LENGTH) {
-			this.finishDictation(
-				context,
-				context.committed,
-				'Достигнут лимит 4000 символов. Последний фрагмент не добавлен.',
-			)
+			this.finishDictation(context, context.committed, 'dictationTextLimit')
 			return
 		}
 		context.committed = committed
@@ -208,7 +204,7 @@ export class AiDialogueDraftController {
 		this.writeText(context.part, text, selection)
 	}
 
-	private finishDictation(context: ActiveDictation, text: string, error: string | null = null) {
+	private finishDictation(context: ActiveDictation, text: string, error: DraftErrorKey | null = null) {
 		if (this.dictation !== context) return
 		this.dictation = null
 		context.session?.cancel()
@@ -224,7 +220,7 @@ export class AiDialogueDraftController {
 
 	private finishOversizedDictation(context: ActiveDictation) {
 		this.writeText(context.part, context.original, context.selection)
-		this.updatePart(context.part, { error: 'Текст не должен превышать 4000 символов.' })
+		this.updatePart(context.part, { error: 'textTooLong' })
 		this.update({ dictation: null })
 	}
 

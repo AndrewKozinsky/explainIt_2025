@@ -12,12 +12,20 @@ import type {
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
 import { DeepSeekModels } from '@/shared/api/AIModels'
 import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
+import { normalizePhraseText } from './normalizePhraseText'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
 export type EntryStatus = 'idle' | 'loading' | 'ready' | 'error'
 
-export type ServiceResult<T> = { ok: true; data: T } | { ok: false; errorMessage: string }
+/**
+ * errorMessage — текст ошибки сервера на языке интерфейса или null, если текста нет:
+ * тогда интерфейс показывает своё переведённое сообщение.
+ * nonExistentWord — LLM сообщила, что такого слова нет в языке.
+ */
+export type ServiceResult<T> =
+	| { ok: true; data: T }
+	| { ok: false; errorMessage: string | null; nonExistentWord?: boolean }
 
 export type TranscriptionData = {
 	ipa: string | null
@@ -130,7 +138,7 @@ export class UniversalPhraseService {
 
 		if (result.error || result.errors) {
 			entry.phraseStatus = 'error'
-			entry.phraseErrorMessage = result.error ?? 'Не удалось найти или создать фразу.'
+			entry.phraseErrorMessage = result.error ?? null
 			return { ok: false, errorMessage: entry.phraseErrorMessage }
 		}
 
@@ -138,7 +146,7 @@ export class UniversalPhraseService {
 
 		if (!model) {
 			entry.phraseStatus = 'error'
-			entry.phraseErrorMessage = 'Не удалось найти или создать фразу.'
+			entry.phraseErrorMessage = null
 			return { ok: false, errorMessage: entry.phraseErrorMessage }
 		}
 
@@ -221,7 +229,7 @@ export class UniversalPhraseService {
 
 		if (result.error || result.errors) {
 			updated.transcriptionStatus = 'error'
-			updated.transcriptionErrorMessage = result.error ?? 'Не удалось получить транскрипцию.'
+			updated.transcriptionErrorMessage = result.error ?? null
 			return { ok: false, errorMessage: updated.transcriptionErrorMessage }
 		}
 
@@ -285,7 +293,7 @@ export class UniversalPhraseService {
 
 		if (result.error || result.errors) {
 			updated.audioStatus = 'error'
-			updated.audioErrorMessage = result.error ?? 'Не удалось получить озвучку.'
+			updated.audioErrorMessage = result.error ?? null
 			return { ok: false, errorMessage: updated.audioErrorMessage }
 		}
 
@@ -296,7 +304,7 @@ export class UniversalPhraseService {
 		updated.audioStatus = audioUrl ? 'ready' : 'error'
 
 		if (!audioUrl) {
-			return { ok: false, errorMessage: 'URL озвучки пуст.' }
+			return { ok: false, errorMessage: null }
 		}
 
 		return { ok: true, data: { audioUrl } }
@@ -380,7 +388,7 @@ export class UniversalPhraseService {
 
 		if (result.error || result.errors) {
 			translationEntry.status = 'error'
-			translationEntry.errorMessage = result.error ?? 'Не удалось получить перевод.'
+			translationEntry.errorMessage = result.error ?? null
 			return { ok: false, errorMessage: translationEntry.errorMessage }
 		}
 
@@ -388,20 +396,20 @@ export class UniversalPhraseService {
 
 		if (!translation) {
 			translationEntry.status = 'error'
-			translationEntry.errorMessage = 'Неизвестная ошибка сервера.'
+			translationEntry.errorMessage = null
 			return { ok: false, errorMessage: translationEntry.errorMessage }
 		}
 
 		if (translation.status === 'error' || translation.errorCode) {
 			translationEntry.status = 'error'
-			translationEntry.errorMessage = 'Не удалось получить перевод.'
-			return { ok: false, errorMessage: translationEntry.errorMessage }
+			translationEntry.errorMessage = null
+			return { ok: false, errorMessage: null }
 		}
 
 		if (translation.nonExistentWord) {
 			translationEntry.status = 'error'
-			translationEntry.errorMessage = 'Слово не найдено.'
-			return { ok: false, errorMessage: translationEntry.errorMessage }
+			translationEntry.errorMessage = null
+			return { ok: false, errorMessage: null, nonExistentWord: true }
 		}
 
 		if (translation.translation) {
@@ -418,7 +426,7 @@ export class UniversalPhraseService {
 		}
 
 		translationEntry.status = 'error'
-		translationEntry.errorMessage = 'Перевод не был получен.'
+		translationEntry.errorMessage = null
 		return { ok: false, errorMessage: translationEntry.errorMessage }
 	}
 
@@ -516,7 +524,7 @@ function createEmptyTranslationEntry(): TranslationEntryData {
 }
 
 export function makePhraseKey(phrase: string, languageCode: LanguageCode): string {
-	return `${languageCode}:${phrase.trim().toLocaleLowerCase()}`
+	return `${languageCode}:${normalizePhraseText(phrase)}`
 }
 
 function makeTranslationKey(phrase: string, sourceLanguageCode: LanguageCode, targetLanguageCode: string): string {

@@ -1,14 +1,16 @@
 'use client'
 
+import { useTranslations } from 'next-intl'
 import { useDialogueNpcAvatar } from './fn/useDialogueNpcAvatar'
 
 type Props = { npcId?: string; emotion?: string; name: string }
 
 function DialogueNpcAvatar({ npcId, emotion, name }: Props) {
 	const { loadedUrl, handleDisplayError, imageStyle } = useDialogueNpcAvatar({ npcId, emotion })
+	const t = useTranslations('aiDialogueMessages')
 
 	return (
-		<div className='dialogue-npc-avatar' role='img' aria-label={`Аватар: ${name}`}>
+		<div className='dialogue-npc-avatar' role='img' aria-label={t('avatar', { name })}>
 			{loadedUrl && (
 				<img
 					onError={handleDisplayError}

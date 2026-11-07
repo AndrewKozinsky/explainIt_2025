@@ -176,7 +176,7 @@ test('permission denial is reported once and never starts a recorder', async () 
 	sessions.push(session)
 	await flush()
 	assert.equal(onError.mock.callCount(), 1)
-	assert.match(onError.mock.calls[0].arguments[0], /Разрешите доступ/)
+	assert.equal(onError.mock.calls[0].arguments[0], 'microphoneAccessDenied')
 })
 
 test('network errors release tracks/recorder and suppress later events', async () => {
@@ -204,7 +204,7 @@ test('microphone disconnection ends capture and returns a readable error', async
 	const h = harness()
 	await h.ready()
 	h.track.dispatchEvent(new Event('ended'))
-	assert.match(h.callbacks.onError.mock.calls[0].arguments[0], /Микрофон отключён/)
+	assert.equal(h.callbacks.onError.mock.calls[0].arguments[0], 'microphoneDisconnected')
 	assert.equal(h.socket.close.mock.callCount(), 1)
 })
 

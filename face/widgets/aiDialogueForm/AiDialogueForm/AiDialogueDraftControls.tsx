@@ -1,4 +1,5 @@
 import type { PointerEventHandler } from 'react'
+import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { LoadingSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/LoadingSmallButtonIcon'
 import { MicSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/MicSmallButtonIcon'
@@ -12,17 +13,27 @@ import type { AiDialogueDraftController } from './fn/AiDialogueDraftController'
 type Props = { state: DialogueDraftState; controller: AiDialogueDraftController; blocked: boolean }
 
 export function AiDialogueDraftHeader({ state, controller, blocked }: Props) {
+	const t = useTranslations('aiDialogueForm')
 	const busy = blocked || state.sending
+
 	const items = [
-		{ text: 'Реплика', isCurrent: state.activePart === 'speech', onClick: () => controller.selectPart('speech') },
-		{ text: 'Действие', isCurrent: state.activePart === 'action', onClick: () => controller.selectPart('action') },
+		{
+			text: t('parts.speech'),
+			isCurrent: state.activePart === 'speech',
+			onClick: () => controller.selectPart('speech'),
+		},
+		{
+			text: t('parts.action'),
+			isCurrent: state.activePart === 'action',
+			onClick: () => controller.selectPart('action'),
+		},
 	]
 
 	return (
 		<div className='ai-dialogue-input__header'>
 			<Switcher type='fit' orientation='horizontal' disabled={busy || !!state.dictation} items={items} />
 			<Button theme='outline' icon={<ExitButtonIcon />} disabled={busy} onClick={() => void controller.leave()}>
-				Уйти от разговора
+				{t('buttons.leave')}
 			</Button>
 		</div>
 	)
@@ -34,6 +45,7 @@ export function AiDialogueDraftFooter({
 	blocked,
 	preserveFocus,
 }: Props & { preserveFocus: PointerEventHandler<HTMLButtonElement> }) {
+	const t = useTranslations('aiDialogueForm.buttons')
 	const current = state.parts[state.activePart]
 	const busy = blocked || state.sending
 	const finishing = state.dictation?.phase === 'finishing'
@@ -62,7 +74,7 @@ export function AiDialogueDraftFooter({
 					onPointerDown={preserveFocus}
 					onClick={() => (state.dictation ? controller.stopDictation() : controller.startDictation())}
 				>
-					{finishing ? 'Распознавание' : state.dictation ? 'Завершить' : 'Диктовать'}
+					{t(finishing ? 'recognizing' : state.dictation ? 'stopDictation' : 'dictate')}
 				</Button>
 				<Button
 					theme={showSend ? 'accent' : 'regular'}
@@ -71,7 +83,7 @@ export function AiDialogueDraftFooter({
 					disabled={buttonDisabled}
 					onClick={() => (showSend ? void controller.send() : void controller.checkActivePart())}
 				>
-					{showSend ? 'Отправить' : 'Проверить'}
+					{t(showSend ? 'send' : 'check')}
 				</Button>
 			</div>
 		</div>

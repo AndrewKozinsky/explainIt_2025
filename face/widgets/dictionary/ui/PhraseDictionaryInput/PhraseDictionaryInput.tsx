@@ -1,8 +1,10 @@
+import { useTranslations } from 'next-intl'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 
 function PhraseDictionaryInput() {
+	const t = useTranslations('dictionary')
 	const inputText = usePhraseDictionaryStore((s) => s.inputText)
 
 	function handleSubmit() {
@@ -13,7 +15,7 @@ function PhraseDictionaryInput() {
 		<TextInput
 			currentText={inputText}
 			inputProps={{
-				placeholder: 'Слово для перевода...',
+				placeholder: t('inputPlaceholder'),
 				value: inputText ?? '',
 				onChange: (e) => usePhraseDictionaryStore.getState().setInputText(e.target.value),
 				onKeyDown: (e) => {

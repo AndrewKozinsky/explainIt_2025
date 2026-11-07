@@ -1,0 +1,7 @@
+{
+  "inputPlaceholder": "Parola da tradurre...",
+  "loading": "Caricamento della traduzione...",
+  "retry": "Riprova",
+  "notExisting": "Questa parola non esiste.",
+  "loadError": "Impossibile ottenere la traduzione."
+}

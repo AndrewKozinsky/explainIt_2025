@@ -1,0 +1,69 @@
+{
+  "formLabel": "Sohbetteki yanıt",
+  "parts": {
+    "speech": "Söz",
+    "action": "Eylem"
+  },
+  "inputLabel": {
+    "speech": "Söz metni",
+    "action": "Eylem metni"
+  },
+  "buttons": {
+    "leave": "Sohbetten ayrıl",
+    "dictate": "Dikte et",
+    "stopDictation": "Bitir",
+    "recognizing": "Tanınıyor",
+    "check": "Kontrol et",
+    "send": "Gönder"
+  },
+  "feedback": {
+    "stale": "Metnin önceki sürümüyle ilgili notlar",
+    "critical": "Kritik hatalar",
+    "suggestions": "Öneriler"
+  },
+  "emptyStatus": {
+    "speech": "Söyleyeceğini yaz <typeIcon></typeIcon> ya da dikte et <micIcon></micIcon>",
+    "action": "Yapacağını yaz <typeIcon></typeIcon> ya da dikte et <micIcon></micIcon>"
+  },
+  "status": {
+    "sending": "Yanıt gönderiliyor…",
+    "connectingMicrophone": "Mikrofon bağlanıyor…",
+    "listening": "Dinliyorum…",
+    "finishingRecognition": "Tanıma tamamlanıyor…",
+    "checking": "Metin kontrol ediliyor…",
+    "needsCheck": "Kontrole gönder",
+    "fixErrors": "{count, plural, one {Yanıtı göndermek için # hatayı düzelt} other {Yanıtı göndermek için # hatayı düzelt}}",
+    "speechHasErrors": "Söz metninde hatalar var.",
+    "actionHasErrors": "Eylem metninde hatalar var.",
+    "checkSpeech": "Söz metnini kontrol et.",
+    "checkAction": "Eylem metnini kontrol et.",
+    "ready": "Yanıt gönderilebilir."
+  },
+  "errors": {
+    "checkFailed": "Metin kontrol edilemedi.",
+    "dictationStartFailed": "Dikte başlatılamadı.",
+    "sendFailed": "Yanıt gönderilemedi. Tekrar dene.",
+    "dictationTextLimit": "4000 karakter sınırına ulaşıldı. Son parça eklenmedi.",
+    "textTooLong": "Metin 4000 karakteri geçmemelidir.",
+    "microphoneConnectTimeout": "Mikrofon bağlanamadı. Tekrar dene.",
+    "recordingFailed": "Ses kaydedilemedi. Tekrar dene.",
+    "recognitionConnectFailed": "Konuşma tanımaya bağlanılamadı. Bağlantını kontrol edip tekrar dene.",
+    "recognitionInterrupted": "Tanıma kesildi. Tanınan metin kaydedildi; yeniden dikte et.",
+    "recognitionFinishTimeout": "Tanıma tamamlanamadı. Yeniden dikte et.",
+    "stopRecordingFailed": "Kayıt durdurulamadı.",
+    "microphoneDisconnected": "Mikrofonun bağlantısı kesildi. Bağlayıp yeniden dikte et.",
+    "dictationTimeLimit": "Dikte süresi sınırına ulaşıldı.",
+    "recognizedTextFailed": "Tanınan metin alınamadı. Yeniden dikte et.",
+    "audioSendFailed": "Ses gönderilemiyor. Bağlantını kontrol et.",
+    "recordingInterrupted": "Kayıt kesildi. Yeniden dikte et.",
+    "audioTransferFinishFailed": "Ses aktarımı tamamlanamadı.",
+    "recognitionConnectionLost": "Konuşma tanıma bağlantısı kesildi.",
+    "browserUnsupported": "Bu tarayıcı dikteyi desteklemiyor. Metni klavyeyle yaz.",
+    "microphoneAccessDenied": "Tarayıcı ayarlarından mikrofon erişimine izin verip tekrar dene.",
+    "microphoneNotFound": "Mikrofon bulunamadı. Bir mikrofon bağlayıp tekrar dene.",
+    "microphoneEnableFailed": "Mikrofon açılamadı. Bağlı olduğunu ve tarayıcıda izin verildiğini kontrol et.",
+    "recognitionTimeout": "Tanıma zaman aşımı nedeniyle durdu. Yeniden dikte et.",
+    "dictationLimitExceeded": "Dikte sınırına ulaşıldı. Yeni bir kayıtla devam et.",
+    "recognitionUnavailable": "Konuşma tanıma hizmeti geçici olarak kullanılamıyor. Tekrar dene."
+  }
+}

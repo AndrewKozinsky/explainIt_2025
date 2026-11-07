@@ -1,9 +1,11 @@
+import { useTranslations } from 'next-intl'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { usePhraseDictionaryStore } from '@/widgets/dictionary/ui/phraseDictionaryStore'
 import './PhraseDictionaryError.scss'
 
 function PhraseDictionaryError() {
+	const t = useTranslations('dictionary')
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const error = usePhraseDictionaryStore((s) => s.error)
 
@@ -18,10 +20,10 @@ function PhraseDictionaryError() {
 	return (
 		<div className='phrase-dictionary-error'>
 			<div className='phrase-dictionary-error__message'>
-				<ErrorMessage text={error} />
+				<ErrorMessage text={error ?? t('loadError')} />
 			</div>
 			<Button type='button' size='small' theme='outline' onClick={handleRetry}>
-				Повторить
+				{t('retry')}
 			</Button>
 		</div>
 	)
