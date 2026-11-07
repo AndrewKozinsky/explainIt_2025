@@ -1,0 +1,22 @@
+@use "@/styles/variables" as vars;
+
+.link-logo-sign {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	text-decoration: none;
+}
+
+.link-logo-sign__beta {
+	// letter-spacing добавляет отступ и после последней буквы, поэтому справа padding меньше
+	padding: 3px calc(6px - .2em) 3px 6px;
+	border-radius: 4px;
+	background-color: vars.$grayColor-3;
+	color: white;
+	font-size: 1.1rem;
+	line-height: 1.1rem;
+	font-weight: 600;
+	letter-spacing: .2em;
+	text-transform: uppercase;
+	user-select: none;
+}
