@@ -12,6 +12,8 @@ function DialogueSceneImage({ messageId, reserveSpace }: Props) {
 
 	return (
 		<div className='ai-dialogue-message-scene-update__image' ref={slotRef}>
+			{/* Пока изображение генерируется или скачивается — точки, по которым «проводят кистью» */}
+			{!loadedUrl && !failed && <div className='ai-dialogue-message-scene-update__image-pending' aria-hidden />}
 			{loadedUrl && (
 				<img src={loadedUrl} onError={handleDisplayError} alt='Иллюстрация сцены' width={1152} height={576} />
 			)}
