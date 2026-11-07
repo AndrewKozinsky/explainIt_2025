@@ -13,11 +13,16 @@ type BuildUniversalPhraseTranslationPromptInput = {
  */
 export function buildUniversalPhraseTranslationPrompt(input: BuildUniversalPhraseTranslationPromptInput): string {
 	const sourceLanguage = languages[input.sourceLanguageCode].nameEng
-	const targetLanguage = languages[input.targetLanguageCode].name
+	const targetLanguage = languages[input.targetLanguageCode].nameEng
 
 	return `You are an assistant for learning ${sourceLanguage}. You need to clearly and accessibly explain the meaning of the word/phrase "${input.phrase}" for a ${targetLanguage}-speaking user.
 
 The goal is not just to give a translation, but to help the user feel how the word/phrase is used in ${sourceLanguage}. Write clearly, without academic style. Examples should be natural, modern, and useful for a ${sourceLanguage} learner.
+
+OUTPUT LANGUAGE — the most important rule:
+- Write ALL headers, explanations and "translation" fields in ${targetLanguage}, because the user reads ${targetLanguage}.
+- Use ${sourceLanguage} ONLY in "sentence" fields of examples and when quoting the explained word/phrase or other ${sourceLanguage} words inside the ${targetLanguage} text.
+- The explained phrase is in ${sourceLanguage}, but that does not change the output language: the article is written in ${targetLanguage}.
 
 Return only a valid JSON array of blocks. Do not use Markdown blocks like \`\`\`json.
 Do not add any text outside the JSON array.
@@ -48,7 +53,7 @@ Use for major topics: core idea, similar words, common mistakes, patterns, etc.
 ---
 
 **useCase** — A single usage scenario or meaning of the word.
-Use when the word has distinct meanings or usage scenarios. Each useCase captures one scenario. The header names the scenario (e.g. "Процесс употребления жидкости", "Употребление алкоголя").
+Use when the word has distinct meanings or usage scenarios. Each useCase captures one scenario. The header names the scenario in ${targetLanguage} (for the English word "drink" these would be, in English, "Swallowing a liquid" and "Drinking alcohol").
 Typical children: a text block explaining this scenario, then a paper block wrapping example blocks.
 If the word has only one meaning — use 1 useCase. If multiple — 1 useCase per meaning.
 {
@@ -101,5 +106,7 @@ Semantic guidelines — YOU decide the structure based on the word:
 
 - Do NOT include sections that aren't needed. If the word is simple and has no common mistakes or similar words — skip those sections.
 
-- Never use transcription, pronunciation guides, IPA, pinyin, or any phonetic notation in any form.`
+- Never use transcription, pronunciation guides, IPA, pinyin, or any phonetic notation in any form.
+
+Reminder: every header, explanation and translation must be in ${targetLanguage}.`
 }
