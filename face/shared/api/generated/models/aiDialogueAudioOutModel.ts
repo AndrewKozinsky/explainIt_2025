@@ -5,17 +5,10 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { AiDialogueAudioAttemptOutModel } from './aiDialogueAudioAttemptOutModel';
-import type { AiDialogueAudioItemOutModel } from './aiDialogueAudioItemOutModel';
 
 export interface AiDialogueAudioOutModel {
-  /**
-     * AI dialogue ID
-     * @minimum 1
-     */
-  dialogueId: number;
-  /** Попытки для восстановления и отмены превью */
-  attempts: AiDialogueAudioAttemptOutModel[];
-  /** Отдельные реплики и описания сцен */
-  items: AiDialogueAudioItemOutModel[];
+  /** Временная ссылка на готовое аудио. */
+  url: string;
+  /** MIME аудиофайла. */
+  mimeType: string;
 }

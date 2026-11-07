@@ -4,9 +4,9 @@ import {
 	aiDialogueControllerCreateAiDialogue,
 	aiDialogueControllerCreateAiDialogueMessage,
 	aiDialogueControllerDeleteAiDialogue,
+	aiDialogueControllerGenerateAiDialogueAudio,
 	aiDialogueControllerGetAiDialogue,
 	aiDialogueControllerGetAiDialogueIllustrationStyles,
-	aiDialogueControllerGetAiDialogueAudio,
 	aiDialogueControllerGetAiDialogues,
 	aiDialogueControllerGetAiDialogueVisuals,
 	aiDialogueControllerUpdateAiDialogue,
@@ -35,7 +35,7 @@ import type {
 	CreateAiDialogueInput,
 	UpdateAiDialogueInput,
 } from './AiDialogueRepository'
-import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
+import type { DialogueAudioAddress, DialogueAudioFile } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
 import type { AiDialogueIllustrationStylesModel } from '../types/aiDialogueIllustrationStyles'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
@@ -103,17 +103,13 @@ export class AiDialogueApi implements AiDialogueRepository {
 		return executeApiCall(() => aiDialogueControllerDeleteAiDialogue(id))
 	}
 
-	async getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>> {
-		return executeApiCall(
-			() => aiDialogueControllerGetAiDialogueAudio(id, { signal, cache: 'no-store' }),
-			(snapshot) => ({
-				...snapshot,
-				items: snapshot.items.map((item) => ({
-					...item,
-					messageId: typeof item.messageId === 'number' ? item.messageId : null,
-				})),
-			}),
-		)
+	async getAudio(id: number, address: DialogueAudioAddress): Promise<ApiResult<DialogueAudioFile>> {
+		return executeApiCall(async () => {
+			const response = await aiDialogueControllerGenerateAiDialogueAudio(id, address, { cache: 'no-store' })
+			if (response.status !== 200) throw new Error('Audio generation failed')
+
+			return response
+		})
 	}
 
 	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {

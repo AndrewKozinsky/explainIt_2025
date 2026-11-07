@@ -1,4 +1,4 @@
-import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { getAudioAddress, SCENE_AUDIO_ACTION_INDEX } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import type {
 	AiDialogueTextMappingProps,
 	AiDialogueWordSelectHandler,
@@ -8,16 +8,15 @@ import DialogueSceneImage from './DialogueSceneImage'
 import './SceneUpdateMessage.scss'
 
 type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
-	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
 	content?: string
 	translation?: string
 	onWordSelect: AiDialogueWordSelectHandler
+	/** ID сохранённого сообщения; у превью его нет, и кнопка озвучки не показывается. */
 	messageId?: number
 	reserveSpace: boolean
 }
 
 function SceneUpdateMessage({
-	audioAddress,
 	content = '',
 	translation = '',
 	onWordSelect,
@@ -31,7 +30,7 @@ function SceneUpdateMessage({
 			<div className='ai-dialogue-message-scene-update__content'>
 				<AiDialogueContentBlock
 					colorScheme='light'
-					audioAddress={{ ...audioAddress, actionIndex: -1 }}
+					audioAddress={getAudioAddress(messageId, SCENE_AUDIO_ACTION_INDEX)}
 					wordMap={wordMap}
 					content={content}
 					translation={translation}

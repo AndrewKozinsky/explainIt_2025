@@ -24,16 +24,15 @@ export default function DialogueAudioButton({ address, colorScheme = 'dark' }: D
 			colorScheme={colorScheme}
 			rounded
 			onClick={audioButtonConfig.handleClick}
-			disabled={audioButtonConfig.disabled}
 			aria-label={audioButtonConfig.text}
 			title={audioButtonConfig.text}
-			aria-pressed={audioButtonConfig.playing}
+			aria-pressed={audioButtonConfig.isPlaying}
 			icon={
-				audioButtonConfig.loading ? (
+				audioButtonConfig.isLoading ? (
 					<LoadingSmallButtonIcon />
-				) : audioButtonConfig.playing ? (
+				) : audioButtonConfig.isPlaying ? (
 					<StopSmallButtonIcon />
-				) : audioButtonConfig.hasWarning ? (
+				) : audioButtonConfig.hasError ? (
 					<WarningSmallButtonIcon />
 				) : (
 					<PlaySmallButtonIcon />

@@ -31,21 +31,23 @@ export class AiDialogueAudioRepository {
 	}
 
 	/**
-	 * Резервирует генерацию озвучки реплики. Возвращает запись и признак, что генерировать должен этот запрос.
-	 * Запрос получает право на генерацию, если записи не было, прошлая генерация завершилась ошибкой
-	 * или зависла. Иначе вызывающий отдаёт готовый файл либо ждёт параллельный запрос.
+	 * Пытается начать генерацию озвучки реплики. Сначала создаёт запись в статусе generating.
+	 * Если запись уже есть, перезапускает генерацию только после прошлой ошибки или зависания.
+	 * shouldGenerate = true: этот запрос должен синтезировать файл. Иначе файл уже готов
+	 * (status = ready) или его прямо сейчас синтезирует параллельный запрос.
 	 */
-	async claim(position: AudioPosition, s3Key: string) {
-		const created = await this.prisma.aiDialogueAudio.createMany({
+	async startGenerationIfNeeded(position: AudioPosition, s3Key: string) {
+		const insertResult = await this.prisma.aiDialogueAudio.createMany({
 			data: [{ message_id: position.messageId, action_index: position.actionIndex, s3_key: s3Key }],
 			skipDuplicates: true,
 		})
+		const isNewAudio = insertResult.count === 1
 
 		const audio = await this.getAudio(position)
-		if (!audio) return { audio: null, isClaimed: false }
-		if (created.count === 1) return { audio, isClaimed: true }
+		if (!audio) return { audio: null, shouldGenerate: false }
+		if (isNewAudio) return { audio, shouldGenerate: true }
 
-		const retaken = await this.prisma.aiDialogueAudio.updateMany({
+		const restartResult = await this.prisma.aiDialogueAudio.updateMany({
 			where: {
 				id: audio.id,
 				OR: [
@@ -57,7 +59,7 @@ export class AiDialogueAudioRepository {
 			data: { status: 'generating', updated_at: new Date() },
 		})
 
-		return { audio, isClaimed: retaken.count === 1 }
+		return { audio, shouldGenerate: restartResult.count === 1 }
 	}
 
 	setStatus(audioId: number, status: 'ready' | 'failed') {

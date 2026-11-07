@@ -1,6 +1,6 @@
 'use client'
 
-import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { getAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type {
 	AiDialogueTextMappingProps,
@@ -16,7 +16,8 @@ import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAnd
 import './NpcMessage.scss'
 
 type NpcMessageProps = {
-	audioAddress: Omit<DialogueAudioAddress, 'actionIndex'>
+	/** ID сохранённого сообщения; у превью его нет, и кнопка озвучки не показывается. */
+	messageId?: number
 	wordMap?: AiDialogueWordMap
 	npcId?: string
 	npcName?: string
@@ -27,7 +28,7 @@ type NpcMessageProps = {
 }
 
 function NpcMessage({
-	audioAddress,
+	messageId,
 	npcId,
 	npcName = '',
 	npcRole = '',
@@ -49,7 +50,7 @@ function NpcMessage({
 		}
 
 		return (
-			<AiDialogueContentBlock key={index} {...textProps} audioAddress={{ ...audioAddress, actionIndex: index }} />
+			<AiDialogueContentBlock key={index} {...textProps} audioAddress={getAudioAddress(messageId, index)} />
 		)
 	})
 

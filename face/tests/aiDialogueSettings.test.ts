@@ -104,10 +104,10 @@ test('detail loading preserves the server level, including the unrestricted defa
 	}
 })
 
-test('selection stays saved while PATCH is pending; success updates detail and list without touching audio', async function () {
+test('selection stays saved while PATCH is pending; success updates detail and list without touching visuals', async function () {
 	const { observer, queryClient, current } = harness()
-	const audio = { dialogueId: 1, items: [] }
-	queryClient.setQueryData(aiDialogueQueryKeys.audio(1), audio)
+	const visuals = { dialogueId: 1, characters: [], scenes: [] }
+	queryClient.setQueryData(aiDialogueQueryKeys.visuals(1), visuals)
 	let release!: (response: Response) => void
 
 	const response = new Promise<Response>((resolve) => {
@@ -130,7 +130,7 @@ test('selection stays saved while PATCH is pending; success updates detail and l
 
 		assert.equal(list[0].maxCefrLevel, 'B1')
 		assert.equal(list[1].maxCefrLevel, 'A2')
-		assert.equal(queryClient.getQueryData(aiDialogueQueryKeys.audio(1)), audio)
+		assert.equal(queryClient.getQueryData(aiDialogueQueryKeys.visuals(1)), visuals)
 	} finally {
 		queryClient.clear()
 	}

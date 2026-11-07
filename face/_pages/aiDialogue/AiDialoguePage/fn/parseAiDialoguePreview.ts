@@ -17,7 +17,6 @@ type ParseState = {
 	events: AiDialoguePreviewEvent[]
 	current: AiDialoguePreviewEvent | null
 	stage: Stage
-	blockIndex: number
 	atBlockStart: boolean
 }
 
@@ -59,7 +58,7 @@ export function parseAiDialoguePreview(raw: string): null | AiDialoguePreviewEve
 }
 
 function parseCompleteLines(lines: string[]): ParseState {
-	const state: ParseState = { events: [], current: null, stage: 'label', blockIndex: -1, atBlockStart: true }
+	const state: ParseState = { events: [], current: null, stage: 'label', atBlockStart: true }
 
 	for (const line of lines) {
 		if (line.trim() === '') {
@@ -69,16 +68,11 @@ function parseCompleteLines(lines: string[]): ParseState {
 		}
 
 		const firstLine = state.atBlockStart
-		if (firstLine) {
-			state.blockIndex += 1
-			state.atBlockStart = false
-		}
+		if (firstLine) state.atBlockStart = false
 		const header = firstLine ? parseHeader(line) : null
 		if (header) {
 			finalizeCurrent(state)
 			state.current = buildEventFromHeader(header)
-			if (header.type === 'npcActions' || header.type === 'sceneUpdate')
-				state.current.audioEventIndex = state.blockIndex
 			state.stage = header.type === 'npcActions' ? 'label' : 'content'
 			continue
 		}

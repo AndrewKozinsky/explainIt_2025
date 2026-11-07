@@ -8,11 +8,6 @@
 
 export * from './aiDialogueActionItemInput';
 export * from './aiDialogueActionItemInputType';
-export * from './aiDialogueAudioAttemptOutModel';
-export * from './aiDialogueAudioAttemptOutModelStatus';
-export * from './aiDialogueAudioItemOutModel';
-export * from './aiDialogueAudioItemOutModelAttemptStatus';
-export * from './aiDialogueAudioItemOutModelStatus';
 export * from './aiDialogueAudioOutModel';
 export * from './aiDialogueCharacterVisualOutModel';
 export * from './aiDialogueCharacterVisualOutModelGenerationStatus';
@@ -85,6 +80,7 @@ export * from './createVideoOutModelSubtitlesSource';
 export * from './createVideoOutModelSubtitlesStatus';
 export * from './createVideoOutModelType';
 export * from './createYooKassaPaymentOutModel';
+export * from './generateAiDialogueAudioInput';
 export * from './getOrCreateUniversalPhraseTranslationInput';
 export * from './getOrCreateUniversalPhraseTranslationInputSourceLanguageCode';
 export * from './getOrCreateUniversalPhraseTranslationInputTargetLanguageCode';

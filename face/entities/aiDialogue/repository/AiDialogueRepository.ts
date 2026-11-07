@@ -7,7 +7,7 @@ import type { AiDialogueVisualsOutModel } from '@/shared/api/generated/models'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
 import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import type { DialogueAudioSnapshot } from '../audio/dialogueAudioTypes'
+import type { DialogueAudioAddress, DialogueAudioFile } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
 import type { AiDialogueIllustrationStylesModel } from '../types/aiDialogueIllustrationStyles'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
@@ -68,7 +68,8 @@ export type AiDialogueRepository = {
 	getUserDialogues(params: GetUserDialoguesParams, signal?: AbortSignal): Promise<ApiResult<AiDialoguesPageModel>>
 	/** Получить один диалог текущего пользователя по ID */
 	getDialogue(id: number): Promise<ApiResult<AiDialogueModel>>
-	getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>>
+	/** Получить озвучку реплики или описания сцены; при первом запросе сервер её синтезирует */
+	getAudio(id: number, address: DialogueAudioAddress): Promise<ApiResult<DialogueAudioFile>>
 	getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>>
 	/** Удалить диалог текущего пользователя */
 	deleteDialogue(id: number): Promise<ApiResult<void>>

@@ -1,42 +1,35 @@
 import type { MouseEvent } from 'react'
-import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { type DialogueAudioAddress, getDialogueAudioKey } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { useDialogueAudio } from '../DialogueAudioContext'
 
 export function useDialogueAudioButton(address: DialogueAudioAddress) {
 	const audio = useDialogueAudio()
 	if (!audio) return null
 
-	const player = audio.player
-
-	const item = player.findItem(address)
-	const selected = item?.id === audio.state.selectedId
-	const playing = selected && (audio.state.playbackStatus === 'playing' || audio.state.playbackStatus === 'loading')
-	const failed =
-		Boolean(item && ['failed', 'outcomeUnknown', 'cancelled'].includes(item.status)) ||
-		player.isUnavailable(address)
-	const waiting = !failed && (!item || item.status === 'queued' || item.status === 'generating')
-	const loading = waiting || (selected && audio.state.playbackStatus === 'loading')
-	const downloadError = Boolean(item && audio.state.loadErrors.has(item.id))
-	const text = getButtonText(failed, playing, downloadError)
+	const { player, state } = audio
+	const key = getDialogueAudioKey(address)
+	const requestStatus = state.requestStatuses.get(key)
+	const isSelected = state.selectedKey === key
+	const isPlaying = isSelected && (state.playbackStatus === 'playing' || state.playbackStatus === 'loading')
+	const isLoading = (isSelected && state.playbackStatus === 'loading') || requestStatus === 'loading'
+	const hasError = requestStatus === 'failed' || (isSelected && state.playbackStatus === 'error')
 
 	function handleClick(event: MouseEvent<HTMLButtonElement>) {
 		event.stopPropagation()
-		if (item) player.toggle(item.id)
+		player.toggle(address)
 	}
 
 	return {
-		playing,
-		loading,
-		hasWarning: failed || downloadError,
-		text,
-		disabled: Boolean(failed || waiting || !item?.url),
+		isPlaying,
+		isLoading,
+		hasError,
+		text: getButtonText(isPlaying, hasError),
 		handleClick,
 	}
 }
 
-function getButtonText(failed: boolean, playing: boolean, error: boolean) {
-	if (failed) return 'Озвучка недоступна'
-	if (playing) return 'Остановить'
-	if (error) return 'Повторить загрузку'
+function getButtonText(isPlaying: boolean, hasError: boolean) {
+	if (isPlaying) return 'Остановить'
+	if (hasError) return 'Не удалось озвучить. Повторить'
 	return 'Озвучить'
 }

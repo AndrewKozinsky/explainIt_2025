@@ -37,6 +37,7 @@ import type {
   CheckAiDialogueUserMessageInput,
   CreateAiDialogueInput,
   CreateAiDialogueMessageInput,
+  GenerateAiDialogueAudioInput,
   UpdateAiDialogueInput
 } from '../models';
 
@@ -858,19 +859,46 @@ export const useAiDialogueControllerCreateAiDialogueMessage = <TError = unknown,
       > => {
       return useMutation(getAiDialogueControllerCreateAiDialogueMessageMutationOptions(options), queryClient);
     }
-    export type aiDialogueControllerGetAiDialogueAudioResponse200 = {
+    export type aiDialogueControllerGenerateAiDialogueAudioResponse200 = {
   data: AiDialogueAudioOutModel
   status: 200
 }
 
-export type aiDialogueControllerGetAiDialogueAudioResponseSuccess = (aiDialogueControllerGetAiDialogueAudioResponse200) & {
+export type aiDialogueControllerGenerateAiDialogueAudioResponse400 = {
+  data: void
+  status: 400
+}
+
+export type aiDialogueControllerGenerateAiDialogueAudioResponse401 = {
+  data: void
+  status: 401
+}
+
+export type aiDialogueControllerGenerateAiDialogueAudioResponse403 = {
+  data: void
+  status: 403
+}
+
+export type aiDialogueControllerGenerateAiDialogueAudioResponse404 = {
+  data: void
+  status: 404
+}
+
+export type aiDialogueControllerGenerateAiDialogueAudioResponse500 = {
+  data: void
+  status: 500
+}
+
+export type aiDialogueControllerGenerateAiDialogueAudioResponseSuccess = (aiDialogueControllerGenerateAiDialogueAudioResponse200) & {
   headers: Headers;
 };
-;
+export type aiDialogueControllerGenerateAiDialogueAudioResponseError = (aiDialogueControllerGenerateAiDialogueAudioResponse400 | aiDialogueControllerGenerateAiDialogueAudioResponse401 | aiDialogueControllerGenerateAiDialogueAudioResponse403 | aiDialogueControllerGenerateAiDialogueAudioResponse404 | aiDialogueControllerGenerateAiDialogueAudioResponse500) & {
+  headers: Headers;
+};
 
-export type aiDialogueControllerGetAiDialogueAudioResponse = (aiDialogueControllerGetAiDialogueAudioResponseSuccess)
+export type aiDialogueControllerGenerateAiDialogueAudioResponse = (aiDialogueControllerGenerateAiDialogueAudioResponseSuccess | aiDialogueControllerGenerateAiDialogueAudioResponseError)
 
-export const getAiDialogueControllerGetAiDialogueAudioUrl = (id: number,) => {
+export const getAiDialogueControllerGenerateAiDialogueAudioUrl = (id: number,) => {
 
 
 
@@ -879,16 +907,18 @@ export const getAiDialogueControllerGetAiDialogueAudioUrl = (id: number,) => {
 }
 
 /**
- * @summary Получить озвучки диалога, включая текущую попытку текстового превью
+ * Возвращает ссылку на озвучку сохранённого сообщения. При первом запросе синтезирует её и ждёт результата. Повторные и параллельные запросы той же реплики получают тот же файл; после ошибки синтеза следующий запрос пробует снова. actionIndex = -1 — описание сцены.
+ * @summary Получить озвучку реплики NPC или описания сцены
  */
-export const aiDialogueControllerGetAiDialogueAudio = async (id: number, options?: RequestInit): Promise<aiDialogueControllerGetAiDialogueAudioResponse> => {
+export const aiDialogueControllerGenerateAiDialogueAudio = async (id: number,
+    generateAiDialogueAudioInput: GenerateAiDialogueAudioInput, options?: RequestInit): Promise<aiDialogueControllerGenerateAiDialogueAudioResponse> => {
 
-  return customMutator<aiDialogueControllerGetAiDialogueAudioResponse>(getAiDialogueControllerGetAiDialogueAudioUrl(id),
+  return customMutator<aiDialogueControllerGenerateAiDialogueAudioResponse>(getAiDialogueControllerGenerateAiDialogueAudioUrl(id),
   {
     ...options,
-    method: 'GET'
-
-
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', ...options?.headers },
+    body: JSON.stringify(generateAiDialogueAudioInput)
   }
 );}
 
@@ -896,81 +926,51 @@ export const aiDialogueControllerGetAiDialogueAudio = async (id: number, options
 
 
 
-export const getAiDialogueControllerGetAiDialogueAudioQueryKey = (id: number,) => {
-    return [
-    `/api/ai-dialogue/${id}/audio`
-    ] as const;
-    }
+export const getAiDialogueControllerGenerateAiDialogueAudioMutationOptions = <TError = void,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerGenerateAiDialogueAudio>>, TError,{id: number;data: GenerateAiDialogueAudioInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerGenerateAiDialogueAudio>>, TError,{id: number;data: GenerateAiDialogueAudioInput}, TContext> => {
 
-
-export const getAiDialogueControllerGetAiDialogueAudioQueryOptions = <TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError = unknown>(id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
-) => {
-
-const {query: queryOptions, request: requestOptions} = options ?? {};
-
-  const queryKey =  queryOptions?.queryKey ?? getAiDialogueControllerGetAiDialogueAudioQueryKey(id);
-
-
-
-    const queryFn: QueryFunction<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>> = ({ signal }) => aiDialogueControllerGetAiDialogueAudio(id, { signal, ...requestOptions });
+const mutationKey = ['aiDialogueControllerGenerateAiDialogueAudio'];
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
 
 
 
 
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerGenerateAiDialogueAudio>>, {id: number;data: GenerateAiDialogueAudioInput}> = (props) => {
+          const {id,data} = props ?? {};
 
-   return  { queryKey, queryFn, enabled: id !== null && id !== undefined, ...queryOptions} as UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError, TData> & { queryKey: DataTag<QueryKey, TData, TError> }
-}
-
-export type AiDialogueControllerGetAiDialogueAudioQueryResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>>
-export type AiDialogueControllerGetAiDialogueAudioQueryError = unknown
+          return  aiDialogueControllerGenerateAiDialogueAudio(id,data,requestOptions)
+        }
 
 
-export function useAiDialogueControllerGetAiDialogueAudio<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError = unknown>(
- id: number, options: { query:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError, TData>> & Pick<
-        DefinedInitialDataOptions<
-          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>,
-          TError,
-          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>
-        > , 'initialData'
-      >, request?: SecondParameter<typeof customMutator>}
- , queryClient?: QueryClient
-  ):  DefinedUseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useAiDialogueControllerGetAiDialogueAudio<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError = unknown>(
- id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError, TData>> & Pick<
-        UndefinedInitialDataOptions<
-          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>,
-          TError,
-          Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>
-        > , 'initialData'
-      >, request?: SecondParameter<typeof customMutator>}
- , queryClient?: QueryClient
-  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-export function useAiDialogueControllerGetAiDialogueAudio<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError = unknown>(
- id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
- , queryClient?: QueryClient
-  ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> }
-/**
- * @summary Получить озвучки диалога, включая текущую попытку текстового превью
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type AiDialogueControllerGenerateAiDialogueAudioMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerGenerateAiDialogueAudio>>>
+    export type AiDialogueControllerGenerateAiDialogueAudioMutationBody = GenerateAiDialogueAudioInput
+    export type AiDialogueControllerGenerateAiDialogueAudioMutationError = void
+
+    /**
+ * @summary Получить озвучку реплики NPC или описания сцены
  */
-
-export function useAiDialogueControllerGetAiDialogueAudio<TData = Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError = unknown>(
- id: number, options?: { query?:Partial<UseQueryOptions<Awaited<ReturnType<typeof aiDialogueControllerGetAiDialogueAudio>>, TError, TData>>, request?: SecondParameter<typeof customMutator>}
- , queryClient?: QueryClient
- ):  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> } {
-
-  const queryOptions = getAiDialogueControllerGetAiDialogueAudioQueryOptions(id,options)
-
-  const query = useQuery(queryOptions, queryClient) as  UseQueryResult<TData, TError> & { queryKey: DataTag<QueryKey, TData, TError> };
-
-  return withQueryKey(query, queryOptions.queryKey);
-}
-
-
-
-
-
-
-export type aiDialogueControllerGetAiDialogueVisualsResponse200 = {
+export const useAiDialogueControllerGenerateAiDialogueAudio = <TError = void,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerGenerateAiDialogueAudio>>, TError,{id: number;data: GenerateAiDialogueAudioInput}, TContext>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof aiDialogueControllerGenerateAiDialogueAudio>>,
+        TError,
+        {id: number;data: GenerateAiDialogueAudioInput},
+        TContext
+      > => {
+      return useMutation(getAiDialogueControllerGenerateAiDialogueAudioMutationOptions(options), queryClient);
+    }
+    export type aiDialogueControllerGetAiDialogueVisualsResponse200 = {
   data: AiDialogueVisualsOutModel
   status: 200
 }

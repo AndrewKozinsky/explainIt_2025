@@ -1,8 +1,18 @@
-import type { DialogueAudioEvent, DialogueAudioTarget } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
-import { getCompletedAudioTargets } from '@/entities/aiDialogue/audio/getCompletedAudioTargets'
-import type { AiDialogueStreamEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type {
+	AiDialogueStreamEvent,
+	DialogueServerMessage,
+} from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { parseAiDialoguePreview } from '_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '../../aiDialogueStore'
+
+export type DialogueAudioStreamHandlers = {
+	/**
+	 * Новое сохранённое сообщение текущего ответа (не replay истории).
+	 * isNewReply — первый озвучиваемый текст этого ответа. Возвращает true, если в сообщении есть такой текст.
+	 */
+	newMessage: (message: DialogueServerMessage, isNewReply: boolean) => boolean
+	disconnect: () => void
+}
 
 /**
  * Открывает постоянное SSE-соединение с потоком диалога и разбирает события в стор.
@@ -10,12 +20,6 @@ import { useAiDialogueStore } from '../../aiDialogueStore'
  * Соединение не закрывается по завершении хода — оно живёт, пока открыта страница
  * (см. documentation/aiDialogue/aiDialogue.md). Закрывает его вызывающий код при unmount.
  */
-export type DialogueAudioStreamHandlers = {
-	event: (event: DialogueAudioEvent) => void
-	targets: (attemptId: string, targets: DialogueAudioTarget[]) => void
-	refresh: () => void
-	disconnect: () => void
-}
 
 export function openAiDialogueStream(
 	dialogueId: number,
@@ -24,11 +28,11 @@ export function openAiDialogueStream(
 ): EventSource {
 	const eventSource = new EventSource(buildStreamUrl(dialogueId))
 	let accumulated = ''
-	let attemptId: string | undefined
+	// Ждём первый озвучиваемый текст нового ответа: он снимает автоозвучку предыдущего.
+	let isAwaitingVoicedReply = false
 
 	eventSource.onopen = function () {
 		onVisualsChanged?.()
-		audio?.refresh()
 	}
 
 	eventSource.onmessage = function (event) {
@@ -42,14 +46,6 @@ export function openAiDialogueStream(
 
 		const store = useAiDialogueStore.getState()
 
-		if (parsed.type.startsWith('audio')) {
-			const event = parsed as DialogueAudioEvent
-			if (event.dialogueId !== dialogueId) return
-			if (event.type === 'audioAttemptStarted') attemptId = event.attemptId
-			audio?.event(event)
-			return
-		}
-
 		if (parsed.type === 'visualsChanged') {
 			if (parsed.dialogueId === dialogueId) onVisualsChanged?.()
 			return
@@ -57,9 +53,12 @@ export function openAiDialogueStream(
 
 		if (parsed.type === 'message') {
 			// Финализированное сообщение заменяет превью текущего хода.
+			const isReplay = store.messages.has(parsed.message.id) || !store.isGenerating
 			store.upsertMessage(parsed.message)
-			audio?.refresh()
 			store.setPreview([])
+
+			// Replay истории при подключении не озвучивается автоматически.
+			if (!isReplay && audio?.newMessage(parsed.message, isAwaitingVoicedReply)) isAwaitingVoicedReply = false
 
 			if (parsed.message.payload.type === 'npcActions' || parsed.message.payload.type === 'sceneUpdate') {
 				onVisualsChanged?.()
@@ -72,6 +71,7 @@ export function openAiDialogueStream(
 			// Генерация хода началась (до первого chunk): показываем «ответ готовится».
 			// Сбрасываем превью и ошибку прошлого хода — как это делает первый chunk.
 			accumulated = ''
+			isAwaitingVoicedReply = true
 			store.setPreview([])
 			store.setTurnError(null)
 			store.setGenerating(true)
@@ -82,12 +82,12 @@ export function openAiDialogueStream(
 			if (!store.isGenerating) {
 				// Начало нового хода — сбрасываем текст предыдущего и его ошибку.
 				accumulated = ''
+				isAwaitingVoicedReply = true
 				store.setTurnError(null)
 				store.setGenerating(true)
 			}
 
 			accumulated += parsed.chunk
-			if (attemptId) audio?.targets(attemptId, getCompletedAudioTargets(accumulated))
 			const preview = parseAiDialoguePreview(accumulated)
 			if (preview !== null) {
 				store.setPreview(preview)
@@ -96,8 +96,6 @@ export function openAiDialogueStream(
 		}
 
 		if (parsed.type === 'turnReset') {
-			if (attemptId) audio?.disconnect()
-			attemptId = undefined
 			// Сервер начал повторную попытку генерации: выбрасываем превью неудачной
 			// попытки, но isGenerating остаётся true — новый стрим уже идёт.
 			accumulated = ''
@@ -111,11 +109,6 @@ export function openAiDialogueStream(
 		}
 
 		if (parsed.type === 'turnDone') {
-			if (attemptId) {
-				audio?.targets(attemptId, getCompletedAudioTargets(accumulated + '\n'))
-			}
-
-			audio?.refresh()
 			accumulated = ''
 			store.setPreview([])
 			store.setGenerating(false)
@@ -126,7 +119,6 @@ export function openAiDialogueStream(
 
 	eventSource.onerror = function () {
 		audio?.disconnect()
-		attemptId = undefined
 		// EventSource переподключится сам и сервер отдаст replay. Пока соединение
 		// оборвано — сбрасываем transient-состояние, чтобы не зависло «генерируется».
 		accumulated = ''

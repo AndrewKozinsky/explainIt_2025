@@ -35,7 +35,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
 	const { visuals, refreshVisuals, recoverImage } = useAiDialogueVisuals(Number(dialogueId), Boolean(dialogue))
-	const audio = useAiDialogueAudio(Number(dialogueId), Boolean(dialogue))
+	const audio = useAiDialogueAudio(Number(dialogueId))
 	const { messages, preview, isGenerating, turnError } = useAiDialogueStream(
 		Number(dialogueId),
 		Boolean(dialogue),
@@ -100,7 +100,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 								textLevel={textLevel}
 								onTextLevelChange={changeTextLevel}
 								isUpdatingTextLevel={isUpdatingTextLevel}
-								audioBlocked={audio.state.blocked}
+								audioBlocked={audio.state.isBlocked}
 								onUnlockAudio={() => audio.player.unlock()}
 							/>
 						</SeparatedStack>

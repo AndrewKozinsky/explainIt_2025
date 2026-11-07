@@ -12,8 +12,6 @@ type AiDialogMessageRouterProps = {
 	event: AiDialoguePreviewEvent
 	onWordSelect: AiDialogueWordSelectHandler
 	messageId?: number
-	audioAttemptId?: string
-	audioEventIndex?: number
 	reserveSceneSpace?: boolean
 }
 
@@ -28,11 +26,8 @@ function AiDialogMessageRouter({
 	event,
 	onWordSelect,
 	messageId,
-	audioAttemptId,
-	audioEventIndex,
 	reserveSceneSpace = false,
 }: AiDialogMessageRouterProps) {
-	const audioAddress = { messageId, attemptId: audioAttemptId, eventIndex: audioEventIndex }
 	const mapping = {
 		wordMap: event.wordMap?.status === 'ready' ? event.wordMap.blocks.content : undefined,
 	}
@@ -40,7 +35,6 @@ function AiDialogMessageRouter({
 	if (event.type === 'sceneUpdate') {
 		return (
 			<SceneUpdateMessage
-				audioAddress={audioAddress}
 				{...mapping}
 				messageId={messageId}
 				reserveSpace={reserveSceneSpace}
@@ -69,7 +63,7 @@ function AiDialogMessageRouter({
 	if (event.type === 'npcActions') {
 		return (
 			<NpcMessage
-				audioAddress={audioAddress}
+				messageId={messageId}
 				wordMap={event.wordMap}
 				npcId={event.npcId}
 				npcName={event.npcName}

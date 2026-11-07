@@ -1,22 +1,8 @@
-import { audioTargetKey } from './dialogueAudioTypes'
-import type {
-	DialogueAudioAddress,
-	DialogueAudioItem,
-	DialogueAudioSnapshot,
-	DialogueAudioTarget,
-} from './dialogueAudioTypes'
+import { type DialogueAudioAddress, type DialogueAudioFile, getDialogueAudioKey } from './dialogueAudioTypes'
 
 export type AudioElement = Pick<
 	HTMLAudioElement,
-	| 'src'
-	| 'preload'
-	| 'currentTime'
-	| 'duration'
-	| 'play'
-	| 'pause'
-	| 'load'
-	| 'addEventListener'
-	| 'removeEventListener'
+	'src' | 'preload' | 'currentTime' | 'play' | 'pause' | 'addEventListener' | 'removeEventListener'
 >
 
 type Timer = ReturnType<typeof setTimeout>
@@ -27,52 +13,55 @@ const browserClock: AudioClock = {
 	clear: (timer) => clearTimeout(timer),
 }
 
+/** Сколько ждать начала воспроизведения загруженной ссылки, прежде чем показать ошибку. */
+const PLAYBACK_START_TIMEOUT_MS = 15_000
+
+/** Запрашивает у сервера озвучку. Сервер синтезирует её при первом запросе и ждёт результата. */
+export type FetchDialogueAudio = (address: DialogueAudioAddress) => Promise<DialogueAudioFile>
+
+export type AudioRequestStatus = 'loading' | 'ready' | 'failed'
 export type PlaybackStatus = 'idle' | 'loading' | 'playing' | 'paused' | 'error'
-type AttemptStatus = DialogueAudioSnapshot['attempts'][number]['status']
+type PlaybackMode = 'auto' | 'manual'
+
 export type DialogueAudioState = {
-	items: ReadonlyMap<number, DialogueAudioItem>
-	attempts: ReadonlyMap<string, AttemptStatus>
-	snapshotLoaded: boolean
-	attemptId?: string
-	selectedId?: number
+	/** Статус запроса файла по ключу getDialogueAudioKey. Нет записи — озвучку ещё не запрашивали. */
+	requestStatuses: ReadonlyMap<string, AudioRequestStatus>
+	/** Ключ выбранной (играющей, загружаемой или поставленной на паузу) озвучки. */
+	selectedKey?: string
 	playbackStatus: PlaybackStatus
-	blocked: boolean
-	loadErrors: ReadonlySet<number>
-	cancelledAttempts: ReadonlySet<string>
+	/** Браузер запретил воспроизведение без действия пользователя. */
+	isBlocked: boolean
 }
 
-/** One media element survives preview replacement, REST refreshes and manual/automatic handoffs. */
+/**
+ * Единственный проигрыватель озвучки на странице диалога.
+ *
+ * Ручное нажатие запрашивает озвучку и играет её, как только сервер отдаст файл.
+ * Автоозвучка получает реплики нового ответа, сразу запрашивает их файлы и играет по порядку текста.
+ * Ручное нажатие снимает оставшуюся автоозвучку текущего ответа; следующий ответ озвучивается снова.
+ */
 export class DialogueAudioPlayer {
 	private state: DialogueAudioState = {
-		items: new Map(),
-		attempts: new Map(),
-		snapshotLoaded: false,
+		requestStatuses: new Map(),
 		playbackStatus: 'idle',
-		blocked: false,
-		cancelledAttempts: new Set(),
-		loadErrors: new Set(),
+		isBlocked: false,
 	}
 	private listeners = new Set<() => void>()
 	private element?: AudioElement
-	private queue: string[] = []
-	private consumed = new Set<string>()
-	private turns = new Map<string, string>()
-	private suppressedTurns = new Set<string>()
-	private autoAttempt?: string
-	private mode: 'auto' | 'manual' = 'auto'
-	private waiting?: Timer
-	private waitingKey?: string
-	private watchdog?: Timer
+	private files = new Map<string, DialogueAudioFile>()
+	private pendingRequests = new Map<string, Promise<DialogueAudioFile | null>>()
+	private autoplayQueue: DialogueAudioAddress[] = []
+	private isAutoplaySuppressed = false
+	private playbackMode: PlaybackMode = 'manual'
+	/** Растёт при каждом новом выборе: устаревшие ответы сервера и события медиа игнорируются. */
 	private operation = 0
-	private lastTime = 0
-	private refresh?: () => Promise<void>
-	private recoveries = new Set<number>()
-	private detach?: () => void
+	private startTimer?: Timer
+	private detachListeners?: () => void
 
 	constructor(
+		private readonly fetchAudio: FetchDialogueAudio,
 		private readonly createAudio: () => AudioElement,
 		private readonly clock: AudioClock = browserClock,
-		readonly dialogueId?: number,
 	) {}
 
 	getState() {
@@ -86,155 +75,63 @@ export class DialogueAudioPlayer {
 		}
 	}
 
-	setRefresh(refresh: () => Promise<void>) {
-		this.refresh = refresh
-	}
-
-	startAttempt(attemptId: string, turnId: string) {
-		this.turns.set(attemptId, turnId)
-		const attempts = new Map(this.state.attempts)
-		if (!attempts.has(attemptId)) {
-			attempts.set(attemptId, 'active')
-		}
-
-		this.update({ attemptId, attempts })
-	}
-
-	registerTargets(attemptId: string, targets: DialogueAudioTarget[]) {
-		if (this.state.cancelledAttempts.has(attemptId) || !this.turns.has(attemptId)) return
-		const turn = this.turns.get(attemptId)!
-		if (targets.length && this.autoAttempt !== attemptId) {
-			this.clearQueue()
-			if (!this.suppressedTurns.has(turn)) this.stop(false)
-			this.autoAttempt = attemptId
-		}
-		for (const target of targets) {
-			const key = audioTargetKey(attemptId, target)
-			if (!this.consumed.has(key) && !this.queue.includes(key) && !this.suppressedTurns.has(turn))
-				this.queue.push(key)
-		}
-		this.pump()
-	}
-
-	mergeItem(item: DialogueAudioItem) {
-		const items = new Map(this.state.items)
-		const previous = items.get(item.id)
-		// A late preview notification cannot undo a confirmed binding or cancellation from REST.
-		const merged = { ...item, messageId: item.messageId ?? previous?.messageId ?? null }
-
-		if (previous?.status === 'cancelled') {
-			merged.status = 'cancelled'
-			merged.url = null
-		}
-
-		if (previous?.status === 'ready' && ['queued', 'generating'].includes(merged.status))
-			Object.assign(merged, { status: previous.status, url: previous.url })
-
-		if (previous?.attemptStatus === 'confirmed' && merged.attemptStatus === 'active')
-			merged.attemptStatus = 'confirmed'
-
-		if (this.state.cancelledAttempts.has(item.attemptId)) {
-			merged.status = 'cancelled'
-			merged.url = null
-		}
-
-		items.set(item.id, merged)
-		this.update({ items })
-
-		if (item.attemptStatus === 'cancelled') this.cancelAttempt(item.attemptId)
-		else if (merged.status === 'cancelled' && this.state.selectedId === item.id) this.stop(false)
-
-		this.pump()
-	}
-
-	mergeSnapshot(snapshot: DialogueAudioSnapshot) {
-		const attempts = new Map(this.state.attempts)
-		for (const attempt of snapshot.attempts) {
-			// A stale snapshot cannot reopen an attempt that is already terminal.
-			if (attempts.get(attempt.id) === 'active' || !attempts.has(attempt.id))
-				attempts.set(attempt.id, attempt.status)
-		}
-		this.update({ attempts, snapshotLoaded: true })
-		for (const attempt of snapshot.attempts) {
-			if (attempt.status === 'cancelled') this.cancelAttempt(attempt.id)
-		}
-		for (const item of snapshot.items) this.mergeItem(item)
-	}
-
 	/**
-	 * The server binds message IDs and cancels unmatched jobs in the same transaction that confirms an attempt.
-	 * So a missing item of a finished attempt will never arrive: e.g. the NPC had no valid voice profile.
+	 * Ставит в автоозвучку тексты нового ответа. Первый текст нового ответа снимает очередь
+	 * предыдущего и останавливает его текущий файл.
 	 */
-	isUnavailable(address: DialogueAudioAddress) {
-		if (!this.state.snapshotLoaded || this.findItem(address)) return false
-		if (address.messageId !== undefined)
-			return ![...this.state.attempts.values()].some(function (status) {
-				return status === 'active'
-			})
-		if (!address.attemptId) return false
-		const status = this.state.attempts.get(address.attemptId)
-		return status === 'confirmed' || status === 'cancelled'
-	}
-
-	findItem(address: DialogueAudioAddress) {
-		return [...this.state.items.values()].find(function (item) {
-			if (item.actionIndex !== address.actionIndex) return false
-			if (address.messageId !== undefined) return item.messageId === address.messageId
-			return item.attemptId === address.attemptId && item.eventIndex === address.eventIndex
-		})
-	}
-
-	cancelAttempt(attemptId: string) {
-		const cancelledAttempts = new Set(this.state.cancelledAttempts).add(attemptId)
-		const items = new Map(this.state.items)
-		for (const [id, item] of items)
-			if (item.attemptId === attemptId) items.set(id, { ...item, status: 'cancelled', url: null })
-		const attempts = new Map(this.state.attempts).set(attemptId, 'cancelled')
-		this.update({ cancelledAttempts, items, attempts })
-
-		if (this.autoAttempt === attemptId) this.clearQueue()
-		if (this.state.selectedId !== undefined && items.get(this.state.selectedId)?.attemptId === attemptId)
+	enqueueAutoplay(addresses: DialogueAudioAddress[], isNewReply: boolean) {
+		if (isNewReply) {
+			this.clearAutoplayQueue()
+			this.isAutoplaySuppressed = false
 			this.stop(false)
+		}
+		if (this.isAutoplaySuppressed || addresses.length === 0) return
+
+		this.autoplayQueue.push(...addresses)
+		// Файлы запрашиваются сразу, чтобы следующая реплика была готова к концу предыдущей.
+		for (const address of addresses) void this.requestAudio(address)
+		this.playNextAutoplay()
 	}
 
-	/** A manual click suppresses only the current response; later turns can autoplay normally. */
-	toggle(id: number) {
-		const item = this.state.items.get(id)
-		if (!item || item.status !== 'ready' || !item.url || this.state.cancelledAttempts.has(item.attemptId)) return
-		if (this.state.attemptId) this.suppressedTurns.add(this.turns.get(this.state.attemptId) ?? this.state.attemptId)
-		if (this.autoAttempt) this.suppressedTurns.add(this.turns.get(this.autoAttempt) ?? this.autoAttempt)
-		this.suppressedTurns.add(item.turnId)
-		this.clearQueue()
-		this.mode = 'manual'
-		this.update({ blocked: false })
-		if (this.state.selectedId === id && ['playing', 'loading'].includes(this.state.playbackStatus)) {
+	/** Ручное нажатие: остановить выбранную озвучку, продолжить её с паузы или начать другую. */
+	toggle(address: DialogueAudioAddress) {
+		const key = getDialogueAudioKey(address)
+		const isSelected = this.state.selectedKey === key
+
+		this.clearAutoplayQueue()
+		this.isAutoplaySuppressed = true
+		this.update({ isBlocked: false })
+
+		if (isSelected && ['playing', 'loading'].includes(this.state.playbackStatus)) {
 			this.stop(true)
 			return
 		}
-		const resume = this.state.selectedId === id && this.state.playbackStatus === 'paused'
-		if (this.state.loadErrors.has(id) && this.refresh) this.refreshAndPlay(id, resume)
-		else this.play(item, 'manual', resume)
+
+		const shouldResume = isSelected && this.state.playbackStatus === 'paused'
+		void this.select(address, 'manual', shouldResume)
 	}
 
+	/** Действие пользователя разрешило звук: продолжить выбранную озвучку. */
 	unlock() {
-		const item = this.state.selectedId === undefined ? undefined : this.state.items.get(this.state.selectedId)
-		this.update({ blocked: false })
-		if (this.mode === 'manual' && item?.status === 'ready' && item.url) this.play(item, 'manual', true)
-		else this.pump()
+		const key = this.state.selectedKey
+		const file = key === undefined ? undefined : this.files.get(key)
+		this.update({ isBlocked: false })
+
+		if (key !== undefined && file) this.playFile(key, file, this.playbackMode, true)
+		else this.playNextAutoplay()
 	}
 
-	/** Drop transient automatic playback on a broken connection, retaining items for manual listening. */
+	/** Разрыв SSE: снять автоозвучку и остановить звук. Уже полученные файлы остаются для ручного запуска. */
 	disconnect() {
-		this.clearQueue()
+		this.clearAutoplayQueue()
 		this.stop(false)
 	}
 
 	dispose() {
 		this.disconnect()
-		this.detach?.()
-		this.detach = undefined
+		this.detachListeners?.()
+		this.detachListeners = undefined
 		this.element = undefined
-		this.refresh = undefined
 	}
 
 	private update(patch: Partial<DialogueAudioState>) {
@@ -242,167 +139,142 @@ export class DialogueAudioPlayer {
 		for (const listener of this.listeners) listener()
 	}
 
-	private itemForKey(key: string) {
-		return [...this.state.items.values()].find((item) => audioTargetKey(item.attemptId, item) === key)
+	private setRequestStatus(key: string, status: AudioRequestStatus) {
+		this.update({ requestStatuses: new Map(this.state.requestStatuses).set(key, status) })
 	}
 
-	private pump() {
-		if (this.state.blocked || ['playing', 'loading'].includes(this.state.playbackStatus)) return
-		while (this.queue.length) {
-			const key = this.queue[0]
-			const item = this.itemForKey(key)
-			if (this.consumed.has(key) || (item && ['failed', 'outcomeUnknown', 'cancelled'].includes(item.status))) {
-				this.consumeHead()
-				continue
-			}
-			if (item?.status === 'ready' && item.url) {
-				this.clearWait()
-				this.play(item, 'auto', false)
-				return
-			}
-			if (this.waitingKey !== key) {
-				this.clearWait()
-				this.waitingKey = key
-				this.waiting = this.clock.set(() => {
-					this.consumeHead()
-					this.pump()
-				}, 10_000)
-			}
+	/** Один запрос на озвучку: повторные вызовы ждут уже начатый запрос или сразу получают файл. */
+	private requestAudio(address: DialogueAudioAddress): Promise<DialogueAudioFile | null> {
+		const key = getDialogueAudioKey(address)
+		const file = this.files.get(key)
+		if (file) return Promise.resolve(file)
+
+		const pendingRequest = this.pendingRequests.get(key)
+		if (pendingRequest) return pendingRequest
+
+		this.setRequestStatus(key, 'loading')
+		const request = this.fetchAudio(address)
+			.then((receivedFile) => {
+				this.files.set(key, receivedFile)
+				this.setRequestStatus(key, 'ready')
+				return receivedFile
+			})
+			.catch(() => {
+				// Следующий запрос этой озвучки снова обратится к серверу.
+				this.setRequestStatus(key, 'failed')
+				return null
+			})
+			.finally(() => {
+				this.pendingRequests.delete(key)
+			})
+
+		this.pendingRequests.set(key, request)
+		return request
+	}
+
+	/** Выбирает озвучку: ждёт её файл и играет, если пользователь за это время не выбрал другую. */
+	private async select(address: DialogueAudioAddress, mode: PlaybackMode, shouldResume: boolean) {
+		const key = getDialogueAudioKey(address)
+		this.stop(shouldResume)
+		this.playbackMode = mode
+		const operation = this.operation
+		this.update({ selectedKey: key, playbackStatus: 'loading' })
+
+		const file = await this.requestAudio(address)
+		if (operation !== this.operation) return
+
+		if (file) {
+			this.playFile(key, file, mode, shouldResume)
 			return
 		}
+
+		this.update({ playbackStatus: 'error' })
+		if (mode === 'auto') this.playNextAutoplay()
 	}
 
-	private consumeHead() {
-		this.clearWait()
-		const key = this.queue.shift()
-		if (key) this.consumed.add(key)
+	private playNextAutoplay() {
+		if (this.state.isBlocked || ['playing', 'loading'].includes(this.state.playbackStatus)) return
+
+		const nextAddress = this.autoplayQueue.shift()
+		if (nextAddress) void this.select(nextAddress, 'auto', false)
 	}
 
-	private clearWait() {
-		if (this.waiting !== undefined) this.clock.clear(this.waiting)
-		this.waiting = undefined
-		this.waitingKey = undefined
+	private clearAutoplayQueue() {
+		this.autoplayQueue = []
 	}
 
-	private clearQueue() {
-		for (const key of this.queue) this.consumed.add(key)
-		this.queue = []
-		this.clearWait()
-	}
-
-	private clearWatchdog() {
-		if (this.watchdog !== undefined) this.clock.clear(this.watchdog)
-		this.watchdog = undefined
-	}
-
-	private stop(keepPosition: boolean) {
-		this.operation += 1
-		this.clearWatchdog()
-		this.element?.pause()
-		if (this.element && !keepPosition) this.element.currentTime = 0
-		this.update({ playbackStatus: keepPosition ? 'paused' : 'idle' })
-	}
-
-	private armWatchdog(token: number) {
-		this.clearWatchdog()
-		this.watchdog = this.clock.set(() => {
-			if (token === this.operation) this.fail()
-		}, 10_000)
-	}
-
-	private play(item: DialogueAudioItem, mode: 'auto' | 'manual', resume: boolean) {
-		this.stop(resume)
-		this.mode = mode
+	private playFile(key: string, file: DialogueAudioFile, mode: PlaybackMode, shouldResume: boolean) {
+		this.stop(shouldResume)
+		this.playbackMode = mode
+		const operation = this.operation
 		const element = this.element ?? (this.element = this.createAudio())
-		const token = ++this.operation
-		if (!resume) {
-			element.src = item.url!
+
+		if (!shouldResume || element.src !== file.url) {
+			element.src = file.url
 			element.currentTime = 0
 		}
 		element.preload = 'auto'
-		this.lastTime = element.currentTime
-		const loadErrors = new Set(this.state.loadErrors)
-		loadErrors.delete(item.id)
-		this.update({ selectedId: item.id, playbackStatus: 'loading', loadErrors })
-		// Replace per-play listeners, so delayed media events from a previous selection do not retain closures.
-		this.attachListeners(element, token)
-		this.armWatchdog(token)
-		void element
+		this.update({ selectedKey: key, playbackStatus: 'loading' })
+		this.attachListeners(element, key, operation)
+		this.startTimer = this.clock.set(() => {
+			if (operation === this.operation) this.failPlayback(key)
+		}, PLAYBACK_START_TIMEOUT_MS)
+
+		element
 			.play()
 			.then(() => {
-				if (token !== this.operation) return
+				if (operation !== this.operation) return
+				this.clearStartTimer()
 				this.update({ playbackStatus: 'playing' })
-				this.armWatchdog(token)
 			})
 			.catch((error: unknown) => {
-				if (token !== this.operation) return
+				if (operation !== this.operation) return
 				if ((error as { name?: string })?.name === 'NotAllowedError') {
 					this.stop(true)
-					this.update({ blocked: true })
-				} else this.fail()
+					this.update({ isBlocked: true })
+				} else this.failPlayback(key)
 			})
 	}
 
-	private refreshAndPlay(id: number, resume: boolean) {
-		this.stop(resume)
-		const token = this.operation
-		this.update({ selectedId: id, playbackStatus: 'loading' })
-		this.armWatchdog(token)
-		void this.refresh?.()
-			.then(() => {
-				if (token !== this.operation) return
-				const item = this.state.items.get(id)
-				if (item?.status === 'ready' && item.url) this.play(item, 'manual', resume)
-				else this.fail()
-			})
-			.catch(() => {
-				if (token === this.operation) this.fail()
-			})
-	}
+	private attachListeners(element: AudioElement, key: string, operation: number) {
+		this.detachListeners?.()
 
-	private attachListeners(element: AudioElement, token: number) {
-		this.detach?.()
-		const ended = () => {
-			if (token !== this.operation) return
+		const handleEnded = () => {
+			if (operation !== this.operation) return
 			this.stop(false)
-			if (this.mode === 'auto') {
-				this.consumeHead()
-				this.pump()
-			}
+			if (this.playbackMode === 'auto') this.playNextAutoplay()
 		}
-		const error = () => {
-			if (token === this.operation) this.fail()
+		const handleError = () => {
+			if (operation === this.operation) this.failPlayback(key)
 		}
-		const progress = () => {
-			if (token !== this.operation || this.state.playbackStatus === 'paused') return
-			if (element.currentTime > this.lastTime) {
-				this.lastTime = element.currentTime
-				this.armWatchdog(token)
-			}
-		}
-		element.addEventListener('ended', ended)
-		element.addEventListener('error', error)
-		element.addEventListener('timeupdate', progress)
-		this.detach = () => {
-			element.removeEventListener('ended', ended)
-			element.removeEventListener('error', error)
-			element.removeEventListener('timeupdate', progress)
+
+		element.addEventListener('ended', handleEnded)
+		element.addEventListener('error', handleError)
+		this.detachListeners = () => {
+			element.removeEventListener('ended', handleEnded)
+			element.removeEventListener('error', handleError)
 		}
 	}
-	private fail() {
-		const id = this.state.selectedId
-		this.stop(false)
-		const loadErrors = new Set(this.state.loadErrors)
-		if (id !== undefined) loadErrors.add(id)
-		this.update({ playbackStatus: 'error', loadErrors })
 
-		if (id !== undefined && !this.recoveries.has(id)) {
-			this.recoveries.add(id)
-			void this.refresh?.().catch(() => undefined)
-		}
-		if (this.mode === 'auto') {
-			this.consumeHead()
-			this.pump()
-		}
+	/** Файл не проигрался (например, истекла ссылка): следующее нажатие запросит ссылку заново. */
+	private failPlayback(key: string) {
+		this.stop(false)
+		this.files.delete(key)
+		this.setRequestStatus(key, 'failed')
+		this.update({ playbackStatus: 'error' })
+		if (this.playbackMode === 'auto') this.playNextAutoplay()
+	}
+
+	private clearStartTimer() {
+		if (this.startTimer !== undefined) this.clock.clear(this.startTimer)
+		this.startTimer = undefined
+	}
+
+	private stop(shouldKeepPosition: boolean) {
+		this.operation += 1
+		this.clearStartTimer()
+		this.element?.pause()
+		if (this.element && !shouldKeepPosition) this.element.currentTime = 0
+		this.update({ playbackStatus: shouldKeepPosition ? 'paused' : 'idle' })
 	}
 }

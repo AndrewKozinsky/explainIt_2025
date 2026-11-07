@@ -1,7 +1,7 @@
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import type { DialogueAudioSnapshot } from './audio/dialogueAudioTypes'
+import type { DialogueAudioAddress, DialogueAudioFile } from './audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from './messageCheck/userMessageCheckTypes'
 import type {
 	AiDialogueModel,
@@ -67,8 +67,9 @@ export class AiDialogueService {
 		return this.aiDialogueRepository.getDialogue(id)
 	}
 
-	async getAudio(id: number, signal?: AbortSignal): Promise<ApiResult<DialogueAudioSnapshot>> {
-		return this.aiDialogueRepository.getAudio(id, signal)
+	/** Получить озвучку реплики или описания сцены; при первом запросе сервер её синтезирует. */
+	async getAudio(id: number, address: DialogueAudioAddress): Promise<ApiResult<DialogueAudioFile>> {
+		return this.aiDialogueRepository.getAudio(id, address)
 	}
 
 	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {

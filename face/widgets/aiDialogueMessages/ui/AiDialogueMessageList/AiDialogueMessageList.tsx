@@ -3,7 +3,6 @@ import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/a
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogMessageRouter from '@/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
-import { useDialogueAudio } from '../audio/DialogueAudioContext'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import { DialogueVisualsProvider } from '../visuals/DialogueVisualsContext'
 import './AiDialogueMessageList.scss'
@@ -31,8 +30,6 @@ function AiDialogueMessageList({
 	refreshVisuals,
 	recoverImage,
 }: AiDialogueMessageListProps) {
-	const audio = useDialogueAudio()
-
 	const savedMessages = messages.map((message) => (
 		<AiDialogMessageRouter
 			key={message.id}
@@ -44,14 +41,7 @@ function AiDialogueMessageList({
 	))
 
 	const previewMessages = preview.map((event, index) => (
-		<AiDialogMessageRouter
-			key={`preview-${index}`}
-			event={event}
-			audioAttemptId={audio?.state.attemptId}
-			audioEventIndex={event.audioEventIndex ?? index}
-			reserveSceneSpace
-			onWordSelect={onWordSelect}
-		/>
+		<AiDialogMessageRouter key={`preview-${index}`} event={event} reserveSceneSpace onWordSelect={onWordSelect} />
 	))
 
 	return (
