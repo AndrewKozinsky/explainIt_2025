@@ -10,7 +10,7 @@
 ## Поведение
 
 Сервер генерирует спрайты NPC и иллюстрации сцен через OpenAI и универсальный
-[`imageGenerationProviderAdapter`](../imageGenerationProviderAdapter.md).
+[`imageGenerationProviderAdapter`](../topics/imageGenerationProviderAdapter.md).
 Сохранение сообщений/заданий/outbox транзакционное; publisher передаёт задания в BullMQ, отдельный worker
 готовит референсы и публикует исходники в R2/БД. Реализованы авторизованный REST-снимок, Redis/SSE-сигналы
 и очистка изображений. Картинки не блокируют текст, `turnDone` завершает только текстовый ход.

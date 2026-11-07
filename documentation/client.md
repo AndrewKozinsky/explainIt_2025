@@ -7,7 +7,7 @@
 В основном взаимодействие с сервером идёт через REST. OpenAPI-спека автоматически генерируется сервером из декораторов. Клиентские React Query-хуки и TypeScript-типы генерируются из спеки через Orval. После изменения маршрутов на сервере нужно перезапустить сервер и выполнить команду в папке `face/`:
 ```npm run orval```
 
-Подробнее: `aiDocsRus/topics/openapiCodegen.md`
+Подробнее: `documentation/topics/openapiCodegen.md`
 
 Try to avoid putting business logic into component. Use 'fn' folder for business logic. For example: `Button/fn/useFetchData`, `Button/fn/useValidateForm`.
 
@@ -17,7 +17,7 @@ Prefer ordinary functions rather than arrow functions. Use arrow functions only 
 
 Put reusable UI elements in the 'face/ui' directory.
 
-Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый код добавляется во все файлы локалей. Подробнее: `aiDocsRus/topics/internationalization.md`.
+Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый код добавляется во все файлы локалей. Подробнее: `documentation/topics/internationalization.md`.
 
 Данные пользователя можно взять из `face/stores/userStore.ts`.
 

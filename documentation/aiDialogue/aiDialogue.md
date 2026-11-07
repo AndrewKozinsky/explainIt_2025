@@ -15,9 +15,9 @@
 - обмен идёт по двум каналам: клиент → сервер через REST (`POST .../messages`), сервер → клиент через постоянный
   SSE-поток (`GET .../stream`).
 
-Сценарии описаны отдельно — см. `aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`. Страница самого диалога
+Сценарии описаны отдельно — см. `documentation/aiDialogue/aiDialogueScenario.md`. Страница самого диалога
 `/dialogues/{dialogId}` (SSE-клиент, стор, рендер событий, форма ввода) — см.
-`aiDocsRus/topics/aiDialogue/aiDialoguePage.md`. Существующий SentenceChat к этой фиче отношения не имеет.
+`documentation/aiDialogue/aiDialoguePage.md`. Существующий SentenceChat к этой фиче отношения не имеет.
 
 ## Доменная модель
 
@@ -149,7 +149,7 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 - Повторные вызовы создают новые диалоги.
 
 Языки берутся из диалога, а не из сценария — сценарий языконейтрален (см.
-`aiDocsRus/topics/aiDialogue/aiDialogueScenario.md`). На
+`documentation/aiDialogue/aiDialogueScenario.md`). На
 клиенте `sourceLanguageCode` выбирается в окне запуска сценария и сохраняется через
 `localStorageManager.lastLanguage`. При открытии окна восстанавливается поддерживаемый сохранённый язык,
 иначе используется английский.
@@ -662,7 +662,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `AiDialogueQueryFacade` — TanStack Query `queryOptions` (`aiDialogueQueries`).
 
 `scenario.title`/`scenario.description` приходят на языке интерфейса и выводятся как есть
-(см. `aiDocsRus/topics/internationalization.md`).
+(см. `documentation/topics/internationalization.md`).
 
 ### Изменение сложности на клиенте
 

@@ -78,4 +78,4 @@
 | Озвучка | [aiDialogueAudio.md](aiDialogueAudio.md) |
 | Изображения: портреты с эмоциями, сцены, очередь | [aiDialogueImages.md](aiDialogueImages.md) |
 | Стили иллюстраций | [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md) |
-| Аватар и пол пользователя | [../userProfile.md](../userProfile.md) |
+| Аватар и пол пользователя | [../topics/userProfile.md](../topics/userProfile.md) |

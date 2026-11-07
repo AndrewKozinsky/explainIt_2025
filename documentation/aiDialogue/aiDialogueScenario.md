@@ -4,7 +4,7 @@
 Он языконейтрален: язык практики и перевода задаётся при создании AiDialogue.
 В БД `title` и `description` — JSON-строки переводов на en/es/fr/de/it/tr/ru.
 API возвращает их уже на языке интерфейса из заголовка `Accept-Language` (по умолчанию en), выбор перевода —
-`server/src/utils/pickLocalized.ts`; общий механизм описан в [internationalization.md](../internationalization.md).
+`server/src/utils/pickLocalized.ts`; общий механизм описан в [internationalization.md](../topics/internationalization.md).
 `system_prompt` — английская инструкция только для сервера.
 Создание и работа диалога описаны в [aiDialogue.md](aiDialogue.md), история — в [aiDialogueList.md](aiDialogueList.md).
 

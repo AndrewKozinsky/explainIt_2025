@@ -132,4 +132,4 @@ Reuse an existing error message when one text already covers multiple forbidden 
 находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`. Это настройка диалогов, а не общей шкалы CEFR.
 В диалогах `maxCefrLevel` хранит CEFR-код или `null` (без ограничения), отдельно от оценки уровня пользователя.
 Правила промпта находятся в feature диалогов; контракт создания и PATCH описан в
-`aiDocsRus/topics/aiDialogue/aiDialogue.md`.
+`documentation/aiDialogue/aiDialogue.md`.
