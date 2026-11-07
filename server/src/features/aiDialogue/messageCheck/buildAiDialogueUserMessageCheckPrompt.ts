@@ -36,8 +36,8 @@ critical
 OR:
 suggestion
 <Markdown explanation>
-<corrected example>
-Each record value occupies exactly ONE non-empty physical line. Use inline Markdown; do not insert line breaks inside a value. Preserve the original excerpt, joining its line breaks with spaces if necessary. Do not silently rewrite the draft.
+<corrected example as PLAIN TEXT: no Markdown, no **bold**, no quotes around it>
+Each record value occupies exactly ONE non-empty physical line; do not insert line breaks inside a value. Inline Markdown is allowed only in the title, the original excerpt and explanations; the corrected example of a suggestion is always plain text. Preserve the original excerpt, joining its line breaks with spaces if necessary. Do not silently rewrite the draft.
 Finish the complete response with a separate end line. An all-correct response is exactly:
 speech
 ok
