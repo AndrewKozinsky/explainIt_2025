@@ -31,7 +31,8 @@
 	background-position: center;
 }
 
-// Центр «кисти» в процентах слота. Регистрация через @property нужна, чтобы координаты анимировались плавно.
+// Параметры «кисти»: центр в процентах слота и множитель размера.
+// Регистрация через @property нужна, чтобы значения анимировались плавно.
 @property --scene-brush-x {
 	syntax: '<percentage>';
 	inherits: false;
@@ -44,53 +45,88 @@
 	initial-value: 30%;
 }
 
-// Заглушка на время генерации: светлые точки, а поверх — тёмные,
-// видимые только под «кистью» (размытым пятном маски), которая ходит по слоту.
+@property --scene-brush-scale {
+	syntax: '<number>';
+	inherits: false;
+	initial-value: 1;
+}
+
+// Заглушка на время генерации: сетка точек, видимая только под «кистью»
+// (размытым пятном маски), которая ходит по слоту.
+// Координаты и размер анимируются независимо, с некратными периодами:
+// общий рисунок повторяется лишь через много минут, поэтому движение выглядит случайным.
 .ai-dialogue-message-scene-update__image-pending {
 	position: absolute;
 	inset: 0;
-	@include scene-image-dots(vars.$grayColor-2);
-
-	&::after {
-		content: '';
-		position: absolute;
-		inset: 0;
-		@include scene-image-dots(vars.$grayColor-4);
-		$brush: radial-gradient(
-			ellipse 28% 50% at var(--scene-brush-x) var(--scene-brush-y),
-			#000 0%,
-			rgba(0, 0, 0, 0.55) 45%,
-			transparent 100%
-		);
-		-webkit-mask-image: $brush;
-		mask-image: $brush;
-		animation: ai-dialogue-scene-image-brush 6s ease-in-out infinite;
-	}
+	@include scene-image-dots(vars.$grayColor-4);
+	$brush: radial-gradient(
+		ellipse calc(28% * var(--scene-brush-scale)) calc(50% * var(--scene-brush-scale)) at var(--scene-brush-x)
+			var(--scene-brush-y),
+		#000 0%,
+		rgba(0, 0, 0, 0.55) 45%,
+		transparent 100%
+	);
+	-webkit-mask-image: $brush;
+	mask-image: $brush;
+	animation:
+		ai-dialogue-scene-image-brush-x 9.1s ease-in-out infinite,
+		ai-dialogue-scene-image-brush-y 6.7s ease-in-out infinite,
+		ai-dialogue-scene-image-brush-scale 5.3s ease-in-out infinite;
 
 	@media (prefers-reduced-motion: reduce) {
-		&::after {
-			animation: none;
-		}
+		animation: none;
 	}
 }
 
-@keyframes ai-dialogue-scene-image-brush {
+// Неравные промежутки между ключевыми точками добавляют рывки и замедления
+@keyframes ai-dialogue-scene-image-brush-x {
 	0%,
 	100% {
 		--scene-brush-x: 15%;
+	}
+	18% {
+		--scene-brush-x: 40%;
+	}
+	41% {
+		--scene-brush-x: 85%;
+	}
+	57% {
+		--scene-brush-x: 60%;
+	}
+	79% {
+		--scene-brush-x: 25%;
+	}
+}
+
+@keyframes ai-dialogue-scene-image-brush-y {
+	0%,
+	100% {
 		--scene-brush-y: 30%;
 	}
-	25% {
-		--scene-brush-x: 45%;
+	23% {
 		--scene-brush-y: 75%;
 	}
-	50% {
-		--scene-brush-x: 85%;
-		--scene-brush-y: 40%;
+	46% {
+		--scene-brush-y: 45%;
 	}
-	75% {
-		--scene-brush-x: 50%;
+	64% {
 		--scene-brush-y: 20%;
+	}
+	85% {
+		--scene-brush-y: 65%;
+	}
+}
+
+@keyframes ai-dialogue-scene-image-brush-scale {
+	0%,
+	100% {
+		--scene-brush-scale: 1;
+	}
+	35% {
+		--scene-brush-scale: 1.25;
+	}
+	70% {
+		--scene-brush-scale: 0.8;
 	}
 }
 
