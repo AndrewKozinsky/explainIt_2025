@@ -1,7 +1,5 @@
-import type {
-	AiDialogueStreamEvent,
-	DialogueServerMessage,
-} from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { useReplyTextVisibilityStore } from '@/entities/aiDialogue/replySettings/replyTextVisibilityStore'
+import type { AiDialogueStreamEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { parseAiDialoguePreview } from '_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '../../aiDialogueStore'
 
@@ -30,6 +28,15 @@ export function openAiDialogueStream(
 	let accumulated = ''
 	// Ждём первый озвучиваемый текст нового ответа: он снимает автоозвучку предыдущего.
 	let isAwaitingVoicedReply = false
+	// Номер сохранённого сообщения в текущем ходе: оно заменяет событие превью с тем же номером.
+	let turnMessageIndex = 0
+
+	function startTurn() {
+		accumulated = ''
+		isAwaitingVoicedReply = true
+		turnMessageIndex = 0
+		useReplyTextVisibilityStore.getState().clearPreviewReplies()
+	}
 
 	eventSource.onopen = function () {
 		onVisualsChanged?.()
@@ -57,12 +64,18 @@ export function openAiDialogueStream(
 			store.upsertMessage(parsed.message)
 			store.setPreview([])
 
-			// Replay истории при подключении не озвучивается автоматически.
-			if (!isReplay && audio?.newMessage(parsed.message, isAwaitingVoicedReply)) isAwaitingVoicedReply = false
-
 			if (parsed.message.payload.type === 'npcActions' || parsed.message.payload.type === 'sceneUpdate') {
 				onVisualsChanged?.()
 			}
+
+			// Replay истории при подключении не озвучивается и не меняет видимость текста.
+			if (isReplay) return
+
+			// Открытый в превью текст остаётся открытым в сохранённом сообщении.
+			useReplyTextVisibilityStore.getState().movePreviewReplies(turnMessageIndex, parsed.message.id)
+			turnMessageIndex += 1
+
+			if (audio?.newMessage(parsed.message, isAwaitingVoicedReply)) isAwaitingVoicedReply = false
 
 			return
 		}
@@ -70,8 +83,7 @@ export function openAiDialogueStream(
 		if (parsed.type === 'turnStarted') {
 			// Генерация хода началась (до первого chunk): показываем «ответ готовится».
 			// Сбрасываем превью и ошибку прошлого хода — как это делает первый chunk.
-			accumulated = ''
-			isAwaitingVoicedReply = true
+			startTurn()
 			store.setPreview([])
 			store.setTurnError(null)
 			store.setGenerating(true)
@@ -81,8 +93,7 @@ export function openAiDialogueStream(
 		if (parsed.type === 'chunk') {
 			if (!store.isGenerating) {
 				// Начало нового хода — сбрасываем текст предыдущего и его ошибку.
-				accumulated = ''
-				isAwaitingVoicedReply = true
+				startTurn()
 				store.setTurnError(null)
 				store.setGenerating(true)
 			}
@@ -99,7 +110,10 @@ export function openAiDialogueStream(
 			// Сервер начал повторную попытку генерации: выбрасываем превью неудачной
 			// попытки, но isGenerating остаётся true — новый стрим уже идёт.
 			accumulated = ''
+			turnMessageIndex = 0
+			useReplyTextVisibilityStore.getState().clearPreviewReplies()
 			store.setPreview([])
+
 			return
 		}
 

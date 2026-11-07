@@ -15,6 +15,10 @@
     "label": "Nivel de idioma",
     "anyLevel": "Cualquiera"
   },
+  "replySettings": {
+    "autoVoice": "Voz automática",
+    "replyText": "Texto de las réplicas"
+  },
   "characterAvatars": {
     "participants": "Participantes de la conversación",
     "moreParticipants": "Más participantes: {count}"

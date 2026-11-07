@@ -41,7 +41,13 @@ function AiDialogueMessageList({
 	))
 
 	const previewMessages = preview.map((event, index) => (
-		<AiDialogMessageRouter key={`preview-${index}`} event={event} reserveSceneSpace onWordSelect={onWordSelect} />
+		<AiDialogMessageRouter
+			key={`preview-${index}`}
+			event={event}
+			previewEventIndex={index}
+			reserveSceneSpace
+			onWordSelect={onWordSelect}
+		/>
 	))
 
 	return (

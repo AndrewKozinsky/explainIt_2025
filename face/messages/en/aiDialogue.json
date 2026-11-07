@@ -15,6 +15,10 @@
     "label": "Language level",
     "anyLevel": "Any"
   },
+  "replySettings": {
+    "autoVoice": "Auto voice-over",
+    "replyText": "Reply text"
+  },
   "characterAvatars": {
     "participants": "Conversation participants",
     "moreParticipants": "More participants: {count}"

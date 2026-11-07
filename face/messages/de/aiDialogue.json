@@ -15,6 +15,10 @@
     "label": "Sprachniveau",
     "anyLevel": "Beliebig"
   },
+  "replySettings": {
+    "autoVoice": "Automatische Vertonung",
+    "replyText": "Antworttext"
+  },
   "characterAvatars": {
     "participants": "Gesprächsteilnehmer",
     "moreParticipants": "Weitere Teilnehmer: {count}"

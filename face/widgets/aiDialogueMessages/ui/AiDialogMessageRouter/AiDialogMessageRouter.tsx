@@ -12,6 +12,8 @@ type AiDialogMessageRouterProps = {
 	event: AiDialoguePreviewEvent
 	onWordSelect: AiDialogueWordSelectHandler
 	messageId?: number
+	/** Позиция события в превью текущего хода; у сохранённого сообщения не используется. */
+	previewEventIndex?: number
 	reserveSceneSpace?: boolean
 }
 
@@ -26,6 +28,7 @@ function AiDialogMessageRouter({
 	event,
 	onWordSelect,
 	messageId,
+	previewEventIndex = 0,
 	reserveSceneSpace = false,
 }: AiDialogMessageRouterProps) {
 	const mapping = {
@@ -37,6 +40,7 @@ function AiDialogMessageRouter({
 			<SceneUpdateMessage
 				{...mapping}
 				messageId={messageId}
+				previewEventIndex={previewEventIndex}
 				reserveSpace={reserveSceneSpace}
 				content={event.content}
 				translation={event.translation}
@@ -64,6 +68,7 @@ function AiDialogMessageRouter({
 		return (
 			<NpcMessage
 				messageId={messageId}
+				previewEventIndex={previewEventIndex}
 				wordMap={event.wordMap}
 				npcId={event.npcId}
 				npcName={event.npcName}

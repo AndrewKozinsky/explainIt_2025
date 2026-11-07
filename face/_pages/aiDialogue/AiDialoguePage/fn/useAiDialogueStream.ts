@@ -1,4 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
+import { useReplySettingsStore } from '@/entities/aiDialogue/replySettings/replySettingsStore'
+import { useReplyTextVisibilityStore } from '@/entities/aiDialogue/replySettings/replyTextVisibilityStore'
 import { useAiDialogueStore } from '../../aiDialogueStore'
 import { openAiDialogueStream, type DialogueAudioStreamHandlers } from './openAiDialogueStream'
 
@@ -22,6 +24,9 @@ export function useAiDialogueStream(
 			if (!enabled) return
 
 			useAiDialogueStore.getState().clearStore()
+			useReplyTextVisibilityStore.getState().clear()
+			// Настройки читаются до открытия SSE: первые же реплики получают сохранённую видимость текста.
+			useReplySettingsStore.getState().loadSettings()
 			eventSourceRef.current = openAiDialogueStream(dialogueId, onVisualsChanged, audio)
 
 			return function () {

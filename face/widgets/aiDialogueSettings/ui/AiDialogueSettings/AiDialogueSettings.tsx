@@ -1,4 +1,5 @@
 import TextLevelSwitcher, { type AiDialogueTextLevel } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
+import ReplySettingsToggles from './ReplySettingsToggles'
 import UnlockAudioButton from './UnlockAudioButton'
 import './AiDialogueSettings.scss'
 
@@ -23,6 +24,7 @@ function AiDialogueSettings(props: AiDialogueSettingsProps) {
 				onTextLevelChange={onTextLevelChange}
 				disabled={isUpdatingTextLevel}
 			/>
+			<ReplySettingsToggles />
 			<UnlockAudioButton audioBlocked={audioBlocked} onUnlockAudio={onUnlockAudio} />
 		</section>
 	)

@@ -1,3 +1,4 @@
+import { aiDialogueReplySettings } from './aiDialogueReplySettings'
 import { lastAiDialogProficiency } from './lastAiDialogProficiency'
 import { lastAiDialogueIllustrationStyle } from './lastAiDialogueIllustrationStyle'
 import { lastBookChapter } from './lastBookChapter'
@@ -21,4 +22,5 @@ export const localStorageManager = {
 	lastSort,
 	lastLanguage,
 	oauth,
+	aiDialogueReplySettings,
 }

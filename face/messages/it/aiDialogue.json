@@ -15,6 +15,10 @@
     "label": "Livello di lingua",
     "anyLevel": "Qualsiasi"
   },
+  "replySettings": {
+    "autoVoice": "Voce automatica",
+    "replyText": "Testo delle battute"
+  },
   "characterAvatars": {
     "participants": "Partecipanti alla conversazione",
     "moreParticipants": "Altri partecipanti: {count}"

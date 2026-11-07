@@ -15,6 +15,10 @@
     "label": "Уровень языка",
     "anyLevel": "Любой"
   },
+  "replySettings": {
+    "autoVoice": "Автоозвучка",
+    "replyText": "Текст реплик"
+  },
   "characterAvatars": {
     "participants": "Участники диалога",
     "moreParticipants": "Ещё участников: {count}"

@@ -15,6 +15,10 @@
     "label": "Dil seviyesi",
     "anyLevel": "Herhangi"
   },
+  "replySettings": {
+    "autoVoice": "Otomatik seslendirme",
+    "replyText": "Replik metni"
+  },
   "characterAvatars": {
     "participants": "Sohbet katılımcıları",
     "moreParticipants": "Diğer katılımcılar: {count}"
