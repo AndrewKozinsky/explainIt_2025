@@ -86,6 +86,8 @@
   "AI_DIALOGUE_SCENARIO_NOT_FOUND": "Sohbet senaryosu bulunamadı.",
   "AI_DIALOGUE_GENERATION_ALREADY_ACTIVE": "Zaten bir yanıt oluşturuluyor. Bitmesini bekleyin veya iptal edin.",
   "AI_DIALOGUE_CANNOT_PARSE_LLM_RESPONSE": "Yapay zekânın yanıtı okunamadı.",
+  "AI_DIALOGUE_AUDIO_NOT_AVAILABLE": "Bu metin için seslendirme yok.",
+  "AI_DIALOGUE_AUDIO_GENERATION_FAILED": "Metin seslendirilemedi. Lütfen tekrar deneyin.",
   "AUDIO_PRONUNCIATION_NOT_CREATED": "Ses oluşturulamadı.",
   "AUDIO_PRONUNCIATION_ALREADY_EXISTS": "Bu ifade için ses zaten var.",
   "AUDIO_PRONUNCIATION_CANNOT_UPLOAD_TO_S3": "Ses dosyası depolamaya yüklenemedi.",

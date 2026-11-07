@@ -49,6 +49,42 @@ describe('parseAiDialogueEvents', () => {
 		})
 	})
 
+	it('extracts the NPC voice profile written before actions', () => {
+		const result = parseAiDialogueEvents(
+			[
+				'npcActions|clerk|Giulia|clerk|happy',
+				'voice:',
+				'{"voice":"coral","instructions":"Warm friendly voice"}',
+				'speech:',
+				'Ciao!',
+				'Привет!',
+			].join('\n'),
+		)
+
+		expect(result.npcVoices).toEqual([
+			{ npcId: 'clerk', voice: { voice: 'coral', instructions: 'Warm friendly voice' } },
+		])
+	})
+
+	it('ignores an invalid voice profile and a voice label inside the speech', () => {
+		const result = parseAiDialogueEvents(
+			[
+				'npcActions|clerk|Giulia|clerk|happy',
+				'voice: {"voice":"unknown","instructions":"Warm"}',
+				'speech:',
+				'Ciao!',
+				'Привет!',
+				'',
+				'npcActions|guide|Marco|guide|neutral',
+				'speech:',
+				'voice: {"voice":"coral","instructions":"Warm"}',
+				'Голос.',
+			].join('\n'),
+		)
+
+		expect(result.npcVoices).toEqual([])
+	})
+
 	it('extracts scene participants and visual description', () => {
 		const result = parseAiDialogueEvents(
 			[
@@ -93,6 +129,7 @@ describe('parseAiDialogueEvents', () => {
 		expect(parseAiDialogueEvents('')).toEqual({
 			events: [],
 			visualMetadata: { npcAppearances: [], scenes: [] },
+			npcVoices: [],
 		})
 	})
 })

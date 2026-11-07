@@ -423,8 +423,7 @@ export const ModelName = {
   ImageGenerationJob: 'ImageGenerationJob',
   ImageGenerationOutbox: 'ImageGenerationOutbox',
   AiDialogueVoice: 'AiDialogueVoice',
-  AiDialogueAudioAttempt: 'AiDialogueAudioAttempt',
-  AiDialogueAudioJob: 'AiDialogueAudioJob'
+  AiDialogueAudio: 'AiDialogueAudio'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -440,7 +439,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenarioGroup" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox" | "aiDialogueVoice" | "aiDialogueAudioAttempt" | "aiDialogueAudioJob"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenarioGroup" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox" | "aiDialogueVoice" | "aiDialogueAudio"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -2368,151 +2367,77 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    AiDialogueAudioAttempt: {
-      payload: Prisma.$AiDialogueAudioAttemptPayload<ExtArgs>
-      fields: Prisma.AiDialogueAudioAttemptFieldRefs
+    AiDialogueAudio: {
+      payload: Prisma.$AiDialogueAudioPayload<ExtArgs>
+      fields: Prisma.AiDialogueAudioFieldRefs
       operations: {
         findUnique: {
-          args: Prisma.AiDialogueAudioAttemptFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload> | null
+          args: Prisma.AiDialogueAudioFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload> | null
         }
         findUniqueOrThrow: {
-          args: Prisma.AiDialogueAudioAttemptFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>
+          args: Prisma.AiDialogueAudioFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>
         }
         findFirst: {
-          args: Prisma.AiDialogueAudioAttemptFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload> | null
+          args: Prisma.AiDialogueAudioFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload> | null
         }
         findFirstOrThrow: {
-          args: Prisma.AiDialogueAudioAttemptFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>
+          args: Prisma.AiDialogueAudioFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>
         }
         findMany: {
-          args: Prisma.AiDialogueAudioAttemptFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>[]
+          args: Prisma.AiDialogueAudioFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>[]
         }
         create: {
-          args: Prisma.AiDialogueAudioAttemptCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>
+          args: Prisma.AiDialogueAudioCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>
         }
         createMany: {
-          args: Prisma.AiDialogueAudioAttemptCreateManyArgs<ExtArgs>
+          args: Prisma.AiDialogueAudioCreateManyArgs<ExtArgs>
           result: BatchPayload
         }
         createManyAndReturn: {
-          args: Prisma.AiDialogueAudioAttemptCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>[]
+          args: Prisma.AiDialogueAudioCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>[]
         }
         delete: {
-          args: Prisma.AiDialogueAudioAttemptDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>
+          args: Prisma.AiDialogueAudioDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>
         }
         update: {
-          args: Prisma.AiDialogueAudioAttemptUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>
+          args: Prisma.AiDialogueAudioUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>
         }
         deleteMany: {
-          args: Prisma.AiDialogueAudioAttemptDeleteManyArgs<ExtArgs>
+          args: Prisma.AiDialogueAudioDeleteManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateMany: {
-          args: Prisma.AiDialogueAudioAttemptUpdateManyArgs<ExtArgs>
+          args: Prisma.AiDialogueAudioUpdateManyArgs<ExtArgs>
           result: BatchPayload
         }
         updateManyAndReturn: {
-          args: Prisma.AiDialogueAudioAttemptUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>[]
+          args: Prisma.AiDialogueAudioUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>[]
         }
         upsert: {
-          args: Prisma.AiDialogueAudioAttemptUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioAttemptPayload>
+          args: Prisma.AiDialogueAudioUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioPayload>
         }
         aggregate: {
-          args: Prisma.AiDialogueAudioAttemptAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueAudioAttempt>
+          args: Prisma.AiDialogueAudioAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueAudio>
         }
         groupBy: {
-          args: Prisma.AiDialogueAudioAttemptGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AiDialogueAudioAttemptGroupByOutputType>[]
+          args: Prisma.AiDialogueAudioGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueAudioGroupByOutputType>[]
         }
         count: {
-          args: Prisma.AiDialogueAudioAttemptCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AiDialogueAudioAttemptCountAggregateOutputType> | number
-        }
-      }
-    }
-    AiDialogueAudioJob: {
-      payload: Prisma.$AiDialogueAudioJobPayload<ExtArgs>
-      fields: Prisma.AiDialogueAudioJobFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.AiDialogueAudioJobFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.AiDialogueAudioJobFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>
-        }
-        findFirst: {
-          args: Prisma.AiDialogueAudioJobFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.AiDialogueAudioJobFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>
-        }
-        findMany: {
-          args: Prisma.AiDialogueAudioJobFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>[]
-        }
-        create: {
-          args: Prisma.AiDialogueAudioJobCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>
-        }
-        createMany: {
-          args: Prisma.AiDialogueAudioJobCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.AiDialogueAudioJobCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>[]
-        }
-        delete: {
-          args: Prisma.AiDialogueAudioJobDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>
-        }
-        update: {
-          args: Prisma.AiDialogueAudioJobUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>
-        }
-        deleteMany: {
-          args: Prisma.AiDialogueAudioJobDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.AiDialogueAudioJobUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.AiDialogueAudioJobUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>[]
-        }
-        upsert: {
-          args: Prisma.AiDialogueAudioJobUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$AiDialogueAudioJobPayload>
-        }
-        aggregate: {
-          args: Prisma.AiDialogueAudioJobAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateAiDialogueAudioJob>
-        }
-        groupBy: {
-          args: Prisma.AiDialogueAudioJobGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AiDialogueAudioJobGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.AiDialogueAudioJobCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AiDialogueAudioJobCountAggregateOutputType> | number
+          args: Prisma.AiDialogueAudioCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AiDialogueAudioCountAggregateOutputType> | number
         }
       }
     }
@@ -2938,38 +2863,17 @@ export const AiDialogueVoiceScalarFieldEnum = {
 export type AiDialogueVoiceScalarFieldEnum = (typeof AiDialogueVoiceScalarFieldEnum)[keyof typeof AiDialogueVoiceScalarFieldEnum]
 
 
-export const AiDialogueAudioAttemptScalarFieldEnum = {
+export const AiDialogueAudioScalarFieldEnum = {
   id: 'id',
-  dialogue_id: 'dialogue_id',
-  turn_id: 'turn_id',
-  status: 'status',
-  message_ids: 'message_ids',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type AiDialogueAudioAttemptScalarFieldEnum = (typeof AiDialogueAudioAttemptScalarFieldEnum)[keyof typeof AiDialogueAudioAttemptScalarFieldEnum]
-
-
-export const AiDialogueAudioJobScalarFieldEnum = {
-  id: 'id',
-  attempt_id: 'attempt_id',
   message_id: 'message_id',
-  event_index: 'event_index',
   action_index: 'action_index',
-  npc_id: 'npc_id',
-  text: 'text',
-  input: 'input',
   s3_key: 's3_key',
   status: 'status',
-  published_at: 'published_at',
-  submitted_at: 'submitted_at',
-  error: 'error',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
-export type AiDialogueAudioJobScalarFieldEnum = (typeof AiDialogueAudioJobScalarFieldEnum)[keyof typeof AiDialogueAudioJobScalarFieldEnum]
+export type AiDialogueAudioScalarFieldEnum = (typeof AiDialogueAudioScalarFieldEnum)[keyof typeof AiDialogueAudioScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -3332,20 +3236,6 @@ export type ListEnumImageGenerationOutboxStatusFieldRefInput<$PrismaModel> = Fie
 
 
 /**
- * Reference to a field of type 'AiDialogueAudioAttemptStatus'
- */
-export type EnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueAudioAttemptStatus'>
-    
-
-
-/**
- * Reference to a field of type 'AiDialogueAudioAttemptStatus[]'
- */
-export type ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueAudioAttemptStatus[]'>
-    
-
-
-/**
  * Reference to a field of type 'AiDialogueAudioStatus'
  */
 export type EnumAiDialogueAudioStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AiDialogueAudioStatus'>
@@ -3549,8 +3439,7 @@ export type GlobalOmitConfig = {
   imageGenerationJob?: Prisma.ImageGenerationJobOmit
   imageGenerationOutbox?: Prisma.ImageGenerationOutboxOmit
   aiDialogueVoice?: Prisma.AiDialogueVoiceOmit
-  aiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptOmit
-  aiDialogueAudioJob?: Prisma.AiDialogueAudioJobOmit
+  aiDialogueAudio?: Prisma.AiDialogueAudioOmit
 }
 
 /* Types for Logging */

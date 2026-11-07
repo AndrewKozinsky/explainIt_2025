@@ -3,6 +3,7 @@ import {
 	aiDialogueEmotions,
 	AiDialogueEvent,
 	AiDialogueNpcActionItem,
+	AiDialogueNpcVoice,
 	AiDialogueSceneVisualMetadata,
 	ParsedAiDialogueTurn,
 } from 'types/aiDialogueMessage'
@@ -10,6 +11,7 @@ import { Language } from 'utils/languages'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { dialogueVoiceSchema } from './audio/aiDialogueAudioConfig'
 import { readNpcMetadataField } from './readNpcMetadataField'
 import { attachInlineWordMaps, splitWordMapFooter } from './wordMap/inlineWordMaps'
 
@@ -17,10 +19,11 @@ type TextEventType = 'sceneUpdate' | 'help' | 'worldEvent'
 type ParsedBlock = {
 	event: AiDialogueEvent | null
 	npcAppearance: null | { npcId: string; appearance: string }
+	npcVoice: AiDialogueNpcVoice | null
 	scene: null | Omit<AiDialogueSceneVisualMetadata, 'eventIndex'>
 }
 
-const EMPTY_BLOCK: ParsedBlock = { event: null, npcAppearance: null, scene: null }
+const EMPTY_BLOCK: ParsedBlock = { event: null, npcAppearance: null, npcVoice: null, scene: null }
 
 /** Разбирает подтверждённый построчный ответ LLM на сюжетные события и визуальные метаданные. */
 export function parseAiDialogueEvents(raw: string, language?: Language): ParsedAiDialogueTurn {
@@ -33,6 +36,7 @@ export function parseAiDialogueEvents(raw: string, language?: Language): ParsedA
 	const events: AiDialogueEvent[] = []
 	const npcAppearances: ParsedAiDialogueTurn['visualMetadata']['npcAppearances'] = []
 	const scenes: AiDialogueSceneVisualMetadata[] = []
+	const npcVoices: AiDialogueNpcVoice[] = []
 
 	for (const block of blocks) {
 		if (block.event) {
@@ -42,6 +46,7 @@ export function parseAiDialogueEvents(raw: string, language?: Language): ParsedA
 		}
 
 		if (block.npcAppearance) npcAppearances.push(block.npcAppearance)
+		if (block.npcVoice) npcVoices.push(block.npcVoice)
 	}
 
 	if (events.length === 0) throw cannotParse()
@@ -49,22 +54,25 @@ export function parseAiDialogueEvents(raw: string, language?: Language): ParsedA
 	return {
 		events: language ? attachInlineWordMaps(events, footer, language) : events,
 		visualMetadata: { npcAppearances, scenes },
+		npcVoices,
 	}
 }
 
 function emptyTurn(): ParsedAiDialogueTurn {
-	return { events: [], visualMetadata: { npcAppearances: [], scenes: [] } }
+	return { events: [], visualMetadata: { npcAppearances: [], scenes: [] }, npcVoices: [] }
 }
 
 function splitIntoBlocks(lines: string[]): string[][] {
 	const blocks: string[][] = []
 	let current: string[] = []
+
 	for (const line of lines) {
 		if (line.trim() === '') {
 			if (current.length) blocks.push(current)
 			current = []
 		} else current.push(line)
 	}
+
 	if (current.length) blocks.push(current)
 	return blocks
 }
@@ -105,6 +113,7 @@ function parseNpcActions(block: string[]): ParsedBlock {
 	if (actions.length === 0) return EMPTY_BLOCK
 
 	const appearance = findAppearance(block)
+	const voice = findVoice(block)
 	const event: AiDialogueEvent = {
 		type: 'npcActions',
 		npcId,
@@ -113,7 +122,32 @@ function parseNpcActions(block: string[]): ParsedBlock {
 		emotion: normalizeEmotion(rawEmotion),
 		actions,
 	}
-	return { ...EMPTY_BLOCK, event, npcAppearance: appearance ? { npcId, appearance } : null }
+	return {
+		...EMPTY_BLOCK,
+		event,
+		npcAppearance: appearance ? { npcId, appearance } : null,
+		npcVoice: voice && npcId ? { npcId, voice } : null,
+	}
+}
+
+/** JSON-профиль голоса из строки voice:. Некорректный профиль игнорируется: реплики NPC тогда не озвучиваются. */
+function findVoice(block: string[]): AiDialogueNpcVoice['voice'] | null {
+	const firstAction = block.findIndex((line) => line.trim() === 'action:' || line.trim() === 'speech:')
+
+	for (let i = 1; i < block.length; i += 1) {
+		if (firstAction >= 0 && i >= firstAction) break
+		const field = readNpcMetadataField(block, i)
+		if (field?.name !== 'voice') continue
+
+		try {
+			const parsed = dialogueVoiceSchema.safeParse(JSON.parse(field.value ?? ''))
+			return parsed.success ? parsed.data : null
+		} catch {
+			return null
+		}
+	}
+
+	return null
 }
 
 /** The single-line form is trusted only before the first action/speech, where content lines cannot occur. */

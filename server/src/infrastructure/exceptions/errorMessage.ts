@@ -173,6 +173,8 @@ export const errorMessage = {
 		scenarioSlugAlreadyOwned: { code: 'AI_DIALOGUE_SCENARIO_SLUG_ALREADY_OWNED' }, // Slug публичного сценария занят пользовательским сценарием.
 		generationAlreadyActive: { code: 'AI_DIALOGUE_GENERATION_ALREADY_ACTIVE' }, // У вас уже есть активная генерация ответа. Дождитесь её завершения.
 		cannotParseLlmResponse: { code: 'AI_DIALOGUE_CANNOT_PARSE_LLM_RESPONSE' }, // Не удалось разобрать ответ LLM.
+		audioNotAvailable: { code: 'AI_DIALOGUE_AUDIO_NOT_AVAILABLE' }, // Для этого текста озвучка недоступна.
+		audioGenerationFailed: { code: 'AI_DIALOGUE_AUDIO_GENERATION_FAILED' }, // Не удалось озвучить текст. Попробуйте ещё раз.
 	},
 	audioPronunciation: {
 		notCreated: { code: 'AUDIO_PRONUNCIATION_NOT_CREATED' }, // Не удалось создать озвучку.

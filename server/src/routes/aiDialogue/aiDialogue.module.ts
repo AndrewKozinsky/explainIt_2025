@@ -16,11 +16,8 @@ import { PrismaService } from 'db/prisma.service'
 import { ActiveAiDialogueGenerationRegistry } from 'features/aiDialogue/ActiveAiDialogueGenerationRegistry.service'
 import { AiDialogueSseHub } from 'features/aiDialogue/AiDialogueSseHub.service'
 import { AiDialogueVisualUpdates } from 'features/aiDialogue/AiDialogueVisualUpdates.service'
-import { AiDialogueAudioStream } from 'features/aiDialogue/audio/AiDialogueAudioStream.service'
-import { AiDialogueAudioUpdates } from 'features/aiDialogue/audio/AiDialogueAudioUpdates.service'
 import { CleanupAiDialogueAudio } from 'features/aiDialogue/audio/CleanupAiDialogueAudio.service'
-import { GetAiDialogueAudioHandler } from 'features/aiDialogue/audio/GetAiDialogueAudio.command'
-import { PublishAiDialogueAudio } from 'features/aiDialogue/audio/PublishAiDialogueAudio.service'
+import { GenerateAiDialogueAudioHandler } from 'features/aiDialogue/audio/GenerateAiDialogueAudio.command'
 import { CleanupAiDialogueImages } from 'features/aiDialogue/CleanupAiDialogueImages.service'
 import { CreateAiDialogueHandler } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageHandler } from 'features/aiDialogue/CreateAiDialogueMessage.command'
@@ -38,16 +35,13 @@ import { UpdateAiDialogueHandler } from 'features/aiDialogue/UpdateAiDialogue.co
 import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
-import { AiDialogueAudioNotificationsModule } from 'infrastructure/redis/aiDialogueAudioNotifications.module'
 import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
+import { TtsProviderModule } from 'infrastructure/ttsProviderAdapter/ttsProvider.module'
 import { AiDialogueController } from './aiDialogue.controller'
 import { AiDialogueDictationWebSocket } from './aiDialogueDictationWebSocket.service'
 
 const services = [
 	AiDialogueDictationWebSocket,
-	AiDialogueAudioStream,
-	PublishAiDialogueAudio,
-	AiDialogueAudioUpdates,
 	CleanupAiDialogueAudio,
 	PrismaService,
 	ActiveAiDialogueGenerationRegistry,
@@ -62,7 +56,7 @@ const commandHandlers = [
 	GetAiDialogueIllustrationStylesHandler,
 	CheckAiDialogueUserMessageHandler,
 	UpdateAiDialogueHandler,
-	GetAiDialogueAudioHandler,
+	GenerateAiDialogueAudioHandler,
 	CreateAiDialogueHandler,
 	CreateAiDialogueMessageHandler,
 	DeleteAiDialogueHandler,
@@ -88,8 +82,8 @@ const repositories = [
 
 @Module({
 	imports: [
-		AiDialogueAudioNotificationsModule,
 		CqrsModule,
+		TtsProviderModule,
 		LlmProviderModule,
 		CloudflareS3Module,
 		AiDialogueVisualNotificationsModule,

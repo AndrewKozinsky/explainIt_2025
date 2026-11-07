@@ -109,9 +109,16 @@ export type AiDialogueTurnVisualMetadata = {
 	scenes: AiDialogueSceneVisualMetadata[]
 }
 
+// Голос нового NPC из скрытой строки voice: сохраняется вместе с ходом и используется озвучкой его реплик.
+export type AiDialogueNpcVoice = {
+	npcId: string
+	voice: import('features/aiDialogue/audio/aiDialogueAudioConfig').DialogueVoice
+}
+
 export type ParsedAiDialogueTurn = {
 	events: AiDialogueEvent[]
 	visualMetadata: AiDialogueTurnVisualMetadata
+	npcVoices: AiDialogueNpcVoice[]
 }
 
 // Обёртка сообщения, отдаваемая клиенту (replay и SSE): событие + служебные поля.
@@ -131,22 +138,6 @@ export type DialogueServerMessage = {
 //  - turnError   — ход не удался (error — текст ошибки).
 //  - visualsChanged — перечитать визуальный REST-снимок; не является сообщением диалога.
 export type AiDialogueStreamEvent =
-	| { type: 'audioChanged'; dialogueId: number }
-	| { type: 'audioAttemptStarted' | 'audioAttemptCancelled'; dialogueId: number; turnId: string; attemptId: string }
-	| {
-			type: 'audioQueued'
-			dialogueId: number
-			attemptId: string
-			audioId: number
-			eventIndex: number
-			actionIndex: number
-			npcId: string | null
-	  }
-	| {
-			type: 'audioReady'
-			dialogueId: number
-			audio: import('models/aiDialogue/aiDialogueAudio.out.model').AiDialogueAudioItemOutModel
-	  }
 	| { type: 'visualsChanged'; dialogueId: number }
 	| { type: 'message'; message: DialogueServerMessage }
 	| { type: 'chunk'; chunk: string }

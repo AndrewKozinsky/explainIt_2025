@@ -77,8 +77,7 @@ export const ModelName = {
   ImageGenerationJob: 'ImageGenerationJob',
   ImageGenerationOutbox: 'ImageGenerationOutbox',
   AiDialogueVoice: 'AiDialogueVoice',
-  AiDialogueAudioAttempt: 'AiDialogueAudioAttempt',
-  AiDialogueAudioJob: 'AiDialogueAudioJob'
+  AiDialogueAudio: 'AiDialogueAudio'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -480,38 +479,17 @@ export const AiDialogueVoiceScalarFieldEnum = {
 export type AiDialogueVoiceScalarFieldEnum = (typeof AiDialogueVoiceScalarFieldEnum)[keyof typeof AiDialogueVoiceScalarFieldEnum]
 
 
-export const AiDialogueAudioAttemptScalarFieldEnum = {
+export const AiDialogueAudioScalarFieldEnum = {
   id: 'id',
-  dialogue_id: 'dialogue_id',
-  turn_id: 'turn_id',
-  status: 'status',
-  message_ids: 'message_ids',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type AiDialogueAudioAttemptScalarFieldEnum = (typeof AiDialogueAudioAttemptScalarFieldEnum)[keyof typeof AiDialogueAudioAttemptScalarFieldEnum]
-
-
-export const AiDialogueAudioJobScalarFieldEnum = {
-  id: 'id',
-  attempt_id: 'attempt_id',
   message_id: 'message_id',
-  event_index: 'event_index',
   action_index: 'action_index',
-  npc_id: 'npc_id',
-  text: 'text',
-  input: 'input',
   s3_key: 's3_key',
   status: 'status',
-  published_at: 'published_at',
-  submitted_at: 'submitted_at',
-  error: 'error',
   created_at: 'created_at',
   updated_at: 'updated_at'
 } as const
 
-export type AiDialogueAudioJobScalarFieldEnum = (typeof AiDialogueAudioJobScalarFieldEnum)[keyof typeof AiDialogueAudioJobScalarFieldEnum]
+export type AiDialogueAudioScalarFieldEnum = (typeof AiDialogueAudioScalarFieldEnum)[keyof typeof AiDialogueAudioScalarFieldEnum]
 
 
 export const SortOrder = {

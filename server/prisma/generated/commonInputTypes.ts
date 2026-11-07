@@ -555,23 +555,6 @@ export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
-export type EnumAiDialogueAudioAttemptStatusFilter<$PrismaModel = never> = {
-  equals?: $Enums.AiDialogueAudioAttemptStatus | Prisma.EnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel> | $Enums.AiDialogueAudioAttemptStatus
-}
-
-export type EnumAiDialogueAudioAttemptStatusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.AiDialogueAudioAttemptStatus | Prisma.EnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumAiDialogueAudioAttemptStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueAudioAttemptStatus
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel>
-}
-
 export type EnumAiDialogueAudioStatusFilter<$PrismaModel = never> = {
   equals?: $Enums.AiDialogueAudioStatus | Prisma.EnumAiDialogueAudioStatusFieldRefInput<$PrismaModel>
   in?: $Enums.AiDialogueAudioStatus[] | Prisma.ListEnumAiDialogueAudioStatusFieldRefInput<$PrismaModel>
@@ -1141,23 +1124,6 @@ export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
-}
-
-export type NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel = never> = {
-  equals?: $Enums.AiDialogueAudioAttemptStatus | Prisma.EnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel> | $Enums.AiDialogueAudioAttemptStatus
-}
-
-export type NestedEnumAiDialogueAudioAttemptStatusWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.AiDialogueAudioAttemptStatus | Prisma.EnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  in?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  notIn?: $Enums.AiDialogueAudioAttemptStatus[] | Prisma.ListEnumAiDialogueAudioAttemptStatusFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumAiDialogueAudioAttemptStatusWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueAudioAttemptStatus
-  _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumAiDialogueAudioAttemptStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumAiDialogueAudioStatusFilter<$PrismaModel = never> = {

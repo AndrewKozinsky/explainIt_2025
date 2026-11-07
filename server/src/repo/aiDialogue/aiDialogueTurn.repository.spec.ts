@@ -25,6 +25,7 @@ function createHarness(illustrationStyleId = 'realism', mode = 'localdev') {
 			findMany: jest.fn().mockResolvedValue([{ id: 10, npc_id: 'npc_1' }]),
 		},
 		aiDialogueMessage: { create: jest.fn() },
+		aiDialogueVoice: { createMany: jest.fn() },
 		imageGenerationJob: { create: jest.fn() },
 		imageGenerationOutbox: { create: jest.fn() },
 	}
@@ -158,6 +159,7 @@ describe('AiDialogueTurnRepository', () => {
 						},
 					],
 				},
+				npcVoices: [],
 			},
 		})
 
@@ -218,6 +220,7 @@ describe('AiDialogueTurnRepository', () => {
 					},
 				],
 				visualMetadata: { npcAppearances: [], scenes: [] },
+				npcVoices: [],
 			},
 		})
 
@@ -225,6 +228,36 @@ describe('AiDialogueTurnRepository', () => {
 		expect(tx.aiDialogueCharacter.create).not.toHaveBeenCalled()
 		expect(tx.imageGenerationJob.create).not.toHaveBeenCalled()
 		expect(tx.imageGenerationOutbox.create).not.toHaveBeenCalled()
+	})
+
+	it('keeps the first saved voice of an NPC and ignores later profiles', async () => {
+		const { repository, tx } = createHarness()
+		tx.aiDialogueCharacter.findUnique.mockResolvedValue({ id: 10 })
+		tx.aiDialogueMessage.create.mockResolvedValue({ id: 100 })
+		const voice = { voice: 'coral' as const, instructions: 'Warm friendly voice' }
+
+		await repository.saveGeneratedTurn({
+			dialogueId: 5,
+			turn: {
+				events: [
+					{
+						type: 'npcActions',
+						npcId: 'npc_1',
+						npcName: 'Alex',
+						npcRole: 'passer-by',
+						emotion: 'happy',
+						actions: [{ type: 'speech', content: 'Hello', translation: 'Привет' }],
+					},
+				],
+				visualMetadata: { npcAppearances: [], scenes: [] },
+				npcVoices: [{ npcId: 'npc_1', voice }],
+			},
+		})
+
+		expect(tx.aiDialogueVoice.createMany).toHaveBeenCalledWith({
+			data: [{ dialogue_id: 5, npc_id: 'npc_1', ...voice }],
+			skipDuplicates: true,
+		})
 	})
 
 	it('resolves scene participants even when a new NPC appears later in the turn', async () => {
@@ -252,6 +285,7 @@ describe('AiDialogueTurnRepository', () => {
 					npcAppearances: [{ npcId: 'npc_1', appearance: 'dark hair' }],
 					scenes: [{ eventIndex: 0, participantNpcIds: ['npc_1'], visualDescription: 'Alex in an office' }],
 				},
+				npcVoices: [],
 			},
 		})
 
@@ -319,6 +353,7 @@ describe('AiDialogueTurnRepository', () => {
 			turn: {
 				events: [{ type: 'userActions', actions: [{ type: 'speech', content: 'Hello' }] }],
 				visualMetadata: { npcAppearances: [], scenes: [] },
+				npcVoices: [],
 			},
 		})
 

@@ -1,4 +1,3 @@
-import { randomUUID } from 'node:crypto'
 import { Injectable } from '@nestjs/common'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
@@ -15,7 +14,6 @@ import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interf
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGenerationRegistry.service'
 import { AiDialogueSseHub } from './AiDialogueSseHub.service'
-import { AiDialogueAudioStream, AudioStreamSession } from './audio/AiDialogueAudioStream.service'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 import { parseAiDialogueEvents } from './parseAiDialogueEvents'
 import { SummarizeAiDialogue } from './SummarizeAiDialogue.service'
@@ -43,7 +41,6 @@ export class GenerateAiDialogueTurn {
 		private activeGenerationRegistry: ActiveAiDialogueGenerationRegistry,
 		private sseHub: AiDialogueSseHub,
 		private summarizeAiDialogue: SummarizeAiDialogue,
-		private audio: AiDialogueAudioStream,
 		private userRepository: UserRepository,
 	) {}
 
@@ -64,8 +61,6 @@ export class GenerateAiDialogueTurn {
 		if (this.activeGenerationRegistry.hasActiveForDialogue(dialogueId)) return
 
 		const abortController = this.activeGenerationRegistry.register(dialogueId)
-		const turnId = randomUUID()
-		let audioSession: AudioStreamSession | null = null
 
 		try {
 			// Ход начался: сигналим клиенту до первого chunk, чтобы он сразу показал
@@ -107,21 +102,9 @@ export class GenerateAiDialogueTurn {
 				prompt,
 				abortController.signal,
 				dialogue.source_language_code,
-				turnId,
-				(session) => {
-					audioSession = session
-				},
 			)
 
-			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({
-				dialogueId,
-				turn,
-				audioAttemptId: (audioSession as AudioStreamSession | null)?.id,
-			})
-
-			// Binding runs independently: committed text and turnDone do not wait for audio persistence.
-			const completedSession = audioSession as AudioStreamSession | null
-			void completedSession?.confirm(messageIds, turn.events).catch(() => undefined)
+			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({ dialogueId, turn })
 
 			for (const messageId of messageIds) {
 				const messageOut = await this.aiDialogueQueryRepository.getMessageById(messageId)
@@ -130,8 +113,6 @@ export class GenerateAiDialogueTurn {
 				}
 			}
 		} catch (error) {
-			const failedSession = audioSession as AudioStreamSession | null
-			void failedSession?.cancel().catch(() => undefined)
 			console.log('AiDialogue: turn generation failed', { dialogueId, error })
 
 			this.sseHub.publishDialogueEvent(dialogueId, {
@@ -159,24 +140,17 @@ export class GenerateAiDialogueTurn {
 		prompt: LlmMessage[],
 		abortSignal: AbortSignal,
 		language: Language,
-		turnId: string,
-		onSession: (session: AudioStreamSession) => void,
 	): Promise<ParsedAiDialogueTurn> {
 		let lastError: unknown = null
 
 		for (let attempt = 0; attempt < MAX_PARSE_ATTEMPTS; attempt += 1) {
 			const messages = attempt === 0 ? prompt : appendRetryHint(prompt)
-			const audioSession = this.audio.start(dialogueId, turnId)
-			onSession(audioSession)
-
-			const accumulated = await this.streamAndAccumulate(dialogueId, messages, abortSignal, audioSession)
-			void audioSession.finish().catch(() => undefined)
+			const accumulated = await this.streamAndAccumulate(dialogueId, messages, abortSignal)
 
 			try {
 				return parseAiDialogueEvents(accumulated, language)
 			} catch (error) {
 				lastError = error
-				void audioSession.cancel().catch(() => undefined)
 				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: accumulated })
 
 				if (attempt < MAX_PARSE_ATTEMPTS - 1) {
@@ -193,7 +167,6 @@ export class GenerateAiDialogueTurn {
 		dialogueId: number,
 		messages: LlmMessage[],
 		abortSignal: AbortSignal,
-		audioSession: AudioStreamSession,
 	): Promise<string> {
 		let accumulated = ''
 
@@ -205,7 +178,6 @@ export class GenerateAiDialogueTurn {
 
 		for await (const chunk of stream) {
 			accumulated += chunk
-			audioSession.push(chunk)
 			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'chunk', chunk } })
 		}
 

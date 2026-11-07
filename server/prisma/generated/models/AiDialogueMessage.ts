@@ -234,7 +234,7 @@ export type AiDialogueMessageWhereInput = {
   created_at?: Prisma.DateTimeFilter<"AiDialogueMessage"> | Date | string
   dialogue?: Prisma.XOR<Prisma.AiDialogueScalarRelationFilter, Prisma.AiDialogueWhereInput>
   character?: Prisma.XOR<Prisma.AiDialogueCharacterNullableScalarRelationFilter, Prisma.AiDialogueCharacterWhereInput> | null
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobListRelationFilter
+  AiDialogueAudio?: Prisma.AiDialogueAudioListRelationFilter
   AiDialogueImage?: Prisma.AiDialogueImageListRelationFilter
   ImageGenerationJob?: Prisma.ImageGenerationJobListRelationFilter
 }
@@ -248,7 +248,7 @@ export type AiDialogueMessageOrderByWithRelationInput = {
   created_at?: Prisma.SortOrder
   dialogue?: Prisma.AiDialogueOrderByWithRelationInput
   character?: Prisma.AiDialogueCharacterOrderByWithRelationInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobOrderByRelationAggregateInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioOrderByRelationAggregateInput
   AiDialogueImage?: Prisma.AiDialogueImageOrderByRelationAggregateInput
   ImageGenerationJob?: Prisma.ImageGenerationJobOrderByRelationAggregateInput
 }
@@ -265,7 +265,7 @@ export type AiDialogueMessageWhereUniqueInput = Prisma.AtLeast<{
   created_at?: Prisma.DateTimeFilter<"AiDialogueMessage"> | Date | string
   dialogue?: Prisma.XOR<Prisma.AiDialogueScalarRelationFilter, Prisma.AiDialogueWhereInput>
   character?: Prisma.XOR<Prisma.AiDialogueCharacterNullableScalarRelationFilter, Prisma.AiDialogueCharacterWhereInput> | null
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobListRelationFilter
+  AiDialogueAudio?: Prisma.AiDialogueAudioListRelationFilter
   AiDialogueImage?: Prisma.AiDialogueImageListRelationFilter
   ImageGenerationJob?: Prisma.ImageGenerationJobListRelationFilter
 }, "id">
@@ -302,7 +302,7 @@ export type AiDialogueMessageCreateInput = {
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
   character?: Prisma.AiDialogueCharacterCreateNestedOneWithoutAiDialogueMessageInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobCreateNestedManyWithoutMessageInput
 }
@@ -314,7 +314,7 @@ export type AiDialogueMessageUncheckedCreateInput = {
   type: $Enums.AiDialogueMessageType
   payload: string
   created_at?: Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedCreateNestedManyWithoutMessageInput
 }
@@ -325,7 +325,7 @@ export type AiDialogueMessageUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
   character?: Prisma.AiDialogueCharacterUpdateOneWithoutAiDialogueMessageNestedInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUpdateManyWithoutMessageNestedInput
 }
@@ -337,7 +337,7 @@ export type AiDialogueMessageUncheckedUpdateInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedUpdateManyWithoutMessageNestedInput
 }
@@ -418,6 +418,11 @@ export type AiDialogueMessageSumOrderByAggregateInput = {
 export type AiDialogueMessageNullableScalarRelationFilter = {
   is?: Prisma.AiDialogueMessageWhereInput | null
   isNot?: Prisma.AiDialogueMessageWhereInput | null
+}
+
+export type AiDialogueMessageScalarRelationFilter = {
+  is?: Prisma.AiDialogueMessageWhereInput
+  isNot?: Prisma.AiDialogueMessageWhereInput
 }
 
 export type AiDialogueMessageCreateNestedManyWithoutDialogueInput = {
@@ -540,20 +545,18 @@ export type AiDialogueMessageUpdateOneWithoutImageGenerationJobNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AiDialogueMessageUpdateToOneWithWhereWithoutImageGenerationJobInput, Prisma.AiDialogueMessageUpdateWithoutImageGenerationJobInput>, Prisma.AiDialogueMessageUncheckedUpdateWithoutImageGenerationJobInput>
 }
 
-export type AiDialogueMessageCreateNestedOneWithoutAiDialogueAudioJobInput = {
-  create?: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioJobInput>
-  connectOrCreate?: Prisma.AiDialogueMessageCreateOrConnectWithoutAiDialogueAudioJobInput
+export type AiDialogueMessageCreateNestedOneWithoutAiDialogueAudioInput = {
+  create?: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioInput>
+  connectOrCreate?: Prisma.AiDialogueMessageCreateOrConnectWithoutAiDialogueAudioInput
   connect?: Prisma.AiDialogueMessageWhereUniqueInput
 }
 
-export type AiDialogueMessageUpdateOneWithoutAiDialogueAudioJobNestedInput = {
-  create?: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioJobInput>
-  connectOrCreate?: Prisma.AiDialogueMessageCreateOrConnectWithoutAiDialogueAudioJobInput
-  upsert?: Prisma.AiDialogueMessageUpsertWithoutAiDialogueAudioJobInput
-  disconnect?: Prisma.AiDialogueMessageWhereInput | boolean
-  delete?: Prisma.AiDialogueMessageWhereInput | boolean
+export type AiDialogueMessageUpdateOneRequiredWithoutAiDialogueAudioNestedInput = {
+  create?: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioInput>
+  connectOrCreate?: Prisma.AiDialogueMessageCreateOrConnectWithoutAiDialogueAudioInput
+  upsert?: Prisma.AiDialogueMessageUpsertWithoutAiDialogueAudioInput
   connect?: Prisma.AiDialogueMessageWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.AiDialogueMessageUpdateToOneWithWhereWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUpdateWithoutAiDialogueAudioJobInput>, Prisma.AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioJobInput>
+  update?: Prisma.XOR<Prisma.XOR<Prisma.AiDialogueMessageUpdateToOneWithWhereWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUpdateWithoutAiDialogueAudioInput>, Prisma.AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioInput>
 }
 
 export type AiDialogueMessageCreateWithoutDialogueInput = {
@@ -561,7 +564,7 @@ export type AiDialogueMessageCreateWithoutDialogueInput = {
   payload: string
   created_at?: Date | string
   character?: Prisma.AiDialogueCharacterCreateNestedOneWithoutAiDialogueMessageInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobCreateNestedManyWithoutMessageInput
 }
@@ -572,7 +575,7 @@ export type AiDialogueMessageUncheckedCreateWithoutDialogueInput = {
   type: $Enums.AiDialogueMessageType
   payload: string
   created_at?: Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedCreateNestedManyWithoutMessageInput
 }
@@ -620,7 +623,7 @@ export type AiDialogueMessageCreateWithoutCharacterInput = {
   payload: string
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobCreateNestedManyWithoutMessageInput
 }
@@ -631,7 +634,7 @@ export type AiDialogueMessageUncheckedCreateWithoutCharacterInput = {
   type: $Enums.AiDialogueMessageType
   payload: string
   created_at?: Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedCreateNestedManyWithoutMessageInput
 }
@@ -668,7 +671,7 @@ export type AiDialogueMessageCreateWithoutAiDialogueImageInput = {
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
   character?: Prisma.AiDialogueCharacterCreateNestedOneWithoutAiDialogueMessageInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobCreateNestedManyWithoutMessageInput
 }
 
@@ -679,7 +682,7 @@ export type AiDialogueMessageUncheckedCreateWithoutAiDialogueImageInput = {
   type: $Enums.AiDialogueMessageType
   payload: string
   created_at?: Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedCreateNestedManyWithoutMessageInput
 }
 
@@ -705,7 +708,7 @@ export type AiDialogueMessageUpdateWithoutAiDialogueImageInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
   character?: Prisma.AiDialogueCharacterUpdateOneWithoutAiDialogueMessageNestedInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUpdateManyWithoutMessageNestedInput
 }
 
@@ -716,7 +719,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutAiDialogueImageInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedUpdateManyWithoutMessageNestedInput
 }
 
@@ -726,7 +729,7 @@ export type AiDialogueMessageCreateWithoutImageGenerationJobInput = {
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
   character?: Prisma.AiDialogueCharacterCreateNestedOneWithoutAiDialogueMessageInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageCreateNestedManyWithoutMessageInput
 }
 
@@ -737,7 +740,7 @@ export type AiDialogueMessageUncheckedCreateWithoutImageGenerationJobInput = {
   type: $Enums.AiDialogueMessageType
   payload: string
   created_at?: Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedCreateNestedManyWithoutMessageInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedCreateNestedManyWithoutMessageInput
 }
 
@@ -763,7 +766,7 @@ export type AiDialogueMessageUpdateWithoutImageGenerationJobInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
   character?: Prisma.AiDialogueCharacterUpdateOneWithoutAiDialogueMessageNestedInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUpdateManyWithoutMessageNestedInput
 }
 
@@ -774,11 +777,11 @@ export type AiDialogueMessageUncheckedUpdateWithoutImageGenerationJobInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedUpdateManyWithoutMessageNestedInput
 }
 
-export type AiDialogueMessageCreateWithoutAiDialogueAudioJobInput = {
+export type AiDialogueMessageCreateWithoutAiDialogueAudioInput = {
   type: $Enums.AiDialogueMessageType
   payload: string
   created_at?: Date | string
@@ -788,7 +791,7 @@ export type AiDialogueMessageCreateWithoutAiDialogueAudioJobInput = {
   ImageGenerationJob?: Prisma.ImageGenerationJobCreateNestedManyWithoutMessageInput
 }
 
-export type AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioJobInput = {
+export type AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioInput = {
   id?: number
   dialogue_id: number
   character_id?: number | null
@@ -799,23 +802,23 @@ export type AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioJobInput = {
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedCreateNestedManyWithoutMessageInput
 }
 
-export type AiDialogueMessageCreateOrConnectWithoutAiDialogueAudioJobInput = {
+export type AiDialogueMessageCreateOrConnectWithoutAiDialogueAudioInput = {
   where: Prisma.AiDialogueMessageWhereUniqueInput
-  create: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioJobInput>
+  create: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioInput>
 }
 
-export type AiDialogueMessageUpsertWithoutAiDialogueAudioJobInput = {
-  update: Prisma.XOR<Prisma.AiDialogueMessageUpdateWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioJobInput>
-  create: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioJobInput>
+export type AiDialogueMessageUpsertWithoutAiDialogueAudioInput = {
+  update: Prisma.XOR<Prisma.AiDialogueMessageUpdateWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioInput>
+  create: Prisma.XOR<Prisma.AiDialogueMessageCreateWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioInput>
   where?: Prisma.AiDialogueMessageWhereInput
 }
 
-export type AiDialogueMessageUpdateToOneWithWhereWithoutAiDialogueAudioJobInput = {
+export type AiDialogueMessageUpdateToOneWithWhereWithoutAiDialogueAudioInput = {
   where?: Prisma.AiDialogueMessageWhereInput
-  data: Prisma.XOR<Prisma.AiDialogueMessageUpdateWithoutAiDialogueAudioJobInput, Prisma.AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioJobInput>
+  data: Prisma.XOR<Prisma.AiDialogueMessageUpdateWithoutAiDialogueAudioInput, Prisma.AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioInput>
 }
 
-export type AiDialogueMessageUpdateWithoutAiDialogueAudioJobInput = {
+export type AiDialogueMessageUpdateWithoutAiDialogueAudioInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
@@ -825,7 +828,7 @@ export type AiDialogueMessageUpdateWithoutAiDialogueAudioJobInput = {
   ImageGenerationJob?: Prisma.ImageGenerationJobUpdateManyWithoutMessageNestedInput
 }
 
-export type AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioJobInput = {
+export type AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -849,7 +852,7 @@ export type AiDialogueMessageUpdateWithoutDialogueInput = {
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   character?: Prisma.AiDialogueCharacterUpdateOneWithoutAiDialogueMessageNestedInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUpdateManyWithoutMessageNestedInput
 }
@@ -860,7 +863,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutDialogueInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedUpdateManyWithoutMessageNestedInput
 }
@@ -886,7 +889,7 @@ export type AiDialogueMessageUpdateWithoutCharacterInput = {
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUpdateManyWithoutMessageNestedInput
 }
@@ -897,7 +900,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutCharacterInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueAudioJob?: Prisma.AiDialogueAudioJobUncheckedUpdateManyWithoutMessageNestedInput
+  AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedUpdateManyWithoutMessageNestedInput
   ImageGenerationJob?: Prisma.ImageGenerationJobUncheckedUpdateManyWithoutMessageNestedInput
 }
@@ -916,13 +919,13 @@ export type AiDialogueMessageUncheckedUpdateManyWithoutCharacterInput = {
  */
 
 export type AiDialogueMessageCountOutputType = {
-  AiDialogueAudioJob: number
+  AiDialogueAudio: number
   AiDialogueImage: number
   ImageGenerationJob: number
 }
 
 export type AiDialogueMessageCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  AiDialogueAudioJob?: boolean | AiDialogueMessageCountOutputTypeCountAiDialogueAudioJobArgs
+  AiDialogueAudio?: boolean | AiDialogueMessageCountOutputTypeCountAiDialogueAudioArgs
   AiDialogueImage?: boolean | AiDialogueMessageCountOutputTypeCountAiDialogueImageArgs
   ImageGenerationJob?: boolean | AiDialogueMessageCountOutputTypeCountImageGenerationJobArgs
 }
@@ -940,8 +943,8 @@ export type AiDialogueMessageCountOutputTypeDefaultArgs<ExtArgs extends runtime.
 /**
  * AiDialogueMessageCountOutputType without action
  */
-export type AiDialogueMessageCountOutputTypeCountAiDialogueAudioJobArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.AiDialogueAudioJobWhereInput
+export type AiDialogueMessageCountOutputTypeCountAiDialogueAudioArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AiDialogueAudioWhereInput
 }
 
 /**
@@ -968,7 +971,7 @@ export type AiDialogueMessageSelect<ExtArgs extends runtime.Types.Extensions.Int
   created_at?: boolean
   dialogue?: boolean | Prisma.AiDialogueDefaultArgs<ExtArgs>
   character?: boolean | Prisma.AiDialogueMessage$characterArgs<ExtArgs>
-  AiDialogueAudioJob?: boolean | Prisma.AiDialogueMessage$AiDialogueAudioJobArgs<ExtArgs>
+  AiDialogueAudio?: boolean | Prisma.AiDialogueMessage$AiDialogueAudioArgs<ExtArgs>
   AiDialogueImage?: boolean | Prisma.AiDialogueMessage$AiDialogueImageArgs<ExtArgs>
   ImageGenerationJob?: boolean | Prisma.AiDialogueMessage$ImageGenerationJobArgs<ExtArgs>
   _count?: boolean | Prisma.AiDialogueMessageCountOutputTypeDefaultArgs<ExtArgs>
@@ -1009,7 +1012,7 @@ export type AiDialogueMessageOmit<ExtArgs extends runtime.Types.Extensions.Inter
 export type AiDialogueMessageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dialogue?: boolean | Prisma.AiDialogueDefaultArgs<ExtArgs>
   character?: boolean | Prisma.AiDialogueMessage$characterArgs<ExtArgs>
-  AiDialogueAudioJob?: boolean | Prisma.AiDialogueMessage$AiDialogueAudioJobArgs<ExtArgs>
+  AiDialogueAudio?: boolean | Prisma.AiDialogueMessage$AiDialogueAudioArgs<ExtArgs>
   AiDialogueImage?: boolean | Prisma.AiDialogueMessage$AiDialogueImageArgs<ExtArgs>
   ImageGenerationJob?: boolean | Prisma.AiDialogueMessage$ImageGenerationJobArgs<ExtArgs>
   _count?: boolean | Prisma.AiDialogueMessageCountOutputTypeDefaultArgs<ExtArgs>
@@ -1028,7 +1031,7 @@ export type $AiDialogueMessagePayload<ExtArgs extends runtime.Types.Extensions.I
   objects: {
     dialogue: Prisma.$AiDialoguePayload<ExtArgs>
     character: Prisma.$AiDialogueCharacterPayload<ExtArgs> | null
-    AiDialogueAudioJob: Prisma.$AiDialogueAudioJobPayload<ExtArgs>[]
+    AiDialogueAudio: Prisma.$AiDialogueAudioPayload<ExtArgs>[]
     AiDialogueImage: Prisma.$AiDialogueImagePayload<ExtArgs>[]
     ImageGenerationJob: Prisma.$ImageGenerationJobPayload<ExtArgs>[]
   }
@@ -1435,7 +1438,7 @@ export interface Prisma__AiDialogueMessageClient<T, Null = never, ExtArgs extend
   readonly [Symbol.toStringTag]: "PrismaPromise"
   dialogue<T extends Prisma.AiDialogueDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueDefaultArgs<ExtArgs>>): Prisma.Prisma__AiDialogueClient<runtime.Types.Result.GetResult<Prisma.$AiDialoguePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   character<T extends Prisma.AiDialogueMessage$characterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueMessage$characterArgs<ExtArgs>>): Prisma.Prisma__AiDialogueCharacterClient<runtime.Types.Result.GetResult<Prisma.$AiDialogueCharacterPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-  AiDialogueAudioJob<T extends Prisma.AiDialogueMessage$AiDialogueAudioJobArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueMessage$AiDialogueAudioJobArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueAudioJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  AiDialogueAudio<T extends Prisma.AiDialogueMessage$AiDialogueAudioArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueMessage$AiDialogueAudioArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueAudioPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   AiDialogueImage<T extends Prisma.AiDialogueMessage$AiDialogueImageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueMessage$AiDialogueImageArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   ImageGenerationJob<T extends Prisma.AiDialogueMessage$ImageGenerationJobArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueMessage$ImageGenerationJobArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ImageGenerationJobPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -1893,27 +1896,27 @@ export type AiDialogueMessage$characterArgs<ExtArgs extends runtime.Types.Extens
 }
 
 /**
- * AiDialogueMessage.AiDialogueAudioJob
+ * AiDialogueMessage.AiDialogueAudio
  */
-export type AiDialogueMessage$AiDialogueAudioJobArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+export type AiDialogueMessage$AiDialogueAudioArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   /**
-   * Select specific fields to fetch from the AiDialogueAudioJob
+   * Select specific fields to fetch from the AiDialogueAudio
    */
-  select?: Prisma.AiDialogueAudioJobSelect<ExtArgs> | null
+  select?: Prisma.AiDialogueAudioSelect<ExtArgs> | null
   /**
-   * Omit specific fields from the AiDialogueAudioJob
+   * Omit specific fields from the AiDialogueAudio
    */
-  omit?: Prisma.AiDialogueAudioJobOmit<ExtArgs> | null
+  omit?: Prisma.AiDialogueAudioOmit<ExtArgs> | null
   /**
    * Choose, which related nodes to fetch as well
    */
-  include?: Prisma.AiDialogueAudioJobInclude<ExtArgs> | null
-  where?: Prisma.AiDialogueAudioJobWhereInput
-  orderBy?: Prisma.AiDialogueAudioJobOrderByWithRelationInput | Prisma.AiDialogueAudioJobOrderByWithRelationInput[]
-  cursor?: Prisma.AiDialogueAudioJobWhereUniqueInput
+  include?: Prisma.AiDialogueAudioInclude<ExtArgs> | null
+  where?: Prisma.AiDialogueAudioWhereInput
+  orderBy?: Prisma.AiDialogueAudioOrderByWithRelationInput | Prisma.AiDialogueAudioOrderByWithRelationInput[]
+  cursor?: Prisma.AiDialogueAudioWhereUniqueInput
   take?: number
   skip?: number
-  distinct?: Prisma.AiDialogueAudioJobScalarFieldEnum | Prisma.AiDialogueAudioJobScalarFieldEnum[]
+  distinct?: Prisma.AiDialogueAudioScalarFieldEnum | Prisma.AiDialogueAudioScalarFieldEnum[]
 }
 
 /**

@@ -287,7 +287,6 @@ export type AiDialogueWhereInput = {
   scenario?: Prisma.XOR<Prisma.AiDialogueScenarioScalarRelationFilter, Prisma.AiDialogueScenarioWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   AiDialogueVoice?: Prisma.AiDialogueVoiceListRelationFilter
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptListRelationFilter
   AiDialogueMessage?: Prisma.AiDialogueMessageListRelationFilter
   AiDialogueCharacter?: Prisma.AiDialogueCharacterListRelationFilter
 }
@@ -308,7 +307,6 @@ export type AiDialogueOrderByWithRelationInput = {
   scenario?: Prisma.AiDialogueScenarioOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceOrderByRelationAggregateInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptOrderByRelationAggregateInput
   AiDialogueMessage?: Prisma.AiDialogueMessageOrderByRelationAggregateInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterOrderByRelationAggregateInput
 }
@@ -332,7 +330,6 @@ export type AiDialogueWhereUniqueInput = Prisma.AtLeast<{
   scenario?: Prisma.XOR<Prisma.AiDialogueScenarioScalarRelationFilter, Prisma.AiDialogueScenarioWhereInput>
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
   AiDialogueVoice?: Prisma.AiDialogueVoiceListRelationFilter
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptListRelationFilter
   AiDialogueMessage?: Prisma.AiDialogueMessageListRelationFilter
   AiDialogueCharacter?: Prisma.AiDialogueCharacterListRelationFilter
 }, "id">
@@ -388,7 +385,6 @@ export type AiDialogueCreateInput = {
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterCreateNestedManyWithoutDialogueInput
 }
@@ -407,7 +403,6 @@ export type AiDialogueUncheckedCreateInput = {
   created_at?: Date | string
   updated_at?: Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedCreateNestedManyWithoutDialogueInput
 }
@@ -425,7 +420,6 @@ export type AiDialogueUpdateInput = {
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUpdateManyWithoutDialogueNestedInput
 }
@@ -444,7 +438,6 @@ export type AiDialogueUncheckedUpdateInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedUpdateManyWithoutDialogueNestedInput
 }
@@ -695,20 +688,6 @@ export type AiDialogueUpdateOneRequiredWithoutAiDialogueVoiceNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.AiDialogueUpdateToOneWithWhereWithoutAiDialogueVoiceInput, Prisma.AiDialogueUpdateWithoutAiDialogueVoiceInput>, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueVoiceInput>
 }
 
-export type AiDialogueCreateNestedOneWithoutAiDialogueAudioAttemptInput = {
-  create?: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueAudioAttemptInput>
-  connectOrCreate?: Prisma.AiDialogueCreateOrConnectWithoutAiDialogueAudioAttemptInput
-  connect?: Prisma.AiDialogueWhereUniqueInput
-}
-
-export type AiDialogueUpdateOneRequiredWithoutAiDialogueAudioAttemptNestedInput = {
-  create?: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueAudioAttemptInput>
-  connectOrCreate?: Prisma.AiDialogueCreateOrConnectWithoutAiDialogueAudioAttemptInput
-  upsert?: Prisma.AiDialogueUpsertWithoutAiDialogueAudioAttemptInput
-  connect?: Prisma.AiDialogueWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.AiDialogueUpdateToOneWithWhereWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUpdateWithoutAiDialogueAudioAttemptInput>, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueAudioAttemptInput>
-}
-
 export type AiDialogueCreateWithoutUserInput = {
   illustration_style_id?: string
   user_scenario_amendment?: string | null
@@ -721,7 +700,6 @@ export type AiDialogueCreateWithoutUserInput = {
   updated_at?: Date | string
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterCreateNestedManyWithoutDialogueInput
 }
@@ -739,7 +717,6 @@ export type AiDialogueUncheckedCreateWithoutUserInput = {
   created_at?: Date | string
   updated_at?: Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedCreateNestedManyWithoutDialogueInput
 }
@@ -800,7 +777,6 @@ export type AiDialogueCreateWithoutScenarioInput = {
   updated_at?: Date | string
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterCreateNestedManyWithoutDialogueInput
 }
@@ -818,7 +794,6 @@ export type AiDialogueUncheckedCreateWithoutScenarioInput = {
   created_at?: Date | string
   updated_at?: Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedCreateNestedManyWithoutDialogueInput
 }
@@ -862,7 +837,6 @@ export type AiDialogueCreateWithoutAiDialogueMessageInput = {
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterCreateNestedManyWithoutDialogueInput
 }
 
@@ -880,7 +854,6 @@ export type AiDialogueUncheckedCreateWithoutAiDialogueMessageInput = {
   created_at?: Date | string
   updated_at?: Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedCreateNestedManyWithoutDialogueInput
 }
 
@@ -913,7 +886,6 @@ export type AiDialogueUpdateWithoutAiDialogueMessageInput = {
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUpdateManyWithoutDialogueNestedInput
 }
 
@@ -931,7 +903,6 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueMessageInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedUpdateManyWithoutDialogueNestedInput
 }
 
@@ -948,7 +919,6 @@ export type AiDialogueCreateWithoutAiDialogueCharacterInput = {
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
 }
 
@@ -966,7 +936,6 @@ export type AiDialogueUncheckedCreateWithoutAiDialogueCharacterInput = {
   created_at?: Date | string
   updated_at?: Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
 }
 
@@ -999,7 +968,6 @@ export type AiDialogueUpdateWithoutAiDialogueCharacterInput = {
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
 }
 
@@ -1017,7 +985,6 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueCharacterInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
 }
 
@@ -1033,7 +1000,6 @@ export type AiDialogueCreateWithoutAiDialogueVoiceInput = {
   updated_at?: Date | string
   scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
   user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterCreateNestedManyWithoutDialogueInput
 }
@@ -1051,7 +1017,6 @@ export type AiDialogueUncheckedCreateWithoutAiDialogueVoiceInput = {
   summary_up_to?: number
   created_at?: Date | string
   updated_at?: Date | string
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedCreateNestedManyWithoutDialogueInput
 }
@@ -1084,7 +1049,6 @@ export type AiDialogueUpdateWithoutAiDialogueVoiceInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUpdateManyWithoutDialogueNestedInput
 }
@@ -1102,93 +1066,6 @@ export type AiDialogueUncheckedUpdateWithoutAiDialogueVoiceInput = {
   summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedUpdateManyWithoutDialogueNestedInput
-}
-
-export type AiDialogueCreateWithoutAiDialogueAudioAttemptInput = {
-  illustration_style_id?: string
-  user_scenario_amendment?: string | null
-  max_cefr_level?: $Enums.CefrSimplificationLevel | null
-  source_language_code: $Enums.LanguageCode
-  target_language_code: $Enums.LanguageCode
-  summary?: string | null
-  summary_up_to?: number
-  created_at?: Date | string
-  updated_at?: Date | string
-  scenario: Prisma.AiDialogueScenarioCreateNestedOneWithoutAiDialogueInput
-  user: Prisma.UserCreateNestedOneWithoutAiDialogueInput
-  AiDialogueVoice?: Prisma.AiDialogueVoiceCreateNestedManyWithoutDialogueInput
-  AiDialogueMessage?: Prisma.AiDialogueMessageCreateNestedManyWithoutDialogueInput
-  AiDialogueCharacter?: Prisma.AiDialogueCharacterCreateNestedManyWithoutDialogueInput
-}
-
-export type AiDialogueUncheckedCreateWithoutAiDialogueAudioAttemptInput = {
-  illustration_style_id?: string
-  user_scenario_amendment?: string | null
-  max_cefr_level?: $Enums.CefrSimplificationLevel | null
-  id?: number
-  scenario_id: number
-  user_id: number
-  source_language_code: $Enums.LanguageCode
-  target_language_code: $Enums.LanguageCode
-  summary?: string | null
-  summary_up_to?: number
-  created_at?: Date | string
-  updated_at?: Date | string
-  AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedCreateNestedManyWithoutDialogueInput
-  AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedCreateNestedManyWithoutDialogueInput
-}
-
-export type AiDialogueCreateOrConnectWithoutAiDialogueAudioAttemptInput = {
-  where: Prisma.AiDialogueWhereUniqueInput
-  create: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueAudioAttemptInput>
-}
-
-export type AiDialogueUpsertWithoutAiDialogueAudioAttemptInput = {
-  update: Prisma.XOR<Prisma.AiDialogueUpdateWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueAudioAttemptInput>
-  create: Prisma.XOR<Prisma.AiDialogueCreateWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUncheckedCreateWithoutAiDialogueAudioAttemptInput>
-  where?: Prisma.AiDialogueWhereInput
-}
-
-export type AiDialogueUpdateToOneWithWhereWithoutAiDialogueAudioAttemptInput = {
-  where?: Prisma.AiDialogueWhereInput
-  data: Prisma.XOR<Prisma.AiDialogueUpdateWithoutAiDialogueAudioAttemptInput, Prisma.AiDialogueUncheckedUpdateWithoutAiDialogueAudioAttemptInput>
-}
-
-export type AiDialogueUpdateWithoutAiDialogueAudioAttemptInput = {
-  illustration_style_id?: Prisma.StringFieldUpdateOperationsInput | string
-  user_scenario_amendment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
-  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
-  user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
-  AiDialogueVoice?: Prisma.AiDialogueVoiceUpdateManyWithoutDialogueNestedInput
-  AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
-  AiDialogueCharacter?: Prisma.AiDialogueCharacterUpdateManyWithoutDialogueNestedInput
-}
-
-export type AiDialogueUncheckedUpdateWithoutAiDialogueAudioAttemptInput = {
-  illustration_style_id?: Prisma.StringFieldUpdateOperationsInput | string
-  user_scenario_amendment?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  max_cefr_level?: Prisma.NullableEnumCefrSimplificationLevelFieldUpdateOperationsInput | $Enums.CefrSimplificationLevel | null
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  scenario_id?: Prisma.IntFieldUpdateOperationsInput | number
-  user_id?: Prisma.IntFieldUpdateOperationsInput | number
-  source_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  target_language_code?: Prisma.EnumLanguageCodeFieldUpdateOperationsInput | $Enums.LanguageCode
-  summary?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  summary_up_to?: Prisma.IntFieldUpdateOperationsInput | number
-  created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedUpdateManyWithoutDialogueNestedInput
 }
@@ -1219,7 +1096,6 @@ export type AiDialogueUpdateWithoutUserInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scenario?: Prisma.AiDialogueScenarioUpdateOneRequiredWithoutAiDialogueNestedInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUpdateManyWithoutDialogueNestedInput
 }
@@ -1237,7 +1113,6 @@ export type AiDialogueUncheckedUpdateWithoutUserInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedUpdateManyWithoutDialogueNestedInput
 }
@@ -1282,7 +1157,6 @@ export type AiDialogueUpdateWithoutScenarioInput = {
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutAiDialogueNestedInput
   AiDialogueVoice?: Prisma.AiDialogueVoiceUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUpdateManyWithoutDialogueNestedInput
 }
@@ -1300,7 +1174,6 @@ export type AiDialogueUncheckedUpdateWithoutScenarioInput = {
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updated_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueVoice?: Prisma.AiDialogueVoiceUncheckedUpdateManyWithoutDialogueNestedInput
-  AiDialogueAudioAttempt?: Prisma.AiDialogueAudioAttemptUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueMessage?: Prisma.AiDialogueMessageUncheckedUpdateManyWithoutDialogueNestedInput
   AiDialogueCharacter?: Prisma.AiDialogueCharacterUncheckedUpdateManyWithoutDialogueNestedInput
 }
@@ -1326,14 +1199,12 @@ export type AiDialogueUncheckedUpdateManyWithoutScenarioInput = {
 
 export type AiDialogueCountOutputType = {
   AiDialogueVoice: number
-  AiDialogueAudioAttempt: number
   AiDialogueMessage: number
   AiDialogueCharacter: number
 }
 
 export type AiDialogueCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   AiDialogueVoice?: boolean | AiDialogueCountOutputTypeCountAiDialogueVoiceArgs
-  AiDialogueAudioAttempt?: boolean | AiDialogueCountOutputTypeCountAiDialogueAudioAttemptArgs
   AiDialogueMessage?: boolean | AiDialogueCountOutputTypeCountAiDialogueMessageArgs
   AiDialogueCharacter?: boolean | AiDialogueCountOutputTypeCountAiDialogueCharacterArgs
 }
@@ -1353,13 +1224,6 @@ export type AiDialogueCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.E
  */
 export type AiDialogueCountOutputTypeCountAiDialogueVoiceArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.AiDialogueVoiceWhereInput
-}
-
-/**
- * AiDialogueCountOutputType without action
- */
-export type AiDialogueCountOutputTypeCountAiDialogueAudioAttemptArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.AiDialogueAudioAttemptWhereInput
 }
 
 /**
@@ -1393,7 +1257,6 @@ export type AiDialogueSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   AiDialogueVoice?: boolean | Prisma.AiDialogue$AiDialogueVoiceArgs<ExtArgs>
-  AiDialogueAudioAttempt?: boolean | Prisma.AiDialogue$AiDialogueAudioAttemptArgs<ExtArgs>
   AiDialogueMessage?: boolean | Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs>
   AiDialogueCharacter?: boolean | Prisma.AiDialogue$AiDialogueCharacterArgs<ExtArgs>
   _count?: boolean | Prisma.AiDialogueCountOutputTypeDefaultArgs<ExtArgs>
@@ -1453,7 +1316,6 @@ export type AiDialogueInclude<ExtArgs extends runtime.Types.Extensions.InternalA
   scenario?: boolean | Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
   AiDialogueVoice?: boolean | Prisma.AiDialogue$AiDialogueVoiceArgs<ExtArgs>
-  AiDialogueAudioAttempt?: boolean | Prisma.AiDialogue$AiDialogueAudioAttemptArgs<ExtArgs>
   AiDialogueMessage?: boolean | Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs>
   AiDialogueCharacter?: boolean | Prisma.AiDialogue$AiDialogueCharacterArgs<ExtArgs>
   _count?: boolean | Prisma.AiDialogueCountOutputTypeDefaultArgs<ExtArgs>
@@ -1473,7 +1335,6 @@ export type $AiDialoguePayload<ExtArgs extends runtime.Types.Extensions.Internal
     scenario: Prisma.$AiDialogueScenarioPayload<ExtArgs>
     user: Prisma.$UserPayload<ExtArgs>
     AiDialogueVoice: Prisma.$AiDialogueVoicePayload<ExtArgs>[]
-    AiDialogueAudioAttempt: Prisma.$AiDialogueAudioAttemptPayload<ExtArgs>[]
     AiDialogueMessage: Prisma.$AiDialogueMessagePayload<ExtArgs>[]
     AiDialogueCharacter: Prisma.$AiDialogueCharacterPayload<ExtArgs>[]
   }
@@ -1887,7 +1748,6 @@ export interface Prisma__AiDialogueClient<T, Null = never, ExtArgs extends runti
   scenario<T extends Prisma.AiDialogueScenarioDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogueScenarioDefaultArgs<ExtArgs>>): Prisma.Prisma__AiDialogueScenarioClient<runtime.Types.Result.GetResult<Prisma.$AiDialogueScenarioPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   AiDialogueVoice<T extends Prisma.AiDialogue$AiDialogueVoiceArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogue$AiDialogueVoiceArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueVoicePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  AiDialogueAudioAttempt<T extends Prisma.AiDialogue$AiDialogueAudioAttemptArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogue$AiDialogueAudioAttemptArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueAudioAttemptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   AiDialogueMessage<T extends Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogue$AiDialogueMessageArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueMessagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   AiDialogueCharacter<T extends Prisma.AiDialogue$AiDialogueCharacterArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.AiDialogue$AiDialogueCharacterArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AiDialogueCharacterPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
@@ -2353,30 +2213,6 @@ export type AiDialogue$AiDialogueVoiceArgs<ExtArgs extends runtime.Types.Extensi
   take?: number
   skip?: number
   distinct?: Prisma.AiDialogueVoiceScalarFieldEnum | Prisma.AiDialogueVoiceScalarFieldEnum[]
-}
-
-/**
- * AiDialogue.AiDialogueAudioAttempt
- */
-export type AiDialogue$AiDialogueAudioAttemptArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the AiDialogueAudioAttempt
-   */
-  select?: Prisma.AiDialogueAudioAttemptSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the AiDialogueAudioAttempt
-   */
-  omit?: Prisma.AiDialogueAudioAttemptOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.AiDialogueAudioAttemptInclude<ExtArgs> | null
-  where?: Prisma.AiDialogueAudioAttemptWhereInput
-  orderBy?: Prisma.AiDialogueAudioAttemptOrderByWithRelationInput | Prisma.AiDialogueAudioAttemptOrderByWithRelationInput[]
-  cursor?: Prisma.AiDialogueAudioAttemptWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.AiDialogueAudioAttemptScalarFieldEnum | Prisma.AiDialogueAudioAttemptScalarFieldEnum[]
 }
 
 /**

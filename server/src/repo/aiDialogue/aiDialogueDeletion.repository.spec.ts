@@ -6,7 +6,7 @@ import { AiDialogueRepository } from './aiDialogue.repository'
 describe('transactional dialogue deletion', () => {
 	function harness() {
 		const tx = {
-			aiDialogueAudioJob: { findMany: jest.fn().mockResolvedValue([{ s3_key: 'audio-key' }]) },
+			aiDialogueAudio: { findMany: jest.fn().mockResolvedValue([{ s3_key: 'audio-key' }]) },
 			aiDialogueImage: { findMany: jest.fn().mockResolvedValue([{ s3_key: 'key' }]) },
 			aiDialogue: { deleteMany: jest.fn().mockResolvedValue({ count: 1 }) },
 		}
@@ -17,6 +17,7 @@ describe('transactional dialogue deletion', () => {
 	it('collects both NPC and scene keys within the owner-scoped deletion transaction', async () => {
 		const { repository, tx } = harness()
 		await expect(repository.deleteDialogueAndGetImageKeys(1, 7)).resolves.toEqual(['key', 'audio-key'])
+
 		expect(tx.aiDialogueImage.findMany).toHaveBeenCalledWith({
 			where: {
 				OR: [

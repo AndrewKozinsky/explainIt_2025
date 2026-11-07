@@ -72,11 +72,11 @@ describe('OpenAiDialogueStreamHandler', () => {
 		authorize({ user_id: 7 })
 		await settle()
 
-		expect(next.mock.calls.map(([event]) => event.data.type)).toEqual(['message', 'visualsChanged', 'audioChanged'])
+		expect(next.mock.calls.map(([event]) => event.data.type)).toEqual(['message', 'visualsChanged'])
 		expect(generation.triggerIfNeeded).toHaveBeenCalledWith(1)
 		hub.publishDialogueEvent(1, { data: { type: 'visualsChanged', dialogueId: 1 } })
 
-		expect(next).toHaveBeenCalledTimes(4)
+		expect(next).toHaveBeenCalledTimes(3)
 		subscription.unsubscribe()
 		expect(hub.getDialogueEventSubject(1).observed).toBe(false)
 	})

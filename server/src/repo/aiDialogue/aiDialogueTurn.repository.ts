@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { AiDialogueEvent, ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
+import { AiDialogueEvent, AiDialogueNpcVoice, ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
 import { PrismaService } from 'db/prisma.service'
 import {
 	AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
@@ -20,7 +20,6 @@ import { Prisma } from 'prisma/generated/client'
 type SaveGeneratedTurnInput = {
 	dialogueId: number
 	turn: ParsedAiDialogueTurn
-	audioAttemptId?: string
 }
 
 /** Сохраняет подтверждённый ход и все намерения визуальной генерации одной транзакцией. */
@@ -51,6 +50,7 @@ export class AiDialogueTurnRepository {
 			)
 
 			await this.ensureCharacters(tx, input.dialogueId, input.turn.events, appearanceByNpcId, imageStyleSnapshot)
+			await this.ensureVoices(tx, input.dialogueId, input.turn.npcVoices)
 
 			const characters = await tx.aiDialogueCharacter.findMany({
 				where: { dialogue_id: input.dialogueId },
@@ -93,13 +93,17 @@ export class AiDialogueTurnRepository {
 				})
 			}
 
-			if (input.audioAttemptId) {
-				await tx.aiDialogueAudioAttempt.updateMany({
-					where: { id: input.audioAttemptId, dialogue_id: input.dialogueId, status: 'active' },
-					data: { message_ids: JSON.stringify(messageIds) },
-				})
-			}
 			return messageIds
+		})
+	}
+
+	/** Первый корректный голос NPC постоянен: повторное описание или возвращение NPC его не меняет. */
+	private async ensureVoices(tx: Prisma.TransactionClient, dialogueId: number, npcVoices: AiDialogueNpcVoice[]) {
+		if (npcVoices.length === 0) return
+
+		await tx.aiDialogueVoice.createMany({
+			data: npcVoices.map(({ npcId, voice }) => ({ dialogue_id: dialogueId, npc_id: npcId, ...voice })),
+			skipDuplicates: true,
 		})
 	}
 

@@ -96,13 +96,13 @@ export class OpenAiDialogueStreamHandler implements ICommandHandler<
 		if (subscriber.closed) return
 
 		const messages = await this.aiDialogueQueryRepository.getMessagesByDialogueId(dialogueId)
+
 		for (const message of messages) {
 			if (subscriber.closed) break
 			if (!state.receivedMessageIds.has(message.id)) subscriber.next({ data: { type: 'message', message } })
 		}
 
 		if (!subscriber.closed) subscriber.next({ data: { type: 'visualsChanged', dialogueId } })
-		if (!subscriber.closed) subscriber.next({ data: { type: 'audioChanged', dialogueId } })
 		if (!subscriber.closed) await this.generateAiDialogueTurn.triggerIfNeeded(dialogueId)
 	}
 }

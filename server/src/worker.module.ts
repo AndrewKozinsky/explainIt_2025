@@ -1,7 +1,6 @@
 import { BullModule } from '@nestjs/bullmq'
 import { Module } from '@nestjs/common'
 import { CqrsModule } from '@nestjs/cqrs'
-import { AiDialogueAudioRepository } from 'repo/aiDialogue/aiDialogueAudio.repository'
 import { ImageGenerationAssetsRepository } from 'repo/aiDialogue/imageGenerationAssets.repository'
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
@@ -13,7 +12,6 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPh
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
-import { AiDialogueAudioGenerationProcessor } from 'features/aiDialogue/audio/AiDialogueAudioGeneration.processor'
 import { AiDialogueImageGenerationProcessor } from 'features/aiDialogue/imageGeneration/AiDialogueImageGeneration.processor'
 import { GenerateAiDialogueImage } from 'features/aiDialogue/imageGeneration/GenerateAiDialogueImage.service'
 import { ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/ImageGenerationAssets'
@@ -33,10 +31,8 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
-import { AiDialogueAudioNotificationsModule } from 'infrastructure/redis/aiDialogueAudioNotifications.module'
 import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
 import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
-import { TtsProviderModule } from 'infrastructure/ttsProviderAdapter/ttsProvider.module'
 import { YoutubeService } from 'infrastructure/youtube/youtube.service'
 import { ZaiModule } from 'infrastructure/zai/zai.module'
 
@@ -55,8 +51,6 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 @Module({
 	imports: [
 		CqrsModule,
-		TtsProviderModule,
-		AiDialogueAudioNotificationsModule,
 		MainConfigModule,
 		DeepSeekModule,
 		ZaiModule,
@@ -75,14 +69,11 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 				connection: buildBullmqConnection(mainConfig),
 			}),
 		}),
-		BullModule.registerQueue({ name: QueueNames.AI_DIALOGUE_AUDIO_GENERATION }),
 		BullModule.registerQueue({ name: QueueNames.SUBTITLES_GENERATION }),
 		BullModule.registerQueue({ name: QueueNames.AI_DIALOGUE_IMAGE_GENERATION }),
 	],
 	providers: [
 		PrismaService,
-		AiDialogueAudioRepository,
-		AiDialogueAudioGenerationProcessor,
 		DBRepository,
 		VideoRepository,
 		VideoQueryRepository,

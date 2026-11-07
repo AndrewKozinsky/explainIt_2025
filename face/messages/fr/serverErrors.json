@@ -86,6 +86,8 @@
   "AI_DIALOGUE_SCENARIO_NOT_FOUND": "Scénario de conversation introuvable.",
   "AI_DIALOGUE_GENERATION_ALREADY_ACTIVE": "Une réponse est déjà en cours de génération. Attendez la fin ou annulez-la.",
   "AI_DIALOGUE_CANNOT_PARSE_LLM_RESPONSE": "Impossible de lire la réponse de l’IA.",
+  "AI_DIALOGUE_AUDIO_NOT_AVAILABLE": "Aucun audio n’est disponible pour ce texte.",
+  "AI_DIALOGUE_AUDIO_GENERATION_FAILED": "Impossible de générer l’audio. Réessayez.",
   "AUDIO_PRONUNCIATION_NOT_CREATED": "Impossible de créer l’audio.",
   "AUDIO_PRONUNCIATION_ALREADY_EXISTS": "Un audio existe déjà pour cette expression.",
   "AUDIO_PRONUNCIATION_CANNOT_UPLOAD_TO_S3": "Impossible d’importer le fichier audio dans le stockage.",

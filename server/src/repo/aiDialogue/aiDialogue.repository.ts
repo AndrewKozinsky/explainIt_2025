@@ -71,8 +71,8 @@ export class AiDialogueRepository {
 				select: { s3_key: true },
 			})
 
-			const audio = await tx.aiDialogueAudioJob.findMany({
-				where: { attempt: { dialogue: { id, user_id: userId } } },
+			const audio = await tx.aiDialogueAudio.findMany({
+				where: { message: { dialogue: { id, user_id: userId } } },
 				select: { s3_key: true },
 			})
 

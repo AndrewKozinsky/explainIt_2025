@@ -10,6 +10,7 @@ import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.o
 import { CheckAiDialogueUserMessageInput } from './inputs/checkAiDialogueUserMessage.input'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { GenerateAiDialogueAudioInput } from './inputs/generateAiDialogueAudio.input'
 import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
 
 export function ApiGetAiDialogueIllustrationStyles() {
@@ -131,10 +132,24 @@ export function ApiCreateAiDialogueMessage() {
 	)
 }
 
-export function ApiGetAiDialogueAudio() {
+export function ApiGenerateAiDialogueAudio() {
 	return applyDecorators(
-		ApiOperation({ summary: 'Получить озвучки диалога, включая текущую попытку текстового превью' }),
+		ApiOperation({
+			summary: 'Получить озвучку реплики NPC или описания сцены',
+			description:
+				'Возвращает ссылку на озвучку сохранённого сообщения. При первом запросе синтезирует её и ждёт результата. Повторные и параллельные запросы той же реплики получают тот же файл; после ошибки синтеза следующий запрос пробует снова. actionIndex = -1 — описание сцены.',
+		}),
 		ApiCookieAuth(),
+		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),
+		ApiBody({ type: GenerateAiDialogueAudioInput }),
 		ApiResponse({ status: 200, type: AiDialogueAudioOutModel }),
+		ApiResponse({
+			status: 400,
+			description: 'В этой позиции сообщения нет озвучиваемого текста или у NPC нет голоса.',
+		}),
+		ApiResponse({ status: 401, description: 'Необходима авторизация.' }),
+		ApiResponse({ status: 403, description: 'Диалог принадлежит другому пользователю.' }),
+		ApiResponse({ status: 404, description: 'Сообщение не найдено в этом диалоге.' }),
+		ApiResponse({ status: 500, description: 'Не удалось синтезировать или сохранить озвучку.' }),
 	)
 }

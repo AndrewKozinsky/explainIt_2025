@@ -55,6 +55,7 @@ jest.mock('infrastructure/guards/checkSessionCookie.guard', () => ({ CheckSessio
 jest.mock('./inputs/createAiDialogue.input', () => ({ CreateAiDialogueInput: class {} }))
 jest.mock('./inputs/checkAiDialogueUserMessage.input', () => ({ CheckAiDialogueUserMessageInput: class {} }))
 jest.mock('./inputs/createAiDialogueMessage.input', () => ({ CreateAiDialogueMessageInput: class {} }))
+jest.mock('./inputs/generateAiDialogueAudio.input', () => ({ GenerateAiDialogueAudioInput: class {} }))
 jest.mock('./inputs/updateAiDialogue.input', () => ({ UpdateAiDialogueInput: class {} }))
 jest.mock('./inputs/getUserDialogues.input', () => ({ GetUserDialoguesInput: class {} }))
 
@@ -69,7 +70,7 @@ jest.mock('./openAPI.decorators', () =>
 			'ApiGetAiDialogueIllustrationStyles',
 			'ApiGetAiDialogues',
 			'ApiGetAiDialogueVisuals',
-			'ApiGetAiDialogueAudio',
+			'ApiGenerateAiDialogueAudio',
 			'ApiUpdateAiDialogue',
 		].map((name) => [name, () => () => undefined]),
 	),

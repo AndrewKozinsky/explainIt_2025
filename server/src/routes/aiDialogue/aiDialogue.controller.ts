@@ -22,7 +22,7 @@ import { Request } from 'express'
 import { Observable } from 'rxjs'
 import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
 import { Language } from 'utils/languages'
-import { GetAiDialogueAudioCommand } from 'features/aiDialogue/audio/GetAiDialogueAudio.command'
+import { GenerateAiDialogueAudioCommand } from 'features/aiDialogue/audio/GenerateAiDialogueAudio.command'
 import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.command'
@@ -45,6 +45,7 @@ import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.o
 import { CheckAiDialogueUserMessageInput } from './inputs/checkAiDialogueUserMessage.input'
 import { CreateAiDialogueInput } from './inputs/createAiDialogue.input'
 import { CreateAiDialogueMessageInput } from './inputs/createAiDialogueMessage.input'
+import { GenerateAiDialogueAudioInput } from './inputs/generateAiDialogueAudio.input'
 import { GetUserDialoguesInput } from './inputs/getUserDialogues.input'
 import { UpdateAiDialogueInput } from './inputs/updateAiDialogue.input'
 import {
@@ -53,7 +54,7 @@ import {
 	ApiCreateAiDialogueMessage,
 	ApiDeleteAiDialogue,
 	ApiGetAiDialogue,
-	ApiGetAiDialogueAudio,
+	ApiGenerateAiDialogueAudio,
 	ApiGetAiDialogueIllustrationStyles,
 	ApiGetAiDialogues,
 	ApiGetAiDialogueVisuals,
@@ -199,15 +200,24 @@ export class AiDialogueController {
 		)
 	}
 
-	@ApiGetAiDialogueAudio()
+	@ApiGenerateAiDialogueAudio()
 	@UseGuards(CheckSessionCookieGuard)
 	@Header('Cache-Control', 'private, no-store')
-	@Get(':id/audio')
-	async getAiDialogueAudio(
+	@HttpCode(HttpStatus.OK)
+	@Post(':id/audio')
+	async generateAiDialogueAudio(
 		@Param('id', ParseIntPipe) id: number,
+		@Body() input: GenerateAiDialogueAudioInput,
 		@Req() request: Request,
 	): Promise<AiDialogueAudioOutModel> {
-		return this.commandBus.execute(new GetAiDialogueAudioCommand(request.user!.id, id))
+		return this.commandBus.execute(
+			new GenerateAiDialogueAudioCommand({
+				userId: request.user!.id,
+				dialogueId: id,
+				messageId: input.messageId,
+				actionIndex: input.actionIndex,
+			}),
+		)
 	}
 
 	@ApiGetAiDialogueVisuals()
