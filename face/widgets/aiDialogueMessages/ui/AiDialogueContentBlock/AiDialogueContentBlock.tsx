@@ -6,8 +6,8 @@ import type {
 	AiDialogueTextMappingProps,
 	AiDialogueWordSelectHandler,
 } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
-import AiDialogueTextWithTranslation from '../AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
 import DialogueAudioButton from '../audio/DialogueAudioButton'
+import SegmentedText from '../SegmentedText/SegmentedText'
 import { getHiddenTextPreview } from './fn/getHiddenTextPreview'
 import { useDialogueContentSelection } from './fn/useDialogueContentSelection'
 import { useReplyTextVisibility } from './fn/useReplyTextVisibility'
@@ -24,6 +24,10 @@ type AiDialogueContentBlockProps = AiDialogueTextMappingProps & {
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
+/**
+ * Реплика NPC или описание сцены. Кнопка воспроизведения, кнопка скрытого текста и сам текст стоят в одной строке:
+ * кнопки — в начале первой строки текста.
+ */
 function AiDialogueContentBlock({
 	replyTextKey,
 	content,
@@ -43,39 +47,36 @@ function AiDialogueContentBlock({
 
 	// Кнопка скрытого текста появляется, только когда текст уже пришёл.
 	const hasHiddenText = !isTextVisible && Boolean(content.trim())
-	const audioButton = audioAddress && <DialogueAudioButton address={audioAddress} colorScheme={colorScheme} />
 
 	return (
 		<div className='ai-dialogue-content-block'>
-			{!isTextVisible && (audioAddress || hasHiddenText) && (
-				<div className='ai-dialogue-content-block__buttons'>
-					{audioButton}
-					{hasHiddenText && (
+			<div className='ai-dialogue-content-block__line'>
+				{audioAddress && (
+					<span className='ai-dialogue-content-block__button'>
+						<DialogueAudioButton address={audioAddress} colorScheme={colorScheme} />
+					</span>
+				)}
+				{hasHiddenText && (
+					<span className='ai-dialogue-content-block__button'>
 						<Button
 							size='small'
 							theme='outline'
 							colorScheme={colorScheme}
 							rounded
-							extraClass='ai-dialogue-content-block__hidden-text-button'
 							onClick={revealText}
 							aria-label='Показать текст'
 							title='Показать текст'
 						>
 							{getHiddenTextPreview(content)}
 						</Button>
-					)}
-				</div>
-			)}
-			{isTextVisible && (
-				<AiDialogueTextWithTranslation
-					content={content}
-					leadingContent={audioButton}
-					translation={translation}
-					wordMap={wordMap}
-					isTranslationVisible={isTranslationVisible}
-					onWordClick={handleWordClick}
-				/>
-			)}
+					</span>
+				)}
+				{isTextVisible && <SegmentedText text={content} wordMap={wordMap} onWordClick={handleWordClick} />}
+			</div>
+
+			{isTextVisible && isTranslationVisible && translation ? (
+				<p className='ai-dialogue-content-block__translation'>{translation}</p>
+			) : null}
 		</div>
 	)
 }

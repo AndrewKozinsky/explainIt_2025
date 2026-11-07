@@ -1,11 +1,19 @@
 .ai-dialogue-content-block {
 	display: flex;
 	flex-direction: column;
-	gap: .4rem;
+	gap: .2rem;
 }
 
-.ai-dialogue-content-block__buttons {
-	display: flex;
-	gap: 8px;
-	flex-wrap: wrap;
+// Кнопки стоят в строке текста. Сдвиг вверх выравнивает их по строке текста одинаково
+// и при видимом, и при скрытом тексте.
+.ai-dialogue-content-block__button {
+	display: inline-block;
+	margin-right: .8rem;
+	vertical-align: middle;
+	transform: translateY(-2px);
+}
+
+.ai-dialogue-content-block__translation {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
 }
