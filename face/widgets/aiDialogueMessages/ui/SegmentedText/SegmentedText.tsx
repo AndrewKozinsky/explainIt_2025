@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react'
 import type { PointerEvent } from 'react'
 import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
+import { getFrameParts } from './fn/frameParts'
 import { getHighlightedWordStarts, splitDialogueText } from './fn/wordSelection'
+import type { FramePart } from './fn/frameParts'
 import type { DialogueTextSegment } from './fn/wordSelection'
 import './SegmentedText.scss'
 
@@ -25,6 +27,12 @@ function SegmentedText({ text, wordMap, onWordClick }: SegmentedTextProps) {
 		[text, segments, hoveredSegment, wordMap],
 	)
 
+	// Соседние слова выражения объединяются общей рамкой: каждый сегмент рисует свою часть.
+	const frameParts = useMemo(
+		() => (highlightedStarts ? getFrameParts(segments, highlightedStarts) : new Map<number, FramePart>()),
+		[segments, highlightedStarts],
+	)
+
 	// На сенсорных экранах наведения нет: подсветка после касания осталась бы висеть.
 	function handleWordPointerEnter(event: PointerEvent, segment: DialogueTextSegment) {
 		if (event.pointerType === 'mouse') setHoveredSegment(segment)
@@ -42,25 +50,21 @@ function SegmentedText({ text, wordMap, onWordClick }: SegmentedTextProps) {
 	return (
 		<span className={rootClassName} onPointerLeave={clearHover}>
 			{segments.map((segment) => {
+				const framePart = frameParts.get(segment.start)
+
 				if (!segment.isWord || !onWordClick) {
 					return (
-						<span key={segment.start} className='segmented-text__gap'>
+						<span key={segment.start} className={getGapClassName(framePart)}>
 							{segment.text}
 						</span>
 					)
 				}
 
-				const isHighlighted = highlightedStarts?.has(segment.start) ?? false
-
 				return (
 					<button
 						key={segment.start}
 						type='button'
-						className={
-							isHighlighted
-								? 'segmented-text__word segmented-text__word--highlighted'
-								: 'segmented-text__word'
-						}
+						className={getWordClassName(framePart)}
 						onClick={() => onWordClick(segment)}
 						onPointerEnter={(event) => handleWordPointerEnter(event, segment)}
 						onFocus={() => setHoveredSegment(segment)}
@@ -72,6 +76,17 @@ function SegmentedText({ text, wordMap, onWordClick }: SegmentedTextProps) {
 			})}
 		</span>
 	)
+}
+
+function getGapClassName(framePart?: FramePart) {
+	return framePart === 'bridge' ? 'segmented-text__gap segmented-text__gap--bridge' : 'segmented-text__gap'
+}
+
+function getWordClassName(framePart?: FramePart) {
+	if (!framePart) return 'segmented-text__word'
+	if (framePart === 'single') return 'segmented-text__word segmented-text__word--highlighted'
+
+	return `segmented-text__word segmented-text__word--highlighted segmented-text__word--${framePart}`
 }
 
 export default SegmentedText

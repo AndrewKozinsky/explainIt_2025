@@ -4,6 +4,7 @@ import { openAiDialogueStream } from '@/_pages/aiDialogue/AiDialoguePage/fn/open
 import { parseAiDialoguePreview } from '@/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '@/_pages/aiDialogue/aiDialogueStore'
 import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
+import { getFrameParts } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/frameParts'
 import {
 	resolveDialogueWordSelection,
 	dictionaryPhraseForClick,
@@ -162,4 +163,38 @@ test('hover highlights only the hovered word without a map or with a stale map',
 
 	const staleMap = block('Pick up the phone now.', { 0: [0, 1] })
 	assert.deepEqual([...getHighlightedWordStarts(content, segments, hoveredSegment, staleMap)], [0])
+})
+
+function framePartsByText(content: string, highlightedWords: string[]) {
+	const segments = splitDialogueText(content)
+	const highlightedStarts = new Set(
+		segments.filter((segment) => highlightedWords.includes(segment.text)).map((segment) => segment.start),
+	)
+	const frameParts = getFrameParts(segments, highlightedStarts)
+	return segments.flatMap((segment) => {
+		const framePart = frameParts.get(segment.start)
+		return framePart ? [`${segment.text}:${framePart}`] : []
+	})
+}
+
+test('neighbouring highlighted words share one frame joined by bridges', function () {
+	assert.deepEqual(framePartsByText('Plenty of people.', ['Plenty', 'of']), ['Plenty:start', ' :bridge', 'of:end'])
+	assert.deepEqual(framePartsByText('Do you have it?', ['Do', 'you', 'have']), [
+		'Do:start',
+		' :bridge',
+		'you:middle',
+		' :bridge',
+		'have:end',
+	])
+})
+
+test('a single highlighted word and separated expression words get closed frames', function () {
+	assert.deepEqual(framePartsByText('Plenty of people.', ['Plenty']), ['Plenty:single'])
+	assert.deepEqual(framePartsByText('She put the box away.', ['put', 'away']), ['put:single', 'away:single'])
+	assert.deepEqual(framePartsByText('Pick it up, then pick up.', ['pick', 'up']), [
+		'up:single',
+		'pick:start',
+		' :bridge',
+		'up:end',
+	])
 })
