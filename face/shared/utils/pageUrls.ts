@@ -100,10 +100,6 @@ export const pageUrls = {
 		nameKey: 'contacts' as const satisfies PageNameKey,
 		path: '/contacts',
 	},
-	dictionary: {
-		nameKey: 'dictionary' as const satisfies PageNameKey,
-		path: '/dictionary',
-	},
 	help: {
 		nameKey: 'help' as const satisfies PageNameKey,
 		path: '/help',

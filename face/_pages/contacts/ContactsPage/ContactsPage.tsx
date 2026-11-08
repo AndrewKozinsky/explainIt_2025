@@ -16,8 +16,8 @@ function ContactsPage() {
 						@AndrewKozinsky
 					</a>{' '}
 					или пишите на почту{' '}
-					<a href='mailto:andkozinskiy@yandex.ru' className='link'>
-						andkozinskiy@yandex.ru
+					<a href='mailto:andkozinsky@gmail.com' className='link'>
+						andkozinsky@gmail.com
 					</a>
 					.
 				</p>
@@ -27,3 +27,4 @@ function ContactsPage() {
 }
 
 export default ContactsPage
+// andkozinskiy@yandex.ru
