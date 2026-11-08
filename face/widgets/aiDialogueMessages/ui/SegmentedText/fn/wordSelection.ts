@@ -67,3 +67,23 @@ export function getHighlightedWordStarts(
 
 	return highlightedStarts
 }
+
+/**
+ * Карта, в которой весь текст — одно выражение: клик и наведение на любое слово выбирают текст целиком.
+ * Нужна для коротких подписей вроде должности персонажа (`music shop assistant`).
+ */
+export function buildWholeTextWordMap(text: string): AiDialogueWordMapBlock {
+	const words = Array.from(segmenter.segment(text))
+		.filter((segment) => segment.isWordLike)
+		.map((segment, id) => ({
+			id,
+			text: segment.segment,
+			start: segment.index,
+			end: segment.index + segment.segment.length,
+		}))
+
+	const wordIds = words.map((word) => word.id)
+	const phrase = text.trim()
+
+	return { content: text, words, selections: wordIds.map((wordId) => ({ wordId, wordIds, phrase })) }
+}

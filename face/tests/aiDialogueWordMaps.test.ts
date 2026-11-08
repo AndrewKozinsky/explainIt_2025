@@ -8,6 +8,7 @@ import { getFrameParts } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/
 import {
 	resolveDialogueWordSelection,
 	dictionaryPhraseForClick,
+	buildWholeTextWordMap,
 	getHighlightedWordStarts,
 	splitDialogueText,
 } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/wordSelection'
@@ -197,4 +198,24 @@ test('a single highlighted word and separated expression words get closed frames
 		' :bridge',
 		'up:end',
 	])
+})
+
+test('a whole-text map makes any word of a character role select and frame the full role', function () {
+	const role = 'music shop assistant'
+	const map = buildWholeTextWordMap(role)
+	const segments = splitDialogueText(role, map)
+	const words = segments.filter((segment) => segment.isWord)
+
+	for (const word of words) {
+		assert.equal(dictionaryPhraseForClick(role, word, map), role)
+		const highlightedStarts = getHighlightedWordStarts(role, segments, word, map)
+		assert.deepEqual(
+			[...highlightedStarts].sort((left, right) => left - right),
+			words.map((item) => item.start),
+		)
+		assert.deepEqual(
+			[...getFrameParts(segments, highlightedStarts).values()],
+			['start', 'bridge', 'middle', 'bridge', 'end'],
+		)
+	}
 })

@@ -15,6 +15,7 @@ import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDia
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import DialogueNpcAvatar from './DialogueNpcAvatar'
 import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAndActions'
+import NpcRoleText from './NpcRoleText'
 import './NpcMessage.scss'
 
 type NpcMessageProps = {
@@ -69,7 +70,7 @@ function NpcMessage({
 			extraClass='nps-message'
 			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || t('participant')} />}
 			name={npcName}
-			role={npcRole}
+			role={npcRole && <NpcRoleText role={npcRole} onWordSelect={onWordSelect} />}
 			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(
 				({ key, speechIndex, actionIndex }) => ({
 					key,

@@ -7,7 +7,8 @@ import './WithAvatarMessageWrapper.scss'
 type WithAvatarMessageWrapperProps = {
 	avatar: ReactNode
 	name: string
-	role?: string
+	/** Должность персонажа: строка или разметка (например, кликабельный текст). */
+	role?: ReactNode
 	contentGroups: { key: number; speech?: ReactNode; actions?: ReactNode }[]
 	extraClass?: string
 }
