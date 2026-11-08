@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@/i18n/routing'
+import mainConfig from '@/shared/consts/mainConfig'
 import styles from '../doc.module.scss'
 
 const OfferPage: React.FC = () => {
@@ -171,7 +172,7 @@ const OfferPage: React.FC = () => {
 
 			<p>
 				<strong>8.2.</strong> Возврат осуществляется после письменного обращения Пользователя на адрес
-				электронной почты <strong>andkozinskiy@yandex.ru</strong> с указанием обстоятельств и доказательств
+				электронной почты <strong>{mainConfig.supportEmail}</strong> с указанием обстоятельств и доказательств
 				ошибки.
 			</p>
 
@@ -271,7 +272,7 @@ const OfferPage: React.FC = () => {
 				<br />
 				Телефон: <strong>8 919 842 35 99</strong>
 				<br />
-				Электронная почта: <strong>andkozinskiy@yandex.ru</strong>
+				Электронная почта: <strong>{mainConfig.supportEmail}</strong>
 			</p>
 
 			<h2>15. Реквизиты документа</h2>

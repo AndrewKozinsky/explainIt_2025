@@ -1,3 +1,4 @@
+import mainConfig from '@/shared/consts/mainConfig'
 import Header from '@/shared/ui/Header/Header'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { PageContentWrapper } from '@/shared/ui/pageRelated/PageContentWrapper/PageContentWrapper'
@@ -16,8 +17,8 @@ function ContactsPage() {
 						@AndrewKozinsky
 					</a>{' '}
 					или пишите на почту{' '}
-					<a href='mailto:andkozinsky@gmail.com' className='link'>
-						andkozinsky@gmail.com
+					<a href={'mailto:' + mainConfig.supportEmail} className='link'>
+						{mainConfig.supportEmail}
 					</a>
 					.
 				</p>
@@ -27,4 +28,3 @@ function ContactsPage() {
 }
 
 export default ContactsPage
-// andkozinskiy@yandex.ru

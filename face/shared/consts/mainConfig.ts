@@ -1,7 +1,7 @@
 export const mainConfig = {
 	workingMode: resolveWorkingMode(),
 	region: process.env.NEXT_PUBLIC_REGION as 'ru' | 'intl',
-	supportEmail: 'andkozinskiy@yandex.ru',
+	supportEmail: 'andkozinsky@gmail.com',
 }
 
 export default mainConfig

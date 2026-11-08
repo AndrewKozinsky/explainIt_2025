@@ -1,4 +1,5 @@
 import React from 'react'
+import mainConfig from '@/shared/consts/mainConfig'
 import styles from '../doc.module.scss'
 
 const ContentUsePolicyPage: React.FC = () => {
@@ -11,7 +12,7 @@ const ContentUsePolicyPage: React.FC = () => {
 				загрузки, хранения, обработки и использования текстов, изображений и иных материалов (далее —{' '}
 				<strong>Контент</strong>) на сайте «https://explainit.ru» (далее — <strong>Сайт</strong>), принадлежащем{' '}
 				<strong>самозанятому Козинскому Андрею Сергеевичу</strong> (ИНН 560912925372, Россия, г. Оренбург, тел.
-				8 919 842 35 99, email: andkozinskiy@yandex.ru), далее — <strong>Администратор</strong>.
+				8 919 842 35 99, email: {mainConfig.supportEmail}), далее — <strong>Администратор</strong>.
 			</p>
 
 			<p>Используя Сайт, Пользователь подтверждает согласие с настоящей Политикой.</p>

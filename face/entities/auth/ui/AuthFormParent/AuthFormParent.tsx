@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTranslations } from 'next-intl'
 import { Link } from '@/i18n/routing'
+import mainConfig from '@/shared/consts/mainConfig'
 import Header from '@/shared/ui/Header/Header'
 import { PageNameKey } from '@/shared/utils/pageUrls'
-import mainConfig from '@/shared/сonsts/mainConfig'
 import './AuthFormParent.scss'
 
 type AuthPageLayoutProps = {

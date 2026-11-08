@@ -68,7 +68,7 @@ explainfaceserverdevelop:
 ### Использование в коде
 
 ```typescript
-import { mainConfig } from 'face/сonsts/mainConfig'
+import mainConfig from '@/shared/consts/mainConfig'
 
 // mainConfig.region → 'ru' | 'intl'
 if (mainConfig.region === 'intl') {
@@ -76,7 +76,7 @@ if (mainConfig.region === 'intl') {
 }
 ```
 
-Значение хранится в `face/сonsts/mainConfig.ts`:
+Значение хранится в `face/shared/consts/mainConfig.ts`:
 
 ```typescript
 export const mainConfig = {

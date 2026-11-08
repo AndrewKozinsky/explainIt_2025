@@ -1,8 +1,8 @@
 import { useCallback } from 'react'
+import { env } from '@/shared/consts/env'
 import { localStorageManager } from '@/shared/utils/localStorageManager'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import { generateRandomString } from '@/shared/utils/strings'
-import { env } from '@/shared/сonsts/env'
 
 type ButtonType = 'github' | 'google' | 'yandex'
 

@@ -1,4 +1,4 @@
-import mainConfig from '@/shared/сonsts/mainConfig'
+import mainConfig from '@/shared/consts/mainConfig'
 import GenerateSubtitlesButton from '../GenerateSubtitlesButton/GenerateSubtitlesButton'
 import './GenerateSubtitlesBlock.scss'
 

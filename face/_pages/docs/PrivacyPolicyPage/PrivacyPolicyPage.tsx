@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from '@/i18n/routing'
+import mainConfig from '@/shared/consts/mainConfig'
 import styles from '../doc.module.scss'
 
 const PrivacyPolicyPage: React.FC = () => {
@@ -147,7 +148,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
 			<p>
 				<strong>8.2.</strong> Для реализации своих прав Пользователь может направить запрос по адресу
-				электронной почты: <strong>andkozinskiy@yandex.ru</strong>.
+				электронной почты: <strong>{mainConfig.supportEmail}</strong>.
 			</p>
 
 			<p>Запрос должен быть с того же адреса электронной почты, что указанный при регистрации.</p>
@@ -209,7 +210,7 @@ const PrivacyPolicyPage: React.FC = () => {
 				<br />
 				Телефон: <strong>8 919 842 35 99</strong>
 				<br />
-				Электронная почта: <strong>andkozinskiy@yandex.ru</strong>
+				Электронная почта: <strong>{mainConfig.supportEmail}</strong>
 			</p>
 		</div>
 	)

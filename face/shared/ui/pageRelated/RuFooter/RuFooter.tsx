@@ -18,7 +18,7 @@ function RuFooter() {
 				<span>Самозанятый Козинский Андрей Сергеевич</span>
 				<span>ИНН: 560912925372</span>
 				<span>Россия, Оренбург</span>
-				<span>andkozinskiy@yandex.ru</span>
+				<span>{mainConfig.supportEmail}</span>
 				<span>Переводы выполняются автоматически с использованием ИИ. Возможны неточности.</span>
 			</p>*/}
 		</footer>
