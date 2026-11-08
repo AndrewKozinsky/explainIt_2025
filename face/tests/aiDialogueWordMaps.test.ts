@@ -7,6 +7,7 @@ import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/
 import {
 	resolveDialogueWordSelection,
 	dictionaryPhraseForClick,
+	getHighlightedWordStarts,
 	splitDialogueText,
 } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/wordSelection'
 
@@ -112,4 +113,53 @@ test('message SSE carries the ready map and replay preserves it', function () {
 	assert.deepEqual(saved?.type === 'help' ? saved.wordMap : undefined, message.payload.wordMap)
 	stream.onmessage?.({ data: JSON.stringify({ type: 'message', message }) })
 	assert.equal(useAiDialogueStore.getState().messages.size, 1)
+})
+
+test('hover highlights every word of a discontinuous expression from the map', function () {
+	const map = block('She put the box away.', { 1: [1, 4], 4: [1, 4] })
+	const segments = splitDialogueText(map.content, map)
+	const hoveredSegment = segments.find((segment) => segment.text === 'put')!
+	const highlightedStarts = getHighlightedWordStarts(map.content, segments, hoveredSegment, map)
+	assert.deepEqual(
+		[...highlightedStarts].sort((left, right) => left - right),
+		[map.words[1].start, map.words[4].start],
+	)
+})
+
+test('hover and click use only the word own map entry, so Plenty stays alone while of selects Plenty of', function () {
+	const content = 'Plenty of people come in.'
+	const words = Array.from(new Intl.Segmenter('en', { granularity: 'word' }).segment(content))
+		.filter((item) => item.isWordLike)
+		.map((item, id) => ({ id, text: item.segment, start: item.index, end: item.index + item.segment.length }))
+	const map: AiDialogueWordMapBlock = {
+		content,
+		words,
+		selections: [{ wordId: 1, wordIds: [0, 1], phrase: 'Plenty of' }],
+	}
+	const segments = splitDialogueText(content, map)
+	const plentySegment = segments.find((segment) => segment.text === 'Plenty')!
+	const ofSegment = segments.find((segment) => segment.text === 'of')!
+	const expressionStarts = [words[0].start, words[1].start]
+
+	assert.equal(dictionaryPhraseForClick(content, plentySegment, map), 'Plenty')
+	assert.equal(dictionaryPhraseForClick(content, ofSegment, map), 'Plenty of')
+
+	assert.deepEqual([...getHighlightedWordStarts(content, segments, plentySegment, map)], [plentySegment.start])
+	assert.deepEqual(
+		[...getHighlightedWordStarts(content, segments, ofSegment, map)].sort((left, right) => left - right),
+		expressionStarts,
+	)
+
+	const peopleSegment = segments.find((segment) => segment.text === 'people')!
+	assert.deepEqual([...getHighlightedWordStarts(content, segments, peopleSegment, map)], [peopleSegment.start])
+})
+
+test('hover highlights only the hovered word without a map or with a stale map', function () {
+	const content = 'Pick up the phone.'
+	const segments = splitDialogueText(content)
+	const hoveredSegment = segments.find((segment) => segment.text === 'Pick')!
+	assert.deepEqual([...getHighlightedWordStarts(content, segments, hoveredSegment)], [0])
+
+	const staleMap = block('Pick up the phone now.', { 0: [0, 1] })
+	assert.deepEqual([...getHighlightedWordStarts(content, segments, hoveredSegment, staleMap)], [0])
 })

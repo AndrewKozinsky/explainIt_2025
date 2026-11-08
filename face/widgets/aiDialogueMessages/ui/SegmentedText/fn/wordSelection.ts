@@ -42,3 +42,28 @@ export function dictionaryPhraseForClick(
 ): string {
 	return resolveDialogueWordSelection(content, segment.start, map)?.phrase || segment.text
 }
+
+/**
+ * Начала слов, которые подсвечиваются при наведении на hoveredSegment, — ровно то, что уйдёт в Словарь при клике:
+ * все слова собственной записи слова в карте (в том числе несмежные) или только само слово, если карты/записи нет.
+ * Карта разреженная и несимметричная: запись `Plenty of` может быть только у `of`, тогда наведение на `Plenty`
+ * подсвечивает одно `Plenty`. Слова выражения, которых нет среди сегментов текста, пропускаются.
+ */
+export function getHighlightedWordStarts(
+	content: string,
+	segments: DialogueTextSegment[],
+	hoveredSegment: DialogueTextSegment,
+	map?: AiDialogueWordMapBlock,
+): Set<number> {
+	const selection = resolveDialogueWordSelection(content, hoveredSegment.start, map)
+	if (!selection || !map) return new Set([hoveredSegment.start])
+
+	const selectedStarts = new Set(
+		map.words.filter((word) => selection.wordIds.includes(word.id)).map((word) => word.start),
+	)
+	const wordStarts = segments.filter((segment) => segment.isWord).map((segment) => segment.start)
+	const highlightedStarts = new Set(wordStarts.filter((start) => selectedStarts.has(start)))
+	highlightedStarts.add(hoveredSegment.start)
+
+	return highlightedStarts
+}

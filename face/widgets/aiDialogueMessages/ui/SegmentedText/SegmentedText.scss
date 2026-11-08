@@ -1,4 +1,17 @@
+@use '@/styles/variables' as vars;
+
+// Своя группа наложения: рамка подсвеченного слова (z-index: -1) лежит под соседними словами,
+// но над фоном сообщения.
+.segmented-text {
+	isolation: isolate;
+}
+
+.segmented-text__gap {
+	transition: opacity .2s ease;
+}
+
 .segmented-text__word {
+	position: relative;
 	display: inline;
 	margin: 0;
 	padding: 0;
@@ -7,9 +20,35 @@
 	font: inherit;
 	color: inherit;
 	cursor: pointer;
+	transition: opacity .1s ease;
 
-	&:hover,
-	&:focus-visible {
-		text-decoration: underline;
+	// Рамка-кнопка. Позиционирована абсолютно, поэтому не сдвигает текст.
+	// Горизонтальный отступ заметно меньше половины пробела (~.24em): между рамками соседних слов
+	// одного выражения остаётся зазор.
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0 -.1em;
+		z-index: -1;
+		border: 1px solid currentColor;
+		border-radius: vars.$radius-1;
+		opacity: 0;
+		transition: opacity .2s ease;
 	}
+
+	// Подсветку показывает рамка, стандартный контур фокуса не нужен.
+	&:focus-visible {
+		outline: none;
+	}
+}
+
+// Рамка полупрозрачная, чтобы не спорить с текстом.
+.segmented-text__word--highlighted::before {
+	opacity: .3;
+}
+
+// Пока подсвечено выражение из нескольких слов, всё остальное плавно затухает.
+.segmented-text--expression .segmented-text__gap,
+.segmented-text--expression .segmented-text__word:not(.segmented-text__word--highlighted) {
+	opacity: .7;
 }
