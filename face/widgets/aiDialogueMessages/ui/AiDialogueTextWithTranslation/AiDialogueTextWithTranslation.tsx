@@ -8,6 +8,8 @@ type AiDialogueTextWithTranslationProps = AiDialogueTextMappingProps & {
 	translation?: string
 	isTranslationVisible: boolean
 	onWordClick: (segment: DialogueTextSegment) => void
+	/** Цвет перевода: `inherit` — как у текста, `muted` — серый. */
+	translationTone?: 'inherit' | 'muted'
 }
 
 function AiDialogueTextWithTranslation({
@@ -16,6 +18,7 @@ function AiDialogueTextWithTranslation({
 	wordMap,
 	isTranslationVisible,
 	onWordClick,
+	translationTone = 'inherit',
 }: AiDialogueTextWithTranslationProps) {
 	return (
 		<div className='ai-dialogue-text-with-translation'>
@@ -24,7 +27,11 @@ function AiDialogueTextWithTranslation({
 			</div>
 
 			{isTranslationVisible && translation ? (
-				<p className='ai-dialogue-text-with-translation__translation'>{translation}</p>
+				<p
+					className={`ai-dialogue-text-with-translation__translation ai-dialogue-text-with-translation__translation--${translationTone}`}
+				>
+					{translation}
+				</p>
 			) : null}
 		</div>
 	)

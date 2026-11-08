@@ -25,6 +25,7 @@ function WorldEventMessage({ content = '', translation = '', onWordSelect, wordM
 				translation={translation}
 				isTranslationVisible={isTranslationVisible}
 				onWordClick={handleWordClick}
+				translationTone='muted'
 			/>
 		</div>
 	)

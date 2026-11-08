@@ -50,7 +50,14 @@ function AiDialogMessageRouter({
 	}
 
 	if (event.type === 'help') {
-		return <HelpMessage content={event.content} />
+		return (
+			<HelpMessage
+				{...mapping}
+				content={event.content}
+				translation={event.translation}
+				onWordSelect={onWordSelect}
+			/>
+		)
 	}
 
 	if (event.type === 'worldEvent') {

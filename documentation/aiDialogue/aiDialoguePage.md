@@ -126,8 +126,10 @@ SSE-протокол, генерация хода, компакция) опис�
 Компоненты (`ui/messages/`):
 
 - `SceneUpdateMessage` — «Смена сцены»;
-- `HelpMessage` — «Подсказка»;
-- `WorldEventMessage` — «Событие»;
+- `HelpMessage` — «Подсказка»: рамка `NoticeMessageWrapper` с иконкой, внутри `AiDialogueTextWithTranslation`;
+- `WorldEventMessage` — «Событие»: `AiDialogueTextWithTranslation` на сером фоне;
+- В подсказке и событии слова кликабельны так же, как в сцене и репликах NPC (`useDialogueContentSelection`),
+  но без озвучки и скрытия текста; размер текста 1.6rem.
 - `NpcMessage` — аватар, заголовок NPC (имя/роль) + реплики и действия в свойстве `speechAndActions`;
 - Внутри всего сообщения NPC сначала показываются все `speech`, затем все `action`, независимо от порядка
   в `payload.actions`. Порядок внутри каждого типа сохраняется. `groupNpcDialogueSpeechAndActions` меняет только порядок
@@ -194,7 +196,7 @@ SegmentedText использует позиции готовой карты, с�
 Для put … away словарь получает put away; для Do you have клик по Do может выбирать всю конструкцию,
 а клик по you — только you. Превью также допускает клики с немедленным запасным выбором слова.
 Пользовательские сообщения всегда выбирают отдельное слово.
-AiDialogueContentBlock раскрывает существующий перевод всего блока, передаёт phrase/слово в поле word
+AiDialogueContentBlock, HelpMessage и WorldEventMessage раскрывают существующий перевод всего блока, передаёт phrase/слово в поле word
 и content в поле sentence. Правая панель не передаёт sentence в словарь.
 Технический раздел wordMaps: исключается из построчного превью и не показывается пользователю.
 

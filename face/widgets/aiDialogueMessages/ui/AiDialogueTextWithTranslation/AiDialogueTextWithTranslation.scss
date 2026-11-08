@@ -1,3 +1,5 @@
+@use '@/styles/variables' as vars;
+
 .ai-dialogue-text-with-translation {
 	display: flex;
 	flex-direction: column;
@@ -12,4 +14,12 @@
 .ai-dialogue-text-with-translation__translation {
 	font-size: 1.6rem;
 	line-height: 2.4rem;
+}
+
+.ai-dialogue-text-with-translation__translation--inherit {
+	color: inherit;
+}
+
+.ai-dialogue-text-with-translation__translation--muted {
+	color: vars.$grayColor-5;
 }

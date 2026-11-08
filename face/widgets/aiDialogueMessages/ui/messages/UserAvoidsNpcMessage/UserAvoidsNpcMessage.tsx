@@ -5,7 +5,7 @@ import FootstepsIcon from './FootstepsIcon'
 function UserAvoidsNpcMessage() {
 	const t = useTranslations('aiDialogueMessages')
 
-	return <NoticeMessageWrapper text={t('userLeft')} icon={<FootstepsIcon />} />
+	return <NoticeMessageWrapper icon={<FootstepsIcon />}>{t('userLeft')}</NoticeMessageWrapper>
 }
 
 export default UserAvoidsNpcMessage

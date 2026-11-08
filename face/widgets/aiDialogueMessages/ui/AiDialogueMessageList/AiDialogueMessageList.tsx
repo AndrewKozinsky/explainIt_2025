@@ -7,6 +7,43 @@ import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswer
 import { DialogueVisualsProvider } from '../visuals/DialogueVisualsContext'
 import './AiDialogueMessageList.scss'
 
+// TEMP: тестовые сообщения help/worldEvent — удалить после проверки.
+function buildTempWordMap(content: string, phraseWords: string[]) {
+	const words = Array.from(content.matchAll(/[A-Za-z']+/g), (match, id) => ({
+		id,
+		text: match[0],
+		start: match.index ?? 0,
+		end: (match.index ?? 0) + match[0].length,
+	}))
+	const wordIds = words.filter((word) => phraseWords.includes(word.text)).map((word) => word.id)
+	const selections = wordIds.map((wordId) => ({ wordId, wordIds, phrase: phraseWords.join(' ') }))
+	return { status: 'ready' as const, blocks: { content: { content, words, selections } } }
+}
+
+const tempHelpWithMap = 'Pick up the phone to answer the call.'
+const tempWorldWithMap = 'The lights go out and the music stops.'
+
+const tempEvents: AiDialoguePreviewEvent[] = [
+	{
+		type: 'help',
+		content: 'Someone is knocking. You can open the door.',
+		translation: 'Кто-то стучит. Вы можете открыть дверь.',
+	},
+	{
+		type: 'help',
+		content: tempHelpWithMap,
+		translation: 'Возьмите трубку, чтобы ответить на звонок.',
+		wordMap: buildTempWordMap(tempHelpWithMap, ['Pick', 'up']),
+	},
+	{ type: 'worldEvent', content: 'A dog barks somewhere outside.', translation: 'Где-то снаружи лает собака.' },
+	{
+		type: 'worldEvent',
+		content: tempWorldWithMap,
+		translation: 'Гаснет свет, и музыка замолкает.',
+		wordMap: buildTempWordMap(tempWorldWithMap, ['go', 'out']),
+	},
+]
+
 type AiDialogueMessageListProps = {
 	messages: DialogueServerMessage[]
 	preview: AiDialoguePreviewEvent[]
@@ -53,6 +90,9 @@ function AiDialogueMessageList({
 	return (
 		<DialogueVisualsProvider visuals={visuals} refreshVisuals={refreshVisuals} recoverImage={recoverImage}>
 			<div className='ai-dialogue-message-list'>
+				{tempEvents.map((event, index) => (
+					<AiDialogMessageRouter key={`temp-${index}`} event={event} onWordSelect={onWordSelect} />
+				))}
 				{savedMessages}
 
 				{isGenerating && preview.length === 0 && <PendingAnswerMessage />}
