@@ -2,6 +2,7 @@ export const mainConfig = {
 	workingMode: resolveWorkingMode(),
 	region: process.env.NEXT_PUBLIC_REGION as 'ru' | 'intl',
 	supportEmail: 'andkozinsky@gmail.com',
+	supportTelegramUsername: 'AndrewKozinsky',
 }
 
 export default mainConfig

@@ -13,8 +13,8 @@ function ContactsPage() {
 				<Header>Контакты</Header>
 				<p>
 					По всем вопросам обращайтесь в Телеграм{' '}
-					<a href='https://t.me/AndrewKozinsky' className='link'>
-						@AndrewKozinsky
+					<a href={'https://t.me/' + mainConfig.supportTelegramUsername} className='link'>
+						@{mainConfig.supportTelegramUsername}
 					</a>{' '}
 					или пишите на почту{' '}
 					<a href={'mailto:' + mainConfig.supportEmail} className='link'>
