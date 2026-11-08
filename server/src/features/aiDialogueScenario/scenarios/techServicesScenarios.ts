@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'phone-repair',
 		groupSlug: 'tech-services',
 		title: localized({
@@ -79,8 +79,8 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant left their phone with a cracked screen at a small repair shop and has come back for it. You play the repair technician, with a consistent personality, holding the phone in pieces. Tell them the bad news: not only the screen but also the board needs replacing, and it will cost three times as much as agreed. You decide whether this is true or an attempt to overcharge, and keep it consistent. React to the participant's questions about the fault, the price and the warranty and to their decision. Do not decide for the participant what they do. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'damaged-delivery',
 		groupSlug: 'tech-services',
 		title: localized({
@@ -158,8 +158,8 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is at home and has just opened the front door to a courier holding a visibly dented box. The opening sceneUpdate's visual shows the open door with the participant inside and the courier outside; include the courier's npcId in participants. Opening the door is the only predefined participant action; do not decide anything else for them. You play the courier, with a consistent personality and a busy schedule. Point out the damage and ask whether they accept the parcel as it is or refuse it. React to the participant's questions and decisions, and explain the delivery company's procedure as a real courier would. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'courier-lost',
 		groupSlug: 'tech-services',
 		title: localized({
@@ -229,5 +229,5 @@ export const techServicesScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant steps out into the courtyard of their apartment block and sees a confused courier, a man, with a parcel. He asks whether they know where building 12 is, saying he cannot find entrance three. You play the courier, with a consistent personality and a busy schedule. You decide the layout of the courtyard and the details of the address and keep them consistent. React to the participant's directions and help. Do not decide for the participant what they do. Stay in character.",
-	},
+	},*/
 ]

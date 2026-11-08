@@ -4,6 +4,9 @@ import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueScenarioGroupSeedData, AiDialogueScenarioSeedData } from './common'
 import { aiDialogueScenarioGroups } from './groups'
 import { getPublicScenarioCoverKey } from './publicScenarioCoverKey'
+import { cityAndServicesScenarios } from './scenarios/cityAndServicesScenarios'
+import { doorKnocksScenarios } from './scenarios/doorKnocksScenarios'
+import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
@@ -48,10 +51,10 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 	getScenariosData(): AiDialogueScenarioSeedData[] {
 		return [
 			...travelScenarios,
-			// ...foodAndShoppingScenarios,
-			// ...cityAndServicesScenarios,
+			...foodAndShoppingScenarios,
+			...cityAndServicesScenarios,
 			// ...homeAndEverydayLifeScenarios,
-			// ...doorKnocksScenarios,
+			...doorKnocksScenarios,
 			// ...immigrationScenarios,
 			// ...relationshipsScenarios,
 			// ...misunderstandingsAndConflictsScenarios,

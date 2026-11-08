@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'stuck-in-elevator',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -51,8 +51,8 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is in a lift with one other passenger, a woman, when the lift suddenly stops between floors. She starts to panic. You play this passenger, with a consistent personality and a believable reason to be in a hurry or afraid. Show your fear and react to the participant's attempts to calm you, their suggestions and small talk. You decide how and when help arrives; until then, the conversation is between the two of you. Do not decide for the participant what they do. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'last-bus-gone',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -118,8 +118,8 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"It is late at night. The participant is standing at an empty bus stop after the last bus has gone. A taxi pulls up and the driver leans out, offering a ride but saying that tonight the fare is double. You play the taxi driver, with a consistent personality and your own reasons for the price. Discuss the destination and the price, haggle as a real driver would and react to the participant's choices. Do not decide for the participant whether they get in. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'nervous-flyer',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -197,8 +197,8 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is on a plane that is going through strong turbulence. The woman in the next seat, a nervous flyer, grabs the participant's arm and begs them to talk to her about anything. You play this passenger, with a consistent personality, background and reason for flying. Show your fear and respond to the participant's reassurance, questions and stories; calm down gradually or panic more depending on what they do. You may describe the turbulence and the cabin. Do not decide for the participant what they say. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'street-interview',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -248,8 +248,8 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is walking down a street when a reporter with a microphone, followed by a camera operator, stops them for a quick street interview. You play the reporter, with a consistent, energetic personality. Ask for the participant's opinion on a series of random topics, one question at a time, and react to each answer with a follow-up question, a comment or humour before moving on to a new topic. Respect the participant's decision if they decline. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'on-the-bus',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -311,8 +311,8 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant gets on a city bus. You play the people on the bus as the ride goes on, each with a consistent personality. Start with the driver, who will not accept the participant's card. You choose what happens next during the ride, for example a passenger asking where to get off or a ticket inspector getting on. Let the participant handle each situation in their own way and react to their choices. Do not decide for the participant what they do. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'shared-umbrella',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -374,5 +374,5 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'A sudden downpour begins while the participant is in the street without an umbrella. A stranger with a large umbrella comes up and offers to share it as far as the bus stop, two blocks away. You play this stranger, with a consistent personality and a life of your own. If the participant accepts, make small talk on the way and react to what they say; if they decline, accept it gracefully. Do not decide for the participant whether they accept. Stay in character.',
-	},
+	},*/
 ]

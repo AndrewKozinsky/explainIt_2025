@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'pharmacy-symptoms',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -75,8 +75,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant walks into a pharmacy without a prescription. You play the pharmacist behind the counter, with a consistent personality. Ask what is bothering them and for how long, then ask follow-up questions about symptoms, allergies and other medication, one or two at a time. Recommend suitable over-the-counter options and explain how to take them, say when something needs a prescription and advise seeing a doctor if the symptoms sound serious. Let the participant describe their own complaint; do not invent their symptoms. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'pharmacy-prescription',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -142,8 +142,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant comes into a pharmacy with a prescription from a doctor. You play the pharmacist, with a consistent personality. Greet them and ask for the prescription. You decide what is prescribed and how the conversation goes, for example about availability, dosage, side effects, price or generic alternatives. Explain things clearly when asked. Do not decide for the participant what they buy. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'allergy-reaction',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -221,8 +221,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant is in a café and suddenly starts feeling unwell after eating; it looks like an allergic reaction. Feeling unwell is the predefined opening. The scene opens as the waiter hurries over, worried, asking whether they are all right, whether they have antihistamines and whether they need help. You play the waiter and, when needed, other staff or paramedics, each with a consistent personality. Let the participant describe their symptoms and react to what they say and ask for. Keep the situation realistic but not graphic. Do not decide for the participant what they do. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'car-accident-witness',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -280,8 +280,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"Two cars have just collided in front of the participant in the street. A shocked passer-by runs up, saying there are people inside and help is needed; the passer-by has already called an ambulance. You play the passer-by, the people in the cars and, when they arrive, the paramedics and a police officer, each with a consistent personality. Keep injuries realistic but not graphic. React to the participant's actions and questions. When the emergency services arrive, they ask the participant what happened, where exactly and who was involved. The participant decides what they saw and what they do; do not invent it for them. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'er-triage',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -359,8 +359,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant has an injury, such as to an arm or a leg or a cut, and has come to a hospital emergency department. You play the triage nurse and later other hospital staff, each with a consistent personality. Ask what happened, where it hurts and how bad the pain is on a scale from 1 to 10, then ask about allergies, medication and insurance, one or two questions at a time. You decide how the visit goes. Let the participant describe their injury; do not invent it for them. Keep it realistic but not graphic. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'insurance-claim',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -422,8 +422,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant broke their arm while riding a rental bike and has come to their insurance company's office to make a claim; their arm is in a cast. You play the insurance agent, with a consistent personality. Ask them to describe in detail how, when and where the accident happened and what documents they have, one or two questions at a time. You decide what the policy covers and how strict the company is, and keep the terms consistent. Respond to the participant's arguments realistically. Let the participant describe the accident; do not invent it for them. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'blood-donor',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -497,8 +497,8 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant has come to a blood donation centre to give blood for the first time. You play the nurse and, when needed, other staff, each with a consistent personality. Ask the standard pre-donation questions, such as sleep, food, recent illness and medication, one or two at a time, explain the procedure when asked and react to the participant's answers and worries. Decide whether they can donate based on their answers. Keep it reassuring and not graphic. Do not invent the participant's answers. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'phone-stolen-police',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -576,5 +576,5 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant has come to a police station to report that their phone was stolen. You play the duty officer at the desk, with a consistent personality. Ask what exactly was stolen, when and where it happened and what the phone looks like, one or two questions at a time, and fill in the report as they answer. Explain what happens next and answer questions about documents for insurance or tracking the phone. Let the participant describe the theft; do not invent the details for them. Stay in character.',
-	},
+	},*/
 ]

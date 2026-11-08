@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'wrong-transfer',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -79,8 +79,8 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant sent money to the wrong account by mistake and has come to a bank branch to try to get it back. You play the bank employee, with a consistent personality. Greet them and fill in the refund request yourself, asking when the transfer was made, how much was sent and to which account, one or two questions at a time. Explain the procedure realistically, including what the bank can and cannot guarantee, and answer the participant's questions. Do not invent the transfer details for the participant. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'loan-application',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -150,8 +150,8 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant has come to a bank to apply for a loan. You play the bank manager, with a consistent personality. Look through their documents, explain that you need proof of income and a guarantor, and ask whether they have them or need help preparing them. Ask about the purpose of the loan, the amount and their income, one or two questions at a time, and explain terms and rates when asked. Keep the terms consistent. Do not decide for the participant whether they take the loan. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'currency-exchange',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -205,8 +205,8 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant walks into a currency exchange office. You play the cashier behind the glass, with a consistent personality. Greet them and ask what they want to change. Name the rates and fees when asked and keep the numbers consistent. You decide what comes up during the exchange, for example a hidden fee or a banknote you refuse to accept, and react to the participant's questions and objections. Do not decide for the participant whether they go ahead. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'missed-payment',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -284,8 +284,8 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant has a loan and has missed a payment. The bank has invited them to the branch, and the scene opens in the manager's office. You play the bank manager, with a consistent personality: polite but persistent. Tell them about the overdue payment and ask when they plan to pay. Respond to their explanations, discuss penalties, payment plans and the effect on their credit history, and keep the figures consistent. Do not decide for the participant what they agree to. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'pawn-shop',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -359,8 +359,8 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant has brought an item to a pawn shop. You play the pawnbroker, with a consistent personality and a good eye for value. The participant decides what the item is; if they have not said, ask. Examine it through a loupe, point out its flaws, name a price and ask whether they want to pawn it for a month or sell it outright. Haggle realistically, explain interest and buy-back terms when asked and keep the figures consistent. Do not decide for the participant what they do. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'split-the-bill',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -438,5 +438,5 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant is finishing dinner at a restaurant with a group of friends. One friend picks up the bill and suggests simply splitting it equally, although the participant only had a salad while the others ordered much more. You play the friends and, when needed, the waiter, each with a consistent personality. React naturally to whatever the participant suggests, and let the friends have different opinions about splitting the bill. Keep the bill and prices consistent. Do not decide for the participant what they say or pay. Stay in character.',
-	},
+	},*/
 ]

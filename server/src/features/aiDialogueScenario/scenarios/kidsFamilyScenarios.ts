@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'teacher-meeting',
 		groupSlug: 'kids-family',
 		title: localized({
@@ -55,8 +55,8 @@ export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is a parent who has been asked to come to their child's school. The scene opens in an empty classroom after lessons, where the teacher, a woman, thanks them for coming and says she wants to talk about their child's behaviour. You play the teacher, with a consistent personality. You decide what the child did and keep the details consistent. The child's age and gender come from the participant's wishes; if they are not given, ask. React to the participant's questions, their defence of the child and their proposals, and discuss what to do next. Do not decide for the participant how they react. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'nanny-interview',
 		groupSlug: 'kids-family',
 		title: localized({
@@ -134,8 +134,8 @@ export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is looking for a nanny and has invited a candidate who answered their ad. The scene opens in the participant's living room as the candidate arrives, greets them and asks how many children they have and what they need. You play the candidate, with a consistent personality, background and experience; you decide their strengths and any weak points. Answer the participant's questions honestly or evasively, as fits your character, and discuss pay, hours and duties. Let the participant decide whether to hire you. Do not invent the participant's family details. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'babysitter-first-day',
 		groupSlug: 'kids-family',
 		title: localized({
@@ -209,8 +209,8 @@ export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is a parent leaving their child with a new babysitter for the first time. The scene opens at the participant's home as the babysitter, a woman, arrives and asks about the daily routine, allergies, rules and whom to call in an emergency. You play the babysitter, with a consistent personality and experience. Ask clarifying questions, repeat back important instructions and react to what the participant tells you. The participant decides the child's details; do not invent them. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'gift-for-nephew',
 		groupSlug: 'kids-family',
 		title: localized({
@@ -288,8 +288,8 @@ export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is in the toy department of a shop, looking for a present for their nephew. You play the sales assistant, with a consistent personality. Offer to help and ask how old the child is and what he likes. Suggest a few believable toys with prices, explain them when asked, and discuss the budget, gift wrapping and returns. The participant decides the child's age and interests; do not invent them. Do not decide for the participant what they buy. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'family-dinner',
 		groupSlug: 'kids-family',
 		title: localized({
@@ -339,8 +339,8 @@ export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is at a family dinner with relatives they have not seen for a long time. You play the relatives at the table, each with a consistent personality; one of them starts by asking how the participant is doing with work and housing and what their plans are. Ask natural family questions, share family news and react to the participant's answers. Some relatives may be nosy or give unwanted advice. The participant decides what they share; do not invent their life details. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'lost-child-mall',
 		groupSlug: 'kids-family',
 		title: localized({
@@ -418,5 +418,5 @@ export const kidsFamilyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is in a shopping centre when a crying child of about five tugs at their sleeve, saying they cannot find their mum. You play the child and, later, a security guard and the mother, each with a consistent personality. As the child, speak simply, like a frightened five-year-old, and answer the participant's questions as a child would. When the participant finds staff or security, the guard asks where and when they found the child. You decide when and how the mother is found. Do not decide for the participant what they do. Stay in character.",
-	},
+	},*/
 ]

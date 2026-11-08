@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 /**
  * Добавляет перед промптом общую завязку группы: стук в дверь, участник открывает и видит гостя снаружи.
@@ -80,7 +80,7 @@ export const doorKnocksScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt:
 			"The participant is at home in their own apartment. The predefined opening is: they hear a knock at the front door, open it, and see what is outside. Narrate this brief sequence in the opening sceneUpdate without waiting for a separate participant action to open the door. You choose who is at the door and why they have come; no visitor identity, role, appearance or purpose is prescribed. Give the visitor a consistent personality and a plausible reason for being there, and let the participant discover more through the encounter. The opening sceneUpdate's visual must depict the final moment of this sequence: the door is already open, the participant remains inside their apartment at the threshold, and the visitor is visible outside. Include the visible visitor's npcId in participants. Begin the visitor's natural reaction or greeting, then leave the participant free to respond. Opening the door is the only predefined participant action; do not invent further speech, decisions, invitations or consent for them. Respond naturally to their choices and stay in character.",
 	},
-	{
+	/*{
 		slug: 'plumber-visit',
 		groupSlug: 'door-knocks',
 		title: localized({
@@ -131,8 +131,8 @@ export const doorKnocksScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt: withDoorOpening(
 			"The visitor is a plumber with a toolbox who says they have come about a call-out and asks where the leak is. You play the plumber, with a consistent personality. Whether the participant actually called a plumber and whether anything is broken is up to the participant; adapt to what they say. Discuss the problem, the work and the price when they come up, and respect the participant's decision if they turn down the service. Stay in character.",
 		),
-	},
-	{
+	},*/
+	/*{
 		slug: 'neighbors-cat-on-balcony',
 		groupSlug: 'door-knocks',
 		title: localized({
@@ -195,8 +195,8 @@ export const doorKnocksScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt: withDoorOpening(
 			"The visitor is the participant's downstairs neighbour, a woman whose cat has jumped onto the participant's balcony. She is worried and asks for help getting the cat back. You play the neighbour, with a consistent personality, and you also describe the cat's behaviour when it matters. Respond to whatever the participant suggests, such as inviting you in or fetching the cat themselves. Do not decide for the participant whether they let you in. Stay in character.",
 		),
-	},
-	{
+	},*/
+	/*{
 		slug: 'leak-from-upstairs',
 		groupSlug: 'door-knocks',
 		title: localized({
@@ -274,8 +274,8 @@ export const doorKnocksScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"Water is leaking through the ceiling of the participant's apartment. The predefined opening is: the participant goes up to the apartment above and knocks, and the upstairs neighbour opens the door, puzzled, asking what has happened. Narrate this brief sequence in the opening sceneUpdate without waiting for separate participant actions. The opening sceneUpdate's visual must depict the final moment: the participant stands on the landing outside the open door and the neighbour is visible in the doorway. Include the neighbour's npcId in participants. Going upstairs and knocking are the only predefined participant actions; do not invent further speech, decisions or consent for them. You play the upstairs neighbour, with a consistent personality. You decide whether you know about the leak and what is causing it. React realistically to the participant's words, whether apologetic, defensive or helpful. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'noise-complaint',
 		groupSlug: 'door-knocks',
 		title: localized({
@@ -350,8 +350,8 @@ export const doorKnocksScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt: withDoorOpening(
 			"The visitor is a neighbour who is annoyed by noise coming from the participant's apartment. You play the neighbour, with a consistent personality and your own reason for being bothered right now. Complain about the noise naturally. The participant decides what the noise is and why; do not invent it for them. React realistically to their apologies, explanations or invitations: calm down, insist or get angrier depending on what they say. Stay in character.",
 		),
-	},
-	{
+	},*/
+	/*{
 		slug: 'police-looking-for-witnesses',
 		groupSlug: 'door-knocks',
 		title: localized({
@@ -418,5 +418,5 @@ export const doorKnocksScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt: withDoorOpening(
 			'The visitor is a police officer going door to door looking for witnesses to something that happened in the building or the street last night. You play the officer, with a consistent personality. Show your badge, briefly explain why you are there and ask whether the participant saw or heard anything, then ask follow-up questions about times, people and details, one or two at a time. You decide what happened. The participant decides what they saw, if anything; do not invent their observations. Stay in character.',
 		),
-	},
+	},*/
 ]

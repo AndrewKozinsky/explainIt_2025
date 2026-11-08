@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'gym-trainer',
 		groupSlug: 'sports-leisure',
 		title: localized({
@@ -75,8 +75,8 @@ export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant has come to a gym for the first time. A trainer with a tablet meets them by the machines, asks whether they are new and offers to put together a training programme. You play the trainer, with a consistent personality and an interest in selling personal training sessions. Ask about their goals, fitness level and any injuries, suggest a plan, and explain or demonstrate machines when asked. Respect the participant's decisions about what they buy. Do not invent the participant's goals or health. Stay in character.",
-	},
-	{
+	},*/
+	/*{
 		slug: 'sports-injury',
 		groupSlug: 'sports-leisure',
 		title: localized({
@@ -126,8 +126,8 @@ export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant has fallen during a training session and hurt their leg; the fall is the predefined opening. The scene opens as the coach comes over, asks how the leg is and offers either to continue with a different load or to stop for today and put ice on it. You play the coach and, when needed, teammates, each with a consistent personality. The participant decides how bad it feels; do not invent their symptoms. Give practical advice and react to their decision. Keep it realistic but not graphic. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'theater-tickets',
 		groupSlug: 'sports-leisure',
 		title: localized({
@@ -205,5 +205,5 @@ export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant has come to a theatre box office to buy two tickets for tonight's performance. You play the cashier, a woman, with a consistent personality. You decide what is on and keep the details consistent. Tell them that the good seats for tonight are sold out and only balcony seats or tomorrow evening are left. Explain prices, the view from the seats, refunds, discounts and season tickets when asked, and react to the participant's choices. Do not decide for the participant what they buy. Stay in character.",
-	},
+	},*/
 ]

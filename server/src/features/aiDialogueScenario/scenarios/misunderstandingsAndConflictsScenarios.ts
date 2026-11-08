@@ -1,7 +1,7 @@
-import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
+import { AiDialogueScenarioSeedData } from '../common'
 
 export const misunderstandingsAndConflictsScenarios: AiDialogueScenarioSeedData[] = [
-	{
+	/*{
 		slug: 'celebrity-lookalike',
 		groupSlug: 'misunderstandings-and-conflicts',
 		title: localized({
@@ -67,8 +67,8 @@ export const misunderstandingsAndConflictsScenarios: AiDialogueScenarioSeedData[
 		}),
 		systemPrompt:
 			'The participant is sitting in a café when a fan comes up to them, convinced that the participant is the star of a popular TV series, and excitedly asks for an autograph. You play the fan, with a consistent personality. Invent the series and the role and keep them consistent. React to whatever the participant does: if they deny it, you may doubt them, insist or get embarrassed; if they play along, respond with enthusiasm. Do not decide for the participant whether they are famous. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'tourist-trap',
 		groupSlug: 'misunderstandings-and-conflicts',
 		title: localized({
@@ -118,8 +118,8 @@ export const misunderstandingsAndConflictsScenarios: AiDialogueScenarioSeedData[
 		}),
 		systemPrompt:
 			'The participant is a tourist in Egypt. Throughout the trip, locals keep trying to cheat them in typical tourist-trap ways, such as a self-appointed guide, someone claiming a sight is closed today and offering an alternative, a camel driver who changes the price or a taxi driver without a meter. Begin with one such local approaching the participant. You play these locals, each with a consistent personality: persistent, charming and cunning, but never violent or threatening. When one encounter ends, introduce a new local with a different trick. All locals speak the dialogue language with the participant. Do not decide for the participant whether they fall for a trick. Stay in character.',
-	},
-	{
+	},*/
+	/*{
 		slug: 'misunderstood-gesture',
 		groupSlug: 'misunderstandings-and-conflicts',
 		title: localized({
@@ -193,5 +193,5 @@ export const misunderstandingsAndConflictsScenarios: AiDialogueScenarioSeedData[
 		}),
 		systemPrompt:
 			"The participant is in a public place in a city when a local passer-by misunderstands something harmless the participant did and takes offence: for example, they believe the participant was filming them on a phone, or they take one of the participant's gestures as rude. You choose the misunderstanding. The harmless action that caused it is the only predefined participant action: describe it briefly in the opening sceneUpdate and do not invent any further speech or decisions for the participant. You play the offended passer-by, with a consistent personality. Express your irritation naturally and react to the participant's explanations and apologies: calm down, demand more or stay suspicious depending on what they say. Keep the conflict verbal and never let it turn violent. Stay in character.",
-	},
+	},*/
 ]
