@@ -1,182 +1,197 @@
-import { TranslationBlock } from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
+import {
+	ListBlock,
+	ListItem,
+	TranslationBlock,
+	WordCard,
+	WordsBlock,
+} from 'models/universalPhraseTranslation/universalPhraseTranslation.service.model'
+import {
+	WORD_SENSE_VISUAL_KINDS,
+	WordSenseVisual,
+	WordSenseVisualKind,
+} from 'models/universalPhraseTranslation/wordSense.service.model'
+
+/** Значение в ответе модели: ещё не привязано к записи WordSense. */
+export type DraftSenseBlock = {
+	type: 'sense'
+	header: string
+	lemma: null | string
+	gloss: null | string
+	senseRef: null | number
+	visual: null | WordSenseVisual
+	children: DraftBlock[]
+}
+
+export type DraftBlock =
+	| DraftSenseBlock
+	| { type: 'block'; header: string; children: DraftBlock[] }
+	| Exclude<TranslationBlock, { children: TranslationBlock[] }>
 
 export type ParseUniversalPhraseTranslationResult =
-	| { type: 'translation'; data: TranslationBlock[] }
-	| { type: 'nonExistentWord' }
-	| { type: 'invalid' }
+	{ type: 'translation'; data: DraftBlock[] } | { type: 'nonExistentWord' } | { type: 'invalid' }
 
 const MAX_DEPTH = 10
+const MAX_GLOSS_LENGTH = 300
+const MAX_LEMMA_LENGTH = 300
+const MAX_VISUAL_PROMPT_LENGTH = 2000
+const MAX_WORD_LENGTH = 300
+const MAX_DESCRIPTION_LENGTH = 500
 
-/**
- * Парсит JSON-ответ от LLM в типизированный результат.
- * Обрабатывает:
- * - Массив блоков (TranslationBlock[])
- * - Ответ о несуществующем слове ({nonExistentWord: true})
- * - Возможные обёртки в markdown-блоки ```json.
- * Возвращает discriminated union.
- */
-export function parseUniversalPhraseTranslationResult(rawMessage: string): ParseUniversalPhraseTranslationResult {
-	let jsonString = rawMessage.trim()
-
-	// Убираем возможную markdown-обёртку ```json ... ```
-	const codeBlockMatch = jsonString.match(/```(?:json)?\s*([\s\S]*?)```/)
-	if (codeBlockMatch) {
-		jsonString = codeBlockMatch[1].trim()
-	}
-
-	let parsedJson: unknown
+/** Разбирает JSON из ответа LLM, в том числе завёрнутый в markdown-блок. */
+export function parseLlmJson(rawMessage: string): unknown {
+	const jsonText = rawMessage.trim().match(/```(?:json)?\s*([\s\S]*?)```/)?.[1] ?? rawMessage.trim()
 
 	try {
-		parsedJson = JSON.parse(jsonString)
+		return JSON.parse(jsonText)
 	} catch {
-		return { type: 'invalid' }
+		return null
 	}
-
-	if (!parsedJson || typeof parsedJson !== 'object') {
-		return { type: 'invalid' }
-	}
-
-	// Проверяем nonExistentWord (может быть на верхнем уровне объектом)
-	if (!Array.isArray(parsedJson)) {
-		const parsedResponse = parsedJson as Record<string, unknown>
-		if (parsedResponse.nonExistentWord === true) {
-			return { type: 'nonExistentWord' }
-		}
-		return { type: 'invalid' }
-	}
-
-	// Валидируем массив блоков
-	const validated: TranslationBlock[] = []
-
-	for (const item of parsedJson) {
-		const block = validateBlock(item, 0)
-		if (!block) {
-			return { type: 'invalid' }
-		}
-		validated.push(block)
-	}
-
-	return { type: 'translation', data: validated }
 }
 
 /**
- * Рекурсивно валидирует один блок.
- * Возвращает null если блок невалидный.
+ * Парсит ответ писателя статьи. Структура свободная, поэтому неизвестные и испорченные блоки
+ * просто пропускаются: статья считается негодной, только если не осталось ни одного блока.
  */
-function validateBlock(block: unknown, depth: number): TranslationBlock | null {
-	if (depth > MAX_DEPTH) {
-		return null
-	}
+export function parseUniversalPhraseTranslationResult(rawMessage: string): ParseUniversalPhraseTranslationResult {
+	const parsedResponse = parseLlmJson(rawMessage) as null | { nonExistentWord?: unknown; blocks?: unknown }
 
-	if (!block || typeof block !== 'object' || Array.isArray(block)) {
-		return null
-	}
+	if (!parsedResponse || typeof parsedResponse !== 'object') return { type: 'invalid' }
+	if (parsedResponse.nonExistentWord === true) return { type: 'nonExistentWord' }
+	if (!Array.isArray(parsedResponse.blocks)) return { type: 'invalid' }
 
-	const b = block as Record<string, unknown>
+	const blocks = validateBlocks(parsedResponse.blocks, 0)
 
-	if (typeof b.type !== 'string') {
-		return null
-	}
+	return blocks.length > 0 ? { type: 'translation', data: blocks } : { type: 'invalid' }
+}
 
-	switch (b.type) {
+/**
+ * Парсит ответ с глубокими разделами. Пустой массив — допустимый ответ «добавить нечего».
+ * Возвращает null, только если ответ не удалось разобрать.
+ */
+export function parseDeepSectionsResult(rawMessage: string): null | TranslationBlock[] {
+	const parsedResponse = parseLlmJson(rawMessage) as null | { blocks?: unknown }
+	if (!parsedResponse || !Array.isArray(parsedResponse.blocks)) return null
+
+	return withoutSenses(validateBlocks(parsedResponse.blocks, 0))
+}
+
+function withoutSenses(blocks: DraftBlock[]): TranslationBlock[] {
+	return blocks.flatMap((block): TranslationBlock[] => {
+		if (block.type === 'sense') return withoutSenses(block.children)
+		if (block.type === 'block') return [{ ...block, children: withoutSenses(block.children) }]
+		return [block]
+	})
+}
+
+function validateBlocks(rawBlocks: unknown[], depth: number): DraftBlock[] {
+	if (depth > MAX_DEPTH) return []
+
+	return rawBlocks.flatMap((rawBlock) => {
+		const block = validateBlock(rawBlock, depth)
+		return block ? [block] : []
+	})
+}
+
+function validateBlock(rawBlock: unknown, depth: number): DraftBlock | null {
+	if (!rawBlock || typeof rawBlock !== 'object' || Array.isArray(rawBlock)) return null
+
+	const block = rawBlock as Record<string, unknown>
+
+	switch (block.type) {
 		case 'block':
-			return validateBlockBlock(b, depth)
-		case 'useCase':
-			return validateUseCaseBlock(b, depth)
-		case 'paper':
-			return validatePaperBlock(b, depth)
+			return typeof block.header === 'string'
+				? { type: 'block', header: block.header, children: validateChildren(block.children, depth) }
+				: null
+		case 'sense':
+			return validateSenseBlock(block, depth)
 		case 'example':
-			return validateExampleBlock(b)
+			return typeof block.sentence === 'string' && typeof block.translation === 'string'
+				? { type: 'example', sentence: block.sentence, translation: block.translation }
+				: null
 		case 'text':
-			return validateTextBlock(b)
+			return typeof block.text === 'string' ? { type: 'text', text: block.text } : null
+		case 'words':
+			return validateWordsBlock(block)
+		case 'list':
+			return validateListBlock(block)
 		default:
 			return null
 	}
 }
 
-function validateChildren(children: unknown, depth: number): TranslationBlock[] | null {
-	if (!Array.isArray(children)) {
-		return null
-	}
-
-	const validated: TranslationBlock[] = []
-
-	for (const item of children) {
-		const child = validateBlock(item, depth + 1)
-		if (!child) {
-			return null
-		}
-		validated.push(child)
-	}
-
-	return validated
+function validateChildren(children: unknown, depth: number): DraftBlock[] {
+	return Array.isArray(children) ? validateBlocks(children, depth + 1) : []
 }
 
-function validateBlockBlock(b: Record<string, unknown>, depth: number): TranslationBlock | null {
-	if (typeof b.header !== 'string') {
-		return null
-	}
-
-	const children = validateChildren(b.children, depth)
-	if (!children) {
-		return null
-	}
+function validateSenseBlock(block: Record<string, unknown>, depth: number): DraftSenseBlock | null {
+	if (typeof block.header !== 'string') return null
 
 	return {
-		type: 'block',
-		header: b.header,
-		children,
+		type: 'sense',
+		header: block.header,
+		lemma: cleanText(block.lemma, MAX_LEMMA_LENGTH)?.toLowerCase() ?? null,
+		gloss: cleanText(block.gloss, MAX_GLOSS_LENGTH),
+		senseRef: typeof block.senseRef === 'number' ? block.senseRef : null,
+		visual: validateVisual(block.visual),
+		children: validateChildren(block.children, depth),
 	}
 }
 
-function validateUseCaseBlock(b: Record<string, unknown>, depth: number): TranslationBlock | null {
-	if (typeof b.header !== 'string') {
-		return null
-	}
+function validateVisual(rawVisual: unknown): null | WordSenseVisual {
+	if (!rawVisual || typeof rawVisual !== 'object') return null
 
-	const children = validateChildren(b.children, depth)
-	if (!children) {
-		return null
-	}
+	const visual = rawVisual as Record<string, unknown>
+	const prompt = cleanText(visual.prompt, MAX_VISUAL_PROMPT_LENGTH)
+	if (!prompt || !WORD_SENSE_VISUAL_KINDS.includes(visual.kind as WordSenseVisualKind)) return null
 
-	return {
-		type: 'useCase',
-		header: b.header,
-		children,
-	}
+	const kind = visual.kind as WordSenseVisualKind
+
+	return { kind, aspect: kind === 'comic' ? 'strip' : 'landscape', prompt }
 }
 
-function validatePaperBlock(b: Record<string, unknown>, depth: number): TranslationBlock | null {
-	const children = validateChildren(b.children, depth)
-	if (!children) {
-		return null
-	}
+/** Блок без похожих слов бессмыслен, а карточка текущего слова необязательна. */
+function validateWordsBlock(block: Record<string, unknown>): null | WordsBlock {
+	const currentWord = validateWordCard(block.currentWord)
+	const currentWordKey = currentWord?.word.toLowerCase()
+	const similarWords = (Array.isArray(block.similarWords) ? block.similarWords : []).flatMap((rawCard) => {
+		const wordCard = validateWordCard(rawCard)
+		return wordCard && wordCard.word.toLowerCase() !== currentWordKey ? [wordCard] : []
+	})
 
-	return {
-		type: 'paper',
-		children,
-	}
+	return similarWords.length > 0 ? { type: 'words', currentWord, similarWords } : null
 }
 
-function validateExampleBlock(b: Record<string, unknown>): TranslationBlock | null {
-	if (typeof b.sentence !== 'string' || typeof b.translation !== 'string') {
-		return null
-	}
+function validateWordCard(rawCard: unknown): null | WordCard {
+	if (!rawCard || typeof rawCard !== 'object') return null
 
-	return {
-		type: 'example',
-		sentence: b.sentence,
-		translation: b.translation,
-	}
+	const card = rawCard as Record<string, unknown>
+	const word = cleanText(card.word, MAX_WORD_LENGTH)
+	const description = cleanText(card.description, MAX_DESCRIPTION_LENGTH)
+
+	return word && description ? { word, description } : null
 }
 
-function validateTextBlock(b: Record<string, unknown>): TranslationBlock | null {
-	if (typeof b.text !== 'string') {
-		return null
-	}
+function validateListBlock(block: Record<string, unknown>): null | ListBlock {
+	const items = (Array.isArray(block.items) ? block.items : []).flatMap((rawItem) => {
+		const listItem = validateListItem(rawItem)
+		return listItem ? [listItem] : []
+	})
 
-	return {
-		type: 'text',
-		text: b.text,
-	}
+	return items.length > 0 ? { type: 'list', items } : null
+}
+
+function validateListItem(rawItem: unknown): null | ListItem {
+	if (!rawItem || typeof rawItem !== 'object') return null
+
+	const item = rawItem as Record<string, unknown>
+	const term = cleanText(item.term, MAX_WORD_LENGTH)
+	const translation = cleanText(item.translation, MAX_DESCRIPTION_LENGTH)
+
+	return term && translation ? { term, translation } : null
+}
+
+function cleanText(rawText: unknown, maxLength: number): null | string {
+	if (typeof rawText !== 'string' || !rawText.trim()) return null
+
+	return rawText.trim().slice(0, maxLength)
 }

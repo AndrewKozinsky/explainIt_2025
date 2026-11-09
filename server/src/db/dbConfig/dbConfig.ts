@@ -1128,13 +1128,7 @@ export const bdConfig = {
 	},
 	// Перевод фразы из UniversalPhrase на конкретный язык через LLM
 	UniversalPhraseTranslation: {
-		dtoProps: {
-			model: {
-				type: 'string',
-				description: 'LLM model (enum). Если не указана — DeepSeek по умолчанию.',
-				required: false,
-			},
-		},
+		dtoProps: {},
 		indexes: [
 			{ fields: ['universal_phrase_id', 'target_language_code'], unique: true },
 			{ fields: ['universal_phrase_id'] },
@@ -1182,6 +1176,84 @@ export const bdConfig = {
 				description: 'Flag indicating that the word/phrase does not exist in the source language',
 				required: true,
 				default: false,
+			},
+			lemmas: {
+				type: 'string',
+				description: 'JSON array of dictionary headwords behind the phrase',
+				required: false,
+			},
+			deep_sections: {
+				type: 'string',
+				description: 'JSON with optional article sections generated in the background',
+				required: false,
+			},
+			created_at: {
+				type: 'createdAt',
+			},
+		},
+	},
+	// Одно значение леммы. Значения общие для всех форм слова и языков интерфейса, к ним привязаны иллюстрации.
+	WordSense: {
+		dtoProps: {},
+		indexes: [
+			{ fields: ['source_language_code', 'lemma', 'gloss'], unique: true },
+			{ fields: ['source_language_code', 'lemma'] },
+		],
+		dbFields: {
+			id: {
+				type: 'index',
+				description: 'Word sense ID',
+				example: 1,
+			},
+			source_language_code: {
+				type: 'enum',
+				enumName: 'LanguageCode',
+				variants: languagesArr,
+				required: true,
+			},
+			lemma: {
+				type: 'string',
+				description: 'Dictionary headword the sense belongs to',
+				required: true,
+				maxLength: 300,
+			},
+			gloss: {
+				type: 'string',
+				description: 'Short English description of the meaning',
+				required: true,
+				maxLength: 300,
+			},
+			visual_kind: {
+				type: 'string',
+				description: 'Kind of illustration: scene, contrast or comic',
+				required: false,
+				maxLength: 20,
+			},
+			visual_aspect: {
+				type: 'string',
+				description: 'Illustration format: square, landscape, portrait or strip',
+				required: false,
+				maxLength: 20,
+			},
+			visual_prompt: {
+				type: 'string',
+				description: 'English description of what the illustration shows',
+				required: false,
+				maxLength: 2000,
+			},
+			image_s3_key: {
+				type: 'string',
+				description: 'S3 object key of the illustration',
+				required: false,
+				maxLength: 500,
+			},
+			image_status: {
+				type: 'enum',
+				description: 'Illustration generation status',
+				required: true,
+				variants: ['none', 'pending', 'generating', 'ready', 'failed'],
+				default: 'none',
+				enumName: 'WordSenseImageStatus',
 			},
 			created_at: {
 				type: 'createdAt',

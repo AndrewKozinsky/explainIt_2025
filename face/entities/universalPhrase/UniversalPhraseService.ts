@@ -10,7 +10,6 @@ import type {
 	PhraseTranslationDataModel,
 	PhraseTranslationRepository,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
-import { DeepSeekModels } from '@/shared/api/AIModels'
 import { canLanguageHaveTranscription, LanguageCode } from '@/shared/utils/languages'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -380,7 +379,6 @@ export class UniversalPhraseService {
 			{
 				universalPhraseId: updated.phraseId!,
 				targetLanguageCode,
-				model: DeepSeekModels.Flash,
 			},
 			signal,
 		)

@@ -1,12 +1,13 @@
-import type { UniversalPhraseTranslationOutModel, TranscriptionOutModel } from '@/shared/api/generated/models'
+import type { TranscriptionOutModel, UniversalPhraseTranslationOutModel } from '@/shared/api/generated/models'
 import { universalPhraseTranslationControllerGetOrCreateTranslation } from '@/shared/api/generated/universal-phrase-translation/universal-phrase-translation'
-import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type {
 	GetOrCreateTranslationInput,
 	PhraseTranslationDataModel,
 	PhraseTranslationModel,
 	PhraseTranslationRepository,
+	TranslationBlockModel,
 	TranslationStatus,
 } from './PhraseTranslationRepository'
 import type { TranscriptionModel } from '../../phrase/repository/PhraseRepository'
@@ -33,12 +34,22 @@ function mapToPhraseTranslation(raw: UniversalPhraseTranslationOutModel): Phrase
 		id: raw.id,
 		universalPhraseId: raw.universalPhraseId ?? null,
 		targetLanguageCode: raw.targetLanguageCode,
-		translation: raw.translation as PhraseTranslationDataModel | null,
+		translation: mapToArticle(raw),
 		status: mapStatus(raw.status),
 		errorCode: raw.errorCode ?? null,
 		nonExistentWord: raw.nonExistentWord,
 		createdAt: raw.createdAt,
 		transcription: raw.transcription ? mapToTranscription(raw.transcription) : null,
+	}
+}
+
+function mapToArticle(raw: UniversalPhraseTranslationOutModel): PhraseTranslationDataModel | null {
+	if (!raw.translation) return null
+
+	return {
+		blocks: raw.translation as unknown as TranslationBlockModel[],
+		deepSections: (raw.deepSections ?? []) as unknown as TranslationBlockModel[],
+		wordForms: raw.wordForms,
 	}
 }
 

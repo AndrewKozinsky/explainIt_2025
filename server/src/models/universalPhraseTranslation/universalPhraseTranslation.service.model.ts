@@ -8,14 +8,16 @@ export type UniversalPhraseTranslationServiceModel = {
 	status: UniversalPhraseTranslationStatus
 	errorCode: null | string
 	nonExistentWord: boolean
+	lemmas: string[]
+	deepSections: null | TranslationBlock[]
 	createdAt: Date
 }
 
 /**
- * Корневой тип — массив блоков, формирующих статью-объяснение.
+ * Корневой тип — массив блоков, формирующих статью.
  * На верхнем уровне могут быть любые типы блоков.
  */
-export type TranslationBlock = BlockBlock | UseCaseBlock | PaperBlock | ExampleBlock | TextBlock
+export type TranslationBlock = BlockBlock | SenseBlock | ExampleBlock | TextBlock | WordsBlock | ListBlock
 
 /** Секция с заголовком и вложенными блоками */
 export type BlockBlock = {
@@ -24,16 +26,11 @@ export type BlockBlock = {
 	children: TranslationBlock[]
 }
 
-/** Сценарий употребления с заголовком и вложенными блоками */
-export type UseCaseBlock = {
-	type: 'useCase'
+/** Одно значение слова: перевод в заголовке, ссылка на общую запись значения и вложенные блоки */
+export type SenseBlock = {
+	type: 'sense'
 	header: string
-	children: TranslationBlock[]
-}
-
-/** Визуальная обёртка-карточка */
-export type PaperBlock = {
-	type: 'paper'
+	wordSenseId: null | number
 	children: TranslationBlock[]
 }
 
@@ -48,4 +45,29 @@ export type ExampleBlock = {
 export type TextBlock = {
 	type: 'text'
 	text: string
+}
+
+/** Слово с коротким описанием для сравнения с похожими словами */
+export type WordCard = {
+	word: string
+	description: string
+}
+
+/** Похожие слова: текущее слово и слова, статью о которых можно открыть */
+export type WordsBlock = {
+	type: 'words'
+	currentWord: null | WordCard
+	similarWords: WordCard[]
+}
+
+/** Выражение с переводом */
+export type ListItem = {
+	term: string
+	translation: string
+}
+
+/** Список выражений с переводом */
+export type ListBlock = {
+	type: 'list'
+	items: ListItem[]
 }

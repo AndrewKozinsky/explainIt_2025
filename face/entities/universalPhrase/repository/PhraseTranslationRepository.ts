@@ -1,4 +1,3 @@
-import type { AiModel } from '@/shared/api/AIModels'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import type { TranscriptionModel } from '../../phrase/repository/PhraseRepository'
 
@@ -20,17 +19,26 @@ export type PhraseTranslationModel = {
 export type TranslationStatus = 'pending' | 'ready' | 'error'
 
 /**
- * Данные перевода — массив типизированных блоков от LLM.
- * На верхнем уровне могут быть любые типы блоков.
+ * Словарная статья: основная часть, фоновые разделы и заранее подготовленные формы слова.
  */
-export type PhraseTranslationDataModel = TranslationBlockModel[]
+export type PhraseTranslationDataModel = {
+	blocks: TranslationBlockModel[]
+	deepSections: TranslationBlockModel[]
+	wordForms: WordFormsModel[]
+}
+
+/** Формы слова по порядку, варианты одной формы разделены косой чертой */
+export type WordFormsModel = {
+	forms: string[]
+}
 
 export type TranslationBlockModel =
 	| BlockBlockModel
-	| UseCaseBlockModel
-	| PaperBlockModel
+	| SenseBlockModel
 	| ExampleBlockModel
 	| TextBlockModel
+	| WordsBlockModel
+	| ListBlockModel
 
 /** Секция с заголовком и вложенными блоками */
 export type BlockBlockModel = {
@@ -39,16 +47,12 @@ export type BlockBlockModel = {
 	children: TranslationBlockModel[]
 }
 
-/** Сценарий употребления с заголовком и вложенными блоками */
-export type UseCaseBlockModel = {
-	type: 'useCase'
+/** Одно значение слова: перевод, необязательная иллюстрация и вложенные блоки */
+export type SenseBlockModel = {
+	type: 'sense'
 	header: string
-	children: TranslationBlockModel[]
-}
-
-/** Визуальная обёртка-карточка */
-export type PaperBlockModel = {
-	type: 'paper'
+	imageUrl: string | null
+	imageAspect: string | null
 	children: TranslationBlockModel[]
 }
 
@@ -65,6 +69,25 @@ export type TextBlockModel = {
 	text: string
 }
 
+/** Слово с коротким описанием */
+export type WordCardModel = {
+	word: string
+	description: string
+}
+
+/** Похожие слова: текущее слово и слова, статью о которых можно открыть */
+export type WordsBlockModel = {
+	type: 'words'
+	currentWord: WordCardModel | null
+	similarWords: WordCardModel[]
+}
+
+/** Список выражений с переводом */
+export type ListBlockModel = {
+	type: 'list'
+	items: { term: string; translation: string }[]
+}
+
 /**
  * Входные данные для запроса перевода.
  */
@@ -73,7 +96,6 @@ export type GetOrCreateTranslationInput = {
 	phraseText?: string | null
 	sourceLanguageCode?: string | null
 	targetLanguageCode: string
-	model?: AiModel | null
 }
 
 /**

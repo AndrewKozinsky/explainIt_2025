@@ -117,6 +117,17 @@ export const UniversalPhraseTranslationStatus = {
 export type UniversalPhraseTranslationStatus = (typeof UniversalPhraseTranslationStatus)[keyof typeof UniversalPhraseTranslationStatus]
 
 
+export const WordSenseImageStatus = {
+  none: 'none',
+  pending: 'pending',
+  generating: 'generating',
+  ready: 'ready',
+  failed: 'failed'
+} as const
+
+export type WordSenseImageStatus = (typeof WordSenseImageStatus)[keyof typeof WordSenseImageStatus]
+
+
 export const SentenceChatMessageRole = {
   user: 'user',
   assistant: 'assistant'

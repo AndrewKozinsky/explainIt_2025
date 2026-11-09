@@ -412,6 +412,7 @@ export const ModelName = {
   UniversalTranscription: 'UniversalTranscription',
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   UniversalPhraseTranslation: 'UniversalPhraseTranslation',
+  WordSense: 'WordSense',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
   AiDialogueScenarioGroup: 'AiDialogueScenarioGroup',
@@ -439,7 +440,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenarioGroup" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox" | "aiDialogueVoice" | "aiDialogueAudio"
+    modelProps: "user" | "userBalanceTransaction" | "payment" | "book" | "bookChapter" | "video" | "sentence" | "sentenceTranslation" | "sentencePhraseTranslation" | "subtitle" | "subtitleSentenceInit" | "universalPhrase" | "universalTranscription" | "universalAudioPronunciation" | "universalPhraseTranslation" | "wordSense" | "sentenceChatThread" | "sentenceChatMessage" | "aiDialogueScenarioGroup" | "aiDialogueScenario" | "aiDialogue" | "aiDialogueMessage" | "aiDialogueCharacter" | "aiDialogueImage" | "imageGenerationJob" | "imageGenerationOutbox" | "aiDialogueVoice" | "aiDialogueAudio"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1550,6 +1551,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.UniversalPhraseTranslationCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.UniversalPhraseTranslationCountAggregateOutputType> | number
+        }
+      }
+    }
+    WordSense: {
+      payload: Prisma.$WordSensePayload<ExtArgs>
+      fields: Prisma.WordSenseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.WordSenseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.WordSenseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>
+        }
+        findFirst: {
+          args: Prisma.WordSenseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.WordSenseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>
+        }
+        findMany: {
+          args: Prisma.WordSenseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>[]
+        }
+        create: {
+          args: Prisma.WordSenseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>
+        }
+        createMany: {
+          args: Prisma.WordSenseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.WordSenseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>[]
+        }
+        delete: {
+          args: Prisma.WordSenseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>
+        }
+        update: {
+          args: Prisma.WordSenseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>
+        }
+        deleteMany: {
+          args: Prisma.WordSenseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.WordSenseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.WordSenseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>[]
+        }
+        upsert: {
+          args: Prisma.WordSenseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$WordSensePayload>
+        }
+        aggregate: {
+          args: Prisma.WordSenseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateWordSense>
+        }
+        groupBy: {
+          args: Prisma.WordSenseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WordSenseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.WordSenseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.WordSenseCountAggregateOutputType> | number
         }
       }
     }
@@ -2696,10 +2771,28 @@ export const UniversalPhraseTranslationScalarFieldEnum = {
   status: 'status',
   error_code: 'error_code',
   non_existent_word: 'non_existent_word',
+  lemmas: 'lemmas',
+  deep_sections: 'deep_sections',
   created_at: 'created_at'
 } as const
 
 export type UniversalPhraseTranslationScalarFieldEnum = (typeof UniversalPhraseTranslationScalarFieldEnum)[keyof typeof UniversalPhraseTranslationScalarFieldEnum]
+
+
+export const WordSenseScalarFieldEnum = {
+  id: 'id',
+  source_language_code: 'source_language_code',
+  lemma: 'lemma',
+  gloss: 'gloss',
+  visual_kind: 'visual_kind',
+  visual_aspect: 'visual_aspect',
+  visual_prompt: 'visual_prompt',
+  image_s3_key: 'image_s3_key',
+  image_status: 'image_status',
+  created_at: 'created_at'
+} as const
+
+export type WordSenseScalarFieldEnum = (typeof WordSenseScalarFieldEnum)[keyof typeof WordSenseScalarFieldEnum]
 
 
 export const SentenceChatThreadScalarFieldEnum = {
@@ -3124,6 +3217,20 @@ export type ListEnumUniversalPhraseTranslationStatusFieldRefInput<$PrismaModel> 
 
 
 /**
+ * Reference to a field of type 'WordSenseImageStatus'
+ */
+export type EnumWordSenseImageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WordSenseImageStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'WordSenseImageStatus[]'
+ */
+export type ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'WordSenseImageStatus[]'>
+    
+
+
+/**
  * Reference to a field of type 'SentenceChatMessageRole'
  */
 export type EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'SentenceChatMessageRole'>
@@ -3428,6 +3535,7 @@ export type GlobalOmitConfig = {
   universalTranscription?: Prisma.UniversalTranscriptionOmit
   universalAudioPronunciation?: Prisma.UniversalAudioPronunciationOmit
   universalPhraseTranslation?: Prisma.UniversalPhraseTranslationOmit
+  wordSense?: Prisma.WordSenseOmit
   sentenceChatThread?: Prisma.SentenceChatThreadOmit
   sentenceChatMessage?: Prisma.SentenceChatMessageOmit
   aiDialogueScenarioGroup?: Prisma.AiDialogueScenarioGroupOmit

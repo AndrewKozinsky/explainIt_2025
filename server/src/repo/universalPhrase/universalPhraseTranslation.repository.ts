@@ -49,11 +49,16 @@ export class UniversalPhraseTranslationRepository {
 	}
 
 	@CatchDbError()
-	async updateToReady(id: number, translation: TranslationBlock[]): Promise<UniversalPhraseTranslationServiceModel> {
+	async updateToReady(
+		id: number,
+		translation: TranslationBlock[],
+		lemmas: string[],
+	): Promise<UniversalPhraseTranslationServiceModel> {
 		const db = await this.prisma.universalPhraseTranslation.update({
 			where: { id },
 			data: {
 				translation: JSON.stringify(translation),
+				lemmas: JSON.stringify(lemmas),
 				status: 'ready',
 				error_code: null,
 				non_existent_word: false,
@@ -61,6 +66,38 @@ export class UniversalPhraseTranslationRepository {
 		})
 
 		return this.mapDbToService(db)
+	}
+
+	/** Данные для фоновой генерации глубоких разделов. */
+	@CatchDbError()
+	async findForDeepSections(id: number): Promise<null | {
+		phraseText: string
+		sourceLanguageCode: LanguageCode
+		targetLanguageCode: LanguageCode
+		translation: string | null
+		deepSections: string | null
+	}> {
+		const db = await this.prisma.universalPhraseTranslation.findUnique({
+			where: { id },
+			include: { universal_phrase: true },
+		})
+		if (!db) return null
+
+		return {
+			phraseText: db.universal_phrase.text,
+			sourceLanguageCode: db.universal_phrase.source_language_code,
+			targetLanguageCode: db.target_language_code,
+			translation: db.translation,
+			deepSections: db.deep_sections,
+		}
+	}
+
+	@CatchDbError()
+	async saveDeepSections(id: number, deepSections: TranslationBlock[]): Promise<void> {
+		await this.prisma.universalPhraseTranslation.update({
+			where: { id },
+			data: { deep_sections: JSON.stringify(deepSections) },
+		})
 	}
 
 	@CatchDbError()
@@ -92,20 +129,16 @@ export class UniversalPhraseTranslationRepository {
 	}
 
 	private mapDbToService(db: UniversalPhraseTranslation): UniversalPhraseTranslationServiceModel {
-		let translation: null | TranslationBlock[] = null
-
-		if (db.translation) {
-			translation = JSON.parse(db.translation) as TranslationBlock[]
-		}
-
 		return {
 			id: db.id,
 			universalPhraseId: db.universal_phrase_id,
 			targetLanguageCode: db.target_language_code,
-			translation,
+			translation: db.translation ? (JSON.parse(db.translation) as TranslationBlock[]) : null,
 			status: db.status,
 			errorCode: db.error_code,
 			nonExistentWord: db.non_existent_word,
+			lemmas: db.lemmas ? (JSON.parse(db.lemmas) as string[]) : [],
+			deepSections: db.deep_sections ? (JSON.parse(db.deep_sections) as TranslationBlock[]) : null,
 			createdAt: db.created_at,
 		}
 	}

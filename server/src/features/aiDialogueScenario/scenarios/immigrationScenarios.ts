@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 /**
  * Добавляет к промпту общее для группы правило о стране переезда и языке.

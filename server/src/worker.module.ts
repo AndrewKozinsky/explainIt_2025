@@ -9,6 +9,8 @@ import { SentenceRepository } from 'repo/sentence.repository'
 import { SubtitleRepository } from 'repo/subtitle.repository'
 import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.repository'
 import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPhrase.queryRepository'
+import { UniversalPhraseTranslationRepository } from 'repo/universalPhrase/universalPhraseTranslation.repository'
+import { WordSenseRepository } from 'repo/universalPhrase/wordSense.repository'
 import { VideoQueryRepository } from 'repo/video/video.queryRepository'
 import { VideoRepository } from 'repo/video/video.repository'
 import { PrismaService } from 'db/prisma.service'
@@ -16,6 +18,9 @@ import { AiDialogueImageGenerationProcessor } from 'features/aiDialogue/imageGen
 import { GenerateAiDialogueImage } from 'features/aiDialogue/imageGeneration/GenerateAiDialogueImage.service'
 import { ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/ImageGenerationAssets'
 import { R2ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/R2ImageGenerationAssets.service'
+import { DictionaryEnrichmentProcessor } from 'features/universalPhraseTranslation/enrichment/DictionaryEnrichment.processor'
+import { GenerateDictionaryDeepSections } from 'features/universalPhraseTranslation/enrichment/GenerateDictionaryDeepSections.service'
+import { GenerateWordSenseImage } from 'features/universalPhraseTranslation/enrichment/GenerateWordSenseImage.service'
 import { S3SubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/S3SubtitlesStrategy'
 import { YoutubeSubtitlesStrategy } from 'features/video/subtitlesGeneration/strategies/YoutubeSubtitlesStrategy'
 import { SubtitlesGenerationProcessor } from 'features/video/subtitlesGeneration/SubtitlesGeneration.processor'
@@ -25,6 +30,7 @@ import { DeepgramSttModule } from 'infrastructure/deepgramStt/deepgramStt.module
 import { DeepSeekModule } from 'infrastructure/deepSeek/deepSeek.module'
 import { GoogleGeminiModule } from 'infrastructure/googleGemini/googleGemini.module'
 import { ImageGenerationProviderModule } from 'infrastructure/imageGenerationProviderAdapter/imageGenerationProvider.module'
+import { ImageProcessingService } from 'infrastructure/imageProcessing/imageProcessing.service'
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -39,7 +45,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 /**
  * Worker-side Nest app. Runs in a separate process (main.worker.ts).
  *
- * Wires the subtitles and AI dialogue image processors:
+ * Wires the subtitles, AI dialogue image and dictionary enrichment processors:
  *   - Shared BullMQ connection + queue registration
  *   - CQRS + reused handlers (UpdateVideoCommand for SRT persistence)
  *   - Prisma + all repos those handlers touch
@@ -71,6 +77,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		}),
 		BullModule.registerQueue({ name: QueueNames.SUBTITLES_GENERATION }),
 		BullModule.registerQueue({ name: QueueNames.AI_DIALOGUE_IMAGE_GENERATION }),
+		BullModule.registerQueue({ name: QueueNames.DICTIONARY_ENRICHMENT }),
 	],
 	providers: [
 		PrismaService,
@@ -92,6 +99,12 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		AiDialogueImageGenerationProcessor,
 		ImageGenerationAssetsRepository,
 		{ provide: ImageGenerationAssets, useClass: R2ImageGenerationAssets },
+		UniversalPhraseTranslationRepository,
+		WordSenseRepository,
+		ImageProcessingService,
+		GenerateDictionaryDeepSections,
+		GenerateWordSenseImage,
+		DictionaryEnrichmentProcessor,
 	],
 })
 export class WorkerModule {}

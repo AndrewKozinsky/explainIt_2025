@@ -6,9 +6,11 @@
  * OpenAPI spec version: 1.0
  */
 import type { TranscriptionOutModel } from './transcriptionOutModel';
+import type { UniversalPhraseTranslationOutModelDeepSections } from './universalPhraseTranslationOutModelDeepSections';
 import type { UniversalPhraseTranslationOutModelStatus } from './universalPhraseTranslationOutModelStatus';
 import type { UniversalPhraseTranslationOutModelTargetLanguageCode } from './universalPhraseTranslationOutModelTargetLanguageCode';
 import type { UniversalPhraseTranslationOutModelTranslation } from './universalPhraseTranslationOutModelTranslation';
+import type { WordFormsOutModel } from './wordFormsOutModel';
 
 export interface UniversalPhraseTranslationOutModel {
   /**
@@ -23,10 +25,17 @@ export interface UniversalPhraseTranslationOutModel {
   universalPhraseId: number;
   targetLanguageCode: UniversalPhraseTranslationOutModelTargetLanguageCode;
   /**
-     * Translation result from LLM — array of typed blocks
+     * Main part of the article — array of typed blocks
      * @nullable
      */
   translation: UniversalPhraseTranslationOutModelTranslation;
+  /**
+     * Optional article sections generated in the background — array of typed blocks
+     * @nullable
+     */
+  deepSections: UniversalPhraseTranslationOutModelDeepSections;
+  /** Prepared word forms shown above the article */
+  wordForms: WordFormsOutModel[];
   /** Status of translation generation */
   status: UniversalPhraseTranslationOutModelStatus;
   /**

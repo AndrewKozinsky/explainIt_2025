@@ -27,9 +27,4 @@ export interface GetOrCreateUniversalPhraseTranslationInput {
      */
   sourceLanguageCode?: GetOrCreateUniversalPhraseTranslationInputSourceLanguageCode;
   targetLanguageCode: GetOrCreateUniversalPhraseTranslationInputTargetLanguageCode;
-  /**
-     * LLM model (enum). Если не указана — DeepSeek по умолчанию.
-     * @nullable
-     */
-  model?: string | null;
 }

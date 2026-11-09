@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 /** Жизнь в съёмном жилье: ремонт и залог, поиск соседа, правила совместной жизни. */
 export const homeAndEverydayLifeScenarios: AiDialogueScenarioSeedData[] = [

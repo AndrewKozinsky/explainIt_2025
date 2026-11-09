@@ -4,13 +4,15 @@ import './StyledMarkdown.scss'
 
 type StyledMarkdownProps = {
 	content: string
+	/** Дополнительный класс для настройки стилей текста, например выделения жирных слов */
+	className?: string
 }
 
 function StyledMarkdown(props: StyledMarkdownProps) {
-	const { content } = props
+	const { content, className } = props
 
 	return (
-		<div className='styled-markdown'>
+		<div className={className ? `styled-markdown ${className}` : 'styled-markdown'}>
 			<ReactMarkdown remarkPlugins={[remarkGfm]}>{content}</ReactMarkdown>
 		</div>
 	)

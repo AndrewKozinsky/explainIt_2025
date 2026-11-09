@@ -5,6 +5,14 @@ import { TranscriptionOutModel } from 'models/transcription/transcription.out.mo
 
 const $ = bdConfig.UniversalPhraseTranslation.dbFields
 
+export class WordFormsOutModel {
+	@ApiProperty({
+		description: 'Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash',
+		type: [String],
+	})
+	forms: string[]
+}
+
 export class UniversalPhraseTranslationOutModel {
 	@ApiProperty(getApiPropertyOptions($.id))
 	id: number
@@ -16,12 +24,23 @@ export class UniversalPhraseTranslationOutModel {
 	targetLanguageCode: string
 
 	@ApiProperty({
-		description: 'Translation result from LLM — array of typed blocks',
+		description: 'Main part of the article — array of typed blocks',
 		type: 'object',
 		additionalProperties: true,
 		nullable: true,
 	})
 	translation: null | object
+
+	@ApiProperty({
+		description: 'Optional article sections generated in the background — array of typed blocks',
+		type: 'object',
+		additionalProperties: true,
+		nullable: true,
+	})
+	deepSections: null | object
+
+	@ApiProperty({ description: 'Prepared word forms shown above the article', type: [WordFormsOutModel] })
+	wordForms: WordFormsOutModel[]
 
 	@ApiProperty(getApiPropertyOptions($.status))
 	status: string

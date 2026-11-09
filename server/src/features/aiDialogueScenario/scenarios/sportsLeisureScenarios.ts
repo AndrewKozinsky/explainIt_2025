@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
 	/*{

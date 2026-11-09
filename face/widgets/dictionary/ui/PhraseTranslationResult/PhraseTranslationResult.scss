@@ -3,8 +3,34 @@
 .phrase-translation-result {
 	display: flex;
 	flex-direction: column;
-	gap: 2rem;
+	gap: 3rem;
 	margin-top: 1rem;
+}
+
+// ─── Word Forms ──────────────────────────────────────────────────────────────
+
+.translation-word-forms {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	font-size: 1.5rem;
+	line-height: 2.1rem;
+	color: vars.$grayColor-5;
+	margin: 0;
+}
+
+.translation-word-forms__part {
+	display: inline-flex;
+	gap: 0.6rem;
+}
+
+.translation-word-forms__arrow {
+	color: vars.$grayColor-4;
+}
+
+.translation-word-forms__form--current {
+	font-weight: 500;
+	color: vars.$textColor;
 }
 
 // ─── Block ───────────────────────────────────────────────────────────────────
@@ -16,47 +42,77 @@
 }
 
 .translation-block__header {
-	font-size: 2.1rem;
-	line-height: 2.6rem;
-	font-weight: 500;
-}
-
-// ─── UseCase ─────────────────────────────────────────────────────────────────
-
-.translation-use-case {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-}
-
-.translation-use-case__header {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: .6rem;
-	font-size: 1.8rem;
-	line-height: 2.4rem;
+	font-size: 2rem;
+	line-height: 2.8rem;
 	font-weight: 500;
 	margin: 0;
 }
 
-.translation-use-case__number {
-	display: inline-block;
-	font-size: 1.4rem;
-	line-height: 1.8rem;
-	text-align: center;
-	min-width: 2rem;
-	padding: 0.5rem .4rem;
-	border: 1px solid vars.$grayColor-3;
-	border-radius: 50%;
+// ─── Sense ───────────────────────────────────────────────────────────────────
+
+.translation-sense {
+	display: flex;
+	gap: 1rem;
 }
 
-// ─── Paper ───────────────────────────────────────────────────────────────────
+.translation-sense__number {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.6rem;
+	height: 2.6rem;
+	margin-top: 0.9rem;
+	border-radius: 0.8rem;
+	background-color: vars.$grayColor-1;
+	font-size: 1.4rem;
+	line-height: 1.4rem;
+	font-weight: 600;
+}
 
-.translation-paper {
-	border: 1px solid vars.$grayColor-2;
-	border-radius: 8px;
-	padding: 1.2rem;
+.translation-sense__content {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.translation-sense__header {
+	font-size: 3.2rem;
+	line-height: 3.6rem;
+	margin: 0;
+}
+
+.translation-sense__image {
+	display: block;
+	width: 100%;
+	background-color: vars.$grayColor-1;
+	overflow: hidden;
+	border-radius: vars.$radius-2;
+}
+
+.translation-sense__image--landscape {
+	aspect-ratio: 8 / 5;
+}
+
+.translation-sense__image--strip {
+	aspect-ratio: 3;
+}
+
+// ─── Text ────────────────────────────────────────────────────────────────────
+
+.styled-markdown.translation-text {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+
+	p {
+		margin: 0;
+	}
+
+	strong {
+		font-weight: 500;
+	}
 }
 
 // ─── Example ─────────────────────────────────────────────────────────────────
@@ -66,47 +122,114 @@
 	flex-direction: column;
 	gap: 0.3rem;
 
-	&:not(:last-child) {
-		margin-bottom: 1.2rem;
-		padding-bottom: 1.2rem;
-		border-bottom: 1px solid vars.$grayColor-2;
+	& + & {
+		padding-top: 1.2rem;
+		border-top: 1px solid vars.$grayColor-2;
 	}
 }
 
-.translation-example__sentence {
+.styled-markdown.translation-example__sentence {
 	font-size: 1.6rem;
-	line-height: 2.2rem;
+	line-height: 2.4rem;
 	font-weight: 500;
-	margin: 0;
+
+	p {
+		margin: 0;
+	}
+
+	strong {
+		font-weight: 500;
+		color: vars.$accentColor-2;
+	}
 }
 
-.translation-example__translation {
+.styled-markdown.translation-example__translation {
 	font-size: 1.5rem;
-	line-height: 2rem;
+	line-height: 2.1rem;
 	color: vars.$grayColor-5;
-	margin: 0;
+
+	p {
+		margin: 0;
+	}
+
+	strong {
+		font-weight: 500;
+		color: vars.$textColor;
+	}
 }
 
-// ─── PhrasesButtons ──────────────────────────────────────────────────────────
+// ─── Words ───────────────────────────────────────────────────────────────────
 
-.translation-phrases-buttons {
+.translation-words {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.translation-words__card {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 0.8rem;
-}
-
-.translation-phrases-button {
-	font-size: 1.5rem;
-	line-height: 2rem;
-	padding: 0.6rem 1.4rem;
-	border: 1px solid vars.$grayColor-3;
-	border-radius: 8px;
-	background-color: vars.$grayColor-1;
+	flex-direction: column;
+	gap: 0.2rem;
+	padding: 1rem 1.2rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: left;
 	cursor: pointer;
-	transition: background-color 0.15s, border-color 0.15s;
 
 	&:hover {
-		background-color: vars.$grayColor-2;
 		border-color: vars.$grayColor-4;
 	}
+}
+
+.translation-words__card--current {
+	border-color: transparent;
+	background-color: vars.$grayColor-1;
+	cursor: default;
+
+	&:hover {
+		border-color: transparent;
+	}
+}
+
+.translation-words__word {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
+.translation-words__description {
+	font-size: 1.5rem;
+	line-height: 2.2rem;
+}
+
+// ─── List ────────────────────────────────────────────────────────────────────
+
+.translation-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.translation-list__item {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+
+.translation-list__term {
+	font-weight: 500;
+}
+
+.translation-list__translation {
+	color: vars.$grayColor-5;
 }

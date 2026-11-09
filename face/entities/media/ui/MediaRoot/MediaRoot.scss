@@ -80,7 +80,7 @@
 	flex-shrink: 1;
 	flex-basis: 0;
 	min-width: 0;
-	max-width: 50rem;
+	max-width: 45rem;
 
 	@include mix.page-width(700px) {
 		display: block;

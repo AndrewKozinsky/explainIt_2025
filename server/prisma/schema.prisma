@@ -231,10 +231,28 @@ model UniversalPhraseTranslation {
 	status               UniversalPhraseTranslationStatus @default(pending)
 	error_code           String?
 	non_existent_word    Boolean                          @default(false)
+	lemmas               String?
+	deep_sections        String?
 	created_at           DateTime                         @default(now())
 
 	@@unique([universal_phrase_id, target_language_code])
 	@@index([universal_phrase_id])
+}
+
+model WordSense {
+	id                   Int                  @id @default(autoincrement())
+	source_language_code LanguageCode
+	lemma                String
+	gloss                String
+	visual_kind          String?
+	visual_aspect        String?
+	visual_prompt        String?
+	image_s3_key         String?
+	image_status         WordSenseImageStatus @default(none)
+	created_at           DateTime             @default(now())
+
+	@@unique([source_language_code, lemma, gloss])
+	@@index([source_language_code, lemma])
 }
 
 model SentenceChatThread {
@@ -507,6 +525,14 @@ enum UniversalPhraseTranslationStatus {
 	pending
 	ready
 	error
+}
+
+enum WordSenseImageStatus {
+	none
+	pending
+	generating
+	ready
+	failed
 }
 
 enum SentenceChatMessageRole {

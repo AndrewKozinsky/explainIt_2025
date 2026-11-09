@@ -32,6 +32,8 @@
 Таблица UniversalPhrase — фразы на иностранном языке
 Таблица UniversalTranscription — транскрипции фраз на иностранном языке (зависит от UniversalPhrase)
 Таблица UniversalAudioPronunciation — озвучка фраз на иностранном языке (зависит от UniversalPhrase)
+Таблица UniversalPhraseTranslation — словарные статьи фраз на языках пользователя (зависит от UniversalPhrase)
+Таблица WordSense — значения лемм с иллюстрациями, общие для всех форм слова и языков
 Таблица GrammarConcept — грамматические концепты/статьи (синхронизируются с .mdx файлами в content/)
 Таблица UniversalSentence — тексты предложений для извлечения грамматических концептов
 Таблица MissingGrammarConcept — ненайденные грамматические концепты (для контент-райтеров)

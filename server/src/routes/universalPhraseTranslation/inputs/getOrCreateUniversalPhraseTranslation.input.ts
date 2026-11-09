@@ -1,4 +1,3 @@
-import { AiModel } from 'types/AIModels'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 import { LanguageCode } from 'prisma/generated/enums'
@@ -17,7 +16,4 @@ export class GetOrCreateUniversalPhraseTranslationInput {
 
 	@DtoFieldDecorators('targetLanguageCode', bdConfig.UniversalPhraseTranslation.dbFields.target_language_code)
 	targetLanguageCode: LanguageCode
-
-	@DtoFieldDecorators('model', bdConfig.UniversalPhraseTranslation.dtoProps.model, { required: false })
-	model?: AiModel
 }

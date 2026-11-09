@@ -394,6 +394,23 @@ export type EnumUniversalPhraseTranslationStatusWithAggregatesFilter<$PrismaMode
   _max?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
 }
 
+export type EnumWordSenseImageStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WordSenseImageStatus | Prisma.EnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWordSenseImageStatusFilter<$PrismaModel> | $Enums.WordSenseImageStatus
+}
+
+export type EnumWordSenseImageStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WordSenseImageStatus | Prisma.EnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWordSenseImageStatusWithAggregatesFilter<$PrismaModel> | $Enums.WordSenseImageStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWordSenseImageStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWordSenseImageStatusFilter<$PrismaModel>
+}
+
 export type EnumSentenceChatMessageRoleFilter<$PrismaModel = never> = {
   equals?: $Enums.SentenceChatMessageRole | Prisma.EnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
   in?: $Enums.SentenceChatMessageRole[] | Prisma.ListEnumSentenceChatMessageRoleFieldRefInput<$PrismaModel>
@@ -963,6 +980,23 @@ export type NestedEnumUniversalPhraseTranslationStatusWithAggregatesFilter<$Pris
   _count?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
   _max?: Prisma.NestedEnumUniversalPhraseTranslationStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumWordSenseImageStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.WordSenseImageStatus | Prisma.EnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWordSenseImageStatusFilter<$PrismaModel> | $Enums.WordSenseImageStatus
+}
+
+export type NestedEnumWordSenseImageStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.WordSenseImageStatus | Prisma.EnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.WordSenseImageStatus[] | Prisma.ListEnumWordSenseImageStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumWordSenseImageStatusWithAggregatesFilter<$PrismaModel> | $Enums.WordSenseImageStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumWordSenseImageStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumWordSenseImageStatusFilter<$PrismaModel>
 }
 
 export type NestedEnumSentenceChatMessageRoleFilter<$PrismaModel = never> = {

@@ -7,7 +7,7 @@
  */
 
 /**
- * Translation result from LLM — array of typed blocks
+ * Main part of the article — array of typed blocks
  * @nullable
  */
 export type UniversalPhraseTranslationOutModelTranslation = { [key: string]: unknown } | null;

@@ -66,6 +66,7 @@ export const ModelName = {
   UniversalTranscription: 'UniversalTranscription',
   UniversalAudioPronunciation: 'UniversalAudioPronunciation',
   UniversalPhraseTranslation: 'UniversalPhraseTranslation',
+  WordSense: 'WordSense',
   SentenceChatThread: 'SentenceChatThread',
   SentenceChatMessage: 'SentenceChatMessage',
   AiDialogueScenarioGroup: 'AiDialogueScenarioGroup',
@@ -312,10 +313,28 @@ export const UniversalPhraseTranslationScalarFieldEnum = {
   status: 'status',
   error_code: 'error_code',
   non_existent_word: 'non_existent_word',
+  lemmas: 'lemmas',
+  deep_sections: 'deep_sections',
   created_at: 'created_at'
 } as const
 
 export type UniversalPhraseTranslationScalarFieldEnum = (typeof UniversalPhraseTranslationScalarFieldEnum)[keyof typeof UniversalPhraseTranslationScalarFieldEnum]
+
+
+export const WordSenseScalarFieldEnum = {
+  id: 'id',
+  source_language_code: 'source_language_code',
+  lemma: 'lemma',
+  gloss: 'gloss',
+  visual_kind: 'visual_kind',
+  visual_aspect: 'visual_aspect',
+  visual_prompt: 'visual_prompt',
+  image_s3_key: 'image_s3_key',
+  image_status: 'image_status',
+  created_at: 'created_at'
+} as const
+
+export type WordSenseScalarFieldEnum = (typeof WordSenseScalarFieldEnum)[keyof typeof WordSenseScalarFieldEnum]
 
 
 export const SentenceChatThreadScalarFieldEnum = {

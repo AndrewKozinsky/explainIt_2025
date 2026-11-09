@@ -115,6 +115,11 @@ export type UniversalAudioPronunciation = Prisma.UniversalAudioPronunciationMode
  */
 export type UniversalPhraseTranslation = Prisma.UniversalPhraseTranslationModel
 /**
+ * Model WordSense
+ * 
+ */
+export type WordSense = Prisma.WordSenseModel
+/**
  * Model SentenceChatThread
  * 
  */

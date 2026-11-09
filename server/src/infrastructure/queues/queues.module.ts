@@ -4,6 +4,7 @@ import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueImageGenerationQueue } from './aiDialogueImageGeneration.queue'
 import { buildBullmqConnection } from './bullmq.connection'
+import { DictionaryEnrichmentQueue } from './dictionaryEnrichment.queue'
 import { QueueNames } from './queueNames'
 import { SubtitlesGenerationQueue } from './subtitlesGeneration.queue'
 
@@ -45,8 +46,15 @@ import { SubtitlesGenerationQueue } from './subtitlesGeneration.queue'
 				},
 			}),
 		}),
+		BullModule.registerQueue({
+			name: QueueNames.DICTIONARY_ENRICHMENT,
+			defaultJobOptions: {
+				removeOnComplete: { count: 100 },
+				removeOnFail: { count: 500 },
+			},
+		}),
 	],
-	providers: [SubtitlesGenerationQueue, AiDialogueImageGenerationQueue],
-	exports: [BullModule, SubtitlesGenerationQueue, AiDialogueImageGenerationQueue],
+	providers: [SubtitlesGenerationQueue, AiDialogueImageGenerationQueue, DictionaryEnrichmentQueue],
+	exports: [BullModule, SubtitlesGenerationQueue, AiDialogueImageGenerationQueue, DictionaryEnrichmentQueue],
 })
 export class QueuesModule {}

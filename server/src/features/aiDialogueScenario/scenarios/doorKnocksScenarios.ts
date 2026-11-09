@@ -1,4 +1,4 @@
-import { AiDialogueScenarioSeedData } from '../common'
+import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 /**
  * Добавляет перед промптом общую завязку группы: стук в дверь, участник открывает и видит гостя снаружи.
