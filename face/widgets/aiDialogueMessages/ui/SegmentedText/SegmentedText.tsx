@@ -13,12 +13,15 @@ type SegmentedTextProps = {
 /**
  * Текст, разбитый на слова-кнопки. При наведении мышью или фокусе (после клика или Tab) подсвечиваются слова, которые
  * уйдут в Словарь при клике: всё выражение из карты или одно слово. Для выражения остальной текст блока затухает.
+ * Слова, отправленные в Словарь последним кликом на странице, залиты акцентным цветом.
  */
 function SegmentedText({ text, wordMap, onWordClick }: SegmentedTextProps) {
 	const {
 		segments,
 		frameParts,
+		selectedParts,
 		isExpressionHighlighted,
+		handleWordSelect,
 		handleWordPointerEnter,
 		handleTextPointerLeave,
 		handleWordFocus,
@@ -29,10 +32,11 @@ function SegmentedText({ text, wordMap, onWordClick }: SegmentedTextProps) {
 		<span className={getRootClassName(isExpressionHighlighted)} onPointerLeave={handleTextPointerLeave}>
 			{segments.map((segment) => {
 				const framePart = frameParts.get(segment.start)
+				const selectedPart = selectedParts.get(segment.start)
 
 				if (!segment.isWord || !onWordClick) {
 					return (
-						<span key={segment.start} className={getGapClassName(framePart)}>
+						<span key={segment.start} className={getGapClassName(framePart, selectedPart)}>
 							{segment.text}
 						</span>
 					)
@@ -42,8 +46,11 @@ function SegmentedText({ text, wordMap, onWordClick }: SegmentedTextProps) {
 					<button
 						key={segment.start}
 						type='button'
-						className={getWordClassName(framePart)}
-						onClick={() => onWordClick(segment)}
+						className={getWordClassName(framePart, selectedPart)}
+						onClick={() => {
+							handleWordSelect(segment)
+							onWordClick(segment)
+						}}
 						onPointerEnter={(event) => handleWordPointerEnter(event, segment)}
 						onFocus={() => handleWordFocus(segment)}
 						onBlur={handleWordBlur}

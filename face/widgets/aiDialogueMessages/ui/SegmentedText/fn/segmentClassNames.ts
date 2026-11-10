@@ -4,13 +4,26 @@ export function getRootClassName(isExpressionHighlighted: boolean) {
 	return isExpressionHighlighted ? 'segmented-text segmented-text--expression' : 'segmented-text'
 }
 
-export function getGapClassName(framePart?: FramePart) {
-	return framePart === 'bridge' ? 'segmented-text__gap segmented-text__gap--bridge' : 'segmented-text__gap'
+/**
+ * hoverPart — часть рамки подсветки (наведение или фокус), selectedPart — часть заливки слов, выбранных кликом.
+ * Мостик между выбранными словами тоже заливается, чтобы выражение выглядело одним блоком.
+ */
+export function getGapClassName(hoverPart?: FramePart, selectedPart?: FramePart) {
+	const classNames = ['segmented-text__gap']
+
+	if (hoverPart === 'bridge') classNames.push('segmented-text__gap--bridge')
+	if (selectedPart === 'bridge') classNames.push('segmented-text__gap--selected-bridge')
+
+	return classNames.join(' ')
 }
 
-export function getWordClassName(framePart?: FramePart) {
-	if (!framePart) return 'segmented-text__word'
-	if (framePart === 'single') return 'segmented-text__word segmented-text__word--highlighted'
+export function getWordClassName(hoverPart?: FramePart, selectedPart?: FramePart) {
+	const classNames = ['segmented-text__word']
 
-	return `segmented-text__word segmented-text__word--highlighted segmented-text__word--${framePart}`
+	if (hoverPart) classNames.push('segmented-text__word--highlighted')
+	if (hoverPart && hoverPart !== 'single') classNames.push(`segmented-text__word--${hoverPart}`)
+	if (selectedPart) classNames.push('segmented-text__word--selected')
+	if (selectedPart && selectedPart !== 'single') classNames.push(`segmented-text__word--selected-${selectedPart}`)
+
+	return classNames.join(' ')
 }

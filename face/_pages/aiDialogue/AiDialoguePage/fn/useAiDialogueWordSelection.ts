@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import { useSelectedWordsStore } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/selectedWordsStore'
 
 /** Dictionary selection changes only on a user click. */
 export function useAiDialogueWordSelection(dialogueId: string) {
@@ -10,6 +11,8 @@ export function useAiDialogueWordSelection(dialogueId: string) {
 		function () {
 			setSelectedWord(null)
 			setSelectedSentence('')
+			// Заливка выбранного слова относится к прежнему диалогу.
+			useSelectedWordsStore.getState().clearSelectedWords()
 		},
 		[dialogueId],
 	)

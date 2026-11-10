@@ -71,16 +71,48 @@
 	opacity: .3;
 }
 
+// Заливка слов, выбранных кликом: занимает ровно прямоугольник рамки подсветки и лежит над ней.
+@mixin selected-fill {
+	@include frame-part;
+	border: none;
+	background: vars.$accentColor-2;
+	opacity: 1;
+}
+
+.segmented-text__word--selected {
+	color: white;
+
+	&::after {
+		@include selected-fill;
+		inset: 0 -.2em;
+		border-radius: vars.$radius-1;
+	}
+}
+
+// Мостик между соседними выбранными словами заливается целиком, чтобы выражение было одним блоком.
+// Сам пробел или пунктуация тоже белые: они стоят на оранжевом фоне.
+.segmented-text__gap--selected-bridge {
+	display: inline-block;
+	white-space: pre;
+	color: #fff;
+
+	&::after {
+		@include selected-fill;
+	}
+}
+
 // Ряд соседних слов выражения: внешние стороны — как у отдельного слова, на внутренних стыках нет боковых линий,
-// скруглений и отступов, чтобы части сливались с мостиками в одну рамку.
-.segmented-text__word--start::before {
+// скруглений и отступов, чтобы части сливались с мостиками в одну рамку. Те же правила задают форму заливки.
+.segmented-text__word--start::before,
+.segmented-text__word--selected-start::after {
 	right: 0;
 	border-right: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
-.segmented-text__word--middle::before {
+.segmented-text__word--middle::before,
+.segmented-text__word--selected-middle::after {
 	right: 0;
 	left: 0;
 	border-right: none;
@@ -88,7 +120,8 @@
 	border-radius: 0;
 }
 
-.segmented-text__word--end::before {
+.segmented-text__word--end::before,
+.segmented-text__word--selected-end::after {
 	left: 0;
 	border-left: none;
 	border-top-left-radius: 0;
