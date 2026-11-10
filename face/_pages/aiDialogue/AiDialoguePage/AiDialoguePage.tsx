@@ -7,7 +7,6 @@ import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBl
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
-import SeparatedStack from '@/shared/ui/SeparatedStack/SeparatedStack'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
@@ -81,34 +80,38 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 				}
 				rightBlock={
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
-						<SeparatedStack>
-							<DetailsBlock
-								tabs={[
-									{
-										type: 'dictionary',
-										text: tPage('tabs.dictionary'),
-										content: (
-											<PhraseDictionary
-												languageCode={dialogue.sourceLanguageCode}
-												currentWord={selectedWord ?? undefined}
-											/>
-										),
-									},
-									{
-										type: 'ai_dialog',
-										text: tPage('tabs.dialogue'),
-										content: <p>{selectedSentence}</p>,
-									},
-								]}
-							/>
-							<AiDialogueSettings
-								textLevel={textLevel}
-								onTextLevelChange={changeTextLevel}
-								isUpdatingTextLevel={isUpdatingTextLevel}
-								audioBlocked={audio.state.isBlocked}
-								onUnlockAudio={() => audio.player.unlock()}
-							/>
-						</SeparatedStack>
+						<DetailsBlock
+							tabs={[
+								{
+									type: 'dictionary',
+									text: tPage('tabs.dictionary'),
+									content: (
+										<PhraseDictionary
+											languageCode={dialogue.sourceLanguageCode}
+											currentWord={selectedWord ?? undefined}
+										/>
+									),
+								},
+								/*{
+								type: 'ai_dialog',
+								text: tPage('tabs.dialogue'),
+								content: <p>{selectedSentence}</p>,
+								},*/
+								{
+									type: 'settings',
+									text: tPage('tabs.settings'),
+									content: (
+										<AiDialogueSettings
+											textLevel={textLevel}
+											onTextLevelChange={changeTextLevel}
+											isUpdatingTextLevel={isUpdatingTextLevel}
+											audioBlocked={audio.state.isBlocked}
+											onUnlockAudio={() => audio.player.unlock()}
+										/>
+									),
+								},
+							]}
+						/>
 					</ViewportSyncedHeight>
 				}
 			/>

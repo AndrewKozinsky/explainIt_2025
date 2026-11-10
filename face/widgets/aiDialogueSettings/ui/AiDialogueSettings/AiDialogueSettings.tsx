@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import TextLevelSwitcher, { type AiDialogueTextLevel } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
-import ReplySettingsToggles from './ReplySettingsToggles'
+import AutoVoiceToggle from './AutoVoiceToggle'
+import ReplyTextToggle from './ReplyTextToggle'
 import UnlockAudioButton from './UnlockAudioButton'
 import './AiDialogueSettings.scss'
 
@@ -20,13 +21,13 @@ function AiDialogueSettings(props: AiDialogueSettingsProps) {
 
 	return (
 		<section className='ai-dialogue-settings' aria-label={t('heading')}>
-			<h2 className='ai-dialogue-settings__heading'>{t('heading')}</h2>
 			<TextLevelSwitcher
 				textLevel={textLevel}
 				onTextLevelChange={onTextLevelChange}
 				disabled={isUpdatingTextLevel}
 			/>
-			<ReplySettingsToggles />
+			<AutoVoiceToggle />
+			<ReplyTextToggle />
 			<UnlockAudioButton audioBlocked={audioBlocked} onUnlockAudio={onUnlockAudio} />
 		</section>
 	)

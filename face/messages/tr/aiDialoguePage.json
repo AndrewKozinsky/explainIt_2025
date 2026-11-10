@@ -2,6 +2,7 @@
   "loading": "Sohbet yükleniyor…",
   "tabs": {
     "dictionary": "Sözlük",
-    "dialogue": "Sohbet"
+    "dialogue": "Sohbet",
+    "settings": "Ayarlar"
   }
 }

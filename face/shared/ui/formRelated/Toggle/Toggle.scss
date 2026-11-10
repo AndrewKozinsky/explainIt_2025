@@ -64,7 +64,7 @@
 }
 
 .toggle__input:checked + .toggle__track {
-	background-color: vars.$successColor-3;
+	background-color: vars.$accentColor-2;
 
 	.toggle__thumb {
 		--toggle-progress: 1;
@@ -86,7 +86,7 @@
 }
 
 .toggle__input:checked:focus + .toggle__track {
-	outline-color: rgba(vars.$successColor-3, .3);
+	outline-color: rgba(vars.$accentColor-2, .3);
 }
 
 @media (prefers-reduced-motion: reduce) {

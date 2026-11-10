@@ -2,6 +2,7 @@
   "loading": "Chargement de la conversation…",
   "tabs": {
     "dictionary": "Dictionnaire",
-    "dialogue": "Conversation"
+    "dialogue": "Conversation",
+    "settings": "Paramètres"
   }
 }

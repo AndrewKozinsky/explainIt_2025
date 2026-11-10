@@ -2,6 +2,7 @@
   "loading": "Gespräch wird geladen…",
   "tabs": {
     "dictionary": "Wörterbuch",
-    "dialogue": "Gespräch"
+    "dialogue": "Gespräch",
+    "settings": "Einstellungen"
   }
 }

@@ -55,7 +55,7 @@ SSE-протокол, генерация хода, компакция) опис�
 - `AiDialogueLeftWrapper` — левая колонка, принимает ровно 2 ребёнка `[messages, input]`: первый — список сообщений (+
   ошибка хода), второй — форма ввода.
 - Правая панель — `DetailsBlock` с вкладками «Словарь» (`PhraseDictionary` с `languageCode` и `currentWord`)
-  и «Диалог» (выбранное предложение).
+  и «Настройки» (`AiDialogueSettings`). Вкладка «Диалог» (выбранное предложение) временно закомментирована.
 
 Заголовок страницы — `dialogue.scenario.title`, который сервер уже вернул на языке интерфейса (см.
 `getHeaderAndSubHeader`).
@@ -292,7 +292,7 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 - `face/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText.tsx` — разбивка на слова.
 - `face/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock.tsx` — контент + перевод,
   кнопка воспроизведения и кнопка скрытого текста.
-- `face/widgets/aiDialogueSettings/ui/AiDialogueSettings/ReplySettingsToggles.tsx` — переключатели
+- `face/widgets/aiDialogueSettings/ui/AiDialogueSettings/AutoVoiceToggle.tsx` и `ReplyTextToggle.tsx` — переключатели
   «Автоозвучка» и «Текст реплик».
 - `face/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList.tsx` — список сообщений.
 - `face/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput.tsx` — форма ввода + кнопка завершения.
@@ -305,7 +305,7 @@ Shift+Enter добавляет перенос. Тексты очищаются �
 
 ## Настройки реплик
 
-В панели `AiDialogueSettings` под уровнем языка два переключателя (`ReplySettingsToggles`, компонент `Toggle`):
+В панели `AiDialogueSettings` под уровнем языка два переключателя (`AutoVoiceToggle` и `ReplyTextToggle`, компонент `Toggle`):
 «Автоозвучка» и «Текст реплик». Значения хранятся в LocalStorage (`localStorageManager.aiDialogueReplySettings`),
 по умолчанию оба включены, и действуют только на будущие реплики. Подписи — `aiDialogue.replySettings`
 в `messages/*/aiDialogue.json`.

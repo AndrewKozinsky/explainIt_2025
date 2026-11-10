@@ -2,6 +2,7 @@
   "loading": "Загрузка диалога…",
   "tabs": {
     "dictionary": "Словарь",
-    "dialogue": "Диалог"
+    "dialogue": "Диалог",
+    "settings": "Настройки"
   }
 }

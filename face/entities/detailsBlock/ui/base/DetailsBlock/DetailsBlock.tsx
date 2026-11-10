@@ -5,7 +5,7 @@ import DetailsBlockContentWrapper from '../DetailsBlockContentWrapper/DetailsBlo
 import InfoViewSwitcher from '../InfoViewSwitcher/InfoViewSwitcher'
 import './DetailsBlock.scss'
 
-export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog'
+export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog' | 'settings'
 
 export type DetailsBlockTab = {
 	type: InfoViewType
