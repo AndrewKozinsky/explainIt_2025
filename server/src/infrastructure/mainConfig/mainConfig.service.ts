@@ -84,16 +84,18 @@ export class MainConfigService {
 			},
 			deepSeek: {
 				apiKey: enVariables.deepSeek.apiKey,
+				// Пиковые цены DeepSeek (вход без кэша). Ночью цены вдвое ниже, но время запроса при списании
+				// не учитывается, поэтому берётся пиковая цена, чтобы списание не было меньше реальных расходов.
 				priceInRub: {
-					// DeepSeek-V4 Flash: $0.28 / 1M input, $0.42 / 1M output (значения-заглушки, требуют уточнения)
+					// deepseek-flash: $0.30 / 1M input, $1.20 / 1M output
 					flash: {
-						input: (oneDollarInRub * 0.28) / 1_000_000,
-						output: (oneDollarInRub * 0.42) / 1_000_000,
+						input: (oneDollarInRub * 0.3) / 1_000_000,
+						output: (oneDollarInRub * 1.2) / 1_000_000,
 					},
-					// DeepSeek-V4 Pro: значения-заглушки, требуют уточнения
+					// deepseek-v4-pro: $1.32 / 1M input, $3.96 / 1M output
 					pro: {
-						input: (oneDollarInRub * 0.55) / 1_000_000,
-						output: (oneDollarInRub * 1.1) / 1_000_000,
+						input: (oneDollarInRub * 1.32) / 1_000_000,
+						output: (oneDollarInRub * 3.96) / 1_000_000,
 					},
 				},
 			},
