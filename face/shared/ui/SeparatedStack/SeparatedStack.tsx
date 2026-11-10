@@ -14,10 +14,7 @@ function SeparatedStack({ children, extraClass }: SeparatedStackProps) {
 	return (
 		<div className={cn('separated-stack', extraClass)}>
 			{items.map((child, index) => (
-				<Fragment key={isValidElement(child) ? child.key : index}>
-					{index > 0 && <div className='separated-stack__divider' />}
-					{child}
-				</Fragment>
+				<Fragment key={isValidElement(child) ? child.key : index}>{child}</Fragment>
 			))}
 		</div>
 	)

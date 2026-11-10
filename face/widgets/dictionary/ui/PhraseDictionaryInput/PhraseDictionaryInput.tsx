@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import UnderlinedInput from '@/shared/ui/formRelated/UnderlinedInput/UnderlinedInput'
 import { fetchDictionaryArticle } from '@/widgets/dictionary/lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
 
@@ -12,8 +12,7 @@ function PhraseDictionaryInput() {
 	}
 
 	return (
-		<TextInput
-			currentText={inputText}
+		<UnderlinedInput
 			inputProps={{
 				placeholder: t('inputPlaceholder'),
 				value: inputText ?? '',

@@ -45,12 +45,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	)
 
 	return (
-		<BaseButton
-			extraClass={rootClasses}
-			onClick={handleClick}
-			type='button'
-			theme={bg === 'pale' ? 'regular' : 'plain'}
-		>
+		<BaseButton extraClass={rootClasses} onClick={handleClick} type='button' theme='outline'>
 			{showAudioIcon ? <AudioIcon audioStatus={audioStatus} isPlaying={isPlaying} /> : null}
 			<TranscriptionBlock transcription={effectiveTranscription} isLoading={isLoading} />
 		</BaseButton>

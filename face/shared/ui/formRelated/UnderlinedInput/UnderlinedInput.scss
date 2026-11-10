@@ -1,0 +1,32 @@
+@use '@/styles/variables' as vars;
+
+.underlined-input {
+	width: 100%;
+	padding: 0 0 .6rem;
+	border: none;
+	border-bottom: 1px solid vars.$grayColor-2;
+	border-radius: 0;
+	background-color: transparent;
+	font-size: 4rem;
+	line-height: 4.4rem;
+	color: vars.$textColor;
+	transition: border-color .2s ease;
+
+	&::placeholder {
+		color: vars.$grayColor-3;
+	}
+
+	&:hover {
+		border-bottom-color: vars.$grayColor-3;
+	}
+
+	&:focus {
+		border-bottom-color: vars.$grayColor-5;
+		outline: none;
+	}
+
+	&:disabled {
+		color: vars.$grayColor-4;
+		cursor: not-allowed;
+	}
+}
