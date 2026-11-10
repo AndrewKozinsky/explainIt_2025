@@ -10,7 +10,7 @@ import type { UniversalPhraseTranslationOutModelDeepSections } from './universal
 import type { UniversalPhraseTranslationOutModelStatus } from './universalPhraseTranslationOutModelStatus';
 import type { UniversalPhraseTranslationOutModelTargetLanguageCode } from './universalPhraseTranslationOutModelTargetLanguageCode';
 import type { UniversalPhraseTranslationOutModelTranslation } from './universalPhraseTranslationOutModelTranslation';
-import type { WordFormsOutModel } from './wordFormsOutModel';
+import type { UniversalPhraseTranslationWordFormsOutModel } from './universalPhraseTranslationWordFormsOutModel';
 
 export interface UniversalPhraseTranslationOutModel {
   /**
@@ -35,7 +35,7 @@ export interface UniversalPhraseTranslationOutModel {
      */
   deepSections: UniversalPhraseTranslationOutModelDeepSections;
   /** Prepared word forms shown above the article */
-  wordForms: WordFormsOutModel[];
+  wordForms: UniversalPhraseTranslationWordFormsOutModel[];
   /** Status of translation generation */
   status: UniversalPhraseTranslationOutModelStatus;
   /**

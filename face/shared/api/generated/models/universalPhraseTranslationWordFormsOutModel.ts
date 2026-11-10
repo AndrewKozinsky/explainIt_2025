@@ -6,7 +6,7 @@
  * OpenAPI spec version: 1.0
  */
 
-export interface WordFormsOutModel {
+export interface UniversalPhraseTranslationWordFormsOutModel {
   /** Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash */
   forms: string[];
 }

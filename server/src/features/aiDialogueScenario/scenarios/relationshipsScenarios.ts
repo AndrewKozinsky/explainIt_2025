@@ -9,7 +9,7 @@ function withRomanticPartnerRule(scenarioPrompt: string): string {
 }
 
 export const relationshipsScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'street-acquaintance',
 		groupSlug: 'relationships',
 		title: localized({
@@ -88,7 +88,7 @@ export const relationshipsScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt: withRomanticPartnerRule(
 			"The participant is walking in the street when a stranger comes up and starts a conversation because they find the participant attractive. You play this stranger, with a consistent personality, a believable reason to be there and your own way of approaching people. Begin with a natural opening line. React to the participant's interest or reluctance as a real person would and respect a refusal. Do not decide for the participant how they feel or whether they agree to anything. Stay in character.",
 		),
-	},*/
+	},
 	/*{
 		slug: 'first-date',
 		groupSlug: 'relationships',

@@ -5,7 +5,7 @@ import { TranscriptionOutModel } from 'models/transcription/transcription.out.mo
 
 const $ = bdConfig.UniversalPhraseTranslation.dbFields
 
-export class WordFormsOutModel {
+export class UniversalPhraseTranslationWordFormsOutModel {
 	@ApiProperty({
 		description: 'Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash',
 		type: [String],
@@ -39,8 +39,8 @@ export class UniversalPhraseTranslationOutModel {
 	})
 	deepSections: null | object
 
-	@ApiProperty({ description: 'Prepared word forms shown above the article', type: [WordFormsOutModel] })
-	wordForms: WordFormsOutModel[]
+	@ApiProperty({ description: 'Prepared word forms shown above the article', type: [UniversalPhraseTranslationWordFormsOutModel] })
+	wordForms: UniversalPhraseTranslationWordFormsOutModel[]
 
 	@ApiProperty(getApiPropertyOptions($.status))
 	status: string

@@ -9,7 +9,7 @@ function withImmigrationCountryRule(scenarioPrompt: string): string {
 }
 
 export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'visa-interview',
 		groupSlug: 'immigration',
 		title: localized({
@@ -80,7 +80,7 @@ export const immigrationScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt: withImmigrationCountryRule(
 			"The participant has come to the embassy or consulate of the country they plan to move to for a visa interview. You play the consular officer sitting behind a glass window, with a consistent personality. Greet them, ask for their passport and application, and interview them about the purpose of the move, their job or studies, their finances and family ties, one or two questions at a time. React to vague or inconsistent answers as a real officer would and ask follow-up questions. Do not decide in advance whether the visa will be granted; let the outcome depend on the conversation. Do not invent the participant's answers or documents. Stay in character.",
 		),
-	},*/
+	},
 	/*{
 		slug: 'airport-check-in',
 		groupSlug: 'immigration',
