@@ -30,5 +30,29 @@ export function getWordForms(sourceLanguageCode: LanguageCode, lemmas: string[])
 	const formsByLemma = formsByLemmaAndLanguage[sourceLanguageCode]
 	if (!formsByLemma) return []
 
-	return lemmas.flatMap((lemma) => formsByLemma.get(lemma) ?? [])
+	return mergeSameDerivedForms(lemmas.flatMap((lemma) => formsByLemma.get(lemma) ?? []))
+}
+
+/**
+ * Склеивает строки одного вида, у которых совпадают все формы кроме леммы:
+ * best — это и good, и well, поэтому вместо двух одинаковых таблиц будет одна «good/well better best».
+ */
+function mergeSameDerivedForms(wordFormsGroups: WordForms[]): WordForms[] {
+	const mergedGroups: WordForms[] = []
+
+	for (const wordForms of wordFormsGroups) {
+		const sameDerivedGroup = mergedGroups.find(
+			(mergedGroup) =>
+				mergedGroup.kind === wordForms.kind &&
+				mergedGroup.forms.slice(1).join(' ') === wordForms.forms.slice(1).join(' '),
+		)
+
+		if (sameDerivedGroup) {
+			sameDerivedGroup.forms = [`${sameDerivedGroup.forms[0]}/${wordForms.forms[0]}`, ...sameDerivedGroup.forms.slice(1)]
+		} else {
+			mergedGroups.push({ kind: wordForms.kind, forms: [...wordForms.forms] })
+		}
+	}
+
+	return mergedGroups
 }

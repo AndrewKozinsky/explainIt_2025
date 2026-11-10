@@ -22,6 +22,12 @@ describe('getWordForms', () => {
 		expect(getWordForms(LanguageCode.en, ['good'])).toEqual([{ kind: 'comparison', forms: ['good', 'better', 'best'] }])
 	})
 
+	it('merges lemmas that share all other forms into one table', () => {
+		expect(getWordForms(LanguageCode.en, ['good', 'well'])).toEqual([
+			{ kind: 'comparison', forms: ['good/well', 'better', 'best'] },
+		])
+	})
+
 	it('returns nothing for a regular word', () => {
 		expect(getWordForms(LanguageCode.en, ['walk'])).toEqual([])
 	})
