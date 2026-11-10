@@ -5,12 +5,16 @@
 	flex-grow: 1;
 	height: 100%;
 	overflow: hidden;
+	border-radius: vars.$radius-2;
+	border: 1px solid vars.$grayColor-1;
 }
 
 .details-block-wrapper__scroll {
-	overflow: auto;
 	height: 100%;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
+	overflow: auto;
+	padding: 1.2rem;
+
 }
