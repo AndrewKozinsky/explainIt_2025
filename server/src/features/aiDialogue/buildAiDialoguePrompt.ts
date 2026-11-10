@@ -111,6 +111,10 @@ function buildSystemMessage(
 	maxCefrLevel: AiDialogueCefrLevel | null,
 	userScenarioAmendment: string | null,
 ): string {
+	const translationPlaceholder = targetLanguageCode
+		? `<the line above translated into ${languages[targetLanguageCode].nameEng}>`
+		: '<translation>'
+
 	const rosterLines = roster.length
 		? roster.map((n) => `- npcId: "${n.npcId}" — ${n.npcRole}, ${n.npcName}`).join('\n')
 		: '(none yet)'
@@ -172,12 +176,13 @@ function buildSystemMessage(
 		'',
 		'## Response format',
 		'Reply with flat line-based text, without explanations or markdown.',
+		'In the templates below, every line in angle brackets is a placeholder: replace it with the real text and never output the placeholder itself or angle brackets.',
 		'A turn consists of one or more blocks separated by exactly one blank line. A block starts with a header line, followed by one field per line.',
 		'',
 		'New encounter only (not an action within the current encounter):',
 		'sceneUpdate',
 		'<new scene description>',
-		'<translation>',
+		translationPlaceholder,
 		'participants:<comma-separated npcIds, or empty>',
 		'visual:<English visual description of the current moment>',
 		'',
@@ -189,20 +194,20 @@ function buildSystemMessage(
 		'<JSON voice profile; include these two lines only when npcId is new>',
 		'action:',
 		'<action description>',
-		'<translation>',
+		translationPlaceholder,
 		'speech:',
 		'<speech>',
-		'<translation>',
+		translationPlaceholder,
 		'',
 		'Help:',
 		'help',
 		'<hint>',
-		'<translation>',
+		translationPlaceholder,
 		'',
 		'World event:',
 		'worldEvent',
 		'<event description>',
-		'<translation>',
+		translationPlaceholder,
 		'',
 		'Example (a dentist NPC replies to a patient; each speech/action is a label + content + translation triple):',
 		'npcActions|dentist_1|Dr. Lee|dentist|encouraging',

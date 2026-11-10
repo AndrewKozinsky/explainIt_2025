@@ -13,6 +13,7 @@ import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGenerationRegistry.service'
+import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
 import { AiDialogueSseHub } from './AiDialogueSseHub.service'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 import { parseAiDialogueEvents } from './parseAiDialogueEvents'
@@ -171,6 +172,7 @@ export class GenerateAiDialogueTurn {
 		let accumulated = ''
 
 		const stream = this.llmAdapter.stream({
+			model: AI_DIALOGUE_MODEL,
 			messages,
 			responseFormat: 'text',
 			abortSignal,
@@ -206,7 +208,7 @@ function appendRetryHint(prompt: LlmMessage[]): LlmMessage[] {
 		{
 			role: 'user',
 			content:
-				'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line. After all dialogue blocks, append the wordMaps: footer in the specified JSON-lines format.',
+				'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line. Replace every placeholder in angle brackets with real text; never output placeholders such as <translation>. After all dialogue blocks, append the wordMaps: footer in the specified JSON-lines format.',
 		},
 	]
 }

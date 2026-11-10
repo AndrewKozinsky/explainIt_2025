@@ -42,7 +42,7 @@ export function getProviderFromModel(model: AiModel): AIProviderName {
 }
 
 /** Дешёвая/быстрая модель по умолчанию (flash-тир). */
-export const DEFAULT_FLASH_AI_MODEL: AiModel = MimoModels.Flash
+export const DEFAULT_FLASH_AI_MODEL: AiModel = DeepSeekModels.Flash
 
 /** Более «умная» модель по умолчанию (pro-тир). */
 export const DEFAULT_SMART_AI_MODEL: AiModel = DeepSeekModels.Pro

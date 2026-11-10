@@ -111,6 +111,28 @@ describe('parseAiDialogueEvents', () => {
 		])
 	})
 
+	it('rejects a response with a template placeholder instead of a translation', () => {
+		const responseWithPlaceholder = [
+			'npcActions|taxi_driver_1|Marek|taxi driver|happy',
+			'speech:',
+			'London? Oh, you have picked a good one.',
+			'<translation>',
+			'action:',
+			'points ahead through the windshield',
+			'указывает вперёд через лобовое стекло',
+		].join('\n')
+
+		expect(() => parseAiDialogueEvents(responseWithPlaceholder)).toThrow()
+	})
+
+	it('keeps angle brackets inside a regular line', () => {
+		const result = parseAiDialogueEvents(['help', 'Use <b> for bold text', 'Используйте <b> для жирного текста'].join('\n'))
+
+		expect(result.events).toEqual([
+			{ type: 'help', content: 'Use <b> for bold text', translation: 'Используйте <b> для жирного текста' },
+		])
+	})
+
 	it('normalizes unknown NPC emotions', () => {
 		const result = parseAiDialogueEvents(
 			['npcActions|dentist_1|Dr. Lee|dentist|friendly', 'speech:', 'Hello!', 'Здравствуйте!'].join('\n'),

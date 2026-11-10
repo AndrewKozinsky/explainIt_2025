@@ -4,6 +4,7 @@ import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueSummary, parseAiDialogueSummary } from 'types/aiDialogueSummary'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
+import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
 import { buildSummaryPrompt } from './buildSummaryPrompt'
 import { deriveAiDialogueState, sameAiDialogueState } from './deriveAiDialogueState'
 
@@ -50,7 +51,7 @@ export class SummarizeAiDialogue {
 			const events = toSummarize.map((message) => message.payload)
 
 			const prompt = buildSummaryPrompt({ summary, eventsToSummarize: events })
-			const output = await this.llmAdapter.generate({ messages: prompt })
+			const output = await this.llmAdapter.generate({ model: AI_DIALOGUE_MODEL, messages: prompt })
 			const history = output.content.trim()
 			if (!history) return
 

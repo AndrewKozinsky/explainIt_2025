@@ -32,7 +32,12 @@ export function parseAiDialogueEvents(raw: string, language?: Language): ParsedA
 	const text = body.trim()
 	if (!text) return emptyTurn()
 
-	const blocks = splitIntoBlocks(text.split('\n').map(stripCarriageReturn)).map(parseBlock)
+	const lines = text.split('\n').map(stripCarriageReturn)
+	// Модель иногда копирует строку-заглушку из шаблона формата (например, «<translation>») вместо текста.
+	// Такой ответ считается неразобранным, чтобы сработал повтор, а заглушка не попала в диалог.
+	if (lines.some(isTemplatePlaceholder)) throw cannotParse()
+
+	const blocks = splitIntoBlocks(lines).map(parseBlock)
 	const events: AiDialogueEvent[] = []
 	const npcAppearances: ParsedAiDialogueTurn['visualMetadata']['npcAppearances'] = []
 	const scenes: AiDialogueSceneVisualMetadata[] = []
@@ -201,6 +206,11 @@ function isLabel(line: string): boolean {
 function isVisualField(line: string): boolean {
 	const value = line.trim()
 	return value.startsWith('participants:') || value.startsWith('visual:')
+}
+
+/** Строка целиком из заглушки шаблона формата в угловых скобках: «<translation>», «<speech>». */
+function isTemplatePlaceholder(line: string): boolean {
+	return /^<[^<>]+>$/.test(line.trim())
 }
 
 function stripCarriageReturn(line: string): string {
