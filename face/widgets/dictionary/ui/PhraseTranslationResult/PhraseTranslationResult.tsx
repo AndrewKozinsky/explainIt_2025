@@ -1,4 +1,5 @@
 import { type ComponentType, createContext, useContext } from 'react'
+import { useTranslations } from 'next-intl'
 import type {
 	BlockBlockModel,
 	ExampleBlockModel,
@@ -10,6 +11,7 @@ import type {
 	WordFormsModel,
 	WordsBlockModel,
 } from '@/entities/universalPhrase/repository/PhraseTranslationRepository'
+import { ActionIcon } from '@/shared/ui/icons/buttonIcons/standard/ActionIcon'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
 import { fetchDictionaryArticle } from '../../lib/fetchDictionaryArticle'
 import { usePhraseDictionaryStore } from '../phraseDictionaryStore'
@@ -71,12 +73,12 @@ function PhraseTranslationResult() {
 
 	return (
 		<div className='phrase-translation-result'>
-			{translation.wordForms.map((wordForms) => (
-				<WordFormsLine key={wordForms.forms.join(' ')} wordForms={wordForms} lookedUpText={inputText} />
-			))}
 			<SenseNumbersContext.Provider value={numberSenses(translation.blocks)}>
 				<BlockTree blocks={translation.blocks} />
 			</SenseNumbersContext.Provider>
+			{translation.wordForms.map((wordForms) => (
+				<WordFormsCard key={wordForms.forms.join(' ')} wordForms={wordForms} lookedUpText={inputText} />
+			))}
 			<BlockTree blocks={translation.deepSections} />
 		</div>
 	)
@@ -84,28 +86,39 @@ function PhraseTranslationResult() {
 
 // ─── Word Forms ──────────────────────────────────────────────────────────────
 
-function isLookedUpForm(form: string, lookedUpText: string): boolean {
-	return form.split('/').includes(lookedUpText.trim().toLowerCase())
-}
+/**
+ * Формы слова: подпись вида и формы через стрелки. Искомая форма выделяется акцентным цветом;
+ * у brought это и вторая, и третья форма, потому что без контекста их не различить.
+ */
+function WordFormsCard({ wordForms, lookedUpText }: { wordForms: WordFormsModel; lookedUpText: string }) {
+	const t = useTranslations('dictionary')
+	const lookedUpForm = lookedUpText.trim().toLowerCase()
 
-function WordFormsLine({ wordForms, lookedUpText }: { wordForms: WordFormsModel; lookedUpText: string }) {
 	return (
-		<p className='translation-word-forms'>
-			{wordForms.forms.map((form, formIndex) => (
-				<span key={formIndex} className='translation-word-forms__part'>
-					{formIndex > 0 && <span className='translation-word-forms__arrow'>→</span>}
-					<span
-						className={
-							isLookedUpForm(form, lookedUpText)
-								? 'translation-word-forms__form translation-word-forms__form--current'
-								: 'translation-word-forms__form'
-						}
-					>
-						{form}
+		<div className='translation-word-forms'>
+			<p className='translation-word-forms__label'>{t(`wordFormsKind.${wordForms.kind}`)}</p>
+			<p className='translation-word-forms__forms'>
+				{wordForms.forms.map((form, formIndex) => (
+					<span key={formIndex} className='translation-word-forms__part'>
+						{formIndex > 0 && <ActionIcon extraClass='translation-word-forms__arrow' />}
+						{form.split('/').map((variant, variantIndex) => (
+							<span key={variant} className='translation-word-forms__variant'>
+								{variantIndex > 0 && ' / '}
+								<span
+									className={
+										variant === lookedUpForm
+											? 'translation-word-forms__form translation-word-forms__form--current'
+											: 'translation-word-forms__form'
+									}
+								>
+									{variant}
+								</span>
+							</span>
+						))}
 					</span>
-				</span>
-			))}
-		</p>
+				))}
+			</p>
+		</div>
 	)
 }
 

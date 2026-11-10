@@ -5,8 +5,11 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
+import type { UniversalPhraseTranslationWordFormsKind } from './universalPhraseTranslationWordFormsKind';
 
 export interface UniversalPhraseTranslationWordFormsOutModel {
+  /** Kind of the forms line: irregular verb, irregular plural or degrees of comparison */
+  kind: UniversalPhraseTranslationWordFormsKind;
   /** Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash */
   forms: string[];
 }

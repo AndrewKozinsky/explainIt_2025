@@ -11,26 +11,46 @@
 
 .translation-word-forms {
 	display: flex;
-	flex-wrap: wrap;
-	gap: 0.6rem;
-	font-size: 1.5rem;
-	line-height: 2.1rem;
+	align-self: flex-start;
+	flex-direction: column;
+	gap: 0.2rem;
+	max-width: 100%;
+	padding: 0.8rem 1.2rem 1rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+}
+
+.translation-word-forms__label {
+	font-size: 1.1rem;
+	line-height: 1.5rem;
 	color: vars.$grayColor-5;
-	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.05rem;
+}
+
+.translation-word-forms__forms {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 0.6rem;
+	font-size: 2rem;
+	line-height: 2.4rem;
 }
 
 .translation-word-forms__part {
 	display: inline-flex;
+	align-items: center;
 	gap: 0.6rem;
+	white-space: nowrap;
 }
 
 .translation-word-forms__arrow {
-	color: vars.$grayColor-4;
+	flex-shrink: 0;
+	width: 1.8rem;
+	height: 1.8rem;
 }
 
 .translation-word-forms__form--current {
-	font-weight: 500;
-	color: vars.$textColor;
+	color: vars.$accentColor-2;
 }
 
 // ─── Block ───────────────────────────────────────────────────────────────────

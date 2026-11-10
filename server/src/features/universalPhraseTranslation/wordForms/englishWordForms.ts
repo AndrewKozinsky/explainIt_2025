@@ -1,3 +1,5 @@
+import { WordFormsKind } from './wordFormsKind'
+
 /** Формы через пробел, варианты одной формы через «/». Первая форма — лемма. */
 const IRREGULAR_VERBS = [
 	'arise arose arisen',
@@ -234,4 +236,8 @@ const IRREGULAR_COMPARISONS = [
 	'well better best',
 ]
 
-export const ENGLISH_WORD_FORMS = [...IRREGULAR_VERBS, ...IRREGULAR_PLURALS, ...IRREGULAR_COMPARISONS]
+export const ENGLISH_WORD_FORMS: Record<WordFormsKind, string[]> = {
+	irregularVerb: IRREGULAR_VERBS,
+	plural: IRREGULAR_PLURALS,
+	comparison: IRREGULAR_COMPARISONS,
+}

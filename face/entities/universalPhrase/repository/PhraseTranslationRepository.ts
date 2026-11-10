@@ -27,8 +27,12 @@ export type PhraseTranslationDataModel = {
 	wordForms: WordFormsModel[]
 }
 
+/** Вид строки форм: неправильный глагол, особое множественное число или степени сравнения */
+export type WordFormsKind = 'irregularVerb' | 'plural' | 'comparison'
+
 /** Формы слова по порядку, варианты одной формы разделены косой чертой */
 export type WordFormsModel = {
+	kind: WordFormsKind
 	forms: string[]
 }
 

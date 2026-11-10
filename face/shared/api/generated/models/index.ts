@@ -127,6 +127,7 @@ export * from './universalPhraseTranslationOutModelDeepSections';
 export * from './universalPhraseTranslationOutModelStatus';
 export * from './universalPhraseTranslationOutModelTargetLanguageCode';
 export * from './universalPhraseTranslationOutModelTranslation';
+export * from './universalPhraseTranslationWordFormsKind';
 export * from './universalPhraseTranslationWordFormsOutModel';
 export * from './updateAiDialogueInput';
 export * from './updateAiDialogueInputMaxCefrLevel';

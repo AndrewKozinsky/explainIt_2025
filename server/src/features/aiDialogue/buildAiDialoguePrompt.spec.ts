@@ -172,6 +172,9 @@ describe('dialogue language complexity', () => {
 		expect(system).toContain('takes precedence over conflicting language-level or style instructions')
 		expect(system).toContain('Do not correct grammar')
 		expect(system).toContain('Do not adapt hidden English appearance, voice or visual metadata')
+		expect(system).toContain(
+			'never convey attention, glances or eye contact through mirrors, reflections or screens',
+		)
 		expect(system).toContain('do not impose the source-language CEFR limit on translations')
 		expect(system).toContain('The dialogue language is: german')
 		expect(system).not.toContain('without adapting to a language proficiency level')

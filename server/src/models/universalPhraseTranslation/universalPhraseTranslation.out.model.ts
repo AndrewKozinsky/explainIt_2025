@@ -1,11 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
+import { WORD_FORMS_KINDS, WordFormsKind } from 'features/universalPhraseTranslation/wordForms/wordFormsKind'
 import { TranscriptionOutModel } from 'models/transcription/transcription.out.model'
 
 const $ = bdConfig.UniversalPhraseTranslation.dbFields
 
 export class UniversalPhraseTranslationWordFormsOutModel {
+	@ApiProperty({
+		description: 'Kind of the forms line: irregular verb, irregular plural or degrees of comparison',
+		enum: WORD_FORMS_KINDS,
+		enumName: 'UniversalPhraseTranslationWordFormsKind',
+	})
+	kind: WordFormsKind
+
 	@ApiProperty({
 		description: 'Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash',
 		type: [String],
@@ -39,7 +47,10 @@ export class UniversalPhraseTranslationOutModel {
 	})
 	deepSections: null | object
 
-	@ApiProperty({ description: 'Prepared word forms shown above the article', type: [UniversalPhraseTranslationWordFormsOutModel] })
+	@ApiProperty({
+		description: 'Prepared word forms shown above the article',
+		type: [UniversalPhraseTranslationWordFormsOutModel],
+	})
 	wordForms: UniversalPhraseTranslationWordFormsOutModel[]
 
 	@ApiProperty(getApiPropertyOptions($.status))

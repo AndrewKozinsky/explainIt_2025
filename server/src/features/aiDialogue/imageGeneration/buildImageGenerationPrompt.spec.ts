@@ -138,6 +138,7 @@ describe('image generation prompts', () => {
 		expect(input.prompt).toContain('Image 2 is NPC dentist')
 		expect(input.prompt).toContain('Image 3 supplies visual style only')
 		expect(input.prompt).toContain('Dentist greets learner')
+		expect(input.prompt).toContain('never through mirrors, reflections or screens')
 	})
 
 	it.each(['angleSheet', 'unknown'])('rejects unsupported type %s', (type) => {

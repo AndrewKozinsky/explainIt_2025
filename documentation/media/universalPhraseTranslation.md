@@ -39,7 +39,7 @@ POST /universal-phrase-translation
   "deepSections": [
     { "type": "block", "header": "Похожие слова", "children": [{ "type": "text", "text": "..." }] }
   ],
-  "wordForms": [{ "forms": ["bring", "brought", "brought"] }],
+  "wordForms": [{ "kind": "irregularVerb", "forms": ["bring", "brought", "brought"] }],
   "status": "ready",
   "errorCode": null,
   "nonExistentWord": false,
@@ -129,7 +129,12 @@ POST /universal-phrase-translation
 
 `getWordForms` подставляет заранее подготовленные формы при каждой выдаче статьи, модель их не генерирует. Поиск идёт по
 леммам от маршрутизатора. Если леммы нет в справочнике, блока форм нет. Сейчас справочник есть для английского
-(`wordForms/englishWordForms.ts`): неправильные глаголы, множественное число, степени сравнения.
+(`wordForms/englishWordForms.ts`). Он разделён на виды (`wordForms/wordFormsKind.ts`): `irregularVerb` — неправильные
+глаголы, `plural` — особое множественное число, `comparison` — степени сравнения. По виду клиент выбирает подпись блока.
+
+Клиент показывает формы после значений и перед дополнительными разделами: подпись вида и формы через стрелки. Искомая форма
+выделена акцентным цветом. У `brought` выделены обе формы, потому что без контекста их не различить. Варианты одной формы
+пишутся через косую черту (`learned / learnt`), выделяется только искомый вариант.
 
 ## Нормализация текста
 

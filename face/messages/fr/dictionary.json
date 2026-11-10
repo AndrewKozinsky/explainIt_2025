@@ -3,5 +3,10 @@
   "loading": "Chargement de la traduction...",
   "retry": "Réessayer",
   "notExisting": "Ce mot n’existe pas.",
-  "loadError": "Impossible d’obtenir la traduction."
+  "loadError": "Impossible d’obtenir la traduction.",
+  "wordFormsKind": {
+    "irregularVerb": "Verbe irrégulier",
+    "plural": "Pluriel",
+    "comparison": "Degrés de comparaison"
+  }
 }

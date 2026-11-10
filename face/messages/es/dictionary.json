@@ -3,5 +3,10 @@
   "loading": "Cargando la traducción...",
   "retry": "Reintentar",
   "notExisting": "Esta palabra no existe.",
-  "loadError": "No se pudo obtener la traducción."
+  "loadError": "No se pudo obtener la traducción.",
+  "wordFormsKind": {
+    "irregularVerb": "Verbo irregular",
+    "plural": "Plural",
+    "comparison": "Grados de comparación"
+  }
 }
