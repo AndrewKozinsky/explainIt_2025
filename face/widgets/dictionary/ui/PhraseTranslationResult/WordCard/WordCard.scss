@@ -1,0 +1,15 @@
+.word-card__word {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	font-weight: 600;
+	overflow-wrap: anywhere;
+
+	&::first-letter {
+		text-transform: uppercase;
+	}
+}
+
+.word-card__description {
+	font-size: 1.5rem;
+	line-height: 2.2rem;
+}

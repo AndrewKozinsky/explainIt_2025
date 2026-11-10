@@ -157,7 +157,9 @@ POST /universal-phrase-translation
 
 ## Клиент
 
-- `face/widgets/dictionary/ui/PhraseTranslationResult/` — блок форм, блоки статьи и глубокие разделы. В блоке значения
+- `face/widgets/dictionary/ui/PhraseTranslationResult/` — статья: у каждого типа блока свой компонент в своей папке
+  (`SenseBlock`, `ExampleBlock`, `WordsBlock` и другие), `ArticleBlockTree` выбирает компонент по типу, `WordFormsCard` —
+  блок форм. В блоке значения
   пояснения стоят над картинкой, первый пример сразу под ней. Значения нумеруются, если их больше одного. Между соседними
   примерами разделитель ставится стилями. Жирные слова в примерах окрашиваются через `className` компонента `StyledMarkdown`.
   Нажатие на карточку похожего слова открывает статью о нём.

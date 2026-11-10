@@ -1,0 +1,23 @@
+@use '@/styles/variables' as vars;
+
+.translation-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.translation-list__item {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+
+.translation-list__term {
+	font-weight: 500;
+}
+
+.translation-list__translation {
+	color: vars.$grayColor-5;
+}

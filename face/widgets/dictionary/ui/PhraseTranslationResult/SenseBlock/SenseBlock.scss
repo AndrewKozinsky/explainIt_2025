@@ -1,0 +1,51 @@
+@use '@/styles/variables' as vars;
+
+.translation-sense {
+	display: flex;
+	gap: 1rem;
+}
+
+.translation-sense__number {
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.6rem;
+	height: 2.6rem;
+	margin-top: 0.9rem;
+	border-radius: 0.8rem;
+	background-color: vars.$grayColor-1;
+	font-size: 1.4rem;
+	line-height: 1.4rem;
+	font-weight: 600;
+}
+
+.translation-sense__content {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
+.translation-sense__header {
+	font-size: 3.2rem;
+	line-height: 3.6rem;
+	margin: 0;
+}
+
+.translation-sense__image {
+	display: block;
+	width: 100%;
+	background-color: vars.$grayColor-1;
+	overflow: hidden;
+	border-radius: vars.$radius-2;
+}
+
+.translation-sense__image--landscape {
+	aspect-ratio: 8 / 5;
+}
+
+.translation-sense__image--strip {
+	aspect-ratio: 3;
+}

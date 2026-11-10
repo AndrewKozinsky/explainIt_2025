@@ -1,0 +1,35 @@
+@use '@/styles/variables' as vars;
+
+.translation-words {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.translation-words__card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.2rem;
+	padding: 1rem 1.2rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+
+	&:hover {
+		border-color: vars.$grayColor-4;
+	}
+}
+
+.translation-words__card--current {
+	border-color: transparent;
+	background-color: vars.$grayColor-1;
+	cursor: default;
+
+	&:hover {
+		border-color: transparent;
+	}
+}
