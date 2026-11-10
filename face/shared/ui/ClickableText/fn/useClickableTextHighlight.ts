@@ -1,50 +1,37 @@
-import { useId, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import type { PointerEvent } from 'react'
-import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
 import { getFrameParts } from './frameParts'
-import { useSelectedWordsStore } from './selectedWordsStore'
-import { getHighlightedWordStarts, splitDialogueText } from './wordSelection'
 import type { FramePart } from './frameParts'
-import type { DialogueTextSegment } from './wordSelection'
+import type { TextSegment } from './textSegments'
+
+type UseClickableTextHighlightInput<Segment extends TextSegment> = {
+	segments: Segment[]
+	getHighlightedStarts: (segment: Segment) => Set<number>
+	selectedStarts: null | Set<number>
+}
 
 /**
- * Делит текст на сегменты и следит, какие слова подсвечены. Подсвечиваются слова, которые уйдут в Словарь при клике
- * по слову под курсором, а если курсора над текстом нет — по слову в фокусе (после клика или Tab).
- * Отдельно хранит слова, выбранные кликом: они заливаются, пока не нажмут другое слово на странице.
+ * Следит, какие слова подсвечены рамкой. Подсвечиваются слова, которые выберет клик по слову под курсором,
+ * а если курсора над текстом нет — по слову в фокусе (после клика или Tab). Какие это слова, решает
+ * getHighlightedStarts. Также делит на части рамки заливку выбранных слов (selectedStarts).
  */
-export function useSegmentedTextHighlight(text: string, wordMap?: AiDialogueWordMapBlock) {
-	const ownerId = useId()
-	const segments = useMemo(() => splitDialogueText(text, wordMap), [text, wordMap])
-	const [hoveredSegment, setHoveredSegment] = useState<DialogueTextSegment | null>(null)
-	const [focusedSegment, setFocusedSegment] = useState<DialogueTextSegment | null>(null)
+export function useClickableTextHighlight<Segment extends TextSegment>(input: UseClickableTextHighlightInput<Segment>) {
+	const { segments, getHighlightedStarts, selectedStarts } = input
+
+	const [hoveredSegment, setHoveredSegment] = useState<Segment | null>(null)
+	const [focusedSegment, setFocusedSegment] = useState<Segment | null>(null)
 
 	// Наведение важнее фокуса: после клика фокус остаётся на слове, а курсор уже может быть над другим.
 	const highlightedSegment = hoveredSegment ?? focusedSegment
-
-	const highlightedStarts = useMemo(
-		() => (highlightedSegment ? getHighlightedWordStarts(text, segments, highlightedSegment, wordMap) : null),
-		[text, segments, highlightedSegment, wordMap],
-	)
+	const highlightedStarts = highlightedSegment ? getHighlightedStarts(highlightedSegment) : null
 
 	// Соседние слова выражения объединяются общей рамкой: каждый сегмент рисует свою часть.
-	const frameParts = useMemo(
-		() => (highlightedStarts ? getFrameParts(segments, highlightedStarts) : new Map<number, FramePart>()),
-		[segments, highlightedStarts],
-	)
-
-	// Заливка слов, выбранных кликом. Чужой выбор (в другом тексте) здесь не показывается.
-	const selectedStarts = useSelectedWordsStore((store) => (store.ownerId === ownerId ? store.selectedStarts : null))
-	const selectWords = useSelectedWordsStore((store) => store.selectWords)
+	const frameParts = highlightedStarts ? getFrameParts(segments, highlightedStarts) : new Map<number, FramePart>()
 
 	const selectedParts = useMemo(
 		() => (selectedStarts ? getFrameParts(segments, selectedStarts) : new Map<number, FramePart>()),
 		[segments, selectedStarts],
 	)
-
-	// Заливаются те же слова, что подсвечивала рамка: ровно то, что уйдёт в Словарь.
-	function handleWordSelect(segment: DialogueTextSegment) {
-		selectWords(ownerId, getHighlightedWordStarts(text, segments, segment, wordMap))
-	}
 
 	// Остальной текст затухает только для выражения из нескольких слов: так видна связь частей,
 	// например далёкого away в put … away. Одному слову хватает рамки, а затухание мешало бы читать.
@@ -54,7 +41,7 @@ export function useSegmentedTextHighlight(text: string, wordMap?: AiDialogueWord
 	const isExpressionHighlighted = (highlightedStarts?.size ?? 0) > 1 && !isSelectionHighlighted
 
 	// На сенсорных экранах наведения нет: подсветка после касания осталась бы висеть.
-	function handleWordPointerEnter(event: PointerEvent, segment: DialogueTextSegment) {
+	function handleWordPointerEnter(event: PointerEvent, segment: Segment) {
 		if (event.pointerType === 'mouse') setHoveredSegment(segment)
 	}
 
@@ -63,7 +50,7 @@ export function useSegmentedTextHighlight(text: string, wordMap?: AiDialogueWord
 		setHoveredSegment(null)
 	}
 
-	function handleWordFocus(segment: DialogueTextSegment) {
+	function handleWordFocus(segment: Segment) {
 		setFocusedSegment(segment)
 	}
 
@@ -72,11 +59,9 @@ export function useSegmentedTextHighlight(text: string, wordMap?: AiDialogueWord
 	}
 
 	return {
-		segments,
 		frameParts,
 		selectedParts,
 		isExpressionHighlighted,
-		handleWordSelect,
 		handleWordPointerEnter,
 		handleTextPointerLeave,
 		handleWordFocus,

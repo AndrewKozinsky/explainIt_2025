@@ -14,13 +14,13 @@
 }
 
 // Своя группа наложения: рамка подсветки лежит под соседними словами, но над фоном сообщения.
-.segmented-text {
+.clickable-text {
 	isolation: isolate;
 }
 
-.segmented-text__gap {
+.clickable-text__gap {
 	position: relative;
-	transition: opacity .2s ease;
+	transition: opacity 0.2s ease;
 
 	&::before {
 		@include frame-part;
@@ -32,16 +32,16 @@
 // Пробел или пунктуация между соседними словами выражения: верх и низ общей рамки.
 // Кнопка-слово — строчный блок высотой в строку, а обычный строчный span ниже (высота шрифта).
 // inline-block выравнивает мостик по высоте с кнопками; pre не даёт схлопнуться пробелу внутри блока.
-.segmented-text__gap--bridge {
+.clickable-text__gap--bridge {
 	display: inline-block;
 	white-space: pre;
 
 	&::before {
-		opacity: .3;
+		opacity: 0.3;
 	}
 }
 
-.segmented-text__word {
+.clickable-text__word {
 	position: relative;
 	display: inline;
 	margin: 0;
@@ -51,12 +51,12 @@
 	font: inherit;
 	color: inherit;
 	cursor: pointer;
-	transition: opacity .25s ease;
+	transition: opacity 0.25s ease;
 
 	// Отдельное слово — замкнутая рамка с небольшим отступом по бокам.
 	&::before {
 		@include frame-part;
-		inset: 0 -.2em;
+		inset: 0 -0.2em;
 		border-radius: vars.$radius-1;
 	}
 
@@ -64,11 +64,18 @@
 	&:focus {
 		outline: none;
 	}
+
+	// На сенсорных экранах долгое касание не выделяет слово и не открывает системное меню.
+	@media (hover: none) {
+		user-select: none;
+		-webkit-user-select: none;
+		-webkit-touch-callout: none;
+	}
 }
 
 // Рамка полупрозрачная, чтобы не спорить с текстом.
-.segmented-text__word--highlighted::before {
-	opacity: .3;
+.clickable-text__word--highlighted::before {
+	opacity: 0.3;
 }
 
 // Заливка слов, выбранных кликом: занимает ровно прямоугольник рамки подсветки и лежит над ней.
@@ -79,19 +86,19 @@
 	opacity: 1;
 }
 
-.segmented-text__word--selected {
+.clickable-text__word--selected {
 	color: white;
 
 	&::after {
 		@include selected-fill;
-		inset: 0 -.2em;
+		inset: 0 -0.2em;
 		border-radius: vars.$radius-1;
 	}
 }
 
 // Мостик между соседними выбранными словами заливается целиком, чтобы выражение было одним блоком.
 // Сам пробел или пунктуация тоже белые: они стоят на оранжевом фоне.
-.segmented-text__gap--selected-bridge {
+.clickable-text__gap--selected-bridge {
 	display: inline-block;
 	white-space: pre;
 	color: #fff;
@@ -103,16 +110,16 @@
 
 // Ряд соседних слов выражения: внешние стороны — как у отдельного слова, на внутренних стыках нет боковых линий,
 // скруглений и отступов, чтобы части сливались с мостиками в одну рамку. Те же правила задают форму заливки.
-.segmented-text__word--start::before,
-.segmented-text__word--selected-start::after {
+.clickable-text__word--start::before,
+.clickable-text__word--selected-start::after {
 	right: 0;
 	border-right: none;
 	border-top-right-radius: 0;
 	border-bottom-right-radius: 0;
 }
 
-.segmented-text__word--middle::before,
-.segmented-text__word--selected-middle::after {
+.clickable-text__word--middle::before,
+.clickable-text__word--selected-middle::after {
 	right: 0;
 	left: 0;
 	border-right: none;
@@ -120,8 +127,8 @@
 	border-radius: 0;
 }
 
-.segmented-text__word--end::before,
-.segmented-text__word--selected-end::after {
+.clickable-text__word--end::before,
+.clickable-text__word--selected-end::after {
 	left: 0;
 	border-left: none;
 	border-top-left-radius: 0;
@@ -130,7 +137,7 @@
 
 // Пока подсвечено выражение из нескольких слов, всё остальное плавно затухает.
 // Мостики не затухают: прозрачность родителя ослабила бы и их часть рамки.
-.segmented-text--expression .segmented-text__gap:not(.segmented-text__gap--bridge),
-.segmented-text--expression .segmented-text__word:not(.segmented-text__word--highlighted) {
-	opacity: .7;
+.clickable-text--expression .clickable-text__gap:not(.clickable-text__gap--bridge),
+.clickable-text--expression .clickable-text__word:not(.clickable-text__word--highlighted) {
+	opacity: 0.7;
 }

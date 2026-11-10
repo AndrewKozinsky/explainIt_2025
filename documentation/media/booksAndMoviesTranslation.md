@@ -140,7 +140,21 @@ DetailsSentenceEntry = {
 - Совпадает с моделью выделения: `selectedWordId` уже индексный.
 - `Intl.Segmenter` инкапсулирован в одном модуле и вызывается только при сериализации в сервер и десериализации из него. Локаль для сегментера — `languageCode` материала из стора, чтобы конвертация туда-обратно была консистентной.
 
-### UI-компоненты
+### Слова предложения
+
+Предложение главы и часть предложения в субтитре рисует `Sentence` (`face/entities/sentencesAndSubtitles/ui/Sentence/`)
+поверх общего кликабельного текста `ClickableText` (`documentation/topics/clickableText.md`). Связь со стором —
+в `fn/useSentenceWordSelection.ts`:
+
+- номер слова в сторе (`wordId`, с 1 во всём предложении) = `wordIdOffset` + порядок слова в тексте. В субтитрах
+  предложение бывает разбито на части, `wordIdOffset` — сколько слов предложения стоит до этой части;
+- клик вызывает `selectWord({ sentenceId, wordId })`;
+- рамка при наведении — фраза из `entry.data.phrases`, покрывающая слово (то же правило, что в
+  `useFetchPhraseTranslation`), или одно слово, если такой фразы ещё нет;
+- заливка — слова выбранной фразы предложения (`selectedPhraseId`), а пока она не покрывает нажатое слово
+  (перевод ещё грузится) — только нажатое слово. Слова фразы из соседних частей субтитра в этой части не рисуются.
+
+### UI-компоненты фраз
 Лежат в `face/entities/sentencesAndSubtitles/ui/phrase/`:
 - `SentencePhrase` — рисует одну фразу (`phraseAnalysis: SentencePhraseType`).
 - `SentencePhraseAnalyses` — список всех фраз выбранного предложения, отсортированных по `wordIds[0]` (порядок в предложении). Подключается через `MediaPhrasesContent` (`face/entities/detailsBlock/ui/mediaSpecific/`) и на странице главы, и на странице видео.

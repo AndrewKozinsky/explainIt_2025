@@ -3,8 +3,8 @@ import { afterEach, test } from 'node:test'
 import { openAiDialogueStream } from '@/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream'
 import { parseAiDialoguePreview } from '@/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '@/_pages/aiDialogue/aiDialogueStore'
+import { getFrameParts } from '@/shared/ui/ClickableText/fn/frameParts'
 import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
-import { getFrameParts } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/frameParts'
 import {
 	resolveDialogueWordSelection,
 	dictionaryPhraseForClick,

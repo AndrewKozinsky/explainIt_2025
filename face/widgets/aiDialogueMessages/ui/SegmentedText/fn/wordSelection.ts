@@ -1,18 +1,14 @@
+import { segmentText } from '@/shared/ui/ClickableText/fn/textSegments'
+import type { TextSegment } from '@/shared/ui/ClickableText/fn/textSegments'
 import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
 
-export type DialogueTextSegment = { text: string; isWord: boolean; start: number; wordId?: number }
+export type DialogueTextSegment = TextSegment & { wordId?: number }
 
 const segmenter = new Intl.Segmenter(undefined, { granularity: 'word' })
 
 /** Ready maps supply server token positions, avoiding differences between browser/server segmentation. */
 export function splitDialogueText(text: string, map?: AiDialogueWordMapBlock): DialogueTextSegment[] {
-	if (!map || map.content !== text) {
-		return Array.from(segmenter.segment(text), (segment) => ({
-			text: segment.segment,
-			isWord: segment.isWordLike ?? false,
-			start: segment.index,
-		}))
-	}
+	if (!map || map.content !== text) return segmentText(text)
 
 	const segments: DialogueTextSegment[] = []
 	let offset = 0

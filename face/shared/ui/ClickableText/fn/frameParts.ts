@@ -1,4 +1,4 @@
-import type { DialogueTextSegment } from './wordSelection'
+import type { TextSegment } from './textSegments'
 
 /**
  * Часть общей рамки подсветки, которую рисует сегмент:
@@ -12,7 +12,7 @@ export type FramePart = 'single' | 'start' | 'middle' | 'end' | 'bridge'
  * Делит подсвеченные слова на ряды соседних (между ними нет других слов) и назначает каждому сегменту ряда
  * его часть общей рамки. Ключ — start сегмента. Несоседние слова выражения (put … away) получают отдельные рамки.
  */
-export function getFrameParts(segments: DialogueTextSegment[], highlightedStarts: Set<number>): Map<number, FramePart> {
+export function getFrameParts(segments: TextSegment[], highlightedStarts: Set<number>): Map<number, FramePart> {
 	const frameParts = new Map<number, FramePart>()
 	const highlightedIndexes = segments.flatMap((segment, index) =>
 		segment.isWord && highlightedStarts.has(segment.start) ? [index] : [],
@@ -43,7 +43,7 @@ export function getFrameParts(segments: DialogueTextSegment[], highlightedStarts
 }
 
 /** Части рамки для ряда из нескольких соседних слов, включая мостики между ними. */
-function assignRunParts(segments: DialogueTextSegment[], runIndexes: number[], frameParts: Map<number, FramePart>) {
+function assignRunParts(segments: TextSegment[], runIndexes: number[], frameParts: Map<number, FramePart>) {
 	const firstIndex = runIndexes[0]
 	const lastIndex = runIndexes[runIndexes.length - 1]
 

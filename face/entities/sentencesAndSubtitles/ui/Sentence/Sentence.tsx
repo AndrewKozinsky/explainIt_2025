@@ -1,54 +1,37 @@
-import cn from 'classnames'
-import { getSentenceStructure } from '../../lib/getSentenceStructure'
-import Word from '../Word/Word'
+import ClickableText from '@/shared/ui/ClickableText/ClickableText'
+import { useSentenceWordSelection } from './fn/useSentenceWordSelection'
 
-type SentenceBlockProps = {
+type SentenceProps = {
 	sentenceId: number
 	sentenceText: string
 	selectedSentenceId: null | number
 	selectedWordId: null | number
 	selectWord: (input: { sentenceId: number; wordId: number }) => void
+	/** Сколько слов предложения стоит до этого текста: в субтитрах предложение бывает разбито на части. */
 	wordIdOffset?: number
-	extraClass?: string
-	loading?: boolean
 }
 
-function Sentence(props: SentenceBlockProps) {
-	const {
+/** Предложение книги или часть предложения в субтитре со словами-кнопками (ClickableText). */
+function Sentence(props: SentenceProps) {
+	const { sentenceId, sentenceText, selectedSentenceId, selectedWordId, selectWord, wordIdOffset = 0 } = props
+
+	const { segments, selectedStarts, getHighlightedStarts, handleWordClick } = useSentenceWordSelection({
 		sentenceId,
 		sentenceText,
 		selectedSentenceId,
 		selectedWordId,
 		selectWord,
-		wordIdOffset = 0,
-		extraClass,
-		loading,
-	} = props
-
-	const sentenceStructure = getSentenceStructure(sentenceText)
-	let wordIndex = wordIdOffset
+		wordIdOffset,
+	})
 
 	return (
-		<p className={cn(extraClass, loading && 'sentence-block--loading')} data-text={sentenceText}>
-			{sentenceStructure.map((part) => {
-				if (part.isWord) {
-					wordIndex += 1
-
-					return (
-						<Word
-							sentenceId={sentenceId}
-							wordId={wordIndex}
-							text={part.value}
-							key={part.id}
-							selectedSentenceId={selectedSentenceId}
-							selectedWordId={selectedWordId}
-							selectWord={selectWord}
-						/>
-					)
-				}
-
-				return part.value
-			})}
+		<p>
+			<ClickableText
+				segments={segments}
+				getHighlightedStarts={getHighlightedStarts}
+				selectedStarts={selectedStarts}
+				onWordClick={handleWordClick}
+			/>
 		</p>
 	)
 }

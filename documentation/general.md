@@ -72,6 +72,7 @@ docker compose -f docker-compose.local.dev.ru.yml --project-directory .. --env-f
 | Файл | Когда читать (ключевые слова / темы) |
 |---|---|
 | `documentation/topics/dictionary.md` | Словарь, словарная статья, PhraseDictionary, панель словаря, транскрипция и озвучка слова, клик по слову |
+| `documentation/topics/clickableText.md` | кликабельный текст, ClickableText, слова-кнопки, подсветка слов, рамка выражения, заливка выбранных слов, касание и прокрутка, SegmentedText, Sentence |
 | `documentation/topics/clientUserData.md` | пользователь, user, getCurrentUser, UserProvider, useUserControllerGetMe, авторизация, текущий пользователь, user data |
 | `documentation/topics/userProfile.md` | профиль пользователя, пол, gender, готовые аватары, avatar-presets, загрузка фотографии, ImageProcessingService |
 | `documentation/topics/internationalization.md` | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale |
