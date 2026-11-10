@@ -24,7 +24,7 @@ function OAuthPage(props: OAuthPageProps) {
 		return <ErrorMessage text={error} />
 	}
 
-	redirect(localizePath(locale, pageUrls.books.path))
+	redirect(localizePath(locale, pageUrls.aiDialogues.path))
 }
 
 export default OAuthPage
