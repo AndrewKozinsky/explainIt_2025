@@ -1,7 +1,7 @@
 'use client'
 
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
+import UnderlinedInput from '@/shared/ui/formRelated/UnderlinedInput/UnderlinedInput'
 import './YouTubeSearch.scss'
 
 type YouTubeSearchBarProps = {
@@ -25,19 +25,19 @@ function YouTubeSearch(props: YouTubeSearchBarProps) {
 
 	return (
 		<div className='youtube-search'>
-			<TextInput
-				block
-				size='big'
-				inputProps={{
-					value: query,
-					onChange: function (e) {
-						onQueryChange(e.target.value)
-					},
-					onKeyDown: handleKeyDown,
-					placeholder: 'Название или адрес видео на youtube.com',
-					autoFocus: true,
-				}}
-			/>
+			<div className='youtube-search__input'>
+				<UnderlinedInput
+					inputProps={{
+						value: query,
+						onChange: function (e) {
+							onQueryChange(e.target.value)
+						},
+						onKeyDown: handleKeyDown,
+						placeholder: 'Название или адрес видео на youtube.com',
+						autoFocus: true,
+					}}
+				/>
+			</div>
 			<Button theme='outline' size='big' onClick={() => onSearch()} disabled={isSearchDisabled} loading={loading}>
 				Найти
 			</Button>

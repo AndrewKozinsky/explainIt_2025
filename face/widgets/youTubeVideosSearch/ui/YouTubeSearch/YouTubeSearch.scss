@@ -1,4 +1,10 @@
 .youtube-search {
 	display: flex;
-	gap: 8px;
+	align-items: stretch;
+	gap: 2rem;
+}
+
+.youtube-search__input {
+	flex: 1;
+	min-width: 0;
 }
