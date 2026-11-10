@@ -6,22 +6,17 @@ type SentencePhraseTopPartProps = {
 	phrase: string
 	phraseTranslation: string
 	languageCode: string
-	onWhiteBackground?: boolean
 }
 
 function SentencePhraseTop(props: SentencePhraseTopPartProps) {
-	const { phrase, phraseTranslation, languageCode, onWhiteBackground } = props
+	const { phrase, phraseTranslation, languageCode } = props
 
 	return (
 		<div className='sentence-phrase-top'>
 			<p className='sentence-phrase-top__content'>
 				<span className='sentence-phrase-top__phrase'>{phrase}</span>{' '}
-				<TranscriptionAndAudio
-					phrase={phrase}
-					languageCode={languageCode as LanguageCode}
-					bg={onWhiteBackground ? 'white' : 'pale'}
-				/>{' '}
-				— {phraseTranslation}
+				<TranscriptionAndAudio phrase={phrase} languageCode={languageCode as LanguageCode} /> —{' '}
+				{phraseTranslation}
 			</p>
 		</div>
 	)

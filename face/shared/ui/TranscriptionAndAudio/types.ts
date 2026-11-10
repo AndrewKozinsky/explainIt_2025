@@ -6,7 +6,6 @@ export type TranscriptionAndAudioProps = {
 	audioUrl?: string | null
 	transcription?: string | null
 	transcriptionLoading?: boolean
-	bg?: 'pale' | 'white'
 	extraClass?: string
 }
 

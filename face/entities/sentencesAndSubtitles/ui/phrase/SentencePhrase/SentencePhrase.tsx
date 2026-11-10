@@ -10,21 +10,16 @@ type SentencePhraseProps = {
 	sentenceId: number
 	extraClass?: string
 	languageCode: string
-	onWhiteBackground?: boolean
 }
 
 function SentencePhrase(props: SentencePhraseProps) {
-	const { phraseAnalysis, sentenceId, extraClass, languageCode, onWhiteBackground } = props
+	const { phraseAnalysis, sentenceId, extraClass, languageCode } = props
 
 	return (
 		<div className={cn('sentence-phrase', extraClass)}>
 			<SentencePhraseLoading phraseAnalysis={phraseAnalysis} />
 			<SentencePhraseError phraseAnalysis={phraseAnalysis} sentenceId={sentenceId} />
-			<SentencePhraseContent
-				phraseAnalysis={phraseAnalysis}
-				languageCode={languageCode}
-				onWhiteBackground={onWhiteBackground}
-			/>
+			<SentencePhraseContent phraseAnalysis={phraseAnalysis} languageCode={languageCode} />
 		</div>
 	)
 }

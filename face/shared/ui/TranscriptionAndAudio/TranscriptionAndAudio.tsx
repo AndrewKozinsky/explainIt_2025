@@ -12,7 +12,6 @@ import './TranscriptionAndAudio.scss'
 
 function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 	const {
-		bg = 'pale',
 		extraClass,
 		phrase,
 		languageCode,
@@ -37,12 +36,7 @@ function TranscriptionAndAudio(props: TranscriptionAndAudioProps) {
 
 	const isLoading = transcriptionLoading || effectiveTranscription?.status === 'loading' || phrase === 'loading'
 
-	const rootClasses = cn(
-		'transcription-audio',
-		`transcription-audio--${bg}-bg`,
-		isLoading && 'transcription-audio--loading',
-		extraClass,
-	)
+	const rootClasses = cn('transcription-audio', isLoading && 'transcription-audio--loading', extraClass)
 
 	return (
 		<BaseButton extraClass={rootClasses} onClick={handleClick} type='button' theme='outline'>

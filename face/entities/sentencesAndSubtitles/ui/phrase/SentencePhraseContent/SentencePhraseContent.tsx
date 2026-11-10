@@ -6,11 +6,10 @@ import './SentencePhraseContent.scss'
 type SentencePhraseProps = {
 	phraseAnalysis: SentencePhraseType
 	languageCode: string
-	onWhiteBackground?: boolean
 }
 
 function SentencePhraseContent(props: SentencePhraseProps) {
-	const { phraseAnalysis, languageCode, onWhiteBackground } = props
+	const { phraseAnalysis, languageCode } = props
 
 	if (!phraseAnalysis || phraseAnalysis.loading || phraseAnalysis.error) {
 		return null
@@ -26,12 +25,7 @@ function SentencePhraseContent(props: SentencePhraseProps) {
 
 	return (
 		<>
-			<SentencePhraseTop
-				phrase={phrase}
-				phraseTranslation={phraseTranslation}
-				languageCode={languageCode}
-				onWhiteBackground={onWhiteBackground}
-			/>
+			<SentencePhraseTop phrase={phrase} phraseTranslation={phraseTranslation} languageCode={languageCode} />
 			{examples?.map((example, i) => {
 				return <SentencePhraseExample example={example} key={i} />
 			})}

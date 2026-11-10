@@ -13,20 +13,8 @@
 	border-radius: vars.$radius-1;
 }
 
-.transcription-audio--pale-bg {
-	background-color: vars.$grayColor-1;
-}
-.transcription-audio--white-bg {
-	background-color: white;
-}
-
-.transcription-audio--pale-bg.transcription-audio--loading, .transcription-audio--white-bg.transcription-audio--loading {
+.transcription-audio--loading {
 	width: 2em;
-}
-.transcription-audio--pale-bg.transcription-audio--loading {
-	@include inh.loading-shimmer-white();
-}
-.transcription-audio--white-bg.transcription-audio--loading {
 	@include inh.loading-shimmer-gray();
 }
 

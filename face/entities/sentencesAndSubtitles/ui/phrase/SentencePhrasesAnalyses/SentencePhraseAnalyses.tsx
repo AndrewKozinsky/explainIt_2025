@@ -31,7 +31,6 @@ function SentencePhraseAnalyses(props: SentencePhraseAnalysesProps) {
 							phraseAnalysis={analysis}
 							sentenceId={currentSentenceId}
 							languageCode={languageCode}
-							onWhiteBackground
 						/>
 					</div>
 				)

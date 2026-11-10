@@ -21,7 +21,6 @@ function DictionaryPhraseTranscription() {
 				audioUrl={audioUrl}
 				transcription={transcription?.ipa ?? null}
 				transcriptionLoading={isLoading}
-				bg='white'
 			/>
 		</div>
 	)
