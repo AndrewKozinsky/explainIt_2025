@@ -1,6 +1,7 @@
 # Чат с ИИ по выделенному предложению
 
 ## Что делает функционал
+
 Пользователь выделяет предложение в субтитрах или тексте видео и открывает на правой панели вкладку «Диалог» — чат с ИИ
 об этом предложении. В чате он задаёт свободные вопросы (грамматика, лексика, перевод, культурный контекст и т. п.).
 Ответ ИИ приходит **потоково**, чанк за чанком, и постепенно появляется на экране.
@@ -13,10 +14,12 @@
 ## Доменная модель
 
 ### `SentenceChatThread`
+
 - `(user_id, sentence_id)` — уникальная пара.
 - Содержит упорядоченный список `SentenceChatMessage`.
 
 ### `SentenceChatMessage`
+
 - `role` (`SentenceChatMessageRole`): `user` | `assistant`.
 - `status` (`SentenceChatMessageStatus`): `streaming` | `completed` | `canceled` | `failed`.
 - `content`: текст сообщения (у streaming-заготовки ассистента изначально пуст и записывается при финализации).
@@ -25,19 +28,19 @@
 ## Как работает сервер
 
 ### REST API
+
 Контроллер `server/src/routes/sentenceChat/sentenceChat.controller.ts`, префикс `/sentence-chat`. Все маршруты
 требуют сессию (`CheckSessionCookieGuard`).
 
-| Маршрут | Назначение |
-|---|---|
-| `GET /sentence-chat/threads?sentenceId=` | тред с сообщениями или `null`, если его ещё нет |
-| `POST /sentence-chat/threads` (тело `{ sentenceId }`) | создать **новый** пустой тред; если он уже есть — `threadAlreadyExists` |
-| `POST /sentence-chat/threads/:threadId/messages` (тело `{ threadId, question }`) | добавить вопрос пользователя, вернуть созданное сообщение |
-| `GET /sentence-chat/threads/:threadId/assistant-stream?model=` (SSE) | сгенерировать ответ ассистента и стримить чанки |
+| Маршрут                                                                          | Назначение                                                              |
+|----------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| `GET /sentence-chat/threads?sentenceId=`                                         | тред с сообщениями или `null`, если его ещё нет                         |
+| `POST /sentence-chat/threads` (тело `{ sentenceId }`)                            | создать **новый** пустой тред; если он уже есть — `threadAlreadyExists` |
+| `POST /sentence-chat/threads/:threadId/messages` (тело `{ threadId, question }`) | добавить вопрос пользователя, вернуть созданное сообщение               |
+| `GET /sentence-chat/threads/:threadId/assistant-stream?model=` (SSE)             | сгенерировать ответ ассистента и стримить чанки                         |
 
 Query-параметр `model` — идентификатор модели из `AiModel` (`server/src/types/AIModels.ts`). По нему
-`LlmAdapterService` выбирает провайдера (DeepSeek, ChatGPT, Gemini, z.ai). Если `model` не передан, используется
-`DEFAULT_FLASH_AI_MODEL` (DeepSeek Flash).
+`LlmAdapterService` выбирает провайдера. Если `model` не передан, используется `DEFAULT_FLASH_AI_MODEL` (MiMo Flash).
 
 Первые три маршрута описаны в OpenAPI (`openAPI.decorators.ts`); клиентские функции для них генерирует Orval.
 SSE-маршрут в OpenAPI не описан, клиент открывает его через `EventSource`.
@@ -46,6 +49,7 @@ SSE-маршрут в OpenAPI не описан, клиент открывает
 SSE-маршрут сам создаёт streaming-заготовку `assistant`-сообщения и заполняет её по мере генерации.
 
 ### CQRS handlers
+
 - `GetSentenceChatThreadHandler` (`GetSentenceChatThread.query.ts`) — читает тред через
   `SentenceChatThreadQueryRepository.getThreadWithMessagesByUserAndSentence`.
 - `CreateSentenceChatThreadHandler` — проверяет существование предложения (`sentence.notFound`) и отсутствие треда,
@@ -85,22 +89,26 @@ SSE-маршрут сам создаёт streaming-заготовку `assistant
 Баланс пользователя перед генерацией не проверяется.
 
 #### Отмена
+
 Когда клиент отключается от SSE (`EventSource.close()` или уход со страницы), RxJS вызывает teardown Observable. Он
 вызывает `abortController.abort()`, стрим LLM обрывается, `finalize` записывает сообщение со `status='canceled'` и
 сохраняет уже сгенерированную часть контента. Отдельного маршрута отмены нет.
 
 #### Одна активная генерация на пользователя
+
 `ActiveSentenceChatGenerationRegistry` хранит две карты: `userId → { assistantMessageId, abortController }` и
 `assistantMessageId → { userId, abortController }`. Лимит — **1 активная генерация на пользователя**. Проверка
 дублируется в БД, чтобы выдержать рестарт процесса.
 
 ### System prompt и контекст
+
 `buildSentenceChatSystemInstruction` (`buildSentenceChatPrompt.ts`) формирует system-prompt с предложением и соседними,
 `buildSentenceChatMessages` собирает массив `LlmMessage[]` (история + новый вопрос) в нейтральном формате.
 System-prompt добавляется первым сообщением с `role: 'system'`; провайдеры `LlmAdapterService` сами конвертируют
 `LlmMessage[]` в формат своего API.
 
 ### Списание баланса
+
 После завершения генерации (любой статус), если получен ненулевой `usage`, вызывается `chargeAfterTranslationIfNeeded`
 из модуля перевода. Она выполняет `TokenUsageBalanceChargeCommand` с моделью и числом входных/выходных токенов.
 Ошибка списания не роняет SSE — она только логируется.
@@ -113,10 +121,19 @@ System-prompt добавляется первым сообщением с `role:
 - `stream({ model, messages, abortSignal, onUsage })` — потоковый ответ.
 
 Провайдер определяется по `model` через `getProviderFromModel`: `GeminiLlmProvider`, `ChatGptLlmProvider`,
-`DeepSeekLlmProvider` или `ZaiLlmProvider`. Модуль `LlmProviderModule` экспортирует только `LlmAdapterService` и
+`DeepSeekLlmProvider`, `ZaiLlmProvider` или `MimoLlmProvider`. Модуль `LlmProviderModule` экспортирует только
+`LlmAdapterService` и
 импортируется в модули-потребители (`SentenceChatModule`, `TranslateRouteModule`, `AiDialogueModule` и др.).
 
+### Рассуждение
+
+`reasoningEffort` в `generate` включает рассуждение у моделей, которые его поддерживают. Если параметр не передан (и
+всегда в `stream`), DeepSeek и MiMo вызываются с выключенным рассуждением (`thinking: { type: 'disabled' }`): иначе их
+API рассуждает по умолчанию, что дороже и медленнее. DeepSeek получает уровень через `reasoning_effort`, MiMo уровни
+не поддерживает и только включает рассуждение.
+
 ### SSE и GET
+
 Для стриминга используется `@Sse` из NestJS (на основе `rxjs.Observable`). Метод GET, хотя запрос создаёт запись в БД:
 так клиент может использовать родной `EventSource`.
 
@@ -134,7 +151,9 @@ System-prompt добавляется первым сообщением с `role:
 - `ui/SentenceChat/fn/openAssistantStream.ts` — создание `EventSource` и обработка событий.
 
 ### Открытие чата по предложению
+
 При смене `sentenceId` `useLoadChatThread` очищает стор и вызывает `getThread`:
+
 - если тред есть — кладёт `threadId` и сообщения в стор;
 - если `null` — чат пуст, `threadId` нет;
 - при ошибке — `threadError: 'Не удалось загрузить историю чата'`.
@@ -142,6 +161,7 @@ System-prompt добавляется первым сообщением с `role:
 При уходе с предложения открытый стрим закрывается.
 
 ### Отправка вопроса
+
 1. Если `threadId` нет — `createThread(sentenceId)`, `threadId` сохраняется в стор.
 2. `createUserMessage(threadId, question)` — созданное сообщение добавляется в список.
 3. В список добавляется локальный плейсхолдер ассистента (`status: 'streaming'`, отрицательный `id`,
@@ -151,6 +171,7 @@ System-prompt добавляется первым сообщением с `role:
 Ошибка шагов 1–2 показывается как `threadError: 'Ошибка отправки вопроса'`.
 
 ### Обработка SSE-событий
+
 - `{ type: 'chunk', chunk }` — `appendStreamChunk` дописывает текст плейсхолдера.
 - `{ type: 'done', status, content, errorMessage }` — `finalizeStreamingMessage` фиксирует контент и статус, стрим
   закрывается.
@@ -158,25 +179,30 @@ System-prompt добавляется первым сообщением с `role:
   `failed`.
 
 ### Отмена генерации
+
 Кнопка отмены закрывает `EventSource` и вызывает `cancelStreamingMessages`. Сервер сам записывает `canceled`.
 
 ### Переключатель модели
+
 `ui/LlmProviderSwitch/` — кнопки DeepSeek, Gemini, ChatGPT (`getProviders()`); значение хранится в
 `sentenceChatStore.llmProvider` (по умолчанию `deepseek`). Клиент добавляет его в URL стрима как `?provider=...`, а
 сервер читает параметр `model`, поэтому выбор сейчас не влияет на генерацию: всегда используется
 `DEFAULT_FLASH_AI_MODEL`.
 
 ### Голосовой ввод
+
 `ui/VoiceInputButton/` — диктовка вопроса через браузерный Web Speech API (`SpeechRecognition` /
 `webkitSpeechRecognition`).
 
 ### После перезагрузки страницы
+
 Клиент только загружает тред и показывает сообщения; автоматически к стриму не переподключается. Если последнее
 сообщение — вопрос пользователя без ответа, новый вопрос отправить нельзя (`previousAnswerNotReady`).
 
 ## Ошибки
 
 Ключи из `errorMessage.sentenceChat`:
+
 - `questionIsEmpty` — пустой текст вопроса.
 - `generationAlreadyActive` — у пользователя уже идёт генерация ответа.
 - `threadNotFound` — тред не найден.
@@ -190,6 +216,7 @@ System-prompt добавляется первым сообщением с `role:
 ## Ключевые файлы
 
 ### Сервер
+
 - `server/prisma/schema.prisma` — `SentenceChatThread`, `SentenceChatMessage`, enum `SentenceChatMessageRole` и
   `SentenceChatMessageStatus`.
 - `server/src/routes/sentenceChat/sentenceChat.controller.ts` — REST и SSE маршруты.
@@ -208,6 +235,7 @@ System-prompt добавляется первым сообщением с `role:
 - `server/src/types/AIModels.ts` — `AiModel`, `getProviderFromModel`, модели по умолчанию.
 
 ### Клиент
+
 - `face/entities/sentenceChat/` — репозиторий, сервис, стор и UI чата.
 - `face/entities/detailsBlock/ui/mediaSpecific/MediaDialogContent/MediaDialogContent.tsx` — подключение на странице
   видео.

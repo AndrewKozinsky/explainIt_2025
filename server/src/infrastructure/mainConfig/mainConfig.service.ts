@@ -97,6 +97,22 @@ export class MainConfigService {
 					},
 				},
 			},
+			mimo: {
+				apiKey: enVariables.mimo.apiKey,
+				baseUrl: 'https://api.xiaomimimo.com/v1',
+				priceInRub: {
+					// MiMo-V2.6-Flash: $0.14 / 1M input (без кэша), $0.28 / 1M output
+					flash: {
+						input: (oneDollarInRub * 0.14) / 1_000_000,
+						output: (oneDollarInRub * 0.28) / 1_000_000,
+					},
+					// MiMo-V2.6-Pro: $0.435 / 1M input (без кэша), $0.87 / 1M output
+					pro: {
+						input: (oneDollarInRub * 0.435) / 1_000_000,
+						output: (oneDollarInRub * 0.87) / 1_000_000,
+					},
+				},
+			},
 			zai: {
 				apiKey: enVariables.zai.apiKey,
 				baseUrl: 'https://api.z.ai/api/paas/v4',
@@ -262,6 +278,9 @@ export class MainConfigService {
 			},
 			zai: {
 				apiKey: this.configService.get<string>('ZAI_API_KEY') as string,
+			},
+			mimo: {
+				apiKey: this.configService.get<string>('MIMO_API_KEY') as string,
 			},
 			deepgram: {
 				apiKey: this.configService.get<string>('DEEPGRAM_API_KEY') as string,

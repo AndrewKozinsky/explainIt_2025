@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { AIProviderName, getProviderFromModel, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
+import { AIProviderName, DEFAULT_FLASH_AI_MODEL, getProviderFromModel } from 'types/AIModels'
 import { withTimeout } from 'utils/withTimeout'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -8,16 +8,17 @@ import { ChatGptLlmProvider } from './ChatGptLlmProvider.service'
 import { DeepSeekLlmProvider } from './DeepSeekLlmProvider.service'
 import { GeminiLlmProvider } from './GeminiLlmProvider.service'
 import { LlmGenerateInput, LlmGenerateOutput, LlmProvider, LlmStreamInput } from './LlmProvider.interface'
+import { MimoLlmProvider } from './MimoLlmProvider.service'
 import { ZaiLlmProvider } from './ZaiLlmProvider.service'
 
 /**
  * Единый фасад для вызова любого LLM-провайдера.
  *
- * Провайдер определяется из model (enum). Если model не указана — по умолчанию DeepSeek.
+ * Провайдер определяется из model (enum). Если model не указана — используется DEFAULT_FLASH_AI_MODEL.
  *
  * Использование:
  *   llmAdapter.generate({ model: OpenAIModels.Standard, messages: [...] })
- *   llmAdapter.generate({ messages: [...] })  // DeepSeek по умолчанию
+ *   llmAdapter.generate({ messages: [...] })  // DEFAULT_FLASH_AI_MODEL
  */
 @Injectable()
 export class LlmAdapterService {
@@ -38,12 +39,14 @@ export class LlmAdapterService {
 		chatGpt: ChatGptLlmProvider,
 		deepSeek: DeepSeekLlmProvider,
 		zai: ZaiLlmProvider,
+		mimo: MimoLlmProvider,
 	) {
 		this.providerMap = {
 			gemini,
 			chatgpt: chatGpt,
 			deepseek: deepSeek,
 			zai,
+			mimo,
 		}
 	}
 

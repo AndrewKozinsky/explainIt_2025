@@ -1,6 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { AiModel, DeepSeekModels, GoogleGeminiModels, OpenAIModels, ZaiModels } from 'types/AIModels'
+import { AiModel, DeepSeekModels, GoogleGeminiModels, MimoModels, OpenAIModels, ZaiModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -69,6 +69,9 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 			// Z.ai
 			[ZaiModels.Flash]: this.mainConfig.get().zai.priceInRub.flash,
 			[ZaiModels.Pro]: this.mainConfig.get().zai.priceInRub.pro,
+			// Xiaomi MiMo
+			[MimoModels.Flash]: this.mainConfig.get().mimo.priceInRub.flash,
+			[MimoModels.Pro]: this.mainConfig.get().mimo.priceInRub.pro,
 			// Gemini
 			[GoogleGeminiModels.FlashLite]: this.mainConfig.get().gemini.priceInRub.flashLite,
 			[GoogleGeminiModels.Flash]: this.mainConfig.get().gemini.priceInRub.flash,

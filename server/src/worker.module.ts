@@ -34,6 +34,7 @@ import { ImageProcessingService } from 'infrastructure/imageProcessing/imageProc
 import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider.module'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { MimoModule } from 'infrastructure/mimo/mimo.module'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
@@ -60,6 +61,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		MainConfigModule,
 		DeepSeekModule,
 		ZaiModule,
+		MimoModule,
 		GoogleGeminiModule,
 		OpenAIModule,
 		LlmProviderModule,

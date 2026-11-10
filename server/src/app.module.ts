@@ -30,6 +30,7 @@ import { GoogleGeminiModule } from 'infrastructure/googleGemini/googleGemini.mod
 import { GoogleTtsModule } from 'infrastructure/googleTts/googleTts.module'
 import { HashAdapterModule } from 'infrastructure/hashAdapter/hash-adapter.module'
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
+import { MimoModule } from 'infrastructure/mimo/mimo.module'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
 import { QueuesModule } from 'infrastructure/queues/queues.module'
 import { RedisModule } from 'infrastructure/redis/redis.module'
@@ -55,6 +56,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		OpenAIModule,
 		DeepSeekModule,
 		ZaiModule,
+		MimoModule,
 		DeepgramSttModule,
 		SonioxSttModule,
 		SubtitlesModule,

@@ -12,6 +12,18 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
+/**
+ * Параметры рассуждения для запроса к DeepSeek.
+ * API по умолчанию включает рассуждение с усилием high, поэтому без reasoningEffort оно явно выключается.
+ */
+function getThinkingParams(reasoningEffort?: ReasoningEffort) {
+	if (!reasoningEffort || reasoningEffort === 'none') {
+		return { thinking: { type: 'disabled' } }
+	}
+
+	return { thinking: { type: 'enabled' }, reasoning_effort: reasoningEffort }
+}
+
 @Injectable()
 export class DeepSeekService {
 	deepseek: OpenAI
@@ -36,6 +48,7 @@ export class DeepSeekService {
 			response_format: input.responseFormat ?? {
 				type: 'text',
 			},
+			...getThinkingParams(input.reasoningEffort),
 		})
 
 		if (!response.usage) {
@@ -65,6 +78,7 @@ export class DeepSeekService {
 				response_format: input.responseFormat ?? {
 					type: 'text',
 				},
+				...getThinkingParams(input.reasoningEffort),
 				stream: true,
 				stream_options: {
 					include_usage: true,
