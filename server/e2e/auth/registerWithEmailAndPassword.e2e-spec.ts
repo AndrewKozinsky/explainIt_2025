@@ -2,7 +2,7 @@
 // import { CommandBus } from '@nestjs/cqrs'
 // import { App } from 'supertest/types'
 // import { queries } from '../../src/features/db/queries'
-// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 // import RouteNames from '../../src/infrastructure/routeNames'
 // import { UserRepository } from '../../src/repo/user.repository'
@@ -20,7 +20,7 @@ it('1', () => {
 /*describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
@@ -28,7 +28,7 @@ it('1', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
+		authEmail = createMainAppRes.authEmail
 		userRepository = await app.resolve(UserRepository)
 	})
 
@@ -86,7 +86,7 @@ it('1', () => {
 		})
 
 		// Check if a confirmation letter was sent
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
 	})
 
 	it('should return error if a user is already created, but email is not confirmed', async () => {
@@ -97,7 +97,7 @@ it('1', () => {
 		// A try to create the user for the second time
 		const [createUserResp2] = await makeGraphQLReq(app, registerUserMutation)
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
 
 		checkErrorResponse(createUserResp2, {
 			code: 'Bad Request',

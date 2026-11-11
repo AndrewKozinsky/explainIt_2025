@@ -1,8 +1,12 @@
 import { Test, TestingModule } from '@nestjs/testing'
 import { AppModule } from '../../src/app.module'
 import { applyAppSettings } from '../../src/infrastructure/applyAppSettings'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
+import {
+	EmailAdapterService,
+	EmailAdapterServiceMock,
+} from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
+// import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 import { StartServerTasksRunner } from '../../src/infrastructure/StartServerTasksRunner'
 import { TelegramService } from '../../src/infrastructure/telegram/telegram.service'
 import {
@@ -19,15 +23,16 @@ export async function createApp() {
 			onApplicationBootstrap: async function onApplicationBootstrap() {},
 		})
 		.overrideProvider(EmailAdapterService)
+		.useValue(new EmailAdapterServiceMock())
+		.overrideProvider(AuthEmailService)
 		.useValue({
-			sendEmailConfirmationMessage: jest.fn().mockResolvedValue('Mocked Email Response'),
-			sendEmail: jest.fn().mockResolvedValue('Mocked Email Response'),
-			sendPasswordRecoveryMessage: jest.fn().mockResolvedValue('Mocked Email Response'),
+			sendEmailConfirmation: jest.fn().mockResolvedValue(undefined),
+			sendPasswordRecovery: jest.fn().mockResolvedValue(undefined),
 		})
-		.overrideProvider(GigaChatService)
+		/*.overrideProvider(GigaChatService)
 		.useValue({
 			generateText: jest.fn().mockResolvedValue('GigaChat generated text'),
-		})
+		})*/
 		.overrideProvider(TelegramService)
 		.useValue({
 			sendMessageToFromExplainBot: jest.fn().mockResolvedValue(true),
@@ -40,12 +45,12 @@ export async function createApp() {
 	await applyAppSettings(app)
 	await app.init()
 
-	const mockedEmailAdapter = moduleFixture.get<EmailAdapterService>(EmailAdapterService)
+	const mockedAuthEmail = moduleFixture.get<AuthEmailService>(AuthEmailService)
 	const mockedS3 = moduleFixture.get<YandexCloudS3ServiceMock>(YandexCloudS3Service)
 
 	return {
 		app,
-		emailAdapter: mockedEmailAdapter,
+		authEmail: mockedAuthEmail,
 		s3: mockedS3,
 	}
 }

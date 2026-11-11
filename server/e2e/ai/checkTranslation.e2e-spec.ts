@@ -1,6 +1,6 @@
 import { INestApplication } from '@nestjs/common'
 import { App } from 'supertest/types'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 // import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 // import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -15,10 +15,10 @@ it('1', () => {
 /*describe.skip('Ai check translation (e2e)', () => {
 	let app: INestApplication<App>
 	let gigaChatService: GigaChatService
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter: emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		gigaChatService = await app.resolve(GigaChatService)

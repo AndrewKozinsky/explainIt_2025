@@ -3,7 +3,7 @@
 // import { App } from 'supertest/types'
 // import { LoginWithOAuthHandler } from '../../src/features/auth/LoginWithOAuth.command'
 // import { queries } from '../../src/features/db/queries'
-// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 // import { MainConfigService } from '../../src/infrastructure/mainConfig/mainConfig.service'
 // import RouteNames from '../../src/infrastructure/routeNames'
 // import { UserRepository } from '../../src/repo/user.repository'
@@ -22,7 +22,7 @@ it('1', () => {
 /*describe.skip('Logout (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 	let userRepository: UserRepository
 	let mainConfig: MainConfigService
 
@@ -31,7 +31,7 @@ it('1', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
+		authEmail = createMainAppRes.authEmail
 		userRepository = await app.resolve(UserRepository)
 		mainConfig = await app.resolve(MainConfigService)
 	})

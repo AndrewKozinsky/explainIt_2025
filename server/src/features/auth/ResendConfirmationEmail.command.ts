@@ -1,23 +1,31 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs'
 import { UserRepository } from 'repo/user.repository'
-import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
+import { AuthEmailService } from 'infrastructure/emails/authEmail.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { Language } from 'utils/languages'
 
 export class ResendConfirmationEmailCommand {
-	constructor(public readonly email: string) {}
+	/**
+	 * @param email почта, на которую повторно отправляется письмо подтверждения.
+	 * @param locale язык интерфейса, на котором отправляется письмо.
+	 */
+	constructor(
+		public readonly email: string,
+		public readonly locale: Language,
+	) {}
 }
 
 @CommandHandler(ResendConfirmationEmailCommand)
 export class ResendConfirmationEmailHandler implements ICommandHandler<ResendConfirmationEmailCommand> {
 	constructor(
 		private userRepository: UserRepository,
-		private emailAdapter: EmailAdapterService,
+		private authEmail: AuthEmailService,
 	) {}
 
 	async execute(command: ResendConfirmationEmailCommand) {
-		const { email } = command
+		const { email, locale } = command
 
 		const user = await this.userRepository.getUserByEmail(email)
 
@@ -32,7 +40,7 @@ export class ResendConfirmationEmailHandler implements ICommandHandler<ResendCon
 
 		const confirmationCode = await this.userRepository.setNewEmailVerifiedCode(user.id)
 
-		this.emailAdapter.sendEmailConfirmationMessage(email, confirmationCode)
+		this.authEmail.sendEmailConfirmation({ email, confirmationCode, locale })
 
 		return true
 	}

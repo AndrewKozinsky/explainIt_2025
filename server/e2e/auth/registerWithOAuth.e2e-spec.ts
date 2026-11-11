@@ -2,7 +2,7 @@
 // import { CommandBus } from '@nestjs/cqrs'
 // import { App } from 'supertest/types'
 // import { queries } from '../../src/features/db/queries'
-// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 // import RouteNames from '../../src/infrastructure/routeNames'
 // import { UserRepository } from '../../src/repo/user.repository'
@@ -20,14 +20,14 @@ it('1', () => {
 /*describe.skip('Register user (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
+		authEmail = createMainAppRes.authEmail
 		userRepository = await app.resolve(UserRepository)
 	})
 
@@ -66,7 +66,7 @@ it('1', () => {
 		})
 
 		// Check that a confirmation letter was not sent
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(0)
 	})
 
 	it('a user registered with OAuth then tries to do the same the second time then the program must return user data', async () => {
@@ -109,7 +109,7 @@ it('1', () => {
 		})
 
 		// Check that a confirmation letter was not sent
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(0)
 	})
 
 	it('register a user with email and password. Then register with OAuth twice', async () => {
@@ -135,7 +135,7 @@ it('1', () => {
 		await checkUserAfterOAuth(registerWithOAuthResp_2)
 
 		// 4. Check that a confirmation letter was sent only once
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
 
 		async function checkUserAfterOAuth(userOutResponseData: any) {
 			const rowUserExpectedData = {
@@ -203,6 +203,6 @@ it('1', () => {
 		})
 
 		// 5. Check that a confirmation letter was sent only once
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
 	})
 })*/

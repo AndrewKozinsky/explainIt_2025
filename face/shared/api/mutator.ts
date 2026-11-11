@@ -57,7 +57,7 @@ export async function customMutator<TResponse = unknown>(url: string, options?: 
 		}
 	}
 
-	// Сервер возвращает тексты контента (группы и сценарии диалогов) на языке из Accept-Language.
+	// Сервер возвращает тексты контента (группы и сценарии диалогов) и отправляет письма на языке из Accept-Language.
 	const headers = new Headers(options?.headers)
 	const locale = await getRequestLocale()
 	if (locale && !headers.has('Accept-Language')) headers.set('Accept-Language', locale)

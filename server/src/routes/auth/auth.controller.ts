@@ -7,6 +7,7 @@ import { LoginInput } from 'routes/auth/inputs/login.input'
 import { LoginWithOAuthInput } from 'routes/auth/inputs/loginWithOAuth.input'
 import { RegisterUserInput } from 'routes/auth/inputs/registerUser.input'
 import { ResendConfirmationEmailInput } from 'routes/auth/inputs/resendConfirmationEmail.input'
+import { Language } from 'utils/languages'
 import { ConfirmEmailCommand } from 'features/auth/ConfirmEmail.command'
 import { CreateUserWithEmailAndPasswordCommand } from 'features/auth/CreateUserWithEmailAndPassword.command'
 import { LoginCommand } from 'features/auth/Login.command'
@@ -15,14 +16,15 @@ import { LogoutCommand } from 'features/auth/Logout.command'
 import { ResendConfirmationEmailCommand } from 'features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from 'infrastructure/browserService/browser.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
+import { RequestLocale } from 'infrastructure/requestLocale/requestLocale.decorator'
 import { UserOutModel } from 'models/user/user.out.model'
 import {
+	ApiConfirmEmail,
 	ApiLogin,
 	ApiLoginWithOAuth,
-	ApiRegister,
-	ApiConfirmEmail,
-	ApiResendConfirmationEmail,
 	ApiLogout,
+	ApiRegister,
+	ApiResendConfirmationEmail,
 } from './openAPI.decorators'
 
 @ApiTags('Auth')
@@ -46,8 +48,8 @@ export class AuthController {
 	@ApiRegister()
 	@HttpCode(HttpStatus.CREATED)
 	@Post('register')
-	async register(@Body() input: RegisterUserInput): Promise<UserOutModel> {
-		return await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(input))
+	async register(@Body() input: RegisterUserInput, @RequestLocale() locale: Language): Promise<UserOutModel> {
+		return await this.commandBus.execute(new CreateUserWithEmailAndPasswordCommand(input, locale))
 	}
 
 	@ApiConfirmEmail()
@@ -60,8 +62,11 @@ export class AuthController {
 	@ApiResendConfirmationEmail()
 	@HttpCode(HttpStatus.OK)
 	@Post('resend-confirmation-email')
-	async resendConfirmationEmail(@Body() input: ResendConfirmationEmailInput): Promise<boolean> {
-		return await this.commandBus.execute(new ResendConfirmationEmailCommand(input.email))
+	async resendConfirmationEmail(
+		@Body() input: ResendConfirmationEmailInput,
+		@RequestLocale() locale: Language,
+	): Promise<boolean> {
+		return await this.commandBus.execute(new ResendConfirmationEmailCommand(input.email, locale))
 	}
 
 	@ApiLogout()

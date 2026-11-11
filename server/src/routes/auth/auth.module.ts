@@ -11,11 +11,11 @@ import { LoginWithOAuthHandler } from 'features/auth/LoginWithOAuth.command'
 import { LogoutHandler } from 'features/auth/Logout.command'
 import { ResendConfirmationEmailHandler } from 'features/auth/ResendConfirmationEmail.command'
 import { BrowserService } from 'infrastructure/browserService/browser.service'
-import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
+import { AuthEmailService } from 'infrastructure/emails/authEmail.service'
 import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCookie.guard'
 import { AuthController } from './auth.controller'
 
-const services = [PrismaService, EmailAdapterService, BrowserService]
+const services = [PrismaService, AuthEmailService, BrowserService]
 const commandHandlers = [
 	CreateUserWithEmailAndPasswordHandler,
 	LoginHandler,

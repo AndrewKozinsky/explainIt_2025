@@ -1,21 +1,18 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
-import RouteNames from '../../src/infrastructure/routeNames'
-import { BookChapterRepository } from '../../src/repo/bookChapter/bookChapter.repository'
-import { BookPrivateRepository } from '../../src/repo/bookPrivate.repository'
+// import { queries } from '../../src/features/db/queries'
+// import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
+// import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+// import RouteNames from '../../src/infrastructure/routeNames'
+// import { BookChapterRepository } from '../../src/repo/bookChapter/bookChapter.repository'
+// import { BookPrivateRepository } from '../../src/repo/bookPrivate.repository'
 import { UserRepository } from '../../src/repo/user.repository'
-import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { bookChapterUtils } from '../utils/bookChapterUtils'
-import { bookUtils } from '../utils/bookUtils'
-import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword } from '../utils/common'
+// import { bookChapterUtils } from '../utils/bookChapterUtils'
+// import { checkErrorResponse } from '../utils/checkErrorResp'
 import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
@@ -25,8 +22,8 @@ describe.skip('Delete book', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let userRepository: UserRepository
-	let bookRepository: BookPrivateRepository
-	let bookChapterRepository: BookChapterRepository
+	// let bookRepository: BookPrivateRepository
+	// let bookChapterRepository: BookChapterRepository
 
 	beforeAll(async () => {
 		const createMainAppRes = await createApp()
@@ -34,8 +31,8 @@ describe.skip('Delete book', () => {
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
 		userRepository = await app.resolve(UserRepository)
-		bookRepository = await app.resolve(BookPrivateRepository)
-		bookChapterRepository = await app.resolve(BookChapterRepository)
+		// bookRepository = await app.resolve(BookPrivateRepository)
+		// bookChapterRepository = await app.resolve(BookChapterRepository)
 	})
 
 	beforeEach(async () => {
@@ -46,12 +43,12 @@ describe.skip('Delete book', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return 401 if there is not session token cookie', async () => {
+	/*it('should return 401 if there is not session token cookie', async () => {
 		const query = queries.book.delete({ id: 1 })
 		await authUtils.tokenNotExist({ app, queryOrMutationStr: query.query, queryVariables: query.variables })
-	})
+	})*/
 
-	it('should return 404 status if a book is not exists', async () => {
+	/*it('should return 404 status if a book is not exists', async () => {
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
 			userRepository,
@@ -67,14 +64,14 @@ describe.skip('Delete book', () => {
 			},
 		})
 
-		/*checkErrorResponse(deletedBookResp, {
+		checkErrorResponse(deletedBookResp, {
 			code: 'Not Found',
 			statusCode: 404,
 			message: errorMessage.book.notFound,
-		})*/
-	})
+		})
+	})*/
 
-	it('should return 400 status if a book belongs to another user', async () => {
+	/*it('should return 400 status if a book belongs to another user', async () => {
 		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -111,14 +108,14 @@ describe.skip('Delete book', () => {
 			},
 		})
 
-		/*checkErrorResponse(deletedBookResp, {
+		checkErrorResponse(deletedBookResp, {
 			code: 'Forbidden',
 			statusCode: 403,
 			message: errorMessage.user.isNotOwner,
-		})*/
-	})
+		})
+	})*/
 
-	it('user should delete a created book', async () => {
+	/*it('user should delete a created book', async () => {
 		// Create a user who will create a book
 		const { loginData, sessionToken } = await userUtils.createUserWithEmailAndPasswordAndLogin({
 			app,
@@ -154,7 +151,7 @@ describe.skip('Delete book', () => {
 		const userBooksResp = await bookUtils.getUserBooks({ app, sessionToken })
 		let userBooks = userBooksResp.data[RouteNames.BOOK_PRIVATE.GET_USER_BOOKS]
 		expect(userBooks.length).toBe(0)
-	})
+	})*/
 
 	/*it('should delete user books with all chapters', async () => {
 		// Create a user who will create a book and a chapter

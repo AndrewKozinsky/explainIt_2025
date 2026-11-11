@@ -1,7 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
-import { EmailAdapterService } from 'infrastructure/emailAdapter/email-adapter.service'
+import { Language } from 'utils/languages'
+import { AuthEmailService } from 'infrastructure/emails/authEmail.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -12,7 +13,14 @@ type CreateUserWithEmailAndPasswordInput = {
 }
 
 export class CreateUserWithEmailAndPasswordCommand implements ICommand {
-	constructor(public createUserInput: CreateUserWithEmailAndPasswordInput) {}
+	/**
+	 * @param createUserInput почта и пароль нового пользователя.
+	 * @param locale язык интерфейса, на котором отправляется письмо подтверждения почты.
+	 */
+	constructor(
+		public createUserInput: CreateUserWithEmailAndPasswordInput,
+		public locale: Language,
+	) {}
 }
 
 @CommandHandler(CreateUserWithEmailAndPasswordCommand)
@@ -20,11 +28,11 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 	constructor(
 		private userRepository: UserRepository,
 		private userQueryRepository: UserQueryRepository,
-		private emailAdapter: EmailAdapterService,
+		private authEmail: AuthEmailService,
 	) {}
 
 	async execute(command: CreateUserWithEmailAndPasswordCommand) {
-		const { createUserInput } = command
+		const { createUserInput, locale } = command
 
 		const existingUser = await this.userRepository.getUserByEmail(createUserInput.email)
 
@@ -44,7 +52,11 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 				await this.userRepository.setPassword(existingUser.id, createUserInput.password)
 
 				// Send an email confirmation message
-				await this.emailAdapter.sendEmailConfirmationMessage(existingUser.email, emailVerificationCode)
+				await this.authEmail.sendEmailConfirmation({
+					email: existingUser.email,
+					confirmationCode: emailVerificationCode,
+					locale,
+				})
 				return await this.userQueryRepository.getUserById(existingUser.id)
 			}
 		}
@@ -60,7 +72,11 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
 
-		this.emailAdapter.sendEmailConfirmationMessage(createdUser.email, createdUser.emailConfirmationCode!)
+		this.authEmail.sendEmailConfirmation({
+			email: createdUser.email,
+			confirmationCode: createdUser.emailConfirmationCode!,
+			locale,
+		})
 
 		return newUser
 	}

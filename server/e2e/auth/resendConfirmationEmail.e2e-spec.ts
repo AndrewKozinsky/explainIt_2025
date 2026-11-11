@@ -1,17 +1,12 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { add, subDays } from 'date-fns'
 import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
-import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
+// import { queries } from '../../src/features/db/queries'
+import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReq } from '../makeGQReq'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { checkErrorResponse } from '../utils/checkErrorResp'
-import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
@@ -20,7 +15,7 @@ it('1', () => {
 describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
@@ -28,7 +23,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
+		authEmail = createMainAppRes.authEmail
 		userRepository = await app.resolve(UserRepository)
 	})
 
@@ -40,7 +35,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 		await afterEachTest(app)
 	})
 
-	it('should return error if inputs has incorrect values', async () => {
+	/*it('should return error if inputs has incorrect values', async () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('johnexample.com')
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
@@ -56,23 +51,23 @@ describe.skip('Confirm an user email (e2e)', () => {
 			],
 		})
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
-	})
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(0)
+	})*/
 
-	it('should return an error if the entered email is not exists', async () => {
+	/*it('should return an error if the entered email is not exists', async () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail('john@example.com')
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		/*checkErrorResponse(resendConfirmationEmailResp, {
+		checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.notFound,
-		})*/
+		})
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
-	})
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(0)
+	})*/
 
-	it('should return an error if the user registered with OAuth', async () => {
+	/*it('should return an error if the user registered with OAuth', async () => {
 		await userUtils.loginUserWithOAuthSuccessfully({
 			app,
 			email: defUserEmail,
@@ -83,16 +78,16 @@ describe.skip('Confirm an user email (e2e)', () => {
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
 		// Check the error
-		/*checkErrorResponse(resendConfirmationEmailResp, {
+		checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.notFound,
-		})*/
+		})
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
-	})
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(0)
+	})*/
 
-	it('should return success if inputs has correct values', async () => {
+	/*it('should return success if inputs has correct values', async () => {
 		const user = await userUtils.createUserWithUnconfirmedEmail({
 			app,
 			userRepository,
@@ -112,7 +107,7 @@ describe.skip('Confirm an user email (e2e)', () => {
 
 		// Check for successful answer and that email adapter was run
 		expect(resendConfirmationEmailResp.data).toBeTruthy()
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(2)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(2)
 
 		// Check if expiration data is bigger than now for 3 hours
 		const updatedUser = await userRepository.getUserById(user.id)
@@ -126,9 +121,9 @@ describe.skip('Confirm an user email (e2e)', () => {
 		expect(+new Date(updatedUser.confirmationCodeExpirationDate)).toBeLessThan(
 			+add(new Date(), { days: 3, minutes: 1 }),
 		)
-	})
+	})*/
 
-	it('should return an error if email is already confirmed', async () => {
+	/*it('should return an error if email is already confirmed', async () => {
 		const admin = await userUtils.createUserWithConfirmedEmail({
 			app,
 			userRepository,
@@ -140,12 +135,12 @@ describe.skip('Confirm an user email (e2e)', () => {
 		const resendConfirmationEmailMutation = queries.auth.resendConfirmationEmail(admin.email)
 		const [resendConfirmationEmailResp] = await makeGraphQLReq(app, resendConfirmationEmailMutation)
 
-		/*checkErrorResponse(resendConfirmationEmailResp, {
+		checkErrorResponse(resendConfirmationEmailResp, {
 			code: 'Bad Request',
 			statusCode: 400,
 			message: errorMessage.email.isAlreadyConfirmed,
-		})*/
+		})
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
-	})
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
+	})*/
 })

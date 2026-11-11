@@ -1,7 +1,7 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 // import { GigaChatService } from '../../src/infrastructure/gigaChat/gigaChat.service'
 // import RouteNames from '../../src/infrastructure/routeNames'
 import { makeGraphQLReq } from '../makeGQReq'
@@ -17,10 +17,10 @@ it('1', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
 	let gigaChatService: GigaChatService
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 
 	beforeAll(async () => {
-		const createMainAppRes = await createApp({ emailAdapter: emailAdapter })
+		const createMainAppRes = await createApp()
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)

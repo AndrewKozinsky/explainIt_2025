@@ -2,7 +2,7 @@
 // import { CommandBus } from '@nestjs/cqrs'
 // import { App } from 'supertest/types'
 // import { queries } from '../../src/features/db/queries'
-// import { EmailAdapterService } from '../../src/infrastructure/emailAdapter/email-adapter.service'
+// import { AuthEmailService } from '../../src/infrastructure/emails/authEmail.service'
 // import { errorMessage } from '../../src/infrastructure/exceptions/errorMessage'
 // import RouteNames from '../../src/infrastructure/routeNames'
 // import { UserRepository } from '../../src/repo/user.repository'
@@ -20,7 +20,7 @@ it('1', () => {
 /*describe.skip('Confirm an user email (e2e)', () => {
 	let app: INestApplication<App>
 	let commandBus: CommandBus
-	let emailAdapter: EmailAdapterService
+	let authEmail: AuthEmailService
 	let userRepository: UserRepository
 
 	beforeAll(async () => {
@@ -28,7 +28,7 @@ it('1', () => {
 
 		app = createMainAppRes.app
 		commandBus = app.get(CommandBus)
-		emailAdapter = createMainAppRes.emailAdapter
+		authEmail = createMainAppRes.authEmail
 		userRepository = await app.resolve(UserRepository)
 	})
 
@@ -50,7 +50,7 @@ it('1', () => {
 			message: errorMessage.email.confirmationCodeNotFound,
 		})
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(0)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(0)
 	})
 
 	it('should return success if email is successfully confirmed', async () => {
@@ -74,7 +74,7 @@ it('1', () => {
 
 		expect(userUtils.isUserEmailConfirmed(updatedUser)).toBe(true)
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
 	})
 
 	it('should return error if email verification allowed time is over', async () => {
@@ -133,7 +133,7 @@ it('1', () => {
 			message: errorMessage.email.confirmationCodeNotFound,
 		})
 
-		expect(emailAdapter.sendEmailConfirmationMessage).toHaveBeenCalledTimes(1)
+		expect(authEmail.sendEmailConfirmation).toHaveBeenCalledTimes(1)
 	})
 
 	it('register user, then login with OAuth, then confirm email', async () => {
