@@ -58,6 +58,13 @@ describe('OpenAIImageGenerationProvider', () => {
 			adapter.resume({ provider: 'openai', model: input.model, version: 1, data: {} }),
 		).rejects.toMatchObject({ code: 'recovery_unsupported' })
 	})
+	it('sends the requested lossy compression as output_compression', async () => {
+		const { images, adapter } = harness()
+		const encoded = Buffer.from('webp-image').toString('base64')
+		images.generate.mockResolvedValue({ data: [{ b64_json: encoded }] })
+		await adapter.generate({ ...input, format: 'webp', compression: 80 })
+		expect(images.generate.mock.calls[0][0]).toMatchObject({ output_format: 'webp', output_compression: 80 })
+	})
 	it('uses edits with ordered MIME-preserving references and their generic purposes', async () => {
 		const { images, bytes, adapter } = harness()
 		images.edit.mockResolvedValue({ data: [{ b64_json: bytes.toString('base64') }] })
@@ -85,6 +92,9 @@ describe('OpenAIImageGenerationProvider', () => {
 		{ quality: 'xhigh' },
 		{ quality: 'invalid' },
 		{ format: 'gif' },
+		{ compression: 80 },
+		{ format: 'webp', compression: 101 },
+		{ format: 'webp', compression: 80.5 },
 		{ prompt: ' ' },
 		{ references: [{ bytes: Buffer.alloc(0), mimeType: 'image/png', purpose: 'Style' }] },
 		{ references: [{ bytes: Buffer.from('x'), mimeType: 'image/svg+xml', purpose: 'Style' }] },

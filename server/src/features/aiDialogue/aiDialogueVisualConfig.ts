@@ -5,6 +5,8 @@ export const AI_DIALOGUE_EMOTION_LAYOUT_VERSION = 'emotion-grid-4x3-v1'
 /** Быстрая модель для повседневной генерации; low сохраняет минимальную стоимость для новых аватаров и сцен. */
 export const AI_DIALOGUE_IMAGE_MODEL = OpenAIImageModels.Flare
 export const AI_DIALOGUE_IMAGE_QUALITY = 'low'
-export const AI_DIALOGUE_IMAGE_FORMAT = 'png'
+export const AI_DIALOGUE_IMAGE_FORMAT = 'webp'
+/** Сжатие WebP у OpenAI (0..100); без него приходит максимальное качество и лишний вес файла. */
+export const AI_DIALOGUE_IMAGE_COMPRESSION = 80
 export const AI_DIALOGUE_EMOTION_SHEET_SIZE = { width: 960, height: 720 } as const
 export const AI_DIALOGUE_SCENE_SIZE = { width: 1152, height: 576 } as const

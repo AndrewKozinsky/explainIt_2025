@@ -25,6 +25,7 @@ const inputSchema = z
 		size: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
 		quality: z.enum(['low', 'medium', 'high']).optional(),
 		format: z.enum(['png', 'jpeg', 'webp']).optional(),
+		compression: z.number().int().min(0).max(100).optional(),
 		references: z.array(referenceSchema).max(16).optional(),
 		abortSignal: z.custom<AbortSignal>((value) => value instanceof AbortSignal).optional(),
 	})
@@ -57,6 +58,12 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 				'not_sent',
 			)
 		}
+		if (parsed.data.compression !== undefined && (parsed.data.format ?? 'png') === 'png')
+			throw new ImageGenerationError(
+				'invalid_input',
+				'OpenAI compression applies only to jpeg and webp output',
+				'not_sent',
+			)
 		const { width, height } = parsed.data.size
 		if (
 			width % 16 ||
@@ -100,6 +107,7 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 			size: `${parsed.size.width}x${parsed.size.height}` as `${number}x${number}`,
 			output_format: format,
 			...(parsed.quality ? { quality: parsed.quality } : {}),
+			...(parsed.compression !== undefined ? { output_compression: parsed.compression } : {}),
 		}
 		const options = { maxRetries: 0, timeout: 180_000, signal: input.abortSignal }
 		try {

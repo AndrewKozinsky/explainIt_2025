@@ -16,6 +16,8 @@ export type ImageGenerationInput = {
 	size: ImageGenerationSize
 	quality?: string
 	format?: 'png' | 'jpeg' | 'webp'
+	/** Lossy compression level 0..100 for jpeg/webp; omitted means the provider default. */
+	compression?: number
 	abortSignal?: AbortSignal
 }
 

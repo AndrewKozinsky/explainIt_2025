@@ -136,10 +136,27 @@ describe('image generation prompts', () => {
 		expect(input.size).toEqual({ width: 1152, height: 576 })
 		expect(input.quality).toBe('low')
 		expect(input.format).toBe('png')
+		expect(input).not.toHaveProperty('compression')
 		expect(input.prompt).toContain('Image 2 is NPC dentist')
 		expect(input.prompt).toContain('Image 3 supplies visual style only')
 		expect(input.prompt).toContain('Dentist greets learner')
 		expect(input.prompt).toContain('never through mirrors, reflections or screens')
+	})
+
+	it('passes the saved compression to the generator', () => {
+		const snapshot = parseImageGenerationSnapshot(
+			'emotionSheet',
+			JSON.stringify({
+				...common,
+				format: 'webp',
+				compression: 80,
+				appearance: 'Adult wearing a green coat',
+				aspectRatio: '4:3',
+				layoutVersion: AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
+			}),
+		)
+		const input = buildImageGenerationInput(snapshot, [])
+		expect(input).toMatchObject({ format: 'webp', compression: 80 })
 	})
 
 	it.each(['angleSheet', 'unknown'])('rejects unsupported type %s', (type) => {

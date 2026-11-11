@@ -4,6 +4,7 @@ import { PrismaService } from 'db/prisma.service'
 import {
 	AI_DIALOGUE_EMOTION_LAYOUT_VERSION,
 	AI_DIALOGUE_EMOTION_SHEET_SIZE,
+	AI_DIALOGUE_IMAGE_COMPRESSION,
 	AI_DIALOGUE_IMAGE_FORMAT,
 	AI_DIALOGUE_IMAGE_MODEL,
 	AI_DIALOGUE_IMAGE_QUALITY,
@@ -181,6 +182,7 @@ export class AiDialogueTurnRepository {
 					model: AI_DIALOGUE_IMAGE_MODEL,
 					quality: AI_DIALOGUE_IMAGE_QUALITY,
 					format: AI_DIALOGUE_IMAGE_FORMAT,
+					compression: AI_DIALOGUE_IMAGE_COMPRESSION,
 					...input.input,
 					...imageStyleSnapshot,
 				}),

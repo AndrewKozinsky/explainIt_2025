@@ -14,6 +14,8 @@ const common = {
 	size: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
 	quality: z.enum(['low', 'medium', 'high']),
 	format: z.enum(['png', 'jpeg', 'webp']),
+	// Старые задания сжатие не содержат; тогда используется значение поставщика по умолчанию.
+	compression: z.number().int().min(0).max(100).optional(),
 	// Consumer checkpoint metadata added atomically during claim, never changes generation parameters.
 	resultS3Key: z.string().min(1).optional(),
 	styleAvatarReferenceS3Key: z.string().nullable(),
@@ -77,6 +79,7 @@ export function buildImageGenerationInput(snapshot: ImageGenerationSnapshot, ima
 		size: snapshot.size,
 		quality: snapshot.quality,
 		format: snapshot.format,
+		...(snapshot.compression !== undefined ? { compression: snapshot.compression } : {}),
 		...(references.length ? { references } : {}),
 	}
 }
