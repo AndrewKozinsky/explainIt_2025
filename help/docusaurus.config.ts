@@ -11,7 +11,11 @@ const config: Config = {
 	url: siteUrl,
 	baseUrl: '/help/',
 	onBrokenLinks: 'throw',
-	onBrokenMarkdownLinks: 'warn',
+	markdown: {
+		hooks: {
+			onBrokenMarkdownLinks: 'warn',
+		},
+	},
 	i18n: {
 		defaultLocale: 'ru',
 		locales: ['ru'],
