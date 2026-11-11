@@ -8,6 +8,7 @@
 |---|---|
 | `i18n/routing.ts` | Конфигурация роутинга: список локалей, дефолтная локаль, экспорт `Link`, `redirect`, `usePathname`, `useRouter` |
 | `i18n/request.ts` | Загрузка JSON-файла с переводами для текущей локали |
+| `i18n/appConfig.d.ts` | Тип `Locale` для next-intl: `useLocale()` и `getLocale()` возвращают `LanguageCode`, а не `string` |
 | `i18n/serverRedirect.ts` | Серверный редирект с автоматической подстановкой локали |
 | `proxy.ts` | Middleware для Next.js 16: редирект с `/` на `/{locale}`, определение языка по cookie/заголовкам |
 | `messages/{locale}/{раздел}.json` | JSON-файлы с переводами: папка на каждый язык, файл на каждый раздел (`messages/ru/mainPageBanner.json`) |
@@ -50,6 +51,9 @@ function MyClientComponent() {
     const locale = useLocale() // 'en' | 'ru' | ...
 }
 ```
+
+Локаль уже имеет тип `LanguageCode`, её можно передавать в API без приведения типов. Строку из внешнего источника
+(например, значение `<select>`) перед использованием как локаль проверяют через `hasLocale(routing.locales, value)`.
 
 ### Ссылки
 
