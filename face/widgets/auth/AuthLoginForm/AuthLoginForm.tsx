@@ -36,7 +36,7 @@ function AuthLoginForm() {
 	const onSubmit = useGetOnLoginFormSubmit(setError, setFormStatus, setFormError)
 
 	if (formStatus === 'success') {
-		redirect(localizePath(locale, pageUrls.books.path))
+		redirect(localizePath(locale, pageUrls.aiDialogues.path))
 	}
 
 	return (
