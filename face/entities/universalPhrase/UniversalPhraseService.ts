@@ -313,7 +313,7 @@ export class UniversalPhraseService {
 	async getTranslation(
 		phrase: string,
 		sourceLanguageCode: LanguageCode,
-		targetLanguageCode: string,
+		targetLanguageCode: LanguageCode,
 		signal?: AbortSignal,
 	): Promise<ServiceResult<PhraseTranslationDataModel>> {
 		const phraseKey = makePhraseKey(phrase, sourceLanguageCode)
@@ -353,7 +353,7 @@ export class UniversalPhraseService {
 		phraseKey: string,
 		phrase: string,
 		sourceLanguageCode: LanguageCode,
-		targetLanguageCode: string,
+		targetLanguageCode: LanguageCode,
 		signal?: AbortSignal,
 	): Promise<ServiceResult<PhraseTranslationDataModel>> {
 		const entry = this.#ensureEntry(phraseKey, phrase, sourceLanguageCode)

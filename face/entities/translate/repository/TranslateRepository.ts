@@ -1,11 +1,12 @@
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageCode } from '@/shared/utils/languages'
 
 /**
  * Входные данные для перевода предложения.
  */
 export type TranslateSentenceInput = {
 	sentenceId: number
-	targetLanguageCode: string
+	targetLanguageCode: LanguageCode
 	bookName?: null | string
 	bookAuthor?: null | string
 	videoName?: null | string
@@ -44,7 +45,7 @@ export type PhraseTranslationModel = {
  */
 export type GetPhraseTranslationsBySentenceInput = {
 	sentenceId: number
-	targetLanguageCode: string
+	targetLanguageCode: LanguageCode
 }
 
 /**
@@ -52,7 +53,7 @@ export type GetPhraseTranslationsBySentenceInput = {
  */
 export type GetPhraseTranslationInput = {
 	sentenceId: number
-	targetLanguageCode: string
+	targetLanguageCode: LanguageCode
 	selectedWordStartOffset: number
 	selectedWordEndOffset: number
 }
@@ -64,7 +65,7 @@ export type TranslatePhraseInput = {
 	sentenceId: number
 	text: string
 	selectedWord: string
-	targetLanguageCode: string
+	targetLanguageCode: LanguageCode
 	selectedWordStartOffset: number
 	selectedWordEndOffset: number
 	bookName?: null | string

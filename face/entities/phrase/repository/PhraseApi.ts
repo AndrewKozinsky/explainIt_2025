@@ -1,5 +1,4 @@
 import type {
-	CreateUniversalPhraseInput,
 	TranscriptionOutModel,
 	UniversalAudioPronunciationOutModel,
 	UniversalPhraseOutModel,
@@ -12,13 +11,14 @@ import { universalPhraseAudioControllerGetOrCreateAudio } from '@/shared/api/gen
 import { universalPhraseTranscriptionControllerGetOrCreateTranscription } from '@/shared/api/generated/universal-phrase-transcription/universal-phrase-transcription'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageCode } from '@/shared/utils/languages'
 import type { AudioPronunciationModel, PhraseModel, PhraseRepository, TranscriptionModel } from './PhraseRepository'
 
 /**
  * Реализация PhraseRepository через REST API.
  */
 export class PhraseApi implements PhraseRepository {
-	async resolvePhrase(text: string, sourceLanguageCode: string): Promise<ApiResult<PhraseModel | null>> {
+	async resolvePhrase(text: string, sourceLanguageCode: LanguageCode): Promise<ApiResult<PhraseModel | null>> {
 		const getResult = await executeApiCall(
 			() => universalPhraseControllerGetUniversalPhrase({ text, sourceLanguageCode }),
 			(data) => (data ? mapToPhrase(data) : null),
@@ -31,7 +31,7 @@ export class PhraseApi implements PhraseRepository {
 				universalPhraseControllerCreateUniversalPhrase({
 					text,
 					sourceLanguageCode,
-				} as CreateUniversalPhraseInput),
+				}),
 			(data) => mapToPhrase(data),
 		)
 	}

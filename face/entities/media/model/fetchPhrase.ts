@@ -1,4 +1,5 @@
 import { translateService } from '@/entities/translate/TranslateService'
+import type { LanguageCode } from '@/shared/utils/languages'
 import { MediaTranslationContext } from './mediaTranslationContext'
 import { mapPhrase } from './prepareData'
 
@@ -9,7 +10,7 @@ export async function fetchPhrase(
 		phraseId: string
 		wordStartOffset: number
 		wordEndOffset: number
-		targetLanguageCode: string
+		targetLanguageCode: LanguageCode
 	},
 ) {
 	try {

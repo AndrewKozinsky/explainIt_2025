@@ -1,7 +1,7 @@
 'use client'
 
-import { useLocale } from 'next-intl'
-import { usePathname, useRouter } from '@/i18n/routing'
+import { hasLocale, useLocale } from 'next-intl'
+import { routing, usePathname, useRouter } from '@/i18n/routing'
 import Select from '@/shared/ui/formRelated/Select/Select'
 import { languageKeys, languages } from '@/shared/utils/languages'
 
@@ -12,7 +12,7 @@ export function LanguageSwitcher() {
 
 	function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
 		const newLocale = event.target.value
-		if (newLocale === locale) return
+		if (!hasLocale(routing.locales, newLocale) || newLocale === locale) return
 
 		// next-intl сам обновит cookie NEXT_LOCALE и добавит локаль в URL
 		router.replace(pathname, { locale: newLocale })

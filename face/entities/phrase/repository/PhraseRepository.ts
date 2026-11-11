@@ -1,4 +1,5 @@
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageCode } from '@/shared/utils/languages'
 
 /**
  * Унифицированная модель фразы — не зависит от API.
@@ -38,7 +39,7 @@ export type PhraseRepository = {
 	 * Получить существующую фразу или создать новую.
 	 * null — фраза не найдена и не может быть создана.
 	 */
-	resolvePhrase(text: string, sourceLanguageCode: string): Promise<ApiResult<PhraseModel | null>>
+	resolvePhrase(text: string, sourceLanguageCode: LanguageCode): Promise<ApiResult<PhraseModel | null>>
 
 	/** Получить или создать транскрипцию для фразы */
 	getOrCreateTranscription(universalPhraseId: number): Promise<ApiResult<TranscriptionModel>>

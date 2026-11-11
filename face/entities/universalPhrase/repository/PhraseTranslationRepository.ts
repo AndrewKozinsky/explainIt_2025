@@ -1,4 +1,5 @@
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageCode } from '@/shared/utils/languages'
 import type { TranscriptionModel } from '../../phrase/repository/PhraseRepository'
 
 /**
@@ -98,8 +99,8 @@ export type ListBlockModel = {
 export type GetOrCreateTranslationInput = {
 	universalPhraseId?: number | null
 	phraseText?: string | null
-	sourceLanguageCode?: string | null
-	targetLanguageCode: string
+	sourceLanguageCode?: LanguageCode | null
+	targetLanguageCode: LanguageCode
 }
 
 /**

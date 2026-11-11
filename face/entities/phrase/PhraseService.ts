@@ -1,5 +1,6 @@
 import { PhraseApi } from '@/entities/phrase/repository/PhraseApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { LanguageCode } from '@/shared/utils/languages'
 import type {
 	PhraseRepository,
 	PhraseModel,
@@ -29,7 +30,7 @@ export class PhraseService {
 	 * Получить существующую фразу или создать новую.
 	 * null — фраза не найдена и не может быть создана.
 	 */
-	async resolvePhrase(text: string, sourceLanguageCode: string): Promise<ApiResult<PhraseModel | null>> {
+	async resolvePhrase(text: string, sourceLanguageCode: LanguageCode): Promise<ApiResult<PhraseModel | null>> {
 		return this.phraseRepository.resolvePhrase(text, sourceLanguageCode)
 	}
 

@@ -1,9 +1,10 @@
 import { translateService } from '@/entities/translate/TranslateService'
+import type { LanguageCode } from '@/shared/utils/languages'
 import { MediaTranslationContext } from './mediaTranslationContext'
 import { mapPhrase } from './prepareData'
 
 export async function fetchSentence(
-	input: MediaTranslationContext & { sentenceId: number; sentenceText: string; targetLanguageCode: string },
+	input: MediaTranslationContext & { sentenceId: number; sentenceText: string; targetLanguageCode: LanguageCode },
 ) {
 	input.mediaStore.getState().patchSentenceTranslation({
 		sentenceId: input.sentenceId,

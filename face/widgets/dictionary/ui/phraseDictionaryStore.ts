@@ -51,7 +51,7 @@ export type PhraseDictionaryStoreNext = PhraseDictionaryStoreValues & PhraseDict
 
 export type PhraseDictionaryStoreValues = {
 	languageCode: LanguageCode
-	targetLanguageCode: string | null
+	targetLanguageCode: LanguageCode | null
 	inputText: string
 	status: TranslationStatus
 	translation: null | PhraseTranslationDataModel
