@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const workScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'client-at-work',
 		groupSlug: 'work',
 		title: localized({
@@ -79,7 +79,7 @@ export const workScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is at work in their own profession, taken from the participant's wishes, such as a doctor seeing a patient, a hairdresser with a client or a barista serving a customer. If no profession is given, choose a simple service job. A client, customer or patient comes to the participant. You play this person, with a consistent personality. You decide what they need and how demanding they are, and react to the participant's questions, advice and service. The participant is the professional: do not do their job for them or decide what they offer. Stay in character.",
-	},*/
+	},
 	/*{
 		slug: 'job-offer-meeting',
 		groupSlug: 'work',
