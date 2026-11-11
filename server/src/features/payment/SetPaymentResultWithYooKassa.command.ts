@@ -5,6 +5,7 @@ import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.re
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { TelegramService } from 'infrastructure/telegram/telegram.service'
 import { YooKassaPaymentMetadata } from 'infrastructure/yooKassa/yooKassa.service'
 
@@ -26,6 +27,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 		private dbRepository: DBRepository,
 		private userBalanceTransactionRepository: UserBalanceTransactionRepository,
 		private telegramService: TelegramService,
+		private mainConfig: MainConfigService,
 	) {}
 
 	async execute(command: SetPaymentResultWithYooKassaCommand) {
@@ -44,7 +46,7 @@ export class SetPaymentResultWithYooKassaHandler implements ICommandHandler<SetP
 						} = await this.paymentRepository.makePaymentSuccessful(yooKassaPaymentId)
 
 						// Написать в Телеграм про успешную оплату
-						const messageToTg = `Была сделана оплата в explainit.ru. Сумма: ${amount / 100} руб.`
+						const messageToTg = `Была сделана оплата в ${this.mainConfig.get().site.domain}. Сумма: ${amount / 100} руб.`
 						this.telegramService.sendMessageToFromExplainBot(messageToTg)
 
 						if (purpose === 'TOP_UP_BALANCE') {

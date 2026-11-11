@@ -28,22 +28,29 @@ export class MainConfigService {
 				if (enVariables.region === 'ru') {
 					return {
 						name: 'ExplainIt',
+						// Основной домен. В отличие от domainRoot не зависит от режима запуска (localhost, dev.*)
+						domain: 'explainit.ru',
 						domainRoot: enVariables.siteRuDomainRoot,
 						domainRootWithProtocol: enVariables.siteRuDomainRootWithProtocol,
 					}
 				} else {
 					return {
 						name: 'Immersia',
+						// Основной домен. В отличие от domainRoot не зависит от режима запуска (localhost, dev.*)
+						domain: 'immersia.site',
 						domainRoot: enVariables.siteIntlDomainRoot,
 						domainRootWithProtocol: enVariables.siteIntlDomainRootWithProtocol,
 					}
 				}
 			},
-			emailAdapter: {
-				userId: enVariables.emailAdapterUserId,
-				secret: enVariables.emailAdapterSecret,
-				fromName: 'Andrew Kozinsky',
-				fromEmail: 'mail@andrewkozinsky.ru',
+			get emailAdapter() {
+				// Письма уходят с основного домена региона во всех режимах (включая dev и локальный запуск):
+				// отправлять можно только с домена, подтверждённого в Resend.
+				return {
+					resendApiKey: enVariables.resendApiKey,
+					fromName: this.site.name,
+					fromEmail: `noreply@${this.site.domain}`,
+				}
 			},
 			session: {
 				name: 'session',
@@ -258,8 +265,7 @@ export class MainConfigService {
 			siteIntlDomainRootWithProtocol: this.configService.get<string>(
 				'SITE_INTL_DOMAIN_ROOT_WITH_PROTOCOL',
 			) as string,
-			emailAdapterUserId: this.configService.get<string>('EMAIL_ADAPTER_USER_ID') as string,
-			emailAdapterSecret: this.configService.get<string>('EMAIL_ADAPTER_SECRET') as string,
+			resendApiKey: this.configService.get<string>('RESEND_API_KEY') as string,
 			jwtSecret: this.configService.get<string>('JWT_SECRET') as string,
 			redisUrl: this.configService.get<string>('REDIS_URL') as string,
 			yooKassa: {

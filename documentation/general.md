@@ -37,10 +37,10 @@
 ## Запуск приложения
 
 Все части приложения работают в отдельных контейнерах. Локальная разработка запускается из папки `docker` скриптом
-`run.local.dev.sh`:
+`run.local.dev.sh` в регионе `intl` (письма отправляются через Resend только с подтверждённого домена `immersia.site`):
 
 ```bash
-docker compose -f docker-compose.local.dev.ru.yml --project-directory .. --env-file .env.localdev up --build
+docker compose -f docker-compose.local.dev.intl.yml --project-directory .. --env-file .env.localdev up --build
 ```
 
 ## Документация

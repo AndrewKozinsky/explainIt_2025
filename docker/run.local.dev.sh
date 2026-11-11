@@ -1,1 +1,1 @@
-docker compose -f docker-compose.local.dev.ru.yml --project-directory .. --env-file .env.localdev up --build
+docker compose -f docker-compose.local.dev.intl.yml --project-directory .. --env-file .env.localdev up --build

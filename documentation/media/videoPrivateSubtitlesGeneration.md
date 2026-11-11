@@ -225,7 +225,7 @@ SRT сохраняется не напрямую в репозитории, а �
 ## Как запустить локально
 
 1. Убедиться, что в env-файле задан `DEEPGRAM_API_KEY`.
-2. Поднять контейнеры через docker compose из `docker/` (например `docker-compose.local.dev.ru.yml`); worker — сервис
+2. Поднять контейнеры через docker compose из `docker/` (например `docker-compose.local.dev.intl.yml`); worker — сервис
    `explainserverworkerlocaldev`, команда `npm run start:worker:dev`.
 3. Создать приватное видео, загрузить файл и указать язык.
 4. Нажать «Сгенерировать субтитры» и дождаться `done` или `failed`.
