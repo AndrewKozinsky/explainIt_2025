@@ -14,7 +14,9 @@ import type {
  *   в Markdown, объяснение в Markdown;
  * - suggestion и ровно 2 строки: объяснение в Markdown, исправленный пример.
  * Каждое значение занимает одну непустую физическую строку. Записи могут повторяться;
- * пустые строки, JSON, code fences и текст после end не допускаются. Внешние пробелы
+ * пустые строки, JSON, code fences и текст после end не допускаются. Единственное послабление:
+ * лишняя строка end сразу перед заголовком action пропускается, а у suggestion допускается лишняя
+ * строка заголовка перед объяснением (она отбрасывается), если без неё запись не сходится. Внешние пробелы
  * ответа и строк удаляются, поддерживаются LF и CRLF. Markdown сохраняется как текст.
  *
  * @param text Полный ответ модели, например "speech\nok\naction\nok\nend".
@@ -35,21 +37,48 @@ export function parseAiDialogueUserMessageCheck(text: string): AiDialogueUserMes
 
 	let cursor = 0
 
+	// Модель иногда закрывает строкой end и секцию speech. Такая строка не несёт данных, поэтому
+	// пропускается, но только если сразу за ней идёт заголовок action.
+	function skipStrayEndBefore(nextHeader: string): void {
+		if (nextHeader === 'action' && lines[cursor] === 'end' && lines[cursor + 1] === 'action') cursor++
+	}
+
+	/** Строка index начинает следующую запись, следующую секцию или завершает ответ. */
+	function isRecordBoundary(index: number, nextHeader: string): boolean {
+		const line = lines[index]
+		if (line === 'critical' || line === 'suggestion' || line === nextHeader) return true
+
+		return nextHeader === 'action' && line === 'end' && lines[index + 1] === 'action'
+	}
+
+	// Модель иногда даёт suggestion заголовок по образцу critical, и запись занимает 3 строки вместо 2.
+	// Заголовок отбрасывается, но только если 2-строчное прочтение не сходится, а 3-строчное сходится.
+	function hasExtraSuggestionTitle(nextHeader: string): boolean {
+		return !isRecordBoundary(cursor + 2, nextHeader) && isRecordBoundary(cursor + 3, nextHeader)
+	}
+
 	function readField(header: string, nextHeader: string): AiDialogueUserMessagePartCheckOutModel | null {
 		if (lines[cursor++] !== header) return null
 		const result: AiDialogueUserMessagePartCheckOutModel = { critical: [], suggestions: [] }
 
 		if (lines[cursor] === 'ok') {
 			cursor++
+			skipStrayEndBefore(nextHeader)
 			return lines[cursor] === nextHeader ? result : null
 		}
 
 		while (cursor < lines.length && lines[cursor] !== nextHeader) {
+			skipStrayEndBefore(nextHeader)
+			if (lines[cursor] === nextHeader) break
 			if (result.critical.length + result.suggestions.length >= 12) return null
 
 			const severity = lines[cursor++]
 			const count = severity === 'critical' ? 3 : severity === 'suggestion' ? 2 : 0
 			if (!count) return null
+			if (severity === 'suggestion' && hasExtraSuggestionTitle(nextHeader)) {
+				if (!lines[cursor] || lines[cursor].length > 8_000) return null
+				cursor++
+			}
 
 			const fields = lines.slice(cursor, cursor + count)
 			if (fields.length !== count || fields.some((field) => !field || field.length > 8_000)) return null
