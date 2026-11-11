@@ -65,14 +65,16 @@ const emailConfirmationTexts: Record<Language, EmailConfirmationTexts> = {
 /**
  * Письмо со ссылкой для подтверждения почты после регистрации.
  * @param input.locale язык интерфейса, на котором пользователь регистрировался.
+ * @param input.siteUrl главная страница сайта на языке письма для ссылки в подвале.
  * @param input.confirmationUrl полная ссылка на страницу подтверждения с кодом.
  */
 export function buildEmailConfirmationEmail(input: {
 	locale: Language
 	siteName: string
+	siteUrl: string
 	confirmationUrl: string
 }): EmailContent {
-	const { locale, siteName, confirmationUrl } = input
+	const { locale, siteName, siteUrl, confirmationUrl } = input
 	const texts = emailConfirmationTexts[locale]
 
 	return renderActionEmail({
@@ -83,5 +85,7 @@ export function buildEmailConfirmationEmail(input: {
 		actionLabel: texts.actionLabel,
 		actionUrl: confirmationUrl,
 		note: insertSiteName(texts.note, siteName),
+		siteName,
+		siteUrl,
 	})
 }

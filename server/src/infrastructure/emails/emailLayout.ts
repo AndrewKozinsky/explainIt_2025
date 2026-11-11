@@ -22,6 +22,9 @@ type EmailLayoutInput = {
 	actionUrl: string
 	// Пояснение под кнопкой: что делать, если письмо пришло по ошибке
 	note: string
+	siteName: string
+	// Главная страница сайта на языке письма: на неё ведёт ссылка в подвале
+	siteUrl: string
 }
 
 /**
@@ -29,8 +32,10 @@ type EmailLayoutInput = {
  * Все подставляемые значения экранируются, поэтому в шаблоны можно передавать данные пользователя.
  */
 export function renderActionEmail(input: EmailLayoutInput): EmailContent {
-	const { locale, subject, heading, intro, actionLabel, actionUrl, note } = input
+	const { locale, subject, heading, intro, actionLabel, actionUrl, note, siteName, siteUrl } = input
 	const hint = linkFallbackHint[locale]
+	// В подвале показывается адрес сайта без протокола и пути, например immersia.site
+	const siteHost = new URL(siteUrl).host
 
 	const html = `<!doctype html>
 <html lang="${locale}">
@@ -51,11 +56,14 @@ export function renderActionEmail(input: EmailLayoutInput): EmailContent {
 <p style="margin:0 0 24px;font-size:13px;line-height:1.5;word-break:break-all;"><a href="${escapeHtml(actionUrl)}" style="color:#2563eb;">${escapeHtml(actionUrl)}</a></p>
 <p style="margin:0;font-size:13px;line-height:1.5;color:#71717a;">${escapeHtml(note)}</p>
 </td></tr>
+<tr><td style="padding:16px 28px 24px;border-top:1px solid #e4e4e7;font-size:13px;line-height:1.5;color:#71717a;">
+${escapeHtml(siteName)} — <a href="${escapeHtml(siteUrl)}" style="color:#71717a;">${escapeHtml(siteHost)}</a>
+</td></tr>
 </table>
 </body>
 </html>`
 
-	const text = [heading, intro, `${actionLabel}: ${actionUrl}`, note].join('\n\n')
+	const text = [heading, intro, `${actionLabel}: ${actionUrl}`, note, `—\n${siteName}: ${siteUrl}`].join('\n\n')
 
 	return { subject, text, html }
 }

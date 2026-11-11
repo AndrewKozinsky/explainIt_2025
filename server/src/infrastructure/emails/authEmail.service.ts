@@ -17,8 +17,9 @@ export class AuthEmailService {
 		const { email, confirmationCode, locale } = input
 		const { name: siteName } = this.mainConfig.get().site
 
-		const confirmationUrl = this.buildSiteUrl(locale, '/auth/email-confirmation', { code: confirmationCode })
-		const content = buildEmailConfirmationEmail({ locale, siteName, confirmationUrl })
+		const siteUrl = this.buildSiteUrl(locale)
+		const confirmationUrl = `${siteUrl}/auth/email-confirmation?${new URLSearchParams({ code: confirmationCode })}`
+		const content = buildEmailConfirmationEmail({ locale, siteName, siteUrl, confirmationUrl })
 
 		await this.emailAdapter.send({ to: email, ...content })
 	}
@@ -27,17 +28,17 @@ export class AuthEmailService {
 		const { email, recoveryCode, locale } = input
 		const { name: siteName } = this.mainConfig.get().site
 
-		const recoveryUrl = this.buildSiteUrl(locale, '/auth/password-recovery', { recoveryCode })
-		const content = buildPasswordRecoveryEmail({ locale, siteName, recoveryUrl })
+		const siteUrl = this.buildSiteUrl(locale)
+		const recoveryUrl = `${siteUrl}/auth/password-recovery?${new URLSearchParams({ recoveryCode })}`
+		const content = buildPasswordRecoveryEmail({ locale, siteName, siteUrl, recoveryUrl })
 
 		await this.emailAdapter.send({ to: email, ...content })
 	}
 
-	/** Ссылка на страницу сайта с префиксом языка: клиент открывает страницы только по адресам вида /ru/... */
-	private buildSiteUrl(locale: Language, pagePath: string, queryParams: Record<string, string>) {
+	/** Главная страница сайта на языке письма: клиент открывает страницы только по адресам с префиксом вида /ru. */
+	private buildSiteUrl(locale: Language) {
 		const { domainRootWithProtocol } = this.mainConfig.get().site
-		const query = new URLSearchParams(queryParams).toString()
 
-		return `${domainRootWithProtocol}/${locale}${pagePath}?${query}`
+		return `${domainRootWithProtocol}/${locale}`
 	}
 }

@@ -65,14 +65,16 @@ const passwordRecoveryTexts: Record<Language, PasswordRecoveryTexts> = {
 /**
  * Письмо со ссылкой на страницу установки нового пароля.
  * @param input.locale язык интерфейса, на котором пользователь запросил восстановление.
+ * @param input.siteUrl главная страница сайта на языке письма для ссылки в подвале.
  * @param input.recoveryUrl полная ссылка на страницу восстановления с кодом.
  */
 export function buildPasswordRecoveryEmail(input: {
 	locale: Language
 	siteName: string
+	siteUrl: string
 	recoveryUrl: string
 }): EmailContent {
-	const { locale, siteName, recoveryUrl } = input
+	const { locale, siteName, siteUrl, recoveryUrl } = input
 	const texts = passwordRecoveryTexts[locale]
 
 	return renderActionEmail({
@@ -83,5 +85,7 @@ export function buildPasswordRecoveryEmail(input: {
 		actionLabel: texts.actionLabel,
 		actionUrl: recoveryUrl,
 		note: insertSiteName(texts.note, siteName),
+		siteName,
+		siteUrl,
 	})
 }
