@@ -3,6 +3,7 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 
 import sharp from 'sharp'
 import { ImageGenerationAssetsRepository } from 'repo/aiDialogue/imageGenerationAssets.repository'
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ImageGenerationJob } from 'prisma/generated/client'
@@ -11,7 +12,7 @@ import { parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 import { R2ImageGenerationAssets } from './R2ImageGenerationAssets.service'
 
 const common = {
-	model: 'gpt-image-2.5-sunburst-2026-09-08',
+	model: OpenAIImageModels.Sunburst,
 	stylePrompt: 'Style',
 	size: { width: 960, height: 720 },
 	quality: 'low',

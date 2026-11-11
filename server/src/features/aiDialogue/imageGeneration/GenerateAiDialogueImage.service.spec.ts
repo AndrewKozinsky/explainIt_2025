@@ -3,6 +3,7 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 import OpenAI from 'openai'
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
+import { FluxImageModels, OpenAIImageModels } from 'types/imageGenerationModels'
 import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
 import { OpenAIImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/OpenAIImageGenerationProvider'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION, AI_DIALOGUE_IMAGE_MODEL } from '../aiDialogueVisualConfig'
@@ -90,13 +91,13 @@ describe('GenerateAiDialogueImage with OpenAI', () => {
 		const { service, job, images } = harness()
 		job.input = JSON.stringify({
 			...snapshot,
-			model: 'gpt-image-2.5-flare-2026-09-08',
+			model: OpenAIImageModels.Sunburst,
 			quality: 'medium',
 			size: { width: 1024, height: 768 },
 		})
 		await service.processStep(10)
 		expect(images.generate.mock.calls[0][0]).toMatchObject({
-			model: 'gpt-image-2.5-flare-2026-09-08',
+			model: OpenAIImageModels.Sunburst,
 			quality: 'medium',
 			size: '1024x768',
 		})
@@ -191,7 +192,7 @@ describe('GenerateAiDialogueImage with OpenAI', () => {
 	})
 	it('does not redirect an old/unsupported model to OpenAI', async () => {
 		const { service, job, requests, images } = harness()
-		job.input = JSON.stringify({ ...snapshot, model: 'flux-3-image' })
+		job.input = JSON.stringify({ ...snapshot, model: FluxImageModels.Flux3 })
 		await service.processStep(10)
 		expect(images.generate).not.toHaveBeenCalled()
 		expect(requests.claimSubmission).not.toHaveBeenCalled()

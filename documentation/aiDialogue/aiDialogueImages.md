@@ -22,7 +22,7 @@
 
 `server/src/features/aiDialogue/aiDialogueVisualConfig.ts`:
 
-- `AI_DIALOGUE_IMAGE_MODEL`: `gpt-image-2`, самая дешёвая поддерживаемая модель;
+- `AI_DIALOGUE_IMAGE_MODEL`: `gpt-image-2.6-flare`, быстрая модель для повседневной генерации;
 - `AI_DIALOGUE_IMAGE_QUALITY`: `low` (допустимы `medium`, `high`);
 - `AI_DIALOGUE_IMAGE_FORMAT`: `png`;
 - `AI_DIALOGUE_EMOTION_SHEET_SIZE`: 960×720 (ячейка 240×240);

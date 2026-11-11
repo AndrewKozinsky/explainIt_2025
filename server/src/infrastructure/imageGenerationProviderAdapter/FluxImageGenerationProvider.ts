@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { FluxImageModels } from 'types/imageGenerationModels'
 import { Flux3HttpError, Flux3ImageAdapter, Flux3ImageInput } from '../fluxImageGeneration/flux3Image.adapter'
 import { ImageGenerationError } from './ImageGenerationError'
 import {
@@ -18,7 +19,7 @@ const referenceSchema = z
 
 const inputSchema = z
 	.object({
-		model: z.literal('flux-3-image'),
+		model: z.literal(FluxImageModels.Flux3),
 		prompt: z.string().trim().min(1),
 		size: z.object({ aspectRatio: z.enum(['4:3', '2:1']), resolution: z.literal('768sq') }).strict(),
 		references: z.array(referenceSchema).max(10).optional(),
@@ -29,7 +30,7 @@ const inputSchema = z
 const operationSchema = z
 	.object({
 		provider: z.literal('bfl'),
-		model: z.literal('flux-3-image'),
+		model: z.literal(FluxImageModels.Flux3),
 		version: z.literal(1),
 		data: z.object({ requestId: z.string().min(1), pollingUrl: z.string().url() }).strict(),
 	})
@@ -38,7 +39,7 @@ const operationSchema = z
 /** Wraps existing FLUX HTTP operations. Area preset support is intentionally unchanged. */
 export class FluxImageGenerationProvider implements ImageGenerationProvider {
 	readonly name = 'bfl'
-	readonly models = ['flux-3-image'] as const
+	readonly models = Object.values(FluxImageModels)
 
 	constructor(private readonly getAdapter: () => Flux3ImageAdapter | null) {}
 

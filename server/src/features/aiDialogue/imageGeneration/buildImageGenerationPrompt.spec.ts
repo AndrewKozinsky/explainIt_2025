@@ -1,10 +1,11 @@
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 import { getAiDialogueImageStyleSnapshot } from '../illustrationStyles/aiDialogueIllustrationStyles'
 import { aiDialogueIllustrationStyleCatalog } from '../illustrationStyles/catalog'
 import { buildImageGenerationInput, parseImageGenerationSnapshot } from './buildImageGenerationPrompt'
 
 const common = {
-	model: 'gpt-image-2',
+	model: OpenAIImageModels.Flare,
 	stylePrompt: 'Saved style',
 	size: { width: 960, height: 720 },
 	quality: 'low',

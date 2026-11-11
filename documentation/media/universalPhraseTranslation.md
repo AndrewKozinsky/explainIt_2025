@@ -110,7 +110,7 @@ POST /universal-phrase-translation
 Каждый запрос получает общий стиль серии и образец своего вида картинки из
 `features/universalPhraseTranslation/enrichment/styleSamples`, поэтому иллюстрации складываются в серию.
 
-Модель — `gpt-image-2` с качеством `low`. Результат пережимается в WebP шириной до 800 px и лежит в R2 по ключу
+Модель — `gpt-image-2.6-flare` с качеством `low`. Результат пережимается в WebP шириной до 800 px и лежит в R2 по ключу
 `dictionary-images/word-senses/<id>.webp`.
 
 ## Фоновая догенерация

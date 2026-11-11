@@ -4,6 +4,7 @@ jest.mock('@nestjs/common', () => ({
 	Module: (metadata: unknown) => (target: object) => Object.assign(target, { metadata }),
 }))
 jest.mock('@nestjs/config', () => ({ ConfigModule: { forRoot: () => ({}) }, ConfigService: class {} }))
+import { FluxImageModels, OpenAIImageModels } from 'types/imageGenerationModels'
 import { ImageGenerationAdapterService } from './ImageGenerationAdapter.service'
 import { ImageGenerationProviderModule } from './imageGenerationProvider.module'
 
@@ -21,8 +22,8 @@ describe('ImageGenerationProviderModule', () => {
 		expect(metadata.providers[0].provide).toBe(ImageGenerationAdapterService)
 		expect(metadata.exports).toContain(ImageGenerationAdapterService)
 		const adapter = metadata.providers[0].useFactory(config)
-		expect(adapter.isConfigured('gpt-image-2')).toBe(true)
-		expect(adapter.isConfigured('flux-3-image')).toBe(false)
+		expect(adapter.isConfigured(OpenAIImageModels.Flare)).toBe(true)
+		expect(adapter.isConfigured(FluxImageModels.Flux3)).toBe(false)
 		expect(config.get).toHaveBeenCalled()
 	})
 })

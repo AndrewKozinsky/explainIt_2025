@@ -1,4 +1,5 @@
 import { DeepSeekModels, OpenAIModels } from 'types/AIModels'
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import { LLM_TRANSLATION_TIMEOUT_MS } from 'utils/time'
 import { WordSenseVisualAspect, WordSenseVisualKind } from 'models/universalPhraseTranslation/wordSense.service.model'
 
@@ -24,7 +25,7 @@ export type WordKind = (typeof WORD_KINDS)[number]
 /** У имён, свободных сочетаний и предложений нет материала для дополнительных разделов. */
 export const WORD_KINDS_WITHOUT_DEEP_SECTIONS: readonly WordKind[] = ['proper', 'free', 'sentence']
 
-export const WORD_SENSE_IMAGE_MODEL = 'gpt-image-2'
+export const WORD_SENSE_IMAGE_MODEL = OpenAIImageModels.Flare
 export const WORD_SENSE_IMAGE_QUALITY = 'low'
 export const WORD_SENSE_IMAGE_STORED_WIDTH = 800
 export const WORD_SENSE_IMAGE_STORED_QUALITY = 75

@@ -1,10 +1,11 @@
 import OpenAI from 'openai'
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import { ImageGenerationAdapterService } from './ImageGenerationAdapter.service'
 import { ImageGenerationInput } from './ImageGenerationProvider.interface'
 import { OpenAIImageGenerationProvider } from './OpenAIImageGenerationProvider'
 
 const input: ImageGenerationInput = {
-	model: 'gpt-image-2',
+	model: OpenAIImageModels.Flare,
 	prompt: 'A landscape',
 	size: { width: 1152, height: 576 },
 	quality: 'low',

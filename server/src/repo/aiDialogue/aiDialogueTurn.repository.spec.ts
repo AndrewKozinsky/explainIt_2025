@@ -10,6 +10,7 @@ import {
 import { parseAiDialogueEvents } from 'features/aiDialogue/parseAiDialogueEvents'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueTurnRepository } from './aiDialogueTurn.repository'
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 
 function createHarness(illustrationStyleId = 'realism', mode = 'localdev') {
 	const tx = {
@@ -168,7 +169,7 @@ describe('AiDialogueTurnRepository', () => {
 		expect(tx.imageGenerationOutbox.create).toHaveBeenCalledTimes(2)
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[1][0].data.input)).toMatchObject({
 			userAvatarS3Key: profile.expectedKey,
-			model: 'gpt-image-2',
+			model: OpenAIImageModels.Flare,
 			quality: 'low',
 			format: 'png',
 			size: { width: 1152, height: 576 },
@@ -176,7 +177,7 @@ describe('AiDialogueTurnRepository', () => {
 			styleSceneReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/realism.webp',
 		})
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).toMatchObject({
-			model: 'gpt-image-2',
+			model: OpenAIImageModels.Flare,
 			quality: 'low',
 			format: 'png',
 			size: { width: 960, height: 720 },

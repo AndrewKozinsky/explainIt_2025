@@ -1,11 +1,12 @@
 import { AxiosError } from 'axios'
+import { FluxImageModels } from 'types/imageGenerationModels'
 import { Flux3ImageAdapter } from '../fluxImageGeneration/flux3Image.adapter'
 import { FluxImageGenerationProvider } from './FluxImageGenerationProvider'
 import { ImageGenerationAdapterService } from './ImageGenerationAdapter.service'
 import { ImageGenerationInput, ImageGenerationOperation } from './ImageGenerationProvider.interface'
 
 const input: ImageGenerationInput = {
-	model: 'flux-3-image',
+	model: FluxImageModels.Flux3,
 	prompt: 'Landscape',
 	size: { aspectRatio: '2:1', resolution: '768sq' },
 }

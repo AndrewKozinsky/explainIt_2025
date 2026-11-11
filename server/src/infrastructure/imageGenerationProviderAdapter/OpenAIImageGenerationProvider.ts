@@ -1,19 +1,12 @@
 import OpenAI, { toFile } from 'openai'
 import { z } from 'zod'
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import { ImageGenerationError } from './ImageGenerationError'
 import {
 	ImageGenerationInput,
 	ImageGenerationProvider,
 	ImageGenerationResult,
 } from './ImageGenerationProvider.interface'
-
-export const OPENAI_IMAGE_MODELS = [
-	'gpt-image-2',
-	'gpt-image-2.5-sunburst',
-	'gpt-image-2.5-sunburst-2026-09-08',
-	'gpt-image-2.5-flare',
-	'gpt-image-2.5-flare-2026-09-08',
-] as const
 
 const referenceSchema = z
 	.object({
@@ -27,7 +20,7 @@ const referenceSchema = z
 
 const inputSchema = z
 	.object({
-		model: z.enum(OPENAI_IMAGE_MODELS),
+		model: z.enum(OpenAIImageModels),
 		prompt: z.string().trim().min(1),
 		size: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
 		quality: z.enum(['low', 'medium', 'high']).optional(),
@@ -41,7 +34,7 @@ const inputSchema = z
  * A lost response cannot be retrieved through this API. Persistence belongs to the caller. */
 export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 	readonly name = 'openai'
-	readonly models = OPENAI_IMAGE_MODELS
+	readonly models = Object.values(OpenAIImageModels)
 
 	constructor(private readonly getClient: () => Pick<OpenAI, 'images'> | null) {}
 

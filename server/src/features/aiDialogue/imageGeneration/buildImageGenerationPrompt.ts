@@ -1,15 +1,15 @@
 import { z } from 'zod'
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import {
 	ImageGenerationInput,
 	ImageGenerationReference,
 } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
-import { OPENAI_IMAGE_MODELS } from 'infrastructure/imageGenerationProviderAdapter/OpenAIImageGenerationProvider'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION } from '../aiDialogueVisualConfig'
 
 const common = {
 	// Старые задания не содержат id; их сохранённые промпты и ключи остаются достаточны.
 	illustrationStyleId: z.string().min(1).optional(),
-	model: z.enum(OPENAI_IMAGE_MODELS),
+	model: z.enum(OpenAIImageModels),
 	stylePrompt: z.string().min(1),
 	size: z.object({ width: z.number().int().positive(), height: z.number().int().positive() }).strict(),
 	quality: z.enum(['low', 'medium', 'high']),
