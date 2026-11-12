@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const misunderstandingsAndConflictsScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'celebrity-lookalike',
 		groupSlug: 'misunderstandings-and-conflicts',
 		title: localized({
@@ -67,7 +67,7 @@ export const misunderstandingsAndConflictsScenarios: AiDialogueScenarioSeedData[
 		}),
 		systemPrompt:
 			'The participant is sitting in a café when a fan comes up to them, convinced that the participant is the star of a popular TV series, and excitedly asks for an autograph. You play the fan, with a consistent personality. Invent the series and the role and keep them consistent. React to whatever the participant does: if they deny it, you may doubt them, insist or get embarrassed; if they play along, respond with enthusiasm. Do not decide for the participant whether they are famous. Stay in character.',
-	},*/
+	},
 	/*{
 		slug: 'tourist-trap',
 		groupSlug: 'misunderstandings-and-conflicts',

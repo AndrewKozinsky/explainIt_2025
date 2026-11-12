@@ -9,9 +9,12 @@ import { doorKnocksScenarios } from './scenarios/doorKnocksScenarios'
 import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
 import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
 import { immigrationScenarios } from './scenarios/immigrationScenarios'
+import { kidsFamilyScenarios } from './scenarios/kidsFamilyScenarios'
+import { misunderstandingsAndConflictsScenarios } from './scenarios/misunderstandingsAndConflictsScenarios'
 import { relationshipsScenarios } from './scenarios/relationshipsScenarios'
 import { techServicesScenarios } from './scenarios/techServicesScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
+import { unexpectedEncountersScenarios } from './scenarios/unexpectedEncountersScenarios'
 import { workScenarios } from './scenarios/workScenarios'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
@@ -62,14 +65,14 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			...doorKnocksScenarios,
 			...immigrationScenarios,
 			...relationshipsScenarios,
-			// ...misunderstandingsAndConflictsScenarios,
-			// ...unexpectedEncountersScenarios,
+			...misunderstandingsAndConflictsScenarios,
+			...unexpectedEncountersScenarios,
 			...workScenarios,
 			// ...healthEmergencyScenarios,
 			// ...transportCarScenarios,
 			// ...moneyBankingScenarios,
 			// ...studyScenarios,
-			// ...kidsFamilyScenarios,
+			...kidsFamilyScenarios,
 			...techServicesScenarios,
 			// ...localServicesScenarios,
 			// ...sportsLeisureScenarios,

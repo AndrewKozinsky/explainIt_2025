@@ -1,0 +1,65 @@
+@use '@/styles/variables' as vars;
+
+// Обёртка обрезает углы видео: скругление на самом <video> браузеры применяют не всегда.
+// Скругление как у карточек шагов в соседнем блоке «Уровень языка не важен».
+// Рамка отделяет светлые кадры видео от фона страницы
+.demo-video-player {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: 1.6rem;
+	background-color: vars.$grayColor-1;
+}
+
+// Видео тянется на ширину блока, пропорции берутся из атрибутов width и height, поэтому место под него занято сразу
+.demo-video-player__video {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+// Затемнение на всё видео: нажатие в любом месте запускает его
+.demo-video-player__cover {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: none;
+	background-color: rgba(0, 0, 0, 0.05);
+	cursor: pointer;
+	transition: background-color 0.2s;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+
+	&:focus-visible {
+		outline: 3px solid white;
+		outline-offset: -6px;
+		border-radius: 1.6rem;
+	}
+}
+
+// Белый круг со значком, заметный даже при быстрой прокрутке
+.demo-video-player__play {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 9rem;
+	height: 9rem;
+	border-radius: 50%;
+	background-color: white;
+	color: vars.$textColor;
+	transition: transform 0.2s;
+
+	.demo-video-player__cover:hover & {
+		transform: scale(1.08);
+	}
+}
+
+.demo-video-player__play-icon {
+	width: rem;
+	height: auto;
+}

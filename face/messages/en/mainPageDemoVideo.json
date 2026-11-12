@@ -2,5 +2,6 @@
   "eyebrow": "Feature demo",
   "header": "See how it works in real life",
   "text": "A scene with a taxi driver: tap a word for the dictionary, get your answer checked before sending, and watch the character react to what you do.",
-  "videoLabel": "Video: an example conversation with AI"
+  "videoLabel": "Video: an example conversation with AI",
+  "playLabel": "Play video"
 }

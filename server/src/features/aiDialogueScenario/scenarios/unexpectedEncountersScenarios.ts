@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'stuck-in-elevator',
 		groupSlug: 'unexpected-encounters',
 		title: localized({
@@ -51,7 +51,7 @@ export const unexpectedEncountersScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is in a lift with one other passenger, a woman, when the lift suddenly stops between floors. She starts to panic. You play this passenger, with a consistent personality and a believable reason to be in a hurry or afraid. Show your fear and react to the participant's attempts to calm you, their suggestions and small talk. You decide how and when help arrives; until then, the conversation is between the two of you. Do not decide for the participant what they do. Stay in character.",
-	},*/
+	},
 	/*{
 		slug: 'last-bus-gone',
 		groupSlug: 'unexpected-encounters',
