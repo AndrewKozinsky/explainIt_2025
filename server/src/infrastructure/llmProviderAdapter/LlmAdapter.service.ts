@@ -15,6 +15,7 @@ import { ZaiLlmProvider } from './ZaiLlmProvider.service'
  * Единый фасад для вызова любого LLM-провайдера.
  *
  * Провайдер определяется из model (enum). Если model не указана — используется DEFAULT_FLASH_AI_MODEL.
+ * generate по умолчанию рассуждает на уровне low; stream рассуждение не использует.
  *
  * Использование:
  *   llmAdapter.generate({ model: OpenAIModels.Standard, messages: [...] })
@@ -31,6 +32,13 @@ export class LlmAdapterService {
 	 * должен уложиться в proxy_read_timeout nginx) — передаётся явный timeoutMs.
 	 */
 	private static readonly GENERATE_TIMEOUT_MS = 60 * 60 * 1000 // 1 час
+
+	/**
+	 * Уровень рассуждения синхронной генерации, если вызывающий код его не указал.
+	 * Без рассуждения модели чаще ошибаются в задачах на проверку и разбор текста; low даёт заметный прирост
+	 * точности при небольшой задержке. Вызов, которому рассуждение не нужно, передаёт reasoningEffort: 'none'.
+	 */
+	private static readonly DEFAULT_REASONING_EFFORT: NonNullable<LlmGenerateInput['reasoningEffort']> = 'low'
 
 	private providerMap: Record<AIProviderName, LlmProvider>
 
@@ -54,7 +62,10 @@ export class LlmAdapterService {
 		const provider = getProviderFromModel(input.model ?? DEFAULT_FLASH_AI_MODEL)
 
 		return withTimeout(
-			this.providerMap[provider].generate(input),
+			this.providerMap[provider].generate({
+				...input,
+				reasoningEffort: input.reasoningEffort ?? LlmAdapterService.DEFAULT_REASONING_EFFORT,
+			}),
 			input.timeoutMs ?? LlmAdapterService.GENERATE_TIMEOUT_MS,
 			() => new CustomError(errorMessage.llm.llmTimeout, ErrorStatusCode.GatewayTimeout_504),
 		)

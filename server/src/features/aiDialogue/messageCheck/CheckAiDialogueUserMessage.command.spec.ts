@@ -49,7 +49,12 @@ describe('CheckAiDialogueUserMessage', () => {
 			expect(messages.getTextCheckContext).toHaveBeenCalledWith(1)
 
 			const input = llm.generate.mock.calls[0][0]
-			expect(input).toMatchObject({ responseFormat: 'text', timeoutMs: 45_000 })
+			expect(input).toMatchObject({
+				model: 'gpt-6-luna',
+				responseFormat: 'text',
+				reasoningEffort: 'low',
+				timeoutMs: 45_000,
+			})
 			expect(input.messages[0].content).toContain('french (fr)')
 			expect(input.messages[0].content).toContain('german (de)')
 			expect(input.messages[0].content).toContain('The participant is a woman.')

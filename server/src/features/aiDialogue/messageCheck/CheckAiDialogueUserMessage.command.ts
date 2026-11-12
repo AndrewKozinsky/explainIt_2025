@@ -8,7 +8,7 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
-import { AI_DIALOGUE_MODEL } from '../aiDialogueModelConfig'
+import { AI_DIALOGUE_MESSAGE_CHECK_MODEL, AI_DIALOGUE_MESSAGE_CHECK_REASONING_EFFORT } from '../aiDialogueModelConfig'
 import { buildAiDialogueUserMessageCheckPrompt } from './buildAiDialogueUserMessageCheckPrompt'
 import { parseAiDialogueUserMessageCheck } from './parseAiDialogueUserMessageCheck'
 
@@ -65,9 +65,10 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 		})
 
 		const output = await this.llmAdapter.generate({
-			model: AI_DIALOGUE_MODEL,
+			model: AI_DIALOGUE_MESSAGE_CHECK_MODEL,
 			messages,
 			responseFormat: 'text',
+			reasoningEffort: AI_DIALOGUE_MESSAGE_CHECK_REASONING_EFFORT,
 			timeoutMs: 45_000,
 		})
 		const result = parseAiDialogueUserMessageCheck(output.content)

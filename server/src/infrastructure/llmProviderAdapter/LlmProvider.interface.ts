@@ -14,7 +14,8 @@ export type LlmGenerateInput = {
 	/** Model override. If omitted, the provider's default is used. */
 	model?: AiModel
 	responseFormat?: 'text' | 'json_object'
-	reasoningEffort?: 'low' | 'medium' | 'high'
+	/** Уровень рассуждения. Если не указан, LlmAdapterService подставляет low; none выключает рассуждение. */
+	reasoningEffort?: 'none' | 'low' | 'medium' | 'high'
 	lowPriority?: boolean
 	/**
 	 * Максимальное время ожидания ответа от LLM в миллисекундах.
