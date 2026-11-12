@@ -2,16 +2,21 @@
 
 Клиент находится в папке `face/`. Сделано с помощью NextJS, GraphQL, SCSS.
 
-Адреса страниц находятся в переменной pageUrls в файле face/shared/utils/pageUrls.ts. Не нужно писать адрес обычной строкой.
+Адреса страниц находятся в переменной pageUrls в файле face/shared/utils/pageUrls.ts. Не нужно писать адрес обычной
+строкой.
 
-В основном взаимодействие с сервером идёт через REST. OpenAPI-спека автоматически генерируется сервером из декораторов. Клиентские React Query-хуки и TypeScript-типы генерируются из спеки через Orval. После изменения маршрутов на сервере нужно перезапустить сервер и выполнить команду в папке `face/`:
+В основном взаимодействие с сервером идёт через REST. OpenAPI-спека автоматически генерируется сервером из декораторов.
+Клиентские React Query-хуки и TypeScript-типы генерируются из спеки через Orval. После изменения маршрутов на сервере
+нужно перезапустить сервер и выполнить команду в папке `face/`:
 ```npm run orval```
 
 Подробнее: `documentation/topics/openapiCodegen.md`
 
-Try to avoid putting business logic into component. Use 'fn' folder for business logic. For example: `Button/fn/useFetchData`, `Button/fn/useValidateForm`.
+Try to avoid putting business logic into component. Use 'fn' folder for business logic. For example:
+`Button/fn/useFetchData`, `Button/fn/useValidateForm`.
 
-Prefer ordinary functions rather than arrow functions. Use arrow functions only if this way gives better readability or scoping.
+Prefer ordinary functions rather than arrow functions. Use arrow functions only if this way gives better readability or
+scoping.
 
 Все стили задаются в SCSS-классах, а не через inline-атрибут `style` в JSX.
 
@@ -26,7 +31,8 @@ Prefer ordinary functions rather than arrow functions. Use arrow functions only 
 
 Put reusable UI elements in the 'face/ui' directory.
 
-Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый код добавляется во все файлы локалей. Подробнее: `documentation/topics/internationalization.md`.
+Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый
+код добавляется во все файлы локалей. Подробнее: `documentation/topics/internationalization.md`.
 
 Данные пользователя можно взять из `face/stores/userStore.ts`.
 
@@ -35,8 +41,12 @@ Put reusable UI elements in the 'face/ui' directory.
 Затем получить функцию
 ```const { notify } = useContext(NotificationContext)```
 и вызвать её
+
 ```notify({
     type: 'error',
     message:
         'Не удалось удалить книгу. Попробуйте ещё раз или сообщите о проблеме в форме обратной связи.',
 })```
+
+Адреса статических файлов клиента (иконки и картинки из `face/public`, файлы публичного бакета R2 на
+`https://files.immersia.site`) собраны в `face/shared/utils/filesUrls.ts`. Не нужно писать адрес файла обычной строкой.

@@ -1,0 +1,18 @@
+@use '@/styles/variables' as vars;
+
+// Обёртка обрезает углы видео: скругление на самом <video> браузеры применяют не всегда.
+// Скругление как у карточек шагов в соседнем блоке «Уровень языка не важен».
+// Рамка отделяет светлые кадры видео от фона страницы
+.main-page-demo-video {
+	overflow: hidden;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: 1.6rem;
+	background-color: vars.$grayColor-1;
+}
+
+// Видео тянется на ширину блока, пропорции берутся из атрибутов width и height, поэтому место под него занято сразу
+.main-page-demo-video__player {
+	display: block;
+	width: 100%;
+	height: auto;
+}

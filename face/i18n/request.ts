@@ -19,6 +19,7 @@ const messageNamespaces = [
 	'mainPageAnyLevel',
 	'mainPageBanner',
 	'mainPageCallToAction',
+	'mainPageDemoVideo',
 	'mainPageFaq',
 	'mainPageFeatures',
 	'mainPageNoTrip',

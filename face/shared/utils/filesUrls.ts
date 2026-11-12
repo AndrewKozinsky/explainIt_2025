@@ -1,7 +1,14 @@
-import { LanguageCode } from '@/shared/utils/languages'
+import mainConfig from '@/shared/consts/mainConfig'
+import { LanguageCode, languageKeys } from '@/shared/utils/languages'
 
-const yaS3Url = 'https://storage.yandexcloud.net/explain/'
-const s3AssetsUrl = yaS3Url + 'assets/'
+// Публичный бакет R2 immersia-public: постоянные ссылки без подписи, файлы раздаёт CDN Cloudflare
+const r2PublicUrl = 'https://files.immersia.site/'
+const s3AssetsUrl = r2PublicUrl + 'assets/'
+
+// Опубликованный сайт берёт файлы главной страницы из папки servermaster, все остальные режимы — из localdev,
+// чтобы новую версию файла можно было проверить локально, не меняя её на сайте
+const mainPageFilesUrl =
+	r2PublicUrl + 'mainPage/' + (mainConfig.workingMode === 'servermaster' ? 'servermaster' : 'localdev') + '/'
 
 export const filesUrls = {
 	icons: {
@@ -23,8 +30,6 @@ export const filesUrls = {
 		common: {
 			camera: 'Camera.svg',
 			logo: 'logo.svg',
-			navArrowLeft: 'navArrowLeft.svg',
-			navArrowRight: 'navArrowRight.svg',
 			filesGray: '/images/common/filesGray.svg',
 			filesBlue: '/images/common/filesBlue.svg',
 		},
@@ -75,6 +80,13 @@ export const filesUrls = {
 			plotApple: '/mainPage/features/features-plot-apple.webp',
 			plotCircus: '/mainPage/features/features-plot-circus.webp',
 		},
+		// Видео с примером диалога и его постер на языке интерфейса
+		demoVideo: Object.fromEntries(
+			languageKeys.map(function (locale) {
+				const fileBaseUrl = mainPageFilesUrl + 'dialogue-' + locale
+				return [locale, { videoUrl: fileBaseUrl + '.mp4', posterUrl: fileBaseUrl + '.jpg' }]
+			}),
+		) as Record<LanguageCode, { videoUrl: string; posterUrl: string }>,
 	},
 	onboardingModal: {
 		selectedWord: s3AssetsUrl + 'onboardingModal/selectWords.mp4',
