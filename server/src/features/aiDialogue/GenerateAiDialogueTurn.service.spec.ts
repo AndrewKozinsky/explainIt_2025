@@ -132,11 +132,11 @@ describe('language settings snapshot per turn', () => {
 			await service.generate(3)
 			expect(timeline).toContain('turnReset')
 			expect(dialogue.getDialogueById).toHaveBeenCalledTimes(1)
-			expect(llm.stream.mock.calls[0][0].messages[0].content).toContain('complexity is CEFR A2')
-			expect(llm.stream.mock.calls[1][0].messages[0].content).toContain('complexity is CEFR A2')
+			expect(llm.stream.mock.calls[0][0].messages[0].content).toContain('level of this dialogue is CEFR A2')
+			expect(llm.stream.mock.calls[1][0].messages[0].content).toContain('level of this dialogue is CEFR A2')
 
 			await service.generate(3)
-			expect(llm.stream.mock.calls[2][0].messages[0].content).toContain('complexity is CEFR B1')
+			expect(llm.stream.mock.calls[2][0].messages[0].content).toContain('level of this dialogue is CEFR B1')
 
 			dialogue.getDialogueById.mockResolvedValue({ ...stored, max_cefr_level: null })
 			await service.generate(3)

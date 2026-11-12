@@ -166,8 +166,10 @@ describe('dialogue language complexity', () => {
 			recentEvents: [npc('officer_1', 'A complex sentence from earlier in the conversation.')],
 		})
 		const system = messages[0].content
-		expect(system).toContain(`current maximum language complexity is CEFR ${maxCefrLevel}`)
-		expect(system).toContain('ceiling, not a target')
+		expect(system).toContain(`The language level of this dialogue is CEFR ${maxCefrLevel}`)
+		expect(system).toContain('not noticeably below it either')
+		expect(system).toContain(`${maxCefrLevel} ← write at this level`)
+		expect(system).not.toContain('authentic, unadapted language')
 		expect(system).toContain('NPC speech, action descriptions, sceneUpdate, help and worldEvent')
 		expect(system).toContain('takes precedence over conflicting language-level or style instructions')
 		expect(system).toContain('Do not correct grammar')
@@ -183,7 +185,9 @@ describe('dialogue language complexity', () => {
 
 	it('keeps existing callers unrestricted when no setting is passed', () => {
 		expect(prompt([])[0].content).toContain('There is no CEFR complexity limit for this turn')
-		expect(prompt([])[0].content).not.toContain('current maximum language complexity is CEFR')
+		expect(prompt([])[0].content).toContain('authentic, unadapted language')
+		expect(prompt([])[0].content).not.toContain('The language level of this dialogue is CEFR')
+		expect(prompt([])[0].content).not.toContain('Prefer common words')
 	})
 
 	it('does not restore an old adaptation setting from a compacted history after it is cleared', () => {

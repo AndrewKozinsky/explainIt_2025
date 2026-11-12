@@ -1,3 +1,9 @@
+-- CreateSchema
+CREATE SCHEMA IF NOT EXISTS "public";
+
+-- CreateEnum
+CREATE TYPE "UserGender" AS ENUM ('MALE', 'FEMALE');
+
 -- CreateEnum
 CREATE TYPE "BalanceTransactionType" AS ENUM ('CHARGE', 'TOP_UP', 'REFUND');
 
@@ -32,10 +38,34 @@ CREATE TYPE "SentencePhraseTranslationStatus" AS ENUM ('pending', 'ready', 'erro
 CREATE TYPE "UniversalPhraseTranslationStatus" AS ENUM ('pending', 'ready', 'error');
 
 -- CreateEnum
+CREATE TYPE "WordSenseImageStatus" AS ENUM ('none', 'pending', 'generating', 'ready', 'failed');
+
+-- CreateEnum
 CREATE TYPE "SentenceChatMessageRole" AS ENUM ('user', 'assistant');
 
 -- CreateEnum
 CREATE TYPE "SentenceChatMessageStatus" AS ENUM ('streaming', 'completed', 'canceled', 'failed');
+
+-- CreateEnum
+CREATE TYPE "CefrSimplificationLevel" AS ENUM ('A1', 'A2', 'B1', 'B2');
+
+-- CreateEnum
+CREATE TYPE "AiDialogueMessageType" AS ENUM ('sceneUpdate', 'help', 'npcActions', 'userActions', 'userAvoidsNPC', 'worldEvent');
+
+-- CreateEnum
+CREATE TYPE "AiDialogueImageType" AS ENUM ('emotionSheet', 'angleSheet', 'scene');
+
+-- CreateEnum
+CREATE TYPE "ImageGenerationJobType" AS ENUM ('emotionSheet', 'angleSheet', 'scene');
+
+-- CreateEnum
+CREATE TYPE "ImageGenerationJobStatus" AS ENUM ('queued', 'waitingDependencies', 'generating', 'ready', 'failed');
+
+-- CreateEnum
+CREATE TYPE "ImageGenerationOutboxStatus" AS ENUM ('pending', 'published');
+
+-- CreateEnum
+CREATE TYPE "AiDialogueAudioStatus" AS ENUM ('generating', 'ready', 'failed');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -47,6 +77,9 @@ CREATE TABLE "User" (
     "is_email_confirmed" BOOLEAN NOT NULL DEFAULT false,
     "is_user_confirmed" BOOLEAN NOT NULL DEFAULT false,
     "balance" INTEGER NOT NULL DEFAULT 0,
+    "gender" "UserGender" NOT NULL DEFAULT 'MALE',
+    "avatar_preset_id" TEXT DEFAULT 'male-1',
+    "avatar_s3_key" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
@@ -125,7 +158,6 @@ CREATE TABLE "Video" (
     "is_file_uploaded" BOOLEAN DEFAULT false,
     "file_size_mb" INTEGER NOT NULL DEFAULT 0,
     "duration_sec" INTEGER NOT NULL DEFAULT 0,
-    "file_duration_sec" INTEGER,
     "original_content" TEXT,
     "processed_content" TEXT,
     "content_type" "VideoTextType" NOT NULL DEFAULT 'text',
@@ -252,9 +284,27 @@ CREATE TABLE "UniversalPhraseTranslation" (
     "status" "UniversalPhraseTranslationStatus" NOT NULL DEFAULT 'pending',
     "error_code" TEXT,
     "non_existent_word" BOOLEAN NOT NULL DEFAULT false,
+    "lemmas" TEXT,
+    "deep_sections" TEXT,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "UniversalPhraseTranslation_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "WordSense" (
+    "id" SERIAL NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
+    "lemma" TEXT NOT NULL,
+    "gloss" TEXT NOT NULL,
+    "visual_kind" TEXT,
+    "visual_aspect" TEXT,
+    "visual_prompt" TEXT,
+    "image_s3_key" TEXT,
+    "image_status" "WordSenseImageStatus" NOT NULL DEFAULT 'none',
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "WordSense_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -283,23 +333,152 @@ CREATE TABLE "SentenceChatMessage" (
 );
 
 -- CreateTable
-CREATE TABLE "Flashcard" (
+CREATE TABLE "AiDialogueScenarioGroup" (
     "id" SERIAL NOT NULL,
-    "user_id" INTEGER NOT NULL,
-    "language_code" "LanguageCode" NOT NULL,
-    "sentence_text" TEXT NOT NULL,
-    "sentence_translation" TEXT,
-    "phrase" TEXT NOT NULL,
-    "phrase_start_offset" INTEGER NOT NULL,
-    "phrase_end_offset" INTEGER NOT NULL,
-    "phrase_translation" TEXT,
-    "examples" TEXT[],
-    "book_id" INTEGER,
-    "video_id" INTEGER,
-    "sentence_phrase_translation_id" INTEGER,
+    "slug" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "position" INTEGER NOT NULL DEFAULT 0,
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
-    CONSTRAINT "Flashcard_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "AiDialogueScenarioGroup_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogueScenario" (
+    "id" SERIAL NOT NULL,
+    "slug" TEXT,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "system_prompt" TEXT NOT NULL,
+    "user_scenario_amendment_hint" TEXT,
+    "conversation_ideas" TEXT,
+    "trained_skills" TEXT,
+    "position" INTEGER NOT NULL DEFAULT 0,
+    "group_id" INTEGER,
+    "cover_s3_key" TEXT,
+    "user_id" INTEGER,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogueScenario_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogue" (
+    "illustration_style_id" TEXT NOT NULL DEFAULT 'realism',
+    "user_scenario_amendment" TEXT,
+    "max_cefr_level" "CefrSimplificationLevel",
+    "id" SERIAL NOT NULL,
+    "scenario_id" INTEGER NOT NULL,
+    "user_id" INTEGER NOT NULL,
+    "source_language_code" "LanguageCode" NOT NULL,
+    "target_language_code" "LanguageCode" NOT NULL,
+    "summary" TEXT,
+    "summary_up_to" INTEGER NOT NULL DEFAULT 0,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogue_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogueMessage" (
+    "id" SERIAL NOT NULL,
+    "dialogue_id" INTEGER NOT NULL,
+    "character_id" INTEGER,
+    "type" "AiDialogueMessageType" NOT NULL,
+    "payload" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogueMessage_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogueCharacter" (
+    "id" SERIAL NOT NULL,
+    "dialogue_id" INTEGER NOT NULL,
+    "npc_id" TEXT NOT NULL,
+    "name" TEXT,
+    "role" TEXT,
+    "appearance" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogueCharacter_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogueImage" (
+    "id" SERIAL NOT NULL,
+    "character_id" INTEGER,
+    "message_id" INTEGER,
+    "type" "AiDialogueImageType" NOT NULL,
+    "layout_version" TEXT,
+    "s3_key" TEXT NOT NULL,
+    "mime_type" TEXT NOT NULL,
+    "width" INTEGER NOT NULL,
+    "height" INTEGER NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogueImage_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ImageGenerationJob" (
+    "id" SERIAL NOT NULL,
+    "dedup_key" TEXT NOT NULL,
+    "type" "ImageGenerationJobType" NOT NULL,
+    "status" "ImageGenerationJobStatus" NOT NULL DEFAULT 'queued',
+    "character_id" INTEGER,
+    "message_id" INTEGER,
+    "input" TEXT NOT NULL,
+    "provider_request_id" TEXT,
+    "provider_polling_url" TEXT,
+    "attempts" INTEGER NOT NULL DEFAULT 0,
+    "error" TEXT,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "ImageGenerationJob_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ImageGenerationOutbox" (
+    "id" SERIAL NOT NULL,
+    "job_id" INTEGER NOT NULL,
+    "status" "ImageGenerationOutboxStatus" NOT NULL DEFAULT 'pending',
+    "attempts" INTEGER NOT NULL DEFAULT 0,
+    "error" TEXT,
+    "published_at" TIMESTAMP(3),
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "ImageGenerationOutbox_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogueVoice" (
+    "id" SERIAL NOT NULL,
+    "dialogue_id" INTEGER NOT NULL,
+    "npc_id" TEXT NOT NULL,
+    "voice" TEXT NOT NULL,
+    "instructions" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogueVoice_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "AiDialogueAudio" (
+    "id" SERIAL NOT NULL,
+    "message_id" INTEGER NOT NULL,
+    "action_index" INTEGER NOT NULL,
+    "s3_key" TEXT NOT NULL,
+    "status" "AiDialogueAudioStatus" NOT NULL DEFAULT 'generating',
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+
+    CONSTRAINT "AiDialogueAudio_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -354,6 +533,12 @@ CREATE INDEX "UniversalPhraseTranslation_universal_phrase_id_idx" ON "UniversalP
 CREATE UNIQUE INDEX "UniversalPhraseTranslation_universal_phrase_id_target_langu_key" ON "UniversalPhraseTranslation"("universal_phrase_id", "target_language_code");
 
 -- CreateIndex
+CREATE INDEX "WordSense_source_language_code_lemma_idx" ON "WordSense"("source_language_code", "lemma");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "WordSense_source_language_code_lemma_gloss_key" ON "WordSense"("source_language_code", "lemma", "gloss");
+
+-- CreateIndex
 CREATE INDEX "SentenceChatThread_user_id_idx" ON "SentenceChatThread"("user_id");
 
 -- CreateIndex
@@ -363,13 +548,73 @@ CREATE UNIQUE INDEX "SentenceChatThread_user_id_sentence_id_key" ON "SentenceCha
 CREATE INDEX "SentenceChatMessage_thread_id_idx" ON "SentenceChatMessage"("thread_id");
 
 -- CreateIndex
-CREATE INDEX "Flashcard_user_id_idx" ON "Flashcard"("user_id");
+CREATE UNIQUE INDEX "AiDialogueScenarioGroup_slug_key" ON "AiDialogueScenarioGroup"("slug");
 
 -- CreateIndex
-CREATE INDEX "Flashcard_user_id_language_code_idx" ON "Flashcard"("user_id", "language_code");
+CREATE INDEX "AiDialogueScenarioGroup_position_id_idx" ON "AiDialogueScenarioGroup"("position", "id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Flashcard_user_id_sentence_phrase_translation_id_key" ON "Flashcard"("user_id", "sentence_phrase_translation_id");
+CREATE UNIQUE INDEX "AiDialogueScenario_slug_key" ON "AiDialogueScenario"("slug");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueScenario_user_id_idx" ON "AiDialogueScenario"("user_id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueScenario_group_id_position_id_idx" ON "AiDialogueScenario"("group_id", "position", "id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogue_user_id_idx" ON "AiDialogue"("user_id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogue_scenario_id_idx" ON "AiDialogue"("scenario_id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogue_user_id_created_at_id_idx" ON "AiDialogue"("user_id", "created_at", "id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueMessage_dialogue_id_idx" ON "AiDialogueMessage"("dialogue_id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueMessage_character_id_idx" ON "AiDialogueMessage"("character_id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueMessage_dialogue_id_id_idx" ON "AiDialogueMessage"("dialogue_id", "id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueMessage_dialogue_id_type_id_idx" ON "AiDialogueMessage"("dialogue_id", "type", "id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "AiDialogueCharacter_dialogue_id_npc_id_key" ON "AiDialogueCharacter"("dialogue_id", "npc_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "AiDialogueImage_s3_key_key" ON "AiDialogueImage"("s3_key");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueImage_character_id_idx" ON "AiDialogueImage"("character_id");
+
+-- CreateIndex
+CREATE INDEX "AiDialogueImage_message_id_idx" ON "AiDialogueImage"("message_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ImageGenerationJob_dedup_key_key" ON "ImageGenerationJob"("dedup_key");
+
+-- CreateIndex
+CREATE INDEX "ImageGenerationJob_status_idx" ON "ImageGenerationJob"("status");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "ImageGenerationOutbox_job_id_key" ON "ImageGenerationOutbox"("job_id");
+
+-- CreateIndex
+CREATE INDEX "ImageGenerationOutbox_status_idx" ON "ImageGenerationOutbox"("status");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "AiDialogueVoice_dialogue_id_npc_id_key" ON "AiDialogueVoice"("dialogue_id", "npc_id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "AiDialogueAudio_s3_key_key" ON "AiDialogueAudio"("s3_key");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "AiDialogueAudio_message_id_action_index_key" ON "AiDialogueAudio"("message_id", "action_index");
 
 -- AddForeignKey
 ALTER TABLE "UserBalanceTransaction" ADD CONSTRAINT "UserBalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -429,13 +674,44 @@ ALTER TABLE "SentenceChatThread" ADD CONSTRAINT "SentenceChatThread_sentence_id_
 ALTER TABLE "SentenceChatMessage" ADD CONSTRAINT "SentenceChatMessage_thread_id_fkey" FOREIGN KEY ("thread_id") REFERENCES "SentenceChatThread"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE "AiDialogueScenario" ADD CONSTRAINT "AiDialogueScenario_group_id_fkey" FOREIGN KEY ("group_id") REFERENCES "AiDialogueScenarioGroup"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_book_id_fkey" FOREIGN KEY ("book_id") REFERENCES "Book"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "AiDialogueScenario" ADD CONSTRAINT "AiDialogueScenario_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_video_id_fkey" FOREIGN KEY ("video_id") REFERENCES "Video"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "AiDialogue" ADD CONSTRAINT "AiDialogue_scenario_id_fkey" FOREIGN KEY ("scenario_id") REFERENCES "AiDialogueScenario"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Flashcard" ADD CONSTRAINT "Flashcard_sentence_phrase_translation_id_fkey" FOREIGN KEY ("sentence_phrase_translation_id") REFERENCES "SentencePhraseTranslation"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE "AiDialogue" ADD CONSTRAINT "AiDialogue_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueMessage" ADD CONSTRAINT "AiDialogueMessage_dialogue_id_fkey" FOREIGN KEY ("dialogue_id") REFERENCES "AiDialogue"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueMessage" ADD CONSTRAINT "AiDialogueMessage_character_id_fkey" FOREIGN KEY ("character_id") REFERENCES "AiDialogueCharacter"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueCharacter" ADD CONSTRAINT "AiDialogueCharacter_dialogue_id_fkey" FOREIGN KEY ("dialogue_id") REFERENCES "AiDialogue"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueImage" ADD CONSTRAINT "AiDialogueImage_character_id_fkey" FOREIGN KEY ("character_id") REFERENCES "AiDialogueCharacter"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueImage" ADD CONSTRAINT "AiDialogueImage_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "AiDialogueMessage"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ImageGenerationJob" ADD CONSTRAINT "ImageGenerationJob_character_id_fkey" FOREIGN KEY ("character_id") REFERENCES "AiDialogueCharacter"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ImageGenerationJob" ADD CONSTRAINT "ImageGenerationJob_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "AiDialogueMessage"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ImageGenerationOutbox" ADD CONSTRAINT "ImageGenerationOutbox_job_id_fkey" FOREIGN KEY ("job_id") REFERENCES "ImageGenerationJob"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueVoice" ADD CONSTRAINT "AiDialogueVoice_dialogue_id_fkey" FOREIGN KEY ("dialogue_id") REFERENCES "AiDialogue"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "AiDialogueAudio" ADD CONSTRAINT "AiDialogueAudio_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "AiDialogueMessage"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
