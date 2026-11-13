@@ -2,10 +2,12 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { Language } from 'utils/languages'
+import { getFreeDailyBalanceInMicrodollars } from 'features/billing/freeDailyBalance'
 import { AuthEmailService } from 'infrastructure/emails/authEmail.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 type CreateUserWithEmailAndPasswordInput = {
 	email: string
@@ -29,6 +31,7 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 		private userRepository: UserRepository,
 		private userQueryRepository: UserQueryRepository,
 		private authEmail: AuthEmailService,
+		private mainConfig: MainConfigService,
 	) {}
 
 	async execute(command: CreateUserWithEmailAndPasswordCommand) {
@@ -64,7 +67,9 @@ export class CreateUserWithEmailAndPasswordHandler implements ICommandHandler<Cr
 		// User does not exist, create a new one
 		const createdUser = await this.userRepository.createUserByEmailAndPassword(createUserInput)
 
-		await this.userRepository.updateUser(createdUser.id, { balance: 500 })
+		await this.userRepository.updateUser(createdUser.id, {
+			balance: getFreeDailyBalanceInMicrodollars(this.mainConfig),
+		})
 
 		const newUser = await this.userQueryRepository.getUserById(createdUser.id)
 		if (!newUser) {

@@ -36,8 +36,7 @@ export const bdConfig = {
 			uploadedAvatarUrl: {
 				type: 'string',
 				required: false,
-				description:
-					'Temporary URL of the saved custom photo, including when a preset is selected',
+				description: 'Temporary URL of the saved custom photo, including when a preset is selected',
 				example: 'https://storage.example.com/photo.webp',
 			},
 			avatarPresetId: {
@@ -105,8 +104,9 @@ export const bdConfig = {
 			balance: {
 				type: 'number',
 				default: 0,
-				description: 'User balance in kopecks',
-				example: 50000,
+				description:
+					'User balance in microdollars (millionths of a US dollar). Restored every day; can be negative after the last request',
+				example: 100000,
 				required: true,
 			},
 			gender: {

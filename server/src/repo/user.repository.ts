@@ -122,6 +122,23 @@ export class UserRepository {
 		})
 	}
 
+	/**
+	 * Прибавляет сумму к балансу всех пользователей одним запросом. Итоговый баланс не больше maxBalance.
+	 * @param input.amountInMicrodollars Прибавляемая сумма.
+	 * @param input.maxBalanceInMicrodollars Верхняя граница итогового баланса.
+	 * @returns Сколько пользователей обновлено.
+	 */
+	@CatchDbError()
+	async increaseBalanceOfAllUsers(input: {
+		amountInMicrodollars: number
+		maxBalanceInMicrodollars: number
+	}): Promise<number> {
+		return this.prisma.$executeRaw`
+			UPDATE "User"
+			SET balance = LEAST(balance + ${input.amountInMicrodollars}, ${input.maxBalanceInMicrodollars})
+		`
+	}
+
 	/** Lock the row so concurrent replacements return the actual previous photo after commit. */
 	@CatchDbError()
 	async updateProfile(userId: number, data: UserProfileUpdate) {
