@@ -76,6 +76,8 @@ PostHog работает, только если одновременно вып�
 | Событие | Когда | Свойства |
 |---|---|---|
 | `user_registered` | подтверждена почта (`ConfirmEmail.command.ts`); впервые создан пользователь через OAuth или неподтверждённый пользователь вошёл через OAuth (`LoginWithOAuth.command.ts`) | `method`: `email`, `google`, `yandex`, `github` |
+| `balance_exhausted` | списание за запрос к ИИ перевело баланс из плюса в ноль или минус ([billing.md](billing.md)) | `feature` |
+| `ai_request_blocked_by_balance` | запрос к ИИ отклонён, потому что баланс не больше нуля | `feature` |
 
 ## Баннер про cookies
 

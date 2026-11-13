@@ -19,8 +19,6 @@
 Взаимодействие с базой данных идёт через Prisma ORM.
 
 Таблица User — данные пользователя
-Таблица UserBalanceTransaction — транзакции баланса пользователя
-Таблица Payment — оплаты пользователя
 Таблица Book — книги
 Таблица BookChapter — главы книг
 Таблица Video — фильмы
@@ -113,8 +111,6 @@ Reuse an existing error message when one text already covers multiple forbidden 
 Гард получающий userId из запроса с клиента и помещающий в объект запроса данные пользователя. Блокирует запрос авторизационная кука не передана.
 ```server/src/infrastructure/guards/checkSessionCookie.guard.ts```
 
-Гард следящий чтобы запросы делал пользователь не с нулевым балансом.
-```server/src/infrastructure/guards/userWithPositiveBalanceGuard.guard.ts```
 
 
 ## Ссылки на файлы R2
