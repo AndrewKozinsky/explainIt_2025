@@ -7,8 +7,7 @@ type TextEventType = 'sceneUpdate' | 'help' | 'worldEvent'
 
 // Заголовок блока: npcActions — с полями через |, текстовые события — без полей.
 type Header =
-	| { type: TextEventType }
-	| { type: 'npcActions'; npcId: string; npcName: string; npcRole: string; emotion: string }
+	{ type: TextEventType } | { type: 'npcActions'; npcId: string; npcName: string; npcRole: string; emotion: string }
 
 // Что ожидается следующей строкой внутри текущего блока.
 type Stage = 'label' | 'content' | 'translation' | 'done'

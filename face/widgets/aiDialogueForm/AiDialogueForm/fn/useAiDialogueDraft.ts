@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { openAiDialogueDictation } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
+import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
 import { useAiDialogueSendMessage } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage'
 import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
 import { AiDialogueDraftController } from './AiDialogueDraftController'
@@ -13,8 +14,11 @@ export function useAiDialogueDraft(dialogueId: number) {
 	const [controller] = useState(
 		() =>
 			new AiDialogueDraftController({
-				check: (part, text, signal) =>
-					aiDialogueService.checkUserMessageText(dialogueId, { [part]: text }, signal),
+				check: (part, text, signal) => {
+					capturePosthogEvent({ name: 'dialogue_help_used', dialogue_id: dialogueId, kind: 'check' })
+
+					return aiDialogueService.checkUserMessageText(dialogueId, { [part]: text }, signal)
+				},
 				openDictation: (callbacks) => openAiDialogueDictation(dialogueId, callbacks),
 				send: (actions) => senderRef.current.sendUserActions(actions),
 				leave: () => senderRef.current.finishDialogue(),

@@ -2,6 +2,7 @@
 
 import { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
+import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import type { AiDialogueActionItem, AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { useAiDialogueStore } from '../../aiDialogueStore'
@@ -53,6 +54,10 @@ export function useAiDialogueSendMessage(dialogueId: number) {
 				return false
 			}
 
+			if (event.type === 'userActions' && !hasUserActions()) {
+				capturePosthogEvent({ name: 'first_message_sent', dialogue_id: dialogueId })
+			}
+
 			useAiDialogueStore.getState().upsertMessage(result.data)
 			setStatus('idle')
 			return true
@@ -75,4 +80,15 @@ export function useAiDialogueSendMessage(dialogueId: number) {
 	)
 
 	return { status, sendUserActions, finishDialogue }
+}
+
+/** Есть ли в загруженном диалоге хотя бы одна реплика или действие пользователя. */
+function hasUserActions(): boolean {
+	const { messages } = useAiDialogueStore.getState()
+
+	for (const message of messages.values()) {
+		if (message.payload.type === 'userActions') return true
+	}
+
+	return false
 }

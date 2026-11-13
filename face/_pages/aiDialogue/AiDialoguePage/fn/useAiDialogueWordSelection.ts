@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
 import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import { useSelectedWordsStore } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/selectedWordsStore'
 
@@ -17,10 +18,15 @@ export function useAiDialogueWordSelection(dialogueId: string) {
 		[dialogueId],
 	)
 
-	const handleWordSelect = useCallback(function ({ word, sentence }: AiDialogueWordSelection) {
-		setSelectedWord(word)
-		setSelectedSentence(sentence)
-	}, [])
+	const handleWordSelect = useCallback(
+		function ({ word, sentence }: AiDialogueWordSelection) {
+			setSelectedWord(word)
+			setSelectedSentence(sentence)
+			// Нажатие на слово показывает перевод предложения и статью словаря.
+			capturePosthogEvent({ name: 'dialogue_help_used', dialogue_id: Number(dialogueId), kind: 'translation' })
+		},
+		[dialogueId],
+	)
 
 	return { selectedWord, selectedSentence, handleWordSelect }
 }

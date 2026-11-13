@@ -7,6 +7,7 @@ import { aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { useRouter } from '@/i18n/routing'
 import { useUser } from '@/shared/api/auth/UserProvider'
+import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { LanguageCode } from '@/shared/utils/languages'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -35,7 +36,10 @@ export function useAiDialogueScenarioClick() {
 	}, [])
 
 	const onScenarioClick = useCallback(function (scenarioId: number) {
-		if (!isCreating.current) setSelectedScenarioId(scenarioId)
+		if (isCreating.current) return
+
+		setSelectedScenarioId(scenarioId)
+		capturePosthogEvent({ name: 'scenario_opened', scenario_id: scenarioId })
 	}, [])
 
 	const closeScenarioModal = useCallback(function () {
@@ -77,6 +81,16 @@ export function useAiDialogueScenarioClick() {
 				}
 
 				if (result.data) {
+					capturePosthogEvent({
+						name: 'dialogue_started',
+						dialogue_id: result.data.id,
+						scenario_id: selectedScenarioId,
+						practice_language: options.sourceLanguageCode,
+						max_cefr_level: options.maxCefrLevel ?? null,
+						illustration_style_id: options.illustrationStyleId,
+						has_scenario_amendment: Boolean(options.userScenarioAmendment?.trim()),
+					})
+
 					await queryClient.invalidateQueries({ queryKey: aiDialogueQueryKeys.list() })
 
 					setSelectedScenarioId(null)
