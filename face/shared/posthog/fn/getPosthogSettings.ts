@@ -1,4 +1,5 @@
 import mainConfig from '@/shared/consts/mainConfig'
+import { getRuntimeRegion } from '@/shared/utils/getRuntimeRegion'
 
 /** Настройки, с которыми клиент запускает PostHog. */
 export type PosthogSettings = {
@@ -13,18 +14,14 @@ export type PosthogSettings = {
  * PostHog работает только на рабочем сервере (servermaster) в регионе intl (immersia.site):
  * на explainit.ru, develop-сервере и локально его нет.
  *
- * Переменные читаются по имени из переменной, а не как `process.env.NEXT_PUBLIC_…`:
- * Next.js подставляет такие обращения значением на момент сборки, а регион
- * задаётся docker-compose уже при запуске контейнера.
+ * Токен читается по имени из переменной, а не как `process.env.NEXT_PUBLIC_…`,
+ * чтобы брать значение при запросе, а не подставленное при сборке.
  */
 export function getPosthogSettings(): PosthogSettings | null {
-	const regionVariableName = 'NEXT_PUBLIC_REGION'
 	const projectTokenVariableName = 'NEXT_PUBLIC_POSTHOG_KEY'
-
-	const region = process.env[regionVariableName]
 	const projectToken = process.env[projectTokenVariableName]
 
-	if (mainConfig.workingMode !== 'servermaster' || region !== 'intl' || !projectToken) return null
+	if (mainConfig.workingMode !== 'servermaster' || getRuntimeRegion() !== 'intl' || !projectToken) return null
 
 	return { projectToken }
 }

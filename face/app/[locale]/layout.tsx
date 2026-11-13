@@ -5,9 +5,11 @@ import { routing } from '@/i18n/routing'
 import { getCurrentUser } from '@/shared/api/auth/getCurrentUser'
 import { Providers } from '@/shared/api/auth/Providers'
 import { UserProvider } from '@/shared/api/auth/UserProvider'
+import CookieBannerIntl from '@/shared/posthog/CookieBannerIntl/CookieBannerIntl'
 import { getPosthogSettings } from '@/shared/posthog/fn/getPosthogSettings'
 import { PosthogProvider } from '@/shared/posthog/PosthogProvider'
 import { NotificationProvider } from '@/shared/ui/Notification/Notification'
+import { getRuntimeRegion } from '@/shared/utils/getRuntimeRegion'
 import MainPageLayout from '_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
 
 export default async function LocaleLayout({
@@ -34,6 +36,8 @@ export default async function LocaleLayout({
 					<UserProvider user={user}>
 						<PosthogProvider settings={posthogSettings}>
 							<MainPageLayout>{children}</MainPageLayout>
+							{/* Баннер показывается во всех окружениях immersia.site, чтобы его можно было проверить локально. */}
+							{getRuntimeRegion() === 'intl' && <CookieBannerIntl />}
 						</PosthogProvider>
 					</UserProvider>
 				</Providers>

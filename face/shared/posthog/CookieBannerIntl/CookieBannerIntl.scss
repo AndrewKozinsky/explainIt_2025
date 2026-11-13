@@ -1,0 +1,31 @@
+@use '@/styles/variables' as vars;
+
+.cookie-banner-intl {
+	position: fixed;
+	right: 1.6rem;
+	bottom: 1.6rem;
+	left: 1.6rem;
+	z-index: 100;
+	box-sizing: border-box;
+	display: grid;
+	gap: 1.2rem;
+	max-width: 520px;
+	margin-left: auto;
+	padding: 1.6rem;
+	background-color: #fff;
+	border-radius: vars.$radius-2;
+	box-shadow: vars.$shadow-2;
+}
+
+.cookie-banner-intl__text {
+	margin: 0;
+	font-size: 1.4rem;
+	line-height: 1.4;
+	color: vars.$textColor;
+}
+
+.cookie-banner-intl__buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.8rem;
+}

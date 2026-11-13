@@ -14,6 +14,7 @@ const messageNamespaces = [
 	'aiDialogueScenariosList',
 	'auth',
 	'contactsPage',
+	'cookieBannerIntl',
 	'dictionary',
 	'fileDropzone',
 	'mainPageAnyLevel',

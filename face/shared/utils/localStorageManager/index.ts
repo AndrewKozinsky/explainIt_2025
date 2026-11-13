@@ -1,4 +1,5 @@
 import { aiDialogueReplySettings } from './aiDialogueReplySettings'
+import { cookieBannerIntl } from './cookieBannerIntl'
 import { lastAiDialogProficiency } from './lastAiDialogProficiency'
 import { lastAiDialogueIllustrationStyle } from './lastAiDialogueIllustrationStyle'
 import { lastBookChapter } from './lastBookChapter'
@@ -23,4 +24,5 @@ export const localStorageManager = {
 	lastLanguage,
 	oauth,
 	aiDialogueReplySettings,
+	cookieBannerIntl,
 }
