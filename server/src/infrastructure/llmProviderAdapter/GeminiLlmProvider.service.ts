@@ -22,6 +22,7 @@ export class GeminiLlmProvider implements LlmProvider {
 		return {
 			content: response.message ?? '',
 			inputTokens: response.inputTokens,
+			cachedInputTokens: response.cachedInputTokens,
 			outputTokens: response.outputTokens,
 		}
 	}

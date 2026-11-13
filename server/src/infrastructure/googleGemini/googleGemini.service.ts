@@ -4,6 +4,7 @@ import { GoogleGeminiModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { LlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 @Injectable()
@@ -38,6 +39,7 @@ export class GoogleGeminiService {
 
 		return {
 			inputTokens: usage.promptTokenCount ?? 0,
+			cachedInputTokens: usage.cachedContentTokenCount ?? 0,
 			outputTokens: usage.candidatesTokenCount ?? 0,
 			message,
 		}
@@ -48,7 +50,7 @@ export class GoogleGeminiService {
 		model?: GoogleGeminiModels
 		systemInstruction?: string
 		abortSignal?: AbortSignal
-		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
+		onUsage?: (usage: null | LlmTokenUsage) => void
 	}): AsyncGenerator<string, void, void> {
 		const stream = await this.ai.models.generateContentStream({
 			model: input.model ?? GoogleGeminiModels.Flash,
@@ -58,7 +60,7 @@ export class GoogleGeminiService {
 
 		let usageSent = false
 
-		function maybeSendUsage(usage: null | { inputTokens: number; outputTokens: number }) {
+		function maybeSendUsage(usage: null | LlmTokenUsage) {
 			if (usageSent) return
 
 			usageSent = true
@@ -74,6 +76,7 @@ export class GoogleGeminiService {
 				if (usage?.promptTokenCount !== undefined && usage?.candidatesTokenCount !== undefined) {
 					maybeSendUsage({
 						inputTokens: usage.promptTokenCount,
+						cachedInputTokens: usage.cachedContentTokenCount ?? 0,
 						outputTokens: usage.candidatesTokenCount,
 					})
 				}
@@ -92,6 +95,7 @@ export class GoogleGeminiService {
 export interface GoogleGeminiServiceI {
 	generateText(input: { contents: Content[]; model?: GoogleGeminiModels }): Promise<{
 		inputTokens: number
+		cachedInputTokens: number
 		outputTokens: number
 		message: string | null
 	}>

@@ -1,6 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
-import { AiModel, DeepSeekModels, GoogleGeminiModels, MimoModels, OpenAIModels, ZaiModels } from 'types/AIModels'
+import { AiModel } from 'types/AIModels'
+import { costInDollarsToMicrodollarsCharge } from 'utils/microdollars'
+import { calculateLlmCostInDollars, getLlmTokenPrice } from 'features/billing/aiUsageCost'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -12,6 +14,7 @@ export class TokenUsageBalanceChargeCommand implements ICommand {
 			userId: number
 			aiModelName: AiModel
 			inputTokens: number
+			cachedInputTokens?: number
 			outputTokens: number
 			/** Только для OpenAI — снижает стоимость вдвое */
 			lowPriority?: boolean
@@ -30,19 +33,20 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 		// Списание баланса полностью отключено — не начисляем стоимость ни одному пользователю.
 		if (!this.mainConfig.get().billing.chargingEnabled) return
 
-		const { userId, aiModelName, inputTokens, outputTokens, lowPriority } = command.dto
+		const { userId, aiModelName, inputTokens, cachedInputTokens, outputTokens, lowPriority } = command.dto
 
-		const amountInKopecks = this.calculateAmountInKopeckDependsOnTokens({
+		const amountInMicrodollars = this.calculateAmountInMicrodollars({
 			aiModelName,
 			inputTokens,
+			cachedInputTokens: cachedInputTokens ?? 0,
 			outputTokens,
 			lowPriority: lowPriority ?? false,
 		})
 
-		if (amountInKopecks <= 0) return
+		if (amountInMicrodollars <= 0) return
 
 		try {
-			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks })
+			await this.userBalanceTransactionRepository.createCharge({ userId, amountInKopecks: amountInMicrodollars })
 		} catch (error) {
 			if (error instanceof CustomError) {
 				throw error
@@ -52,43 +56,25 @@ export class TokenUsageBalanceChargeHandler implements ICommandHandler<TokenUsag
 		}
 	}
 
-	calculateAmountInKopeckDependsOnTokens(input: {
+	/** Стоимость запроса в микродолларах по ценам поставщика из mainConfig, без наценки. */
+	calculateAmountInMicrodollars(input: {
 		aiModelName: AiModel
 		inputTokens: number
+		cachedInputTokens: number
 		outputTokens: number
 		lowPriority: boolean
 	}): number {
-		const priceMap: Record<AiModel, { input: number; output: number }> = {
-			// OpenAI
-			[OpenAIModels.Nano]: this.mainConfig.get().openAI.priceInRub.nano,
-			[OpenAIModels.Mini]: this.mainConfig.get().openAI.priceInRub.mini,
-			[OpenAIModels.Standard]: this.mainConfig.get().openAI.priceInRub.standard,
-			// DeepSeek
-			[DeepSeekModels.Flash]: this.mainConfig.get().deepSeek.priceInRub.flash,
-			[DeepSeekModels.Pro]: this.mainConfig.get().deepSeek.priceInRub.pro,
-			// Z.ai
-			[ZaiModels.Flash]: this.mainConfig.get().zai.priceInRub.flash,
-			[ZaiModels.Pro]: this.mainConfig.get().zai.priceInRub.pro,
-			// Xiaomi MiMo
-			[MimoModels.Flash]: this.mainConfig.get().mimo.priceInRub.flash,
-			[MimoModels.Pro]: this.mainConfig.get().mimo.priceInRub.pro,
-			// Gemini
-			[GoogleGeminiModels.FlashLite]: this.mainConfig.get().gemini.priceInRub.flashLite,
-			[GoogleGeminiModels.Flash]: this.mainConfig.get().gemini.priceInRub.flash,
-			[GoogleGeminiModels.Pro]: this.mainConfig.get().gemini.priceInRub.pro,
-		}
+		const costInDollars = calculateLlmCostInDollars({
+			model: input.aiModelName,
+			price: getLlmTokenPrice(this.mainConfig.get(), input.aiModelName),
+			usage: {
+				inputTokens: input.inputTokens,
+				cachedInputTokens: input.cachedInputTokens,
+				outputTokens: input.outputTokens,
+			},
+			lowPriority: input.lowPriority,
+		})
 
-		const prices = priceMap[input.aiModelName]
-
-		let totalPriceInRub = input.inputTokens * prices.input + input.outputTokens * prices.output
-
-		if (input.lowPriority && Object.values(OpenAIModels).includes(input.aiModelName as OpenAIModels)) {
-			totalPriceInRub /= 2
-		}
-
-		const baseAmountInKopecks = Math.ceil(totalPriceInRub * 100)
-		const markupMultiplier = this.mainConfig.get().billing.translationMarkupMultiplier
-
-		return baseAmountInKopecks * markupMultiplier
+		return costInDollarsToMicrodollarsCharge(costInDollars)
 	}
 }

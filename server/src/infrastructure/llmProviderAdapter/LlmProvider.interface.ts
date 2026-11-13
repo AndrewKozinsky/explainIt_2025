@@ -1,4 +1,5 @@
 import { AiModel, AIProviderName } from 'types/AIModels'
+import { LlmTokenUsage } from './llmTokenUsage'
 
 // Нейтральный формат сообщения — единый для всех провайдеров.
 // Совместим с OpenAI SDK (де-факто стандарт).
@@ -23,10 +24,8 @@ export type LlmGenerateInput = {
 	timeoutMs?: number
 }
 
-export type LlmGenerateOutput = {
+export type LlmGenerateOutput = LlmTokenUsage & {
 	content: string
-	inputTokens: number
-	outputTokens: number
 }
 
 // ---- Потоковая генерация ----
@@ -37,7 +36,7 @@ export type LlmStreamInput = {
 	model?: AiModel
 	responseFormat?: 'text' | 'json_object'
 	abortSignal?: AbortSignal
-	onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
+	onUsage?: (usage: null | LlmTokenUsage) => void
 	lowPriority?: boolean
 }
 

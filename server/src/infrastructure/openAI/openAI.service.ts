@@ -1,15 +1,16 @@
 import { Injectable } from '@nestjs/common'
 import OpenAI from 'openai'
 import {
+	ReasoningEffort,
 	ResponseFormatJSONObject,
 	ResponseFormatJSONSchema,
 	ResponseFormatText,
-	ReasoningEffort,
 } from 'openai/resources'
 import { OpenAIModels } from 'types/AIModels'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { LlmTokenUsage, toLlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import { MainConfigService } from '../mainConfig/mainConfig.service'
 
 @Injectable()
@@ -52,12 +53,7 @@ export class OpenAIService {
 		}
 
 		return {
-			// Сколько токенов ушло на запрос.
-			// Считается по меньшей стоимости
-			inputTokens: response.usage.prompt_tokens, // 295
-			// Сколько токенов модель сгенерировала в ответе. // 3968
-			// Считается по большей стоимости
-			outputTokens: response.usage.completion_tokens,
+			...toLlmTokenUsage(response.usage),
 			message: response?.choices[0]?.message?.content as null | string,
 		}
 	}
@@ -68,7 +64,7 @@ export class OpenAIService {
 		responseFormat?: ResponseFormatText | ResponseFormatJSONObject
 		reasoningEffort?: ReasoningEffort
 		abortSignal?: AbortSignal
-		onUsage?: (usage: null | { inputTokens: number; outputTokens: number }) => void
+		onUsage?: (usage: null | LlmTokenUsage) => void
 		lowPriority?: boolean
 	}): AsyncGenerator<string, void, void> {
 		const stream = await this.openai.chat.completions.create(
@@ -92,7 +88,7 @@ export class OpenAIService {
 
 		let usageSent = false
 
-		function maybeSendUsage(usage: null | { inputTokens: number; outputTokens: number }) {
+		function maybeSendUsage(usage: null | LlmTokenUsage) {
 			if (usageSent) return
 
 			usageSent = true
@@ -105,8 +101,7 @@ export class OpenAIService {
 
 				if (usage) {
 					maybeSendUsage({
-						inputTokens: usage.prompt_tokens,
-						outputTokens: usage.completion_tokens,
+						...toLlmTokenUsage(usage),
 					})
 				}
 

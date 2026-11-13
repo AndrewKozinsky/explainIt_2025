@@ -1,7 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-
-const oneDollarInRub = 110
+import { llmTokenPrice } from './llmTokenPrice'
 
 @Injectable()
 export class MainConfigService {
@@ -68,107 +67,95 @@ export class MainConfigService {
 			},
 			openAI: {
 				apiKey: enVariables.openAi.apiKey,
-				priceInRub: {
-					nano: {
-						input: (oneDollarInRub * 0.05) / 1_000_000, // 110 рублей за доллар * количество долларов на вход / количество токенов
-						output: (oneDollarInRub * 0.4) / 1_000_000, // 110 рублей за доллар * количество долларов на выход / количество токенов
-					},
-					mini: {
-						input: (oneDollarInRub * 0.25) / 1_000_000,
-						output: (oneDollarInRub * 2) / 1_000_000,
-					},
-					standard: {
-						input: (oneDollarInRub * 1.25) / 1_000_000,
-						output: (oneDollarInRub * 10) / 1_000_000,
-					},
+				// Цены за 1M токенов, стандартный тариф (https://developers.openai.com/api/docs/pricing, ноябрь 2026)
+				llmPriceInDollars: {
+					nano: llmTokenPrice({ input: 0.1, cachedInput: 0.01, output: 0.5 }), // gpt-6-luna
+					mini: llmTokenPrice({ input: 1, cachedInput: 0.05, output: 5 }), // gpt-6.1-terra
+					standard: llmTokenPrice({ input: 2, cachedInput: 0.1, output: 10 }), // gpt-6.1-sol
+				},
+				// Модели изображений gpt-image-2.6 (flare и sunburst стоят одинаково), за 1M токенов
+				imagePriceInDollars: {
+					textInputPerMillionTokens: 5,
+					imageInputPerMillionTokens: 8,
+					imageOutputPerMillionTokens: 30,
+				},
+				// gpt-4o-mini-tts: текст на входе $0.60 и аудио на выходе $12 за 1M токенов.
+				// API озвучки не возвращает число токенов, поэтому аудио считается по длительности:
+				// OpenAI оценивает минуту озвучки в $0.015 (1250 аудиотокенов).
+				ttsPriceInDollars: {
+					textInputPerMillionTokens: 0.6,
+					audioOutputPerMinute: 0.015,
 				},
 			},
 			soniox: {
 				apiKey: enVariables.soniox.apiKey,
+				// https://soniox.com/pricing, ноябрь 2026
+				priceInDollars: {
+					// Распознавание речи в реальном времени: около $0.12 за час аудио
+					realtimeSpeechToTextPerMinute: 0.12 / 60,
+				},
 			},
 			blackForestLabs: {
 				apiKey: enVariables.blackForestLabs.apiKey,
+				// FLUX 3 Image, цена за картинку по ярусу размера (https://bfl.ai/pricing, ноябрь 2026).
+				// Референсные изображения не оплачиваются отдельно.
+				flux3ImagePriceInDollars: [
+					{ maxMegapixels: 0.6, pricePerImage: 0.041 },
+					{ maxMegapixels: 1, pricePerImage: 0.048 },
+					{ maxMegapixels: 2, pricePerImage: 0.07 },
+					{ maxMegapixels: 4, pricePerImage: 0.1 },
+					{ maxMegapixels: 16, pricePerImage: 0.607 },
+				],
 			},
 			deepSeek: {
 				apiKey: enVariables.deepSeek.apiKey,
-				// Пиковые цены DeepSeek (вход без кэша). Ночью цены вдвое ниже, но время запроса при списании
-				// не учитывается, поэтому берётся пиковая цена, чтобы списание не было меньше реальных расходов.
-				priceInRub: {
-					// deepseek-flash: $0.30 / 1M input, $1.20 / 1M output
-					flash: {
-						input: (oneDollarInRub * 0.3) / 1_000_000,
-						output: (oneDollarInRub * 1.2) / 1_000_000,
-					},
-					// deepseek-v4-pro: $1.32 / 1M input, $3.96 / 1M output
-					pro: {
-						input: (oneDollarInRub * 1.32) / 1_000_000,
-						output: (oneDollarInRub * 3.96) / 1_000_000,
-					},
+				// https://api-docs.deepseek.com/quick_start/pricing, ноябрь 2026.
+				// Вне пиковых часов цены вдвое ниже, но время запроса не учитывается: берётся пиковая (полная) цена.
+				llmPriceInDollars: {
+					flash: llmTokenPrice({ input: 0.3, cachedInput: 0.006, output: 1.2 }), // deepseek-flash
+					pro: llmTokenPrice({ input: 1.32, cachedInput: 0.044, output: 3.96 }), // deepseek-v4-pro
 				},
 			},
 			mimo: {
 				apiKey: enVariables.mimo.apiKey,
 				baseUrl: 'https://api.xiaomimimo.com/v1',
-				priceInRub: {
-					// MiMo-V2.6-Flash: $0.14 / 1M input (без кэша), $0.28 / 1M output
-					flash: {
-						input: (oneDollarInRub * 0.14) / 1_000_000,
-						output: (oneDollarInRub * 0.28) / 1_000_000,
-					},
-					// MiMo-V2.6-Pro: $0.435 / 1M input (без кэша), $0.87 / 1M output
-					pro: {
-						input: (oneDollarInRub * 0.435) / 1_000_000,
-						output: (oneDollarInRub * 0.87) / 1_000_000,
-					},
+				// Цены первого лица по данным агрегаторов (официальная страница цен не читается без JS), ноябрь 2026
+				llmPriceInDollars: {
+					flash: llmTokenPrice({ input: 0.14, cachedInput: 0.0028, output: 0.28 }), // mimo-v2.6-flash
+					pro: llmTokenPrice({ input: 0.435, cachedInput: 0.0036, output: 0.87 }), // mimo-v2.6-pro
 				},
 			},
 			zai: {
 				apiKey: enVariables.zai.apiKey,
 				baseUrl: 'https://api.z.ai/api/paas/v4',
-				priceInRub: {
-					// Цены z.ai (GLM), значения-заглушки — требуют уточнения
-					flash: {
-						input: (oneDollarInRub * 0.1) / 1_000_000,
-						output: (oneDollarInRub * 0.3) / 1_000_000,
-					},
-					pro: {
-						input: (oneDollarInRub * 0.6) / 1_000_000,
-						output: (oneDollarInRub * 2.2) / 1_000_000,
-					},
+				// https://docs.z.ai/guides/overview/pricing, ноябрь 2026
+				llmPriceInDollars: {
+					flash: llmTokenPrice({ input: 0.15, cachedInput: 0.03, output: 0.5 }), // glm-5.3-flash
+					pro: llmTokenPrice({ input: 1.4, cachedInput: 0.26, output: 4.4 }), // glm-5.3
 				},
 			},
 			gemini: {
-				// Цены Google Gemini (public pricing), значения-заглушки — требуют уточнения
-				priceInRub: {
-					flashLite: {
-						input: (oneDollarInRub * 0.075) / 1_000_000,
-						output: (oneDollarInRub * 0.3) / 1_000_000,
-					},
-					flash: {
-						input: (oneDollarInRub * 0.3) / 1_000_000,
-						output: (oneDollarInRub * 2.5) / 1_000_000,
-					},
-					pro: {
-						input: (oneDollarInRub * 1.25) / 1_000_000,
-						output: (oneDollarInRub * 10.0) / 1_000_000,
-					},
+				// https://aistudio.google.com/docs/pricing, ноябрь 2026, тариф для запросов до 200k токенов.
+				// Алиасы *-latest не называют конкретную модель: цены взяты по самым новым моделям семейства,
+				// для акционных цен — полная цена после окончания акции.
+				llmPriceInDollars: {
+					flashLite: llmTokenPrice({ input: 0.3, cachedInput: 0.03, output: 2.5 }), // gemini-3.5-flash-lite
+					flash: llmTokenPrice({ input: 1.5, cachedInput: 0.15, output: 7.5 }), // gemini-3.6-flash
+					pro: llmTokenPrice({ input: 2, cachedInput: 0.2, output: 12 }), // gemini-3.1-pro-preview
 				},
 			},
 			deepgram: {
 				apiKey: enVariables.deepgram.apiKey,
-				// Deepgram Nova-3 prerecorded pricing: ~$0.0043/min = $0.258/hour.
-				// Convert to kopecks per second: $/min * 100kop/$ * 110руб/$ / 60s.
-				pricePerSecondInKopecks: (0.0043 * oneDollarInRub * 100) / 60,
+				// Nova-3 для записанного аудио, pay-as-you-go (https://deepgram.com/pricing, ноябрь 2026)
+				priceInDollars: {
+					prerecordedSpeechToTextPerMinute: 0.0043,
+				},
 			},
 			generateSubtitles: {
-				// Минимальный баланс пользователя для запуска генерации субтитров (в копейках).
-				minBalanceKopecks: 1000,
 				// Максимальная допустимая длительность видео для генерации субтитров (в секундах).
 				maxVideoSeconds: 60 * 60 * 2,
 				// Каталог для временных файлов аудио/видео при обработке.
 				tmpDir: '/tmp/subs',
-				// Множитель наценки на стоимость распознавания речи.
-				asrMarkupMultiplier: 2,
 			},
 			oauth: {
 				github: {
@@ -198,7 +185,6 @@ export class MainConfigService {
 					keyId: enVariables.yandexCloud.translate.keyId,
 					secretKey: enVariables.yandexCloud.translate.secretKey,
 					folderId: enVariables.yandexCloud.translate.folderId,
-					priceForSymbolInKopecks: 0.05, // 0.5 рублей за тысячу символов * наценка
 				},
 				dictionary: {
 					key: enVariables.yandexCloud.dictionary.key,
@@ -226,10 +212,11 @@ export class MainConfigService {
 				containerUrl: `http://explainnlp${enVariables.mode}:8000`,
 			},
 			billing: {
-				// Наценка за каждый перевод пользователя
-				translationMarkupMultiplier: 2,
-				// Глобальный выключатель списания баланса. При false баланс не списывается
-				// ни у одного пользователя (все переводы/генерации становятся бесплатными).
+				// Баланс, который пользователь без тарифа получает каждый день (и при регистрации).
+				// Позже переедет в тарифы. Подробности — documentation/topics/billing.md
+				freeDailyBalanceInDollars: 0.1,
+				// Временный выключатель списания: при false баланс не списывается.
+				// Убирается, когда списание подключено ко всем запросам к ИИ.
 				chargingEnabled: false,
 			},
 			// Grafana Loki
@@ -238,8 +225,6 @@ export class MainConfigService {
 				serviceAccountCredentials: JSON.parse(
 					Buffer.from(enVariables.googleTts.serviceAccountJson, 'base64').toString('utf-8'),
 				),
-				// Google TTS Standard: ~$4 per 1M chars = 0.00044 руб/символ = 0.044 копейки/символ
-				pricePerCharInKopecks: 0.044 * 1.3, // стоимость * наценка
 			},
 			youTube: {
 				apiKey: enVariables.youTube.apiKey,
