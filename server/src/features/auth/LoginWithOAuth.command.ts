@@ -8,6 +8,7 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { PosthogService } from 'infrastructure/posthog/posthog.service'
 import { UserOutModel } from 'models/user/user.out.model'
 const qs = require('qs')
 
@@ -41,6 +42,7 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 		private userQueryRepository: UserQueryRepository,
 		private mainConfigService: MainConfigService,
 		private commandBus: CommandBus,
+		private posthogService: PosthogService,
 	) {}
 
 	async execute(command: LoginWithOAuthCommand) {
@@ -58,9 +60,13 @@ export class LoginWithOAuthHandler implements ICommandHandler<LoginWithOAuthComm
 			}
 
 			await this.userRepository.updateUser(createdUser.id, { balance: 500 })
+			await this.posthogService.captureUserRegistered(createdUser.id, loginWithOAuthInput.providerType)
 		} else {
 			if (!user.isUserConfirmed) {
 				await this.userRepository.updateUser(user.id, { is_user_confirmed: true })
+				// Пользователь начал регистрацию по почте, но не подтвердил её, а вошёл через OAuth:
+				// регистрация завершается здесь.
+				await this.posthogService.captureUserRegistered(user.id, loginWithOAuthInput.providerType)
 			}
 		}
 

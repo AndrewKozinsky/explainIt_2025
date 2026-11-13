@@ -32,6 +32,7 @@ import { HashAdapterModule } from 'infrastructure/hashAdapter/hash-adapter.modul
 import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MimoModule } from 'infrastructure/mimo/mimo.module'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
+import { PosthogModule } from 'infrastructure/posthog/posthog.module'
 import { QueuesModule } from 'infrastructure/queues/queues.module'
 import { RedisModule } from 'infrastructure/redis/redis.module'
 import { SonioxSttModule } from 'infrastructure/sonioxStt/sonioxStt.module'
@@ -53,6 +54,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		AuthModule,
 		UserModule,
 		TelegramModule,
+		PosthogModule,
 		OpenAIModule,
 		DeepSeekModule,
 		ZaiModule,

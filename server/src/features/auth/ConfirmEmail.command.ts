@@ -3,6 +3,7 @@ import { UserRepository } from 'repo/user.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { PosthogService } from 'infrastructure/posthog/posthog.service'
 
 export type ConfirmEmailInput = {
 	code: string
@@ -14,7 +15,10 @@ export class ConfirmEmailCommand implements ICommand {
 
 @CommandHandler(ConfirmEmailCommand)
 export class ConfirmEmailHandler implements ICommandHandler<ConfirmEmailCommand> {
-	constructor(private userRepository: UserRepository) {}
+	constructor(
+		private userRepository: UserRepository,
+		private posthogService: PosthogService,
+	) {}
 
 	async execute(command: ConfirmEmailCommand) {
 		const { createAdminInput } = command
@@ -32,9 +36,13 @@ export class ConfirmEmailHandler implements ICommandHandler<ConfirmEmailCommand>
 
 		try {
 			await this.userRepository.makeEmailVerified(user.id)
-			return true
 		} catch (error: unknown) {
 			throw new CustomError(errorMessage.unknownDbError, ErrorStatusCode.InternalServerError_500)
 		}
+
+		// Регистрация по почте считается завершённой после подтверждения почты.
+		await this.posthogService.captureUserRegistered(user.id, 'email')
+
+		return true
 	}
 }

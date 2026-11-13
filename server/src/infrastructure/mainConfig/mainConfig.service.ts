@@ -244,6 +244,10 @@ export class MainConfigService {
 			youTube: {
 				apiKey: enVariables.youTube.apiKey,
 			},
+			// Продуктовая аналитика. Токен публичный; null — PostHog не настроен
+			posthog: {
+				projectToken: enVariables.posthog.projectToken,
+			},
 		}
 	}
 
@@ -292,6 +296,9 @@ export class MainConfigService {
 			},
 			deepgram: {
 				apiKey: this.configService.get<string>('DEEPGRAM_API_KEY') as string,
+			},
+			posthog: {
+				projectToken: this.configService.get<string>('POSTHOG_KEY')?.trim() || null,
 			},
 			oauth: {
 				github: {
