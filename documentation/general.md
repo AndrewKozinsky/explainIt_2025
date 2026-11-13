@@ -82,4 +82,5 @@ docker compose -f docker-compose.local.dev.intl.yml --project-directory .. --env
 | `documentation/topics/ttsProviderAdapter.md` | адаптер озвучки, text to speech, TTS, TtsAdapterService, TtsProviderModule, OpenAI TTS, Google TTS, синтез речи |
 | `documentation/topics/restAndDtoDecorators.md` | REST, контроллер, controller, DTO, DtoFieldDecorators, декораторы, bdConfig, OpenAPI, Swagger, миграция с GraphQL, ApiProperty |
 | `documentation/topics/emails.md` | письма, email, Resend, подтверждение почты, восстановление пароля, AuthEmailService, EmailAdapterService, шаблоны писем |
+| `documentation/topics/posthog.md` | PostHog, аналитика, события, запись сессий, session replay, capturePosthogEvent, identify, баннер cookies, CookieBannerIntl, политика конфиденциальности immersia.site, PrivacyPolicyIntlPage |
 | `documentation/topics/openapiCodegen.md` | Orval, генерация клиентских функций, OpenAPI, React Query, orval, codegen, npm run orval, mutator, shared/api |
