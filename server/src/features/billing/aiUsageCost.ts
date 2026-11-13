@@ -1,4 +1,5 @@
 import { AiModel, DeepSeekModels, GoogleGeminiModels, MimoModels, OpenAIModels, ZaiModels } from 'types/AIModels'
+import type { ImageGenerationTokenUsage } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationProvider.interface'
 import type { LlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import type { LlmTokenPrice } from 'infrastructure/mainConfig/llmTokenPrice'
 import type { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
@@ -58,17 +59,10 @@ export function calculateLlmCostInDollars(input: {
 	return isOpenAiFlex ? cost / 2 : cost
 }
 
-/** Токены одного запроса к модели изображений OpenAI (поле usage ответа Images API). */
-export type OpenAiImageTokenUsage = {
-	textInputTokens: number
-	imageInputTokens: number
-	imageOutputTokens: number
-}
-
 /** Стоимость одной генерации картинки моделью OpenAI по токенам из ответа. */
 export function calculateOpenAiImageCostInDollars(input: {
 	price: MainConfig['openAI']['imagePriceInDollars']
-	usage: OpenAiImageTokenUsage
+	usage: ImageGenerationTokenUsage
 }): number {
 	const { price, usage } = input
 

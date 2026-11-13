@@ -215,12 +215,7 @@ export class MainConfigService {
 				// Баланс, который пользователь без тарифа получает каждый день (и при регистрации).
 				// Позже переедет в тарифы. Подробности — documentation/topics/billing.md
 				freeDailyBalanceInDollars: 0.1,
-				// Временный выключатель списания: при false баланс не списывается.
-				// Убирается, когда списание подключено ко всем запросам к ИИ.
-				chargingEnabled: false,
 			},
-			// Grafana Loki
-			// loki: enVariables.loki,
 			googleTts: {
 				serviceAccountCredentials: JSON.parse(
 					Buffer.from(enVariables.googleTts.serviceAccountJson, 'base64').toString('utf-8'),
@@ -332,11 +327,6 @@ export class MainConfigService {
 					bucketName: this.configService.get<string>('CLOUDFLARE_S3_BUCKET_NAME') as string,
 				},
 			},
-			/*loki: {
-				url: this.configService.get<string>('LOKI_URL') as string,
-				userId: this.configService.get<string>('LOKI_USER_ID') as string,
-				apiKey: this.configService.get<string>('LOKI_API_KEY') as string,
-			},*/
 			googleTts: {
 				serviceAccountJson: this.configService.get<string>('GOOGLE_AI_SERVICE_ACCOUNT_JSON') as string,
 			},

@@ -3,6 +3,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
 import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -31,6 +32,7 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 		private aiDialogueQueryRepository: AiDialogueQueryRepository,
 		private activeGenerationRegistry: ActiveAiDialogueGenerationRegistry,
 		private generateAiDialogueTurn: GenerateAiDialogueTurn,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async execute(command: CreateAiDialogueMessageCommand): Promise<AiDialogueMessageOutModel> {
@@ -48,6 +50,9 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 		if (this.activeGenerationRegistry.hasActiveForDialogue(dialogueId)) {
 			throw new CustomError(errorMessage.aiDialogue.generationAlreadyActive, ErrorStatusCode.BadRequest_400)
 		}
+
+		// Без баланса действие не сохраняется: ответ NPC на него всё равно не сгенерировался бы.
+		await this.userBalanceService.ensurePositiveBalanceOrThrow(userId, 'aiDialogue')
 
 		const message = await this.aiDialogueMessageRepository.createMessage({ dialogueId, event })
 

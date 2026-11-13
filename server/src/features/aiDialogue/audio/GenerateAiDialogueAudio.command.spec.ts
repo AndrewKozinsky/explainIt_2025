@@ -4,6 +4,7 @@ jest.mock('infrastructure/cloudflareS3/cloudflareS3.service', () => ({ Cloudflar
 jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
 jest.mock('infrastructure/ttsProviderAdapter/TtsAdapter.service', () => ({ TtsAdapterService: class {} }))
 jest.mock('models/aiDialogue/aiDialogueAudio.out.model', () => ({}))
+jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
 import { TtsError } from 'infrastructure/ttsProviderAdapter/TtsError'
 import { AI_DIALOGUE_NARRATOR } from './aiDialogueAudioConfig'
 import {
@@ -12,6 +13,7 @@ import {
 	SCENE_AUDIO_ACTION_INDEX,
 } from './GenerateAiDialogueAudio.command'
 import { isValidDialogueMp3 } from './isValidDialogueMp3'
+import { getMp3DurationSeconds } from './mp3Frames'
 
 function createMp3() {
 	const mp3Bytes = Buffer.alloc(417)
@@ -58,14 +60,19 @@ function createHarness(message: object | null = npcMessage) {
 		getFileUrl: jest.fn().mockResolvedValue('https://r2/audio.mp3'),
 	}
 	const config = { get: () => ({ region: 'ru', mode: 'localdev' }) }
+	const balance = {
+		ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined),
+		chargeOpenAiTts: jest.fn().mockResolvedValue(undefined),
+	}
 	const handler = new GenerateAiDialogueAudioHandler(
 		repository as never,
 		tts as never,
 		storage as never,
 		config as never,
+		balance as never,
 	)
 
-	return { handler, repository, tts, storage, audioRow }
+	return { handler, repository, tts, storage, audioRow, balance }
 }
 
 function command(messageId = 10, actionIndex = 1, userId = 7) {
@@ -182,5 +189,51 @@ describe('isValidDialogueMp3', () => {
 		expect(isValidDialogueMp3(createMp3())).toBe(true)
 		expect(isValidDialogueMp3(createMp3().subarray(0, 20))).toBe(false)
 		expect(isValidDialogueMp3(Buffer.from('ID3\0\0\0\0\0\0\0'))).toBe(false)
+	})
+})
+
+describe('getMp3DurationSeconds', () => {
+	it('sums the duration of whole frames', () => {
+		// Кадр MPEG1 Layer III 128 kbit/s 44.1 kHz: 417 байт и 1152 сэмпла.
+		const threeFrames = Buffer.concat([createMp3(), createMp3(), createMp3()])
+
+		expect(getMp3DurationSeconds(threeFrames)).toBeCloseTo((3 * 1152) / 44100, 10)
+		expect(getMp3DurationSeconds(Buffer.from('not an mp3'))).toBe(0)
+	})
+})
+
+describe('GenerateAiDialogueAudioHandler balance', () => {
+	it('charges the dialogue owner by the duration of the synthesized audio', async () => {
+		const { handler, balance } = createHarness()
+
+		await handler.execute(command())
+
+		expect(balance.chargeOpenAiTts).toHaveBeenCalledWith({
+			userId: 7,
+			feature: 'aiDialogueAudio',
+			inputText: 'Calm official voice\nPassport, please.',
+			audioSeconds: 1152 / 44100,
+		})
+	})
+
+	it('does not synthesize when the balance is exhausted', async () => {
+		const { handler, balance, tts, repository } = createHarness()
+		balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new Error('BALANCE_EXHAUSTED'))
+
+		await expect(handler.execute(command())).rejects.toThrow('BALANCE_EXHAUSTED')
+		expect(repository.startGenerationIfNeeded).not.toHaveBeenCalled()
+		expect(tts.generate).not.toHaveBeenCalled()
+	})
+
+	it('returns ready audio without checking the balance', async () => {
+		const { handler, balance, repository, tts } = createHarness()
+		repository.getAudio.mockResolvedValue({ status: 'ready', s3_key: 'ai-dialogue-audio/ready.mp3' })
+		balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new Error('BALANCE_EXHAUSTED'))
+
+		await expect(handler.execute(command())).resolves.toEqual({
+			url: 'https://r2/audio.mp3',
+			mimeType: 'audio/mpeg',
+		})
+		expect(tts.generate).not.toHaveBeenCalled()
 	})
 })

@@ -1,3 +1,4 @@
+jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
 jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => target }))
 jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository: class {} }))
 jest.mock('repo/aiDialogue/aiDialogue.queryRepository', () => ({ AiDialogueQueryRepository: class {} }))
@@ -5,6 +6,8 @@ jest.mock('repo/aiDialogueScenario/aiDialogueScenario.repository', () => ({ AiDi
 
 import { AI_DIALOGUE_CEFR_LEVELS } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { CreateAiDialogueCommand, CreateAiDialogueHandler } from './CreateAiDialogue.command'
+
+const balance = { ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined) }
 
 describe('CreateAiDialogue language settings', () => {
 	it.each(['realism', 'drawing', 'watercolor', undefined, null])(
@@ -14,7 +17,12 @@ describe('CreateAiDialogue language settings', () => {
 			const repository = { createDialogue: jest.fn().mockResolvedValue({ id: 1 }) }
 			const query = { getDialogueById: jest.fn().mockResolvedValue({ id: 1 }) }
 
-			const handler = new CreateAiDialogueHandler(scenario as never, repository as never, query as never)
+			const handler = new CreateAiDialogueHandler(
+				scenario as never,
+				repository as never,
+				query as never,
+				balance as never,
+			)
 
 			await handler.execute(
 				new CreateAiDialogueCommand({
@@ -40,7 +48,12 @@ describe('CreateAiDialogue language settings', () => {
 		async (illustrationStyleId) => {
 			const scenario = { getScenarioById: jest.fn() }
 			const repository = { createDialogue: jest.fn() }
-			const handler = new CreateAiDialogueHandler(scenario as never, repository as never, {} as never)
+			const handler = new CreateAiDialogueHandler(
+				scenario as never,
+				repository as never,
+				{} as never,
+				balance as never,
+			)
 
 			await expect(
 				handler.execute(
@@ -67,7 +80,12 @@ describe('CreateAiDialogue language settings', () => {
 			const query = {
 				getDialogueById: jest.fn().mockResolvedValue({ id: 1, maxCefrLevel: maxCefrLevel ?? null }),
 			}
-			const handler = new CreateAiDialogueHandler(scenario as never, repository as never, query as never)
+			const handler = new CreateAiDialogueHandler(
+				scenario as never,
+				repository as never,
+				query as never,
+				balance as never,
+			)
 
 			await expect(
 				handler.execute(
@@ -96,7 +114,12 @@ describe('CreateAiDialogue language settings', () => {
 		const scenario = { getScenarioById: jest.fn().mockResolvedValue({ user_id: null }) }
 		const repository = { createDialogue: jest.fn().mockResolvedValue({ id: 1 }) }
 		const query = { getDialogueById: jest.fn().mockResolvedValue({ id: 1 }) }
-		const handler = new CreateAiDialogueHandler(scenario as never, repository as never, query as never)
+		const handler = new CreateAiDialogueHandler(
+			scenario as never,
+			repository as never,
+			query as never,
+			balance as never,
+		)
 
 		await handler.execute(
 			new CreateAiDialogueCommand({
@@ -112,5 +135,34 @@ describe('CreateAiDialogue language settings', () => {
 		expect(repository.createDialogue).toHaveBeenCalledWith(
 			expect.objectContaining({ userScenarioAmendment: expected }),
 		)
+	})
+})
+
+describe('CreateAiDialogue balance', () => {
+	it('does not create a dialogue when the balance is exhausted', async () => {
+		const scenario = { getScenarioById: jest.fn().mockResolvedValue({ user_id: null }) }
+		const repository = { createDialogue: jest.fn() }
+		const query = { getDialogueById: jest.fn() }
+		const exhaustedBalance = { ensurePositiveBalanceOrThrow: jest.fn().mockRejectedValue(new Error('402')) }
+		const handler = new CreateAiDialogueHandler(
+			scenario as never,
+			repository as never,
+			query as never,
+			exhaustedBalance as never,
+		)
+
+		await expect(
+			handler.execute(
+				new CreateAiDialogueCommand({
+					userId: 7,
+					scenarioId: 2,
+					sourceLanguageCode: 'en',
+					targetLanguageCode: 'ru',
+					locale: 'ru',
+				}),
+			),
+		).rejects.toThrow('402')
+		expect(exhaustedBalance.ensurePositiveBalanceOrThrow).toHaveBeenCalledWith(7, 'aiDialogue')
+		expect(repository.createDialogue).not.toHaveBeenCalled()
 	})
 })

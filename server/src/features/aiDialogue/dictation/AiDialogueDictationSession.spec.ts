@@ -75,7 +75,8 @@ function harness(languages = ['en', 'ru']) {
 			socket.emit('close')
 		}),
 	})
-	const session = new AiDialogueDictationSession(socket as never, soniox as never, languages)
+	const onProviderClosed = jest.fn()
+	const session = new AiDialogueDictationSession(socket as never, soniox as never, languages, onProviderClosed)
 	const control = (value: unknown) => socket.emit('message', Buffer.from(JSON.stringify(value)), false)
 	const audio = (value: Buffer) => socket.emit('message', value, true)
 	const output = () => socket.send.mock.calls.map(([text]) => JSON.parse(text))
@@ -83,7 +84,7 @@ function harness(languages = ['en', 'ru']) {
 		control({ type: 'start' })
 		await flush()
 	}
-	return { socket, soniox, provider, events, session, control, audio, output, start }
+	return { socket, soniox, provider, events, session, control, audio, output, start, onProviderClosed }
 }
 
 describe('dictation audio protocol', () => {
@@ -266,5 +267,22 @@ describe('AiDialogueDictationSession', () => {
 		expect(h.provider.abort).toHaveBeenCalled()
 		expect(h.socket.close).toHaveBeenCalledWith(1008)
 		expect(h.output()).toEqual([{ type: 'ready' }])
+	})
+})
+
+describe('dictation billing', () => {
+	it('reports the Soniox stream time once when the session closes', async () => {
+		const h = harness()
+		await h.start()
+		h.session.dispose()
+		h.session.dispose()
+		expect(h.onProviderClosed).toHaveBeenCalledTimes(1)
+		expect(h.onProviderClosed.mock.calls[0][0]).toBeGreaterThanOrEqual(0)
+	})
+
+	it('reports nothing when Soniox was never opened', () => {
+		const h = harness()
+		h.session.dispose()
+		expect(h.onProviderClosed).not.toHaveBeenCalled()
 	})
 })

@@ -1,3 +1,4 @@
+jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
 jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => target }))
 jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository: class {} }))
 jest.mock('repo/aiDialogue/aiDialogueMessage.repository', () => ({ AiDialogueMessageRepository: class {} }))
@@ -26,15 +27,20 @@ function harness() {
 	}
 	const llm = { generate: jest.fn().mockResolvedValue({ content: 'speech\nok\naction\nok\nend' }) }
 	const user = { getUserById: jest.fn().mockResolvedValue({ id: 7, gender: 'FEMALE' }) }
+	const balance = {
+		ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined),
+		chargeLlm: jest.fn().mockResolvedValue(undefined),
+	}
 
 	const handler = new CheckAiDialogueUserMessageHandler(
 		repository as never,
 		messages as never,
 		llm as never,
 		user as never,
+		balance as never,
 	)
 
-	return { handler, repository, messages, llm, dialogue, user }
+	return { handler, repository, messages, llm, dialogue, user, balance }
 }
 
 describe('CheckAiDialogueUserMessage', () => {
@@ -140,5 +146,34 @@ describe('CheckAiDialogueUserMessage', () => {
 		await expect(
 			handler.execute(new CheckAiDialogueUserMessageCommand({ userId: 7, dialogueId: 1, speech: 'Hello' })),
 		).rejects.toBe(timeout)
+	})
+})
+
+describe('CheckAiDialogueUserMessage balance', () => {
+	it('does not call the model when the balance is exhausted', async () => {
+		const { handler, llm, balance } = harness()
+		balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new Error('BALANCE_EXHAUSTED'))
+
+		await expect(
+			handler.execute(new CheckAiDialogueUserMessageCommand({ userId: 7, dialogueId: 1, speech: 'Bonjour' })),
+		).rejects.toThrow('BALANCE_EXHAUSTED')
+		expect(llm.generate).not.toHaveBeenCalled()
+	})
+
+	it('charges the check to the dialogue owner', async () => {
+		const { handler, llm, balance } = harness()
+		llm.generate.mockResolvedValue({
+			content: 'speech\nok\naction\nok\nend',
+			model: 'gpt-6-luna',
+			inputTokens: 300,
+			cachedInputTokens: 0,
+			outputTokens: 40,
+		})
+
+		await handler.execute(new CheckAiDialogueUserMessageCommand({ userId: 7, dialogueId: 1, speech: 'Bonjour' }))
+
+		expect(balance.chargeLlm).toHaveBeenCalledWith(
+			expect.objectContaining({ userId: 7, feature: 'aiDialogueMessageCheck', model: 'gpt-6-luna' }),
+		)
 	})
 })

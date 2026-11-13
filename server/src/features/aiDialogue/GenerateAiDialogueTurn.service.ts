@@ -7,10 +7,12 @@ import { UserRepository } from 'repo/user.repository'
 import { ParsedAiDialogueTurn } from 'types/aiDialogueMessage'
 import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
 import { Language } from 'utils/languages'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
+import { LlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGenerationRegistry.service'
 import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
@@ -43,6 +45,7 @@ export class GenerateAiDialogueTurn {
 		private sseHub: AiDialogueSseHub,
 		private summarizeAiDialogue: SummarizeAiDialogue,
 		private userRepository: UserRepository,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	// Проверяет, «ждёт ли диалог хода» (нет сообщений или последнее — событие
@@ -78,6 +81,9 @@ export class GenerateAiDialogueTurn {
 			const user = await this.userRepository.getUserById(dialogue.user_id)
 			if (!user) return
 
+			// Баланс исчерпан: клиент получает turnError с кодом BALANCE_EXHAUSTED.
+			await this.userBalanceService.ensurePositiveBalanceOrThrow(user.id, 'aiDialogue')
+
 			const messages = await this.aiDialogueQueryRepository.getMessagesByDialogueId(dialogueId)
 
 			const summary = parseAiDialogueSummary(dialogue.summary)
@@ -98,12 +104,13 @@ export class GenerateAiDialogueTurn {
 				recentEvents,
 			})
 
-			const turn = await this.streamAndParse(
+			const turn = await this.streamAndParse({
 				dialogueId,
+				userId: user.id,
 				prompt,
-				abortController.signal,
-				dialogue.source_language_code,
-			)
+				abortSignal: abortController.signal,
+				language: dialogue.source_language_code,
+			})
 
 			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({ dialogueId, turn })
 
@@ -136,17 +143,20 @@ export class GenerateAiDialogueTurn {
 	// модель часто нарушает построчный формат, поэтому повтор — страховка. Между
 	// попытками клиенту шлётся turnReset, чтобы он выбросил превью неудачной попытки
 	// (сырые чанки — только превью, в БД ничего не сохраняется до успешного парсинга).
-	private async streamAndParse(
-		dialogueId: number,
-		prompt: LlmMessage[],
-		abortSignal: AbortSignal,
-		language: Language,
-	): Promise<ParsedAiDialogueTurn> {
+	private async streamAndParse(input: {
+		dialogueId: number
+		userId: number
+		prompt: LlmMessage[]
+		abortSignal: AbortSignal
+		language: Language
+	}): Promise<ParsedAiDialogueTurn> {
+		const { dialogueId, userId, prompt, abortSignal, language } = input
+
 		let lastError: unknown = null
 
 		for (let attempt = 0; attempt < MAX_PARSE_ATTEMPTS; attempt += 1) {
 			const messages = attempt === 0 ? prompt : appendRetryHint(prompt)
-			const accumulated = await this.streamAndAccumulate(dialogueId, messages, abortSignal)
+			const accumulated = await this.streamAndAccumulate({ dialogueId, userId, messages, abortSignal })
 
 			try {
 				return parseAiDialogueEvents(accumulated, language)
@@ -164,23 +174,38 @@ export class GenerateAiDialogueTurn {
 	}
 
 	// Стримит один вызов LLM, накапливая текст и рассылая сырые чанки для превью.
-	private async streamAndAccumulate(
-		dialogueId: number,
-		messages: LlmMessage[],
-		abortSignal: AbortSignal,
-	): Promise<string> {
+	// Каждая попытка оплачивается отдельно: поставщик берёт деньги и за ответ, который не удалось разобрать.
+	private async streamAndAccumulate(input: {
+		dialogueId: number
+		userId: number
+		messages: LlmMessage[]
+		abortSignal: AbortSignal
+	}): Promise<string> {
 		let accumulated = ''
+		let usage: null | LlmTokenUsage = null
 
 		const stream = this.llmAdapter.stream({
 			model: AI_DIALOGUE_MODEL,
-			messages,
+			messages: input.messages,
 			responseFormat: 'text',
-			abortSignal,
+			abortSignal: input.abortSignal,
+			onUsage: (reportedUsage) => {
+				usage = reportedUsage
+			},
 		})
 
-		for await (const chunk of stream) {
-			accumulated += chunk
-			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'chunk', chunk } })
+		try {
+			for await (const chunk of stream) {
+				accumulated += chunk
+				this.sseHub.publishDialogueEvent(input.dialogueId, { data: { type: 'chunk', chunk } })
+			}
+		} finally {
+			await this.userBalanceService.chargeLlm({
+				userId: input.userId,
+				feature: 'aiDialogue',
+				model: AI_DIALOGUE_MODEL,
+				usage,
+			})
 		}
 
 		return accumulated

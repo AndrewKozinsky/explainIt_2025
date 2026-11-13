@@ -1,5 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { VideoRepository } from 'repo/video/video.repository'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -19,6 +20,7 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 	constructor(
 		private videoRepository: VideoRepository,
 		private subtitlesQueue: SubtitlesGenerationQueue,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async execute(command: GenerateSubtitlesCommand): Promise<VideoSubtitlesStatusOutModel> {
@@ -51,6 +53,9 @@ export class StartGenerateSubtitlesHandler implements ICommandHandler<GenerateSu
 				ErrorStatusCode.BadRequest_400,
 			)
 		}
+
+		// Распознавание речи личного видео оплачивает его владелец.
+		await this.userBalanceService.ensurePositiveBalanceOrThrow(userId, 'videoSubtitles')
 
 		// Atomic transition: idle/done/failed -> pending. Guards against parallel runs.
 		const transitioned = await this.videoRepository.tryStartSubtitlesProcessing(videoId, userId)

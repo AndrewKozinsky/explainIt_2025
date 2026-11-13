@@ -1,6 +1,8 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentenceRepository } from 'repo/sentence.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
+import { LLM_TRANSLATION_TIMEOUT_MS } from 'utils/time'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import {
 	SentenceTranslationAccess,
 	SentenceTranslationAccessService,
@@ -10,7 +12,6 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LanguageCode } from 'prisma/generated/enums'
-import { LLM_TRANSLATION_TIMEOUT_MS } from 'utils/time'
 import { ensureModeIsAllowedOrThrow } from '../translateCommon/TranslationHandler.utils'
 import { buildSentenceTranslationPrompt } from './buildSentenceTranslationPrompt'
 
@@ -40,6 +41,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		private sentenceRepository: SentenceRepository,
 		private sentenceTranslationRepository: SentenceTranslationRepository,
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async execute(command: TranslateSentenceCommand): Promise<TranslateSentenceResult> {
@@ -64,7 +66,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			})
 			draftSentenceTranslationId = draftSentenceTranslation.id
 
-			const translationResult = await this.generateSentenceTranslation({
+			const generated = await this.generateSentenceTranslation({
 				text: preparedInput.text,
 				contextText: preparedInput.contextText,
 				sourceLanguageCode: preparedInput.sourceLanguageCode,
@@ -76,7 +78,17 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 				videoYear: command.input.videoYear,
 			})
 
-			const finalizedTranslation = translationResult.trim()
+			if (preparedInput.userIdToCharge !== null) {
+				await this.userBalanceService.chargeLlm({
+					userId: preparedInput.userIdToCharge,
+					feature: 'translation',
+					model: generated.model,
+					usage: generated,
+					lowPriority: preparedInput.lowPriority,
+				})
+			}
+
+			const finalizedTranslation = generated.content.trim()
 
 			if (!finalizedTranslation) {
 				await this.deleteDraftSentenceTranslationIfExists(draftSentenceTranslation.id)
@@ -116,6 +128,8 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		contextText: string
 		sourceLanguageCode: LanguageCode
 		lowPriority: boolean
+		/** Владелец личной книги или видео; null — публичный материал, перевод бесплатный. */
+		userIdToCharge: null | number
 	}> {
 		const access = await this.sentenceTranslationAccessService.resolveAccessOrThrow({
 			userId: input.userId,
@@ -126,6 +140,11 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			access,
 		})
 
+		const userIdToCharge = access.createMode === 'chargeBalance' ? input.userId : null
+		if (userIdToCharge !== null) {
+			await this.userBalanceService.ensurePositiveBalanceOrThrow(userIdToCharge, 'translation')
+		}
+
 		const text = await this.getSentenceTextOrThrow(input.sentenceId)
 		const contextText = await this.getSentenceContextTextOrThrow(input.sentenceId)
 
@@ -134,6 +153,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			contextText,
 			sourceLanguageCode: input.sourceLanguageCode ?? 'en',
 			lowPriority: true,
+			userIdToCharge,
 		}
 	}
 
@@ -207,7 +227,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): Promise<string> {
+	}) {
 		const systemPrompt = buildSentenceTranslationPrompt({
 			sourceLanguageCode: input.sourceLanguageCode,
 			targetLanguageCode: input.targetLanguageCode,
@@ -218,7 +238,7 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			videoYear: input.videoYear,
 		})
 
-		const result = await this.llmAdapter.generate({
+		return this.llmAdapter.generate({
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: input.text },
@@ -226,8 +246,6 @@ export class TranslateSentenceHandler implements ICommandHandler<TranslateSenten
 			lowPriority: input.lowPriority ?? false,
 			timeoutMs: LLM_TRANSLATION_TIMEOUT_MS,
 		})
-
-		return result.content
 	}
 
 	private async saveFinalTranslation(input: { sentenceTranslationId: number; translation: string }) {

@@ -3,6 +3,7 @@ import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
 import { UserRepository } from 'repo/user.repository'
 import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -34,6 +35,7 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 		private messageRepository: AiDialogueMessageRepository,
 		private llmAdapter: LlmAdapterService,
 		private userRepository: UserRepository,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async execute({ dto }: CheckAiDialogueUserMessageCommand): Promise<AiDialogueUserMessageCheckOutModel> {
@@ -53,6 +55,8 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 		const user = await this.userRepository.getUserById(dialogue.user_id)
 		if (!user) throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.NotFound_404)
 
+		await this.userBalanceService.ensurePositiveBalanceOrThrow(user.id, 'aiDialogueMessageCheck')
+
 		const context = await this.messageRepository.getTextCheckContext(dto.dialogueId)
 		const summary = parseAiDialogueSummary(dialogue.summary)?.at(-1)
 		const messages = buildAiDialogueUserMessageCheckPrompt({
@@ -71,6 +75,14 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 			reasoningEffort: AI_DIALOGUE_MESSAGE_CHECK_REASONING_EFFORT,
 			timeoutMs: 45_000,
 		})
+
+		await this.userBalanceService.chargeLlm({
+			userId: user.id,
+			feature: 'aiDialogueMessageCheck',
+			model: output.model,
+			usage: output,
+		})
+
 		const result = parseAiDialogueUserMessageCheck(output.content)
 
 		if (!result || (!speech && hasIssues(result.speech)) || (!action && hasIssues(result.action))) {

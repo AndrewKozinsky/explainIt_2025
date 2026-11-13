@@ -2,6 +2,7 @@ import { randomUUID } from 'node:crypto'
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueAudioRepository } from 'repo/aiDialogue/aiDialogueAudio.repository'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -17,6 +18,7 @@ import {
 	dialogueVoiceSchema,
 } from './aiDialogueAudioConfig'
 import { isValidDialogueMp3 } from './isValidDialogueMp3'
+import { getMp3DurationSeconds } from './mp3Frames'
 
 /** Индекс озвучки описания сцены: у сцены нет списка actions. */
 export const SCENE_AUDIO_ACTION_INDEX = -1
@@ -54,14 +56,22 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 		private readonly tts: TtsAdapterService,
 		private readonly storage: CloudflareS3Service,
 		private readonly config: MainConfigService,
+		private readonly userBalance: UserBalanceService,
 	) {}
 
 	async execute(command: GenerateAiDialogueAudioCommand): Promise<AiDialogueAudioOutModel> {
-		const { dialogueId, messageId, actionIndex } = command.input
+		const { userId, dialogueId, messageId, actionIndex } = command.input
 		const source = await this.getAudioSource(command.input)
+
+		// Готовая озвучка отдаётся без проверки баланса: она уже оплачена.
+		const existingAudio = await this.repository.getAudio({ messageId, actionIndex })
+		if (existingAudio?.status === 'ready') return this.toOutModel(existingAudio.s3_key)
+
+		await this.userBalance.ensurePositiveBalanceOrThrow(userId, 'aiDialogueAudio')
 
 		const { region, mode } = this.config.get()
 		const s3Key = `ai-dialogue-audio/generated/${region}/${mode}/${dialogueId}/${randomUUID()}.mp3`
+
 		const { audio, shouldGenerate } = await this.repository.startGenerationIfNeeded(
 			{ messageId, actionIndex },
 			s3Key,
@@ -69,7 +79,7 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 		if (!audio) throw audioGenerationFailed()
 
 		if (shouldGenerate) {
-			await this.synthesize(audio.id, audio.s3_key, source)
+			await this.synthesize({ userId, audioId: audio.id, s3Key: audio.s3_key, source })
 			return this.toOutModel(audio.s3_key)
 		}
 
@@ -111,7 +121,9 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 		return { text: speech.content, voice: voice.data }
 	}
 
-	private async synthesize(audioId: number, s3Key: string, source: AudioSource) {
+	private async synthesize(input: { userId: number; audioId: number; s3Key: string; source: AudioSource }) {
+		const { userId, audioId, s3Key, source } = input
+
 		const ttsInput = openAITtsInputSchema.parse({
 			type: 'OpenAI',
 			model: AI_DIALOGUE_TTS_MODEL,
@@ -126,6 +138,13 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 		try {
 			const bytes = await this.tts.generate(ttsInput)
 			if (!isValidDialogueMp3(bytes)) throw audioGenerationFailed()
+
+			await this.userBalance.chargeOpenAiTts({
+				userId,
+				feature: 'aiDialogueAudio',
+				inputText: `${source.voice.instructions}\n${source.text}`,
+				audioSeconds: getMp3DurationSeconds(bytes),
+			})
 
 			await this.storage.uploadFile(s3Key, bytes, AUDIO_MIME_TYPE, 60_000)
 			await this.repository.setStatus(audioId, 'ready')

@@ -3,6 +3,7 @@ jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository
 jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
 jest.mock('infrastructure/sonioxStt/sonioxStt.service', () => ({ SonioxSttService: class {} }))
+jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
 jest.mock('features/aiDialogue/dictation/AiDialogueDictationSession', () => ({
 	AiDialogueDictationSession: jest.fn(() => ({ dispose: jest.fn() })),
 }))
@@ -37,11 +38,16 @@ function harness() {
 	const users = { getUserById: jest.fn().mockResolvedValue({ id: 7 }) }
 	const soniox = { openStream: jest.fn() }
 	const config = { get: () => ({ site: { domainRootWithProtocol: 'https://example.com' } }) }
+	const balance = {
+		ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined),
+		chargeSpeechToText: jest.fn().mockResolvedValue(undefined),
+	}
 	const service = new AiDialogueDictationWebSocket(
 		dialogues as never,
 		users as never,
 		soniox as never,
 		config as never,
+		balance as never,
 	)
 
 	const server = new EventEmitter()
@@ -69,7 +75,7 @@ function harness() {
 		return socket
 	}
 
-	return { service, users, dialogues, wss, soniox, middleware, client, server, upgrade }
+	return { service, users, dialogues, wss, soniox, middleware, client, server, upgrade, balance }
 }
 
 describe('dictation WebSocket handshake', () => {
@@ -91,7 +97,7 @@ describe('dictation WebSocket handshake', () => {
 		expect(h.users.getUserById).toHaveBeenCalledWith(7)
 		expect(h.dialogues.getDialogueById).toHaveBeenCalledWith(1)
 		expect(h.wss.handleUpgrade).toHaveBeenCalledTimes(1)
-		expect(AiDialogueDictationSession).toHaveBeenCalledWith(h.client, h.soniox, ['en', 'ru'])
+		expect(AiDialogueDictationSession).toHaveBeenCalledWith(h.client, h.soniox, ['en', 'ru'], expect.any(Function))
 		expect(socket.resume).toHaveBeenCalled()
 		expect(h.soniox.openStream).not.toHaveBeenCalled()
 	})
@@ -113,6 +119,30 @@ describe('dictation WebSocket handshake', () => {
 		await flush()
 		expect(socket.end).toHaveBeenCalledWith(expect.stringContaining('401'))
 		expect(h.dialogues.getDialogueById).not.toHaveBeenCalled()
+	})
+
+	it('rejects with 402 BALANCE_EXHAUSTED when the balance is exhausted', async () => {
+		const { CustomError } = jest.requireActual('infrastructure/exceptions/customErrors')
+		const { errorMessage } = jest.requireActual('infrastructure/exceptions/errorMessage')
+		h.balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new CustomError(errorMessage.balanceExhausted, 402))
+		const socket = h.upgrade()
+		await flush()
+		expect(socket.end).toHaveBeenCalledWith(expect.stringContaining('402'))
+		expect(socket.end).toHaveBeenCalledWith(expect.stringContaining('BALANCE_EXHAUSTED'))
+		expect(h.wss.handleUpgrade).not.toHaveBeenCalled()
+	})
+
+	it('charges the user for the Soniox stream time reported by the session', async () => {
+		h.upgrade()
+		await flush()
+		const onProviderClosed = jest.mocked(AiDialogueDictationSession).mock.calls[0][3]
+		onProviderClosed?.(42)
+		expect(h.balance.chargeSpeechToText).toHaveBeenCalledWith({
+			userId: 7,
+			feature: 'aiDialogueDictation',
+			provider: 'sonioxRealtime',
+			audioSeconds: 42,
+		})
 	})
 
 	it('rejects a deleted session user', async () => {

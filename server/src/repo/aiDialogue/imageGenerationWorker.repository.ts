@@ -15,6 +15,22 @@ export class ImageGenerationWorkerRepository {
 	}
 
 	/**
+	 * Владелец диалога, для которого создано задание: через персонажа (листы эмоций и ракурсов) или сообщение (сцена).
+	 * @returns null, если задание или диалог уже удалены.
+	 */
+	async findJobOwnerUserId(id: number): Promise<null | number> {
+		const job = await this.prisma.imageGenerationJob.findUnique({
+			where: { id },
+			select: {
+				character: { select: { dialogue: { select: { user_id: true } } } },
+				message: { select: { dialogue: { select: { user_id: true } } } },
+			},
+		})
+
+		return job?.character?.dialogue.user_id ?? job?.message?.dialogue.user_id ?? null
+	}
+
+	/**
 	 * Переводит queued/waitingDependencies в ожидание референсов и обновляет время состояния.
 	 * Не меняет generating/ready/failed и не восстанавливает удалённое задание.
 	 * @param id Идентификатор ImageGenerationJob в БД.

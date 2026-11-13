@@ -4,6 +4,7 @@ import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { Language } from 'utils/languages'
 import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -33,6 +34,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 		private aiDialogueScenarioRepository: AiDialogueScenarioRepository,
 		private aiDialogueRepository: AiDialogueRepository,
 		private aiDialogueQueryRepository: AiDialogueQueryRepository,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
@@ -49,6 +51,9 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 		if (scenario.user_id !== null && scenario.user_id !== userId) {
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
 		}
+
+		// Первый ход NPC начнётся сразу после создания: без баланса диалог не создаётся.
+		await this.userBalanceService.ensurePositiveBalanceOrThrow(userId, 'aiDialogue')
 
 		const dialogue = await this.aiDialogueRepository.createDialogue({
 			userId,

@@ -18,6 +18,7 @@ import { AiDialogueImageGenerationProcessor } from 'features/aiDialogue/imageGen
 import { GenerateAiDialogueImage } from 'features/aiDialogue/imageGeneration/GenerateAiDialogueImage.service'
 import { ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/ImageGenerationAssets'
 import { R2ImageGenerationAssets } from 'features/aiDialogue/imageGeneration/R2ImageGenerationAssets.service'
+import { BillingModule } from 'features/billing/billing.module'
 import { DictionaryEnrichmentProcessor } from 'features/universalPhraseTranslation/enrichment/DictionaryEnrichment.processor'
 import { GenerateDictionaryDeepSections } from 'features/universalPhraseTranslation/enrichment/GenerateDictionaryDeepSections.service'
 import { GenerateWordSenseImage } from 'features/universalPhraseTranslation/enrichment/GenerateWordSenseImage.service'
@@ -36,6 +37,7 @@ import { MainConfigModule } from 'infrastructure/mainConfig/mainConfig.module'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { MimoModule } from 'infrastructure/mimo/mimo.module'
 import { OpenAIModule } from 'infrastructure/openAI/openAI.module'
+import { PosthogModule } from 'infrastructure/posthog/posthog.module'
 import { buildBullmqConnection } from 'infrastructure/queues/bullmq.connection'
 import { QueueNames } from 'infrastructure/queues/queueNames'
 import { AiDialogueVisualNotificationsModule } from 'infrastructure/redis/aiDialogueVisualNotifications.module'
@@ -59,6 +61,8 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 	imports: [
 		CqrsModule,
 		MainConfigModule,
+		PosthogModule,
+		BillingModule,
 		DeepSeekModule,
 		ZaiModule,
 		MimoModule,

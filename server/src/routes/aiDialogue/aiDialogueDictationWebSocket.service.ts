@@ -7,6 +7,7 @@ import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { UserRepository } from 'repo/user.repository'
 import { DICTATION_LIMITS } from 'features/aiDialogue/dictation/aiDialogueDictationProtocol'
 import { AiDialogueDictationSession } from 'features/aiDialogue/dictation/AiDialogueDictationSession'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -38,6 +39,7 @@ export class AiDialogueDictationWebSocket implements OnModuleDestroy {
 		private userRepository: UserRepository,
 		private soniox: SonioxSttService,
 		private mainConfig: MainConfigService,
+		private userBalance: UserBalanceService,
 	) {}
 
 	/** Общий session middleware используется для чтения cookie; WebSocket не создаёт новую сессию. */
@@ -132,13 +134,27 @@ export class AiDialogueDictationWebSocket implements OnModuleDestroy {
 		if (!dialogue) throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
 		if (dialogue.user_id !== userId)
 			throw new CustomError(errorMessage.user.isNotOwner, ErrorStatusCode.Forbidden_403)
+
+		// Без баланса соединение отклоняется с 402 и кодом BALANCE_EXHAUSTED.
+		await this.userBalance.ensurePositiveBalanceOrThrow(userId, 'aiDialogueDictation')
+
 		return { userId, languages: [dialogue.source_language_code, dialogue.target_language_code] }
 	}
 
 	private connected(socket: WebSocket, userId: number, languages: string[]) {
 		this.users.set(userId, socket)
-		const session = new AiDialogueDictationSession(socket, this.soniox, languages)
+
+		const session = new AiDialogueDictationSession(socket, this.soniox, languages, (streamedSeconds) => {
+			void this.userBalance.chargeSpeechToText({
+				userId,
+				feature: 'aiDialogueDictation',
+				provider: 'sonioxRealtime',
+				audioSeconds: streamedSeconds,
+			})
+		})
+
 		this.sessions.set(socket, session)
+
 		socket.once('close', () => {
 			this.sessions.delete(socket)
 			if (this.users.get(userId) === socket) this.users.delete(userId)

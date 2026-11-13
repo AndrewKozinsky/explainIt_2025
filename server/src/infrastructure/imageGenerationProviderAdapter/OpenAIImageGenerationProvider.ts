@@ -6,6 +6,7 @@ import {
 	ImageGenerationInput,
 	ImageGenerationProvider,
 	ImageGenerationResult,
+	ImageGenerationTokenUsage,
 } from './ImageGenerationProvider.interface'
 
 const referenceSchema = z
@@ -58,6 +59,7 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 				'not_sent',
 			)
 		}
+
 		if (parsed.data.compression !== undefined && (parsed.data.format ?? 'png') === 'png')
 			throw new ImageGenerationError(
 				'invalid_input',
@@ -65,6 +67,7 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 				'not_sent',
 			)
 		const { width, height } = parsed.data.size
+
 		if (
 			width % 16 ||
 			height % 16 ||
@@ -79,6 +82,7 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 				'not_sent',
 			)
 		}
+
 		if (referencePrompt(input).length > 32000)
 			throw new ImageGenerationError(
 				'invalid_input',
@@ -98,6 +102,7 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 			throw new ImageGenerationError('aborted', 'OpenAI image request aborted', 'not_sent')
 		const format = input.format ?? 'png'
 		const references = input.references ?? []
+
 		// File preparation precedes dispatch. Do not include filenames or bytes in public errors.
 		const files = await prepareFiles(references)
 		const body = {
@@ -109,7 +114,9 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 			...(parsed.quality ? { quality: parsed.quality } : {}),
 			...(parsed.compression !== undefined ? { output_compression: parsed.compression } : {}),
 		}
+
 		const options = { maxRetries: 0, timeout: 180_000, signal: input.abortSignal }
+
 		try {
 			const response = files.length
 				? await client.images.edit({ ...body, image: files }, options)
@@ -130,7 +137,11 @@ export class OpenAIImageGenerationProvider implements ImageGenerationProvider {
 			const bytes = Buffer.from(encoded, 'base64')
 			if (!bytes.length || bytes.length > 32 * 1024 * 1024 || bytes.toString('base64') !== encoded)
 				throw new ImageGenerationError('invalid_response', 'Invalid OpenAI image bytes', 'unknown')
-			return { status: 'ready', images: [{ bytes, contentType: `image/${format}` }] }
+			return {
+				status: 'ready',
+				images: [{ bytes, contentType: `image/${format}` }],
+				usage: toTokenUsage(response.usage),
+			}
 		} catch (error) {
 			if (error instanceof ImageGenerationError) throw error
 			const apiError = error instanceof OpenAI.APIError ? error : undefined
@@ -167,4 +178,15 @@ function referencePrompt(input: ImageGenerationInput): string {
 	return [input.prompt, ...(input.references ?? []).map((ref, index) => `Image ${index + 1}: ${ref.purpose}`)].join(
 		'\n',
 	)
+}
+
+/** Tokens from the Images API response; they define the cost of the request. */
+function toTokenUsage(usage: OpenAI.ImagesResponse['usage']): ImageGenerationTokenUsage | undefined {
+	if (!usage) return undefined
+
+	return {
+		textInputTokens: usage.input_tokens_details?.text_tokens ?? 0,
+		imageInputTokens: usage.input_tokens_details?.image_tokens ?? 0,
+		imageOutputTokens: usage.output_tokens,
+	}
 }

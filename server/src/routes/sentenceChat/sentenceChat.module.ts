@@ -6,9 +6,7 @@ import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.reposito
 import { SentenceChatThreadQueryRepository } from 'repo/sentenceChatThread.queryRepository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
 import { UserRepository } from 'repo/user.repository'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
-import { TokenUsageBalanceChargeHandler } from 'features/payment/TokenUsageBalanceCharge.command'
 import { ActiveSentenceChatGenerationRegistry } from 'features/sentenceChat/ActiveSentenceChatGenerationRegistry.service'
 import { CreateSentenceChatThreadHandler } from 'features/sentenceChat/CreateSentenceChatThread.command'
 import { CreateSentenceChatUserMessageHandler } from 'features/sentenceChat/CreateSentenceChatUserMessage.command'
@@ -26,12 +24,7 @@ const services = [
 	StreamSentenceChatAssistantCommand,
 ]
 
-const handlers = [
-	GetSentenceChatThreadHandler,
-	CreateSentenceChatThreadHandler,
-	CreateSentenceChatUserMessageHandler,
-	TokenUsageBalanceChargeHandler,
-]
+const handlers = [GetSentenceChatThreadHandler, CreateSentenceChatThreadHandler, CreateSentenceChatUserMessageHandler]
 
 const repositories = [
 	SentenceRepository,
@@ -39,7 +32,6 @@ const repositories = [
 	SentenceChatThreadQueryRepository,
 	SentenceChatMessageRepository,
 	UserRepository,
-	UserBalanceTransactionRepository,
 	DBRepository,
 ]
 

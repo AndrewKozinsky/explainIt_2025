@@ -1,5 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -38,6 +39,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		private sentenceTranslationAccessService: SentenceTranslationAccessService,
 		private sentencePhraseTranslationRepository: SentencePhraseTranslationRepository,
 		private llmAdapter: LlmAdapterService,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async execute(command: TranslatePhraseCommand): Promise<TranslatePhraseResult> {
@@ -53,6 +55,12 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 			deniedReason: access.createDeniedReason,
 			actionType: 'create',
 		})
+
+		// Личная книга или видео: перевод оплачивает владелец. Публичные материалы переводятся бесплатно.
+		const userIdToCharge = access.createMode === 'chargeBalance' ? command.input.userId : null
+		if (userIdToCharge !== null) {
+			await this.userBalanceService.ensurePositiveBalanceOrThrow(userIdToCharge, 'translation')
+		}
 
 		const pendingPhrase = await this.ensurePendingPhraseRow(command.input)
 
@@ -72,7 +80,17 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 				videoYear: command.input.videoYear,
 			})
 
-			const parsed = parsePhraseTranslationResult(generated.message)
+			if (userIdToCharge !== null) {
+				await this.userBalanceService.chargeLlm({
+					userId: userIdToCharge,
+					feature: 'translation',
+					model: generated.model,
+					usage: generated,
+					lowPriority: true,
+				})
+			}
+
+			const parsed = parsePhraseTranslationResult(generated.content)
 			if (!parsed || !parsed.translate) {
 				throw new CustomError(errorMessage.unknownOpenAIError, ErrorStatusCode.InternalServerError_500)
 			}
@@ -214,7 +232,7 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 		bookAuthor?: string
 		videoName?: string
 		videoYear?: string | number
-	}): Promise<{ message: string; inputTokens: number; outputTokens: number }> {
+	}) {
 		const systemPrompt = buildPhraseTranslationPrompt({
 			sourceLanguageCode: input.sourceLanguageCode,
 			targetLanguageCode: input.targetLanguageCode,
@@ -228,18 +246,12 @@ export class TranslatePhraseHandler implements ICommandHandler<TranslatePhraseCo
 			videoYear: input.videoYear,
 		})
 
-		const result = await this.llmAdapter.generate({
+		return this.llmAdapter.generate({
 			messages: [
 				{ role: 'system', content: systemPrompt },
 				{ role: 'user', content: input.text },
 			],
 			lowPriority: true,
 		})
-
-		return {
-			message: result.content,
-			inputTokens: result.inputTokens,
-			outputTokens: result.outputTokens,
-		}
 	}
 }

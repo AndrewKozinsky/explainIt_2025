@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common'
-import { AIProviderName, DEFAULT_FLASH_AI_MODEL, getProviderFromModel } from 'types/AIModels'
+import { AiModel, AIProviderName, DEFAULT_FLASH_AI_MODEL, getProviderFromModel } from 'types/AIModels'
 import { withTimeout } from 'utils/withTimeout'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -50,14 +50,18 @@ export class LlmAdapterService {
 		}
 	}
 
-	async generate(input: LlmGenerateInput): Promise<LlmGenerateOutput> {
-		const provider = getProviderFromModel(input.model ?? DEFAULT_FLASH_AI_MODEL)
+	/** Возвращает ответ, токены и модель, которая на самом деле ответила (нужна для расчёта стоимости). */
+	async generate(input: LlmGenerateInput): Promise<LlmGenerateOutput & { model: AiModel }> {
+		const model = input.model ?? DEFAULT_FLASH_AI_MODEL
+		const provider = getProviderFromModel(model)
 
-		return withTimeout(
+		const output = await withTimeout(
 			this.providerMap[provider].generate(input),
 			input.timeoutMs ?? LlmAdapterService.GENERATE_TIMEOUT_MS,
 			() => new CustomError(errorMessage.llm.llmTimeout, ErrorStatusCode.GatewayTimeout_504),
 		)
+
+		return { ...output, model }
 	}
 
 	async *stream(input: LlmStreamInput): AsyncGenerator<string, void, void> {

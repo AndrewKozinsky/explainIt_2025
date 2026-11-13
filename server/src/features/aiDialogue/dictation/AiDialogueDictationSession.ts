@@ -26,11 +26,18 @@ export class AiDialogueDictationSession {
 	private deadline: ReturnType<typeof setTimeout>
 	private idle: ReturnType<typeof setTimeout>
 	private closing?: ReturnType<typeof setTimeout>
+	/** Когда открылось платное соединение с Soniox; null — соединения не было или оно уже оплачено. */
+	private providerOpenedAt: null | number = null
 
+	/**
+	 * @param onProviderClosed Получает, сколько секунд было открыто соединение с Soniox.
+	 * Soniox берёт плату за длительность потока, поэтому по ней списывается баланс.
+	 */
 	constructor(
 		private socket: WebSocket,
 		private soniox: SonioxSttService,
 		private languageHints: string[],
+		private onProviderClosed?: (streamedSeconds: number) => void,
 	) {
 		this.deadline = setTimeout(() => this.fail(errors.dictationLimitExceeded.code), DICTATION_LIMITS.durationMs)
 		this.idle = setTimeout(() => this.fail(errors.dictationTimeout.code), DICTATION_LIMITS.startTimeoutMs)
@@ -49,6 +56,15 @@ export class AiDialogueDictationSession {
 
 		this.abortController.abort()
 		this.provider?.abort()
+		this.reportProviderClosed()
+	}
+
+	private reportProviderClosed() {
+		if (this.providerOpenedAt === null) return
+
+		const streamedSeconds = (Date.now() - this.providerOpenedAt) / 1000
+		this.providerOpenedAt = null
+		this.onProviderClosed?.(streamedSeconds)
 	}
 
 	private onMessage(data: RawData, binary: boolean) {
@@ -86,6 +102,7 @@ export class AiDialogueDictationSession {
 
 			if (this.state !== 'starting') return provider.abort()
 			this.provider = provider
+			this.providerOpenedAt = Date.now()
 			this.state = 'streaming'
 			this.refreshIdle()
 			this.send({ type: 'ready' })

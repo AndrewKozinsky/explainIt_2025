@@ -35,9 +35,18 @@ export type ImageGenerationJson =
 /** Original output bytes. MIME may be absent; consumers must inspect the actual file before publication. */
 export type GeneratedImage = { bytes: Buffer; contentType: string | null }
 
-/** A synchronous provider may return ready immediately, without inventing a resumable operation. */
+/** Token usage reported by token-billed providers (OpenAI Images API); used to calculate the request cost. */
+export type ImageGenerationTokenUsage = {
+	textInputTokens: number
+	imageInputTokens: number
+	imageOutputTokens: number
+}
+
+/** A synchronous provider may return ready immediately, without inventing a resumable operation.
+ * usage is present only for providers that bill by tokens and report them. */
 export type ImageGenerationResult =
-	{ status: 'ready'; images: GeneratedImage[] } | { status: 'pending'; operation: ImageGenerationOperation }
+	| { status: 'ready'; images: GeneratedImage[]; usage?: ImageGenerationTokenUsage }
+	| { status: 'pending'; operation: ImageGenerationOperation }
 
 /** External operations only. No persistence, scheduling, publication, retries or provider fallback. */
 export interface ImageGenerationProvider {

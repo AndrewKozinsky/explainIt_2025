@@ -1,3 +1,4 @@
+jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
 jest.mock('@nestjs/common', () => ({
 	Injectable: () => (target: unknown) => target,
 	Logger: class {
@@ -18,9 +19,13 @@ import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') {
 	const timeline: string[] = []
 	const llm = {
-		stream: jest.fn(async function* (_input: { messages: LlmMessage[] }) {
+		stream: jest.fn(async function* (input: {
+			messages: LlmMessage[]
+			onUsage?: (usage: { inputTokens: number; cachedInputTokens: number; outputTokens: number }) => void
+		}) {
 			yield 'help\nHello\nПривет'
 			yield footer
+			input.onUsage?.({ inputTokens: 1000, cachedInputTokens: 800, outputTokens: 50 })
 		}),
 	}
 
@@ -57,6 +62,10 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 	const summary = { summarizeIfNeeded: jest.fn().mockResolvedValue(undefined) }
 
 	const user = { getUserById: jest.fn().mockResolvedValue({ id: 5, gender: 'FEMALE' }) }
+	const balance = {
+		ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined),
+		chargeLlm: jest.fn().mockResolvedValue(undefined),
+	}
 
 	const service = new GenerateAiDialogueTurn(
 		llm as never,
@@ -68,9 +77,10 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') 
 		hub as never,
 		summary as never,
 		user as never,
+		balance as never,
 	)
 
-	return { service, timeline, turn, query, registry, hub, llm, dialogue, user }
+	return { service, timeline, turn, query, registry, hub, llm, dialogue, user, balance }
 }
 
 describe('participant gender', () => {
@@ -144,5 +154,31 @@ describe('language settings snapshot per turn', () => {
 		} finally {
 			log.mockRestore()
 		}
+	})
+})
+
+describe('balance', () => {
+	it('charges the dialogue owner for the streamed reply', async () => {
+		const { service, balance } = harness()
+		await service.generate(3)
+		expect(balance.chargeLlm).toHaveBeenCalledWith(
+			expect.objectContaining({
+				userId: 5,
+				feature: 'aiDialogue',
+				usage: { inputTokens: 1000, cachedInputTokens: 800, outputTokens: 50 },
+			}),
+		)
+	})
+
+	it('sends turnError and does not call the model when the balance is exhausted', async () => {
+		const { service, balance, llm, timeline } = harness()
+		balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new Error('BALANCE_EXHAUSTED'))
+		jest.spyOn(console, 'log').mockImplementation(() => undefined)
+
+		await service.generate(3)
+
+		expect(llm.stream).not.toHaveBeenCalled()
+		expect(timeline).toContain('turnError')
+		expect(timeline.at(-1)).toBe('turnDone')
 	})
 })

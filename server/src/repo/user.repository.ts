@@ -123,6 +123,33 @@ export class UserRepository {
 	}
 
 	/**
+	 * Баланс пользователя в микродолларах.
+	 * @returns null, если пользователя нет.
+	 */
+	@CatchDbError()
+	async getBalance(userId: number): Promise<null | number> {
+		const user = await this.prisma.user.findUnique({ where: { id: userId }, select: { balance: true } })
+
+		return user?.balance ?? null
+	}
+
+	/**
+	 * Уменьшает баланс пользователя атомарно: параллельные списания не теряются. Баланс может стать отрицательным.
+	 * @param amountInMicrodollars Сумма уменьшения.
+	 * @returns Баланс после уменьшения.
+	 */
+	@CatchDbError()
+	async decreaseBalance(userId: number, amountInMicrodollars: number): Promise<number> {
+		const user = await this.prisma.user.update({
+			where: { id: userId },
+			data: { balance: { decrement: amountInMicrodollars } },
+			select: { balance: true },
+		})
+
+		return user.balance
+	}
+
+	/**
 	 * Прибавляет сумму к балансу всех пользователей одним запросом. Итоговый баланс не больше maxBalance.
 	 * @param input.amountInMicrodollars Прибавляемая сумма.
 	 * @param input.maxBalanceInMicrodollars Верхняя граница итогового баланса.
@@ -149,10 +176,12 @@ export class UserRepository {
 			if (!rows.length) return null
 
 			const previous = await tx.user.findUniqueOrThrow({ where: { id: userId } })
+
 			// Check under the row lock: a saved photo must exist before selecting it.
 			if (data.avatar_preset_id === null && !(data.avatar_s3_key ?? previous.avatar_s3_key)) {
 				return { user: previous, previousAvatarKey: previous.avatar_s3_key, avatarSelectionRejected: true }
 			}
+
 			const user = await tx.user.update({ where: { id: userId }, data })
 
 			return { user, previousAvatarKey: previous.avatar_s3_key, avatarSelectionRejected: false }

@@ -5,9 +5,7 @@ import { SentenceRepository } from 'repo/sentence.repository'
 import { SentencePhraseTranslationRepository } from 'repo/sentencePhraseTranslation.repository'
 import { SentenceTranslationRepository } from 'repo/sentenceTranslation.repository'
 import { UserRepository } from 'repo/user.repository'
-import { UserBalanceTransactionRepository } from 'repo/userBalanceTransaction.repository'
 import { PrismaService } from 'db/prisma.service'
-import { TokenUsageBalanceChargeHandler } from 'features/payment/TokenUsageBalanceCharge.command'
 import { SentenceTranslationAccessService } from 'features/translation/translateCommon/SentenceTranslationAccess.service'
 import { TranslatePhraseHandler } from 'features/translation/translatePhrase/TranslatePhrase.command'
 import { TranslateSentenceHandler } from 'features/translation/translateSentence/TranslateSentence.command'
@@ -16,18 +14,13 @@ import { LlmProviderModule } from 'infrastructure/llmProviderAdapter/llmProvider
 import { TranslateController } from './translate.controller'
 
 const services = [PrismaService, SentenceTranslationAccessService]
-const commandHandlers = [
-	TranslateSentenceHandler,
-	TranslatePhraseHandler,
-	TokenUsageBalanceChargeHandler,
-]
+const commandHandlers = [TranslateSentenceHandler, TranslatePhraseHandler]
 const repositories = [
 	SentenceRepository,
 	SentenceTranslationRepository,
 	SentencePhraseTranslationRepository,
 	UserRepository,
 	DBRepository,
-	UserBalanceTransactionRepository,
 ]
 
 @Module({

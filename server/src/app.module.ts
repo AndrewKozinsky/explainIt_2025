@@ -20,6 +20,7 @@ import { UserModule } from 'routes/user/user.module'
 import { VideoModule } from 'routes/video/video.module'
 import { WebhookModule } from 'routes/webhook/webhook.module'
 import { YoutubeRouteModule } from 'routes/youtube/youtube.module'
+import { BillingModule } from 'features/billing/billing.module'
 import { DailyBalanceRefillModule } from 'features/billing/dailyBalanceRefill.module'
 import { CloudflareS3Module } from 'infrastructure/cloudflareS3/cloudflareS3.module'
 import { CloudRuS3Module } from 'infrastructure/cloudRuS3/cloudRuS3.module'
@@ -71,6 +72,7 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		DbModule,
 		RedisModule,
 		QueuesModule,
+		BillingModule,
 		DailyBalanceRefillModule,
 		PaymentModule,
 		YooKassaModule,

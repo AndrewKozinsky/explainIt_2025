@@ -3,6 +3,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueSummary, parseAiDialogueSummary } from 'types/aiDialogueSummary'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
 import { buildSummaryPrompt } from './buildSummaryPrompt'
@@ -29,6 +30,7 @@ export class SummarizeAiDialogue {
 		private llmAdapter: LlmAdapterService,
 		private aiDialogueRepository: AiDialogueRepository,
 		private aiDialogueQueryRepository: AiDialogueQueryRepository,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	async summarizeIfNeeded(dialogueId: number): Promise<void> {
@@ -45,6 +47,9 @@ export class SummarizeAiDialogue {
 		const toSummarize = uncompressed.slice(0, uncompressed.length - KEEP_UNCOMPRESSED)
 		if (toSummarize.length === 0) return
 
+		// Сводка — фоновая работа: без баланса она откладывается до следующего хода, ошибка не нужна.
+		if (!(await this.userBalanceService.hasPositiveBalance(dialogue.user_id))) return
+
 		this.inFlight.add(dialogueId)
 		try {
 			const summary = parseAiDialogueSummary(dialogue.summary)
@@ -52,6 +57,14 @@ export class SummarizeAiDialogue {
 
 			const prompt = buildSummaryPrompt({ summary, eventsToSummarize: events })
 			const output = await this.llmAdapter.generate({ model: AI_DIALOGUE_MODEL, messages: prompt })
+
+			await this.userBalanceService.chargeLlm({
+				userId: dialogue.user_id,
+				feature: 'aiDialogue',
+				model: output.model,
+				usage: output,
+			})
+
 			const history = output.content.trim()
 			if (!history) return
 

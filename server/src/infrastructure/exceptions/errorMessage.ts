@@ -25,8 +25,7 @@ export const errorMessage = {
 		invalidAvatarPhoto: { code: 'USER_INVALID_AVATAR_PHOTO' }, // Требуется корректное фото JPEG/PNG/WebP без анимации, до 30 MiB и 80 млн пикселей.
 	},
 
-	userBalanceIsNegative: { code: 'USER_BALANCE_IS_NEGATIVE' }, // Отрицательный баланс.
-	userBalanceBelowMinimum: { code: 'USER_BALANCE_BELOW_MINIMUM' }, // Недостаточно средств на балансе для выполнения операции.
+	balanceExhausted: { code: 'BALANCE_EXHAUSTED' }, // Дневной баланс израсходован: запрос к ИИ не выполнен. Баланс восстановится в 00:00 UTC.
 	insufficientBalanceForTranslation: { code: 'INSUFFICIENT_BALANCE_FOR_TRANSLATION' }, // Недостаточно средств на балансе для перевода.
 	paymentIdIsRequiredForPaymentTransactions: { code: 'PAYMENT_ID_IS_REQUIRED_FOR_PAYMENT_TRANSACTIONS' }, // Payment ID is required for payment transactions
 	cannotDepositAmountLessThanZero: { code: 'CANNOT_DEPOSIT_AMOUNT_LESS_THAN_ZERO' }, // You cannot deposit an amount less than zero into your balance.
@@ -152,7 +151,6 @@ export const errorMessage = {
 		threadAlreadyExists: { code: 'SENTENCE_CHAT_THREAD_ALREADY_EXISTS' }, // Тред обсуждения для этого предложения уже существует.
 		lastMessageIsNotUserQuestion: { code: 'SENTENCE_CHAT_LAST_MESSAGE_IS_NOT_USER_QUESTION' }, // Невозможно сгенерировать ответ: последнее сообщение в треде не является вопросом пользователя.
 		previousAnswerNotReady: { code: 'SENTENCE_CHAT_PREVIOUS_ANSWER_NOT_READY' }, // Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.
-		insufficientBalance: { code: 'SENTENCE_CHAT_INSUFFICIENT_BALANCE' }, // Недостаточно средств на балансе для генерации ответа.
 	},
 	aiDialogue: {
 		illustrationStyleNotFound: { code: 'AI_DIALOGUE_ILLUSTRATION_STYLE_NOT_FOUND' }, // Выберите доступный стиль иллюстраций.

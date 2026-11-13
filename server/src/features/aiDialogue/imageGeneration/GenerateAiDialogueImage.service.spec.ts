@@ -1,9 +1,11 @@
 jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target, Optional: () => () => undefined }))
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
+jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
 import OpenAI from 'openai'
 import { ImageGenerationRequestRepository } from 'repo/aiDialogue/imageGenerationRequest.repository'
 import { ImageGenerationWorkerRepository } from 'repo/aiDialogue/imageGenerationWorker.repository'
 import { FluxImageModels, OpenAIImageModels } from 'types/imageGenerationModels'
+import type { UserBalanceService } from 'features/billing/UserBalance.service'
 import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
 import { OpenAIImageGenerationProvider } from 'infrastructure/imageGenerationProviderAdapter/OpenAIImageGenerationProvider'
 import { AI_DIALOGUE_EMOTION_LAYOUT_VERSION, AI_DIALOGUE_IMAGE_MODEL } from '../aiDialogueVisualConfig'
@@ -26,6 +28,7 @@ function harness() {
 	const job = { id: 10, type: 'emotionSheet', status: 'queued', input: JSON.stringify(snapshot), attempts: 0 }
 	const repository = {
 		findJob: jest.fn().mockImplementation(async () => job),
+		findJobOwnerUserId: jest.fn().mockResolvedValue(5),
 		waitForDependencies: jest.fn(),
 		recordFailure: jest.fn(),
 	}
@@ -54,11 +57,16 @@ function harness() {
 			job.status = 'ready'
 		}),
 	}
+	const balance = {
+		hasPositiveBalance: jest.fn().mockResolvedValue(true),
+		chargeImageGeneration: jest.fn().mockResolvedValue(undefined),
+	}
 	const makeService = (publisher?: ImageGenerationAssets) =>
 		new GenerateAiDialogueImage(
 			repository as unknown as ImageGenerationWorkerRepository,
 			requests as unknown as ImageGenerationRequestRepository,
 			adapter,
+			balance as unknown as UserBalanceService,
 			publisher,
 		)
 	return {
@@ -69,6 +77,7 @@ function harness() {
 		assets,
 		service: makeService(assets),
 		makeService,
+		balance,
 		unconfigure: () => {
 			configured = false
 		},
@@ -204,5 +213,41 @@ describe('GenerateAiDialogueImage with OpenAI', () => {
 		)
 		await expect(service.processStep(10)).rejects.toThrow('moderation')
 		expect(repository.recordFailure).toHaveBeenCalledWith(10, expect.stringContaining('moderation'), true)
+	})
+})
+
+describe('GenerateAiDialogueImage balance', () => {
+	it('charges the dialogue owner by the token usage from the OpenAI response', async () => {
+		const { service, images, balance } = harness()
+		images.generate.mockResolvedValue({
+			data: [{ b64_json: Buffer.from('original').toString('base64') }],
+			usage: {
+				input_tokens: 120,
+				input_tokens_details: { text_tokens: 100, image_tokens: 20 },
+				output_tokens: 900,
+			},
+		})
+
+		await service.processStep(10)
+
+		expect(balance.chargeImageGeneration).toHaveBeenCalledWith({
+			userId: 5,
+			feature: 'aiDialogueImage',
+			model: AI_DIALOGUE_IMAGE_MODEL,
+			width: 960,
+			height: 720,
+			usage: { textInputTokens: 100, imageInputTokens: 20, imageOutputTokens: 900 },
+		})
+	})
+
+	it('fails the job without a paid request when the owner balance is exhausted', async () => {
+		const { service, images, balance, repository, requests } = harness()
+		balance.hasPositiveBalance.mockResolvedValue(false)
+
+		await expect(service.processStep(10)).rejects.toThrow('Balance exhausted')
+
+		expect(requests.claimSubmission).not.toHaveBeenCalled()
+		expect(images.generate).not.toHaveBeenCalled()
+		expect(repository.recordFailure).toHaveBeenCalledWith(10, expect.stringContaining('Balance exhausted'), true)
 	})
 })

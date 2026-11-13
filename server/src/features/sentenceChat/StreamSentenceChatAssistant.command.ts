@@ -1,15 +1,15 @@
 import { Injectable, MessageEvent } from '@nestjs/common'
-import { CommandBus } from '@nestjs/cqrs'
 import { Observable, Subscriber } from 'rxjs'
 import { SentenceChatMessageRepository } from 'repo/sentenceChatMessage.repository'
 import { SentenceChatThreadRepository } from 'repo/sentenceChatThread.repository'
-import { AiModel, DEFAULT_FLASH_AI_MODEL, OpenAIModels } from 'types/AIModels'
-import { chargeAfterTranslationIfNeeded } from 'features/translation/translateCommon/TranslationHandler.utils'
+import { AiModel, DEFAULT_FLASH_AI_MODEL } from 'types/AIModels'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
+import { LlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import { SentenceChatMessage, SentenceChatThread } from 'prisma/generated/client'
 import { SentenceChatMessageStatus } from 'prisma/generated/enums'
 import { ActiveSentenceChatGenerationRegistry } from './ActiveSentenceChatGenerationRegistry.service'
@@ -29,7 +29,6 @@ export type StreamSentenceChatAssistantInput = {
 	model?: AiModel
 }
 
-type TokenUsage = { inputTokens: number; outputTokens: number }
 type FinalStatus = Extract<SentenceChatMessageStatus, 'completed' | 'canceled' | 'failed'>
 
 type PromptPayload = {
@@ -55,7 +54,7 @@ export class StreamSentenceChatAssistantCommand {
 		private sentenceChatMessageRepository: SentenceChatMessageRepository,
 		private sentenceChatContextBuilder: SentenceChatContextBuilder,
 		private activeGenerationRegistry: ActiveSentenceChatGenerationRegistry,
-		private commandBus: CommandBus,
+		private userBalanceService: UserBalanceService,
 	) {}
 
 	execute(input: StreamSentenceChatAssistantInput): Observable<MessageEvent> {
@@ -67,7 +66,7 @@ export class StreamSentenceChatAssistantCommand {
 				abortController: null as null | AbortController,
 				assistantMessageId: null as null | number,
 				accumulatedContent: '',
-				usage: null as null | TokenUsage,
+				usage: null as null | LlmTokenUsage,
 			}
 
 			this.runStream(input, subscriber, state).catch((error) => {
@@ -95,13 +94,14 @@ export class StreamSentenceChatAssistantCommand {
 			abortController: null | AbortController
 			assistantMessageId: null | number
 			accumulatedContent: string
-			usage: null | TokenUsage
+			usage: null | LlmTokenUsage
 		},
 	) {
 		try {
 			const thread = await this.loadAndAuthorizeThread(input.threadId, input.userId)
 			await this.assertNoActiveGenerationForUser(input.userId)
 			await this.assertLastMessageIsUserQuestion(thread.id)
+			await this.userBalanceService.ensurePositiveBalanceOrThrow(input.userId, 'sentenceChat')
 
 			// Сборка промпта ДО создания placeholder-а: если здесь упадёт ошибка,
 			// в БД не остаётся зависшая streaming-заготовка.
@@ -130,7 +130,7 @@ export class StreamSentenceChatAssistantCommand {
 			finished: boolean
 			assistantMessageId: null | number
 			accumulatedContent: string
-			usage: null | TokenUsage
+			usage: null | LlmTokenUsage
 			abortController: null | AbortController
 		},
 		error: unknown,
@@ -242,7 +242,7 @@ export class StreamSentenceChatAssistantCommand {
 		state: {
 			aborted: boolean
 			accumulatedContent: string
-			usage: null | TokenUsage
+			usage: null | LlmTokenUsage
 			abortController: null | AbortController
 		},
 		prompt: PromptPayload,
@@ -273,7 +273,7 @@ export class StreamSentenceChatAssistantCommand {
 			finished: boolean
 			assistantMessageId: null | number
 			accumulatedContent: string
-			usage: null | TokenUsage
+			usage: null | LlmTokenUsage
 		},
 		opts: { status: FinalStatus; errorText?: string },
 	): Promise<void> {
@@ -318,33 +318,8 @@ export class StreamSentenceChatAssistantCommand {
 		}
 	}
 
-	private async chargeTokenUsage(userId: number, usage: null | TokenUsage, model: AiModel): Promise<void> {
-		if (!usage || (usage.inputTokens <= 0 && usage.outputTokens <= 0)) return
-
-		try {
-			await chargeAfterTranslationIfNeeded({
-				userId,
-				chargeAfterTranslation: true,
-				usage: this.buildProviderUsage(model, usage),
-				commandBus: this.commandBus,
-			})
-		} catch (error) {
-			console.log('Failed to charge user after sentence chat generation', { error })
-		}
-	}
-
-	private buildProviderUsage(
-		model: AiModel,
-		usage: TokenUsage,
-	): Parameters<typeof chargeAfterTranslationIfNeeded>[0]['usage'] {
-		return {
-			model,
-			inputTokens: usage.inputTokens,
-			outputTokens: usage.outputTokens,
-			...(model === OpenAIModels.Standard || model === OpenAIModels.Mini || model === OpenAIModels.Nano
-				? { lowPriority: false }
-				: {}),
-		}
+	private async chargeTokenUsage(userId: number, usage: null | LlmTokenUsage, model: AiModel): Promise<void> {
+		await this.userBalanceService.chargeLlm({ userId, feature: 'sentenceChat', model, usage })
 	}
 
 	private emitDoneEvent(

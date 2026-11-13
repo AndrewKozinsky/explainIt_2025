@@ -4,6 +4,7 @@ import { Injectable, Logger } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { Job } from 'bullmq'
 import { VideoRepository } from 'repo/video/video.repository'
+import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { UpdateVideoCommand } from 'features/video/UpdateVideo.command'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { DeepgramSttService } from 'infrastructure/deepgramStt/deepgramStt.service'
@@ -35,6 +36,7 @@ export class S3SubtitlesStrategy {
 		private readonly subtitlesService: SubtitlesService,
 		private readonly mainConfig: MainConfigService,
 		private readonly commandBus: CommandBus,
+		private readonly userBalanceService: UserBalanceService,
 	) {}
 
 	async process(
@@ -89,6 +91,14 @@ export class S3SubtitlesStrategy {
 				audioUrlOrStream: audioPath,
 				languageCode: state.languageCode,
 				contentType: 'audio/wav',
+			})
+
+			// Deepgram берёт плату за длительность аудио, даже если речь не найдена.
+			await this.userBalanceService.chargeSpeechToText({
+				userId,
+				feature: 'videoSubtitles',
+				provider: 'deepgramPrerecorded',
+				audioSeconds: result.durationSec || durationSec,
 			})
 
 			if (result.utterances.length === 0) {
