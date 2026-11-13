@@ -52,8 +52,6 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-  UserBalanceTransaction: 'UserBalanceTransaction',
-  Payment: 'Payment',
   Book: 'Book',
   BookChapter: 'BookChapter',
   Video: 'Video',
@@ -113,32 +111,6 @@ export const UserScalarFieldEnum = {
 } as const
 
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
-
-
-export const UserBalanceTransactionScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  type: 'type',
-  amount: 'amount',
-  payment_id: 'payment_id',
-  created_at: 'created_at'
-} as const
-
-export type UserBalanceTransactionScalarFieldEnum = (typeof UserBalanceTransactionScalarFieldEnum)[keyof typeof UserBalanceTransactionScalarFieldEnum]
-
-
-export const PaymentScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  amount: 'amount',
-  status: 'status',
-  provider_name: 'provider_name',
-  external_id: 'external_id',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-} as const
-
-export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
 
 
 export const BookScalarFieldEnum = {

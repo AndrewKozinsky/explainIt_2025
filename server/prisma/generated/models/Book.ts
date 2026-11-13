@@ -584,6 +584,14 @@ export type NullableEnumS3ProviderNameFieldUpdateOperationsInput = {
   set?: $Enums.S3ProviderName | null
 }
 
+export type NullableIntFieldUpdateOperationsInput = {
+  set?: number | null
+  increment?: number
+  decrement?: number
+  multiply?: number
+  divide?: number
+}
+
 export type BookCreateNestedOneWithoutBookChapterInput = {
   create?: Prisma.XOR<Prisma.BookCreateWithoutBookChapterInput, Prisma.BookUncheckedCreateWithoutBookChapterInput>
   connectOrCreate?: Prisma.BookCreateOrConnectWithoutBookChapterInput

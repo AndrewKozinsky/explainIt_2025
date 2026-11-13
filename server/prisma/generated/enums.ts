@@ -17,32 +17,6 @@ export const UserGender = {
 export type UserGender = (typeof UserGender)[keyof typeof UserGender]
 
 
-export const BalanceTransactionType = {
-  CHARGE: 'CHARGE',
-  TOP_UP: 'TOP_UP',
-  REFUND: 'REFUND'
-} as const
-
-export type BalanceTransactionType = (typeof BalanceTransactionType)[keyof typeof BalanceTransactionType]
-
-
-export const PaymentStatus = {
-  PENDING: 'PENDING',
-  SUCCESS: 'SUCCESS',
-  FAILED: 'FAILED',
-  CANCELED: 'CANCELED'
-} as const
-
-export type PaymentStatus = (typeof PaymentStatus)[keyof typeof PaymentStatus]
-
-
-export const PaymentProviderName = {
-  YOOKASSA: 'YOOKASSA'
-} as const
-
-export type PaymentProviderName = (typeof PaymentProviderName)[keyof typeof PaymentProviderName]
-
-
 export const MediaType = {
   public: 'public',
   private: 'private'

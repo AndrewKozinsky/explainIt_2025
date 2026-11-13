@@ -42,5 +42,18 @@
         "sourceRoot": "/"
     },
 	"include": ["src/**/*"],
-	"exclude": ["node_modules", "dist", "e2e"]
+	"exclude": [
+		"node_modules",
+		"dist",
+		"e2e",
+		// Оплата через ЮKassa отключена, но код сохранён на будущее (documentation/topics/billing.md).
+		// Эти файлы не компилируются: они используют удалённую таблицу UserBalanceTransaction.
+		"src/infrastructure/yooKassa",
+		"src/features/payment",
+		"src/routes/payment",
+		"src/routes/webhook",
+		"src/models/payment",
+		"src/repo/payment.repository.ts",
+		"src/repo/userBalanceTransaction.repository.ts",
+	]
 }

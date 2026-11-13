@@ -9,8 +9,6 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/User'
-export type * from './models/UserBalanceTransaction'
-export type * from './models/Payment'
 export type * from './models/Book'
 export type * from './models/BookChapter'
 export type * from './models/Video'

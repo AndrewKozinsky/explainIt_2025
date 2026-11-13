@@ -9,7 +9,6 @@ import { BookModule } from 'routes/book/book.module'
 import { BookChapterModule } from 'routes/bookChapter/bookChapter.module'
 import { DbModule } from 'routes/db/db.module'
 import { LanguageModule } from 'routes/language/language.module'
-import { PaymentModule } from 'routes/payment/payment.module'
 import { SentenceChatModule } from 'routes/sentenceChat/sentenceChat.module'
 import { TranslateRouteModule } from 'routes/translate/translate.module'
 import { UniversalPhraseModule } from 'routes/universalPhrase/universalPhrase.module'
@@ -18,7 +17,6 @@ import { UniversalPhraseTranscriptionModule } from 'routes/universalPhraseTransc
 import { UniversalPhraseTranslationModule } from 'routes/universalPhraseTranslation/universalPhraseTranslation.module'
 import { UserModule } from 'routes/user/user.module'
 import { VideoModule } from 'routes/video/video.module'
-import { WebhookModule } from 'routes/webhook/webhook.module'
 import { YoutubeRouteModule } from 'routes/youtube/youtube.module'
 import { BillingModule } from 'features/billing/billing.module'
 import { DailyBalanceRefillModule } from 'features/billing/dailyBalanceRefill.module'
@@ -42,7 +40,6 @@ import { StartServerTasksRunner } from 'infrastructure/StartServerTasksRunner'
 import { SubtitlesModule } from 'infrastructure/subtitles/subtitles.module'
 import { TelegramModule } from 'infrastructure/telegram/telegram.module'
 import { YandexCloudS3Module } from 'infrastructure/yandexCloudS3/yandexCloudS3.module'
-import { YooKassaModule } from 'infrastructure/yooKassa/yooKassa.module'
 import { YoutubeModule } from 'infrastructure/youtube/youtube.module'
 import { ZaiModule } from 'infrastructure/zai/zai.module'
 
@@ -74,9 +71,6 @@ import { ZaiModule } from 'infrastructure/zai/zai.module'
 		QueuesModule,
 		BillingModule,
 		DailyBalanceRefillModule,
-		PaymentModule,
-		YooKassaModule,
-		WebhookModule,
 		AiDialogueScenarioGroupModule,
 		AiDialogueModule,
 		BookModule,

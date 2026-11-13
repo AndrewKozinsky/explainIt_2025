@@ -9,49 +9,23 @@ datasource db {
 }
 
 model User {
-	id                                      Int                      @id @default(autoincrement())
-	email                                   String                   @unique
+	id                                      Int                  @id @default(autoincrement())
+	email                                   String               @unique
 	password                                String?
 	email_confirmation_code                 String?
 	email_confirmation_code_expiration_date String?
-	is_email_confirmed                      Boolean                  @default(false)
-	is_user_confirmed                       Boolean                  @default(false)
-	balance                                 Int                      @default(0)
-	gender                                  UserGender               @default(MALE)
-	avatar_preset_id                        String?                  @default("male-1")
+	is_email_confirmed                      Boolean              @default(false)
+	is_user_confirmed                       Boolean              @default(false)
+	balance                                 Int                  @default(0)
+	gender                                  UserGender           @default(MALE)
+	avatar_preset_id                        String?              @default("male-1")
 	avatar_s3_key                           String?
-	Payment                                 Payment[]
-	UserBalanceTransaction                  UserBalanceTransaction[]
 	Book                                    Book[]
 	Video                                   Video[]
 	SentenceChatThread                      SentenceChatThread[]
 	AiDialogueScenario                      AiDialogueScenario[]
 	AiDialogue                              AiDialogue[]
-	created_at                              DateTime                 @default(now())
-}
-
-model UserBalanceTransaction {
-	id         Int                    @id @default(autoincrement())
-	user       User                   @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id    Int
-	type       BalanceTransactionType
-	amount     Int
-	payment    Payment?               @relation(fields: [payment_id], references: [id], onDelete: Cascade)
-	payment_id Int?                   @unique
-	created_at DateTime               @default(now())
-}
-
-model Payment {
-	id                     Int                      @id @default(autoincrement())
-	user                   User                     @relation(fields: [user_id], references: [id], onDelete: Cascade)
-	user_id                Int
-	amount                 Int
-	status                 PaymentStatus            @default(PENDING)
-	provider_name          PaymentProviderName      @default(YOOKASSA)
-	external_id            String                   @unique
-	UserBalanceTransaction UserBalanceTransaction[]
-	created_at             DateTime                 @default(now())
-	updated_at             DateTime                 @default(now())
+	created_at                              DateTime             @default(now())
 }
 
 model Book {
@@ -458,23 +432,6 @@ model AiDialogueAudio {
 enum UserGender {
 	MALE
 	FEMALE
-}
-
-enum BalanceTransactionType {
-	CHARGE
-	TOP_UP
-	REFUND
-}
-
-enum PaymentStatus {
-	PENDING
-	SUCCESS
-	FAILED
-	CANCELED
-}
-
-enum PaymentProviderName {
-	YOOKASSA
 }
 
 enum MediaType {

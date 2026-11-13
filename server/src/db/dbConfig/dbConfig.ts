@@ -131,12 +131,6 @@ export const bdConfig = {
 				description: 'R2 key of the last uploaded user photo, retained when a preset is selected',
 				example: 'user-avatars/uploads/ru/localdev/1/uuid.webp',
 			},
-			Payment: {
-				type: 'oneToMany',
-			},
-			UserBalanceTransaction: {
-				type: 'oneToMany',
-			},
 			Book: {
 				type: 'oneToMany',
 			},
@@ -154,119 +148,6 @@ export const bdConfig = {
 			},
 			created_at: {
 				type: 'createdAt',
-			},
-		},
-	},
-	UserBalanceTransaction: {
-		dtoProps: {},
-		dbFields: {
-			id: {
-				type: 'index',
-				description: 'User balance transaction ID',
-				example: 1,
-			},
-			user_id: {
-				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				relationField: 'user',
-				foreignTable: 'User', // Name of the table that this column refers to
-				foreignField: 'id',
-				required: true,
-			},
-			type: {
-				type: 'enum',
-				description: 'Status of balance changing ',
-				required: true,
-				variants: ['CHARGE', 'TOP_UP', 'REFUND'],
-				enumName: 'BalanceTransactionType',
-			},
-			amount: {
-				type: 'number',
-				description: 'Amount of money: negative or positive number',
-				required: true,
-			},
-			payment_id: {
-				type: 'childOneToOne',
-				thisField: 'payment_id', // Name of the column of this table that refers to another table
-				foreignTable: 'Payment', // Name of the table that this column refers to another table
-				foreignField: 'id',
-				required: false,
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-		},
-	},
-	// User increases his balance with payment
-	Payment: {
-		dtoProps: {
-			amountInKopecks: {
-				type: 'number',
-				min: 1,
-				max: 10000,
-				description: 'Amount in kopecks to top up the balance',
-				example: 10000,
-				required: true,
-			},
-			confirmationUrl: {
-				type: 'string',
-				description: 'URL for payment confirmation redirect',
-				example: 'https://yookassa.ru/payments/...',
-				required: true,
-			},
-		},
-		dbFields: {
-			id: {
-				type: 'index',
-				description: 'Payment ID',
-				example: 1,
-			},
-			user_id: {
-				type: 'manyToOne',
-				thisField: 'user_id', // Name of the column of this table that refers to another table
-				foreignTable: 'User', // Name of the table that this column refers to
-				foreignField: 'id',
-				description: 'User ID who owns the book',
-				example: 1,
-				required: true,
-			},
-			amount: {
-				type: 'number',
-				description: 'Amount of money',
-				required: true,
-				min: 1,
-				max: 10000,
-			},
-			status: {
-				type: 'enum',
-				description: 'Status of payment',
-				required: true,
-				variants: ['PENDING', 'SUCCESS', 'FAILED', 'CANCELED'],
-				default: 'PENDING',
-				enumName: 'PaymentStatus',
-			},
-			provider_name: {
-				type: 'enum',
-				description: 'Name of payment provider (Yookassa or Stripe)',
-				required: true,
-				variants: ['YOOKASSA'],
-				default: 'YOOKASSA',
-				enumName: 'PaymentProviderName',
-			},
-			external_id: {
-				type: 'string',
-				description: 'id of the payment in the payment provider',
-				required: true,
-				unique: true,
-			},
-			UserBalanceTransaction: {
-				type: 'oneToMany',
-			},
-			created_at: {
-				type: 'createdAt',
-			},
-			updated_at: {
-				type: 'updatedAt',
 			},
 		},
 	},
