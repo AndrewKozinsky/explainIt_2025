@@ -1,5 +1,6 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
+import { sportsLeisureScenarios } from 'features/aiDialogueScenario/scenarios/sportsLeisureScenarios'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueScenarioGroupSeedData, AiDialogueScenarioSeedData } from './common'
 import { aiDialogueScenarioGroups } from './groups'
@@ -10,9 +11,11 @@ import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
 import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
 import { immigrationScenarios } from './scenarios/immigrationScenarios'
 import { kidsFamilyScenarios } from './scenarios/kidsFamilyScenarios'
+import { localServicesScenarios } from './scenarios/localServicesScenarios'
 import { misunderstandingsAndConflictsScenarios } from './scenarios/misunderstandingsAndConflictsScenarios'
 import { relationshipsScenarios } from './scenarios/relationshipsScenarios'
 import { techServicesScenarios } from './scenarios/techServicesScenarios'
+import { transportCarScenarios } from './scenarios/transportCarScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
 import { unexpectedEncountersScenarios } from './scenarios/unexpectedEncountersScenarios'
 import { workScenarios } from './scenarios/workScenarios'
@@ -69,13 +72,13 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			...unexpectedEncountersScenarios,
 			...workScenarios,
 			// ...healthEmergencyScenarios,
-			// ...transportCarScenarios,
+			...transportCarScenarios,
 			// ...moneyBankingScenarios,
 			// ...studyScenarios,
 			...kidsFamilyScenarios,
 			...techServicesScenarios,
-			// ...localServicesScenarios,
-			// ...sportsLeisureScenarios,
+			...localServicesScenarios,
+			...sportsLeisureScenarios,
 		]
 	}
 }

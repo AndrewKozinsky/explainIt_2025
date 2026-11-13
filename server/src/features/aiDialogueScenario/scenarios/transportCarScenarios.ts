@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const transportCarScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'car-rental-upsell',
 		groupSlug: 'transport-car',
 		title: localized({
@@ -71,7 +71,7 @@ export const transportCarScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is at a car rental desk at an airport to pick up a car they booked. You play the rental agent, with a consistent personality and a sales target. Take their driving licence and booking and, as rental agents do, recommend full insurance and an upgrade to a bigger car. You choose what else comes up at the desk, such as the deposit, the fuel policy or the availability of the booked car. Explain the terms when asked and respect the participant's decisions. Do not decide for the participant what they accept. Stay in character.",
-	},*/
+	},
 	/*{
 		slug: 'rental-car-check',
 		groupSlug: 'transport-car',
@@ -230,7 +230,7 @@ export const transportCarScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt:
 			"The participant comes back to the street where they parked their car and finds the spot empty. A passer-by nods at a no-parking sign and says a tow truck took the car half an hour ago. You play the passer-by and, if the participant goes to the impound lot, the attendant there, each with a consistent personality. You decide the details, such as where the car was taken, the fine and the documents needed, and keep them consistent. React to the participant's questions and objections realistically. Do not decide for the participant what they do. Stay in character.",
 	},*/
-	/*{
+	{
 		slug: 'traffic-stop',
 		groupSlug: 'transport-car',
 		title: localized({
@@ -280,7 +280,7 @@ export const transportCarScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant is driving on a highway and has been pulled over by the police. The scene opens as the officer walks up and leans towards the driver's window. You play the officer, with a consistent personality. Ask for the licence and vehicle documents and whether they know why they were stopped. You decide the reason for the stop. React to the participant's explanations, questions and objections as a real officer would, and decide whether to give a warning or a fine based on the conversation. Do not decide for the participant what they say. Stay in character.",
-	},*/
+	},
 	/*{
 		slug: 'bike-rental',
 		groupSlug: 'transport-car',

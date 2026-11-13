@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'gym-trainer',
 		groupSlug: 'sports-leisure',
 		title: localized({
@@ -75,7 +75,7 @@ export const sportsLeisureScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant has come to a gym for the first time. A trainer with a tablet meets them by the machines, asks whether they are new and offers to put together a training programme. You play the trainer, with a consistent personality and an interest in selling personal training sessions. Ask about their goals, fitness level and any injuries, suggest a plan, and explain or demonstrate machines when asked. Respect the participant's decisions about what they buy. Do not invent the participant's goals or health. Stay in character.",
-	},*/
+	},
 	/*{
 		slug: 'sports-injury',
 		groupSlug: 'sports-leisure',

@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const localServicesScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'at-the-hairdresser',
 		groupSlug: 'local-services',
 		title: localized({
@@ -79,7 +79,7 @@ export const localServicesScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			"The participant walks into a hairdresser's. You play the hairdresser, with a consistent personality. Look up, greet them and ask how you can help. Let the participant explain what they want, ask clarifying questions about length, style and price, and offer advice when asked. Describe your work as the haircut goes on and react to the participant's comments. Do not decide for the participant what haircut they get. Stay in character.",
-	},*/
+	},
 	/*{
 		slug: 'shoe-repair',
 		groupSlug: 'local-services',

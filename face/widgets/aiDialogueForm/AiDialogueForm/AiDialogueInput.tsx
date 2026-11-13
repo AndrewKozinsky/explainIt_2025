@@ -67,6 +67,8 @@ function AiDialogueReplyForm({ dialogueId }: { dialogueId: number }) {
 				maxLength={MAX_DRAFT_LENGTH}
 				readOnly={readOnly}
 				spellCheck={false}
+				// Текст ответа виден в записях сессий PostHog (posthogConfig.unmaskedInputAttribute).
+				data-posthog-unmask
 				onChange={handleChange}
 				onSelect={rememberSelection}
 				onBlur={rememberSelection}

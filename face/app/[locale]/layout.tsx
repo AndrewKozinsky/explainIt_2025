@@ -5,6 +5,8 @@ import { routing } from '@/i18n/routing'
 import { getCurrentUser } from '@/shared/api/auth/getCurrentUser'
 import { Providers } from '@/shared/api/auth/Providers'
 import { UserProvider } from '@/shared/api/auth/UserProvider'
+import { getPosthogSettings } from '@/shared/posthog/fn/getPosthogSettings'
+import { PosthogProvider } from '@/shared/posthog/PosthogProvider'
 import { NotificationProvider } from '@/shared/ui/Notification/Notification'
 import MainPageLayout from '_pages/main/mainPageLayout/MainPageLayout/MainPageLayout'
 
@@ -22,6 +24,7 @@ export default async function LocaleLayout({
 	}
 
 	const [messages, user] = await Promise.all([getMessages(), getCurrentUser()])
+	const posthogSettings = getPosthogSettings()
 
 	return (
 		<NextIntlClientProvider locale={locale} messages={messages}>
@@ -29,7 +32,9 @@ export default async function LocaleLayout({
 				{/* Новый кэш запросов для каждой локали: сервер отдаёт тексты контента на языке интерфейса. */}
 				<Providers key={locale}>
 					<UserProvider user={user}>
-						<MainPageLayout>{children}</MainPageLayout>
+						<PosthogProvider settings={posthogSettings}>
+							<MainPageLayout>{children}</MainPageLayout>
+						</PosthogProvider>
 					</UserProvider>
 				</Providers>
 			</NotificationProvider>
