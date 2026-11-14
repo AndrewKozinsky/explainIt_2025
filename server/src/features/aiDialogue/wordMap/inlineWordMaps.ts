@@ -1,12 +1,16 @@
 import { z } from 'zod'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
-import { AiDialogueWordMapBlock, AiDialogueWordSelection } from 'types/aiDialogueWordMap'
+import { AiDialogueWord, AiDialogueWordMapBlock } from 'types/aiDialogueWordMap'
 import { Language } from 'utils/languages'
 import { tokenizeAiDialogueBlocks, phraseFromWordIds } from './buildAiDialogueWordMap'
 
-const referenceSchema = z.object({ text: z.string().min(1), occurrence: z.number().int().nonnegative() })
-const selectionSchema = z.object({ clicked: referenceSchema, words: z.array(referenceSchema).min(2) })
-const blockSchema = z.object({ content: z.string(), selections: z.array(z.unknown()) })
+/** A word is a plain string; a repeated word is [text, zero-based occurrence]. */
+const referenceSchema = z.union([
+	z.string().min(1),
+	z.tuple([z.string().min(1), z.number().int().nonnegative()]),
+])
+const groupSchema = z.array(referenceSchema).min(2)
+const blockSchema = z.object({ content: z.string(), groups: z.array(z.unknown()) })
 
 export function splitWordMapFooter(raw: string): { text: string; footer: string } {
 	const marker = /(?:^|\n)[ \t]*wordMaps:[ \t]*(?:\r?\n|$)/.exec(raw)
@@ -16,17 +20,22 @@ export function splitWordMapFooter(raw: string): { text: string; footer: string 
 		: { text: raw, footer: '' }
 }
 
-/** Bad metadata must not discard a valid reply or trigger another paid generation. */
+/**
+ * The model describes a whole content line or, more often, each of its sentences separately,
+ * so an entry is matched to every place where its text occurs in a block.
+ * Bad metadata must not discard a valid reply or trigger another paid generation.
+ */
 export function attachInlineWordMaps(events: AiDialogueEvent[], footer: string, language: Language): AiDialogueEvent[] {
-	const entries = new Map<string, unknown[]>()
+	const groupsByFragment = new Map<string, unknown[]>()
 
 	for (const line of footer.split('\n')) {
 		try {
 			const entry = blockSchema.parse(JSON.parse(line))
+			const fragment = entry.content.trim()
 
-			if (!entries.has(entry.content)) entries.set(entry.content, entry.selections)
+			if (fragment && !groupsByFragment.has(fragment)) groupsByFragment.set(fragment, entry.groups)
 		} catch {
-			// Other JSON lines remain usable; an absent map simply uses clicked words.
+			// Other JSON lines remain usable; text without a map leaves its words ungrouped.
 		}
 	}
 	return events.map((event) => {
@@ -34,30 +43,70 @@ export function attachInlineWordMaps(events: AiDialogueEvent[], footer: string, 
 		const blocks = tokenizeAiDialogueBlocks(event, language)
 
 		for (const block of Object.values(blocks)) {
-			const seen = new Set<number>()
+			const groupedWordIds = new Set<number>()
 
-			for (const candidate of entries.get(block.content) ?? []) {
-				const selection = resolveSelection(candidate, block)
-				if (!selection || seen.has(selection.wordId)) continue
-				seen.add(selection.wordId)
-				block.selections.push(selection)
+			for (const [fragment, groups] of groupsByFragment) {
+				for (const fragmentWords of findFragmentWords(block, fragment)) {
+					for (const candidate of groups) {
+						const wordIds = resolveGroup(candidate, fragmentWords)
+						// A word belongs to one group at most: the first valid group wins.
+						if (!wordIds || wordIds.some((wordId) => groupedWordIds.has(wordId))) continue
+
+						const phrase = phraseFromWordIds(block, wordIds)
+
+						for (const wordId of wordIds) {
+							groupedWordIds.add(wordId)
+							block.selections.push({ wordId, wordIds, phrase })
+						}
+					}
+				}
 			}
+
+			block.selections.sort((first, second) => first.wordId - second.wordId)
 		}
 
 		return { ...event, wordMap: { status: 'ready', blocks } }
 	})
 }
 
-function resolveSelection(candidate: unknown, block: AiDialogueWordMapBlock): AiDialogueWordSelection | null {
-	const result = selectionSchema.safeParse(candidate)
-	if (!result.success) return null
-	function resolve(reference: z.infer<typeof referenceSchema>): number | undefined {
-		return block.words.filter((word) => word.text === reference.text)[reference.occurrence]?.id
+/** Words of every occurrence of the fragment in the block; an occurrence that cuts a word in two is skipped. */
+function findFragmentWords(block: AiDialogueWordMapBlock, fragment: string): AiDialogueWord[][] {
+	const occurrences: AiDialogueWord[][] = []
+	let fragmentStart = block.content.indexOf(fragment)
+
+	while (fragmentStart !== -1) {
+		const fragmentEnd = fragmentStart + fragment.length
+		const cutsWord = block.words.some(
+			(word) =>
+				(word.start < fragmentStart && word.end > fragmentStart) ||
+				(word.start < fragmentEnd && word.end > fragmentEnd),
+		)
+
+		if (!cutsWord) {
+			occurrences.push(block.words.filter((word) => word.start >= fragmentStart && word.end <= fragmentEnd))
+		}
+
+		fragmentStart = block.content.indexOf(fragment, fragmentEnd)
 	}
-	const wordId = resolve(result.data.clicked)
-	const ids = result.data.words.map(resolve)
-	if (wordId === undefined || ids.some((id) => id === undefined)) return null
-	const wordIds = ids as number[]
-	if (!wordIds.includes(wordId) || wordIds.some((id, index) => index > 0 && id <= wordIds[index - 1])) return null
-	return { wordId, wordIds, phrase: phraseFromWordIds(block, wordIds) }
+
+	return occurrences
+}
+
+/** Returns the ids of the group's words in source order, or null when a reference is wrong. */
+function resolveGroup(candidate: unknown, fragmentWords: AiDialogueWord[]): number[] | null {
+	const group = groupSchema.safeParse(candidate)
+	if (!group.success) return null
+
+	const wordIds: number[] = []
+
+	for (const reference of group.data) {
+		const [text, occurrence] = typeof reference === 'string' ? [reference, 0] : reference
+		const wordId = fragmentWords.filter((word) => word.text === text)[occurrence]?.id
+		const previousWordId = wordIds[wordIds.length - 1]
+
+		if (wordId === undefined || (previousWordId !== undefined && wordId <= previousWordId)) return null
+		wordIds.push(wordId)
+	}
+
+	return wordIds
 }

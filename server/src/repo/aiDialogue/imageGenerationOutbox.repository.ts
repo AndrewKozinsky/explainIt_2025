@@ -10,7 +10,7 @@ export class ImageGenerationOutboxRepository {
 			where: pendingForAttempt(retryBefore),
 			orderBy: [{ updated_at: 'asc' }, { id: 'asc' }],
 			take: limit,
-			select: { id: true, job_id: true },
+			select: { id: true, job_id: true, job: { select: { created_at: true } } },
 		})
 	}
 

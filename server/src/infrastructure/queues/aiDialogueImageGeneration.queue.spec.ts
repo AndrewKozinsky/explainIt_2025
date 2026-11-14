@@ -8,6 +8,8 @@ import {
 	AI_DIALOGUE_IMAGE_GENERATION_JOB_NAME,
 } from './aiDialogueImageGeneration.types'
 
+const imageGenerationJob = { id: 42, createdAt: new Date('2026-11-14T10:00:00.000Z') }
+
 describe('AiDialogueImageGenerationQueue', () => {
 	it('uses a stable ID and retains completed and failed jobs for delivery deduplication', async () => {
 		const storedIds = new Set<string>()
@@ -18,18 +20,30 @@ describe('AiDialogueImageGenerationQueue', () => {
 			add,
 			waitUntilReady: jest.fn().mockResolvedValue(undefined),
 		} as unknown as Queue<AiDialogueImageGenerationJobData>)
-		await producer.enqueue(42)
-		await producer.enqueue(42)
+		await producer.enqueue(imageGenerationJob)
+		await producer.enqueue(imageGenerationJob)
 		expect(storedIds.size).toBe(1)
 		expect(add).toHaveBeenCalledWith(
 			AI_DIALOGUE_IMAGE_GENERATION_JOB_NAME,
 			{ imageGenerationJobId: 42 },
 			{
-				jobId: 'ai-dialogue-image-42',
+				jobId: 'ai-dialogue-image-42-1794650400000',
 				removeOnComplete: false,
 				removeOnFail: false,
 			},
 		)
+	})
+
+	it('gives a recreated database row with a reused ID a new queue job ID', async () => {
+		const add = jest.fn().mockResolvedValue(undefined)
+		const producer = new AiDialogueImageGenerationQueue({
+			add,
+			waitUntilReady: jest.fn().mockResolvedValue(undefined),
+		} as unknown as Queue<AiDialogueImageGenerationJobData>)
+		await producer.enqueue(imageGenerationJob)
+		await producer.enqueue({ id: 42, createdAt: new Date('2026-11-15T10:00:00.000Z') })
+		const queueJobIds = add.mock.calls.map((call) => call[2].jobId)
+		expect(new Set(queueJobIds).size).toBe(2)
 	})
 
 	it('propagates an enqueue failure so the outbox remains pending', async () => {
@@ -38,7 +52,7 @@ describe('AiDialogueImageGenerationQueue', () => {
 			add,
 			waitUntilReady: jest.fn().mockResolvedValue(undefined),
 		} as unknown as Queue<AiDialogueImageGenerationJobData>)
-		await expect(producer.enqueue(42)).rejects.toThrow('Redis unavailable')
+		await expect(producer.enqueue(imageGenerationJob)).rejects.toThrow('Redis unavailable')
 	})
 
 	it('bounds initial connection waiting and does not enqueue after timeout', async () => {
@@ -56,7 +70,7 @@ describe('AiDialogueImageGenerationQueue', () => {
 				add,
 				waitUntilReady,
 			} as unknown as Queue<AiDialogueImageGenerationJobData>)
-			const outcome = expect(producer.enqueue(42)).rejects.toThrow('readiness timed out')
+			const outcome = expect(producer.enqueue(imageGenerationJob)).rejects.toThrow('readiness timed out')
 			await jest.advanceTimersByTimeAsync(10_000)
 			await outcome
 			finishReady()

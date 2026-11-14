@@ -33,11 +33,14 @@ export class PublishImageGenerationOutbox {
 		}
 	}
 
-	private async publishEntry(entry: { id: number; job_id: number }, retryBefore: Date): Promise<void> {
+	private async publishEntry(
+		entry: { id: number; job_id: number; job: { created_at: Date } },
+		retryBefore: Date,
+	): Promise<void> {
 		try {
 			if (!(await this.repository.beginAttempt(entry.id, retryBefore))) return
 
-			await this.queue.enqueue(entry.job_id)
+			await this.queue.enqueue({ id: entry.job_id, createdAt: entry.job.created_at })
 			await this.repository.markPublished(entry.id)
 		} catch (error) {
 			const message = errorText(error)

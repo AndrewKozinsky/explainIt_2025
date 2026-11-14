@@ -16,7 +16,7 @@ jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
-function harness(footer = '\n\nwordMaps:\n{"content":"Hello","selections":[]}') {
+function harness(footer = '\n\nwordMaps:\n{"content":"Hello","groups":[]}') {
 	const timeline: string[] = []
 	const llm = {
 		stream: jest.fn(async function* (input: {

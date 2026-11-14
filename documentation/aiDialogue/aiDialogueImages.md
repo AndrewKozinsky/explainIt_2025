@@ -188,7 +188,10 @@ Job хранит цель, JSON input, статус, attempts/error; outbox — 
 Каскадное удаление владельца удаляет ассеты/задания в БД.
 
 Транзакция хода → outbox → BullMQ → worker → общий адаптер/OpenAI → проверка оригинала → R2 → ready в БД.
-Publisher HTTP каждые 5 секунд берёт до 20 записей. Детерминированный BullMQ jobId защищает от повторной доставки.
+Publisher HTTP каждые 5 секунд берёт до 25 записей. Детерминированный BullMQ jobId
+`ai-dialogue-image-<id>-<created_at в мс>` защищает от повторной доставки. Время создания в нём нужно потому, что BullMQ
+молча пропускает задание с занятым jobId: после сброса базы id записей начинаются заново, а завершённые задания
+остаются в Redis.
 Processor с concurrency=1 откладывает ожидание зависимостей/ошибки хранилища, освобождая слот.
 Статусы: queued, waitingDependencies, generating, ready, failed. attempts считает ошибки обработки.
 Генерация не запускается из SSE chunks/превью и не занимает ActiveAiDialogueGenerationRegistry.

@@ -1,7 +1,7 @@
 import { AiDialogueScenarioSeedData, localized, localizedList } from '../common'
 
 export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
-	/*{
+	{
 		slug: 'pharmacy-symptoms',
 		groupSlug: 'health-emergency',
 		title: localized({
@@ -75,7 +75,7 @@ export const healthEmergencyScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant walks into a pharmacy without a prescription. You play the pharmacist behind the counter, with a consistent personality. Ask what is bothering them and for how long, then ask follow-up questions about symptoms, allergies and other medication, one or two at a time. Recommend suitable over-the-counter options and explain how to take them, say when something needs a prescription and advise seeing a doctor if the symptoms sound serious. Let the participant describe their own complaint; do not invent their symptoms. Stay in character.',
-	},*/
+	},
 	/*{
 		slug: 'pharmacy-prescription',
 		groupSlug: 'health-emergency',

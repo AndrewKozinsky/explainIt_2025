@@ -7,16 +7,23 @@ jest.mock('@nestjs/common', () => ({
 jest.mock('@nestjs/schedule', () => ({ Interval: () => () => undefined }))
 jest.mock('@nestjs/bullmq', () => ({ InjectQueue: () => () => undefined }))
 
-import { PublishImageGenerationOutbox } from './PublishImageGenerationOutbox.service'
 import { ImageGenerationOutboxRepository } from 'repo/aiDialogue/imageGenerationOutbox.repository'
 import { AiDialogueImageGenerationQueue } from 'infrastructure/queues/aiDialogueImageGeneration.queue'
+import { PublishImageGenerationOutbox } from './PublishImageGenerationOutbox.service'
+
+const jobCreatedAt = new Date('2026-11-14T10:00:00.000Z')
+
+function outboxEntry(id: number, jobId: number) {
+	return { id, job_id: jobId, job: { created_at: jobCreatedAt } }
+}
+
+function queuedJob(jobId: number) {
+	return [{ id: jobId, createdAt: jobCreatedAt }]
+}
 
 function createHarness() {
 	const repository = {
-		getPendingBatch: jest.fn().mockResolvedValue([
-			{ id: 1, job_id: 10 },
-			{ id: 2, job_id: 20 },
-		]),
+		getPendingBatch: jest.fn().mockResolvedValue([outboxEntry(1, 10), outboxEntry(2, 20)]),
 		beginAttempt: jest.fn().mockResolvedValue(true),
 		markPublished: jest.fn().mockResolvedValue(undefined),
 		recordError: jest.fn().mockResolvedValue(undefined),
@@ -34,7 +41,7 @@ describe('PublishImageGenerationOutbox', () => {
 		const { repository, queue, publisher } = createHarness()
 		await publisher.publishPending()
 		expect(repository.getPendingBatch).toHaveBeenCalledWith(expect.any(Date), 25)
-		expect(queue.enqueue.mock.calls).toEqual([[10], [20]])
+		expect(queue.enqueue.mock.calls).toEqual([queuedJob(10), queuedJob(20)])
 		expect(repository.markPublished.mock.calls).toEqual([[1], [2]])
 		expect(repository.beginAttempt.mock.invocationCallOrder[0]).toBeLessThan(
 			queue.enqueue.mock.invocationCallOrder[0],
@@ -55,11 +62,11 @@ describe('PublishImageGenerationOutbox', () => {
 
 	it('redelivers the same DB job after acknowledgement fails', async () => {
 		const { repository, queue, publisher } = createHarness()
-		repository.getPendingBatch.mockResolvedValue([{ id: 1, job_id: 10 }])
+		repository.getPendingBatch.mockResolvedValue([outboxEntry(1, 10)])
 		repository.markPublished.mockRejectedValueOnce(new Error('DB unavailable'))
 		await publisher.publishPending()
 		await publisher.publishPending()
-		expect(queue.enqueue.mock.calls).toEqual([[10], [10]])
+		expect(queue.enqueue.mock.calls).toEqual([queuedJob(10), queuedJob(10)])
 		expect(repository.recordError).toHaveBeenCalledWith(1, 'DB unavailable')
 	})
 
@@ -67,7 +74,7 @@ describe('PublishImageGenerationOutbox', () => {
 		const { repository, queue, publisher } = createHarness()
 		repository.beginAttempt.mockResolvedValueOnce(false)
 		await publisher.publishPending()
-		expect(queue.enqueue.mock.calls).toEqual([[20]])
+		expect(queue.enqueue.mock.calls).toEqual([queuedJob(20)])
 		expect(repository.markPublished.mock.calls).toEqual([[2]])
 	})
 

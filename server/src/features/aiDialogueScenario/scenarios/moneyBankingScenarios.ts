@@ -80,7 +80,7 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		systemPrompt:
 			"The participant sent money to the wrong account by mistake and has come to a bank branch to try to get it back. You play the bank employee, with a consistent personality. Greet them and fill in the refund request yourself, asking when the transfer was made, how much was sent and to which account, one or two questions at a time. Explain the procedure realistically, including what the bank can and cannot guarantee, and answer the participant's questions. Do not invent the transfer details for the participant. Stay in character.",
 	},*/
-	/*{
+	{
 		slug: 'loan-application',
 		groupSlug: 'money-banking',
 		title: localized({
@@ -150,7 +150,7 @@ export const moneyBankingScenarios: AiDialogueScenarioSeedData[] = [
 		}),
 		systemPrompt:
 			'The participant has come to a bank to apply for a loan. You play the bank manager, with a consistent personality. Look through their documents, explain that you need proof of income and a guarantor, and ask whether they have them or need help preparing them. Ask about the purpose of the loan, the amount and their income, one or two questions at a time, and explain terms and rates when asked. Keep the terms consistent. Do not decide for the participant whether they take the loan. Stay in character.',
-	},*/
+	},
 	/*{
 		slug: 'currency-exchange',
 		groupSlug: 'money-banking',

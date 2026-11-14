@@ -209,7 +209,7 @@ function buildSystemMessage(
 		'<event description>',
 		translationPlaceholder,
 		'',
-		'Example (a dentist NPC replies to a patient; each speech/action is a label + content + translation triple):',
+		'Example of a complete response (a dentist NPC replies to a patient; each speech/action is a label + content + translation triple; the wordMaps: footer always closes the response):',
 		'npcActions|dentist_1|Dr. Lee|dentist|encouraging',
 		'speech:',
 		'Hello! How can I help you today?',
@@ -217,6 +217,11 @@ function buildSystemMessage(
 		'action:',
 		'gestures toward the chair',
 		'жестом показывает на кресло',
+		'',
+		'wordMaps:',
+		'{"content":"Hello!","groups":[]}',
+		'{"content":"How can I help you today?","groups":[["How","can","I","help","you"]]}',
+		'{"content":"gestures toward the chair","groups":[]}',
 		'',
 		'Rules:',
 		...rules,
@@ -262,6 +267,7 @@ function buildUserMessage(
 
 	lines.push(
 		"Generate the next turn in the specified format. If the encounter is ongoing, continue with npcActions; use worldEvent for background events. If either participant clearly ends it now, or it already ended in the history, begin the next encounter in this same response: optional brief closing npcActions, then sceneUpdate, then the next NPC's npcActions with a clear question or request. Do not wait for a separate departure action or another farewell.",
+		'The recent events above are shown without their wordMaps: footer. Your response is complete only when it ends with the wordMaps: footer covering every sentence you wrote.',
 	)
 
 	return lines.join('\n')
@@ -271,13 +277,15 @@ function wordMapRules(): string[] {
 	return [
 		'## Dictionary word maps (generate LAST, in this same response)',
 		'After all dialogue text and translations, add one blank line, then wordMaps: on its own line.',
-		'For EACH source-language content line in sceneUpdate, help, worldEvent and every NPC action/speech, output one compact JSON object on its own line: {"content":"exact source content line","selections":[{"clicked":{"text":"Do","occurrence":0},"words":[{"text":"Do","occurrence":0},{"text":"you","occurrence":0},{"text":"have","occurrence":0}]}]}. Escape JSON strings correctly. No markdown fences.',
-		'Analyze every sentence in each content line. A click selects the minimal original words needed for a dictionary lookup, never a translation, explanation or rewritten lemma. Include ONLY multiword expressions; independent words need no entry. Empty selections are valid.',
-		'Each text reference identifies a whole original word, with exact spelling/case; occurrence is its zero-based occurrence among identical words in that content line. Contractions such as "don’t" are one word. For languages without spaces, use ordinary word boundaries. Never calculate character offsets or token numbers.',
-		'Choose independently for each clicked word. Overlaps are allowed, but sharing an expression does not force identical click behavior. Include the clicked word in words. List expression words in their source order; keep them within one sentence.',
-		'For "Do you have anything to declare?": Do and have each select Do, you, have; you and anything have no entry; to and declare each select to, declare.',
-		'For "She put the beautifully wrapped birthday present that she had bought for her sister the day before away in the closet.": put and away each select ONLY put, away. Omit every intervening word. In "looks up at you", looks and up select looks, up. In "Ich rufe dich an", rufe and an select rufe, an; dich has no entry. Apply these principles to the participant’s actual language.',
-		'Do not map translation lines, English visual metadata, NPC headers or participant-authored history. The content field must exactly match its source content line.',
+		'For EACH sentence of every source-language content line in sceneUpdate, help, worldEvent and every NPC action/speech, output one compact JSON object on its own line: {"content":"exact source sentence","groups":[["Do","you","have"],["to","declare"]]}. A content line with three sentences gives three objects, in source order. Copy each sentence verbatim, character for character, with its punctuation, quotes and dashes. Escape JSON strings correctly. No markdown fences.',
+		'A group is the minimal set of original words that must be looked up together, because translating them one by one gives a wrong or meaningless result. A learner who clicks any word of a group gets the whole group in the dictionary. Words outside groups are looked up alone and are never listed. Empty groups are valid.',
+		'Group: phrasal and separable verbs, verbs with a preposition that changes their meaning, reflexive and compound verbs, compound nouns and collocations whose meaning differs from the sum of their words, idioms, fixed and correlative constructions, auxiliary constructions, and a preposition or particle together with the words that fix its meaning in this sentence. When unsure whether a word-by-word translation would mislead the learner, group.',
+		'Do not group words that keep their usual meaning: an article or adjective with a plain noun, a subject with a plain verb, a verb with a plain object. A group stays within one clause and is as short as possible; never group a whole long sentence.',
+		'Each group lists at least two whole original words in their source order, with exact spelling and case, never a translation, explanation or lemma. Leave out intervening words that are not part of the expression. A word belongs to at most one group. Contractions such as "don’t" are one word. For languages without spaces, use ordinary word boundaries.',
+		'Write a word as a plain string. Only when the same spelling occurs more than once in that sentence and you mean an occurrence after the first, write ["word", n], where n is its zero-based occurrence among identical words: in "Look at her, then look at me and get up", the second "at" is ["at",1]. Never calculate character offsets or token numbers.',
+		'Examples. "Do you have anything to declare?": ["Do","you","have"], ["to","declare"]; anything is alone. "We’ve got a security camera in this bit of the shop.": ["security","camera"]. "I don’t have a book down my trousers.": ["I","don’t","have"], ["down","my","trousers"]. "When I went back to the desk, you’d either wipe it and put it back or buy it.": ["went","back"], ["either","or"], ["put","back"]. "You belong in jail.": ["You","belong","in","jail"].',
+		'"She put the beautifully wrapped birthday present that she had bought for her sister the day before away in the closet.": ["put","away"] only, without the intervening words. "Ich rufe dich an.": ["rufe","an"]; dich is alone. "Je ne sais pas.": ["ne","sais","pas"]. "No me acuerdo de nada.": ["me","acuerdo","de"]. "Il y a un problème.": ["Il","y","a"]. "Size yardım edebilirim.": ["yardım","edebilirim"]. Apply these principles to the participant’s actual language; do not copy English patterns mechanically.',
+		'Do not map translation lines, English visual metadata, NPC headers or participant-authored history. The content field must exactly match its source sentence.',
 		'',
 	]
 }
