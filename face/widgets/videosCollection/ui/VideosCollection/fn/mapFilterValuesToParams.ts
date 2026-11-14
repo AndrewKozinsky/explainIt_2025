@@ -16,7 +16,7 @@ export function mapFilterValuesToParams(values: YouTubeVideosFilterValues): GetS
 		...duration,
 		proficiencyLevel: values.proficiencyKey ? Number(values.proficiencyKey) : undefined,
 		topic: values.topicKey || undefined,
-		languageCode: values.languageCode,
+		languageCode: values.languageCode ?? undefined,
 		sortBy: values.sortKey || undefined,
 		sortDirection: values.sortKey ? 'desc' : undefined,
 	}
