@@ -46,7 +46,7 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 	const selectedSentenceId = mediaStore((s) => s.selectedSentenceId)
 	const selectedWordId = mediaStore((s) => s.selectedWordId)
 
-	const { command, handleCommandHandled } = useVideoPlayback({ videoId, subtitles })
+	const { command, handleCommandHandled, stopAt, handleAutoStop } = useVideoPlayback({ videoId, subtitles })
 	const saveProgress = useMemo(() => localStorageManager.videoProgress.createSaver(videoId), [videoId])
 
 	const setPlayerState = useVideoStore((state) => state.setPlayerState)
@@ -60,6 +60,8 @@ function VideoClientWrapper(props: VideoClientWrapperProps) {
 				ratio={ratio ?? undefined}
 				command={command}
 				onCommandHandled={handleCommandHandled}
+				stopAt={stopAt}
+				onStopAtReached={handleAutoStop}
 				onTimeUpdate={(t) => setPlayerState({ currentTime: t })}
 				onDurationChange={(d) => setPlayerState({ duration: d })}
 				onPlayStateChange={(p) => setPlayerState({ paused: p })}

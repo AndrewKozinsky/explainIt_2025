@@ -17,6 +17,10 @@ export type VideoPlayerProps = {
 	command?: PlayerCommandEvent | null
 	/** Вызывается, когда адаптер принял команду. */
 	onCommandHandled?: (id: number) => void
+	/** Время (сек), на котором адаптер должен сам поставить паузу. null — без авто-остановки. */
+	stopAt?: null | number
+	/** Вызывается после того, как адаптер остановился на stopAt. */
+	onStopAtReached?: () => void
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
@@ -29,6 +33,8 @@ export type VideoPlayerProps = {
  *
  * Компонент не хранит команд, не задаёт политику воспроизведения и не
  * инициирует действий: он передаёт очередную команду выбранному адаптеру.
+ * Исключение — остановка на stopAt: её исполняет сам адаптер, потому что
+ * только он может поставить паузу без задержки.
  */
 function VideoPlayer(props: VideoPlayerProps) {
 	const { fileUrl, youTubeVideoId, ...commonProps } = props

@@ -15,6 +15,9 @@ let shadowTimer: null | ReturnType<typeof setTimeout> = null
 let shadowIndex = -1
 let revertToSeconds: null | number = null
 
+/** Если видео стоит к началу следующего субтитра ближе этого значения, шэдоуинг играет дальше без перемотки. */
+const ADJACENT_SUB_SEEK_TOLERANCE_SECONDS = 0.05
+
 function clearShadowTimer() {
 	if (shadowTimer == null) return
 	clearTimeout(shadowTimer)
@@ -49,7 +52,13 @@ function playNextShadowSubtitle(subtitles: Subtitle[]) {
 
 	shadowIndex = next
 
-	send({ type: 'SET_TIME', time: subtitles[next].fromSeconds })
+	// Соседние субтитры идут встык: видео уже стоит на начале следующего. Перемотка на доли
+	// секунды здесь вредна — YouTube после неё начинает играть не с запрошенного места.
+	const secondsToNextStart = Math.abs(subtitles[next].fromSeconds - getCurrentTime())
+	if (secondsToNextStart > ADJACENT_SUB_SEEK_TOLERANCE_SECONDS) {
+		send({ type: 'SET_TIME', time: subtitles[next].fromSeconds })
+	}
+
 	setStopAt(subtitles[next].toSeconds)
 	send({ type: 'PLAY' })
 }

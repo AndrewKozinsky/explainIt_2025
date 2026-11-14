@@ -37,17 +37,10 @@ export function useVideoPlayback(params: UseVideoPlaybackParams) {
 		useVideoStore.getState().setPlayerState({ commandQueue: queue.slice(1) })
 	}, [])
 
-	// Авто-остановка по stopAt
-	const currentTime = useVideoStore((state) => state.player.currentTime)
+	// Остановку на stopAt исполняет сам проигрыватель и сообщает о ней через handleAutoStop.
 	const stopAt = useVideoStore((state) => state.playback.stopAt)
-
-	useEffect(() => {
-		if (stopAt == null || currentTime < stopAt) return
-
-		handleAutoStop()
-	}, [currentTime, stopAt])
 
 	useVideoInput()
 
-	return { command, handleCommandHandled }
+	return { command, handleCommandHandled, stopAt, handleAutoStop }
 }

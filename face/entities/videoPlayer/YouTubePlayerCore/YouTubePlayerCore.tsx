@@ -1,10 +1,11 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
+import { useAutoStop } from '../VideoPlayer/fn/useAutoStop'
 import { useYouTubeController } from './fn/useYouTubeController'
 import { loadYouTubeIframeApi, YouTubePlayerState } from './fn/youTubeIframeApi'
 import type { YouTubePlayer } from './fn/youTubeIframeApi'
+import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
 import './YouTubePlayerCore.scss'
 
 // ── Props ──────────────────────────────────────────────────────────────
@@ -16,6 +17,8 @@ type YouTubePlayerCoreProps = {
 	initialTime?: number
 	command?: PlayerCommandEvent | null
 	onCommandHandled?: (id: number) => void
+	stopAt?: null | number
+	onStopAtReached?: () => void
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
@@ -37,6 +40,8 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 		initialTime,
 		command,
 		onCommandHandled,
+		stopAt,
+		onStopAtReached,
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
@@ -62,6 +67,24 @@ function YouTubePlayerCore(props: YouTubePlayerCoreProps) {
 	// ── Controller: исполнение команды, полученной через props ─────────
 
 	useYouTubeController(playerRef, isReady, command, { setCurrentTime, onTimeUpdate }, onCommandHandled)
+
+	// ── Авто-остановка на stopAt ──────────────────────────────────────
+
+	useAutoStop({
+		stopAt,
+		onStopAtReached,
+		getPlayer() {
+			const player = playerRef.current
+			if (!player || !isReady) return null
+
+			return {
+				isPlaying: () => player.getPlayerState() === YouTubePlayerState.PLAYING,
+				getCurrentTime: () => player.getCurrentTime(),
+				getPlaybackRate: () => player.getPlaybackRate(),
+				pause: () => player.pauseVideo(),
+			}
+		},
+	})
 
 	// ── Опрос времени ─────────────────────────────────────────────────
 

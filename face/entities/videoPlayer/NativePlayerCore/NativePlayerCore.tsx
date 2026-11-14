@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { usePlayerController } from '../VideoPlayer/fn/controller'
+import { useAutoStop } from '../VideoPlayer/fn/useAutoStop'
 import type { PlayerCommandEvent } from '../VideoPlayer/fn/types'
 import VideoProgress from './VideoProgress'
 
@@ -10,6 +11,8 @@ type NativePlayerCoreProps = {
 	initialTime?: number
 	command?: PlayerCommandEvent | null
 	onCommandHandled?: (id: number) => void
+	stopAt?: null | number
+	onStopAtReached?: () => void
 	onTimeUpdate?: (currentTime: number) => void
 	onDurationChange?: (duration: number) => void
 	onPlayStateChange?: (paused: boolean) => void
@@ -23,6 +26,8 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 		initialTime,
 		command,
 		onCommandHandled,
+		stopAt,
+		onStopAtReached,
 		onTimeUpdate,
 		onDurationChange,
 		onPlayStateChange,
@@ -35,6 +40,22 @@ function NativePlayerCore(props: NativePlayerCoreProps) {
 	const [duration, setDuration] = useState(0)
 
 	usePlayerController(playerRef, command, onCommandHandled)
+
+	useAutoStop({
+		stopAt,
+		onStopAtReached,
+		getPlayer() {
+			const video = playerRef.current
+			if (!video) return null
+
+			return {
+				isPlaying: () => !video.paused && !video.ended,
+				getCurrentTime: () => video.currentTime,
+				getPlaybackRate: () => video.playbackRate,
+				pause: () => video.pause(),
+			}
+		},
+	})
 
 	const syncTime = useCallback(
 		(time: number) => {
