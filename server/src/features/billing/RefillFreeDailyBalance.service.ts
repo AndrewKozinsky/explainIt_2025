@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common'
 import { Cron } from '@nestjs/schedule'
 import { UserRepository } from 'repo/user.repository'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { UserBalanceNotifications } from 'infrastructure/redis/userBalanceNotifications.service'
 import { getFreeDailyBalanceInMicrodollars } from './freeDailyBalance'
 
 /**
@@ -18,6 +19,7 @@ export class RefillFreeDailyBalance {
 	constructor(
 		private userRepository: UserRepository,
 		private mainConfig: MainConfigService,
+		private userBalanceNotifications: UserBalanceNotifications,
 	) {}
 
 	@Cron('0 0 * * *', { name: 'refillFreeDailyBalance', timeZone: 'UTC' })
@@ -31,6 +33,9 @@ export class RefillFreeDailyBalance {
 			})
 
 			this.logger.log(`Free daily balance refilled for ${updatedUsersCount} user(s)`)
+
+			// Открытые SSE перечитают баланс своих пользователей.
+			await this.userBalanceNotifications.publishAllBalancesChanged()
 		} catch (error) {
 			// Ошибка не роняет сервер: следующее начисление пройдёт по расписанию.
 			this.logger.error('Free daily balance refill failed', error)

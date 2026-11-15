@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { HashAdapterModule } from 'infrastructure/hashAdapter/hash-adapter.module'
+import { UserBalanceNotificationsModule } from 'infrastructure/redis/userBalanceNotifications.module'
 import { UserBalanceService } from './UserBalance.service'
 
 /**
@@ -10,7 +11,7 @@ import { UserBalanceService } from './UserBalance.service'
  */
 @Global()
 @Module({
-	imports: [HashAdapterModule],
+	imports: [HashAdapterModule, UserBalanceNotificationsModule],
 	providers: [PrismaService, UserRepository, UserBalanceService],
 	exports: [UserBalanceService],
 })

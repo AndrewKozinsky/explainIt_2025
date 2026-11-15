@@ -5,9 +5,11 @@ import {
 	Header,
 	HttpCode,
 	HttpStatus,
+	MessageEvent,
 	Patch,
 	Post,
 	Req,
+	Sse,
 	UploadedFile,
 	UseGuards,
 	UseInterceptors,
@@ -15,6 +17,8 @@ import {
 import { CommandBus } from '@nestjs/cqrs'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { ApiTags } from '@nestjs/swagger'
+import { Observable } from 'rxjs'
+import { OpenUserEventsStreamCommand } from 'features/user/events/OpenUserEventsStream.command'
 import { GetAvatarPresetsCommand } from 'features/user/GetAvatarPresets.command'
 import { GetUserByIdCommand } from 'features/user/GetUserById.command'
 import { UpdateUserProfileCommand } from 'features/user/UpdateUserProfile.command'
@@ -38,6 +42,12 @@ export class UserController {
 	@Get('me')
 	getMe(@Req() request: Request): Promise<UserOutModel> {
 		return this.commandBus.execute(new GetUserByIdCommand(request.session.userId!))
+	}
+
+	/** Личный SSE-поток пользователя: текущий баланс сразу и после каждого изменения (`UserStreamEvent`). */
+	@Sse('events')
+	events(@Req() request: Request): Promise<Observable<MessageEvent>> {
+		return this.commandBus.execute(new OpenUserEventsStreamCommand(request.session.userId!))
 	}
 
 	@ApiGetAvatarPresets()

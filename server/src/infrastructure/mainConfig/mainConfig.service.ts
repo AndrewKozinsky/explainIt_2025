@@ -60,11 +60,6 @@ export class MainConfigService {
 				url: enVariables.redisUrl,
 				sessionsFolder: 'sessions',
 			},
-			yooKassa: {
-				rootUrl: 'https://api.yookassa.ru/v3/',
-				shopId: enVariables.yooKassa.shopId,
-				secretKey: enVariables.yooKassa.secretKey,
-			},
 			openAI: {
 				apiKey: enVariables.openAi.apiKey,
 				// Цены за 1M токенов, стандартный тариф (https://developers.openai.com/api/docs/pricing, ноябрь 2026)
@@ -252,10 +247,6 @@ export class MainConfigService {
 			resendApiKey: this.configService.get<string>('RESEND_API_KEY') as string,
 			jwtSecret: this.configService.get<string>('JWT_SECRET') as string,
 			redisUrl: this.configService.get<string>('REDIS_URL') as string,
-			yooKassa: {
-				shopId: this.configService.get<string>('YOOKASSA_SHOP_ID') as string,
-				secretKey: this.configService.get<string>('YOOKASSA_SECRET_KEY') as string,
-			},
 			openAi: {
 				apiKey: this.configService.get<string>('OPENAI_API_KEY') as string,
 			},

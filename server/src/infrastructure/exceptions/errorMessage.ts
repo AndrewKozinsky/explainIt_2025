@@ -26,10 +26,6 @@ export const errorMessage = {
 	},
 
 	balanceExhausted: { code: 'BALANCE_EXHAUSTED' }, // Дневной баланс израсходован: запрос к ИИ не выполнен. Баланс восстановится в 00:00 UTC.
-	insufficientBalanceForTranslation: { code: 'INSUFFICIENT_BALANCE_FOR_TRANSLATION' }, // Недостаточно средств на балансе для перевода.
-	paymentIdIsRequiredForPaymentTransactions: { code: 'PAYMENT_ID_IS_REQUIRED_FOR_PAYMENT_TRANSACTIONS' }, // Payment ID is required for payment transactions
-	cannotDepositAmountLessThanZero: { code: 'CANNOT_DEPOSIT_AMOUNT_LESS_THAN_ZERO' }, // You cannot deposit an amount less than zero into your balance.
-	cannotWriteOffAmountGreaterThanZero: { code: 'CANNOT_WRITE_OFF_AMOUNT_GREATER_THAN_ZERO' }, // You cannot write off an amount greater than zero from your balance.
 	invalidSrtFormat: { code: 'INVALID_SRT_FORMAT' }, // Invalid SRT format
 	invalidSrtTimeFormat: { code: 'INVALID_SRT_TIME_FORMAT' }, // Invalid SRT time format
 
@@ -89,9 +85,6 @@ export const errorMessage = {
 	unknownError: { code: 'UNKNOWN_ERROR' }, // Неизвестная ошибка сервера.
 	cannotSaveSession: { code: 'CANNOT_SAVE_SESSION' }, // Невозможно сохранить сессию
 	onlyDevMode: { code: 'ONLY_DEV_MODE' }, // Работает только в режиме разработки.
-
-	// YOOKASSA
-	yookassaCannotCreatePayment: { code: 'YOOKASSA_CANNOT_CREATE_PAYMENT' }, // Не удалось создать платеж .
 
 	book: {
 		notCreated: { code: 'BOOK_NOT_CREATED' }, // Книга не создана.

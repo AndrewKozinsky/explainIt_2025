@@ -8,17 +8,21 @@ jest.mock('@nestjs/common', () => ({
 jest.mock('@nestjs/schedule', () => ({ Cron: () => () => undefined }))
 jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
+jest.mock('infrastructure/redis/userBalanceNotifications.service', () => ({ UserBalanceNotifications: class {} }))
 import { UserRepository } from 'repo/user.repository'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { UserBalanceNotifications } from 'infrastructure/redis/userBalanceNotifications.service'
 import { RefillFreeDailyBalance } from './RefillFreeDailyBalance.service'
 
-function createRefill(increaseBalanceOfAllUsers: jest.Mock) {
+function createRefill(increaseBalanceOfAllUsers: jest.Mock, publishAllBalancesChanged = jest.fn()) {
 	const userRepository = { increaseBalanceOfAllUsers } as unknown as UserRepository
 	const mainConfig = {
 		get: () => ({ billing: { freeDailyBalanceInDollars: 0.1 } }),
 	} as unknown as MainConfigService
 
-	return new RefillFreeDailyBalance(userRepository, mainConfig)
+	const userBalanceNotifications = { publishAllBalancesChanged } as unknown as UserBalanceNotifications
+
+	return new RefillFreeDailyBalance(userRepository, mainConfig, userBalanceNotifications)
 }
 
 describe('RefillFreeDailyBalance', () => {
@@ -31,6 +35,14 @@ describe('RefillFreeDailyBalance', () => {
 			amountInMicrodollars: 100_000,
 			maxBalanceInMicrodollars: 100_000,
 		})
+	})
+
+	it('после начисления сообщает открытым SSE, что балансы изменились', async () => {
+		const publishAllBalancesChanged = jest.fn()
+
+		await createRefill(jest.fn().mockResolvedValue(3), publishAllBalancesChanged).refill()
+
+		expect(publishAllBalancesChanged).toHaveBeenCalledTimes(1)
 	})
 
 	it('не падает при ошибке базы: следующее начисление пройдёт по расписанию', async () => {

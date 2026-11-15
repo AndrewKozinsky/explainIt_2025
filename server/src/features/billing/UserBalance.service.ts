@@ -11,6 +11,7 @@ import { ImageGenerationTokenUsage } from 'infrastructure/imageGenerationProvide
 import { LlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { PosthogService } from 'infrastructure/posthog/posthog.service'
+import { UserBalanceNotifications } from 'infrastructure/redis/userBalanceNotifications.service'
 import {
 	calculateFlux3ImageCostInDollars,
 	calculateLlmCostInDollars,
@@ -37,6 +38,7 @@ export class UserBalanceService {
 		private userRepository: UserRepository,
 		private mainConfig: MainConfigService,
 		private posthog: PosthogService,
+		private userBalanceNotifications: UserBalanceNotifications,
 	) {}
 
 	/** Бросает 402 BALANCE_EXHAUSTED, если баланс не больше нуля, и отправляет событие в аналитику. */
@@ -147,7 +149,10 @@ export class UserBalanceService {
 		await this.charge(input.userId, input.feature, costInDollars)
 	}
 
-	/** Списывает стоимость и сообщает аналитике, если именно это списание исчерпало баланс. */
+	/**
+	 * Списывает стоимость, сообщает новый баланс открытым SSE пользователя
+	 * и сообщает аналитике, если именно это списание исчерпало баланс.
+	 */
 	private async charge(userId: number, feature: BillableAiFeature, costInDollars: number): Promise<void> {
 		const amountInMicrodollars = costInDollarsToMicrodollarsCharge(costInDollars)
 		if (amountInMicrodollars <= 0) return
@@ -155,6 +160,9 @@ export class UserBalanceService {
 		try {
 			const balanceAfter = await this.userRepository.decreaseBalance(userId, amountInMicrodollars)
 			const balanceBefore = balanceAfter + amountInMicrodollars
+
+			// Без ожидания: недоступный Redis не должен задерживать ответ пользователю.
+			void this.userBalanceNotifications.publishUserBalanceChanged(userId, balanceAfter)
 
 			if (balanceBefore > 0 && balanceAfter <= 0) {
 				await this.posthog.captureBalanceExhausted(userId, feature)

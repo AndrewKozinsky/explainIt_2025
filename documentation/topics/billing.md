@@ -101,15 +101,3 @@
 - `ai_request_blocked_by_balance` — запрос к ИИ отклонён из-за баланса.
 
 Свойство `feature` — функция из `server/src/types/billableAiFeature.ts`.
-
-## Оплата через ЮKassa
-
-Код пополнения баланса через ЮKassa сохранён на будущее, но отключён:
-
-- модули `PaymentModule`, `YooKassaModule`, `WebhookModule` не подключены в `AppModule`;
-- файлы ЮKassa исключены из компиляции в `server/tsconfig.json` и `server/tsconfig.build.json` (`infrastructure/yooKassa`,
-  `features/payment`, `routes/payment`, `routes/webhook`, `models/payment`, `repo/payment.repository.ts`,
-  `repo/userBalanceTransaction.repository.ts`).
-
-Таблиц `Payment` и `UserBalanceTransaction` в базе нет. Чтобы вернуть ЮKassa, нужно восстановить их в `dbConfig.ts`
-и перевести код на микродоллары.

@@ -134,6 +134,22 @@ export class UserRepository {
 	}
 
 	/**
+	 * Балансы нескольких пользователей в микродолларах.
+	 * @returns Записи только существующих пользователей.
+	 */
+	@CatchDbError()
+	async getBalancesOfUsers(userIds: number[]): Promise<Array<{ userId: number; balance: number }>> {
+		if (!userIds.length) return []
+
+		const users = await this.prisma.user.findMany({
+			where: { id: { in: userIds } },
+			select: { id: true, balance: true },
+		})
+
+		return users.map((user) => ({ userId: user.id, balance: user.balance }))
+	}
+
+	/**
 	 * Уменьшает баланс пользователя атомарно: параллельные списания не теряются. Баланс может стать отрицательным.
 	 * @param amountInMicrodollars Сумма уменьшения.
 	 * @returns Баланс после уменьшения.
