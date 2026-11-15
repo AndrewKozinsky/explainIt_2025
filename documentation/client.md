@@ -1,6 +1,6 @@
 # Client (face)
 
-Клиент находится в папке `face/`. Сделано с помощью NextJS, GraphQL, SCSS.
+Клиент находится в папке `face/`. Сделан на Next.js, TanStack Query, Zustand, next-intl и SCSS.
 
 Адреса страниц находятся в переменной pageUrls в файле face/shared/utils/pageUrls.ts. Не нужно писать адрес обычной
 строкой.
@@ -29,15 +29,16 @@ scoping.
 - стилизовать из своего SCSS классы или теги дочернего компонента. Родитель задаёт расположение ребёнка через
   свою обёртку (`.ai-dialogue-card__scene`), а не через классы ребёнка.
 
-Put reusable UI elements in the 'face/ui' directory.
+Put reusable UI elements in the 'face/shared/ui' directory.
 
 Тексты ошибок сервера на языках интерфейса лежат в `face/messages/{locale}/serverErrors.json` (ключ — код ошибки). Новый
 код добавляется во все файлы локалей. Подробнее: `documentation/topics/internationalization.md`.
 
-Данные пользователя можно взять из `face/stores/userStore.ts`.
+Текущего пользователя возвращает `useUser()` из `face/shared/api/auth/UserProvider.tsx`. Подробнее:
+`documentation/topics/clientUserData.md`.
 
 Чтобы показать уведомление нужно подключить
-```import { NotificationContext } from '@/ui/Notification/context'```
+```import { NotificationContext } from '@/shared/ui/Notification/fn/context'```
 Затем получить функцию
 ```const { notify } = useContext(NotificationContext)```
 и вызвать её

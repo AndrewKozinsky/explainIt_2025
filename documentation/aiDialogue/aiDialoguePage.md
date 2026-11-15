@@ -237,6 +237,9 @@ AiDialogueContentBlock, HelpMessage и WorldEventMessage раскрывают с
 Уход от NPC не требует грамматической проверки. Enter выполняет доступную проверку/отправку,
 Shift+Enter добавляет перенос. Тексты очищаются только после успешной отправки.
 
+Пока дневной лимит ИИ исчерпан, вместо формы показывается `BalanceExhaustedNotice`; черновик при этом не сохраняется.
+После начисления форма возвращается без перезагрузки ([billing.md](../topics/billing.md#баланс-в-реальном-времени)).
+
 Состояния формы, правила двух вкладок, отмена, доступ к микрофону, тесты и ключевые файлы:
 [`aiDialogueForm.md`](aiDialogueForm.md). Серверные контракты:
 [`aiDialogueMessageCheck.md`](aiDialogueMessageCheck.md), [`aiDialogueDictation.md`](aiDialogueDictation.md).

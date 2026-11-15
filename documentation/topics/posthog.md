@@ -65,6 +65,7 @@ PostHog работает, только если одновременно вып�
 | `dialogue_started` | создан диалог | `dialogue_id`, `scenario_id`, `practice_language`, `max_cefr_level`, `illustration_style_id`, `has_scenario_amendment` |
 | `first_message_sent` | первое отправленное сообщение пользователя в диалоге (реплика и/или действие; уход от NPC не считается) | `dialogue_id` |
 | `dialogue_help_used` | проверка черновика (`check`) или нажатие на слово — перевод предложения и словарь (`translation`) | `dialogue_id`, `kind` |
+| `pricing_link_clicked` | нажата кнопка «Посмотреть тарифы» в сообщении о дневном лимите ИИ | `placement`: `start_dialogue_modal`, `dialogue_page`, `sentence_chat` |
 
 ## Сервер
 

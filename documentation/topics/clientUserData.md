@@ -61,6 +61,8 @@ Singleton сервиса не хранит cookies или пользовател
 
 `UserProvider` одновременно обновляет React Context и кэш под доменным ключом `userQueryKeys.me()`:
 `['user', 'me']`. Вход, OAuth и выход используют существующий `useSetUser()`.
+Баланс вошедшего пользователя `UserProvider` держит актуальным через SSE-поток `/api/user/events`
+([billing.md](billing.md#баланс-в-реальном-времени)); остальные поля обновляются только при чтении пользователя.
 Контекст и запросы фасада получают одинаковый тип данных.
 Сгенерированные `useUserControllerGetMe` и ключ `/api/user/me` напрямую в UI не используются;
 они относятся к транспортному слою и имеют другой формат ответа.
@@ -75,7 +77,9 @@ Singleton сервиса не хранит cookies или пользовател
 | `entities/user/UserService.ts` | Доменный сервис и готовый экземпляр `userService` |
 | `entities/user/UserQueryFacade.ts` | `userQueries` и единые ключи `userQueryKeys` |
 | `shared/api/auth/getCurrentUser.ts` | SSR-адаптер над сервисом, возвращающий `UserModel \| null` |
-| `shared/api/auth/UserProvider.tsx` | Контекст, предзагрузка кэша и `useSetUser` |
+| `shared/api/auth/UserProvider.tsx` | Контекст, предзагрузка кэша, `useSetUser` и обновление баланса из SSE |
+| `entities/user/events/openUserEventsStream.ts` | Личный SSE-поток пользователя: событие `balance` |
+| `entities/user/fn/useIsBalanceExhausted.ts` | Исчерпан ли дневной лимит ИИ |
 | `shared/api/auth/Providers.tsx` | QueryClientProvider со staleTime 5 минут |
 | `shared/api/getApiInternalUrl.ts` | Выбор внутреннего адреса API для SSR |
 | `shared/api/mutator.ts` | HTTP-транспорт, cookies и обработка ответов |

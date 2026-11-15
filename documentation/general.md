@@ -3,9 +3,10 @@
 ## О чём это приложение
 
 Веб-приложение для изучения иностранных языков: английского, испанского, французского, немецкого, итальянского,
-турецкого и русского (список — `face/shared/utils/languages.ts`). Интерфейс переведён на те же 7 языков. Сервис
-бесплатный: оплаты нет, но расходы на ИИ ограничены дневным балансом. Работает как адаптивный сайт, мобильного
-приложения нет.
+турецкого и русского (список — `face/shared/utils/languages.ts`). Интерфейс переведён на те же 7 языков. Каждый
+пользователь получает бесплатный дневной лимит на ИИ; когда он исчерпан, сайт предлагает посмотреть тарифы с
+подпиской. Оплата тарифов пока не подключена: тарифы только показываются, чтобы оценить интерес к платной версии.
+Работает как адаптивный сайт, мобильного приложения нет.
 
 ### Главный раздел — диалоги с ИИ
 
@@ -84,5 +85,5 @@ docker compose -f docker-compose.local.dev.intl.yml --project-directory .. --env
 | `documentation/topics/restAndDtoDecorators.md` | REST, контроллер, controller, DTO, DtoFieldDecorators, декораторы, bdConfig, OpenAPI, Swagger, миграция с GraphQL, ApiProperty |
 | `documentation/topics/emails.md` | письма, email, Resend, подтверждение почты, восстановление пароля, AuthEmailService, EmailAdapterService, шаблоны писем |
 | `documentation/topics/posthog.md` | PostHog, аналитика, события, запись сессий, session replay, capturePosthogEvent, identify, баннер cookies, CookieBannerIntl, политика конфиденциальности immersia.site, PrivacyPolicyIntlPage |
-| `documentation/topics/billing.md` | баланс, оплата, микродоллары, дневной лимит, списание за ИИ, цены поставщиков ИИ, UserBalanceService, BALANCE_EXHAUSTED, 402 |
+| `documentation/topics/billing.md` | баланс, тарифы, /pricing, оплата, микродоллары, дневной лимит, списание за ИИ, цены поставщиков ИИ, UserBalanceService, BALANCE_EXHAUSTED, 402, баланс в реальном времени, /api/user/events, SSE пользователя, Redis Pub/Sub, BalanceExhaustedNotice, useIsBalanceExhausted |
 | `documentation/topics/openapiCodegen.md` | Orval, генерация клиентских функций, OpenAPI, React Query, orval, codegen, npm run orval, mutator, shared/api |
