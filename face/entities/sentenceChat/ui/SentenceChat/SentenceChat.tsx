@@ -1,3 +1,4 @@
+import BalanceExhaustedNotice from '@/entities/user/ui/BalanceExhaustedNotice/BalanceExhaustedNotice'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import ChatInput from '../ChatInput/ChatInput'
 import MessageList from '../MessageList/MessageList'
@@ -20,6 +21,8 @@ function SentenceChat(props: SentenceChatProps) {
 				{!isLoadingThread && !threadError && <MessageList messages={messages} />}
 				{threadError && <ErrorMessage text={threadError} />}
 			</div>
+
+			<BalanceExhaustedNotice placement='sentence_chat' />
 
 			<div className='sentence-chat__input'>
 				<ChatInput isGenerating={isGenerating} onSend={sendQuestion} onCancel={cancelGeneration} />

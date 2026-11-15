@@ -11,6 +11,7 @@
   "audio": {
     "play": "Dinle",
     "stop": "Durdur",
-    "failed": "Seslendirilemedi. Tekrar dene"
+    "failed": "Seslendirilemedi. Tekrar dene",
+    "limitReached": "Seslendirme kullanılamıyor: günlük yapay zekâ limitine ulaşıldı"
   }
 }

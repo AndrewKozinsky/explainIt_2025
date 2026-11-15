@@ -11,6 +11,7 @@
   "audio": {
     "play": "Anhören",
     "stop": "Stoppen",
-    "failed": "Wiedergabe fehlgeschlagen. Erneut versuchen"
+    "failed": "Wiedergabe fehlgeschlagen. Erneut versuchen",
+    "limitReached": "Audio nicht verfügbar: tägliches KI-Limit erreicht"
   }
 }

@@ -24,6 +24,7 @@ export default function DialogueAudioButton({ address, colorScheme = 'dark' }: D
 			colorScheme={colorScheme}
 			rounded
 			onClick={audioButtonConfig.handleClick}
+			disabled={audioButtonConfig.isUnavailable}
 			aria-label={audioButtonConfig.text}
 			title={audioButtonConfig.text}
 			aria-pressed={audioButtonConfig.isPlaying}

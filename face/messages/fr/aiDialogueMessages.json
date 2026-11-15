@@ -11,6 +11,7 @@
   "audio": {
     "play": "Écouter",
     "stop": "Arrêter",
-    "failed": "Lecture impossible. Réessayer"
+    "failed": "Lecture impossible. Réessayer",
+    "limitReached": "Audio indisponible : limite quotidienne d’IA atteinte"
   }
 }

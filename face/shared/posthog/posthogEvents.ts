@@ -39,9 +39,10 @@ type DialogueHelpUsedEvent = {
 
 /**
  * Где показана ссылка на тарифы:
- * `start_dialogue_modal` — окно запуска сценария, `dialogue_page` — страница диалога вместо формы ответа.
+ * `start_dialogue_modal` — окно запуска сценария, `dialogue_page` — страница диалога вместо формы ответа,
+ * `sentence_chat` — чат о предложении на странице видео.
  */
-export type PricingLinkPlacement = 'start_dialogue_modal' | 'dialogue_page'
+export type PricingLinkPlacement = 'start_dialogue_modal' | 'dialogue_page' | 'sentence_chat'
 
 /** Нажата ссылка на тарифы в сообщении об исчерпанном дневном лимите ИИ. */
 type PricingLinkClickedEvent = {

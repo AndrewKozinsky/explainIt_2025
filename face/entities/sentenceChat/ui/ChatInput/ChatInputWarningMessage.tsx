@@ -5,8 +5,6 @@ import { pageUrls } from '@/shared/utils/pageUrls'
 
 function ChatInputWarningMessage() {
 	const user = useUser()
-	const hasBalance = (user?.balance ?? 0) > 0
-
 	let warningMessage: React.ReactNode = ''
 
 	if (!user) {
@@ -17,18 +15,6 @@ function ChatInputWarningMessage() {
 					в учётную запись
 				</Link>{' '}
 				чтобы задать вопрос.
-			</>
-		)
-	}
-
-	if (user && !hasBalance) {
-		warningMessage = (
-			<>
-				Общение с ИИ расходует баланс.{' '}
-				<Link href={pageUrls.me.path} className='link'>
-					Пополните
-				</Link>
-				, чтобы продолжить.
 			</>
 		)
 	}

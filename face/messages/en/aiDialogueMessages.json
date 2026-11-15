@@ -11,6 +11,7 @@
   "audio": {
     "play": "Play audio",
     "stop": "Stop",
-    "failed": "Could not play audio. Retry"
+    "failed": "Could not play audio. Retry",
+    "limitReached": "Audio unavailable: daily AI limit reached"
   }
 }

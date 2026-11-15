@@ -11,6 +11,7 @@
   "audio": {
     "play": "Escuchar",
     "stop": "Detener",
-    "failed": "No se pudo reproducir. Reintentar"
+    "failed": "No se pudo reproducir. Reintentar",
+    "limitReached": "Audio no disponible: límite diario de IA alcanzado"
   }
 }

@@ -2,6 +2,8 @@ import { useTranslations } from 'next-intl'
 import IllustrationStyleSwitcher from '@/entities/aiDialogue/ui/IllustrationStyleSwitcher/IllustrationStyleSwitcher'
 import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
+import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
+import BalanceExhaustedNotice from '@/entities/user/ui/BalanceExhaustedNotice/BalanceExhaustedNotice'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
@@ -25,6 +27,7 @@ type Props = {
 export default function StartDialogueModal({ scenario, groupTitle, loading, onClose, onStart }: Props) {
 	const t = useTranslations('aiDialogueScenariosList.startModal')
 	const settings = useStartDialogueOptions()
+	const isBalanceExhausted = useIsBalanceExhausted()
 
 	return (
 		<Modal isOpen close={onClose} extraClass='start-dialogue-modal'>
@@ -70,18 +73,22 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 						rows: 3,
 					}}
 				/>
-				<Button
-					theme='accent'
-					icon={<ArrowRightPureButtonIcon />}
-					size='big'
-					loading={loading}
-					disabled={!settings.options}
-					onClick={() => {
-						if (settings.options) onStart(settings.options)
-					}}
-				>
-					{t('start')}
-				</Button>
+				{isBalanceExhausted ? (
+					<BalanceExhaustedNotice placement='start_dialogue_modal' />
+				) : (
+					<Button
+						theme='accent'
+						icon={<ArrowRightPureButtonIcon />}
+						size='big'
+						loading={loading}
+						disabled={!settings.options}
+						onClick={() => {
+							if (settings.options) onStart(settings.options)
+						}}
+					>
+						{t('start')}
+					</Button>
+				)}
 			</div>
 		</Modal>
 	)
