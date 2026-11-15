@@ -1,0 +1,6 @@
+{
+	"title": "Ihr tägliches KI-Limit ist erreicht.",
+	"refill": "Das Limit wird {day, select, today {heute} other {morgen}} um {time} erneuert.",
+	"subscription": "Um ohne Einschränkungen weiterzumachen, schließen Sie ein Abonnement ab.",
+	"pricingButton": "Tarife ansehen"
+}

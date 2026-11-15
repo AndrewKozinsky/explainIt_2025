@@ -1,0 +1,6 @@
+{
+	"title": "Günlük yapay zekâ limitinize ulaştınız.",
+	"refill": "Limitiniz {day, select, today {bugün} other {yarın}} saat {time} itibarıyla yenilenecek.",
+	"subscription": "Sınırsız devam etmek için bir abonelik seçin.",
+	"pricingButton": "Planları görün"
+}

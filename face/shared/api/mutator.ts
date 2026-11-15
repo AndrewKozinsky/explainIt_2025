@@ -1,3 +1,4 @@
+import { notifyBalanceExhausted } from '@/shared/api/balanceExhaustedSignal'
 import { getApiInternalUrl } from '@/shared/api/getApiInternalUrl'
 import { getRequestLocale } from '@/shared/api/getRequestLocale'
 
@@ -70,11 +71,15 @@ export async function customMutator<TResponse = unknown>(url: string, options?: 
 
 	if (!res.ok) {
 		let body: unknown
+
 		try {
 			body = await res.json()
 		} catch {
 			body = await res.text()
 		}
+
+		// 402 сервер возвращает только при исчерпанном балансе (BALANCE_EXHAUSTED).
+		if (res.status === 402 && typeof window !== 'undefined') notifyBalanceExhausted()
 		throw new ApiError(res.status, body)
 	}
 

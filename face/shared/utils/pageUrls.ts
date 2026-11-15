@@ -104,6 +104,10 @@ export const pageUrls = {
 		nameKey: 'help' as const satisfies PageNameKey,
 		path: '/help',
 	},
+	pricing: {
+		nameKey: 'pricing' as const satisfies PageNameKey,
+		path: '/pricing',
+	},
 	me: {
 		nameKey: 'me' as const satisfies PageNameKey,
 		path: '/me',

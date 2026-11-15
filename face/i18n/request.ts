@@ -13,6 +13,7 @@ const messageNamespaces = [
 	'aiDialoguesPage',
 	'aiDialogueScenariosList',
 	'auth',
+	'balanceExhaustedNotice',
 	'contactsPage',
 	'cookieBannerIntl',
 	'dictionary',

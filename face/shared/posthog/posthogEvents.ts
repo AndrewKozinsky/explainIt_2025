@@ -38,11 +38,24 @@ type DialogueHelpUsedEvent = {
 }
 
 /**
+ * Где показана ссылка на тарифы:
+ * `start_dialogue_modal` — окно запуска сценария, `dialogue_page` — страница диалога вместо формы ответа.
+ */
+export type PricingLinkPlacement = 'start_dialogue_modal' | 'dialogue_page'
+
+/** Нажата ссылка на тарифы в сообщении об исчерпанном дневном лимите ИИ. */
+type PricingLinkClickedEvent = {
+	name: 'pricing_link_clicked'
+	placement: PricingLinkPlacement
+}
+
+/**
  * События продукта, которые отправляются в PostHog.
  * Название события — `name`, остальные поля — его свойства.
  * Регистрация отправляется с сервера, поэтому её здесь нет.
  */
-export type PosthogEvent = ScenarioOpenedEvent | DialogueStartedEvent | FirstMessageSentEvent | DialogueHelpUsedEvent
+export type PosthogEvent =
+	ScenarioOpenedEvent | DialogueStartedEvent | FirstMessageSentEvent | DialogueHelpUsedEvent | PricingLinkClickedEvent
 
 /**
  * Отправляет событие в PostHog.
