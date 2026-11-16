@@ -1,0 +1,33 @@
+{
+	"features": {
+		"scenarios": "All conversation scenarios",
+		"tools": "Reply checks, dictation, audio and illustrations"
+	},
+	"freePlan": {
+		"tagline": "All features",
+		"title": "Free",
+		"limit": "A small daily AI limit",
+		"limitCarryover": "Unused limit doesn’t carry over to the next day"
+	},
+	"subscriptionPlan": {
+		"tagline": "All features, limit × {multiplier}",
+		"title": "Subscription",
+		"limit": "A daily AI limit {multiplier} times higher",
+		"limitCarryover": "Unused limit carries over to the next day",
+		"duration": "{days} days, no auto-renewal",
+		"pricePeriod": "for {days} days",
+		"chooseButton": "Choose"
+	},
+	"limitNote": {
+		"refillLocal": "The limit resets every day at {time} your time.",
+		"refillUtc": "The limit resets every day at 00:00 UTC.",
+		"overrun": "If an AI response goes over the limit, it isn’t cut off: the excess is deducted from the next day’s limit."
+	},
+	"afterSubscription": {
+		"title": "After the subscription ends",
+		"freePlan": "You switch to the free plan.",
+		"noRenewal": "No automatic renewals or charges.",
+		"carryover": "Carried-over limit is not kept.",
+		"dialogues": "All your conversations are kept."
+	}
+}

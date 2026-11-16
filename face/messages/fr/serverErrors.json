@@ -12,7 +12,7 @@
   "USER_INVALID_AVATAR_PRESET": "Avatar prêt à l’emploi introuvable. Actualisez la liste et réessayez.",
   "USER_INVALID_PROFILE_UPDATE": "Impossible d’enregistrer les données du profil. Vérifiez les valeurs choisies.",
   "USER_INVALID_AVATAR_PHOTO": "Choisissez une photo JPEG, PNG ou WebP sans animation, jusqu’à 30 Mo et 80 millions de pixels.",
-  "BALANCE_EXHAUSTED": "Vous avez atteint votre limite quotidienne d’IA. Pour continuer sans limites, souscrivez un abonnement.",
+  "BALANCE_EXHAUSTED": "Vous avez atteint votre limite quotidienne d’IA. Avec un abonnement, la limite quotidienne est bien plus élevée.",
   "INVALID_SRT_FORMAT": "Format SRT non valide.",
   "INVALID_SRT_TIME_FORMAT": "Format d’horodatage SRT non valide.",
   "SESSION_TOKEN_IS_NOT_VALID": "Le jeton de session n’est pas valide.",

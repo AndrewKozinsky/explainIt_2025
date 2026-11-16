@@ -1,0 +1,33 @@
+{
+	"features": {
+		"scenarios": "Tüm sohbet senaryoları",
+		"tools": "Cevap kontrolü, dikte, seslendirme ve görseller"
+	},
+	"freePlan": {
+		"tagline": "Tüm özellikler",
+		"title": "Ücretsiz",
+		"limit": "Küçük bir günlük yapay zekâ limiti",
+		"limitCarryover": "Kullanılmayan limit ertesi güne aktarılmaz"
+	},
+	"subscriptionPlan": {
+		"tagline": "Tüm özellikler, limit × {multiplier}",
+		"title": "Abonelik",
+		"limit": "{multiplier} kat daha yüksek günlük yapay zekâ limiti",
+		"limitCarryover": "Kullanılmayan limit ertesi güne aktarılır",
+		"duration": "{days} gün, otomatik yenileme yok",
+		"pricePeriod": "{days} gün için",
+		"chooseButton": "Seç"
+	},
+	"limitNote": {
+		"refillLocal": "Limit her gün yerel saatinizle {time} itibarıyla yenilenir.",
+		"refillUtc": "Limit her gün 00:00 UTC itibarıyla yenilenir.",
+		"overrun": "Bir yapay zekâ cevabı limiti aşarsa kesilmez: aşan kısım ertesi günün limitinden düşülür."
+	},
+	"afterSubscription": {
+		"title": "Abonelik bittikten sonra",
+		"freePlan": "Ücretsiz plana geçersiniz.",
+		"noRenewal": "Otomatik yenileme veya ödeme alınmaz.",
+		"carryover": "Aktarılan limit korunmaz.",
+		"dialogues": "Tüm sohbetleriniz saklanır."
+	}
+}

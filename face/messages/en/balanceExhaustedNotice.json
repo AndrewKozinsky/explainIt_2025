@@ -1,6 +1,6 @@
 {
 	"title": "Your daily AI limit has been reached.",
 	"refill": "The limit resets {day, select, today {today} other {tomorrow}} at {time}.",
-	"subscription": "To continue without limits, choose a subscription.",
+	"subscription": "With a subscription, the daily limit is {multiplier} times higher.",
 	"pricingButton": "View plans"
 }

@@ -12,7 +12,7 @@
   "USER_INVALID_AVATAR_PRESET": "Fertiger Avatar nicht gefunden. Aktualisieren Sie die Liste und versuchen Sie es erneut.",
   "USER_INVALID_PROFILE_UPDATE": "Die Profildaten konnten nicht gespeichert werden. Prüfen Sie die ausgewählten Werte.",
   "USER_INVALID_AVATAR_PHOTO": "Wählen Sie ein JPEG-, PNG- oder WebP-Foto ohne Animation, bis 30 MB und 80 Millionen Pixel.",
-  "BALANCE_EXHAUSTED": "Ihr tägliches KI-Limit ist erreicht. Um ohne Einschränkungen weiterzumachen, schließen Sie ein Abonnement ab.",
+  "BALANCE_EXHAUSTED": "Ihr tägliches KI-Limit ist erreicht. Mit einem Abonnement ist das tägliche Limit deutlich höher.",
   "INVALID_SRT_FORMAT": "Ungültiges SRT-Format.",
   "INVALID_SRT_TIME_FORMAT": "Ungültiges SRT-Zeitformat.",
   "SESSION_TOKEN_IS_NOT_VALID": "Das Sitzungstoken ist ungültig.",

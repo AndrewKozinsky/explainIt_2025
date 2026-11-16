@@ -27,6 +27,7 @@ const messageNamespaces = [
 	'mainPageNoTrip',
 	'mainPageScenarios',
 	'mePage',
+	'pricingPage',
 	'pageUrls',
 	'siteMeta',
 	'userAiDialogues',

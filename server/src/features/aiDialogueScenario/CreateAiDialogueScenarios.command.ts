@@ -16,6 +16,7 @@ import { localServicesScenarios } from './scenarios/localServicesScenarios'
 import { misunderstandingsAndConflictsScenarios } from './scenarios/misunderstandingsAndConflictsScenarios'
 import { moneyBankingScenarios } from './scenarios/moneyBankingScenarios'
 import { relationshipsScenarios } from './scenarios/relationshipsScenarios'
+import { studyScenarios } from './scenarios/studyScenarios'
 import { techServicesScenarios } from './scenarios/techServicesScenarios'
 import { transportCarScenarios } from './scenarios/transportCarScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
@@ -76,7 +77,7 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			...healthEmergencyScenarios,
 			...transportCarScenarios,
 			...moneyBankingScenarios,
-			// ...studyScenarios,
+			...studyScenarios,
 			...kidsFamilyScenarios,
 			...techServicesScenarios,
 			...localServicesScenarios,

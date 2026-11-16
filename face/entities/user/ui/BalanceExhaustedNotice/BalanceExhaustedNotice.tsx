@@ -1,12 +1,14 @@
 'use client'
 
 import { useLocale, useTranslations } from 'next-intl'
+import { formatBalanceRefillTime } from '@/entities/user/fn/getNextBalanceRefill'
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
+import { useNextBalanceRefill } from '@/entities/user/fn/useNextBalanceRefill'
+import { pricingConfig } from '@/shared/consts/pricingConfig'
 import { type PricingLinkPlacement, capturePosthogEvent } from '@/shared/posthog/posthogEvents'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import { useNextBalanceRefill } from './fn/useNextBalanceRefill'
 import './BalanceExhaustedNotice.scss'
 
 type BalanceExhaustedNoticeProps = {
@@ -28,9 +30,7 @@ function BalanceExhaustedNotice(props: BalanceExhaustedNoticeProps) {
 
 	if (!isBalanceExhausted) return null
 
-	const refillTimeText = balanceRefill
-		? new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit' }).format(balanceRefill.refillTime)
-		: null
+	const refillTimeText = balanceRefill ? formatBalanceRefillTime(balanceRefill.refillTime, locale) : null
 
 	return (
 		<div className='balance-exhausted-notice' role='status'>
@@ -40,7 +40,7 @@ function BalanceExhaustedNotice(props: BalanceExhaustedNoticeProps) {
 				<p className='balance-exhausted-notice__text'>
 					{refillTimeText &&
 						t('refill', { day: balanceRefill?.isToday ? 'today' : 'tomorrow', time: refillTimeText }) + ' '}
-					{t('subscription')}
+					{t('subscription', { multiplier: pricingConfig.subscriptionLimitMultiplier })}
 				</p>
 				<Button
 					theme='accent'

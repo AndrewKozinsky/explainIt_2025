@@ -19,3 +19,8 @@ function isSameLocalDate(firstDate: Date, secondDate: Date): boolean {
 		firstDate.getDate() === secondDate.getDate()
 	)
 }
+
+/** Время начисления в часовом поясе браузера: «03:00», «3:00 AM» — по правилам языка интерфейса. */
+export function formatBalanceRefillTime(refillTime: number, locale: string): string {
+	return new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit' }).format(refillTime)
+}

@@ -12,7 +12,7 @@
   "USER_INVALID_AVATAR_PRESET": "Ready-made avatar not found. Refresh the list and try again.",
   "USER_INVALID_PROFILE_UPDATE": "Could not save the profile data. Check the selected values.",
   "USER_INVALID_AVATAR_PHOTO": "Choose a JPEG, PNG or WebP photo without animation, up to 30 MB and 80 million pixels.",
-  "BALANCE_EXHAUSTED": "Your daily AI limit has been reached. To continue without limits, choose a subscription.",
+  "BALANCE_EXHAUSTED": "Your daily AI limit has been reached. With a subscription, the daily limit is much higher.",
   "INVALID_SRT_FORMAT": "Invalid SRT format.",
   "INVALID_SRT_TIME_FORMAT": "Invalid SRT time format.",
   "SESSION_TOKEN_IS_NOT_VALID": "The session token is not valid.",

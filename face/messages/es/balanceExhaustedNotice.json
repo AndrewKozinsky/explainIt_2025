@@ -1,6 +1,6 @@
 {
 	"title": "Ha alcanzado su límite diario de IA.",
 	"refill": "El límite se renovará {day, select, today {hoy} other {mañana}} a las {time}.",
-	"subscription": "Para continuar sin límites, suscríbase a un plan.",
+	"subscription": "Con una suscripción, el límite diario es {multiplier} veces mayor.",
 	"pricingButton": "Ver planes"
 }

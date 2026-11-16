@@ -1,0 +1,33 @@
+{
+	"features": {
+		"scenarios": "Tutti gli scenari di conversazione",
+		"tools": "Verifica delle risposte, dettatura, audio e illustrazioni"
+	},
+	"freePlan": {
+		"tagline": "Tutte le funzioni",
+		"title": "Gratis",
+		"limit": "Un piccolo limite giornaliero di IA",
+		"limitCarryover": "Il limite non usato non passa al giorno successivo"
+	},
+	"subscriptionPlan": {
+		"tagline": "Tutte le funzioni, limite × {multiplier}",
+		"title": "Abbonamento",
+		"limit": "Un limite giornaliero di IA {multiplier} volte più alto",
+		"limitCarryover": "Il limite non usato passa al giorno successivo",
+		"duration": "{days} giorni senza rinnovo automatico",
+		"pricePeriod": "per {days} giorni",
+		"chooseButton": "Scegli"
+	},
+	"limitNote": {
+		"refillLocal": "Il limite si rinnova ogni giorno alle {time}, ora locale.",
+		"refillUtc": "Il limite si rinnova ogni giorno alle 00:00 UTC.",
+		"overrun": "Se una risposta dell’IA supera il limite, non viene interrotta: l’eccedenza viene sottratta dal limite del giorno successivo."
+	},
+	"afterSubscription": {
+		"title": "Alla fine dell’abbonamento",
+		"freePlan": "Passa al piano gratuito.",
+		"noRenewal": "Nessun rinnovo né addebito automatico.",
+		"carryover": "Il limite accumulato non viene conservato.",
+		"dialogues": "Tutte le sue conversazioni restano salvate."
+	}
+}

@@ -1,0 +1,70 @@
+@use '@/styles/variables' as vars;
+
+.pricing-plan-card {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	box-sizing: border-box;
+	height: 100%;
+	padding: 3.2rem;
+}
+
+.pricing-plan-card__tagline {
+	margin-bottom: -1.6rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color: vars.$grayColor-5;
+}
+
+.pricing-plan-card__title {
+	font-size: 3.6rem;
+	line-height: 4.2rem;
+	font-weight: 700;
+	color: vars.$textColor;
+}
+
+.pricing-plan-card__title--accent {
+	color: vars.$accentColor-2;
+}
+
+.pricing-plan-card__limit {
+	font-size: 2rem;
+	line-height: 2.6rem;
+	font-weight: 600;
+}
+
+.pricing-plan-card__features {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.pricing-plan-card__feature {
+	display: flex;
+	align-items: flex-start;
+	gap: .8rem;
+	font-size: 1.7rem;
+	line-height: 2.4rem;
+}
+
+.pricing-plan-card__feature-icon {
+	flex-shrink: 0;
+	margin-top: .2rem;
+}
+
+.pricing-plan-card__conditions {
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
+}
+
+.pricing-plan-card__condition {
+	font-size: 1.5rem;
+	line-height: 2.1rem;
+	color: vars.$grayColor-5;
+}
+
+.pricing-plan-card__purchase {
+	margin-top: auto;
+	padding-top: 1.2rem;
+}

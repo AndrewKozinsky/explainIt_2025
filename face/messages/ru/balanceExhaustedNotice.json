@@ -1,6 +1,6 @@
 {
 	"title": "Дневной лимит ИИ исчерпан.",
 	"refill": "Лимит обновится {day, select, today {сегодня} other {завтра}} в {time}.",
-	"subscription": "Чтобы продолжить без ограничений, оформите подписку.",
+	"subscription": "С подпиской дневной лимит в {multiplier, plural, one {# раз} few {# раза} many {# раз} other {# раза}} больше.",
 	"pricingButton": "Посмотреть тарифы"
 }

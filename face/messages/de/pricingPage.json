@@ -1,0 +1,33 @@
+{
+	"features": {
+		"scenarios": "Alle Gesprächsszenarien",
+		"tools": "Prüfung Ihrer Antworten, Diktat, Vertonung und Illustrationen"
+	},
+	"freePlan": {
+		"tagline": "Alle Funktionen",
+		"title": "Kostenlos",
+		"limit": "Ein kleines tägliches KI-Limit",
+		"limitCarryover": "Nicht genutztes Limit wird nicht auf den nächsten Tag übertragen"
+	},
+	"subscriptionPlan": {
+		"tagline": "Alle Funktionen, Limit × {multiplier}",
+		"title": "Abonnement",
+		"limit": "Ein {multiplier}-mal höheres tägliches KI-Limit",
+		"limitCarryover": "Nicht genutztes Limit wird auf den nächsten Tag übertragen",
+		"duration": "{days} Tage ohne automatische Verlängerung",
+		"pricePeriod": "für {days} Tage",
+		"chooseButton": "Auswählen"
+	},
+	"limitNote": {
+		"refillLocal": "Das Limit wird jeden Tag um {time} Ihrer Ortszeit erneuert.",
+		"refillUtc": "Das Limit wird jeden Tag um 00:00 UTC erneuert.",
+		"overrun": "Überschreitet eine KI-Antwort das Limit, wird sie nicht abgebrochen: Der Überschuss wird vom Limit des nächsten Tages abgezogen."
+	},
+	"afterSubscription": {
+		"title": "Nach Ablauf des Abonnements",
+		"freePlan": "Sie wechseln zum kostenlosen Tarif.",
+		"noRenewal": "Keine automatischen Verlängerungen oder Abbuchungen.",
+		"carryover": "Übertragenes Limit verfällt.",
+		"dialogues": "Alle Ihre Gespräche bleiben erhalten."
+	}
+}

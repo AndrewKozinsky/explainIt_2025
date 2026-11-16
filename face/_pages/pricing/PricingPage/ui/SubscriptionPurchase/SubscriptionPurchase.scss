@@ -1,0 +1,19 @@
+@use '@/styles/variables' as vars;
+
+.subscription-purchase {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 2rem;
+}
+
+.subscription-purchase__amount {
+	font-size: 4.4rem;
+	line-height: 5rem;
+	font-weight: 700;
+}
+
+.subscription-purchase__period {
+	font-size: 1.6rem;
+	color: vars.$grayColor-5;
+}
