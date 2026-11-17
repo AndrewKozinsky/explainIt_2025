@@ -2,24 +2,24 @@ import { CommandBus, CommandHandler, ICommand, ICommandHandler } from '@nestjs/c
 import { BookRepository } from 'repo/book/book.repository'
 import { BookChapterRepository } from 'repo/bookChapter/bookChapter.repository'
 import { CreateBookChapterCommand } from 'features/bookChapter/CreateBookChapter.command'
-import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
-import {
-	theCountOfMonteCristoBookData,
-	theCountOfMonteCristoChapters,
-} from 'features/bookPublic/french/theCountOfMonteCristo/theCountOfMonteCristoBook'
-import {
-	theLittlePrinceBookData,
-	theLittlePrinceChapters,
-} from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
-import { processBookData, processChapters } from 'features/bookPublic/german/process/process'
-import {
-	theTransformationBookData,
-	theTransformationChapters,
-} from 'features/bookPublic/german/theTransformation/theTransformation'
-import { heartBookData, heartChapters } from 'features/bookPublic/italian/heart/heart'
-import { pinocchioBookData, pinocchioChapters } from 'features/bookPublic/italian/pinocchio/pinocchio'
-import { donQuixoteBookData, donQuixoteChapters } from 'features/bookPublic/spanish/donQuixote/donQuixote'
-import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
+// import { oliverTwistBookData, oliverTwistChapters } from 'features/bookPublic/english/oliverTwist/Oliver Twist'
+// import {
+// 	theCountOfMonteCristoBookData,
+// 	theCountOfMonteCristoChapters,
+// } from 'features/bookPublic/french/theCountOfMonteCristo/theCountOfMonteCristoBook'
+// import {
+// 	theLittlePrinceBookData,
+// 	theLittlePrinceChapters,
+// } from 'features/bookPublic/french/theLittlePrince/theLittlePrinceBook'
+// import { processBookData, processChapters } from 'features/bookPublic/german/process/process'
+// import {
+// 	theTransformationBookData,
+// 	theTransformationChapters,
+// } from 'features/bookPublic/german/theTransformation/theTransformation'
+// import { heartBookData, heartChapters } from 'features/bookPublic/italian/heart/heart'
+// import { pinocchioBookData, pinocchioChapters } from 'features/bookPublic/italian/pinocchio/pinocchio'
+// import { donQuixoteBookData, donQuixoteChapters } from 'features/bookPublic/spanish/donQuixote/donQuixote'
+// import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
 import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -27,25 +27,25 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
 import { CreateBookPublicInput, CreatePublicBookCommand } from './CreatePublicBook.command'
-import {
-	aStudyInScarletPartOneBookData,
-	aStudyInScarletPartOneChapters,
-} from './english/aStudyInScarletPartOne/aStudyInScarletPartOneBook'
-import {
-	aStudyInScarletPartTwoBookData,
-	aStudyInScarletPartTwoChapters,
-} from './english/aStudyInScarletPartTwo/aStudyInScarletPartTwoBook'
+// import {
+// 	aStudyInScarletPartOneBookData,
+// 	aStudyInScarletPartOneChapters,
+// } from './english/aStudyInScarletPartOne/aStudyInScarletPartOneBook'
+// import {
+// 	aStudyInScarletPartTwoBookData,
+// 	aStudyInScarletPartTwoChapters,
+// } from './english/aStudyInScarletPartTwo/aStudyInScarletPartTwoBook'
 // import { secretCluesBookData, secretCluesChapters } from './english/secretClues/secretCluesBook'
-import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
+// import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './english/wizardOfOz/wizardOfOzBook'
-import {
-	littleRedRidingHoodBookData,
-	littleRedRidingHoodChapters,
-} from './german/littleRedRidingHood/littleRedRidingHood'
-import {
-	nasreddinHodjaStoriesBookData,
-	nasreddinHodjaStoriesChapters,
-} from './turkish/nasreddinHodjaStories/nasreddinHodjaStories'
+// import {
+// 	littleRedRidingHoodBookData,
+// 	littleRedRidingHoodChapters,
+// } from './german/littleRedRidingHood/littleRedRidingHood'
+// import {
+// 	nasreddinHodjaStoriesBookData,
+// 	nasreddinHodjaStoriesChapters,
+// } from './turkish/nasreddinHodjaStories/nasreddinHodjaStories'
 
 export class CreatePublicBooksCommand implements ICommand {
 	constructor() {}
@@ -86,71 +86,67 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 				book: wizardOfOzBookData(s3FolderName + 'english/'),
 				chapters: wizardOfOzChapters,
 			},
-			{
+			/*{
 				book: solomonMinesBookData(s3FolderName + 'english/'),
 				chapters: solomonMinesChapters,
-			},
-			{
+			},*/
+			/*{
 				book: oliverTwistBookData(s3FolderName + 'english/'),
 				chapters: oliverTwistChapters,
-			},
-			{
+			},*/
+			/*{
 				book: aStudyInScarletPartOneBookData(s3FolderName + 'english/'),
 				chapters: aStudyInScarletPartOneChapters,
-			},
-			{
+			},*/
+			/*{
 				book: aStudyInScarletPartTwoBookData(s3FolderName + 'english/'),
 				chapters: aStudyInScarletPartTwoChapters,
-			},
-			/*{
-				book: secretCluesBookData(s3FolderName + 'english/'),
-				chapters: secretCluesChapters,
 			},*/
 			// German
-			{
+			/*{
 				book: littleRedRidingHoodBookData(s3FolderName + 'german/'),
 				chapters: littleRedRidingHoodChapters,
-			},
-			{
+			},*/
+			/*{
 				book: theTransformationBookData(s3FolderName + 'german/'),
 				chapters: theTransformationChapters,
-			},
-			{
+			},*/
+			/*{
 				book: processBookData(s3FolderName + 'german/'),
 				chapters: processChapters,
-			},
+			},*/
 			// Spanish
-			{
+			/*{
 				book: jungleTalesBookData(s3FolderName + 'spanish/'),
 				chapters: jungleTalesChapters,
-			},
-			{
+			},*/
+			/*{
 				book: donQuixoteBookData(s3FolderName + 'spanish/'),
 				chapters: donQuixoteChapters,
-			},
+			},*/
 			// French
-			{
+			/*{
 				book: theLittlePrinceBookData(s3FolderName + 'french/'),
 				chapters: theLittlePrinceChapters,
-			},
-			{
+			},*/
+			/*{
 				book: theCountOfMonteCristoBookData(s3FolderName + 'french/'),
 				chapters: theCountOfMonteCristoChapters,
-			},
+			},*/
 			// Italian
-			{
+			/*{
 				book: heartBookData(s3FolderName + 'italian/'),
 				chapters: heartChapters,
-			},
-			{
+			},*/
+			/*{
 				book: pinocchioBookData(s3FolderName + 'italian/'),
 				chapters: pinocchioChapters,
-			},
+			},*/
 			// Turkish
-			{
+			/*{
 				book: nasreddinHodjaStoriesBookData(s3FolderName + 'turkish/'),
 				chapters: nasreddinHodjaStoriesChapters,
-			},
+			},*/
 		]
 	}
 
