@@ -28,7 +28,7 @@
 
 - `face` — фронтенд: Next.js, next-intl, SCSS, TanStack Query (клиент API генерируется Orval из OpenAPI), Zustand.
 - `server` — бэкенд: NestJS + CQRS, REST, Prisma (PostgreSQL), Redis, BullMQ worker (изображения, субтитры),
-  файлы в Cloudflare R2.
+  [хранение файлов](topics/fileStorage.md).
 - `nlp` — сервис деления текста на предложения (Python, FastAPI).
 - `help` — справка для пользователей на Docusaurus, отдаётся по `/help` через nginx.
 - `docker` — compose-файлы, env-файлы и скрипты запуска.
@@ -79,6 +79,7 @@ docker compose -f docker-compose.local.dev.intl.yml --project-directory .. --env
 | `documentation/topics/userProfile.md` | профиль пользователя, пол, gender, готовые аватары, avatar-presets, загрузка фотографии, ImageProcessingService |
 | `documentation/topics/internationalization.md` | i18n, интернационализация, языки, локали, next-intl, перевод интерфейса, locale |
 | `documentation/topics/multiRegionDeployment.md` | регионы, деплой, GitHub Actions, explainit.ru, immersia.site, серверы, CI/CD |
+| [`documentation/topics/fileStorage.md`](topics/fileStorage.md) | хранилища explainit.ru и immersia.site, Cloudflare R2, S3, бакеты, ключи по MODE, подписанные ссылки, перенос файлов |
 | `documentation/topics/sentenceChat.md` | чат с ИИ, sentence chat, диалог, SentenceChat, chat thread |
 | `documentation/topics/imageGenerationProviderAdapter.md` | универсальный адаптер изображений, ImageGenerationAdapterService, ImageGenerationProvider, внешний запрос изображений |
 | `documentation/topics/ttsProviderAdapter.md` | адаптер озвучки, text to speech, TTS, TtsAdapterService, TtsProviderModule, OpenAI TTS, Google TTS, синтез речи |

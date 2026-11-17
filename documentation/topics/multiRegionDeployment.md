@@ -7,7 +7,8 @@
 | Российская | `explainit.ru` | `185.170.10.212` | `ru` |
 | Международная | `immersia.site` | отдельный сервер | `intl` |
 
-Код один и тот же. Разница только в значении переменной окружения `NEXT_PUBLIC_REGION`, которую получает контейнер `face` (Next.js). На её основе клиентский код может включать разную логику для разных регионов.
+Обе версии используют общую кодовую базу. Регион задаётся через `REGION` на сервере и `NEXT_PUBLIC_REGION` в Next.js.
+Хранилища для двух сайтов и ключи по окружению описаны в [правилах хранения файлов](fileStorage.md).
 
 ## Как работает развёртывание
 
@@ -96,7 +97,9 @@ Docker-compose файлы **не редактируются вручную**. О
 | `mode` | `Mode` | `localTest`, `localDev`, `localCheckServer`, `serverDevelop`, `serverMaster` |
 | `region` | `Region` | `'ru'`, `'intl'` |
 
-Регион влияет только на:
+Регион задаёт следующие параметры:
+
+- `REGION` в контейнерах сервера и воркера (через `getServerEnvs`)
 - `NEXT_PUBLIC_REGION` в face-контейнере (через `getFaceEnvs`)
 - Домены `VIRTUAL_HOST`/`LETSENCRYPT_HOST` в nginx-контейнере (через `getNginxEnvs`)
 

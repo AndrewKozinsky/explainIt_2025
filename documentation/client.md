@@ -51,3 +51,4 @@ Put reusable UI elements in the 'face/shared/ui' directory.
 
 Адреса статических файлов клиента (иконки и картинки из `face/public`, файлы публичного бакета R2 на
 `https://files.immersia.site`) собраны в `face/shared/utils/filesUrls.ts`. Не нужно писать адрес файла обычной строкой.
+Публичный бакет и серверные файлы описаны в [правилах хранения файлов](topics/fileStorage.md).
