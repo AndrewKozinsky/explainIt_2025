@@ -7,8 +7,8 @@ function PricingContent() {
 	return (
 		<div className='pricing-page__content'>
 			<PricingPlans />
-			<LimitRefillNote />
 			<AfterSubscription />
+			<LimitRefillNote />
 		</div>
 	)
 }

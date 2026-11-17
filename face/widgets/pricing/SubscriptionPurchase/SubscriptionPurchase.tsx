@@ -22,7 +22,7 @@ function SubscriptionPurchase() {
 					{t('pricePeriod', { days: pricingConfig.subscriptionDurationInDays })}
 				</span>
 			</p>
-			<Button theme='accent' size='big'>
+			<Button theme='accent' size='custom' extraClass='subscription-purchase__button'>
 				{t('chooseButton')}
 			</Button>
 		</div>

@@ -10,7 +10,7 @@ type PricingPlanCardProps = {
 	/** Название тарифа акцентным цветом. */
 	isAccent?: boolean
 	features: string[]
-	/** Главное отличие тарифов — дневной лимит; выделяется сильнее возможностей. */
+	/** Описание дневного лимита. */
 	limit: string
 	conditions: string[]
 	/** Цена и кнопка выбора. */
@@ -23,10 +23,13 @@ function PricingPlanCard(props: PricingPlanCardProps) {
 
 	return (
 		<section className='pricing-plan-card'>
-			<p className='pricing-plan-card__tagline'>{tagline}</p>
-			<h2 className={cn('pricing-plan-card__title', isAccent && 'pricing-plan-card__title--accent')}>{title}</h2>
-			<p className='pricing-plan-card__limit'>{limit}</p>
-			<ul className='pricing-plan-card__features'>
+			<header className='pricing-plan-card__heading'>
+				<p className='pricing-plan-card__tagline'>{tagline}</p>
+				<h2 className={cn('pricing-plan-card__title', isAccent && 'pricing-plan-card__title--accent')}>
+					{title}
+				</h2>
+			</header>
+			<ul className='pricing-plan-card__features' role='list'>
 				{features.map((feature) => (
 					<li key={feature} className='pricing-plan-card__feature'>
 						<CheckIcon extraClass='pricing-plan-card__feature-icon' />
@@ -34,14 +37,15 @@ function PricingPlanCard(props: PricingPlanCardProps) {
 					</li>
 				))}
 			</ul>
-			<ul className='pricing-plan-card__conditions'>
-				{conditions.map((condition) => (
-					<li key={condition} className='pricing-plan-card__condition'>
-						{condition}
-					</li>
-				))}
-			</ul>
-			{children && <div className='pricing-plan-card__purchase'>{children}</div>}
+			<div className='pricing-plan-card__rules'>
+				<p>{limit}</p>
+				<ul className='pricing-plan-card__conditions' role='list'>
+					{conditions.map((condition) => (
+						<li key={condition}>{condition}</li>
+					))}
+				</ul>
+			</div>
+			{children}
 		</section>
 	)
 }

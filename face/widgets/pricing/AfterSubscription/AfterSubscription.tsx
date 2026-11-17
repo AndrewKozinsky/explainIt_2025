@@ -1,5 +1,4 @@
 import { useTranslations } from 'next-intl'
-import Header from '@/shared/ui/Header/Header'
 import './AfterSubscription.scss'
 
 function AfterSubscription() {
@@ -7,9 +6,7 @@ function AfterSubscription() {
 
 	return (
 		<section className='pricing-page__after-subscription'>
-			<Header hTag={2} hStyle={3}>
-				{t('title')}
-			</Header>
+			<h2 className='pricing-page__after-subscription-title'>{t('title')}</h2>
 			<p>{t('freePlan')}</p>
 			<p>{t('noRenewal')}</p>
 			<p>{t('carryover')}</p>

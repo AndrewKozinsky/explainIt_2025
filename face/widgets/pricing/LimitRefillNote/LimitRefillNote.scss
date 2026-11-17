@@ -1,6 +1,7 @@
 @use '@/styles/variables' as vars;
 
 .limit-refill-note {
+	max-width: 64.3rem;
 	font-size: 1.4rem;
 	line-height: 2rem;
 	color: vars.$grayColor-5;

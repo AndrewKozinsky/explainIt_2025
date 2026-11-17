@@ -3,8 +3,9 @@
 .pricing-page__plans {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	max-width: 110rem;
-	border: 1px solid vars.$grayColor-2;
+	box-sizing: border-box;
+	max-width: 65rem;
+	border: 1px solid vars.$grayColor-1;
 	border-radius: vars.$radius-2;
 	background-color: white;
 
@@ -14,10 +15,10 @@
 }
 
 .pricing-page__plan + .pricing-page__plan {
-	border-left: 1px solid vars.$grayColor-2;
+	border-left: 1px solid vars.$grayColor-1;
 
 	@media (max-width: vars.$tablet-width) {
 		border-left: none;
-		border-top: 1px solid vars.$grayColor-2;
+		border-top: 1px solid vars.$grayColor-1;
 	}
 }
