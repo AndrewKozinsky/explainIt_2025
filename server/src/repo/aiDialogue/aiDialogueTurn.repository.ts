@@ -41,10 +41,8 @@ export class AiDialogueTurnRepository {
 				},
 			})
 
-			const imageStyleSnapshot = getAiDialogueImageStyleSnapshot(
-				dialogue.illustration_style_id,
-				this.config.get().mode,
-			)
+			const { mode } = this.config.get()
+			const imageStyleSnapshot = getAiDialogueImageStyleSnapshot(dialogue.illustration_style_id, mode)
 
 			const appearanceByNpcId = new Map(
 				input.turn.visualMetadata.npcAppearances.map((item) => [item.npcId, item.appearance]),
@@ -87,7 +85,7 @@ export class AiDialogueTurnRepository {
 						visualDescription: savedEvent.visualDescription,
 						participantNpcIds,
 						participantCharacterIds: participantNpcIds.map((npcId) => characterIdByNpcId.get(npcId)),
-						userAvatarS3Key: getUserAvatarS3Key(dialogue.user),
+						userAvatarS3Key: getUserAvatarS3Key(dialogue.user, mode),
 						aspectRatio: '2:1',
 						size: AI_DIALOGUE_SCENE_SIZE,
 					},

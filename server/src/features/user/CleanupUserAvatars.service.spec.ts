@@ -31,7 +31,7 @@ function harness() {
 
 describe('user avatar cleanup', () => {
 	it.each([
-		'user-avatars/shared/male-1.jpg',
+		'user-avatars-shared/localdev/male-1.jpg',
 		key.replace('/ru/', '/intl/'),
 		`${prefix}../shared.webp`,
 		`${prefix}invalid.webp`,

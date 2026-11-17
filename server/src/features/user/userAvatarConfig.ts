@@ -1,13 +1,15 @@
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
+
 export const USER_AVATAR_MAX_UPLOAD_BYTES = 30 * 1024 * 1024
 export const USER_AVATAR_MAX_INPUT_PIXELS = 80_000_000
 export const USER_AVATAR_SHORT_SIDE = 512
 
 /** One region/mode namespace must correspond to exactly one database. */
 export function getUserAvatarUploadPrefix(config: { region?: string; mode?: string }) {
-	if (!config.region || !config.mode || !/^[a-z]+$/.test(config.region) || !/^[a-z]+$/.test(config.mode))
+	if (!config.region || !/^[a-z]+$/.test(config.region))
 		throw new Error('Invalid user avatar storage namespace')
 
-	return `user-avatars/uploads/${config.region}/${config.mode}/`
+	return getR2EnvironmentPrefix(`user-avatars/uploads/${config.region}`, config.mode)
 }
 
 export function isUserAvatarUploadKey(key: string, prefix: string) {

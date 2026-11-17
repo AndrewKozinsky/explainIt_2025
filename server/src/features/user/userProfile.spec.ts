@@ -96,22 +96,26 @@ describe('user profile changes', () => {
 		expect(h.cleanup.cleanupReplacedPhoto).not.toHaveBeenCalled()
 	})
 
-	it('returns the four shared presets with gender and refresh times, without R2 keys', async () => {
-		const h = harness()
-		const handler = new GetAvatarPresetsHandler(h.storage as unknown as CloudflareS3Service)
-		const presets = await handler.execute()
-		expect(presets.map((preset) => [preset.id, preset.gender])).toEqual([
-			['male-1', 'MALE'],
-			['male-2', 'MALE'],
-			['female-1', 'FEMALE'],
-			['female-2', 'FEMALE'],
-		])
-		expect(presets[0]).toEqual({
-			id: 'male-1',
-			gender: 'MALE',
-			avatarUrl: 'signed:user-avatars/shared/male-1.jpg',
-		})
-	})
+	it.each(['localtest', 'localdev', 'localcheckserver', 'serverdevelop', 'servermaster', 'preview-2'])(
+		'returns the four shared presets for %s',
+		async (mode) => {
+			const h = harness()
+			const config = { get: () => ({ mode }) } as unknown as MainConfigService
+			const handler = new GetAvatarPresetsHandler(h.storage as unknown as CloudflareS3Service, config)
+			const presets = await handler.execute()
+			expect(presets.map((preset) => [preset.id, preset.gender])).toEqual([
+				['male-1', 'MALE'],
+				['male-2', 'MALE'],
+				['female-1', 'FEMALE'],
+				['female-2', 'FEMALE'],
+			])
+			expect(presets[0]).toEqual({
+				id: 'male-1',
+				gender: 'MALE',
+				avatarUrl: `signed:user-avatars-shared/${mode}/male-1.jpg`,
+			})
+		},
+	)
 })
 
 describe('avatar photo processing and upload', () => {

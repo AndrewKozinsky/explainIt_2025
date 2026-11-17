@@ -1,5 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 
 /** Удаляет файлы озвучки удалённого диалога из R2. Записи в БД к этому моменту уже удалены каскадом. */
@@ -13,7 +14,7 @@ export class CleanupAiDialogueAudio {
 		config: MainConfigService,
 	) {
 		const { region, mode } = config.get()
-		this.prefix = `ai-dialogue-audio/generated/${region}/${mode}/`
+		this.prefix = getR2EnvironmentPrefix(`ai-dialogue-audio/generated/${region}`, mode)
 	}
 
 	async deleteFiles(s3Keys: string[]) {

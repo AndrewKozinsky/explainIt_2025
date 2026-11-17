@@ -5,6 +5,7 @@ import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.se
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueVisualsOutModel } from 'models/aiDialogue/aiDialogueVisuals.out.model'
 
 export class GetAiDialogueVisualsCommand implements ICommand {
@@ -22,6 +23,7 @@ export class GetAiDialogueVisualsHandler implements ICommandHandler<
 	constructor(
 		private readonly repository: AiDialogueVisualsRepository,
 		private readonly storage: CloudflareS3Service,
+		private readonly config: MainConfigService,
 	) {}
 
 	/** Проверяет владельца до подписания URL; выдаёт только публичные метаданные и временные ссылки. */
@@ -37,18 +39,18 @@ export class GetAiDialogueVisualsHandler implements ICommandHandler<
 		) =>
 			image
 				? {
-					id: image.id,
-					url: await this.storage.getFileUrl(image.s3_key),
-					mimeType: image.mime_type,
-					width: image.width,
-					height: image.height,
-					layoutVersion: image.layout_version,
-				}
+						id: image.id,
+						url: await this.storage.getFileUrl(image.s3_key),
+						mimeType: image.mime_type,
+						width: image.width,
+						height: image.height,
+						layoutVersion: image.layout_version,
+					}
 				: null
 
 		return {
 			dialogueId: dialogue.id,
-			userAvatarUrl: await this.storage.getFileUrl(getUserAvatarS3Key(dialogue.user)),
+			userAvatarUrl: await this.storage.getFileUrl(getUserAvatarS3Key(dialogue.user, this.config.get().mode)),
 			characters: await Promise.all(
 				dialogue.AiDialogueCharacter.map(async (character) => ({
 					id: character.id,

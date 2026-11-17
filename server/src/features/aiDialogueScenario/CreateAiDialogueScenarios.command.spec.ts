@@ -112,7 +112,7 @@ describe('Public scenario seeds', () => {
 		expect(repository.synchronizePublicScenarios).not.toHaveBeenCalled()
 	})
 
-	it.each(['localtest', 'localdev', 'localcheckserver', 'serverdevelop', 'servermaster'])(
+	it.each(['localtest', 'localdev', 'localcheckserver', 'serverdevelop', 'servermaster', 'preview-2'])(
 		'isolates covers for MODE=%s',
 		(mode) => {
 			expect(getPublicScenarioCoverKey(mode, 'passport-control')).toBe(

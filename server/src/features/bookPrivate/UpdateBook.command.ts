@@ -3,6 +3,7 @@ import { BookQueryRepository } from 'repo/book/book.queryRepository'
 import { BookRepository } from 'repo/book/book.repository'
 import { Language } from 'utils/languages'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -135,9 +136,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 	}
 
 	private createCoverFileUrl(coverFileName: string): string {
-		const isDevMode = ['localtest', 'localdev'].includes(this.mainConfig.get().mode!)
-		const folderName = isDevMode ? 'privateBooksDev' : 'privateBooks'
-
-		return `${folderName}/${crypto.randomUUID()}-${coverFileName}`
+		const prefix = getR2EnvironmentPrefix('privateBooks', this.mainConfig.get().mode)
+		return `${prefix}${crypto.randomUUID()}-${coverFileName}`
 	}
 }

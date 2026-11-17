@@ -3,8 +3,10 @@ import { join } from 'node:path'
 import { Injectable, Logger } from '@nestjs/common'
 import { WordSenseRepository } from 'repo/universalPhrase/wordSense.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { ImageGenerationAdapterService } from 'infrastructure/imageGenerationProviderAdapter/ImageGenerationAdapter.service'
 import { ImageProcessingService } from 'infrastructure/imageProcessing/imageProcessing.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
 	WordSenseServiceModel,
 	WordSenseVisualAspect,
@@ -29,6 +31,7 @@ export class GenerateWordSenseImage {
 		private readonly imageAdapter: ImageGenerationAdapterService,
 		private readonly imageProcessing: ImageProcessingService,
 		private readonly cloudflareS3: CloudflareS3Service,
+		private readonly config: MainConfigService,
 	) {}
 
 	async generate(wordSenseId: number): Promise<void> {
@@ -46,7 +49,9 @@ export class GenerateWordSenseImage {
 	}
 
 	private async generateAndPublish(wordSense: WordSenseServiceModel): Promise<void> {
+		const prefix = getR2EnvironmentPrefix('dictionary-images/word-senses', this.config.get().mode)
 		const kind = wordSense.visualKind as WordSenseVisualKind
+
 		const styleSample = await readFile(
 			join(process.cwd(), STYLE_SAMPLES_DIRECTORY, WORD_SENSE_STYLE_SAMPLE_FILES[kind]),
 		)
@@ -67,7 +72,8 @@ export class GenerateWordSenseImage {
 			quality: WORD_SENSE_IMAGE_STORED_QUALITY,
 		})
 
-		const imageS3Key = `dictionary-images/word-senses/${wordSense.id}.webp`
+		const imageS3Key = `${prefix}${wordSense.id}.webp`
+
 		await this.cloudflareS3.uploadFile(imageS3Key, compressedImage.data, 'image/webp')
 		await this.wordSenseRepository.markImageReady(wordSense.id, imageS3Key)
 	}

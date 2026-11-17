@@ -20,12 +20,13 @@ import { heartBookData, heartChapters } from 'features/bookPublic/italian/heart/
 import { pinocchioBookData, pinocchioChapters } from 'features/bookPublic/italian/pinocchio/pinocchio'
 import { donQuixoteBookData, donQuixoteChapters } from 'features/bookPublic/spanish/donQuixote/donQuixote'
 import { jungleTalesBookData, jungleTalesChapters } from 'features/bookPublic/spanish/jungleTales/jungleTales'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { ChapterData } from './common/common'
-import { CreatePublicBookCommand, CreateBookPublicInput } from './CreatePublicBook.command'
+import { CreateBookPublicInput, CreatePublicBookCommand } from './CreatePublicBook.command'
 import {
 	aStudyInScarletPartOneBookData,
 	aStudyInScarletPartOneChapters,
@@ -38,8 +39,8 @@ import {
 import { solomonMinesBookData, solomonMinesChapters } from './english/solomonMines/solomonMinesBook'
 import { wizardOfOzBookData, wizardOfOzChapters } from './english/wizardOfOz/wizardOfOzBook'
 import {
-	littleRedRidingHoodChapters,
 	littleRedRidingHoodBookData,
+	littleRedRidingHoodChapters,
 } from './german/littleRedRidingHood/littleRedRidingHood'
 import {
 	nasreddinHodjaStoriesBookData,
@@ -77,12 +78,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 	}
 
 	getBooksData() {
-		const workingMode = this.mainConfig.get().mode!
-		const folderName = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
-			? 'publicBooksDev'
-			: 'publicBooks'
-
-		const s3FolderName = folderName + '/'
+		const s3FolderName = getR2EnvironmentPrefix('publicBooks', this.mainConfig.get().mode)
 
 		return [
 			// English

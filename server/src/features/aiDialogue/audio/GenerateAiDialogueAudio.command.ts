@@ -4,6 +4,7 @@ import { AiDialogueAudioRepository } from 'repo/aiDialogue/aiDialogueAudio.repos
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -70,7 +71,8 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 		await this.userBalance.ensurePositiveBalanceOrThrow(userId, 'aiDialogueAudio')
 
 		const { region, mode } = this.config.get()
-		const s3Key = `ai-dialogue-audio/generated/${region}/${mode}/${dialogueId}/${randomUUID()}.mp3`
+		const prefix = getR2EnvironmentPrefix(`ai-dialogue-audio/generated/${region}`, mode)
+		const s3Key = `${prefix}${dialogueId}/${randomUUID()}.mp3`
 
 		const { audio, shouldGenerate } = await this.repository.startGenerationIfNeeded(
 			{ messageId, actionIndex },

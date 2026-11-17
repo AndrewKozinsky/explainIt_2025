@@ -4,6 +4,7 @@ jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => ta
 
 import { AiDialogueVisualsRepository } from 'repo/aiDialogue/aiDialogueVisuals.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { GetAiDialogueVisualsCommand, GetAiDialogueVisualsHandler } from './GetAiDialogueVisuals.command'
 
 function harness() {
@@ -37,9 +38,11 @@ function harness() {
 
 	const repository = { getDialogueVisuals: jest.fn().mockResolvedValue(dialogue) }
 	const storage = { getFileUrl: jest.fn(async (key) => `signed:${key}`) }
+	const config = { get: () => ({ mode: 'localdev' }) } as unknown as MainConfigService
 	const service = new GetAiDialogueVisualsHandler(
 		repository as unknown as AiDialogueVisualsRepository,
 		storage as unknown as CloudflareS3Service,
+		config,
 	)
 	return { service, repository, storage, dialogue }
 }
@@ -79,7 +82,7 @@ describe('GetAiDialogueVisuals', () => {
 		dialogue.AiDialogueMessage = []
 		const result = await service.execute(new GetAiDialogueVisualsCommand(7, 1))
 		expect(result).toMatchObject({
-			userAvatarUrl: 'signed:user-avatars/shared/male-1.jpg',
+			userAvatarUrl: 'signed:user-avatars-shared/localdev/male-1.jpg',
 			characters: [],
 			scenes: [],
 		})

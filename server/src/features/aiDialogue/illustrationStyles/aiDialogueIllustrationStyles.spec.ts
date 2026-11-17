@@ -48,7 +48,7 @@ describe('AI dialogue illustration style catalog', () => {
 		)
 	})
 
-	it.each(['localtest', 'localdev', 'localcheckserver', 'serverdevelop', 'servermaster'])(
+	it.each(['localtest', 'localdev', 'localcheckserver', 'serverdevelop', 'servermaster', 'preview-2'])(
 		'uses the exact MODE %s',
 		(mode) => {
 			expect(getAiDialogueIllustrationStyleKey(mode, 'realism.webp')).toBe(
@@ -72,7 +72,7 @@ describe('AI dialogue illustration style catalog', () => {
 
 	it.each([
 		{ mode: undefined, file: 'realism.webp' },
-		{ mode: 'productionserver', file: 'realism.webp' },
+		{ mode: '', file: 'realism.webp' },
 		{ mode: '../localdev', file: 'realism.webp' },
 		{ mode: 'localdev', file: '../realism.webp' },
 		{ mode: 'localdev', file: 'https://example.com/realism.webp' },

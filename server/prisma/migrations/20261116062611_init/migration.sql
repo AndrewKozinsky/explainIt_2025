@@ -1,17 +1,5 @@
--- CreateSchema
-CREATE SCHEMA IF NOT EXISTS "public";
-
 -- CreateEnum
 CREATE TYPE "UserGender" AS ENUM ('MALE', 'FEMALE');
-
--- CreateEnum
-CREATE TYPE "BalanceTransactionType" AS ENUM ('CHARGE', 'TOP_UP', 'REFUND');
-
--- CreateEnum
-CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'SUCCESS', 'FAILED', 'CANCELED');
-
--- CreateEnum
-CREATE TYPE "PaymentProviderName" AS ENUM ('YOOKASSA');
 
 -- CreateEnum
 CREATE TYPE "MediaType" AS ENUM ('public', 'private');
@@ -83,32 +71,6 @@ CREATE TABLE "User" (
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "UserBalanceTransaction" (
-    "id" SERIAL NOT NULL,
-    "user_id" INTEGER NOT NULL,
-    "type" "BalanceTransactionType" NOT NULL,
-    "amount" INTEGER NOT NULL,
-    "payment_id" INTEGER,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "UserBalanceTransaction_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Payment" (
-    "id" SERIAL NOT NULL,
-    "user_id" INTEGER NOT NULL,
-    "amount" INTEGER NOT NULL,
-    "status" "PaymentStatus" NOT NULL DEFAULT 'PENDING',
-    "provider_name" "PaymentProviderName" NOT NULL DEFAULT 'YOOKASSA',
-    "external_id" TEXT NOT NULL,
-    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updated_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-
-    CONSTRAINT "Payment_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -485,12 +447,6 @@ CREATE TABLE "AiDialogueAudio" (
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "UserBalanceTransaction_payment_id_key" ON "UserBalanceTransaction"("payment_id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Payment_external_id_key" ON "Payment"("external_id");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Video_youtube_video_id_key" ON "Video"("youtube_video_id");
 
 -- CreateIndex
@@ -617,15 +573,6 @@ CREATE UNIQUE INDEX "AiDialogueAudio_s3_key_key" ON "AiDialogueAudio"("s3_key");
 CREATE UNIQUE INDEX "AiDialogueAudio_message_id_action_index_key" ON "AiDialogueAudio"("message_id", "action_index");
 
 -- AddForeignKey
-ALTER TABLE "UserBalanceTransaction" ADD CONSTRAINT "UserBalanceTransaction_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "UserBalanceTransaction" ADD CONSTRAINT "UserBalanceTransaction_payment_id_fkey" FOREIGN KEY ("payment_id") REFERENCES "Payment"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Payment" ADD CONSTRAINT "Payment_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE "Book" ADD CONSTRAINT "Book_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
@@ -714,4 +661,3 @@ ALTER TABLE "AiDialogueVoice" ADD CONSTRAINT "AiDialogueVoice_dialogue_id_fkey" 
 
 -- AddForeignKey
 ALTER TABLE "AiDialogueAudio" ADD CONSTRAINT "AiDialogueAudio_message_id_fkey" FOREIGN KEY ("message_id") REFERENCES "AiDialogueMessage"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-

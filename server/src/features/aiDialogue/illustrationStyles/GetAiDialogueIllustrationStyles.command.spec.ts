@@ -48,7 +48,7 @@ describe('Get AI dialogue illustration styles', () => {
 	})
 
 	it('rejects an invalid MODE before signing any URL', async () => {
-		const { handler, storage } = harness('unknown')
+		const { handler, storage } = harness('../localdev')
 
 		await expect(handler.execute()).rejects.toMatchObject({ statusCode: 500 })
 		expect(storage.getFileUrl).not.toHaveBeenCalled()

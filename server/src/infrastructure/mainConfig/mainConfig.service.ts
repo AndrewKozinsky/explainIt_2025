@@ -229,9 +229,7 @@ export class MainConfigService {
 	getEnVariables() {
 		return {
 			region: this.configService.get<'intl' | 'ru'>('REGION'),
-			mode: this.configService.get<
-				'localtest' | 'localdev' | 'localcheckserver' | 'serverdevelop' | 'servermaster'
-			>('MODE'),
+			mode: this.configService.get<string>('MODE'),
 			port: this.configService.get<number>('PORT') || 3001,
 			// gigaChatClientId: this.configService.get<string>('GIGA_CHAT_CLIENT_ID') || '',
 			// gigaChatClientSecret: this.configService.get<string>('GIGA_CHAT_CLIENT_SECRET') || '',

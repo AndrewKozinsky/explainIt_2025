@@ -4,7 +4,7 @@ import { AiDialogueImageCleanupRepository } from 'repo/aiDialogue/aiDialogueImag
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
-	GENERATED_DIALOGUE_IMAGES_PREFIX,
+	GENERATED_DIALOGUE_IMAGES_PATH,
 	getGeneratedDialogueImageJobId,
 	getGeneratedDialogueImagesPrefix,
 } from './imageGeneration/generatedDialogueImageKey'
@@ -79,7 +79,7 @@ export class CleanupAiDialogueImages implements OnModuleDestroy {
 	/** Проверяет область ключа и использование в БД перед DeleteObject; при любой неопределённости сохраняет файл. */
 	private async deleteUnreferencedGeneratedImage(key: string): Promise<void> {
 		const jobId = getGeneratedDialogueImageJobId(key)
-		if (!key.startsWith(this.generatedPrefix) && !key.startsWith(`${GENERATED_DIALOGUE_IMAGES_PREFIX}job-`)) return
+		if (!key.startsWith(this.generatedPrefix) && !key.startsWith(`${GENERATED_DIALOGUE_IMAGES_PATH}/job-`)) return
 
 		if (jobId === null) return
 

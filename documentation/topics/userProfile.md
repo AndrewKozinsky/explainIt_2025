@@ -25,17 +25,21 @@
 
 ## Готовые варианты и хранение
 
-Каталог: `server/src/features/user/avatarPresets.ts`. Изображения загружаются в R2 отдельно:
+Каталог находится в `server/src/features/user/avatarPresets.ts`. Изображения загружаются отдельно в приватный
+бакет R2 `immersia-private`, заданный в `CLOUDFLARE_S3_BUCKET_NAME`. Ключ строится как
+`user-avatars-shared/<MODE>/<файл>`. Например, `localtest` читает из `user-avatars-shared/localtest/`,
+а `servermaster` из `user-avatars-shared/servermaster/`. В папке каждого запущенного окружения нужны все четыре изображения.
 
-| ID | Пол | Ключ объекта R2 |
+| ID | Пол | Имя файла |
 |---|---|---|
-| male-1 | MALE | user-avatars/shared/male-1.jpg |
-| male-2 | MALE | user-avatars/shared/male-2.jpg |
-| female-1 | FEMALE | user-avatars/shared/female-1.jpg |
-| female-2 | FEMALE | user-avatars/shared/female-2.jpg |
+| male-1 | MALE | `male-1.jpg` |
+| male-2 | MALE | `male-2.jpg` |
+| female-1 | FEMALE | `female-1.jpg` |
+| female-2 | FEMALE | `female-2.jpg` |
 
-Используется существующий `CLOUDFLARE_S3_BUCKET_NAME` и `CloudflareS3Service`.
-Если формат или ключ подготовленного файла меняется, нужно обновить каталог.
+Если меняется имя или формат файла, нужно обновить каталог.
+При переносе скопируйте файлы в новый префикс. Сохраните файлы под старым префиксом `user-avatars/shared/`
+до завершения заданий генерации сцен, в которых записаны эти ключи.
 Общие изображения не удаляются при изменении профиля.
 Фотографии сохраняются по уникальным ключам `user-avatars/uploads/<region>/<mode>/<userId>/<uuid>.webp`.
 Каждой паре REGION/MODE в бакете должна соответствовать одна БД; очистка не затрагивает другие пространства.

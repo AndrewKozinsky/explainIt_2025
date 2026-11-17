@@ -20,7 +20,7 @@ ai-dialogue-public-scenarios/covers/<mode>/
 
 Например, ключ паспортного контроля в рабочем приложении:
 `ai-dialogue-public-scenarios/covers/servermaster/passport-control.webp`.
-Другие поддерживаемые MODE: localtest, localcheckserver.
+Ключ использует фактическое значение `MODE`, в том числе для новых окружений.
 Региональной папки нет: ru и intl могут использовать одни обложки.
 Один и тот же набор файлов можно загрузить в несколько префиксов окружений.
 Бакет остаётся приватным: API выдаёт подписанные ссылки через существующий CloudflareS3Service.

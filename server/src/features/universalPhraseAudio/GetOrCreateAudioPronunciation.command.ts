@@ -4,6 +4,7 @@ import { UniversalPhraseQueryRepository } from 'repo/universalPhrase/universalPh
 import { UniversalPhraseAudioQueryRepository } from 'repo/universalPhrase/universalPhraseAudio.queryRepository'
 import { UniversalPhraseAudioRepository } from 'repo/universalPhrase/universalPhraseAudio.repository'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -57,11 +58,7 @@ export class GetOrCreateUniversalPhraseAudioHandler implements ICommandHandler<G
 	}
 
 	private buildS3Key(languageCode: LanguageCode): string {
-		const workingMode = this.mainConfig.get().mode!
-		const folder = ['localdev', 'localtest', 'localcheckserver'].includes(workingMode)
-			? 'pronunciationsDev'
-			: 'pronunciations'
-
-		return `${folder}/${languageCode}/${randomUUID()}.ogg`
+		const prefix = getR2EnvironmentPrefix('pronunciations', this.mainConfig.get().mode)
+		return `${prefix}${languageCode}/${randomUUID()}.ogg`
 	}
 }

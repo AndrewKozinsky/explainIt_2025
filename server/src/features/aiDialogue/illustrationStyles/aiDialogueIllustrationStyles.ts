@@ -1,3 +1,4 @@
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -5,7 +6,6 @@ import { aiDialogueIllustrationStyleCatalog, AiDialogueIllustrationStyleCatalog 
 
 const styleIdPattern = /^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$/
 const styleFilePattern = /^[a-z0-9]+(?:-[a-z0-9]+)*\.(?:webp|png|jpg|jpeg)$/
-const modes = ['localtest', 'localdev', 'localcheckserver', 'serverdevelop', 'servermaster']
 
 /** Проверяет каталог без фиксированного списка id, enum БД или внешних запросов. */
 export function getAiDialogueIllustrationStyleCatalog(
@@ -45,14 +45,14 @@ export function getNewAiDialogueIllustrationStyle(id?: string | null) {
 }
 
 export function getAiDialogueIllustrationStyleKey(mode: string | undefined, file: string): string {
-	if (!mode || !modes.includes(mode) || !styleFilePattern.test(file)) {
+	if (!styleFilePattern.test(file)) {
 		throw new CustomError(
 			errorMessage.aiDialogue.invalidIllustrationStyleCatalog,
 			ErrorStatusCode.InternalServerError_500,
 		)
 	}
 
-	return `ai-dialogue-images/shared/styles/${mode}/${file}`
+	return `${getR2EnvironmentPrefix('ai-dialogue-images/shared/styles', mode)}${file}`
 }
 
 /**

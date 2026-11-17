@@ -4,12 +4,13 @@ import { SubtitleSentenceInitRepository } from 'repo/subtitleSentenceInit.reposi
 import { Language } from 'utils/languages'
 import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
-import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
 import { CueWithOffset } from 'infrastructure/subtitles/subtitles.types'
+import { SubtitlesService } from 'infrastructure/subtitles/SubtitlesService'
 import { dryText, removeAlignmentTags, removeBOM, removeItalicTags, removeLeadingDashes } from '../mediaCommon'
 
 type FileDestinationType = 'video'
@@ -39,12 +40,8 @@ export class VideoBase {
 	}
 
 	protected createVideoFileUrl(input: { fileName: string; fileDestinationType: FileDestinationType }) {
-		let folderName = input.fileDestinationType
-
-		const isDevMode = ['localtest', 'localdev'].includes(this.mainConfig.get().mode!)
-		if (isDevMode) folderName += 'Dev'
-
-		return `${folderName}/${crypto.randomUUID()}-${input.fileName}`
+		const prefix = getR2EnvironmentPrefix(input.fileDestinationType, this.mainConfig.get().mode)
+		return `${prefix}${crypto.randomUUID()}-${input.fileName}`
 	}
 
 	protected prepareTextContentForSaving(dto: {

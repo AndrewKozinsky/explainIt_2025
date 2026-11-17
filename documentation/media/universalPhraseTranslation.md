@@ -111,7 +111,7 @@ POST /universal-phrase-translation
 `features/universalPhraseTranslation/enrichment/styleSamples`, поэтому иллюстрации складываются в серию.
 
 Модель — `gpt-image-2.6-flare` с качеством `low`. Результат пережимается в WebP шириной до 800 px и лежит в R2 по ключу
-`dictionary-images/word-senses/<id>.webp`.
+`dictionary-images/word-senses/<MODE>/<id>.webp`.
 
 ## Фоновая догенерация
 

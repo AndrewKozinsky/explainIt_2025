@@ -76,6 +76,9 @@ describe('AiDialogueTurnRepository', () => {
 					styleAvatarReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
 					styleSceneReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
 				})
+				if (job.data.type === 'scene') {
+					expect(snapshot).toHaveProperty('userAvatarS3Key', `user-avatars-shared/${mode}/female-2.jpg`)
+				}
 			}
 			expect(tx.imageGenerationJob.create).toHaveBeenCalledTimes(2)
 			expect(tx.imageGenerationOutbox.create).toHaveBeenCalledTimes(2)
@@ -125,7 +128,7 @@ describe('AiDialogueTurnRepository', () => {
 		{
 			avatar_preset_id: 'female-2',
 			avatar_s3_key: 'retained.webp',
-			expectedKey: 'user-avatars/shared/female-2.jpg',
+			expectedKey: 'user-avatars-shared/localdev/female-2.jpg',
 		},
 		{ avatar_preset_id: null, avatar_s3_key: 'uploaded.webp', expectedKey: 'uploaded.webp' },
 	])('persists scene metadata and the selected avatar $expectedKey in the same transaction', async (profile) => {

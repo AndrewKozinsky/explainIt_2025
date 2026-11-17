@@ -3,6 +3,7 @@ import { PrismaService } from 'db/prisma.service'
 import { getUserAvatarS3Key } from 'features/user/avatarPresets'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
+import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from 'models/user/user.out.model'
 import { User } from 'prisma/generated/client'
 
@@ -11,6 +12,7 @@ export class UserQueryRepository {
 	constructor(
 		private prisma: PrismaService,
 		private readonly storage: CloudflareS3Service,
+		private readonly config: MainConfigService,
 	) {}
 
 	@CatchDbError()
@@ -42,7 +44,7 @@ export class UserQueryRepository {
 	}
 
 	async mapDbUserToOutUser(dbUser: User): Promise<UserOutModel> {
-		const avatarKey = getUserAvatarS3Key(dbUser)
+		const avatarKey = getUserAvatarS3Key(dbUser, this.config.get().mode)
 
 		const uploadedAvatarUrl = dbUser.avatar_s3_key ? await this.storage.getFileUrl(dbUser.avatar_s3_key) : null
 		const avatarUrl =

@@ -1,21 +1,31 @@
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import type { UserGender } from 'prisma/generated/client'
 
 /** Shared assets are uploaded separately; profile changes must never delete them. */
 export const avatarPresets = [
-	{ id: 'male-1', gender: 'MALE', s3Key: 'user-avatars/shared/male-1.jpg' },
-	{ id: 'male-2', gender: 'MALE', s3Key: 'user-avatars/shared/male-2.jpg' },
-	{ id: 'female-1', gender: 'FEMALE', s3Key: 'user-avatars/shared/female-1.jpg' },
-	{ id: 'female-2', gender: 'FEMALE', s3Key: 'user-avatars/shared/female-2.jpg' },
-] as const satisfies ReadonlyArray<{ id: string; gender: UserGender; s3Key: string }>
+	{ id: 'male-1', gender: 'MALE', file: 'male-1.jpg' },
+	{ id: 'male-2', gender: 'MALE', file: 'male-2.jpg' },
+	{ id: 'female-1', gender: 'FEMALE', file: 'female-1.jpg' },
+	{ id: 'female-2', gender: 'FEMALE', file: 'female-2.jpg' },
+] as const satisfies ReadonlyArray<{ id: string; gender: UserGender; file: string }>
 
 export function getAvatarPreset(id: string) {
 	return avatarPresets.find((preset) => preset.id === id)
 }
 
-/** Resolves the selected profile avatar; a preset takes precedence over a retained upload. */
-export function getUserAvatarS3Key(user: { avatar_preset_id: string | null; avatar_s3_key: string | null }): string {
-	const key = user.avatar_preset_id !== null ? getAvatarPreset(user.avatar_preset_id)?.s3Key : user.avatar_s3_key
-	if (!key) throw new Error('User avatar is not configured')
+export function getAvatarPresetS3Key(preset: (typeof avatarPresets)[number], mode: string | undefined): string {
+	return `${getR2EnvironmentPrefix('user-avatars-shared', mode)}${preset.file}`
+}
 
-	return key
+/** Resolves the selected profile avatar; a preset takes precedence over a retained upload. */
+export function getUserAvatarS3Key(
+	user: { avatar_preset_id: string | null; avatar_s3_key: string | null },
+	mode: string | undefined,
+): string {
+	if (user.avatar_preset_id === null && user.avatar_s3_key) return user.avatar_s3_key
+
+	const preset = user.avatar_preset_id !== null ? getAvatarPreset(user.avatar_preset_id) : undefined
+	if (preset) return getAvatarPresetS3Key(preset, mode)
+
+	throw new Error('User avatar is not configured')
 }

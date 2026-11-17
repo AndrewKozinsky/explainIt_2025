@@ -10,6 +10,7 @@ import { divideTextIntoSentences } from 'features/common/divideTextIntoSentences
 import { generateSentencesAndSaveToDB } from 'features/common/generateSentencesAndSaveToDB'
 import { VideoBase } from 'features/video/VideoBase'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
@@ -280,11 +281,9 @@ export class UpdateVideoHandler extends VideoBase implements ICommandHandler<Upd
 	}
 
 	private createCoverFileUrl(coverFileName: string, videoType: 'public' | 'private'): string {
-		const isDevMode = ['localtest', 'localdev'].includes(this.mainConfig.get().mode!)
-		const prefix = videoType === 'public' ? 'publicVideoCovers' : 'privateVideoCovers'
-		const folderName = isDevMode ? `${prefix}Dev` : prefix
-
-		return `${folderName}/${crypto.randomUUID()}-${coverFileName}`
+		const folder = videoType === 'public' ? 'publicVideoCovers' : 'privateVideoCovers'
+		const prefix = getR2EnvironmentPrefix(folder, this.mainConfig.get().mode)
+		return `${prefix}${crypto.randomUUID()}-${coverFileName}`
 	}
 
 	async getUploadFileUrlAndFileDetails(
