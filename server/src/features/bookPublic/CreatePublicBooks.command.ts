@@ -78,7 +78,7 @@ export class CreatePublicBooksHandler implements ICommandHandler<CreatePublicBoo
 	}
 
 	getBooksData() {
-		const s3FolderName = getR2EnvironmentPrefix('publicBooks', this.mainConfig.get().mode)
+		const s3FolderName = getR2EnvironmentPrefix('public-books-covers', this.mainConfig.get().mode)
 
 		return [
 			// English
