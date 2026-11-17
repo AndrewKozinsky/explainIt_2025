@@ -29,7 +29,7 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 	/** Reserve a unique immutable destination; the repository persists it before calling OpenAI. */
 	createResultKey(job: ImageGenerationJob, snapshot: ImageGenerationSnapshot): string {
 		const extension = snapshot.format === 'jpeg' ? 'jpg' : snapshot.format
-		return `${getGeneratedDialogueImagesPrefix(this.config.get())}job-${job.id}/${randomUUID()}.${extension}`
+		return `${getGeneratedDialogueImagesPrefix(this.config.get().mode)}job-${job.id}/${randomUUID()}.${extension}`
 	}
 
 	/** Finish publication from R2 after restart or a lost PUT/DB acknowledgement, never regenerate.
@@ -134,6 +134,7 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 		if (!stored) await this.storage.uploadFile(key, result.bytes, metadata.mime, 60_000)
 
 		let committed: boolean
+
 		try {
 			committed = await this.repository.saveImageAndMarkJobReady(current, {
 				...metadata,
@@ -162,13 +163,14 @@ export class R2ImageGenerationAssets extends ImageGenerationAssets {
 	private resultKey(job: ImageGenerationJob, snapshot: ImageGenerationSnapshot): string {
 		const key = snapshot.resultS3Key
 		const extension = snapshot.format === 'jpeg' ? 'jpg' : snapshot.format
+
 		if (
 			!key ||
-			!key.startsWith(getGeneratedDialogueImagesPrefix(this.config.get())) ||
-			getGeneratedDialogueImageJobId(key) !== job.id ||
+			getGeneratedDialogueImageJobId(key, getGeneratedDialogueImagesPrefix(this.config.get().mode)) !== job.id ||
 			!key.endsWith(`.${extension}`)
 		)
 			throw new Error('Invalid reserved image result key')
+
 		return key
 	}
 

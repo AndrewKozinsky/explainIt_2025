@@ -12,16 +12,18 @@ import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.se
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { CleanupAiDialogueImages } from './CleanupAiDialogueImages.service'
 
-const prefix = 'ai-dialogue-images/generated/ru/localtest/'
+const prefix = 'ai-dialogue-images-generated/localtest/'
+const legacyScopedPrefix = 'ai-dialogue-images/generated/ru/localtest/'
 const filename = '00000000-0000-4000-8000-000000000001.png'
 const key = `${prefix}job-10/${filename}`
+const legacyScoped = `${legacyScopedPrefix}job-10/${filename}`
 const legacy = `ai-dialogue-images/generated/job-10/${filename}`
 const old = new Date(Date.now() - 48 * 60 * 60_000)
 
 function harness() {
 	const repository = { isGeneratedImageInUse: jest.fn().mockResolvedValue(false) }
 	const storage = { listFilesByPrefix: jest.fn().mockResolvedValue({ Contents: [] }), deleteFile: jest.fn() }
-	const config = { get: () => ({ region: 'ru', mode: 'localtest' }) }
+	const config = { get: () => ({ mode: 'localtest' }) }
 	const cleanup = new CleanupAiDialogueImages(
 		repository as unknown as AiDialogueImageCleanupRepository,
 		storage as unknown as CloudflareS3Service,
@@ -32,24 +34,23 @@ function harness() {
 }
 
 describe('CleanupAiDialogueImages', () => {
-	it('removes known originals once, including legacy keys obtained during dialogue deletion', async () => {
+	it('removes known originals once from the current prefix', async () => {
 		const { cleanup, storage } = harness()
-		await cleanup.cleanupDeletedDialogueImages([key, key, legacy])
-		expect(storage.deleteFile.mock.calls).toEqual([
-			[key, 10_000],
-			[legacy, 10_000],
-		])
+		await cleanup.cleanupDeletedDialogueImages([key, key, legacyScoped, legacy])
+		expect(storage.deleteFile.mock.calls).toEqual([[key, 10_000]])
 	})
-	it('never deletes shared, malformed, foreign-region or arbitrary files', async () => {
+	it('never deletes shared, malformed, foreign-environment or arbitrary files', async () => {
 		const { cleanup, repository, storage } = harness()
 		await cleanup.cleanupDeletedDialogueImages([
 			'ai-dialogue-images/shared/user-avatar.jpg',
+			'ai-dialogue-styles/localtest/realism.webp',
 			'ai-dialogue-images/shared/styles/localtest/realism.webp',
 			'ai-dialogue-images/shared/styles/servermaster/watercolor.webp',
 			'ai-dialogue-images/shared/style-scene.jpg',
 			'style.png',
 			`${prefix}job-10/not-a-uuid.png`,
-			key.replace('/ru/', '/intl/'),
+			key.replace('/localtest/', '/servermaster/'),
+			legacyScoped.replace('/ru/', '/intl/'),
 		])
 		expect(repository.isGeneratedImageInUse).not.toHaveBeenCalled()
 		expect(storage.deleteFile).not.toHaveBeenCalled()
@@ -73,23 +74,25 @@ describe('CleanupAiDialogueImages', () => {
 		await cleanup.cleanupOrphanedImages()
 		expect(storage.deleteFile).toHaveBeenCalledTimes(2)
 	})
-	it('scans only its namespace and skips fresh, legacy and undated objects', async () => {
+	it('scans only the current prefix and skips fresh or undated objects', async () => {
 		const { cleanup, storage } = harness()
 		storage.listFilesByPrefix.mockResolvedValue({
 			Contents: [
 				{ Key: key, LastModified: old },
 				{ Key: key.replace('job-10', 'job-11'), LastModified: new Date() },
 				{ Key: legacy, LastModified: old },
-				{ Key: key.replace('/ru/', '/intl/'), LastModified: old },
+				{ Key: legacyScoped, LastModified: old },
+				{ Key: key.replace('/localtest/', '/servermaster/'), LastModified: old },
+				{ Key: legacyScoped.replace('/ru/', '/intl/'), LastModified: old },
 				{ Key: key.replace('job-10', 'job-12') },
 				{ Key: key.replace('job-10', 'job-13'), LastModified: new Date(NaN) },
 			],
 		})
 		await cleanup.cleanupOrphanedImages()
-		expect(storage.listFilesByPrefix).toHaveBeenCalledWith(prefix, undefined, 25)
+		expect(storage.listFilesByPrefix.mock.calls).toEqual([[prefix, undefined, 25]])
 		expect(storage.deleteFile.mock.calls).toEqual([[key, 10_000]])
 	})
-	it('advances through pages and starts another pass after the last page', async () => {
+	it('starts another pass after the last page', async () => {
 		const { cleanup, storage } = harness()
 		storage.listFilesByPrefix.mockResolvedValueOnce({
 			Contents: [],
@@ -105,6 +108,7 @@ describe('CleanupAiDialogueImages', () => {
 			[prefix, undefined, 25],
 		])
 	})
+
 	it('restarts after a listing failure', async () => {
 		const { cleanup, storage } = harness()
 		storage.listFilesByPrefix.mockResolvedValueOnce({ IsTruncated: true, NextContinuationToken: 'bad' })

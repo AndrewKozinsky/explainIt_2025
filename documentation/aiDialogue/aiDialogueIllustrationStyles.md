@@ -29,14 +29,13 @@ defaultStyleId задаёт первоначальный выбор; сейча�
 
 ## R2
 
-Бакет существующий, приватный. Префикс без версий:
+Эталоны и превью хранятся в приватном бакете `immersia-private` ([правила хранения файлов](../topics/fileStorage.md)).
 
 ```text
-ai-dialogue-images/shared/styles/<mode>/<file>
+ai-dialogue-styles/<MODE>/<file>
 ```
 
-mode берётся из MainConfigService.get().mode (localtest, localdev, localcheckserver, serverdevelop, servermaster).
-Например: `ai-dialogue-images/shared/styles/servermaster/realism.webp`.
+Путь использует фактический `MODE` из `MainConfigService.get().mode`, например `ai-dialogue-styles/servermaster/realism.webp`.
 
 Для каждого стиля в R2 лежат два файла:
 
@@ -45,7 +44,9 @@ mode берётся из MainConfigService.get().mode (localtest, localdev, loca
   `realism.preview.webp`. Ключ строит getAiDialogueIllustrationStylePreviewKey из того же file и MODE.
   Превью готовится вручную (ширина около 480 px), генератор его не читает, минимальных габаритов нет.
 
-Общие ресурсы находятся вне generated/, не привязаны к диалогу и не удаляются вместе с ним.
+При удалении диалога общие эталоны и превью сохраняются.
+
+Перед выкладкой загрузите эталоны и превью под `ai-dialogue-styles/<MODE>/` для каждого запускаемого окружения.
 
 Версии не хранятся: замена означает перезапись того же файла внутри нужного MODE.
 При замене эталона превью заменяется отдельно.
@@ -105,7 +106,7 @@ PATCH принимает только maxCefrLevel; illustrationStyleId откл
 AiDialogueTurnRepository в транзакции хода читает illustration_style_id и профиль
 пользователя, затем getAiDialogueImageStyleSnapshot фиксирует id, stylePrompt
 и два назначения референса (styleAvatarReferenceS3Key / styleSceneReferenceS3Key) с одинаковым
-ключом shared/styles/<mode>/<file>. Один снимок используется всеми новыми заданиями NPC/сцен этого хода.
+ключом `ai-dialogue-styles/<MODE>/<file>`. Один снимок используется всеми новыми заданиями NPC и сцен этого хода.
 Новый NPC без sceneUpdate также получает выбранный стиль; известный NPC переиспользует свой спрайт.
 
 ImageGenerationJob.input хранит снимок вместе с моделью, качеством, форматом и размером.

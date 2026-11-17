@@ -13,8 +13,8 @@ describe('AI dialogue illustration style catalog', () => {
 			expect(getAiDialogueImageStyleSnapshot(style.id, mode)).toEqual({
 				illustrationStyleId: style.id,
 				stylePrompt: style.stylePrompt,
-				styleAvatarReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
-				styleSceneReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+				styleAvatarReferenceS3Key: `ai-dialogue-styles/${mode}/${style.file}`,
+				styleSceneReferenceS3Key: `ai-dialogue-styles/${mode}/${style.file}`,
 			})
 		}
 	})
@@ -52,14 +52,14 @@ describe('AI dialogue illustration style catalog', () => {
 		'uses the exact MODE %s',
 		(mode) => {
 			expect(getAiDialogueIllustrationStyleKey(mode, 'realism.webp')).toBe(
-				`ai-dialogue-images/shared/styles/${mode}/realism.webp`,
+				`ai-dialogue-styles/${mode}/realism.webp`,
 			)
 		},
 	)
 
 	it.each([
-		{ file: 'realism.webp', previewKey: 'ai-dialogue-images/shared/styles/localdev/realism.preview.webp' },
-		{ file: 'new-style.png', previewKey: 'ai-dialogue-images/shared/styles/localdev/new-style.preview.png' },
+		{ file: 'realism.webp', previewKey: 'ai-dialogue-styles/localdev/realism.preview.webp' },
+		{ file: 'new-style.png', previewKey: 'ai-dialogue-styles/localdev/new-style.preview.png' },
 	])('places the light preview of $file next to the reference with the .preview postfix', ({ file, previewKey }) => {
 		expect(getAiDialogueIllustrationStylePreviewKey('localdev', file)).toBe(previewKey)
 	})

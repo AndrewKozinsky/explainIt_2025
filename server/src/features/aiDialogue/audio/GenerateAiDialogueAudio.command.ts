@@ -18,6 +18,7 @@ import {
 	AI_DIALOGUE_TTS_MODEL,
 	DialogueVoice,
 	dialogueVoiceSchema,
+	isAiDialogueAudioKey,
 } from './aiDialogueAudioConfig'
 import { isValidDialogueMp3 } from './isValidDialogueMp3'
 import { getMp3DurationSeconds } from './mp3Frames'
@@ -64,22 +65,25 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 	async execute(command: GenerateAiDialogueAudioCommand): Promise<AiDialogueAudioOutModel> {
 		const { userId, dialogueId, messageId, actionIndex } = command.input
 		const source = await this.getAudioSource(command.input)
+		const prefix = getR2EnvironmentPrefix(AI_DIALOGUE_AUDIO_STORAGE_PATH, this.config.get().mode)
 
 		// Готовая озвучка отдаётся без проверки баланса: она уже оплачена.
 		const existingAudio = await this.repository.getAudio({ messageId, actionIndex })
+
+		if (existingAudio && !isAiDialogueAudioKey(existingAudio.s3_key, prefix)) throw audioNotAvailable()
 		if (existingAudio?.status === 'ready') return this.toOutModel(existingAudio.s3_key)
 
 		await this.userBalance.ensurePositiveBalanceOrThrow(userId, 'aiDialogueAudio')
 
-		const { mode } = this.config.get()
-		const prefix = getR2EnvironmentPrefix(AI_DIALOGUE_AUDIO_STORAGE_PATH, mode)
 		const s3Key = `${prefix}${dialogueId}/${randomUUID()}.mp3`
 
 		const { audio, shouldGenerate } = await this.repository.startGenerationIfNeeded(
 			{ messageId, actionIndex },
 			s3Key,
 		)
+
 		if (!audio) throw audioGenerationFailed()
+		if (!isAiDialogueAudioKey(audio.s3_key, prefix)) throw audioNotAvailable()
 
 		if (shouldGenerate) {
 			await this.synthesize({ userId, audioId: audio.id, s3Key: audio.s3_key, source })
@@ -88,7 +92,7 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 
 		if (audio.status === 'ready') return this.toOutModel(audio.s3_key)
 
-		return this.waitForConcurrentGeneration(messageId, actionIndex)
+		return this.waitForConcurrentGeneration(messageId, actionIndex, prefix)
 	}
 
 	/** Проверяет владельца и находит текст и голос. Озвучиваются только описание сцены и реплики NPC. */
@@ -159,13 +163,14 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 	}
 
 	/** Ту же реплику уже озвучивает другой запрос (двойной клик, вторая вкладка): дождаться его результата. */
-	private async waitForConcurrentGeneration(messageId: number, actionIndex: number) {
+	private async waitForConcurrentGeneration(messageId: number, actionIndex: number, prefix: string) {
 		const deadline = Date.now() + CONCURRENT_GENERATION_WAIT_MS
 
 		while (Date.now() < deadline) {
 			await new Promise((resolve) => setTimeout(resolve, CONCURRENT_GENERATION_POLL_MS))
 			const audio = await this.repository.getAudio({ messageId, actionIndex })
 
+			if (audio && !isAiDialogueAudioKey(audio.s3_key, prefix)) throw audioNotAvailable()
 			if (audio?.status === 'ready') return this.toOutModel(audio.s3_key)
 			if (!audio || audio.status === 'failed') break
 		}

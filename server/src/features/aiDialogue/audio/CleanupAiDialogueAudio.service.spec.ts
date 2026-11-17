@@ -5,9 +5,9 @@ jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigSer
 import { CleanupAiDialogueAudio } from './CleanupAiDialogueAudio.service'
 
 describe('CleanupAiDialogueAudio', () => {
-	it.each(['servermaster', 'generated'])('deletes current and legacy audio keys only for %s', async (mode) => {
+	it.each(['servermaster', 'generated'])('deletes only current audio keys for %s', async (mode) => {
 		const storage = { deleteFile: jest.fn().mockResolvedValue(undefined) }
-		const config = { get: () => ({ region: 'intl', mode }) }
+		const config = { get: () => ({ mode }) }
 		const cleanup = new CleanupAiDialogueAudio(storage as never, config as never)
 		const current = `ai-dialogue-audio/${mode}/12/current.mp3`
 		const legacy = `ai-dialogue-audio/generated/intl/${mode}/12/legacy.mp3`
@@ -22,9 +22,6 @@ describe('CleanupAiDialogueAudio', () => {
 			'ai-dialogue-images/generated/intl/localdev/job-12/scene.webp',
 		])
 
-		expect(storage.deleteFile.mock.calls).toEqual([
-			[current, 10_000],
-			[legacy, 10_000],
-		])
+		expect(storage.deleteFile.mock.calls).toEqual([[current, 10_000]])
 	})
 })

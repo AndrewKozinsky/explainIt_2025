@@ -46,7 +46,7 @@ const sceneMessage = {
 const officerVoice = { voice: 'ash', instructions: 'Calm official voice' }
 
 function createHarness(message: object | null = npcMessage) {
-	const audioRow = { id: 3, s3_key: 'ai-dialogue-audio/key.mp3', status: 'generating' }
+	const audioRow = { id: 3, s3_key: 'ai-dialogue-audio/localdev/1/key.mp3', status: 'generating' }
 	const repository = {
 		getMessageWithOwner: jest.fn().mockResolvedValue(message),
 		getVoice: jest.fn().mockResolvedValue(officerVoice),
@@ -59,7 +59,7 @@ function createHarness(message: object | null = npcMessage) {
 		uploadFile: jest.fn().mockResolvedValue(undefined),
 		getFileUrl: jest.fn().mockResolvedValue('https://r2/audio.mp3'),
 	}
-	const config = { get: () => ({ region: 'ru', mode: 'localdev' }) }
+	const config = { get: () => ({ mode: 'localdev' }) }
 	const balance = {
 		ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined),
 		chargeOpenAiTts: jest.fn().mockResolvedValue(undefined),
@@ -231,15 +231,27 @@ describe('GenerateAiDialogueAudioHandler balance', () => {
 
 	it('returns ready audio without checking the balance', async () => {
 		const { handler, balance, repository, storage, tts } = createHarness()
-		const legacyKey = 'ai-dialogue-audio/generated/ru/localdev/1/ready.mp3'
-		repository.getAudio.mockResolvedValue({ status: 'ready', s3_key: legacyKey })
+		const key = 'ai-dialogue-audio/localdev/1/ready.mp3'
+		repository.getAudio.mockResolvedValue({ status: 'ready', s3_key: key })
 		balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new Error('BALANCE_EXHAUSTED'))
 
 		await expect(handler.execute(command())).resolves.toEqual({
 			url: 'https://r2/audio.mp3',
 			mimeType: 'audio/mpeg',
 		})
-		expect(storage.getFileUrl).toHaveBeenCalledWith(legacyKey)
+		expect(storage.getFileUrl).toHaveBeenCalledWith(key)
+		expect(tts.generate).not.toHaveBeenCalled()
+	})
+
+	it.each(['ready', 'failed'])('rejects an obsolete %s audio key before reading or writing storage', async (status) => {
+		const { handler, balance, repository, storage, tts } = createHarness()
+		repository.getAudio.mockResolvedValue({ status, s3_key: 'ai-dialogue-audio/generated/intl/localdev/1/old.mp3' })
+
+		await expect(handler.execute(command())).rejects.toMatchObject({ statusCode: 400 })
+		expect(repository.startGenerationIfNeeded).not.toHaveBeenCalled()
+		expect(balance.ensurePositiveBalanceOrThrow).not.toHaveBeenCalled()
+		expect(storage.getFileUrl).not.toHaveBeenCalled()
+		expect(storage.uploadFile).not.toHaveBeenCalled()
 		expect(tts.generate).not.toHaveBeenCalled()
 	})
 })

@@ -4,7 +4,6 @@ import { AiDialogueImageCleanupRepository } from 'repo/aiDialogue/aiDialogueImag
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import {
-	GENERATED_DIALOGUE_IMAGES_PATH,
 	getGeneratedDialogueImageJobId,
 	getGeneratedDialogueImagesPrefix,
 } from './imageGeneration/generatedDialogueImageKey'
@@ -23,12 +22,12 @@ export class CleanupAiDialogueImages implements OnModuleDestroy {
 		private readonly storage: CloudflareS3Service,
 		config: MainConfigService,
 	) {
-		this.generatedPrefix = getGeneratedDialogueImagesPrefix(config.get())
+		this.generatedPrefix = getGeneratedDialogueImagesPrefix(config.get().mode)
 	}
 
 	/**
 	 * Удаляет известные файлы после коммита удаления диалога, не меняя результат успешного DELETE при сбое R2.
-	 * Неудачные удаления новых scoped-ключей повторяет обход R2; старые ключи требуют ручного повтора.
+	 * Обход R2 повторяет неудачные удаления в пределах префикса окружения.
 	 * Дубликаты ключей внутри пачки обрабатываются один раз.
 	 * @param keys Ключи, прочитанные из БД до каскадного удаления записей.
 	 */
@@ -40,8 +39,7 @@ export class CleanupAiDialogueImages implements OnModuleDestroy {
 	}
 
 	/**
-	 * Обходит одну страницу generated-префикса и удаляет непривязанные исходники старше суток.
-	 * Курсор сохраняется между проходами; конец обхода или ошибка listing начинают следующий цикл с начала.
+	 * Обходит одну страницу префикса окружения и удаляет непривязанные исходники старше суток.
 	 */
 	@Interval(30_000)
 	async cleanupOrphanedImages(): Promise<void> {
@@ -78,9 +76,7 @@ export class CleanupAiDialogueImages implements OnModuleDestroy {
 
 	/** Проверяет область ключа и использование в БД перед DeleteObject; при любой неопределённости сохраняет файл. */
 	private async deleteUnreferencedGeneratedImage(key: string): Promise<void> {
-		const jobId = getGeneratedDialogueImageJobId(key)
-		if (!key.startsWith(this.generatedPrefix) && !key.startsWith(`${GENERATED_DIALOGUE_IMAGES_PATH}/job-`)) return
-
+		const jobId = getGeneratedDialogueImageJobId(key, this.generatedPrefix)
 		if (jobId === null) return
 
 		try {

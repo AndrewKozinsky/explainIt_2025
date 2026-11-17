@@ -73,8 +73,8 @@ describe('AiDialogueTurnRepository', () => {
 				expect(snapshot).toMatchObject({
 					illustrationStyleId: style.id,
 					stylePrompt: style.stylePrompt,
-					styleAvatarReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
-					styleSceneReferenceS3Key: `ai-dialogue-images/shared/styles/${mode}/${style.file}`,
+					styleAvatarReferenceS3Key: `ai-dialogue-styles/${mode}/${style.file}`,
+					styleSceneReferenceS3Key: `ai-dialogue-styles/${mode}/${style.file}`,
 				})
 				if (job.data.type === 'scene') {
 					expect(snapshot).toHaveProperty('userAvatarS3Key', `user-avatars-shared/${mode}/female-2.jpg`)
@@ -108,7 +108,7 @@ describe('AiDialogueTurnRepository', () => {
 		expect(tx.imageGenerationJob.create.mock.calls[0][0].data.type).toBe('emotionSheet')
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).toMatchObject({
 			illustrationStyleId: 'watercolor',
-			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/watercolor.webp',
+			styleAvatarReferenceS3Key: 'ai-dialogue-styles/localdev/watercolor.webp',
 		})
 	})
 
@@ -178,7 +178,7 @@ describe('AiDialogueTurnRepository', () => {
 			compression: 80,
 			size: { width: 1152, height: 576 },
 			illustrationStyleId: 'realism',
-			styleSceneReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/realism.webp',
+			styleSceneReferenceS3Key: 'ai-dialogue-styles/localdev/realism.webp',
 		})
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).toMatchObject({
 			model: OpenAIImageModels.Flare,
@@ -187,7 +187,7 @@ describe('AiDialogueTurnRepository', () => {
 			compression: 80,
 			size: { width: 960, height: 720 },
 			illustrationStyleId: 'realism',
-			styleAvatarReferenceS3Key: 'ai-dialogue-images/shared/styles/localdev/realism.webp',
+			styleAvatarReferenceS3Key: 'ai-dialogue-styles/localdev/realism.webp',
 		})
 		expect(JSON.parse(tx.imageGenerationJob.create.mock.calls[0][0].data.input)).not.toHaveProperty(
 			'userAvatarS3Key',

@@ -52,7 +52,7 @@ export function getAiDialogueIllustrationStyleKey(mode: string | undefined, file
 		)
 	}
 
-	return `${getR2EnvironmentPrefix('ai-dialogue-images/shared/styles', mode)}${file}`
+	return `${getR2EnvironmentPrefix('ai-dialogue-styles', mode)}${file}`
 }
 
 /**

@@ -17,10 +17,12 @@ const common = {
 	size: { width: 960, height: 720 },
 	quality: 'low',
 	format: 'png',
-	resultS3Key: 'ai-dialogue-images/generated/ru/localtest/job-10/11111111-1111-4111-8111-111111111111.png',
+	resultS3Key: 'ai-dialogue-images-generated/localtest/job-10/11111111-1111-4111-8111-111111111111.png',
 	styleAvatarReferenceS3Key: null,
 	styleSceneReferenceS3Key: null,
 }
+
+const legacyResultKey = common.resultS3Key.replace('ai-dialogue-images-generated/', 'ai-dialogue-images/generated/ru/')
 
 const emotion = { ...common, appearance: 'NPC', aspectRatio: '4:3', layoutVersion: AI_DIALOGUE_EMOTION_LAYOUT_VERSION }
 const scene = {
@@ -97,7 +99,7 @@ describe('R2ImageGenerationAssets', () => {
 		'accepts a square WebP style reference for %s with a different result ratio',
 		async (type) => {
 			const { service, storage, job } = harness()
-			const styleKey = 'ai-dialogue-images/shared/styles/localdev/watercolor.webp'
+			const styleKey = 'ai-dialogue-styles/localdev/watercolor.webp'
 			const styleBytes = await sharp({ create: { width: 512, height: 512, channels: 3, background: 'green' } })
 				.webp()
 				.toBuffer()
@@ -151,7 +153,6 @@ describe('R2ImageGenerationAssets', () => {
 		const { service, storage, repository, job } = harness()
 		await service.publish(job, { bytes: sprite, contentType: 'image/png' })
 		const key = storage.uploadFile.mock.calls[0][0]
-		expect(key).toMatch(/^ai-dialogue-images\/generated\/ru\/localtest\/job-10\/[a-f0-9-]+\.png$/)
 		expect(key).toBe(common.resultS3Key)
 		expect(storage.uploadFile).toHaveBeenCalledWith(key, sprite, 'image/png', 60_000)
 		expect(repository.saveImageAndMarkJobReady).toHaveBeenCalledWith(
@@ -272,7 +273,7 @@ describe('R2ImageGenerationAssets', () => {
 		expect(storage.deleteFile).not.toHaveBeenCalled()
 	})
 
-	it('recovers the exact uploaded original without PUT or image generation', async () => {
+	it('recovers the original without another upload', async () => {
 		const { service, storage, job, repository } = harness()
 		storage.readFile.mockResolvedValue(sprite)
 		await expect(service.publishStoredResult(job)).resolves.toBe(true)
@@ -292,8 +293,9 @@ describe('R2ImageGenerationAssets', () => {
 	it.each([
 		'ai-dialogue-images/shared/user-avatar.jpg',
 		common.resultS3Key.replace('job-10', 'job-11'),
-		common.resultS3Key.replace('/ru/', '/en/'),
-	])('does not recover a foreign or shared key %s', async (key) => {
+		common.resultS3Key.replace('/localtest/', '/servermaster/'),
+		legacyResultKey,
+	])('rejects a foreign, shared or obsolete result key %s', async (key) => {
 		const { service, storage, job } = harness()
 		job.input = JSON.stringify({ ...emotion, resultS3Key: key })
 		await expect(service.publishStoredResult(job)).rejects.toThrow('Invalid reserved')
@@ -316,7 +318,7 @@ describe('R2ImageGenerationAssets', () => {
 		const snapshot = parseImageGenerationSnapshot(job.type, job.input)
 		const first = service.createResultKey(job, snapshot)
 		expect(first).not.toBe(service.createResultKey(job, snapshot))
-		expect(first).toMatch(/^ai-dialogue-images\/generated\/ru\/localtest\/job-10\/[a-f0-9-]+\.png$/)
+		expect(first).toMatch(/^ai-dialogue-images-generated\/localtest\/job-10\/[a-f0-9-]+\.png$/)
 		expect(storage.uploadFile).not.toHaveBeenCalled()
 	})
 })

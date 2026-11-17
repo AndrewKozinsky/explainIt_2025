@@ -43,7 +43,7 @@ describe('CreateAiDialogue language settings', () => {
 		},
 	)
 
-	it.each(['unknown', 'legacy', 'ai-dialogue-images/shared/styles/localdev/realism.webp'])(
+	it.each(['unknown', 'legacy', 'ai-dialogue-styles/localdev/realism.webp'])(
 		'rejects unavailable illustration style %s before creating a dialogue',
 		async (illustrationStyleId) => {
 			const scenario = { getScenarioById: jest.fn() }

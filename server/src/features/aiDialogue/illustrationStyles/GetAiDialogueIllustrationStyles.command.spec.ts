@@ -29,12 +29,12 @@ describe('Get AI dialogue illustration styles', () => {
 			for (const [index, style] of result.styles.entries()) {
 				expect(Object.keys(style).sort()).toEqual(['id', 'previewUrl', 'titleKey'])
 				expect(style.titleKey).toBe(aiDialogueIllustrationStyleCatalog.styles[index].titleKey)
-				expect(style.previewUrl).toContain(`/styles/${mode}/`)
+				expect(style.previewUrl).toContain(`/ai-dialogue-styles/${mode}/`)
 			}
 
 			expect(storage.getFileUrl.mock.calls).toEqual(
 				aiDialogueIllustrationStyleCatalog.styles.map((style) => [
-					`ai-dialogue-images/shared/styles/${mode}/${style.file.replace(/\.webp$/, '.preview.webp')}`,
+					`ai-dialogue-styles/${mode}/${style.file.replace(/\.webp$/, '.preview.webp')}`,
 				]),
 			)
 		},

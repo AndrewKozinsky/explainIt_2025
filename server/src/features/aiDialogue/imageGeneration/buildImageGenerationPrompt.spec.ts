@@ -57,12 +57,11 @@ describe('image generation prompts', () => {
 		try {
 			style.stylePrompt = 'Changed catalog style'
 			style.file = 'changed.webp'
+
 			const snapshot = parseImageGenerationSnapshot('emotionSheet', savedSnapshot)
 			const { prompt } = buildImageGenerationInput(snapshot, ['data:image/png;base64,c3R5bGU='])
 
-			expect(snapshot.styleAvatarReferenceS3Key).toBe(
-				`ai-dialogue-images/shared/styles/localdev/${savedStyleFile}`,
-			)
+			expect(snapshot.styleAvatarReferenceS3Key).toBe(`ai-dialogue-styles/localdev/${savedStyleFile}`)
 			expect(prompt).toContain(savedStylePrompt)
 			expect(prompt).not.toContain('Changed catalog style')
 		} finally {
