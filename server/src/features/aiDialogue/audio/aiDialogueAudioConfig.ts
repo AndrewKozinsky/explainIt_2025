@@ -9,6 +9,7 @@ export const dialogueVoiceSchema = z
 	.strict()
 
 export type DialogueVoice = z.infer<typeof dialogueVoiceSchema>
+export const AI_DIALOGUE_AUDIO_STORAGE_PATH = 'ai-dialogue-audio'
 export const AI_DIALOGUE_TTS_MODEL = 'gpt-4o-mini-tts-2025-12-15' as const
 export const AI_DIALOGUE_NARRATOR: DialogueVoice = {
 	voice: 'cedar',

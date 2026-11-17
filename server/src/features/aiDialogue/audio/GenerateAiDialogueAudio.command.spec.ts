@@ -88,6 +88,10 @@ describe('GenerateAiDialogueAudioHandler', () => {
 			mimeType: 'audio/mpeg',
 		})
 		expect(repository.getVoice).toHaveBeenCalledWith(1, 'officer')
+		expect(repository.startGenerationIfNeeded).toHaveBeenCalledWith(
+			{ messageId: 10, actionIndex: 1 },
+			expect.stringMatching(/^ai-dialogue-audio\/localdev\/1\/[0-9a-f-]+\.mp3$/),
+		)
 		expect(tts.generate).toHaveBeenCalledWith(
 			expect.objectContaining({ text: 'Passport, please.', voice: 'ash', instructions: 'Calm official voice' }),
 		)
@@ -226,14 +230,16 @@ describe('GenerateAiDialogueAudioHandler balance', () => {
 	})
 
 	it('returns ready audio without checking the balance', async () => {
-		const { handler, balance, repository, tts } = createHarness()
-		repository.getAudio.mockResolvedValue({ status: 'ready', s3_key: 'ai-dialogue-audio/ready.mp3' })
+		const { handler, balance, repository, storage, tts } = createHarness()
+		const legacyKey = 'ai-dialogue-audio/generated/ru/localdev/1/ready.mp3'
+		repository.getAudio.mockResolvedValue({ status: 'ready', s3_key: legacyKey })
 		balance.ensurePositiveBalanceOrThrow.mockRejectedValue(new Error('BALANCE_EXHAUSTED'))
 
 		await expect(handler.execute(command())).resolves.toEqual({
 			url: 'https://r2/audio.mp3',
 			mimeType: 'audio/mpeg',
 		})
+		expect(storage.getFileUrl).toHaveBeenCalledWith(legacyKey)
 		expect(tts.generate).not.toHaveBeenCalled()
 	})
 })

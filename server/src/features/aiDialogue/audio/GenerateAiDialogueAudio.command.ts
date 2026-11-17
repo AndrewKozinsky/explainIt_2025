@@ -13,6 +13,7 @@ import { TtsAdapterService } from 'infrastructure/ttsProviderAdapter/TtsAdapter.
 import { openAITtsInputSchema } from 'infrastructure/ttsProviderAdapter/ttsInput.schema'
 import { AiDialogueAudioOutModel } from 'models/aiDialogue/aiDialogueAudio.out.model'
 import {
+	AI_DIALOGUE_AUDIO_STORAGE_PATH,
 	AI_DIALOGUE_NARRATOR,
 	AI_DIALOGUE_TTS_MODEL,
 	DialogueVoice,
@@ -70,8 +71,8 @@ export class GenerateAiDialogueAudioHandler implements ICommandHandler<
 
 		await this.userBalance.ensurePositiveBalanceOrThrow(userId, 'aiDialogueAudio')
 
-		const { region, mode } = this.config.get()
-		const prefix = getR2EnvironmentPrefix(`ai-dialogue-audio/generated/${region}`, mode)
+		const { mode } = this.config.get()
+		const prefix = getR2EnvironmentPrefix(AI_DIALOGUE_AUDIO_STORAGE_PATH, mode)
 		const s3Key = `${prefix}${dialogueId}/${randomUUID()}.mp3`
 
 		const { audio, shouldGenerate } = await this.repository.startGenerationIfNeeded(
