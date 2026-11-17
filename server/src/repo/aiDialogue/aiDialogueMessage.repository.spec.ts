@@ -1,11 +1,66 @@
 jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
 jest.mock('db/prisma.service', () => ({ PrismaService: class {} }))
 
+import { serializeAiDialogueEvent } from 'features/aiDialogue/serializeAiDialogueEvent'
+import { AiDialogueQueryRepository } from './aiDialogue.queryRepository'
 import { AiDialogueMessageRepository } from './aiDialogueMessage.repository'
 
 function dbEvent(type: string, payload: unknown) {
 	return { type, payload: JSON.stringify(payload) }
 }
+
+describe('AiDialogueMessageRepository user text reviews', () => {
+	it('returns the same saved review after sending and on history replay', async () => {
+		const createdAt = new Date('2026-11-17T10:00:00Z')
+		const messages = {
+			create: jest.fn(async ({ data }) => ({ ...data, id: 17, created_at: createdAt })),
+			findUnique: jest.fn(),
+			findMany: jest.fn(),
+		}
+		const prisma = { aiDialogueMessage: messages } as never
+		const repository = new AiDialogueMessageRepository(prisma)
+		const queryRepository = new AiDialogueQueryRepository(prisma, {} as never)
+		const originalSpeech = 'She go home.'
+		const speech = { type: 'speech' as const, content: 'She goes home.' }
+		const action = { type: 'action' as const, content: 'I nod.' }
+		const analysis = {
+			critical: [
+				{
+					title: 'Согласование',
+					sentenceMarkdown: 'She **go** home.',
+					explanationMarkdown: 'После **she** нужна форма **goes**.',
+				},
+			],
+			suggestions: [],
+		}
+		const actionAnalysis = { critical: [], suggestions: [] }
+		const payload = {
+			type: 'userActions' as const,
+			actions: [speech, action],
+			textReview: [
+				{ originalText: originalSpeech, analysis },
+				{ originalText: action.content, analysis: actionAnalysis },
+			],
+		}
+		const saved = await repository.createMessage({
+			dialogueId: 3,
+			event: payload,
+		})
+		messages.findUnique.mockResolvedValue(saved)
+		messages.findMany.mockResolvedValue([saved])
+
+		const response = {
+			id: 17,
+			dialogueId: 3,
+			payload,
+			createdAt: createdAt.toISOString(),
+		}
+		const message = await queryRepository.getMessageById(17)
+		expect(message).toEqual(response)
+		await expect(queryRepository.getMessagesByDialogueId(3)).resolves.toEqual([response])
+		expect(serializeAiDialogueEvent(message!.payload)).toBe('[пользователь] «She goes home.»; *I nod.*')
+	})
+})
 
 describe('AiDialogueMessageRepository text check context', () => {
 	it('loads a bounded recent history chronologically and keeps an older current scene', async () => {

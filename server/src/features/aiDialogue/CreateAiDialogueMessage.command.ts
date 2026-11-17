@@ -2,7 +2,7 @@ import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepository'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
-import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
+import { AiDialogueClientEvent, AiDialogueEvent } from 'types/aiDialogueMessage'
 import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -54,7 +54,15 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 		// Без баланса действие не сохраняется: ответ NPC на него всё равно не сгенерировался бы.
 		await this.userBalanceService.ensurePositiveBalanceOrThrow(userId, 'aiDialogue')
 
-		const message = await this.aiDialogueMessageRepository.createMessage({ dialogueId, event })
+		const eventToSave: AiDialogueEvent =
+			event.type === 'userActions'
+				? {
+						...event,
+						textReview: event.actions.map(({ content }) => ({ originalText: content, analysis: null })),
+					}
+				: event
+
+		const message = await this.aiDialogueMessageRepository.createMessage({ dialogueId, event: eventToSave })
 
 		const messageOut = await this.aiDialogueQueryRepository.getMessageById(message.id)
 		if (!messageOut) {

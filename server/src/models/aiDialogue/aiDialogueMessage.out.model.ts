@@ -12,7 +12,9 @@ export class AiDialogueMessageOutModel {
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.id))
 	dialogueId: number
 
-	@ApiProperty({ description: 'Event payload (discriminated by its type field)' })
+	@ApiProperty({
+		description: 'Event payload discriminated by type. For userActions, textReview follows the order of actions.',
+	})
 	payload: AiDialogueEvent
 
 	@ApiProperty(getApiPropertyOptions($.created_at))

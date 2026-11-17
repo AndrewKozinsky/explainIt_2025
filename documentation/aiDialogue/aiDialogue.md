@@ -231,6 +231,8 @@ type CreateAiDialogueMessageInput =
    `400` `AI_DIALOGUE_GENERATION_ALREADY_ACTIVE` (нельзя действовать, пока NPC отвечает).
 2. Иначе сохраняет сообщение и **fire-and-forget** запускает генерацию ответа (результат доедет через SSE).
 
+[Данные для разбора ответа пользователя](aiDialogueForm.md#данные-для-разбора-ответа-пользователя)
+
 ## События диалога
 
 Дискриминированный union `AiDialogueEvent` (в `types/aiDialogueMessage.ts`). `type` — дискриминатор.
@@ -241,7 +243,7 @@ type CreateAiDialogueMessageInput =
 | `npcActions`    | `npcId`, `npcName`, `npcRole`, `emotion`, `actions` | LLM            |
 | `help`          | `content: string`, `translation`                    | LLM            |
 | `worldEvent`    | `content: string`, `translation`                    | LLM            |
-| `userActions`   | `actions`                                           | клиент         |
+| `userActions`   | `actions`, `textReview`                             | клиент и сервер |
 | `userAvoidsNPC` | —                                                   | клиент         |
 
 `actions` — массив `AiDialogueActionItem = { type: 'action' | 'speech'; content: string }` (`action` — невербальное

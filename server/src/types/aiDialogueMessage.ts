@@ -1,3 +1,4 @@
+import type { AiDialogueUserMessagePartCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import type { AiDialogueWordMap } from 'types/aiDialogueWordMap'
 
 /**
@@ -66,10 +67,18 @@ export type NpcActionsEvent = {
 	wordMap?: AiDialogueWordMap
 }
 
-// Действия и реплики пользователя.
-export type UserActionsEvent = {
+type UserActionsInputEvent = {
 	type: 'userActions'
 	actions: AiDialogueActionItem[]
+}
+
+// Сохранённые действия и реплики пользователя. actions содержит итоговые тексты.
+export type UserActionsEvent = UserActionsInputEvent & {
+	/** Исходный текст и разбор для каждого элемента actions в том же порядке. */
+	textReview?: {
+		originalText: string
+		analysis: AiDialogueUserMessagePartCheckOutModel | null
+	}[]
 }
 
 // Пользователь ушёл от разговора с NPC.
@@ -91,7 +100,7 @@ export type AiDialogueEvent =
 
 // События, которые клиент может отправить серверу (в отличие от AiDialogueEvent —
 // сервер сам не генерирует userActions/userAvoidsNPC от имени пользователя).
-export type AiDialogueClientEvent = UserActionsEvent | UserAvoidsNpcEvent
+export type AiDialogueClientEvent = UserActionsInputEvent | UserAvoidsNpcEvent
 
 export type AiDialogueNpcAppearance = {
 	npcId: string

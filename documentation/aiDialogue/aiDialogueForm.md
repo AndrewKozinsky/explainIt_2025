@@ -83,6 +83,64 @@ Enter выполняет действие текущей правой кнопк
 Это уход от NPC, а не удаление диалога. Во время генерации NPC и отправки форма заблокирована.
 REST `/messages` не проверяет наличие грамматического подтверждения на сервере.
 
+## Данные для разбора ответа пользователя
+
+В ответе `POST .../messages` и в сообщении из истории SSE используется одна модель. У нового
+`userActions` есть массив `payload.textReview`: каждый элемент соответствует элементу `payload.actions`
+с тем же индексом. `payload.actions[].content` — итоговый текст, который показывается в диалоге
+и передаётся в контекст персонажа. Если итоговый текст отличается от `originalText`, это исправленный
+вариант той же части. Реплика и действие могут иметь разные результаты анализа.
+
+Пример формата с заполненным разбором:
+
+```json
+{
+  "id": 17,
+  "dialogueId": 3,
+  "payload": {
+    "type": "userActions",
+    "actions": [
+      {
+        "type": "speech",
+        "content": "She goes home."
+      },
+      {
+        "type": "action",
+        "content": "I nod."
+      }
+    ],
+    "textReview": [
+      {
+        "originalText": "She go home.",
+        "analysis": {
+          "critical": [
+            {
+              "title": "Согласование",
+              "sentenceMarkdown": "She **go** home.",
+              "explanationMarkdown": "После **she** нужна форма **goes**."
+            }
+          ],
+          "suggestions": []
+        }
+      },
+      {
+        "originalText": "I nod.",
+        "analysis": {
+          "critical": [],
+          "suggestions": []
+        }
+      }
+    ]
+  },
+  "createdAt": "2026-11-17T10:00:00.000Z"
+}
+```
+
+До подключения анализатора к отправке у новых частей `analysis: null`, а итоговый текст совпадает
+с исходным. Два пустых массива означают, что анализ выполнен и замечаний нет. `textReview` хранится
+вместе с событием в существующем JSON строки `AiDialogueMessage`. У `userAvoidsNPC` и событий
+персонажей поля разбора нет.
+
 ## Диктовка и выделение
 
 `entities/aiDialogue/dictation/openAiDialogueDictation.ts` открывает браузерную запись и
