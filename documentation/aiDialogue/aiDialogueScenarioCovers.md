@@ -9,17 +9,17 @@ WebP-файлы 1152×576 (2:1), по одному на публичный сц�
 согласно [правилам хранения файлов](../topics/fileStorage.md). Используйте следующий префикс:
 
 ```text
-ai-dialogue-public-scenarios/covers/<mode>/
+ai-dialogue-public-scenarios-covers/<MODE>/
 ```
 
 Примеры:
 
-- Локальная разработка: `ai-dialogue-public-scenarios/covers/localdev/`
-- Сервер разработки: `ai-dialogue-public-scenarios/covers/serverdevelop/`
-- Рабочее приложение: `ai-dialogue-public-scenarios/covers/servermaster/`
+- Локальная разработка: `ai-dialogue-public-scenarios-covers/localdev/`
+- Сервер разработки: `ai-dialogue-public-scenarios-covers/serverdevelop/`
+- Рабочее приложение: `ai-dialogue-public-scenarios-covers/servermaster/`
 
 Например, ключ паспортного контроля в рабочем приложении:
-`ai-dialogue-public-scenarios/covers/servermaster/passport-control.webp`.
+`ai-dialogue-public-scenarios-covers/servermaster/passport-control.webp`.
 Ключ использует фактическое значение `MODE`, в том числе для новых окружений.
 Один и тот же набор файлов можно загрузить в несколько префиксов окружений.
 

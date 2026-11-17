@@ -215,7 +215,7 @@ StartServerTasksRunner сначала применяет миграции, за�
 Бакет — существующий CLOUDFLARE_S3_BUCKET_NAME. Ключ:
 
 ```text
-ai-dialogue-public-scenarios/covers/<mode>/<slug>.webp
+ai-dialogue-public-scenarios-covers/<MODE>/<slug>.webp
 ```
 
 MODE берётся из MainConfigService: localtest/localdev/localcheckserver/serverdevelop/servermaster.

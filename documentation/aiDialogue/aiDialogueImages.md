@@ -4,7 +4,7 @@
 выбранный стиль диалога применяется к новым заданиям NPC и сцен.
 
 Обложки общедоступных сценариев описаны отдельно в [aiDialogueScenario.md](aiDialogueScenario.md).
-Они подготовлены заранее, хранятся в `ai-dialogue-public-scenarios/covers/<mode>/`,
+Они подготовлены заранее, хранятся в `ai-dialogue-public-scenarios-covers/<MODE>/`,
 не являются AiDialogueImage и не входят в генерацию или очистку изображений конкретного диалога.
 
 ## Поведение

@@ -1370,7 +1370,7 @@ export const bdConfig = {
 				type: 'string',
 				required: false,
 				description: 'R2 object key; required for public scenarios, optional for user scenarios (SQL CHECK)',
-				example: 'ai-dialogue-public-scenarios/covers/localdev/passport-control.webp',
+				example: 'ai-dialogue-public-scenarios-covers/localdev/passport-control.webp',
 			},
 			user_id: {
 				type: 'manyToOne',

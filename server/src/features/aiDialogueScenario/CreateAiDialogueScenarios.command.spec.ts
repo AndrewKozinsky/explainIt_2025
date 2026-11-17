@@ -33,7 +33,7 @@ describe('Public scenario seeds', () => {
 		)
 
 		for (const scenario of scenarios) {
-			expect(scenario.coverS3Key).toBe(`ai-dialogue-public-scenarios/covers/servermaster/${scenario.slug}.webp`)
+			expect(scenario.coverS3Key).toBe(`ai-dialogue-public-scenarios-covers/servermaster/${scenario.slug}.webp`)
 		}
 	})
 
@@ -116,7 +116,7 @@ describe('Public scenario seeds', () => {
 		'isolates covers for MODE=%s',
 		(mode) => {
 			expect(getPublicScenarioCoverKey(mode, 'passport-control')).toBe(
-				`ai-dialogue-public-scenarios/covers/${mode}/passport-control.webp`,
+				`ai-dialogue-public-scenarios-covers/${mode}/passport-control.webp`,
 			)
 		},
 	)
