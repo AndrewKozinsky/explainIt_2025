@@ -1,7 +1,73 @@
+@use '@/styles/variables' as vars;
+@use '@/styles/mixins' as mix;
+
 .ai-dialogue-message-list {
 	display: grid;
 	grid-auto-flow: row;
 	gap: 3rem;
 	width: 100%;
 	container-type: inline-size;
+}
+
+.ai-dialogue-user-message-row {
+	min-width: 0;
+}
+
+.ai-dialogue-user-message-row__message {
+	position: relative;
+	border-radius: vars.$radius-2;
+	cursor: pointer;
+
+	.ai-dialogue-message-with-avatar__header {
+		padding-inline-end: 3.6rem;
+	}
+
+	&--selected {
+		outline: 1px solid vars.$grayColor-3;
+		outline-offset: .6rem;
+	}
+}
+
+.ai-dialogue-user-message-row__review-button {
+	position: absolute;
+	inset-block-start: 0;
+	inset-inline-end: 0;
+	display: grid;
+	place-items: center;
+	width: 3.2rem;
+	height: 3.2rem;
+	border: 0;
+	border-radius: vars.$radius-1;
+	background: vars.$grayColor-1;
+	color: vars.$grayColor-5;
+	cursor: pointer;
+
+	svg {
+		display: block;
+		width: 1.8rem;
+		height: 1.8rem;
+	}
+
+	&--with-issues,
+	&:hover,
+	&[aria-pressed='true'] {
+		background: vars.$accentColor-1;
+		color: vars.$accentColor-3;
+	}
+
+	&:focus-visible {
+		outline: 2px solid vars.$linkColor-2;
+		outline-offset: 2px;
+	}
+}
+
+.ai-dialogue-user-message-row__inline-review {
+	margin-top: 1.6rem;
+	padding: 1.2rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+
+	@include mix.page-width(700px) {
+		display: none;
+	}
 }

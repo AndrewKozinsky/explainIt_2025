@@ -1947,14 +1947,3 @@ export const bdConfig = {
 		},
 	},
 } satisfies BdConfig.Root
-
-export const dtoConfig = {
-	language_code: {
-		type: 'enum' as const,
-		enumName: 'LanguageCode',
-		variants: languagesArr,
-		description: 'Language code',
-		example: 'en',
-		required: true,
-	},
-}

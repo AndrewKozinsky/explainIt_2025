@@ -6,12 +6,10 @@ import { useSelectedWordsStore } from '@/widgets/aiDialogueMessages/ui/Segmented
 /** Dictionary selection changes only on a user click. */
 export function useAiDialogueWordSelection(dialogueId: string) {
 	const [selectedWord, setSelectedWord] = useState<null | string>(null)
-	const [selectedSentence, setSelectedSentence] = useState('')
 
 	useEffect(
 		function () {
 			setSelectedWord(null)
-			setSelectedSentence('')
 			// Заливка выбранного слова относится к прежнему диалогу.
 			useSelectedWordsStore.getState().clearSelectedWords()
 		},
@@ -19,14 +17,13 @@ export function useAiDialogueWordSelection(dialogueId: string) {
 	)
 
 	const handleWordSelect = useCallback(
-		function ({ word, sentence }: AiDialogueWordSelection) {
+		function ({ word }: AiDialogueWordSelection) {
 			setSelectedWord(word)
-			setSelectedSentence(sentence)
 			// Нажатие на слово показывает перевод предложения и статью словаря.
 			capturePosthogEvent({ name: 'dialogue_help_used', dialogue_id: Number(dialogueId), kind: 'translation' })
 		},
 		[dialogueId],
 	)
 
-	return { selectedWord, selectedSentence, handleWordSelect }
+	return { selectedWord, handleWordSelect }
 }

@@ -1,9 +1,10 @@
 'use client'
 
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
-import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
+import DetailsBlock, { type InfoViewType } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
 import BalanceExhaustedNotice from '@/entities/user/ui/BalanceExhaustedNotice/BalanceExhaustedNotice'
@@ -12,7 +13,9 @@ import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
+import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueMessageList from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
+import AiDialogueMessageReview from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageReview/AiDialogueMessageReview'
 import { DialogueAudioProvider } from '@/widgets/aiDialogueMessages/ui/audio/DialogueAudioContext'
 import AiDialogueSettings from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
 import { PhraseDictionary } from '@/widgets/dictionary'
@@ -45,7 +48,9 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 		audio.handlers,
 	)
 
-	const { selectedWord, selectedSentence, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
+	const { selectedWord, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
+	const [detailsView, setDetailsView] = useState<InfoViewType>('dictionary')
+	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
 	// Без баланса форма ответа скрыта (черновик не сохраняется); после начисления она вернётся сама.
 	const isBalanceExhausted = useIsBalanceExhausted()
 
@@ -58,6 +63,17 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	}
 
 	const { header } = getHeaderAndSubHeader(dialogue)
+	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
+
+	function selectMessage(messageId: number) {
+		setSelectedMessageId(detailsView === 'message' && selectedMessageId === messageId ? null : messageId)
+		setDetailsView('message')
+	}
+
+	function selectWord(selection: AiDialogueWordSelection) {
+		handleWordSelect(selection)
+		setDetailsView('dictionary')
+	}
 
 	return (
 		<DialogueAudioProvider player={audio.player} state={audio.state}>
@@ -73,7 +89,10 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 								messages={messages}
 								preview={preview}
 								isGenerating={isGenerating}
-								onWordSelect={handleWordSelect}
+								onWordSelect={selectWord}
+								onMessageSelect={selectMessage}
+								selectedMessageId={selectedMessageId}
+								reviewOpen={detailsView === 'message'}
 								visuals={visuals}
 								refreshVisuals={refreshVisuals}
 								recoverImage={recoverImage}
@@ -89,6 +108,9 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 				rightBlock={
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 						<DetailsBlock
+							key={selectedMessageId}
+							activeView={detailsView}
+							onViewChange={setDetailsView}
 							tabs={[
 								{
 									type: 'dictionary',
@@ -100,11 +122,15 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 										/>
 									),
 								},
-								/*{
-								type: 'ai_dialog',
-								text: tPage('tabs.dialogue'),
-								content: <p>{selectedSentence}</p>,
-								},*/
+								{
+									type: 'message',
+									text: tPage('tabs.message'),
+									content: (
+										<AiDialogueMessageReview
+											message={selectedPayload?.type === 'userActions' ? selectedPayload : null}
+										/>
+									),
+								},
 								{
 									type: 'settings',
 									text: tPage('tabs.settings'),

@@ -1,0 +1,60 @@
+@use '@/styles/variables' as vars;
+
+.ai-dialogue-message-review {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	gap: 1.6rem;
+	min-width: 0;
+	overflow-wrap: anywhere;
+}
+
+.ai-dialogue-message-review__empty {
+	margin: auto;
+	padding: 1.2rem 0;
+	color: vars.$grayColor-5;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.ai-dialogue-message-review__group,
+.ai-dialogue-message-review__part {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.ai-dialogue-message-review__group + .ai-dialogue-message-review__group {
+	padding-top: 1.6rem;
+	border-top: 1px solid vars.$grayColor-2;
+}
+
+.ai-dialogue-message-review__heading {
+	color: vars.$grayColor-5;
+	font-size: 1.8rem;
+	line-height: 2.4rem;
+	font-weight: 500;
+}
+
+.ai-dialogue-message-review__label {
+	display: inline-block;
+	margin-bottom: .4rem;
+	padding: 0 .5rem;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-1;
+	color: vars.$grayColor-5;
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+}
+
+.ai-dialogue-message-review__text {
+	font-size: 2rem;
+	line-height: 1.4;
+	white-space: pre-wrap;
+}
+
+.ai-dialogue-message-review__status {
+	color: vars.$grayColor-5;
+	font-size: 1.4rem;
+	line-height: 1.8rem;
+}

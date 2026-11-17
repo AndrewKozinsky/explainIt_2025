@@ -1,7 +1,11 @@
 import { expect, type Page, test, type WebSocketRoute } from '@playwright/test'
 import { pageUrls } from '../shared/utils/pageUrls'
+import type {
+	AiDialogueClientEvent,
+	DialogueServerMessage,
+} from '../widgets/aiDialogueMessages/types/aiDialogueMessage'
 
-async function setup(page: Page, pcm = false) {
+async function setup(page: Page, pcm = false, history: DialogueServerMessage[] = []) {
 	const browserErrors: string[] = []
 	page.on('pageerror', (error) => browserErrors.push(error.message))
 	const sent: unknown[] = []
@@ -10,71 +14,81 @@ async function setup(page: Page, pcm = false) {
 	let failCheck = false
 	let socket: WebSocketRoute | null = null
 
-	await page.addInitScript((usePcm) => {
-		class FakeEventSource {
-			onopen: (() => void) | null = null
-			onmessage = null
-			onerror = null
-			constructor() {
-				setTimeout(() => this.onopen?.(), 0)
+	await page.addInitScript(
+		({ usePcm, history }) => {
+			class FakeEventSource {
+				onopen: (() => void) | null = null
+				onmessage: ((event: MessageEvent<string>) => void) | null = null
+				onerror = null
+				constructor() {
+					setTimeout(() => {
+						this.onopen?.()
+						for (const message of history) {
+							this.onmessage?.(
+								new MessageEvent('message', { data: JSON.stringify({ type: 'message', message }) }),
+							)
+						}
+					}, 0)
+				}
+				close() {}
 			}
-			close() {}
-		}
 
-		Object.defineProperty(window, 'EventSource', { value: FakeEventSource })
-		const track = new EventTarget() as EventTarget & { stop(): void }
-		track.stop = () => undefined
-		Object.defineProperty(navigator, 'mediaDevices', {
-			configurable: true,
-			value: {
-				getUserMedia: async () => {
-					if (!usePcm) return { getTracks: () => [track], getAudioTracks: () => [track] }
-					return silentAudioStream()
+			Object.defineProperty(window, 'EventSource', { value: FakeEventSource })
+			const track = new EventTarget() as EventTarget & { stop(): void }
+			track.stop = () => undefined
+			Object.defineProperty(navigator, 'mediaDevices', {
+				configurable: true,
+				value: {
+					getUserMedia: async () => {
+						if (!usePcm) return { getTracks: () => [track], getAudioTracks: () => [track] }
+						return silentAudioStream()
+					},
 				},
-			},
-		})
-		class FakeRecorder {
-			state = 'inactive'
-			ondataavailable: ((event: { data: Blob }) => void) | null = null
-			onstop: (() => void) | null = null
-			onerror = null
+			})
+			class FakeRecorder {
+				state = 'inactive'
+				ondataavailable: ((event: { data: Blob }) => void) | null = null
+				onstop: (() => void) | null = null
+				onerror = null
 
-			static isTypeSupported(type: string) {
-				return !usePcm && type.includes('webm')
-			}
+				static isTypeSupported(type: string) {
+					return !usePcm && type.includes('webm')
+				}
 
-			start() {
-				this.state = 'recording'
-				this.ondataavailable?.({ data: new Blob(['header']) })
+				start() {
+					this.state = 'recording'
+					this.ondataavailable?.({ data: new Blob(['header']) })
+				}
+				stop() {
+					this.state = 'inactive'
+					queueMicrotask(() => {
+						this.ondataavailable?.({ data: new Blob(['tail']) })
+						this.onstop?.()
+					})
+				}
 			}
-			stop() {
-				this.state = 'inactive'
-				queueMicrotask(() => {
-					this.ondataavailable?.({ data: new Blob(['tail']) })
-					this.onstop?.()
-				})
+			Object.defineProperty(window, 'MediaRecorder', { value: FakeRecorder })
+			function silentAudioStream() {
+				const context = new AudioContext()
+				const oscillator = context.createOscillator()
+				const volume = context.createGain()
+				const destination = context.createMediaStreamDestination()
+				volume.gain.value = 0
+				oscillator.connect(volume)
+				volume.connect(destination)
+				oscillator.start()
+				void context.resume()
+				const audioTrack = destination.stream.getAudioTracks()[0]
+				const originalStop = audioTrack.stop.bind(audioTrack)
+				audioTrack.stop = () => {
+					originalStop()
+					void context.close()
+				}
+				return destination.stream
 			}
-		}
-		Object.defineProperty(window, 'MediaRecorder', { value: FakeRecorder })
-		function silentAudioStream() {
-			const context = new AudioContext()
-			const oscillator = context.createOscillator()
-			const volume = context.createGain()
-			const destination = context.createMediaStreamDestination()
-			volume.gain.value = 0
-			oscillator.connect(volume)
-			volume.connect(destination)
-			oscillator.start()
-			void context.resume()
-			const audioTrack = destination.stream.getAudioTracks()[0]
-			const originalStop = audioTrack.stop.bind(audioTrack)
-			audioTrack.stop = () => {
-				originalStop()
-				void context.close()
-			}
-			return destination.stream
-		}
-	}, pcm)
+		},
+		{ usePcm: pcm, history },
+	)
 	await page.routeWebSocket('**/api/ai-dialogue/*/dictation', (ws) => {
 		socket = ws
 		ws.onMessage((message) => {
@@ -98,8 +112,18 @@ async function setup(page: Page, pcm = false) {
 			return route.fulfill({ json: { speech: result(input.speech), action: result(input.action) } })
 		}
 		if (path.endsWith('/messages')) {
-			const payload = request.postDataJSON()
-			sent.push(payload)
+			const event: AiDialogueClientEvent = request.postDataJSON()
+			sent.push(event)
+			const payload =
+				event.type === 'userActions'
+					? {
+							...event,
+							textReview: event.actions.map(({ content }) => ({
+								originalText: content,
+								analysis: { critical: [], suggestions: [] },
+							})),
+						}
+					: event
 			return route.fulfill({
 				json: { id: 100 + sent.length, dialogueId: 1, createdAt: new Date().toISOString(), payload },
 			})
@@ -121,7 +145,12 @@ async function setup(page: Page, pcm = false) {
 					sourceLanguageCode: 'en',
 					targetLanguageCode: 'ru',
 					maxCefrLevel: null,
-					scenario: { id: 1, slug: 'test', title: '{"ru":"Проверка формы"}', description: '{}' },
+					scenario: {
+						id: 1,
+						slug: 'test',
+						title: history.length ? 'В очереди' : 'Проверка формы',
+						description: '',
+					},
 					createdAt: '2026-10-21T00:00:00Z',
 					updatedAt: '2026-10-21T00:00:00Z',
 				},
@@ -155,6 +184,100 @@ function result(text?: string) {
 		suggestions: text ? [{ explanationMarkdown: 'Запятая после **Hey**:', example: 'Hey, girls!' }] : [],
 	}
 }
+
+const historyWithReviews: DialogueServerMessage[] = [
+	{
+		id: 12,
+		dialogueId: 1,
+		createdAt: '2026-10-21T00:00:00Z',
+		payload: {
+			type: 'userActions',
+			actions: [
+				{ type: 'action', content: 'I looked at them.' },
+				{ type: 'speech', content: 'Hey, girls! There is a line.' },
+			],
+			textReview: [
+				{ originalText: 'I looked at them.', analysis: { critical: [], suggestions: [] } },
+				{
+					originalText: 'Hey girls! There is a очередь.',
+					analysis: {
+						critical: [
+							{
+								title: 'Слово на русском языке',
+								sentenceMarkdown: 'There is a **очередь**.',
+								explanationMarkdown: '«Очередь» по-английски — **line**.',
+							},
+						],
+						suggestions: [
+							{
+								explanationMarkdown: 'При обращении можно выбрать более спокойный тон.',
+								example: 'Excuse me, there is a line.',
+							},
+						],
+					},
+				},
+			],
+		},
+	},
+	{
+		id: 13,
+		dialogueId: 1,
+		createdAt: '2026-10-21T00:01:00Z',
+		payload: {
+			type: 'userActions',
+			actions: [{ type: 'speech', content: 'Thank you!' }],
+			textReview: [{ originalText: 'Thank you!', analysis: { critical: [], suggestions: [] } }],
+		},
+	},
+]
+
+test('opens reviews from history, marks selection and switches to the dictionary on a word click', async ({ page }) => {
+	const { browserErrors } = await setup(page, false, historyWithReviews)
+	const panel = page.locator('.reading-root__right-part')
+	const review = panel.getByRole('region', { name: 'Сообщение' })
+	const reviewed = page.getByRole('button', { name: 'Посмотреть разбор сообщения с замечаниями' })
+	await panel.getByRole('button', { name: 'Сообщение', exact: true }).click()
+	await expect(review).toHaveText('Выделите сообщение для просмотра ошибок…')
+
+	const row = page.locator('.ai-dialogue-user-message-row').filter({ has: reviewed })
+	await row.getByText('Вы', { exact: true }).click()
+	await expect(reviewed).toHaveAttribute('aria-pressed', 'true')
+	const selectedRow = page.locator('.ai-dialogue-user-message-row__message--selected')
+	await expect(selectedRow).toHaveCount(1)
+	await expect(review.getByRole('heading', { level: 2 })).toHaveText(['Реплика', 'Действие'])
+	await expect(review.getByText('Hey girls! There is a очередь.')).toBeVisible()
+	await expect(review.getByRole('heading', { name: 'Слово на русском языке' })).toBeVisible()
+	await expect(review.getByText('Hey, girls! There is a line.')).toBeVisible()
+	await expect(review.getByText('I looked at them.')).toBeVisible()
+	await expect(review.getByText('Исправлений нет')).toBeVisible()
+
+	await selectedRow.getByRole('button', { name: 'girls', exact: true }).click()
+	await expect(panel.getByRole('button', { name: 'Словарь' })).toBeDisabled()
+	await expect(review).toBeHidden()
+	await expect(selectedRow).toHaveCount(1)
+
+	await page.getByRole('button', { name: 'Посмотреть разбор сообщения', exact: true }).click()
+	await expect(review.getByText('Thank you!')).toBeVisible()
+	await expect(review.getByText('Исправленный текст')).toHaveCount(0)
+	await page.getByRole('button', { name: 'Посмотреть разбор сообщения', exact: true }).click()
+	await expect(review).toHaveText('Выделите сообщение для просмотра ошибок…')
+	await expect(selectedRow).toHaveCount(0)
+	expect(browserErrors).toEqual([])
+})
+
+test('opens and closes the review beneath its message on a narrow screen', async ({ page }) => {
+	await page.setViewportSize({ width: 390, height: 844 })
+	await setup(page, false, historyWithReviews)
+	const reviewed = page.getByRole('button', { name: 'Посмотреть разбор сообщения с замечаниями' })
+	const review = page.getByRole('region', { name: 'Сообщение' })
+
+	await reviewed.click()
+	await expect(review).toBeVisible()
+	await expect(review.getByText('Hey girls! There is a очередь.')).toBeVisible()
+	await expect(page.locator('.reading-root__right-part')).toBeHidden()
+	await reviewed.click()
+	await expect(review).toHaveCount(0)
+})
 
 test('form checks each tab, blocks sending for errors in the other tab, invalidates edits and sends once', async ({
 	page,

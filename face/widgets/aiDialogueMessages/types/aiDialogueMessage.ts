@@ -1,3 +1,4 @@
+import type { UserMessagePartCheck } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
 import type { AiDialogueWordMap } from './aiDialogueWordMap'
 
 /**
@@ -49,10 +50,17 @@ export type NpcActionsEvent = {
 	wordMap?: AiDialogueWordMap
 }
 
-// Действия и реплики пользователя.
-export type UserActionsEvent = {
+type UserActionsInputEvent = {
 	type: 'userActions'
 	actions: AiDialogueActionItem[]
+}
+
+// Сохранённые действия и реплики пользователя. actions содержит итоговые тексты.
+export type UserActionsEvent = UserActionsInputEvent & {
+	textReview: {
+		originalText: string
+		analysis: UserMessagePartCheck
+	}[]
 }
 
 // Пользователь ушёл от разговора с NPC.
@@ -70,12 +78,7 @@ export type WorldEvent = {
 
 // Любое событие диалога (хранится в AiDialogueMessage.payload).
 export type AiDialogueEvent =
-	| SceneUpdateEvent
-	| HelpEvent
-	| NpcActionsEvent
-	| UserActionsEvent
-	| UserAvoidsNpcEvent
-	| WorldEvent
+	SceneUpdateEvent | HelpEvent | NpcActionsEvent | UserActionsEvent | UserAvoidsNpcEvent | WorldEvent
 
 // Дискриминатор события. Переиспользуется в превью-типах (aiDialoguePreview.ts),
 // где поле type опционально.
@@ -83,7 +86,7 @@ export type AiDialogueEventType = AiDialogueEvent['type']
 
 // События, которые клиент может отправить серверу (в отличие от AiDialogueEvent —
 // сервер сам не генерирует userActions/userAvoidsNPC от имени пользователя).
-export type AiDialogueClientEvent = UserActionsEvent | UserAvoidsNpcEvent
+export type AiDialogueClientEvent = UserActionsInputEvent | UserAvoidsNpcEvent
 
 // Обёртка сообщения, отдаваемая клиенту (replay и SSE): событие + служебные поля.
 export type DialogueServerMessage = {

@@ -3,6 +3,17 @@
   "tabs": {
     "dictionary": "Sözlük",
     "dialogue": "Sohbet",
-    "settings": "Ayarlar"
+    "settings": "Ayarlar",
+    "message": "Mesaj"
+  },
+  "messageReview": {
+    "empty": "Hataları görmek için bir mesaj seçin…",
+    "original": "Yanıtınız",
+    "corrected": "Düzeltilmiş metin",
+    "noCorrections": "Düzeltme yok",
+    "critical": "Hatalar",
+    "suggestions": "Öneriler",
+    "open": "Mesaj incelemesini görüntüle",
+    "openWithIssues": "Yorum içeren mesaj incelemesini görüntüle"
   }
 }

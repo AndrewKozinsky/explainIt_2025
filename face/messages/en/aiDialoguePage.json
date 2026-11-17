@@ -3,6 +3,17 @@
   "tabs": {
     "dictionary": "Dictionary",
     "dialogue": "Conversation",
-    "settings": "Settings"
+    "settings": "Settings",
+    "message": "Message"
+  },
+  "messageReview": {
+    "empty": "Select a message to review its errors…",
+    "original": "Your answer",
+    "corrected": "Corrected text",
+    "noCorrections": "No corrections",
+    "critical": "Errors",
+    "suggestions": "Suggestions",
+    "open": "View message review",
+    "openWithIssues": "View message review with feedback"
   }
 }

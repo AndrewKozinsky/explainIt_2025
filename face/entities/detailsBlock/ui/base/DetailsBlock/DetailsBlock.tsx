@@ -5,7 +5,7 @@ import DetailsBlockContentWrapper from '../DetailsBlockContentWrapper/DetailsBlo
 import InfoViewSwitcher from '../InfoViewSwitcher/InfoViewSwitcher'
 import './DetailsBlock.scss'
 
-export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog' | 'settings'
+export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog' | 'message' | 'settings'
 
 export type DetailsBlockTab = {
 	type: InfoViewType
@@ -15,11 +15,13 @@ export type DetailsBlockTab = {
 
 type DetailsBlockProps = {
 	tabs: [DetailsBlockTab, ...DetailsBlockTab[]]
+	activeView?: InfoViewType
+	onViewChange?: (view: InfoViewType) => void
 }
 
-function DetailsBlock({ tabs }: DetailsBlockProps) {
+function DetailsBlock({ tabs, activeView, onViewChange }: DetailsBlockProps) {
 	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>(tabs[0].type)
-	const currentTab = tabs.find((tab) => tab.type === currentInfoView) ?? tabs[0]
+	const currentTab = tabs.find((tab) => tab.type === (activeView ?? currentInfoView)) ?? tabs[0]
 
 	return (
 		<DetailsBlockContentWrapper>
@@ -27,7 +29,7 @@ function DetailsBlock({ tabs }: DetailsBlockProps) {
 				<InfoViewSwitcher
 					tabs={tabs}
 					currentInfoView={currentTab.type}
-					setActiveInfoView={setCurrentInfoView}
+					setActiveInfoView={onViewChange ?? setCurrentInfoView}
 				/>
 			</div>
 			<div className='details-block-wrapper__content'>{currentTab.content}</div>
