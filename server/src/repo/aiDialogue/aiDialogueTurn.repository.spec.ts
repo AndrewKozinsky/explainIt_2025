@@ -357,7 +357,13 @@ describe('AiDialogueTurnRepository', () => {
 		await repository.saveGeneratedTurn({
 			dialogueId: 5,
 			turn: {
-				events: [{ type: 'userActions', actions: [{ type: 'speech', content: 'Hello' }] }],
+				events: [
+					{
+						type: 'userActions',
+						actions: [{ type: 'speech', content: 'Hello' }],
+						textReview: [{ originalText: 'Hello', analysis: { critical: [], suggestions: [] } }],
+					},
+				],
 				visualMetadata: { npcAppearances: [], scenes: [] },
 				npcVoices: [],
 			},

@@ -1,4 +1,5 @@
 jest.mock('features/billing/UserBalance.service', () => ({ UserBalanceService: class {} }))
+jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
 jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => target }))
 jest.mock('repo/aiDialogue/aiDialogue.repository', () => ({ AiDialogueRepository: class {} }))
 jest.mock('repo/aiDialogue/aiDialogueMessage.repository', () => ({ AiDialogueMessageRepository: class {} }))
@@ -8,6 +9,7 @@ jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { AiDialogueUserMessageAnalysis } from './AiDialogueUserMessageAnalysis.service'
 import {
 	CheckAiDialogueUserMessageCommand,
 	CheckAiDialogueUserMessageHandler,
@@ -15,6 +17,7 @@ import {
 
 function harness() {
 	const dialogue = {
+		id: 1,
 		user_id: 7,
 		source_language_code: 'fr',
 		target_language_code: 'de',
@@ -32,13 +35,8 @@ function harness() {
 		chargeLlm: jest.fn().mockResolvedValue(undefined),
 	}
 
-	const handler = new CheckAiDialogueUserMessageHandler(
-		repository as never,
-		messages as never,
-		llm as never,
-		user as never,
-		balance as never,
-	)
+	const analysis = new AiDialogueUserMessageAnalysis(messages as never, llm as never, user as never, balance as never)
+	const handler = new CheckAiDialogueUserMessageHandler(repository as never, analysis)
 
 	return { handler, repository, messages, llm, dialogue, user, balance }
 }

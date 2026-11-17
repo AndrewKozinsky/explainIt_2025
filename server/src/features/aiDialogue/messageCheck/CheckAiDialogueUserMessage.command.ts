@@ -1,17 +1,10 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
-import { AiDialogueMessageRepository } from 'repo/aiDialogue/aiDialogueMessage.repository'
-import { UserRepository } from 'repo/user.repository'
-import { parseAiDialogueSummary } from 'types/aiDialogueSummary'
-import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
-import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { AiDialogueUserMessageCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
-import { AI_DIALOGUE_MESSAGE_CHECK_MODEL, AI_DIALOGUE_MESSAGE_CHECK_REASONING_EFFORT } from '../aiDialogueModelConfig'
-import { buildAiDialogueUserMessageCheckPrompt } from './buildAiDialogueUserMessageCheckPrompt'
-import { parseAiDialogueUserMessageCheck } from './parseAiDialogueUserMessageCheck'
+import { AiDialogueUserMessageAnalysis } from './AiDialogueUserMessageAnalysis.service'
 
 type CheckUserMessageDto = {
 	userId: number
@@ -32,10 +25,7 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 > {
 	constructor(
 		private dialogueRepository: AiDialogueRepository,
-		private messageRepository: AiDialogueMessageRepository,
-		private llmAdapter: LlmAdapterService,
-		private userRepository: UserRepository,
-		private userBalanceService: UserBalanceService,
+		private messageAnalysis: AiDialogueUserMessageAnalysis,
 	) {}
 
 	async execute({ dto }: CheckAiDialogueUserMessageCommand): Promise<AiDialogueUserMessageCheckOutModel> {
@@ -48,54 +38,11 @@ export class CheckAiDialogueUserMessageHandler implements ICommandHandler<
 
 		const speech = dto.speech?.trim() ?? ''
 		const action = dto.action?.trim() ?? ''
+
 		if (!speech && !action) {
 			throw new CustomError(errorMessage.aiDialogue.checkTextRequired, ErrorStatusCode.BadRequest_400)
 		}
 
-		const user = await this.userRepository.getUserById(dialogue.user_id)
-		if (!user) throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.NotFound_404)
-
-		await this.userBalanceService.ensurePositiveBalanceOrThrow(user.id, 'aiDialogueMessageCheck')
-
-		const context = await this.messageRepository.getTextCheckContext(dto.dialogueId)
-		const summary = parseAiDialogueSummary(dialogue.summary)?.at(-1)
-		const messages = buildAiDialogueUserMessageCheckPrompt({
-			speech,
-			action,
-			sourceLanguageCode: dialogue.source_language_code,
-			targetLanguageCode: dialogue.target_language_code,
-			participantGender: user.gender,
-			context: { ...context, summary: summary?.history?.slice(-3_000) ?? '' },
-		})
-
-		const output = await this.llmAdapter.generate({
-			model: AI_DIALOGUE_MESSAGE_CHECK_MODEL,
-			messages,
-			responseFormat: 'text',
-			reasoningEffort: AI_DIALOGUE_MESSAGE_CHECK_REASONING_EFFORT,
-			timeoutMs: 45_000,
-		})
-
-		await this.userBalanceService.chargeLlm({
-			userId: user.id,
-			feature: 'aiDialogueMessageCheck',
-			model: output.model,
-			usage: output,
-		})
-
-		const result = parseAiDialogueUserMessageCheck(output.content)
-
-		if (!result || (!speech && hasIssues(result.speech)) || (!action && hasIssues(result.action))) {
-			throw new CustomError(
-				errorMessage.aiDialogue.cannotParseMessageCheck,
-				ErrorStatusCode.InternalServerError_500,
-			)
-		}
-
-		return result
+		return this.messageAnalysis.check(dialogue, speech, action)
 	}
-}
-
-function hasIssues(field: AiDialogueUserMessageCheckOutModel['speech']): boolean {
-	return field.critical.length > 0 || field.suggestions.length > 0
 }

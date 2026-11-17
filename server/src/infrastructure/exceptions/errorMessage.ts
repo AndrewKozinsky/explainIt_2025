@@ -155,6 +155,7 @@ export const errorMessage = {
 		dictationAlreadyActive: { code: 'AI_DIALOGUE_DICTATION_ALREADY_ACTIVE' }, // Диктовка пользователя уже активна.
 		dictationOriginForbidden: { code: 'AI_DIALOGUE_DICTATION_ORIGIN_FORBIDDEN' }, // Источник подключения не разрешён.
 		checkTextRequired: { code: 'AI_DIALOGUE_CHECK_TEXT_REQUIRED' }, // Заполните реплику и/или действие для проверки.
+		messageRequestIdReused: { code: 'AI_DIALOGUE_MESSAGE_REQUEST_ID_REUSED' }, // Этот идентификатор уже использован для другого сообщения.
 		cannotParseMessageCheck: { code: 'AI_DIALOGUE_CANNOT_PARSE_MESSAGE_CHECK' }, // Не удалось разобрать результат проверки текста.
 		notFound: { code: 'AI_DIALOGUE_NOT_FOUND' }, // Диалог не найден.
 		scenarioNotFound: { code: 'AI_DIALOGUE_SCENARIO_NOT_FOUND' }, // Сценарий диалога не найден.

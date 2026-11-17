@@ -221,15 +221,24 @@ PATCH можно вызвать при активной генерации. Он
 
 ```ts
 type CreateAiDialogueMessageInput =
-    | { type: 'userActions'; actions: AiDialogueActionItem[] }   // действия и реплики пользователя
-    | { type: 'userAvoidsNPC' }                                   // пользователь ушёл от разговора
+    | { type: 'userActions'; actions: AiDialogueActionItem[]; requestId?: string }
+    | { type: 'userAvoidsNPC'; requestId?: string }
 ```
 
 Хендлер проверяет существование и владение диалога, затем:
 
-1. Если для диалога уже идёт генерация (`generationAlreadyActive`) — возвращает
-   `400` `AI_DIALOGUE_GENERATION_ALREADY_ACTIVE` (нельзя действовать, пока NPC отвечает).
-2. Иначе сохраняет сообщение и **fire-and-forget** запускает генерацию ответа (результат доедет через SSE).
+1. Если ход с таким `requestId` уже сохранён, возвращает то же сообщение. Если ключ повторно использован
+   с другим текстом или типом события, возвращает `400 AI_DIALOGUE_MESSAGE_REQUEST_ID_REUSED`.
+2. Если для диалога уже идёт обработка отправки или генерация, возвращает
+   `400 AI_DIALOGUE_GENERATION_ALREADY_ACTIVE`.
+3. Для `userActions` проверяет все части одним вызовом LLM. При ошибке провайдера или некорректном
+   результате ход не записывается. Событие `userAvoidsNPC` проходит без анализа.
+4. Сохраняет итоговый текст и разбор одной записью и запускает генерацию ответа NPC по итоговым текстам.
+   Результат генерации приходит через SSE.
+
+`requestId` — необязательный UUID. При повторах отправки одного сообщения клиент передаёт тот же
+UUID и тот же текст. При изменении текста или начале нового хода нужен новый UUID. Дубли записей
+предотвращает уникальный индекс по паре `dialogue_id`, `request_id`.
 
 [Данные для разбора ответа пользователя](aiDialogueForm.md#данные-для-разбора-ответа-пользователя)
 
@@ -368,9 +377,9 @@ notifyActiveDialoguesOfVisualChanges отправляет технический
   `AiDialogueQueryRepository.getDialogueById`.
 - `GetUserDialoguesCommand` → `AiDialogueListQueryRepository.getUserDialogues(userId, pagination)`.
 - `DeleteAiDialogueCommand` → проверка владения → `AiDialogueRepository.deleteDialogueById`.
-- `CreateAiDialogueMessageCommand` → проверка существования/владения → запрет при активной генерации →
-  `AiDialogueMessageRepository.createMessage` → `AiDialogueQueryRepository.getMessageById` → fire-and-forget запуск
-  `GenerateAiDialogueTurn`.
+- `CreateAiDialogueMessageCommand` → проверка владельца и ключа повтора → резервирование слота диалога →
+  `AiDialogueUserMessageAnalysis.review` для текстового хода → `AiDialogueMessageRepository.createMessage` →
+  запуск `GenerateAiDialogueTurn` в фоне для новой записи.
 
 SSE-эндпоинт использует `OpenAiDialogueStreamCommand`: хендлер проверяет доступ, подписывается на
 `AiDialogueSseHub`, отдаёт историю и вызывает `GenerateAiDialogueTurn.triggerIfNeeded`.
@@ -565,10 +574,11 @@ SSE-соединения. Субъекты не вычищаются (диало
 | `dialogue_id` | `Int`                        | FK → `AiDialogue.id`, `onDelete: Cascade`                                    |
 | `type`        | enum `AiDialogueMessageType` | `sceneUpdate`/`help`/`npcActions`/`userActions`/`userAvoidsNPC`/`worldEvent` |
 | `payload`     | `String`                     | JSON-тело события (без `type`, ключи camelCase)                              |
+| `request_id`  | `String?`                    | Ключ повторной отправки пользовательского события                            |
 | `created_at`  | `DateTime`                   | Дата создания                                                                |
 
 - Индексы: `@@index([dialogue_id])`, `@@index([character_id])`, `@@index([dialogue_id, id])`,
-  `@@index([dialogue_id, type, id])`.
+  `@@index([dialogue_id, type, id])`, `@@unique([dialogue_id, request_id])`.
 
 ## Ключевые файлы
 

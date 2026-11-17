@@ -322,6 +322,7 @@ model AiDialogueMessage {
 	character          AiDialogueCharacter?  @relation(fields: [character_id], references: [id], onDelete: SetNull)
 	character_id       Int?
 	type               AiDialogueMessageType
+	request_id         String?
 	payload            String
 	AiDialogueAudio    AiDialogueAudio[]
 	AiDialogueImage    AiDialogueImage[]
@@ -332,6 +333,7 @@ model AiDialogueMessage {
 	@@index([character_id])
 	@@index([dialogue_id, id])
 	@@index([dialogue_id, type, id])
+	@@unique([dialogue_id, request_id])
 }
 
 model AiDialogueCharacter {

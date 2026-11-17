@@ -388,6 +388,7 @@ export const AiDialogueMessageScalarFieldEnum = {
   dialogue_id: 'dialogue_id',
   character_id: 'character_id',
   type: 'type',
+  request_id: 'request_id',
   payload: 'payload',
   created_at: 'created_at'
 } as const

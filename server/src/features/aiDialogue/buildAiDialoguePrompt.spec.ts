@@ -1,4 +1,4 @@
-import { AiDialogueEvent } from 'types/aiDialogueMessage'
+import { AiDialogueActionItem, AiDialogueEvent, UserActionsEvent } from 'types/aiDialogueMessage'
 import { AiDialogueSummary } from 'types/aiDialogueSummary'
 import { AI_DIALOGUE_CEFR_LEVELS } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
@@ -11,6 +11,14 @@ function npc(npcId: string, content: string): AiDialogueEvent {
 		npcRole: 'officer',
 		emotion: 'neutral',
 		actions: [{ type: 'speech', content, translation: 'Перевод' }],
+	}
+}
+
+function userAction(type: AiDialogueActionItem['type'], content: string): UserActionsEvent {
+	return {
+		type: 'userActions',
+		actions: [{ type, content }],
+		textReview: [{ originalText: content, analysis: { critical: [], suggestions: [] } }],
 	}
 }
 
@@ -63,8 +71,8 @@ describe('dialogue encounter context', () => {
 	})
 
 	it.each<AiDialogueEvent>([
-		{ type: 'userActions', actions: [{ type: 'speech', content: 'Goodbye!' }] },
-		{ type: 'userActions', actions: [{ type: 'action', content: 'I am leaving the border guard.' }] },
+		userAction('speech', 'Goodbye!'),
+		userAction('action', 'I am leaving the border guard.'),
 		{ type: 'userAvoidsNPC' },
 	])('requires a same-response transition after explicit participant closure: %j', (event) => {
 		const messages = prompt([
@@ -82,7 +90,7 @@ describe('dialogue encounter context', () => {
 	it('recovers an already closed encounter while keeping unfinished thanks distinct from closure', () => {
 		const messages = prompt([
 			npc('officer_1', 'Here is your passport. Next, please.'),
-			{ type: 'userActions', actions: [{ type: 'speech', content: 'Thank you!' }] },
+			userAction('speech', 'Thank you!'),
 		])
 		expect(messages[1].content).toContain('Here is your passport. Next, please.')
 		expect(messages[1].content).toContain('or it already ended in the history')
@@ -99,7 +107,7 @@ describe('dialogue encounter context', () => {
 		const continuing = prompt([
 			{ type: 'sceneUpdate', content: 'At the passport desk', translation: 'У стойки' },
 			npc('officer_1', 'What is the purpose of your visit?'),
-			{ type: 'userActions', actions: [{ type: 'speech', content: 'Tourism.' }] },
+			userAction('speech', 'Tourism.'),
 		])
 		expect(continuing[1].content).not.toContain('No encounter has started yet')
 		expect(continuing[1].content).toContain('Current scene:\nAt the passport desk')
@@ -117,10 +125,7 @@ describe('dialogue encounter context', () => {
 				history: 'The officer has checked the passport and asked about the stay.',
 			},
 		]
-		const messages = prompt(
-			[{ type: 'userActions', actions: [{ type: 'speech', content: 'Three days.' }] }],
-			summary,
-		)
+		const messages = prompt([userAction('speech', 'Three days.')], summary)
 
 		expect(messages[1].content).toContain('Most recent conversation partner npcId:\nofficer_1')
 		expect(messages[1].content).toContain('Current scene:\nAt the passport desk')
@@ -134,7 +139,7 @@ describe('dialogue encounter context', () => {
 			npc('officer_1', 'Here is your passport. Goodbye.'),
 			{ type: 'sceneUpdate', content: 'At the customs desk', translation: 'На таможне' },
 			npc('officer_2', 'You may go. Goodbye.'),
-			{ type: 'userActions', actions: [{ type: 'action', content: 'Return to the passport officer.' }] },
+			userAction('action', 'Return to the passport officer.'),
 		])
 		expect(messages[0].content).toContain('npcId: "officer_1"')
 		expect(messages[0].content).toContain('npcId: "officer_2"')

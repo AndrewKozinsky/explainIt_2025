@@ -196,6 +196,7 @@ export class AiDialogueController {
 				userId: request.user!.id,
 				dialogueId: id,
 				event,
+				requestId: input.requestId?.toLowerCase(),
 			}),
 		)
 	}

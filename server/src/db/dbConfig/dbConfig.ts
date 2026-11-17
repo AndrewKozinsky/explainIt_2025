@@ -1587,6 +1587,7 @@ export const bdConfig = {
 			{ fields: ['character_id'] },
 			{ fields: ['dialogue_id', 'id'] },
 			{ fields: ['dialogue_id', 'type', 'id'] },
+			{ fields: ['dialogue_id', 'request_id'], unique: true },
 		],
 		dbFields: {
 			id: {
@@ -1626,6 +1627,11 @@ export const bdConfig = {
 				type: 'string',
 				description: 'JSON payload of the event (event body without the type field)',
 				required: true,
+			},
+			request_id: {
+				type: 'string',
+				description: 'Client request ID for retrying a user message.',
+				required: false,
 			},
 			AiDialogueAudio: { type: 'oneToMany' },
 			AiDialogueImage: { type: 'oneToMany' },

@@ -136,7 +136,11 @@ describe('inline dictionary word maps', () => {
 					{ type: 'speech', content: 'Look up.', translation: '' },
 				],
 			},
-			{ type: 'userActions', actions: [{ type: 'speech', content: 'Look up.' }] },
+			{
+				type: 'userActions',
+				actions: [{ type: 'speech', content: 'Look up.' }],
+				textReview: [{ originalText: 'Look up.', analysis: { critical: [], suggestions: [] } }],
+			},
 			{ type: 'userAvoidsNPC' },
 		]
 		const result = attachInlineWordMaps(events, footer('Look up.', [['Look', 'up']]), 'en')

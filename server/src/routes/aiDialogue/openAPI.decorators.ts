@@ -123,7 +123,7 @@ export function ApiCreateAiDialogueMessage() {
 	return applyDecorators(
 		ApiOperation({
 			summary: 'Send a message to AI dialogue',
-			description: 'Persists a user event (actions or leaving the NPC) into the dialogue.',
+			description: 'Reviews and saves user speech or actions, or saves an event for leaving the NPC.',
 		}),
 		ApiCookieAuth(),
 		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),

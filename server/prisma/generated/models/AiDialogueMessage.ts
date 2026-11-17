@@ -43,6 +43,7 @@ export type AiDialogueMessageMinAggregateOutputType = {
   dialogue_id: number | null
   character_id: number | null
   type: $Enums.AiDialogueMessageType | null
+  request_id: string | null
   payload: string | null
   created_at: Date | null
 }
@@ -52,6 +53,7 @@ export type AiDialogueMessageMaxAggregateOutputType = {
   dialogue_id: number | null
   character_id: number | null
   type: $Enums.AiDialogueMessageType | null
+  request_id: string | null
   payload: string | null
   created_at: Date | null
 }
@@ -61,6 +63,7 @@ export type AiDialogueMessageCountAggregateOutputType = {
   dialogue_id: number
   character_id: number
   type: number
+  request_id: number
   payload: number
   created_at: number
   _all: number
@@ -84,6 +87,7 @@ export type AiDialogueMessageMinAggregateInputType = {
   dialogue_id?: true
   character_id?: true
   type?: true
+  request_id?: true
   payload?: true
   created_at?: true
 }
@@ -93,6 +97,7 @@ export type AiDialogueMessageMaxAggregateInputType = {
   dialogue_id?: true
   character_id?: true
   type?: true
+  request_id?: true
   payload?: true
   created_at?: true
 }
@@ -102,6 +107,7 @@ export type AiDialogueMessageCountAggregateInputType = {
   dialogue_id?: true
   character_id?: true
   type?: true
+  request_id?: true
   payload?: true
   created_at?: true
   _all?: true
@@ -198,6 +204,7 @@ export type AiDialogueMessageGroupByOutputType = {
   dialogue_id: number
   character_id: number | null
   type: $Enums.AiDialogueMessageType
+  request_id: string | null
   payload: string
   created_at: Date
   _count: AiDialogueMessageCountAggregateOutputType | null
@@ -230,6 +237,7 @@ export type AiDialogueMessageWhereInput = {
   dialogue_id?: Prisma.IntFilter<"AiDialogueMessage"> | number
   character_id?: Prisma.IntNullableFilter<"AiDialogueMessage"> | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFilter<"AiDialogueMessage"> | $Enums.AiDialogueMessageType
+  request_id?: Prisma.StringNullableFilter<"AiDialogueMessage"> | string | null
   payload?: Prisma.StringFilter<"AiDialogueMessage"> | string
   created_at?: Prisma.DateTimeFilter<"AiDialogueMessage"> | Date | string
   dialogue?: Prisma.XOR<Prisma.AiDialogueScalarRelationFilter, Prisma.AiDialogueWhereInput>
@@ -244,6 +252,7 @@ export type AiDialogueMessageOrderByWithRelationInput = {
   dialogue_id?: Prisma.SortOrder
   character_id?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrder
+  request_id?: Prisma.SortOrderInput | Prisma.SortOrder
   payload?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   dialogue?: Prisma.AiDialogueOrderByWithRelationInput
@@ -255,12 +264,14 @@ export type AiDialogueMessageOrderByWithRelationInput = {
 
 export type AiDialogueMessageWhereUniqueInput = Prisma.AtLeast<{
   id?: number
+  dialogue_id_request_id?: Prisma.AiDialogueMessageDialogue_idRequest_idCompoundUniqueInput
   AND?: Prisma.AiDialogueMessageWhereInput | Prisma.AiDialogueMessageWhereInput[]
   OR?: Prisma.AiDialogueMessageWhereInput[]
   NOT?: Prisma.AiDialogueMessageWhereInput | Prisma.AiDialogueMessageWhereInput[]
   dialogue_id?: Prisma.IntFilter<"AiDialogueMessage"> | number
   character_id?: Prisma.IntNullableFilter<"AiDialogueMessage"> | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFilter<"AiDialogueMessage"> | $Enums.AiDialogueMessageType
+  request_id?: Prisma.StringNullableFilter<"AiDialogueMessage"> | string | null
   payload?: Prisma.StringFilter<"AiDialogueMessage"> | string
   created_at?: Prisma.DateTimeFilter<"AiDialogueMessage"> | Date | string
   dialogue?: Prisma.XOR<Prisma.AiDialogueScalarRelationFilter, Prisma.AiDialogueWhereInput>
@@ -268,13 +279,14 @@ export type AiDialogueMessageWhereUniqueInput = Prisma.AtLeast<{
   AiDialogueAudio?: Prisma.AiDialogueAudioListRelationFilter
   AiDialogueImage?: Prisma.AiDialogueImageListRelationFilter
   ImageGenerationJob?: Prisma.ImageGenerationJobListRelationFilter
-}, "id">
+}, "id" | "dialogue_id_request_id">
 
 export type AiDialogueMessageOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   dialogue_id?: Prisma.SortOrder
   character_id?: Prisma.SortOrderInput | Prisma.SortOrder
   type?: Prisma.SortOrder
+  request_id?: Prisma.SortOrderInput | Prisma.SortOrder
   payload?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.AiDialogueMessageCountOrderByAggregateInput
@@ -292,12 +304,14 @@ export type AiDialogueMessageScalarWhereWithAggregatesInput = {
   dialogue_id?: Prisma.IntWithAggregatesFilter<"AiDialogueMessage"> | number
   character_id?: Prisma.IntNullableWithAggregatesFilter<"AiDialogueMessage"> | number | null
   type?: Prisma.EnumAiDialogueMessageTypeWithAggregatesFilter<"AiDialogueMessage"> | $Enums.AiDialogueMessageType
+  request_id?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueMessage"> | string | null
   payload?: Prisma.StringWithAggregatesFilter<"AiDialogueMessage"> | string
   created_at?: Prisma.DateTimeWithAggregatesFilter<"AiDialogueMessage"> | Date | string
 }
 
 export type AiDialogueMessageCreateInput = {
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
@@ -312,6 +326,7 @@ export type AiDialogueMessageUncheckedCreateInput = {
   dialogue_id: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
@@ -321,6 +336,7 @@ export type AiDialogueMessageUncheckedCreateInput = {
 
 export type AiDialogueMessageUpdateInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
@@ -335,6 +351,7 @@ export type AiDialogueMessageUncheckedUpdateInput = {
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
@@ -347,12 +364,14 @@ export type AiDialogueMessageCreateManyInput = {
   dialogue_id: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
 }
 
 export type AiDialogueMessageUpdateManyMutationInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -362,6 +381,7 @@ export type AiDialogueMessageUncheckedUpdateManyInput = {
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -376,11 +396,17 @@ export type AiDialogueMessageOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
+export type AiDialogueMessageDialogue_idRequest_idCompoundUniqueInput = {
+  dialogue_id: number
+  request_id: string
+}
+
 export type AiDialogueMessageCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   dialogue_id?: Prisma.SortOrder
   character_id?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  request_id?: Prisma.SortOrder
   payload?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -396,6 +422,7 @@ export type AiDialogueMessageMaxOrderByAggregateInput = {
   dialogue_id?: Prisma.SortOrder
   character_id?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  request_id?: Prisma.SortOrder
   payload?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -405,6 +432,7 @@ export type AiDialogueMessageMinOrderByAggregateInput = {
   dialogue_id?: Prisma.SortOrder
   character_id?: Prisma.SortOrder
   type?: Prisma.SortOrder
+  request_id?: Prisma.SortOrder
   payload?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
@@ -561,6 +589,7 @@ export type AiDialogueMessageUpdateOneRequiredWithoutAiDialogueAudioNestedInput 
 
 export type AiDialogueMessageCreateWithoutDialogueInput = {
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   character?: Prisma.AiDialogueCharacterCreateNestedOneWithoutAiDialogueMessageInput
@@ -573,6 +602,7 @@ export type AiDialogueMessageUncheckedCreateWithoutDialogueInput = {
   id?: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
@@ -614,12 +644,14 @@ export type AiDialogueMessageScalarWhereInput = {
   dialogue_id?: Prisma.IntFilter<"AiDialogueMessage"> | number
   character_id?: Prisma.IntNullableFilter<"AiDialogueMessage"> | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFilter<"AiDialogueMessage"> | $Enums.AiDialogueMessageType
+  request_id?: Prisma.StringNullableFilter<"AiDialogueMessage"> | string | null
   payload?: Prisma.StringFilter<"AiDialogueMessage"> | string
   created_at?: Prisma.DateTimeFilter<"AiDialogueMessage"> | Date | string
 }
 
 export type AiDialogueMessageCreateWithoutCharacterInput = {
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
@@ -632,6 +664,7 @@ export type AiDialogueMessageUncheckedCreateWithoutCharacterInput = {
   id?: number
   dialogue_id: number
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
@@ -667,6 +700,7 @@ export type AiDialogueMessageUpdateManyWithWhereWithoutCharacterInput = {
 
 export type AiDialogueMessageCreateWithoutAiDialogueImageInput = {
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
@@ -680,6 +714,7 @@ export type AiDialogueMessageUncheckedCreateWithoutAiDialogueImageInput = {
   dialogue_id: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
@@ -704,6 +739,7 @@ export type AiDialogueMessageUpdateToOneWithWhereWithoutAiDialogueImageInput = {
 
 export type AiDialogueMessageUpdateWithoutAiDialogueImageInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
@@ -717,6 +753,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutAiDialogueImageInput = {
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
@@ -725,6 +762,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutAiDialogueImageInput = {
 
 export type AiDialogueMessageCreateWithoutImageGenerationJobInput = {
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
@@ -738,6 +776,7 @@ export type AiDialogueMessageUncheckedCreateWithoutImageGenerationJobInput = {
   dialogue_id: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedCreateNestedManyWithoutMessageInput
@@ -762,6 +801,7 @@ export type AiDialogueMessageUpdateToOneWithWhereWithoutImageGenerationJobInput 
 
 export type AiDialogueMessageUpdateWithoutImageGenerationJobInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
@@ -775,6 +815,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutImageGenerationJobInput = {
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
@@ -783,6 +824,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutImageGenerationJobInput = {
 
 export type AiDialogueMessageCreateWithoutAiDialogueAudioInput = {
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   dialogue: Prisma.AiDialogueCreateNestedOneWithoutAiDialogueMessageInput
@@ -796,6 +838,7 @@ export type AiDialogueMessageUncheckedCreateWithoutAiDialogueAudioInput = {
   dialogue_id: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedCreateNestedManyWithoutMessageInput
@@ -820,6 +863,7 @@ export type AiDialogueMessageUpdateToOneWithWhereWithoutAiDialogueAudioInput = {
 
 export type AiDialogueMessageUpdateWithoutAiDialogueAudioInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
@@ -833,6 +877,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutAiDialogueAudioInput = {
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueImage?: Prisma.AiDialogueImageUncheckedUpdateManyWithoutMessageNestedInput
@@ -843,12 +888,14 @@ export type AiDialogueMessageCreateManyDialogueInput = {
   id?: number
   character_id?: number | null
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
 }
 
 export type AiDialogueMessageUpdateWithoutDialogueInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   character?: Prisma.AiDialogueCharacterUpdateOneWithoutAiDialogueMessageNestedInput
@@ -861,6 +908,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutDialogueInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
@@ -872,6 +920,7 @@ export type AiDialogueMessageUncheckedUpdateManyWithoutDialogueInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   character_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -880,12 +929,14 @@ export type AiDialogueMessageCreateManyCharacterInput = {
   id?: number
   dialogue_id: number
   type: $Enums.AiDialogueMessageType
+  request_id?: string | null
   payload: string
   created_at?: Date | string
 }
 
 export type AiDialogueMessageUpdateWithoutCharacterInput = {
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dialogue?: Prisma.AiDialogueUpdateOneRequiredWithoutAiDialogueMessageNestedInput
@@ -898,6 +949,7 @@ export type AiDialogueMessageUncheckedUpdateWithoutCharacterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   AiDialogueAudio?: Prisma.AiDialogueAudioUncheckedUpdateManyWithoutMessageNestedInput
@@ -909,6 +961,7 @@ export type AiDialogueMessageUncheckedUpdateManyWithoutCharacterInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   dialogue_id?: Prisma.IntFieldUpdateOperationsInput | number
   type?: Prisma.EnumAiDialogueMessageTypeFieldUpdateOperationsInput | $Enums.AiDialogueMessageType
+  request_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   payload?: Prisma.StringFieldUpdateOperationsInput | string
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -967,6 +1020,7 @@ export type AiDialogueMessageSelect<ExtArgs extends runtime.Types.Extensions.Int
   dialogue_id?: boolean
   character_id?: boolean
   type?: boolean
+  request_id?: boolean
   payload?: boolean
   created_at?: boolean
   dialogue?: boolean | Prisma.AiDialogueDefaultArgs<ExtArgs>
@@ -982,6 +1036,7 @@ export type AiDialogueMessageSelectCreateManyAndReturn<ExtArgs extends runtime.T
   dialogue_id?: boolean
   character_id?: boolean
   type?: boolean
+  request_id?: boolean
   payload?: boolean
   created_at?: boolean
   dialogue?: boolean | Prisma.AiDialogueDefaultArgs<ExtArgs>
@@ -993,6 +1048,7 @@ export type AiDialogueMessageSelectUpdateManyAndReturn<ExtArgs extends runtime.T
   dialogue_id?: boolean
   character_id?: boolean
   type?: boolean
+  request_id?: boolean
   payload?: boolean
   created_at?: boolean
   dialogue?: boolean | Prisma.AiDialogueDefaultArgs<ExtArgs>
@@ -1004,11 +1060,12 @@ export type AiDialogueMessageSelectScalar = {
   dialogue_id?: boolean
   character_id?: boolean
   type?: boolean
+  request_id?: boolean
   payload?: boolean
   created_at?: boolean
 }
 
-export type AiDialogueMessageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dialogue_id" | "character_id" | "type" | "payload" | "created_at", ExtArgs["result"]["aiDialogueMessage"]>
+export type AiDialogueMessageOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dialogue_id" | "character_id" | "type" | "request_id" | "payload" | "created_at", ExtArgs["result"]["aiDialogueMessage"]>
 export type AiDialogueMessageInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   dialogue?: boolean | Prisma.AiDialogueDefaultArgs<ExtArgs>
   character?: boolean | Prisma.AiDialogueMessage$characterArgs<ExtArgs>
@@ -1040,6 +1097,7 @@ export type $AiDialogueMessagePayload<ExtArgs extends runtime.Types.Extensions.I
     dialogue_id: number
     character_id: number | null
     type: $Enums.AiDialogueMessageType
+    request_id: string | null
     payload: string
     created_at: Date
   }, ExtArgs["result"]["aiDialogueMessage"]>
@@ -1474,6 +1532,7 @@ export interface AiDialogueMessageFieldRefs {
   readonly dialogue_id: Prisma.FieldRef<"AiDialogueMessage", 'Int'>
   readonly character_id: Prisma.FieldRef<"AiDialogueMessage", 'Int'>
   readonly type: Prisma.FieldRef<"AiDialogueMessage", 'AiDialogueMessageType'>
+  readonly request_id: Prisma.FieldRef<"AiDialogueMessage", 'String'>
   readonly payload: Prisma.FieldRef<"AiDialogueMessage", 'String'>
   readonly created_at: Prisma.FieldRef<"AiDialogueMessage", 'DateTime'>
 }

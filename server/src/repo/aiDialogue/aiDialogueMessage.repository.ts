@@ -52,15 +52,18 @@ export class AiDialogueMessageRepository {
 	// колонку, тело события (без `type`) — в payload как JSON-строка. Возвращает
 	// строку БД вместе с назначенным сервером id и created_at.
 	@CatchDbError()
-	async createMessage(dto: { dialogueId: number; event: AiDialogueEvent }) {
+	async createMessage(dto: { dialogueId: number; event: AiDialogueEvent; requestId?: string }) {
 		const { type, ...payload } = dto.event
-		return this.prisma.aiDialogueMessage.create({
-			data: {
-				dialogue_id: dto.dialogueId,
-				type,
-				payload: JSON.stringify(payload),
-			},
+		const data = { dialogue_id: dto.dialogueId, type, payload: JSON.stringify(payload) }
+
+		if (!dto.requestId) return this.prisma.aiDialogueMessage.create({ data })
+
+		const [message] = await this.prisma.aiDialogueMessage.createManyAndReturn({
+			data: { ...data, request_id: dto.requestId },
+			skipDuplicates: true,
 		})
+
+		return message ?? null
 	}
 }
 
