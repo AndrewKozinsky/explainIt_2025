@@ -1,26 +1,26 @@
 {
-  "illustrationStyles": {
-    "realism": "Реализм",
-    "drawing": "Рисунок",
-    "watercolor": "Акварель"
-  },
-  "illustrationStyleSelector": {
-    "label": "Стиль иллюстраций",
-    "loading": "Загружаю стили…",
-    "error": "Не удалось загрузить стили.",
-    "empty": "Нет доступных стилей.",
-    "retry": "Повторить"
-  },
-  "textLevelSwitcher": {
-    "label": "Уровень языка",
-    "anyLevel": "Любой"
-  },
-  "replySettings": {
-    "autoVoice": "Автоозвучка",
-    "replyText": "Текст реплик"
-  },
-  "characterAvatars": {
-    "participants": "Участники диалога",
-    "moreParticipants": "Ещё участников: {count}"
-  }
+	"illustrationStyles": {
+		"realism": "Реализм",
+		"drawing": "Рисунок",
+		"watercolor": "Акварель"
+	},
+	"illustrationStyleSelector": {
+		"label": "Стиль иллюстраций",
+		"loading": "Загружаю стили…",
+		"error": "Не удалось загрузить стили.",
+		"empty": "Нет доступных стилей.",
+		"retry": "Повторить"
+	},
+	"textLevelSwitcher": {
+		"label": "Уровень языка 2",
+		"anyLevel": "Любой"
+	},
+	"replySettings": {
+		"autoVoice": "Автоозвучка",
+		"replyText": "Текст реплик"
+	},
+	"characterAvatars": {
+		"participants": "Участники диалога",
+		"moreParticipants": "Ещё участников: {count}"
+	}
 }
