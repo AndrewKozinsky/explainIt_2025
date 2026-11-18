@@ -21,7 +21,8 @@ SSE-протокол, генерация хода, компакция) опис�
 ## Выбор сложности текста
 
 `AiDialogueModel.maxCefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | null` содержит сохранённую сервером границу сложности.
-`entities/aiDialogue/ui/TextLevelSwitcher.tsx` в панели `AiDialogueSettings` показывает A1/A2/B1/B2/Any; `Any` соответствует `null`.
+`entities/aiDialogue/ui/TextLevelSwitcher.tsx` в панели `AiDialogueSettings` показывает A1/A2/B1/B2/Any; `Any`
+соответствует `null`.
 При загрузке и возвращении к диалогу выбранный уровень берётся из REST-модели, без локального значения A1 по умолчанию.
 
 Нажатие вызывает `AiDialogueService.updateDialogue(id, input)` через хук `useAiDialogueTextLevel`.
@@ -54,8 +55,8 @@ SSE-протокол, генерация хода, компакция) опис�
   `[left, right]`.
 - `AiDialogueLeftWrapper` — левая колонка, принимает ровно 2 ребёнка `[messages, input]`: первый — список сообщений (+
   ошибка хода), второй — форма ввода.
-- Правая панель — `DetailsBlock` с вкладками «Словарь» (`PhraseDictionary`), «Сообщение»
-  (`AiDialogueMessageReview`) и «Настройки» (`AiDialogueSettings`).
+- Правая панель — `DetailsBlock` с вкладками «Словарь» (`PhraseDictionary`), «Сообщение» (`AiDialogueMessageReview`) и
+  «Настройки» (`AiDialogueSettings`).
 
 Заголовок страницы — `dialogue.scenario.title`, который сервер уже вернул на языке интерфейса (см.
 `getHeaderAndSubHeader`).
@@ -73,10 +74,10 @@ SSE-протокол, генерация хода, компакция) опис�
 
 В панели сначала отображается «Реплика», затем «Действие». Для каждой заполненной части показывается
 исходный текст, разбор и, если текст изменился, исправленная версия. Если замечаний нет, панель
-показывает `CheckButtonIcon` справа от исходного текста. На экранах уже 700 px разбор открывается
-под сообщением.
+показывает `CheckButtonIcon` справа от исходного текста.
 
-Источник данных разбора — сохранённое событие `userActions`. [Формат данных](aiDialogueForm.md#данные-для-разбора-ответа-пользователя)
+Источник данных разбора — сохранённое событие
+`userActions`. [Формат данных](aiDialogueForm.md#данные-для-разбора-ответа-пользователя)
 
 ## Клиентские типы (зеркало серверных)
 
@@ -89,13 +90,16 @@ SSE-протокол, генерация хода, компакция) опис�
 - `AiDialogueStreamEvent` — события SSE-потока (`message` / `chunk` / `turnStarted` / `turnReset` / `turnDone` /
   `turnError` / `visualsChanged`).
 
-`widgets/aiDialogueMessages/types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного построчного текста: все поля
-опциональны, `type` может отсутствовать. `widgets/aiDialogueMessages/types/aiDialogueUi.ts` — `AiDialogueWordSelection` (`word`, `sentence`) и
+`widgets/aiDialogueMessages/types/aiDialoguePreview.ts` — «ленивое» превью события, собранное из частичного построчного
+текста: все поля
+опциональны, `type` может отсутствовать. `widgets/aiDialogueMessages/types/aiDialogueUi.ts` — `AiDialogueWordSelection`
+(`word`, `sentence`) и
 `AiDialogueWordSelectHandler`.
 
 ## SSE-клиент
 
-`_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` открывает `EventSource('/api/ai-dialogue/:id/stream')` и разбирает события в стор:
+`_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream.ts` открывает `EventSource('/api/ai-dialogue/:id/stream')` и
+разбирает события в стор:
 
 - `message` → `upsertMessage(message)` + очистить превью (финализированное сообщение заменяет превью).
   Новое сообщение текущего хода (не replay) переносит видимость текста из превью и передаётся автоозвучке;
@@ -112,9 +116,11 @@ SSE-протокол, генерация хода, компакция) опис�
   закрыл EventSource, хук открывает новый с растущей задержкой от 1 до 15 секунд.
   После восстановления соединения сервер отдаёт сохранённую историю. При смене диалога таймер отменяется.
 
-`_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-обёртка: открывает соединение в `useEffect` (и закрывает при unmount), при старте
+`_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream.ts` — хук-обёртка: открывает соединение в `useEffect` (и
+закрывает при unmount), при старте
 вызывает `clearStore()`, очищает видимость текста реплик и читает настройки «Автоозвучка» и «Текст реплик»
-из LocalStorage (до открытия SSE, чтобы первые реплики сразу получили сохранённые значения). Возвращает `{ messages, preview, isGenerating, turnError }`. Сообщения возвращает
+из LocalStorage (до открытия SSE, чтобы первые реплики сразу получили сохранённые значения). Возвращает
+`{ messages, preview, isGenerating, turnError }`. Сообщения возвращает
 отсортированными по `id`. Второй параметр `enabled` (страница передаёт `Boolean(dialogue)`) — SSE открывается только
 после загрузки диалога.
 
@@ -223,13 +229,15 @@ SegmentedText (`useId`) и начала слов, вычисленные в мо
 Должность NPC в заголовке (`NpcRoleText`) — тот же SegmentedText с картой `buildWholeTextWordMap`: вся должность —
 одно выражение, поэтому наведение на любое её слово обводит её общей рамкой, а клик отправляет её целиком
 (`music shop assistant`). Перевода у должности нет. `WithAvatarMessageWrapper` принимает `role` как ReactNode.
-AiDialogueContentBlock, HelpMessage и WorldEventMessage раскрывают существующий перевод всего блока, передаёт phrase/слово в поле word
+AiDialogueContentBlock, HelpMessage и WorldEventMessage раскрывают существующий перевод всего блока, передаёт
+phrase/слово в поле word
 и content в поле sentence. Правая панель не передаёт sentence в словарь.
 Технический раздел wordMaps: исключается из построчного превью и не показывается пользователю.
 
 ## Частичное превью (построчный разбор)
 
-`_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview.ts` разбирает накопленный частичный текст ответа LLM (плоский построчный формат, см.
+`_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview.ts` разбирает накопленный частичный текст ответа LLM
+(плоский построчный формат, см.
 «Стриминг и формат ответа» в `aiDialogue.md`) в `AiDialoguePreviewEvent[]`. Последняя строка без завершающего `\n`
 трактуется как «дописываемый» `content`/`translation` текущего блока — поэтому реплика растёт посимвольно по мере
 генерации. Недостающие поля не роняют парсер — они просто отсутствуют. Возвращает `null`, если пока нечего показать —
@@ -259,7 +267,8 @@ AiDialogueContentBlock, HelpMessage и WorldEventMessage раскрывают с
 
 ## Ошибки
 
-- Ошибка хода приходит событием `turnError`; читаемый текст резолвится в `_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError.ts`
+- Ошибка хода приходит событием `turnError`; читаемый текст резолвится в
+  `_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError.ts`
   (JSON `{"code": "..."}` → `resolveErrorByCode`, иначе строка как есть). Показывается над списком сообщений
   (`ErrorMessage`).
 - Попытка отправить сообщение во время генерации → `400 AI_DIALOGUE_GENERATION_ALREADY_ACTIVE`; клиент упреждающе
@@ -313,7 +322,8 @@ AiDialogueContentBlock, HelpMessage и WorldEventMessage раскрывают с
 
 ## Настройки реплик
 
-В панели `AiDialogueSettings` под уровнем языка два переключателя (`AutoVoiceToggle` и `ReplyTextToggle`, компонент `Toggle`):
+В панели `AiDialogueSettings` под уровнем языка два переключателя (`AutoVoiceToggle` и `ReplyTextToggle`, компонент
+`Toggle`):
 «Автоозвучка» и «Текст реплик». Значения хранятся в LocalStorage (`localStorageManager.aiDialogueReplySettings`),
 по умолчанию оба включены, и действуют только на будущие реплики. Подписи — `aiDialogue.replySettings`
 в `messages/*/aiDialogue.json`.

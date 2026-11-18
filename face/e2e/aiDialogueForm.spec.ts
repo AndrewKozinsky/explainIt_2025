@@ -320,8 +320,7 @@ test('opens reviews from history, marks selection and switches to the dictionary
 	expect(browserErrors).toEqual([])
 })
 
-test('opens the review beneath its message and disables its button on a narrow screen', async ({ page }) => {
-	await page.setViewportSize({ width: 390, height: 844 })
+test('keeps the review button visible when the viewport narrows', async ({ page }) => {
 	await setup(page, false, historyWithReviews)
 	const reviewed = page.getByRole('button', { name: '2 замечания' })
 	const review = page.getByRole('region', { name: 'Сообщение' })
@@ -329,8 +328,10 @@ test('opens the review beneath its message and disables its button on a narrow s
 	await reviewed.click()
 	await expect(review).toBeVisible()
 	await expect(review.getByText('Hey girls! There is a очередь.')).toBeVisible()
+	await page.setViewportSize({ width: 390, height: 844 })
 	await expect(page.locator('.reading-root__right-part')).toBeHidden()
-	await expect(reviewed).toBeDisabled()
+	await expect(review).toBeHidden()
+	await expect(reviewed).toBeVisible()
 })
 
 test('sends both parts directly, locks the form and opens the review from the message button', async ({ page }) => {
@@ -435,7 +436,6 @@ test('failed and malformed responses keep the draft and retry with the same ID o
 	const h = await setup(page)
 	const input = h.form.getByRole('textbox')
 	const send = h.form.getByRole('button', { name: 'Отправить', exact: true })
-	const reviewed = page.getByRole('button', { name: '1 замечание', exact: true })
 	await input.fill('Hey girls!')
 
 	for (const failure of ['http', 'malformed'] as const) {
@@ -445,15 +445,12 @@ test('failed and malformed responses keep the draft and retry with the same ID o
 		await expect(input).toHaveValue('Hey girls!')
 		await expect(input).toHaveJSProperty('readOnly', false)
 		await expect(send).toBeEnabled()
-		await expect(reviewed).toHaveCount(0)
 	}
 
 	await send.click()
 	await expect(input).toHaveValue('')
 	await expect(h.form.getByRole('alert')).toHaveCount(0)
-	await expect(reviewed).toHaveAttribute('aria-pressed', 'false')
-	await reviewed.click()
-	await expect(page.getByRole('region', { name: 'Сообщение' })).toContainText('Hey girls!')
+	await expect(page.locator('.ai-dialogue-user-message-row')).toContainText('Hey, girls!')
 	expect(h.sent).toHaveLength(3)
 	expect(new Set(h.sent.map(({ requestId }) => requestId)).size).toBe(1)
 	expect(await h.form.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true)

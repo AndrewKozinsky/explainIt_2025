@@ -5,7 +5,6 @@ import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/a
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogMessageRouter from '@/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
-import AiDialogueMessageReview from '../AiDialogueMessageReview/AiDialogueMessageReview'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import { DialogueVisualsProvider } from '../visuals/DialogueVisualsContext'
 import './AiDialogueMessageList.scss'
@@ -80,11 +79,6 @@ function AiDialogueMessageList({
 		return (
 			<div className='ai-dialogue-user-message-row' key={id}>
 				{content}
-				{isReviewOpen && (
-					<div className='ai-dialogue-user-message-row__inline-review'>
-						<AiDialogueMessageReview message={payload} />
-					</div>
-				)}
 			</div>
 		)
 	})
