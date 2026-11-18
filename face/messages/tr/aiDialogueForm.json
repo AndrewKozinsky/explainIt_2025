@@ -13,13 +13,7 @@
     "dictate": "Dikte et",
     "stopDictation": "Bitir",
     "recognizing": "Tanınıyor",
-    "check": "Kontrol et",
     "send": "Gönder"
-  },
-  "feedback": {
-    "stale": "Metnin önceki sürümüyle ilgili notlar",
-    "critical": "Kritik hatalar",
-    "suggestions": "Öneriler"
   },
   "emptyStatus": {
     "speech": "Söyleyeceğini yaz <typeIcon></typeIcon> ya da dikte et <micIcon></micIcon>",
@@ -29,18 +23,9 @@
     "sending": "Yanıt gönderiliyor…",
     "connectingMicrophone": "Mikrofon bağlanıyor…",
     "listening": "Dinliyorum…",
-    "finishingRecognition": "Tanıma tamamlanıyor…",
-    "checking": "Metin kontrol ediliyor…",
-    "needsCheck": "Kontrole gönder",
-    "fixErrors": "{count, plural, one {Yanıtı göndermek için # hatayı düzelt} other {Yanıtı göndermek için # hatayı düzelt}}",
-    "speechHasErrors": "Söz metninde hatalar var.",
-    "actionHasErrors": "Eylem metninde hatalar var.",
-    "checkSpeech": "Söz metnini kontrol et.",
-    "checkAction": "Eylem metnini kontrol et.",
-    "ready": "Yanıt gönderilebilir."
+    "finishingRecognition": "Tanıma tamamlanıyor…"
   },
   "errors": {
-    "checkFailed": "Metin kontrol edilemedi.",
     "dictationStartFailed": "Dikte başlatılamadı.",
     "sendFailed": "Yanıt gönderilemedi. Tekrar dene.",
     "dictationTextLimit": "4000 karakter sınırına ulaşıldı. Son parça eklenmedi.",

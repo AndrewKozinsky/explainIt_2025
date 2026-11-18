@@ -1,40 +1,15 @@
 import type { DictationErrorKey } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
-import type { UserMessagePart, UserMessagePartCheck } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
+import type { UserMessagePart } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
 
 export const MAX_DRAFT_LENGTH = 4000
 export type DraftSelection = { start: number; end: number }
-export type DraftReview = { revision: number; result: UserMessagePartCheck }
-/** Ключ текста ошибки: aiDialogueForm.errors.<ключ> в messages/{locale}/aiDialogueForm.json. */
-export type DraftErrorKey =
-	| DictationErrorKey
-	| 'checkFailed'
-	| 'dictationStartFailed'
-	| 'sendFailed'
-	| 'dictationTextLimit'
-	| 'textTooLong'
-/** Ключ текста статуса: aiDialogueForm.status.<ключ>. */
-export type DraftStatusKey =
-	| 'sending'
-	| 'connectingMicrophone'
-	| 'listening'
-	| 'finishingRecognition'
-	| 'checking'
-	| 'needsCheck'
-	| 'fixErrors'
-	| 'speechHasErrors'
-	| 'actionHasErrors'
-	| 'checkSpeech'
-	| 'checkAction'
-	| 'ready'
 
-/** empty — поле пустое, показывается подсказка; errorCount — число ошибок для fixErrors. */
-export type DraftStatus = { key: DraftStatusKey; errorCount?: number; locked?: boolean } | { empty: true }
+/** Ключ текста ошибки: aiDialogueForm.errors.<ключ> в messages/{locale}/aiDialogueForm.json. */
+export type DraftErrorKey = DictationErrorKey | 'dictationStartFailed' | 'dictationTextLimit' | 'textTooLong'
+export type DraftSubmitError = { message?: string }
 export type DraftPart = {
 	text: string
-	revision: number
 	selection: DraftSelection
-	review: DraftReview | null
-	checking: boolean
 	error: DraftErrorKey | null
 }
 
@@ -46,63 +21,35 @@ export type DialogueDraftState = {
 	dictation: { part: UserMessagePart; phase: DictationPhase } | null
 	blocked: boolean
 	sending: boolean
+	submitError: DraftSubmitError | null
 }
 
 export function createDraftPart(): DraftPart {
-	return { text: '', revision: 0, selection: { start: 0, end: 0 }, review: null, checking: false, error: null }
-}
-
-export function isPartChecked(part: DraftPart): boolean {
-	return part.review !== null && part.review.revision === part.revision
-}
-
-export function isPartReady(part: DraftPart): boolean {
-	return !!part.text.trim() && isPartChecked(part) && part.review!.result.critical.length === 0
+	return { text: '', selection: { start: 0, end: 0 }, error: null }
 }
 
 export function canSendDraft(state: DialogueDraftState): boolean {
-	const parts = Object.values(state.parts)
-
 	return (
 		!state.blocked &&
 		!state.sending &&
 		!state.dictation &&
-		parts.some((part) => part.text.trim()) &&
-		parts.every((part) => !part.checking && (!part.text.trim() || isPartReady(part)))
+		Object.values(state.parts).some((part) => part.text.trim())
 	)
 }
 
-export function draftStatus(state: DialogueDraftState): DraftStatus {
-	const { activePart, parts, dictation } = state
-	const current = parts[activePart]
+export function draftStatus(state: DialogueDraftState) {
+	if (state.sending) return 'sending'
 
-	if (state.sending) return { key: 'sending' }
-
-	if (dictation?.part === activePart) {
-		if (dictation.phase === 'starting') return { key: 'connectingMicrophone' }
-		return { key: dictation.phase === 'recording' ? 'listening' : 'finishingRecognition' }
+	switch (state.dictation?.phase) {
+		case 'starting':
+			return 'connectingMicrophone'
+		case 'recording':
+			return 'listening'
+		case 'finishing':
+			return 'finishingRecognition'
+		default:
+			return state.parts[state.activePart].text.trim() ? null : 'empty'
 	}
-
-	if (current.checking) return { key: 'checking' }
-
-	if (!current.text.trim()) return { empty: true }
-
-	if (!isPartChecked(current)) return { key: 'needsCheck' }
-
-	const count = current.review!.result.critical.length
-	if (count) return { key: 'fixErrors', errorCount: count, locked: true }
-
-	const other = parts[activePart === 'speech' ? 'action' : 'speech']
-
-	if (other.text.trim() && !isPartReady(other)) {
-		if (isPartChecked(other) && other.review!.result.critical.length) {
-			return { key: activePart === 'speech' ? 'actionHasErrors' : 'speechHasErrors' }
-		}
-
-		return { key: activePart === 'speech' ? 'checkAction' : 'checkSpeech' }
-	}
-
-	return { key: 'ready' }
 }
 
 /** Вставляет диктовку в сохранённый диапазон, не меняя окружающий текст и пробелы. */

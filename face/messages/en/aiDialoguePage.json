@@ -7,13 +7,12 @@
     "message": "Message"
   },
   "messageReview": {
-    "empty": "Select a message to review its errors…",
+    "empty": "Click the issue count next to a message…",
     "original": "Your answer",
     "corrected": "Corrected text",
     "noCorrections": "No corrections",
     "critical": "Errors",
     "suggestions": "Suggestions",
-    "open": "View message review",
-    "openWithIssues": "View message review with feedback"
+    "issueCount": "{count, plural, one {# issue} other {# issues}}"
   }
 }

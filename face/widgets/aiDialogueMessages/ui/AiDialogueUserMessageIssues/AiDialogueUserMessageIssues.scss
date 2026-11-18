@@ -9,7 +9,7 @@
 .ai-dialogue-user-message-issues__critical {
 	display: flex;
 	flex-direction: column;
-	gap: 1.4rem;
+	gap: 1.2rem;
 	counter-reset: issues;
 }
 
@@ -22,11 +22,18 @@
 	line-height: 2.2rem;
 }
 
+.ai-dialogue-user-message-issues__issue-content {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
 .ai-dialogue-user-message-issues__issue::before {
 	content: counter(issues, decimal-leading-zero);
 	flex-shrink: 0;
 	font-size: 1.2rem;
 	line-height: 1.2rem;
+	font-weight: 600;
 	color: vars.$accentColor-2;
 	background: vars.$accentColor-1;
 	max-width: 2.4rem;

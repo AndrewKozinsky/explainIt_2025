@@ -13,13 +13,7 @@
     "dictate": "Detta",
     "stopDictation": "Termina",
     "recognizing": "Riconoscimento",
-    "check": "Controlla",
     "send": "Invia"
-  },
-  "feedback": {
-    "stale": "Osservazioni sulla versione precedente del testo",
-    "critical": "Errori critici",
-    "suggestions": "Consigli"
   },
   "emptyStatus": {
     "speech": "Scrivi <typeIcon></typeIcon> o detta <micIcon></micIcon> la tua battuta",
@@ -29,18 +23,9 @@
     "sending": "Invio della risposta…",
     "connectingMicrophone": "Collegamento del microfono…",
     "listening": "Ascolto…",
-    "finishingRecognition": "Completamento del riconoscimento…",
-    "checking": "Controllo del testo…",
-    "needsCheck": "Invialo per il controllo",
-    "fixErrors": "{count, plural, one {Correggi # errore per inviare la risposta} other {Correggi # errori per inviare la risposta}}",
-    "speechHasErrors": "Il testo della battuta contiene errori.",
-    "actionHasErrors": "Il testo dell’azione contiene errori.",
-    "checkSpeech": "Controlla il testo della battuta.",
-    "checkAction": "Controlla il testo dell’azione.",
-    "ready": "La risposta può essere inviata."
+    "finishingRecognition": "Completamento del riconoscimento…"
   },
   "errors": {
-    "checkFailed": "Impossibile controllare il testo.",
     "dictationStartFailed": "Impossibile avviare la dettatura.",
     "sendFailed": "Impossibile inviare la risposta. Riprova.",
     "dictationTextLimit": "È stato raggiunto il limite di 4000 caratteri. L’ultimo frammento non è stato aggiunto.",

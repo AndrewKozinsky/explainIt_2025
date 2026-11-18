@@ -1,4 +1,5 @@
 import { useTranslations } from 'next-intl'
+import CheckButtonIcon from '@/shared/ui/icons/buttonIcons/standard/CheckButtonIcon'
 import AiDialogueUserMessageIssues from '../AiDialogueUserMessageIssues/AiDialogueUserMessageIssues'
 import type { UserActionsEvent } from '../../types/aiDialogueMessage'
 import './AiDialogueMessageReview.scss'
@@ -26,20 +27,26 @@ export default function AiDialogueMessageReview({ message }: { message: UserActi
 										<p className='ai-dialogue-message-review__label'>
 											{t('messageReview.original')}
 										</p>
-										<p className='ai-dialogue-message-review__text'>{originalText}</p>
+										<p className='ai-dialogue-message-review__text'>
+											{originalText}
+											{analysis.critical.length === 0 && analysis.suggestions.length === 0 && (
+												<span
+													className='ai-dialogue-message-review__check'
+													role='img'
+													aria-label={t('messageReview.noCorrections')}
+												>
+													<CheckButtonIcon />
+												</span>
+											)}
+										</p>
 									</div>
 									{analysis.critical.length > 0 || analysis.suggestions.length > 0 ? (
 										<AiDialogueUserMessageIssues
 											analysis={analysis}
 											criticalLabel={t('messageReview.critical')}
 											suggestionsLabel={t('messageReview.suggestions')}
-											showSuggestionsHeading
 										/>
-									) : (
-										<p className='ai-dialogue-message-review__status'>
-											{t('messageReview.noCorrections')}
-										</p>
-									)}
+									) : null}
 									{content !== originalText && (
 										<div>
 											<p className='ai-dialogue-message-review__label'>

@@ -13,13 +13,7 @@
     "dictate": "Diktieren",
     "stopDictation": "Beenden",
     "recognizing": "Erkennung",
-    "check": "Prüfen",
     "send": "Senden"
-  },
-  "feedback": {
-    "stale": "Hinweise zur vorherigen Textversion",
-    "critical": "Kritische Fehler",
-    "suggestions": "Empfehlungen"
   },
   "emptyStatus": {
     "speech": "Tippe <typeIcon></typeIcon> oder diktiere <micIcon></micIcon>, was du sagst",
@@ -29,18 +23,9 @@
     "sending": "Antwort wird gesendet…",
     "connectingMicrophone": "Mikrofon wird verbunden…",
     "listening": "Ich höre zu…",
-    "finishingRecognition": "Erkennung wird abgeschlossen…",
-    "checking": "Text wird geprüft…",
-    "needsCheck": "Zur Prüfung senden",
-    "fixErrors": "{count, plural, one {Korrigiere # Fehler, um die Antwort zu senden} other {Korrigiere # Fehler, um die Antwort zu senden}}",
-    "speechHasErrors": "Der Text der Aussage enthält Fehler.",
-    "actionHasErrors": "Der Text der Handlung enthält Fehler.",
-    "checkSpeech": "Prüfe den Text der Aussage.",
-    "checkAction": "Prüfe den Text der Handlung.",
-    "ready": "Die Antwort kann gesendet werden."
+    "finishingRecognition": "Erkennung wird abgeschlossen…"
   },
   "errors": {
-    "checkFailed": "Der Text konnte nicht geprüft werden.",
     "dictationStartFailed": "Das Diktat konnte nicht gestartet werden.",
     "sendFailed": "Die Antwort konnte nicht gesendet werden. Versuche es erneut.",
     "dictationTextLimit": "Das Limit von 4000 Zeichen ist erreicht. Das letzte Fragment wurde nicht hinzugefügt.",

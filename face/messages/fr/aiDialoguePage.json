@@ -7,13 +7,12 @@
     "message": "Message"
   },
   "messageReview": {
-    "empty": "Sélectionnez un message pour voir ses erreurs…",
+    "empty": "Cliquez sur le nombre de remarques à côté d’un message…",
     "original": "Votre réponse",
     "corrected": "Texte corrigé",
     "noCorrections": "Aucune correction",
     "critical": "Erreurs",
     "suggestions": "Suggestions",
-    "open": "Voir l’analyse du message",
-    "openWithIssues": "Voir l’analyse du message avec remarques"
+    "issueCount": "{count, plural, one {# remarque} other {# remarques}}"
   }
 }

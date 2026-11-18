@@ -7,6 +7,7 @@ import './WithAvatarMessageWrapper.scss'
 type WithAvatarMessageWrapperProps = {
 	avatar: ReactNode
 	name: string
+	headerAction?: ReactNode
 	/** Должность персонажа: строка или разметка (например, кликабельный текст). */
 	role?: ReactNode
 	contentGroups: { key: number; speech?: ReactNode; actions?: ReactNode }[]
@@ -14,7 +15,7 @@ type WithAvatarMessageWrapperProps = {
 }
 
 function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
-	const { avatar, name, role, contentGroups, extraClass } = props
+	const { avatar, name, headerAction, role, contentGroups, extraClass } = props
 
 	return (
 		<section className={cn('ai-dialogue-message-with-avatar', extraClass)}>
@@ -22,6 +23,7 @@ function WithAvatarMessageWrapper(props: WithAvatarMessageWrapperProps) {
 			<div className='ai-dialogue-message-with-avatar__body'>
 				<div className='ai-dialogue-message-with-avatar__header'>
 					<span className='ai-dialogue-message-with-avatar__name'>{name}</span>
+					{headerAction}
 					{role && (
 						<>
 							<DotSeparator />

@@ -1,7 +1,6 @@
-import cn from 'classnames'
 import { useTranslations } from 'next-intl'
 import type { AiDialogueVisualsModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
-import { MessagesIcon } from '@/shared/ui/icons/mainPage/MessagesIcon'
+import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
@@ -43,6 +42,15 @@ function AiDialogueMessageList({
 	const t = useTranslations('aiDialoguePage.messageReview')
 
 	const savedMessages = messages.map(({ id, payload }) => {
+		const isReviewOpen = selectedMessageId === id && reviewOpen
+		const issueCount =
+			payload.type === 'userActions'
+				? payload.textReview.reduce(
+						(count, { analysis }) => count + analysis.critical.length + analysis.suggestions.length,
+						0,
+					)
+				: 0
+
 		const content = (
 			<AiDialogMessageRouter
 				key={id}
@@ -50,52 +58,28 @@ function AiDialogueMessageList({
 				event={payload}
 				reserveSceneSpace={payload.type === 'sceneUpdate' && Boolean(payload.visualDescription)}
 				onWordSelect={onWordSelect}
+				reviewButton={
+					issueCount > 0 && (
+						<Button
+							size='small'
+							theme={isReviewOpen ? 'accent' : 'outline'}
+							extraClass='ai-dialogue-user-message-row__review-button'
+							aria-pressed={isReviewOpen}
+							disabled={isReviewOpen}
+							onClick={() => onMessageSelect(id)}
+						>
+							{t('issueCount', { count: issueCount })}
+						</Button>
+					)
+				}
 			/>
 		)
 
 		if (payload.type !== 'userActions') return content
 
-		const isSelected = selectedMessageId === id
-		const isReviewOpen = isSelected && reviewOpen
-		const hasIssues = payload.textReview.some(
-			({ analysis }) => analysis.critical.length || analysis.suggestions.length,
-		)
-		const reviewLabel = t(hasIssues ? 'openWithIssues' : 'open')
-
 		return (
 			<div className='ai-dialogue-user-message-row' key={id}>
-				<div
-					className={cn(
-						'ai-dialogue-user-message-row__message',
-						isSelected && 'ai-dialogue-user-message-row__message--selected',
-					)}
-					onClick={(event) => {
-						if (
-							event.target instanceof Element &&
-							!event.target.closest('button, a') &&
-							!window.getSelection()?.toString()
-						) {
-							onMessageSelect(id)
-						}
-					}}
-				>
-					{content}
-					<button
-						type='button'
-						className={cn(
-							'ai-dialogue-user-message-row__review-button',
-							hasIssues && 'ai-dialogue-user-message-row__review-button--with-issues',
-						)}
-						aria-label={reviewLabel}
-						aria-pressed={isReviewOpen}
-						title={reviewLabel}
-						onClick={() => onMessageSelect(id)}
-					>
-						<span aria-hidden='true'>
-							<MessagesIcon />
-						</span>
-					</button>
-				</div>
+				{content}
 				{isReviewOpen && (
 					<div className='ai-dialogue-user-message-row__inline-review'>
 						<AiDialogueMessageReview message={payload} />

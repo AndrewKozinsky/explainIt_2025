@@ -134,6 +134,69 @@ describe('CreateAiDialogueMessage', () => {
 		})
 	})
 
+	it('retries when analysis leaves a Russian phrase in an English turn, then saves the translation', async () => {
+		const { handler, llm, rows, turn } = harness()
+		const originalText = 'Hello! Вы меня ни с кем не спутали?'
+		const correctedText = 'Hello! Have you mistaken me for someone else?'
+		const critical = [
+			{
+				title: 'Фраза на русском языке',
+				sentenceMarkdown: '**Вы меня ни с кем не спутали?**',
+				explanationMarkdown: 'По-английски: **Have you mistaken me for someone else?**',
+			},
+		]
+		llm.generate
+			.mockResolvedValueOnce({
+				content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+			})
+			.mockResolvedValueOnce({
+				content: JSON.stringify({ parts: [{ index: 0, critical, suggestions: [], correctedText }] }),
+			})
+
+		const result = await handler.execute(
+			submission({ type: 'userActions', actions: [{ type: 'speech', content: originalText }] }),
+		)
+
+		expect(result.payload).toEqual({
+			type: 'userActions',
+			actions: [{ type: 'speech', content: correctedText }],
+			textReview: [{ originalText, analysis: { critical, suggestions: [] } }],
+		})
+		expect(llm.generate).toHaveBeenCalledTimes(2)
+		expect(llm.generate.mock.calls[0][0].messages[0].content).toContain('entire parts in any other language')
+		expect(llm.generate.mock.calls[1][0].messages[0].content).toContain('indexes especially carefully: 0.')
+		expect(rows.createManyAndReturn).toHaveBeenCalledTimes(1)
+		expect(turn.generate).toHaveBeenCalledTimes(1)
+	})
+
+	it('does not save a turn when the repeated analysis leaves untranslated text in the action', async () => {
+		const { handler, llm, rows, turn } = harness()
+		const content = 'Я киваю.'
+		llm.generate.mockResolvedValue({
+			content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+		})
+
+		await expect(
+			handler.execute(submission({ type: 'userActions', actions: [{ type: 'action', content }] })),
+		).rejects.toMatchObject({ errorMessage: errorMessage.aiDialogue.cannotParseMessageCheck })
+		expect(llm.generate).toHaveBeenCalledTimes(2)
+		expect(rows.createManyAndReturn).not.toHaveBeenCalled()
+		expect(turn.generate).not.toHaveBeenCalled()
+	})
+
+	it('can keep a verbatim quotation from the original in an English turn', async () => {
+		const { handler, llm } = harness()
+		const content = 'I point at the sign that says «Выход».'
+		llm.generate.mockResolvedValue({
+			content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+		})
+
+		await expect(
+			handler.execute(submission({ type: 'userActions', actions: [{ type: 'action', content }] })),
+		).resolves.toMatchObject({ payload: { actions: [{ type: 'action', content }] } })
+		expect(llm.generate).toHaveBeenCalledTimes(1)
+	})
+
 	it.each([
 		'{"parts":[',
 		JSON.stringify({ parts: [correction] }),

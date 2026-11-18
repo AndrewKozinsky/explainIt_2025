@@ -5,17 +5,19 @@ import type {
 	DialogueServerMessage,
 } from '../widgets/aiDialogueMessages/types/aiDialogueMessage'
 
-async function setup(page: Page, pcm = false, history: DialogueServerMessage[] = []) {
+async function setup(page: Page, pcm = false, history: DialogueServerMessage[] = [], reconnectAfterBadGateway = false) {
 	const browserErrors: string[] = []
 	page.on('pageerror', (error) => browserErrors.push(error.message))
-	const sent: unknown[] = []
-	const checks: unknown[] = []
+	const sent: AiDialogueClientEvent[] = []
+	let checkRequests = 0
+	let streamRequests = 0
 	const controls: Array<{ type: string; audioFormat?: string; sampleRate?: number; numChannels?: number }> = []
-	let failCheck = false
+	let nextSendFailure: 'http' | 'malformed' | null = null
+	let sendGate: Promise<void> | null = null
 	let socket: WebSocketRoute | null = null
 
 	await page.addInitScript(
-		({ usePcm, history }) => {
+		({ usePcm, history, reconnectAfterBadGateway }) => {
 			class FakeEventSource {
 				onopen: (() => void) | null = null
 				onmessage: ((event: MessageEvent<string>) => void) | null = null
@@ -33,7 +35,9 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 				close() {}
 			}
 
-			Object.defineProperty(window, 'EventSource', { value: FakeEventSource })
+			if (!reconnectAfterBadGateway) {
+				Object.defineProperty(window, 'EventSource', { value: FakeEventSource })
+			}
 			const track = new EventTarget() as EventTarget & { stop(): void }
 			track.stop = () => undefined
 			Object.defineProperty(navigator, 'mediaDevices', {
@@ -81,13 +85,14 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 				const audioTrack = destination.stream.getAudioTracks()[0]
 				const originalStop = audioTrack.stop.bind(audioTrack)
 				audioTrack.stop = () => {
+					if (audioTrack.readyState === 'ended') return
 					originalStop()
 					void context.close()
 				}
 				return destination.stream
 			}
 		},
-		{ usePcm: pcm, history },
+		{ usePcm: pcm, history, reconnectAfterBadGateway },
 	)
 	await page.routeWebSocket('**/api/ai-dialogue/*/dictation', (ws) => {
 		socket = ws
@@ -101,32 +106,65 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 	await page.route('**/api/**', async (route) => {
 		const request = route.request()
 		const path = new URL(request.url()).pathname
+		if (reconnectAfterBadGateway && path.endsWith('/stream')) {
+			streamRequests++
+			if (streamRequests === 1) return route.fulfill({ status: 502 })
+
+			return route.fulfill({
+				contentType: 'text/event-stream',
+				body: history.map((message) => `data: ${JSON.stringify({ type: 'message', message })}\n\n`).join(''),
+			})
+		}
 		if (path.endsWith('/check-message')) {
-			const input = request.postDataJSON()
-			checks.push(input)
-			await new Promise((resolve) => setTimeout(resolve, 300))
-			if (failCheck) {
-				failCheck = false
-				return route.fulfill({ status: 500, json: { message: 'Error' } })
-			}
-			return route.fulfill({ json: { speech: result(input.speech), action: result(input.action) } })
+			checkRequests++
+			return route.fulfill({ status: 500 })
 		}
 		if (path.endsWith('/messages')) {
 			const event: AiDialogueClientEvent = request.postDataJSON()
 			sent.push(event)
+			if (sendGate) {
+				await sendGate
+				sendGate = null
+			}
+			const failure = nextSendFailure
+			nextSendFailure = null
+			if (failure === 'http') return route.fulfill({ status: 504, json: { message: 'Timeout' } })
+
+			const response = {
+				id: 100 + sent.findIndex(({ requestId }) => requestId === event.requestId),
+				dialogueId: 1,
+				createdAt: new Date().toISOString(),
+			}
+			if (failure === 'malformed') return route.fulfill({ json: { ...response, payload: event } })
+
 			const payload =
 				event.type === 'userActions'
 					? {
-							...event,
+							type: event.type,
+							actions: event.actions.map(({ type, content }) => ({
+								type,
+								content: content === 'Hey girls!' ? 'Hey, girls!' : content,
+							})),
 							textReview: event.actions.map(({ content }) => ({
 								originalText: content,
-								analysis: { critical: [], suggestions: [] },
+								analysis: {
+									critical:
+										content === 'Hey girls!'
+											? [
+													{
+														title: 'Пропущена запятая',
+														sentenceMarkdown: '**Hey girls**!',
+														explanationMarkdown: 'После обращения **Hey** нужна запятая.',
+													},
+												]
+											: [],
+									suggestions: [],
+								},
 							})),
 						}
-					: event
-			return route.fulfill({
-				json: { id: 100 + sent.length, dialogueId: 1, createdAt: new Date().toISOString(), payload },
-			})
+					: { type: event.type }
+
+			return route.fulfill({ json: { ...response, payload } })
 		}
 		if (path.endsWith('/visuals'))
 			return route.fulfill({
@@ -164,24 +202,24 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 		form,
 		browserErrors,
 		sent,
-		checks,
+		get checkRequests() {
+			return checkRequests
+		},
+		get streamRequests() {
+			return streamRequests
+		},
 		controls,
-		failNextCheck() {
-			failCheck = true
+		failNextSend(failure: 'http' | 'malformed') {
+			nextSendFailure = failure
+		},
+		holdNextSend() {
+			let release!: () => void
+			sendGate = new Promise<void>((resolve) => {
+				release = resolve
+			})
+			return release
 		},
 		socket: () => socket!,
-	}
-}
-
-function result(text?: string) {
-	const issue = {
-		title: 'Неверный предлог',
-		sentenceMarkdown: 'Stay **in** the end.',
-		explanationMarkdown: 'Используйте **at the end** — «в конце».',
-	}
-	return {
-		critical: text?.includes('bad') ? [issue] : [],
-		suggestions: text ? [{ explanationMarkdown: 'Запятая после **Hey**:', example: 'Hey, girls!' }] : [],
 	}
 }
 
@@ -231,99 +269,124 @@ const historyWithReviews: DialogueServerMessage[] = [
 	},
 ]
 
+test('reopens a closed event stream after 502 and renders the saved NPC reply', async ({ page }) => {
+	const reply: DialogueServerMessage = {
+		id: 14,
+		dialogueId: 1,
+		createdAt: '2026-10-21T00:02:00Z',
+		payload: {
+			type: 'npcActions',
+			npcId: 'clerk',
+			npcName: 'Clara',
+			npcRole: '',
+			emotion: 'neutral',
+			actions: [{ type: 'speech', content: 'I can help you.', translation: 'Я могу вам помочь.' }],
+		},
+	}
+	const h = await setup(page, false, [...historyWithReviews, reply], true)
+	await expect(page.getByText('Clara', { exact: true })).toBeVisible({ timeout: 4_000 })
+	expect(h.streamRequests).toBeGreaterThanOrEqual(2)
+})
+
 test('opens reviews from history, marks selection and switches to the dictionary on a word click', async ({ page }) => {
 	const { browserErrors } = await setup(page, false, historyWithReviews)
 	const panel = page.locator('.reading-root__right-part')
 	const review = panel.getByRole('region', { name: 'Сообщение' })
-	const reviewed = page.getByRole('button', { name: 'Посмотреть разбор сообщения с замечаниями' })
+	const reviewed = page.getByRole('button', { name: '2 замечания' })
 	await panel.getByRole('button', { name: 'Сообщение', exact: true }).click()
-	await expect(review).toHaveText('Выделите сообщение для просмотра ошибок…')
+	await expect(review).toHaveText('Нажмите на число замечаний рядом с сообщением…')
 
 	const row = page.locator('.ai-dialogue-user-message-row').filter({ has: reviewed })
 	await row.getByText('Вы', { exact: true }).click()
+	await expect(review).toHaveText('Нажмите на число замечаний рядом с сообщением…')
+	await reviewed.click()
 	await expect(reviewed).toHaveAttribute('aria-pressed', 'true')
-	const selectedRow = page.locator('.ai-dialogue-user-message-row__message--selected')
-	await expect(selectedRow).toHaveCount(1)
+	await expect(reviewed).toBeDisabled()
+	await expect(reviewed).not.toBeFocused()
 	await expect(review.getByRole('heading', { level: 2 })).toHaveText(['Реплика', 'Действие'])
 	await expect(review.getByText('Hey girls! There is a очередь.')).toBeVisible()
 	await expect(review.getByRole('heading', { name: 'Слово на русском языке' })).toBeVisible()
 	await expect(review.getByText('Hey, girls! There is a line.')).toBeVisible()
 	await expect(review.getByText('I looked at them.')).toBeVisible()
-	await expect(review.getByText('Исправлений нет')).toBeVisible()
+	await expect(review.getByRole('img', { name: 'Исправлений нет' })).toBeVisible()
 
-	await selectedRow.getByRole('button', { name: 'girls', exact: true }).click()
+	await row.getByRole('button', { name: 'girls', exact: true }).click()
 	await expect(panel.getByRole('button', { name: 'Словарь' })).toBeDisabled()
 	await expect(review).toBeHidden()
-	await expect(selectedRow).toHaveCount(1)
+	await expect(reviewed).toHaveAttribute('aria-pressed', 'false')
+	await expect(reviewed).toBeEnabled()
 
-	await page.getByRole('button', { name: 'Посмотреть разбор сообщения', exact: true }).click()
-	await expect(review.getByText('Thank you!')).toBeVisible()
-	await expect(review.getByText('Исправленный текст')).toHaveCount(0)
-	await page.getByRole('button', { name: 'Посмотреть разбор сообщения', exact: true }).click()
-	await expect(review).toHaveText('Выделите сообщение для просмотра ошибок…')
-	await expect(selectedRow).toHaveCount(0)
+	await expect(page.locator('.ai-dialogue-user-message-row__review-button')).toHaveCount(1)
 	expect(browserErrors).toEqual([])
 })
 
-test('opens and closes the review beneath its message on a narrow screen', async ({ page }) => {
+test('opens the review beneath its message and disables its button on a narrow screen', async ({ page }) => {
 	await page.setViewportSize({ width: 390, height: 844 })
 	await setup(page, false, historyWithReviews)
-	const reviewed = page.getByRole('button', { name: 'Посмотреть разбор сообщения с замечаниями' })
+	const reviewed = page.getByRole('button', { name: '2 замечания' })
 	const review = page.getByRole('region', { name: 'Сообщение' })
 
 	await reviewed.click()
 	await expect(review).toBeVisible()
 	await expect(review.getByText('Hey girls! There is a очередь.')).toBeVisible()
 	await expect(page.locator('.reading-root__right-part')).toBeHidden()
-	await reviewed.click()
-	await expect(review).toHaveCount(0)
+	await expect(reviewed).toBeDisabled()
 })
 
-test('form checks each tab, blocks sending for errors in the other tab, invalidates edits and sends once', async ({
-	page,
-}) => {
+test('sends both parts directly, locks the form and opens the review from the message button', async ({ page }) => {
 	const h = await setup(page)
-	const form = h.form
+	const { form } = h
+	const send = form.getByRole('button', { name: 'Отправить', exact: true })
 	const speech = form.getByRole('textbox', { name: 'Текст реплики' })
-	await expect(speech).toHaveAttribute('placeholder', 'Hi, how’s it going?')
-	await expect(form.getByRole('button', { name: 'Проверить', exact: true })).toBeDisabled()
+	await expect(send).toBeDisabled()
+	await expect(form.getByRole('button', { name: 'Проверить', exact: true })).toHaveCount(0)
 	await speech.fill('Hey girls!')
-	await form.getByRole('button', { name: 'Проверить', exact: true }).click()
-	await expect(speech).toHaveJSProperty('readOnly', true)
-	await expect(form.getByRole('status')).toHaveText('Идёт проверка текста…')
-	await expect(form.getByRole('button', { name: 'Отправить', exact: true })).toBeEnabled()
+	await expect(send).toBeEnabled()
 	await form.getByRole('button', { name: 'Действие', exact: true }).click()
 	const action = form.getByRole('textbox', { name: 'Текст действия' })
-	await expect(action).toHaveAttribute('placeholder', 'I opened the door')
-	await action.fill('bad action')
-	await form.getByRole('button', { name: 'Проверить', exact: true }).click()
-	await expect(form.getByRole('heading', { name: 'Неверный предлог' })).toBeVisible()
-	await expect(form.getByRole('status')).toHaveText('Исправьте 1 ошибку, чтобы отправить ответ')
-	await form.screenshot({ path: '/private/tmp/explainit-form-critical.png' })
-	await form.getByRole('button', { name: 'Реплика', exact: true }).click()
-	await expect(speech).toHaveValue('Hey girls!')
-	await expect(form.getByRole('button', { name: 'Отправить', exact: true })).toBeDisabled()
-	await expect(form.getByRole('status')).toHaveText('Текст действия содержит ошибки.')
-	await form.getByRole('button', { name: 'Действие', exact: true }).click()
-	await action.fill('I opened the door')
-	await form.getByRole('button', { name: 'Проверить', exact: true }).click()
-	await expect(form.getByRole('button', { name: 'Отправить', exact: true })).toBeEnabled()
-	await action.fill('I opened the door.')
-	await expect(form.getByRole('button', { name: 'Проверить', exact: true })).toBeEnabled()
-	await action.press('Enter')
-	await expect(form.getByRole('button', { name: 'Отправить', exact: true })).toBeEnabled()
-	await form.getByRole('button', { name: 'Отправить', exact: true }).click()
+	await expect(send).toBeEnabled()
+	await action.fill('I open the door.')
+	await action.press('Shift+Enter')
+	await expect(action).toHaveValue('I open the door.\n')
+	expect(h.sent).toHaveLength(0)
+
+	const release = h.holdNextSend()
+	try {
+		await action.press('Enter')
+		await expect(action).toHaveJSProperty('readOnly', true)
+		await expect(form.getByRole('status')).toHaveText('Отправляю ответ…')
+		await expect(send).toBeDisabled()
+		await expect(form.getByRole('button', { name: 'Реплика', exact: true })).toBeDisabled()
+		await expect(form.getByRole('button', { name: 'Диктовать' })).toBeDisabled()
+		await action.press('Enter')
+		expect(h.sent).toHaveLength(1)
+	} finally {
+		release()
+	}
+
 	await expect(action).toHaveValue('')
+	await form.getByRole('button', { name: 'Реплика', exact: true }).click()
+	await expect(speech).toHaveValue('')
+	const reviewed = page.getByRole('button', { name: '1 замечание', exact: true })
+	await expect(reviewed).toHaveAttribute('aria-pressed', 'false')
+	await reviewed.click()
+	const review = page.locator('.reading-root__right-part').getByRole('region', { name: 'Сообщение' })
+	await expect(review).toContainText('Hey girls!')
+	await expect(review).toContainText('Пропущена запятая')
+	await expect(review).toContainText('Hey, girls!')
+	await expect(review).toContainText('I open the door.')
+
 	expect(h.sent).toEqual([
 		{
 			type: 'userActions',
+			requestId: expect.stringMatching(/^[a-f0-9-]{36}$/),
 			actions: [
 				{ type: 'speech', content: 'Hey girls!' },
-				{ type: 'action', content: 'I opened the door.' },
+				{ type: 'action', content: 'I open the door.' },
 			],
 		},
 	])
-	expect(h.checks[0]).toEqual({ speech: 'Hey girls!' })
+	expect(h.checkRequests).toBe(0)
 	expect(h.browserErrors).toEqual([])
 })
 
@@ -358,28 +421,46 @@ test('dictation preserves focus and replaces selected text through partial/final
 	h.socket().send(JSON.stringify({ type: 'done', text: 'Hello очередь.' }))
 	await expect(input).toHaveValue('Before Hello очередь. after.')
 	await expect(input).toHaveJSProperty('readOnly', false)
-	await expect(h.form.getByRole('button', { name: 'Проверить', exact: true })).toBeEnabled()
+	await expect(h.form.getByRole('button', { name: 'Отправить', exact: true })).toBeEnabled()
 	const before = await input.boundingBox()
 	await input.fill('First line\nSecond line\nThird line\nFourth line')
 	expect((await input.boundingBox())!.height).toBeGreaterThan(before!.height)
 	expect(h.browserErrors).toEqual([])
 })
 
-test('failure and retry keep the draft; mobile form fits the viewport', async ({ page }) => {
+test('failed and malformed responses keep the draft and retry with the same ID on a narrow screen', async ({
+	page,
+}) => {
 	await page.setViewportSize({ width: 390, height: 844 })
 	const h = await setup(page)
 	const input = h.form.getByRole('textbox')
+	const send = h.form.getByRole('button', { name: 'Отправить', exact: true })
+	const reviewed = page.getByRole('button', { name: '1 замечание', exact: true })
 	await input.fill('Hey girls!')
-	h.failNextCheck()
-	await h.form.getByRole('button', { name: 'Проверить', exact: true }).click()
-	await expect(h.form.getByRole('alert')).toHaveText('Не удалось проверить текст.')
-	await expect(input).toHaveValue('Hey girls!')
-	await h.form.getByRole('button', { name: 'Проверить', exact: true }).click()
-	await expect(h.form.getByRole('button', { name: 'Отправить', exact: true })).toBeEnabled()
-	await h.form.screenshot({ path: '/private/tmp/explainit-form-mobile.png' })
+
+	for (const failure of ['http', 'malformed'] as const) {
+		h.failNextSend(failure)
+		await send.click()
+		await expect(h.form.getByRole('alert')).toBeVisible()
+		await expect(input).toHaveValue('Hey girls!')
+		await expect(input).toHaveJSProperty('readOnly', false)
+		await expect(send).toBeEnabled()
+		await expect(reviewed).toHaveCount(0)
+	}
+
+	await send.click()
+	await expect(input).toHaveValue('')
+	await expect(h.form.getByRole('alert')).toHaveCount(0)
+	await expect(reviewed).toHaveAttribute('aria-pressed', 'false')
+	await reviewed.click()
+	await expect(page.getByRole('region', { name: 'Сообщение' })).toContainText('Hey girls!')
+	expect(h.sent).toHaveLength(3)
+	expect(new Set(h.sent.map(({ requestId }) => requestId)).size).toBe(1)
 	expect(await h.form.evaluate((node) => node.scrollWidth <= node.clientWidth)).toBe(true)
+
 	await h.form.getByRole('button', { name: 'Уйти от разговора' }).click()
-	expect(h.sent[0]).toEqual({ type: 'userAvoidsNPC' })
+	await expect(page.getByText('Вы ушли от разговора.')).toBeVisible()
+	expect(h.sent.at(-1)).toEqual({ type: 'userAvoidsNPC', requestId: expect.any(String) })
 	expect(h.browserErrors).toEqual([])
 })
 
@@ -394,5 +475,10 @@ test('PCM fallback records with the real AudioWorklet when WebM/Ogg are unavaila
 	h.socket().send(JSON.stringify({ type: 'final', text: 'PCM speech' }))
 	h.socket().send(JSON.stringify({ type: 'done', text: 'PCM speech' }))
 	await expect(h.form.getByRole('textbox')).toHaveValue('PCM speech')
+	await h.form.getByRole('button', { name: 'Отправить', exact: true }).click()
+	await expect(h.form.getByRole('textbox')).toHaveValue('')
+	await expect(page.locator('.ai-dialogue-user-message-row')).toContainText('PCM speech')
+	await expect(page.locator('.ai-dialogue-user-message-row__review-button')).toHaveCount(0)
+	expect(h.sent[0]).toMatchObject({ type: 'userActions', actions: [{ type: 'speech', content: 'PCM speech' }] })
 	expect(h.browserErrors).toEqual([])
 })

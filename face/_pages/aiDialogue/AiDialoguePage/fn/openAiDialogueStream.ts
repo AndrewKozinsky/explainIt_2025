@@ -100,9 +100,11 @@ export function openAiDialogueStream(
 
 			accumulated += parsed.chunk
 			const preview = parseAiDialoguePreview(accumulated)
+
 			if (preview !== null) {
 				store.setPreview(preview)
 			}
+
 			return
 		}
 
@@ -133,8 +135,8 @@ export function openAiDialogueStream(
 
 	eventSource.onerror = function () {
 		audio?.disconnect()
-		// EventSource переподключится сам и сервер отдаст replay. Пока соединение
-		// оборвано — сбрасываем transient-состояние, чтобы не зависло «генерируется».
+		// После восстановления соединения сервер отдаст историю. Пока оно оборвано,
+		// сбрасываем временное состояние, чтобы не зависло «генерируется».
 		accumulated = ''
 		useAiDialogueStore.getState().setPreview([])
 		useAiDialogueStore.getState().setGenerating(false)

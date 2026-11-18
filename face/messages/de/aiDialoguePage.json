@@ -7,13 +7,12 @@
     "message": "Nachricht"
   },
   "messageReview": {
-    "empty": "Wähle eine Nachricht aus, um die Fehler anzusehen…",
+    "empty": "Klicke auf die Anzahl der Anmerkungen neben einer Nachricht…",
     "original": "Deine Antwort",
     "corrected": "Korrigierter Text",
     "noCorrections": "Keine Korrekturen",
     "critical": "Fehler",
     "suggestions": "Vorschläge",
-    "open": "Auswertung der Nachricht ansehen",
-    "openWithIssues": "Auswertung mit Anmerkungen ansehen"
+    "issueCount": "{count, plural, one {# Anmerkung} other {# Anmerkungen}}"
   }
 }

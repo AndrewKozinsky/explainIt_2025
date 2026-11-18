@@ -1,27 +1,19 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { openAiDialogueDictation } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
-import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
-import { useAiDialogueSendMessage } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueSendMessage'
+import type { SendAiDialogueMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
 import { AiDialogueDraftController } from './AiDialogueDraftController'
 
-export function useAiDialogueDraft(dialogueId: number) {
+export function useAiDialogueDraft(dialogueId: number, send: SendAiDialogueMessage, balanceExhausted: boolean) {
 	const generating = useAiDialogueStore((state) => state.isGenerating)
-	const sender = useAiDialogueSendMessage(dialogueId)
-	const senderRef = useRef(sender)
-	senderRef.current = sender
+	const sendRef = useRef(send)
+	sendRef.current = send
+
 	const [controller] = useState(
 		() =>
 			new AiDialogueDraftController({
-				check: (part, text, signal) => {
-					capturePosthogEvent({ name: 'dialogue_help_used', dialogue_id: dialogueId, kind: 'check' })
-
-					return aiDialogueService.checkUserMessageText(dialogueId, { [part]: text }, signal)
-				},
 				openDictation: (callbacks) => openAiDialogueDictation(dialogueId, callbacks),
-				send: (actions) => senderRef.current.sendUserActions(actions),
-				leave: () => senderRef.current.finishDialogue(),
+				send: (event) => sendRef.current(event),
 			}),
 	)
 
@@ -31,7 +23,9 @@ export function useAiDialogueDraft(dialogueId: number) {
 		controller.activate()
 		return () => controller.dispose()
 	}, [controller])
-	useEffect(() => controller.setBlocked(generating), [controller, generating])
 
-	return { controller, state, blocked: generating || state.blocked }
+	const blocked = generating || balanceExhausted
+	useEffect(() => controller.setBlocked(blocked), [controller, blocked])
+
+	return { controller, state, blocked: blocked || state.blocked }
 }

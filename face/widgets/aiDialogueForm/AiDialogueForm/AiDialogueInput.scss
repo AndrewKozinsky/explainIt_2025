@@ -30,28 +30,16 @@
 .ai-dialogue-input__actions {
 	flex-shrink: 0;
 	gap: 0.6rem;
+	margin-inline-start: auto;
 }
 
 .ai-dialogue-input__actions > .button {
 	white-space: nowrap;
 }
 
-.ai-dialogue-input .ai-dialogue-input__check-button:not(:disabled) {
-	background: vars.$textColor;
-	color: white;
-}
-
-.ai-dialogue-input .ai-dialogue-input__check-button:not(:disabled):hover {
-	background: vars.$grayColor-6;
-}
-
 .ai-dialogue-input__actions .lds-spinner {
 	width: 1.4rem;
 	height: 1.4rem;
-}
-
-.ai-dialogue-input__footer {
-
 }
 
 .ai-dialogue-input__editor {
@@ -92,26 +80,21 @@
 	display: none;
 }
 
-.ai-dialogue-input__status,
-.ai-dialogue-input__stale {
+.ai-dialogue-input__status {
 	color: vars.$grayColor-5;
 	font-size: 1.5rem;
 	line-height: 2.1rem;
+	min-width: 0;
 }
 
-.ai-dialogue-input__status {
-	min-width: 0;
+.ai-dialogue-input__status:empty {
+	display: none;
 }
 
 .ai-dialogue-input__status svg {
 	display: inline-block;
 	vertical-align: -0.2rem;
 	margin: 0 0.15rem;
-}
-
-.ai-dialogue-input__status > svg {
-	flex-shrink: 0;
-	margin-right: 0.4rem;
 }
 
 .ai-dialogue-input__request-error {
@@ -127,20 +110,11 @@
 	flex-shrink: 0;
 }
 
-.ai-dialogue-input__feedback {
-	display: flex;
-	flex-direction: column;
-	gap: 1.2rem;
-}
-
 @media (max-width: 600px) {
 	.ai-dialogue-input__footer {
 		flex-wrap: wrap;
 	}
 	.ai-dialogue-input__status {
 		flex: 1 0 100%;
-	}
-	.ai-dialogue-input__actions {
-		margin-left: auto;
 	}
 }

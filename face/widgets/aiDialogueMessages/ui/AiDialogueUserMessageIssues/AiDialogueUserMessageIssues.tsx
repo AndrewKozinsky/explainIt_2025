@@ -6,15 +6,9 @@ type Props = {
 	analysis: UserMessagePartCheck
 	criticalLabel: string
 	suggestionsLabel: string
-	showSuggestionsHeading?: boolean
 }
 
-export default function AiDialogueUserMessageIssues({
-	analysis,
-	criticalLabel,
-	suggestionsLabel,
-	showSuggestionsHeading,
-}: Props) {
+export default function AiDialogueUserMessageIssues({ analysis, criticalLabel, suggestionsLabel }: Props) {
 	const { critical, suggestions } = analysis
 	if (!critical.length && !suggestions.length) return null
 
@@ -24,7 +18,7 @@ export default function AiDialogueUserMessageIssues({
 				<ol className='ai-dialogue-user-message-issues__critical' aria-label={criticalLabel}>
 					{critical.map((issue, index) => (
 						<li className='ai-dialogue-user-message-issues__issue' key={index}>
-							<div>
+							<div className='ai-dialogue-user-message-issues__issue-content'>
 								<div
 									className='ai-dialogue-user-message-issues__error-header'
 									role='heading'
@@ -44,9 +38,7 @@ export default function AiDialogueUserMessageIssues({
 			)}
 			{suggestions.length > 0 && (
 				<div className='ai-dialogue-user-message-issues__suggestions' aria-label={suggestionsLabel}>
-					{showSuggestionsHeading && (
-						<h3 className='ai-dialogue-user-message-issues__suggestions-heading'>{suggestionsLabel}</h3>
-					)}
+					<h3 className='ai-dialogue-user-message-issues__suggestions-heading'>{suggestionsLabel}</h3>
 					{suggestions.map((item, index) => (
 						<div className='ai-dialogue-user-message-issues__suggestion' key={index}>
 							<StyledMarkdown

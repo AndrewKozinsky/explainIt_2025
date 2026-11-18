@@ -13,13 +13,7 @@
     "dictate": "Dictar",
     "stopDictation": "Terminar",
     "recognizing": "Reconociendo",
-    "check": "Revisar",
     "send": "Enviar"
-  },
-  "feedback": {
-    "stale": "Comentarios sobre la versión anterior del texto",
-    "critical": "Errores críticos",
-    "suggestions": "Recomendaciones"
   },
   "emptyStatus": {
     "speech": "Escribe <typeIcon></typeIcon> o dicta <micIcon></micIcon> lo que dices",
@@ -29,18 +23,9 @@
     "sending": "Enviando la respuesta…",
     "connectingMicrophone": "Conectando el micrófono…",
     "listening": "Escuchando…",
-    "finishingRecognition": "Terminando el reconocimiento…",
-    "checking": "Revisando el texto…",
-    "needsCheck": "Envíalo a revisar",
-    "fixErrors": "{count, plural, one {Corrige # error para enviar la respuesta} other {Corrige # errores para enviar la respuesta}}",
-    "speechHasErrors": "El texto de la frase tiene errores.",
-    "actionHasErrors": "El texto de la acción tiene errores.",
-    "checkSpeech": "Revisa el texto de la frase.",
-    "checkAction": "Revisa el texto de la acción.",
-    "ready": "La respuesta se puede enviar."
+    "finishingRecognition": "Terminando el reconocimiento…"
   },
   "errors": {
-    "checkFailed": "No se pudo revisar el texto.",
     "dictationStartFailed": "No se pudo iniciar el dictado.",
     "sendFailed": "No se pudo enviar la respuesta. Inténtalo de nuevo.",
     "dictationTextLimit": "Se alcanzó el límite de 4000 caracteres. El último fragmento no se añadió.",

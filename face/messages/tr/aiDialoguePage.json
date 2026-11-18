@@ -7,13 +7,12 @@
     "message": "Mesaj"
   },
   "messageReview": {
-    "empty": "Hataları görmek için bir mesaj seçin…",
+    "empty": "Mesajın yanındaki not sayısına tıklayın…",
     "original": "Yanıtınız",
     "corrected": "Düzeltilmiş metin",
     "noCorrections": "Düzeltme yok",
     "critical": "Hatalar",
     "suggestions": "Öneriler",
-    "open": "Mesaj incelemesini görüntüle",
-    "openWithIssues": "Yorum içeren mesaj incelemesini görüntüle"
+    "issueCount": "{count} not"
   }
 }

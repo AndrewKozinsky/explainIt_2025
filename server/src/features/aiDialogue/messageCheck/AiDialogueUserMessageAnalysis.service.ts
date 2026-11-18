@@ -48,14 +48,26 @@ export class AiDialogueUserMessageAnalysis {
 	}
 
 	async review(dialogue: AnalysisDialogue, actions: AiDialogueActionItem[]) {
-		const text = await this.generate(dialogue, 'json_object', (context) =>
-			buildAiDialogueUserMessageReviewPrompt(context, actions),
-		)
+		const review = async (partsWithCyrillic: number[] = []) => {
+			const text = await this.generate(dialogue, 'json_object', (context) =>
+				buildAiDialogueUserMessageReviewPrompt(context, actions, partsWithCyrillic),
+			)
+			const result = parseAiDialogueUserMessageReview(text, actions)
+			if (!result) throw this.invalidAnalysisError()
 
-		const result = parseAiDialogueUserMessageReview(text, actions)
-		if (!result) throw this.invalidAnalysisError()
+			return result
+		}
 
-		return result
+		const result = await review()
+		// Среди поддерживаемых языков только русский использует кириллицу.
+		if (dialogue.source_language_code === 'ru') return result
+
+		const untranslated = findCyrillicParts(result.actions, actions)
+		if (untranslated.length === 0) return result
+
+		const retried = await review(untranslated)
+		if (findCyrillicParts(retried.actions, actions).length > 0) throw this.invalidAnalysisError()
+		return retried
 	}
 
 	private async generate(
@@ -97,4 +109,14 @@ export class AiDialogueUserMessageAnalysis {
 	private invalidAnalysisError() {
 		return new CustomError(errorMessage.aiDialogue.cannotParseMessageCheck, ErrorStatusCode.InternalServerError_500)
 	}
+}
+
+function findCyrillicParts(finalActions: AiDialogueActionItem[], originals: AiDialogueActionItem[]): number[] {
+	return finalActions.flatMap(({ content }, index) => {
+		// Цитату можно сохранить дословно, если пользователь уже заключил её в кавычки.
+		const prose = content.replace(/«[^»]*»|“[^”]*”|"[^"]*"/gu, (quote) =>
+			originals[index].content.includes(quote) ? '' : quote,
+		)
+		return /\p{Script=Cyrillic}/u.test(prose) ? [index] : []
+	})
 }

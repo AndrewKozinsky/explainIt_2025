@@ -1,3 +1,4 @@
+import type { AiDialogueClientEvent } from './aiDialogueMessage'
 import type { AiDialogueWordMapBlock } from './aiDialogueWordMap'
 
 /**
@@ -13,6 +14,9 @@ export type AiDialogueWordSelection = {
 
 // Колбэк, вызываемый при клике по слову в тексте сообщения.
 export type AiDialogueWordSelectHandler = (selection: AiDialogueWordSelection) => void
+
+/** null после подтверждённой отправки, иначе текст ошибки. */
+export type SendAiDialogueMessage = (event: AiDialogueClientEvent) => Promise<string | null>
 
 export type AiDialogueTextMappingProps = {
 	wordMap?: AiDialogueWordMapBlock

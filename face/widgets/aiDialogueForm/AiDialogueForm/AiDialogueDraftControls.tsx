@@ -7,7 +7,7 @@ import { ExitButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/ExitButto
 import StopRecordingButtonIcon from '@/shared/ui/icons/buttonIcons/standard/StopRecordingButtonIcon'
 import Switcher from '@/shared/ui/Switcher/Switcher'
 import { AiDialogueDraftStatus } from './AiDialogueDraftFeedback'
-import { canSendDraft, type DialogueDraftState, isPartReady } from './fn/aiDialogueDraftState'
+import { canSendDraft, type DialogueDraftState } from './fn/aiDialogueDraftState'
 import type { AiDialogueDraftController } from './fn/AiDialogueDraftController'
 
 type Props = { state: DialogueDraftState; controller: AiDialogueDraftController; blocked: boolean }
@@ -46,10 +46,8 @@ export function AiDialogueDraftFooter({
 	preserveFocus,
 }: Props & { preserveFocus: PointerEventHandler<HTMLButtonElement> }) {
 	const t = useTranslations('aiDialogueForm.buttons')
-	const current = state.parts[state.activePart]
 	const busy = blocked || state.sending
 	const finishing = state.dictation?.phase === 'finishing'
-	const showSend = isPartReady(current)
 
 	const icon = finishing ? (
 		<LoadingSmallButtonIcon />
@@ -59,10 +57,6 @@ export function AiDialogueDraftFooter({
 		<MicSmallButtonIcon />
 	)
 
-	const buttonDisabled = showSend
-		? !canSendDraft(state) || blocked
-		: busy || !!state.dictation || !current.text.trim()
-
 	return (
 		<div className='ai-dialogue-input__footer'>
 			<AiDialogueDraftStatus state={state} />
@@ -70,20 +64,19 @@ export function AiDialogueDraftFooter({
 				<Button
 					theme={state.dictation && !finishing ? 'accent' : 'regular'}
 					icon={icon}
-					disabled={busy || current.checking || finishing}
+					disabled={busy || finishing}
 					onPointerDown={preserveFocus}
 					onClick={() => (state.dictation ? controller.stopDictation() : controller.startDictation())}
 				>
 					{t(finishing ? 'recognizing' : state.dictation ? 'stopDictation' : 'dictate')}
 				</Button>
 				<Button
-					theme={showSend ? 'accent' : 'regular'}
-					extraClass={showSend ? undefined : 'ai-dialogue-input__check-button'}
-					loading={current.checking || state.sending}
-					disabled={buttonDisabled}
-					onClick={() => (showSend ? void controller.send() : void controller.checkActivePart())}
+					theme='accent'
+					loading={state.sending}
+					disabled={blocked || !canSendDraft(state)}
+					onClick={() => void controller.send()}
 				>
-					{t(showSend ? 'send' : 'check')}
+					{t('send')}
 				</Button>
 			</div>
 		</div>

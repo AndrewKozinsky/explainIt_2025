@@ -74,13 +74,20 @@ end`,
 export function buildAiDialogueUserMessageReviewPrompt(
 	input: AiDialogueUserMessageAnalysisContext,
 	actions: AiDialogueActionItem[],
+	partsWithCyrillic: number[] = [],
 ): LlmMessage[] {
+	const practiceLanguage = languages[input.sourceLanguageCode].nameEng
+	const languageRetry = partsWithCyrillic.length
+		? `\nReview these zero-based indexes especially carefully: ${partsWithCyrillic.join(', ')}. A previous result left untranslated Cyrillic in these parts. For each of them, report the foreign-language wording and replace it with ${practiceLanguage} in correctedText.`
+		: ''
+
 	return [
 		{
 			role: 'system',
 			content: `Review each submitted speech or action in a role-play dialogue independently.
 ${analysisRules(input)}
-Automatic corrections are limited to clear grammatical, spelling, punctuation and lexical errors. Put these in critical and fix only those issues in correctedText. Preserve meaning, tone, politeness, register, the described action, and every meaningful sentence or detail. Make the smallest necessary changes and preserve paragraph breaks. If the intended meaning is ambiguous, keep that wording and explain the ambiguity in suggestions. Offer optional stylistic alternatives in suggestions and never apply them automatically.
+First check the language of every part, including individual words and clauses. Untranslated words, phrases, or entire parts in any other language are critical issues even if they are grammatical or the rest of the part is already correct. Translate them into ${practiceLanguage}. Quote the original foreign wording in sentenceMarkdown, give the equivalent in explanationMarkdown, and return the complete corrected part in ${practiceLanguage} in correctedText. Preserve intentional verbatim quotations from the original when their exact wording matters, and use the usual spelling or transliteration of proper names in ${practiceLanguage}. For example, in an English dialogue, "Hi! Где выход?" needs a critical issue for "Где выход?" and correctedText "Hi! Where is the exit?". The same rule applies if the whole part is "Где выход?".${languageRetry}
+Apply only the language corrections above and clear grammatical, spelling, punctuation and lexical fixes. Report each applied correction in critical. Preserve meaning, tone, politeness, register, the described action, and every meaningful sentence or detail. Make the smallest necessary changes and preserve paragraph breaks. Explain ambiguities in suggestions and preserve them in the corrected text where possible. Offer optional stylistic alternatives in suggestions and never apply them automatically.
 Return a JSON object with one property parts, an array with one entry per input action, in the same order. Each entry has exactly these properties:
 - index: the input action's index, zero-based.
 - critical: array of objects with title, sentenceMarkdown (quote the original, highlighting only the error with **bold**) and explanationMarkdown (explain why and how to fix it).

@@ -15,7 +15,6 @@ import type {
 	AiDialogueMessageOutModel,
 	AiDialogueOutModel,
 	CreateAiDialogueInput as OrvalCreateAiDialogueInput,
-	CreateAiDialogueMessageInput as OrvalCreateAiDialogueMessageInput,
 } from '@/shared/api/generated/models'
 import { extractString } from '@/shared/utils/extractors'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
@@ -36,7 +35,11 @@ import type {
 	UpdateAiDialogueInput,
 } from './AiDialogueRepository'
 import type { DialogueAudioAddress, DialogueAudioFile } from '../audio/dialogueAudioTypes'
-import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
+import type {
+	CheckUserMessageInput,
+	UserMessageCheck,
+	UserMessagePartCheck,
+} from '../messageCheck/userMessageCheckTypes'
 import type { AiDialogueIllustrationStylesModel } from '../types/aiDialogueIllustrationStyles'
 import type { AiDialoguesPageModel, GetUserDialoguesParams } from '../types/aiDialogueList'
 
@@ -117,11 +120,7 @@ export class AiDialogueApi implements AiDialogueRepository {
 	}
 
 	async createMessage(id: number, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>> {
-		return executeApiCall(
-			() =>
-				aiDialogueControllerCreateAiDialogueMessage(id, event as unknown as OrvalCreateAiDialogueMessageInput),
-			(data) => mapToAiDialogueMessage(data),
-		)
+		return executeApiCall(() => aiDialogueControllerCreateAiDialogueMessage(id, event), mapToAiDialogueMessage)
 	}
 }
 
@@ -131,32 +130,33 @@ function mapUserMessageCheck(raw: unknown): UserMessageCheck {
 
 	const result = raw as UserMessageCheck
 
-	for (const key of ['speech', 'action'] as const) {
-		const part = result[key]
-
-		if (!part || !Array.isArray(part.critical) || !Array.isArray(part.suggestions))
-			throw new Error('Invalid draft check field')
-
-		if (
-			!part.critical.every(
-				(issue) =>
-					issue &&
-					typeof issue.title === 'string' &&
-					typeof issue.sentenceMarkdown === 'string' &&
-					typeof issue.explanationMarkdown === 'string',
-			)
-		)
-			throw new Error('Invalid critical issue')
-
-		if (
-			!part.suggestions.every(
-				(issue) => issue && typeof issue.explanationMarkdown === 'string' && typeof issue.example === 'string',
-			)
-		)
-			throw new Error('Invalid suggestion')
-	}
-
+	validateTextAnalysis(result.speech)
+	validateTextAnalysis(result.action)
 	return result
+}
+
+function validateTextAnalysis(part: UserMessagePartCheck) {
+	if (!part || !Array.isArray(part.critical) || !Array.isArray(part.suggestions)) {
+		throw new Error('Invalid text analysis')
+	}
+	if (
+		!part.critical.every(
+			(issue) =>
+				issue &&
+				typeof issue.title === 'string' &&
+				typeof issue.sentenceMarkdown === 'string' &&
+				typeof issue.explanationMarkdown === 'string',
+		)
+	) {
+		throw new Error('Invalid text analysis issue')
+	}
+	if (
+		!part.suggestions.every(
+			(issue) => issue && typeof issue.explanationMarkdown === 'string' && typeof issue.example === 'string',
+		)
+	) {
+		throw new Error('Invalid text analysis suggestion')
+	}
 }
 
 function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {
@@ -173,10 +173,43 @@ function mapToAiDialogue(raw: AiDialogueOutModel): AiDialogueModel {
 }
 
 function mapToAiDialogueMessage(raw: AiDialogueMessageOutModel): DialogueServerMessage {
+	if (!Number.isInteger(raw?.id) || !Number.isInteger(raw.dialogueId) || typeof raw.createdAt !== 'string') {
+		throw new Error('Invalid message response')
+	}
+
+	const payload = raw.payload as unknown as AiDialogueEvent
+
+	if (payload?.type === 'userActions') {
+		if (
+			!Array.isArray(payload.actions) ||
+			payload.actions.length === 0 ||
+			!Array.isArray(payload.textReview) ||
+			payload.textReview.length !== payload.actions.length
+		) {
+			throw new Error('Invalid user message response')
+		}
+
+		for (const [index, action] of payload.actions.entries()) {
+			const review = payload.textReview[index]
+
+			if (
+				(action?.type !== 'speech' && action?.type !== 'action') ||
+				typeof action.content !== 'string' ||
+				typeof review?.originalText !== 'string'
+			) {
+				throw new Error('Invalid user message part')
+			}
+
+			validateTextAnalysis(review.analysis)
+		}
+	} else if (payload?.type !== 'userAvoidsNPC') {
+		throw new Error('Invalid user message type')
+	}
+
 	return {
 		id: raw.id,
 		dialogueId: raw.dialogueId,
 		createdAt: raw.createdAt,
-		payload: raw.payload as unknown as AiDialogueEvent,
+		payload,
 	}
 }

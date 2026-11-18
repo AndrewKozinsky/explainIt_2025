@@ -1,26 +1,13 @@
 'use client'
 
-import { useCallback, useContext, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
-import { NotificationContext } from '@/shared/ui/Notification/fn/context'
-import type { AiDialogueActionItem, AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { useAiDialogueStore } from '../../aiDialogueStore'
 
-/**
- * Хук отправки события пользователя в диалог (действие/реплика или уход от NPC).
- *
- * Отправляет событие через REST и на успехе кладёт подтверждённое сообщение в стор.
- * Сервер не возвращает событие пользователя по SSE — по шине приходят только
- * события NPC, поэтому сообщение пользователя нужно добавить вручную из ответа POST.
- * Ошибки показываются через уведомление.
- *
- * Возвращаемые функции резолвятся `true`, если сообщение отправлено и добавлено,
- * и `false` — если произошла ошибка (уже уведомлена).
- */
+/** Добавляет подтверждённое POST-сообщение в ленту. */
 export function useAiDialogueSendMessage(dialogueId: number) {
-	const { notify } = useContext(NotificationContext)
-	const [status, setStatus] = useState<'idle' | 'loading'>('idle')
 	const lifetime = useRef({ active: true })
 
 	useEffect(() => {
@@ -32,26 +19,17 @@ export function useAiDialogueSendMessage(dialogueId: number) {
 		}
 	}, [dialogueId])
 
-	const send = useCallback(
-		async function (event: AiDialogueClientEvent): Promise<boolean> {
+	return useCallback(
+		async (event: AiDialogueClientEvent): Promise<string | null> => {
 			const currentLifetime = lifetime.current
-			setStatus('loading')
-
 			const result = await aiDialogueService.createMessage(dialogueId, event)
 			// Ответ прежнего диалога не должен попасть в общий стор после навигации.
-			if (!currentLifetime.active) return false
+			if (!currentLifetime.active) return null
 
-			if (result.error) {
-				notify({ type: 'error', message: result.error })
-				setStatus('idle')
-				return false
-			}
-
-			if (result.errors && result.errors.length > 0) {
-				const text = result.errors.map((e) => `${e.field}: ${e.messages.join(', ')}`).join('; ')
-				notify({ type: 'error', message: text })
-				setStatus('idle')
-				return false
+			if (result.error) return result.error
+			if (result.errors?.length) return result.errors.flatMap((error) => error.messages).join(' ')
+			if (result.data.dialogueId !== dialogueId || result.data.payload.type !== event.type) {
+				throw new Error('Unexpected dialogue message response')
 			}
 
 			if (event.type === 'userActions' && !hasUserActions()) {
@@ -59,34 +37,16 @@ export function useAiDialogueSendMessage(dialogueId: number) {
 			}
 
 			useAiDialogueStore.getState().upsertMessage(result.data)
-			setStatus('idle')
-			return true
-		},
-		[dialogueId, notify],
-	)
 
-	const sendUserActions = useCallback(
-		function (actions: AiDialogueActionItem[]): Promise<boolean> {
-			return send({ type: 'userActions', actions })
+			return null
 		},
-		[send],
+		[dialogueId],
 	)
-
-	const finishDialogue = useCallback(
-		function (): Promise<boolean> {
-			return send({ type: 'userAvoidsNPC' })
-		},
-		[send],
-	)
-
-	return { status, sendUserActions, finishDialogue }
 }
 
 /** Есть ли в загруженном диалоге хотя бы одна реплика или действие пользователя. */
 function hasUserActions(): boolean {
-	const { messages } = useAiDialogueStore.getState()
-
-	for (const message of messages.values()) {
+	for (const message of useAiDialogueStore.getState().messages.values()) {
 		if (message.payload.type === 'userActions') return true
 	}
 

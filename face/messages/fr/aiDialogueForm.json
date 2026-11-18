@@ -13,13 +13,7 @@
     "dictate": "Dicter",
     "stopDictation": "Terminer",
     "recognizing": "Reconnaissance",
-    "check": "Vérifier",
     "send": "Envoyer"
-  },
-  "feedback": {
-    "stale": "Remarques sur la version précédente du texte",
-    "critical": "Erreurs critiques",
-    "suggestions": "Recommandations"
   },
   "emptyStatus": {
     "speech": "Tapez <typeIcon></typeIcon> ou dictez <micIcon></micIcon> votre réplique",
@@ -29,18 +23,9 @@
     "sending": "Envoi de la réponse…",
     "connectingMicrophone": "Connexion du microphone…",
     "listening": "J’écoute…",
-    "finishingRecognition": "Fin de la reconnaissance…",
-    "checking": "Vérification du texte…",
-    "needsCheck": "Envoyez-le pour vérification",
-    "fixErrors": "{count, plural, one {Corrigez # erreur pour envoyer la réponse} other {Corrigez # erreurs pour envoyer la réponse}}",
-    "speechHasErrors": "Le texte de la réplique contient des erreurs.",
-    "actionHasErrors": "Le texte de l’action contient des erreurs.",
-    "checkSpeech": "Vérifiez le texte de la réplique.",
-    "checkAction": "Vérifiez le texte de l’action.",
-    "ready": "La réponse peut être envoyée."
+    "finishingRecognition": "Fin de la reconnaissance…"
   },
   "errors": {
-    "checkFailed": "Impossible de vérifier le texte.",
     "dictationStartFailed": "Impossible de démarrer la dictée.",
     "sendFailed": "Impossible d’envoyer la réponse. Réessayez.",
     "dictationTextLimit": "La limite de 4000 caractères est atteinte. Le dernier fragment n’a pas été ajouté.",

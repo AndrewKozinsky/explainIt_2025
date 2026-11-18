@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
@@ -12,6 +13,7 @@ type AiDialogMessageRouterProps = {
 	event: AiDialoguePreviewEvent
 	onWordSelect: AiDialogueWordSelectHandler
 	messageId?: number
+	reviewButton?: ReactNode
 	/** Позиция события в превью текущего хода; у сохранённого сообщения не используется. */
 	previewEventIndex?: number
 	reserveSceneSpace?: boolean
@@ -28,6 +30,7 @@ function AiDialogMessageRouter({
 	event,
 	onWordSelect,
 	messageId,
+	reviewButton,
 	previewEventIndex = 0,
 	reserveSceneSpace = false,
 }: AiDialogMessageRouterProps) {
@@ -88,7 +91,7 @@ function AiDialogMessageRouter({
 	}
 
 	if (event.type === 'userActions') {
-		return <UserMessage actions={event.actions} onWordSelect={onWordSelect} />
+		return <UserMessage reviewButton={reviewButton} actions={event.actions} onWordSelect={onWordSelect} />
 	}
 
 	if (event.type === 'userAvoidsNPC') {

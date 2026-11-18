@@ -1,27 +1,9 @@
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
 import type { DictationCallbacks } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
-import type { UserMessageCheck } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { AiDialogueDraftController } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/AiDialogueDraftController'
-import { canSendDraft, draftStatus, isPartReady } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/aiDialogueDraftState'
-
-function checked(critical = 0): ApiResult<UserMessageCheck> {
-	const issues = Array.from({ length: critical }, () => ({
-		title: 'Ошибка',
-		sentenceMarkdown: '**is**',
-		explanationMarkdown: 'Use **am**.',
-	}))
-
-	return {
-		error: null,
-		errors: null,
-		data: {
-			speech: { critical: issues, suggestions: [{ explanationMarkdown: 'Запятая.', example: 'Hey, girls!' }] },
-			action: { critical: issues, suggestions: [] },
-		},
-	}
-}
+import { canSendDraft, draftStatus } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/aiDialogueDraftState'
 
 function deferred<T>() {
 	let resolve!: (value: T) => void
@@ -35,138 +17,49 @@ function harness() {
 	let callbacks!: DictationCallbacks
 	const recording = { stop: mock.fn(), cancel: mock.fn() }
 	const dependencies = {
-		check: mock.fn(async (_part: string, _text: string, _signal: AbortSignal) => checked()),
 		openDictation: mock.fn((handlers: DictationCallbacks) => {
 			callbacks = handlers
 			return recording
 		}),
-		send: mock.fn(async (_actions: unknown[]) => true),
-		leave: mock.fn(async () => true),
+		send: mock.fn(async (_event: AiDialogueClientEvent): Promise<string | null> => null),
 	}
 	const controller = new AiDialogueDraftController(dependencies)
 	return { controller, dependencies, recording, callbacks: () => callbacks, state: controller.getSnapshot }
 }
 
-test('tabs keep independent drafts and cursors; blank fields do not require review', async () => {
+test('tabs keep independent drafts and send both parts in one request', async () => {
 	const h = harness()
-	assert.deepEqual(draftStatus(h.state()), { empty: true })
-	h.controller.edit('speech', 'Hi', { start: 1, end: 1 })
+	assert.equal(draftStatus(h.state()), 'empty')
+	assert.equal(canSendDraft(h.state()), false)
+	h.controller.edit('speech', '  Hi  ', { start: 1, end: 1 })
 	h.controller.selectPart('action')
 	h.controller.edit('action', 'I smile.')
 	h.controller.selectPart('speech')
 	assert.equal(h.state().parts.action.text, 'I smile.')
 	assert.deepEqual(h.state().parts.speech.selection, { start: 1, end: 1 })
-	assert.equal(canSendDraft(h.state()), false)
-	await h.controller.checkActivePart()
-	assert.equal(isPartReady(h.state().parts.speech), true)
-	assert.equal(canSendDraft(h.state()), false)
-	assert.deepEqual(draftStatus(h.state()), { key: 'checkAction' })
-	h.controller.edit('action', '  ')
 	assert.equal(canSendDraft(h.state()), true)
 	await h.controller.send()
-	assert.deepEqual(h.dependencies.send.mock.calls[0].arguments[0], [{ type: 'speech', content: 'Hi' }])
+	const [{ requestId, ...event }] = h.dependencies.send.mock.calls[0].arguments
+	assert.match(requestId, /^[0-9a-f-]{36}$/)
+	assert.deepEqual(event, {
+		type: 'userActions',
+		actions: [
+			{ type: 'speech', content: 'Hi' },
+			{ type: 'action', content: 'I smile.' },
+		],
+	})
 	assert.equal(h.state().parts.speech.text, '')
+	assert.equal(h.state().parts.action.text, '')
 })
 
-test('an action alone can be checked and sent', async () => {
+test('can send only an action even from the empty speech tab', async () => {
 	const h = harness()
-	h.controller.selectPart('action')
+	h.controller.edit('speech', '  ')
 	h.controller.edit('action', 'I open the door.')
-	await h.controller.checkActivePart()
-	await h.controller.send()
-	assert.deepEqual(h.dependencies.send.mock.calls[0].arguments[0], [{ type: 'action', content: 'I open the door.' }])
-})
-
-test('the check sends only the active part; suggestions allow sending but critical errors block both fields', async () => {
-	const h = harness()
-	h.controller.edit('speech', 'Hi')
-	h.controller.edit('action', 'I smile')
-	await h.controller.checkActivePart()
-	assert.deepEqual(h.dependencies.check.mock.calls[0].arguments.slice(0, 2), ['speech', 'Hi'])
-	h.dependencies.check.mock.mockImplementation(async () => checked(2))
-	h.controller.selectPart('action')
-	await h.controller.checkActivePart()
-	assert.deepEqual(draftStatus(h.state()), { key: 'fixErrors', errorCount: 2, locked: true })
-	h.controller.selectPart('speech')
-	assert.equal(isPartReady(h.state().parts.speech), true)
-	assert.deepEqual(draftStatus(h.state()), { key: 'actionHasErrors' })
-	await h.controller.send()
-	assert.equal(h.dependencies.send.mock.callCount(), 0)
-	h.dependencies.check.mock.mockImplementation(async () => checked())
-	h.controller.selectPart('action')
-	h.controller.edit('action', 'I smile.')
-	await h.controller.checkActivePart()
 	assert.equal(canSendDraft(h.state()), true)
-	assert.deepEqual(draftStatus(h.state()), { key: 'ready' })
 	await h.controller.send()
-	assert.deepEqual(h.dependencies.send.mock.calls[0].arguments[0], [
-		{ type: 'speech', content: 'Hi' },
-		{ type: 'action', content: 'I smile.' },
-	])
-})
-
-test('editing invalidates a review even if undo restores the exact checked text; old feedback stays marked stale', async () => {
-	const h = harness()
-	h.controller.edit('speech', 'Hi')
-	await h.controller.checkActivePart()
-	h.controller.edit('speech', 'Hi!')
-	h.controller.edit('speech', 'Hi')
-	assert.equal(isPartReady(h.state().parts.speech), false)
-	assert.ok(h.state().parts.speech.review)
-	assert.deepEqual(draftStatus(h.state()), { key: 'needsCheck' })
-	await h.controller.send()
-	assert.equal(h.dependencies.send.mock.callCount(), 0)
-})
-
-test('checks are independent across tabs; the busy field cannot be edited', async () => {
-	const h = harness()
-	const request = deferred<ApiResult<UserMessageCheck>>()
-	h.dependencies.check.mock.mockImplementationOnce(() => request.promise)
-	h.controller.edit('speech', 'Hello')
-	const pending = h.controller.checkActivePart()
-	assert.deepEqual(draftStatus(h.state()), { key: 'checking' })
-	h.controller.edit('speech', 'changed')
-	assert.equal(h.state().parts.speech.text, 'Hello')
-	h.controller.selectPart('action')
-	h.controller.edit('action', 'I smile.')
-	await h.controller.checkActivePart()
-	assert.equal(isPartReady(h.state().parts.action), true)
-	request.resolve(checked(1))
-	await pending
-	assert.equal(h.state().activePart, 'action')
-	assert.deepEqual(draftStatus(h.state()), { key: 'speechHasErrors' })
-})
-
-test('failed recheck never reuses a previous success and can be retried', async () => {
-	const h = harness()
-	h.controller.edit('speech', 'Hi')
-	await h.controller.checkActivePart()
-	h.dependencies.check.mock.mockImplementationOnce(async () => ({
-		error: 'Failure',
-		errors: null,
-		data: null as never,
-	}))
-	await h.controller.checkActivePart()
-	assert.equal(h.state().parts.speech.error, 'checkFailed')
-	assert.equal(canSendDraft(h.state()), false)
-	await h.controller.checkActivePart()
-	assert.equal(canSendDraft(h.state()), true)
-})
-
-test('unmount aborts a check and ignores its late response, including after Strict Mode reactivation', async () => {
-	const h = harness()
-	const request = deferred<ApiResult<UserMessageCheck>>()
-	h.dependencies.check.mock.mockImplementationOnce(() => request.promise)
-	h.controller.edit('speech', 'Hi')
-	const pending = h.controller.checkActivePart()
-	const signal = h.dependencies.check.mock.calls[0].arguments[2]
-	h.controller.dispose()
-	h.controller.activate()
-	assert.equal(signal.aborted, true)
-	request.resolve(checked())
-	await pending
-	assert.equal(h.state().parts.speech.checking, false)
-	assert.equal(isPartReady(h.state().parts.speech), false)
+	const [{ requestId, ...event }] = h.dependencies.send.mock.calls[0].arguments
+	assert.deepEqual(event, { type: 'userActions', actions: [{ type: 'action', content: 'I open the door.' }] })
 })
 
 test('dictation replaces the selected range, updates a provisional tail and never appends done twice', () => {
@@ -174,18 +67,18 @@ test('dictation replaces the selected range, updates a provisional tail and neve
 	h.controller.edit('speech', 'Before OLD after.', { start: 7, end: 10 })
 	h.controller.startDictation()
 	h.callbacks().onPhase('recording')
-	assert.deepEqual(draftStatus(h.state()), { key: 'listening' })
+	assert.equal(draftStatus(h.state()), 'listening')
 	h.callbacks().onText('Hello ', 'очер')
 	assert.equal(h.state().parts.speech.text, 'Before Hello очер after.')
 	h.callbacks().onText('Hello ', 'очередь')
 	assert.equal(h.state().parts.speech.text, 'Before Hello очередь after.')
 	h.controller.stopDictation()
-	assert.deepEqual(draftStatus(h.state()), { key: 'finishingRecognition' })
+	assert.equal(draftStatus(h.state()), 'finishingRecognition')
 	h.callbacks().onDone('Hello очередь.')
 	assert.equal(h.state().parts.speech.text, 'Before Hello очередь. after.')
 	assert.equal(h.state().dictation, null)
 	assert.deepEqual(h.state().parts.speech.selection, { start: 21, end: 21 })
-	assert.deepEqual(draftStatus(h.state()), { key: 'needsCheck' })
+	assert.equal(draftStatus(h.state()), null)
 })
 
 test('dictation inserts at a caret without moving surrounding text, and cannot switch tabs or send while active', async () => {
@@ -219,7 +112,7 @@ test('provider errors keep committed speech and discard the uncertain provisiona
 	h.callbacks().onError('recognitionConnectionLost')
 	assert.equal(h.state().parts.speech.text, 'Hello ')
 	assert.equal(h.state().parts.speech.error, 'recognitionConnectionLost')
-	assert.equal(canSendDraft(h.state()), false)
+	assert.equal(canSendDraft(h.state()), true)
 })
 
 test('cancelling connection setup cancels resources and ignores stale callbacks of an earlier dictation', () => {
@@ -247,40 +140,66 @@ test('text limits never truncate the original suffix; excessive dictation is sto
 	assert.equal(h.state().parts.speech.error, 'dictationTextLimit')
 })
 
-test('NPC generation cancels microphone activity and blocks check/send/leave', async () => {
+test('NPC generation cancels microphone activity and blocks send and leave', async () => {
 	const h = harness()
 	h.controller.startDictation()
 	h.controller.setBlocked(true)
 	assert.equal(h.recording.cancel.mock.callCount(), 1)
 	await h.controller.send()
 	await h.controller.leave()
-	await h.controller.checkActivePart()
 	assert.equal(h.dependencies.send.mock.callCount(), 0)
-	assert.equal(h.dependencies.leave.mock.callCount(), 0)
-	assert.equal(h.dependencies.check.mock.callCount(), 0)
 })
 
-test('double send is coalesced and failed sends retain both drafts and valid reviews', async () => {
+test('a failed send keeps both drafts and retries with the same ID', async () => {
 	const h = harness()
 	h.controller.edit('speech', 'Hi')
-	await h.controller.checkActivePart()
-	const request = deferred<boolean>()
+	h.controller.edit('action', 'I wave.')
+	const request = deferred<string | null>()
 	h.dependencies.send.mock.mockImplementationOnce(() => request.promise)
 	const pending = h.controller.send()
+	assert.equal(draftStatus(h.state()), 'sending')
+	h.controller.edit('speech', 'Cannot replace this during send')
+	h.controller.selectPart('action')
 	await h.controller.send()
 	assert.equal(h.dependencies.send.mock.callCount(), 1)
-	request.resolve(false)
+	assert.equal(h.state().activePart, 'speech')
+	request.resolve('The review timed out.')
 	await pending
+	assert.deepEqual(h.state().submitError, { message: 'The review timed out.' })
 	assert.equal(h.state().parts.speech.text, 'Hi')
+	assert.equal(h.state().parts.action.text, 'I wave.')
 	assert.equal(canSendDraft(h.state()), true)
+	h.controller.edit('speech', ' Hi ')
+	await h.controller.send()
+	assert.deepEqual(h.dependencies.send.mock.calls[1].arguments, h.dependencies.send.mock.calls[0].arguments)
+	assert.equal(h.state().submitError, null)
+	assert.equal(h.state().parts.speech.text, '')
+	assert.equal(h.state().parts.action.text, '')
 })
 
-test('leaving bypasses grammar validation and cancels checks/dictation', async () => {
+test('an edited draft uses a new ID after a failed submit', async () => {
 	const h = harness()
-	h.controller.edit('speech', 'unreviewed')
+	h.dependencies.send.mock.mockImplementationOnce(async () => {
+		throw new Error('Network failure')
+	})
+	h.controller.edit('speech', 'Hi')
+	await h.controller.send()
+	assert.deepEqual(h.state().submitError, {})
+	h.controller.edit('speech', 'Hello')
+	assert.equal(h.state().submitError, null)
+	await h.controller.send()
+	assert.notEqual(
+		h.dependencies.send.mock.calls[1].arguments[0].requestId,
+		h.dependencies.send.mock.calls[0].arguments[0].requestId,
+	)
+})
+
+test('leaving cancels dictation and sends a separate event', async () => {
+	const h = harness()
+	h.controller.edit('speech', 'draft')
 	h.controller.startDictation()
 	await h.controller.leave()
 	assert.equal(h.recording.cancel.mock.callCount(), 1)
-	assert.equal(h.dependencies.leave.mock.callCount(), 1)
+	assert.equal(h.dependencies.send.mock.calls[0].arguments[0].type, 'userAvoidsNPC')
 	assert.equal(h.state().parts.speech.text, '')
 })

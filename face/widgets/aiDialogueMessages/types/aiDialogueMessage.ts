@@ -86,7 +86,7 @@ export type AiDialogueEventType = AiDialogueEvent['type']
 
 // События, которые клиент может отправить серверу (в отличие от AiDialogueEvent —
 // сервер сам не генерирует userActions/userAvoidsNPC от имени пользователя).
-export type AiDialogueClientEvent = UserActionsInputEvent | UserAvoidsNpcEvent
+export type AiDialogueClientEvent = (UserActionsInputEvent | UserAvoidsNpcEvent) & { requestId: string }
 
 // Обёртка сообщения, отдаваемая клиенту (replay и SSE): событие + служебные поля.
 export type DialogueServerMessage = {

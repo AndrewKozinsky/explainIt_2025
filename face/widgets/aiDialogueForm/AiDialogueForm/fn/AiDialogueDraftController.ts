@@ -1,7 +1,7 @@
 import type { DictationCallbacks, DictationSession } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
-import type { UserMessageCheck, UserMessagePart } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
-import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
+import type { UserMessagePart } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
 import type { AiDialogueActionItem } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { SendAiDialogueMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import {
 	canSendDraft,
 	createDraftPart,
@@ -14,10 +14,8 @@ import {
 } from './aiDialogueDraftState'
 
 type Dependencies = {
-	check(part: UserMessagePart, text: string, signal: AbortSignal): Promise<ApiResult<UserMessageCheck>>
 	openDictation(callbacks: DictationCallbacks): DictationSession
-	send(actions: AiDialogueActionItem[]): Promise<boolean>
-	leave(): Promise<boolean>
+	send: SendAiDialogueMessage
 }
 
 type ActiveDictation = {
@@ -28,17 +26,19 @@ type ActiveDictation = {
 	session?: DictationSession
 }
 
-/** Независимые черновики и проверки двух вкладок; один микрофон на форму. */
+/** Независимые черновики двух вкладок; один микрофон на форму. */
 export class AiDialogueDraftController {
 	private state: DialogueDraftState = {
 		activePart: 'speech',
 		parts: { speech: createDraftPart(), action: createDraftPart() },
 		dictation: null,
 		sending: false,
+		submitError: null,
 		blocked: false,
 	}
 	private listeners = new Set<() => void>()
-	private checks = new Map<UserMessagePart, AbortController>()
+	private replyRequestId?: string
+	private leaveRequestId?: string
 	private dictation: ActiveDictation | null = null
 	private disposed = false
 
@@ -58,16 +58,13 @@ export class AiDialogueDraftController {
 
 	dispose() {
 		this.cancelDictation()
-		this.cancelChecks()
 		this.disposed = true
 	}
 
 	setBlocked(blocked: boolean) {
 		if (blocked === this.state.blocked) return
-		if (blocked) {
-			this.cancelDictation()
-			this.cancelChecks()
-		}
+
+		if (blocked) this.cancelDictation()
 		this.update({ blocked })
 	}
 
@@ -78,55 +75,24 @@ export class AiDialogueDraftController {
 
 	rememberSelection(part: UserMessagePart, selection: DraftSelection) {
 		if (this.state.dictation) return
+
 		const current = this.state.parts[part]
 		if (current.selection.start === selection.start && current.selection.end === selection.end) return
+
 		this.updatePart(part, { selection })
 	}
 
 	edit(part: UserMessagePart, text: string, selection?: DraftSelection) {
-		if (this.state.blocked || this.state.sending || this.state.dictation || this.state.parts[part].checking) return
+		if (this.state.blocked || this.state.sending || this.state.dictation) return
 		if (text.length > MAX_DRAFT_LENGTH) return
 		this.writeText(part, text, selection ?? { start: text.length, end: text.length })
-	}
-
-	async checkActivePart() {
-		const part = this.state.activePart
-		const current = this.state.parts[part]
-		if (
-			!current.text.trim() ||
-			current.checking ||
-			this.state.dictation ||
-			this.state.blocked ||
-			this.state.sending
-		)
-			return
-		const request = new AbortController()
-		this.checks.set(part, request)
-		this.updatePart(part, { checking: true, error: null, review: null })
-
-		try {
-			const response = await this.dependencies.check(part, current.text, request.signal)
-
-			if (!this.acceptsCheck(part, request, current.revision)) return
-			if (response.error || response.errors?.length || !response.data?.[part]) throw new Error('Check failed')
-
-			this.updatePart(part, {
-				review: { revision: current.revision, result: response.data[part] },
-				checking: false,
-			})
-		} catch {
-			if (this.acceptsCheck(part, request, current.revision)) {
-				this.updatePart(part, { checking: false, error: 'checkFailed' })
-			}
-		} finally {
-			if (this.checks.get(part) === request) this.checks.delete(part)
-		}
 	}
 
 	startDictation() {
 		const part = this.state.activePart
 		const current = this.state.parts[part]
-		if (current.checking || this.state.dictation || this.state.blocked || this.state.sending) return
+		if (this.state.dictation || this.state.blocked || this.state.sending) return
+
 		const context: ActiveDictation = { part, original: current.text, selection: current.selection, committed: '' }
 		this.dictation = context
 		this.updatePart(part, { error: null })
@@ -141,6 +107,7 @@ export class AiDialogueDraftController {
 				onDone: (text) => this.finishDictation(context, text),
 				onError: (error) => this.finishDictation(context, context.committed, error),
 			})
+
 			context.session = session
 			if (this.dictation !== context) session.cancel()
 		} catch {
@@ -161,29 +128,46 @@ export class AiDialogueDraftController {
 
 	async send() {
 		if (!canSendDraft(this.state) || this.disposed) return
+
 		const actions: AiDialogueActionItem[] = []
+
 		for (const type of ['speech', 'action'] as const) {
 			const content = this.state.parts[type].text.trim()
 			if (content) actions.push({ type, content })
 		}
-		await this.submit(() => this.dependencies.send(actions))
+
+		await this.submit(() => {
+			this.replyRequestId ??= crypto.randomUUID()
+			return this.dependencies.send({ type: 'userActions', actions, requestId: this.replyRequestId })
+		})
 	}
 
 	async leave() {
 		if (this.state.blocked || this.state.sending || this.disposed) return
 		this.cancelDictation()
-		this.cancelChecks()
-		await this.submit(() => this.dependencies.leave())
+
+		await this.submit(() => {
+			this.leaveRequestId ??= crypto.randomUUID()
+			return this.dependencies.send({ type: 'userAvoidsNPC', requestId: this.leaveRequestId })
+		})
 	}
 
-	private async submit(request: () => Promise<boolean>) {
-		this.update({ sending: true })
+	private async submit(request: () => Promise<string | null>) {
+		this.update({ sending: true, submitError: null })
 		try {
-			if ((await request()) && !this.disposed) {
-				this.update({ parts: { speech: createDraftPart(), action: createDraftPart() } })
+			const error = await request()
+			if (this.disposed) return
+
+			if (error !== null) {
+				this.update({ submitError: { message: error } })
+				return
 			}
+
+			this.replyRequestId = undefined
+			this.leaveRequestId = undefined
+			this.update({ parts: { speech: createDraftPart(), action: createDraftPart() } })
 		} catch {
-			if (!this.disposed) this.updatePart(this.state.activePart, { error: 'sendFailed' })
+			if (!this.disposed) this.update({ submitError: {} })
 		} finally {
 			if (!this.disposed) this.update({ sending: false })
 		}
@@ -224,31 +208,12 @@ export class AiDialogueDraftController {
 		this.update({ dictation: null })
 	}
 
-	private acceptsCheck(part: UserMessagePart, request: AbortController, revision: number) {
-		return (
-			!this.disposed &&
-			!request.signal.aborted &&
-			this.checks.get(part) === request &&
-			this.state.parts[part].revision === revision
-		)
-	}
-
-	private cancelChecks() {
-		for (const [part, request] of this.checks) {
-			request.abort()
-			this.updatePart(part, { checking: false })
-		}
-		this.checks.clear()
-	}
-
 	private writeText(part: UserMessagePart, text: string, selection: DraftSelection) {
-		const current = this.state.parts[part]
-		this.updatePart(part, {
-			text,
-			selection,
-			revision: current.revision + (text !== current.text ? 1 : 0),
-			error: null,
-		})
+		if (text.trim() !== this.state.parts[part].text.trim()) {
+			this.replyRequestId = undefined
+			this.update({ submitError: null })
+		}
+		this.updatePart(part, { text, selection, error: null })
 	}
 
 	private updatePart(part: UserMessagePart, value: Partial<DraftPart>) {

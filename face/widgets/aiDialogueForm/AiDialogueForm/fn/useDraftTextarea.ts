@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef } from 'react'
 import type { DraftPart } from './aiDialogueDraftState'
 
 /** Автовысота, сохранение позиции курсора и видимое выделение текущего фрагмента диктовки. */
-export function useDraftTextarea(part: DraftPart, dictating: boolean) {
+export function useDraftTextarea(part: DraftPart, dictating: boolean, editorVisible: boolean) {
 	const ref = useRef<HTMLTextAreaElement>(null)
 	const wasDictating = useRef(false)
 	useLayoutEffect(() => {
@@ -14,7 +14,9 @@ export function useDraftTextarea(part: DraftPart, dictating: boolean) {
 			input.style.height = 'auto'
 			input.style.height = `${input.scrollHeight}px`
 		}
+
 		resize()
+
 		input.setSelectionRange(part.selection.start, part.selection.end)
 		if (dictating && !wasDictating.current) input.focus({ preventScroll: true })
 
@@ -23,6 +25,6 @@ export function useDraftTextarea(part: DraftPart, dictating: boolean) {
 		observer?.observe(input)
 
 		return () => observer?.disconnect()
-	}, [part.text, part.selection.start, part.selection.end, dictating])
+	}, [part.text, part.selection.start, part.selection.end, dictating, editorVisible])
 	return ref
 }

@@ -13,13 +13,7 @@
     "dictate": "Dictate",
     "stopDictation": "Finish",
     "recognizing": "Recognizing",
-    "check": "Check",
     "send": "Send"
-  },
-  "feedback": {
-    "stale": "Comments on the previous version of the text",
-    "critical": "Critical errors",
-    "suggestions": "Suggestions"
   },
   "emptyStatus": {
     "speech": "Type <typeIcon></typeIcon> or dictate <micIcon></micIcon> what you say",
@@ -29,18 +23,9 @@
     "sending": "Sending your reply…",
     "connectingMicrophone": "Connecting the microphone…",
     "listening": "Listening…",
-    "finishingRecognition": "Finishing recognition…",
-    "checking": "Checking the text…",
-    "needsCheck": "Send it for checking",
-    "fixErrors": "{count, plural, one {Fix # error to send your reply} other {Fix # errors to send your reply}}",
-    "speechHasErrors": "The speech text has errors.",
-    "actionHasErrors": "The action text has errors.",
-    "checkSpeech": "Check the speech text.",
-    "checkAction": "Check the action text.",
-    "ready": "Your reply is ready to send."
+    "finishingRecognition": "Finishing recognition…"
   },
   "errors": {
-    "checkFailed": "Could not check the text.",
     "dictationStartFailed": "Could not start dictation.",
     "sendFailed": "Could not send your reply. Please try again.",
     "dictationTextLimit": "The 4000-character limit has been reached. The last fragment was not added.",

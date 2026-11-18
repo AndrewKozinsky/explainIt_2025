@@ -1,5 +1,6 @@
 'use client'
 
+import type { ReactNode } from 'react'
 import { useTranslations } from 'next-intl'
 import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
@@ -11,11 +12,12 @@ import DialogueUserAvatar from './DialogueUserAvatar'
 import './UserMessage.scss'
 
 type UserActionsMessageProps = {
+	reviewButton?: ReactNode
 	actions?: AiDialoguePreviewActionItem[]
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
-function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
+function UserMessage({ actions = [], onWordSelect, reviewButton }: UserActionsMessageProps) {
 	const t = useTranslations('aiDialogueMessages')
 	const content = actions.map((action, index) => (
 		<UserMessageText key={index} content={action.content ?? ''} onWordSelect={onWordSelect} />
@@ -26,6 +28,7 @@ function UserMessage({ actions = [], onWordSelect }: UserActionsMessageProps) {
 			extraClass='user-message'
 			avatar={<DialogueUserAvatar name={t('you')} />}
 			name={t('you')}
+			headerAction={reviewButton}
 			contentGroups={groupDialogueActions(actions).map(({ key, speechIndex, actionIndex }) => ({
 				key,
 				speech: speechIndex !== undefined ? content[speechIndex] : undefined,

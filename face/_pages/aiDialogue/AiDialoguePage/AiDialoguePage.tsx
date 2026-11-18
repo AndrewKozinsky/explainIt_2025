@@ -7,7 +7,6 @@ import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import DetailsBlock, { type InfoViewType } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
-import BalanceExhaustedNotice from '@/entities/user/ui/BalanceExhaustedNotice/BalanceExhaustedNotice'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
@@ -24,6 +23,7 @@ import { useAiDialogueStream } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDi
 import AiDialogueLeftWrapper from '../AiDialogueLeftWrapper/AiDialogueLeftWrapper'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { useAiDialogueAudio } from './fn/useAiDialogueAudio'
+import { useAiDialogueSendMessage } from './fn/useAiDialogueSendMessage'
 import { useAiDialogueTextLevel } from './fn/useAiDialogueTextLevel'
 import { useAiDialogueVisuals } from './fn/useAiDialogueVisuals'
 import { useAiDialogueWordSelection } from './fn/useAiDialogueWordSelection'
@@ -51,7 +51,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	const { selectedWord, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
 	const [detailsView, setDetailsView] = useState<InfoViewType>('dictionary')
 	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
-	// Без баланса форма ответа скрыта (черновик не сохраняется); после начисления она вернётся сама.
+	const send = useAiDialogueSendMessage(Number(dialogueId))
 	const isBalanceExhausted = useIsBalanceExhausted()
 
 	if (error) {
@@ -66,13 +66,18 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
 
 	function selectMessage(messageId: number) {
-		setSelectedMessageId(detailsView === 'message' && selectedMessageId === messageId ? null : messageId)
+		setSelectedMessageId(messageId)
 		setDetailsView('message')
+	}
+
+	function changeDetailsView(view: InfoViewType) {
+		setSelectedMessageId(null)
+		setDetailsView(view)
 	}
 
 	function selectWord(selection: AiDialogueWordSelection) {
 		handleWordSelect(selection)
-		setDetailsView('dictionary')
+		changeDetailsView('dictionary')
 	}
 
 	return (
@@ -98,11 +103,11 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 								recoverImage={recoverImage}
 							/>
 						</>
-						{isBalanceExhausted ? (
-							<BalanceExhaustedNotice placement='dialogue_page' />
-						) : (
-							<AiDialogueInput dialogueId={Number(dialogueId)} />
-						)}
+						<AiDialogueInput
+							dialogueId={Number(dialogueId)}
+							send={send}
+							balanceExhausted={isBalanceExhausted}
+						/>
 					</AiDialogueLeftWrapper>
 				}
 				rightBlock={
@@ -110,7 +115,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 						<DetailsBlock
 							key={selectedMessageId}
 							activeView={detailsView}
-							onViewChange={setDetailsView}
+							onViewChange={changeDetailsView}
 							tabs={[
 								{
 									type: 'dictionary',
