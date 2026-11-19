@@ -1,41 +1,33 @@
 import { memo, type ReactNode } from 'react'
-import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
+import type { AiDialogueEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
 import HelpMessage from '../messages/HelpMessage/HelpMessage'
 import NpcMessage from '../messages/NpcMessage/NpcMessage'
-import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import SceneUpdateMessage from '../messages/SceneUpdateMessage/SceneUpdateMessage'
 import UserAvoidsNpcMessage from '../messages/UserAvoidsNpcMessage/UserAvoidsNpcMessage'
 import WorldEventMessage from '../messages/WorldEventMessage/WorldEventMessage'
 
 type AiDialogMessageRouterProps = {
-	event: AiDialoguePreviewEvent
+	event: AiDialogueEvent
 	onWordSelect: AiDialogueWordSelectHandler
-	messageId?: number
+	messageId: number
 	reviewButton?: ReactNode
-	/** Позиция события в превью текущего хода; у сохранённого сообщения не используется. */
-	previewEventIndex?: number
 	reserveSceneSpace?: boolean
 }
 
 /**
  * Маршрутизирует событие диалога в компонент его типа.
- *
- * Принимает «ленивый» тип AiDialoguePreviewEvent: у сохранённого сообщения все
- * поля на месте, у превью (во время стрима) часть полей может отсутствовать.
- * Неизвестный/отсутствующий type рендерится как плейсхолдер «Ответ готовится».
  */
 function AiDialogMessageRouter({
 	event,
 	onWordSelect,
 	messageId,
 	reviewButton,
-	previewEventIndex = 0,
 	reserveSceneSpace = false,
 }: AiDialogMessageRouterProps) {
 	const mapping = {
-		wordMap: event.wordMap?.status === 'ready' ? event.wordMap.blocks.content : undefined,
+		wordMap: 'wordMap' in event && event.wordMap?.status === 'ready' ? event.wordMap.blocks.content : undefined,
 	}
 
 	if (event.type === 'sceneUpdate') {
@@ -43,7 +35,6 @@ function AiDialogMessageRouter({
 			<SceneUpdateMessage
 				{...mapping}
 				messageId={messageId}
-				previewEventIndex={previewEventIndex}
 				reserveSpace={reserveSceneSpace}
 				content={event.content}
 				translation={event.translation}
@@ -78,7 +69,6 @@ function AiDialogMessageRouter({
 		return (
 			<NpcMessage
 				messageId={messageId}
-				previewEventIndex={previewEventIndex}
 				wordMap={event.wordMap}
 				npcId={event.npcId}
 				npcName={event.npcName}
@@ -98,7 +88,7 @@ function AiDialogMessageRouter({
 		return <UserAvoidsNpcMessage />
 	}
 
-	return <PendingAnswerMessage />
+	return null
 }
 
 // Добавление нового сообщения не должно заново рендерить все прежние реплики.

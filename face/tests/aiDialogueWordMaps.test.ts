@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 import { afterEach, test } from 'node:test'
 import { openAiDialogueStream } from '@/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream'
-import { parseAiDialoguePreview } from '@/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '@/_pages/aiDialogue/aiDialogueStore'
 import { getFrameParts } from '@/shared/ui/ClickableText/fn/frameParts'
 import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
@@ -81,15 +80,6 @@ test('a click immediately uses the word when its map is absent, mismatched or ha
 	assert.equal(dictionaryPhraseForClick(text, clicked, map), 'Do you have')
 	assert.equal(dictionaryPhraseForClick('different text', clicked, map), 'Do')
 	assert.equal(dictionaryPhraseForClick(text, clicked, { ...map, selections: [] }), 'Do')
-})
-
-test('the footer stays invisible for every streamed prefix and does not change dialogue preview', function () {
-	const body =
-		'npcActions|officer|Officer|officer|neutral\nspeech:\nDo you have anything to declare?\nЕсть что задекларировать?\n\n'
-	const footer = 'wordMaps:\n' + JSON.stringify({ content: 'Do you have anything to declare?', selections: [] })
-	const preview = parseAiDialoguePreview(body)
-	for (let i = 0; i <= footer.length; i++)
-		assert.deepEqual(parseAiDialoguePreview(body + footer.slice(0, i)), preview)
 })
 
 test('message SSE carries the ready map and replay preserves it', function () {

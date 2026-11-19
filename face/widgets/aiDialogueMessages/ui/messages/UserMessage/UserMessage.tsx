@@ -2,7 +2,7 @@
 
 import type { ReactNode } from 'react'
 import { useTranslations } from 'next-intl'
-import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
+import type { UserActionsEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
@@ -13,7 +13,7 @@ import './UserMessage.scss'
 
 type UserActionsMessageProps = {
 	reviewButton?: ReactNode
-	actions?: AiDialoguePreviewActionItem[]
+	actions?: UserActionsEvent['actions']
 	onWordSelect: AiDialogueWordSelectHandler
 }
 

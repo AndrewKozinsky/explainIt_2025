@@ -21,7 +21,7 @@ function harness() {
 		),
 	}
 	const query = { getMessagesByDialogueId: jest.fn().mockResolvedValue([]) }
-	const generation = { triggerIfNeeded: jest.fn() }
+	const generation = { triggerIfNeeded: jest.fn(), isGenerating: jest.fn().mockReturnValue(false) }
 	const hub = new AiDialogueSseHub()
 	const handler = new OpenAiDialogueStreamHandler(
 		repository as unknown as AiDialogueRepository,
@@ -50,7 +50,9 @@ describe('OpenAiDialogueStreamHandler', () => {
 		const stream = await handler.execute(new OpenAiDialogueStreamCommand(7, 1))
 		stream.subscribe({ next, error })
 		hub.publishDialogueEvent(1, { data: { type: 'visualsChanged', dialogueId: 1 } })
-		hub.publishDialogueEvent(1, { data: { type: 'chunk', chunk: 'private text' } })
+		hub.publishDialogueEvent(1, {
+			data: { type: 'message', message: { id: 9, payload: { type: 'help', content: 'private text' } } },
+		})
 		expect(next).not.toHaveBeenCalled()
 		authorize(dialogue)
 		await settle()
@@ -79,6 +81,19 @@ describe('OpenAiDialogueStreamHandler', () => {
 		expect(next).toHaveBeenCalledTimes(3)
 		subscription.unsubscribe()
 		expect(hub.getDialogueEventSubject(1).observed).toBe(false)
+	})
+	it('restores waiting after replay when background generation is already active', async () => {
+		const { handler, authorize, query, generation } = harness()
+		query.getMessagesByDialogueId.mockResolvedValue([{ id: 3, payload: { type: 'help' } }])
+		generation.isGenerating.mockReturnValue(true)
+		const next = jest.fn()
+		const stream = await handler.execute(new OpenAiDialogueStreamCommand(7, 1))
+		const subscription = stream.subscribe(next)
+		authorize({ user_id: 7 })
+		await settle()
+		expect(next.mock.calls.map(([event]) => event.data.type)).toEqual(['message', 'visualsChanged', 'turnStarted'])
+		expect(generation.triggerIfNeeded).not.toHaveBeenCalled()
+		subscription.unsubscribe()
 	})
 	it('does not replay or trigger after disconnect during ownership lookup', async () => {
 		const { handler, authorize, query, generation } = harness()

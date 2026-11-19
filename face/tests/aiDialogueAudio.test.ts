@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
 import { openAiDialogueStream } from '@/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream'
-import { parseAiDialoguePreview } from '@/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import { useAiDialogueStore } from '@/_pages/aiDialogue/aiDialogueStore'
 import {
 	type AudioClock,
@@ -376,7 +375,6 @@ test('SSE autoplays new saved messages only, not the replayed history', async fu
 
 		send({ type: 'message', message: npcMessage(1) })
 		send({ type: 'turnStarted' })
-		send({ type: 'chunk', chunk: 'npcActions|npc|||neutral\nspeech:\nHello.\n' })
 		send({ type: 'message', message: npcMessage(2) })
 		send({ type: 'message', message: npcMessage(3) })
 		send({ type: 'turnDone' })
@@ -392,10 +390,4 @@ test('SSE autoplays new saved messages only, not the replayed history', async fu
 		globalThis.EventSource = originalEventSource
 		useAiDialogueStore.getState().clearStore()
 	}
-})
-
-test('a spoken protocol-looking word remains speech, not a new scene header', function () {
-	const preview = parseAiDialoguePreview('npcActions|npc|||neutral\nspeech:\nsceneUpdate\nОбновление сцены\n')!
-	assert.equal(preview.length, 1)
-	assert.equal(preview[0].actions?.[0].content, 'sceneUpdate')
 })

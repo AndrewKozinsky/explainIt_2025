@@ -1,6 +1,5 @@
 import { create } from 'zustand'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 
 /**
  * Состояние страницы диалога с ИИ.
@@ -8,20 +7,17 @@ import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/
  * - `messages` — сохранённые сообщения (replay + финальные), ключ — id сообщения.
  *   Map используется для дедупликации: при переподключении SSE сервер повторяет
  *   replay, а новое сообщение может прийти параллельно;
- * - `preview` — частичные события текущего хода (из chunk-ов), ещё не сохранённые;
  * - `isGenerating` — идёт ли генерация ответа прямо сейчас;
  * - `turnError` — текст ошибки последнего неудачного хода (событие turnError).
  */
 export type AiDialogueStoreValues = {
 	messages: Map<number, DialogueServerMessage>
-	preview: AiDialoguePreviewEvent[]
 	isGenerating: boolean
 	turnError: null | string
 }
 
 export type AiDialogueStoreMethods = {
 	upsertMessage: (message: DialogueServerMessage) => void
-	setPreview: (preview: AiDialoguePreviewEvent[]) => void
 	setGenerating: (isGenerating: boolean) => void
 	setTurnError: (turnError: null | string) => void
 	clearStore: () => void
@@ -29,7 +25,6 @@ export type AiDialogueStoreMethods = {
 
 const aiDialogueStoreValues: AiDialogueStoreValues = {
 	messages: new Map(),
-	preview: [],
 	isGenerating: false,
 	turnError: null,
 }
@@ -49,8 +44,6 @@ export const useAiDialogueStore = create<AiDialogueStoreValues & AiDialogueStore
 
 			return { messages }
 		}),
-
-	setPreview: (preview) => set({ preview }),
 
 	setGenerating: (isGenerating) => set({ isGenerating }),
 

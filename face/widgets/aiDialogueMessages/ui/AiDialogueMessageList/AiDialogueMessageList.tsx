@@ -21,8 +21,7 @@ type AiDialogueMessageListProps = {
 }
 
 /**
- * Список сообщений диалога: сохранённые сообщения + частичные события текущего
- * хода (превью). Пока генерация идёт и превью пусто — показывает плейсхолдер.
+ * Сохранённые сообщения и индикатор ожидания фонового ответа.
  */
 function AiDialogueMessageList({
 	messages,
@@ -82,31 +81,15 @@ function AiDialogueMessageList({
 			<div className='ai-dialogue-message-list'>
 				{savedMessages}
 
-				<LiveDialogueMessages onWordSelect={onWordSelect} />
+				<DialoguePendingAnswer />
 			</div>
 		</DialogueVisualsProvider>
 	)
 }
 
-/** Частые обновления стрима не должны перерисовывать страницу и сохранённую историю. */
-function LiveDialogueMessages({ onWordSelect }: { onWordSelect: AiDialogueWordSelectHandler }) {
-	const preview = useAiDialogueStore((state) => state.preview)
+function DialoguePendingAnswer() {
 	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
-
-	return (
-		<>
-			{isGenerating && preview.length === 0 && <PendingAnswerMessage />}
-			{preview.map((event, index) => (
-				<AiDialogMessageRouter
-					key={`preview-${index}`}
-					event={event}
-					previewEventIndex={index}
-					reserveSceneSpace
-					onWordSelect={onWordSelect}
-				/>
-			))}
-		</>
-	)
+	return isGenerating ? <PendingAnswerMessage /> : null
 }
 
 export default AiDialogueMessageList

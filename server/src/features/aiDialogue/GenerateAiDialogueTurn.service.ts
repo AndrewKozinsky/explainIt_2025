@@ -12,7 +12,6 @@ import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/errorMessage'
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
-import { LlmTokenUsage } from 'infrastructure/llmProviderAdapter/llmTokenUsage'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
 import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGenerationRegistry.service'
 import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
@@ -48,6 +47,10 @@ export class GenerateAiDialogueTurn {
 		private userBalanceService: UserBalanceService,
 	) {}
 
+	isGenerating(dialogueId: number): boolean {
+		return this.activeGenerationRegistry.hasActiveForDialogue(dialogueId)
+	}
+
 	// Проверяет, «ждёт ли диалог хода» (нет сообщений или последнее — событие
 	// пользователя), и при необходимости запускает генерацию. Идемпотентен.
 	async triggerIfNeeded(dialogueId: number): Promise<void> {
@@ -64,11 +67,11 @@ export class GenerateAiDialogueTurn {
 	async generate(dialogueId: number): Promise<void> {
 		if (this.activeGenerationRegistry.hasActiveForDialogue(dialogueId)) return
 
-		const abortController = this.activeGenerationRegistry.register(dialogueId)
+		this.activeGenerationRegistry.register(dialogueId)
 
 		try {
-			// Ход начался: сигналим клиенту до первого chunk, чтобы он сразу показал
-			// плейсхолдер «ответ готовится» (зазор между запуском и первым токеном LLM).
+			// Ход начался: сигналим клиенту, чтобы он сразу показал
+			// существующий индикатор ожидания на всё время фоновой генерации.
 			this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'turnStarted' } })
 
 			// Настройки фиксируются этим чтением на весь ход, включая повторные попытки парсинга.
@@ -104,11 +107,10 @@ export class GenerateAiDialogueTurn {
 				recentEvents,
 			})
 
-			const turn = await this.streamAndParse({
+			const turn = await this.generateAndParse({
 				dialogueId,
 				userId: user.id,
 				prompt,
-				abortSignal: abortController.signal,
 				language: dialogue.source_language_code,
 			})
 
@@ -138,77 +140,45 @@ export class GenerateAiDialogueTurn {
 		})
 	}
 
-	// Стримит ответ LLM и разбирает его в события. При провале парсинга повторяет
+	// Получает полный ответ LLM и разбирает его в события. При провале парсинга повторяет
 	// запрос (до MAX_PARSE_ATTEMPTS попыток) с корректирующей подсказкой: быстрая
-	// модель часто нарушает построчный формат, поэтому повтор — страховка. Между
-	// попытками клиенту шлётся turnReset, чтобы он выбросил превью неудачной попытки
-	// (сырые чанки — только превью, в БД ничего не сохраняется до успешного парсинга).
-	private async streamAndParse(input: {
+	// модель часто нарушает построчный формат, поэтому повтор — страховка.
+	// В БД и SSE попадают только успешно разобранные сообщения.
+	private async generateAndParse(input: {
 		dialogueId: number
 		userId: number
 		prompt: LlmMessage[]
-		abortSignal: AbortSignal
 		language: Language
 	}): Promise<ParsedAiDialogueTurn> {
-		const { dialogueId, userId, prompt, abortSignal, language } = input
+		const { dialogueId, userId, prompt, language } = input
 
 		let lastError: unknown = null
 
 		for (let attempt = 0; attempt < MAX_PARSE_ATTEMPTS; attempt += 1) {
 			const messages = attempt === 0 ? prompt : appendRetryHint(prompt)
-			const accumulated = await this.streamAndAccumulate({ dialogueId, userId, messages, abortSignal })
+			const output = await this.llmAdapter.generate({
+				model: AI_DIALOGUE_MODEL,
+				messages,
+				responseFormat: 'text',
+			})
+
+			// Каждая попытка оплачивается, даже если её ответ не удалось разобрать.
+			await this.userBalanceService.chargeLlm({
+				userId,
+				feature: 'aiDialogue',
+				model: output.model,
+				usage: output,
+			})
 
 			try {
-				return parseAiDialogueEvents(accumulated, language)
+				return parseAiDialogueEvents(output.content, language)
 			} catch (error) {
 				lastError = error
-				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: accumulated })
-
-				if (attempt < MAX_PARSE_ATTEMPTS - 1) {
-					this.sseHub.publishDialogueEvent(dialogueId, { data: { type: 'turnReset' } })
-				}
+				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: output.content })
 			}
 		}
 
 		throw lastError
-	}
-
-	// Стримит один вызов LLM, накапливая текст и рассылая сырые чанки для превью.
-	// Каждая попытка оплачивается отдельно: поставщик берёт деньги и за ответ, который не удалось разобрать.
-	private async streamAndAccumulate(input: {
-		dialogueId: number
-		userId: number
-		messages: LlmMessage[]
-		abortSignal: AbortSignal
-	}): Promise<string> {
-		let accumulated = ''
-		let usage: null | LlmTokenUsage = null
-
-		const stream = this.llmAdapter.stream({
-			model: AI_DIALOGUE_MODEL,
-			messages: input.messages,
-			responseFormat: 'text',
-			abortSignal: input.abortSignal,
-			onUsage: (reportedUsage) => {
-				usage = reportedUsage
-			},
-		})
-
-		try {
-			for await (const chunk of stream) {
-				accumulated += chunk
-				this.sseHub.publishDialogueEvent(input.dialogueId, { data: { type: 'chunk', chunk } })
-			}
-		} finally {
-			await this.userBalanceService.chargeLlm({
-				userId: input.userId,
-				feature: 'aiDialogue',
-				model: AI_DIALOGUE_MODEL,
-				usage,
-			})
-		}
-
-		return accumulated
 	}
 
 	private shouldGenerateTurn(messages: AiDialogueMessageOutModel[]): boolean {

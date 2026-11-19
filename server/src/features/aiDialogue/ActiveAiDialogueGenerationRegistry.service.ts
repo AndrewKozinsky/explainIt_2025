@@ -1,20 +1,17 @@
 import { Injectable } from '@nestjs/common'
 
 // In-memory registry, обеспечивающий лимит «1 активная генерация на диалог».
-// Хранит AbortController, связанный с dialogueId: он позволяет оборвать стрим,
-// если клиент отсоединился или процесс был отменён.
+// Фоновая генерация продолжается независимо от подключения клиента.
 @Injectable()
 export class ActiveAiDialogueGenerationRegistry {
-	private byDialogueId = new Map<number, AbortController>()
+	private byDialogueId = new Set<number>()
 
 	hasActiveForDialogue(dialogueId: number): boolean {
 		return this.byDialogueId.has(dialogueId)
 	}
 
-	register(dialogueId: number): AbortController {
-		const abortController = new AbortController()
-		this.byDialogueId.set(dialogueId, abortController)
-		return abortController
+	register(dialogueId: number): void {
+		this.byDialogueId.add(dialogueId)
 	}
 
 	unregister(dialogueId: number) {

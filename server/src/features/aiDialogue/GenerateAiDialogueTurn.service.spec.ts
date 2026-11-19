@@ -13,21 +13,20 @@ jest.mock('repo/aiDialogueScenario/aiDialogueScenario.repository', () => ({ AiDi
 jest.mock('infrastructure/llmProviderAdapter/LlmAdapter.service', () => ({ LlmAdapterService: class {} }))
 jest.mock('./SummarizeAiDialogue.service', () => ({ SummarizeAiDialogue: class {} }))
 jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
-import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
+import { LlmGenerateInput } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
+import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
 function harness(footer = '\n\nwordMaps:\n{"content":"Hello","groups":[]}') {
 	const timeline: string[] = []
-	const llm = {
-		stream: jest.fn(async function* (input: {
-			messages: LlmMessage[]
-			onUsage?: (usage: { inputTokens: number; cachedInputTokens: number; outputTokens: number }) => void
-		}) {
-			yield 'help\nHello\nПривет'
-			yield footer
-			input.onUsage?.({ inputTokens: 1000, cachedInputTokens: 800, outputTokens: 50 })
-		}),
+	const output = {
+		content: 'help\nHello\nПривет' + footer,
+		model: AI_DIALOGUE_MODEL,
+		inputTokens: 1000,
+		cachedInputTokens: 800,
+		outputTokens: 50,
 	}
+	const llm = { generate: jest.fn(async (_input: LlmGenerateInput) => output) }
 
 	const dialogue = {
 		getDialogueById: jest.fn().mockResolvedValue({
@@ -55,7 +54,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","groups":[]}') {
 
 	const registry = {
 		hasActiveForDialogue: jest.fn().mockReturnValue(false),
-		register: jest.fn().mockReturnValue(new AbortController()),
+		register: jest.fn(),
 		unregister: jest.fn(() => timeline.push('unregister')),
 	}
 	const hub = { publishDialogueEvent: jest.fn((_id, event) => timeline.push(event.data.type)) }
@@ -80,7 +79,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","groups":[]}') {
 		balance as never,
 	)
 
-	return { service, timeline, turn, query, registry, hub, llm, dialogue, user, balance }
+	return { service, timeline, turn, query, registry, hub, llm, dialogue, user, balance, output }
 }
 
 describe('participant gender', () => {
@@ -88,21 +87,43 @@ describe('participant gender', () => {
 		const { service, llm, user } = harness()
 		await service.generate(3)
 		expect(user.getUserById).toHaveBeenCalledWith(5)
-		expect(llm.stream.mock.calls[0][0].messages[0].content).toContain('The human participant is a woman.')
+		expect(llm.generate.mock.calls[0][0].messages[0].content).toContain('The human participant is a woman.')
 	})
 })
 
 describe('text turn with inline word maps', () => {
-	it('streams the text first and saves ready maps before sending messages', async () => {
+	it('sends only saved messages with ready maps after the complete reply', async () => {
 		const { service, timeline, turn, hub, llm } = harness()
 		await service.generate(3)
-		expect(timeline).toEqual(['turnStarted', 'chunk', 'chunk', 'message', 'unregister', 'turnDone'])
+		expect(timeline).toEqual(['turnStarted', 'message', 'unregister', 'turnDone'])
 		expect(turn.saveGeneratedTurn.mock.calls[0][0].turn.events[0].wordMap.status).toBe('ready')
-		expect(llm.stream).toHaveBeenCalledTimes(1)
+		expect(llm.generate).toHaveBeenCalledTimes(1)
 		expect(
 			hub.publishDialogueEvent.mock.calls.find(([, event]) => event.data.type === 'message')?.[1].data.message
 				.payload.wordMap.status,
 		).toBe('ready')
+	})
+	it('waits for the full provider response before saving or publishing messages', async () => {
+		const { service, llm, timeline, turn, output } = harness()
+		let finish!: (value: typeof output) => void
+		let requested!: () => void
+		const started = new Promise<void>((resolve) => {
+			requested = resolve
+		})
+		const response = new Promise<typeof output>((resolve) => {
+			finish = resolve
+		})
+		llm.generate.mockImplementationOnce(() => {
+			requested()
+			return response
+		})
+		const generating = service.generate(3)
+		await started
+		expect(timeline).toEqual(['turnStarted'])
+		expect(turn.saveGeneratedTurn).not.toHaveBeenCalled()
+		finish(output)
+		await generating
+		expect(timeline).toEqual(['turnStarted', 'message', 'unregister', 'turnDone'])
 	})
 	it('does not retry the reply when word map metadata is broken', async () => {
 		const { service, timeline, turn } = harness('\n\nwordMaps:\n{broken')
@@ -122,7 +143,7 @@ describe('text turn with inline word maps', () => {
 
 describe('language settings snapshot per turn', () => {
 	it('reads the saved level for each new turn and retains it through a parse retry', async () => {
-		const { service, dialogue, llm, timeline } = harness()
+		const { service, dialogue, llm, timeline, output, balance } = harness()
 		const stored = {
 			scenario_id: 1,
 			source_language_code: 'en',
@@ -132,25 +153,26 @@ describe('language settings snapshot per turn', () => {
 			summary_up_to: 0,
 		}
 		dialogue.getDialogueById.mockImplementation(async () => ({ ...stored }))
-		llm.stream.mockImplementationOnce(async function* () {
-			// A PATCH completes while the first attempt is already streaming.
+		llm.generate.mockImplementationOnce(async () => {
+			// A PATCH completes while the first request is in progress.
 			stored.max_cefr_level = 'B1'
-			yield 'invalid response'
+			return { ...output, content: 'invalid response' }
 		})
 		const log = jest.spyOn(console, 'log').mockImplementation(() => undefined)
 		try {
 			await service.generate(3)
-			expect(timeline).toContain('turnReset')
+			expect(timeline).toEqual(['turnStarted', 'message', 'unregister', 'turnDone'])
+			expect(balance.chargeLlm).toHaveBeenCalledTimes(2)
 			expect(dialogue.getDialogueById).toHaveBeenCalledTimes(1)
-			expect(llm.stream.mock.calls[0][0].messages[0].content).toContain('level of this dialogue is CEFR A2')
-			expect(llm.stream.mock.calls[1][0].messages[0].content).toContain('level of this dialogue is CEFR A2')
+			expect(llm.generate.mock.calls[0][0].messages[0].content).toContain('level of this dialogue is CEFR A2')
+			expect(llm.generate.mock.calls[1][0].messages[0].content).toContain('level of this dialogue is CEFR A2')
 
 			await service.generate(3)
-			expect(llm.stream.mock.calls[2][0].messages[0].content).toContain('level of this dialogue is CEFR B1')
+			expect(llm.generate.mock.calls[2][0].messages[0].content).toContain('level of this dialogue is CEFR B1')
 
 			dialogue.getDialogueById.mockResolvedValue({ ...stored, max_cefr_level: null })
 			await service.generate(3)
-			expect(llm.stream.mock.calls[3][0].messages[0].content).toContain('There is no CEFR complexity limit')
+			expect(llm.generate.mock.calls[3][0].messages[0].content).toContain('There is no CEFR complexity limit')
 		} finally {
 			log.mockRestore()
 		}
@@ -158,16 +180,31 @@ describe('language settings snapshot per turn', () => {
 })
 
 describe('balance', () => {
-	it('charges the dialogue owner for the streamed reply', async () => {
-		const { service, balance } = harness()
+	it('charges the dialogue owner for the complete reply', async () => {
+		const { service, balance, output } = harness()
 		await service.generate(3)
 		expect(balance.chargeLlm).toHaveBeenCalledWith(
 			expect.objectContaining({
 				userId: 5,
 				feature: 'aiDialogue',
-				usage: { inputTokens: 1000, cachedInputTokens: 800, outputTokens: 50 },
+				model: output.model,
+				usage: output,
 			}),
 		)
+	})
+
+	it('releases the active turn and reports provider failure without charging or saving', async () => {
+		const { service, balance, llm, timeline, turn } = harness()
+		llm.generate.mockRejectedValueOnce(new Error('Provider unavailable'))
+		const log = jest.spyOn(console, 'log').mockImplementation(() => undefined)
+		try {
+			await service.generate(3)
+			expect(timeline).toEqual(['turnStarted', 'turnError', 'unregister', 'turnDone'])
+			expect(balance.chargeLlm).not.toHaveBeenCalled()
+			expect(turn.saveGeneratedTurn).not.toHaveBeenCalled()
+		} finally {
+			log.mockRestore()
+		}
 	})
 
 	it('sends turnError and does not call the model when the balance is exhausted', async () => {
@@ -177,7 +214,7 @@ describe('balance', () => {
 
 		await service.generate(3)
 
-		expect(llm.stream).not.toHaveBeenCalled()
+		expect(llm.generate).not.toHaveBeenCalled()
 		expect(timeline).toContain('turnError')
 		expect(timeline.at(-1)).toBe('turnDone')
 	})

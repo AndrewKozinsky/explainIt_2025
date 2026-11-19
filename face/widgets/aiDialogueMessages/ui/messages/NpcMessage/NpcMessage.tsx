@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl'
 import { getAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { getReplyTextKey } from '@/entities/aiDialogue/replySettings/replyTextVisibilityStore'
-import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
+import type { AiDialogueNpcActionItem } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type {
 	AiDialogueTextMappingProps,
 	AiDialogueWordSelectHandler,
@@ -19,21 +19,19 @@ import NpcRoleText from './NpcRoleText'
 import './NpcMessage.scss'
 
 type NpcMessageProps = {
-	/** ID сохранённого сообщения; у превью его нет, и кнопка озвучки не показывается. */
-	messageId?: number
-	previewEventIndex: number
+	/** ID сохранённого сообщения для озвучки и видимости текста. */
+	messageId: number
 	wordMap?: AiDialogueWordMap
 	npcId?: string
 	npcName?: string
 	npcRole?: string
 	emotion?: string
-	speechAndActions?: AiDialoguePreviewActionItem[]
+	speechAndActions?: AiDialogueNpcActionItem[]
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
 function NpcMessage({
 	messageId,
-	previewEventIndex,
 	npcId,
 	npcName = '',
 	npcRole = '',
@@ -59,7 +57,7 @@ function NpcMessage({
 			<AiDialogueContentBlock
 				key={index}
 				{...textProps}
-				replyTextKey={getReplyTextKey(messageId, previewEventIndex, index)}
+				replyTextKey={getReplyTextKey(messageId, index)}
 				audioAddress={getAudioAddress(messageId, index)}
 			/>
 		)

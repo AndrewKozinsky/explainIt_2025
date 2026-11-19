@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict'
 import { afterEach, test } from 'node:test'
 import { openAiDialogueStream } from '@/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream'
-import { parseAiDialoguePreview } from '@/_pages/aiDialogue/AiDialoguePage/fn/parseAiDialoguePreview'
 import {
 	getVisualsRefreshInterval,
 	hasPendingDialogueVisuals,
@@ -78,7 +77,7 @@ test('ready, failed and absent assets stop polling; errors still recover', funct
 	assert.equal(getVisualsRefreshInterval(undefined, now, now), 60_000)
 })
 
-test('technical SSE refreshes visuals without altering messages, preview or text generation', function () {
+test('technical SSE refreshes visuals without altering messages or text generation', function () {
 	class FakeEventSource {
 		onmessage?: (event: { data: string }) => void
 		onopen?: () => void
@@ -92,13 +91,11 @@ test('technical SSE refreshes visuals without altering messages, preview or text
 	}) as unknown as FakeEventSource
 	const store = useAiDialogueStore.getState()
 	store.setGenerating(true)
-	store.setPreview([{ type: 'help', content: 'Keep reading' }])
 	stream.onopen?.()
 	stream.onmessage?.({ data: JSON.stringify({ type: 'visualsChanged', dialogueId: 1 }) })
 	stream.onmessage?.({ data: JSON.stringify({ type: 'visualsChanged', dialogueId: 2 }) })
 	assert.equal(refreshes, 2)
 	assert.equal(useAiDialogueStore.getState().isGenerating, true)
-	assert.deepEqual(useAiDialogueStore.getState().preview, [{ type: 'help', content: 'Keep reading' }])
 	assert.equal(useAiDialogueStore.getState().messages.size, 0)
 	stream.onmessage?.({ data: JSON.stringify({ type: 'turnDone' }) })
 	assert.equal(useAiDialogueStore.getState().isGenerating, false)
@@ -129,20 +126,6 @@ test('new NPCs and scenes request snapshots, replay deduplicates, reconnect requ
 	stream.onerror?.()
 	stream.onopen?.()
 	assert.equal(refreshes, 3)
-})
-
-test('streamed visual metadata, including partial lines, never overwrites the scene text', function () {
-	const text = 'sceneUpdate\nYou enter an office.\nВы входите в кабинет.\n'
-	const metadata = 'participants:dentist_1\nvisual:The learner stands by the door.\n'
-	for (let length = 0; length <= metadata.length; length += 1) {
-		const preview = parseAiDialoguePreview(text + metadata.slice(0, length))
-		assert.equal(preview?.[0]?.content, 'You enter an office.')
-		assert.equal(preview?.[0]?.translation, 'Вы входите в кабинет.')
-	}
-	const npc = parseAiDialoguePreview(
-		'npcActions|dentist_1|Alex|Dentist|happy\nappearance:\nAn adult with dark hair\nspeech:\nHello\nЗдравствуйте\n',
-	)
-	assert.equal(npc?.[0]?.actions?.[0]?.content, 'Hello')
 })
 
 test('concurrent sprite loads share one request, failed downloads can retry', async function () {

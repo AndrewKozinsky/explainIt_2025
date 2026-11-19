@@ -1,4 +1,4 @@
-import type { AiDialoguePreviewActionItem } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
+import type { AiDialogueActionItem } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 
 type DialogueActionGroup = {
 	key: number
@@ -7,7 +7,7 @@ type DialogueActionGroup = {
 }
 
 /** Pair a speech with the immediately following action without reordering source items. */
-export function groupDialogueActions(actions: AiDialoguePreviewActionItem[]): DialogueActionGroup[] {
+export function groupDialogueActions(actions: AiDialogueActionItem[]): DialogueActionGroup[] {
 	const groups: DialogueActionGroup[] = []
 
 	for (const [index, action] of actions.entries()) {

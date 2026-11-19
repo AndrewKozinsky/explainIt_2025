@@ -80,6 +80,7 @@ export class OpenAiDialogueStreamHandler implements ICommandHandler<
 		state: DialogueStreamState,
 	): Promise<void> {
 		const { userId, dialogueId } = command
+
 		const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
 		if (!dialogue) throw new CustomError(errorMessage.aiDialogue.notFound, ErrorStatusCode.NotFound_404)
 		if (dialogue.user_id !== userId)
@@ -103,6 +104,12 @@ export class OpenAiDialogueStreamHandler implements ICommandHandler<
 		}
 
 		if (!subscriber.closed) subscriber.next({ data: { type: 'visualsChanged', dialogueId } })
-		if (!subscriber.closed) await this.generateAiDialogueTurn.triggerIfNeeded(dialogueId)
+		if (subscriber.closed) return
+
+		if (this.generateAiDialogueTurn.isGenerating(dialogueId)) {
+			subscriber.next({ data: { type: 'turnStarted' } })
+		} else {
+			await this.generateAiDialogueTurn.triggerIfNeeded(dialogueId)
+		}
 	}
 }

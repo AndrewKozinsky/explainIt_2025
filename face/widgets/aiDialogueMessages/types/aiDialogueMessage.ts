@@ -81,8 +81,7 @@ export type WorldEvent = {
 export type AiDialogueEvent =
 	SceneUpdateEvent | HelpEvent | NpcActionsEvent | UserActionsEvent | UserAvoidsNpcEvent | WorldEvent
 
-// Дискриминатор события. Переиспользуется в превью-типах (aiDialoguePreview.ts),
-// где поле type опционально.
+// Дискриминатор события.
 export type AiDialogueEventType = AiDialogueEvent['type']
 
 // События, которые клиент может отправить серверу (в отличие от AiDialogueEvent —
@@ -99,16 +98,12 @@ export type DialogueServerMessage = {
 
 // События SSE-потока (server → client). Обёртка — MessageEvent: { data: AiDialogueStreamEvent }.
 //  - message     — одно сохранённое сообщение (replay или только что сгенерированное);
-//  - chunk       — сырой текстовый фрагмент ответа LLM (для превью через построчный разбор);
-//  - turnStarted — началась генерация хода (до первого chunk): показать «ответ готовится»;
-//  - turnReset   — повторная попытка генерации началась: сбросить накопленное превью;
+//  - turnStarted — началась фоновая генерация хода: показать «ответ готовится»;
 //  - turnDone    — ход завершён (успех или ошибка), можно снова действовать;
 //  - turnError   — ход не удался (error — текст ошибки).
 export type AiDialogueStreamEvent =
 	| { type: 'visualsChanged'; dialogueId: number }
 	| { type: 'message'; message: DialogueServerMessage }
-	| { type: 'chunk'; chunk: string }
 	| { type: 'turnStarted' }
-	| { type: 'turnReset' }
 	| { type: 'turnDone' }
 	| { type: 'turnError'; error: string }
