@@ -2,17 +2,15 @@ import { useTranslations } from 'next-intl'
 import type { AiDialogueVisualsModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogMessageRouter from '@/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
+import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import { DialogueVisualsProvider } from '../visuals/DialogueVisualsContext'
 import './AiDialogueMessageList.scss'
 
 type AiDialogueMessageListProps = {
 	messages: DialogueServerMessage[]
-	preview: AiDialoguePreviewEvent[]
-	isGenerating: boolean
 	onWordSelect: AiDialogueWordSelectHandler
 	onMessageSelect: (messageId: number) => void
 	selectedMessageId: number | null
@@ -28,8 +26,6 @@ type AiDialogueMessageListProps = {
  */
 function AiDialogueMessageList({
 	messages,
-	preview,
-	isGenerating,
 	onWordSelect,
 	onMessageSelect,
 	selectedMessageId,
@@ -42,13 +38,11 @@ function AiDialogueMessageList({
 
 	const savedMessages = messages.map(({ id, payload }) => {
 		const isReviewOpen = selectedMessageId === id && reviewOpen
-		const issueCount =
-			payload.type === 'userActions'
-				? payload.textReview.reduce(
-						(count, { analysis }) => count + analysis.critical.length + analysis.suggestions.length,
-						0,
-					)
-				: 0
+		const reviews = payload.type === 'userActions' ? payload.textReview : []
+		const issueCount = reviews.reduce(
+			(count, { analysis }) => count + analysis.critical.length + analysis.suggestions.length,
+			0,
+		)
 
 		const content = (
 			<AiDialogMessageRouter
@@ -83,25 +77,35 @@ function AiDialogueMessageList({
 		)
 	})
 
-	const previewMessages = preview.map((event, index) => (
-		<AiDialogMessageRouter
-			key={`preview-${index}`}
-			event={event}
-			previewEventIndex={index}
-			reserveSceneSpace
-			onWordSelect={onWordSelect}
-		/>
-	))
-
 	return (
 		<DialogueVisualsProvider visuals={visuals} refreshVisuals={refreshVisuals} recoverImage={recoverImage}>
 			<div className='ai-dialogue-message-list'>
 				{savedMessages}
 
-				{isGenerating && preview.length === 0 && <PendingAnswerMessage />}
-				{previewMessages}
+				<LiveDialogueMessages onWordSelect={onWordSelect} />
 			</div>
 		</DialogueVisualsProvider>
+	)
+}
+
+/** Частые обновления стрима не должны перерисовывать страницу и сохранённую историю. */
+function LiveDialogueMessages({ onWordSelect }: { onWordSelect: AiDialogueWordSelectHandler }) {
+	const preview = useAiDialogueStore((state) => state.preview)
+	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
+
+	return (
+		<>
+			{isGenerating && preview.length === 0 && <PendingAnswerMessage />}
+			{preview.map((event, index) => (
+				<AiDialogMessageRouter
+					key={`preview-${index}`}
+					event={event}
+					previewEventIndex={index}
+					reserveSceneSpace
+					onWordSelect={onWordSelect}
+				/>
+			))}
+		</>
 	)
 }
 

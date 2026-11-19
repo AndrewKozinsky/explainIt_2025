@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
@@ -41,7 +41,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 
 	const { visuals, refreshVisuals, recoverImage } = useAiDialogueVisuals(Number(dialogueId), Boolean(dialogue))
 	const audio = useAiDialogueAudio(Number(dialogueId))
-	const { messages, preview, isGenerating, turnError } = useAiDialogueStream(
+	const { messages, turnError } = useAiDialogueStream(
 		Number(dialogueId),
 		Boolean(dialogue),
 		refreshVisuals,
@@ -53,6 +53,23 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
 	const send = useAiDialogueSendMessage(Number(dialogueId))
 	const isBalanceExhausted = useIsBalanceExhausted()
+	const selectMessage = useCallback((messageId: number) => {
+		setSelectedMessageId(messageId)
+		setDetailsView('message')
+	}, [])
+
+	const changeDetailsView = useCallback((view: InfoViewType) => {
+		setSelectedMessageId(null)
+		setDetailsView(view)
+	}, [])
+
+	const selectWord = useCallback(
+		(selection: AiDialogueWordSelection) => {
+			handleWordSelect(selection)
+			changeDetailsView('dictionary')
+		},
+		[handleWordSelect, changeDetailsView],
+	)
 
 	if (error) {
 		return <ErrorMessage text={error.message} />
@@ -64,21 +81,6 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 
 	const { header } = getHeaderAndSubHeader(dialogue)
 	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
-
-	function selectMessage(messageId: number) {
-		setSelectedMessageId(messageId)
-		setDetailsView('message')
-	}
-
-	function changeDetailsView(view: InfoViewType) {
-		setSelectedMessageId(null)
-		setDetailsView(view)
-	}
-
-	function selectWord(selection: AiDialogueWordSelection) {
-		handleWordSelect(selection)
-		changeDetailsView('dictionary')
-	}
 
 	return (
 		<DialogueAudioProvider player={audio.player} state={audio.state}>
@@ -92,8 +94,6 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 							<AiDialogueMessageList
 								key={dialogueId}
 								messages={messages}
-								preview={preview}
-								isGenerating={isGenerating}
 								onWordSelect={selectWord}
 								onMessageSelect={selectMessage}
 								selectedMessageId={selectedMessageId}

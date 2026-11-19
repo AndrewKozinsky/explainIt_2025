@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import { memo, type ReactNode } from 'react'
 import type { AiDialoguePreviewEvent } from '@/widgets/aiDialogueMessages/types/aiDialoguePreview'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import UserMessage from '@/widgets/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
@@ -101,4 +101,5 @@ function AiDialogMessageRouter({
 	return <PendingAnswerMessage />
 }
 
-export default AiDialogMessageRouter
+// Добавление нового сообщения не должно заново рендерить все прежние реплики.
+export default memo(AiDialogMessageRouter)

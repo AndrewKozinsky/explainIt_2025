@@ -71,16 +71,12 @@ export function useAiDialogueStream(
 	)
 
 	const messages = useAiDialogueStore((state) => state.messages)
-	const preview = useAiDialogueStore((state) => state.preview)
-	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
 	const turnError = useAiDialogueStore((state) => state.turnError)
 
 	const orderedMessages = useMemo(() => [...messages.values()].sort((a, b) => a.id - b.id), [messages])
 
 	return {
 		messages: orderedMessages,
-		preview,
-		isGenerating,
 		turnError,
 	}
 }

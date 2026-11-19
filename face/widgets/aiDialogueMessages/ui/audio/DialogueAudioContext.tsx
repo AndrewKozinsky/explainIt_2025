@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, type ReactNode, useContext } from 'react'
+import { createContext, type ReactNode, useContext, useMemo } from 'react'
 import type { DialogueAudioPlayer, DialogueAudioState } from '@/entities/aiDialogue/audio/DialogueAudioPlayer'
 
 const AudioContext = createContext<{ player: DialogueAudioPlayer; state: DialogueAudioState } | null>(null)
@@ -14,7 +14,9 @@ export function DialogueAudioProvider({
 	state: DialogueAudioState
 	children: ReactNode
 }) {
-	return <AudioContext.Provider value={{ player, state }}>{children}</AudioContext.Provider>
+	const value = useMemo(() => ({ player, state }), [player, state])
+
+	return <AudioContext.Provider value={value}>{children}</AudioContext.Provider>
 }
 
 export function useDialogueAudio() {
