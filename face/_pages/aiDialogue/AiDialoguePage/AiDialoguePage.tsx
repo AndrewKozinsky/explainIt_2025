@@ -105,6 +105,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 						</>
 						<AiDialogueInput
 							dialogueId={Number(dialogueId)}
+							sourceLanguageCode={dialogue.sourceLanguageCode}
 							send={send}
 							balanceExhausted={isBalanceExhausted}
 						/>
