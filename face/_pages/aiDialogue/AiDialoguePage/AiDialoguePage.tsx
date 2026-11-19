@@ -88,7 +88,7 @@ export default function AiDialoguePage({ dialogueId }: Props) {
 				breadCrumbsConfig={[{ name: t(pageUrls.aiDialogues.nameKey), path: pageUrls.aiDialogues.path }]}
 				header={header}
 				leftBlock={
-					<AiDialogueLeftWrapper>
+					<AiDialogueLeftWrapper lastMessageId={messages.at(-1)?.id}>
 						<>
 							{turnError && <ErrorMessage text={resolveAiDialogueTurnError(turnError, locale)} />}
 							<AiDialogueMessageList
