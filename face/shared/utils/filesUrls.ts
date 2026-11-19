@@ -7,8 +7,7 @@ const s3AssetsUrl = r2PublicUrl + 'assets/'
 
 // Опубликованный сайт берёт файлы главной страницы из папки servermaster, все остальные режимы — из localdev,
 // чтобы новую версию файла можно было проверить локально, не меняя её на сайте
-const mainPageFilesUrl =
-	r2PublicUrl + 'mainPage/' + (mainConfig.workingMode === 'servermaster' ? 'servermaster' : 'localdev') + '/'
+const mainPageFilesMode = mainConfig.workingMode === 'servermaster' ? 'servermaster' : 'localdev'
 
 export const filesUrls = {
 	icons: {
@@ -46,15 +45,12 @@ export const filesUrls = {
 	},
 	mainPage: {
 		// Иллюстрации баннера, передающие дух каждого языка
-		banner: {
-			en: '/mainPage/banner/main-banner-en.webp',
-			de: '/mainPage/banner/main-banner-de.webp',
-			fr: '/mainPage/banner/main-banner-fr.webp',
-			it: '/mainPage/banner/main-banner-it.webp',
-			es: '/mainPage/banner/main-banner-es.webp',
-			tr: '/mainPage/banner/main-banner-tr.webp',
-			ru: '/mainPage/banner/main-banner-ru.webp',
-		},
+		banner: Object.fromEntries(
+			languageKeys.map((locale) => [
+				locale,
+				r2PublicUrl + 'mainPageBanner/' + mainPageFilesMode + '/main-banner-' + locale + '.webp',
+			]),
+		) as Record<LanguageCode, string>,
 		// Персонажи сценариев
 		scenarios: {
 			taxiDriver: '/mainPage/scenarios/scenario-taxi-driver.webp',
@@ -81,12 +77,16 @@ export const filesUrls = {
 			plotCircus: '/mainPage/features/features-plot-circus.webp',
 		},
 		// Видео с примером диалога и его постер на языке интерфейса
-		demoVideo: Object.fromEntries(
-			languageKeys.map(function (locale) {
-				const fileBaseUrl = mainPageFilesUrl + 'dialogue-' + locale
-				return [locale, { videoUrl: fileBaseUrl + '.mp4', posterUrl: fileBaseUrl + '.jpg' }]
-			}),
-		) as Record<LanguageCode, { videoUrl: string; posterUrl: string }>,
+		demoVideo: (() => {
+			const mainPageVideosUrl = r2PublicUrl + 'mainPageVideo/' + mainPageFilesMode + '/'
+
+			return Object.fromEntries(
+				languageKeys.map(function (locale) {
+					const fileBaseUrl = mainPageVideosUrl + 'dialogue-' + locale
+					return [locale, { videoUrl: fileBaseUrl + '.mp4', posterUrl: fileBaseUrl + '.jpg' }]
+				}),
+			) as Record<LanguageCode, { videoUrl: string; posterUrl: string }>
+		})(),
 	},
 	onboardingModal: {
 		selectedWord: s3AssetsUrl + 'onboardingModal/selectWords.mp4',
