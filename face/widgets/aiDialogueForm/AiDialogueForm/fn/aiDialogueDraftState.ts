@@ -18,7 +18,7 @@ export type DictationPhase = 'starting' | 'recording' | 'finishing'
 export type DialogueDraftState = {
 	activePart: UserMessagePart
 	parts: Record<UserMessagePart, DraftPart>
-	dictation: { part: UserMessagePart; phase: DictationPhase } | null
+	dictation: { part: UserMessagePart; phase: DictationPhase; stream?: MediaStream } | null
 	blocked: boolean
 	sending: boolean
 	submitError: DraftSubmitError | null

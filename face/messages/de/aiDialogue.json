@@ -12,7 +12,7 @@
     "retry": "Erneut versuchen"
   },
   "textLevelSwitcher": {
-    "label": "Sprachniveau",
+    "label": "Schwierigkeit",
     "anyLevel": "Beliebig"
   },
   "replySettings": {

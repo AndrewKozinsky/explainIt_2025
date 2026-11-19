@@ -45,7 +45,13 @@ function harness() {
 			socket.readyState = 3
 		}),
 	}
-	const callbacks = { onPhase: mock.fn(), onText: mock.fn(), onDone: mock.fn(), onError: mock.fn() }
+	const callbacks = {
+		onRecordingStream: mock.fn(),
+		onPhase: mock.fn(),
+		onText: mock.fn(),
+		onDone: mock.fn(),
+		onError: mock.fn(),
+	}
 	const environment = {
 		getUserMedia: mock.fn(async () => stream as unknown as MediaStream),
 		createRecorder: mock.fn(() => recorder as unknown as MediaRecorder),
@@ -81,8 +87,10 @@ test('microphone recording waits for server ready and uses the current-site secu
 	h.socket.onopen?.()
 	assert.deepEqual(h.controls(), [{ type: 'start' }])
 	assert.equal(h.recorder.start.mock.callCount(), 0)
+	assert.equal(h.callbacks.onRecordingStream.mock.callCount(), 0)
 	h.message({ type: 'ready' })
 	assert.equal(h.recorder.start.mock.callCount(), 1)
+	assert.deepEqual(h.callbacks.onRecordingStream.mock.calls[0].arguments, [h.stream])
 	assert.deepEqual(h.callbacks.onPhase.mock.calls[0].arguments, ['recording'])
 })
 

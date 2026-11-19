@@ -12,7 +12,8 @@
     "leave": "Уйти от разговора",
     "dictate": "Диктовать",
     "stopDictation": "Завершить",
-    "recognizing": "Распознавание",
+    "connectingMicrophone": "Подключение…",
+    "recognizing": "Распознавание…",
     "send": "Отправить"
   },
   "emptyStatus": {

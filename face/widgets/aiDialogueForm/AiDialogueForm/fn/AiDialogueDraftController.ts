@@ -100,8 +100,20 @@ export class AiDialogueDraftController {
 
 		try {
 			const session = this.dependencies.openDictation({
+				onRecordingStream: (stream) => {
+					if (this.dictation === context && this.state.dictation) {
+						this.update({ dictation: { ...this.state.dictation, stream } })
+					}
+				},
 				onPhase: (phase) => {
-					if (this.dictation === context) this.update({ dictation: { part, phase } })
+					if (this.dictation === context)
+						this.update({
+							dictation: {
+								part,
+								phase,
+								stream: phase === 'recording' ? this.state.dictation?.stream : undefined,
+							},
+						})
 				},
 				onText: (committed, provisional) => this.receiveDictation(context, committed, provisional),
 				onDone: (text) => this.finishDictation(context, text),
@@ -118,7 +130,7 @@ export class AiDialogueDraftController {
 	stopDictation() {
 		if (this.state.dictation?.phase === 'starting') return this.cancelDictation()
 		if (this.state.dictation?.phase !== 'recording') return
-		this.update({ dictation: { ...this.state.dictation, phase: 'finishing' } })
+		this.update({ dictation: { ...this.state.dictation, phase: 'finishing', stream: undefined } })
 		this.dictation?.session?.stop()
 	}
 

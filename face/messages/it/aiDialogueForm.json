@@ -12,7 +12,8 @@
     "leave": "Lascia la conversazione",
     "dictate": "Detta",
     "stopDictation": "Termina",
-    "recognizing": "Riconoscimento",
+    "connectingMicrophone": "Connessione del microfono…",
+    "recognizing": "Riconoscimento…",
     "send": "Invia"
   },
   "emptyStatus": {

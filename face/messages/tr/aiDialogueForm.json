@@ -12,7 +12,8 @@
     "leave": "Sohbetten ayrıl",
     "dictate": "Dikte et",
     "stopDictation": "Bitir",
-    "recognizing": "Tanınıyor",
+    "connectingMicrophone": "Mikrofon bağlanıyor…",
+    "recognizing": "Tanınıyor…",
     "send": "Gönder"
   },
   "emptyStatus": {

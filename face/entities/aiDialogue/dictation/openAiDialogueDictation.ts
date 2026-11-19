@@ -24,6 +24,7 @@ export type DictationErrorKey =
 	| 'stopRecordingFailed'
 
 export type DictationCallbacks = {
+	onRecordingStream?(stream: MediaStream): void
 	onPhase(phase: 'recording' | 'finishing'): void
 	onText(committed: string, provisional: string): void
 	onDone(text: string): void
@@ -161,6 +162,7 @@ class BrowserDictation implements DictationSession {
 				this.recording = true
 				this.armTimeout(5 * 60_000, 'dictationTimeLimit')
 				this.recorder!.start(200)
+				this.callbacks.onRecordingStream?.(this.stream!)
 				this.callbacks.onPhase('recording')
 			} else if (event.type === 'partial' && this.recording && typeof event.text === 'string') {
 				this.callbacks.onText(this.committed, event.text)

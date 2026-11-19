@@ -12,7 +12,7 @@
 		"retry": "Повторить"
 	},
 	"textLevelSwitcher": {
-		"label": "Уровень языка 2",
+		"label": "Сложность",
 		"anyLevel": "Любой"
 	},
 	"replySettings": {

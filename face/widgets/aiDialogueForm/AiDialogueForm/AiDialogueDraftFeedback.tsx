@@ -1,29 +1,6 @@
 import { useTranslations } from 'next-intl'
-import { MicSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/MicSmallButtonIcon'
-import { TextSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/TextSmallButtonIcon'
 import { WarningSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/WarningSmallButtonIcon'
-import {
-	type DialogueDraftState,
-	type DraftErrorKey,
-	type DraftSubmitError,
-	draftStatus,
-} from './fn/aiDialogueDraftState'
-
-export function AiDialogueDraftStatus({ state }: { state: DialogueDraftState }) {
-	const t = useTranslations('aiDialogueForm')
-	const status = draftStatus(state)
-
-	return (
-		<div className='ai-dialogue-input__status' role='status' aria-live='polite'>
-			{status === 'empty'
-				? t.rich(`emptyStatus.${state.activePart}`, {
-						typeIcon: () => <TextSmallButtonIcon />,
-						micIcon: () => <MicSmallButtonIcon />,
-					})
-				: status && t(`status.${status}`)}
-		</div>
-	)
-}
+import type { DraftErrorKey, DraftSubmitError } from './fn/aiDialogueDraftState'
 
 export function AiDialogueDraftRequestError({
 	errorKey,

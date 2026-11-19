@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
 import type { DictationCallbacks } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
-import type { AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import { AiDialogueDraftController } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/AiDialogueDraftController'
 import { canSendDraft, draftStatus } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/aiDialogueDraftState'
+import type { AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 
 function deferred<T>() {
 	let resolve!: (value: T) => void
@@ -202,4 +202,29 @@ test('leaving cancels dictation and sends a separate event', async () => {
 	assert.equal(h.recording.cancel.mock.callCount(), 1)
 	assert.equal(h.dependencies.send.mock.calls[0].arguments[0].type, 'userAvoidsNPC')
 	assert.equal(h.state().parts.speech.text, '')
+})
+
+test('waveform stream belongs to the current recording and is cleared when recognition finishes', () => {
+	const h = harness()
+	const stream = {} as MediaStream
+	h.controller.startDictation()
+	assert.equal(h.state().dictation?.phase, 'starting')
+	assert.equal(h.state().dictation?.stream, undefined)
+	assert.equal(canSendDraft(h.state()), false)
+	const old = h.callbacks()
+	old.onRecordingStream?.(stream)
+	old.onPhase('recording')
+	assert.equal(h.state().dictation?.stream, stream)
+	h.controller.stopDictation()
+	assert.equal(h.state().dictation?.phase, 'finishing')
+	assert.equal(h.state().dictation?.stream, undefined)
+	assert.equal(canSendDraft(h.state()), false)
+	old.onDone('Hello')
+	assert.equal(h.state().dictation, null)
+	assert.equal(canSendDraft(h.state()), true)
+
+	h.controller.startDictation()
+	old.onRecordingStream?.(stream)
+	assert.equal(h.state().dictation?.stream, undefined)
+	h.controller.dispose()
 })

@@ -1,12 +1,11 @@
 import type { PointerEventHandler } from 'react'
 import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { LoadingSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/LoadingSmallButtonIcon'
 import { MicSmallButtonIcon } from '@/shared/ui/icons/buttonIcons/small/MicSmallButtonIcon'
 import { ExitButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/ExitButtonIcon'
 import StopRecordingButtonIcon from '@/shared/ui/icons/buttonIcons/standard/StopRecordingButtonIcon'
 import Switcher from '@/shared/ui/Switcher/Switcher'
-import { AiDialogueDraftStatus } from './AiDialogueDraftFeedback'
+import { AiDialogueDictationWaveform } from './AiDialogueDictationWaveform'
 import { canSendDraft, type DialogueDraftState } from './fn/aiDialogueDraftState'
 import type { AiDialogueDraftController } from './fn/AiDialogueDraftController'
 
@@ -47,28 +46,32 @@ export function AiDialogueDraftFooter({
 }: Props & { preserveFocus: PointerEventHandler<HTMLButtonElement> }) {
 	const t = useTranslations('aiDialogueForm.buttons')
 	const busy = blocked || state.sending
+	const starting = state.dictation?.phase === 'starting'
+	const recording = state.dictation?.phase === 'recording'
 	const finishing = state.dictation?.phase === 'finishing'
 
-	const icon = finishing ? (
-		<LoadingSmallButtonIcon />
-	) : state.dictation ? (
-		<StopRecordingButtonIcon />
-	) : (
-		<MicSmallButtonIcon />
-	)
+	const icon = recording ? <StopRecordingButtonIcon /> : !state.dictation ? <MicSmallButtonIcon /> : undefined
 
 	return (
 		<div className='ai-dialogue-input__footer'>
-			<AiDialogueDraftStatus state={state} />
-			<div className='ai-dialogue-input__actions'>
+			{recording && <AiDialogueDictationWaveform stream={state.dictation?.stream} />}
+			<div className='ai-dialogue-input__actions' aria-live='polite'>
 				<Button
-					theme={state.dictation && !finishing ? 'accent' : 'regular'}
+					theme={recording ? 'accent' : 'regular'}
 					icon={icon}
-					disabled={busy || finishing}
+					disabled={busy || starting || finishing}
 					onPointerDown={preserveFocus}
 					onClick={() => (state.dictation ? controller.stopDictation() : controller.startDictation())}
 				>
-					{t(finishing ? 'recognizing' : state.dictation ? 'stopDictation' : 'dictate')}
+					{t(
+						starting
+							? 'connectingMicrophone'
+							: finishing
+								? 'recognizing'
+								: recording
+									? 'stopDictation'
+									: 'dictate',
+					)}
 				</Button>
 				<Button
 					theme='accent'
