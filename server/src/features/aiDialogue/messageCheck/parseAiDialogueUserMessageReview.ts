@@ -11,6 +11,7 @@ const review = z.strictObject({
 				.max(12),
 			suggestions: z.array(z.strictObject({ explanationMarkdown: text, example: text })).max(12),
 			correctedText: text.nullable(),
+			translation: text,
 		}),
 	),
 })
@@ -19,7 +20,7 @@ export function parseAiDialogueUserMessageReview(
 	output: string,
 	originals: AiDialogueActionItem[],
 ): UserActionsEvent | null {
-	if (output.length > 64_000) return null
+	if (output.length > 128_000) return null
 
 	let data: unknown
 
@@ -42,7 +43,11 @@ export function parseAiDialogueUserMessageReview(
 
 	return {
 		type: 'userActions',
-		actions: originals.map((item, index) => ({ ...item, content: parts[index].correctedText ?? item.content })),
+		actions: originals.map((item, index) => ({
+			type: item.type,
+			content: parts[index].correctedText ?? item.content,
+			translation: parts[index].translation,
+		})),
 		textReview: parts.map(({ critical, suggestions }, index) => ({
 			originalText: originals[index].content,
 			analysis: { critical, suggestions },

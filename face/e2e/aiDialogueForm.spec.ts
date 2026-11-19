@@ -231,8 +231,12 @@ const historyWithReviews: DialogueServerMessage[] = [
 		payload: {
 			type: 'userActions',
 			actions: [
-				{ type: 'action', content: 'I looked at them.' },
-				{ type: 'speech', content: 'Hey, girls! There is a line.' },
+				{ type: 'action', content: 'I looked at them.', translation: 'Я посмотрел на них.' },
+				{
+					type: 'speech',
+					content: 'Hey, girls! There is a line.',
+					translation: 'Привет, девочки! Тут очередь.',
+				},
 			],
 			textReview: [
 				{ originalText: 'I looked at them.', analysis: { critical: [], suggestions: [] } },
@@ -310,7 +314,12 @@ test('opens reviews from history, marks selection and switches to the dictionary
 	await expect(review.getByText('I looked at them.')).toBeVisible()
 	await expect(review.getByRole('img', { name: 'Исправлений нет' })).toBeVisible()
 
+	await expect(review.getByText('Привет, девочки! Тут очередь.')).toBeVisible()
+	await expect(row.getByText('Привет, девочки! Тут очередь.')).toBeHidden()
 	await row.getByRole('button', { name: 'girls', exact: true }).click()
+	await expect(row.getByText('Привет, девочки! Тут очередь.')).toBeVisible()
+	await row.getByRole('button', { name: 'looked', exact: true }).click()
+	await expect(row.getByText('Я посмотрел на них.')).toBeVisible()
 	await expect(panel.getByRole('button', { name: 'Словарь' })).toBeDisabled()
 	await expect(review).toBeHidden()
 	await expect(reviewed).toHaveAttribute('aria-pressed', 'false')

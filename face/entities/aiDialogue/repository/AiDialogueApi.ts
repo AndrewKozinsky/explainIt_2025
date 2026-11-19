@@ -195,6 +195,7 @@ function mapToAiDialogueMessage(raw: AiDialogueMessageOutModel): DialogueServerM
 			if (
 				(action?.type !== 'speech' && action?.type !== 'action') ||
 				typeof action.content !== 'string' ||
+				(action.translation !== undefined && typeof action.translation !== 'string') ||
 				typeof review?.originalText !== 'string'
 			) {
 				throw new Error('Invalid user message part')

@@ -14,13 +14,13 @@
 
 .ai-dialogue-left-wrapper__input {
 	position: sticky;
-	bottom: 0;
+	bottom: 8px;
 	z-index: 1;
 	flex-shrink: 0;
 	max-height: 100dvh;
 	overflow-y: auto;
 	box-sizing: border-box;
-	padding: 1.2rem;
+	padding: 1.6rem;
 	background: white;
 	border: 1px solid vars.$grayColor-2;
 	border-radius: vars.$radius-2;

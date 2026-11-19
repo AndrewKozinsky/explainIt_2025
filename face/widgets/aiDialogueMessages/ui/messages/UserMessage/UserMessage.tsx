@@ -20,7 +20,12 @@ type UserActionsMessageProps = {
 function UserMessage({ actions = [], onWordSelect, reviewButton }: UserActionsMessageProps) {
 	const t = useTranslations('aiDialogueMessages')
 	const content = actions.map((action, index) => (
-		<UserMessageText key={index} content={action.content ?? ''} onWordSelect={onWordSelect} />
+		<UserMessageText
+			key={index}
+			content={action.content ?? ''}
+			translation={action.translation}
+			onWordSelect={onWordSelect}
+		/>
 	))
 
 	return (
@@ -40,15 +45,18 @@ function UserMessage({ actions = [], onWordSelect, reviewButton }: UserActionsMe
 
 type UserMessageTextProps = {
 	content: string
+	translation?: string
 	onWordSelect: AiDialogueWordSelectHandler
 }
 
-function UserMessageText({ content, onWordSelect }: UserMessageTextProps) {
+function UserMessageText({ content, translation, onWordSelect }: UserMessageTextProps) {
 	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({ content, onWordSelect })
 
 	return (
 		<AiDialogueTextWithTranslation
 			content={content}
+			translation={translation}
+			translationTone='muted'
 			isTranslationVisible={isTranslationVisible}
 			onWordClick={handleWordClick}
 		/>

@@ -73,7 +73,9 @@ type UserActionsInputEvent = {
 }
 
 // Сохранённые действия и реплики пользователя. actions содержит итоговые тексты.
-export type UserActionsEvent = UserActionsInputEvent & {
+export type UserActionsEvent = Omit<UserActionsInputEvent, 'actions'> & {
+	/** Перевод итогового текста. Может отсутствовать в ранее сохранённых сообщениях. */
+	actions: (AiDialogueActionItem & { translation?: string })[]
 	/** Исходный текст и разбор для каждого элемента actions в том же порядке. */
 	textReview: {
 		originalText: string

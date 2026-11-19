@@ -28,12 +28,14 @@ const correction = {
 	],
 	suggestions: [],
 	correctedText: 'She goes home.',
+	translation: 'Она идёт домой.',
 }
 const suggestion = {
 	index: 1,
 	critical: [],
 	suggestions: [{ explanationMarkdown: 'Можно описать жест подробнее.', example: 'I give a slight nod.' }],
 	correctedText: null,
+	translation: 'Я киваю.',
 }
 
 function harness() {
@@ -103,7 +105,10 @@ describe('CreateAiDialogueMessage', () => {
 		])
 		expect(result.payload).toEqual({
 			type: 'userActions',
-			actions: [{ type: 'speech', content: 'She goes home.' }, action],
+			actions: [
+				{ type: 'speech', content: 'She goes home.', translation: correction.translation },
+				{ ...action, translation: suggestion.translation },
+			],
 			textReview: [
 				{ originalText: speech.content, analysis: { critical: correction.critical, suggestions: [] } },
 				{ originalText: action.content, analysis: { critical: [], suggestions: suggestion.suggestions } },
@@ -120,7 +125,17 @@ describe('CreateAiDialogueMessage', () => {
 		const { handler, llm } = harness()
 		const text = 'Hello.\n\nHow are you?'
 		llm.generate.mockResolvedValue({
-			content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+			content: JSON.stringify({
+				parts: [
+					{
+						index: 0,
+						critical: [],
+						suggestions: [],
+						correctedText: null,
+						translation: 'Привет.\n\nКак дела?',
+					},
+				],
+			}),
 		})
 
 		await expect(
@@ -128,7 +143,7 @@ describe('CreateAiDialogueMessage', () => {
 		).resolves.toMatchObject({
 			payload: {
 				type: 'userActions',
-				actions: [{ type: 'speech', content: text }],
+				actions: [{ type: 'speech', content: text, translation: 'Привет.\n\nКак дела?' }],
 				textReview: [{ originalText: text, analysis: { critical: [], suggestions: [] } }],
 			},
 		})
@@ -138,6 +153,7 @@ describe('CreateAiDialogueMessage', () => {
 		const { handler, llm, rows, turn } = harness()
 		const originalText = 'Hello! Вы меня ни с кем не спутали?'
 		const correctedText = 'Hello! Have you mistaken me for someone else?'
+		const translation = 'Привет! Вы меня ни с кем не спутали?'
 		const critical = [
 			{
 				title: 'Фраза на русском языке',
@@ -147,10 +163,22 @@ describe('CreateAiDialogueMessage', () => {
 		]
 		llm.generate
 			.mockResolvedValueOnce({
-				content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+				content: JSON.stringify({
+					parts: [
+						{
+							index: 0,
+							critical: [],
+							suggestions: [],
+							correctedText: null,
+							translation: 'Привет! Вы меня ни с кем не спутали?',
+						},
+					],
+				}),
 			})
 			.mockResolvedValueOnce({
-				content: JSON.stringify({ parts: [{ index: 0, critical, suggestions: [], correctedText }] }),
+				content: JSON.stringify({
+					parts: [{ index: 0, critical, suggestions: [], correctedText, translation }],
+				}),
 			})
 
 		const result = await handler.execute(
@@ -159,7 +187,7 @@ describe('CreateAiDialogueMessage', () => {
 
 		expect(result.payload).toEqual({
 			type: 'userActions',
-			actions: [{ type: 'speech', content: correctedText }],
+			actions: [{ type: 'speech', content: correctedText, translation }],
 			textReview: [{ originalText, analysis: { critical, suggestions: [] } }],
 		})
 		expect(llm.generate).toHaveBeenCalledTimes(2)
@@ -173,7 +201,9 @@ describe('CreateAiDialogueMessage', () => {
 		const { handler, llm, rows, turn } = harness()
 		const content = 'Я киваю.'
 		llm.generate.mockResolvedValue({
-			content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+			content: JSON.stringify({
+				parts: [{ index: 0, critical: [], suggestions: [], correctedText: null, translation: 'Я киваю.' }],
+			}),
 		})
 
 		await expect(
@@ -188,7 +218,17 @@ describe('CreateAiDialogueMessage', () => {
 		const { handler, llm } = harness()
 		const content = 'I point at the sign that says «Выход».'
 		llm.generate.mockResolvedValue({
-			content: JSON.stringify({ parts: [{ index: 0, critical: [], suggestions: [], correctedText: null }] }),
+			content: JSON.stringify({
+				parts: [
+					{
+						index: 0,
+						critical: [],
+						suggestions: [],
+						correctedText: null,
+						translation: 'Я указываю на табличку «Выход».',
+					},
+				],
+			}),
 		})
 
 		await expect(
@@ -203,6 +243,7 @@ describe('CreateAiDialogueMessage', () => {
 		JSON.stringify({ parts: [suggestion, correction] }),
 		JSON.stringify({ parts: [{ ...correction, correctedText: null }, suggestion] }),
 		JSON.stringify({ parts: [correction, { ...suggestion, correctedText: 'I give a slight nod.' }] }),
+		JSON.stringify({ parts: [correction, { ...suggestion, translation: '' }] }),
 	])('rejects invalid analysis and allows retry without saving a partial turn (%s)', async (content) => {
 		const { handler, llm, rows, turn, registry } = harness()
 		llm.generate.mockResolvedValueOnce({ content })

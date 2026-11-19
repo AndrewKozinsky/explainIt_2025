@@ -21,7 +21,7 @@ export default function AiDialogueMessageReview({ message }: { message: UserActi
 					return (
 						<div className='ai-dialogue-message-review__group' key={type}>
 							<h2 className='ai-dialogue-message-review__heading'>{tParts(type)}</h2>
-							{group.map(({ content, review: { originalText, analysis }, index }) => (
+							{group.map(({ content, translation, review: { originalText, analysis }, index }) => (
 								<div className='ai-dialogue-message-review__part' key={index}>
 									<div>
 										<p className='ai-dialogue-message-review__label'>
@@ -53,6 +53,9 @@ export default function AiDialogueMessageReview({ message }: { message: UserActi
 												{t('messageReview.corrected')}
 											</p>
 											<p className='ai-dialogue-message-review__text'>{content}</p>
+											{translation && (
+												<p className='ai-dialogue-message-review__translation'>{translation}</p>
+											)}
 										</div>
 									)}
 								</div>

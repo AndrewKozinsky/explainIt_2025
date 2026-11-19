@@ -93,6 +93,7 @@ Return a JSON object with one property parts, an array with one entry per input 
 - critical: array of objects with title, sentenceMarkdown (quote the original, highlighting only the error with **bold**) and explanationMarkdown (explain why and how to fix it).
 - suggestions: array of objects with explanationMarkdown and example (plain text).
 - correctedText: the complete corrected part in plain text if critical is nonempty, otherwise null.
+- translation: the complete natural translation of correctedText, or of the original part when correctedText is null, into ${languages[input.targetLanguageCode].nameEng} (${input.targetLanguageCode}). Always provide it as plain text. Preserve the participant's meaning, tone and paragraph breaks.
 Use empty arrays when there are no issues of that kind. Do not invent issues. Report each issue once, up to 12 issues per part, prioritizing critical issues. Do not include the other parts in correctedText. Output JSON only.`,
 		},
 		{

@@ -56,7 +56,8 @@ type UserActionsInputEvent = {
 }
 
 // Сохранённые действия и реплики пользователя. actions содержит итоговые тексты.
-export type UserActionsEvent = UserActionsInputEvent & {
+export type UserActionsEvent = Omit<UserActionsInputEvent, 'actions'> & {
+	actions: (AiDialogueActionItem & { translation?: string })[]
 	textReview: {
 		originalText: string
 		analysis: UserMessagePartCheck

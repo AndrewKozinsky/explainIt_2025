@@ -58,6 +58,13 @@
 	white-space: pre-wrap;
 }
 
+.ai-dialogue-message-review__translation {
+	color: vars.$grayColor-5;
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+	white-space: pre-wrap;
+}
+
 .ai-dialogue-message-review__check {
 	display: inline-block;
 	margin-inline-start: .6rem;
