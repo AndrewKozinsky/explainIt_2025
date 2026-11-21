@@ -14,7 +14,7 @@ export function updateDialogueListLevel(
 		pages: data.pages.map((page) => ({
 			...page,
 			items: page.items.map((item) =>
-				item.id === dialogue.id ? { ...item, maxCefrLevel: dialogue.maxCefrLevel } : item,
+				item.id === dialogue.id ? { ...item, cefrLevel: dialogue.cefrLevel } : item,
 			),
 		})),
 	}

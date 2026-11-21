@@ -120,14 +120,23 @@ export const SentenceChatMessageStatus = {
 export type SentenceChatMessageStatus = (typeof SentenceChatMessageStatus)[keyof typeof SentenceChatMessageStatus]
 
 
-export const CefrSimplificationLevel = {
+export const AiDialogueMode = {
+  practice: 'practice',
+  exam: 'exam'
+} as const
+
+export type AiDialogueMode = (typeof AiDialogueMode)[keyof typeof AiDialogueMode]
+
+
+export const AiDialogueCefrLevel = {
   A1: 'A1',
   A2: 'A2',
   B1: 'B1',
-  B2: 'B2'
+  B2: 'B2',
+  C1: 'C1'
 } as const
 
-export type CefrSimplificationLevel = (typeof CefrSimplificationLevel)[keyof typeof CefrSimplificationLevel]
+export type AiDialogueCefrLevel = (typeof AiDialogueCefrLevel)[keyof typeof AiDialogueCefrLevel]
 
 
 export const AiDialogueMessageType = {
@@ -136,7 +145,8 @@ export const AiDialogueMessageType = {
   npcActions: 'npcActions',
   userActions: 'userActions',
   userAvoidsNPC: 'userAvoidsNPC',
-  worldEvent: 'worldEvent'
+  worldEvent: 'worldEvent',
+  examResult: 'examResult'
 } as const
 
 export type AiDialogueMessageType = (typeof AiDialogueMessageType)[keyof typeof AiDialogueMessageType]

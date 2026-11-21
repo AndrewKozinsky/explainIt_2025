@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
-import type { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import type { AiDialogueMode, AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { PaginatedOutModel } from 'models/pagination/paginated.out.model'
 import type { ImageGenerationJobStatus } from 'prisma/generated/client'
 import { AiDialogueImageOutModel } from './aiDialogueVisuals.out.model'
@@ -70,8 +70,11 @@ export class AiDialogueListItemOutModel {
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.source_language_code))
 	sourceLanguageCode: Language
 
-	@ApiProperty({ ...getApiPropertyOptions(bdConfig.AiDialogue.dbFields.max_cefr_level), required: true })
-	maxCefrLevel: AiDialogueCefrLevel | null
+	@ApiProperty({ ...getApiPropertyOptions(bdConfig.AiDialogue.dbFields.cefr_level), required: true })
+	cefrLevel: AiDialogueCefrLevel | null
+
+	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.mode))
+	mode: AiDialogueMode
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.created_at))
 	createdAt: string

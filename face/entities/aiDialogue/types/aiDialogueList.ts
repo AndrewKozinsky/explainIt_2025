@@ -1,5 +1,5 @@
 import type { LanguageCode } from '@/shared/utils/languages'
-import type { AiDialogueCefrLevel } from '../repository/AiDialogueRepository'
+import type { AiDialogueMode, AiDialogueCefrLevel } from '../repository/AiDialogueRepository'
 
 export type DialogueListImage = {
 	id: number
@@ -22,7 +22,8 @@ export type AiDialogueListItemModel = {
 	id: number
 	scenario: { id: number; title: string }
 	sourceLanguageCode: LanguageCode
-	maxCefrLevel: AiDialogueCefrLevel | null
+	cefrLevel: AiDialogueCefrLevel | null
+	mode: AiDialogueMode
 	createdAt: string
 	lastMessage: {
 		id: number

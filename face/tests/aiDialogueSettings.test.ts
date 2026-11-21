@@ -20,14 +20,15 @@ afterEach(function () {
 	else Reflect.deleteProperty(globalThis, 'window')
 })
 
-function rawDialogue(maxCefrLevel: AiDialogueModel['maxCefrLevel'] = 'A2'): AiDialogueOutModel {
+function rawDialogue(cefrLevel: AiDialogueModel['cefrLevel'] = 'A2'): AiDialogueOutModel {
 	return {
 		id: 1,
 		illustrationStyleId: 'realism',
 		scenario: { id: 3, slug: 'customs', title: 'Customs', description: 'At customs' },
 		sourceLanguageCode: 'en',
 		targetLanguageCode: 'ru',
-		maxCefrLevel,
+		cefrLevel,
+		mode: 'practice',
 		createdAt: '2026-10-19T00:00:00.000Z',
 		updatedAt: '2026-10-19T01:00:00.000Z',
 	}
@@ -67,7 +68,7 @@ test('the service sends each level and explicit null through the generated PATCH
 	const { service, queryClient } = harness()
 
 	try {
-		for (const maxCefrLevel of ['A1', 'A2', 'B1', 'B2', null] as const) {
+		for (const cefrLevel of ['A1', 'A2', 'B1', 'B2', 'C1', null] as const) {
 			const fetchMock = mock.method(
 				globalThis,
 				'fetch',
@@ -75,15 +76,15 @@ test('the service sends each level and explicit null through the generated PATCH
 					assert.equal(url, '/api/ai-dialogue/1')
 					assert.equal(options?.method, 'PATCH')
 					assert.equal(options?.credentials, 'include')
-					assert.deepEqual(JSON.parse(String(options?.body)), { maxCefrLevel })
-					return Response.json(rawDialogue(maxCefrLevel))
+					assert.deepEqual(JSON.parse(String(options?.body)), { cefrLevel })
+					return Response.json(rawDialogue(cefrLevel))
 				},
 			)
 
-			const result = await service.updateDialogue(1, { maxCefrLevel })
+			const result = await service.updateDialogue(1, { cefrLevel })
 
 			assert.equal(result.error, null)
-			assert.equal(result.data.maxCefrLevel, maxCefrLevel)
+			assert.equal(result.data.cefrLevel, cefrLevel)
 			fetchMock.mock.restore()
 		}
 	} finally {
@@ -98,7 +99,7 @@ test('detail loading preserves the server level, including the unrestricted defa
 		mock.method(globalThis, 'fetch', async () => Response.json(rawDialogue(null)))
 
 		const dialogue = await queryClient.fetchQuery(facade.getDialogue(1))
-		assert.equal(dialogue.maxCefrLevel, null)
+		assert.equal(dialogue.cefrLevel, null)
 	} finally {
 		queryClient.clear()
 	}
@@ -117,19 +118,19 @@ test('selection stays saved while PATCH is pending; success updates detail and l
 	mock.method(globalThis, 'fetch', () => response)
 
 	try {
-		const pending = observer.mutate({ maxCefrLevel: 'B1' })
+		const pending = observer.mutate({ cefrLevel: 'B1' })
 		assert.equal(observer.getCurrentResult().isPending, true)
 		assert.equal(queryClient.getQueryData(aiDialogueQueryKeys.detail(1)), current)
 		release(Response.json(rawDialogue('B1')))
 		await pending
 		assert.equal(observer.getCurrentResult().isPending, false)
-		assert.equal(queryClient.getQueryData<AiDialogueModel>(aiDialogueQueryKeys.detail(1))?.maxCefrLevel, 'B1')
+		assert.equal(queryClient.getQueryData<AiDialogueModel>(aiDialogueQueryKeys.detail(1))?.cefrLevel, 'B1')
 
 		const list = queryClient.getQueryData<InfiniteData<AiDialoguesPageModel>>(aiDialogueQueryKeys.userList(7))!
 			.pages[0].items
 
-		assert.equal(list[0].maxCefrLevel, 'B1')
-		assert.equal(list[1].maxCefrLevel, 'A2')
+		assert.equal(list[0].cefrLevel, 'B1')
+		assert.equal(list[1].cefrLevel, 'A2')
 		assert.equal(queryClient.getQueryData(aiDialogueQueryKeys.visuals(1)), visuals)
 	} finally {
 		queryClient.clear()
@@ -139,22 +140,22 @@ test('selection stays saved while PATCH is pending; success updates detail and l
 test('a failed PATCH leaves the saved selection and caches intact and permits another attempt', async function () {
 	const { observer, queryClient, current } = harness()
 	mock.method(globalThis, 'fetch', async function () {
-		return Response.json({ message: [{ field: 'maxCefrLevel', messages: ['Unsupported level'] }] }, { status: 400 })
+		return Response.json({ message: [{ field: 'cefrLevel', messages: ['Unsupported level'] }] }, { status: 400 })
 	})
 
 	try {
-		await assert.rejects(observer.mutate({ maxCefrLevel: 'B2' }), /Unsupported level/)
+		await assert.rejects(observer.mutate({ cefrLevel: 'B2' }), /Unsupported level/)
 
 		assert.equal(observer.getCurrentResult().isPending, false)
 		assert.equal(queryClient.getQueryData(aiDialogueQueryKeys.detail(1)), current)
 		assert.equal(
 			queryClient.getQueryData<InfiniteData<AiDialoguesPageModel>>(aiDialogueQueryKeys.userList(7))?.pages[0]
-				.items[0].maxCefrLevel,
+				.items[0].cefrLevel,
 			'A2',
 		)
 		mock.method(globalThis, 'fetch', async () => Response.json(rawDialogue(null)))
-		await observer.mutate({ maxCefrLevel: null })
-		assert.equal(queryClient.getQueryData<AiDialogueModel>(aiDialogueQueryKeys.detail(1))?.maxCefrLevel, null)
+		await observer.mutate({ cefrLevel: null })
+		assert.equal(queryClient.getQueryData<AiDialogueModel>(aiDialogueQueryKeys.detail(1))?.cefrLevel, null)
 	} finally {
 		queryClient.clear()
 	}

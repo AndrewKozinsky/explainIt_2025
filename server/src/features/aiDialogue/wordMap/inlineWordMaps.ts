@@ -2,13 +2,10 @@ import { z } from 'zod'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueWord, AiDialogueWordMapBlock } from 'types/aiDialogueWordMap'
 import { Language } from 'utils/languages'
-import { tokenizeAiDialogueBlocks, phraseFromWordIds } from './buildAiDialogueWordMap'
+import { phraseFromWordIds, tokenizeAiDialogueBlocks } from './buildAiDialogueWordMap'
 
 /** A word is a plain string; a repeated word is [text, zero-based occurrence]. */
-const referenceSchema = z.union([
-	z.string().min(1),
-	z.tuple([z.string().min(1), z.number().int().nonnegative()]),
-])
+const referenceSchema = z.union([z.string().min(1), z.tuple([z.string().min(1), z.number().int().nonnegative()])])
 const groupSchema = z.array(referenceSchema).min(2)
 const blockSchema = z.object({ content: z.string(), groups: z.array(z.unknown()) })
 
@@ -39,7 +36,10 @@ export function attachInlineWordMaps(events: AiDialogueEvent[], footer: string, 
 		}
 	}
 	return events.map((event) => {
-		if (event.type === 'userActions' || event.type === 'userAvoidsNPC') return event
+		if (event.type === 'userActions' || event.type === 'userAvoidsNPC' || event.type === 'examResult') {
+			return event
+		}
+
 		const blocks = tokenizeAiDialogueBlocks(event, language)
 
 		for (const block of Object.values(blocks)) {

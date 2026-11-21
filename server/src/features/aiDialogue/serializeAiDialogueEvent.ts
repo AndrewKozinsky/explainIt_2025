@@ -4,6 +4,8 @@ import { AiDialogueActionItem, AiDialogueEvent } from 'types/aiDialogueMessage'
 // (как в промпт генерации хода, так и в промпт сжатия истории).
 export function serializeAiDialogueEvent(event: AiDialogueEvent): string {
 	switch (event.type) {
+		case 'examResult':
+			return '' // Результат проверки не относится к событиям игрового мира.
 		case 'sceneUpdate':
 			return `[сцена] ${event.content}`
 		case 'help':

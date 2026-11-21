@@ -1,5 +1,5 @@
 import { languages } from 'utils/languages'
-import { AI_DIALOGUE_CEFR_LEVELS } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import { AI_DIALOGUE_MODES, AI_DIALOGUE_CEFR_LEVELS } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { BdConfig } from './dbConfigType'
 
 const languagesArr: string[] = Object.keys(languages)
@@ -1339,6 +1339,13 @@ export const bdConfig = {
 					'{"en":["Ask for a discount","Refuse and leave"],"ru":["Попросить скидку","Отказаться и уйти"]}',
 				required: false,
 			},
+			medal_s3_keys: {
+				type: 'string',
+				required: false,
+				description:
+					'JSON object mapping all five levels A1–C1 to scenario medal R2 object keys; null when medals are not configured.',
+				example: '{"A1":"ai-dialogue-scenario-medals/localdev/passport-control/A1.webp"}',
+			},
 			trained_skills: {
 				type: 'string',
 				description:
@@ -1499,13 +1506,22 @@ export const bdConfig = {
 					'Optional user-written amendment to the initial scenario prompt (who the NPCs are, country, place). Set once at dialogue creation and added after the scenario prompt on every turn.',
 				example: 'The embassy of Canada; the consul is suspicious',
 			},
-			max_cefr_level: {
+			mode: {
 				type: 'enum',
-				enumName: 'CefrSimplificationLevel',
+				enumName: 'AiDialogueMode',
+				variants: [...AI_DIALOGUE_MODES],
+				required: true,
+				default: 'practice',
+				description: 'Dialogue mode: assisted practice or independent exam attempt.',
+				example: 'practice',
+			},
+			cefr_level: {
+				type: 'enum',
+				enumName: 'AiDialogueCefrLevel',
 				variants: [...AI_DIALOGUE_CEFR_LEVELS],
 				required: false,
 				description:
-					'Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.',
+					'Selected language complexity A1–C1. In practice, the user can change it; null means unrestricted speech. In exams, it is the initial reference: the model adapts speech using the conversation without overwriting this field.',
 				example: 'A2',
 			},
 			id: {
@@ -1619,7 +1635,15 @@ export const bdConfig = {
 			type: {
 				type: 'enum',
 				enumName: 'AiDialogueMessageType',
-				variants: ['sceneUpdate', 'help', 'npcActions', 'userActions', 'userAvoidsNPC', 'worldEvent'],
+				variants: [
+					'sceneUpdate',
+					'help',
+					'npcActions',
+					'userActions',
+					'userAvoidsNPC',
+					'worldEvent',
+					'examResult',
+				],
 				description: 'Type of the event stored in this message',
 				required: true,
 			},

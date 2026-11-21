@@ -29,6 +29,9 @@ export interface AiDialogueListCharacterOutModel {
      * @nullable
      */
   generationStatus?: AiDialogueListCharacterOutModelGenerationStatus;
-  /** Готовый спрайт NPC или null */
+  /**
+     * Готовый спрайт NPC или null
+     * @nullable
+     */
   emotionSheet: AiDialogueImageOutModel | null;
 }

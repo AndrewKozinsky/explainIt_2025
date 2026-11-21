@@ -99,7 +99,7 @@ AI_DIALOGUE_ILLUSTRATION_STYLE_NOT_FOUND (400). DTO проверяет тип, �
 
 `illustration_style_id` — обязательная строка без enum/FK, default в БД — realism.
 AiDialogueOutModel возвращает illustrationStyleId в POST/GET/PATCH отдельного диалога; модель списка его не содержит.
-PATCH принимает только maxCefrLevel; illustrationStyleId отклоняется ValidationPipe как неизвестное поле.
+PATCH принимает только cefrLevel; illustrationStyleId отклоняется ValidationPipe как неизвестное поле.
 
 ## Генератор
 

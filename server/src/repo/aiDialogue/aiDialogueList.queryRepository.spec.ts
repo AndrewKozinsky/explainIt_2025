@@ -34,7 +34,7 @@ function harness() {
 	const dialogue = {
 		id: 5,
 		source_language_code: 'en',
-		max_cefr_level: null,
+		cefr_level: null,
 		created_at: createdAt,
 		scenario: { id: 2, title: 'Покупка абонемента в бассейн' },
 		AiDialogueCharacter: [
@@ -130,7 +130,7 @@ describe('AiDialogueListQueryRepository', () => {
 		expect(items[0]).toMatchObject({
 			scenario: { id: 2, title: 'Покупка абонемента в бассейн' },
 			sourceLanguageCode: 'en',
-			maxCefrLevel: null,
+			cefrLevel: null,
 			createdAt: createdAt.toISOString(),
 			lastMessage: {
 				id: 90,
@@ -146,7 +146,7 @@ describe('AiDialogueListQueryRepository', () => {
 
 	it('returns every NPC encountered within this dialogue, including unready sprites, without selecting user avatars', async () => {
 		const { repository, dialogue, tx } = harness()
-		dialogue.max_cefr_level = 'B2' as never
+		dialogue.cefr_level = 'B2' as never
 		dialogue.AiDialogueCharacter.push({
 			id: 9,
 			npc_id: 'mary',
@@ -158,7 +158,7 @@ describe('AiDialogueListQueryRepository', () => {
 
 		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
-		expect(items[0].maxCefrLevel).toBe('B2')
+		expect(items[0].cefrLevel).toBe('B2')
 		expect(items[0].characters).toHaveLength(2)
 		expect(items[0].characters[1]).toEqual({
 			npcId: 'mary',

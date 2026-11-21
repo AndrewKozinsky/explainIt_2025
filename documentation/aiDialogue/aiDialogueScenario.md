@@ -269,13 +269,13 @@ Worker для сидов и обложек не нужен.
 (пустое — `null`). Как пожелание используется в промпте — [aiDialogue.md](aiDialogue.md).
 Закрытие окна до запуска ничего не создаёт. Кнопка запуска проверяет авторизацию: гостю вместо окна запуска
 показывается существующее окно входа/регистрации. Для авторизованного пользователя создаётся диалог
-с выбранными `sourceLanguageCode`, `maxCefrLevel`, `illustrationStyleId` и языком перевода из локали интерфейса.
-В окне доступны все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`), уровни A1/A2/B1/B2 и Any (`null`).
+с выбранными `sourceLanguageCode`, `cefrLevel`, `illustrationStyleId` и языком перевода из локали интерфейса.
+В окне доступны все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`), уровни A1/A2/B1/B2/C1 и Any (`null`).
 `useStartDialogueOptions` читает язык из `localStorageManager.lastLanguage.get()` при открытии окна
 и сохраняет выбор через `lastLanguage.set()` при изменении. Ключ общий с книгами и видео.
 При отсутствии или недоступном в переключателе сохранённом языке используется en; само чтение не перезаписывает ключ.
 Сложность восстанавливается и сохраняется через `localStorageManager.lastAiDialogProficiency`
-(отдельный ключ `lastAiDialogProficiency`). Допустимы A1/A2/B1/B2/Any; отсутствие или неверное значение
+(отдельный ключ `lastAiDialogProficiency`). Допустимы A1/A2/B1/B2/C1/Any; отсутствие или неверное значение
 даёт Any. Оба выбора сохраняются между открытиями и перезагрузками страницы.
 Фильтр видео использует отдельный ключ `lastVideoProficiency`; значения не смешиваются.
 При ошибке POST текущий выбор сохраняется.
@@ -342,3 +342,15 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 - `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useStartDialogueOptions.ts` — язык, сложность и сохранение выбора.
 - `face/shared/ui/Modal/Modal.tsx`, `face/shared/ui/Modal/ModalHeaderAndContent.tsx` — базовое окно и стандартная разметка заголовка с контентом.
 - `face/tests/aiDialogueScenarioGroups.test.ts`, `face/tests/browser/aiDialogueScenarios.spec.ts` — проверки клиента.
+
+## Медали сценариев: основа данных
+
+`AiDialogueScenario.medal_s3_keys` — nullable JSON-строка с объектом `{ A1, A2, B1, B2, C1 }`.
+Значения — полные ключи файлов R2, а не URL. `null` означает, что набор не настроен.
+В исходных сидах `medals` содержит пути относительно `ai-dialogue-scenario-medals/{MODE}/`;
+синхронизация добавляет префикс окружения и сохраняет JSON. При повторном сиде обновляются и ключи медалей.
+
+Первый набор задан у `passport-control`: `ai-dialogue-scenario-medals/{MODE}/passport-control/{LEVEL}.webp`.
+Наличие ключей не подтверждает наличие файлов: изображения пока не загружены. Выдача URL и показ медалей
+будут добавлены вместе с результатом экзамена. Медаль определяется исходным сценарием и достигнутым уровнем,
+даже если пользователь сменил место по ходу диалога.

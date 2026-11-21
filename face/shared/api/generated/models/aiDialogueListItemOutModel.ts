@@ -8,7 +8,8 @@
 import type { AiDialogueImageOutModel } from './aiDialogueImageOutModel';
 import type { AiDialogueLastMessageOutModel } from './aiDialogueLastMessageOutModel';
 import type { AiDialogueListCharacterOutModel } from './aiDialogueListCharacterOutModel';
-import type { AiDialogueListItemOutModelMaxCefrLevel } from './aiDialogueListItemOutModelMaxCefrLevel';
+import type { AiDialogueListItemOutModelCefrLevel } from './aiDialogueListItemOutModelCefrLevel';
+import type { AiDialogueListItemOutModelMode } from './aiDialogueListItemOutModelMode';
 import type { AiDialogueListItemOutModelSourceLanguageCode } from './aiDialogueListItemOutModelSourceLanguageCode';
 import type { AiDialogueListScenarioOutModel } from './aiDialogueListScenarioOutModel';
 
@@ -23,14 +24,22 @@ export interface AiDialogueListItemOutModel {
   /** Language of the dialogue (the language the learner practices) */
   sourceLanguageCode: AiDialogueListItemOutModelSourceLanguageCode;
   /**
-     * Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.
+     * Selected language complexity A1–C1. In practice, the user can change it; null means unrestricted speech. In exams, it is the initial reference: the model adapts speech using the conversation without overwriting this field.
      * @nullable
      */
-  maxCefrLevel: AiDialogueListItemOutModelMaxCefrLevel;
+  cefrLevel: AiDialogueListItemOutModelCefrLevel;
+  /** Dialogue mode: assisted practice or independent exam attempt. */
+  mode: AiDialogueListItemOutModelMode;
   createdAt: string;
-  /** Последнее сообщение NPC */
+  /**
+     * Последнее сообщение NPC
+     * @nullable
+     */
   lastMessage: AiDialogueLastMessageOutModel | null;
-  /** Готовая иллюстрация последней сцены */
+  /**
+     * Готовая иллюстрация последней сцены
+     * @nullable
+     */
   sceneImage: AiDialogueImageOutModel | null;
   /** Все NPC за всю историю диалога */
   characters: AiDialogueListCharacterOutModel[];

@@ -30,7 +30,7 @@
 | `user_id`                   | `Int`                      | FK → `User.id`, `onDelete: Cascade`                             |
 | `source_language_code`      | `LanguageCode`             | Язык диалога — тот, который практикует ученик (реплики NPC)     |
 | `target_language_code`      | `LanguageCode`             | Язык перевода — родной язык ученика (поле `translation`)        |
-| `max_cefr_level`            | `CefrSimplificationLevel?` | Уровень сложности текста A1/A2/B1/B2; `null` — без ограничения  |
+| `cefr_level`            | `AiDialogueCefrLevel?` | Уровень сложности текста A1/A2/B1/B2/C1; `null` — без ограничения  |
 | `user_scenario_amendment`         | `String?`                  | Пожелания пользователя к сцене (до 400 символов); задаются при создании |
 | `summary`                   | `String?`                  | Компактная сводка истории (JSON-строка, см. «Компакция»)        |
 | `summary_up_to`             | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`)      |
@@ -49,6 +49,24 @@
 | `payload`     | `String`                     | JSON-тело события (без `type`)                       |
 | `created_at`  | `DateTime`                   | Дата создания                                        |
 
+## Режимы практики и экзамена
+
+В `AiDialogue.mode` хранится `practice | exam`, default — `practice`. Поле возвращается в деталях
+и списке диалогов. Выбор экзамена при создании, адаптация речи и сдача работы будут добавлены отдельными этапами;
+сейчас создание и обработка сообщений продолжают использовать механику практики.
+
+`cefr_level` в БД и `cefrLevel` в REST и клиентских типах задаёт сложность диалога.
+Для практики это выбранная сложность A1–C1 или `null` (без ограничения).
+В экзамене это будет начальная сложность A1–C1: модель адаптирует речь по истории через инструкции промпта,
+без записи нового уровня в БД и без отдельного поля текущей сложности. Адаптация пока не реализована.
+
+`AiDialogueMessageType` и типы событий сервера/клиента включают `examResult`:
+`assessedThroughMessageId`, `level` (A0–C1), `summary`, `strengths`, `errors`
+(`messageId`, `originalText`, `suggestedText`, `explanation`), `recommendations`.
+A0 — внутренний результат «в этой попытке A1 не подтверждён», без медали.
+Результат хранится обычным сообщением; отдельные таблицы попыток и оценок не создаются.
+Он не сериализуется в сюжетный текст и не получает карту слов. Генерация и интерфейс результата ещё не добавлены.
+
 ## REST API
 
 > Все пути ниже — относительны контроллера `@Controller('ai-dialogue')`. Фактический URL — с глобальным
@@ -60,10 +78,10 @@
 
 ```
 GET    /ai-dialogue/illustration-styles → 200 AiDialogueIllustrationStylesOutModel (публичный)
-POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel?, illustrationStyleId?, userScenarioAmendment? } → 201 AiDialogueOutModel
+POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, cefrLevel?, illustrationStyleId?, userScenarioAmendment? } → 201 AiDialogueOutModel
 GET    /ai-dialogue?page=1&pageSize=10 → 200 AiDialoguesPageOutModel
 GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
-PATCH  /ai-dialogue/:id            body: { maxCefrLevel? } → 200 AiDialogueOutModel
+PATCH  /ai-dialogue/:id            body: { cefrLevel? } → 200 AiDialogueOutModel
 DELETE /ai-dialogue/:id            → 200 boolean
 POST   /ai-dialogue/:id/messages   body: CreateAiDialogueMessageInput → 201 AiDialogueMessageOutModel
 GET    /ai-dialogue/:id/visuals    → 200 AiDialogueVisualsOutModel (только владельцу)
@@ -86,7 +104,7 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
   "id": 1,
   "sourceLanguageCode": "en",
   "targetLanguageCode": "ru",
-  "maxCefrLevel": null,
+  "cefrLevel": null,
   "illustrationStyleId": "realism",
   "scenario": {
     "id": 1,
@@ -153,28 +171,28 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 клиенте `sourceLanguageCode` выбирается в окне запуска сценария и сохраняется через
 `localStorageManager.lastLanguage`. При открытии окна восстанавливается поддерживаемый сохранённый язык,
 иначе используется английский.
-В этом же окне выбирается максимальная сложность (`maxCefrLevel`), восстанавливаемая через
+В этом же окне выбирается максимальная сложность (`cefrLevel`), восстанавливаемая через
 `localStorageManager.lastAiDialogProficiency`. Если выбор не сохранён или некорректен — без ограничения (`null`).
 
 ### Ограничение сложности текста по CEFR
 
-`maxCefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | null` — настройка конкретного диалога, а не оценка
+`cefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | null` — настройка конкретного диалога, а не оценка
 реального владения языком пользователя. Значение задаёт целевой уровень текста: не сложнее выбранного и не заметно проще,
-чтобы соседние уровни ощутимо отличались. A1 — нарочито простые фразы, сложность растёт до B2.
+чтобы соседние уровни ощутимо отличались. A1 — нарочито простые фразы, сложность растёт до C1.
 Общая шкала `PROFICIENCY_LEVELS` (A1–C2) и числовой маппинг 1–6 для видео находятся в
 `server/src/utils/proficiencyLevel.ts`. Допустимые границы сложности диалогов — `AI_DIALOGUE_CEFR_LEVELS`
-(A1–B2) и тип `AiDialogueCefrLevel` — находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`.
-Enum в БД называется `CefrSimplificationLevel`.
-C1/C2 не принимаются в этой настройке: для свободного владения используется `null`.
+(A1–C1) и тип `AiDialogueCefrLevel` — находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`.
+Enum в БД называется `AiDialogueCefrLevel`.
+C1 задаётся явно и отличается от `null`: последний означает естественную речь без ограничения сложности. C2 в настройке не поддерживается.
 
-При создании `maxCefrLevel` необязателен; отсутствие поля и явный `null` сохраняют `null`.
+При создании `cefrLevel` необязателен; отсутствие поля и явный `null` сохраняют `null`.
 Поле всегда возвращается в `AiDialogueOutModel` (создание, получение одного диалога, обновление)
 и `AiDialogueListItemOutModel` (список).
 
-Изменение: `PATCH /api/ai-dialogue/:id` с телом `{"maxCefrLevel":"A2"}`.
-`{"maxCefrLevel":null}` отключает адаптацию; `{}` ничего не меняет, включая `updatedAt`.
+Изменение: `PATCH /api/ai-dialogue/:id` с телом `{"cefrLevel":"A2"}`.
+`{"cefrLevel":null}` отключает адаптацию; `{}` ничего не меняет, включая `updatedAt`.
 Маршрут проверяет сессию, существование и владельца диалога; чужой диалог — 403, отсутствующий — 404.
-Недопустимые значения, включая C1/C2, числа и неверный регистр, отклоняются валидацией DTO с 400.
+Недопустимые значения, включая C2, числа и неверный регистр, отклоняются валидацией DTO с 400.
 Обновление БД дополнительно ограничено `id` и `user_id`.
 
 PATCH можно вызвать при активной генерации. Он не запускает новый ответ, не прерывает текущий и не создаёт
@@ -195,7 +213,7 @@ PATCH можно вызвать при активной генерации. Он
 
 `buildAiDialogueLanguageLevelRules` задаёт для каждого уровня профиль: словарь, грамматика, длина предложений
 и реплик, требования к описаниям действий и сцен. В промпт попадает «лесенка» — одна и та же реплика и одно
-действие на всех четырёх уровнях с отметкой текущего, чтобы модель видела величину шага между уровнями.
+действие на всех пяти уровнях с отметкой текущего, чтобы модель видела величину шага между уровнями.
 Примеры написаны по-английски на постороннюю тему (сосед и сломанный лифт) и сопровождаются запретом
 переносить их слова и язык в сцену.
 Текущая настройка имеет приоритет над противоречащими указаниями сценария и истории, включая summary;
@@ -302,7 +320,7 @@ UUID и тот же текст. При изменении текста или н
 ситуацию; visual показывает конечный момент этого вступления. Например, если вступление включает открытие двери,
 иллюстрация показывает уже открытую дверь и видимого посетителя. Дальнейшие действия выбирает участник.
 Подробности и пример — в [`aiDialogueImages.md`](aiDialogueImages.md).
-Промпт задаёт язык разговора и учитывает `maxCefrLevel`, но не сообщает в видимом тексте, что участник изучает язык.
+Промпт задаёт язык разговора и учитывает `cefrLevel`, но не сообщает в видимом тексте, что участник изучает язык.
 При `null` ограничения CEFR нет. NPC сохраняют роль и ситуацию, не исправляют грамматику, лексику или написание
 и не предлагают улучшенные формулировки. Если смысл понятен — продолжают сцену; иначе переспрашивают в роли.
 Общее правило имеет приоритет над прежними учебными инструкциями в сценарии или истории.
@@ -402,7 +420,7 @@ Registry генерации и шину SSE команда не использу
 
 1. Guard: если для диалога уже идёт генерация — выход (идемпотентно). Иначе регистрирует
    диалог в `ActiveAiDialogueGenerationRegistry` (лимит — **1 активная генерация на диалог**).
-2. Читает диалог (нужны `summary`, `summary_up_to`, `scenario_id`, `max_cefr_level`, `user_scenario_amendment`) и сценарий.
+2. Читает диалог (нужны `summary`, `summary_up_to`, `scenario_id`, `cefr_level`, `user_scenario_amendment`) и сценарий.
    Уровень сложности фиксируется этим чтением на весь ход, включая повторные попытки парсинга.
 3. Читает все сообщения; «свежие» события = сообщения с `id > summary_up_to`.
 4. Собирает промпт через `buildAiDialoguePrompt` (system = `system_prompt` сценария + строгий построчный контракт
@@ -548,7 +566,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 | `user_id`              | `Int`                      | FK → `User.id`, `onDelete: Cascade`                        |
 | `source_language_code` | `LanguageCode`             | Язык диалога (практикуемый язык, реплики NPC)              |
 | `target_language_code` | `LanguageCode`             | Язык перевода (родной язык, поле `translation`)            |
-| `max_cefr_level`       | `CefrSimplificationLevel?` | A1/A2/B1/B2 или `null` (без ограничения)                   |
+| `cefr_level`       | `AiDialogueCefrLevel?` | A1/A2/B1/B2/C1 или `null` (без ограничения)                   |
 | `user_scenario_amendment`    | `String?`                  | Пожелания пользователя к сцене; не меняется после создания |
 | `summary`              | `String?`                  | Сводка истории (JSON-строка, см. «Компакция»)              |
 | `summary_up_to`        | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`) |
@@ -620,8 +638,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 - `server/src/routes/aiDialogue/aiDialogue.controller.ts` — контроллер (`POST/GET/PATCH/DELETE /ai-dialogue`,
   `POST :id/messages`, `@Sse :id/stream`).
-- `server/src/routes/aiDialogue/inputs/createAiDialogue.input.ts` — DTO создания (сценарий, языки, `maxCefrLevel`).
-- `server/src/routes/aiDialogue/inputs/updateAiDialogue.input.ts` — DTO изменения `maxCefrLevel`.
+- `server/src/routes/aiDialogue/inputs/createAiDialogue.input.ts` — DTO создания (сценарий, языки, `cefrLevel`).
+- `server/src/routes/aiDialogue/inputs/updateAiDialogue.input.ts` — DTO изменения `cefrLevel`.
 - `server/src/routes/aiDialogue/inputs/createAiDialogueMessage.input.ts` — DTO действия пользователя.
 - `server/src/routes/aiDialogue/openAPI.decorators.ts` — композитные декораторы OpenAPI.
 - `server/src/routes/aiDialogue/aiDialogue.module.ts` — NestJS-модуль.
@@ -675,7 +693,7 @@ SSE-соединения. Субъекты не вычищаются (диало
 Повторяет структуру `entities/aiDialogueScenario`:
 
 - `AiDialogueRepository` — тип `AiDialogueModel` (`id`, вложенный `scenario`, `sourceLanguageCode`,
-  `targetLanguageCode`, `maxCefrLevel`, `createdAt`, `updatedAt`) и интерфейс репозитория.
+  `targetLanguageCode`, `cefrLevel`, `createdAt`, `updatedAt`) и интерфейс репозитория.
 - `AiDialogueApi` — реализация через сгенерированные Orval-функции; маппит `AiDialogueOutModel` в
   `AiDialogueModel`, вложенный сценарий — через `mapToAiDialogueScenario`.
 - `AiDialogueService` — прослойка между компонентами и репозиторием.
@@ -696,13 +714,13 @@ Any передаёт `null`. На время сохранения заблоки
 ### Создание диалога по клику на сценарий
 
 1. Карточка открывает `StartDialogueModal` с обложкой, группой, названием и описанием сценария.
-2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`)), сложность (A1/A2/B1/B2/Any)
+2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`)), сложность (A1/A2/B1/B2/C1/Any)
    и может написать пожелания к сцене.
    Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или Any);
    пожелания не сохраняются и при каждом открытии окна пустые. Закрытие окна ничего не создаёт.
 3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
-4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel, illustrationStyleId, userScenarioAmendment })`.
-   `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `maxCefrLevel: null`,
+4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, cefrLevel, illustrationStyleId, userScenarioAmendment })`.
+   `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `cefrLevel: null`,
    пустые пожелания передаются как `userScenarioAmendment: null`.
    Во время POST переключатель сложности и повторный запуск заблокированы, окно нельзя закрыть; ошибка сохраняет текущий выбор для повтора.
 5. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.

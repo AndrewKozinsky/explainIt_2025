@@ -1,4 +1,5 @@
 import { Language } from 'utils/languages'
+import type { AiDialogueScenarioMedals } from 'features/aiDialogue/aiDialogueLanguageLevel'
 
 export type AiDialogueScenarioGroupSlug =
 	| 'travel-abroad'
@@ -33,6 +34,8 @@ export type AiDialogueScenarioSeedData = {
 	title: string
 	description: string
 	systemPrompt: string
+	/** Пути пяти медалей A1–C1 относительно ai-dialogue-scenario-medals/{MODE}/; сид добавляет префикс окружения. */
+	medals?: AiDialogueScenarioMedals
 	/** Локализованный пример пожеланий к сцене для плейсхолдера окна запуска (localized). */
 	userScenarioAmendmentHint?: string
 	/**

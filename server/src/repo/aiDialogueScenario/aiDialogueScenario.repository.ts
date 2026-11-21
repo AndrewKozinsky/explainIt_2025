@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from 'db/prisma.service'
+import type { AiDialogueScenarioMedals } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { AiDialogueScenarioGroupSeedData, PublicAiDialogueScenarioSeedData } from 'features/aiDialogueScenario/common'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
@@ -11,6 +12,7 @@ type CreateScenarioData = {
 	title: string
 	description: string
 	systemPrompt: string
+	medals?: AiDialogueScenarioMedals
 } & (
 	| {
 			userId: number
@@ -48,6 +50,7 @@ export class AiDialogueScenarioRepository {
 				cover_s3_key: dto.coverS3Key ?? null,
 				conversation_ideas: dto.conversationIdeas ?? null,
 				trained_skills: dto.trainedSkills ?? null,
+				medal_s3_keys: dto.medals ? JSON.stringify(dto.medals) : null,
 			},
 		})
 	}
@@ -138,6 +141,7 @@ export class AiDialogueScenarioRepository {
 			user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
 			conversation_ideas: scenario.conversationIdeas,
 			trained_skills: scenario.trainedSkills,
+			medal_s3_keys: scenario.medals ? JSON.stringify(scenario.medals) : null,
 			position,
 			group_id: groupId,
 			cover_s3_key: scenario.coverS3Key,

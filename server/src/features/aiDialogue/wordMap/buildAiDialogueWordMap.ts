@@ -3,7 +3,7 @@ import { AiDialogueWordMapBlock } from 'types/aiDialogueWordMap'
 import { Language } from 'utils/languages'
 
 export function getAiDialogueTextBlocks(event: AiDialogueEvent): Record<string, string> {
-	if (event.type === 'userActions' || event.type === 'userAvoidsNPC') return {}
+	if (event.type === 'userActions' || event.type === 'userAvoidsNPC' || event.type === 'examResult') return {}
 	if (event.type !== 'npcActions') return { content: event.content }
 
 	return Object.fromEntries(event.actions.map((action, index) => [`action:${index}`, action.content]))

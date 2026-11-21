@@ -56,7 +56,7 @@ describe('dialogue language setting persistence', () => {
 
 	it.each([undefined, null, 'A2'] as const)(
 		'persists %s and defaults omitted creation settings to null',
-		async (maxCefrLevel) => {
+		async (cefrLevel) => {
 			const { repository, prisma } = harness()
 
 			await repository.createDialogue({
@@ -64,26 +64,26 @@ describe('dialogue language setting persistence', () => {
 				scenarioId: 2,
 				sourceLanguageCode: 'en',
 				targetLanguageCode: 'ru',
-				maxCefrLevel,
+				cefrLevel,
 			})
 
 			expect(prisma.aiDialogue.create).toHaveBeenCalledWith({
-				data: expect.objectContaining({ max_cefr_level: maxCefrLevel ?? null }),
+				data: expect.objectContaining({ cefr_level: cefrLevel ?? null }),
 			})
 		},
 	)
 
 	it('scopes updates to the owner and reports concurrent deletion', async () => {
 		const { repository, prisma } = harness()
-		await expect(repository.updateDialogue(1, 7, { max_cefr_level: null })).resolves.toBe(true)
+		await expect(repository.updateDialogue(1, 7, { cefr_level: null })).resolves.toBe(true)
 
 		expect(prisma.aiDialogue.updateMany).toHaveBeenCalledWith({
 			where: { id: 1, user_id: 7 },
-			data: { max_cefr_level: null },
+			data: { cefr_level: null },
 		})
 		prisma.aiDialogue.updateMany.mockResolvedValue({ count: 0 })
 
-		await expect(repository.updateDialogue(1, 7, { max_cefr_level: 'B1' })).resolves.toBe(false)
+		await expect(repository.updateDialogue(1, 7, { cefr_level: 'B1' })).resolves.toBe(false)
 	})
 
 	it('updates several scalar dialogue fields in one owner-scoped write', async () => {
@@ -97,17 +97,17 @@ describe('dialogue language setting persistence', () => {
 		})
 	})
 
-	it.each([null, 'B2'])('returns the saved value %s in detail responses', async (maxCefrLevel) => {
+	it.each([null, 'B2'])('returns the saved value %s in detail responses', async (cefrLevel) => {
 		const { prisma, query } = harness()
 		const row = {
 			id: 1,
-			max_cefr_level: maxCefrLevel,
+			cefr_level: cefrLevel,
 			created_at: new Date(),
 			updated_at: new Date(),
 		}
 
 		prisma.aiDialogue.findUnique.mockResolvedValue(row)
 
-		await expect(query.getDialogueById(1, 'ru')).resolves.toMatchObject({ maxCefrLevel })
+		await expect(query.getDialogueById(1, 'ru')).resolves.toMatchObject({ cefrLevel })
 	})
 })

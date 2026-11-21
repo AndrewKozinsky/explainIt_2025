@@ -122,8 +122,8 @@ Reuse an existing error message when one text already covers multiple forbidden 
 
 `server/src/utils/proficiencyLevel.ts` содержит `PROFICIENCY_LEVELS` (A1–C2), тип `ProficiencyLevel`
 и существующий маппинг чисел 1–6 для метаданных видео.
-Допустимые границы сложности диалогов — `AI_DIALOGUE_CEFR_LEVELS` (A1–B2) и тип `AiDialogueCefrLevel` —
+Допустимые границы сложности диалогов — `AI_DIALOGUE_CEFR_LEVELS` (A1–C1) и тип `AiDialogueCefrLevel` —
 находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`. Это настройка диалогов, а не общей шкалы CEFR.
-В диалогах `maxCefrLevel` хранит CEFR-код или `null` (без ограничения), отдельно от оценки уровня пользователя.
+В диалогах `cefrLevel` хранит CEFR-код или `null` (без ограничения), отдельно от оценки уровня пользователя.
 Правила промпта находятся в feature диалогов; контракт создания и PATCH описан в
 `documentation/aiDialogue/aiDialogue.md`.

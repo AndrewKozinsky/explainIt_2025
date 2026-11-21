@@ -7,7 +7,7 @@ import { localStorageManager } from '@/shared/utils/localStorageManager'
 import { useLanguagesToLearn } from '@/shared/utils/useLanguagesToLearn'
 import { useStartDialogueIllustrationStyle } from './useStartDialogueIllustrationStyle'
 
-export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCode' | 'maxCefrLevel'> & {
+export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCode' | 'cefrLevel'> & {
 	illustrationStyleId: string
 	userScenarioAmendment: string | null
 }
@@ -52,7 +52,7 @@ export function useStartDialogueOptions() {
 	if (illustrationStyles.selectedStyleId && !isUserScenarioAmendmentTooLong) {
 		options = {
 			sourceLanguageCode: practiceLanguage,
-			maxCefrLevel: textLevel === 'Any' ? null : textLevel,
+			cefrLevel: textLevel === 'Any' ? null : textLevel,
 			illustrationStyleId: illustrationStyles.selectedStyleId,
 			userScenarioAmendment: trimmedUserScenarioAmendment || null,
 		}

@@ -18,7 +18,7 @@ export class CreateAiDialogueCommand implements ICommand {
 			scenarioId: number
 			sourceLanguageCode: Language
 			targetLanguageCode: Language
-			maxCefrLevel?: AiDialogueCefrLevel | null
+			cefrLevel?: AiDialogueCefrLevel | null
 			illustrationStyleId?: string | null
 			/** Пожелания пользователя к сцене; пустая строка сохраняется как null. */
 			userScenarioAmendment?: string | null
@@ -38,7 +38,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 	) {}
 
 	async execute(command: CreateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode, maxCefrLevel, locale } = command.dto
+		const { userId, scenarioId, sourceLanguageCode, targetLanguageCode, cefrLevel, locale } = command.dto
 		const illustrationStyleId = getNewAiDialogueIllustrationStyle(command.dto.illustrationStyleId).id
 		const userScenarioAmendment = command.dto.userScenarioAmendment?.trim() || null
 
@@ -60,7 +60,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			scenarioId,
 			sourceLanguageCode,
 			targetLanguageCode,
-			maxCefrLevel,
+			cefrLevel,
 			illustrationStyleId,
 			userScenarioAmendment,
 		})

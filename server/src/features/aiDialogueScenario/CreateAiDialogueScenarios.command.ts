@@ -1,27 +1,12 @@
 import { CommandHandler, ICommand, ICommandHandler } from '@nestjs/cqrs'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
-import { sportsLeisureScenarios } from 'features/aiDialogueScenario/scenarios/sportsLeisureScenarios'
+import type { AiDialogueScenarioMedals } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import { getR2EnvironmentPrefix } from 'infrastructure/cloudflareS3/r2EnvironmentPrefix'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueScenarioGroupSeedData, AiDialogueScenarioSeedData } from './common'
 import { aiDialogueScenarioGroups } from './groups'
 import { getPublicScenarioCoverKey } from './publicScenarioCoverKey'
-import { cityAndServicesScenarios } from './scenarios/cityAndServicesScenarios'
-import { doorKnocksScenarios } from './scenarios/doorKnocksScenarios'
-import { foodAndShoppingScenarios } from './scenarios/foodAndShoppingScenarios'
-import { healthEmergencyScenarios } from './scenarios/healthEmergencyScenarios'
-import { homeAndEverydayLifeScenarios } from './scenarios/homeAndEverydayLifeScenarios'
-import { immigrationScenarios } from './scenarios/immigrationScenarios'
-import { kidsFamilyScenarios } from './scenarios/kidsFamilyScenarios'
-import { localServicesScenarios } from './scenarios/localServicesScenarios'
-import { misunderstandingsAndConflictsScenarios } from './scenarios/misunderstandingsAndConflictsScenarios'
-import { moneyBankingScenarios } from './scenarios/moneyBankingScenarios'
-import { relationshipsScenarios } from './scenarios/relationshipsScenarios'
-import { studyScenarios } from './scenarios/studyScenarios'
-import { techServicesScenarios } from './scenarios/techServicesScenarios'
-import { transportCarScenarios } from './scenarios/transportCarScenarios'
 import { travelScenarios } from './scenarios/travelScenarios'
-import { unexpectedEncountersScenarios } from './scenarios/unexpectedEncountersScenarios'
-import { workScenarios } from './scenarios/workScenarios'
 
 export class CreateAiDialogueScenariosCommand implements ICommand {
 	constructor() {}
@@ -40,6 +25,14 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 		const scenarios = this.getScenariosData().map((scenario) => ({
 			...scenario,
 			coverS3Key: getPublicScenarioCoverKey(mode, scenario.slug),
+			medals: scenario.medals
+				? (Object.fromEntries(
+					Object.entries(scenario.medals).map(([level, key]) => [
+						level,
+						`${getR2EnvironmentPrefix('ai-dialogue-scenario-medals', mode)}${key}`,
+					]),
+				) as AiDialogueScenarioMedals)
+				: undefined,
 		}))
 
 		await this.aiDialogueScenarioRepository.synchronizePublicScenarios(this.getGroupsData(), scenarios)
@@ -65,23 +58,23 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 	getScenariosData(): AiDialogueScenarioSeedData[] {
 		return [
 			...travelScenarios,
-			...foodAndShoppingScenarios,
-			...cityAndServicesScenarios,
-			...homeAndEverydayLifeScenarios,
-			...doorKnocksScenarios,
-			...immigrationScenarios,
-			...relationshipsScenarios,
-			...misunderstandingsAndConflictsScenarios,
-			...unexpectedEncountersScenarios,
-			...workScenarios,
-			...healthEmergencyScenarios,
-			...transportCarScenarios,
-			...moneyBankingScenarios,
-			...studyScenarios,
-			...kidsFamilyScenarios,
-			...techServicesScenarios,
-			...localServicesScenarios,
-			...sportsLeisureScenarios,
+			// ...foodAndShoppingScenarios,
+			// ...cityAndServicesScenarios,
+			// ...homeAndEverydayLifeScenarios,
+			// ...doorKnocksScenarios,
+			// ...immigrationScenarios,
+			// ...relationshipsScenarios,
+			// ...misunderstandingsAndConflictsScenarios,
+			// ...unexpectedEncountersScenarios,
+			// ...workScenarios,
+			// ...healthEmergencyScenarios,
+			// ...transportCarScenarios,
+			// ...moneyBankingScenarios,
+			// ...studyScenarios,
+			// ...kidsFamilyScenarios,
+			// ...techServicesScenarios,
+			// ...localServicesScenarios,
+			// ...sportsLeisureScenarios,
 		]
 	}
 }

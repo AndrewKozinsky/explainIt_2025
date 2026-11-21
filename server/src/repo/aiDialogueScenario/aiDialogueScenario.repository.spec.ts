@@ -45,6 +45,7 @@ describe('Scenario synchronization', () => {
 				user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
 				conversation_ideas: scenario.conversationIdeas,
 				trained_skills: scenario.trainedSkills,
+				medal_s3_keys: JSON.stringify(scenario.medals),
 				position: 0,
 				cover_s3_key: scenario.coverS3Key,
 			},
@@ -56,6 +57,7 @@ describe('Scenario synchronization', () => {
 				user_scenario_amendment_hint: scenario.userScenarioAmendmentHint ?? null,
 				conversation_ideas: scenario.conversationIdeas,
 				trained_skills: scenario.trainedSkills,
+				medal_s3_keys: JSON.stringify(scenario.medals),
 				position: 0,
 				cover_s3_key: scenario.coverS3Key,
 			},
@@ -64,7 +66,10 @@ describe('Scenario synchronization', () => {
 
 	it('stores the index in the passed arrays as the display position of groups and scenarios', async () => {
 		const { repository, tx } = harness()
-		const [passportControl, lostLuggage] = travelScenarios.map((seed) => ({
+		const [passportControl, lostLuggage] = [
+			travelScenarios[0],
+			{ ...travelScenarios[0], slug: 'another-scenario' },
+		].map((seed) => ({
 			...seed,
 			coverS3Key: `covers/localdev/${seed.slug}.webp`,
 		}))
@@ -137,6 +142,7 @@ describe('Scenario synchronization', () => {
 				cover_s3_key: null,
 				conversation_ideas: null,
 				trained_skills: null,
+				medal_s3_keys: null,
 				title: 'My scenario',
 				description: 'Description',
 				system_prompt: 'Prompt',

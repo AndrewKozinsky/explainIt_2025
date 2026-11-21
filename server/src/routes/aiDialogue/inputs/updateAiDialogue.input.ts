@@ -3,6 +3,6 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 
 export class UpdateAiDialogueInput {
-	@DtoFieldDecorators('maxCefrLevel', bdConfig.AiDialogue.dbFields.max_cefr_level)
-	maxCefrLevel?: AiDialogueCefrLevel | null
+	@DtoFieldDecorators('cefrLevel', bdConfig.AiDialogue.dbFields.cefr_level)
+	cefrLevel?: AiDialogueCefrLevel | null
 }

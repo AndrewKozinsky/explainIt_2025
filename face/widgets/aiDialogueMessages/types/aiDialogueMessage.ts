@@ -77,9 +77,33 @@ export type WorldEvent = {
 	wordMap?: AiDialogueWordMap
 }
 
+/** Результат самостоятельной проверки; создаётся оценщиком, не персонажем и не клиентом. */
+export type ExamResultEvent = {
+	type: 'examResult'
+	/** Последнее сообщение, включённое в проверку. */
+	assessedThroughMessageId: number
+	/** A0 означает, что в этой попытке A1 не подтверждён; медаль не выдаётся. */
+	level: 'A0' | 'A1' | 'A2' | 'B1' | 'B2' | 'C1'
+	summary: string
+	strengths: string[]
+	errors: {
+		messageId: number
+		originalText: string
+		suggestedText: string
+		explanation: string
+	}[]
+	recommendations: string[]
+}
+
 // Любое событие диалога (хранится в AiDialogueMessage.payload).
 export type AiDialogueEvent =
-	SceneUpdateEvent | HelpEvent | NpcActionsEvent | UserActionsEvent | UserAvoidsNpcEvent | WorldEvent
+	| SceneUpdateEvent
+	| HelpEvent
+	| NpcActionsEvent
+	| UserActionsEvent
+	| UserAvoidsNpcEvent
+	| WorldEvent
+	| ExamResultEvent
 
 // Дискриминатор события.
 export type AiDialogueEventType = AiDialogueEvent['type']

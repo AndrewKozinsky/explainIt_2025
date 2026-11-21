@@ -13,7 +13,7 @@ export class UpdateAiDialogueCommand implements ICommand {
 		public dto: {
 			userId: number
 			dialogueId: number
-			maxCefrLevel?: AiDialogueCefrLevel | null
+			cefrLevel?: AiDialogueCefrLevel | null
 			/** Язык интерфейса для текстов сценария в ответе. */
 			locale: Language
 		},
@@ -28,7 +28,7 @@ export class UpdateAiDialogueHandler implements ICommandHandler<UpdateAiDialogue
 	) {}
 
 	async execute(command: UpdateAiDialogueCommand): Promise<AiDialogueOutModel> {
-		const { userId, dialogueId, maxCefrLevel, locale } = command.dto
+		const { userId, dialogueId, cefrLevel, locale } = command.dto
 
 		const dialogue = await this.aiDialogueRepository.getDialogueById(dialogueId)
 		if (!dialogue) {
@@ -40,9 +40,9 @@ export class UpdateAiDialogueHandler implements ICommandHandler<UpdateAiDialogue
 		}
 
 		// undefined — ничего не менять; null — явно снять ограничение. Текущий ход не прерывается.
-		if (maxCefrLevel !== undefined) {
+		if (cefrLevel !== undefined) {
 			const updated = await this.aiDialogueRepository.updateDialogue(dialogueId, userId, {
-				max_cefr_level: maxCefrLevel,
+				cefr_level: cefrLevel,
 			})
 
 			if (!updated) {

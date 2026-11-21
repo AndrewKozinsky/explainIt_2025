@@ -27,7 +27,6 @@ import type {
 import type {
   AiDialogueAudioOutModel,
   AiDialogueControllerGetAiDialoguesParams,
-  AiDialogueControllerStream200,
   AiDialogueIllustrationStylesOutModel,
   AiDialogueMessageOutModel,
   AiDialogueOutModel,
@@ -701,7 +700,7 @@ export const getAiDialogueControllerUpdateAiDialogueUrl = (id: number,) => {
 }
 
 /**
- * Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit maxCefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.
+ * Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit cefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.
  * @summary Update AI dialogue settings
  */
 export const aiDialogueControllerUpdateAiDialogue = async (id: number,
@@ -769,7 +768,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
     export type AiDialogueControllerUpdateAiDialogueMutationVariables = {id: number;data: UpdateAiDialogueInput}
 
     /**
- * Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit maxCefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.
+ * Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit cefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.
  * @summary Update AI dialogue settings
  */
 export const useAiDialogueControllerUpdateAiDialogue = <TError = unknown,
@@ -890,7 +889,7 @@ export const getAiDialogueControllerCreateAiDialogueMessageUrl = (id: number,) =
 }
 
 /**
- * Persists a user event (actions or leaving the NPC) into the dialogue.
+ * Reviews and saves user speech or actions, or saves an event for leaving the NPC.
  * @summary Send a message to AI dialogue
  */
 export const aiDialogueControllerCreateAiDialogueMessage = async (id: number,
@@ -958,7 +957,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
     export type AiDialogueControllerCreateAiDialogueMessageMutationVariables = {id: number;data: CreateAiDialogueMessageInput}
 
     /**
- * Persists a user event (actions or leaving the NPC) into the dialogue.
+ * Reviews and saves user speech or actions, or saves an event for leaving the NPC.
  * @summary Send a message to AI dialogue
  */
 export const useAiDialogueControllerCreateAiDialogueMessage = <TError = unknown,
@@ -1226,7 +1225,7 @@ export function useAiDialogueControllerGetAiDialogueVisuals<TData = Awaited<Retu
 
 
 export type aiDialogueControllerStreamResponse200 = {
-  data: AiDialogueControllerStream200
+  data: void
   status: 200
 }
 

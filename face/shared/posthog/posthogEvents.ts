@@ -14,7 +14,7 @@ type DialogueStartedEvent = {
 	/** Язык, который практикует пользователь. */
 	practice_language: string
 	/** Максимальная сложность текста; null — без ограничений. */
-	max_cefr_level: string | null
+	cefr_level: string | null
 	illustration_style_id: string
 	/** Написал ли пользователь пожелания к сцене. */
 	has_scenario_amendment: boolean

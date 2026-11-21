@@ -45,7 +45,7 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 					id: page,
 					scenario: { id: 1, title: '{}' },
 					sourceLanguageCode: 'en',
-					maxCefrLevel: null,
+					cefrLevel: null,
 					createdAt: '2026-10-24T00:00:00Z',
 					lastMessage: null,
 					sceneImage: null,

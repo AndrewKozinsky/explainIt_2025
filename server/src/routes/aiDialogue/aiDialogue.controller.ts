@@ -109,7 +109,7 @@ export class AiDialogueController {
 				scenarioId: input.scenarioId,
 				sourceLanguageCode: input.sourceLanguageCode,
 				targetLanguageCode: input.targetLanguageCode,
-				maxCefrLevel: input.maxCefrLevel,
+				cefrLevel: input.cefrLevel,
 				illustrationStyleId: input.illustrationStyleId,
 				userScenarioAmendment: input.userScenarioAmendment,
 				locale,
@@ -165,7 +165,7 @@ export class AiDialogueController {
 			new UpdateAiDialogueCommand({
 				userId: request.user!.id,
 				dialogueId: id,
-				maxCefrLevel: input.maxCefrLevel,
+				cefrLevel: input.cefrLevel,
 				locale,
 			}),
 		)

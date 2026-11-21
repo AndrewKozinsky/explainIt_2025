@@ -20,14 +20,14 @@ SSE-протокол, генерация хода, компакция) опис�
 
 ## Выбор сложности текста
 
-`AiDialogueModel.maxCefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | null` содержит сохранённую сервером границу сложности.
-`entities/aiDialogue/ui/TextLevelSwitcher.tsx` в панели `AiDialogueSettings` показывает A1/A2/B1/B2/Any; `Any`
+`AiDialogueModel.cefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | null` содержит сохранённую сервером границу сложности.
+`entities/aiDialogue/ui/TextLevelSwitcher.tsx` в панели `AiDialogueSettings` показывает A1/A2/B1/B2/C1/Any; `Any`
 соответствует `null`.
 При загрузке и возвращении к диалогу выбранный уровень берётся из REST-модели, без локального значения A1 по умолчанию.
 
 Нажатие вызывает `AiDialogueService.updateDialogue(id, input)` через хук `useAiDialogueTextLevel`.
 Цепочка: Repository → AiDialogueApi → сгенерированный `aiDialogueControllerUpdateAiDialogue` →
-`PATCH /api/ai-dialogue/:id`. В теле передаётся `{"maxCefrLevel":"A2"}` или `{"maxCefrLevel":null}`.
+`PATCH /api/ai-dialogue/:id`. В теле передаётся `{"cefrLevel":"A2"}` или `{"cefrLevel":null}`.
 Поле необязательно: отсутствие оставляет прежнее значение. Компоненты не вызывают Orval напрямую.
 
 `AiDialogueQueryFacade.updateDialogue` предоставляет mutation options. Успешный ответ заменяет снимок
@@ -43,7 +43,7 @@ SSE-протокол, генерация хода, компакция) опис�
 следующий использует новый. SSE не переподключается, его формат и сохранённые сообщения не меняются.
 Подробная серверная семантика и ограничения адаптации описаны в `aiDialogue.md`.
 
-При создании entity-метод принимает необязательный `maxCefrLevel`; его выбирают в окне запуска сценария.
+При создании entity-метод принимает необязательный `cefrLevel`; его выбирают в окне запуска сценария.
 Сервер адаптирует все новые видимые тексты на изучаемом языке; переводы сохраняют смысл, озвучка получает адаптированный
 текст.
 

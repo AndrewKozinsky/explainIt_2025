@@ -16,12 +16,12 @@ export function useAiDialogueTextLevel(dialogueId: number, dialogue: AiDialogueM
 			notify({ type: 'error', message: error.message })
 		},
 	})
-	const textLevel: AiDialogueTextLevel = dialogue?.maxCefrLevel ?? 'Any'
+	const textLevel: AiDialogueTextLevel = dialogue?.cefrLevel ?? 'Any'
 
 	function changeTextLevel(level: AiDialogueTextLevel) {
 		if (!dialogue || mutation.isPending || level === textLevel) return
 
-		mutation.mutate({ maxCefrLevel: level === 'Any' ? null : level })
+		mutation.mutate({ cefrLevel: level === 'Any' ? null : level })
 	}
 
 	return { textLevel, changeTextLevel, isUpdatingTextLevel: mutation.isPending }

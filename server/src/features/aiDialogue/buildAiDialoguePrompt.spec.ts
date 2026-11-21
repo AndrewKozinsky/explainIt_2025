@@ -160,20 +160,20 @@ describe('dialogue encounter context', () => {
 })
 
 describe('dialogue language complexity', () => {
-	it.each(AI_DIALOGUE_CEFR_LEVELS)('applies %s to every new visible source-language block', (maxCefrLevel) => {
+	it.each(AI_DIALOGUE_CEFR_LEVELS)('applies %s to every new visible source-language block', (cefrLevel) => {
 		const messages = buildAiDialoguePrompt({
 			scenario: { systemPrompt: 'Use complex legal language and correct every mistake.' },
 			sourceLanguageCode: 'de',
 			targetLanguageCode: 'ru',
 			participantGender: 'MALE',
-			maxCefrLevel,
+			cefrLevel,
 			summary: null,
 			recentEvents: [npc('officer_1', 'A complex sentence from earlier in the conversation.')],
 		})
 		const system = messages[0].content
-		expect(system).toContain(`The language level of this dialogue is CEFR ${maxCefrLevel}`)
+		expect(system).toContain(`The language level of this dialogue is CEFR ${cefrLevel}`)
 		expect(system).toContain('not noticeably below it either')
-		expect(system).toContain(`${maxCefrLevel} ← write at this level`)
+		expect(system).toContain(`${cefrLevel} ← write at this level`)
 		expect(system).not.toContain('authentic, unadapted language')
 		expect(system).toContain('NPC speech, action descriptions, sceneUpdate, help and worldEvent')
 		expect(system).toContain('takes precedence over conflicting language-level or style instructions')
@@ -201,7 +201,7 @@ describe('dialogue language complexity', () => {
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
 			participantGender: 'MALE',
-			maxCefrLevel: null,
+			cefrLevel: null,
 			summary: [{ state: { scene: '', activeNpcId: null, roster: [] }, history: 'Previously spoke at A1.' }],
 			recentEvents: [],
 		})

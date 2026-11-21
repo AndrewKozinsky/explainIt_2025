@@ -5,7 +5,7 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { CreateAiDialogueInputMaxCefrLevel } from './createAiDialogueInputMaxCefrLevel';
+import type { CreateAiDialogueInputCefrLevel } from './createAiDialogueInputCefrLevel';
 import type { CreateAiDialogueInputSourceLanguageCode } from './createAiDialogueInputSourceLanguageCode';
 import type { CreateAiDialogueInputTargetLanguageCode } from './createAiDialogueInputTargetLanguageCode';
 
@@ -18,10 +18,10 @@ export interface CreateAiDialogueInput {
      */
   illustrationStyleId?: string | null;
   /**
-     * Maximum CEFR complexity for all visible source-language text generated in the dialogue. Null disables adaptation; omission preserves the current value on update. Changes apply to turns whose settings have not yet been captured.
+     * Selected language complexity A1–C1. In practice, the user can change it; null means unrestricted speech. In exams, it is the initial reference: the model adapts speech using the conversation without overwriting this field.
      * @nullable
      */
-  maxCefrLevel?: CreateAiDialogueInputMaxCefrLevel;
+  cefrLevel?: CreateAiDialogueInputCefrLevel;
   /**
      * AI dialogue scenario ID
      * @minimum 1

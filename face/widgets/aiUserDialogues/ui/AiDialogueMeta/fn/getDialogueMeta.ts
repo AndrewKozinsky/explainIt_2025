@@ -8,6 +8,6 @@ export function getDialogueMeta(dialogue: AiDialogueListItemModel, locale: strin
 
 	return {
 		languageName: language.charAt(0).toLocaleUpperCase(locale) + language.slice(1),
-		level: dialogue.maxCefrLevel ?? anyLevelName,
+		level: dialogue.cefrLevel ?? anyLevelName,
 	}
 }

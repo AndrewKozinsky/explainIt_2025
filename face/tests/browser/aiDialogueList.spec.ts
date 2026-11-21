@@ -24,7 +24,8 @@ function dialogues(count = 5): AiDialogueListItemModel[] {
 		id: index + 1,
 		scenario: { id: 2, title: titles[index] ?? `Диалог ${index + 1}` },
 		sourceLanguageCode: index === 2 ? 'de' : 'en',
-		maxCefrLevel: index === 2 ? null : 'A2',
+		cefrLevel: index === 2 ? null : 'A2',
+		mode: 'practice',
 		createdAt: new Date(Date.now() - index * 86_400_000).toISOString(),
 		lastMessage: {
 			id: 100 + index,

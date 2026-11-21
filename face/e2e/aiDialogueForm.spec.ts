@@ -182,7 +182,7 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 					id: 1,
 					sourceLanguageCode: 'en',
 					targetLanguageCode: 'ru',
-					maxCefrLevel: null,
+					cefrLevel: null,
 					scenario: {
 						id: 1,
 						slug: 'test',

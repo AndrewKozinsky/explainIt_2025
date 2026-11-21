@@ -49,7 +49,7 @@ export function ApiUpdateAiDialogue() {
 		ApiOperation({
 			summary: 'Update AI dialogue settings',
 			description:
-				'Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit maxCefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.',
+				'Updates settings for the dialogue owner without generating a reply or interrupting SSE. Omit cefrLevel to keep it, or send null to disable adaptation. Each turn captures settings once when reading the dialogue; retries retain that snapshot.',
 		}),
 		ApiCookieAuth(),
 		ApiParam({ name: 'id', type: Number, description: 'AI dialogue ID', example: 1 }),

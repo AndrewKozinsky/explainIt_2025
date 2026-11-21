@@ -48,6 +48,7 @@ export type AiDialogueScenarioMinAggregateOutputType = {
   system_prompt: string | null
   user_scenario_amendment_hint: string | null
   conversation_ideas: string | null
+  medal_s3_keys: string | null
   trained_skills: string | null
   position: number | null
   group_id: number | null
@@ -64,6 +65,7 @@ export type AiDialogueScenarioMaxAggregateOutputType = {
   system_prompt: string | null
   user_scenario_amendment_hint: string | null
   conversation_ideas: string | null
+  medal_s3_keys: string | null
   trained_skills: string | null
   position: number | null
   group_id: number | null
@@ -80,6 +82,7 @@ export type AiDialogueScenarioCountAggregateOutputType = {
   system_prompt: number
   user_scenario_amendment_hint: number
   conversation_ideas: number
+  medal_s3_keys: number
   trained_skills: number
   position: number
   group_id: number
@@ -112,6 +115,7 @@ export type AiDialogueScenarioMinAggregateInputType = {
   system_prompt?: true
   user_scenario_amendment_hint?: true
   conversation_ideas?: true
+  medal_s3_keys?: true
   trained_skills?: true
   position?: true
   group_id?: true
@@ -128,6 +132,7 @@ export type AiDialogueScenarioMaxAggregateInputType = {
   system_prompt?: true
   user_scenario_amendment_hint?: true
   conversation_ideas?: true
+  medal_s3_keys?: true
   trained_skills?: true
   position?: true
   group_id?: true
@@ -144,6 +149,7 @@ export type AiDialogueScenarioCountAggregateInputType = {
   system_prompt?: true
   user_scenario_amendment_hint?: true
   conversation_ideas?: true
+  medal_s3_keys?: true
   trained_skills?: true
   position?: true
   group_id?: true
@@ -247,6 +253,7 @@ export type AiDialogueScenarioGroupByOutputType = {
   system_prompt: string
   user_scenario_amendment_hint: string | null
   conversation_ideas: string | null
+  medal_s3_keys: string | null
   trained_skills: string | null
   position: number
   group_id: number | null
@@ -286,6 +293,7 @@ export type AiDialogueScenarioWhereInput = {
   system_prompt?: Prisma.StringFilter<"AiDialogueScenario"> | string
   user_scenario_amendment_hint?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   conversation_ideas?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
+  medal_s3_keys?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   trained_skills?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   position?: Prisma.IntFilter<"AiDialogueScenario"> | number
   group_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
@@ -305,6 +313,7 @@ export type AiDialogueScenarioOrderByWithRelationInput = {
   system_prompt?: Prisma.SortOrder
   user_scenario_amendment_hint?: Prisma.SortOrderInput | Prisma.SortOrder
   conversation_ideas?: Prisma.SortOrderInput | Prisma.SortOrder
+  medal_s3_keys?: Prisma.SortOrderInput | Prisma.SortOrder
   trained_skills?: Prisma.SortOrderInput | Prisma.SortOrder
   position?: Prisma.SortOrder
   group_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -327,6 +336,7 @@ export type AiDialogueScenarioWhereUniqueInput = Prisma.AtLeast<{
   system_prompt?: Prisma.StringFilter<"AiDialogueScenario"> | string
   user_scenario_amendment_hint?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   conversation_ideas?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
+  medal_s3_keys?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   trained_skills?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   position?: Prisma.IntFilter<"AiDialogueScenario"> | number
   group_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
@@ -346,6 +356,7 @@ export type AiDialogueScenarioOrderByWithAggregationInput = {
   system_prompt?: Prisma.SortOrder
   user_scenario_amendment_hint?: Prisma.SortOrderInput | Prisma.SortOrder
   conversation_ideas?: Prisma.SortOrderInput | Prisma.SortOrder
+  medal_s3_keys?: Prisma.SortOrderInput | Prisma.SortOrder
   trained_skills?: Prisma.SortOrderInput | Prisma.SortOrder
   position?: Prisma.SortOrder
   group_id?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -370,6 +381,7 @@ export type AiDialogueScenarioScalarWhereWithAggregatesInput = {
   system_prompt?: Prisma.StringWithAggregatesFilter<"AiDialogueScenario"> | string
   user_scenario_amendment_hint?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueScenario"> | string | null
   conversation_ideas?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueScenario"> | string | null
+  medal_s3_keys?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueScenario"> | string | null
   trained_skills?: Prisma.StringNullableWithAggregatesFilter<"AiDialogueScenario"> | string | null
   position?: Prisma.IntWithAggregatesFilter<"AiDialogueScenario"> | number
   group_id?: Prisma.IntNullableWithAggregatesFilter<"AiDialogueScenario"> | number | null
@@ -385,6 +397,7 @@ export type AiDialogueScenarioCreateInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   cover_s3_key?: string | null
@@ -402,6 +415,7 @@ export type AiDialogueScenarioUncheckedCreateInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   group_id?: number | null
@@ -418,6 +432,7 @@ export type AiDialogueScenarioUpdateInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -435,6 +450,7 @@ export type AiDialogueScenarioUncheckedUpdateInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -452,6 +468,7 @@ export type AiDialogueScenarioCreateManyInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   group_id?: number | null
@@ -467,6 +484,7 @@ export type AiDialogueScenarioUpdateManyMutationInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -481,6 +499,7 @@ export type AiDialogueScenarioUncheckedUpdateManyInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -507,6 +526,7 @@ export type AiDialogueScenarioCountOrderByAggregateInput = {
   system_prompt?: Prisma.SortOrder
   user_scenario_amendment_hint?: Prisma.SortOrder
   conversation_ideas?: Prisma.SortOrder
+  medal_s3_keys?: Prisma.SortOrder
   trained_skills?: Prisma.SortOrder
   position?: Prisma.SortOrder
   group_id?: Prisma.SortOrder
@@ -530,6 +550,7 @@ export type AiDialogueScenarioMaxOrderByAggregateInput = {
   system_prompt?: Prisma.SortOrder
   user_scenario_amendment_hint?: Prisma.SortOrder
   conversation_ideas?: Prisma.SortOrder
+  medal_s3_keys?: Prisma.SortOrder
   trained_skills?: Prisma.SortOrder
   position?: Prisma.SortOrder
   group_id?: Prisma.SortOrder
@@ -546,6 +567,7 @@ export type AiDialogueScenarioMinOrderByAggregateInput = {
   system_prompt?: Prisma.SortOrder
   user_scenario_amendment_hint?: Prisma.SortOrder
   conversation_ideas?: Prisma.SortOrder
+  medal_s3_keys?: Prisma.SortOrder
   trained_skills?: Prisma.SortOrder
   position?: Prisma.SortOrder
   group_id?: Prisma.SortOrder
@@ -671,6 +693,7 @@ export type AiDialogueScenarioCreateWithoutUserInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   cover_s3_key?: string | null
@@ -687,6 +710,7 @@ export type AiDialogueScenarioUncheckedCreateWithoutUserInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   group_id?: number | null
@@ -732,6 +756,7 @@ export type AiDialogueScenarioScalarWhereInput = {
   system_prompt?: Prisma.StringFilter<"AiDialogueScenario"> | string
   user_scenario_amendment_hint?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   conversation_ideas?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
+  medal_s3_keys?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   trained_skills?: Prisma.StringNullableFilter<"AiDialogueScenario"> | string | null
   position?: Prisma.IntFilter<"AiDialogueScenario"> | number
   group_id?: Prisma.IntNullableFilter<"AiDialogueScenario"> | number | null
@@ -747,6 +772,7 @@ export type AiDialogueScenarioCreateWithoutGroupInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   cover_s3_key?: string | null
@@ -763,6 +789,7 @@ export type AiDialogueScenarioUncheckedCreateWithoutGroupInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   cover_s3_key?: string | null
@@ -804,6 +831,7 @@ export type AiDialogueScenarioCreateWithoutAiDialogueInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   cover_s3_key?: string | null
@@ -820,6 +848,7 @@ export type AiDialogueScenarioUncheckedCreateWithoutAiDialogueInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   group_id?: number | null
@@ -851,6 +880,7 @@ export type AiDialogueScenarioUpdateWithoutAiDialogueInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -867,6 +897,7 @@ export type AiDialogueScenarioUncheckedUpdateWithoutAiDialogueInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -883,6 +914,7 @@ export type AiDialogueScenarioCreateManyUserInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   group_id?: number | null
@@ -897,6 +929,7 @@ export type AiDialogueScenarioUpdateWithoutUserInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -913,6 +946,7 @@ export type AiDialogueScenarioUncheckedUpdateWithoutUserInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -929,6 +963,7 @@ export type AiDialogueScenarioUncheckedUpdateManyWithoutUserInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   group_id?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
@@ -944,6 +979,7 @@ export type AiDialogueScenarioCreateManyGroupInput = {
   system_prompt: string
   user_scenario_amendment_hint?: string | null
   conversation_ideas?: string | null
+  medal_s3_keys?: string | null
   trained_skills?: string | null
   position?: number
   cover_s3_key?: string | null
@@ -958,6 +994,7 @@ export type AiDialogueScenarioUpdateWithoutGroupInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -974,6 +1011,7 @@ export type AiDialogueScenarioUncheckedUpdateWithoutGroupInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -990,6 +1028,7 @@ export type AiDialogueScenarioUncheckedUpdateManyWithoutGroupInput = {
   system_prompt?: Prisma.StringFieldUpdateOperationsInput | string
   user_scenario_amendment_hint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   conversation_ideas?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  medal_s3_keys?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   trained_skills?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   position?: Prisma.IntFieldUpdateOperationsInput | number
   cover_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -1036,6 +1075,7 @@ export type AiDialogueScenarioSelect<ExtArgs extends runtime.Types.Extensions.In
   system_prompt?: boolean
   user_scenario_amendment_hint?: boolean
   conversation_ideas?: boolean
+  medal_s3_keys?: boolean
   trained_skills?: boolean
   position?: boolean
   group_id?: boolean
@@ -1056,6 +1096,7 @@ export type AiDialogueScenarioSelectCreateManyAndReturn<ExtArgs extends runtime.
   system_prompt?: boolean
   user_scenario_amendment_hint?: boolean
   conversation_ideas?: boolean
+  medal_s3_keys?: boolean
   trained_skills?: boolean
   position?: boolean
   group_id?: boolean
@@ -1074,6 +1115,7 @@ export type AiDialogueScenarioSelectUpdateManyAndReturn<ExtArgs extends runtime.
   system_prompt?: boolean
   user_scenario_amendment_hint?: boolean
   conversation_ideas?: boolean
+  medal_s3_keys?: boolean
   trained_skills?: boolean
   position?: boolean
   group_id?: boolean
@@ -1092,6 +1134,7 @@ export type AiDialogueScenarioSelectScalar = {
   system_prompt?: boolean
   user_scenario_amendment_hint?: boolean
   conversation_ideas?: boolean
+  medal_s3_keys?: boolean
   trained_skills?: boolean
   position?: boolean
   group_id?: boolean
@@ -1100,7 +1143,7 @@ export type AiDialogueScenarioSelectScalar = {
   created_at?: boolean
 }
 
-export type AiDialogueScenarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "system_prompt" | "user_scenario_amendment_hint" | "conversation_ideas" | "trained_skills" | "position" | "group_id" | "cover_s3_key" | "user_id" | "created_at", ExtArgs["result"]["aiDialogueScenario"]>
+export type AiDialogueScenarioOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "slug" | "title" | "description" | "system_prompt" | "user_scenario_amendment_hint" | "conversation_ideas" | "medal_s3_keys" | "trained_skills" | "position" | "group_id" | "cover_s3_key" | "user_id" | "created_at", ExtArgs["result"]["aiDialogueScenario"]>
 export type AiDialogueScenarioInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   group?: boolean | Prisma.AiDialogueScenario$groupArgs<ExtArgs>
   user?: boolean | Prisma.AiDialogueScenario$userArgs<ExtArgs>
@@ -1131,6 +1174,7 @@ export type $AiDialogueScenarioPayload<ExtArgs extends runtime.Types.Extensions.
     system_prompt: string
     user_scenario_amendment_hint: string | null
     conversation_ideas: string | null
+    medal_s3_keys: string | null
     trained_skills: string | null
     position: number
     group_id: number | null
@@ -1570,6 +1614,7 @@ export interface AiDialogueScenarioFieldRefs {
   readonly system_prompt: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly user_scenario_amendment_hint: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly conversation_ideas: Prisma.FieldRef<"AiDialogueScenario", 'String'>
+  readonly medal_s3_keys: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly trained_skills: Prisma.FieldRef<"AiDialogueScenario", 'String'>
   readonly position: Prisma.FieldRef<"AiDialogueScenario", 'Int'>
   readonly group_id: Prisma.FieldRef<"AiDialogueScenario", 'Int'>

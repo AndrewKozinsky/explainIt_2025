@@ -1,3 +1,4 @@
+import type { AiDialogueExamLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import type { AiDialogueUserMessagePartCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import type { AiDialogueWordMap } from 'types/aiDialogueWordMap'
 
@@ -96,9 +97,33 @@ export type WorldEvent = {
 	wordMap?: AiDialogueWordMap
 }
 
+/** Результат самостоятельной проверки; создаётся оценщиком, не персонажем и не клиентом. */
+export type ExamResultEvent = {
+	type: 'examResult'
+	/** Последнее сообщение, включённое в проверку. */
+	assessedThroughMessageId: number
+	/** A0 означает, что в этой попытке A1 не подтверждён; медаль не выдаётся. */
+	level: AiDialogueExamLevel
+	summary: string
+	strengths: string[]
+	errors: {
+		messageId: number
+		originalText: string
+		suggestedText: string
+		explanation: string
+	}[]
+	recommendations: string[]
+}
+
 // Любое событие диалога (хранится в AiDialogueMessage.payload).
 export type AiDialogueEvent =
-	SceneUpdateEvent | HelpEvent | NpcActionsEvent | UserActionsEvent | UserAvoidsNpcEvent | WorldEvent
+	| SceneUpdateEvent
+	| HelpEvent
+	| NpcActionsEvent
+	| UserActionsEvent
+	| UserAvoidsNpcEvent
+	| WorldEvent
+	| ExamResultEvent
 
 // События, которые клиент может отправить серверу (в отличие от AiDialogueEvent —
 // сервер сам не генерирует userActions/userAvoidsNPC от имени пользователя).

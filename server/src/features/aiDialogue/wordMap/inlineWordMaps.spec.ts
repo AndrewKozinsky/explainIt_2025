@@ -7,7 +7,8 @@ function footer(content: string, groups: unknown[]) {
 	return JSON.stringify({ content, groups })
 }
 function wordMap(event: AiDialogueEvent) {
-	if (event.type === 'userActions' || event.type === 'userAvoidsNPC') throw new Error('Expected a server text event')
+	if (event.type === 'userActions' || event.type === 'userAvoidsNPC' || event.type === 'examResult')
+		throw new Error('Expected a server text event')
 	if (!event.wordMap) throw new Error('Expected a word map')
 	return event.wordMap
 }

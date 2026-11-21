@@ -16,7 +16,7 @@ export class AiDialogueRepository {
 		scenarioId: number
 		sourceLanguageCode: Language
 		targetLanguageCode: Language
-		maxCefrLevel?: AiDialogueCefrLevel | null
+		cefrLevel?: AiDialogueCefrLevel | null
 		illustrationStyleId?: string | null
 		userScenarioAmendment?: string | null
 	}) {
@@ -26,7 +26,7 @@ export class AiDialogueRepository {
 				scenario_id: dto.scenarioId,
 				source_language_code: dto.sourceLanguageCode,
 				target_language_code: dto.targetLanguageCode,
-				max_cefr_level: dto.maxCefrLevel ?? null,
+				cefr_level: dto.cefrLevel ?? null,
 				illustration_style_id: getNewAiDialogueIllustrationStyle(dto.illustrationStyleId).id,
 				user_scenario_amendment: dto.userScenarioAmendment ?? null,
 			},

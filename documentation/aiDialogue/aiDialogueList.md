@@ -33,7 +33,7 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
         "title": "{\"ru\":\"Покупка абонемента в бассейн\",\"en\":\"Pool membership\"}"
       },
       "sourceLanguageCode": "en",
-      "maxCefrLevel": null,
+      "cefrLevel": null,
       "createdAt": "2026-10-20T10:00:00.000Z",
       "lastMessage": {
         "id": 90,
@@ -60,7 +60,7 @@ AiDialogueCharacter и старых npcActions с тем же dialogue_id. Об�
 ```
 
 - `scenario` — вложенный объект с id и title; title — на языке интерфейса из `Accept-Language`.
-- `maxCefrLevel: null` означает «без ограничения». Названия языка, подписи CEFR и относительных дат формирует клиент.
+- `cefrLevel: null` означает «без ограничения». Названия языка, подписи CEFR и относительных дат формирует клиент.
 - `lastMessage` — именно последнее сохранённое `npcActions`. Более поздние userActions, userAvoidsNPC,
   help, worldEvent или sceneUpdate его не заменяют. Дата относится к этому же сообщению NPC;
   `updatedAt` контейнера не используется. При отсутствии npcActions — null.
@@ -108,7 +108,7 @@ AiDialoguesPage монтирует UserAiDialoguesList только для ав�
 Ссылка — BaseButton с theme="outline" и href; у неё aria-label «Открыть диалог „…“», отдельной кнопки
 «Продолжить» нет. Кнопка удаления не вложена в ссылку. Общие стили — AiDialogueCard/AiDialogueCard.scss.
 Название берётся из scenario.title как есть (пустое заменяется на перевод `userAiDialogues.card.untitledDialogue`), язык — через Intl.DisplayNames по локали интерфейса.
-При maxCefrLevel=null выводится `userAiDialogues.card.anyLevel` («Без ограничения»).
+При cefrLevel=null выводится `userAiDialogues.card.anyLevel` («Без ограничения»).
 
 Дата выводится из lastMessage.createdAt, по календарным дням в часовом поясе браузера:
 сегодня/вчера/5 дней назад/месяц назад/2 года назад. При отсутствии сообщения дата не подменяется датой
@@ -132,7 +132,7 @@ AiDialoguesPage монтирует UserAiDialoguesList только для ав�
 Удаление открывает существующую DeleteEntityModal. После успешного DELETE незавершённые запросы списка
 отменяются, все активные загруженные страницы последовательно перечитываются. Это предотвращает пропуск
 диалога при смещении offset-пагинации.
-PATCH сложности обновляет только maxCefrLevel элемента в страницах кэша, сохраняя изображения,
+PATCH сложности обновляет только cefrLevel элемента в страницах кэша, сохраняя изображения,
 участников и последнее сообщение; кэш detail обновляется отдельно.
 
 Пока страница открыта, список сохраняет загруженные данные без автоматических запросов:

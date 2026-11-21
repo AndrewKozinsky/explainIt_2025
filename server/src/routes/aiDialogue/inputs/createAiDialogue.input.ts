@@ -7,8 +7,8 @@ export class CreateAiDialogueInput {
 	@DtoFieldDecorators('illustrationStyleId', bdConfig.AiDialogue.dbFields.illustration_style_id, { required: false })
 	illustrationStyleId?: string | null
 
-	@DtoFieldDecorators('maxCefrLevel', bdConfig.AiDialogue.dbFields.max_cefr_level)
-	maxCefrLevel?: AiDialogueCefrLevel | null
+	@DtoFieldDecorators('cefrLevel', bdConfig.AiDialogue.dbFields.cefr_level)
+	cefrLevel?: AiDialogueCefrLevel | null
 
 	@DtoFieldDecorators('scenarioId', bdConfig.AiDialogueScenario.dbFields.id)
 	scenarioId: number

@@ -34,6 +34,12 @@ describe('Public scenario seeds', () => {
 
 		for (const scenario of scenarios) {
 			expect(scenario.coverS3Key).toBe(`ai-dialogue-public-scenarios-covers/servermaster/${scenario.slug}.webp`)
+			if (scenario.medals) {
+				expect(Object.keys(scenario.medals)).toEqual(['A1', 'A2', 'B1', 'B2', 'C1'])
+				for (const [level, key] of Object.entries(scenario.medals)) {
+					expect(key).toBe(`ai-dialogue-scenario-medals/servermaster/${scenario.slug}/${level}.webp`)
+				}
+			}
 		}
 	})
 

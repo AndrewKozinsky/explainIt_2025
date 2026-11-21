@@ -36,6 +36,13 @@ const levelProfiles: Record<AiDialogueCefrLevel, LevelProfile> = {
 			"The lift's out of order again, would you believe it — third time this month. They've promised to send someone round tomorrow, but I wouldn't count on it.",
 		actionExample: 'props the stairwell door open with his foot and rolls his eyes',
 	},
+	C1: {
+		guidance:
+			'Flexible, precise and fluent language for complex conversation. Use a broad vocabulary, idiomatic expressions, implicit meaning and nuanced arguments where the situation calls for them. Vary sentence structure and register naturally. Simple wording remains appropriate when it expresses the idea well; do not make every sentence elaborate or introduce obscure jargon solely to increase difficulty. NPC speech remains conversational and relevant to the situation.',
+		speechExample:
+			"The lift's out of action yet again. Management's assurances are beginning to wear thin, though I suppose we ought to give them the benefit of the doubt until the engineer's been.",
+		actionExample: 'casts a resigned glance at the out-of-order sign before gesturing towards the stairwell',
+	},
 }
 
 const unrestrictedSpeechExample =
@@ -62,8 +69,8 @@ function buildLevelLadder(currentLevel: AiDialogueCefrLevel): string {
  * Уровень — целевой, а не только верхняя граница: соседние уровни должны заметно отличаться друг от друга.
  * Без ограничения (null) речь не адаптируется вовсе: общие требования к простоте в промпте отсутствуют.
  */
-export function buildAiDialogueLanguageLevelRules(maxCefrLevel: AiDialogueCefrLevel | null): string[] {
-	if (maxCefrLevel === null) {
+export function buildAiDialogueLanguageLevelRules(cefrLevel: AiDialogueCefrLevel | null): string[] {
+	if (cefrLevel === null) {
 		return [
 			'- There is no CEFR complexity limit for this turn. Do not retain any previous CEFR adaptation setting from the scenario or earlier history, including condensed history; earlier simplified wording is context, not a style to imitate.',
 			'- Write authentic, unadapted language exactly as native speakers use it in this situation. NPCs speak the way such a person really would for their age, background, profession and mood: contractions, colloquial and idiomatic expressions, phrasal verbs, fillers, ellipsis, interrupted or incomplete sentences, slang or professional jargon where it fits. Never simplify vocabulary or grammar, slow down or explain words for the participant’s sake.',
@@ -74,9 +81,9 @@ export function buildAiDialogueLanguageLevelRules(maxCefrLevel: AiDialogueCefrLe
 	}
 
 	return [
-		`- The language level of this dialogue is CEFR ${maxCefrLevel}. Write AT this level: never above it, and not noticeably below it either — each level must read clearly different from its neighbours. Apply it to ALL new participant-facing content in the dialogue language: NPC speech, action descriptions, sceneUpdate, help and worldEvent.`,
-		`- CEFR ${maxCefrLevel} profile: ${levelProfiles[maxCefrLevel].guidance}`,
-		buildLevelLadder(maxCefrLevel),
+		`- The language level of this dialogue is CEFR ${cefrLevel}. Write AT this level: never above it, and not noticeably below it either — each level must read clearly different from its neighbours. Apply it to ALL new participant-facing content in the dialogue language: NPC speech, action descriptions, sceneUpdate, help and worldEvent.`,
+		`- CEFR ${cefrLevel} profile: ${levelProfiles[cefrLevel].guidance}`,
+		buildLevelLadder(cefrLevel),
 		'- Before writing each content line, check it against the profile: every word, every grammatical form and the sentence length. If a word or construction belongs to a higher level, replace it with one from this level or split the sentence. Action descriptions and scene descriptions are checked as strictly as speech; do not let them drift into richer narrative prose.',
 		'- This current level setting takes precedence over conflicting language-level or style instructions in the scenario and earlier history, including condensed history. Earlier wording at another level is context, not a style to imitate. Apply the setting immediately to the new text without rewriting earlier events.',
 		'- Change only the language, not the story: preserve the situation, meaning and each NPC’s personality and role. The content stays adult and realistic; do not make the scenario childish or turn it into a language lesson. Use an essential scenario-specific term only when needed, with a brief explanation in simple dialogue-language words.',

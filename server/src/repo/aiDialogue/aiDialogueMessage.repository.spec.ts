@@ -1,6 +1,9 @@
 jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
 jest.mock('db/prisma.service', () => ({ PrismaService: class {} }))
 
+import type { ExamResultEvent } from 'types/aiDialogueMessage'
+import { getAiDialogueTextBlocks } from 'features/aiDialogue/wordMap/buildAiDialogueWordMap'
+import { attachInlineWordMaps } from 'features/aiDialogue/wordMap/inlineWordMaps'
 import { serializeAiDialogueEvent } from 'features/aiDialogue/serializeAiDialogueEvent'
 import { AiDialogueQueryRepository } from './aiDialogue.queryRepository'
 import { AiDialogueMessageRepository } from './aiDialogueMessage.repository'
@@ -127,4 +130,42 @@ describe('AiDialogueMessageRepository text check context', () => {
 
 		await expect(repository.getTextCheckContext(1)).resolves.toEqual({ scene: null, recentMessages: [] })
 	})
+})
+
+describe('exam result message', () => {
+	it.each(['A0', 'C1'] as const)(
+		'preserves %s on replay and excludes the report from story text and dictionary maps',
+		async (level) => {
+			const event: ExamResultEvent = {
+				type: 'examResult',
+				assessedThroughMessageId: 15,
+				level,
+				summary: 'Attempt result',
+				strengths: [],
+				errors: [
+					{
+						messageId: 15,
+						originalText: 'She go.',
+						suggestedText: 'She goes.',
+						explanation: 'Verb agreement.',
+					},
+				],
+				recommendations: ['Practise verb agreement.'],
+			}
+			const messages = {
+				create: jest.fn(async ({ data }) => ({ ...data, id: 16, created_at: new Date() })),
+				findUnique: jest.fn(),
+			}
+			const prisma = { aiDialogueMessage: messages } as never
+			const repository = new AiDialogueMessageRepository(prisma)
+			const query = new AiDialogueQueryRepository(prisma, {} as never)
+			const saved = await repository.createMessage({ dialogueId: 3, event })
+			messages.findUnique.mockResolvedValue(saved)
+
+			expect((await query.getMessageById(16))?.payload).toEqual(event)
+			expect(serializeAiDialogueEvent(event)).toBe('')
+			expect(getAiDialogueTextBlocks(event)).toEqual({})
+			expect(attachInlineWordMaps([event], '', 'en')).toEqual([event])
+		},
+	)
 })

@@ -31,7 +31,7 @@ export function buildAiDialoguePrompt(input: {
 	sourceLanguageCode: Language
 	targetLanguageCode: Language | null
 	participantGender: UserGender
-	maxCefrLevel?: AiDialogueCefrLevel | null
+	cefrLevel?: AiDialogueCefrLevel | null
 	userScenarioAmendment?: string | null
 	summary: null | AiDialogueSummary
 	recentEvents: AiDialogueEvent[]
@@ -41,7 +41,7 @@ export function buildAiDialoguePrompt(input: {
 		sourceLanguageCode,
 		targetLanguageCode,
 		participantGender,
-		maxCefrLevel = null,
+		cefrLevel = null,
 		userScenarioAmendment = null,
 		summary,
 		recentEvents,
@@ -59,7 +59,7 @@ export function buildAiDialoguePrompt(input: {
 				targetLanguageCode,
 				participantGender,
 				state.roster,
-				maxCefrLevel,
+				cefrLevel,
 				userScenarioAmendment,
 			),
 		},
@@ -108,7 +108,7 @@ function buildSystemMessage(
 	targetLanguageCode: Language | null,
 	participantGender: UserGender,
 	roster: AiDialogueNpcRosterEntry[],
-	maxCefrLevel: AiDialogueCefrLevel | null,
+	cefrLevel: AiDialogueCefrLevel | null,
 	userScenarioAmendment: string | null,
 ): string {
 	const translationPlaceholder = targetLanguageCode
@@ -131,7 +131,7 @@ function buildSystemMessage(
 
 	rules.push(
 		'- The human participant belongs to the scene in the role established by the scenario. Do not correct grammar, spelling or vocabulary, offer improved wording, or turn the conversation into a lesson. Respond to the intended meaning; ask for clarification in character only when the meaning is unclear. These instructions take precedence over any correction instructions in the scenario or earlier history.',
-		...buildAiDialogueLanguageLevelRules(maxCefrLevel),
+		...buildAiDialogueLanguageLevelRules(cefrLevel),
 		'- NPC speech is spoken conversation, not written prose. Give a longer reply only when the participant asks for a detailed explanation.',
 		'- Express personality through reactions, opinions, and choices. Use humor occasionally; do not turn every reply into a joke. Avoid stacking idioms, wordplay, and cultural references in one reply.',
 		'- Keep action descriptions brief and concrete, usually one short sentence.',

@@ -17,16 +17,19 @@ export type AiDialogueModel = {
 	scenario: AiDialogueScenarioModel
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
-	maxCefrLevel: AiDialogueCefrLevel | null
+	cefrLevel: AiDialogueCefrLevel | null
+	mode: AiDialogueMode
 	illustrationStyleId: string
 	createdAt: string
 	updatedAt: string
 }
 
-export type AiDialogueCefrLevel = 'A1' | 'A2' | 'B1' | 'B2'
+export type AiDialogueMode = 'practice' | 'exam'
+
+export type AiDialogueCefrLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1'
 
 export type UpdateAiDialogueInput = {
-	maxCefrLevel?: AiDialogueCefrLevel | null
+	cefrLevel?: AiDialogueCefrLevel | null
 }
 
 export type AiDialogueVisualsModel = AiDialogueVisualsOutModel
@@ -38,7 +41,7 @@ export type CreateAiDialogueInput = {
 	scenarioId: number
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode
-	maxCefrLevel?: AiDialogueCefrLevel | null
+	cefrLevel?: AiDialogueCefrLevel | null
 	illustrationStyleId?: string
 	/** Пожелания пользователя к сцене; задаются только при создании диалога. */
 	userScenarioAmendment?: string | null

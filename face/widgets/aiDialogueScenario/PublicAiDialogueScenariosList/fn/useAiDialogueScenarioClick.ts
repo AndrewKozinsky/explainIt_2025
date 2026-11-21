@@ -63,7 +63,7 @@ export function useAiDialogueScenarioClick() {
 				const result = await aiDialogueService.createDialogue({
 					scenarioId: selectedScenarioId,
 					sourceLanguageCode: options.sourceLanguageCode,
-					maxCefrLevel: options.maxCefrLevel,
+					cefrLevel: options.cefrLevel,
 					illustrationStyleId: options.illustrationStyleId,
 					userScenarioAmendment: options.userScenarioAmendment,
 					targetLanguageCode: locale as LanguageCode,
@@ -86,7 +86,7 @@ export function useAiDialogueScenarioClick() {
 						dialogue_id: result.data.id,
 						scenario_id: selectedScenarioId,
 						practice_language: options.sourceLanguageCode,
-						max_cefr_level: options.maxCefrLevel ?? null,
+						cefr_level: options.cefrLevel ?? null,
 						illustration_style_id: options.illustrationStyleId,
 						has_scenario_amendment: Boolean(options.userScenarioAmendment?.trim()),
 					})

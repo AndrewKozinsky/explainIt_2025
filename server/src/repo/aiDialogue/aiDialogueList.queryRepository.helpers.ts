@@ -28,7 +28,8 @@ const characterSelect = {
 const dialogueSelect = {
 	id: true,
 	source_language_code: true,
-	max_cefr_level: true,
+	cefr_level: true,
+	mode: true,
 	created_at: true,
 	scenario: { select: { id: true, title: true } },
 	AiDialogueCharacter: { orderBy: { id: 'asc' }, select: characterSelect },
@@ -76,8 +77,12 @@ export async function mapAiDialogueListPage(
 
 	const signedImages = new Map<string, Promise<AiDialogueImageOutModel>>()
 	const mapImage = (image?: ImageDb) => {
-		if (!image) return Promise.resolve(null)
-		if (!signedImages.has(image.s3_key)) signedImages.set(image.s3_key, mapAiDialogueImage(image, getFileUrl))
+		if (!image) {
+			return Promise.resolve(null)
+		}
+		if (!signedImages.has(image.s3_key)) {
+			signedImages.set(image.s3_key, mapAiDialogueImage(image, getFileUrl))
+		}
 
 		return signedImages.get(image.s3_key)!
 	}
@@ -118,7 +123,8 @@ export async function mapAiDialogueListPage(
 			id: dialogue.id,
 			scenario: { id: dialogue.scenario.id, title: pickLocalized(dialogue.scenario.title, locale) },
 			sourceLanguageCode: dialogue.source_language_code,
-			maxCefrLevel: dialogue.max_cefr_level,
+			cefrLevel: dialogue.cefr_level,
+			mode: dialogue.mode,
 			createdAt: dialogue.created_at.toISOString(),
 			lastMessage: getAiDialogueLastMessage(lastMessageByDialogueId.get(dialogue.id)),
 			sceneImage: await mapImage(sceneByDialogueId.get(dialogue.id)?.AiDialogueImage[0]),
@@ -162,6 +168,7 @@ async function readLastMessages(tx: Prisma.TransactionClient, dialogueIds: numbe
 		where: { dialogue_id: { in: dialogueIds }, type: { in: ['npcActions', 'sceneUpdate'] } },
 		_max: { id: true },
 	})
+
 	const ids = groups.flatMap((group) => (group._max.id === null ? [] : [group._max.id]))
 	if (!ids.length) return []
 

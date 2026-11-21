@@ -394,21 +394,38 @@ export type EnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel = nev
   _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
 }
 
-export type EnumCefrSimplificationLevelNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.CefrSimplificationLevel | Prisma.EnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  in?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel> | $Enums.CefrSimplificationLevel | null
+export type EnumAiDialogueModeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMode | Prisma.EnumAiDialogueModeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueModeFilter<$PrismaModel> | $Enums.AiDialogueMode
 }
 
-export type EnumCefrSimplificationLevelNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.CefrSimplificationLevel | Prisma.EnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  in?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumCefrSimplificationLevelNullableWithAggregatesFilter<$PrismaModel> | $Enums.CefrSimplificationLevel | null
+export type EnumAiDialogueCefrLevelNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueCefrLevel | Prisma.EnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  in?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel> | $Enums.AiDialogueCefrLevel | null
+}
+
+export type EnumAiDialogueModeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMode | Prisma.EnumAiDialogueModeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueModeWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueMode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueModeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueModeFilter<$PrismaModel>
+}
+
+export type EnumAiDialogueCefrLevelNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueCefrLevel | Prisma.EnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  in?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumAiDialogueCefrLevelNullableWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueCefrLevel | null
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel>
 }
 
 export type EnumAiDialogueMessageTypeFilter<$PrismaModel = never> = {
@@ -931,21 +948,38 @@ export type NestedEnumSentenceChatMessageStatusWithAggregatesFilter<$PrismaModel
   _max?: Prisma.NestedEnumSentenceChatMessageStatusFilter<$PrismaModel>
 }
 
-export type NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel = never> = {
-  equals?: $Enums.CefrSimplificationLevel | Prisma.EnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  in?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel> | $Enums.CefrSimplificationLevel | null
+export type NestedEnumAiDialogueModeFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMode | Prisma.EnumAiDialogueModeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueModeFilter<$PrismaModel> | $Enums.AiDialogueMode
 }
 
-export type NestedEnumCefrSimplificationLevelNullableWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.CefrSimplificationLevel | Prisma.EnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  in?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  notIn?: $Enums.CefrSimplificationLevel[] | Prisma.ListEnumCefrSimplificationLevelFieldRefInput<$PrismaModel> | null
-  not?: Prisma.NestedEnumCefrSimplificationLevelNullableWithAggregatesFilter<$PrismaModel> | $Enums.CefrSimplificationLevel | null
+export type NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueCefrLevel | Prisma.EnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  in?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel> | $Enums.AiDialogueCefrLevel | null
+}
+
+export type NestedEnumAiDialogueModeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueMode | Prisma.EnumAiDialogueModeFieldRefInput<$PrismaModel>
+  in?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.AiDialogueMode[] | Prisma.ListEnumAiDialogueModeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumAiDialogueModeWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueMode
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueModeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueModeFilter<$PrismaModel>
+}
+
+export type NestedEnumAiDialogueCefrLevelNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AiDialogueCefrLevel | Prisma.EnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  in?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.AiDialogueCefrLevel[] | Prisma.ListEnumAiDialogueCefrLevelFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumAiDialogueCefrLevelNullableWithAggregatesFilter<$PrismaModel> | $Enums.AiDialogueCefrLevel | null
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumCefrSimplificationLevelNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAiDialogueCefrLevelNullableFilter<$PrismaModel>
 }
 
 export type NestedEnumAiDialogueMessageTypeFilter<$PrismaModel = never> = {

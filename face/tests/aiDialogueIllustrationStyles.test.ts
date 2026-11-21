@@ -58,7 +58,7 @@ test('creation sends the selected style and detail mapping preserves the saved s
 		scenarioId: 2,
 		sourceLanguageCode: 'fr' as const,
 		targetLanguageCode: 'ru' as const,
-		maxCefrLevel: null,
+		cefrLevel: null,
 		illustrationStyleId: 'pastel',
 	}
 

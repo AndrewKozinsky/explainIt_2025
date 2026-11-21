@@ -34,7 +34,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","groups":[]}') {
 			scenario_id: 1,
 			source_language_code: 'en',
 			target_language_code: 'ru',
-			max_cefr_level: null,
+			cefr_level: null,
 			summary: null,
 			summary_up_to: 0,
 		}),
@@ -148,14 +148,14 @@ describe('language settings snapshot per turn', () => {
 			scenario_id: 1,
 			source_language_code: 'en',
 			target_language_code: 'ru',
-			max_cefr_level: 'A2',
+			cefr_level: 'A2',
 			summary: null,
 			summary_up_to: 0,
 		}
 		dialogue.getDialogueById.mockImplementation(async () => ({ ...stored }))
 		llm.generate.mockImplementationOnce(async () => {
 			// A PATCH completes while the first request is in progress.
-			stored.max_cefr_level = 'B1'
+			stored.cefr_level = 'B1'
 			return { ...output, content: 'invalid response' }
 		})
 		const log = jest.spyOn(console, 'log').mockImplementation(() => undefined)
@@ -170,7 +170,7 @@ describe('language settings snapshot per turn', () => {
 			await service.generate(3)
 			expect(llm.generate.mock.calls[2][0].messages[0].content).toContain('level of this dialogue is CEFR B1')
 
-			dialogue.getDialogueById.mockResolvedValue({ ...stored, max_cefr_level: null })
+			dialogue.getDialogueById.mockResolvedValue({ ...stored, cefr_level: null })
 			await service.generate(3)
 			expect(llm.generate.mock.calls[3][0].messages[0].content).toContain('There is no CEFR complexity limit')
 		} finally {

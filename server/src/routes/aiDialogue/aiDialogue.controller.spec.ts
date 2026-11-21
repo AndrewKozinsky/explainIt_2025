@@ -159,15 +159,15 @@ describe('AiDialogueController CQRS dispatch', () => {
 
 	it('dispatches a settings update with the authenticated owner and explicit null', async () => {
 		const { controller, bus, request } = harness()
-		bus.execute.mockResolvedValue({ id: 1, maxCefrLevel: null })
+		bus.execute.mockResolvedValue({ id: 1, cefrLevel: null })
 
-		await expect(controller.updateAiDialogue(1, { maxCefrLevel: null }, request, 'ru')).resolves.toEqual({
+		await expect(controller.updateAiDialogue(1, { cefrLevel: null }, request, 'ru')).resolves.toEqual({
 			id: 1,
-			maxCefrLevel: null,
+			cefrLevel: null,
 		})
 
 		expect(bus.execute).toHaveBeenCalledWith(
-			expect.objectContaining({ dto: { userId: 7, dialogueId: 1, maxCefrLevel: null, locale: 'ru' } }),
+			expect.objectContaining({ dto: { userId: 7, dialogueId: 1, cefrLevel: null, locale: 'ru' } }),
 		)
 	})
 

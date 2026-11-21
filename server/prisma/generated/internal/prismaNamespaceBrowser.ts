@@ -354,6 +354,7 @@ export const AiDialogueScenarioScalarFieldEnum = {
   system_prompt: 'system_prompt',
   user_scenario_amendment_hint: 'user_scenario_amendment_hint',
   conversation_ideas: 'conversation_ideas',
+  medal_s3_keys: 'medal_s3_keys',
   trained_skills: 'trained_skills',
   position: 'position',
   group_id: 'group_id',
@@ -368,7 +369,8 @@ export type AiDialogueScenarioScalarFieldEnum = (typeof AiDialogueScenarioScalar
 export const AiDialogueScalarFieldEnum = {
   illustration_style_id: 'illustration_style_id',
   user_scenario_amendment: 'user_scenario_amendment',
-  max_cefr_level: 'max_cefr_level',
+  mode: 'mode',
+  cefr_level: 'cefr_level',
   id: 'id',
   scenario_id: 'scenario_id',
   user_id: 'user_id',
@@ -388,8 +390,8 @@ export const AiDialogueMessageScalarFieldEnum = {
   dialogue_id: 'dialogue_id',
   character_id: 'character_id',
   type: 'type',
-  request_id: 'request_id',
   payload: 'payload',
+  request_id: 'request_id',
   created_at: 'created_at'
 } as const
 

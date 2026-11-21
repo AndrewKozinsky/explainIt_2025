@@ -74,11 +74,11 @@ describe('CreateAiDialogue language settings', () => {
 
 	it.each([...AI_DIALOGUE_CEFR_LEVELS, null, undefined])(
 		'passes %s through creation and returns it',
-		async (maxCefrLevel) => {
+		async (cefrLevel) => {
 			const scenario = { getScenarioById: jest.fn().mockResolvedValue({ user_id: null }) }
 			const repository = { createDialogue: jest.fn().mockResolvedValue({ id: 1 }) }
 			const query = {
-				getDialogueById: jest.fn().mockResolvedValue({ id: 1, maxCefrLevel: maxCefrLevel ?? null }),
+				getDialogueById: jest.fn().mockResolvedValue({ id: 1, cefrLevel: cefrLevel ?? null }),
 			}
 			const handler = new CreateAiDialogueHandler(
 				scenario as never,
@@ -95,12 +95,12 @@ describe('CreateAiDialogue language settings', () => {
 						sourceLanguageCode: 'en',
 						targetLanguageCode: 'ru',
 						locale: 'ru',
-						maxCefrLevel,
+						cefrLevel,
 					}),
 				),
-			).resolves.toEqual({ id: 1, maxCefrLevel: maxCefrLevel ?? null })
+			).resolves.toEqual({ id: 1, cefrLevel: cefrLevel ?? null })
 
-			expect(repository.createDialogue).toHaveBeenCalledWith(expect.objectContaining({ maxCefrLevel }))
+			expect(repository.createDialogue).toHaveBeenCalledWith(expect.objectContaining({ cefrLevel }))
 		},
 	)
 
