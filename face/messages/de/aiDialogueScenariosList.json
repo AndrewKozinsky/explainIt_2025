@@ -12,7 +12,12 @@
     "defaultUserScenarioAmendmentHint": "Zum Beispiel, wo die Handlung spielt und wer Ihr Gesprächspartner ist",
     "start": "Gespräch starten",
     "conversationIdeas": "Ideen für das Gespräch",
-    "trainedSkills": "Was trainiert wird"
+    "trainedSkills": "Was trainiert wird",
+    "mode": "Modus",
+    "practice": "Übung",
+    "exam": "Prüfung",
+    "initialTextLevel": "Anfangsschwierigkeit",
+    "initialTextLevelDescription": "Wähle die Schwierigkeit zu Beginn des Gesprächs"
   },
   "loginModal": {
     "header": "Melden Sie sich an",

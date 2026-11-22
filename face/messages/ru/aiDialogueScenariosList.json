@@ -12,7 +12,12 @@
     "defaultUserScenarioAmendmentHint": "Например, где происходит действие и кто ваш собеседник",
     "start": "Начать диалог",
     "conversationIdeas": "Идеи для диалога",
-    "trainedSkills": "Что тренирует"
+    "trainedSkills": "Что тренирует",
+    "mode": "Режим",
+    "practice": "Практика",
+    "exam": "Экзамен",
+    "initialTextLevel": "Начальная сложность",
+    "initialTextLevelDescription": "Выберите сложность начала разговора"
   },
   "loginModal": {
     "header": "Войдите в учётную запись",

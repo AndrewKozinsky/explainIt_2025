@@ -3,7 +3,7 @@ import { AiDialogueQueryRepository } from 'repo/aiDialogue/aiDialogue.queryRepos
 import { AiDialogueRepository } from 'repo/aiDialogue/aiDialogue.repository'
 import { AiDialogueScenarioRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.repository'
 import { Language } from 'utils/languages'
-import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import { AiDialogueMode, AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { UserBalanceService } from 'features/billing/UserBalance.service'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -18,6 +18,7 @@ export class CreateAiDialogueCommand implements ICommand {
 			scenarioId: number
 			sourceLanguageCode: Language
 			targetLanguageCode: Language
+			mode?: AiDialogueMode | null
 			cefrLevel?: AiDialogueCefrLevel | null
 			illustrationStyleId?: string | null
 			/** Пожелания пользователя к сцене; пустая строка сохраняется как null. */
@@ -61,6 +62,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			sourceLanguageCode,
 			targetLanguageCode,
 			cefrLevel,
+			mode: command.dto.mode ?? 'practice',
 			illustrationStyleId,
 			userScenarioAmendment,
 		})

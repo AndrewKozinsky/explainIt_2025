@@ -180,3 +180,4 @@ export * from './createAiDialogueInputCefrLevel';
 export * from './aiDialogueOutModelMode';
 export * from './aiDialogueListItemOutModelMode';
 export * from './updateAiDialogueInputCefrLevel';
+export * from './createAiDialogueInputMode';

@@ -6,10 +6,16 @@
  * OpenAPI spec version: 1.0
  */
 import type { CreateAiDialogueInputCefrLevel } from './createAiDialogueInputCefrLevel';
+import type { CreateAiDialogueInputMode } from './createAiDialogueInputMode';
 import type { CreateAiDialogueInputSourceLanguageCode } from './createAiDialogueInputSourceLanguageCode';
 import type { CreateAiDialogueInputTargetLanguageCode } from './createAiDialogueInputTargetLanguageCode';
 
 export interface CreateAiDialogueInput {
+  /**
+     * Dialogue mode: assisted practice or independent exam attempt.
+     * @nullable
+     */
+  mode?: CreateAiDialogueInputMode;
   /**
      * Stable illustration style ID selected once at creation. Existing dialogues default to realism.
      * @minLength 1

@@ -10,6 +10,32 @@ import { CreateAiDialogueCommand, CreateAiDialogueHandler } from './CreateAiDial
 const balance = { ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined) }
 
 describe('CreateAiDialogue language settings', () => {
+	it.each(['practice', 'exam', undefined, null] as const)('passes mode %s to persistence', async (mode) => {
+		const scenario = { getScenarioById: jest.fn().mockResolvedValue({ user_id: null }) }
+		const repository = { createDialogue: jest.fn().mockResolvedValue({ id: 1 }) }
+		const query = { getDialogueById: jest.fn().mockResolvedValue({ id: 1 }) }
+		const handler = new CreateAiDialogueHandler(
+			scenario as never,
+			repository as never,
+			query as never,
+			balance as never,
+		)
+		await handler.execute(
+			new CreateAiDialogueCommand({
+				userId: 7,
+				scenarioId: 2,
+				sourceLanguageCode: 'en',
+				targetLanguageCode: 'ru',
+				locale: 'ru',
+				mode,
+				cefrLevel: 'C1',
+			}),
+		)
+		expect(repository.createDialogue).toHaveBeenCalledWith(
+			expect.objectContaining({ mode: mode ?? 'practice', cefrLevel: 'C1' }),
+		)
+	})
+
 	it.each(['realism', 'drawing', 'watercolor', undefined, null])(
 		'persists the selected illustration style %s',
 		async (illustrationStyleId) => {

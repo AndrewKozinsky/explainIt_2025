@@ -130,6 +130,8 @@ async function setup(
 				sourceLanguageCode: 'en',
 				targetLanguageCode: 'ru',
 				illustrationStyleId: route.request().postDataJSON().illustrationStyleId,
+				mode: route.request().postDataJSON().mode,
+				cefrLevel: route.request().postDataJSON().cefrLevel,
 				createdAt: '2026-10-25T00:00:00Z',
 				updatedAt: '2026-10-25T00:00:00Z',
 			},
@@ -183,14 +185,16 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	await expect(page.locator('.start-dialogue-modal__idea')).toHaveText(['Уточнить детали', 'Договориться о решении'])
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveAttribute('src', '/test-cover.svg')
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveJSProperty('naturalWidth', 1152)
-	await expect(page.locator('.modal .switcher--size-medium')).toBeVisible()
+	await expect(page.locator('.modal .switcher--size-medium')).toHaveCount(2)
+	for (const switcher of await page.locator('.modal .switcher--size-medium').all())
+		await expect(switcher).toBeVisible()
 	await expect(page.locator('.modal .label-with-field__description')).toHaveText('Можно изменить во время разговора')
 	await expect(page.getByRole('radio', { name: 'Реализм', exact: true })).toBeChecked()
 	await expect(page.getByRole('radio')).toHaveCount(3)
 	const previews = page.locator('.illustration-style-switcher__preview')
 	for (const preview of await previews.all()) {
 		const box = (await preview.boundingBox())!
-		expect(box.width).toBeCloseTo(box.height)
+		expect(box.width / box.height).toBeCloseTo(4 / 3)
 	}
 	await page
 		.locator('.start-dialogue-modal')
@@ -232,7 +236,7 @@ test('mobile cards stay within the viewport and keep their cover slot after imag
 	expect(modal.x + modal.width).toBeLessThanOrEqual(390)
 	for (const preview of await page.locator('.illustration-style-switcher__preview').all()) {
 		const box = (await preview.boundingBox())!
-		expect(box.width).toBeCloseTo(box.height)
+		expect(box.width / box.height).toBeCloseTo(4 / 3)
 	}
 	await page
 		.locator('.start-dialogue-modal')
@@ -287,6 +291,7 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 			sourceLanguageCode: 'fr',
 			targetLanguageCode: 'ru',
 			cefrLevel: 'B1',
+			mode: 'practice',
 			illustrationStyleId: 'realism',
 			userScenarioAmendment: null,
 		},
@@ -317,7 +322,7 @@ test('language and level persist independently of video filters; Any persists an
 	const card = page.getByRole('button', { name: titles[0], exact: true })
 	await card.click()
 	await expect(page.locator('.modal').getByRole('button', { name: /^en$/i })).toBeDisabled()
-	await expect(page.locator('.modal').getByRole('button', { name: 'Any', exact: true })).toBeDisabled()
+	await expect(page.locator('.modal').getByRole('button', { name: 'Любой', exact: true })).toBeDisabled()
 	expect(await page.evaluate(() => localStorage.getItem('lastLanguage'))).toBe('ru')
 	await page.locator('.modal').getByRole('button', { name: /^de$/i }).click()
 	expect(await page.evaluate(() => localStorage.getItem('lastLanguage'))).toBe('de')
@@ -332,11 +337,11 @@ test('language and level persist independently of video filters; Any persists an
 	await expect(page.locator('.modal').getByRole('button', { name: /^de$/i })).toBeDisabled()
 	await expect(page.locator('.modal').getByRole('button', { name: 'A2', exact: true })).toBeDisabled()
 	await page.locator('.modal').getByRole('button', { name: 'A1', exact: true }).click()
-	await page.locator('.modal').getByRole('button', { name: 'Any', exact: true }).click()
+	await page.locator('.modal').getByRole('button', { name: 'Любой', exact: true }).click()
 	expect(await page.evaluate(() => localStorage.getItem('lastAiDialogProficiency'))).toBe('Any')
 	await page.locator('.modal__close-button').click()
 	await card.click()
-	await expect(page.locator('.modal').getByRole('button', { name: 'Any', exact: true })).toBeDisabled()
+	await expect(page.locator('.modal').getByRole('button', { name: 'Любой', exact: true })).toBeDisabled()
 	expect(await page.evaluate(() => localStorage.getItem('lastVideoProficiency'))).toBe('C1')
 	await page.getByRole('button', { name: /Начать диалог$/ }).click()
 	await expect.poll(() => h.posts.length).toBe(1)
@@ -346,6 +351,7 @@ test('language and level persist independently of video filters; Any persists an
 			sourceLanguageCode: 'de',
 			targetLanguageCode: 'ru',
 			cefrLevel: null,
+			mode: 'practice',
 			illustrationStyleId: 'realism',
 			userScenarioAmendment: null,
 		},
@@ -416,7 +422,7 @@ test('an empty style catalog keeps creation disabled', async ({ page }) => {
 	expect(h.posts).toHaveLength(0)
 })
 
-test('broken previews preserve square slots and allow choosing a style by its label', async ({ page }) => {
+test('broken previews preserve their slots and allow choosing a style by its label', async ({ page }) => {
 	const h = await setup(page, { brokenStyle: true, authenticated: true })
 	await page.getByRole('button', { name: titles[0], exact: true }).click()
 	await expect(page.getByRole('radio')).toHaveCount(3)
@@ -453,5 +459,32 @@ test('style titles and the selector label are translated on the client', async (
 	await expect(page.getByRole('radio')).toHaveCount(3)
 	await expect(page.getByRole('radio', { name: 'Realism', exact: true })).toBeChecked()
 	await expect(page.getByRole('radio', { name: 'Watercolor', exact: true })).toBeVisible()
+	expect(h.errors).toEqual([])
+})
+
+test('exam offers A1–C1, restores unrestricted practice and sends the selected mode', async ({ page }, testInfo) => {
+	const h = await setup(page, { authenticated: true })
+	await page.getByRole('button', { name: titles[0], exact: true }).click()
+	const modal = page.locator('.start-dialogue-modal')
+	await expect(modal.getByRole('button', { name: 'Практика', exact: true })).toBeDisabled()
+	await expect(modal.getByRole('button', { name: 'Любой', exact: true })).toBeDisabled()
+	await modal.getByRole('button', { name: 'Экзамен', exact: true }).click()
+	await expect(modal.getByRole('button', { name: 'Любой', exact: true })).toHaveCount(0)
+	await expect(modal.getByRole('button', { name: 'A1', exact: true })).toBeDisabled()
+	await expect(modal.getByText('Начальная сложность', { exact: true })).toBeVisible()
+	await expect(modal.getByText('Можно изменить во время разговора', { exact: true })).toHaveCount(0)
+	await modal.getByRole('button', { name: 'Практика', exact: true }).click()
+	await expect(modal.getByRole('button', { name: 'Любой', exact: true })).toBeDisabled()
+	await modal.getByRole('button', { name: 'Экзамен', exact: true }).click()
+	await modal.getByRole('button', { name: 'C1', exact: true }).click()
+	await modal.screenshot({ path: testInfo.outputPath('scenario-exam-start.png') })
+	await modal.getByRole('button', { name: /Начать диалог$/ }).click()
+	await expect.poll(() => h.posts.length).toBe(1)
+	expect(h.posts[0]).toMatchObject({ mode: 'exam', cefrLevel: 'C1' })
+	await expect(modal.getByRole('button', { name: 'Практика', exact: true })).toBeDisabled()
+	h.finishCreation(true)
+	await expect(page.getByRole('alert')).toBeVisible()
+	await expect(modal.getByRole('button', { name: 'Экзамен', exact: true })).toBeDisabled()
+	await expect(modal.getByRole('button', { name: 'C1', exact: true })).toBeDisabled()
 	expect(h.errors).toEqual([])
 })

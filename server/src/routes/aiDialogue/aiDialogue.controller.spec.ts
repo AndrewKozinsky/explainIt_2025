@@ -99,7 +99,7 @@ describe('AiDialogueController CQRS dispatch', () => {
 		await expect(controller.getAiDialogueIllustrationStyles()).resolves.toBe(catalog)
 	})
 
-	it('forwards the selected style when creating a dialogue', async () => {
+	it('forwards the selected mode and style when creating a dialogue', async () => {
 		const { controller, bus, request } = harness()
 		bus.execute.mockResolvedValue({ id: 1 })
 
@@ -109,13 +109,21 @@ describe('AiDialogueController CQRS dispatch', () => {
 				sourceLanguageCode: 'en',
 				targetLanguageCode: 'ru',
 				illustrationStyleId: 'watercolor',
+				mode: 'exam',
+				cefrLevel: 'C1',
 			},
 			request,
 			'ru',
 		)
 		expect(bus.execute).toHaveBeenCalledWith(
 			expect.objectContaining({
-				dto: expect.objectContaining({ userId: 7, illustrationStyleId: 'watercolor', locale: 'ru' }),
+				dto: expect.objectContaining({
+					userId: 7,
+					illustrationStyleId: 'watercolor',
+					mode: 'exam',
+					cefrLevel: 'C1',
+					locale: 'ru',
+				}),
 			}),
 		)
 	})

@@ -12,7 +12,12 @@
     "defaultUserScenarioAmendmentHint": "Örneğin, olayın nerede geçtiği ve kiminle konuştuğunuz",
     "start": "Sohbeti başlat",
     "conversationIdeas": "Sohbet fikirleri",
-    "trainedSkills": "Neleri geliştirir"
+    "trainedSkills": "Neleri geliştirir",
+    "mode": "Mod",
+    "practice": "Pratik",
+    "exam": "Sınav",
+    "initialTextLevel": "Başlangıç zorluğu",
+    "initialTextLevelDescription": "Konuşmanın başlangıç zorluğunu seçin"
   },
   "loginModal": {
     "header": "Hesabınıza giriş yapın",

@@ -79,3 +79,14 @@ it('exposes the allowed values and optional nullable input in OpenAPI metadata',
 		nullable: true,
 	})
 })
+
+describe('creation mode', () => {
+	it.each(['practice', 'exam', null, undefined])('accepts %s', (mode) => {
+		const result = plainToInstance(CreateAiDialogueInput, { ...creation, mode })
+		expect(validateSync(result, { whitelist: true, forbidNonWhitelisted: true })).toEqual([])
+	})
+	it.each(['EXAM', '', 1, ['exam']])('rejects %j', (mode) => {
+		const result = plainToInstance(CreateAiDialogueInput, { ...creation, mode })
+		expect(validateSync(result)).toEqual([expect.objectContaining({ property: 'mode' })])
+	})
+})

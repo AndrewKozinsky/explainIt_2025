@@ -1,3 +1,4 @@
+import type { AiDialogueMode } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import { useState } from 'react'
 import type { CreateAiDialogueInput } from '@/entities/aiDialogue/AiDialogueService'
 import { type AiDialogueTextLevel, textLevels } from '@/entities/aiDialogue/ui/TextLevelSwitcher'
@@ -8,6 +9,7 @@ import { useLanguagesToLearn } from '@/shared/utils/useLanguagesToLearn'
 import { useStartDialogueIllustrationStyle } from './useStartDialogueIllustrationStyle'
 
 export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCode' | 'cefrLevel'> & {
+	mode: AiDialogueMode
 	illustrationStyleId: string
 	userScenarioAmendment: string | null
 }
@@ -17,6 +19,7 @@ export type StartDialogueOptions = Pick<CreateAiDialogueInput, 'sourceLanguageCo
  * Пожелания к сцене относятся к конкретному сценарию, поэтому не сохраняются и начинаются с пустой строки.
  */
 export function useStartDialogueOptions() {
+	const [mode, changeMode] = useState<AiDialogueMode>('practice')
 	const illustrationStyles = useStartDialogueIllustrationStyle()
 	// Переводы в диалоге идут на язык интерфейса, поэтому изучать его самого нет смысла
 	const practiceLanguages = useLanguagesToLearn()
@@ -31,6 +34,8 @@ export function useStartDialogueOptions() {
 		const savedLevel = localStorageManager.lastAiDialogProficiency.get()
 		return textLevels.find((level) => level === savedLevel) ?? 'Any'
 	})
+
+	const selectedTextLevel = mode === 'exam' && textLevel === 'Any' ? 'A1' : textLevel
 
 	const [userScenarioAmendment, setUserScenarioAmendment] = useState('')
 
@@ -52,7 +57,8 @@ export function useStartDialogueOptions() {
 	if (illustrationStyles.selectedStyleId && !isUserScenarioAmendmentTooLong) {
 		options = {
 			sourceLanguageCode: practiceLanguage,
-			cefrLevel: textLevel === 'Any' ? null : textLevel,
+			mode,
+			cefrLevel: selectedTextLevel === 'Any' ? null : selectedTextLevel,
 			illustrationStyleId: illustrationStyles.selectedStyleId,
 			userScenarioAmendment: trimmedUserScenarioAmendment || null,
 		}
@@ -62,7 +68,9 @@ export function useStartDialogueOptions() {
 		practiceLanguages,
 		practiceLanguage,
 		changePracticeLanguage,
-		textLevel,
+		mode,
+		changeMode,
+		textLevel: selectedTextLevel,
 		changeTextLevel,
 		userScenarioAmendment,
 		changeUserScenarioAmendment: setUserScenarioAmendment,

@@ -1,3 +1,4 @@
+import Switcher from '@/shared/ui/Switcher/Switcher'
 import { useTranslations } from 'next-intl'
 import IllustrationStyleSwitcher from '@/entities/aiDialogue/ui/IllustrationStyleSwitcher/IllustrationStyleSwitcher'
 import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
@@ -35,6 +36,19 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 			<div className='start-dialogue-modal__content'>
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
 				<ScenarioPracticeHints scenario={scenario} />
+				<LabelWithField label={t('mode')}>
+					<Switcher
+						type='fit'
+						orientation='horizontal'
+						size='medium'
+						disabled={loading}
+						items={(['practice', 'exam'] as const).map((mode) => ({
+							text: t(mode),
+							isCurrent: settings.mode === mode,
+							onClick: () => settings.changeMode(mode),
+						}))}
+					/>
+				</LabelWithField>
 				<LabelWithField label={t('practiceLanguage')}>
 					<LanguageSwitch
 						languages={settings.practiceLanguages}
@@ -48,7 +62,9 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 					onTextLevelChange={settings.changeTextLevel}
 					disabled={loading}
 					size='medium'
-					description={t('textLevelDescription')}
+					allowUnrestricted={settings.mode === 'practice'}
+					label={settings.mode === 'exam' ? t('initialTextLevel') : undefined}
+					description={t(settings.mode === 'exam' ? 'initialTextLevelDescription' : 'textLevelDescription')}
 				/>
 				<IllustrationStyleSwitcher
 					styles={settings.illustrationStyles.styles}

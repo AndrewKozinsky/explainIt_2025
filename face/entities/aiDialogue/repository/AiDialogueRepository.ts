@@ -38,6 +38,7 @@ export type AiDialogueVisualsModel = AiDialogueVisualsOutModel
  * Унифицированный тип для создания диалога.
  */
 export type CreateAiDialogueInput = {
+	mode?: AiDialogueMode
 	scenarioId: number
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode

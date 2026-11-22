@@ -4,13 +4,41 @@ import { NextIntlClientProvider } from 'next-intl'
 import AiDialoguesPage from '@/_pages/aiDialogues/AiDialoguesPage/AiDialoguesPage'
 import type { UserModel } from '@/entities/user/UserService'
 import enAiDialogueMessages from '@/messages/en/aiDialogue.json'
+import enaiDialogueScenariosList from '@/messages/en/aiDialogueScenariosList.json'
+import enaiDialoguesPage from '@/messages/en/aiDialoguesPage.json'
+import enauth from '@/messages/en/auth.json'
+import enbalanceExhaustedNotice from '@/messages/en/balanceExhaustedNotice.json'
+import enpageUrls from '@/messages/en/pageUrls.json'
+import enuserAiDialogues from '@/messages/en/userAiDialogues.json'
 import ruAiDialogueMessages from '@/messages/ru/aiDialogue.json'
+import ruaiDialogueScenariosList from '@/messages/ru/aiDialogueScenariosList.json'
+import ruaiDialoguesPage from '@/messages/ru/aiDialoguesPage.json'
+import ruauth from '@/messages/ru/auth.json'
+import rubalanceExhaustedNotice from '@/messages/ru/balanceExhaustedNotice.json'
+import rupageUrls from '@/messages/ru/pageUrls.json'
+import ruuserAiDialogues from '@/messages/ru/userAiDialogues.json'
 import { UserProvider } from '@/shared/api/auth/UserProvider'
 import { NotificationContext, type NotifyArg } from '@/shared/ui/Notification/fn/context'
 
-// Странице диалогов нужен только раздел переводов aiDialogue
-const enMessages = { aiDialogue: enAiDialogueMessages }
-const ruMessages = { aiDialogue: ruAiDialogueMessages }
+// Переводы настоящей страницы сценариев и её модального окна.
+const enMessages = {
+	aiDialogue: enAiDialogueMessages,
+	aiDialogueScenariosList: enaiDialogueScenariosList,
+	aiDialoguesPage: enaiDialoguesPage,
+	pageUrls: enpageUrls,
+	userAiDialogues: enuserAiDialogues,
+	balanceExhaustedNotice: enbalanceExhaustedNotice,
+	auth: enauth,
+}
+const ruMessages = {
+	aiDialogue: ruAiDialogueMessages,
+	aiDialogueScenariosList: ruaiDialogueScenariosList,
+	aiDialoguesPage: ruaiDialoguesPage,
+	pageUrls: rupageUrls,
+	userAiDialogues: ruuserAiDialogues,
+	balanceExhaustedNotice: rubalanceExhaustedNotice,
+	auth: ruauth,
+}
 
 const client = new QueryClient({ defaultOptions: { queries: { retry: false, gcTime: 0 } } })
 const user: UserModel = {

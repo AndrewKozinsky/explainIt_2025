@@ -22,6 +22,24 @@ function harness() {
 }
 
 describe('dialogue language setting persistence', () => {
+	it.each(['practice', 'exam', undefined, null] as const)(
+		'stores mode %s with practice as the default',
+		async (mode) => {
+			const { repository, prisma } = harness()
+			await repository.createDialogue({
+				userId: 7,
+				scenarioId: 2,
+				sourceLanguageCode: 'en',
+				targetLanguageCode: 'ru',
+				mode,
+				cefrLevel: 'C1',
+			})
+			expect(prisma.aiDialogue.create).toHaveBeenCalledWith({
+				data: expect.objectContaining({ mode: mode ?? 'practice', cefr_level: 'C1' }),
+			})
+		},
+	)
+
 	it.each(['realism', 'drawing', 'watercolor', undefined])(
 		'stores illustration style %s',
 		async (illustrationStyleId) => {

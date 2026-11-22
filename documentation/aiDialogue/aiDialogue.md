@@ -52,8 +52,9 @@
 ## Режимы практики и экзамена
 
 В `AiDialogue.mode` хранится `practice | exam`, default — `practice`. Поле возвращается в деталях
-и списке диалогов. Выбор экзамена при создании, адаптация речи и сдача работы будут добавлены отдельными этапами;
-сейчас создание и обработка сообщений продолжают использовать механику практики.
+и списке диалогов. При создании пользователь выбирает режим. REST принимает необязательный `mode`: `practice` или `exam`;
+отсутствие значения или `null` выбирает практику. Обработка сообщений в обоих режимах пока использует механику практики;
+адаптация речи экзамена, отключение помощи и сдача работы недоступны.
 
 `cefr_level` в БД и `cefrLevel` в REST и клиентских типах задаёт сложность диалога.
 Для практики это выбранная сложность A1–C1 или `null` (без ограничения).
@@ -78,7 +79,7 @@ A0 — внутренний результат «в этой попытке A1 �
 
 ```
 GET    /ai-dialogue/illustration-styles → 200 AiDialogueIllustrationStylesOutModel (публичный)
-POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, cefrLevel?, illustrationStyleId?, userScenarioAmendment? } → 201 AiDialogueOutModel
+POST   /ai-dialogue                body: { scenarioId, sourceLanguageCode, targetLanguageCode, mode?, cefrLevel?, illustrationStyleId?, userScenarioAmendment? } → 201 AiDialogueOutModel
 GET    /ai-dialogue?page=1&pageSize=10 → 200 AiDialoguesPageOutModel
 GET    /ai-dialogue/:id            → 200 AiDialogueOutModel
 PATCH  /ai-dialogue/:id            body: { cefrLevel? } → 200 AiDialogueOutModel

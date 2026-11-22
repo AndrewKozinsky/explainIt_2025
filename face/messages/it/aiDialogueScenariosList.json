@@ -12,7 +12,12 @@
     "defaultUserScenarioAmendmentHint": "Ad esempio, dove si svolge l’azione e chi è il tuo interlocutore",
     "start": "Inizia la conversazione",
     "conversationIdeas": "Idee per la conversazione",
-    "trainedSkills": "Cosa allena"
+    "trainedSkills": "Cosa allena",
+    "mode": "Modalità",
+    "practice": "Pratica",
+    "exam": "Esame",
+    "initialTextLevel": "Difficoltà iniziale",
+    "initialTextLevelDescription": "Scegli la difficoltà all’inizio della conversazione"
   },
   "loginModal": {
     "header": "Accedi al tuo account",

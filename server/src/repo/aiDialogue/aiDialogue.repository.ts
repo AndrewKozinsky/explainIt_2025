@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { Language } from 'utils/languages'
 import { PrismaService } from 'db/prisma.service'
-import { AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import { AiDialogueMode, AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { getNewAiDialogueIllustrationStyle } from 'features/aiDialogue/illustrationStyles/aiDialogueIllustrationStyles'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { Prisma } from 'prisma/generated/client'
@@ -16,6 +16,7 @@ export class AiDialogueRepository {
 		scenarioId: number
 		sourceLanguageCode: Language
 		targetLanguageCode: Language
+		mode?: AiDialogueMode | null
 		cefrLevel?: AiDialogueCefrLevel | null
 		illustrationStyleId?: string | null
 		userScenarioAmendment?: string | null
@@ -27,6 +28,7 @@ export class AiDialogueRepository {
 				source_language_code: dto.sourceLanguageCode,
 				target_language_code: dto.targetLanguageCode,
 				cefr_level: dto.cefrLevel ?? null,
+				mode: dto.mode ?? 'practice',
 				illustration_style_id: getNewAiDialogueIllustrationStyle(dto.illustrationStyleId).id,
 				user_scenario_amendment: dto.userScenarioAmendment ?? null,
 			},

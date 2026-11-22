@@ -13,6 +13,8 @@ type TextLevelSwitcherProps = {
 	disabled?: boolean
 	size?: 'small' | 'medium' | 'big'
 	description?: string
+	label?: string
+	allowUnrestricted?: boolean
 }
 
 function TextLevelSwitcher({
@@ -21,21 +23,25 @@ function TextLevelSwitcher({
 	disabled,
 	size = 'small',
 	description,
+	label,
+	allowUnrestricted = true,
 }: TextLevelSwitcherProps) {
 	const t = useTranslations('aiDialogue.textLevelSwitcher')
 
 	return (
-		<LabelWithField label={t('label')} description={description}>
+		<LabelWithField label={label ?? t('label')} description={description}>
 			<Switcher
 				type='fit'
 				size={size}
 				orientation='horizontal'
 				disabled={disabled}
-				items={textLevels.map((level) => ({
-					text: level === 'Any' ? t('anyLevel') : level,
-					isCurrent: textLevel === level,
-					onClick: () => onTextLevelChange(level),
-				}))}
+				items={textLevels
+					.filter((level) => allowUnrestricted || level !== 'Any')
+					.map((level) => ({
+						text: level === 'Any' ? t('anyLevel') : level,
+						isCurrent: textLevel === level,
+						onClick: () => onTextLevelChange(level),
+					}))}
 			/>
 		</LabelWithField>
 	)
