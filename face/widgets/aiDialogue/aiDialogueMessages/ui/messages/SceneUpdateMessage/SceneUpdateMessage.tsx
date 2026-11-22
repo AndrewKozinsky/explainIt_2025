@@ -1,0 +1,46 @@
+import { getAudioAddress, SCENE_AUDIO_ACTION_INDEX } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { getReplyTextKey } from '@/entities/aiDialogue/replySettings/replyTextVisibilityStore'
+import type {
+	AiDialogueTextMappingProps,
+	AiDialogueWordSelectHandler,
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueUi'
+import AiDialogueContentBlock from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
+import DialogueSceneImage from './DialogueSceneImage'
+import './SceneUpdateMessage.scss'
+
+type SceneUpdateMessageProps = AiDialogueTextMappingProps & {
+	content?: string
+	translation?: string
+	onWordSelect: AiDialogueWordSelectHandler
+	/** ID сохранённого сообщения для озвучки и видимости текста. */
+	messageId: number
+	reserveSpace: boolean
+}
+
+function SceneUpdateMessage({
+	content = '',
+	translation = '',
+	onWordSelect,
+	messageId,
+	reserveSpace,
+	wordMap,
+}: SceneUpdateMessageProps) {
+	return (
+		<div className='ai-dialogue-message-scene-update'>
+			<DialogueSceneImage messageId={messageId} reserveSpace={reserveSpace} />
+			<div className='ai-dialogue-message-scene-update__content'>
+				<AiDialogueContentBlock
+					colorScheme='light'
+					replyTextKey={getReplyTextKey(messageId, SCENE_AUDIO_ACTION_INDEX)}
+					audioAddress={getAudioAddress(messageId, SCENE_AUDIO_ACTION_INDEX)}
+					wordMap={wordMap}
+					content={content}
+					translation={translation}
+					onWordSelect={onWordSelect}
+				/>
+			</div>
+		</div>
+	)
+}
+
+export default SceneUpdateMessage

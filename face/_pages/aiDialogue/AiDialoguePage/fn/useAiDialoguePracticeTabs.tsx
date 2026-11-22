@@ -6,11 +6,11 @@ import { DictionaryButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/Dic
 import { InfoButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/InfoButtonIcon'
 import { MessageButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/MessageButtonIcon'
 import { SettingsButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/SettingsButtonIcon'
-import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
-import AiDialogueMessageReview from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageReview/AiDialogueMessageReview'
-import AiDialoguePracticeInfo from '@/widgets/aiDialoguePractice/AiDialoguePracticeInfo'
-import AiDialogueSettings from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
+import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialogueWordSelection } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueUi'
+import AiDialogueMessageReview from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueMessageReview/AiDialogueMessageReview'
+import AiDialoguePracticeInfo from '@/widgets/aiDialogue/aiDialoguePractice/AiDialoguePracticeInfo'
+import AiDialogueSettings from '@/widgets/aiDialogue/aiDialogueSettings/AiDialogueSettings'
 import { PhraseDictionary } from '@/widgets/dictionary'
 import { useAiDialogueTextLevel } from './useAiDialogueTextLevel'
 import { useAiDialogueWordSelection } from './useAiDialogueWordSelection'
@@ -58,7 +58,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 			id: 'practice',
 			label: <InfoButtonIcon />,
 			ariaLabel: 'О практике',
-			content: <AiDialoguePracticeInfo />,
+			content: <AiDialoguePracticeInfo scenario={dialogue.scenario} />,
 		},
 		{
 			id: 'dictionary',

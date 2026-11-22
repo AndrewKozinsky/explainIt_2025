@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 
 /**
  * Состояние страницы диалога с ИИ.

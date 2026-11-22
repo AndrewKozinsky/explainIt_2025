@@ -82,7 +82,7 @@ SSE-протокол, генерация хода, компакция) опис�
 
 ## Клиентские типы (зеркало серверных)
 
-`face/widgets/aiDialogueMessages/types/aiDialogueMessage.ts` — клиентское зеркало
+`../../face/widgets/aiDialogue/aiDialogueMessages` — клиентское зеркало
 `server/src/types/aiDialogueMessage.ts`:
 
 - `AiDialogueEvent` — union из 6 событий (дискриминатор `type`);
@@ -103,7 +103,8 @@ SSE-протокол, генерация хода, компакция) опис�
 - `turnError` → `setTurnError(error)`;
 - `turnDone` → `setGenerating(false)`;
 - `visualsChanged` и `onopen` → запросить свежий REST-снимок изображений;
-- `onerror` → `setGenerating(false)`, снять автоозвучку. Закрытый EventSource переподключается с задержкой от 1 до 15 секунд.
+- `onerror` → `setGenerating(false)`, снять автоозвучку. Закрытый EventSource переподключается с задержкой от 1 до 15
+  секунд.
 
 После подключения сервер отдаёт историю и, если фоновая генерация ещё идёт, `turnStarted` для восстановления ожидания.
 Чанки и промежуточные попытки генерации клиенту не передаются.
@@ -257,8 +258,8 @@ phrase/слово в поле word
 
 ### Типы и логика
 
-- `face/widgets/aiDialogueMessages/types/aiDialogueMessage.ts` — зеркало серверных типов.
-- `face/widgets/aiDialogueMessages/types/aiDialogueUi.ts` — выбор слова.
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — зеркало серверных типов.
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — выбор слова.
 - `face/_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError.ts` — текст ошибки хода.
 
 ### Entity-слой
@@ -279,16 +280,16 @@ phrase/слово в поле word
 
 ### UI
 
-- `face/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter.tsx` — маршрутизация по `type`.
-- `face/widgets/aiDialogueMessages/ui/messages/*` — компоненты сообщений.
-- `face/widgets/aiDialogueMessages/ui/SegmentedText/SegmentedText.tsx` — разбивка на слова по карте и выбор выражения
-  (поверх `face/shared/ui/ClickableText`).
-- `face/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock.tsx` — контент + перевод,
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — маршрутизация по `type`.
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — компоненты сообщений.
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — разбивка на слова по карте и выбор выражения (поверх
+  `face/shared/ui/ClickableText`).
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — контент + перевод,
   кнопка воспроизведения и кнопка скрытого текста.
-- `face/widgets/aiDialogueSettings/ui/AiDialogueSettings/AutoVoiceToggle.tsx` и `ReplyTextToggle.tsx` — переключатели
+- `../../face/widgets/aiDialogue/aiDialogueSettings` и `ReplyTextToggle.tsx` — переключатели
   «Автоозвучка» и «Текст реплик».
-- `face/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList.tsx` — список сообщений.
-- `face/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput.tsx` — форма ввода + кнопка завершения.
+- `../../face/widgets/aiDialogue/aiDialogueMessages` — список сообщений.
+- `../../face/widgets/aiDialogue/aiDialogueForm` — форма ввода + кнопка завершения.
 
 ### Страница
 
@@ -332,7 +333,9 @@ phrase/слово в поле word
 
 ## Интерфейс экзамена
 
-`DialogueModeContext` задаёт режим всему дереву сообщений. В экзамене `AiDialoguePage` сохраняет `ViewportSyncedHeight` и `DetailsBlock` с пустым массивом `tabs` (компонент возвращает `null`, если вкладок нет): отсутствуют «Словарь», «Сообщение» и «Настройки». Панель прохождения пока не реализована.
+`DialogueModeContext` задаёт режим всему дереву сообщений. В экзамене `AiDialoguePage` сохраняет `ViewportSyncedHeight`
+и `DetailsBlock` с пустым массивом `tabs` (компонент возвращает `null`, если вкладок нет): отсутствуют «Словарь»,
+«Сообщение» и «Настройки». Панель прохождения пока не реализована.
 Речь NPC и описание сцены показывают только кнопку озвучки: текста, буквенного превью и раскрытия нет.
 Действия и другие видимые текстовые события отображаются обычным текстом без слов-кнопок и перевода;
 `help` не отображается. Исходный ответ пользователя не получает кнопку разбора.
@@ -348,7 +351,8 @@ phrase/слово в поле word
 `AiDialogueExamSubmission` расположен после списка сообщений только в экзамене. `getExamProgress`
 считает отправки с непустой репликой, ограничивает остаток снизу нулём и находит сохранённый `examResult`.
 Подписи кнопки и отчёта локализованы на семи языках, русская подпись учитывает число оставшихся ответов.
-Кнопка недоступна до клиентского порога `EXAM_MIN_REPLIES`, при генерации NPC, проверке и исчерпанном балансе. Сервер количество ответов не проверяет.
+Кнопка недоступна до клиентского порога `EXAM_MIN_REPLIES`, при генерации NPC, проверке и исчерпанном балансе. Сервер
+количество ответов не проверяет.
 Во время HTTP-проверки форма ответа остаётся видимой, но заблокирована.
 При ошибке показывается сообщение и разрешается повтор. При успешном результате событие попадает в стор;
 кнопка и форма вместе с её обёрткой исчезают, на месте кнопки отображается отчёт.

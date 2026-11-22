@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import type { AiDialogueNpcActionItem } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
-import { groupNpcDialogueSpeechAndActions } from '@/widgets/aiDialogueMessages/ui/messages/NpcMessage/fn/groupNpcDialogueSpeechAndActions'
+import type { AiDialogueNpcActionItem } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
+import { groupNpcDialogueSpeechAndActions } from '@/widgets/aiDialogue/aiDialogueMessages/ui/messages/NpcMessage/fn/groupNpcDialogueSpeechAndActions'
 
 test('NPC speech precedes every action for all source orders, retaining original block addresses', function () {
 	// Covers action-first, alternating, repeated types, speech-only, action-only and empty messages.

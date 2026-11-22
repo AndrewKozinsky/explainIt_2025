@@ -2,10 +2,10 @@ import { NextIntlClientProvider } from 'next-intl'
 import { useAiDialogueAudio } from '@/_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueAudio'
 import DetailsBlock from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import messages from '@/messages/ru/aiDialogueMessages.json'
-import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
-import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
-import { DialogueAudioProvider } from '@/widgets/aiDialogueMessages/ui/audio/DialogueAudioContext'
-import { DialogueModeContext } from '@/widgets/aiDialogueMessages/ui/DialogueModeContext'
+import AiDialogueContentBlock from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
+import AiDialogueTextWithTranslation from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
+import { DialogueAudioProvider } from '@/widgets/aiDialogue/aiDialogueMessages/ui/audio/DialogueAudioContext'
+import { DialogueModeContext } from '@/widgets/aiDialogue/aiDialogueMessages/ui/DialogueModeContext'
 
 export default function ExamFixture() {
 	const audio = useAiDialogueAudio(42, () => true)

@@ -1,4 +1,4 @@
-import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import { type DialogueAudioAddress, SCENE_AUDIO_ACTION_INDEX } from './dialogueAudioTypes'
 
 /** Озвучиваемые тексты сообщения в порядке чтения: описание сцены или реплики NPC (без невербальных действий). */

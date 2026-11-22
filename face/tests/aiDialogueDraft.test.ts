@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
 import type { DictationCallbacks } from '@/entities/aiDialogue/dictation/openAiDialogueDictation'
-import { AiDialogueDraftController } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/AiDialogueDraftController'
-import { canSendDraft, draftStatus } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/aiDialogueDraftState'
-import type { AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { AiDialogueDraftController } from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/fn/AiDialogueDraftController'
+import { canSendDraft, draftStatus } from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/fn/aiDialogueDraftState'
+import type { AiDialogueClientEvent } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 
 function deferred<T>() {
 	let resolve!: (value: T) => void

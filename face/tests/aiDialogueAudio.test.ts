@@ -14,7 +14,7 @@ import {
 	SCENE_AUDIO_ACTION_INDEX,
 } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { getVoicedAudioAddresses } from '@/entities/aiDialogue/audio/getVoicedAudioAddresses'
-import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 
 class FakeAudio {
 	src = ''

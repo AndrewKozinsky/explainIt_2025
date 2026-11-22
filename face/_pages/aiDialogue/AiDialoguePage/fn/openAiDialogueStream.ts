@@ -1,4 +1,7 @@
-import type { AiDialogueStreamEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type {
+	AiDialogueStreamEvent,
+	DialogueServerMessage,
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import { useAiDialogueStore } from '../../aiDialogueStore'
 
 export type DialogueAudioStreamHandlers = {

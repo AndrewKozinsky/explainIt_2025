@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
-import type { AiDialogueClientEvent } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialogueClientEvent } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import { useAiDialogueStore } from '../../aiDialogueStore'
 
 /** Добавляет подтверждённое POST-сообщение в ленту. */

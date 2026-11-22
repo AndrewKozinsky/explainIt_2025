@@ -4,7 +4,7 @@ import { QueryClient } from '@tanstack/react-query'
 import { AiDialogueScenarioGroupQueryFacade } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupQueryFacade'
 import { AiDialogueScenarioGroupService } from '@/entities/aiDialogueScenarioGroup/AiDialogueScenarioGroupService'
 import { AiDialogueScenarioGroupApi } from '@/entities/aiDialogueScenarioGroup/repository/AiDialogueScenarioGroupApi'
-import { getScenarioGroupsConfig } from '@/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioGroupsConfig'
+import { getScenarioGroupsConfig } from '@/widgets/aiDialogue/aiDialogueScenario/PublicAiDialogueScenariosList/fn/getScenarioGroupsConfig'
 
 test('groups travel through generated API, repository, service and query without reordering; locale goes to Accept-Language', async () => {
 	const original = Object.getOwnPropertyDescriptor(globalThis, 'window')

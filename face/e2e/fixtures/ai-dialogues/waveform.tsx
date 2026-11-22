@@ -1,9 +1,9 @@
 import { useState, useSyncExternalStore } from 'react'
 import { NextIntlClientProvider } from 'next-intl'
 import messages from '@/messages/ru/aiDialogueForm.json'
-import { AiDialogueDraftFooter } from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueDraftControls'
-import { AiDialogueDraftController } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/AiDialogueDraftController'
-import '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput.scss'
+import { AiDialogueDraftFooter } from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/AiDialogueDraftControls'
+import { AiDialogueDraftController } from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/fn/AiDialogueDraftController'
+import '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/AiDialogueInput.scss'
 
 /** Recording UI under the application's real CSS reset, without microphone or network access. */
 export default function WaveformFixture() {

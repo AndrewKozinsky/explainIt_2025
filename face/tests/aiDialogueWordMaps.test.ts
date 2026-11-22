@@ -3,14 +3,14 @@ import { afterEach, test } from 'node:test'
 import { openAiDialogueStream } from '@/_pages/aiDialogue/AiDialoguePage/fn/openAiDialogueStream'
 import { useAiDialogueStore } from '@/_pages/aiDialogue/aiDialogueStore'
 import { getFrameParts } from '@/shared/ui/ClickableText/fn/frameParts'
-import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogueMessages/types/aiDialogueWordMap'
+import type { AiDialogueWordMapBlock } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueWordMap'
 import {
-	resolveDialogueWordSelection,
-	dictionaryPhraseForClick,
 	buildWholeTextWordMap,
+	dictionaryPhraseForClick,
 	getHighlightedWordStarts,
+	resolveDialogueWordSelection,
 	splitDialogueText,
-} from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/wordSelection'
+} from '@/widgets/aiDialogue/aiDialogueMessages/ui/SegmentedText/fn/wordSelection'
 
 const originalEventSource = globalThis.EventSource
 afterEach(function () {

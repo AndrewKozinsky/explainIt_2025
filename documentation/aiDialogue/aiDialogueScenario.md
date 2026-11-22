@@ -4,7 +4,8 @@
 Он языконейтрален: язык практики и перевода задаётся при создании AiDialogue.
 В БД `title` и `description` — JSON-строки переводов на en/es/fr/de/it/tr/ru.
 API возвращает их уже на языке интерфейса из заголовка `Accept-Language` (по умолчанию en), выбор перевода —
-`server/src/utils/pickLocalized.ts`; общий механизм описан в [internationalization.md](../topics/internationalization.md).
+`server/src/utils/pickLocalized.ts`; общий механизм описан
+в [internationalization.md](../topics/internationalization.md).
 `system_prompt` — английская инструкция только для сервера.
 Создание и работа диалога описаны в [aiDialogue.md](aiDialogue.md), история — в [aiDialogueList.md](aiDialogueList.md).
 
@@ -24,32 +25,32 @@ API возвращает их уже на языке интерфейса из �
 
 AiDialogueScenarioGroup содержит только публичные группы:
 
-| Поле        | Назначение                                                    |
-|-------------|---------------------------------------------------------------|
-| id          | Int, первичный ключ                                           |
-| slug        | Обязательный уникальный стабильный ключ                       |
-| title       | JSON-строка переводов названия                                |
-| description | JSON-строка переводов: почему стоит выбрать сценарий группы   |
-| position    | Порядок вывода; сид пишет его при каждом запуске              |
-| created_at  | Дата добавления                                               |
+| Поле        | Назначение                                                  |
+|-------------|-------------------------------------------------------------|
+| id          | Int, первичный ключ                                         |
+| slug        | Обязательный уникальный стабильный ключ                     |
+| title       | JSON-строка переводов названия                              |
+| description | JSON-строка переводов: почему стоит выбрать сценарий группы |
+| position    | Порядок вывода; сид пишет его при каждом запуске            |
+| created_at  | Дата добавления                                             |
 
 AiDialogueScenario:
 
-| Поле          | Назначение                                                                                     |
-|---------------|------------------------------------------------------------------------------------------------|
-| id            | Int, первичный ключ                                                                            |
-| slug          | Уникальный стабильный ключ; обязателен для публичного сценария, nullable для пользовательского |
-| title         | JSON-строка переводов названия                                                                 |
-| description   | JSON-строка переводов короткого описания                                                       |
-| system_prompt | Промпт начальной ситуации, не отдаётся клиенту                                                 |
-| user_scenario_amendment_hint | Nullable JSON-строка переводов примера пожеланий к сцене (плейсхолдер в окне запуска)      |
-| conversation_ideas | «Идеи для диалога»: JSON-строка переводов списков `{"en":["…","…"],…}`, 2–4 идеи как действия пользователя |
-| trained_skills | «Что тренирует»: JSON-строка переводов одной строки |
-| position      | Порядок вывода публичного сценария; у пользовательского 0                                      |
-| user_id       | FK → User, null означает публичный сценарий                                                    |
-| group_id      | Nullable FK → AiDialogueScenarioGroup                                                          |
-| cover_s3_key  | Nullable ключ файла R2, а не URL                                                               |
-| created_at    | Дата добавления                                                                                |
+| Поле                         | Назначение                                                                                                 |
+|------------------------------|------------------------------------------------------------------------------------------------------------|
+| id                           | Int, первичный ключ                                                                                        |
+| slug                         | Уникальный стабильный ключ; обязателен для публичного сценария, nullable для пользовательского             |
+| title                        | JSON-строка переводов названия                                                                             |
+| description                  | JSON-строка переводов короткого описания                                                                   |
+| system_prompt                | Промпт начальной ситуации, не отдаётся клиенту                                                             |
+| user_scenario_amendment_hint | Nullable JSON-строка переводов примера пожеланий к сцене (плейсхолдер в окне запуска)                      |
+| conversation_ideas           | «Идеи для диалога»: JSON-строка переводов списков `{"en":["…","…"],…}`, 2–4 идеи как действия пользователя |
+| trained_skills               | «Что тренирует»: JSON-строка переводов одной строки                                                        |
+| position                     | Порядок вывода публичного сценария; у пользовательского 0                                                  |
+| user_id                      | FK → User, null означает публичный сценарий                                                                |
+| group_id                     | Nullable FK → AiDialogueScenarioGroup                                                                      |
+| cover_s3_key                 | Nullable ключ файла R2, а не URL                                                                           |
+| created_at                   | Дата добавления                                                                                            |
 
 SQL CHECK `AiDialogueScenario_public_group_cover_check` требует:
 
@@ -134,50 +135,54 @@ StartServerTasksRunner сначала применяет миграции, за�
 Неверный MODE отклоняется до записи в БД. Обновление промпта влияет на последующие ходы существующих диалогов;
 сохранённые сообщения и изображения не переписываются.
 
-| Группа                 | Сценарии (slug)                                                                               |
-|------------------------|-----------------------------------------------------------------------------------------------|
-| travel-abroad          | passport-control, lost-luggage, hotel-check-in, hotel-room-problem, chatty-taxi-driver, overbooked-flight, lost-with-map, airbnb-host, travel-agency, bus-tour |
-| food-and-shopping      | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market, flea-market, at-the-restaurant, music-store, wine-shop |
-| city-and-services      | at-the-dentist, pool-membership, post-office                                                  |
-| home-and-everyday-life | landlord-repair, move-out-inspection, roommate-candidate, dorm-roommate-rules                 |
-| door-knocks            | knock-at-the-door, plumber-visit, neighbors-cat-on-balcony, leak-from-upstairs, noise-complaint, police-looking-for-witnesses |
-| immigration            | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
-| relationships          | street-acquaintance, first-date, morning-after, anniversary-dinner, forgotten-anniversary, chores-argument, jealousy, meeting-partners-parents, planning-a-vacation, moving-in-together, job-offer-abroad, partner-is-sick, partner-wants-dog, ex-in-supermarket, friend-asks-loan |
-| misunderstandings-and-conflicts | celebrity-lookalike, tourist-trap, misunderstood-gesture |
-| unexpected-encounters  | stuck-in-elevator, last-bus-gone, nervous-flyer, street-interview, on-the-bus, shared-umbrella |
-| work                   | client-at-work, job-offer-meeting, ask-day-off, salary-negotiation, performance-review, office-party, payroll-error, colleague-quits |
-| health-emergency       | pharmacy-symptoms, pharmacy-prescription, allergy-reaction, car-accident-witness, er-triage, insurance-claim, blood-donor, phone-stolen-police |
-| transport-car          | car-rental-upsell, rental-car-check, car-towed, traffic-stop, bike-rental, flat-tire, public-transport-delay, parking-scratch |
-| money-banking          | wrong-transfer, loan-application, currency-exchange, missed-payment, pawn-shop, split-the-bill |
-| study                  | placement-interview, missed-class, tutor-first-lesson |
-| kids-family            | teacher-meeting, nanny-interview, babysitter-first-day, gift-for-nephew, family-dinner, lost-child-mall |
-| tech-services          | phone-repair, damaged-delivery, courier-lost |
-| local-services         | at-the-hairdresser, shoe-repair, dry-cleaning, car-wash, id-photo |
-| sports-leisure         | gym-trainer, sports-injury, theater-tickets |
+| Группа                          | Сценарии (slug)                                                                                                                                                                                                                                                                                                                                                           |
+|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| travel-abroad                   | passport-control, lost-luggage, hotel-check-in, hotel-room-problem, chatty-taxi-driver, overbooked-flight, lost-with-map, airbnb-host, travel-agency, bus-tour                                                                                                                                                                                                            |
+| food-and-shopping               | ordering-at-a-cafe, dish-ingredients, buying-clothes, returning-an-item, shopping-at-a-market, flea-market, at-the-restaurant, music-store, wine-shop                                                                                                                                                                                                                     |
+| city-and-services               | at-the-dentist, pool-membership, post-office                                                                                                                                                                                                                                                                                                                              |
+| home-and-everyday-life          | landlord-repair, move-out-inspection, roommate-candidate, dorm-roommate-rules                                                                                                                                                                                                                                                                                             |
+| door-knocks                     | knock-at-the-door, plumber-visit, neighbors-cat-on-balcony, leak-from-upstairs, noise-complaint, police-looking-for-witnesses                                                                                                                                                                                                                                             |
+| immigration                     | visa-interview, airport-check-in, departure-passport-control, plane-seatmate-emigration, arrival-passport-control, airport-taxi-to-city, immigration-hotel-check-in, buying-a-sim-card, opening-a-bank-account, apartment-viewing, government-office, enrolling-child-in-school, fast-food-job-interview, doctor-appointment, meeting-the-neighbors, first-day-at-new-job |
+| relationships                   | street-acquaintance, first-date, morning-after, anniversary-dinner, forgotten-anniversary, chores-argument, jealousy, meeting-partners-parents, planning-a-vacation, moving-in-together, job-offer-abroad, partner-is-sick, partner-wants-dog, ex-in-supermarket, friend-asks-loan                                                                                        |
+| misunderstandings-and-conflicts | celebrity-lookalike, tourist-trap, misunderstood-gesture                                                                                                                                                                                                                                                                                                                  |
+| unexpected-encounters           | stuck-in-elevator, last-bus-gone, nervous-flyer, street-interview, on-the-bus, shared-umbrella                                                                                                                                                                                                                                                                            |
+| work                            | client-at-work, job-offer-meeting, ask-day-off, salary-negotiation, performance-review, office-party, payroll-error, colleague-quits                                                                                                                                                                                                                                      |
+| health-emergency                | pharmacy-symptoms, pharmacy-prescription, allergy-reaction, car-accident-witness, er-triage, insurance-claim, blood-donor, phone-stolen-police                                                                                                                                                                                                                            |
+| transport-car                   | car-rental-upsell, rental-car-check, car-towed, traffic-stop, bike-rental, flat-tire, public-transport-delay, parking-scratch                                                                                                                                                                                                                                             |
+| money-banking                   | wrong-transfer, loan-application, currency-exchange, missed-payment, pawn-shop, split-the-bill                                                                                                                                                                                                                                                                            |
+| study                           | placement-interview, missed-class, tutor-first-lesson                                                                                                                                                                                                                                                                                                                     |
+| kids-family                     | teacher-meeting, nanny-interview, babysitter-first-day, gift-for-nephew, family-dinner, lost-child-mall                                                                                                                                                                                                                                                                   |
+| tech-services                   | phone-repair, damaged-delivery, courier-lost                                                                                                                                                                                                                                                                                                                              |
+| local-services                  | at-the-hairdresser, shoe-repair, dry-cleaning, car-wash, id-photo                                                                                                                                                                                                                                                                                                         |
+| sports-leisure                  | gym-trainer, sports-injury, theater-tickets                                                                                                                                                                                                                                                                                                                               |
 
 В `groups.ts` 18 групп, у всех есть сценарии.
 
-Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет, чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` у каждой группы
+Данные групп — `features/aiDialogueScenario/groups.ts`: slug, название и описание на семи языках. Описание объясняет,
+чем полезны сценарии группы, а не пересказывает название. В папке `scenarios` у каждой группы
 свой файл (`travelScenarios.ts`, `immigrationScenarios.ts`, `relationshipsScenarios.ts` и т. д.), а
-`getScenariosData()` собирает их в порядке вывода на странице. Сценарии «Иммиграции» идут в порядке переезда; их промпты дополняет общее правило
+`getScenariosData()` собирает их в порядке вывода на странице. Сценарии «Иммиграции» идут в порядке переезда; их промпты
+дополняет общее правило
 `withImmigrationCountryRule`: страна — из пожеланий, иначе страна языка практики; все говорят с участником на языке
 практики; визовые требования типовые, без точных сумм и сроков. В `relationshipsScenarios.ts` романтические сценарии
-дополняет правило `withRomanticPartnerRule`: партнёр, свидание или бывший по умолчанию противоположного пола
-(пожелания могут это изменить), романтика без откровенного содержания. Общее прошлое пары складывается в разговоре,
+дополняет правило `withRomanticPartnerRule`: партнёр, свидание или бывший по умолчанию противоположного пола (пожелания
+могут это изменить), романтика без откровенного содержания. Общее прошлое пары складывается в разговоре,
 участник может дополнять и поправлять детали. «Друг просит в долг» правило не получает.
 В `doorKnocksScenarios.ts` новые сценарии, где стучат к участнику, начинаются с общей завязки `withDoorOpening`
 (та же, что у `knock-at-the-door`). В `leak-from-upstairs` наоборот: участник поднимается к соседу сверху и стучит,
 кадр показывает его на площадке у открытой двери.
 В `misunderstandingsAndConflictsScenarios.ts` `tourist-trap` зашит на Египет и ведёт цепочку встреч с разными
-местными; `misunderstood-gesture` описывает в первой сцене безобидное действие участника, вызвавшее недоразумение
-(повод выбирает модель), конфликт остаётся словесным.
+местными; `misunderstood-gesture` описывает в первой сцене безобидное действие участника, вызвавшее недоразумение (повод
+выбирает модель), конфликт остаётся словесным.
 В `healthEmergencyScenarios.ts` травмы и симптомы описываются реалистично, но без натурализма; симптомы, травму
 и обстоятельства описывает участник. В `car-accident-witness` скорую уже вызвал прохожий, затем приезжают медики
 и полиция и расспрашивают участника.
 В `studyScenarios.ts` общее правило диалога «не исправлять язык участника и не превращать разговор в урок» сильнее
-сценария: репетитор в `tutor-first-lesson` говорит об учёбе, а письменную работу оценивает только в общих словах. Сценарии языконейтральны;
+сценария: репетитор в `tutor-first-lesson` говорит об учёбе, а письменную работу оценивает только в общих словах.
+Сценарии языконейтральны;
 у каждого один английский промпт, семь переводов карточки, обязательные `conversationIdeas` (`localizedList`)
-и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках. Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
+и `trainedSkills` (`localized`) и необязательная подсказка пожеланий `userScenarioAmendmentHint` на семи языках.
+Подсказка — короткий пример вида «Например: …», показывающий, что можно настроить в этом сценарии;
 сейчас она задана у всех сценариев.
 Новый сценарий добавляется с уникальным slug и groupSlug, затем создаётся и вручную загружается его обложка.
 Новая группа требует записи в groups.ts и расширения AiDialogueScenarioGroupSlug.
@@ -223,11 +228,13 @@ MODE берётся из MainConfigService: localtest/localdev/localcheckserver/
 Полный ключ сохраняется в БД при синхронизации; смена MODE при запуске синхронизирует ключи для этого окружения.
 Предполагаются отдельные БД окружений. Ключи не зависят от numeric ID или группы.
 
-Обложки — готовые WebP 1152×576 в R2; список файлов и куда их загружать — [aiDialogueScenarioCovers.md](aiDialogueScenarioCovers.md).
+Обложки — готовые WebP 1152×576 в R2; список файлов и куда их
+загружать — [aiDialogueScenarioCovers.md](aiDialogueScenarioCovers.md).
 Они не создаются сервером/worker и не зависят от аватара пользователя.
 Это иллюстрация темы, а не обещание конкретной внешности NPC в диалоге.
 
-Приватный бакет открывать не нужно. Отдельной команды проверки обложек нет. Эти файлы не относятся к AiDialogueImage, не удаляются
+Приватный бакет открывать не нужно. Отдельной команды проверки обложек нет. Эти файлы не относятся к AiDialogueImage, не
+удаляются
 при удалении диалога и находятся вне generated-префиксов фоновой очистки.
 
 ## Запуск
@@ -242,7 +249,8 @@ Worker для сидов и обложек не нужен.
 сохраняется из ответа сервера; счётчик вычисляется по `scenarios.length`.
 Тексты приходят с сервера на языке интерфейса; `getScenarioGroupsConfig` только готовит данные для вывода
 и подставляет запасные тексты из второго аргумента (`fallbackTexts`): `emptyScenarioName` вместо пустого названия
-сценария и `defaultUserScenarioAmendmentHint` вместо пустой подсказки. Их переводит `PublicAiDialogueScenariosList`. `PublicScenarioGroup` выводит описание группы
+сценария и `defaultUserScenarioAmendmentHint` вместо пустой подсказки. Их переводит `PublicAiDialogueScenariosList`.
+`PublicScenarioGroup` выводит описание группы
 одной приглушённой строкой под заголовком; пустое описание не выводится.
 Модель сценария и маппер `mapToAiDialogueScenario` используются в ответах диалога.
 `mapToAiDialogueScenarioGroup` передаёт в модель карточки также `conversationIdeas` и `trainedSkills`.
@@ -260,17 +268,23 @@ Worker для сидов и обложек не нужен.
 ### Модальное окно создания диалога
 
 Клик по карточке открывает `StartDialogueModal`: обычное изображение обложки шириной 100%, локализованные группа,
-название и описание, блоки «Идеи для диалога» и «Что тренирует», переключатели языка практики, сложности и стиля иллюстраций, поле «Пожелания к сцене»,
+название и описание, блоки «Идеи для диалога» и «Что тренирует», переключатели языка практики, сложности и стиля
+иллюстраций, поле «Пожелания к сцене»,
 кнопка «Начать диалог».
-Поле пожеланий — общий `TextInput` с `textarea` и счётчиком символов. Плейсхолдер — `userScenarioAmendmentHint` сценария,
-а без него — перевод `aiDialogueScenariosList.startModal.defaultUserScenarioAmendmentHint` (подстановка в `getScenarioGroupsConfig`).
-Лимит `aiDialogueScenarioConfig.userScenarioAmendmentMaxLength` (400) совпадает с серверным; пока обрезанный текст длиннее,
-запуск заблокирован. Значение хранится в `useStartDialogueOptions` без localStorage и передаётся в POST как `userScenarioAmendment`
+Поле пожеланий — общий `TextInput` с `textarea` и счётчиком символов. Плейсхолдер — `userScenarioAmendmentHint`
+сценария,
+а без него — перевод `aiDialogueScenariosList.startModal.defaultUserScenarioAmendmentHint` (подстановка в
+`getScenarioGroupsConfig`).
+Лимит `aiDialogueScenarioConfig.userScenarioAmendmentMaxLength` (400) совпадает с серверным; пока обрезанный текст
+длиннее,
+запуск заблокирован. Значение хранится в `useStartDialogueOptions` без localStorage и передаётся в POST как
+`userScenarioAmendment`
 (пустое — `null`). Как пожелание используется в промпте — [aiDialogue.md](aiDialogue.md).
 Закрытие окна до запуска ничего не создаёт. Кнопка запуска проверяет авторизацию: гостю вместо окна запуска
 показывается существующее окно входа/регистрации. Для авторизованного пользователя создаётся диалог
 с выбранными `sourceLanguageCode`, `cefrLevel`, `illustrationStyleId` и языком перевода из локали интерфейса.
-В окне доступны все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`), уровни A1/A2/B1/B2/C1 и Any (`null`).
+В окне доступны все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`), уровни
+A1/A2/B1/B2/C1 и Any (`null`).
 `useStartDialogueOptions` читает язык из `localStorageManager.lastLanguage.get()` при открытии окна
 и сохраняет выбор через `lastLanguage.set()` при изменении. Ключ общий с книгами и видео.
 При отсутствии или недоступном в переключателе сохранённом языке используется en; само чтение не перезаписывает ключ.
@@ -287,7 +301,8 @@ Worker для сидов и обложек не нужен.
 Подробнее: [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md).
 Используются готовый `LanguageSwitch` и общий `entities/aiDialogue/ui/TextLevelSwitcher.tsx`.
 Переключатель сложности переиспользуется в окне запуска и настройках диалога, принимает `size`
-(small по умолчанию, medium в окне запуска). Подпись и вариант «любой уровень» переводятся в разделе `aiDialogue.textLevelSwitcher`; для `Any` выводится `anyLevel`.
+(small по умолчанию, medium в окне запуска). Подпись и вариант «любой уровень» переводятся в разделе
+`aiDialogue.textLevelSwitcher`; для `Any` выводится `anyLevel`.
 Пояснение передаётся через необязательный проп `description` у `TextLevelSwitcher`, который передаёт его
 в `LabelWithField` для вывода после поля. Текст «Можно изменить во время разговора» задаётся только
 в модальном окне для практики; в настройках диалога описание не передаётся. Сам `Switcher` не менялся.
@@ -297,13 +312,17 @@ Worker для сидов и обложек не нужен.
 `LabelWithField` с `LanguageSwitch` и `TextLevelSwitcher` находятся непосредственно в `StartDialogueModal.tsx`;
 отдельного компонента `StartDialogueSettings` нет.
 Блоки «Идеи для диалога» (`conversationIdeas`, маркированный список) и «Что тренирует» (`trainedSkills`)
-выводит `ScenarioPracticeHints.tsx` сразу под описанием, друг под другом на сером фоне. Пустой блок не выводится; пустые идеи отбрасывает `getScenarioGroupsConfig`.
-Заголовки блоков, как и остальные подписи окна, пока заданы по-русски в коде. Состояние и сохранение настроек остаются в `useStartDialogueOptions`.
+выводит `ScenarioPracticeHints.tsx` сразу под описанием, друг под другом на сером фоне. Пустой блок не выводится; пустые
+идеи отбрасывает `getScenarioGroupsConfig`.
+Заголовки блоков, как и остальные подписи окна, пока заданы по-русски в коде. Состояние и сохранение настроек остаются в
+`useStartDialogueOptions`.
 Кнопка запуска имеет размер `big`, тему `accent` и иконку `ArrowRightPureButtonIcon`; она передаёт `settings.options`
 в `onStart`. Пока дневной лимит ИИ исчерпан, вместо кнопки показывается `BalanceExhaustedNotice`
-([billing.md](../topics/billing.md#баланс-в-реальном-времени)). `StartDialogueModal.scss` задаёт ширину окна 50rem (не более 100%), ширину обложки 100%
+([billing.md](../topics/billing.md#баланс-в-реальном-времени)). `StartDialogueModal.scss` задаёт ширину окна 50rem (не
+более 100%), ширину обложки 100%
 и отступы блока содержимого.
-До завершения POST карточки, все переключатели и кнопка запуска блокируются через disabled, выбранная карточка и кнопка показывают индикатор;
+До завершения POST карточки, все переключатели и кнопка запуска блокируются через disabled, выбранная карточка и кнопка
+показывают индикатор;
 окно запуска в этот момент не закрывается. При ошибке выводится уведомление и можно повторить запуск
 в том же окне. После успеха окно закрывается, инвалидируется история и выполняется переход
 через локализованный router и pageUrls.
@@ -313,7 +332,8 @@ Worker для сидов и обложек не нужен.
 
 Сервер (из `server/`):
 
-- `npm test -- --testPathPatterns='aiDialogueScenario|pickLocalized'` — unit-тесты выборки, подписания, ключей окружений,
+- `npm test -- --testPathPatterns='aiDialogueScenario|pickLocalized'` — unit-тесты выборки, подписания, ключей
+  окружений,
   состава и порядка сидов (7 языков у всех текстов, 2–4 идеи) и создания пользовательского сценария.
 - `npm run test:ai-dialogue-scenario-groups` — интеграционный тест на настоящей PostgreSQL: миграции, CHECK/FK,
   повторный сид, сортировка, HTTP/CQRS и OpenAPI. Требует AI_DIALOGUE_SCENARIO_TEST_DB_URL на пустую БД с точным
@@ -337,10 +357,12 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 - `server/src/routes/aiDialogueScenarioGroup/` — контроллер, OpenAPI и Nest-модуль.
 - `server/test/aiDialogueScenarioGroups.integration.ts` — PostgreSQL/HTTP/OpenAPI-проверка.
 - `face/entities/aiDialogueScenarioGroup/` — клиентский слой групп.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/` — список, группы, карточки и создание диалога.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/ui/StartDialogueModal/` — окно создания, описание сценария, блоки «Идеи для диалога» и «Что тренирует», стили.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useStartDialogueOptions.ts` — язык, сложность и сохранение выбора.
-- `face/shared/ui/Modal/Modal.tsx`, `face/shared/ui/Modal/ModalHeaderAndContent.tsx` — базовое окно и стандартная разметка заголовка с контентом.
+- `../../face/widgets/aiDialogue/aiDialogueScenario` — список, группы, карточки и создание диалога.
+- `../../face/widgets/aiDialogue/aiDialogueScenario` — окно создания, описание сценария, блоки «Идеи для диалога» и «Что
+  тренирует», стили.
+- `../../face/widgets/aiDialogue/aiDialogueScenario` — язык, сложность и сохранение выбора.
+- `face/shared/ui/Modal/Modal.tsx`, `face/shared/ui/Modal/ModalHeaderAndContent.tsx` — базовое окно и стандартная
+  разметка заголовка с контентом.
 - `face/tests/aiDialogueScenarioGroups.test.ts`, `face/tests/browser/aiDialogueScenarios.spec.ts` — проверки клиента.
 
 ## Медали сценариев: основа данных
@@ -352,7 +374,8 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 
 Первый набор задан у `passport-control`: `ai-dialogue-scenario-medals/{MODE}/passport-control/{LEVEL}.webp`.
 Наличие ключей не подтверждает наличие файлов: изображения размещаются в R2 вручную. Сервер возвращает
-публичную ссылку `medalUrl` вместе с результатом проверки и при чтении истории. Медаль определяется исходным сценарием и достигнутым уровнем,
+публичную ссылку `medalUrl` вместе с результатом проверки и при чтении истории. Медаль определяется исходным сценарием и
+достигнутым уровнем,
 даже если пользователь сменил место по ходу диалога.
 
 ### Выбор режима при создании
@@ -381,6 +404,7 @@ ai-dialogue-scenario-medals/localdev/passport-control/C1.webp
 
 Для `servermaster` используется та же структура под `ai-dialogue-scenario-medals/servermaster/passport-control/`.
 Каждый следующий сценарий получает собственные пять изображений и собственный `scenarioSlug`.
-Файлы доступны через `https://files.immersia.site/` без подписи. Ключи берутся из `medals` сида, сохраняются в `medal_s3_keys` и не заменяются
+Файлы доступны через `https://files.immersia.site/` без подписи. Ключи берутся из `medals` сида, сохраняются в
+`medal_s3_keys` и не заменяются
 универсальным набором медалей. Файлы медалей не входят в пользовательские изображения диалога и не удаляются
 при удалении попытки. Отображение сохраняет пропорции изображения внутри квадратного места.

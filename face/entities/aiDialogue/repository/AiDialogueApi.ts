@@ -25,7 +25,7 @@ import type {
 	AiDialogueClientEvent,
 	AiDialogueEvent,
 	DialogueServerMessage,
-} from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import { mapToAiDialogueIllustrationStyles } from './mapToAiDialogueIllustrationStyles'
 import { mapToAiDialoguesPage } from './mapToAiDialoguesPage'
 import type {

@@ -23,18 +23,18 @@
 
 ### `AiDialogue` (контейнер)
 
-| Поле                        | Тип                        | Описание                                                        |
-|-----------------------------|----------------------------|-----------------------------------------------------------------|
-| `id`                        | `Int`                      | Первичный ключ (autoincrement)                                  |
-| `scenario_id`               | `Int`                      | FK → `AiDialogueScenario.id`, `onDelete: Cascade`               |
-| `user_id`                   | `Int`                      | FK → `User.id`, `onDelete: Cascade`                             |
-| `source_language_code`      | `LanguageCode`             | Язык диалога — тот, который практикует ученик (реплики NPC)     |
-| `target_language_code`      | `LanguageCode`             | Язык перевода — родной язык ученика (поле `translation`)        |
-| `cefr_level`            | `AiDialogueCefrLevel?` | Уровень сложности текста A1/A2/B1/B2/C1; `null` — без ограничения  |
-| `user_scenario_amendment`         | `String?`                  | Пожелания пользователя к сцене (до 400 символов); задаются при создании |
-| `summary`                   | `String?`                  | Компактная сводка истории (JSON-строка, см. «Компакция»)        |
-| `summary_up_to`             | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`)      |
-| `created_at` / `updated_at` | `DateTime`                 | Даты                                                            |
+| Поле                        | Тип                    | Описание                                                                |
+|-----------------------------|------------------------|-------------------------------------------------------------------------|
+| `id`                        | `Int`                  | Первичный ключ (autoincrement)                                          |
+| `scenario_id`               | `Int`                  | FK → `AiDialogueScenario.id`, `onDelete: Cascade`                       |
+| `user_id`                   | `Int`                  | FK → `User.id`, `onDelete: Cascade`                                     |
+| `source_language_code`      | `LanguageCode`         | Язык диалога — тот, который практикует ученик (реплики NPC)             |
+| `target_language_code`      | `LanguageCode`         | Язык перевода — родной язык ученика (поле `translation`)                |
+| `cefr_level`                | `AiDialogueCefrLevel?` | Уровень сложности текста A1/A2/B1/B2/C1; `null` — без ограничения       |
+| `user_scenario_amendment`   | `String?`              | Пожелания пользователя к сцене (до 400 символов); задаются при создании |
+| `summary`                   | `String?`              | Компактная сводка истории (JSON-строка, см. «Компакция»)                |
+| `summary_up_to`             | `Int`                  | `id` последнего сообщения, покрытого сводкой (default `0`)              |
+| `created_at` / `updated_at` | `DateTime`             | Даты                                                                    |
 
 ### `AiDialogueMessage` (событие)
 
@@ -52,8 +52,10 @@
 ## Режимы практики и экзамена
 
 В `AiDialogue.mode` хранится `practice | exam`, default — `practice`. Поле возвращается в деталях
-и списке диалогов. При создании пользователь выбирает режим. REST требует `mode`: `practice` или `exam`; значение явно передаётся при создании и во все внутренние функции диалога. Практика исправляет и переводит ответы пользователя.
-Экзамен сохраняет их без анализа и исправлений; `textReview` отсутствует. Доступность кнопки проверки определяется клиентским `EXAM_MIN_REPLIES`. Отдельная боковая панель прохождения недоступна.
+и списке диалогов. При создании пользователь выбирает режим. REST требует `mode`: `practice` или `exam`; значение явно
+передаётся при создании и во все внутренние функции диалога. Практика исправляет и переводит ответы пользователя.
+Экзамен сохраняет их без анализа и исправлений; `textReview` отсутствует. Доступность кнопки проверки определяется
+клиентским `EXAM_MIN_REPLIES`. Отдельная боковая панель прохождения недоступна.
 
 `cefr_level` в БД и `cefrLevel` в REST и клиентских типах задаёт сложность диалога.
 Для практики это выбранная сложность A1–C1 или `null` (без ограничения).
@@ -65,7 +67,8 @@
 (`messageId`, `originalText`, `suggestedText`, `explanation`), `recommendations`.
 A0 — внутренний результат «в этой попытке A1 не подтверждён», без медали.
 Результат хранится обычным сообщением; отдельные таблицы попыток и оценок не создаются.
-Он не сериализуется в сюжетный текст и не получает карту слов. Проверка сохраняет событие результата, интерфейс показывает его после переписки.
+Он не сериализуется в сюжетный текст и не получает карту слов. Проверка сохраняет событие результата, интерфейс
+показывает его после переписки.
 
 ## REST API
 
@@ -151,8 +154,8 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 
 ### Создание диалога
 
-- `illustrationStyleId` — строковый id из публичного каталога; отсутствие/null выбирает его default
-  (сейчас realism; это же значение по умолчанию в БД). Сохраняется один раз; PATCH не принимает это поле.
+- `illustrationStyleId` — строковый id из публичного каталога; отсутствие/null выбирает его default (сейчас realism; это
+  же значение по умолчанию в БД). Сохраняется один раз; PATCH не принимает это поле.
   Генератор использует выбор для новых NPC/сцен; переключатель — в окне запуска.
   Подробности — [aiDialogueIllustrationStyles.md](aiDialogueIllustrationStyles.md).
 - `userScenarioAmendment` — необязательные пожелания к сцене, до 400 символов: кто NPC, страна, место, обстоятельства
@@ -178,13 +181,15 @@ WS     /ai-dialogue/:id/dictation  → потоковое распознаван
 ### Ограничение сложности текста по CEFR
 
 `cefrLevel: 'A1' | 'A2' | 'B1' | 'B2' | 'C1' | null` — настройка конкретного диалога, а не оценка
-реального владения языком пользователя. Значение задаёт целевой уровень текста: не сложнее выбранного и не заметно проще,
+реального владения языком пользователя. Значение задаёт целевой уровень текста: не сложнее выбранного и не заметно
+проще,
 чтобы соседние уровни ощутимо отличались. A1 — нарочито простые фразы, сложность растёт до C1.
 Общая шкала `PROFICIENCY_LEVELS` (A1–C2) и числовой маппинг 1–6 для видео находятся в
 `server/src/utils/proficiencyLevel.ts`. Допустимые границы сложности диалогов — `AI_DIALOGUE_CEFR_LEVELS`
 (A1–C1) и тип `AiDialogueCefrLevel` — находятся в `server/src/features/aiDialogue/aiDialogueLanguageLevel.ts`.
 Enum в БД называется `AiDialogueCefrLevel`.
-C1 задаётся явно и отличается от `null`: последний означает естественную речь без ограничения сложности. C2 в настройке не поддерживается.
+C1 задаётся явно и отличается от `null`: последний означает естественную речь без ограничения сложности. C2 в настройке
+не поддерживается.
 
 При создании `cefrLevel` необязателен; отсутствие поля и явный `null` сохраняют `null`.
 Поле всегда возвращается в `AiDialogueOutModel` (создание, получение одного диалога, обновление)
@@ -265,14 +270,14 @@ UUID и тот же текст. При изменении текста или н
 
 Дискриминированный union `AiDialogueEvent` (в `types/aiDialogueMessage.ts`). `type` — дискриминатор.
 
-| `type`          | Поля                                                | Кто генерирует |
-|-----------------|-----------------------------------------------------|----------------|
-| `sceneUpdate`   | `content: string`, `translation`                    | LLM            |
-| `npcActions`    | `npcId`, `npcName`, `npcRole`, `emotion`, `actions` | LLM            |
-| `help`          | `content: string`, `translation`                    | LLM            |
-| `worldEvent`    | `content: string`, `translation`                    | LLM            |
+| `type`          | Поля                                                | Кто генерирует  |
+|-----------------|-----------------------------------------------------|-----------------|
+| `sceneUpdate`   | `content: string`, `translation`                    | LLM             |
+| `npcActions`    | `npcId`, `npcName`, `npcRole`, `emotion`, `actions` | LLM             |
+| `help`          | `content: string`, `translation`                    | LLM             |
+| `worldEvent`    | `content: string`, `translation`                    | LLM             |
 | `userActions`   | `actions`, `textReview`                             | клиент и сервер |
-| `userAvoidsNPC` | —                                                   | клиент         |
+| `userAvoidsNPC` | —                                                   | клиент          |
 
 `actions` — массив `AiDialogueActionItem = { type: 'action' | 'speech'; content: string }` (`action` — невербальное
 действие, `speech` — реплика).
@@ -438,7 +443,8 @@ Registry генерации и шину SSE команда не использу
 6. Разбирает полный текст ответа через `parseAiDialogueEvents` («спасающий» построчный разбор — недостающий
    `translation` хвостового блока подставляется как `''`, битые блоки отбрасываются). Если не удалось спасти ни одного
    события или модель вывела строку-заглушку шаблона формата целиком в угловых скобках (например, `<translation>`) —
-   повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с корректирующей подсказкой; клиент продолжает показывать `Waiting for reply`. Если и повтор не удался — ошибка `cannotParseLlmResponse`.
+   повторный вызов LLM (до `MAX_PARSE_ATTEMPTS` = 2) с корректирующей подсказкой; клиент продолжает показывать
+   `Waiting for reply`. Если и повтор не удался — ошибка `cannotParseLlmResponse`.
 7. Подтверждённый ход сохраняется одной транзакцией: сюжетные сообщения, новые NPC, эмоции и данные сцены в payload,
    задания изображений и outbox. Сообщения NPC связываются с AiDialogueCharacter через character_id. После коммита
    каждое сюжетное сообщение рассылается как `message`.
@@ -450,7 +456,8 @@ Registry генерации и шину SSE команда не использу
 ### Генерация и формат ответа
 
 LLM отвечает **плоским построчным текстом** (`responseFormat: 'text'`). Сервер получает ответ целиком,
-разбирает его и отправляет клиенту сохранённые сообщения. Один ход = один или несколько блоков, разделённых **ровно одной
+разбирает его и отправляет клиенту сохранённые сообщения. Один ход = один или несколько блоков, разделённых **ровно
+одной
 пустой строкой**; блок = строка-заголовок + поля по одной строке.
 
 Полный шаблон (все поля):
@@ -509,7 +516,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 ## Карта словарных выражений
 
 Карта генерируется в техническом разделе wordMaps: в конце того же ответа модели после всех сюжетных блоков.
-Текст показывается после получения и сохранения полного ответа. SSE message и replay содержат payload.wordMap. Отдельного запроса анализа
+Текст показывается после получения и сохранения полного ответа. SSE message и replay содержат payload.wordMap.
+Отдельного запроса анализа
 нет.
 Клик сразу передаёт готовую фразу из карты или само слово; ожидания и подсветки нет.
 Поддерживаются пересечения, несоседние связанные слова и независимый выбор для каждого вхождения.
@@ -560,19 +568,19 @@ SSE-соединения. Субъекты не вычищаются (диало
 
 ### Таблица AiDialogue
 
-| Поле                   | Тип                        | Описание                                                   |
-|------------------------|----------------------------|------------------------------------------------------------|
-| `id`                   | `Int`                      | Первичный ключ (autoincrement)                             |
-| `scenario_id`          | `Int`                      | FK → `AiDialogueScenario.id`, `onDelete: Cascade`          |
-| `user_id`              | `Int`                      | FK → `User.id`, `onDelete: Cascade`                        |
-| `source_language_code` | `LanguageCode`             | Язык диалога (практикуемый язык, реплики NPC)              |
-| `target_language_code` | `LanguageCode`             | Язык перевода (родной язык, поле `translation`)            |
-| `cefr_level`       | `AiDialogueCefrLevel?` | A1/A2/B1/B2/C1 или `null` (без ограничения)                   |
-| `user_scenario_amendment`    | `String?`                  | Пожелания пользователя к сцене; не меняется после создания |
-| `summary`              | `String?`                  | Сводка истории (JSON-строка, см. «Компакция»)              |
-| `summary_up_to`        | `Int`                      | `id` последнего сообщения, покрытого сводкой (default `0`) |
-| `created_at`           | `DateTime`                 | Дата создания                                              |
-| `updated_at`           | `DateTime`                 | Дата последнего изменения                                  |
+| Поле                      | Тип                    | Описание                                                   |
+|---------------------------|------------------------|------------------------------------------------------------|
+| `id`                      | `Int`                  | Первичный ключ (autoincrement)                             |
+| `scenario_id`             | `Int`                  | FK → `AiDialogueScenario.id`, `onDelete: Cascade`          |
+| `user_id`                 | `Int`                  | FK → `User.id`, `onDelete: Cascade`                        |
+| `source_language_code`    | `LanguageCode`         | Язык диалога (практикуемый язык, реплики NPC)              |
+| `target_language_code`    | `LanguageCode`         | Язык перевода (родной язык, поле `translation`)            |
+| `cefr_level`              | `AiDialogueCefrLevel?` | A1/A2/B1/B2/C1 или `null` (без ограничения)                |
+| `user_scenario_amendment` | `String?`              | Пожелания пользователя к сцене; не меняется после создания |
+| `summary`                 | `String?`              | Сводка истории (JSON-строка, см. «Компакция»)              |
+| `summary_up_to`           | `Int`                  | `id` последнего сообщения, покрытого сводкой (default `0`) |
+| `created_at`              | `DateTime`             | Дата создания                                              |
+| `updated_at`              | `DateTime`             | Дата последнего изменения                                  |
 
 - Индексы: `@@index([user_id])`, `@@index([scenario_id])`, `@@index([user_id, created_at, id])`.
 - Обратные связи: `User.AiDialogue`, `AiDialogueScenario.AiDialogue`, `AiDialogue.AiDialogueMessage`
@@ -614,7 +622,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `server/src/features/aiDialogue/GetUserDialogues.command.ts` — список диалогов пользователя.
 - `server/src/features/aiDialogue/DeleteAiDialogue.command.ts` — удаление диалога.
 - `server/src/features/aiDialogue/CreateAiDialogueMessage.command.ts` — приём действия пользователя + триггер генерации.
-- `server/src/features/aiDialogue/GenerateAiDialogueTurn.service.ts` — генерация хода (полный ответ → парс → сохранение →
+- `server/src/features/aiDialogue/GenerateAiDialogueTurn.service.ts` — генерация хода (полный ответ → парс →
+  сохранение →
   шина).
 - `server/src/features/aiDialogue/SummarizeAiDialogue.service.ts` — фоновая компакция истории.
 - `server/src/features/aiDialogue/ActiveAiDialogueGenerationRegistry.service.ts` — лимит 1 генерация/диалог.
@@ -682,8 +691,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `face/entities/aiDialogue/repository/AiDialogueApi.ts` — реализация через REST + маппинг.
 - `face/entities/aiDialogue/AiDialogueService.ts` — сервис.
 - `face/entities/aiDialogue/AiDialogueQueryFacade.ts` — TanStack Query фасад.
-- `face/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/fn/useAiDialogueScenarioClick.ts` — клик по сценарию
-  (выбор сценария, проверка входа и создание с параметрами окна запуска).
+- `../../face/widgets/aiDialogue/aiDialogueScenario` — клик по сценарию (выбор сценария, проверка входа и создание с
+  параметрами окна запуска).
 - `face/shared/api/getRequestLocale.ts` — локаль интерфейса для `Accept-Language` запросов к API.
 - `face/shared/api/generated/ai-dialogue/ai-dialogue.ts` — сгенерированные функции (Orval).
 
@@ -700,8 +709,8 @@ SSE-соединения. Субъекты не вычищаются (диало
 - `AiDialogueService` — прослойка между компонентами и репозиторием.
 - `AiDialogueQueryFacade` — TanStack Query `queryOptions` (`aiDialogueQueries`).
 
-`scenario.title`/`scenario.description` приходят на языке интерфейса и выводятся как есть
-(см. `documentation/topics/internationalization.md`).
+`scenario.title`/`scenario.description` приходят на языке интерфейса и выводятся как есть (см.
+`documentation/topics/internationalization.md`).
 
 ### Изменение сложности на клиенте
 
@@ -715,15 +724,19 @@ Any передаёт `null`. На время сохранения заблоки
 ### Создание диалога по клику на сценарий
 
 1. Карточка открывает `StartDialogueModal` с обложкой, группой, названием и описанием сценария.
-2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса (`useLanguagesToLearn`)), сложность (A1/A2/B1/B2/C1/Any)
+2. Пользователь выбирает язык практики (все языки из `face/shared/utils/languages.ts`, кроме языка интерфейса
+   (`useLanguagesToLearn`)), сложность (A1/A2/B1/B2/C1/Any)
    и может написать пожелания к сцене.
-   Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или Any);
+   Язык восстанавливается из `localStorageManager.lastLanguage` (или en), сложность — из `lastAiDialogProficiency` (или
+   Any);
    пожелания не сохраняются и при каждом открытии окна пустые. Закрытие окна ничего не создаёт.
 3. Кнопка «Начать диалог» проверяет вход: гостю показывается `LoginPromptModal`.
-4. Авторизованный пользователь запускает `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, cefrLevel, illustrationStyleId, userScenarioAmendment })`.
+4. Авторизованный пользователь запускает
+   `aiDialogueService.createDialogue({ scenarioId, sourceLanguageCode, targetLanguageCode, cefrLevel, illustrationStyleId, userScenarioAmendment })`.
    `sourceLanguageCode` — выбранный язык, `targetLanguageCode` — локаль интерфейса, Any передаёт `cefrLevel: null`,
    пустые пожелания передаются как `userScenarioAmendment: null`.
-   Во время POST переключатель сложности и повторный запуск заблокированы, окно нельзя закрыть; ошибка сохраняет текущий выбор для повтора.
+   Во время POST переключатель сложности и повторный запуск заблокированы, окно нельзя закрыть; ошибка сохраняет текущий
+   выбор для повтора.
 5. При успехе инвалидируется кэш списка и выполняется `router.push` на `pageUrls.aiDialogues.dialog(dialog.id)`.
 
 Устройство `StartDialogueModal`, состав компонентов и сохранение настроек описаны в
@@ -787,7 +800,7 @@ Any передаёт `null`. На время сохранения заблоки
 
 `POST /api/ai-dialogue/:id/check-exam` без тела, только владельцу диалога в режиме `exam`.
 `CheckAiDialogueExamHandler` проверяет владельца и режим экзамена, но не проверяет количество ответов.
-Порог задаёт только клиентский `EXAM_MIN_REPLIES` в `face/widgets/aiDialogueExam/fn/examProgress.ts`.
+Порог задаёт только клиентский `EXAM_MIN_REPLIES` в `../../face/widgets/aiDialogue/aiDialogueExam`.
 Проверка использует всю исходную историю с ID сообщений,
 без сюжетной сводки, переводов, исправлений и результатов других попыток. При наличии `textReview`
 в исходную речь берётся `originalText`. Действия и уходы дают сюжетный контекст, но не заменяют речь.

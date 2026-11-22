@@ -1,6 +1,6 @@
-import { EXAM_MIN_REPLIES } from '../../widgets/aiDialogueExam/fn/examProgress'
 import { resolve } from 'node:path'
 import { expect, type Page, test } from '@playwright/test'
+import { EXAM_MIN_REPLIES } from '@/widgets/aiDialogue/aiDialogueExam/fn/examProgress'
 
 const titles = [
 	'Паспортный контроль',

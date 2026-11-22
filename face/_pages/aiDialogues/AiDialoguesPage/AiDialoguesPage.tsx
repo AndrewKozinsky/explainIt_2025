@@ -6,7 +6,7 @@ import Header from '@/shared/ui/Header/Header'
 import MediaPageContentWrapper from '@/shared/ui/media/MediaPageContentWrapper/MediaPageContentWrapper'
 import { BreadCrumbs } from '@/shared/ui/pageRelated/BreadCrumbs/BreadCrumbs'
 import { pageUrls } from '@/shared/utils/pageUrls'
-import PublicAiDialogueScenariosList from '@/widgets/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList'
+import PublicAiDialogueScenariosList from '@/widgets/aiDialogue/aiDialogueScenario/PublicAiDialogueScenariosList/PublicAiDialogueScenariosList'
 import MyAiDialogues from '@/widgets/aiUserDialogues/ui/MyAiDialogues/MyAiDialogues'
 import './AiDialoguesPage.scss'
 

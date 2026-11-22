@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { EXAM_MIN_REPLIES, getExamProgress } from '@/widgets/aiDialogueExam/fn/examProgress'
-import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import { EXAM_MIN_REPLIES, getExamProgress } from '@/widgets/aiDialogue/aiDialogueExam/fn/examProgress'
+import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 
 test('exam threshold counts one speech turn per submission and ignores actions and leaving the NPC', () => {
 	const row = (payload: DialogueServerMessage['payload']): DialogueServerMessage => ({

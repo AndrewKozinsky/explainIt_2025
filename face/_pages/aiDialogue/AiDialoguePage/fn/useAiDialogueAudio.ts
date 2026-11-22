@@ -4,7 +4,7 @@ import { DialogueAudioPlayer } from '@/entities/aiDialogue/audio/DialogueAudioPl
 import type { DialogueAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
 import { getVoicedAudioAddresses } from '@/entities/aiDialogue/audio/getVoicedAudioAddresses'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
-import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioStreamHandlers } from './openAiDialogueStream'
 
 /**

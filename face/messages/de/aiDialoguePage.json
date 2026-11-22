@@ -41,8 +41,10 @@
     "detailedAnswers": "Halten Sie das Gespräch aufrecht und geben Sie ausführliche Antworten, um Ihre Kenntnisse zu zeigen.",
     "minimumAnswers": "Geben Sie mindestens 10 Antworten, damit die Schaltfläche „{checkButton}“ verfügbar wird. Falls das Material für eine Bewertung nicht ausreicht, setzen Sie das Gespräch fort und lassen Sie Ihr Ergebnis erneut prüfen.",
     "assessment": "Sobald genügend Material vorliegt, bewertet die Anwendung Ihre Antworten und zeigt das Ergebnis an. Wenn Sie mindestens das niedrigste Niveau erreichen, erhalten Sie eine Medaille für dieses Szenario.",
-    "recommendations": "Nach der Bewertung erhalten Sie Empfehlungen, wie Sie Ihre Fähigkeiten verbessern und beim nächsten Mal ein höheres Niveau zeigen können. Sie erhalten diese Empfehlungen unabhängig davon, ob Sie die Prüfung bestehen.",
-    "topicsTitle": "Worüber Sie sprechen können",
+    "recommendations": "Nach der Bewertung erhalten Sie Empfehlungen, wie Sie Ihre Fähigkeiten verbessern und beim nächsten Mal ein höheres Niveau zeigen können. Sie erhalten diese Empfehlungen unabhängig davon, ob Sie die Prüfung bestehen."
+  },
+  "conversationTopics": {
+    "title": "Worüber Sie sprechen können",
     "beYourself": "Am einfachsten ist es, Sie selbst zu bleiben und so zu antworten, wie Sie es normalerweise tun würden, statt sich eine andere Identität auszudenken.",
     "ideasIntroduction": "Hier sind einige Gesprächsideen, falls Sie nicht wissen, wie Sie fortfahren sollen:",
     "ownTopic": "Sie können ein eigenes Thema wählen."

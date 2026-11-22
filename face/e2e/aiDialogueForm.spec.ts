@@ -1,9 +1,9 @@
 import { expect, type Page, test, type WebSocketRoute } from '@playwright/test'
-import { pageUrls } from '../shared/utils/pageUrls'
 import type {
 	AiDialogueClientEvent,
 	DialogueServerMessage,
-} from '../widgets/aiDialogueMessages/types/aiDialogueMessage'
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
+import { pageUrls } from '../shared/utils/pageUrls'
 
 async function setup(page: Page, pcm = false, history: DialogueServerMessage[] = [], reconnectAfterBadGateway = false) {
 	const browserErrors: string[] = []
@@ -140,28 +140,28 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 			const payload =
 				event.type === 'userActions'
 					? {
-							type: event.type,
-							actions: event.actions.map(({ type, content }) => ({
-								type,
-								content: content === 'Hey girls!' ? 'Hey, girls!' : content,
-							})),
-							textReview: event.actions.map(({ content }) => ({
-								originalText: content,
-								analysis: {
-									critical:
+						type: event.type,
+						actions: event.actions.map(({ type, content }) => ({
+							type,
+							content: content === 'Hey girls!' ? 'Hey, girls!' : content,
+						})),
+						textReview: event.actions.map(({ content }) => ({
+							originalText: content,
+							analysis: {
+								critical:
 										content === 'Hey girls!'
 											? [
-													{
-														title: 'Пропущена запятая',
-														sentenceMarkdown: '**Hey girls**!',
-														explanationMarkdown: 'После обращения **Hey** нужна запятая.',
-													},
-												]
+												{
+													title: 'Пропущена запятая',
+													sentenceMarkdown: '**Hey girls**!',
+													explanationMarkdown: 'После обращения **Hey** нужна запятая.',
+												},
+											]
 											: [],
-									suggestions: [],
-								},
-							})),
-						}
+								suggestions: [],
+							},
+						})),
+					}
 					: { type: event.type }
 
 			return route.fulfill({ json: { ...response, payload } })

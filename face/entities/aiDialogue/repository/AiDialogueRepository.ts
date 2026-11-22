@@ -3,10 +3,13 @@
  * Компоненты работают только с этим типом — он не зависит от API.
  */
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/AiDialogueScenarioModel'
-import type { AiDialogueVisualsOutModel, AiDialogueOutModelMode } from '@/shared/api/generated/models'
+import type { AiDialogueOutModelMode, AiDialogueVisualsOutModel } from '@/shared/api/generated/models'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
-import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type {
+	AiDialogueClientEvent,
+	DialogueServerMessage,
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioAddress, DialogueAudioFile } from '../audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from '../messageCheck/userMessageCheckTypes'
 import type { AiDialogueIllustrationStylesModel } from '../types/aiDialogueIllustrationStyles'

@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { capturePosthogEvent } from '@/shared/posthog/posthogEvents'
-import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
-import { useSelectedWordsStore } from '@/widgets/aiDialogueMessages/ui/SegmentedText/fn/selectedWordsStore'
+import type { AiDialogueWordSelection } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueUi'
+import { useSelectedWordsStore } from '@/widgets/aiDialogue/aiDialogueMessages/ui/SegmentedText/fn/selectedWordsStore'
 
 /** Dictionary selection changes only on a user click. */
 export function useAiDialogueWordSelection(dialogueId: string) {

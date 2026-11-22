@@ -2,8 +2,8 @@ import assert from 'node:assert/strict'
 import { afterEach, mock, test } from 'node:test'
 import { createElement } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import { AiDialogueDictationWaveform } from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueDictationWaveform'
-import { observeDictationWaveform } from '@/widgets/aiDialogueForm/AiDialogueForm/fn/observeDictationWaveform'
+import { AiDialogueDictationWaveform } from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/AiDialogueDictationWaveform'
+import { observeDictationWaveform } from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/fn/observeDictationWaveform'
 
 const originals = new Map<string, PropertyDescriptor | undefined>()
 function replace(name: string, value: unknown) {

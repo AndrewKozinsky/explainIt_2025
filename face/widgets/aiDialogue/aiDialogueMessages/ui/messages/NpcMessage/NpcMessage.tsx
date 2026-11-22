@@ -1,0 +1,107 @@
+'use client'
+
+import { useTranslations } from 'next-intl'
+import { getAudioAddress } from '@/entities/aiDialogue/audio/dialogueAudioTypes'
+import { getReplyTextKey } from '@/entities/aiDialogue/replySettings/replyTextVisibilityStore'
+import type { AiDialogueNpcActionItem } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
+import type {
+	AiDialogueTextMappingProps,
+	AiDialogueWordSelectHandler,
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueUi'
+import type { AiDialogueWordMap } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueWordMap'
+import AiDialogueContentBlock from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
+import { useDialogueContentSelection } from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
+import AiDialogueTextWithTranslation from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
+import { useDialogueMode } from '../../DialogueModeContext'
+import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
+import DialogueNpcAvatar from './DialogueNpcAvatar'
+import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAndActions'
+import NpcRoleText from './NpcRoleText'
+import './NpcMessage.scss'
+
+type NpcMessageProps = {
+	/** ID сохранённого сообщения для озвучки и видимости текста. */
+	messageId: number
+	wordMap?: AiDialogueWordMap
+	npcId?: string
+	npcName?: string
+	npcRole?: string
+	emotion?: string
+	speechAndActions?: AiDialogueNpcActionItem[]
+	onWordSelect: AiDialogueWordSelectHandler
+}
+
+function NpcMessage({
+	messageId,
+	npcId,
+	npcName = '',
+	npcRole = '',
+	emotion = '',
+	speechAndActions = [],
+	onWordSelect,
+	wordMap,
+}: NpcMessageProps) {
+	const mode = useDialogueMode()
+	const t = useTranslations('aiDialogueMessages')
+	const content = speechAndActions.map((item, index) => {
+		const textProps = {
+			content: item.content ?? '',
+			translation: item.translation ?? '',
+			wordMap: wordMap?.status === 'ready' ? wordMap.blocks[`action:${index}`] : undefined,
+			onWordSelect,
+		}
+
+		if (item.type !== 'speech') {
+			return <NpcActionText key={index} {...textProps} />
+		}
+
+		return (
+			<AiDialogueContentBlock
+				key={index}
+				{...textProps}
+				replyTextKey={getReplyTextKey(messageId, index)}
+				audioAddress={getAudioAddress(messageId, index)}
+			/>
+		)
+	})
+
+	return (
+		<WithAvatarMessageWrapper
+			extraClass='nps-message'
+			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || t('participant')} />}
+			name={npcName}
+			role={
+				npcRole && (mode === 'practice' ? <NpcRoleText role={npcRole} onWordSelect={onWordSelect} /> : npcRole)
+			}
+			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(
+				({ key, speechIndex, actionIndex }) => ({
+					key,
+					speech: speechIndex !== undefined ? content[speechIndex] : undefined,
+					actions: actionIndex !== undefined ? content[actionIndex] : undefined,
+				}),
+			)}
+		/>
+	)
+}
+
+type NpcActionTextProps = AiDialogueTextMappingProps & {
+	content: string
+	translation?: string
+	onWordSelect: AiDialogueWordSelectHandler
+}
+
+function NpcActionText({ content, translation, wordMap, onWordSelect }: NpcActionTextProps) {
+	const { isTranslationVisible, handleWordClick } = useDialogueContentSelection({ content, wordMap, onWordSelect })
+
+	return (
+		<AiDialogueTextWithTranslation
+			content={content}
+			translation={translation}
+			wordMap={wordMap}
+			isTranslationVisible={isTranslationVisible}
+			onWordClick={handleWordClick}
+		/>
+	)
+}
+
+export default NpcMessage

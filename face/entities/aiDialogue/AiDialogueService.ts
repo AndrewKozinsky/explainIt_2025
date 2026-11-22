@@ -1,6 +1,9 @@
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
-import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type {
+	AiDialogueClientEvent,
+	DialogueServerMessage,
+} from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import type { DialogueAudioAddress, DialogueAudioFile } from './audio/dialogueAudioTypes'
 import type { CheckUserMessageInput, UserMessageCheck } from './messageCheck/userMessageCheckTypes'
 import type {

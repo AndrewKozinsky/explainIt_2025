@@ -41,8 +41,10 @@
     "detailedAnswers": "Bilginizi göstermek için konuşmayı sürdürün ve ayrıntılı yanıtlar verin.",
     "minimumAnswers": "“{checkButton}” düğmesinin etkinleşmesi için en az 10 yanıt verin. Değerlendirme için yeterli içerik yoksa konuşmaya devam edin ve sonucu tekrar kontrol edin.",
     "assessment": "Yeterli içerik olduğunda uygulama yanıtlarınızı değerlendirir ve sonucu gösterir. En azından en düşük düzeye ulaşırsanız bu senaryoya özel bir madalya alırsınız.",
-    "recommendations": "Değerlendirmeden sonra becerilerinizi geliştirip bir sonraki sefer daha yüksek bir düzey göstermenize yardımcı olacak öneriler alırsınız. Sınavı geçseniz de geçmeseniz de öneriler sunulur.",
-    "topicsTitle": "Neler hakkında konuşabilirsiniz",
+    "recommendations": "Değerlendirmeden sonra becerilerinizi geliştirip bir sonraki sefer daha yüksek bir düzey göstermenize yardımcı olacak öneriler alırsınız. Sınavı geçseniz de geçmeseniz de öneriler sunulur."
+  },
+  "conversationTopics": {
+    "title": "Neler hakkında konuşabilirsiniz",
     "beYourself": "En kolay yol, farklı bir kimlik uydurmak yerine kendiniz olmak ve normalde nasıl yanıt verecekseniz öyle yanıt vermektir.",
     "ideasIntroduction": "Ne yapacağınızı bilmiyorsanız işte birkaç konuşma fikri:",
     "ownTopic": "Kendi konunuzu seçebilirsiniz."

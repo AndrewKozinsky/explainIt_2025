@@ -41,8 +41,10 @@
     "detailedAnswers": "Mantén la conversación y da respuestas detalladas para demostrar tus conocimientos.",
     "minimumAnswers": "Da al menos 10 respuestas para habilitar el botón «{checkButton}». Si no hay suficiente material para evaluar, continúa la conversación y vuelve a comprobar el resultado.",
     "assessment": "Cuando haya suficiente material, la aplicación evaluará tus respuestas y mostrará el resultado. Si alcanzas al menos el nivel mínimo, recibirás una medalla para este escenario en concreto.",
-    "recommendations": "Tras la evaluación, recibirás recomendaciones para mejorar tus habilidades y demostrar un nivel más alto la próxima vez. Recibirás recomendaciones tanto si apruebas el examen como si no.",
-    "topicsTitle": "De qué puedes hablar",
+    "recommendations": "Tras la evaluación, recibirás recomendaciones para mejorar tus habilidades y demostrar un nivel más alto la próxima vez. Recibirás recomendaciones tanto si apruebas el examen como si no."
+  },
+  "conversationTopics": {
+    "title": "De qué puedes hablar",
     "beYourself": "Lo más sencillo es ser tú mismo y responder como lo harías normalmente, en lugar de inventarte otra identidad.",
     "ideasIntroduction": "Aquí tienes algunas ideas para la conversación si no sabes qué hacer:",
     "ownTopic": "Puedes elegir tu propio tema."
