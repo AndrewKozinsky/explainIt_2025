@@ -1,4 +1,4 @@
-import { HideIcon } from '@/shared/ui/icons/HideIcon'
+import { HideIcon } from '@/shared/ui/icons/common/HideIcon'
 import './MediaCardLongVideo.scss'
 
 type MediaCardProps = {

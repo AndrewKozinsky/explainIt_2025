@@ -5,9 +5,9 @@ import { formatBalanceRefillTime } from '@/entities/user/fn/getNextBalanceRefill
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
 import { useNextBalanceRefill } from '@/entities/user/fn/useNextBalanceRefill'
 import { pricingConfig } from '@/shared/consts/pricingConfig'
-import { type PricingLinkPlacement, capturePosthogEvent } from '@/shared/posthog/posthogEvents'
+import { capturePosthogEvent, type PricingLinkPlacement } from '@/shared/posthog/posthogEvents'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import { InfoIcon } from '@/shared/ui/icons/InfoIcon'
+import { InfoIcon } from '@/shared/ui/icons/common/InfoIcon'
 import { pageUrls } from '@/shared/utils/pageUrls'
 import './BalanceExhaustedNotice.scss'
 

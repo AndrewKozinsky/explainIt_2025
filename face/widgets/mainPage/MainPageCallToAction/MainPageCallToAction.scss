@@ -149,7 +149,7 @@ $collapsed-padding-block: 1rem;
 	}
 
 	@include mix.container-width($wide-padding-width) {
-		padding: 1.6rem 4rem;
+		padding: 1.6rem 1.8rem;
 	}
 
 	.call-to-action__card:not(.call-to-action__card--expanded) & {

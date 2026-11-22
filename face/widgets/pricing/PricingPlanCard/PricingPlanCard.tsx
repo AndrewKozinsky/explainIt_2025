@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import cn from 'classnames'
-import { CheckIcon } from '@/shared/ui/icons/CheckIcon'
+import { CheckIcon } from '@/shared/ui/icons/common/CheckIcon'
 import './PricingPlanCard.scss'
 
 type PricingPlanCardProps = {

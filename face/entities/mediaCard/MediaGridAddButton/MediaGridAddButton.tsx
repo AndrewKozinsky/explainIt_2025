@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
-import { BigPlusIcon } from '@/shared/ui/icons/BigPlusIcon'
+import { BigPlusIcon } from '@/shared/ui/icons/common/BigPlusIcon'
 import Spinner from '@/shared/ui/Spinner/Spinner'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import './MediaGridAddButton.scss'
