@@ -1,0 +1,28 @@
+.content-section {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.content-section--h3 {
+	gap: 0.8rem;
+}
+
+.content-section--h4 {
+	gap: 0.6rem;
+}
+
+.content-section__header {
+	margin: 0;
+	font-weight: 400;
+}
+
+.content-section__header--h3 {
+	font-size: 2.4rem;
+	line-height: 3rem;
+}
+
+.content-section__header--h4 {
+	font-size: 2rem;
+	line-height: 2.6rem;
+}

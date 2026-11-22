@@ -1,0 +1,30 @@
+.content-list {
+	margin: 0;
+	padding: 0 0 0 2.6rem;
+
+	> li {
+		display: list-item;
+		padding: 0;
+	}
+
+	> li + li {
+		margin-top: 0.6rem;
+	}
+}
+
+.content-list--unordered > li {
+	list-style: disc outside;
+}
+
+.content-list--ordered > li {
+	list-style: decimal outside;
+}
+
+.content-list--middle {
+	font-size: 1.6rem;
+	line-height: 2.4rem;
+}
+.content-list--small {
+	font-size: 1.5rem;
+	line-height: 2.2rem;
+}
