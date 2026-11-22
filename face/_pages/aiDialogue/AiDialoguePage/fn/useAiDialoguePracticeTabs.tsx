@@ -30,7 +30,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
 	const { selectedWord, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
-	const [detailsView, setDetailsView] = useState<PracticeTabId>('dictionary')
+	const [detailsView, setDetailsView] = useState<PracticeTabId>('practice')
 	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
 
 	const selectMessage = useCallback((messageId: number) => {

@@ -294,7 +294,7 @@ phrase/слово в поле word
 ### Страница
 
 - `face/_pages/aiDialogue/AiDialoguePage/AiDialoguePage.tsx` — страница.
-- `face/_pages/aiDialogue/AiDialogueLeftWrapper/AiDialogueLeftWrapper.tsx` — левая колонка (сообщения + ввод).
+- `../../face/widgets/AiDialogueLeftWrapper` — левая колонка (сообщения + ввод).
 - `face/_pages/aiDialogue/AiDialoguePage/fn/getHeaderAndSubHeader.ts` — заголовок страницы из названия сценария.
 
 ## Настройки реплик
