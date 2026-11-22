@@ -59,6 +59,7 @@ export default function LoadedAiDialoguePage({ dialogueId, dialogue }: Props) {
 	const { header } = getHeaderAndSubHeader(dialogue)
 
 	const examTabs = useAiDialogueExamTabs()
+
 	const {
 		tabs: practiceTabs,
 		detailsView,
@@ -112,12 +113,16 @@ export default function LoadedAiDialoguePage({ dialogueId, dialogue }: Props) {
 					}
 					rightBlock={
 						<ViewportSyncedHeight gapTop={10} gapBottom={10}>
-							<DetailsBlock
-								key={selectedMessageId}
-								activeView={detailsView}
-								onViewChange={changeDetailsView}
-								tabs={dialogue.mode === 'exam' ? examTabs : practiceTabs}
-							/>
+							{dialogue.mode === 'exam' ? (
+								<DetailsBlock tabs={examTabs} />
+							) : (
+								<DetailsBlock
+									key={selectedMessageId}
+									activeView={detailsView}
+									onViewChange={changeDetailsView}
+									tabs={practiceTabs}
+								/>
+							)}
 						</ViewportSyncedHeight>
 					}
 				/>

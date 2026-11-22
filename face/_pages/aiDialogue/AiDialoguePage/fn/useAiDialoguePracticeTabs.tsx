@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import type { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
-import type { DetailsBlockTab, InfoViewType } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
+import type { DetailsBlockTab } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import { DictionaryButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/DictionaryButtonIcon'
 import { MessageButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/MessageButtonIcon'
 import { SettingsButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/SettingsButtonIcon'
@@ -13,6 +13,8 @@ import { PhraseDictionary } from '@/widgets/dictionary'
 import { useAiDialogueTextLevel } from './useAiDialogueTextLevel'
 import { useAiDialogueWordSelection } from './useAiDialogueWordSelection'
 import type { useAiDialogueAudio } from './useAiDialogueAudio'
+
+type PracticeTabId = 'dictionary' | 'message' | 'settings'
 
 type Props = {
 	dialogueId: string
@@ -26,7 +28,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
 	const { selectedWord, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
-	const [detailsView, setDetailsView] = useState<InfoViewType>('dictionary')
+	const [detailsView, setDetailsView] = useState<PracticeTabId>('dictionary')
 	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
 
 	const selectMessage = useCallback((messageId: number) => {
@@ -34,7 +36,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 		setDetailsView('message')
 	}, [])
 
-	const changeDetailsView = useCallback((view: InfoViewType) => {
+	const changeDetailsView = useCallback((view: PracticeTabId) => {
 		setSelectedMessageId(null)
 		setDetailsView(view)
 	}, [])
@@ -49,9 +51,9 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 
 	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
 
-	const tabs: DetailsBlockTab[] = [
+	const tabs: DetailsBlockTab<PracticeTabId>[] = [
 		{
-			type: 'dictionary',
+			id: 'dictionary',
 			icon: <DictionaryButtonIcon />,
 			text: tPage('tabs.dictionary'),
 			content: (
@@ -59,7 +61,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 			),
 		},
 		{
-			type: 'message',
+			id: 'message',
 			icon: <MessageButtonIcon />,
 			text: tPage('tabs.message'),
 			content: (
@@ -67,7 +69,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 			),
 		},
 		{
-			type: 'settings',
+			id: 'settings',
 			icon: <SettingsButtonIcon />,
 			text: tPage('tabs.settings'),
 			content: (

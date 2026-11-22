@@ -1,6 +1,7 @@
 {
   "loading": "Cargando la conversación…",
   "tabs": {
+    "exam": "Sobre el examen",
     "dictionary": "Diccionario",
     "dialogue": "Conversación",
     "settings": "Ajustes",

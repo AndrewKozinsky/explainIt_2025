@@ -5,24 +5,22 @@ import DetailsBlockContentWrapper from '../DetailsBlockContentWrapper/DetailsBlo
 import InfoViewSwitcher from '../InfoViewSwitcher/InfoViewSwitcher'
 import './DetailsBlock.scss'
 
-export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog' | 'message' | 'settings'
-
-export type DetailsBlockTab = {
-	type: InfoViewType
+export type DetailsBlockTab<TabId extends string = string> = {
+	id: TabId
 	text: string
 	icon?: ReactNode
 	content: ReactNode
 }
 
-type DetailsBlockProps = {
-	tabs: DetailsBlockTab[]
-	activeView?: InfoViewType
-	onViewChange?: (view: InfoViewType) => void
+type DetailsBlockProps<TabId extends string> = {
+	tabs: DetailsBlockTab<TabId>[]
+	activeView?: TabId
+	onViewChange?: (view: TabId) => void
 }
 
-function DetailsBlock({ tabs, activeView, onViewChange }: DetailsBlockProps) {
-	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType | undefined>(tabs[0]?.type)
-	const currentTab = tabs.find((tab) => tab.type === (activeView ?? currentInfoView)) ?? tabs[0]
+function DetailsBlock<TabId extends string>({ tabs, activeView, onViewChange }: DetailsBlockProps<TabId>) {
+	const [currentInfoView, setCurrentInfoView] = useState<TabId | undefined>(tabs[0]?.id)
+	const currentTab = tabs.find((tab) => tab.id === (activeView ?? currentInfoView)) ?? tabs[0]
 
 	if (!currentTab) return null
 
@@ -31,7 +29,7 @@ function DetailsBlock({ tabs, activeView, onViewChange }: DetailsBlockProps) {
 			<div className='details-block-wrapper__switcher'>
 				<InfoViewSwitcher
 					tabs={tabs}
-					currentInfoView={currentTab.type}
+					currentInfoView={currentTab.id}
 					setActiveInfoView={onViewChange ?? setCurrentInfoView}
 				/>
 			</div>

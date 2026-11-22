@@ -1,6 +1,7 @@
 {
   "loading": "Gespräch wird geladen…",
   "tabs": {
+    "exam": "Über die Prüfung",
     "dictionary": "Wörterbuch",
     "dialogue": "Gespräch",
     "settings": "Einstellungen",
