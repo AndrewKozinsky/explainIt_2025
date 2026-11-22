@@ -1,0 +1,86 @@
+import { useCallback, useState } from 'react'
+import { useTranslations } from 'next-intl'
+import type { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
+import type { DetailsBlockTab, InfoViewType } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
+import { DictionaryButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/DictionaryButtonIcon'
+import { MessageButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/MessageButtonIcon'
+import { SettingsButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/SettingsButtonIcon'
+import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import AiDialogueMessageReview from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageReview/AiDialogueMessageReview'
+import AiDialogueSettings from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
+import { PhraseDictionary } from '@/widgets/dictionary'
+import { useAiDialogueTextLevel } from './useAiDialogueTextLevel'
+import { useAiDialogueWordSelection } from './useAiDialogueWordSelection'
+import type { useAiDialogueAudio } from './useAiDialogueAudio'
+
+type Props = {
+	dialogueId: string
+	dialogue: AiDialogueModel
+	messages: DialogueServerMessage[]
+	audio: Pick<ReturnType<typeof useAiDialogueAudio>, 'player' | 'state'>
+}
+
+export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audio }: Props) {
+	const tPage = useTranslations('aiDialoguePage')
+	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
+
+	const { selectedWord, handleWordSelect } = useAiDialogueWordSelection(dialogueId)
+	const [detailsView, setDetailsView] = useState<InfoViewType>('dictionary')
+	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
+
+	const selectMessage = useCallback((messageId: number) => {
+		setSelectedMessageId(messageId)
+		setDetailsView('message')
+	}, [])
+
+	const changeDetailsView = useCallback((view: InfoViewType) => {
+		setSelectedMessageId(null)
+		setDetailsView(view)
+	}, [])
+
+	const selectWord = useCallback(
+		(selection: AiDialogueWordSelection) => {
+			handleWordSelect(selection)
+			changeDetailsView('dictionary')
+		},
+		[handleWordSelect, changeDetailsView],
+	)
+
+	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
+
+	const tabs: DetailsBlockTab[] = [
+		{
+			type: 'dictionary',
+			icon: <DictionaryButtonIcon />,
+			text: tPage('tabs.dictionary'),
+			content: (
+				<PhraseDictionary languageCode={dialogue.sourceLanguageCode} currentWord={selectedWord ?? undefined} />
+			),
+		},
+		{
+			type: 'message',
+			icon: <MessageButtonIcon />,
+			text: tPage('tabs.message'),
+			content: (
+				<AiDialogueMessageReview message={selectedPayload?.type === 'userActions' ? selectedPayload : null} />
+			),
+		},
+		{
+			type: 'settings',
+			icon: <SettingsButtonIcon />,
+			text: tPage('tabs.settings'),
+			content: (
+				<AiDialogueSettings
+					textLevel={textLevel}
+					onTextLevelChange={changeTextLevel}
+					isUpdatingTextLevel={isUpdatingTextLevel}
+					audioBlocked={audio.state.isBlocked}
+					onUnlockAudio={() => audio.player.unlock()}
+				/>
+			),
+		},
+	]
+
+	return { tabs, detailsView, selectedMessageId, selectMessage, changeDetailsView, selectWord }
+}
