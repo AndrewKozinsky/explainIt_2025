@@ -58,7 +58,7 @@ export default function LoadedAiDialoguePage({ dialogueId, dialogue }: Props) {
 	const examFinished = dialogue.mode === 'exam' && Boolean(getExamProgress(messages).result)
 	const { header } = getHeaderAndSubHeader(dialogue)
 
-	const examTabs = useAiDialogueExamTabs()
+	const examTabs = useAiDialogueExamTabs(dialogue.scenario)
 
 	const {
 		tabs: practiceTabs,

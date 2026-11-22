@@ -1,3 +1,4 @@
+import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/AiDialogueScenarioModel'
 import ContentBordered from '@/shared/ui/content/ContentBordered/ContentBordered'
 import ContentHeaderWithChildren from '@/shared/ui/content/ContentHeaderWithChildren/ContentHeaderWithChildren'
 import ContentList from '@/shared/ui/content/ContentList/ContentList'
@@ -5,10 +6,14 @@ import ContentText from '@/shared/ui/content/ContentText/ContentText'
 import ContentWrapper from '@/shared/ui/content/ContentWrapper/ContentWrapper'
 import './AiDialogueExamInfo.scss'
 
-export default function AiDialogueExamInfo() {
+type Props = {
+	scenario: Pick<AiDialogueScenarioModel, 'title' | 'conversationIdeas'>
+}
+
+export default function AiDialogueExamInfo({ scenario }: Props) {
 	return (
 		<div className='ai-dialogue-exam-info'>
-			<ContentHeaderWithChildren title='Экзамен: В кафе'>
+			<ContentHeaderWithChildren title={`Экзамен: ${scenario.title}`}>
 				<ContentWrapper>
 					<ContentText>
 						Проверьте, насколько самостоятельно вы можете общаться в этом сценарии. Рекомендуется приступать
@@ -49,14 +54,16 @@ export default function AiDialogueExamInfo() {
 					<ContentText>
 						Самый простой вариант не выдумывать другую личность, а говорить так, как сами бы отвечали.
 					</ContentText>
-					<ContentText>Несколько направлений беседы если не знаете что делать:</ContentText>
-					<ContentList>
-						<li>Узнайте, какие блюда и напитки есть в меню.</li>
-						<li>Попросите рекомендацию и объясните свои предпочтения.</li>
-						<li>Уточните состав блюда или попросите заменить ингредиент.</li>
-						<li>Сделайте заказ и обсудите возникшую проблему.</li>
-						<li>Попросите счёт и уточните способы оплаты.</li>
-					</ContentList>
+					{scenario.conversationIdeas.length > 0 && (
+						<>
+							<ContentText>Несколько направлений беседы если не знаете что делать:</ContentText>
+							<ContentList>
+								{scenario.conversationIdeas.map((idea, index) => (
+									<li key={index}>{idea}</li>
+								))}
+							</ContentList>
+						</>
+					)}
 					<ContentText>Вы можете выбрать собственную тему.</ContentText>
 				</ContentWrapper>
 			</ContentHeaderWithChildren>

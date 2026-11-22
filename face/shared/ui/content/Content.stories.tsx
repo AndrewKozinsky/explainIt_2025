@@ -3,6 +3,15 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 const meta = {
 	title: 'Shared/UI/Content/Composition',
 	component: AiDialogueExamInfo,
+	args: {
+		scenario: {
+			title: 'В кафе',
+			conversationIdeas: [
+				'Узнайте, какие блюда и напитки есть в меню.',
+				'Попросите рекомендацию и объясните свои предпочтения.',
+			],
+		},
+	},
 	parameters: { layout: 'fullscreen' },
 } satisfies Meta<typeof AiDialogueExamInfo>
 export default meta

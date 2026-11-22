@@ -28,4 +28,6 @@ export interface AiDialogueScenarioOutModel {
      * @maxLength 2000
      */
   description: string;
+  /** Ideas of how the participant can steer the conversation, in the interface language (2–4 items, written as user actions) */
+  conversationIdeas: string[];
 }

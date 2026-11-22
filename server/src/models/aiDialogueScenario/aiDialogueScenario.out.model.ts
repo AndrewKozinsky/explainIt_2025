@@ -19,4 +19,12 @@ export class AiDialogueScenarioOutModel {
 		description: 'Short scenario description in the interface language',
 	})
 	description: string
+
+	@ApiProperty({
+		type: [String],
+		description:
+			'Ideas of how the participant can steer the conversation, in the interface language (2–4 items, written as user actions)',
+		example: ['Ask for a discount', 'Refuse and leave'],
+	})
+	conversationIdeas: string[]
 }

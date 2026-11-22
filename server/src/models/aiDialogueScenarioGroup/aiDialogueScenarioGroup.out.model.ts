@@ -17,14 +17,6 @@ export class PublicAiDialogueScenarioOutModel extends AiDialogueScenarioOutModel
 	userScenarioAmendmentHint: null | string
 
 	@ApiProperty({
-		type: [String],
-		description:
-			'Ideas of how the participant can steer the conversation, in the interface language (2–4 items, written as user actions)',
-		example: ['Ask for a discount', 'Refuse and leave'],
-	})
-	conversationIdeas: string[]
-
-	@ApiProperty({
 		...getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.trained_skills),
 		required: true,
 		nullable: false,

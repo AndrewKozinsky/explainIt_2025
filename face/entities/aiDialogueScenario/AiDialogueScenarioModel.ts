@@ -4,4 +4,5 @@ export type AiDialogueScenarioModel = {
 	slug: null | string
 	title: string
 	description: string
+	conversationIdeas: string[]
 }

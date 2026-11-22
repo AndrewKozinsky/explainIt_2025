@@ -24,7 +24,13 @@ function rawDialogue(cefrLevel: AiDialogueModel['cefrLevel'] = 'A2'): AiDialogue
 	return {
 		id: 1,
 		illustrationStyleId: 'realism',
-		scenario: { id: 3, slug: 'customs', title: 'Customs', description: 'At customs' },
+		scenario: {
+			id: 3,
+			slug: 'customs',
+			title: 'Customs',
+			description: 'At customs',
+			conversationIdeas: ['Ask about customs rules'],
+		},
 		sourceLanguageCode: 'en',
 		targetLanguageCode: 'ru',
 		cefrLevel,
@@ -100,6 +106,8 @@ test('detail loading preserves the server level, including the unrestricted defa
 
 		const dialogue = await queryClient.fetchQuery(facade.getDialogue(1))
 		assert.equal(dialogue.cefrLevel, null)
+		assert.equal(dialogue.scenario.title, 'Customs')
+		assert.deepEqual(dialogue.scenario.conversationIdeas, ['Ask about customs rules'])
 	} finally {
 		queryClient.clear()
 	}

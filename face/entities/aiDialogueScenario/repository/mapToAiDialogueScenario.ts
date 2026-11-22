@@ -8,5 +8,6 @@ export function mapToAiDialogueScenario(raw: AiDialogueScenarioOutModel): AiDial
 		slug: extractString(raw.slug),
 		title: raw.title,
 		description: raw.description,
+		conversationIdeas: (raw.conversationIdeas ?? []).filter((idea) => idea.trim() !== ''),
 	}
 }
