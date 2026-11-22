@@ -3,8 +3,8 @@
 import { useCallback, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
-import { useReplySettingsStore } from '@/entities/aiDialogue/replySettings/replySettingsStore'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
+import { useReplySettingsStore } from '@/entities/aiDialogue/replySettings/replySettingsStore'
 import type { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import DetailsBlock, {
 	type DetailsBlockTab,

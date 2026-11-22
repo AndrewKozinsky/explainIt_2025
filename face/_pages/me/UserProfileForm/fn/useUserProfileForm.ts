@@ -18,6 +18,7 @@ export function useUserProfileForm(user: UserModel) {
 	const queryClient = useQueryClient()
 	const { mutateAsync: updateMe } = useMutation(userQueries.updateMe())
 	const { mutateAsync: uploadAvatar } = useMutation(userQueries.uploadAvatar())
+
 	const presets = useQuery({
 		...userQueries.getAvatarPresets(),
 		retry: 1,

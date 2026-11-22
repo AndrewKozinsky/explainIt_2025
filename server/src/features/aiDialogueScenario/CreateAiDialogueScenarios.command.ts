@@ -27,11 +27,11 @@ export class CreateAiDialogueScenariosHandler implements ICommandHandler<CreateA
 			coverS3Key: getPublicScenarioCoverKey(mode, scenario.slug),
 			medals: scenario.medals
 				? (Object.fromEntries(
-					Object.entries(scenario.medals).map(([level, key]) => [
-						level,
-						`${getR2EnvironmentPrefix('ai-dialogue-scenario-medals', mode)}${key}`,
-					]),
-				) as AiDialogueScenarioMedals)
+						Object.entries(scenario.medals).map(([level, key]) => [
+							level,
+							`${getR2EnvironmentPrefix('ai-dialogue-scenario-medals', mode)}${key}`,
+						]),
+					) as AiDialogueScenarioMedals)
 				: undefined,
 		}))
 

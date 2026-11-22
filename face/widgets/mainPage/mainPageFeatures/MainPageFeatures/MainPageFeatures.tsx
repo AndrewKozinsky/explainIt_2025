@@ -1,4 +1,8 @@
+'use client'
+
+import { useQuery } from '@tanstack/react-query'
 import { useTranslations } from 'next-intl'
+import { aiDialogueScenarioQueries } from '@/entities/aiDialogueScenario/AiDialogueScenarioQueryFacade'
 import MainPageSection from '../../MainPageSection/MainPageSection'
 import FeatureCard from '../FeatureCard/FeatureCard'
 import FeatureContextWord from '../FeatureContextWord/FeatureContextWord'
@@ -10,6 +14,8 @@ import './MainPageFeatures.scss'
 /** Блок главной страницы: шесть дополнительных функций диалогов */
 function MainPageFeatures() {
 	const t = useTranslations('mainPageFeatures')
+	const { data: scenarioCount } = useQuery(aiDialogueScenarioQueries.getPublicScenarioCount())
+	const plotsTitle = scenarioCount ? t('plots.title', { count: scenarioCount }) : t('plots.titleWithoutCount')
 
 	return (
 		<MainPageSection eyebrow={t('eyebrow')} header={t('header')} text={t('text')}>
@@ -31,7 +37,7 @@ function MainPageFeatures() {
 					<FeatureCard number='5' title={t('dictionary.title')} text={t('dictionary.text')}>
 						<FeatureContextWord />
 					</FeatureCard>
-					<FeatureCard number='6' title={t('plots.title')} text={t('plots.text')}>
+					<FeatureCard number='6' title={plotsTitle} text={t('plots.text')}>
 						<FeaturePlots />
 					</FeatureCard>
 				</div>

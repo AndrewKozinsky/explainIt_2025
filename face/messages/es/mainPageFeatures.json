@@ -30,7 +30,8 @@
     "meaning": "pick up"
   },
   "plots": {
-    "title": "12 tramas para elegir",
-    "text": "Una cafetería, un mercado, un hotel, el control de pasaportes, una visita al dentista, un desconocido en tu puerta y más. Pronto llegarán nuevas."
+    "title": "{count, plural, one {# trama para elegir} other {# tramas para elegir}}",
+    "titleWithoutCount": "Tramas para elegir",
+    "text": "Una cafetería, un mercado, un hotel, el control de pasaportes, una visita al dentista, un desconocido en tu puerta y más."
   }
 }

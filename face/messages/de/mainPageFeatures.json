@@ -30,7 +30,8 @@
     "meaning": "pick up"
   },
   "plots": {
-    "title": "12 Handlungen zur Auswahl",
-    "text": "Café, Markt, Hotel, Passkontrolle, ein Besuch beim Zahnarzt, ein Fremder vor der Tür und mehr. Bald kommen neue hinzu."
+    "title": "{count, plural, one {# Handlung zur Auswahl} other {# Handlungen zur Auswahl}}",
+    "titleWithoutCount": "Handlungen zur Auswahl",
+    "text": "Café, Markt, Hotel, Passkontrolle, ein Besuch beim Zahnarzt, ein Fremder vor der Tür und mehr."
   }
 }

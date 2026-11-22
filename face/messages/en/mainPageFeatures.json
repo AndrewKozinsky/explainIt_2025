@@ -30,7 +30,8 @@
     "meaning": "darse cuenta"
   },
   "plots": {
-    "title": "12 storylines to choose from",
-    "text": "A café, a market, a hotel, passport control, a trip to the dentist, a stranger at your door and more. New ones are coming soon."
+    "title": "{count, plural, one {# storyline to choose from} other {# storylines to choose from}}",
+    "titleWithoutCount": "Storylines to choose from",
+    "text": "A café, a market, a hotel, passport control, a trip to the dentist, a stranger at your door and more."
   }
 }

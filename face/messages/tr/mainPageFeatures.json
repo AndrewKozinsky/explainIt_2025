@@ -30,7 +30,8 @@
     "meaning": "pick up"
   },
   "plots": {
-    "title": "Seçebileceğiniz 12 senaryo",
-    "text": "Kafe, pazar, otel, pasaport kontrolü, diş hekimi ziyareti, kapınızdaki bir yabancı ve daha fazlası. Yakında yenileri gelecek."
+    "title": "Seçebileceğiniz {count} senaryo",
+    "titleWithoutCount": "Seçebileceğiniz senaryolar",
+    "text": "Kafe, pazar, otel, pasaport kontrolü, diş hekimi ziyareti, kapınızdaki bir yabancı ve daha fazlası."
   }
 }

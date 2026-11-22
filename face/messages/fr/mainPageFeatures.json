@@ -30,7 +30,8 @@
     "meaning": "pick up"
   },
   "plots": {
-    "title": "12 intrigues au choix",
-    "text": "Un café, un marché, un hôtel, le contrôle des passeports, une visite chez le dentiste, un inconnu à votre porte et bien plus. D’autres arrivent bientôt."
+    "title": "{count, plural, one {# intrigue au choix} other {# intrigues au choix}}",
+    "titleWithoutCount": "Intrigues au choix",
+    "text": "Un café, un marché, un hôtel, le contrôle des passeports, une visite chez le dentiste, un inconnu à votre porte et bien plus."
   }
 }
