@@ -16,6 +16,9 @@ Cloudflare R2 предназначен для `immersia.site`. При работ
 
 Публичная статика `immersia.site` размещается отдельно в бакете `immersia-public` и доступна через
 `https://files.immersia.site/`. Её адреса собраны в `face/shared/utils/filesUrls.ts`.
+Медали сценариев также хранятся в `immersia-public`: `ai-dialogue-scenario-medals/<MODE>/<scenarioSlug>/<LEVEL>.webp`.
+Сервер формирует постоянные ссылки через `getPublicFileUrl` в `infrastructure/cloudflareS3/publicFileUrl.ts`;
+подпись и запрос к S3 не требуются. Для каждого сценария предусмотрены отдельные пять файлов A1–C1.
 
 ## Разделение по окружениям
 

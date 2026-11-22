@@ -36,7 +36,12 @@ export function parseExamReport(text: string, messages: AiDialogueMessageOutMode
 			)
 		})
 		if (!validEvidence) return null
-		return { type: 'examResult', assessedThroughMessageId: messages.at(-1)?.id ?? 0, ...parsed.data }
+		return {
+			type: 'examResult',
+			medalUrl: null,
+			assessedThroughMessageId: messages.at(-1)?.id ?? 0,
+			...parsed.data,
+		}
 	} catch {
 		return null
 	}

@@ -1,3 +1,4 @@
+import { getExamMedalUrl } from 'features/aiDialogue/exam/aiDialogueMedal'
 import { Injectable } from '@nestjs/common'
 import { AiDialogueScenarioQueryRepository } from 'repo/aiDialogueScenario/aiDialogueScenario.queryRepository'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
@@ -38,7 +39,10 @@ export class AiDialogueQueryRepository {
 			orderBy: { id: 'asc' },
 		})
 
-		return messages.map((message) => this.mapDbMessageToOutModel(message))
+		return this.withExamMedals(
+			dialogueId,
+			messages.map((message) => this.mapDbMessageToOutModel(message)),
+		)
 	}
 
 	@CatchDbError()
@@ -46,7 +50,7 @@ export class AiDialogueQueryRepository {
 		const message = await this.prisma.aiDialogueMessage.findUnique({ where: { id: messageId } })
 		if (!message) return null
 
-		return this.mapDbMessageToOutModel(message)
+		return (await this.withExamMedals(message.dialogue_id, [this.mapDbMessageToOutModel(message)]))[0]
 	}
 
 	@CatchDbError()
@@ -79,6 +83,28 @@ export class AiDialogueQueryRepository {
 			payload: this.deserializeEvent(dbMessage),
 			createdAt: dbMessage.created_at.toISOString(),
 		}
+	}
+
+	private async withExamMedals(
+		dialogueId: number,
+		messages: AiDialogueMessageOutModel[],
+	): Promise<AiDialogueMessageOutModel[]> {
+		if (!messages.some(({ payload }) => payload.type === 'examResult')) return messages
+		const dialogue = await this.prisma.aiDialogue.findUnique({
+			where: { id: dialogueId },
+			select: { scenario: { select: { medal_s3_keys: true } } },
+		})
+		return messages.map((message) =>
+			message.payload.type === 'examResult'
+				? {
+						...message,
+						payload: {
+							...message.payload,
+							medalUrl: getExamMedalUrl(dialogue?.scenario.medal_s3_keys, message.payload.level),
+						},
+					}
+				: message,
+		)
 	}
 
 	// Восстанавливает событие из колонки type и JSON-строки payload

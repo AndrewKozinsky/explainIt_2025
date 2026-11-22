@@ -100,6 +100,8 @@ export type WorldEvent = {
 /** Результат самостоятельной проверки; создаётся оценщиком, не персонажем и не клиентом. */
 export type ExamResultEvent = {
 	type: 'examResult'
+	/** Public medal URL of the original scenario; null for A0 or an unconfigured image. */
+	medalUrl: string | null
 	/** Последнее сообщение, включённое в проверку. */
 	assessedThroughMessageId: number
 	/** A0 означает, что в этой попытке A1 не подтверждён; медаль не выдаётся. */

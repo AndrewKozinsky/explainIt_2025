@@ -26,6 +26,7 @@
     "errors": "Hatalar",
     "recommendations": "Nasıl gelişebilirsiniz",
     "attemptOnly": "Bu sonuç yalnızca bu denemeye aittir. Genel dil yeterliliğini belirlemez ve harici bir sınavın yerini almaz.",
-    "failed": "Sonuç değerlendirilemedi. Tekrar deneyin."
+    "failed": "Sonuç değerlendirilemedi. Tekrar deneyin.",
+    "medal": "{level} düzeyi madalyası"
   }
 }

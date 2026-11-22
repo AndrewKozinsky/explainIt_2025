@@ -26,6 +26,7 @@
     "errors": "Errors",
     "recommendations": "How to improve",
     "attemptOnly": "This result applies only to this attempt. It is not an overall proficiency assessment or a substitute for an external exam.",
-    "failed": "Could not check the result. Try again."
+    "failed": "Could not check the result. Try again.",
+    "medal": "Medal for level {level}"
   }
 }

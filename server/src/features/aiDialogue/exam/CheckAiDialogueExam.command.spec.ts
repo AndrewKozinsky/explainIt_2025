@@ -42,7 +42,11 @@ function harness() {
 			payload: row.event,
 		})),
 	}
-	const messages = { createMessage: jest.fn(async (dto) => dto) }
+	const messages = { createMessage: jest.fn(async (dto) => ({ ...dto, id: 11 })) }
+	const getMessageById = jest.fn(async () =>
+		query.mapDbMessageToOutModel(messages.createMessage.mock.calls.at(-1)![0]),
+	)
+	Object.assign(query, { getMessageById })
 	const llm = { generate: jest.fn().mockResolvedValue({ content: JSON.stringify(report), model: 'deepseek-v4-pro' }) }
 	const balance = { ensurePositiveBalanceOrThrow: jest.fn(), chargeLlm: jest.fn() }
 	const registry = {
@@ -81,7 +85,12 @@ it.each(['A0', 'C1'])('preserves %s and rejects invented error evidence or an in
 it('checks original context once, saves and broadcasts the result, then returns it without charging again', async () => {
 	const h = harness()
 	const result = await h.handler.execute(command())
-	expect(result.payload).toMatchObject({ type: 'examResult', level: 'A2', assessedThroughMessageId: 10 })
+	expect(result.payload).toMatchObject({
+		medalUrl: null,
+		type: 'examResult',
+		level: 'A2',
+		assessedThroughMessageId: 10,
+	})
 	expect(h.llm.generate.mock.calls[0][0].messages[1].content).toContain('She go home.')
 	expect(h.balance.chargeLlm).toHaveBeenCalledTimes(1)
 	expect(h.hub.publishDialogueEvent).toHaveBeenCalledTimes(1)
@@ -131,6 +140,6 @@ it('accepts two replies without enforcing a server-side submission threshold', a
 	const h = harness()
 	h.query.getMessagesByDialogueId.mockResolvedValue(history.slice(0, 2))
 	const result = await h.handler.execute(command())
-	expect(result.payload).toMatchObject({ type: 'examResult', assessedThroughMessageId: 2 })
+	expect(result.payload).toMatchObject({ medalUrl: null, type: 'examResult', assessedThroughMessageId: 2 })
 	expect(h.llm.generate).toHaveBeenCalledTimes(1)
 })

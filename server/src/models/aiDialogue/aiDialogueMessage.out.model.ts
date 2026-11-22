@@ -14,7 +14,7 @@ export class AiDialogueMessageOutModel {
 
 	@ApiProperty({
 		description:
-			'Event payload discriminated by type. For practice userActions, textReview follows the order of actions; exam replies have no review.',
+			'Event payload discriminated by type. For practice userActions, textReview follows the order of actions; exam replies have no review. examResult includes medalUrl, a public medal URL or null.',
 	})
 	payload: AiDialogueEvent
 

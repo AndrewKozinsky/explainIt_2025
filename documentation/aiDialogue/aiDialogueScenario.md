@@ -351,8 +351,8 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 синхронизация добавляет префикс окружения и сохраняет JSON. При повторном сиде обновляются и ключи медалей.
 
 Первый набор задан у `passport-control`: `ai-dialogue-scenario-medals/{MODE}/passport-control/{LEVEL}.webp`.
-Наличие ключей не подтверждает наличие файлов: изображения пока не загружены. Выдача URL и показ медалей
-будут добавлены вместе с результатом экзамена. Медаль определяется исходным сценарием и достигнутым уровнем,
+Наличие ключей не подтверждает наличие файлов: изображения размещаются в R2 вручную. Сервер возвращает
+публичную ссылку `medalUrl` вместе с результатом проверки и при чтении истории. Медаль определяется исходным сценарием и достигнутым уровнем,
 даже если пользователь сменил место по ходу диалога.
 
 ### Выбор режима при создании
@@ -364,3 +364,23 @@ PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chromium npx playwright test --config pl
 пока пользователь не выбрал другой уровень. Выбранные A1–C1 сохраняются существующим механизмом.
 `mode` передаётся вместе с остальными параметрами в POST создания и сохраняется в диалоге.
 При ошибке создания режим и уровень сохраняются в окне; во время запроса переключатели заблокированы.
+
+### Размещение изображений медалей
+
+Бакет `immersia-public`, отдельный набор из пяти WebP для каждого сценария:
+`ai-dialogue-scenario-medals/{MODE}/{scenarioSlug}/A1.webp`, `A2.webp`, `B1.webp`, `B2.webp`, `C1.webp`.
+Регистр имён важен. Для первого сценария «Паспортный контроль» в локальной разработке:
+
+```text
+ai-dialogue-scenario-medals/localdev/passport-control/A1.webp
+ai-dialogue-scenario-medals/localdev/passport-control/A2.webp
+ai-dialogue-scenario-medals/localdev/passport-control/B1.webp
+ai-dialogue-scenario-medals/localdev/passport-control/B2.webp
+ai-dialogue-scenario-medals/localdev/passport-control/C1.webp
+```
+
+Для `servermaster` используется та же структура под `ai-dialogue-scenario-medals/servermaster/passport-control/`.
+Каждый следующий сценарий получает собственные пять изображений и собственный `scenarioSlug`.
+Файлы доступны через `https://files.immersia.site/` без подписи. Ключи берутся из `medals` сида, сохраняются в `medal_s3_keys` и не заменяются
+универсальным набором медалей. Файлы медалей не входят в пользовательские изображения диалога и не удаляются
+при удалении попытки. Отображение сохраняет пропорции изображения внутри квадратного места.

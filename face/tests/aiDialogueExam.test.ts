@@ -24,6 +24,7 @@ test('exam threshold counts one speech turn per submission and ignores actions a
 	)
 	assert.equal(getExamProgress(Array(EXAM_MIN_REPLIES).fill(speech)).remaining, 0)
 	const result = {
+		medalUrl: null,
 		type: 'examResult' as const,
 		level: 'A0' as const,
 		assessedThroughMessageId: 10,

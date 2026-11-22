@@ -94,7 +94,8 @@ export class CheckAiDialogueExamHandler implements ICommandHandler<
 				throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 			}
 
-			const result = this.query.mapDbMessageToOutModel(saved)
+			const result = await this.query.getMessageById(saved.id)
+			if (!result) throw new CustomError(errorMessage.unknownError, ErrorStatusCode.InternalServerError_500)
 			this.hub.publishDialogueEvent(dialogue.id, { data: { type: 'message', message: result } })
 
 			return result

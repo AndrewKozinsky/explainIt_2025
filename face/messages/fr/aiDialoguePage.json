@@ -26,6 +26,7 @@
     "errors": "Erreurs",
     "recommendations": "Comment progresser",
     "attemptOnly": "Ce résultat concerne uniquement cette tentative. Il ne constitue pas une évaluation générale du niveau et ne remplace pas un examen externe.",
-    "failed": "Impossible d’évaluer le résultat. Réessayez."
+    "failed": "Impossible d’évaluer le résultat. Réessayez.",
+    "medal": "Médaille du niveau {level}"
   }
 }

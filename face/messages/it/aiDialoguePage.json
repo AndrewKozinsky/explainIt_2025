@@ -26,6 +26,7 @@
     "errors": "Errori",
     "recommendations": "Come migliorare",
     "attemptOnly": "Questo risultato riguarda solo questo tentativo. Non è una valutazione generale della lingua e non sostituisce un esame esterno.",
-    "failed": "Impossibile valutare il risultato. Riprova."
+    "failed": "Impossibile valutare il risultato. Riprova.",
+    "medal": "Medaglia per il livello {level}"
   }
 }

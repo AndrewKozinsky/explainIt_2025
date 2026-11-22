@@ -137,6 +137,7 @@ describe('exam result message', () => {
 		'preserves %s on replay and excludes the report from story text and dictionary maps',
 		async (level) => {
 			const event: ExamResultEvent = {
+				medalUrl: null,
 				type: 'examResult',
 				assessedThroughMessageId: 15,
 				level,
@@ -156,7 +157,10 @@ describe('exam result message', () => {
 				create: jest.fn(async ({ data }) => ({ ...data, id: 16, created_at: new Date() })),
 				findUnique: jest.fn(),
 			}
-			const prisma = { aiDialogueMessage: messages } as never
+			const prisma = {
+				aiDialogueMessage: messages,
+				aiDialogue: { findUnique: jest.fn().mockResolvedValue({ scenario: { medal_s3_keys: null } }) },
+			} as never
 			const repository = new AiDialogueMessageRepository(prisma)
 			const query = new AiDialogueQueryRepository(prisma, {} as never)
 			const saved = await repository.createMessage({ dialogueId: 3, event })

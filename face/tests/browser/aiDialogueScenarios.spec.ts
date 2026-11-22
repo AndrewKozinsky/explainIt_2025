@@ -508,8 +508,9 @@ test('exam renders audio without speech text or reveal controls and actions with
 	expect(errors).toEqual([])
 })
 
-for (const level of ['A0', 'C1'] as const) {
-	test(`exam submission counts replies, recovers after a failure and persists ${level} without the reply form`, async ({
+for (const medalCase of ['A0', 'A1', 'A2', 'B1', 'B2', 'C1', 'missing-file'] as const) {
+	const level = medalCase === 'missing-file' ? 'C1' : medalCase
+	test(`exam submission counts replies, recovers after a failure and persists ${medalCase} without the reply form`, async ({
 		page,
 	}, testInfo) => {
 		const h = await setup(page, { authenticated: true })
@@ -517,6 +518,15 @@ for (const level of ['A0', 'C1'] as const) {
 		let result: object | undefined
 		let requests = 0
 		let finish!: (fail?: boolean) => void
+		let imageRequests = 0
+		await page.route('**/test-medal-*.svg', (route) => {
+			imageRequests++
+			if (medalCase === 'missing-file') return route.abort()
+			return route.fulfill({
+				contentType: 'image/svg+xml',
+				body: `<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><circle cx="128" cy="128" r="100" fill="gold"/><text x="96" y="144" font-size="40">${level}</text></svg>`,
+			})
+		})
 		const date = '2026-11-22T00:00:00Z'
 		const userMessages = () =>
 			Array.from({ length: replies }, (_, index) => ({
@@ -562,6 +572,7 @@ for (const level of ['A0', 'C1'] as const) {
 				dialogueId: 42,
 				createdAt: date,
 				payload: {
+					medalUrl: level === 'A0' ? null : `/test-medal-${level}.svg`,
 					type: 'examResult',
 					assessedThroughMessageId: replies,
 					level,
@@ -596,10 +607,20 @@ for (const level of ['A0', 'C1'] as const) {
 		await expect(check).toHaveCount(0)
 		await expect(
 			page.getByText(
-				level === 'A0' ? 'В этой попытке A1 не подтверждён' : 'В этой попытке подтверждён уровень C1',
+				level === 'A0' ? 'В этой попытке A1 не подтверждён' : `В этой попытке подтверждён уровень ${level}`,
 				{ exact: true },
 			),
 		).toBeVisible()
+		if (level === 'A0') {
+			expect(imageRequests).toBe(0)
+			await expect(page.locator('.ai-dialogue-exam-medal')).toHaveCount(0)
+		} else if (medalCase === 'missing-file') {
+			await expect.poll(() => imageRequests).toBe(1)
+			await expect(page.locator('.ai-dialogue-exam-medal')).toHaveCount(0)
+		} else {
+			await expect(page.getByRole('img', { name: `Медаль за уровень ${level}` })).toBeVisible()
+			await expect(page.locator('.ai-dialogue-exam-medal')).toHaveJSProperty('naturalWidth', 256)
+		}
 		await page
 			.locator('.ai-dialogue-exam-submission')
 			.screenshot({ path: testInfo.outputPath(`exam-result-${level}.png`) })

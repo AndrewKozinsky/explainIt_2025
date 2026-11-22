@@ -26,6 +26,7 @@
     "errors": "Fehler",
     "recommendations": "So kannst du dich verbessern",
     "attemptOnly": "Dieses Ergebnis gilt nur für diesen Versuch. Es ist keine allgemeine Einstufung und ersetzt keine externe Prüfung.",
-    "failed": "Das Ergebnis konnte nicht geprüft werden. Versuche es erneut."
+    "failed": "Das Ergebnis konnte nicht geprüft werden. Versuche es erneut.",
+    "medal": "Medaille für Niveau {level}"
   }
 }

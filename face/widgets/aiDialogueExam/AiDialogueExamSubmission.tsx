@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
+import AiDialogueExamMedal from './AiDialogueExamMedal'
 import { getExamProgress } from './fn/examProgress'
 import { useExamSubmission } from './fn/useExamSubmission'
 import './AiDialogueExamSubmission.scss'
@@ -33,6 +34,7 @@ export default function AiDialogueExamSubmission({
 				<p className='ai-dialogue-exam-submission__level'>
 					{result.level === 'A0' ? t('belowA1') : t('achievedLevel', { level: result.level })}
 				</p>
+				{result.level !== 'A0' && <AiDialogueExamMedal url={result.medalUrl} level={result.level} />}
 				<p>{result.summary}</p>
 				{result.strengths.length > 0 && (
 					<>
