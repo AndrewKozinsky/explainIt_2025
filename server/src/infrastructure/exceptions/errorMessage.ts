@@ -146,6 +146,8 @@ export const errorMessage = {
 		previousAnswerNotReady: { code: 'SENTENCE_CHAT_PREVIOUS_ANSWER_NOT_READY' }, // Невозможно отправить новый вопрос: предыдущий ответ ещё не завершён.
 	},
 	aiDialogue: {
+		examOnly: { code: 'AI_DIALOGUE_EXAM_ONLY' }, // Проверка доступна только в режиме экзамена.
+		cannotParseExamResult: { code: 'AI_DIALOGUE_CANNOT_PARSE_EXAM_RESULT' }, // Не удалось получить корректный отчёт экзамена.
 		illustrationStyleNotFound: { code: 'AI_DIALOGUE_ILLUSTRATION_STYLE_NOT_FOUND' }, // Выберите доступный стиль иллюстраций.
 		invalidIllustrationStyleCatalog: { code: 'AI_DIALOGUE_INVALID_ILLUSTRATION_STYLE_CATALOG' }, // Неверная конфигурация каталога стилей или MODE.
 		dictationInvalidInput: { code: 'AI_DIALOGUE_DICTATION_INVALID_INPUT' }, // Неверный формат или порядок данных диктовки.

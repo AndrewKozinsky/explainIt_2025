@@ -17,7 +17,7 @@ import {
 	UseGuards,
 } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
-import { ApiTags } from '@nestjs/swagger'
+import { ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger'
 import { Request } from 'express'
 import { Observable } from 'rxjs'
 import { AiDialogueClientEvent } from 'types/aiDialogueMessage'
@@ -26,6 +26,7 @@ import { GenerateAiDialogueAudioCommand } from 'features/aiDialogue/audio/Genera
 import { CreateAiDialogueCommand } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageCommand } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueCommand } from 'features/aiDialogue/DeleteAiDialogue.command'
+import { CheckAiDialogueExamCommand } from 'features/aiDialogue/exam/CheckAiDialogueExam.command'
 import { GetAiDialogueCommand } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetAiDialogueVisualsCommand } from 'features/aiDialogue/GetAiDialogueVisuals.command'
 import { GetUserDialoguesCommand } from 'features/aiDialogue/GetUserDialogues.command'
@@ -72,6 +73,19 @@ export class AiDialogueController {
 	@Get('illustration-styles')
 	async getAiDialogueIllustrationStyles(): Promise<AiDialogueIllustrationStylesOutModel> {
 		return this.commandBus.execute(new GetAiDialogueIllustrationStylesCommand())
+	}
+
+	@ApiOperation({ summary: 'Check the result of an independent exam attempt' })
+	@ApiOkResponse({ type: AiDialogueMessageOutModel })
+	@UseGuards(CheckSessionCookieGuard)
+	@Header('Cache-Control', 'private, no-store')
+	@HttpCode(HttpStatus.OK)
+	@Post(':id/check-exam')
+	async checkExam(
+		@Param('id', ParseIntPipe) id: number,
+		@Req() request: Request,
+	): Promise<AiDialogueMessageOutModel> {
+		return this.commandBus.execute(new CheckAiDialogueExamCommand(request.user!.id, id))
 	}
 
 	@ApiCheckAiDialogueUserMessage()

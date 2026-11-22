@@ -19,6 +19,7 @@ type Props = {
 	sourceLanguageCode: LanguageCode
 	send: SendAiDialogueMessage
 	balanceExhausted: boolean
+	disabled?: boolean
 }
 
 /** Новый dialogueId создаёт отдельный черновик и отменяет операции прежнего диалога. */
@@ -26,9 +27,9 @@ export default function AiDialogueInput(props: Props) {
 	return <AiDialogueReplyForm key={props.dialogueId} {...props} />
 }
 
-function AiDialogueReplyForm({ dialogueId, sourceLanguageCode, send, balanceExhausted }: Props) {
+function AiDialogueReplyForm({ dialogueId, sourceLanguageCode, send, balanceExhausted, disabled = false }: Props) {
 	const t = useTranslations('aiDialogueForm')
-	const { state, controller, blocked } = useAiDialogueDraft(dialogueId, send, balanceExhausted)
+	const { state, controller, blocked } = useAiDialogueDraft(dialogueId, send, balanceExhausted || disabled)
 	const { activePart, parts, dictation } = state
 	const current = parts[activePart]
 	const editorVisible = !balanceExhausted || state.sending

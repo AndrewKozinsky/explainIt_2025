@@ -94,5 +94,7 @@
   "YOUTUBE_LANGUAGE_NOT_SUPPORTED": "Язык не поддерживается для поиска видео на YouTube.",
   "YOUTUBE_VIDEO_NOT_FOUND": "Видео с указанным ID не найдено на YouTube.",
   "YOUTUBE_AUDIO_DOWNLOAD_FAILED": "Не удалось скачать аудио с YouTube.",
-  "VALIDATION_FAILED": "Ошибка валидации."
+  "VALIDATION_FAILED": "Ошибка валидации.",
+  "AI_DIALOGUE_CANNOT_PARSE_EXAM_RESULT": "Не удалось проверить результат. Попробуйте ещё раз.",
+  "AI_DIALOGUE_EXAM_ONLY": "Проверка доступна только в режиме экзамена."
 }

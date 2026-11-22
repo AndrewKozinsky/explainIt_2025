@@ -94,5 +94,7 @@
   "YOUTUBE_LANGUAGE_NOT_SUPPORTED": "Bu dil YouTube video araması için desteklenmiyor.",
   "YOUTUBE_VIDEO_NOT_FOUND": "Bu kimliğe sahip YouTube videosu bulunamadı.",
   "YOUTUBE_AUDIO_DOWNLOAD_FAILED": "YouTube’dan ses indirilemedi.",
-  "VALIDATION_FAILED": "Doğrulama hatası."
+  "VALIDATION_FAILED": "Doğrulama hatası.",
+  "AI_DIALOGUE_CANNOT_PARSE_EXAM_RESULT": "Sonuç değerlendirilemedi. Tekrar deneyin.",
+  "AI_DIALOGUE_EXAM_ONLY": "Değerlendirme yalnızca sınav modunda kullanılabilir."
 }

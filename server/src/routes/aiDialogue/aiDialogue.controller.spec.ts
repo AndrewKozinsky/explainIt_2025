@@ -21,7 +21,12 @@ jest.mock('@nestjs/common', () => {
 		ParseIntPipe: class {},
 	}
 })
-jest.mock('@nestjs/swagger', () => ({ ApiTags: () => () => undefined }))
+jest.mock('@nestjs/swagger', () => ({
+	ApiTags: () => () => undefined,
+	ApiProperty: () => () => undefined,
+	ApiOperation: () => () => undefined,
+	ApiOkResponse: () => () => undefined,
+}))
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 jest.mock('infrastructure/requestLocale/requestLocale.decorator', () => ({ RequestLocale: () => () => undefined }))
 jest.mock('@nestjs/cqrs', () => ({ CommandBus: class {}, CommandHandler: () => (target: unknown) => target }))

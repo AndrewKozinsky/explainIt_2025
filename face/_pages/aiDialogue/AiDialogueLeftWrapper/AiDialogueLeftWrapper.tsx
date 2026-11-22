@@ -27,7 +27,7 @@ function AiDialogueLeftWrapper(props: AiDialogueLeftWrapperProps) {
 	return (
 		<div ref={containerRef} className='ai-dialogue-left-wrapper'>
 			<div className='ai-dialogue-left-wrapper__messages'>{messages}</div>
-			<div className='ai-dialogue-left-wrapper__input'>{input}</div>
+			{input && <div className='ai-dialogue-left-wrapper__input'>{input}</div>}
 		</div>
 	)
 }

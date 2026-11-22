@@ -94,5 +94,7 @@
   "YOUTUBE_LANGUAGE_NOT_SUPPORTED": "Questa lingua non è supportata per la ricerca di video su YouTube.",
   "YOUTUBE_VIDEO_NOT_FOUND": "Nessun video di YouTube trovato con questo ID.",
   "YOUTUBE_AUDIO_DOWNLOAD_FAILED": "Impossibile scaricare l’audio da YouTube.",
-  "VALIDATION_FAILED": "Errore di validazione."
+  "VALIDATION_FAILED": "Errore di validazione.",
+  "AI_DIALOGUE_CANNOT_PARSE_EXAM_RESULT": "Impossibile valutare il risultato. Riprova.",
+  "AI_DIALOGUE_EXAM_ONLY": "La valutazione è disponibile solo in modalità esame."
 }

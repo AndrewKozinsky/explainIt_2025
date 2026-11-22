@@ -22,6 +22,7 @@ import { CleanupAiDialogueImages } from 'features/aiDialogue/CleanupAiDialogueIm
 import { CreateAiDialogueHandler } from 'features/aiDialogue/CreateAiDialogue.command'
 import { CreateAiDialogueMessageHandler } from 'features/aiDialogue/CreateAiDialogueMessage.command'
 import { DeleteAiDialogueHandler } from 'features/aiDialogue/DeleteAiDialogue.command'
+import { CheckAiDialogueExamHandler } from 'features/aiDialogue/exam/CheckAiDialogueExam.command'
 import { GenerateAiDialogueTurn } from 'features/aiDialogue/GenerateAiDialogueTurn.service'
 import { GetAiDialogueHandler } from 'features/aiDialogue/GetAiDialogue.command'
 import { GetAiDialogueVisualsHandler } from 'features/aiDialogue/GetAiDialogueVisuals.command'
@@ -54,7 +55,9 @@ const services = [
 	AiDialogueVisualUpdates,
 	CleanupAiDialogueImages,
 ]
+
 const commandHandlers = [
+	CheckAiDialogueExamHandler,
 	GetAiDialogueIllustrationStylesHandler,
 	CheckAiDialogueUserMessageHandler,
 	UpdateAiDialogueHandler,
@@ -67,6 +70,7 @@ const commandHandlers = [
 	GetAiDialogueVisualsHandler,
 	OpenAiDialogueStreamHandler,
 ]
+
 const repositories = [
 	AiDialogueAudioRepository,
 	AiDialogueMessageRepository,

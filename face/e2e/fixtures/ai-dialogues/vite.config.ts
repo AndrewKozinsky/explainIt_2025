@@ -11,6 +11,7 @@ export default defineConfig({
 		alias: [
 			{ find: '@/i18n/routing', replacement: `${directory}routing.tsx` },
 			{ find: '@', replacement: face },
+			{ find: '_pages', replacement: `${face}_pages` },
 		],
 	},
 	esbuild: { jsx: 'automatic' },

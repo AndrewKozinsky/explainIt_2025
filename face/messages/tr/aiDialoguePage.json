@@ -14,5 +14,18 @@
     "critical": "Hatalar",
     "suggestions": "Öneriler",
     "issueCount": "{count} not"
+  },
+  "exam": {
+    "availableAfter": "Değerlendirme {count} yanıt sonra açılacak",
+    "check": "Sonucu değerlendir",
+    "checking": "Değerlendiriliyor…",
+    "result": "Sınav sonucu",
+    "belowA1": "Bu denemede A1 düzeyi gösterilemedi",
+    "achievedLevel": "Bu denemede {level} düzeyi gösterildi",
+    "strengths": "Güçlü yönler",
+    "errors": "Hatalar",
+    "recommendations": "Nasıl gelişebilirsiniz",
+    "attemptOnly": "Bu sonuç yalnızca bu denemeye aittir. Genel dil yeterliliğini belirlemez ve harici bir sınavın yerini almaz.",
+    "failed": "Sonuç değerlendirilemedi. Tekrar deneyin."
   }
 }

@@ -8,7 +8,7 @@ import { DialogueAudioProvider } from '@/widgets/aiDialogueMessages/ui/audio/Dia
 import { DialogueModeContext } from '@/widgets/aiDialogueMessages/ui/DialogueModeContext'
 
 export default function ExamFixture() {
-	const audio = useAiDialogueAudio(42)
+	const audio = useAiDialogueAudio(42, () => true)
 	return (
 		<NextIntlClientProvider locale='ru' messages={{ aiDialogueMessages: messages }}>
 			<DialogueModeContext.Provider value='exam'>

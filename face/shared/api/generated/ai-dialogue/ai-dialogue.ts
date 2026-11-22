@@ -187,7 +187,90 @@ export function useAiDialogueControllerGetAiDialogueIllustrationStyles<TData = A
 
 
 
-export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse200 = {
+export type aiDialogueControllerCheckExamResponse200 = {
+  data: AiDialogueMessageOutModel
+  status: 200
+}
+
+export type aiDialogueControllerCheckExamResponseSuccess = (aiDialogueControllerCheckExamResponse200) & {
+  headers: Headers;
+};
+;
+
+export type aiDialogueControllerCheckExamResponse = (aiDialogueControllerCheckExamResponseSuccess)
+
+export const getAiDialogueControllerCheckExamUrl = (id: number,) => {
+
+
+
+
+  return `/api/ai-dialogue/${id}/check-exam`
+}
+
+/**
+ * @summary Check the result of an independent exam attempt
+ */
+export const aiDialogueControllerCheckExam = async (id: number, options?: Parameters<typeof customMutator>[1]): Promise<aiDialogueControllerCheckExamResponse> => {
+
+  return customMutator<aiDialogueControllerCheckExamResponse>(getAiDialogueControllerCheckExamUrl(id),
+  {
+    ...options,
+    method: 'POST'
+
+
+  }
+);}
+
+
+
+
+
+export const getAiDialogueControllerCheckExamMutationKey = () => ['aiDialogueControllerCheckExam'] as const;
+
+export const getAiDialogueControllerCheckExamMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckExam>>, TError,AiDialogueControllerCheckExamMutationVariables, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckExam>>, TError,AiDialogueControllerCheckExamMutationVariables, TContext> => {
+
+const mutationKey = getAiDialogueControllerCheckExamMutationKey();
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof aiDialogueControllerCheckExam>>, AiDialogueControllerCheckExamMutationVariables> = (props) => {
+          const {id} = props ?? {};
+
+          return  aiDialogueControllerCheckExam(id,requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type AiDialogueControllerCheckExamMutationResult = NonNullable<Awaited<ReturnType<typeof aiDialogueControllerCheckExam>>>
+
+    export type AiDialogueControllerCheckExamMutationError = unknown
+    export type AiDialogueControllerCheckExamMutationVariables = {id: number}
+
+    /** @summary Check the result of an independent exam attempt */
+export const useAiDialogueControllerCheckExam = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof aiDialogueControllerCheckExam>>, TError,AiDialogueControllerCheckExamMutationVariables, TContext>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof aiDialogueControllerCheckExam>>,
+        TError,
+        AiDialogueControllerCheckExamMutationVariables,
+        TContext
+      > => {
+      return useMutation(getAiDialogueControllerCheckExamMutationOptions(options), queryClient);
+    }
+    export type aiDialogueControllerCheckAiDialogueUserMessageTextResponse200 = {
   data: AiDialogueUserMessageCheckOutModel
   status: 200
 }

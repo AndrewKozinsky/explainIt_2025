@@ -3,15 +3,21 @@
 import { useCallback, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useLocale, useTranslations } from 'next-intl'
+import { useReplySettingsStore } from '@/entities/aiDialogue/replySettings/replySettingsStore'
 import { aiDialogueQueries } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import type { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
-import DetailsBlock, { type InfoViewType } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
+import DetailsBlock, {
+	type DetailsBlockTab,
+	type InfoViewType,
+} from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
+import AiDialogueExamSubmission from '@/widgets/aiDialogueExam/AiDialogueExamSubmission'
+import { getExamProgress } from '@/widgets/aiDialogueExam/fn/examProgress'
 import AiDialogueInput from '@/widgets/aiDialogueForm/AiDialogueForm/AiDialogueInput'
 import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueMessageList from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
@@ -23,6 +29,7 @@ import { PhraseDictionary } from '@/widgets/dictionary'
 import { resolveAiDialogueTurnError } from '_pages/aiDialogue/AiDialoguePage/fn/resolveTurnError'
 import { useAiDialogueStream } from '_pages/aiDialogue/AiDialoguePage/fn/useAiDialogueStream'
 import AiDialogueLeftWrapper from '../AiDialogueLeftWrapper/AiDialogueLeftWrapper'
+import { useAiDialogueStore } from '../aiDialogueStore'
 import { getHeaderAndSubHeader } from './fn/getHeaderAndSubHeader'
 import { useAiDialogueAudio } from './fn/useAiDialogueAudio'
 import { useAiDialogueSendMessage } from './fn/useAiDialogueSendMessage'
@@ -56,7 +63,11 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
 	const { visuals, refreshVisuals, recoverImage } = useAiDialogueVisuals(Number(dialogueId), Boolean(dialogue))
-	const audio = useAiDialogueAudio(Number(dialogueId))
+	const shouldAutoplay = useCallback(
+		() => dialogue.mode === 'exam' || useReplySettingsStore.getState().isAutoVoiceEnabled,
+		[dialogue.mode],
+	)
+	const audio = useAiDialogueAudio(Number(dialogueId), shouldAutoplay)
 	const { messages, turnError } = useAiDialogueStream(
 		Number(dialogueId),
 		Boolean(dialogue),
@@ -87,8 +98,42 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 		[handleWordSelect, changeDetailsView],
 	)
 
+	const [isCheckingExam, setCheckingExam] = useState(false)
+	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
+	const examFinished = dialogue.mode === 'exam' && Boolean(getExamProgress(messages).result)
 	const { header } = getHeaderAndSubHeader(dialogue)
 	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
+
+	const examTabs: DetailsBlockTab[] = []
+	const practiceTabs: DetailsBlockTab[] = [
+		{
+			type: 'dictionary',
+			text: tPage('tabs.dictionary'),
+			content: (
+				<PhraseDictionary languageCode={dialogue.sourceLanguageCode} currentWord={selectedWord ?? undefined} />
+			),
+		},
+		{
+			type: 'message',
+			text: tPage('tabs.message'),
+			content: (
+				<AiDialogueMessageReview message={selectedPayload?.type === 'userActions' ? selectedPayload : null} />
+			),
+		},
+		{
+			type: 'settings',
+			text: tPage('tabs.settings'),
+			content: (
+				<AiDialogueSettings
+					textLevel={textLevel}
+					onTextLevelChange={changeTextLevel}
+					isUpdatingTextLevel={isUpdatingTextLevel}
+					audioBlocked={audio.state.isBlocked}
+					onUnlockAudio={() => audio.player.unlock()}
+				/>
+			),
+		},
+	]
 
 	return (
 		<DialogueModeContext.Provider value={dialogue.mode}>
@@ -111,13 +156,25 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 									refreshVisuals={refreshVisuals}
 									recoverImage={recoverImage}
 								/>
+								{dialogue.mode === 'exam' && (
+									<AiDialogueExamSubmission
+										dialogueId={Number(dialogueId)}
+										messages={messages}
+										generating={isGenerating}
+										balanceExhausted={isBalanceExhausted}
+										onCheckingChange={setCheckingExam}
+									/>
+								)}
 							</>
-							<AiDialogueInput
-								dialogueId={Number(dialogueId)}
-								sourceLanguageCode={dialogue.sourceLanguageCode}
-								send={send}
-								balanceExhausted={isBalanceExhausted}
-							/>
+							{!examFinished && (
+								<AiDialogueInput
+									dialogueId={Number(dialogueId)}
+									sourceLanguageCode={dialogue.sourceLanguageCode}
+									send={send}
+									disabled={isCheckingExam}
+									balanceExhausted={isBalanceExhausted}
+								/>
+							)}
 						</AiDialogueLeftWrapper>
 					}
 					rightBlock={
@@ -126,48 +183,7 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 								key={selectedMessageId}
 								activeView={detailsView}
 								onViewChange={changeDetailsView}
-								tabs={
-									dialogue.mode === 'exam'
-										? []
-										: [
-												{
-													type: 'dictionary',
-													text: tPage('tabs.dictionary'),
-													content: (
-														<PhraseDictionary
-															languageCode={dialogue.sourceLanguageCode}
-															currentWord={selectedWord ?? undefined}
-														/>
-													),
-												},
-												{
-													type: 'message',
-													text: tPage('tabs.message'),
-													content: (
-														<AiDialogueMessageReview
-															message={
-																selectedPayload?.type === 'userActions'
-																	? selectedPayload
-																	: null
-															}
-														/>
-													),
-												},
-												{
-													type: 'settings',
-													text: tPage('tabs.settings'),
-													content: (
-														<AiDialogueSettings
-															textLevel={textLevel}
-															onTextLevelChange={changeTextLevel}
-															isUpdatingTextLevel={isUpdatingTextLevel}
-															audioBlocked={audio.state.isBlocked}
-															onUnlockAudio={() => audio.player.unlock()}
-														/>
-													),
-												},
-											]
-								}
+								tabs={dialogue.mode === 'exam' ? examTabs : practiceTabs}
 							/>
 						</ViewportSyncedHeight>
 					}

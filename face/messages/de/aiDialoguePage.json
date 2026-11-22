@@ -14,5 +14,18 @@
     "critical": "Fehler",
     "suggestions": "Vorschläge",
     "issueCount": "{count, plural, one {# Anmerkung} other {# Anmerkungen}}"
+  },
+  "exam": {
+    "availableAfter": "Prüfung nach {count, plural, one {# weiteren Antwort} other {# weiteren Antworten}} verfügbar",
+    "check": "Ergebnis prüfen",
+    "checking": "Wird geprüft…",
+    "result": "Prüfungsergebnis",
+    "belowA1": "A1 wurde in diesem Versuch nicht nachgewiesen",
+    "achievedLevel": "Niveau {level} in diesem Versuch nachgewiesen",
+    "strengths": "Stärken",
+    "errors": "Fehler",
+    "recommendations": "So kannst du dich verbessern",
+    "attemptOnly": "Dieses Ergebnis gilt nur für diesen Versuch. Es ist keine allgemeine Einstufung und ersetzt keine externe Prüfung.",
+    "failed": "Das Ergebnis konnte nicht geprüft werden. Versuche es erneut."
   }
 }

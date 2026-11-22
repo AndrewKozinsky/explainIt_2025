@@ -14,5 +14,18 @@
     "critical": "Errors",
     "suggestions": "Suggestions",
     "issueCount": "{count, plural, one {# issue} other {# issues}}"
+  },
+  "exam": {
+    "availableAfter": "Check available after {count, plural, one {# more reply} other {# more replies}}",
+    "check": "Check result",
+    "checking": "Checking…",
+    "result": "Exam result",
+    "belowA1": "A1 was not demonstrated in this attempt",
+    "achievedLevel": "Level {level} demonstrated in this attempt",
+    "strengths": "Strengths",
+    "errors": "Errors",
+    "recommendations": "How to improve",
+    "attemptOnly": "This result applies only to this attempt. It is not an overall proficiency assessment or a substitute for an external exam.",
+    "failed": "Could not check the result. Try again."
   }
 }

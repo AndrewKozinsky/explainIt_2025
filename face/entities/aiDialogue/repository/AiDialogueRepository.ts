@@ -57,6 +57,7 @@ export type CreateAiDialogueInput = {
  * в читаемый текст.
  */
 export type AiDialogueRepository = {
+	checkExam(id: number): Promise<ApiResult<DialogueServerMessage>>
 	getIllustrationStyles(signal?: AbortSignal): Promise<ApiResult<AiDialogueIllustrationStylesModel>>
 	/** Проверить текст черновика пользователя без отправки в диалог. */
 	checkUserMessageText(

@@ -14,5 +14,18 @@
     "critical": "Errori",
     "suggestions": "Suggerimenti",
     "issueCount": "{count, plural, one {# osservazione} other {# osservazioni}}"
+  },
+  "exam": {
+    "availableAfter": "Valutazione disponibile dopo {count, plural, one {# altra risposta} other {# altre risposte}}",
+    "check": "Valuta il risultato",
+    "checking": "Valutazione…",
+    "result": "Risultato dell’esame",
+    "belowA1": "A1 non dimostrato in questo tentativo",
+    "achievedLevel": "Livello {level} dimostrato in questo tentativo",
+    "strengths": "Punti di forza",
+    "errors": "Errori",
+    "recommendations": "Come migliorare",
+    "attemptOnly": "Questo risultato riguarda solo questo tentativo. Non è una valutazione generale della lingua e non sostituisce un esame esterno.",
+    "failed": "Impossibile valutare il risultato. Riprova."
   }
 }

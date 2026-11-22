@@ -14,5 +14,18 @@
     "critical": "Erreurs",
     "suggestions": "Suggestions",
     "issueCount": "{count, plural, one {# remarque} other {# remarques}}"
+  },
+  "exam": {
+    "availableAfter": "Évaluation disponible après {count, plural, one {# réponse supplémentaire} other {# réponses supplémentaires}}",
+    "check": "Évaluer le résultat",
+    "checking": "Évaluation…",
+    "result": "Résultat de l’examen",
+    "belowA1": "Le niveau A1 n’a pas été démontré dans cette tentative",
+    "achievedLevel": "Niveau {level} démontré dans cette tentative",
+    "strengths": "Points forts",
+    "errors": "Erreurs",
+    "recommendations": "Comment progresser",
+    "attemptOnly": "Ce résultat concerne uniquement cette tentative. Il ne constitue pas une évaluation générale du niveau et ne remplace pas un examen externe.",
+    "failed": "Impossible d’évaluer le résultat. Réessayez."
   }
 }

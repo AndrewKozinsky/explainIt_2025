@@ -94,5 +94,7 @@
   "YOUTUBE_LANGUAGE_NOT_SUPPORTED": "Cette langue n’est pas prise en charge pour la recherche de vidéos YouTube.",
   "YOUTUBE_VIDEO_NOT_FOUND": "Aucune vidéo YouTube avec cet identifiant n’a été trouvée.",
   "YOUTUBE_AUDIO_DOWNLOAD_FAILED": "Impossible de télécharger l’audio depuis YouTube.",
-  "VALIDATION_FAILED": "Erreur de validation."
+  "VALIDATION_FAILED": "Erreur de validation.",
+  "AI_DIALOGUE_CANNOT_PARSE_EXAM_RESULT": "Impossible d’évaluer le résultat. Réessayez.",
+  "AI_DIALOGUE_EXAM_ONLY": "L’évaluation est disponible uniquement en mode examen."
 }

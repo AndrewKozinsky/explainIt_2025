@@ -1,3 +1,4 @@
+import { EXAM_MIN_REPLIES } from '../../widgets/aiDialogueExam/fn/examProgress'
 import { resolve } from 'node:path'
 import { expect, type Page, test } from '@playwright/test'
 
@@ -506,3 +507,183 @@ test('exam renders audio without speech text or reveal controls and actions with
 	await page.getByText('holds out his hand', { exact: true }).click()
 	expect(errors).toEqual([])
 })
+
+for (const level of ['A0', 'C1'] as const) {
+	test(`exam submission counts replies, recovers after a failure and persists ${level} without the reply form`, async ({
+		page,
+	}, testInfo) => {
+		const h = await setup(page, { authenticated: true })
+		let replies = 0
+		let result: object | undefined
+		let requests = 0
+		let finish!: (fail?: boolean) => void
+		const date = '2026-11-22T00:00:00Z'
+		const userMessages = () =>
+			Array.from({ length: replies }, (_, index) => ({
+				id: index + 1,
+				dialogueId: 42,
+				createdAt: date,
+				payload: { type: 'userActions', actions: [{ type: 'speech', content: 'My trip is for work.' }] },
+			}))
+		await page.route('**/api/ai-dialogue/42', (route) =>
+			route.fulfill({
+				json: {
+					id: 42,
+					mode: 'exam',
+					cefrLevel: 'A1',
+					sourceLanguageCode: 'en',
+					targetLanguageCode: 'ru',
+					illustrationStyleId: 'realism',
+					scenario: { id: 1, slug: 'passport-control', title: titles[0], description: 'Airport' },
+					createdAt: date,
+					updatedAt: date,
+				},
+			}),
+		)
+		await page.route('**/api/ai-dialogue/42/visuals', (route) =>
+			route.fulfill({ json: { dialogueId: 42, userAvatarUrl: '', scenes: [], characters: [] } }),
+		)
+		await page.route('**/api/ai-dialogue/42/stream', (route) =>
+			route.fulfill({
+				contentType: 'text/event-stream',
+				body: [...userMessages(), ...(result ? [result] : [])]
+					.map((message) => `data: ${JSON.stringify({ type: 'message', message })}\n\n`)
+					.join(''),
+			}),
+		)
+		await page.route('**/api/ai-dialogue/42/check-exam', async (route) => {
+			requests++
+			const fail = await new Promise<boolean>((resolve) => {
+				finish = (fail = false) => resolve(fail)
+			})
+			if (fail) return route.fulfill({ status: 500, json: { message: 'Failed' } })
+			result = {
+				id: 11,
+				dialogueId: 42,
+				createdAt: date,
+				payload: {
+					type: 'examResult',
+					assessedThroughMessageId: replies,
+					level,
+					summary: 'Отчёт об этой попытке',
+					strengths: level === 'C1' ? ['Поддерживали разговор'] : [],
+					errors: [],
+					recommendations: ['Продолжайте практиковать самостоятельные ответы'],
+				},
+			}
+			return route.fulfill({ json: result })
+		})
+		await page.goto('/?scenarios&authenticated&exam-page')
+		await expect(page.getByRole('button', { name: /Проверка будет доступна через/, exact: true })).toBeDisabled()
+		await expect(page.locator('.ai-dialogue-input')).toBeVisible()
+		replies = EXAM_MIN_REPLIES
+		await page.reload()
+		const check = page.getByRole('button', { name: 'Проверить результат', exact: true })
+		await expect(check).toBeEnabled()
+		await check.click()
+		await expect.poll(() => requests).toBe(1)
+		await expect(page.locator('.ai-dialogue-input textarea')).toHaveAttribute('readonly', '')
+		finish(true)
+		await expect(page.getByRole('alert')).toBeVisible()
+		await expect(check).toBeEnabled()
+		await expect(page.locator('.ai-dialogue-input textarea')).not.toHaveAttribute('readonly', '')
+		await check.click()
+		await expect.poll(() => requests).toBe(2)
+		finish()
+		await expect(page.getByRole('heading', { name: 'Результат экзамена' })).toBeVisible()
+		await expect(page.locator('.ai-dialogue-input')).toHaveCount(0)
+		await expect(page.locator('.ai-dialogue-left-wrapper__input')).toHaveCount(0)
+		await expect(check).toHaveCount(0)
+		await expect(
+			page.getByText(
+				level === 'A0' ? 'В этой попытке A1 не подтверждён' : 'В этой попытке подтверждён уровень C1',
+				{ exact: true },
+			),
+		).toBeVisible()
+		await page
+			.locator('.ai-dialogue-exam-submission')
+			.screenshot({ path: testInfo.outputPath(`exam-result-${level}.png`) })
+		await page.reload()
+		await expect(page.getByRole('heading', { name: 'Результат экзамена' })).toBeVisible()
+		await expect(page.locator('.ai-dialogue-input')).toHaveCount(0)
+		expect(requests).toBe(2)
+		expect(h.errors).toEqual([])
+	})
+}
+
+for (const mode of ['practice', 'exam'] as const) {
+	test(`${mode} applies its autoplay policy to new scenes and NPC speech without changing saved settings`, async ({
+		page,
+	}) => {
+		const h = await setup(page, { authenticated: true })
+		await page.addInitScript(() => localStorage.setItem('aiDialogueAutoVoice', 'false'))
+		const date = '2026-11-22T00:00:00Z'
+		const audioRequests: number[] = []
+		await page.route('**/api/ai-dialogue/42', (route) =>
+			route.fulfill({
+				json: {
+					id: 42,
+					mode,
+					cefrLevel: 'A1',
+					sourceLanguageCode: 'en',
+					targetLanguageCode: 'ru',
+					illustrationStyleId: 'realism',
+					scenario: { id: 1, slug: 'passport-control', title: titles[0], description: 'Airport' },
+					createdAt: date,
+					updatedAt: date,
+				},
+			}),
+		)
+		await page.route('**/api/ai-dialogue/42/visuals', (route) =>
+			route.fulfill({ json: { dialogueId: 42, userAvatarUrl: '', scenes: [], characters: [] } }),
+		)
+		await page.route('**/api/ai-dialogue/42/audio', (route) => {
+			audioRequests.push(route.request().postDataJSON().actionIndex)
+			return route.fulfill({ status: 500, json: { message: 'Audio failed' } })
+		})
+		const events = [
+			{ type: 'turnStarted' },
+			{
+				type: 'message',
+				message: {
+					id: 1,
+					dialogueId: 42,
+					createdAt: date,
+					payload: { type: 'sceneUpdate', content: 'At the desk.', translation: '' },
+				},
+			},
+			{
+				type: 'message',
+				message: {
+					id: 2,
+					dialogueId: 42,
+					createdAt: date,
+					payload: {
+						type: 'npcActions',
+						npcId: 'officer',
+						npcName: 'Alex',
+						npcRole: 'officer',
+						emotion: 'neutral',
+						actions: [{ type: 'speech', content: 'Your passport, please.', translation: '' }],
+					},
+				},
+			},
+			{ type: 'turnDone' },
+		]
+		await page.route('**/api/ai-dialogue/42/stream', (route) =>
+			route.fulfill({
+				contentType: 'text/event-stream',
+				body: events.map((event) => `data: ${JSON.stringify(event)}\n\n`).join(''),
+			}),
+		)
+		await page.goto('/?scenarios&authenticated&exam-page')
+		await expect(page.locator('.ai-dialogue-content-block')).toHaveCount(2)
+		const expected = mode === 'exam' ? 2 : 0
+		await expect.poll(() => audioRequests.length).toBe(expected)
+		if (mode === 'exam') expect(audioRequests).toEqual([-1, 0])
+		await page.locator('.ai-dialogue-content-block button').first().click()
+		await expect.poll(() => audioRequests.length).toBe(expected + 1)
+		expect(await page.evaluate(() => localStorage.getItem('aiDialogueAutoVoice'))).toBe('false')
+		expect(h.errors).toEqual([])
+	})
+}

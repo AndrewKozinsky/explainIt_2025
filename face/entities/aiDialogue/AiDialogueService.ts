@@ -82,6 +82,10 @@ export class AiDialogueService {
 	}
 
 	/** Отправить событие пользователя (реплику или уход от NPC) в диалог */
+	async checkExam(id: number) {
+		return this.aiDialogueRepository.checkExam(id)
+	}
+
 	async createMessage(id: number, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>> {
 		return this.aiDialogueRepository.createMessage(id, event)
 	}

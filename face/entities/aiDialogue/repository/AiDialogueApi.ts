@@ -1,6 +1,7 @@
 import { mapToAiDialogueScenario } from '@/entities/aiDialogueScenario/repository/mapToAiDialogueScenario'
 import {
 	aiDialogueControllerCheckAiDialogueUserMessageText,
+	aiDialogueControllerCheckExam,
 	aiDialogueControllerCreateAiDialogue,
 	aiDialogueControllerCreateAiDialogueMessage,
 	aiDialogueControllerDeleteAiDialogue,
@@ -117,6 +118,25 @@ export class AiDialogueApi implements AiDialogueRepository {
 
 	async getVisuals(id: number, signal?: AbortSignal): Promise<ApiResult<AiDialogueVisualsModel>> {
 		return executeApiCall(() => aiDialogueControllerGetAiDialogueVisuals(id, { signal, cache: 'no-store' }))
+	}
+
+	async checkExam(id: number): Promise<ApiResult<DialogueServerMessage>> {
+		return executeApiCall(
+			() => aiDialogueControllerCheckExam(id),
+			(raw) => {
+				const message = raw as unknown as DialogueServerMessage
+
+				if (
+					!Number.isInteger(message.id) ||
+					message.dialogueId !== id ||
+					message.payload?.type !== 'examResult'
+				) {
+					throw new Error('Invalid exam result')
+				}
+
+				return message
+			},
+		)
 	}
 
 	async createMessage(id: number, event: AiDialogueClientEvent): Promise<ApiResult<DialogueServerMessage>> {
