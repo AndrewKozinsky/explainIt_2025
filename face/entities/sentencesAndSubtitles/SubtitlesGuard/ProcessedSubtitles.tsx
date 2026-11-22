@@ -1,4 +1,4 @@
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+import StatusBlock from '@/shared/ui/StatusBlock/StatusBlock'
 import { getSubtitlesGenerationTime } from './fn/getSubtitlesGenerationTime'
 
 type ProcessedSubtitlesProps = {

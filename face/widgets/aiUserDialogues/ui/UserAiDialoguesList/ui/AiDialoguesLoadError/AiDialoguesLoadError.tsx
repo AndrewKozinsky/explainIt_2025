@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+import StatusBlock from '@/shared/ui/StatusBlock/StatusBlock'
 import './AiDialoguesLoadError.scss'
 
 type AiDialoguesLoadErrorProps = {

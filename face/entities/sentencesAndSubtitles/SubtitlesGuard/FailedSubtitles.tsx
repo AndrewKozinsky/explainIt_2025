@@ -1,5 +1,5 @@
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+import StatusBlock from '@/shared/ui/StatusBlock/StatusBlock'
 
 type FailedSubtitlesProps = {
 	errorCode: null | string

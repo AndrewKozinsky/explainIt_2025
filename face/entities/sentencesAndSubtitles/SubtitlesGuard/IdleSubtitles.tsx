@@ -1,5 +1,5 @@
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
 import Paragraph from '@/shared/ui/Paragraph/Paragraph'
+import StatusBlock from '@/shared/ui/StatusBlock/StatusBlock'
 
 export function IdleSubtitles() {
 	return (

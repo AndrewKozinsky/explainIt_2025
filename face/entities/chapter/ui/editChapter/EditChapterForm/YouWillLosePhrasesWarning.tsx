@@ -1,4 +1,4 @@
-import StatusBlock from '@/shared/ui/InfoBlock/StatusBlock'
+import StatusBlock from '@/shared/ui/StatusBlock/StatusBlock'
 
 type YouWillLosePhrasesWarningProps = {
 	hasOriginalContent: boolean
