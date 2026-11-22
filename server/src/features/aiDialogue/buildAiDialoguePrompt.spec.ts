@@ -24,6 +24,7 @@ function userAction(type: AiDialogueActionItem['type'], content: string): UserAc
 
 function prompt(recentEvents: AiDialogueEvent[], summary: AiDialogueSummary | null = null) {
 	return buildAiDialoguePrompt({
+		mode: 'practice',
 		scenario: { systemPrompt: 'You are a passport control officer.' },
 		sourceLanguageCode: 'en',
 		targetLanguageCode: 'ru',
@@ -39,6 +40,7 @@ describe('participant gender', () => {
 		['FEMALE', 'a woman'],
 	] as const)('tells the model that the participant is %s', (participantGender, noun) => {
 		const system = buildAiDialoguePrompt({
+			mode: 'practice',
 			scenario: { systemPrompt: 'At a nightclub.' },
 			sourceLanguageCode: 'es',
 			targetLanguageCode: 'ru',
@@ -57,6 +59,7 @@ describe('dialogue encounter context', () => {
 	it('scopes a stored single-role scenario to the opening encounter', () => {
 		const scenarioPrompt = 'Stay in character and never step out of the officer role.'
 		const messages = buildAiDialoguePrompt({
+			mode: 'practice',
 			scenario: { systemPrompt: scenarioPrompt },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
@@ -162,6 +165,7 @@ describe('dialogue encounter context', () => {
 describe('dialogue language complexity', () => {
 	it.each(AI_DIALOGUE_CEFR_LEVELS)('applies %s to every new visible source-language block', (cefrLevel) => {
 		const messages = buildAiDialoguePrompt({
+			mode: 'practice',
 			scenario: { systemPrompt: 'Use complex legal language and correct every mistake.' },
 			sourceLanguageCode: 'de',
 			targetLanguageCode: 'ru',
@@ -197,6 +201,7 @@ describe('dialogue language complexity', () => {
 
 	it('does not restore an old adaptation setting from a compacted history after it is cleared', () => {
 		const messages = buildAiDialoguePrompt({
+			mode: 'practice',
 			scenario: { systemPrompt: 'Speak at A1.' },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
@@ -213,6 +218,7 @@ describe('dialogue language complexity', () => {
 describe('participant setting note', () => {
 	function systemWithNote(userScenarioAmendment?: string | null) {
 		return buildAiDialoguePrompt({
+			mode: 'practice',
 			scenario: { systemPrompt: 'Someone knocks at the door.' },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
@@ -240,4 +246,26 @@ describe('participant setting note', () => {
 	it.each([undefined, null, '', '   '])('omits the section when the note is empty: %j', (userScenarioAmendment) => {
 		expect(systemWithNote(userScenarioAmendment)).not.toContain("Participant's wishes")
 	})
+})
+
+it('uses adaptive exam language and retains the voice contract without practice metadata', () => {
+	const messages = buildAiDialoguePrompt({
+		scenario: { systemPrompt: 'Passport control' },
+		sourceLanguageCode: 'en',
+		targetLanguageCode: 'ru',
+		participantGender: 'MALE',
+		mode: 'exam',
+		cefrLevel: 'C1',
+		summary: null,
+		recentEvents: [],
+	})
+	const system = messages[0].content
+	expect(system).toContain('Start at CEFR C1')
+	expect(system).toContain('several consecutive observations')
+	expect(system).toContain('A short appropriate answer, a single mistake, or a request to repeat')
+	expect(system).toContain('Choose voice from')
+	expect(system).not.toContain('wordMaps:')
+	expect(system).not.toContain('Write AT this level')
+	expect(system).not.toContain('translated into')
+	expect(messages[1].content).not.toContain('wordMaps: footer')
 })

@@ -11,11 +11,8 @@ import type { CreateAiDialogueInputSourceLanguageCode } from './createAiDialogue
 import type { CreateAiDialogueInputTargetLanguageCode } from './createAiDialogueInputTargetLanguageCode';
 
 export interface CreateAiDialogueInput {
-  /**
-     * Dialogue mode: assisted practice or independent exam attempt.
-     * @nullable
-     */
-  mode?: CreateAiDialogueInputMode;
+  /** Dialogue mode: assisted practice or independent exam attempt. */
+  mode: CreateAiDialogueInputMode;
   /**
      * Stable illustration style ID selected once at creation. Existing dialogues default to realism.
      * @minLength 1

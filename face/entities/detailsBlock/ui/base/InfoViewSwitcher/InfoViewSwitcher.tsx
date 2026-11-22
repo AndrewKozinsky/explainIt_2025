@@ -3,7 +3,7 @@ import ContainerWidthObserver from '@/shared/ui/ContainerWidthObserver/Container
 import Switcher from '@/shared/ui/Switcher/Switcher'
 
 type InfoViewSwitcherProps = {
-	tabs: [DetailsBlockTab, ...DetailsBlockTab[]]
+	tabs: DetailsBlockTab[]
 	currentInfoView: InfoViewType
 	setActiveInfoView: (view: InfoViewType) => void
 }

@@ -7,7 +7,9 @@ import './AiDialogueMessageReview.scss'
 export default function AiDialogueMessageReview({ message }: { message: UserActionsEvent | null }) {
 	const t = useTranslations('aiDialoguePage')
 	const tParts = useTranslations('aiDialogueForm.parts')
-	const parts = message?.actions.map((action, index) => ({ ...action, review: message.textReview[index], index }))
+	const parts =
+		message?.textReview &&
+		message.actions.map((action, index) => ({ ...action, review: message.textReview![index], index }))
 
 	return (
 		<section className='ai-dialogue-message-review' aria-label={t('tabs.message')}>

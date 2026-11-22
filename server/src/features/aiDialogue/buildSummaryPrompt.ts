@@ -1,3 +1,5 @@
+import type { AiDialogueMode } from './aiDialogueLanguageLevel'
+import { Language, languages } from 'utils/languages'
 import { AiDialogueEvent } from 'types/aiDialogueMessage'
 import { AiDialogueSummary } from 'types/aiDialogueSummary'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
@@ -11,16 +13,23 @@ import { serializeAiDialogueEvent } from './serializeAiDialogueEvent'
  * LLM отвечает обычным текстом (history), состояние выводит сервер детерминированно.
  */
 export function buildSummaryPrompt(input: {
+	sourceLanguageCode: Language
 	summary: null | AiDialogueSummary
+	mode: AiDialogueMode
 	eventsToSummarize: AiDialogueEvent[]
 }): LlmMessage[] {
 	const { summary, eventsToSummarize } = input
 
 	const system = [
-		'Ты — компонент сжатия истории ролевого диалога.',
-		'Сожми перечисленные события в краткую сводку из нескольких предложений, которая позволит позже продолжить диалог без потери ключевых фактов.',
-		'Сохраняй: имена и роли NPC, суть сцены, важные реплики, договорённости и факты, сообщённые участником сцены.',
-		'Пиши по-русски. Отвечай только текстом сводки, без markdown и пояснений.',
+		'You compress the history of a role-play conversation.',
+		'Summarize these events in a few concise sentences so the conversation can continue without losing key facts.',
+		'Preserve NPC names and roles, the situation, important dialogue, agreements and facts supplied by the participant.',
+		...(input.mode === 'exam'
+			? [
+					'For exam continuity, preserve a few verbatim examples of participant wording without corrections, evidence of comprehension, and the actual complexity of recent NPC speech. Do not assign a score or draw conclusions from a single mistake, short answer or request to repeat.',
+				]
+			: []),
+		`Write the summary in ${languages[input.sourceLanguageCode].nameEng}, the dialogue language. Return only the summary text, without markdown or explanations. Preserve verbatim participant examples in their original language.`,
 	].join('\n')
 
 	const lines: string[] = []
@@ -31,14 +40,16 @@ export function buildSummaryPrompt(input: {
 		.join('\n')
 
 	if (previousHistory) {
-		lines.push('Уже есть сводка предыдущих событий:', previousHistory, '')
+		lines.push('Existing summary of earlier events:', previousHistory, '')
 	}
 
-	lines.push('Новые события, которые нужно сжать:')
+	lines.push('New events to summarize:')
+
 	for (const event of eventsToSummarize) {
 		lines.push(serializeAiDialogueEvent(event))
 	}
-	lines.push('', 'Сводка:')
+
+	lines.push('', 'Summary:')
 
 	return [
 		{ role: 'system', content: system },

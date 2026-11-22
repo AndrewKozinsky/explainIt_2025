@@ -184,25 +184,27 @@ function mapToAiDialogueMessage(raw: AiDialogueMessageOutModel): DialogueServerM
 		if (
 			!Array.isArray(payload.actions) ||
 			payload.actions.length === 0 ||
-			!Array.isArray(payload.textReview) ||
-			payload.textReview.length !== payload.actions.length
+			(payload.textReview !== undefined &&
+				(!Array.isArray(payload.textReview) || payload.textReview.length !== payload.actions.length))
 		) {
 			throw new Error('Invalid user message response')
 		}
 
 		for (const [index, action] of payload.actions.entries()) {
-			const review = payload.textReview[index]
+			const review = payload.textReview?.[index]
 
 			if (
 				(action?.type !== 'speech' && action?.type !== 'action') ||
 				typeof action.content !== 'string' ||
 				(action.translation !== undefined && typeof action.translation !== 'string') ||
-				typeof review?.originalText !== 'string'
+				(review !== undefined && typeof review.originalText !== 'string')
 			) {
 				throw new Error('Invalid user message part')
 			}
 
-			validateTextAnalysis(review.analysis)
+			if (review) {
+				validateTextAnalysis(review.analysis)
+			}
 		}
 	} else if (payload?.type !== 'userAvoidsNPC') {
 		throw new Error('Invalid user message type')

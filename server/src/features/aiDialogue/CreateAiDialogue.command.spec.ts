@@ -10,7 +10,7 @@ import { CreateAiDialogueCommand, CreateAiDialogueHandler } from './CreateAiDial
 const balance = { ensurePositiveBalanceOrThrow: jest.fn().mockResolvedValue(undefined) }
 
 describe('CreateAiDialogue language settings', () => {
-	it.each(['practice', 'exam', undefined, null] as const)('passes mode %s to persistence', async (mode) => {
+	it.each(['practice', 'exam'] as const)('passes mode %s to persistence', async (mode) => {
 		const scenario = { getScenarioById: jest.fn().mockResolvedValue({ user_id: null }) }
 		const repository = { createDialogue: jest.fn().mockResolvedValue({ id: 1 }) }
 		const query = { getDialogueById: jest.fn().mockResolvedValue({ id: 1 }) }
@@ -52,6 +52,7 @@ describe('CreateAiDialogue language settings', () => {
 
 			await handler.execute(
 				new CreateAiDialogueCommand({
+					mode: 'practice',
 					userId: 7,
 					scenarioId: 2,
 					sourceLanguageCode: 'en',
@@ -84,6 +85,7 @@ describe('CreateAiDialogue language settings', () => {
 			await expect(
 				handler.execute(
 					new CreateAiDialogueCommand({
+						mode: 'practice',
 						userId: 7,
 						scenarioId: 2,
 						sourceLanguageCode: 'en',
@@ -116,6 +118,7 @@ describe('CreateAiDialogue language settings', () => {
 			await expect(
 				handler.execute(
 					new CreateAiDialogueCommand({
+						mode: 'practice',
 						userId: 7,
 						scenarioId: 2,
 						sourceLanguageCode: 'en',
@@ -149,6 +152,7 @@ describe('CreateAiDialogue language settings', () => {
 
 		await handler.execute(
 			new CreateAiDialogueCommand({
+				mode: 'practice',
 				userId: 7,
 				scenarioId: 2,
 				sourceLanguageCode: 'en',
@@ -180,6 +184,7 @@ describe('CreateAiDialogue balance', () => {
 		await expect(
 			handler.execute(
 				new CreateAiDialogueCommand({
+					mode: 'practice',
 					userId: 7,
 					scenarioId: 2,
 					sourceLanguageCode: 'en',

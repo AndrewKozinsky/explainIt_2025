@@ -4,8 +4,8 @@ import { DtoFieldDecorators } from 'db/dtoFieldDecorators'
 import { AiDialogueMode, AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
 
 export class CreateAiDialogueInput {
-	@DtoFieldDecorators('mode', bdConfig.AiDialogue.dbFields.mode, { required: false })
-	mode?: AiDialogueMode | null
+	@DtoFieldDecorators('mode', bdConfig.AiDialogue.dbFields.mode)
+	mode: AiDialogueMode
 
 	@DtoFieldDecorators('illustrationStyleId', bdConfig.AiDialogue.dbFields.illustration_style_id, { required: false })
 	illustrationStyleId?: string | null

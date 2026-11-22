@@ -16,7 +16,7 @@ import { AI_DIALOGUE_CEFR_LEVELS } from 'features/aiDialogue/aiDialogueLanguageL
 import { CreateAiDialogueInput } from './createAiDialogue.input'
 import { UpdateAiDialogueInput } from './updateAiDialogue.input'
 
-const creation = { scenarioId: 1, sourceLanguageCode: 'en', targetLanguageCode: 'ru' }
+const creation = { mode: 'practice', scenarioId: 1, sourceLanguageCode: 'en', targetLanguageCode: 'ru' }
 
 describe('illustration style input', () => {
 	it.each(['realism', 'new-style', undefined, null])('allows a style ID or default %s', (illustrationStyleId) => {
@@ -81,11 +81,11 @@ it('exposes the allowed values and optional nullable input in OpenAPI metadata',
 })
 
 describe('creation mode', () => {
-	it.each(['practice', 'exam', null, undefined])('accepts %s', (mode) => {
+	it.each(['practice', 'exam'])('accepts %s', (mode) => {
 		const result = plainToInstance(CreateAiDialogueInput, { ...creation, mode })
 		expect(validateSync(result, { whitelist: true, forbidNonWhitelisted: true })).toEqual([])
 	})
-	it.each(['EXAM', '', 1, ['exam']])('rejects %j', (mode) => {
+	it.each(['EXAM', '', 1, ['exam'], null, undefined])('rejects %j', (mode) => {
 		const result = plainToInstance(CreateAiDialogueInput, { ...creation, mode })
 		expect(validateSync(result)).toEqual([expect.objectContaining({ property: 'mode' })])
 	})

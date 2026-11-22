@@ -14,6 +14,7 @@ import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { dialogueVoiceSchema } from './audio/aiDialogueAudioConfig'
 import { readNpcMetadataField } from './readNpcMetadataField'
 import { attachInlineWordMaps, splitWordMapFooter } from './wordMap/inlineWordMaps'
+import type { AiDialogueMode } from './aiDialogueLanguageLevel'
 
 type TextEventType = 'sceneUpdate' | 'help' | 'worldEvent'
 type ParsedBlock = {
@@ -26,11 +27,18 @@ type ParsedBlock = {
 const EMPTY_BLOCK: ParsedBlock = { event: null, npcAppearance: null, npcVoice: null, scene: null }
 
 /** Разбирает подтверждённый построчный ответ LLM на сюжетные события и визуальные метаданные. */
-export function parseAiDialogueEvents(raw: string, language?: Language): ParsedAiDialogueTurn {
+export function parseAiDialogueEvents(
+	raw: string,
+	language: Language | undefined,
+	mode: AiDialogueMode,
+): ParsedAiDialogueTurn {
 	const { text: body, footer } = splitWordMapFooter(raw)
 
 	const text = body.trim()
-	if (!text) return emptyTurn()
+	if (!text) {
+		if (mode === 'exam') throw cannotParse()
+		return emptyTurn()
+	}
 
 	const lines = text.split('\n').map(stripCarriageReturn)
 	// Модель иногда копирует строку-заглушку из шаблона формата (например, «<translation>») вместо текста.
@@ -47,17 +55,38 @@ export function parseAiDialogueEvents(raw: string, language?: Language): ParsedA
 		if (block.event) {
 			const eventIndex = events.length
 			events.push(block.event)
-			if (block.scene) scenes.push({ eventIndex, ...block.scene })
+
+			if (block.scene) {
+				scenes.push({ eventIndex, ...block.scene })
+			}
 		}
 
 		if (block.npcAppearance) npcAppearances.push(block.npcAppearance)
 		if (block.npcVoice) npcVoices.push(block.npcVoice)
 	}
 
-	if (events.length === 0) throw cannotParse()
+	if (events.length === 0) {
+		throw cannotParse()
+	}
+
+	if (
+		mode === 'exam' &&
+		!events.some(
+			(event) =>
+				event.type === 'npcActions' &&
+				event.actions.some((action) => action.type === 'speech' && action.content.trim()),
+		)
+	) {
+		throw cannotParse()
+	}
 
 	return {
-		events: language ? attachInlineWordMaps(events, footer, language) : events,
+		events:
+			mode === 'exam'
+				? events.filter((event) => event.type !== 'help').map(withoutTranslation)
+				: language
+					? attachInlineWordMaps(events, footer, language)
+					: events,
 		visualMetadata: { npcAppearances, scenes },
 		npcVoices,
 	}
@@ -72,10 +101,17 @@ function splitIntoBlocks(lines: string[]): string[][] {
 	let current: string[] = []
 
 	for (const line of lines) {
+		if (/^(?:sceneUpdate|help|worldEvent)$|^npcActions\|/.test(line.trim()) && current.length) {
+			blocks.push(current)
+			current = []
+		}
+
 		if (line.trim() === '') {
 			if (current.length) blocks.push(current)
 			current = []
-		} else current.push(line)
+		} else {
+			current.push(line)
+		}
 	}
 
 	if (current.length) blocks.push(current)
@@ -93,12 +129,18 @@ function parseBlock(block: string[]): ParsedBlock {
 }
 
 function parseTextEvent(type: TextEventType, block: string[]): ParsedBlock {
-	if (block.length < 2) return EMPTY_BLOCK
+	if (block.length < 2) {
+		return EMPTY_BLOCK
+	}
+
 	const content = block[1]
 	const translationCandidate = block[2] ?? ''
 	const translation = isVisualField(translationCandidate) ? '' : translationCandidate
 	const event: AiDialogueEvent = { type, content, translation }
-	if (type !== 'sceneUpdate') return { ...EMPTY_BLOCK, event }
+
+	if (type !== 'sceneUpdate') {
+		return { ...EMPTY_BLOCK, event }
+	}
 
 	const participantLine = block.find((line) => line.trim().startsWith('participants:'))
 	const visualLine = block.find((line) => line.trim().startsWith('visual:'))
@@ -107,6 +149,7 @@ function parseTextEvent(type: TextEventType, block: string[]): ParsedBlock {
 		.split(',')
 		.map((value) => value.trim())
 		.filter(Boolean)
+
 	const visualDescription = visualLine?.trim().slice('visual:'.length).trim() || content
 
 	return { ...EMPTY_BLOCK, event, scene: { participantNpcIds, visualDescription } }
@@ -219,4 +262,11 @@ function stripCarriageReturn(line: string): string {
 
 function cannotParse(): CustomError {
 	return new CustomError(errorMessage.aiDialogue.cannotParseLlmResponse, ErrorStatusCode.InternalServerError_500)
+}
+
+function withoutTranslation(event: AiDialogueEvent): AiDialogueEvent {
+	if (event.type === 'npcActions')
+		return { ...event, actions: event.actions.map((action) => ({ ...action, translation: '' })) }
+	if ('translation' in event) return { ...event, translation: '' }
+	return event
 }

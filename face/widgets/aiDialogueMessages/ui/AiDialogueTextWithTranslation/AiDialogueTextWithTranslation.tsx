@@ -1,4 +1,5 @@
 import type { AiDialogueTextMappingProps } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
+import { useDialogueMode } from '../DialogueModeContext'
 import SegmentedText from '../SegmentedText/SegmentedText'
 import type { DialogueTextSegment } from '../SegmentedText/fn/wordSelection'
 import './AiDialogueTextWithTranslation.scss'
@@ -20,13 +21,19 @@ function AiDialogueTextWithTranslation({
 	onWordClick,
 	translationTone = 'inherit',
 }: AiDialogueTextWithTranslationProps) {
+	const mode = useDialogueMode()
+
 	return (
 		<div className='ai-dialogue-text-with-translation'>
 			<div className='ai-dialogue-text-with-translation__text'>
-				<SegmentedText text={content} wordMap={wordMap} onWordClick={onWordClick} />
+				{mode === 'practice' ? (
+					<SegmentedText text={content} wordMap={wordMap} onWordClick={onWordClick} />
+				) : (
+					content
+				)}
 			</div>
 
-			{isTranslationVisible && translation ? (
+			{mode !== 'exam' && isTranslationVisible && translation ? (
 				<p
 					className={`ai-dialogue-text-with-translation__translation ai-dialogue-text-with-translation__translation--${translationTone}`}
 				>

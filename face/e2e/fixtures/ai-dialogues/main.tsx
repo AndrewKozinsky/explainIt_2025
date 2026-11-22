@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from 'next-intl'
 import { createRoot } from 'react-dom/client'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import UserAiDialoguesList from '@/widgets/aiUserDialogues/ui/UserAiDialoguesList/UserAiDialoguesList'
+import ExamFixture from './exam'
 import ScenarioPageFixture from './scenarios'
 import WaveformFixture from './waveform'
 import '@/_pages/main/mainPageLayout/style/global.scss'
@@ -11,7 +12,9 @@ import '@/_pages/main/mainPageLayout/style/global.scss'
 const client = new QueryClient({ defaultOptions: { queries: { retry: false, refetchOnWindowFocus: false } } })
 
 createRoot(document.getElementById('root')!).render(
-	new URLSearchParams(location.search).has('waveform') ? (
+	new URLSearchParams(location.search).has('exam-content') ? (
+		<ExamFixture />
+	) : new URLSearchParams(location.search).has('waveform') ? (
 		<WaveformFixture />
 	) : new URLSearchParams(location.search).has('scenarios') ? (
 		<ScenarioPageFixture />

@@ -13,7 +13,8 @@ export class AiDialogueMessageOutModel {
 	dialogueId: number
 
 	@ApiProperty({
-		description: 'Event payload discriminated by type. For userActions, textReview follows the order of actions.',
+		description:
+			'Event payload discriminated by type. For practice userActions, textReview follows the order of actions; exam replies have no review.',
 	})
 	payload: AiDialogueEvent
 

@@ -78,7 +78,7 @@ export type UserActionsEvent = Omit<UserActionsInputEvent, 'actions'> & {
 	/** Перевод итогового текста. Может отсутствовать в ранее сохранённых сообщениях. */
 	actions: (AiDialogueActionItem & { translation?: string })[]
 	/** Исходный текст и разбор для каждого элемента actions в том же порядке. */
-	textReview: {
+	textReview?: {
 		originalText: string
 		analysis: AiDialogueUserMessagePartCheckOutModel
 	}[]

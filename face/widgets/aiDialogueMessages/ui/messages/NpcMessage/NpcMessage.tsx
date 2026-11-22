@@ -12,6 +12,7 @@ import type { AiDialogueWordMap } from '@/widgets/aiDialogueMessages/types/aiDia
 import AiDialogueContentBlock from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/AiDialogueContentBlock'
 import { useDialogueContentSelection } from '@/widgets/aiDialogueMessages/ui/AiDialogueContentBlock/fn/useDialogueContentSelection'
 import AiDialogueTextWithTranslation from '@/widgets/aiDialogueMessages/ui/AiDialogueTextWithTranslation/AiDialogueTextWithTranslation'
+import { useDialogueMode } from '../../DialogueModeContext'
 import WithAvatarMessageWrapper from '../WithAvatarMessageWrapper/WithAvatarMessageWrapper'
 import DialogueNpcAvatar from './DialogueNpcAvatar'
 import { groupNpcDialogueSpeechAndActions } from './fn/groupNpcDialogueSpeechAndActions'
@@ -40,6 +41,7 @@ function NpcMessage({
 	onWordSelect,
 	wordMap,
 }: NpcMessageProps) {
+	const mode = useDialogueMode()
 	const t = useTranslations('aiDialogueMessages')
 	const content = speechAndActions.map((item, index) => {
 		const textProps = {
@@ -68,7 +70,9 @@ function NpcMessage({
 			extraClass='nps-message'
 			avatar={<DialogueNpcAvatar npcId={npcId} emotion={emotion} name={npcName || t('participant')} />}
 			name={npcName}
-			role={npcRole && <NpcRoleText role={npcRole} onWordSelect={onWordSelect} />}
+			role={
+				npcRole && (mode === 'practice' ? <NpcRoleText role={npcRole} onWordSelect={onWordSelect} /> : npcRole)
+			}
 			contentGroups={groupNpcDialogueSpeechAndActions(speechAndActions).map(
 				({ key, speechIndex, actionIndex }) => ({
 					key,

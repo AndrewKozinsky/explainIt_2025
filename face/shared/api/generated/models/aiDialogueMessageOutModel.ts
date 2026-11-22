@@ -18,7 +18,7 @@ export interface AiDialogueMessageOutModel {
      * @minimum 1
      */
   dialogueId: number;
-  /** Event payload (discriminated by its type field) */
+  /** Event payload discriminated by type. For practice userActions, textReview follows the order of actions; exam replies have no review. */
   payload: AiDialogueMessageOutModelPayload;
   createdAt: string;
 }

@@ -54,3 +54,23 @@ test('aborted checks propagate AbortError so a disposed form can ignore them', a
 	})
 	await assert.rejects(service().checkUserMessageText(12, { speech: 'Hi' }), { name: 'AbortError' })
 })
+
+test('exam message responses preserve original text without a review or translation', async () => {
+	const event = {
+		type: 'userActions' as const,
+		requestId: 'exam-request',
+		actions: [{ type: 'speech' as const, content: 'She go home.' }],
+	}
+	const saved = {
+		id: 9,
+		dialogueId: 12,
+		createdAt: '2026-11-22T00:00:00Z',
+		payload: { type: event.type, actions: event.actions },
+	}
+	mock.method(globalThis, 'fetch', async (_url: RequestInfo | URL, options?: RequestInit) => {
+		assert.deepEqual(JSON.parse(String(options?.body)), event)
+		return Response.json(saved, { status: 201 })
+	})
+	const result = await service().createMessage(12, event)
+	assert.deepEqual(result.data, saved)
+})

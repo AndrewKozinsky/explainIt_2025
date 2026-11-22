@@ -65,6 +65,8 @@ describe('AiDialogueTurnRepository', () => {
 						'Hello.',
 						'Здравствуйте.',
 					].join('\n'),
+					undefined,
+					'practice',
 				),
 			})
 			expect(tx.aiDialogue.findUniqueOrThrow).toHaveBeenCalledTimes(1)
@@ -102,6 +104,8 @@ describe('AiDialogueTurnRepository', () => {
 					'Hello.',
 					'Здравствуйте.',
 				].join('\n'),
+				undefined,
+				'practice',
 			),
 		})
 		expect(tx.imageGenerationJob.create).toHaveBeenCalledTimes(1)
@@ -117,7 +121,7 @@ describe('AiDialogueTurnRepository', () => {
 		await expect(
 			repository.saveGeneratedTurn({
 				dialogueId: 5,
-				turn: parseAiDialogueEvents('sceneUpdate\nAn office.\nКабинет.'),
+				turn: parseAiDialogueEvents('sceneUpdate\nAn office.\nКабинет.', undefined, 'practice'),
 			}),
 		).rejects.toMatchObject({ statusCode: 500 })
 		expect(tx.aiDialogueMessage.create).not.toHaveBeenCalled()
@@ -327,6 +331,8 @@ describe('AiDialogueTurnRepository', () => {
 				'Is anyone home?',
 				'Кто-нибудь дома?',
 			].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		await repository.saveGeneratedTurn({ dialogueId: 5, turn })

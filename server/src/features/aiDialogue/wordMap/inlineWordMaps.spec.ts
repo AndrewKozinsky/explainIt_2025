@@ -13,13 +13,18 @@ function wordMap(event: AiDialogueEvent) {
 	return event.wordMap
 }
 function parse(content: string, groups: unknown[]) {
-	const turn = parseAiDialogueEvents(`help\n${content}\nПеревод\n\nwordMaps:\n${footer(content, groups)}`, 'en')
+	const turn = parseAiDialogueEvents(
+		`help\n${content}\nПеревод\n\nwordMaps:\n${footer(content, groups)}`,
+		'en',
+		'practice',
+	)
 	return wordMap(turn.events[0]).blocks.content
 }
 
 describe('inline dictionary word maps', () => {
 	it('requests word groups at the end of the primary model response', () => {
 		const prompt = buildAiDialoguePrompt({
+			mode: 'practice',
 			scenario: { systemPrompt: 'Customs' },
 			sourceLanguageCode: 'en',
 			targetLanguageCode: 'ru',
@@ -85,6 +90,7 @@ describe('inline dictionary word maps', () => {
 				footer('Fair?', []),
 			].join('\n'),
 			'en',
+			'practice',
 		)
 		const phrases = wordMap(turn.events[0]).blocks.content.selections.map((selection) => [
 			selection.wordIds,
@@ -107,6 +113,7 @@ describe('inline dictionary word maps', () => {
 		const turn = parseAiDialogueEvents(
 			`help\nCome in. Sit down. Come in.\nПеревод\n\nwordMaps:\n${footer('Come in.', [['Come', 'in']])}\n${footer('it down', [['it', 'down']])}`,
 			'en',
+			'practice',
 		)
 		expect(wordMap(turn.events[0]).blocks.content.selections.map((selection) => selection.wordIds)).toEqual([
 			[0, 1],
@@ -165,6 +172,7 @@ describe('inline dictionary word maps', () => {
 		const parsed = parseAiDialogueEvents(
 			`help\n${content}\nПеревод\nwordMaps:\n{broken\n${footer(content, groups)}`,
 			'en',
+			'practice',
 		)
 		expect(wordMap(parsed.events[0]).blocks.content.selections).toEqual([
 			{ wordId: 0, wordIds: [0, 1], phrase: 'Look up' },
@@ -173,9 +181,9 @@ describe('inline dictionary word maps', () => {
 		expect(parsed.events[0]).toMatchObject({ content, translation: 'Перевод' })
 	})
 	it('provides fallback maps for missing metadata, multiple sentences and untranslated text', () => {
-		const parsed = parseAiDialogueEvents('help\nHello. How are you?\nwordMaps:\n{broken', 'en')
+		const parsed = parseAiDialogueEvents('help\nHello. How are you?\nwordMaps:\n{broken', 'en', 'practice')
 		expect(parsed.events[0]).toMatchObject({ translation: '', wordMap: { status: 'ready' } })
 		expect(wordMap(parsed.events[0]).blocks.content.selections).toEqual([])
-		expect(wordMap(parseAiDialogueEvents('help\nHello\nПривет', 'en').events[0]).status).toBe('ready')
+		expect(wordMap(parseAiDialogueEvents('help\nHello\nПривет', 'en', 'practice').events[0]).status).toBe('ready')
 	})
 })

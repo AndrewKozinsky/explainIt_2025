@@ -11,6 +11,8 @@ describe('parseAiDialogueEvents', () => {
 				'Are you lost?',
 				'Вы заблудились?',
 			].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		expect(result.events).toEqual([
@@ -38,6 +40,8 @@ describe('parseAiDialogueEvents', () => {
 				'Ciao!',
 				'Привет!',
 			].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		expect(result.visualMetadata.npcAppearances).toEqual([
@@ -59,6 +63,8 @@ describe('parseAiDialogueEvents', () => {
 				'Ciao!',
 				'Привет!',
 			].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		expect(result.npcVoices).toEqual([
@@ -80,6 +86,8 @@ describe('parseAiDialogueEvents', () => {
 				'voice: {"voice":"coral","instructions":"Warm"}',
 				'Голос.',
 			].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		expect(result.npcVoices).toEqual([])
@@ -94,6 +102,8 @@ describe('parseAiDialogueEvents', () => {
 				'participants:dentist_1, assistant_1',
 				'visual:The learner stands by the door while the dentist turns to greet them.',
 			].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		expect(result.events[0]).toEqual({
@@ -122,11 +132,15 @@ describe('parseAiDialogueEvents', () => {
 			'указывает вперёд через лобовое стекло',
 		].join('\n')
 
-		expect(() => parseAiDialogueEvents(responseWithPlaceholder)).toThrow()
+		expect(() => parseAiDialogueEvents(responseWithPlaceholder, undefined, 'practice')).toThrow()
 	})
 
 	it('keeps angle brackets inside a regular line', () => {
-		const result = parseAiDialogueEvents(['help', 'Use <b> for bold text', 'Используйте <b> для жирного текста'].join('\n'))
+		const result = parseAiDialogueEvents(
+			['help', 'Use <b> for bold text', 'Используйте <b> для жирного текста'].join('\n'),
+			undefined,
+			'practice',
+		)
 
 		expect(result.events).toEqual([
 			{ type: 'help', content: 'Use <b> for bold text', translation: 'Используйте <b> для жирного текста' },
@@ -136,22 +150,57 @@ describe('parseAiDialogueEvents', () => {
 	it('normalizes unknown NPC emotions', () => {
 		const result = parseAiDialogueEvents(
 			['npcActions|dentist_1|Dr. Lee|dentist|friendly', 'speech:', 'Hello!', 'Здравствуйте!'].join('\n'),
+			undefined,
+			'practice',
 		)
 
 		expect(result.events[0]).toMatchObject({ type: 'npcActions', emotion: 'neutral' })
 	})
 
 	it('does not create scene metadata for other text events', () => {
-		const result = parseAiDialogueEvents('worldEvent\nA bell rings.\nЗвенит звонок.')
+		const result = parseAiDialogueEvents('worldEvent\nA bell rings.\nЗвенит звонок.', undefined, 'practice')
 		expect(result.events).toHaveLength(1)
 		expect(result.visualMetadata.scenes).toEqual([])
 	})
 
 	it('returns an empty turn for an empty response', () => {
-		expect(parseAiDialogueEvents('')).toEqual({
+		expect(parseAiDialogueEvents('', undefined, 'practice')).toEqual({
 			events: [],
 			visualMetadata: { npcAppearances: [], scenes: [] },
 			npcVoices: [],
 		})
 	})
+})
+
+it('parses exam speech without translations while retaining audio and scene metadata', () => {
+	const raw =
+		'sceneUpdate\nAt the desk.\nparticipants:officer\nvisual:A desk in an airport\n\nnpcActions|officer|Alex|officer|neutral\nappearance:\nan adult officer\nvoice:\n{"voice":"ash","instructions":"A steady adult voice."}\nspeech:\nYour passport, please.\naction:\nholds out his hand'
+	const turn = parseAiDialogueEvents(raw, 'en', 'exam')
+	expect(turn.events).toHaveLength(2)
+	expect(turn.events[1]).toMatchObject({
+		type: 'npcActions',
+		actions: [
+			{ type: 'speech', content: 'Your passport, please.', translation: '' },
+			{ type: 'action', content: 'holds out his hand', translation: '' },
+		],
+	})
+	expect(turn.events.every((event) => !('wordMap' in event))).toBe(true)
+	expect(turn.npcVoices).toHaveLength(1)
+	expect(turn.visualMetadata.scenes[0].visualDescription).toBe('A desk in an airport')
+})
+
+it.each(['', 'sceneUpdate\nAt the desk.\nparticipants:officer\nvisual:A desk'])(
+	'rejects an incomplete exam turn before it can be saved: %s',
+	(raw) => {
+		expect(() => parseAiDialogueEvents(raw, 'en', 'exam')).toThrow()
+	},
+)
+
+it('retains NPC speech when the model forgets the blank line after the scene', () => {
+	const turn = parseAiDialogueEvents(
+		'sceneUpdate\nAt the desk.\nparticipants:officer\nvisual:A desk\nnpcActions|officer|Alex|officer|neutral\nspeech:\nYour passport, please.',
+		'en',
+		'exam',
+	)
+	expect(turn.events.map((event) => event.type)).toEqual(['sceneUpdate', 'npcActions'])
 })

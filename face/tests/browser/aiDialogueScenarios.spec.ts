@@ -488,3 +488,21 @@ test('exam offers A1–C1, restores unrestricted practice and sends the selected
 	await expect(modal.getByRole('button', { name: 'C1', exact: true })).toBeDisabled()
 	expect(h.errors).toEqual([])
 })
+
+test('exam renders audio without speech text or reveal controls and actions without translation or word buttons', async ({
+	page,
+}) => {
+	const errors: string[] = []
+	page.on('pageerror', (error) => errors.push(error.message))
+	await page.goto('/?exam-content')
+	await expect(page.locator('.details-block-wrapper__content')).toHaveCount(0)
+	await expect(page.locator('.details-block-wrapper__switcher')).toHaveCount(0)
+	await expect(page.getByText('holds out his hand', { exact: true })).toBeVisible()
+	await expect(page.getByText('Secret spoken question')).toHaveCount(0)
+	await expect(page.getByText('Секретный перевод')).toHaveCount(0)
+	await expect(page.getByText('Протягивает руку')).toHaveCount(0)
+	await expect(page.locator('.ai-dialogue-text-with-translation button')).toHaveCount(0)
+	await expect(page.locator('.ai-dialogue-content-block button')).toHaveCount(1)
+	await page.getByText('holds out his hand', { exact: true }).click()
+	expect(errors).toEqual([])
+})

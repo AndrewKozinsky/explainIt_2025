@@ -33,6 +33,7 @@ function harness(footer = '\n\nwordMaps:\n{"content":"Hello","groups":[]}') {
 			user_id: 5,
 			scenario_id: 1,
 			source_language_code: 'en',
+			mode: 'practice',
 			target_language_code: 'ru',
 			cefr_level: null,
 			summary: null,
@@ -147,6 +148,7 @@ describe('language settings snapshot per turn', () => {
 		const stored = {
 			scenario_id: 1,
 			source_language_code: 'en',
+			mode: 'practice',
 			target_language_code: 'ru',
 			cefr_level: 'A2',
 			summary: null,
@@ -218,4 +220,45 @@ describe('balance', () => {
 		expect(timeline).toContain('turnError')
 		expect(timeline.at(-1)).toBe('turnDone')
 	})
+})
+
+it('retries an incomplete exam opening and saves only the complete NPC turn', async () => {
+	const { service, dialogue, llm, turn, output } = harness()
+	dialogue.getDialogueById.mockResolvedValue({
+		user_id: 5,
+		scenario_id: 1,
+		source_language_code: 'en',
+		target_language_code: 'ru',
+		mode: 'exam',
+		cefr_level: 'A1',
+		summary: null,
+		summary_up_to: 0,
+	})
+	llm.generate.mockResolvedValueOnce({ ...output, content: 'sceneUpdate\nAt the desk.' }).mockResolvedValueOnce({
+		...output,
+		content: 'npcActions|officer|Alex|officer|neutral\nspeech:\nYour passport, please.',
+	})
+	await service.generate(3)
+	expect(llm.generate).toHaveBeenCalledTimes(2)
+	expect(turn.saveGeneratedTurn).toHaveBeenCalledTimes(1)
+	expect(turn.saveGeneratedTurn).toHaveBeenCalledWith(
+		expect.objectContaining({
+			turn: expect.objectContaining({ events: [expect.objectContaining({ type: 'npcActions' })] }),
+		}),
+	)
+})
+
+it('resumes an opening stuck on a scene after reload and leaves a complete opening alone', async () => {
+	const { service, query, llm, output } = harness()
+	const scene = { id: 1, payload: { type: 'sceneUpdate', content: 'At the desk.', translation: '' } }
+	query.getMessagesByDialogueId.mockResolvedValue([scene])
+	llm.generate.mockResolvedValue({
+		...output,
+		content: 'npcActions|officer|Alex|officer|neutral\nspeech:\nYour passport, please.\nПаспорт, пожалуйста.',
+	})
+	await service.triggerIfNeeded(3)
+	expect(llm.generate).toHaveBeenCalledTimes(1)
+	query.getMessagesByDialogueId.mockResolvedValue([scene, { id: 2, payload: { type: 'npcActions' } }])
+	await service.triggerIfNeeded(3)
+	expect(llm.generate).toHaveBeenCalledTimes(1)
 })

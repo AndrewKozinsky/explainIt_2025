@@ -5,6 +5,7 @@ import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/a
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogMessageRouter from '@/widgets/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
 import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
+import { useDialogueMode } from '../DialogueModeContext'
 import PendingAnswerMessage from '../messages/PendingAnswerMessage/PendingAnswerMessage'
 import { DialogueVisualsProvider } from '../visuals/DialogueVisualsContext'
 import './AiDialogueMessageList.scss'
@@ -33,11 +34,12 @@ function AiDialogueMessageList({
 	refreshVisuals,
 	recoverImage,
 }: AiDialogueMessageListProps) {
+	const mode = useDialogueMode()
 	const t = useTranslations('aiDialoguePage.messageReview')
 
 	const savedMessages = messages.map(({ id, payload }) => {
 		const isReviewOpen = selectedMessageId === id && reviewOpen
-		const reviews = payload.type === 'userActions' ? payload.textReview : []
+		const reviews = payload.type === 'userActions' ? (payload.textReview ?? []) : []
 		const issueCount = reviews.reduce(
 			(count, { analysis }) => count + analysis.critical.length + analysis.suggestions.length,
 			0,
@@ -51,6 +53,7 @@ function AiDialogueMessageList({
 				reserveSceneSpace={payload.type === 'sceneUpdate' && Boolean(payload.visualDescription)}
 				onWordSelect={onWordSelect}
 				reviewButton={
+					mode === 'practice' &&
 					issueCount > 0 && (
 						<Button
 							size='small'

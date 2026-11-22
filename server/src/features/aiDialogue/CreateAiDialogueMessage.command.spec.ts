@@ -323,3 +323,20 @@ describe('CreateAiDialogueMessage', () => {
 		expect(turn.generate).toHaveBeenCalledWith(3)
 	})
 })
+
+it('saves exam replies unchanged without analysis and preserves idempotent retries', async () => {
+	const { handler, dialogue, llm, rows, turn } = harness()
+	dialogue.getDialogueById.mockResolvedValue({ id: 3, user_id: 7, mode: 'exam' } as never)
+	const saved = await handler.execute(submission())
+	expect(saved.payload).toEqual(draft)
+	expect(llm.generate).not.toHaveBeenCalled()
+	rows.findUnique.mockResolvedValue({
+		id: saved.id,
+		dialogue_id: 3,
+		type: 'userActions',
+		payload: JSON.stringify({ actions: draft.type === 'userActions' ? draft.actions : [] }),
+		created_at: new Date(0),
+	} as never)
+	await expect(handler.execute(submission())).resolves.toEqual(saved)
+	expect(turn.generate).toHaveBeenCalledTimes(1)
+})

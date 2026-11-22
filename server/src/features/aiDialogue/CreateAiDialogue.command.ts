@@ -18,7 +18,7 @@ export class CreateAiDialogueCommand implements ICommand {
 			scenarioId: number
 			sourceLanguageCode: Language
 			targetLanguageCode: Language
-			mode?: AiDialogueMode | null
+			mode: AiDialogueMode
 			cefrLevel?: AiDialogueCefrLevel | null
 			illustrationStyleId?: string | null
 			/** Пожелания пользователя к сцене; пустая строка сохраняется как null. */
@@ -62,7 +62,7 @@ export class CreateAiDialogueHandler implements ICommandHandler<CreateAiDialogue
 			sourceLanguageCode,
 			targetLanguageCode,
 			cefrLevel,
-			mode: command.dto.mode ?? 'practice',
+			mode: command.dto.mode,
 			illustrationStyleId,
 			userScenarioAmendment,
 		})

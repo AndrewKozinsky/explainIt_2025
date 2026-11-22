@@ -51,11 +51,18 @@ export class SummarizeAiDialogue {
 		if (!(await this.userBalanceService.hasPositiveBalance(dialogue.user_id))) return
 
 		this.inFlight.add(dialogueId)
+
 		try {
 			const summary = parseAiDialogueSummary(dialogue.summary)
 			const events = toSummarize.map((message) => message.payload)
 
-			const prompt = buildSummaryPrompt({ summary, eventsToSummarize: events })
+			const prompt = buildSummaryPrompt({
+				sourceLanguageCode: dialogue.source_language_code,
+				mode: dialogue.mode,
+				summary,
+				eventsToSummarize: events,
+			})
+
 			const output = await this.llmAdapter.generate({ model: AI_DIALOGUE_MODEL, messages: prompt })
 
 			await this.userBalanceService.chargeLlm({

@@ -3,7 +3,7 @@
  * Компоненты работают только с этим типом — он не зависит от API.
  */
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/AiDialogueScenarioModel'
-import type { AiDialogueVisualsOutModel } from '@/shared/api/generated/models'
+import type { AiDialogueVisualsOutModel, AiDialogueOutModelMode } from '@/shared/api/generated/models'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { LanguageCode } from '@/shared/utils/languages'
 import type { AiDialogueClientEvent, DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
@@ -24,7 +24,7 @@ export type AiDialogueModel = {
 	updatedAt: string
 }
 
-export type AiDialogueMode = 'practice' | 'exam'
+export type AiDialogueMode = AiDialogueOutModelMode
 
 export type AiDialogueCefrLevel = 'A1' | 'A2' | 'B1' | 'B2' | 'C1'
 
@@ -38,7 +38,7 @@ export type AiDialogueVisualsModel = AiDialogueVisualsOutModel
  * Унифицированный тип для создания диалога.
  */
 export type CreateAiDialogueInput = {
-	mode?: AiDialogueMode
+	mode: AiDialogueMode
 	scenarioId: number
 	sourceLanguageCode: LanguageCode
 	targetLanguageCode: LanguageCode

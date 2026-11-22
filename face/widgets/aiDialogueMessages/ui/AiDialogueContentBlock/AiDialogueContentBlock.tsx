@@ -8,6 +8,7 @@ import type {
 	AiDialogueWordSelectHandler,
 } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import DialogueAudioButton from '../audio/DialogueAudioButton'
+import { useDialogueMode } from '../DialogueModeContext'
 import SegmentedText from '../SegmentedText/SegmentedText'
 import { getHiddenTextPreview } from './fn/getHiddenTextPreview'
 import { useDialogueContentSelection } from './fn/useDialogueContentSelection'
@@ -38,6 +39,7 @@ function AiDialogueContentBlock({
 	audioAddress,
 	colorScheme = 'dark',
 }: AiDialogueContentBlockProps) {
+	const mode = useDialogueMode()
 	const t = useTranslations('aiDialogueMessages')
 	const { isTextVisible, revealText } = useReplyTextVisibility(replyTextKey)
 
@@ -46,6 +48,14 @@ function AiDialogueContentBlock({
 		onWordSelect,
 		wordMap,
 	})
+
+	if (mode === 'exam') {
+		return (
+			<div className={`ai-dialogue-content-block ai-dialogue-content-block--${colorScheme}`}>
+				{audioAddress && <DialogueAudioButton address={audioAddress} colorScheme={colorScheme} />}
+			</div>
+		)
+	}
 
 	// Кнопка скрытого текста появляется, только когда текст уже пришёл.
 	const hasHiddenText = !isTextVisible && Boolean(content.trim())

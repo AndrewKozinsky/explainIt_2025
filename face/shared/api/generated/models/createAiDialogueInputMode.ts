@@ -8,9 +8,8 @@
 
 /**
  * Dialogue mode: assisted practice or independent exam attempt.
- * @nullable
  */
-export type CreateAiDialogueInputMode = typeof CreateAiDialogueInputMode[keyof typeof CreateAiDialogueInputMode] | null;
+export type CreateAiDialogueInputMode = typeof CreateAiDialogueInputMode[keyof typeof CreateAiDialogueInputMode];
 
 
 export const CreateAiDialogueInputMode = {

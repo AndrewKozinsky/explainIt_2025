@@ -70,7 +70,7 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 
 			let eventToSave: AiDialogueEvent
 
-			if (event.type === 'userActions') {
+			if (event.type === 'userActions' && dialogue.mode !== 'exam') {
 				eventToSave = await this.messageAnalysis.review(dialogue, event.actions)
 				await this.userBalanceService.ensurePositiveBalanceOrThrow(userId, 'aiDialogue')
 			} else {
@@ -116,7 +116,8 @@ export class CreateAiDialogueMessageHandler implements ICommandHandler<
 
 		return submitted.actions.every(
 			({ type, content }, index) =>
-				type === saved.actions[index].type && content === saved.textReview[index].originalText,
+				type === saved.actions[index].type &&
+				content === (saved.textReview?.[index]?.originalText ?? saved.actions[index].content),
 		)
 	}
 }

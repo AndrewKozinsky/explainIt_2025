@@ -16,7 +16,7 @@ export class AiDialogueRepository {
 		scenarioId: number
 		sourceLanguageCode: Language
 		targetLanguageCode: Language
-		mode?: AiDialogueMode | null
+		mode: AiDialogueMode
 		cefrLevel?: AiDialogueCefrLevel | null
 		illustrationStyleId?: string | null
 		userScenarioAmendment?: string | null
@@ -28,7 +28,7 @@ export class AiDialogueRepository {
 				source_language_code: dto.sourceLanguageCode,
 				target_language_code: dto.targetLanguageCode,
 				cefr_level: dto.cefrLevel ?? null,
-				mode: dto.mode ?? 'practice',
+				mode: dto.mode,
 				illustration_style_id: getNewAiDialogueIllustrationStyle(dto.illustrationStyleId).id,
 				user_scenario_amendment: dto.userScenarioAmendment ?? null,
 			},

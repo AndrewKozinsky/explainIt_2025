@@ -55,6 +55,7 @@ test('creation sends the selected style and detail mapping preserves the saved s
 	Object.defineProperty(globalThis, 'window', { configurable: true, value: {} })
 
 	const input = {
+		mode: 'practice' as const,
 		scenarioId: 2,
 		sourceLanguageCode: 'fr' as const,
 		targetLanguageCode: 'ru' as const,

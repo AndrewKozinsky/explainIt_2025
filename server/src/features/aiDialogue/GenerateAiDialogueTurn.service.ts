@@ -19,6 +19,7 @@ import { AiDialogueSseHub } from './AiDialogueSseHub.service'
 import { buildAiDialoguePrompt } from './buildAiDialoguePrompt'
 import { parseAiDialogueEvents } from './parseAiDialogueEvents'
 import { SummarizeAiDialogue } from './SummarizeAiDialogue.service'
+import type { AiDialogueMode } from './aiDialogueLanguageLevel'
 
 // Сколько попыток разобрать ответ LLM до того, как отдать ошибку хода (turnError).
 const MAX_PARSE_ATTEMPTS = 2
@@ -102,6 +103,7 @@ export class GenerateAiDialogueTurn {
 				targetLanguageCode: dialogue.target_language_code,
 				participantGender: user.gender,
 				cefrLevel: dialogue.cefr_level,
+				mode: dialogue.mode,
 				userScenarioAmendment: dialogue.user_scenario_amendment,
 				summary,
 				recentEvents,
@@ -112,6 +114,7 @@ export class GenerateAiDialogueTurn {
 				userId: user.id,
 				prompt,
 				language: dialogue.source_language_code,
+				mode: dialogue.mode,
 			})
 
 			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({ dialogueId, turn })
@@ -149,13 +152,14 @@ export class GenerateAiDialogueTurn {
 		userId: number
 		prompt: LlmMessage[]
 		language: Language
+		mode: AiDialogueMode
 	}): Promise<ParsedAiDialogueTurn> {
 		const { dialogueId, userId, prompt, language } = input
 
 		let lastError: unknown = null
 
 		for (let attempt = 0; attempt < MAX_PARSE_ATTEMPTS; attempt += 1) {
-			const messages = attempt === 0 ? prompt : appendRetryHint(prompt)
+			const messages = attempt === 0 ? prompt : appendRetryHint(prompt, input.mode)
 			const output = await this.llmAdapter.generate({
 				model: AI_DIALOGUE_MODEL,
 				messages,
@@ -171,7 +175,7 @@ export class GenerateAiDialogueTurn {
 			})
 
 			try {
-				return parseAiDialogueEvents(output.content, language)
+				return parseAiDialogueEvents(output.content, language, input.mode)
 			} catch (error) {
 				lastError = error
 				console.log('AiDialogue: cannot parse LLM response', { dialogueId, attempt, response: output.content })
@@ -184,7 +188,11 @@ export class GenerateAiDialogueTurn {
 	private shouldGenerateTurn(messages: AiDialogueMessageOutModel[]): boolean {
 		if (messages.length === 0) return true
 		const lastType = messages[messages.length - 1].payload.type
-		return lastType === 'userActions' || lastType === 'userAvoidsNPC'
+		return (
+			lastType === 'userActions' ||
+			lastType === 'userAvoidsNPC' ||
+			(lastType === 'sceneUpdate' && !messages.some((message) => message.payload.type === 'npcActions'))
+		)
 	}
 
 	private extractErrorMessage(error: unknown): string {
@@ -197,13 +205,15 @@ export class GenerateAiDialogueTurn {
 
 // Добавляет к промпту корректирующую подсказку для повторной попытки после провала
 // парсинга: модель видит, что прошлый ответ был не в формате, и получает напоминание.
-function appendRetryHint(prompt: LlmMessage[]): LlmMessage[] {
+function appendRetryHint(prompt: LlmMessage[], mode: AiDialogueMode): LlmMessage[] {
 	return [
 		...prompt,
 		{
 			role: 'user',
 			content:
-				'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line. Replace every placeholder in angle brackets with real text; never output placeholders such as <translation>. After all dialogue blocks, append the wordMaps: footer in the specified JSON-lines format.',
+				mode === 'exam'
+					? 'Your previous answer could not be parsed. Reply in the exam line-based format: one field per line, blank lines only between blocks. No translations, word maps, hints or template placeholders. Keep voice and visual metadata for new NPCs and scenes.'
+					: 'Your previous answer was not in the required line-based format and could not be parsed. Reply again in the exact format: one field per line, no blank lines inside a block, and always include the translation line immediately after every content line. Replace every placeholder in angle brackets with real text; never output placeholders such as <translation>. After all dialogue blocks, append the wordMaps: footer in the specified JSON-lines format.',
 		},
 	]
 }

@@ -14,14 +14,16 @@ export type DetailsBlockTab = {
 }
 
 type DetailsBlockProps = {
-	tabs: [DetailsBlockTab, ...DetailsBlockTab[]]
+	tabs: DetailsBlockTab[]
 	activeView?: InfoViewType
 	onViewChange?: (view: InfoViewType) => void
 }
 
 function DetailsBlock({ tabs, activeView, onViewChange }: DetailsBlockProps) {
-	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType>(tabs[0].type)
+	const [currentInfoView, setCurrentInfoView] = useState<InfoViewType | undefined>(tabs[0]?.type)
 	const currentTab = tabs.find((tab) => tab.type === (activeView ?? currentInfoView)) ?? tabs[0]
+
+	if (!currentTab) return null
 
 	return (
 		<DetailsBlockContentWrapper>
