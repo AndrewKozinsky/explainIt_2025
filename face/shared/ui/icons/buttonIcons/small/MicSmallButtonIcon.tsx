@@ -19,7 +19,7 @@ export function MicSmallButtonIcon(props: ButtonIconProps) {
 			</defs>
 			<g stroke='none' fill='none' xlinkHref='#path-1' fillRule='evenodd'>
 				<rect id='Rectangle' fill='#FFFFFF' opacity='0.100000001' x='0' y='0' width='11' height='14'></rect>
-				<g strokeWidth='1' transform='translate(1, 0)' fill='currentColor'>
+				<g transform='translate(1, 0)' fill='currentColor'>
 					<path
 						d='M4.5,0 C6.43299662,0 8,1.56700338 8,3.5 L8,6.5 C8,8.43299662 6.43299662,10 4.5,10 C2.56700338,10 1,8.43299662 1,6.5 L1,3.5 C1,1.56700338 2.56700338,0 4.5,0 Z M4.5,1 C3.11928813,1 2,2.11928813 2,3.5 L2,6.5 C2,7.88071187 3.11928813,9 4.5,9 C5.88071187,9 7,7.88071187 7,6.5 L7,3.5 C7,2.11928813 5.88071187,1 4.5,1 Z'
 						fillRule='nonzero'

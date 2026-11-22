@@ -1,16 +1,16 @@
 import { INestApplication } from '@nestjs/common'
 import { CommandBus } from '@nestjs/cqrs'
 import { App } from 'supertest/types'
-import { queries } from '../../src/features/db/queries'
-import RouteNames from '../../src/infrastructure/routeNames'
+// import { queries } from '../../src/features/db/queries'
+// import RouteNames from '../../src/infrastructure/routeNames'
 import { YandexCloudS3ServiceMock } from '../../src/infrastructure/yandexCloudS3/yandexCloudS3.service'
 import { UserRepository } from '../../src/repo/user.repository'
-import { makeGraphQLReqWithTokens } from '../makeGQReq'
-import { authUtils } from '../utils/authUtils'
+// import { makeGraphQLReqWithTokens } from '../makeGQReq'
+// import { authUtils } from '../utils/authUtils'
 import { afterEachTest, beforeEachTest } from '../utils/beforAndAfterTests'
-import { defUserEmail, defUserPassword } from '../utils/common'
+// import { defUserEmail, defUserPassword } from '../utils/common'
 import { createApp } from '../utils/createApp'
-import { userUtils } from '../utils/userUtils'
+// import { userUtils } from '../utils/userUtils'
 
 it('1', () => {
 	expect(2).toBe(2)
