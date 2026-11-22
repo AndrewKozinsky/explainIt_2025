@@ -38,7 +38,7 @@ function TextLevelSwitcher({
 				items={textLevels
 					.filter((level) => allowUnrestricted || level !== 'Any')
 					.map((level) => ({
-						text: level === 'Any' ? t('anyLevel') : level,
+						content: level === 'Any' ? t('anyLevel') : level,
 						isCurrent: textLevel === level,
 						onClick: () => onTextLevelChange(level),
 					}))}

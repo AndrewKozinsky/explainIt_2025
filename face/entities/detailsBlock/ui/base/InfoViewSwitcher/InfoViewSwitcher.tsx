@@ -17,7 +17,8 @@ function InfoViewSwitcher({ tabs, currentInfoView, setActiveInfoView }: InfoView
 					widePaddings={range !== 1}
 					orientation='horizontal'
 					items={tabs.map((tab) => ({
-						text: tab.text,
+						content: tab.icon ?? tab.text,
+						ariaLabel: tab.text,
 						onClick: () => setActiveInfoView(tab.type),
 						isCurrent: currentInfoView === tab.type,
 					}))}

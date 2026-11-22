@@ -1,4 +1,3 @@
-import Switcher from '@/shared/ui/Switcher/Switcher'
 import { useTranslations } from 'next-intl'
 import IllustrationStyleSwitcher from '@/entities/aiDialogue/ui/IllustrationStyleSwitcher/IllustrationStyleSwitcher'
 import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
@@ -11,6 +10,7 @@ import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowRightPureButtonIcon'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
+import Switcher from '@/shared/ui/Switcher/Switcher'
 import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
 import ScenarioDescription from './ScenarioDescription'
 import ScenarioPracticeHints from './ScenarioPracticeHints'
@@ -43,7 +43,7 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 						size='medium'
 						disabled={loading}
 						items={(['practice', 'exam'] as const).map((mode) => ({
-							text: t(mode),
+							content: t(mode),
 							isCurrent: settings.mode === mode,
 							onClick: () => settings.changeMode(mode),
 						}))}

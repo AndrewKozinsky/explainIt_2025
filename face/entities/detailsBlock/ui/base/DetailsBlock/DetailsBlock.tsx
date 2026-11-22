@@ -10,6 +10,7 @@ export type InfoViewType = 'dictionary' | 'words' | 'ai_dialog' | 'message' | 's
 export type DetailsBlockTab = {
 	type: InfoViewType
 	text: string
+	icon?: ReactNode
 	content: ReactNode
 }
 

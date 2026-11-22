@@ -14,7 +14,7 @@ function YouTubeVideosFilterProficiency(props: YouTubeVideosFilterProficiencyPro
 		function () {
 			return PROFICIENCY_OPTIONS.map(function (option) {
 				return {
-					text: option.label,
+					content: option.label,
 					onClick: function () {
 						onChange(option.value)
 					},

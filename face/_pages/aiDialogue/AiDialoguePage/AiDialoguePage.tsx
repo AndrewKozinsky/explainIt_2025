@@ -13,6 +13,9 @@ import DetailsBlock, {
 import MediaRoot from '@/entities/media/ui/MediaRoot/MediaRoot'
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
 import ErrorMessage from '@/shared/ui/ErrorMessage/ErrorMessage'
+import { DictionaryButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/DictionaryButtonIcon'
+import { MessageButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/MessageButtonIcon'
+import { SettingsButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/SettingsButtonIcon'
 import LoadingMessage from '@/shared/ui/LoadingMessage/LoadingMessage'
 import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSyncedHeight'
 import { pageUrls } from '@/shared/utils/pageUrls'
@@ -67,6 +70,7 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 		() => dialogue.mode === 'exam' || useReplySettingsStore.getState().isAutoVoiceEnabled,
 		[dialogue.mode],
 	)
+
 	const audio = useAiDialogueAudio(Number(dialogueId), shouldAutoplay)
 	const { messages, turnError } = useAiDialogueStream(
 		Number(dialogueId),
@@ -80,6 +84,7 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 	const [selectedMessageId, setSelectedMessageId] = useState<number | null>(null)
 	const send = useAiDialogueSendMessage(Number(dialogueId))
 	const isBalanceExhausted = useIsBalanceExhausted()
+
 	const selectMessage = useCallback((messageId: number) => {
 		setSelectedMessageId(messageId)
 		setDetailsView('message')
@@ -105,9 +110,11 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
 
 	const examTabs: DetailsBlockTab[] = []
+
 	const practiceTabs: DetailsBlockTab[] = [
 		{
 			type: 'dictionary',
+			icon: <DictionaryButtonIcon />,
 			text: tPage('tabs.dictionary'),
 			content: (
 				<PhraseDictionary languageCode={dialogue.sourceLanguageCode} currentWord={selectedWord ?? undefined} />
@@ -115,6 +122,7 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 		},
 		{
 			type: 'message',
+			icon: <MessageButtonIcon />,
 			text: tPage('tabs.message'),
 			content: (
 				<AiDialogueMessageReview message={selectedPayload?.type === 'userActions' ? selectedPayload : null} />
@@ -122,6 +130,7 @@ function LoadedAiDialoguePage({ dialogueId, dialogue }: Props & { dialogue: AiDi
 		},
 		{
 			type: 'settings',
+			icon: <SettingsButtonIcon />,
 			text: tPage('tabs.settings'),
 			content: (
 				<AiDialogueSettings

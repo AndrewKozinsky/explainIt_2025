@@ -5,7 +5,8 @@ import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithFiel
 import './Switcher.scss'
 
 export type SwitcherItem = {
-	text: ReactNode
+	content: ReactNode
+	ariaLabel?: string
 	onClick: () => void
 	isCurrent: boolean
 }
@@ -58,8 +59,9 @@ function SwitcherButton(props: SwitcherButtonProps) {
 			onClick={item.onClick}
 			theme='plain'
 			disabled={disabled || item.isCurrent}
+			aria-label={item.ariaLabel}
 		>
-			{item.text}
+			{item.content}
 		</BaseButton>
 	)
 }

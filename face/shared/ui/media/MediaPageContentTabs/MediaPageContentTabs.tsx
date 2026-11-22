@@ -28,7 +28,7 @@ function MediaPageContentTabs(props: MediaPageContentTabsProps) {
 	}, [defaultTab])
 
 	const switcherItems: SwitcherItem[] = tabs.map((tab) => ({
-		text: tab.label,
+		content: tab.label,
 		onClick: function () {
 			setActiveTab(tab.key)
 			onTabChange?.(tab.key)

@@ -17,12 +17,12 @@ export function AiDialogueDraftHeader({ state, controller, blocked }: Props) {
 
 	const items = [
 		{
-			text: t('parts.speech'),
+			content: t('parts.speech'),
 			isCurrent: state.activePart === 'speech',
 			onClick: () => controller.selectPart('speech'),
 		},
 		{
-			text: t('parts.action'),
+			content: t('parts.action'),
 			isCurrent: state.activePart === 'action',
 			onClick: () => controller.selectPart('action'),
 		},
