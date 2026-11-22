@@ -1,10 +1,11 @@
+import type { ReactNode } from 'react'
 import cn from 'classnames'
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import './Switcher.scss'
 
 export type SwitcherItem = {
-	text: string
+	text: ReactNode
 	onClick: () => void
 	isCurrent: boolean
 }
