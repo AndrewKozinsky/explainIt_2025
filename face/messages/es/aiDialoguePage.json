@@ -29,5 +29,22 @@
     "attemptOnly": "Este resultado se refiere solo a este intento. No es una evaluación general del idioma ni sustituye un examen externo.",
     "failed": "No se pudo evaluar el resultado. Inténtalo de nuevo.",
     "medal": "Medalla del nivel {level}"
+  },
+  "examInfo": {
+    "title": "Examen: {scenarioTitle}",
+    "introduction": "Comprueba con qué autonomía puedes comunicarte en este escenario. Te recomendamos hacer el examen después de haber practicado este escenario.",
+    "realLife": "El examen simula la vida real:",
+    "speech": "Solo puedes escuchar las intervenciones del personaje y leer sus acciones.",
+    "translation": "La traducción no está disponible.",
+    "corrections": "Tus respuestas no se corrigen después de enviarlas.",
+    "processTitle": "Cómo funciona el examen",
+    "detailedAnswers": "Mantén la conversación y da respuestas detalladas para demostrar tus conocimientos.",
+    "minimumAnswers": "Da al menos 10 respuestas para habilitar el botón «{checkButton}». Si no hay suficiente material para evaluar, continúa la conversación y vuelve a comprobar el resultado.",
+    "assessment": "Cuando haya suficiente material, la aplicación evaluará tus respuestas y mostrará el resultado. Si alcanzas al menos el nivel mínimo, recibirás una medalla para este escenario en concreto.",
+    "recommendations": "Tras la evaluación, recibirás recomendaciones para mejorar tus habilidades y demostrar un nivel más alto la próxima vez. Recibirás recomendaciones tanto si apruebas el examen como si no.",
+    "topicsTitle": "De qué puedes hablar",
+    "beYourself": "Lo más sencillo es ser tú mismo y responder como lo harías normalmente, en lugar de inventarte otra identidad.",
+    "ideasIntroduction": "Aquí tienes algunas ideas para la conversación si no sabes qué hacer:",
+    "ownTopic": "Puedes elegir tu propio tema."
   }
 }

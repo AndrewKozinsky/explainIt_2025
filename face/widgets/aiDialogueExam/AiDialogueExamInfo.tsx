@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import type { AiDialogueScenarioModel } from '@/entities/aiDialogueScenario/AiDialogueScenarioModel'
 import ContentBordered from '@/shared/ui/content/ContentBordered/ContentBordered'
 import ContentHeaderWithChildren from '@/shared/ui/content/ContentHeaderWithChildren/ContentHeaderWithChildren'
@@ -11,52 +12,40 @@ type Props = {
 }
 
 export default function AiDialogueExamInfo({ scenario }: Props) {
+	const t = useTranslations('aiDialoguePage.examInfo')
+	const tPage = useTranslations('aiDialoguePage')
+
 	return (
 		<div className='ai-dialogue-exam-info'>
-			<ContentHeaderWithChildren title={`Экзамен: ${scenario.title}`}>
+			<ContentHeaderWithChildren title={t('title', { scenarioTitle: scenario.title })}>
 				<ContentWrapper>
-					<ContentText>
-						Проверьте, насколько самостоятельно вы можете общаться в этом сценарии. Рекомендуется приступать
-						если вы уже практиковали этот сценарий.
-					</ContentText>
-					<ContentText>В экзамене имитируется реальная жизнь:</ContentText>
+					<ContentText>{t('introduction')}</ContentText>
+					<ContentText>{t('realLife')}</ContentText>
 					<ContentList>
-						<li>Реплики персонажа можно только слышать, а действия читать.</li>
-						<li>Перевод недоступен.</li>
-						<li>Ваши ответы не исправляются после отправки.</li>
+						<li>{t('speech')}</li>
+						<li>{t('translation')}</li>
+						<li>{t('corrections')}</li>
 					</ContentList>
 				</ContentWrapper>
 			</ContentHeaderWithChildren>
-			<ContentHeaderWithChildren title='Как проходит экзамен' hTag={4}>
+			<ContentHeaderWithChildren title={t('processTitle')} hTag={4}>
 				<ContentWrapper>
 					<ContentList>
-						<li>Поддерживайте разговор и давайте развёрнутые ответы чтобы продемонстрировать знания.</li>
-						<li>
-							Дайте как минимум 10 ответов. После становится доступна кнопка «Сдать работу». Если
-							материала для оценки недостаточно, то продолжайте разговор и проверьте результат ещё раз.
-						</li>
-						<li>
-							Если материала достаточно, то программа проверит ответы и сообщит результат. Если сдали хотя
-							бы на минимальный уровень, то получите медаль для этого конкретного сценария.
-						</li>
+						<li>{t('detailedAnswers')}</li>
+						<li>{t('minimumAnswers', { checkButton: tPage('exam.check') })}</li>
+						<li>{t('assessment')}</li>
 					</ContentList>
 					<ContentBordered>
-						<ContentText size='small'>
-							После проверки вы получите рекомендации как улучшить навыки чтобы в следующий раз
-							продемонстрировать более высокий уровень. Рекомендации будут не зависимо от того сдали ли вы
-							экзамен или нет.
-						</ContentText>
+						<ContentText size='small'>{t('recommendations')}</ContentText>
 					</ContentBordered>
 				</ContentWrapper>
 			</ContentHeaderWithChildren>
-			<ContentHeaderWithChildren title='О чём можно говорить' hTag={4}>
+			<ContentHeaderWithChildren title={t('topicsTitle')} hTag={4}>
 				<ContentWrapper>
-					<ContentText>
-						Самый простой вариант не выдумывать другую личность, а говорить так, как сами бы отвечали.
-					</ContentText>
+					<ContentText>{t('beYourself')}</ContentText>
 					{scenario.conversationIdeas.length > 0 && (
 						<>
-							<ContentText>Несколько направлений беседы если не знаете что делать:</ContentText>
+							<ContentText>{t('ideasIntroduction')}</ContentText>
 							<ContentList>
 								{scenario.conversationIdeas.map((idea, index) => (
 									<li key={index}>{idea}</li>
@@ -64,7 +53,7 @@ export default function AiDialogueExamInfo({ scenario }: Props) {
 							</ContentList>
 						</>
 					)}
-					<ContentText>Вы можете выбрать собственную тему.</ContentText>
+					<ContentText>{t('ownTopic')}</ContentText>
 				</ContentWrapper>
 			</ContentHeaderWithChildren>
 		</div>

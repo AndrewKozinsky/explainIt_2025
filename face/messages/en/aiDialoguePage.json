@@ -29,5 +29,22 @@
     "attemptOnly": "This result applies only to this attempt. It is not an overall proficiency assessment or a substitute for an external exam.",
     "failed": "Could not check the result. Try again.",
     "medal": "Medal for level {level}"
+  },
+  "examInfo": {
+    "title": "Exam: {scenarioTitle}",
+    "introduction": "See how independently you can communicate in this scenario. We recommend taking the exam after you have practised this scenario.",
+    "realLife": "The exam simulates real life:",
+    "speech": "You can only hear the character’s speech and read their actions.",
+    "translation": "Translation is unavailable.",
+    "corrections": "Your answers are not corrected after you send them.",
+    "processTitle": "How the exam works",
+    "detailedAnswers": "Keep the conversation going and give detailed answers to demonstrate your knowledge.",
+    "minimumAnswers": "Give at least 10 answers to enable the “{checkButton}” button. If there is not enough material to assess, continue the conversation and check your result again.",
+    "assessment": "When there is enough material, the app will assess your answers and show the result. If you achieve at least the minimum level, you will receive a medal for this specific scenario.",
+    "recommendations": "After the assessment, you will receive recommendations on how to improve your skills and demonstrate a higher level next time. You will receive recommendations whether you pass the exam or not.",
+    "topicsTitle": "What to talk about",
+    "beYourself": "The easiest approach is to be yourself and answer as you normally would, rather than inventing a different identity.",
+    "ideasIntroduction": "Here are some conversation ideas if you are not sure what to do:",
+    "ownTopic": "You can choose your own topic."
   }
 }

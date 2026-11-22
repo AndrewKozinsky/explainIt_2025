@@ -1,8 +1,17 @@
+import { NextIntlClientProvider } from 'next-intl'
+import aiDialoguePage from '@/messages/ru/aiDialoguePage.json'
 import AiDialogueExamInfo from '@/widgets/aiDialogueExam/AiDialogueExamInfo'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 const meta = {
 	title: 'Shared/UI/Content/Composition',
 	component: AiDialogueExamInfo,
+	decorators: [
+		(Story) => (
+			<NextIntlClientProvider locale='ru' messages={{ aiDialoguePage }}>
+				<Story />
+			</NextIntlClientProvider>
+		),
+	],
 	args: {
 		scenario: {
 			title: 'В кафе',

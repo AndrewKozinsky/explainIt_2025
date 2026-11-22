@@ -3,18 +3,20 @@ import { useTranslations } from 'next-intl'
 import type { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import type { DetailsBlockTab } from '@/entities/detailsBlock/ui/base/DetailsBlock/DetailsBlock'
 import { DictionaryButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/DictionaryButtonIcon'
+import { InfoButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/InfoButtonIcon'
 import { MessageButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/MessageButtonIcon'
 import { SettingsButtonIcon } from '@/shared/ui/icons/buttonIcons/standard/SettingsButtonIcon'
 import type { DialogueServerMessage } from '@/widgets/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialogueWordSelection } from '@/widgets/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogueMessageReview from '@/widgets/aiDialogueMessages/ui/AiDialogueMessageReview/AiDialogueMessageReview'
+import AiDialoguePracticeInfo from '@/widgets/aiDialoguePractice/AiDialoguePracticeInfo'
 import AiDialogueSettings from '@/widgets/aiDialogueSettings/ui/AiDialogueSettings/AiDialogueSettings'
 import { PhraseDictionary } from '@/widgets/dictionary'
 import { useAiDialogueTextLevel } from './useAiDialogueTextLevel'
 import { useAiDialogueWordSelection } from './useAiDialogueWordSelection'
 import type { useAiDialogueAudio } from './useAiDialogueAudio'
 
-type PracticeTabId = 'dictionary' | 'message' | 'settings'
+type PracticeTabId = 'dictionary' | 'message' | 'settings' | 'practice'
 
 type Props = {
 	dialogueId: string
@@ -52,6 +54,12 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 	const selectedPayload = messages.find((message) => message.id === selectedMessageId)?.payload
 
 	const tabs: DetailsBlockTab<PracticeTabId>[] = [
+		{
+			id: 'practice',
+			icon: <InfoButtonIcon />,
+			text: 'О практике',
+			content: <AiDialoguePracticeInfo />,
+		},
 		{
 			id: 'dictionary',
 			icon: <DictionaryButtonIcon />,
