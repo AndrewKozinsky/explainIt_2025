@@ -10,8 +10,8 @@ export function useAiDialogueExamTabs(scenario: AiDialogueScenarioModel): Detail
 	return [
 		{
 			id: 'exam',
-			icon: <InfoButtonIcon />,
-			text: tPage('tabs.exam'),
+			label: <InfoButtonIcon />,
+			ariaLabel: tPage('tabs.exam'),
 			content: <AiDialogueExamInfo scenario={scenario} />,
 		},
 	]

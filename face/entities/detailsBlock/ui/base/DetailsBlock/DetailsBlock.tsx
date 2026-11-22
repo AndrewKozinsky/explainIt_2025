@@ -7,8 +7,8 @@ import './DetailsBlock.scss'
 
 export type DetailsBlockTab<TabId extends string = string> = {
 	id: TabId
-	text: string
-	icon?: ReactNode
+	label: ReactNode
+	ariaLabel: string
 	content: ReactNode
 }
 

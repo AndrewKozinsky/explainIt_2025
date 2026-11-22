@@ -91,8 +91,13 @@ function ChapterPage(props: ChapterRootProps) {
 					<ViewportSyncedHeight gapTop={10} gapBottom={10}>
 						<DetailsBlock
 							tabs={[
-								{ id: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },
-								{ id: 'words', text: 'Фразы', content: <MediaPhrasesContent /> },
+								{
+									id: 'dictionary',
+									label: 'Словарь',
+									ariaLabel: 'Словарь',
+									content: <MediaDictionaryContent />,
+								},
+								{ id: 'words', label: 'Фразы', ariaLabel: 'Фразы', content: <MediaPhrasesContent /> },
 							]}
 						/>
 					</ViewportSyncedHeight>

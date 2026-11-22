@@ -18,14 +18,14 @@ import type { useAiDialogueAudio } from './useAiDialogueAudio'
 
 type PracticeTabId = 'dictionary' | 'message' | 'settings' | 'practice'
 
-type Props = {
+type useAiDialoguePracticeTabsProps = {
 	dialogueId: string
 	dialogue: AiDialogueModel
 	messages: DialogueServerMessage[]
 	audio: Pick<ReturnType<typeof useAiDialogueAudio>, 'player' | 'state'>
 }
 
-export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audio }: Props) {
+export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audio }: useAiDialoguePracticeTabsProps) {
 	const tPage = useTranslations('aiDialoguePage')
 	const { textLevel, changeTextLevel, isUpdatingTextLevel } = useAiDialogueTextLevel(Number(dialogueId), dialogue)
 
@@ -56,30 +56,30 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 	const tabs: DetailsBlockTab<PracticeTabId>[] = [
 		{
 			id: 'practice',
-			icon: <InfoButtonIcon />,
-			text: 'О практике',
+			label: <InfoButtonIcon />,
+			ariaLabel: 'О практике',
 			content: <AiDialoguePracticeInfo />,
 		},
 		{
 			id: 'dictionary',
-			icon: <DictionaryButtonIcon />,
-			text: tPage('tabs.dictionary'),
+			label: <DictionaryButtonIcon />,
+			ariaLabel: tPage('tabs.dictionary'),
 			content: (
 				<PhraseDictionary languageCode={dialogue.sourceLanguageCode} currentWord={selectedWord ?? undefined} />
 			),
 		},
 		{
 			id: 'message',
-			icon: <MessageButtonIcon />,
-			text: tPage('tabs.message'),
+			label: <MessageButtonIcon />,
+			ariaLabel: tPage('tabs.message'),
 			content: (
 				<AiDialogueMessageReview message={selectedPayload?.type === 'userActions' ? selectedPayload : null} />
 			),
 		},
 		{
 			id: 'settings',
-			icon: <SettingsButtonIcon />,
-			text: tPage('tabs.settings'),
+			label: <SettingsButtonIcon />,
+			ariaLabel: tPage('tabs.settings'),
 			content: (
 				<AiDialogueSettings
 					textLevel={textLevel}

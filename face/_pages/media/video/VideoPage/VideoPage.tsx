@@ -82,9 +82,24 @@ function VideoPage(props: VideoRootProps) {
 						<SeparatedStack>
 							<DetailsBlock
 								tabs={[
-									{ id: 'dictionary', text: 'Словарь', content: <MediaDictionaryContent /> },
-									{ id: 'words', text: 'Фразы', content: <MediaPhrasesContent /> },
-									{ id: 'ai_dialog', text: 'Диалог', content: <MediaDialogContent /> },
+									{
+										id: 'dictionary',
+										label: 'Словарь',
+										ariaLabel: 'Словарь',
+										content: <MediaDictionaryContent />,
+									},
+									{
+										id: 'words',
+										label: 'Фразы',
+										ariaLabel: 'Фразы',
+										content: <MediaPhrasesContent />,
+									},
+									{
+										id: 'ai_dialog',
+										label: 'Диалог',
+										ariaLabel: 'Диалог',
+										content: <MediaDialogContent />,
+									},
 								]}
 							/>
 							<VideoControls {...videoControls} />
