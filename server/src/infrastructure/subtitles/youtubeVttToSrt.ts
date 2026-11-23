@@ -379,8 +379,10 @@ function splitWordTimingsIntoChunks(wordTimings: WordTiming[]): WordTiming[][] {
 		const lookbackStart = Math.max(start + 1, hardEnd - LOOKBACK_WORDS)
 		let cut = hardEnd
 		let bestGap = Number.NEGATIVE_INFINITY
+
 		for (let k = lookbackStart; k <= hardEnd; k++) {
 			const gap = wordTimings[k].startMs - wordTimings[k - 1].startMs
+
 			if (gap > bestGap) {
 				bestGap = gap
 				cut = k

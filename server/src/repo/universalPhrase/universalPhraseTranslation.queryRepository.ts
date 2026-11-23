@@ -63,7 +63,11 @@ export class UniversalPhraseTranslationQueryRepository {
 			targetLanguageCode: db.target_language_code,
 			translation: articleBlocks ? attachSenseImages(articleBlocks, senseImages) : null,
 			deepSections: parseBlocks(db.deep_sections),
-			wordForms: getWordForms(db.universal_phrase.source_language_code, parseLemmas(db.lemmas)),
+			wordForms: getWordForms(
+				db.universal_phrase.source_language_code,
+				parseLemmas(db.lemmas),
+				articleBlocks ? db.universal_phrase.text : undefined,
+			),
 			status: db.status,
 			errorCode: db.error_code,
 			nonExistentWord: db.non_existent_word,

@@ -1,5 +1,9 @@
 @use '@/styles/variables' as vars;
 
+.word-form__variant {
+	white-space: nowrap;
+}
+
 .word-form__variant--current {
 	color: vars.$accentColor-2;
 }

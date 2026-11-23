@@ -8,14 +8,14 @@ const $ = bdConfig.UniversalPhraseTranslation.dbFields
 
 export class UniversalPhraseTranslationWordFormsOutModel {
 	@ApiProperty({
-		description: 'Kind of the forms line: irregular verb, irregular plural or degrees of comparison',
+		description: 'Kind of the forms line: irregular verb, plural or degrees of comparison',
 		enum: WORD_FORMS_KINDS,
 		enumName: 'UniversalPhraseTranslationWordFormsKind',
 	})
 	kind: WordFormsKind
 
 	@ApiProperty({
-		description: 'Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash',
+		description: 'Forms of the word in order. Each form can contain spaces. Variants are joined by a slash',
 		type: [String],
 	})
 	forms: string[]

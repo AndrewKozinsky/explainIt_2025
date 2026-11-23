@@ -9,6 +9,7 @@ function PhraseTranslationResult() {
 	const status = usePhraseDictionaryStore((s) => s.status)
 	const translation = usePhraseDictionaryStore((s) => s.translation)
 	const inputText = usePhraseDictionaryStore((s) => s.inputText)
+	const languageCode = usePhraseDictionaryStore((s) => s.languageCode)
 
 	if (status !== 'ready' || !translation || translation.blocks.length === 0) return null
 
@@ -18,7 +19,12 @@ function PhraseTranslationResult() {
 				<ArticleBlockTree blocks={translation.blocks} />
 			</SenseNumbersContext.Provider>
 			{translation.wordForms.map((wordForms) => (
-				<WordFormsCard key={wordForms.forms.join(' ')} wordForms={wordForms} lookedUpText={inputText} />
+				<WordFormsCard
+					key={JSON.stringify([wordForms.kind, wordForms.forms])}
+					wordForms={wordForms}
+					lookedUpText={inputText}
+					languageCode={languageCode}
+				/>
 			))}
 			<ArticleBlockTree blocks={translation.deepSections} />
 		</div>
