@@ -1,5 +1,8 @@
 import type { AiDialogueExamLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
-import type { AiDialogueUserMessagePartCheckOutModel } from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
+import type {
+	AiDialogueUserMessageCriticalIssueOutModel,
+	AiDialogueUserMessagePartCheckOutModel,
+} from 'models/aiDialogue/aiDialogueUserMessageCheck.out.model'
 import type { AiDialogueWordMap } from 'types/aiDialogueWordMap'
 
 /**
@@ -73,6 +76,10 @@ type UserActionsInputEvent = {
 	actions: AiDialogueActionItem[]
 }
 
+export type AiDialogueUserMessageReviewIssue = AiDialogueUserMessageCriticalIssueOutModel & {
+	correction?: { replacement: string; kind: 'error' | 'language'; occurrence: number }
+}
+
 // Сохранённые действия и реплики пользователя. actions содержит итоговые тексты.
 export type UserActionsEvent = Omit<UserActionsInputEvent, 'actions'> & {
 	/** Перевод итогового текста. Может отсутствовать в ранее сохранённых сообщениях. */
@@ -80,7 +87,9 @@ export type UserActionsEvent = Omit<UserActionsInputEvent, 'actions'> & {
 	/** Исходный текст и разбор для каждого элемента actions в том же порядке. */
 	textReview?: {
 		originalText: string
-		analysis: AiDialogueUserMessagePartCheckOutModel
+		analysis: Omit<AiDialogueUserMessagePartCheckOutModel, 'critical'> & {
+			critical: AiDialogueUserMessageReviewIssue[]
+		}
 	}[]
 }
 

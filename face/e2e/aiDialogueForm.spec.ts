@@ -183,6 +183,7 @@ async function setup(page: Page, pcm = false, history: DialogueServerMessage[] =
 					sourceLanguageCode: 'en',
 					targetLanguageCode: 'ru',
 					cefrLevel: null,
+					mode: 'practice',
 					scenario: {
 						id: 1,
 						slug: 'test',
@@ -248,6 +249,7 @@ const historyWithReviews: DialogueServerMessage[] = [
 								title: 'Слово на русском языке',
 								sentenceMarkdown: 'There is a **очередь**.',
 								explanationMarkdown: '«Очередь» по-английски — **line**.',
+								correction: { replacement: 'line', kind: 'language', occurrence: 1 },
 							},
 						],
 						suggestions: [
@@ -309,7 +311,29 @@ test('opens reviews from history, marks selection and switches to the dictionary
 	await expect(reviewed).not.toBeFocused()
 	await expect(review.getByRole('heading', { level: 2 })).toHaveText(['Реплика', 'Действие'])
 	await expect(review.getByText('Hey girls! There is a очередь.')).toBeVisible()
-	await expect(review.getByRole('heading', { name: 'Слово на русском языке' })).toBeVisible()
+	const issue = review.getByRole('list', { name: 'Ошибки' }).getByRole('listitem')
+	await expect(issue.locator('s')).toHaveText('очередь')
+	await expect(issue.locator('strong')).toHaveText('line')
+	await expect(issue).not.toContainText('«Очередь» по-английски')
+	await expect(issue).not.toContainText('There is a')
+	const highlight = review.locator('mark')
+	const originalLabel = review.getByText('Ваш ответ', { exact: true }).first()
+	await issue.scrollIntoViewIfNeeded()
+	const originalPosition = await originalLabel.boundingBox()
+	await expect(highlight).toHaveCount(0)
+	await issue.hover()
+	const number = issue.locator('.ai-dialogue-user-message-issues__number')
+	const issueBackground = await issue.evaluate((element) => getComputedStyle(element).backgroundColor)
+	await expect(number).toHaveCSS('background-color', issueBackground)
+	await expect(highlight).toHaveText('There is a очередь.')
+	await expect(highlight.locator('span')).toHaveText('очередь')
+	expect(await originalLabel.boundingBox()).toEqual(originalPosition)
+	await originalLabel.hover()
+	await expect(highlight).toHaveCount(0)
+	await issue.focus()
+	await expect(highlight).toHaveText('There is a очередь.')
+	await issue.press('Tab')
+	await expect(highlight).toHaveCount(0)
 	await expect(review.getByText('Hey, girls! There is a line.')).toBeVisible()
 	await expect(review.getByText('I looked at them.')).toBeVisible()
 	await expect(review.getByRole('img', { name: 'Исправлений нет' })).toBeVisible()
@@ -364,7 +388,7 @@ test('sends both parts directly, locks the form and opens the review from the me
 	try {
 		await action.press('Enter')
 		await expect(action).toHaveJSProperty('readOnly', true)
-		await expect(form.getByRole('status')).toHaveText('Отправляю ответ…')
+		await expect(action).toHaveAttribute('aria-busy', 'true')
 		await expect(send).toBeDisabled()
 		await expect(form.getByRole('button', { name: 'Реплика', exact: true })).toBeDisabled()
 		await expect(form.getByRole('button', { name: 'Диктовать' })).toBeDisabled()
@@ -382,7 +406,7 @@ test('sends both parts directly, locks the form and opens the review from the me
 	await reviewed.click()
 	const review = page.locator('.reading-root__right-part').getByRole('region', { name: 'Сообщение' })
 	await expect(review).toContainText('Hey girls!')
-	await expect(review).toContainText('Пропущена запятая')
+	await expect(review).toContainText('После обращения Hey нужна запятая.')
 	await expect(review).toContainText('Hey, girls!')
 	await expect(review).toContainText('I open the door.')
 

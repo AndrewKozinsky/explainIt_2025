@@ -4,51 +4,93 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.2rem;
+	overflow-wrap: anywhere;
 }
 
 .ai-dialogue-user-message-issues__critical {
 	display: flex;
 	flex-direction: column;
-	gap: 1.2rem;
-	counter-reset: issues;
+	gap: .4rem;
+	list-style: none;
 }
 
 .ai-dialogue-user-message-issues__issue {
-	display: flex;
-	align-items: flex-start;
+	display: grid;
+	grid-template-columns: auto minmax(0, 1fr);
+	align-items: start;
 	gap: 1rem;
-	counter-increment: issues;
-	font-size: 1.6rem;
-	line-height: 2.2rem;
+	padding: .6rem;
+	border-radius: vars.$radius-1;
+
+	&:is(:hover, :focus-visible) {
+		background: vars.$grayColor-1;
+
+		.ai-dialogue-user-message-issues__number {
+			background-color: inherit;
+		}
+	}
+
+	&:focus-visible {
+		outline: 2px solid vars.$accentColor-3;
+		outline-offset: 2px;
+	}
 }
 
 .ai-dialogue-user-message-issues__issue-content {
 	display: flex;
 	flex-direction: column;
-	gap: 2px;
+	gap: .4rem;
 }
 
-.ai-dialogue-user-message-issues__issue::before {
-	content: counter(issues, decimal-leading-zero);
-	flex-shrink: 0;
+.ai-dialogue-user-message-issues__number {
 	font-size: 1.2rem;
-	line-height: 1.2rem;
+	line-height: 2.4rem;
 	font-weight: 600;
-	color: vars.$accentColor-2;
+	font-variant-numeric: tabular-nums;
+	text-align: center;
+	color: vars.$accentColor-3;
 	background: vars.$accentColor-1;
-	max-width: 2.4rem;
-	padding: 0.6rem 0.6rem;
+	min-width: 2.4rem;
+	margin-top: .2rem;
 	border-radius: vars.$radius-1;
 }
 
-.ai-dialogue-user-message-issues__error-header {
-	font-size: 1.6rem;
-	line-height: 2.4rem;
-	font-weight: 500;
+.ai-dialogue-user-message-issues__correction {
+	font-size: 1.8rem;
+	line-height: 2.6rem;
+
+	s {
+		text-decoration-color: vars.$accentColor-3;
+	}
+
+	strong {
+		font-weight: 500;
+	}
 }
 
-.ai-dialogue-user-message-issues__error-sentence strong {
-	color: vars.$dangerColor-1;
+.ai-dialogue-user-message-issues__arrow-circle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 1.6rem;
+	height: 1.6rem;
+	vertical-align: middle;
+	color: vars.$grayColor-5;
+	transform: translateY(-0.06em);
+	border: 1px solid currentColor;
+	border-radius: 50%;
+}
+
+.ai-dialogue-user-message-issues__arrow {
+	font-size: 0.6em;
+	line-height: 1;
+	transform: translateY(-0.05em);
+}
+
+.ai-dialogue-user-message-issues__explanation {
+	font-size: 1.5rem;
+	color: vars.$grayColor-6;
 }
 
 .ai-dialogue-user-message-issues__suggestions {
@@ -91,8 +133,4 @@
 
 .ai-dialogue-user-message-issues .styled-markdown {
 	line-height: 1.5;
-}
-
-.ai-dialogue-user-message-issues {
-	overflow-wrap: anywhere;
 }

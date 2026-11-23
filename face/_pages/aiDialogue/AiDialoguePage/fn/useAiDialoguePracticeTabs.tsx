@@ -73,7 +73,10 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 			label: <MessageButtonIcon />,
 			ariaLabel: tPage('tabs.message'),
 			content: (
-				<AiDialogueMessageReview message={selectedPayload?.type === 'userActions' ? selectedPayload : null} />
+				<AiDialogueMessageReview
+					message={selectedPayload?.type === 'userActions' ? selectedPayload : null}
+					language={dialogue.sourceLanguageCode}
+				/>
 			),
 		},
 		{

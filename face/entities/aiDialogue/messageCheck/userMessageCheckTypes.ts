@@ -16,6 +16,12 @@ export type UserMessagePartCheck = {
 	suggestions: UserMessageSuggestion[]
 }
 
+export type UserMessageReviewIssue = UserMessageCriticalIssue & {
+	correction?: { replacement: string; kind: 'error' | 'language'; occurrence: number }
+}
+
+export type UserMessagePartReview = Omit<UserMessagePartCheck, 'critical'> & { critical: UserMessageReviewIssue[] }
+
 export type UserMessageCheck = Record<UserMessagePart, UserMessagePartCheck>
 
 export type CheckUserMessageInput = Partial<Record<UserMessagePart, string>>

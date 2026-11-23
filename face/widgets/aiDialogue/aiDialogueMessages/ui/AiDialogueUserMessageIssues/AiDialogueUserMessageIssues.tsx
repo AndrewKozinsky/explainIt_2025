@@ -1,36 +1,70 @@
-import type { UserMessagePartCheck } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
+import type { UserMessageSuggestion } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
 import StyledMarkdown from '@/shared/ui/StyledMarkdown/StyledMarkdown'
+import type { ReviewIssue } from '../AiDialogueMessageReview/getReviewIssues'
 import './AiDialogueUserMessageIssues.scss'
 
 type Props = {
-	analysis: UserMessagePartCheck
+	critical: ReviewIssue[]
+	suggestions: UserMessageSuggestion[]
 	criticalLabel: string
 	suggestionsLabel: string
+	onHover: (index: number | null) => void
+	onFocus: (index: number | null) => void
 }
 
-export default function AiDialogueUserMessageIssues({ analysis, criticalLabel, suggestionsLabel }: Props) {
-	const { critical, suggestions } = analysis
+export default function AiDialogueUserMessageIssues({
+	critical,
+	suggestions,
+	criticalLabel,
+	suggestionsLabel,
+	onHover,
+	onFocus,
+}: Props) {
 	if (!critical.length && !suggestions.length) return null
 
 	return (
 		<div className='ai-dialogue-user-message-issues'>
 			{critical.length > 0 && (
-				<ol className='ai-dialogue-user-message-issues__critical' aria-label={criticalLabel}>
+				<ol className='ai-dialogue-user-message-issues__critical' role='list' aria-label={criticalLabel}>
 					{critical.map((issue, index) => (
-						<li className='ai-dialogue-user-message-issues__issue' key={index}>
+						<li
+							className='ai-dialogue-user-message-issues__issue'
+							key={index}
+							role='listitem'
+							tabIndex={issue.highlight ? 0 : undefined}
+							onMouseEnter={() => onHover(index)}
+							onMouseLeave={() => onHover(null)}
+							onFocus={() => onFocus(index)}
+							onBlur={(event) => {
+								if (!event.currentTarget.contains(event.relatedTarget)) onFocus(null)
+							}}
+						>
+							<span className='ai-dialogue-user-message-issues__number' aria-hidden='true'>
+								{String(index + 1).padStart(2, '0')}
+							</span>
 							<div className='ai-dialogue-user-message-issues__issue-content'>
-								<div
-									className='ai-dialogue-user-message-issues__error-header'
-									role='heading'
-									aria-level={3}
-								>
-									<StyledMarkdown content={issue.title} />
-								</div>
-								<StyledMarkdown
-									className='ai-dialogue-user-message-issues__error-sentence'
-									content={issue.sentenceMarkdown}
-								/>
-								<StyledMarkdown content={issue.explanationMarkdown} />
+								<p className='ai-dialogue-user-message-issues__correction'>
+									{issue.replacement ? <s>{issue.fragment}</s> : <span>{issue.fragment}</span>}
+									{issue.replacement && (
+										<>
+											{' '}
+											<span
+												className='ai-dialogue-user-message-issues__arrow-circle'
+												aria-hidden='true'
+											>
+												<span className='ai-dialogue-user-message-issues__arrow'>→</span>
+											</span>
+											{'\u00a0'}
+											<strong>{issue.replacement}</strong>
+										</>
+									)}
+								</p>
+								{issue.explanation && (
+									<StyledMarkdown
+										className='ai-dialogue-user-message-issues__explanation'
+										content={issue.explanation}
+									/>
+								)}
 							</div>
 						</li>
 					))}

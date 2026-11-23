@@ -58,6 +58,15 @@
 	white-space: pre-wrap;
 }
 
+.ai-dialogue-message-review__sentence-highlight {
+	background: vars.$accentColor-1;
+	color: inherit;
+}
+
+.ai-dialogue-message-review__fragment-highlight {
+	background: vars.$dangerColor-2;
+}
+
 .ai-dialogue-message-review__translation {
 	color: vars.$grayColor-5;
 	font-size: 1.6rem;

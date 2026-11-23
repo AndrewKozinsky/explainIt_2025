@@ -24,6 +24,7 @@ const correction = {
 			title: 'Согласование',
 			sentenceMarkdown: 'She **go** home.',
 			explanationMarkdown: 'После **she** нужна форма **goes**.',
+			correction: { replacement: 'goes', kind: 'error', occurrence: 1 },
 		},
 	],
 	suggestions: [],

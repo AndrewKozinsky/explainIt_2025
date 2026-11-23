@@ -82,7 +82,10 @@ function getOwnStart(segment: TextSegment) {
 /** Долгое касание слова не открывает меню браузера: слово нажимают, а не выделяют. */
 function preventTouchContextMenu(event: MouseEvent) {
 	const pointerType = (event.nativeEvent as PointerEvent).pointerType
-	if (pointerType === 'touch' || pointerType === 'pen') event.preventDefault()
+
+	if (pointerType === 'touch' || pointerType === 'pen') {
+		event.preventDefault()
+	}
 }
 
 export default ClickableText

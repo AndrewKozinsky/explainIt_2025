@@ -1,4 +1,4 @@
-import type { UserMessagePartCheck } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
+import type { UserMessagePartReview } from '@/entities/aiDialogue/messageCheck/userMessageCheckTypes'
 import type { AiDialogueWordMap } from './aiDialogueWordMap'
 
 /**
@@ -60,7 +60,7 @@ export type UserActionsEvent = Omit<UserActionsInputEvent, 'actions'> & {
 	actions: (AiDialogueActionItem & { translation?: string })[]
 	textReview?: {
 		originalText: string
-		analysis: UserMessagePartCheck
+		analysis: UserMessagePartReview
 	}[]
 }
 

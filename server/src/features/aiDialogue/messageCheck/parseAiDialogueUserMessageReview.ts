@@ -1,14 +1,29 @@
 import { z } from 'zod'
-import type { AiDialogueActionItem, UserActionsEvent } from 'types/aiDialogueMessage'
+import type { AiDialogueActionItem, AiDialogueUserMessageReviewIssue, UserActionsEvent } from 'types/aiDialogueMessage'
 
 const text = z.string().trim().min(1).max(8_000)
+const correctionSchema = z.strictObject({
+	replacement: text,
+	kind: z.enum(['error', 'language']),
+	occurrence: z.number().int().positive(),
+})
+const issueSchema = z
+	.strictObject({
+		title: text,
+		sentenceMarkdown: text,
+		explanationMarkdown: text,
+		correction: z.unknown().optional(),
+	})
+	.transform(({ correction, ...issue }): AiDialogueUserMessageReviewIssue => {
+		const parsedCorrection = correctionSchema.safeParse(correction)
+		return parsedCorrection.success ? { ...issue, correction: parsedCorrection.data } : issue
+	})
+
 const review = z.strictObject({
 	parts: z.array(
 		z.strictObject({
 			index: z.number().int(),
-			critical: z
-				.array(z.strictObject({ title: text, sentenceMarkdown: text, explanationMarkdown: text }))
-				.max(12),
+			critical: z.array(issueSchema).max(12),
 			suggestions: z.array(z.strictObject({ explanationMarkdown: text, example: text })).max(12),
 			correctedText: text.nullable(),
 			translation: text,
