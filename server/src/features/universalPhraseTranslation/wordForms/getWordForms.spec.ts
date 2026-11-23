@@ -136,6 +136,26 @@ describe('getWordForms', () => {
 		},
 		{ language: LanguageCode.tr, text: 'KİTABI', kind: 'stemChange', forms: ['kitap', 'kitabı', 'kitaba'] },
 		{ language: LanguageCode.tr, text: 'ki\u0307tabi', kind: 'stemChange', forms: ['kitap', 'kitabı', 'kitaba'] },
+		{
+			language: LanguageCode.ru,
+			text: 'сплю',
+			kind: 'irregularVerb',
+			forms: ['спать', 'сплю', 'спишь', 'спал/спала'],
+		},
+		{
+			language: LanguageCode.es,
+			text: 'freído',
+			kind: 'irregularVerb',
+			forms: ['freír', 'frío', 'freí', 'frito/freído'],
+		},
+		{ language: LanguageCode.fr, text: 'baux', kind: 'plural', forms: ['un bail', 'des baux'] },
+		{
+			language: LanguageCode.it,
+			text: 'tradotto',
+			kind: 'irregularVerb',
+			forms: ['tradurre', 'traduco', 'ho tradotto'],
+		},
+		{ language: LanguageCode.tr, text: 'şehre', kind: 'stemChange', forms: ['şehir', 'şehri', 'şehre'] },
 	])('finds $text in the $language reference by the article text', ({ language, text, kind, forms }) => {
 		expect(getWordForms(language, [], text)).toEqual([{ kind, forms }])
 	})
