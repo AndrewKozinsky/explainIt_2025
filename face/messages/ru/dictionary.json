@@ -7,6 +7,25 @@
   "wordFormsKind": {
     "irregularVerb": "Неправильный глагол",
     "plural": "Множественное число",
-    "comparison": "Степени сравнения"
+    "comparison": "Степени сравнения",
+    "stemChange": "Изменение основы"
+  },
+  "wordFormLabels": {
+    "infinitive": "Инфинитив",
+    "presentFirst": "Я · настоящее",
+    "presentSecond": "Ты · настоящее",
+    "presentThird": "3-е лицо · настоящее",
+    "past": "Прошедшее",
+    "pastFirst": "Я · простое прошедшее",
+    "pastThird": "3-е лицо · прошедшее",
+    "participle": "Причастие прошедшего времени",
+    "compoundPastFirst": "Я · составное прошедшее",
+    "aoristThird": "3-е лицо · аорист",
+    "singular": "Именительный, ед. ч.",
+    "plural": "Именительный, мн. ч.",
+    "genitivePlural": "Родительный, мн. ч.",
+    "nominative": "Именительный",
+    "accusative": "Винительный",
+    "dative": "Дательный"
   }
 }

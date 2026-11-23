@@ -20,7 +20,7 @@ describe('ImageGenerationOutboxRepository', () => {
 			where: { status: 'pending', OR: [{ attempts: 0 }, { updated_at: { lte: retryBefore } }] },
 			orderBy: [{ updated_at: 'asc' }, { id: 'asc' }],
 			take: 25,
-			select: { id: true, job_id: true },
+			select: { id: true, job_id: true, job: { select: { created_at: true } } },
 		})
 	})
 

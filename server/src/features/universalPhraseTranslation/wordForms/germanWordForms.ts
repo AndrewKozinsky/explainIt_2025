@@ -280,7 +280,7 @@ export const GERMAN_WORD_FORMS: WordFormsReference = {
 		['sauer', 'sauer', 'saurer', 'am sauersten'],
 		['scharf', 'scharf', 'schärfer', 'am schärfsten'],
 		['schlank', 'schlank', 'schlanker', 'am schlanksten'],
-		['schlau', 'schlau', 'schlauer', 'am schlausten'],
+		['schlau', 'schlau', 'schlauer', 'am schlauesten/am schlausten'],
 		['schlecht', 'schlecht', 'schlechter', 'am schlechtesten'],
 		['schmal', 'schmal', 'schmaler/schmäler', 'am schmalsten/am schmälsten'],
 		['schnell', 'schnell', 'schneller', 'am schnellsten'],

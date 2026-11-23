@@ -12,9 +12,20 @@ describe('UniversalPhraseTranslationQueryRepository', () => {
 		{ text: 'best', language: 'en', lemmas: '["best"]', forms: ['good/well', 'better', 'best'] },
 		{ text: 'schöner', language: 'de', lemmas: '["schön"]', forms: ['schön', 'schöner', 'am schönsten'] },
 		{ text: 'schöner', language: 'de', lemmas: null, forms: ['schön', 'schöner', 'am schönsten'] },
+		{ text: 'детей', language: 'ru', lemmas: null, kind: 'plural', forms: ['ребёнок', 'дети', 'детей'] },
+		{
+			text: 'hice',
+			language: 'es',
+			lemmas: '["hacer"]',
+			kind: 'irregularVerb',
+			forms: ['hacer', 'hago', 'hice', 'hecho'],
+		},
+		{ text: 'yeux', language: 'fr', lemmas: null, kind: 'plural', forms: ['un œil', 'des yeux'] },
+		{ text: 'uova', language: 'it', lemmas: null, kind: 'plural', forms: ["l'uovo", 'le uova'] },
+		{ text: 'kitabı', language: 'tr', lemmas: null, kind: 'stemChange', forms: ['kitap', 'kitabı', 'kitaba'] },
 	])(
-		'returns the comparison for a saved $text article with lemmas $lemmas',
-		async ({ text, language, lemmas, forms }) => {
+		'returns forms for a saved $text article with lemmas $lemmas',
+		async ({ text, language, lemmas, kind = 'comparison', forms }) => {
 			const article = [{ type: 'text', text: 'Описание слова' }]
 			const findUnique = jest.fn().mockResolvedValue({
 				id: 23,
@@ -36,7 +47,7 @@ describe('UniversalPhraseTranslationQueryRepository', () => {
 
 			await expect(repository.getById(23)).resolves.toMatchObject({
 				translation: article,
-				wordForms: [{ kind: 'comparison', forms }],
+				wordForms: [{ kind, forms }],
 			})
 		},
 	)

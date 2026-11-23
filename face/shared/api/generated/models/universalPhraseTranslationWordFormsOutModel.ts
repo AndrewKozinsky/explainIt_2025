@@ -8,8 +8,8 @@
 import type { UniversalPhraseTranslationWordFormsKind } from './universalPhraseTranslationWordFormsKind';
 
 export interface UniversalPhraseTranslationWordFormsOutModel {
-  /** Kind of the forms line: irregular verb, irregular plural or degrees of comparison */
+  /** Kind of the forms line: irregular verb, plural, degrees of comparison or stem change */
   kind: UniversalPhraseTranslationWordFormsKind;
-  /** Forms of the word in order, for example bring, brought, brought. Variants are joined by a slash */
+  /** Forms of the word in order. Each form can contain spaces. Variants are joined by a slash */
   forms: string[];
 }

@@ -7,6 +7,25 @@
   "wordFormsKind": {
     "irregularVerb": "Düzensiz fiil",
     "plural": "Çoğul",
-    "comparison": "Karşılaştırma dereceleri"
+    "comparison": "Karşılaştırma dereceleri",
+    "stemChange": "Gövde değişimi"
+  },
+  "wordFormLabels": {
+    "infinitive": "Mastar",
+    "presentFirst": "Ben · şimdiki zaman",
+    "presentSecond": "Sen · şimdiki zaman",
+    "presentThird": "O · şimdiki zaman",
+    "past": "Geçmiş zaman",
+    "pastFirst": "Ben · basit geçmiş zaman",
+    "pastThird": "O · görülen geçmiş zaman",
+    "participle": "Geçmiş zaman ortacı",
+    "compoundPastFirst": "Ben · birleşik geçmiş zaman",
+    "aoristThird": "O · geniş zaman",
+    "singular": "Tekil yalın hâl",
+    "plural": "Çoğul yalın hâl",
+    "genitivePlural": "Çoğul ilgi hâli",
+    "nominative": "Yalın hâl",
+    "accusative": "Belirtme hâli",
+    "dative": "Yönelme hâli"
   }
 }

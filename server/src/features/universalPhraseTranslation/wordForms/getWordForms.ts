@@ -1,22 +1,31 @@
 import { normalizePhraseString } from 'utils/stringUtils'
 import { LanguageCode } from 'prisma/generated/enums'
 import { ENGLISH_WORD_FORMS } from './englishWordForms'
+import { FRENCH_WORD_FORMS } from './frenchWordForms'
 import { GERMAN_WORD_FORMS } from './germanWordForms'
+import { ITALIAN_WORD_FORMS } from './italianWordForms'
+import { RUSSIAN_WORD_FORMS } from './russianWordForms'
+import { SPANISH_WORD_FORMS } from './spanishWordForms'
+import { TURKISH_WORD_FORMS } from './turkishWordForms'
 import { WORD_FORMS_KINDS, WordFormsKind } from './wordFormsKind'
 import type { WordFormsReference } from './wordFormsReference'
 
 export type WordForms = { kind: WordFormsKind; forms: string[] }
 
-function buildFormsIndexes(reference: WordFormsReference, optionalPrefix?: RegExp) {
+type FormLookupOptions = { optionalPrefix?: RegExp; alternateKey?: (text: string) => string }
+
+function buildFormsIndexes(reference: WordFormsReference, options: FormLookupOptions = {}) {
+	const { optionalPrefix, alternateKey } = options
 	const byLemma = new Map<string, WordForms[]>()
 	const byForm = new Map<string, WordForms[]>()
+	const byAlternateForm = new Map<string, WordForms[]>()
 
 	for (const kind of WORD_FORMS_KINDS) {
-		for (const [lemma, ...forms] of reference[kind]) {
+		for (const [lemma, ...forms] of reference[kind] ?? []) {
 			const entry = { kind, forms }
 			byLemma.set(lemma, [...(byLemma.get(lemma) ?? []), entry])
 
-			const variants = forms.flatMap((form) => form.toLowerCase().split('/'))
+			const variants = forms.flatMap((form) => form.split('/').map(normalizePhraseString))
 			const keys = new Set(variants)
 
 			if (optionalPrefix) {
@@ -26,15 +35,27 @@ function buildFormsIndexes(reference: WordFormsReference, optionalPrefix?: RegEx
 			for (const key of keys) {
 				byForm.set(key, [...(byForm.get(key) ?? []), entry])
 			}
+
+			if (alternateKey) {
+				for (const key of new Set([...keys].map(alternateKey))) {
+					byAlternateForm.set(key, [...(byAlternateForm.get(key) ?? []), entry])
+				}
+			}
 		}
 	}
 
-	return { byLemma, byForm }
+	return { byLemma, byForm, byAlternateForm, alternateKey }
 }
 
 const formsByLanguage: Partial<Record<LanguageCode, ReturnType<typeof buildFormsIndexes>>> = {
 	en: buildFormsIndexes(ENGLISH_WORD_FORMS),
-	de: buildFormsIndexes(GERMAN_WORD_FORMS, /^(?:der|die|das|hat|ist|am) /),
+	de: buildFormsIndexes(GERMAN_WORD_FORMS, { optionalPrefix: /^(?:der|die|das|hat|ist|am) / }),
+	es: buildFormsIndexes(SPANISH_WORD_FORMS, { optionalPrefix: /^(?:el|la|los|las) / }),
+	fr: buildFormsIndexes(FRENCH_WORD_FORMS, { optionalPrefix: /^(?:(?:un|une|des|le|je) |j')/ }),
+	it: buildFormsIndexes(ITALIAN_WORD_FORMS, { optionalPrefix: /^(?:(?:il|lo|la|i|gli|le|ho|sono) |l')/ }),
+	ru: buildFormsIndexes(RUSSIAN_WORD_FORMS, { alternateKey: (text) => text.replace(/ё/g, 'е') }),
+	// Сохранённый текст мог получить i вместо ı при переводе в нижний регистр.
+	tr: buildFormsIndexes(TURKISH_WORD_FORMS, { alternateKey: (text) => text.replace(/ı/g, 'i') }),
 }
 
 /**
@@ -45,9 +66,12 @@ export function getWordForms(sourceLanguageCode: LanguageCode, lemmas: string[],
 	if (!indexes) return []
 
 	const groups = lemmas.flatMap((lemma) => indexes.byLemma.get(lemma) ?? [])
-	const matchingGroups = groups.length > 0 ? groups : (indexes.byForm.get(normalizePhraseString(lookedUpText)) ?? [])
+	if (groups.length > 0) return mergeSameDerivedForms(groups)
 
-	return mergeSameDerivedForms(matchingGroups)
+	const normalized = normalizePhraseString(lookedUpText.normalize('NFC').toLocaleLowerCase(sourceLanguageCode))
+	const lookup = sourceLanguageCode === 'tr' ? normalized.replace(/i\u0307/g, 'i') : normalized
+	const alternate = indexes.alternateKey?.(lookup) ?? lookup
+	return mergeSameDerivedForms(indexes.byForm.get(lookup) ?? indexes.byAlternateForm.get(alternate) ?? [])
 }
 
 /**

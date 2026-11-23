@@ -28,8 +28,8 @@ export type PhraseTranslationDataModel = {
 	wordForms: WordFormsModel[]
 }
 
-/** Вид строки форм: неправильный глагол, множественное число или степени сравнения */
-export type WordFormsKind = 'irregularVerb' | 'plural' | 'comparison'
+/** Вид строки форм для подписи карточки. */
+export type WordFormsKind = 'irregularVerb' | 'plural' | 'comparison' | 'stemChange'
 
 /** Формы слова по порядку, варианты одной формы разделены косой чертой */
 export type WordFormsModel = {

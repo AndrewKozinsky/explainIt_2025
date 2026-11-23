@@ -8,7 +8,7 @@ const $ = bdConfig.UniversalPhraseTranslation.dbFields
 
 export class UniversalPhraseTranslationWordFormsOutModel {
 	@ApiProperty({
-		description: 'Kind of the forms line: irregular verb, plural or degrees of comparison',
+		description: 'Kind of the forms line: irregular verb, plural, degrees of comparison or stem change',
 		enum: WORD_FORMS_KINDS,
 		enumName: 'UniversalPhraseTranslationWordFormsKind',
 	})

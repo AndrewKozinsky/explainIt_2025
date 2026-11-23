@@ -7,7 +7,7 @@
  */
 
 /**
- * Kind of the forms line: irregular verb, irregular plural or degrees of comparison
+ * Kind of the forms line: irregular verb, plural, degrees of comparison or stem change
  */
 export type UniversalPhraseTranslationWordFormsKind = typeof UniversalPhraseTranslationWordFormsKind[keyof typeof UniversalPhraseTranslationWordFormsKind];
 
@@ -16,4 +16,5 @@ export const UniversalPhraseTranslationWordFormsKind = {
   irregularVerb: 'irregularVerb',
   plural: 'plural',
   comparison: 'comparison',
+  stemChange: 'stemChange',
 } as const;

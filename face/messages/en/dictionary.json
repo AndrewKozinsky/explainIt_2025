@@ -7,6 +7,25 @@
   "wordFormsKind": {
     "irregularVerb": "Irregular verb",
     "plural": "Plural",
-    "comparison": "Degrees of comparison"
+    "comparison": "Degrees of comparison",
+    "stemChange": "Stem change"
+  },
+  "wordFormLabels": {
+    "infinitive": "Infinitive",
+    "presentFirst": "I · present",
+    "presentSecond": "You (sg.) · present",
+    "presentThird": "3rd person · present",
+    "past": "Past",
+    "pastFirst": "I · simple past",
+    "pastThird": "3rd person · past",
+    "participle": "Past participle",
+    "compoundPastFirst": "I · compound past",
+    "aoristThird": "3rd person · aorist",
+    "singular": "Nominative singular",
+    "plural": "Nominative plural",
+    "genitivePlural": "Genitive plural",
+    "nominative": "Nominative",
+    "accusative": "Accusative",
+    "dative": "Dative"
   }
 }

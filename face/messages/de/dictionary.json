@@ -7,6 +7,25 @@
   "wordFormsKind": {
     "irregularVerb": "Unregelmäßiges Verb",
     "plural": "Plural",
-    "comparison": "Steigerung"
+    "comparison": "Steigerung",
+    "stemChange": "Stammwechsel"
+  },
+  "wordFormLabels": {
+    "infinitive": "Infinitiv",
+    "presentFirst": "Ich · Präsens",
+    "presentSecond": "Du · Präsens",
+    "presentThird": "3. Person · Präsens",
+    "past": "Vergangenheit",
+    "pastFirst": "Ich · einfache Vergangenheit",
+    "pastThird": "3. Person · Vergangenheit",
+    "participle": "Partizip II",
+    "compoundPastFirst": "Ich · zusammengesetzte Vergangenheit",
+    "aoristThird": "3. Person · Aorist",
+    "singular": "Nominativ Singular",
+    "plural": "Nominativ Plural",
+    "genitivePlural": "Genitiv Plural",
+    "nominative": "Nominativ",
+    "accusative": "Akkusativ",
+    "dative": "Dativ"
   }
 }

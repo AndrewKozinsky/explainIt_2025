@@ -7,6 +7,25 @@
   "wordFormsKind": {
     "irregularVerb": "Verbo irregular",
     "plural": "Plural",
-    "comparison": "Grados de comparación"
+    "comparison": "Grados de comparación",
+    "stemChange": "Cambio de raíz"
+  },
+  "wordFormLabels": {
+    "infinitive": "Infinitivo",
+    "presentFirst": "Yo · presente",
+    "presentSecond": "Tú · presente",
+    "presentThird": "3.ª persona · presente",
+    "past": "Pasado",
+    "pastFirst": "Yo · pretérito perfecto simple",
+    "pastThird": "3.ª persona · pasado",
+    "participle": "Participio pasado",
+    "compoundPastFirst": "Yo · pasado compuesto",
+    "aoristThird": "3.ª persona · aoristo",
+    "singular": "Nominativo singular",
+    "plural": "Nominativo plural",
+    "genitivePlural": "Genitivo plural",
+    "nominative": "Nominativo",
+    "accusative": "Acusativo",
+    "dative": "Dativo"
   }
 }

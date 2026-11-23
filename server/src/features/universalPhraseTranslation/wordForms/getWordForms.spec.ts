@@ -1,7 +1,12 @@
 import { LanguageCode } from 'prisma/generated/enums'
 import { ENGLISH_WORD_FORMS } from './englishWordForms'
+import { FRENCH_WORD_FORMS } from './frenchWordForms'
 import { GERMAN_WORD_FORMS } from './germanWordForms'
 import { getWordForms } from './getWordForms'
+import { ITALIAN_WORD_FORMS } from './italianWordForms'
+import { RUSSIAN_WORD_FORMS } from './russianWordForms'
+import { SPANISH_WORD_FORMS } from './spanishWordForms'
+import { TURKISH_WORD_FORMS } from './turkishWordForms'
 import { WORD_FORMS_KINDS } from './wordFormsKind'
 
 describe('getWordForms', () => {
@@ -44,8 +49,8 @@ describe('getWordForms', () => {
 		])
 	})
 
-	it('returns nothing for a language without prepared forms', () => {
-		expect(getWordForms(LanguageCode.tr, ['gitmek'])).toEqual([])
+	it('returns nothing for a Turkish word outside the reference', () => {
+		expect(getWordForms(LanguageCode.tr, ['masa'], 'masa')).toEqual([])
 	})
 
 	it('keeps German multiword forms in their own slots', () => {
@@ -94,16 +99,64 @@ describe('getWordForms', () => {
 	})
 
 	it.each([
-		['English', ENGLISH_WORD_FORMS],
-		['German', GERMAN_WORD_FORMS],
-	])('keeps the %s reference data well formed', (_language, reference) => {
+		{ language: LanguageCode.ru, text: 'Шел', kind: 'irregularVerb', forms: ['идти', 'иду', 'идёшь', 'шёл/шла'] },
+		{ language: LanguageCode.ru, text: 'детей', kind: 'plural', forms: ['ребёнок', 'дети', 'детей'] },
+		{ language: LanguageCode.ru, text: 'ребенок', kind: 'plural', forms: ['ребёнок', 'дети', 'детей'] },
+		{
+			language: LanguageCode.ru,
+			text: 'дороже',
+			kind: 'comparison',
+			forms: ['дорогой', 'дороже', 'самый дорогой'],
+		},
+		{ language: LanguageCode.es, text: 'hice', kind: 'irregularVerb', forms: ['hacer', 'hago', 'hice', 'hecho'] },
+		{ language: LanguageCode.es, text: 'caracteres', kind: 'plural', forms: ['el carácter', 'los caracteres'] },
+		{ language: LanguageCode.es, text: 'el mejor', kind: 'comparison', forms: ['bueno', 'mejor', 'el mejor'] },
+		{ language: LanguageCode.fr, text: 'j’écris', kind: 'irregularVerb', forms: ['écrire', "j'écris", 'écrit'] },
+		{ language: LanguageCode.fr, text: 'vais', kind: 'irregularVerb', forms: ['aller', 'je vais', 'allé'] },
+		{ language: LanguageCode.fr, text: 'yeux', kind: 'plural', forms: ['un œil', 'des yeux'] },
+		{ language: LanguageCode.fr, text: 'le mieux', kind: 'comparison', forms: ['bien', 'mieux', 'le mieux'] },
+		{
+			language: LanguageCode.it,
+			text: 'andata',
+			kind: 'irregularVerb',
+			forms: ['andare', 'vado', 'sono andato/sono andata'],
+		},
+		{ language: LanguageCode.it, text: 'l’uovo', kind: 'plural', forms: ["l'uovo", 'le uova'] },
+		{
+			language: LanguageCode.it,
+			text: 'meglio di tutti',
+			kind: 'comparison',
+			forms: ['bene', 'meglio', 'meglio di tutti'],
+		},
+		{
+			language: LanguageCode.tr,
+			text: 'gidiyor',
+			kind: 'irregularVerb',
+			forms: ['gitmek', 'gidiyor', 'gider', 'gitti'],
+		},
+		{ language: LanguageCode.tr, text: 'KİTABI', kind: 'stemChange', forms: ['kitap', 'kitabı', 'kitaba'] },
+		{ language: LanguageCode.tr, text: 'ki\u0307tabi', kind: 'stemChange', forms: ['kitap', 'kitabı', 'kitaba'] },
+	])('finds $text in the $language reference by the article text', ({ language, text, kind, forms }) => {
+		expect(getWordForms(language, [], text)).toEqual([{ kind, forms }])
+	})
+
+	it.each([
+		[LanguageCode.en, ENGLISH_WORD_FORMS, 3, 2],
+		[LanguageCode.de, GERMAN_WORD_FORMS, 3, 2],
+		[LanguageCode.es, SPANISH_WORD_FORMS, 4, 2],
+		[LanguageCode.fr, FRENCH_WORD_FORMS, 3, 2],
+		[LanguageCode.it, ITALIAN_WORD_FORMS, 3, 2],
+		[LanguageCode.ru, RUSSIAN_WORD_FORMS, 4, 3],
+		[LanguageCode.tr, TURKISH_WORD_FORMS, 4, 2],
+	])('keeps the %s reference data well formed', (_language, reference, verbSlots, pluralSlots) => {
 		for (const kind of WORD_FORMS_KINDS) {
-			const entries = reference[kind]
+			const entries = reference[kind] ?? []
+			const slotsByKind = { irregularVerb: verbSlots, plural: pluralSlots, comparison: 3, stemChange: 3 }
 			const malformedEntries = entries.filter(
 				([lemma, ...forms]) =>
-					!/^[\p{Ll}]+$/u.test(lemma) ||
-					forms.length !== (kind === 'plural' ? 2 : 3) ||
-					forms.some((form) => !/^\p{L}+(?:[ /]\p{L}+)*$/u.test(form)),
+					!/^\p{Ll}+(?: \p{Ll}+)*$/u.test(lemma) ||
+					forms.length !== slotsByKind[kind] ||
+					forms.some((form) => !/^\p{L}+(?:[ '/-]\p{L}+)*$/u.test(form)),
 			)
 
 			expect(malformedEntries).toEqual([])
