@@ -21,19 +21,25 @@ export default function UserAiDialoguesList({ userId }: Props) {
 	const query = useUserAiDialogues(userId)
 	const { isModalOpen, status, openDeleteModal, closeDeleteModal, onConfirmDelete } = useAiDialogueDelete()
 
-	if (query.isPending) return <AiDialoguesLoading />
+	if (query.isPending) {
+		return <AiDialoguesLoading />
+	}
 
-	if (query.isError && !query.data) return <AiDialoguesLoadError onRetry={() => void query.refetch()} />
+	if (query.isError && !query.data) {
+		return <AiDialoguesLoadError onRetry={() => void query.refetch()} />
+	}
 
-	if (!query.dialogues.length) return <AiDialoguesEmpty />
-
-	const cards = query.dialogues.map((dialogue) => (
-		<AiDialogueCard dialogue={dialogue} locale={locale} onDelete={openDeleteModal} key={dialogue.id} />
-	))
+	if (!query.dialogues.length) {
+		return <AiDialoguesEmpty />
+	}
 
 	return (
 		<div className='user-ai-dialogues-list'>
-			<div className='user-ai-dialogues-list__cards'>{cards}</div>
+			<div className='user-ai-dialogues-list__cards'>
+				{query.dialogues.map((dialogue) => (
+					<AiDialogueCard dialogue={dialogue} locale={locale} onDelete={openDeleteModal} key={dialogue.id} />
+				))}
+			</div>
 			{query.isError && (
 				<div role='alert'>
 					<StatusBlock type='error'>{t('refreshError')}</StatusBlock>
