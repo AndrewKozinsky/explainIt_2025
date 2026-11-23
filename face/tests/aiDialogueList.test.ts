@@ -4,23 +4,6 @@ import { InfiniteQueryObserver, QueryClient } from '@tanstack/react-query'
 import { AiDialogueQueryFacade, aiDialogueQueryKeys } from '@/entities/aiDialogue/AiDialogueQueryFacade'
 import { AiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { AiDialogueApi } from '@/entities/aiDialogue/repository/AiDialogueApi'
-import { formatDialogueDate } from '@/widgets/aiUserDialogues/ui/UserAiDialoguesList/fn/formatDialogueDate'
-
-for (const [date, expected] of [
-	['2026-10-24', 'сегодня'],
-	['2026-10-23', 'вчера'],
-	['2026-10-19', '5 дней назад'],
-	['2026-09-24', 'месяц назад'],
-	['2024-10-24', '2 года назад'],
-] as const)
-	test(`relative calendar date: ${expected}`, () => {
-		assert.equal(formatDialogueDate(`${date}T12:00:00`, 'ru', new Date('2026-10-24T13:00:00')), expected)
-	})
-
-test('same calendar date stays today even around midnight; invalid dates do not leak into UI', () => {
-	assert.equal(formatDialogueDate('2026-10-24T00:01:00', 'ru', new Date('2026-10-24T23:59:00')), 'сегодня')
-	assert.equal(formatDialogueDate('invalid', 'ru'), '')
-})
 
 test('pagination uses Service/API/generated GET and retains earlier pages when loading more', async () => {
 	const original = Object.getOwnPropertyDescriptor(globalThis, 'window')
@@ -43,13 +26,13 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 			items: [
 				{
 					id: page,
-					scenario: { id: 1, title: '{}' },
+					scenarioTitle: 'At the hotel',
+					mode: 'practice',
 					sourceLanguageCode: 'en',
 					cefrLevel: null,
-					createdAt: '2026-10-24T00:00:00Z',
 					lastMessage: null,
-					sceneImage: null,
-					characters: [{ npcId: 'one', emotionSheet: null }],
+					sceneImageUrl: null,
+					exam: null,
 				},
 			],
 		})
@@ -68,7 +51,7 @@ test('pagination uses Service/API/generated GET and retains earlier pages when l
 			[1, 2],
 		)
 		assert.equal(result.hasNextPage, false)
-		assert.equal(result.data?.pages[0].items[0].characters[0].name, null)
+		assert.equal(result.data?.pages[0].items[0].scenarioTitle, 'At the hotel')
 		assert.deepEqual(calls, ['/api/ai-dialogue?page=1&pageSize=10', '/api/ai-dialogue?page=2&pageSize=10'])
 		assert.notDeepEqual(aiDialogueQueryKeys.userList(7), aiDialogueQueryKeys.userList(8))
 	} finally {

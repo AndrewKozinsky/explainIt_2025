@@ -1,0 +1,22 @@
+@use '@/styles/variables' as vars;
+
+.ai-dialogue-exam-summary {
+	display: flex;
+	align-items: center;
+	gap: 1.8rem;
+	font-size: 1.5rem;
+	line-height: 1.8rem;
+}
+
+.ai-dialogue-exam-summary__copy {
+	display: grid;
+	gap: .4rem;
+	min-width: 0;
+	color: vars.$grayColor-5;
+	overflow-wrap: anywhere;
+}
+
+.ai-dialogue-exam-summary__status {
+	color: vars.$textColor;
+	font-weight: 600;
+}

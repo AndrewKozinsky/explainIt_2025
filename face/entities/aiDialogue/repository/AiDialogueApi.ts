@@ -27,7 +27,6 @@ import type {
 	DialogueServerMessage,
 } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import { mapToAiDialogueIllustrationStyles } from './mapToAiDialogueIllustrationStyles'
-import { mapToAiDialoguesPage } from './mapToAiDialoguesPage'
 import type {
 	AiDialogueModel,
 	AiDialogueRepository,
@@ -90,10 +89,7 @@ export class AiDialogueApi implements AiDialogueRepository {
 		params: GetUserDialoguesParams,
 		signal?: AbortSignal,
 	): Promise<ApiResult<AiDialoguesPageModel>> {
-		return executeApiCall(
-			() => aiDialogueControllerGetAiDialogues(params, { signal, cache: 'no-store' }),
-			mapToAiDialoguesPage,
-		)
+		return executeApiCall(() => aiDialogueControllerGetAiDialogues(params, { signal, cache: 'no-store' }))
 	}
 
 	async getDialogue(id: number): Promise<ApiResult<AiDialogueModel>> {

@@ -5,13 +5,11 @@
  * REST API for ExplainIt — language learning platform
  * OpenAPI spec version: 1.0
  */
-import type { AiDialogueImageOutModel } from './aiDialogueImageOutModel';
 import type { AiDialogueLastMessageOutModel } from './aiDialogueLastMessageOutModel';
-import type { AiDialogueListCharacterOutModel } from './aiDialogueListCharacterOutModel';
+import type { AiDialogueListExamOutModel } from './aiDialogueListExamOutModel';
 import type { AiDialogueListItemOutModelCefrLevel } from './aiDialogueListItemOutModelCefrLevel';
 import type { AiDialogueListItemOutModelMode } from './aiDialogueListItemOutModelMode';
 import type { AiDialogueListItemOutModelSourceLanguageCode } from './aiDialogueListItemOutModelSourceLanguageCode';
-import type { AiDialogueListScenarioOutModel } from './aiDialogueListScenarioOutModel';
 
 export interface AiDialogueListItemOutModel {
   /**
@@ -19,8 +17,11 @@ export interface AiDialogueListItemOutModel {
      * @minimum 1
      */
   id: number;
-  /** Сценарий диалога */
-  scenario: AiDialogueListScenarioOutModel;
+  /**
+     * Scenario title in the interface language
+     * @maxLength 255
+     */
+  scenarioTitle: string;
   /** Language of the dialogue (the language the learner practices) */
   sourceLanguageCode: AiDialogueListItemOutModelSourceLanguageCode;
   /**
@@ -30,17 +31,13 @@ export interface AiDialogueListItemOutModel {
   cefrLevel: AiDialogueListItemOutModelCefrLevel;
   /** Dialogue mode: assisted practice or independent exam attempt. */
   mode: AiDialogueListItemOutModelMode;
-  createdAt: string;
   /**
-     * Последнее сообщение NPC
+     * Подписанный URL иллюстрации последней смены сцены.
      * @nullable
      */
+  sceneImageUrl: string | null;
+  /** Последнее сообщение NPC в практике */
   lastMessage: AiDialogueLastMessageOutModel | null;
-  /**
-     * Готовая иллюстрация последней сцены
-     * @nullable
-     */
-  sceneImage: AiDialogueImageOutModel | null;
-  /** Все NPC за всю историю диалога */
-  characters: AiDialogueListCharacterOutModel[];
+  /** Статус и результат экзамена */
+  exam: AiDialogueListExamOutModel | null;
 }

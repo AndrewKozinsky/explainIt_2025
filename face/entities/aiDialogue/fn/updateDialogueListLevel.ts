@@ -2,7 +2,7 @@ import type { AiDialogueModel } from '../repository/AiDialogueRepository'
 import type { AiDialoguesPageModel } from '../types/aiDialogueList'
 import type { InfiniteData } from '@tanstack/react-query'
 
-/** После PATCH обновляет только CEFR, сохраняя изображения, NPC и последнее сообщение карточки. */
+/** После PATCH обновляет выбранную сложность, сохраняя данные карточки. */
 export function updateDialogueListLevel(
 	data: InfiniteData<AiDialoguesPageModel> | undefined,
 	dialogue: AiDialogueModel,

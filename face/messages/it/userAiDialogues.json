@@ -18,6 +18,20 @@
     "deleteDialogue": "Elimina la conversazione «{title}»",
     "noMessages": "Ancora nessun messaggio dei personaggi.",
     "characterFallback": "Personaggio",
-    "anyLevel": "Nessun limite"
+    "anyLevel": "Nessun limite",
+    "exam": {
+      "inProgress": {
+        "title": "Esame iniziato",
+        "description": "Continua il dialogo e invialo per la valutazione."
+      },
+      "passed": {
+        "title": "Esame superato",
+        "description": "Hai dimostrato il livello {level} in questa situazione. Consulta i suggerimenti."
+      },
+      "failed": {
+        "title": "Esame non superato",
+        "description": "Rivedi i tuoi errori."
+      }
+    }
   }
 }

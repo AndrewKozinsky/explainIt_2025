@@ -18,6 +18,20 @@
     "deleteDialogue": "Delete conversation “{title}”",
     "noMessages": "No character messages yet.",
     "characterFallback": "Character",
-    "anyLevel": "No limit"
+    "anyLevel": "No limit",
+    "exam": {
+      "inProgress": {
+        "title": "Exam started",
+        "description": "Continue the conversation and submit it for assessment."
+      },
+      "passed": {
+        "title": "Exam passed",
+        "description": "You demonstrated level {level} in this situation. See the recommendations."
+      },
+      "failed": {
+        "title": "Exam not passed",
+        "description": "Review your mistakes."
+      }
+    }
   }
 }

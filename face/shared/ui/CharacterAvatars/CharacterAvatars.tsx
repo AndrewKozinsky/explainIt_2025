@@ -3,7 +3,6 @@
 import cn from 'classnames'
 import { useTranslations } from 'next-intl'
 import CharacterFace from './CharacterFace'
-import './CharacterAvatars.scss'
 
 export type CharacterAvatar = {
 	id: string

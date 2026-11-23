@@ -4,12 +4,16 @@
 	display: flex;
 	align-items: center;
 	flex-wrap: wrap;
-	column-gap: .6rem;
-	row-gap: .1rem;
-	font-size: 1.5rem;
-	line-height: 1.9rem;
+	gap: .2rem .6rem;
+	color: vars.$grayColor-5;
+	font-size: 1.3rem;
+	line-height: 1.6rem;
+}
 
-	time {
-		color: vars.$grayColor-5;
-	}
+.ai-dialogue-meta__level {
+	padding: .1rem .5rem;
+	border: 1px solid vars.$grayColor-3;
+	border-radius: vars.$radius-1;
+	color: vars.$textColor;
+	font-weight: 600;
 }

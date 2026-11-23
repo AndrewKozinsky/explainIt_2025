@@ -18,6 +18,20 @@
     "deleteDialogue": "“{title}” sohbetini sil",
     "noMessages": "Henüz karakter mesajı yok.",
     "characterFallback": "Karakter",
-    "anyLevel": "Sınırsız"
+    "anyLevel": "Sınırsız",
+    "exam": {
+      "inProgress": {
+        "title": "Sınav başladı",
+        "description": "Diyaloğa devam edin ve değerlendirmeye gönderin."
+      },
+      "passed": {
+        "title": "Sınavı geçtiniz",
+        "description": "Bu durumda {level} seviyesini gösterdiniz. Önerilere göz atın."
+      },
+      "failed": {
+        "title": "Sınavı geçemediniz",
+        "description": "Hatalarınızı inceleyin."
+      }
+    }
   }
 }

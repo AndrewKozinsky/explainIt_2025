@@ -1418,17 +1418,10 @@ export const bdConfig = {
 				description: 'Default style ID from the current illustration style catalog.',
 				example: 'realism',
 			},
-			lastMessageNpcId: {
-				type: 'string',
-				required: false,
-				description: 'Идентификатор NPC последнего npcActions; null, если его нет в старом payload.',
-				example: 'receptionist_1',
-			},
 			lastMessageText: {
 				type: 'string',
 				required: true,
-				description:
-					'Реплики последнего сообщения NPC, соединённые переносом строки; при отсутствии речи — действия.',
+				description: 'Последняя непустая реплика в сообщении NPC или последнее действие при отсутствии речи.',
 				example: 'Would you like a monthly membership?',
 			},
 			lastMessageTextType: {
@@ -1438,6 +1431,40 @@ export const bdConfig = {
 				required: false,
 				description: 'Тип текста последнего сообщения NPC; null, если сообщение не содержит непустого текста.',
 				example: 'speech',
+			},
+			lastMessageAvatarUrl: {
+				type: 'string',
+				required: false,
+				description: 'Подписанный URL спрайта автора последнего сообщения NPC.',
+				example: 'https://r2.example/avatar.webp?signature=temporary',
+			},
+			listSceneImageUrl: {
+				type: 'string',
+				required: false,
+				description: 'Подписанный URL иллюстрации последней смены сцены.',
+				example: 'https://r2.example/scene.webp?signature=temporary',
+			},
+			listExamStatus: {
+				type: 'enum',
+				enumName: 'AiDialogueListExamStatus',
+				variants: ['inProgress', 'passed', 'failed'],
+				required: true,
+				description: 'Статус экзамена для карточки диалога.',
+				example: 'passed',
+			},
+			listExamLevel: {
+				type: 'enum',
+				enumName: 'AiDialogueCefrLevel',
+				variants: [...AI_DIALOGUE_CEFR_LEVELS],
+				required: false,
+				description: 'Уровень, подтверждённый в этой попытке экзамена.',
+				example: 'B1',
+			},
+			listExamMedalUrl: {
+				type: 'string',
+				required: false,
+				description: 'Публичный URL медали сценария за подтверждённый уровень.',
+				example: 'https://files.immersia.site/ai-dialogue-scenario-medals/localdev/hotel-check-in/B1.webp',
 			},
 			checkUserMessageSpeechPart: {
 				type: 'string',

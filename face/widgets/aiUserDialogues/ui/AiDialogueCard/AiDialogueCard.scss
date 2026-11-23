@@ -1,7 +1,6 @@
 @use '@/styles/variables' as vars;
 @use '@/styles/mixins' as mix;
 
-// Карточка = ссылка на диалог (почти вся ширина) + отдельная кнопка удаления справа.
 .ai-dialogue-card {
 	display: flex;
 	align-items: center;
@@ -12,66 +11,84 @@
 .ai-dialogue-card__link {
 	flex: 1;
 	min-width: 0;
-	padding: 1rem;
-	border-radius: vars.$radius-1;
+	padding: 1.1rem;
+	border-radius: vars.$radius-2;
 	color: inherit;
 	text-align: left;
 	text-decoration: none;
+	display: grid;
+	gap: 1.8rem;
+
+	@include mix.container-width(88rem) {
+		grid-template-columns: minmax(0, 44rem) minmax(0, 1fr);
+		align-items: center;
+	}
+}
+
+.ai-dialogue-card__overview {
 	display: flex;
 	flex-direction: column;
-	gap: .6rem;
+	gap: 1.8rem;
+	min-width: 0;
 
-	@include mix.container-width(50rem) {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		grid-template-areas: 'scene summary' 'scene characters';
-		grid-template-rows: auto 1fr;
-		column-gap: 20px;
-		align-items: start;
-	}
-
-	@include mix.container-width(90rem) {
-		grid-template-columns: 150px 230px 70px minmax(0, 1fr);
-		grid-template-areas: 'scene summary characters message';
-		grid-template-rows: auto;
-		column-gap: 2rem;
+	@include mix.container-width(45rem) {
+		flex-direction: row;
 		align-items: center;
 	}
 }
 
 .ai-dialogue-card__scene {
-	grid-area: scene;
-	max-width: 32rem;
-
-	@include mix.container-width(500px) {
-		max-width: none;
-	}
+	width: 18rem;
+	max-width: 100%;
+	flex-shrink: 0;
 }
 
 .ai-dialogue-card__summary {
 	min-width: 0;
-	grid-area: summary;
 	display: flex;
 	flex-direction: column;
-	gap: .2rem;
+	align-items: flex-start;
+	gap: .6rem;
+}
+
+.ai-dialogue-card__mode {
+	padding: .2rem .7rem;
+	border-radius: vars.$radius-1;
+	font-size: 1.3rem;
+	line-height: 1.8rem;
+}
+
+.ai-dialogue-card__mode--practice {
+	background: #eaf0ff;
+	color: #2e4e9f;
+}
+
+.ai-dialogue-card__mode--exam {
+	background: #eef0f3;
+	color: #515b6a;
 }
 
 .ai-dialogue-card__title {
-	font-size: 1.8rem;
-	line-height: 2.2rem;
-	font-weight: 500;
+	font-size: 2rem;
+	line-height: 2.4rem;
+	font-weight: 600;
+	overflow-wrap: anywhere;
 }
 
-.ai-dialogue-card__characters {
-	min-width: 0;
-	grid-area: characters;
-}
-
-.ai-dialogue-card__message {
-	grid-area: message;
+.ai-dialogue-card__details {
 	display: none;
+	min-width: 0;
 
-	@include mix.container-width(90rem) {
+	@include mix.container-width(60rem) {
 		display: block;
+		border-top: 1px solid vars.$grayColor-2;
+		padding-top: 1.8rem;
+	}
+
+	@include mix.container-width(88rem) {
+		border-top: 0;
+		border-inline-start: 1px solid vars.$grayColor-2;
+		padding-top: 0;
+		padding-inline-start: 1.8rem;
 	}
 }

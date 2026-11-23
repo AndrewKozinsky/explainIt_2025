@@ -9,31 +9,25 @@ import type { AiDialogueLastMessageOutModelTextType } from './aiDialogueLastMess
 
 export interface AiDialogueLastMessageOutModel {
   /**
-     * AI dialogue message ID
-     * @minimum 1
-     */
-  id: number;
-  /**
-     * Идентификатор NPC последнего npcActions; null, если его нет в старом payload.
+     * @maxLength 255
      * @nullable
      */
-  npcId?: string | null;
+  name: string | null;
   /**
      * @maxLength 255
      * @nullable
      */
-  name?: string | null;
-  /**
-     * @maxLength 255
-     * @nullable
-     */
-  role?: string | null;
-  /** Реплики последнего сообщения NPC, соединённые переносом строки; при отсутствии речи — действия. */
+  role: string | null;
+  /** Последняя непустая реплика в сообщении NPC или последнее действие при отсутствии речи. */
   text: string;
   /**
      * Тип текста последнего сообщения NPC; null, если сообщение не содержит непустого текста.
      * @nullable
      */
-  textType?: AiDialogueLastMessageOutModelTextType;
-  createdAt: string;
+  textType: AiDialogueLastMessageOutModelTextType;
+  /**
+     * Подписанный URL спрайта автора последнего сообщения NPC.
+     * @nullable
+     */
+  avatarUrl: string | null;
 }

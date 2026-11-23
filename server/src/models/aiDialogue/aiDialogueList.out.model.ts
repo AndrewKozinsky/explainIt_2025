@@ -1,71 +1,49 @@
 import { ApiProperty } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
-import type { AiDialogueMode, AiDialogueCefrLevel } from 'features/aiDialogue/aiDialogueLanguageLevel'
+import type { AiDialogueCefrLevel, AiDialogueMode } from 'features/aiDialogue/aiDialogueLanguageLevel'
 import { PaginatedOutModel } from 'models/pagination/paginated.out.model'
-import type { ImageGenerationJobStatus } from 'prisma/generated/client'
-import { AiDialogueImageOutModel } from './aiDialogueVisuals.out.model'
 import type { Language } from 'utils/languages'
 
-export class AiDialogueListScenarioOutModel {
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.id))
-	id: number
+const fields = bdConfig.AiDialogue.dtoProps
 
-	@ApiProperty({
-		...getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.title),
-		description: 'Scenario title in the interface language',
-	})
-	title: string
-}
-
-/** Последнее сохранённое npcActions, включая старые сообщения без character_id. */
 export class AiDialogueLastMessageOutModel {
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueMessage.dbFields.id))
-	id: number
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dtoProps.lastMessageNpcId))
-	npcId: string | null
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.name))
+	@ApiProperty({ ...getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.name), required: true })
 	name: string | null
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.role))
+	@ApiProperty({ ...getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.role), required: true })
 	role: string | null
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dtoProps.lastMessageText))
+	@ApiProperty(getApiPropertyOptions(fields.lastMessageText))
 	text: string
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dtoProps.lastMessageTextType))
+	@ApiProperty({ ...getApiPropertyOptions(fields.lastMessageTextType), required: true })
 	textType: 'speech' | 'action' | null
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueMessage.dbFields.created_at))
-	createdAt: string
+	@ApiProperty({ ...getApiPropertyOptions(fields.lastMessageAvatarUrl), required: true })
+	avatarUrl: string | null
 }
 
-/** npcId идентифицирует и старых NPC, ещё не имеющих записи AiDialogueCharacter. */
-export class AiDialogueListCharacterOutModel {
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.npc_id))
-	npcId: string
+export class AiDialogueListExamOutModel {
+	@ApiProperty(getApiPropertyOptions(fields.listExamStatus))
+	status: 'inProgress' | 'passed' | 'failed'
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.name))
-	name: string | null
+	@ApiProperty({ ...getApiPropertyOptions(fields.listExamLevel), required: true })
+	level: AiDialogueCefrLevel | null
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueCharacter.dbFields.role))
-	role: string | null
-
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogueCharacter.dtoProps.generationStatus))
-	generationStatus: ImageGenerationJobStatus | null
-
-	@ApiProperty({ type: AiDialogueImageOutModel, nullable: true, description: 'Готовый спрайт NPC или null' })
-	emotionSheet: AiDialogueImageOutModel | null
+	@ApiProperty({ ...getApiPropertyOptions(fields.listExamMedalUrl), required: true })
+	medalUrl: string | null
 }
 
 export class AiDialogueListItemOutModel {
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.id))
 	id: number
 
-	@ApiProperty({ type: AiDialogueListScenarioOutModel, description: 'Сценарий диалога' })
-	scenario: AiDialogueListScenarioOutModel
+	@ApiProperty({
+		...getApiPropertyOptions(bdConfig.AiDialogueScenario.dbFields.title),
+		description: 'Scenario title in the interface language',
+	})
+	scenarioTitle: string
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.source_language_code))
 	sourceLanguageCode: Language
@@ -76,17 +54,18 @@ export class AiDialogueListItemOutModel {
 	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.mode))
 	mode: AiDialogueMode
 
-	@ApiProperty(getApiPropertyOptions(bdConfig.AiDialogue.dbFields.created_at))
-	createdAt: string
+	@ApiProperty({ ...getApiPropertyOptions(fields.listSceneImageUrl), required: true })
+	sceneImageUrl: string | null
 
-	@ApiProperty({ type: AiDialogueLastMessageOutModel, nullable: true, description: 'Последнее сообщение NPC' })
+	@ApiProperty({
+		type: AiDialogueLastMessageOutModel,
+		nullable: true,
+		description: 'Последнее сообщение NPC в практике',
+	})
 	lastMessage: AiDialogueLastMessageOutModel | null
 
-	@ApiProperty({ type: AiDialogueImageOutModel, nullable: true, description: 'Готовая иллюстрация последней сцены' })
-	sceneImage: AiDialogueImageOutModel | null
-
-	@ApiProperty({ type: [AiDialogueListCharacterOutModel], description: 'Все NPC за всю историю диалога' })
-	characters: AiDialogueListCharacterOutModel[]
+	@ApiProperty({ type: AiDialogueListExamOutModel, nullable: true, description: 'Статус и результат экзамена' })
+	exam: AiDialogueListExamOutModel | null
 }
 
 export class AiDialoguesPageOutModel extends PaginatedOutModel<AiDialogueListItemOutModel> {

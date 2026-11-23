@@ -18,6 +18,20 @@
     "deleteDialogue": "Gespräch „{title}“ löschen",
     "noMessages": "Noch keine Nachrichten der Figuren.",
     "characterFallback": "Figur",
-    "anyLevel": "Ohne Begrenzung"
+    "anyLevel": "Ohne Begrenzung",
+    "exam": {
+      "inProgress": {
+        "title": "Prüfung begonnen",
+        "description": "Setze das Gespräch fort und reiche es zur Bewertung ein."
+      },
+      "passed": {
+        "title": "Prüfung bestanden",
+        "description": "Du hast in dieser Situation das Niveau {level} nachgewiesen. Sieh dir die Empfehlungen an."
+      },
+      "failed": {
+        "title": "Prüfung nicht bestanden",
+        "description": "Sieh dir die Fehleranalyse an."
+      }
+    }
   }
 }

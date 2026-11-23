@@ -5,28 +5,23 @@ jest.mock('infrastructure/cloudflareS3/cloudflareS3.service', () => ({ Cloudflar
 
 import { AiDialogueListQueryRepository } from './aiDialogueList.queryRepository'
 
-const createdAt = new Date('2026-10-20T10:00:00Z')
-const messageAt = new Date('2026-10-23T15:30:00Z')
-
-function image(id: number, type = 'scene') {
-	return {
-		id,
-		s3_key: `private/${id}.png`,
-		mime_type: 'image/png',
-		width: type === 'scene' ? 1152 : 960,
-		height: type === 'scene' ? 576 : 720,
-		layout_version: type === 'scene' ? null : 'emotion-grid-4x3-v1',
-	}
+const character = {
+	name: 'Anna',
+	role: 'receptionist',
+	AiDialogueImage: [{ s3_key: 'private/avatar.png' }],
 }
 
-function npcMessage(actions: unknown[] = [{ type: 'speech', content: 'Hello!' }]) {
+function npcMessage(dialogueId = 5, npcName = 'Anna') {
 	return {
-		id: 90,
-		dialogue_id: 5,
+		dialogue_id: dialogueId,
 		type: 'npcActions',
-		payload: JSON.stringify({ npcId: 'anna', npcName: 'Anna', npcRole: 'receptionist', actions }),
-		created_at: messageAt,
-		AiDialogueImage: [],
+		payload: JSON.stringify({
+			npcId: 'anna',
+			npcName,
+			npcRole: 'receptionist',
+			actions: [{ type: 'speech', content: 'Hello!' }],
+		}),
+		character,
 	}
 }
 
@@ -35,22 +30,14 @@ function harness() {
 		id: 5,
 		source_language_code: 'en',
 		cefr_level: null,
-		created_at: createdAt,
-		scenario: { id: 2, title: 'Покупка абонемента в бассейн' },
-		AiDialogueCharacter: [
-			{
-				id: 8,
-				npc_id: 'anna',
-				name: 'Anna',
-				role: 'receptionist',
-				AiDialogueImage: [image(100, 'emotionSheet')],
-				ImageGenerationJob: [{ status: 'ready' }],
-			},
-		],
+		mode: 'practice',
+		scenario: {
+			title: '{"ru":"Покупка абонемента в бассейн","en":"Pool membership"}',
+			medal_s3_keys: null,
+		},
 	}
 
 	const tx = {
-		$queryRaw: jest.fn().mockResolvedValue([]),
 		aiDialogue: { count: jest.fn().mockResolvedValue(7), findMany: jest.fn().mockResolvedValue([dialogue]) },
 		aiDialogueMessage: {
 			groupBy: jest.fn().mockResolvedValue([
@@ -59,10 +46,8 @@ function harness() {
 			]),
 			findMany: jest
 				.fn()
-				.mockResolvedValue([
-					npcMessage(),
-					{ id: 85, dialogue_id: 5, type: 'sceneUpdate', AiDialogueImage: [image(101)] },
-				]),
+				.mockResolvedValueOnce([{ dialogue_id: 5, AiDialogueImage: [{ s3_key: 'private/scene.png' }] }])
+				.mockResolvedValueOnce([npcMessage()]),
 		},
 	}
 
@@ -106,175 +91,151 @@ describe('AiDialogueListQueryRepository', () => {
 		expect(tx.aiDialogue.findMany).toHaveBeenCalledTimes(1)
 	})
 
-	it('fetches at most the selected NPC message and scene per dialogue without loading the history', async () => {
-		const { repository, tx } = harness()
+	it('fetches only the selected scene and mode-specific message per dialogue', async () => {
+		const { repository, tx, dialogue } = harness()
+		tx.aiDialogue.findMany.mockResolvedValue([dialogue, { ...dialogue, id: 6, mode: 'exam' }])
 		await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
 		expect(tx.aiDialogueMessage.groupBy).toHaveBeenCalledWith({
 			by: ['dialogue_id', 'type'],
-			where: { dialogue_id: { in: [5] }, type: { in: ['npcActions', 'sceneUpdate'] } },
+			where: {
+				OR: [
+					{ dialogue_id: { in: [5, 6] }, type: 'sceneUpdate' },
+					{ dialogue_id: { in: [5] }, type: 'npcActions' },
+					{ dialogue_id: { in: [6] }, type: 'examResult' },
+				],
+			},
 			_max: { id: true },
 		})
-		expect(tx.aiDialogueMessage.findMany).toHaveBeenCalledWith(
-			expect.objectContaining({
-				where: { id: { in: [90, 85] }, dialogue_id: { in: [5] } },
-			}),
+		expect(tx.aiDialogueMessage.findMany).toHaveBeenNthCalledWith(
+			1,
+			expect.objectContaining({ where: { id: { in: [85] }, dialogue_id: { in: [5, 6] } } }),
 		)
-		expect(tx.aiDialogueMessage.findMany).toHaveBeenCalledTimes(1)
-		expect(tx.aiDialogue.findMany.mock.calls[0][0].select.AiDialogueMessage).toBeUndefined()
+		expect(tx.aiDialogueMessage.findMany.mock.calls[0][0].select.payload).toBeUndefined()
+		expect(tx.aiDialogueMessage.findMany).toHaveBeenNthCalledWith(
+			2,
+			expect.objectContaining({ where: { id: { in: [90] }, dialogue_id: { in: [5, 6] } } }),
+		)
+		expect(tx.aiDialogue.findMany.mock.calls[0][0].select.AiDialogueCharacter).toBeUndefined()
 	})
 
-	it('maps the NPC text, name, role and its own date, preserving localized titles and unrestricted CEFR', async () => {
-		const { repository } = harness()
+	it('returns the latest scene, localized title and only the author of the practice message', async () => {
+		const { repository, storage } = harness()
 		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
-		expect(items[0]).toMatchObject({
-			scenario: { id: 2, title: 'Покупка абонемента в бассейн' },
+
+		expect(items[0]).toEqual({
+			id: 5,
+			scenarioTitle: 'Покупка абонемента в бассейн',
 			sourceLanguageCode: 'en',
 			cefrLevel: null,
-			createdAt: createdAt.toISOString(),
+			mode: 'practice',
+			sceneImageUrl: 'https://signed.example/private/scene.png',
 			lastMessage: {
-				id: 90,
-				npcId: 'anna',
 				name: 'Anna',
 				role: 'receptionist',
 				text: 'Hello!',
 				textType: 'speech',
-				createdAt: messageAt.toISOString(),
+				avatarUrl: 'https://signed.example/private/avatar.png',
 			},
+			exam: null,
 		})
+		expect(storage.getFileUrl).toHaveBeenCalledTimes(2)
 	})
 
-	it('returns every NPC encountered within this dialogue, including unready sprites, without selecting user avatars', async () => {
-		const { repository, dialogue, tx } = harness()
-		dialogue.cefr_level = 'B2' as never
-		dialogue.AiDialogueCharacter.push({
-			id: 9,
-			npc_id: 'mary',
-			name: 'Mary',
-			role: 'manager',
-			AiDialogueImage: [],
-			ImageGenerationJob: [{ status: 'generating' }],
-		})
-
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
-
-		expect(items[0].cefrLevel).toBe('B2')
-		expect(items[0].characters).toHaveLength(2)
-		expect(items[0].characters[1]).toEqual({
-			npcId: 'mary',
-			name: 'Mary',
-			role: 'manager',
-			generationStatus: 'generating',
-			emotionSheet: null,
-		})
-
-		const select = tx.aiDialogue.findMany.mock.calls[0][0].select
-
-		expect(select.AiDialogueCharacter.orderBy).toEqual({ id: 'asc' })
-		expect(select.AiDialogueCharacter.take).toBeUndefined()
-		expect(select.user).toBeUndefined()
-		expect(items[0]).not.toHaveProperty('userAvatarUrl')
-	})
-
-	it('keeps NPCs and their images isolated between dialogues of the same scenario with the same npcId', async () => {
+	it('keeps portraits isolated between dialogues that share a scenario and NPC identifier', async () => {
 		const { repository, tx, dialogue } = harness()
-		const secondCharacter = {
-			...dialogue.AiDialogueCharacter[0],
-			id: 18,
-			name: 'Another Anna',
-			AiDialogueImage: [image(200, 'emotionSheet')],
-		}
-
-		tx.aiDialogue.findMany.mockResolvedValue([
-			dialogue,
-			{ ...dialogue, id: 6, AiDialogueCharacter: [secondCharacter] },
+		tx.aiDialogue.findMany.mockResolvedValue([dialogue, { ...dialogue, id: 6 }])
+		tx.aiDialogueMessage.groupBy.mockResolvedValue([
+			{ dialogue_id: 5, type: 'npcActions', _max: { id: 90 } },
+			{ dialogue_id: 6, type: 'npcActions', _max: { id: 91 } },
 		])
-
-		tx.$queryRaw.mockResolvedValue([
-			{ dialogueId: 5, firstMessageId: 10, npcId: 'old_officer', name: 'Alex', role: 'officer' },
-			{ dialogueId: 6, firstMessageId: 20, npcId: 'old_officer', name: 'Sam', role: 'guard' },
+		tx.aiDialogueMessage.findMany.mockReset().mockResolvedValueOnce([
+			npcMessage(),
+			{
+				...npcMessage(6, 'Another Anna'),
+				character: {
+					...character,
+					AiDialogueImage: [{ s3_key: 'private/second.png' }],
+				},
+			},
 		])
 
 		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
-		expect(items[0].scenario.id).toBe(items[1].scenario.id)
-		expect(items.map((item) => item.characters.map((character) => character.name))).toEqual([
-			['Alex', 'Anna'],
-			['Sam', 'Another Anna'],
+		expect(items.map((item) => [item.lastMessage?.name, item.lastMessage?.avatarUrl])).toEqual([
+			['Anna', 'https://signed.example/private/avatar.png'],
+			['Another Anna', 'https://signed.example/private/second.png'],
 		])
-		expect(items[0].characters[1].emotionSheet?.url).toBe('https://signed.example/private/100.png')
-		expect(items[1].characters[1].emotionSheet?.url).toBe('https://signed.example/private/200.png')
-		expect(tx.$queryRaw.mock.calls[0][0].values).toEqual([5, 6])
-		expect(tx.$queryRaw.mock.calls[0][0].sql).toContain('c.dialogue_id = m.dialogue_id')
 	})
 
-	it('returns the image of the latest scene, not the most recently generated asset', async () => {
-		const { repository } = harness()
-		const result = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
+	it('uses legacy NPC metadata when the message has no character record', async () => {
+		const { repository, tx } = harness()
+		tx.aiDialogueMessage.groupBy.mockResolvedValue([{ dialogue_id: 5, type: 'npcActions', _max: { id: 90 } }])
+		tx.aiDialogueMessage.findMany.mockReset().mockResolvedValueOnce([{ ...npcMessage(), character: null }])
 
-		expect(result.items[0].sceneImage).toEqual({
-			id: 101,
-			url: 'https://signed.example/private/101.png',
-			mimeType: 'image/png',
-			width: 1152,
-			height: 576,
-			layoutVersion: null,
-		})
+		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
-		expect(result.items[0].characters[0].emotionSheet).toMatchObject({
-			width: 960,
-			height: 720,
-			layoutVersion: 'emotion-grid-4x3-v1',
-		})
-
-		expect(JSON.stringify(result)).not.toMatch(/s3_key|payload|appearance|system_prompt|participantNpcIds/)
+		expect(items[0].lastMessage).toMatchObject({ name: 'Anna', role: 'receptionist', avatarUrl: null })
 	})
 
-	it('does not fall back to an earlier scene when the latest scene has no ready image', async () => {
+	it('returns null when the latest scene has no ready image and no NPC has spoken', async () => {
 		const { repository, tx, storage } = harness()
 		tx.aiDialogueMessage.groupBy.mockResolvedValue([{ dialogue_id: 5, type: 'sceneUpdate', _max: { id: 95 } }])
-		tx.aiDialogueMessage.findMany.mockResolvedValue([
-			{ id: 95, dialogue_id: 5, type: 'sceneUpdate', AiDialogueImage: [] },
-		])
+		tx.aiDialogueMessage.findMany.mockReset().mockResolvedValue([{ dialogue_id: 5, AiDialogueImage: [] }])
 
 		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
-		expect(items[0].sceneImage).toBeNull()
-		expect(items[0].lastMessage).toBeNull()
-		expect(storage.getFileUrl).toHaveBeenCalledTimes(1)
+		expect(items[0]).toMatchObject({ lastMessage: null, sceneImageUrl: null, exam: null })
+		expect(storage.getFileUrl).not.toHaveBeenCalled()
 		expect(tx.aiDialogueMessage.findMany.mock.calls[0][0].where.id).toEqual({ in: [95] })
 	})
 
-	it('returns null lastMessage and sceneImage for an empty dialogue without fetching payloads', async () => {
-		const { repository, tx, dialogue } = harness()
-		dialogue.AiDialogueCharacter = []
-		tx.aiDialogueMessage.groupBy.mockResolvedValue([])
+	it.each([
+		[null, 'inProgress', null, null],
+		['A0', 'failed', null, null],
+		[
+			'A1',
+			'passed',
+			'A1',
+			'https://files.immersia.site/ai-dialogue-scenario-medals/localdev/hotel-check-in/A1.webp',
+		],
+		['C1', 'passed', 'C1', null],
+	])(
+		'maps result %s to %s independently of the initial difficulty or availability of the medal',
+		async (result, status, level, medalUrl) => {
+			const { repository, tx, dialogue, storage } = harness()
+			tx.aiDialogue.findMany.mockResolvedValue([
+				{
+					...dialogue,
+					mode: 'exam',
+					cefr_level: 'B1',
+					scenario: {
+						...dialogue.scenario,
+						medal_s3_keys: JSON.stringify({
+							A1: 'ai-dialogue-scenario-medals/localdev/hotel-check-in/A1.webp',
+						}),
+					},
+				},
+			])
+			tx.aiDialogueMessage.groupBy.mockResolvedValue(
+				result ? [{ dialogue_id: 5, type: 'examResult', _max: { id: 92 } }] : [],
+			)
+			tx.aiDialogueMessage.findMany.mockReset().mockResolvedValue([
+				{
+					dialogue_id: 5,
+					type: 'examResult',
+					payload: JSON.stringify({ level: result, summary: 'Full report' }),
+					character: null,
+				},
+			])
 
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
+			const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
 
-		expect(items[0]).toMatchObject({ lastMessage: null, sceneImage: null, characters: [] })
-		expect(tx.aiDialogueMessage.findMany).not.toHaveBeenCalled()
-	})
-
-	it('includes historical NPCs missing from the visual registry, without generating sprites or exposing message IDs', async () => {
-		const { repository, tx } = harness()
-		tx.$queryRaw.mockResolvedValue([
-			{ dialogueId: 5, firstMessageId: 10, npcId: 'old_officer', name: 'Alex', role: 'officer' },
-		])
-		const { items } = await repository.getUserDialogues(7, { page: 1, pageSize: 3 }, 'ru')
-		expect(items[0].characters).toHaveLength(2)
-		expect(items[0].characters[0]).toEqual({
-			npcId: 'old_officer',
-			name: 'Alex',
-			role: 'officer',
-			generationStatus: null,
-			emotionSheet: null,
-		})
-		const query = tx.$queryRaw.mock.calls[0][0]
-		expect(query.values).toEqual([5])
-		expect(query.sql).toContain('NOT EXISTS')
-		expect(query.sql).toContain('m.character_id IS NULL')
-	})
+			expect(items[0]).toMatchObject({ cefrLevel: 'B1', lastMessage: null, mode: 'exam' })
+			expect(items[0].exam).toEqual({ status, level, medalUrl })
+			expect(storage.getFileUrl).not.toHaveBeenCalled()
+		},
+	)
 
 	it.each([0, 7])('returns an empty page with total=%s without signing URLs or reading messages', async (total) => {
 		const { repository, tx, storage } = harness()
@@ -290,6 +251,5 @@ describe('AiDialogueListQueryRepository', () => {
 		expect(tx.aiDialogueMessage.groupBy).not.toHaveBeenCalled()
 		expect(tx.aiDialogueMessage.findMany).not.toHaveBeenCalled()
 		expect(storage.getFileUrl).not.toHaveBeenCalled()
-		expect(tx.$queryRaw).not.toHaveBeenCalled()
 	})
 })

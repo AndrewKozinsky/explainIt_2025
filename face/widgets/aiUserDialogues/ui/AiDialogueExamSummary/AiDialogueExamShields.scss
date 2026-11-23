@@ -1,0 +1,9 @@
+@use '@/styles/variables' as vars;
+
+.ai-dialogue-exam-shield {
+	display: block;
+	flex: 0 0 auto;
+	width: 7.6rem;
+	height: 7.6rem;
+	color: vars.$grayColor-3;
+}
