@@ -76,6 +76,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 				<AiDialogueMessageReview
 					message={selectedPayload?.type === 'userActions' ? selectedPayload : null}
 					language={dialogue.sourceLanguageCode}
+					onWordSelect={selectWord}
 				/>
 			),
 		},

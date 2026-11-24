@@ -12,6 +12,8 @@ type ClickableTextProps<Segment extends TextSegment> = {
 	segments: Segment[]
 	/** Начала слов, которые выберет клик по слову: всё выражение или одно слово. По умолчанию — само слово. */
 	getHighlightedStarts?: (segment: Segment) => Set<number>
+	/** Начала сегментов для подсветки из соседнего элемента, например из замечания к тексту. */
+	highlightedStarts?: ReadonlySet<number>
 	/** Начала слов, выбранных последним кликом: они залиты акцентным цветом. */
 	selectedStarts?: null | Set<number>
 	/** Без обработчика слова не нажимаются: текст показывается как обычный. */
@@ -24,7 +26,13 @@ type ClickableTextProps<Segment extends TextSegment> = {
  * Выбранные слова залиты акцентным цветом. Что выбрано, решает тот, кто показывает текст.
  */
 function ClickableText<Segment extends TextSegment>(props: ClickableTextProps<Segment>) {
-	const { segments, getHighlightedStarts = getOwnStart, selectedStarts = null, onWordClick } = props
+	const {
+		segments,
+		getHighlightedStarts = getOwnStart,
+		highlightedStarts,
+		selectedStarts = null,
+		onWordClick,
+	} = props
 
 	const {
 		frameParts,
@@ -34,7 +42,7 @@ function ClickableText<Segment extends TextSegment>(props: ClickableTextProps<Se
 		handleTextPointerLeave,
 		handleWordFocus,
 		handleWordBlur,
-	} = useClickableTextHighlight({ segments, getHighlightedStarts, selectedStarts })
+	} = useClickableTextHighlight({ segments, getHighlightedStarts, highlightedStarts, selectedStarts })
 
 	const { handleTouchStart, handleTouchMove, handleTouchEnd, handleTouchCancel } = useTouchTap()
 

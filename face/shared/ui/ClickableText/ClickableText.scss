@@ -41,6 +41,17 @@
 	}
 }
 
+.clickable-text__gap--highlighted::before {
+	// Подгоняем рамку пунктуации под высоту строки, сохраняя её строчный перенос.
+	inset: 50% -0.2em auto;
+	box-sizing: border-box;
+	height: 1lh;
+	transform: translateY(-50%);
+	border-inline: 1px solid currentColor;
+	border-radius: vars.$radius-1;
+	opacity: 0.3;
+}
+
 .clickable-text__word {
 	position: relative;
 	display: inline;
@@ -110,6 +121,7 @@
 
 // Ряд соседних слов выражения: внешние стороны — как у отдельного слова, на внутренних стыках нет боковых линий,
 // скруглений и отступов, чтобы части сливались с мостиками в одну рамку. Те же правила задают форму заливки.
+.clickable-text__gap--start::before,
 .clickable-text__word--start::before,
 .clickable-text__word--selected-start::after {
 	right: 0;
@@ -127,6 +139,7 @@
 	border-radius: 0;
 }
 
+.clickable-text__gap--end::before,
 .clickable-text__word--end::before,
 .clickable-text__word--selected-end::after {
 	left: 0;

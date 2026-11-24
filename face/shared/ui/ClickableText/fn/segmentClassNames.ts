@@ -12,6 +12,10 @@ export function getGapClassName(hoverPart?: FramePart, selectedPart?: FramePart)
 	const classNames = ['clickable-text__gap']
 
 	if (hoverPart === 'bridge') classNames.push('clickable-text__gap--bridge')
+	else if (hoverPart) {
+		classNames.push('clickable-text__gap--highlighted')
+		if (hoverPart === 'start' || hoverPart === 'end') classNames.push(`clickable-text__gap--${hoverPart}`)
+	}
 	if (selectedPart === 'bridge') classNames.push('clickable-text__gap--selected-bridge')
 
 	return classNames.join(' ')

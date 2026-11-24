@@ -179,6 +179,12 @@ test('neighbouring highlighted words share one frame joined by bridges', functio
 	])
 })
 
+test('external highlights can frame punctuation and preserve explicit line breaks', () => {
+	assert.deepEqual(framePartsByText('Hello,, world.', [',']), [',:start', ',:end'])
+	assert.deepEqual(framePartsByText('Hello, world.', [',']), [',:single'])
+	assert.deepEqual(framePartsByText('Hello\nworld.', ['Hello', 'world']), ['Hello:single', 'world:single'])
+})
+
 test('a single highlighted word and separated expression words get closed frames', function () {
 	assert.deepEqual(framePartsByText('Plenty of people.', ['Plenty']), ['Plenty:single'])
 	assert.deepEqual(framePartsByText('She put the box away.', ['put', 'away']), ['put:single', 'away:single'])

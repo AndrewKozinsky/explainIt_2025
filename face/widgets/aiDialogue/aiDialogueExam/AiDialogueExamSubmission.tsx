@@ -24,8 +24,10 @@ export default function AiDialogueExamSubmission({
 	onCheckingChange,
 }: Props) {
 	const t = useTranslations('aiDialoguePage.exam')
+
 	const { remaining, result } = getExamProgress(messages)
 	const { pending, error, submit } = useExamSubmission(dialogueId, onCheckingChange)
+	console.log(JSON.stringify(result))
 
 	if (result)
 		return (
@@ -70,6 +72,7 @@ export default function AiDialogueExamSubmission({
 				<p className='ai-dialogue-exam-submission__note'>{t('attemptOnly')}</p>
 			</section>
 		)
+
 	return (
 		<div className='ai-dialogue-exam-submission'>
 			<Button
@@ -84,4 +87,37 @@ export default function AiDialogueExamSubmission({
 			{error !== null && <p role='alert'>{error || t('failed')}</p>}
 		</div>
 	)
+}
+
+const deleteLater = {
+	level: 'A1',
+	summary:
+		'Участник может кратко ответить на простые прямые вопросы, используя элементарные фразы. Он понимает основные запросы (например, показать паспорт, цель визита, продолжительность пребывания) и отвечает коротко, но коммуникация остается на уровне базовых формул без развития мысли.',
+	strengths: [
+		"Понимает простые вопросы и команды (например, 'Passport, please') и реагирует соответствующим образом.",
+		"Может сообщить основную информацию: цель визита ('Just tourism') и дать короткий ответ.",
+		'Использует вежливое приветствие и готовность к взаимодействию.',
+	],
+	errors: [
+		{
+			messageId: 6,
+			originalText: 'Just tourism',
+			suggestedText: 'For tourism.',
+			explanation: "Пропущено предлог 'for' перед существительным, обозначающим цель; типичная ошибка уровня A1.",
+		},
+		{
+			messageId: 4,
+			originalText: 'Hello! Here is my passport.',
+			suggestedText: 'Hello! Here you are.',
+			explanation:
+				"Хотя фраза понятна, в данном контексте более естественно использовать устойчивое выражение 'Here you are' при передаче предмета; 'Here is my passport' звучит как объявление о наличии паспорта, а не как акт передачи.",
+		},
+	],
+	recommendations: [
+		"Практикуйте полные ответы на вопросы о цели визита и продолжительности пребывания, используя конструкции типа 'I am here for tourism' или 'I plan to stay for a week'.",
+		'Расширяйте словарный запас по теме путешествий (например, названия достопримечательностей, виды туризма) и учитесь давать чуть более развернутые ответы.',
+		"Обратите внимание на использование предлогов в выражениях цели ('for + noun') и устойчивых фраз при передаче предметов ('Here you are').",
+		'Для повышения уровня старайтесь не только отвечать на вопросы, но и самостоятельно формулировать уточняющие реплики или небольшие пояснения.',
+	],
+	medalUrl: 'https://files.immersia.site/ai-dialogue-scenario-medals/localdev/passport-control/A1.webp',
 }

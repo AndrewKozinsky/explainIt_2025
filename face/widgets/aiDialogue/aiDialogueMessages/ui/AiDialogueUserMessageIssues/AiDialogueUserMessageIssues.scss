@@ -39,7 +39,7 @@
 .ai-dialogue-user-message-issues__issue-content {
 	display: flex;
 	flex-direction: column;
-	gap: .4rem;
+	gap: .3rem;
 }
 
 .ai-dialogue-user-message-issues__number {
@@ -106,7 +106,7 @@
 
 .ai-dialogue-user-message-issues__suggestions-heading {
 	color: vars.$grayColor-5;
-	font-size: 1.3rem;
+	font-size: 1.5rem;
 	font-weight: 500;
 }
 
@@ -123,14 +123,10 @@
 }
 
 .ai-dialogue-user-message-issues__suggestion-bottom {
-	font-size: 1.6rem;
-	line-height: 2.4rem;
+	font-size: 1.8rem;
+	line-height: 2.6rem;
 }
 
 .ai-dialogue-user-message-issues p {
 	white-space: pre-wrap;
-}
-
-.ai-dialogue-user-message-issues .styled-markdown {
-	line-height: 1.5;
 }
