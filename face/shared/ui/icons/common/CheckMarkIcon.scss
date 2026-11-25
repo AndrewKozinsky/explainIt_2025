@@ -1,0 +1,5 @@
+@use '@/styles/mixins' as mix;
+
+.check-mark-icon {
+	@include mix.check-mark;
+}

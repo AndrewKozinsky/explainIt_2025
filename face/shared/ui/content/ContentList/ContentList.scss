@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as mix;
+
 .content-list {
 	margin: 0;
 	padding: 0;
@@ -24,15 +26,16 @@
 .content-list--checkMarks > li {
 	position: relative;
 	list-style: none;
-}
 
-.content-list__check-mark {
-	position: absolute;
-	inset-block-start: .5lh;
-	inset-inline-start: -2.2rem;
-	width: 1.2rem;
-	height: 1rem;
-	transform: translateY(-50%);
+	&::before {
+		@include mix.check-mark($size: 1.2rem);
+		content: '';
+		position: absolute;
+		inset-block-start: .5lh;
+		inset-inline-start: -2.2rem;
+		transform: translateY(-50%);
+		pointer-events: none;
+	}
 }
 
 .content-list--middle {
