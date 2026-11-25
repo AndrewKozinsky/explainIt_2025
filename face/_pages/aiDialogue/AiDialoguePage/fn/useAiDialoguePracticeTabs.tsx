@@ -86,6 +86,7 @@ export function useAiDialoguePracticeTabs({ dialogueId, dialogue, messages, audi
 			ariaLabel: tPage('tabs.settings'),
 			content: (
 				<AiDialogueSettings
+					mode='practice'
 					textLevel={textLevel}
 					onTextLevelChange={changeTextLevel}
 					isUpdatingTextLevel={isUpdatingTextLevel}

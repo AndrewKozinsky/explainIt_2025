@@ -709,6 +709,25 @@ for (const mode of ['practice', 'exam'] as const) {
 		await page.locator('.ai-dialogue-content-block button').first().click()
 		await expect.poll(() => audioRequests.length).toBe(expected + 1)
 		expect(await page.evaluate(() => localStorage.getItem('aiDialogueAutoVoice'))).toBe('false')
+		await page.getByRole('button', { name: 'Настройки', exact: true }).click()
+		const settings = page.getByRole('region', { name: 'Настройки', exact: true })
+		const sceneImages = settings.getByRole('switch', { name: 'Картинки сцен', exact: true })
+		await expect(sceneImages).toBeChecked()
+		if (mode === 'exam') {
+			await expect(settings.getByRole('switch')).toHaveCount(1)
+			await expect(settings.getByRole('button')).toHaveCount(0)
+			await page.getByRole('button', { name: 'Об экзамене', exact: true }).click()
+			await expect(page.getByRole('heading', { name: `Экзамен: ${titles[0]}` })).toBeVisible()
+			await page.getByRole('button', { name: 'Настройки', exact: true }).click()
+		} else {
+			await expect(settings.getByRole('button', { name: 'A1', exact: true })).toBeVisible()
+			await expect(settings.getByRole('switch', { name: 'Автоозвучка' })).not.toBeChecked()
+			await expect(settings.getByRole('switch', { name: 'Текст реплик' })).toBeVisible()
+		}
+		await sceneImages.uncheck()
+		await page.reload()
+		await page.getByRole('button', { name: 'Настройки', exact: true }).click()
+		await expect(sceneImages).not.toBeChecked()
 		expect(h.errors).toEqual([])
 	})
 }
