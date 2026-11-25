@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 import cn from 'classnames'
-import DotSeparator from '@/shared/ui/DotSeparator/DotSeparator'
+import DotSeparator from '@/shared/ui/content/DotSeparator/DotSeparator'
 import '../PendingAnswerMessage/PendingAnswerMessage.scss'
 import './WithAvatarMessageWrapper.scss'
 

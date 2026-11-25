@@ -2,7 +2,7 @@ import cn from 'classnames'
 import { useTranslations } from 'next-intl'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
 import CharacterFace from '@/shared/ui/CharacterAvatars/CharacterFace'
-import DotSeparator from '@/shared/ui/DotSeparator/DotSeparator'
+import DotSeparator from '@/shared/ui/content/DotSeparator/DotSeparator'
 import './AiDialogueLastMessage.scss'
 
 export default function AiDialogueLastMessage({ message }: { message: AiDialogueListItemModel['lastMessage'] }) {

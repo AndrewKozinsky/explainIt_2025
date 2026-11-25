@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl'
 import type { AiDialogueListItemModel } from '@/entities/aiDialogue/types/aiDialogueList'
-import DotSeparator from '@/shared/ui/DotSeparator/DotSeparator'
+import DotSeparator from '@/shared/ui/content/DotSeparator/DotSeparator'
 import { getDialogueMeta } from './fn/getDialogueMeta'
 import './AiDialogueMeta.scss'
 

@@ -27,7 +27,6 @@ export default function AiDialogueExamSubmission({
 
 	const { remaining, result } = getExamProgress(messages)
 	const { pending, error, submit } = useExamSubmission(dialogueId, onCheckingChange)
-	console.log(JSON.stringify(result))
 
 	if (result)
 		return (
