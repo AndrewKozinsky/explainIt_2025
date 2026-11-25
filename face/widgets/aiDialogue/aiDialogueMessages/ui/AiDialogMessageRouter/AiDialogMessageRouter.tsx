@@ -1,4 +1,6 @@
 import { memo, type ReactNode } from 'react'
+import type { LanguageCode } from '@/shared/utils/languages'
+import AiDialogueExamResult from '@/widgets/aiDialogue/aiDialogueExam/AiDialogueExamResult'
 import type { AiDialogueEvent } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueUi'
 import UserMessage from '@/widgets/aiDialogue/aiDialogueMessages/ui/messages/UserMessage/UserMessage'
@@ -11,6 +13,8 @@ import WorldEventMessage from '../messages/WorldEventMessage/WorldEventMessage'
 
 type AiDialogMessageRouterProps = {
 	event: AiDialogueEvent
+	languageCode: LanguageCode
+	scenarioTitle: string
 	onWordSelect: AiDialogueWordSelectHandler
 	messageId: number
 	reviewButton?: ReactNode
@@ -22,6 +26,8 @@ type AiDialogMessageRouterProps = {
  */
 function AiDialogMessageRouter({
 	event,
+	languageCode,
+	scenarioTitle,
 	onWordSelect,
 	messageId,
 	reviewButton,
@@ -31,6 +37,10 @@ function AiDialogMessageRouter({
 
 	if (mode === 'exam' && event.type === 'help') {
 		return null
+	}
+
+	if (event.type === 'examResult' && mode === 'exam') {
+		return <AiDialogueExamResult result={event} languageCode={languageCode} scenarioTitle={scenarioTitle} />
 	}
 
 	const mapping = {

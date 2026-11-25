@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback, useState } from 'react'
+import { useCallback } from 'react'
 import { useLocale, useTranslations } from 'next-intl'
 import { useReplySettingsStore } from '@/entities/aiDialogue/replySettings/replySettingsStore'
 import type { AiDialogueModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
@@ -12,6 +12,7 @@ import ViewportSyncedHeight from '@/shared/ui/ViewportSyncedHeight/ViewportSynce
 import { pageUrls } from '@/shared/utils/pageUrls'
 import AiDialogueExamSubmission from '@/widgets/aiDialogue/aiDialogueExam/AiDialogueExamSubmission'
 import { getExamProgress } from '@/widgets/aiDialogue/aiDialogueExam/fn/examProgress'
+import { useExamSubmission } from '@/widgets/aiDialogue/aiDialogueExam/fn/useExamSubmission'
 import AiDialogueInput from '@/widgets/aiDialogue/aiDialogueForm/AiDialogueForm/AiDialogueInput'
 import AiDialogueMessageList from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueMessageList/AiDialogueMessageList'
 import { DialogueAudioProvider } from '@/widgets/aiDialogue/aiDialogueMessages/ui/audio/DialogueAudioContext'
@@ -53,9 +54,10 @@ export default function LoadedAiDialoguePage({ dialogueId, dialogue }: Props) {
 	const send = useAiDialogueSendMessage(Number(dialogueId))
 	const isBalanceExhausted = useIsBalanceExhausted()
 
-	const [isCheckingExam, setCheckingExam] = useState(false)
+	const { pending: isCheckingExam, error: examError, submit: submitExam } = useExamSubmission(Number(dialogueId))
 	const isGenerating = useAiDialogueStore((state) => state.isGenerating)
-	const examFinished = dialogue.mode === 'exam' && Boolean(getExamProgress(messages).result)
+	const examProgress = dialogue.mode === 'exam' ? getExamProgress(messages) : null
+	const examFinished = Boolean(examProgress?.result)
 	const { header } = getHeaderAndSubHeader(dialogue)
 
 	const examTabs = useAiDialogueExamTabs(dialogue.scenario)
@@ -82,6 +84,8 @@ export default function LoadedAiDialoguePage({ dialogueId, dialogue }: Props) {
 								<AiDialogueMessageList
 									key={dialogueId}
 									messages={messages}
+									languageCode={dialogue.sourceLanguageCode}
+									scenarioTitle={dialogue.scenario.title}
 									onWordSelect={selectWord}
 									onMessageSelect={selectMessage}
 									selectedMessageId={selectedMessageId}
@@ -90,13 +94,14 @@ export default function LoadedAiDialoguePage({ dialogueId, dialogue }: Props) {
 									refreshVisuals={refreshVisuals}
 									recoverImage={recoverImage}
 								/>
-								{dialogue.mode === 'exam' && (
+								{examProgress && !examFinished && (
 									<AiDialogueExamSubmission
-										dialogueId={Number(dialogueId)}
-										messages={messages}
+										remaining={examProgress.remaining}
 										generating={isGenerating}
 										balanceExhausted={isBalanceExhausted}
-										onCheckingChange={setCheckingExam}
+										pending={isCheckingExam}
+										error={examError}
+										onSubmit={submitExam}
 									/>
 								)}
 							</>

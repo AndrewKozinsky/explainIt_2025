@@ -8,6 +8,7 @@ type TranslationFeedbackErrorProps = Omit<ComponentPropsWithoutRef<'li'>, 'child
 	replacement?: string | null
 	explanation?: string | null
 	number?: number
+	strikeFragment?: boolean
 }
 
 export default function TranslationFeedbackError({
@@ -15,9 +16,12 @@ export default function TranslationFeedbackError({
 	replacement,
 	explanation,
 	number,
+	strikeFragment = true,
 	className,
 	...props
 }: TranslationFeedbackErrorProps) {
+	const Fragment = strikeFragment ? 's' : 'span'
+
 	return (
 		<li role='listitem' {...props} className={cn('translation-feedback__issue', className)}>
 			{number !== undefined && (
@@ -29,7 +33,7 @@ export default function TranslationFeedbackError({
 				<p className='translation-feedback__correction'>
 					{replacement ? (
 						<>
-							<s>{fragment}</s>{' '}
+							<Fragment>{fragment}</Fragment>{' '}
 							<span className='translation-feedback__arrow-circle' aria-hidden='true'>
 								<span className='translation-feedback__arrow'>→</span>
 							</span>

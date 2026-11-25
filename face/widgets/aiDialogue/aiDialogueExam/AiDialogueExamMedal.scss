@@ -1,8 +1,75 @@
+@use '@/styles/variables' as vars;
+
 .ai-dialogue-exam-medal {
-	align-self: center;
-	width: 25.6rem;
-	max-width: 100%;
-	height: auto;
+	--sparkle-size: 2.4rem;
+
+	position: relative;
+	width: 26.8rem;
 	aspect-ratio: 1;
+}
+
+.ai-dialogue-exam-medal__image {
+	position: absolute;
+	inset: 5.25%;
+	width: 89.5%;
+	height: 89.5%;
 	object-fit: contain;
+}
+
+.ai-dialogue-exam-medal__glow {
+	filter: blur(100px) brightness(.75);
+}
+
+.ai-dialogue-exam-medal__shadow--soft {
+	filter: blur(10px) brightness(.65);
+	transform: translateY(4px);
+	opacity: .2;
+}
+
+.ai-dialogue-exam-medal__shadow--medium {
+	filter: blur(4px) brightness(.7);
+	transform: translateY(3px);
+}
+
+.ai-dialogue-exam-medal__shadow--sharp {
+	filter: blur(1px) brightness(.8);
+	transform: translateY(1px);
+}
+
+.ai-dialogue-exam-medal__rings,
+.ai-dialogue-exam-medal__rings::before {
+	position: absolute;
+	inset: 0;
+	border: 1px solid rgba(vars.$textColor, .1);
+	border-radius: 50%;
+}
+
+.ai-dialogue-exam-medal__rings::before {
+	content: '';
+	inset: 7.8%;
+	border-color: rgba(vars.$textColor, .2);
+}
+
+.ai-dialogue-exam-medal__sparkle {
+	position: absolute;
+	color: vars.$grayColor-4;
+	font-size: var(--sparkle-size);
+	line-height: 1;
+}
+
+.ai-dialogue-exam-medal__sparkle--top {
+	inset-block-start: 4%;
+	inset-inline-end: -3%;
+}
+
+.ai-dialogue-exam-medal__sparkle--left {
+	inset-block-end: -2%;
+	inset-inline-start: 6%;
+	font-size: calc(var(--sparkle-size) * .85);
+}
+
+.ai-dialogue-exam-medal__sparkle--right {
+	inset-block-end: 10%;
+	inset-inline-end: 4%;
+	font-size: calc(var(--sparkle-size) * .7);
 }

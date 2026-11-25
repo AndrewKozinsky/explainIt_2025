@@ -601,32 +601,36 @@ for (const medalCase of ['A0', 'A1', 'A2', 'B1', 'B2', 'C1', 'missing-file'] as 
 		await check.click()
 		await expect.poll(() => requests).toBe(2)
 		finish()
-		await expect(page.getByRole('heading', { name: 'Результат экзамена' })).toBeVisible()
+		const examResult = page
+			.getByRole('region', { name: 'Результат экзамена' })
+			.and(page.locator('.ai-dialogue-message-list > :last-child'))
+		const resultTitle = level === 'A0' ? 'Попытка не засчитана' : `Вы получили уровень ${level}`
+		await expect(examResult.getByRole('heading', { name: resultTitle, exact: true })).toBeVisible()
+		const messageGap = await examResult.evaluate((element) => {
+			const lastMessage = element.previousElementSibling
+			return lastMessage && element.getBoundingClientRect().top - lastMessage.getBoundingClientRect().bottom
+		})
+		expect(messageGap).toBeCloseTo(30)
 		await expect(page.locator('.ai-dialogue-input')).toHaveCount(0)
 		await expect(page.locator('.ai-dialogue-left-wrapper__input')).toHaveCount(0)
 		await expect(check).toHaveCount(0)
-		await expect(
-			page.getByText(
-				level === 'A0' ? 'В этой попытке A1 не подтверждён' : `В этой попытке подтверждён уровень ${level}`,
-				{ exact: true },
-			),
-		).toBeVisible()
+		const medal = examResult.getByRole('img', { name: `Медаль за уровень ${level}` })
 		if (level === 'A0') {
 			expect(imageRequests).toBe(0)
-			await expect(page.locator('.ai-dialogue-exam-medal')).toHaveCount(0)
+			await expect(medal).toHaveCount(0)
+			await expect(examResult.locator('.ai-dialogue-exam-shield')).toBeVisible()
 		} else if (medalCase === 'missing-file') {
 			await expect.poll(() => imageRequests).toBe(1)
-			await expect(page.locator('.ai-dialogue-exam-medal')).toHaveCount(0)
+			await expect(medal).toHaveCount(0)
 		} else {
-			await expect(page.getByRole('img', { name: `Медаль за уровень ${level}` })).toBeVisible()
-			await expect(page.locator('.ai-dialogue-exam-medal')).toHaveJSProperty('naturalWidth', 256)
+			await expect(medal).toBeVisible()
+			await expect(medal).toHaveJSProperty('naturalWidth', 256)
 		}
-		await page
-			.locator('.ai-dialogue-exam-submission')
-			.screenshot({ path: testInfo.outputPath(`exam-result-${level}.png`) })
+		await examResult.screenshot({ path: testInfo.outputPath(`exam-result-${level}.png`) })
 		await page.reload()
-		await expect(page.getByRole('heading', { name: 'Результат экзамена' })).toBeVisible()
+		await expect(examResult.getByRole('heading', { name: resultTitle, exact: true })).toBeVisible()
 		await expect(page.locator('.ai-dialogue-input')).toHaveCount(0)
+		await expect(check).toHaveCount(0)
 		expect(requests).toBe(2)
 		expect(h.errors).toEqual([])
 	})

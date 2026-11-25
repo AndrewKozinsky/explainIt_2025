@@ -5,7 +5,7 @@ import { aiDialogueService } from '@/entities/aiDialogue/AiDialogueService'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { useAiDialogueStore } from '_pages/aiDialogue/aiDialogueStore'
 
-export function useExamSubmission(dialogueId: number, onCheckingChange: (value: boolean) => void) {
+export function useExamSubmission(dialogueId: number) {
 	const queryClient = useQueryClient()
 	const [error, setError] = useState<string | null>(null)
 	const [pending, setPending] = useState(false)
@@ -22,7 +22,6 @@ export function useExamSubmission(dialogueId: number, onCheckingChange: (value: 
 		if (inFlight.current) return
 		inFlight.current = true
 		setPending(true)
-		onCheckingChange(true)
 		setError(null)
 		try {
 			const message = await unwrapApiResult(aiDialogueService.checkExam(dialogueId))
@@ -32,10 +31,7 @@ export function useExamSubmission(dialogueId: number, onCheckingChange: (value: 
 			if (active.current) setError(error instanceof Error ? error.message : '')
 		} finally {
 			inFlight.current = false
-			if (active.current) {
-				setPending(false)
-				onCheckingChange(false)
-			}
+			if (active.current) setPending(false)
 		}
 	}
 	return { pending, error, submit }

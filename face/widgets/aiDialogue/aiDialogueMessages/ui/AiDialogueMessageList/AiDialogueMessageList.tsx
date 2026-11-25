@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
 import type { AiDialogueVisualsModel } from '@/entities/aiDialogue/repository/AiDialogueRepository'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
+import type { LanguageCode } from '@/shared/utils/languages'
 import type { DialogueServerMessage } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueMessage'
 import type { AiDialogueWordSelectHandler } from '@/widgets/aiDialogue/aiDialogueMessages/types/aiDialogueUi'
 import AiDialogMessageRouter from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogMessageRouter/AiDialogMessageRouter'
@@ -12,6 +13,8 @@ import './AiDialogueMessageList.scss'
 
 type AiDialogueMessageListProps = {
 	messages: DialogueServerMessage[]
+	languageCode: LanguageCode
+	scenarioTitle: string
 	onWordSelect: AiDialogueWordSelectHandler
 	onMessageSelect: (messageId: number) => void
 	selectedMessageId: number | null
@@ -26,6 +29,8 @@ type AiDialogueMessageListProps = {
  */
 function AiDialogueMessageList({
 	messages,
+	languageCode,
+	scenarioTitle,
 	onWordSelect,
 	onMessageSelect,
 	selectedMessageId,
@@ -50,6 +55,8 @@ function AiDialogueMessageList({
 				key={id}
 				messageId={id}
 				event={payload}
+				languageCode={languageCode}
+				scenarioTitle={scenarioTitle}
 				reserveSceneSpace={payload.type === 'sceneUpdate' && Boolean(payload.visualDescription)}
 				onWordSelect={onWordSelect}
 				reviewButton={

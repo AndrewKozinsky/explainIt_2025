@@ -91,7 +91,9 @@ it('checks original context once, saves and broadcasts the result, then returns 
 		level: 'A2',
 		assessedThroughMessageId: 10,
 	})
-	expect(h.llm.generate.mock.calls[0][0].messages[1].content).toContain('She go home.')
+	const [systemPrompt, transcript] = h.llm.generate.mock.calls[0][0].messages
+	expect(systemPrompt.content).toMatch(/write the summary .* in the second person/i)
+	expect(transcript.content).toContain('She go home.')
 	expect(h.balance.chargeLlm).toHaveBeenCalledTimes(1)
 	expect(h.hub.publishDialogueEvent).toHaveBeenCalledTimes(1)
 	h.query.getMessagesByDialogueId.mockResolvedValue([...history, result])

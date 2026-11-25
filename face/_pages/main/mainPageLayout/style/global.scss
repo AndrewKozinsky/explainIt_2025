@@ -65,6 +65,14 @@
 	font-style: italic;
 }
 
+@font-face {
+	font-family: "Roboto Serif";
+	src: url("fonts/RobotoSerif-20pt-Medium.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
 // Roboto Serif 20pt Italic — реплики персонажей в сценариях главной страницы.
 // Скачан с Google Fonts: оптический размер 20pt, разбит на наборы символов
 @font-face {

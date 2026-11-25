@@ -1,0 +1,114 @@
+@use 'sass:color';
+@use '@/styles/mixins' as mix;
+@use '@/styles/variables' as vars;
+
+$wide-layout-width: 52rem;
+
+.ai-dialogue-exam-result {
+	container-type: inline-size;
+	display: grid;
+	gap: 2rem;
+	padding: 1.5rem;
+	overflow: hidden;
+	background: vars.$grayColor-1;
+	border: 1px solid vars.$grayColor-2;
+	border-radius: vars.$radius-2;
+
+	> .content-section {
+		position: relative;
+		padding-block-start: 2rem;
+		border-block-start: 1px solid rgba(vars.$textColor, .1);
+	}
+}
+
+.ai-dialogue-exam-result__header {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	align-items: center;
+	justify-items: center;
+	gap: 1.6rem;
+
+	@include mix.container-width($wide-layout-width) {
+		grid-auto-flow: column;
+		grid-auto-columns: 28.6rem;
+
+		> .ai-dialogue-exam-medal {
+			margin-block: 1rem;
+		}
+	}
+}
+
+.ai-dialogue-exam-result__intro {
+	display: flex;
+	flex-direction: column;
+	gap: .6rem;
+}
+
+.ai-dialogue-exam-result__badge {
+	display: inline-flex;
+	align-self: flex-start;
+	align-items: center;
+	gap: .4rem;
+	padding: .3rem .8rem;
+	background: white;
+	border-radius: vars.$radius-1;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+	font-weight: 400;
+
+	@include mix.container-width($wide-layout-width) {
+		margin-block-end: 1.4rem;
+	}
+
+	&::before {
+		@include mix.check-mark($size: 1rem);
+		content: '';
+	}
+}
+
+.ai-dialogue-exam-result__badge--failed {
+	color: vars.$dangerColor-1;
+}
+
+.ai-dialogue-exam-result__badge--passed {
+	color: vars.$successColor-3;
+}
+
+.ai-dialogue-exam-result__meta {
+	display: flex;
+	align-items: center;
+	gap: .6rem;
+	font-size: 1.4rem;
+	line-height: 1.6rem;
+	color: vars.$grayColor-5;
+}
+
+.ai-dialogue-exam-result__title {
+	font-family: 'Roboto Serif', Georgia, serif;
+	font-weight: 500;
+	font-size: clamp(3rem, 6.57cqi, 4rem);
+	line-height: 1.15;
+}
+
+.ai-dialogue-exam-result__summary {
+	font-size: 1.5rem;
+	line-height: 2.3rem;
+	color: vars.$grayColor-6;
+
+	@include mix.container-width($wide-layout-width) {
+		margin-block-start: 1.4rem;
+	}
+}
+
+.ai-dialogue-exam-result__feedback {
+	.translation-feedback__number {
+		color: inherit;
+		background: white;
+	}
+}
+
+.ai-dialogue-exam-result__recommendations {
+	padding: 1.2rem 1.6rem;
+	background: white;
+	border-radius: vars.$radius-1;
+}

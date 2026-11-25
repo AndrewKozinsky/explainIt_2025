@@ -15,7 +15,12 @@ export function AiDialogueExamFailedShield() {
 	return (
 		<svg className='ai-dialogue-exam-shield' viewBox='0 0 58 76' aria-hidden='true'>
 			<path d={shieldPath} fill='currentColor' stroke='currentColor' />
-			<path d='m19 28 20 20m0-20L19 48' stroke='white' strokeLinecap='round' />
+			<path
+				className='ai-dialogue-exam-shield__mark'
+				d='m19 28 20 20m0-20L19 48'
+				stroke='white'
+				strokeLinecap='round'
+			/>
 		</svg>
 	)
 }
