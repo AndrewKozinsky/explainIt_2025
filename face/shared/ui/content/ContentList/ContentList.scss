@@ -1,6 +1,7 @@
 .content-list {
 	margin: 0;
-	padding: 0 0 0 2.6rem;
+	padding: 0;
+	padding-inline-start: 2.6rem;
 
 	> li {
 		display: list-item;
@@ -12,12 +13,26 @@
 	}
 }
 
-.content-list--unordered > li {
+.content-list--dots > li {
 	list-style: disc outside;
 }
 
-.content-list--ordered > li {
+.content-list--numbers > li {
 	list-style: decimal outside;
+}
+
+.content-list--checkMarks > li {
+	position: relative;
+	list-style: none;
+}
+
+.content-list__check-mark {
+	position: absolute;
+	inset-block-start: .5lh;
+	inset-inline-start: -2.2rem;
+	width: 1.2rem;
+	height: 1rem;
+	transform: translateY(-50%);
 }
 
 .content-list--middle {

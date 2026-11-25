@@ -15,15 +15,22 @@ const meta = {
 	],
 	args: {
 		size: 'middle',
-		ordered: false,
-		children: 'Children',
+		type: 'dots',
+		children: (
+			<>
+				<li>Прочитайте текст.</li>
+				<li>Переведите его и проверьте, сохранился ли смысл исходного текста.</li>
+			</>
+		),
 	},
 } satisfies Meta<typeof ContentList>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const UnorderedMiddle: Story = {}
-export const UnorderedSmall: Story = { args: { size: 'small' } }
-export const OrderedMiddle: Story = { args: { ordered: true } }
-export const OrderedSmall: Story = { args: { ordered: true, size: 'small' } }
+export const DotsMiddle: Story = {}
+export const DotsSmall: Story = { args: { size: 'small' } }
+export const NumbersMiddle: Story = { args: { type: 'numbers' } }
+export const NumbersSmall: Story = { args: { type: 'numbers', size: 'small' } }
+export const CheckMarksMiddle: Story = { args: { type: 'checkMarks' } }
+export const CheckMarksSmall: Story = { args: { type: 'checkMarks', size: 'small' } }
