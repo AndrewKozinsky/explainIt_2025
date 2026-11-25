@@ -8,6 +8,7 @@ type Props = { url: string | null; level: AiDialogueCefrLevel }
 export default function AiDialogueExamMedal({ url, level }: Props) {
 	const t = useTranslations('aiDialoguePage.exam')
 	const [failedUrl, setFailedUrl] = useState<string | null>(null)
+	const [loadedUrl, setLoadedUrl] = useState<string | null>(null)
 
 	if (!url || url === failedUrl) {
 		return null
@@ -24,17 +25,19 @@ export default function AiDialogueExamMedal({ url, level }: Props) {
 				className='ai-dialogue-exam-medal__image'
 				src={url}
 				alt={t('medal', { level })}
+				onLoad={() => setLoadedUrl(url)}
 				onError={() => setFailedUrl(url)}
 			/>
-			<span className='ai-dialogue-exam-medal__sparkle ai-dialogue-exam-medal__sparkle--top' aria-hidden='true'>
-				✦
-			</span>
-			<span className='ai-dialogue-exam-medal__sparkle ai-dialogue-exam-medal__sparkle--left' aria-hidden='true'>
-				✦
-			</span>
-			<span className='ai-dialogue-exam-medal__sparkle ai-dialogue-exam-medal__sparkle--right' aria-hidden='true'>
-				✦
-			</span>
+			{loadedUrl === url &&
+				['top', 'left', 'right'].map((position) => (
+					<span
+						key={position}
+						className={`ai-dialogue-exam-medal__sparkle ai-dialogue-exam-medal__sparkle--${position}`}
+						aria-hidden='true'
+					>
+						✦
+					</span>
+				))}
 		</div>
 	)
 }
