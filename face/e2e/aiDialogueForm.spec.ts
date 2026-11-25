@@ -323,7 +323,7 @@ test('opens reviews from history, marks selection and switches to the dictionary
 	const originalPosition = await original.boundingBox()
 	await expect(highlight).toHaveCount(0)
 	await issue.hover()
-	const number = issue.locator('.ai-dialogue-user-message-issues__number')
+	const number = issue.locator('.translation-feedback__number')
 	const issueBackground = await issue.evaluate((element) => getComputedStyle(element).backgroundColor)
 	await expect(number).toHaveCSS('background-color', issueBackground)
 	await expect(highlight).toHaveText(['очередь'])

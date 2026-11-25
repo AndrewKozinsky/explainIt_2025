@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict'
 import { test } from 'node:test'
-import { getReviewIssues } from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueMessageReview/getReviewIssues'
+import { getReviewIssues } from '@/widgets/aiDialogue/aiDialogueMessages/ui/AiDialogueMessageReview/fn/getReviewIssues'
 
 const issue = (sentenceMarkdown: string) => ({
 	title: 'Grammar',
