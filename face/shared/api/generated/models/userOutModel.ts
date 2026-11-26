@@ -6,6 +6,7 @@
  * OpenAPI spec version: 1.0
  */
 import type { UserOutModelGender } from './userOutModelGender';
+import type { UserPreferences } from './userPreferences';
 
 export interface UserOutModel {
   /**
@@ -33,4 +34,5 @@ export interface UserOutModel {
      * @nullable
      */
   uploadedAvatarUrl?: string | null;
+  preferences: UserPreferences;
 }

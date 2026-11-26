@@ -57,7 +57,9 @@ function AiDialogueMessageList({
 				event={payload}
 				languageCode={languageCode}
 				scenarioTitle={scenarioTitle}
-				reserveSceneSpace={payload.type === 'sceneUpdate' && Boolean(payload.visualDescription)}
+				reserveSceneSpace={
+					payload.type === 'sceneUpdate' && (payload.withImage ?? Boolean(payload.visualDescription))
+				}
 				onWordSelect={onWordSelect}
 				reviewButton={
 					mode === 'practice' &&

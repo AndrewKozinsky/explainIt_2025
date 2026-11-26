@@ -3,6 +3,12 @@ import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 export type UserGender = 'MALE' | 'FEMALE'
 export type AvatarPresetId = 'male-1' | 'male-2' | 'female-1' | 'female-2'
 
+export const GENERATE_SCENE_IMAGE = 'ai-dialogue-generate-scene-image'
+
+export type UserPreferences = {
+	[GENERATE_SCENE_IMAGE]?: boolean
+}
+
 /** Доменная модель пользователя, не зависящая от OpenAPI. */
 export type UserModel = {
 	id: number
@@ -13,6 +19,7 @@ export type UserModel = {
 	avatarPresetId: AvatarPresetId | null
 	avatarUrl: string
 	uploadedAvatarUrl: string | null
+	preferences: UserPreferences
 }
 
 export type AvatarPresetModel = {
@@ -21,7 +28,11 @@ export type AvatarPresetModel = {
 	avatarUrl: string
 }
 
-export type UpdateUserProfileInput = { gender?: UserGender; avatarPresetId?: AvatarPresetId | null }
+export type UpdateUserProfileInput = {
+	gender?: UserGender
+	avatarPresetId?: AvatarPresetId | null
+	preferences?: UserPreferences
+}
 
 /** Доступ к данным пользователя; реализацию можно подменить в тестах и Storybook. */
 export type UserRepository = {

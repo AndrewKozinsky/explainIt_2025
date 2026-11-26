@@ -14,6 +14,7 @@ jest.mock('infrastructure/llmProviderAdapter/LlmAdapter.service', () => ({ LlmAd
 jest.mock('./SummarizeAiDialogue.service', () => ({ SummarizeAiDialogue: class {} }))
 jest.mock('repo/user.repository', () => ({ UserRepository: class {} }))
 import { LlmGenerateInput } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
+import { GENERATE_SCENE_IMAGE } from 'models/user/userPreferences'
 import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
 import { GenerateAiDialogueTurn } from './GenerateAiDialogueTurn.service'
 
@@ -91,6 +92,20 @@ describe('participant gender', () => {
 		expect(llm.generate.mock.calls[0][0].messages[0].content).toContain('The human participant is a woman.')
 	})
 })
+
+it.each([{}, { [GENERATE_SCENE_IMAGE]: true }, { [GENERATE_SCENE_IMAGE]: false }])(
+	'passes the scene preference from the dialogue owner to turn persistence for %j',
+	async (preferences) => {
+		const { service, user, turn } = harness()
+		user.getUserById.mockResolvedValue({ id: 5, gender: 'FEMALE', preferences })
+
+		await service.generate(3)
+
+		expect(turn.saveGeneratedTurn).toHaveBeenCalledWith(
+			expect.objectContaining({ generateSceneImage: preferences[GENERATE_SCENE_IMAGE] ?? true }),
+		)
+	},
+)
 
 describe('text turn with inline word maps', () => {
 	it('sends only saved messages with ready maps after the complete reply', async () => {

@@ -637,13 +637,37 @@ for (const medalCase of ['A0', 'A1', 'A2', 'B1', 'B2', 'C1', 'missing-file'] as 
 }
 
 for (const mode of ['practice', 'exam'] as const) {
-	test(`${mode} applies its autoplay policy to new scenes and NPC speech without changing saved settings`, async ({
+	test(`${mode} applies its autoplay policy and saves the scene image preference to the user profile`, async ({
 		page,
 	}) => {
 		const h = await setup(page, { authenticated: true })
 		await page.addInitScript(() => localStorage.setItem('aiDialogueAutoVoice', 'false'))
 		const date = '2026-11-22T00:00:00Z'
 		const audioRequests: number[] = []
+		const sceneImagePreference = 'ai-dialogue-generate-scene-image'
+		let preferences: Record<string, boolean> = {}
+		const profilePatches: unknown[] = []
+		await page.route('**/api/user/me', (route) => {
+			if (route.request().method() === 'PATCH') {
+				const patch = route.request().postDataJSON()
+				profilePatches.push(patch)
+				preferences = { ...preferences, ...patch.preferences }
+			}
+
+			return route.fulfill({
+				json: {
+					id: 7,
+					email: 'fixture@example.test',
+					isUserConfirmed: true,
+					balance: 100,
+					gender: 'MALE',
+					avatarPresetId: null,
+					avatarUrl: '',
+					uploadedAvatarUrl: null,
+					preferences,
+				},
+			})
+		})
 		await page.route('**/api/ai-dialogue/42', (route) =>
 			route.fulfill({
 				json: {
@@ -674,7 +698,13 @@ for (const mode of ['practice', 'exam'] as const) {
 					id: 1,
 					dialogueId: 42,
 					createdAt: date,
-					payload: { type: 'sceneUpdate', content: 'At the desk.', translation: '' },
+					payload: {
+						type: 'sceneUpdate',
+						content: 'At the desk.',
+						translation: '',
+						visualDescription: 'A desk in an airport.',
+						withImage: false,
+					},
 				},
 			},
 			{
@@ -701,8 +731,9 @@ for (const mode of ['practice', 'exam'] as const) {
 				body: events.map((event) => `data: ${JSON.stringify(event)}\n\n`).join(''),
 			}),
 		)
-		await page.goto('/?scenarios&authenticated&exam-page')
+		await page.goto('/?scenarios&authenticated&exam-page&user-preferences')
 		await expect(page.locator('.ai-dialogue-content-block')).toHaveCount(2)
+		await expect(page.locator('.ai-dialogue-message-scene-update__image')).toHaveCount(0)
 		const expected = mode === 'exam' ? 2 : 0
 		await expect.poll(() => audioRequests.length).toBe(expected)
 		if (mode === 'exam') expect(audioRequests).toEqual([-1, 0])
@@ -724,10 +755,15 @@ for (const mode of ['practice', 'exam'] as const) {
 			await expect(settings.getByRole('switch', { name: 'Автоозвучка' })).not.toBeChecked()
 			await expect(settings.getByRole('switch', { name: 'Текст реплик' })).toBeVisible()
 		}
-		await sceneImages.uncheck()
+		await sceneImages.click()
+		await expect(sceneImages).not.toBeChecked()
+		expect(profilePatches).toEqual([{ preferences: { [sceneImagePreference]: false } }])
 		await page.reload()
 		await page.getByRole('button', { name: 'Настройки', exact: true }).click()
 		await expect(sceneImages).not.toBeChecked()
+		await sceneImages.click()
+		await expect(sceneImages).toBeChecked()
+		expect(profilePatches.at(-1)).toEqual({ preferences: { [sceneImagePreference]: true } })
 		expect(h.errors).toEqual([])
 	})
 }

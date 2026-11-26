@@ -131,6 +131,11 @@ export const bdConfig = {
 				description: 'R2 key of the last uploaded user photo, retained when a preset is selected',
 				example: 'user-avatars/uploads/ru/localdev/1/uuid.webp',
 			},
+			preferences: {
+				type: 'json',
+				required: true,
+				default: '{}',
+			},
 			Book: {
 				type: 'oneToMany',
 			},

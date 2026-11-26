@@ -1,11 +1,11 @@
 import { BdConfig } from '../dbConfig/dbConfigType'
 import { createArrayOfItemsColumn } from './columns/arrayColumn'
 import { createBooleanColumn } from './columns/booleanColumn'
+import { createColumnAttrs } from './columns/columnAttrs'
 import { createCreatedOrUpdatedAtColum } from './columns/createdAndUpdatedAtColumn'
 import { createDateTimeColumn } from './columns/dateTimeColumn'
 import { createEnumColumn } from './columns/enumColumn'
 import { createIndexColumn } from './columns/indexColumn'
-import { createUuidIndexColumn } from './columns/uuidIndexColumn'
 import { createNumberColumn } from './columns/numberColumn'
 import {
 	createChildOneToOneColumn,
@@ -14,6 +14,7 @@ import {
 	createParentOneToOne,
 } from './columns/relationColumns'
 import { createStringColumn } from './columns/stringColumn'
+import { createUuidIndexColumn } from './columns/uuidIndexColumn'
 
 /**
  * Creates string like this from tableConfig:
@@ -54,6 +55,8 @@ export function createTable(tableName: string, tableConfig: BdConfig.Table) {
 			columnsArr.push(createDateTimeColumn(dbFieldName, field))
 		} else if (field.type === 'boolean') {
 			columnsArr.push(createBooleanColumn(dbFieldName, field))
+		} else if (field.type === 'json') {
+			columnsArr.push(`\t${dbFieldName}\tJson` + createColumnAttrs(field))
 		} else if (field.type === 'number') {
 			columnsArr.push(createNumberColumn(dbFieldName, field))
 		} else if (field.type === 'array') {

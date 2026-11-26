@@ -186,7 +186,7 @@ export const getUserControllerUpdateMeUrl = () => {
 }
 
 /**
- * Provide gender and/or avatarPresetId. Preset gender takes precedence; the saved photo is retained. avatarPresetId: null selects an existing saved photo.
+ * Provide gender, avatarPresetId, or a preferences patch. Preferences are merged by key. Preset gender takes precedence; avatarPresetId: null selects an existing saved photo.
  * @summary Update current user profile
  */
 export const userControllerUpdateMe = async (updateUserProfileDto: UpdateUserProfileDto, options?: Parameters<typeof customMutator>[1]): Promise<userControllerUpdateMeResponse> => {
@@ -253,7 +253,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
     export type UserControllerUpdateMeMutationVariables = {data: UpdateUserProfileDto}
 
     /**
- * Provide gender and/or avatarPresetId. Preset gender takes precedence; the saved photo is retained. avatarPresetId: null selects an existing saved photo.
+ * Provide gender, avatarPresetId, or a preferences patch. Preferences are merged by key. Preset gender takes precedence; avatarPresetId: null selects an existing saved photo.
  * @summary Update current user profile
  */
 export const useUserControllerUpdateMe = <TError = unknown,

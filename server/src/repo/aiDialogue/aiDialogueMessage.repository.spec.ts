@@ -12,6 +12,27 @@ function dbEvent(type: string, payload: unknown) {
 	return { type, payload: JSON.stringify(payload) }
 }
 
+describe('scene illustration on history replay', () => {
+	it.each([
+		[{ sceneImageRequested: false }, { withImage: false }],
+		[{ sceneImageRequested: false, withImage: true }, { withImage: true }],
+		[{}, {}],
+	])('normalizes the stored image fields %j to %j', async (imageFields, expected) => {
+		const content = { content: 'A cafe.', translation: 'Кафе.', visualDescription: 'A table by a window.' }
+		const message = {
+			...dbEvent('sceneUpdate', { ...content, ...imageFields }),
+			id: 17,
+			dialogue_id: 3,
+			created_at: new Date('2026-11-17T10:00:00Z'),
+		}
+		const prisma = { aiDialogueMessage: { findMany: jest.fn().mockResolvedValue([message]) } } as never
+		const queryRepository = new AiDialogueQueryRepository(prisma, {} as never)
+
+		const [result] = await queryRepository.getMessagesByDialogueId(3)
+		expect(result.payload).toEqual({ type: 'sceneUpdate', ...content, ...expected })
+	})
+})
+
 describe('AiDialogueMessageRepository user text reviews', () => {
 	it('returns the same saved review after sending and on history replay', async () => {
 		const createdAt = new Date('2026-11-17T10:00:00Z')

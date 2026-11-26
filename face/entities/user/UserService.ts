@@ -1,6 +1,8 @@
 import { UserApi } from './repository/UserApi'
 import type { UpdateUserProfileInput, UserRepository } from './repository/UserRepository'
 
+export { GENERATE_SCENE_IMAGE } from './repository/UserRepository'
+
 export type {
 	AvatarPresetId,
 	AvatarPresetModel,

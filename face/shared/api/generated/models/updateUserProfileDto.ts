@@ -7,6 +7,7 @@
  */
 import type { UpdateUserProfileDtoAvatarPresetId } from './updateUserProfileDtoAvatarPresetId';
 import type { UpdateUserProfileDtoGender } from './updateUserProfileDtoGender';
+import type { UserPreferences } from './userPreferences';
 
 export interface UpdateUserProfileDto {
   /**
@@ -19,4 +20,5 @@ export interface UpdateUserProfileDto {
      * @nullable
      */
   avatarPresetId?: UpdateUserProfileDtoAvatarPresetId;
+  preferences?: UserPreferences;
 }

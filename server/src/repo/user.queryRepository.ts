@@ -5,6 +5,7 @@ import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.se
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from 'models/user/user.out.model'
+import { readUserPreferences } from 'models/user/userPreferences'
 import { User } from 'prisma/generated/client'
 
 @Injectable()
@@ -59,6 +60,7 @@ export class UserQueryRepository {
 			avatarPresetId: dbUser.avatar_preset_id,
 			avatarUrl,
 			uploadedAvatarUrl,
+			preferences: readUserPreferences(dbUser.preferences),
 		}
 	}
 }

@@ -1,15 +1,34 @@
-jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
+jest.mock('@nestjs/common', () => ({
+	Injectable: () => (target: unknown) => target,
+	applyDecorators:
+		(...decorators: PropertyDecorator[]) =>
+		(target: object, key: string | symbol) => {
+			decorators.forEach((decorator) => decorator(target, key))
+		},
+}))
 jest.mock('@nestjs/cqrs', () => ({ CommandHandler: () => (target: unknown) => target }))
 jest.mock('@nestjs/schedule', () => ({ Interval: () => () => undefined }))
 jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
+jest.mock('@nestjs/swagger', () => ({
+	ApiProperty: () => () => undefined,
+	ApiPropertyOptional: () => () => undefined,
+	ApiSchema: () => () => undefined,
+}))
 
+import 'reflect-metadata'
+import { plainToInstance } from 'class-transformer'
+import { validateSync } from 'class-validator'
 import sharp from 'sharp'
 import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
+import { UpdateUserProfileDto } from 'routes/user/dto/updateUserProfile.dto'
+import type { PrismaService } from 'db/prisma.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
+import type { HashAdapterService } from 'infrastructure/hashAdapter/hash-adapter.service'
 import { ImageProcessingService } from 'infrastructure/imageProcessing/imageProcessing.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { UserOutModel } from 'models/user/user.out.model'
+import { GENERATE_SCENE_IMAGE } from 'models/user/userPreferences'
 import { User } from 'prisma/generated/client'
 import { CleanupUserAvatars } from './CleanupUserAvatars.service'
 import { GetAvatarPresetsHandler } from './GetAvatarPresets.command'
@@ -60,6 +79,48 @@ async function photo(width: number, height: number) {
 }
 
 describe('user profile changes', () => {
+	it('accepts false as a preferences-only update', async () => {
+		const h = harness()
+		const preferences = { [GENERATE_SCENE_IMAGE]: false }
+		const input = plainToInstance(UpdateUserProfileDto, { preferences })
+		expect(validateSync(input, { whitelist: true, forbidNonWhitelisted: true })).toEqual([])
+		await h.update.execute(new UpdateUserProfileCommand(1, input))
+		expect(h.repository.updateProfile).toHaveBeenCalledWith(1, { preferences })
+	})
+
+	it.each([
+		[null],
+		[[]],
+		[{ [GENERATE_SCENE_IMAGE]: null }],
+		[{ [GENERATE_SCENE_IMAGE]: 'false' }],
+		[{ unknown: true }],
+	])('rejects invalid preferences %j', (preferences) => {
+		const input = plainToInstance(UpdateUserProfileDto, { preferences })
+		expect(validateSync(input, { whitelist: true, forbidNonWhitelisted: true })).toHaveLength(1)
+	})
+
+	it('merges a preference patch with the profile read under the row lock', async () => {
+		const tx = {
+			$queryRaw: jest.fn().mockResolvedValue([{ id: 1 }]),
+			user: {
+				findUniqueOrThrow: jest
+					.fn()
+					.mockResolvedValue({ preferences: { other: true, [GENERATE_SCENE_IMAGE]: true } }),
+				update: jest.fn(),
+			},
+		}
+		const prisma = { $transaction: (operation: (transaction: typeof tx) => unknown) => operation(tx) }
+		const repository = new UserRepository(prisma as unknown as PrismaService, {} as HashAdapterService)
+
+		await repository.updateProfile(1, { preferences: { [GENERATE_SCENE_IMAGE]: false } })
+
+		expect(tx.$queryRaw).toHaveBeenCalledTimes(1)
+		expect(tx.user.update).toHaveBeenCalledWith({
+			where: { id: 1 },
+			data: { preferences: { other: true, [GENERATE_SCENE_IMAGE]: false } },
+		})
+	})
+
 	it('sets gender from the preset even if a different gender is supplied', async () => {
 		const h = harness()
 		h.user.avatar_s3_key = 'old-photo'

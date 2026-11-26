@@ -110,11 +110,20 @@ export class AiDialogueQueryRepository {
 	// Восстанавливает событие из колонки type и JSON-строки payload
 	// (обратная операция к AiDialogueMessageRepository.createMessage).
 	private deserializeEvent(dbMessage: AiDialogueMessageDb): AiDialogueEvent {
-		const { wordMapRequestId: _requestId, ...body } = JSON.parse(dbMessage.payload) as Omit<
-			AiDialogueEvent,
-			'type'
-		> & { wordMapRequestId?: string }
+		const {
+			wordMapRequestId: _requestId,
+			sceneImageRequested: legacyWithImage,
+			...body
+		} = JSON.parse(dbMessage.payload) as Omit<AiDialogueEvent, 'type'> & {
+			wordMapRequestId?: string
+			sceneImageRequested?: boolean
+		}
 
-		return { type: dbMessage.type, ...body } as AiDialogueEvent
+		const event = { type: dbMessage.type, ...body } as AiDialogueEvent
+		if (event.type === 'sceneUpdate' && typeof legacyWithImage === 'boolean') {
+			return { ...event, withImage: event.withImage ?? legacyWithImage }
+		}
+
+		return event
 	}
 }

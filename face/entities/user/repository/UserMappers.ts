@@ -11,6 +11,7 @@ export function mapToUser(raw: UserOutModel): UserModel {
 		avatarPresetId: mapAvatarPresetId(raw.avatarPresetId),
 		avatarUrl: raw.avatarUrl,
 		uploadedAvatarUrl: raw.uploadedAvatarUrl ?? null,
+		preferences: raw.preferences ?? {},
 	}
 }
 

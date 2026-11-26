@@ -1,6 +1,7 @@
 jest.mock('@nestjs/common', () => ({ Injectable: () => (target: unknown) => target }))
 jest.mock('infrastructure/mainConfig/mainConfig.service', () => ({ MainConfigService: class {} }))
 
+import { OpenAIImageModels } from 'types/imageGenerationModels'
 import { PrismaService } from 'db/prisma.service'
 import { aiDialogueIllustrationStyleCatalog } from 'features/aiDialogue/illustrationStyles/catalog'
 import {
@@ -10,7 +11,6 @@ import {
 import { parseAiDialogueEvents } from 'features/aiDialogue/parseAiDialogueEvents'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
 import { AiDialogueTurnRepository } from './aiDialogueTurn.repository'
-import { OpenAIImageModels } from 'types/imageGenerationModels'
 
 function createHarness(illustrationStyleId = 'realism', mode = 'localdev') {
 	const tx = {
@@ -40,6 +40,39 @@ function createHarness(illustrationStyleId = 'realism', mode = 'localdev') {
 }
 
 describe('AiDialogueTurnRepository', () => {
+	it('saves the scene without creating a scene image job when illustrations are disabled', async () => {
+		const { repository, tx } = createHarness()
+		tx.aiDialogueMessage.create.mockResolvedValueOnce({ id: 100 }).mockResolvedValueOnce({ id: 101 })
+		tx.aiDialogueCharacter.findUnique.mockResolvedValue(null)
+		tx.aiDialogueCharacter.create.mockResolvedValue({ id: 10, appearance: 'dark hair' })
+		tx.imageGenerationJob.create.mockResolvedValue({ id: 30 })
+
+		await expect(
+			repository.saveGeneratedTurn({
+				dialogueId: 5,
+				generateSceneImage: false,
+				turn: parseAiDialogueEvents(
+					'sceneUpdate\nAn office.\nКабинет.\nvisual:A conversation in an office.\n\nnpcActions|npc_1|Alex|receptionist|neutral\nspeech:\nHello.\nЗдравствуйте.',
+					undefined,
+					'practice',
+				),
+			}),
+		).resolves.toEqual([100, 101])
+
+		const sceneMessage = tx.aiDialogueMessage.create.mock.calls[0][0].data
+		expect(sceneMessage.type).toBe('sceneUpdate')
+		expect(JSON.parse(sceneMessage.payload)).toMatchObject({
+			content: 'An office.',
+			visualDescription: 'A conversation in an office.',
+			withImage: false,
+		})
+		expect(tx.imageGenerationJob.create).toHaveBeenCalledTimes(1)
+		expect(tx.imageGenerationJob.create).toHaveBeenCalledWith({
+			data: expect.objectContaining({ type: 'emotionSheet' }),
+		})
+		expect(tx.imageGenerationOutbox.create).toHaveBeenCalledWith({ data: { job_id: 30 } })
+	})
+
 	it.each(['localdev', 'servermaster'])('uses each saved style for both new NPCs and scenes in %s', async (mode) => {
 		for (const style of aiDialogueIllustrationStyleCatalog.styles) {
 			const { repository, tx } = createHarness(style.id, mode)
@@ -208,6 +241,7 @@ describe('AiDialogueTurnRepository', () => {
 		expect(JSON.parse(sceneMessage.payload)).toMatchObject({
 			participantNpcIds: ['npc_1'],
 			visualDescription: 'A conversation in the office.',
+			withImage: true,
 		})
 	})
 

@@ -1,3 +1,4 @@
+import type { UserPreferences } from 'models/user/userPreferences'
 import type { UserGender } from 'prisma/generated/client'
 
 export type UserServiceModel = {
@@ -12,4 +13,5 @@ export type UserServiceModel = {
 	gender: UserGender
 	avatarPresetId: string | null
 	avatarS3Key: string | null
+	preferences: UserPreferences
 }

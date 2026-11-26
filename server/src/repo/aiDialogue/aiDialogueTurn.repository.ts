@@ -21,6 +21,7 @@ import { Prisma } from 'prisma/generated/client'
 type SaveGeneratedTurnInput = {
 	dialogueId: number
 	turn: ParsedAiDialogueTurn
+	generateSceneImage?: boolean
 }
 
 /** Сохраняет подтверждённый ход и все намерения визуальной генерации одной транзакцией. */
@@ -32,6 +33,8 @@ export class AiDialogueTurnRepository {
 	) {}
 
 	async saveGeneratedTurn(input: SaveGeneratedTurnInput): Promise<number[]> {
+		const { generateSceneImage = true } = input
+
 		return this.prisma.$transaction(async (tx) => {
 			const dialogue = await tx.aiDialogue.findUniqueOrThrow({
 				where: { id: input.dialogueId },
@@ -69,12 +72,12 @@ export class AiDialogueTurnRepository {
 				const participantNpcIds = (metadata?.participantNpcIds ?? []).filter((npcId) =>
 					characterIdByNpcId.has(npcId),
 				)
-				const savedEvent = withSceneMetadata(event, metadata, participantNpcIds)
+				const savedEvent = withSceneMetadata(event, metadata, participantNpcIds, generateSceneImage)
 				const characterId = event.type === 'npcActions' ? (characterIdByNpcId.get(event.npcId) ?? null) : null
 				const message = await this.createMessage(tx, input.dialogueId, savedEvent, characterId)
 				messageIds.push(message.id)
 
-				if (savedEvent.type !== 'sceneUpdate') continue
+				if (savedEvent.type !== 'sceneUpdate' || !generateSceneImage) continue
 
 				await this.createJobWithOutbox(tx, imageStyleSnapshot, {
 					dedupKey: `scene-message:${message.id}`,
@@ -195,11 +198,13 @@ function withSceneMetadata(
 	event: AiDialogueEvent,
 	metadata: ParsedAiDialogueTurn['visualMetadata']['scenes'][number] | undefined,
 	participantNpcIds: string[],
+	generateSceneImage: boolean,
 ): AiDialogueEvent {
 	if (event.type !== 'sceneUpdate') return event
 	return {
 		...event,
 		participantNpcIds,
 		visualDescription: metadata?.visualDescription || event.visualDescription || event.content,
+		withImage: generateSceneImage,
 	}
 }

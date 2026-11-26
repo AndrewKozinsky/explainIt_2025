@@ -27,6 +27,7 @@ export type SceneUpdateEvent = {
 	content: string
 	translation: string
 	visualDescription?: string
+	withImage?: boolean
 	participantNpcIds?: string[]
 	wordMap?: AiDialogueWordMap
 }

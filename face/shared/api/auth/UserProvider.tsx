@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, type ReactNode, useCallback, useContext, useEffect, useState } from 'react'
+import { createContext, type ReactNode, type SetStateAction, useCallback, useContext, useEffect, useState } from 'react'
 import { useQueryClient } from '@tanstack/react-query'
 import { openUserEventsStream } from '@/entities/user/events/openUserEventsStream'
 import { userQueryKeys } from '@/entities/user/UserQueryFacade'
@@ -10,7 +10,8 @@ import { subscribeToBalanceExhausted } from '@/shared/api/balanceExhaustedSignal
 const getMeQueryKey = userQueryKeys.me()
 
 const UserContext = createContext<UserModel | null>(null)
-const SetUserContext = createContext<(user: UserModel | null) => void>(function () {})
+type SetUser = (user: SetStateAction<UserModel | null>) => void
+const SetUserContext = createContext<SetUser>(function () {})
 
 /**
  * Access the current user from context.
@@ -25,7 +26,7 @@ export function useUser(): UserModel | null {
  * Update the current user in both context and React Query cache.
  * Used by login/logout handlers.
  */
-export function useSetUser(): (user: UserModel | null) => void {
+export function useSetUser(): SetUser {
 	return useContext(SetUserContext)
 }
 
@@ -50,9 +51,13 @@ export function UserProvider({ user, children }: UserProviderProps) {
 
 	// Stable setter: updates both context state and React Query cache
 	const setUser = useCallback(
-		function (newUser: UserModel | null) {
+		function (newUser: SetStateAction<UserModel | null>) {
 			setCurrentUser(newUser)
-			queryClient.setQueryData(getMeQueryKey, newUser)
+
+			queryClient.setQueryData<UserModel | null>(
+				getMeQueryKey,
+				typeof newUser === 'function' ? (current) => newUser(current ?? null) : newUser,
+			)
 		},
 		[queryClient],
 	)

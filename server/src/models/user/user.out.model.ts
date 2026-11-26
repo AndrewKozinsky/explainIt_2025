@@ -2,6 +2,8 @@ import { ApiProperty } from '@nestjs/swagger'
 import { bdConfig } from 'db/dbConfig/dbConfig'
 import { getApiPropertyOptions } from 'db/dtoFieldDecorators'
 import type { UserGender } from 'prisma/generated/client'
+import { UserPreferencesDto } from './userPreferences.dto'
+import type { UserPreferences } from './userPreferences'
 
 const $ = bdConfig.User.dbFields
 
@@ -29,4 +31,7 @@ export class UserOutModel {
 
 	@ApiProperty(getApiPropertyOptions(bdConfig.User.dtoProps.uploadedAvatarUrl))
 	uploadedAvatarUrl: string | null
+
+	@ApiProperty({ type: UserPreferencesDto })
+	preferences: UserPreferences
 }

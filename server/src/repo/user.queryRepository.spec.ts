@@ -4,6 +4,7 @@ jest.mock('@nestjs/config', () => ({ ConfigService: class {} }))
 import { PrismaService } from 'db/prisma.service'
 import { CloudflareS3Service } from 'infrastructure/cloudflareS3/cloudflareS3.service'
 import { MainConfigService } from 'infrastructure/mainConfig/mainConfig.service'
+import { GENERATE_SCENE_IMAGE } from 'models/user/userPreferences'
 import { User } from 'prisma/generated/client'
 import { UserQueryRepository } from './user.queryRepository'
 
@@ -17,15 +18,20 @@ describe('user output mapping', () => {
 			expected: 'user-avatars-shared/servermaster/female-1.jpg',
 		},
 	])('signs the selected source without exposing private fields', async ({ expected, ...avatar }) => {
-		const user = {
+		const user: User = {
 			id: 1,
 			email: 'test@example.com',
 			is_user_confirmed: true,
 			balance: 100,
 			gender: 'FEMALE',
 			password: 'secret',
+			email_confirmation_code: null,
+			email_confirmation_code_expiration_date: null,
+			is_email_confirmed: true,
+			created_at: new Date(0),
+			preferences: { [GENERATE_SCENE_IMAGE]: false, privatePreference: true },
 			...avatar,
-		} as User
+		}
 
 		const prisma = { user: { findUnique: jest.fn().mockResolvedValue(user) } }
 		const storage = { getFileUrl: jest.fn(async (key: string) => `signed:${key}`) }
@@ -49,6 +55,7 @@ describe('user output mapping', () => {
 			avatarPresetId: avatar.avatar_preset_id,
 			avatarUrl: `signed:${expected}`,
 			uploadedAvatarUrl: avatar.avatar_s3_key ? `signed:${avatar.avatar_s3_key}` : null,
+			preferences: { [GENERATE_SCENE_IMAGE]: false },
 		})
 	})
 })

@@ -48,6 +48,7 @@ export type SceneUpdateEvent = {
 	translation: string
 	/** Данные иллюстрации; отсутствуют у старых сообщений и в стриминговом превью. */
 	visualDescription?: string
+	withImage?: boolean
 	participantNpcIds?: string[]
 	wordMap?: AiDialogueWordMap
 }

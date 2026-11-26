@@ -8,12 +8,14 @@ import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
 import { HashAdapterService } from 'infrastructure/hashAdapter/hash-adapter.service'
 import { UserServiceModel } from 'models/auth/auth.service.model'
-import { User, type UserGender } from 'prisma/generated/client'
+import { readUserPreferences, type UserPreferences } from 'models/user/userPreferences'
+import { type Prisma, User, type UserGender } from 'prisma/generated/client'
 
 export type UserProfileUpdate = {
 	gender?: UserGender
 	avatar_preset_id?: string | null
 	avatar_s3_key?: string | null
+	preferences?: UserPreferences
 }
 
 @Injectable()
@@ -115,7 +117,7 @@ export class UserRepository {
 	}
 
 	@CatchDbError()
-	async updateUser(userId: number, data: Partial<User>) {
+	async updateUser(userId: number, data: Prisma.UserUpdateInput) {
 		await this.prisma.user.update({
 			where: { id: userId },
 			data,
@@ -182,7 +184,7 @@ export class UserRepository {
 		`
 	}
 
-	/** Lock the row so concurrent replacements return the actual previous photo after commit. */
+	/** Lock the row when replacing a photo or merging preferences with the latest profile. */
 	@CatchDbError()
 	async updateProfile(userId: number, data: UserProfileUpdate) {
 		return this.prisma.$transaction(async (tx) => {
@@ -198,7 +200,16 @@ export class UserRepository {
 				return { user: previous, previousAvatarKey: previous.avatar_s3_key, avatarSelectionRejected: true }
 			}
 
-			const user = await tx.user.update({ where: { id: userId }, data })
+			const { preferences, ...profile } = data
+			const update: Prisma.UserUpdateInput = profile
+
+			if (preferences) {
+				const saved = previous.preferences
+				const savedPreferences = saved && typeof saved === 'object' && !Array.isArray(saved) ? saved : {}
+				update.preferences = { ...savedPreferences, ...preferences }
+			}
+
+			const user = await tx.user.update({ where: { id: userId }, data: update })
 
 			return { user, previousAvatarKey: previous.avatar_s3_key, avatarSelectionRejected: false }
 		})
@@ -264,6 +275,7 @@ export class UserRepository {
 			gender: dbUser.gender,
 			avatarPresetId: dbUser.avatar_preset_id,
 			avatarS3Key: dbUser.avatar_s3_key,
+			preferences: readUserPreferences(dbUser.preferences),
 		}
 	}
 }

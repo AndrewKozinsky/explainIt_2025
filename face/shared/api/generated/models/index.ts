@@ -143,6 +143,7 @@ export * from './updateVideoOutModelUploadUrl';
 export * from './userControllerUploadAvatarBody';
 export * from './userOutModel';
 export * from './userOutModelGender';
+export * from './userPreferences';
 export * from './videoLiteOutModel';
 export * from './videoLiteOutModelContentType';
 export * from './videoLiteOutModelFileUrl';

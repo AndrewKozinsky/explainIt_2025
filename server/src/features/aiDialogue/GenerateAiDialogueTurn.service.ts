@@ -13,6 +13,7 @@ import { errorMessage, serializeErrorMessage } from 'infrastructure/exceptions/e
 import { LlmAdapterService } from 'infrastructure/llmProviderAdapter/LlmAdapter.service'
 import { LlmMessage } from 'infrastructure/llmProviderAdapter/LlmProvider.interface'
 import { AiDialogueMessageOutModel } from 'models/aiDialogue/aiDialogueMessage.out.model'
+import { GENERATE_SCENE_IMAGE } from 'models/user/userPreferences'
 import { ActiveAiDialogueGenerationRegistry } from './ActiveAiDialogueGenerationRegistry.service'
 import { AI_DIALOGUE_MODEL } from './aiDialogueModelConfig'
 import { AiDialogueSseHub } from './AiDialogueSseHub.service'
@@ -84,6 +85,7 @@ export class GenerateAiDialogueTurn {
 
 			const user = await this.userRepository.getUserById(dialogue.user_id)
 			if (!user) return
+			const generateSceneImage = user.preferences?.[GENERATE_SCENE_IMAGE] ?? true
 
 			// Баланс исчерпан: клиент получает turnError с кодом BALANCE_EXHAUSTED.
 			await this.userBalanceService.ensurePositiveBalanceOrThrow(user.id, 'aiDialogue')
@@ -117,7 +119,11 @@ export class GenerateAiDialogueTurn {
 				mode: dialogue.mode,
 			})
 
-			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({ dialogueId, turn })
+			const messageIds = await this.aiDialogueTurnRepository.saveGeneratedTurn({
+				dialogueId,
+				turn,
+				generateSceneImage,
+			})
 
 			for (const messageId of messageIds) {
 				const messageOut = await this.aiDialogueQueryRepository.getMessageById(messageId)

@@ -4,10 +4,11 @@ import { type UserProfileUpdate, UserRepository } from 'repo/user.repository'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
 import { ErrorStatusCode } from 'infrastructure/exceptions/errorStatusCode'
+import { GENERATE_SCENE_IMAGE, type UserPreferences } from 'models/user/userPreferences'
 import type { UserGender } from 'prisma/generated/client'
 import { getAvatarPreset } from './avatarPresets'
 
-type UpdateUserProfileInput = { gender?: UserGender; avatarPresetId?: string | null }
+type UpdateUserProfileInput = { gender?: UserGender; avatarPresetId?: string | null; preferences?: UserPreferences }
 
 export class UpdateUserProfileCommand implements ICommand {
 	constructor(
@@ -24,17 +25,15 @@ export class UpdateUserProfileHandler implements ICommandHandler<UpdateUserProfi
 	) {}
 
 	async execute(command: UpdateUserProfileCommand) {
-		const { gender, avatarPresetId } = command.input
-
-		if (
-			(gender === undefined && avatarPresetId === undefined) ||
-			(gender !== undefined && gender !== 'MALE' && gender !== 'FEMALE') ||
-			(avatarPresetId !== undefined && avatarPresetId !== null && typeof avatarPresetId !== 'string')
-		)
+		if (!this.isValidProfileUpdate(command.input)) {
 			throw new CustomError(errorMessage.user.invalidProfileUpdate, ErrorStatusCode.BadRequest_400)
+		}
 
+		const { gender, avatarPresetId, preferences } = command.input
+		const generateSceneImage = preferences?.[GENERATE_SCENE_IMAGE]
 		const data: UserProfileUpdate = {}
 		if (gender !== undefined) data.gender = gender
+		if (generateSceneImage !== undefined) data.preferences = { [GENERATE_SCENE_IMAGE]: generateSceneImage }
 
 		if (avatarPresetId === null) data.avatar_preset_id = null
 
@@ -53,5 +52,29 @@ export class UpdateUserProfileHandler implements ICommandHandler<UpdateUserProfi
 			throw new CustomError(errorMessage.user.invalidProfileUpdate, ErrorStatusCode.BadRequest_400)
 
 		return this.queryRepository.mapDbUserToOutUser(result.user)
+	}
+
+	private isValidProfileUpdate({ gender, avatarPresetId, preferences }: UpdateUserProfileInput): boolean {
+		const generateSceneImage = preferences?.[GENERATE_SCENE_IMAGE]
+		const hasChanges = gender !== undefined || avatarPresetId !== undefined || generateSceneImage !== undefined
+
+		return (
+			hasChanges &&
+			this.isValidGender(gender) &&
+			this.isValidAvatarPresetId(avatarPresetId) &&
+			this.isValidSceneImagePreference(generateSceneImage)
+		)
+	}
+
+	private isValidGender(gender: unknown): boolean {
+		return gender === undefined || gender === 'MALE' || gender === 'FEMALE'
+	}
+
+	private isValidAvatarPresetId(avatarPresetId: unknown): boolean {
+		return avatarPresetId === undefined || avatarPresetId === null || typeof avatarPresetId === 'string'
+	}
+
+	private isValidSceneImagePreference(generateSceneImage: unknown): boolean {
+		return generateSceneImage === undefined || typeof generateSceneImage === 'boolean'
 	}
 }

@@ -24,6 +24,7 @@ export namespace BdConfig {
 		| DateTimeField
 		| TimeStringField
 		| BooleanField
+		| JsonField
 		| EmailField
 		| NumberField
 		| ArrayField
@@ -124,6 +125,13 @@ export namespace BdConfig {
 		description?: string
 		// Field example value
 		example?: boolean
+	}
+
+	export type JsonField = {
+		type: 'json'
+		required: boolean
+		default?: string
+		unique?: boolean
 	}
 
 	export type EmailField = {

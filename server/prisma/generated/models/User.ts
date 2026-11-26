@@ -78,6 +78,7 @@ export type UserCountAggregateOutputType = {
   gender: number
   avatar_preset_id: number
   avatar_s3_key: number
+  preferences: number
   created_at: number
   _all: number
 }
@@ -135,6 +136,7 @@ export type UserCountAggregateInputType = {
   gender?: true
   avatar_preset_id?: true
   avatar_s3_key?: true
+  preferences?: true
   created_at?: true
   _all?: true
 }
@@ -237,6 +239,7 @@ export type UserGroupByOutputType = {
   gender: $Enums.UserGender
   avatar_preset_id: string | null
   avatar_s3_key: string | null
+  preferences: runtime.JsonValue
   created_at: Date
   _count: UserCountAggregateOutputType | null
   _avg: UserAvgAggregateOutputType | null
@@ -275,6 +278,7 @@ export type UserWhereInput = {
   gender?: Prisma.EnumUserGenderFilter<"User"> | $Enums.UserGender
   avatar_preset_id?: Prisma.StringNullableFilter<"User"> | string | null
   avatar_s3_key?: Prisma.StringNullableFilter<"User"> | string | null
+  preferences?: Prisma.JsonFilter<"User">
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   Book?: Prisma.BookListRelationFilter
   Video?: Prisma.VideoListRelationFilter
@@ -295,6 +299,7 @@ export type UserOrderByWithRelationInput = {
   gender?: Prisma.SortOrder
   avatar_preset_id?: Prisma.SortOrderInput | Prisma.SortOrder
   avatar_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  preferences?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   Book?: Prisma.BookOrderByRelationAggregateInput
   Video?: Prisma.VideoOrderByRelationAggregateInput
@@ -318,6 +323,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   gender?: Prisma.EnumUserGenderFilter<"User"> | $Enums.UserGender
   avatar_preset_id?: Prisma.StringNullableFilter<"User"> | string | null
   avatar_s3_key?: Prisma.StringNullableFilter<"User"> | string | null
+  preferences?: Prisma.JsonFilter<"User">
   created_at?: Prisma.DateTimeFilter<"User"> | Date | string
   Book?: Prisma.BookListRelationFilter
   Video?: Prisma.VideoListRelationFilter
@@ -338,6 +344,7 @@ export type UserOrderByWithAggregationInput = {
   gender?: Prisma.SortOrder
   avatar_preset_id?: Prisma.SortOrderInput | Prisma.SortOrder
   avatar_s3_key?: Prisma.SortOrderInput | Prisma.SortOrder
+  preferences?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
   _count?: Prisma.UserCountOrderByAggregateInput
   _avg?: Prisma.UserAvgOrderByAggregateInput
@@ -361,6 +368,7 @@ export type UserScalarWhereWithAggregatesInput = {
   gender?: Prisma.EnumUserGenderWithAggregatesFilter<"User"> | $Enums.UserGender
   avatar_preset_id?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
   avatar_s3_key?: Prisma.StringNullableWithAggregatesFilter<"User"> | string | null
+  preferences?: Prisma.JsonWithAggregatesFilter<"User">
   created_at?: Prisma.DateTimeWithAggregatesFilter<"User"> | Date | string
 }
 
@@ -375,6 +383,7 @@ export type UserCreateInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
@@ -395,6 +404,7 @@ export type UserUncheckedCreateInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
@@ -414,6 +424,7 @@ export type UserUpdateInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
@@ -434,6 +445,7 @@ export type UserUncheckedUpdateInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
@@ -454,6 +466,7 @@ export type UserCreateManyInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
 }
 
@@ -468,6 +481,7 @@ export type UserUpdateManyMutationInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -483,6 +497,7 @@ export type UserUncheckedUpdateManyInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
@@ -498,6 +513,7 @@ export type UserCountOrderByAggregateInput = {
   gender?: Prisma.SortOrder
   avatar_preset_id?: Prisma.SortOrder
   avatar_s3_key?: Prisma.SortOrder
+  preferences?: Prisma.SortOrder
   created_at?: Prisma.SortOrder
 }
 
@@ -666,6 +682,7 @@ export type UserCreateWithoutBookInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
@@ -685,6 +702,7 @@ export type UserUncheckedCreateWithoutBookInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
@@ -719,6 +737,7 @@ export type UserUpdateWithoutBookInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
@@ -738,6 +757,7 @@ export type UserUncheckedUpdateWithoutBookInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
@@ -756,6 +776,7 @@ export type UserCreateWithoutVideoInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadCreateNestedManyWithoutUserInput
@@ -775,6 +796,7 @@ export type UserUncheckedCreateWithoutVideoInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedCreateNestedManyWithoutUserInput
@@ -809,6 +831,7 @@ export type UserUpdateWithoutVideoInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUpdateManyWithoutUserNestedInput
@@ -828,6 +851,7 @@ export type UserUncheckedUpdateWithoutVideoInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   SentenceChatThread?: Prisma.SentenceChatThreadUncheckedUpdateManyWithoutUserNestedInput
@@ -846,6 +870,7 @@ export type UserCreateWithoutSentenceChatThreadInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
@@ -865,6 +890,7 @@ export type UserUncheckedCreateWithoutSentenceChatThreadInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
@@ -899,6 +925,7 @@ export type UserUpdateWithoutSentenceChatThreadInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
@@ -918,6 +945,7 @@ export type UserUncheckedUpdateWithoutSentenceChatThreadInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
@@ -936,6 +964,7 @@ export type UserCreateWithoutAiDialogueScenarioInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
@@ -955,6 +984,7 @@ export type UserUncheckedCreateWithoutAiDialogueScenarioInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
@@ -989,6 +1019,7 @@ export type UserUpdateWithoutAiDialogueScenarioInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
@@ -1008,6 +1039,7 @@ export type UserUncheckedUpdateWithoutAiDialogueScenarioInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
@@ -1026,6 +1058,7 @@ export type UserCreateWithoutAiDialogueInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoCreateNestedManyWithoutUserInput
@@ -1045,6 +1078,7 @@ export type UserUncheckedCreateWithoutAiDialogueInput = {
   gender?: $Enums.UserGender
   avatar_preset_id?: string | null
   avatar_s3_key?: string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Date | string
   Book?: Prisma.BookUncheckedCreateNestedManyWithoutUserInput
   Video?: Prisma.VideoUncheckedCreateNestedManyWithoutUserInput
@@ -1079,6 +1113,7 @@ export type UserUpdateWithoutAiDialogueInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUpdateManyWithoutUserNestedInput
@@ -1098,6 +1133,7 @@ export type UserUncheckedUpdateWithoutAiDialogueInput = {
   gender?: Prisma.EnumUserGenderFieldUpdateOperationsInput | $Enums.UserGender
   avatar_preset_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   avatar_s3_key?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  preferences?: Prisma.JsonNullValueInput | runtime.InputJsonValue
   created_at?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   Book?: Prisma.BookUncheckedUpdateManyWithoutUserNestedInput
   Video?: Prisma.VideoUncheckedUpdateManyWithoutUserNestedInput
@@ -1184,6 +1220,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   gender?: boolean
   avatar_preset_id?: boolean
   avatar_s3_key?: boolean
+  preferences?: boolean
   created_at?: boolean
   Book?: boolean | Prisma.User$BookArgs<ExtArgs>
   Video?: boolean | Prisma.User$VideoArgs<ExtArgs>
@@ -1205,6 +1242,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   gender?: boolean
   avatar_preset_id?: boolean
   avatar_s3_key?: boolean
+  preferences?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -1220,6 +1258,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   gender?: boolean
   avatar_preset_id?: boolean
   avatar_s3_key?: boolean
+  preferences?: boolean
   created_at?: boolean
 }, ExtArgs["result"]["user"]>
 
@@ -1235,10 +1274,11 @@ export type UserSelectScalar = {
   gender?: boolean
   avatar_preset_id?: boolean
   avatar_s3_key?: boolean
+  preferences?: boolean
   created_at?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "email_confirmation_code" | "email_confirmation_code_expiration_date" | "is_email_confirmed" | "is_user_confirmed" | "balance" | "gender" | "avatar_preset_id" | "avatar_s3_key" | "created_at", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "email" | "password" | "email_confirmation_code" | "email_confirmation_code_expiration_date" | "is_email_confirmed" | "is_user_confirmed" | "balance" | "gender" | "avatar_preset_id" | "avatar_s3_key" | "preferences" | "created_at", ExtArgs["result"]["user"]>
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   Book?: boolean | Prisma.User$BookArgs<ExtArgs>
   Video?: boolean | Prisma.User$VideoArgs<ExtArgs>
@@ -1271,6 +1311,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     gender: $Enums.UserGender
     avatar_preset_id: string | null
     avatar_s3_key: string | null
+    preferences: runtime.JsonValue
     created_at: Date
   }, ExtArgs["result"]["user"]>
   composites: {}
@@ -1711,6 +1752,7 @@ export interface UserFieldRefs {
   readonly gender: Prisma.FieldRef<"User", 'UserGender'>
   readonly avatar_preset_id: Prisma.FieldRef<"User", 'String'>
   readonly avatar_s3_key: Prisma.FieldRef<"User", 'String'>
+  readonly preferences: Prisma.FieldRef<"User", 'Json'>
   readonly created_at: Prisma.FieldRef<"User", 'DateTime'>
 }
     

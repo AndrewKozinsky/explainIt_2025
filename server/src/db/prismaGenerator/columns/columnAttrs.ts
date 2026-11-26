@@ -12,6 +12,7 @@ export function createColumnAttrs(
 		| BdConfig.NumberField
 		| BdConfig.EmailField
 		| BdConfig.BooleanField
+		| BdConfig.JsonField
 		| BdConfig.DateStringField
 		| BdConfig.DateTimeField
 		| BdConfig.TimeStringField,
@@ -22,11 +23,13 @@ export function createColumnAttrs(
 		attrStrings.push('?')
 	}
 	if (columnConfig.default !== undefined) {
-		const isStringColumn = ['string', 'email', 'dateString', 'timeString'].includes(columnConfig.type)
+		const quoteDefault = ['string', 'email', 'dateString', 'timeString', 'json'].includes(columnConfig.type)
+
 		const defaultValue =
-			isStringColumn && typeof columnConfig.default === 'string'
+			quoteDefault && typeof columnConfig.default === 'string'
 				? JSON.stringify(columnConfig.default)
 				: columnConfig.default
+
 		attrStrings.push(`@default(${defaultValue})`)
 	}
 	if (columnConfig.unique) {
