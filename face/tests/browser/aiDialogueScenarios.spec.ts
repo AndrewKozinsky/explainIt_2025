@@ -186,9 +186,20 @@ test('desktop groups preserve server order and have four equal columns, counts a
 	await expect(page.locator('.start-dialogue-modal__idea')).toHaveText(['Уточнить детали', 'Договориться о решении'])
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveAttribute('src', '/test-cover.svg')
 	await expect(page.locator('.start-dialogue-modal > img')).toHaveJSProperty('naturalWidth', 1152)
-	await expect(page.locator('.modal .switcher--size-medium')).toHaveCount(2)
-	for (const switcher of await page.locator('.modal .switcher--size-medium').all())
-		await expect(switcher).toBeVisible()
+	await expect(page.locator('.modal .switcher--size-medium')).toBeVisible()
+	await expect(
+		page
+			.locator('.modal [aria-current="true"]')
+			.getByText(
+				'Общайтесь с переводами и разбором ошибок. Ваши ответы автоматически исправляются. Сложность можно менять.',
+				{ exact: true },
+			),
+	).toBeVisible()
+	await expect(
+		page.locator('.modal').getByRole('button', { name: 'Экзамен', exact: true }),
+	).toHaveAccessibleDescription(
+		'Проверьте себя в этой ситуации: реплики только на слух, ответы без исправлений. Выбранный уровень нельзя менять.',
+	)
 	await expect(page.locator('.modal .label-with-field__description')).toHaveText('Можно изменить во время разговора')
 	await expect(page.getByRole('radio', { name: 'Реализм', exact: true })).toBeChecked()
 	await expect(page.getByRole('radio')).toHaveCount(3)
@@ -276,9 +287,7 @@ test('authenticated creation blocks duplicate clicks, recovers from errors and n
 	await start.click()
 	await expect(start).toBeDisabled()
 
-	const settingsButtons = page.locator(
-		'.start-dialogue-modal .language-switch button, .start-dialogue-modal .switcher button',
-	)
+	const settingsButtons = page.locator('.start-dialogue-modal :is(.language-switch, .switcher) button')
 	expect(await settingsButtons.count()).toBeGreaterThan(0)
 	for (const control of await settingsButtons.all()) await expect(control).toBeDisabled()
 	for (const radio of await page.getByRole('radio').all()) await expect(radio).toBeDisabled()
@@ -467,25 +476,31 @@ test('exam offers A1–C1, restores unrestricted practice and sends the selected
 	const h = await setup(page, { authenticated: true })
 	await page.getByRole('button', { name: titles[0], exact: true }).click()
 	const modal = page.locator('.start-dialogue-modal')
-	await expect(modal.getByRole('button', { name: 'Практика', exact: true })).toBeDisabled()
+	const currentMode = modal.locator('.content-card-grid [aria-current="true"]')
+	const practice = modal.getByRole('button', { name: 'Практика', exact: true })
+	const exam = modal.getByRole('button', { name: 'Экзамен', exact: true })
+	await expect(currentMode.getByText('Практика', { exact: true })).toBeVisible()
+	await expect(practice).toHaveCount(0)
 	await expect(modal.getByRole('button', { name: 'Любой', exact: true })).toBeDisabled()
-	await modal.getByRole('button', { name: 'Экзамен', exact: true }).click()
+	await exam.click()
+	await expect(currentMode.getByText('Экзамен', { exact: true })).toBeVisible()
+	await expect(exam).toHaveCount(0)
 	await expect(modal.getByRole('button', { name: 'Любой', exact: true })).toHaveCount(0)
 	await expect(modal.getByRole('button', { name: 'A1', exact: true })).toBeDisabled()
 	await expect(modal.getByText('Начальная сложность', { exact: true })).toBeVisible()
 	await expect(modal.getByText('Можно изменить во время разговора', { exact: true })).toHaveCount(0)
-	await modal.getByRole('button', { name: 'Практика', exact: true }).click()
+	await practice.click()
 	await expect(modal.getByRole('button', { name: 'Любой', exact: true })).toBeDisabled()
-	await modal.getByRole('button', { name: 'Экзамен', exact: true }).click()
+	await exam.click()
 	await modal.getByRole('button', { name: 'C1', exact: true }).click()
 	await modal.screenshot({ path: testInfo.outputPath('scenario-exam-start.png') })
 	await modal.getByRole('button', { name: /Начать диалог$/ }).click()
 	await expect.poll(() => h.posts.length).toBe(1)
 	expect(h.posts[0]).toMatchObject({ mode: 'exam', cefrLevel: 'C1' })
-	await expect(modal.getByRole('button', { name: 'Практика', exact: true })).toBeDisabled()
+	await expect(practice).toBeEnabled()
 	h.finishCreation(true)
 	await expect(page.getByRole('alert')).toBeVisible()
-	await expect(modal.getByRole('button', { name: 'Экзамен', exact: true })).toBeDisabled()
+	await expect(currentMode.getByText('Экзамен', { exact: true })).toBeVisible()
 	await expect(modal.getByRole('button', { name: 'C1', exact: true })).toBeDisabled()
 	expect(h.errors).toEqual([])
 })

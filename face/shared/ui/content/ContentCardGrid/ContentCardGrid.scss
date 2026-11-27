@@ -11,22 +11,16 @@
 	flex-direction: column;
 	gap: 0.2rem;
 	padding: 1rem 1.2rem;
-	border: 1px solid transparent;
 	border-radius: vars.$radius-2;
-	background-color: vars.$grayColor-1;
+	background-color: transparent;
 	color: inherit;
 	font: inherit;
 	text-align: left;
 }
 
-button.content-card-grid__card {
-	border-color: vars.$grayColor-2;
-	background: none;
-	cursor: pointer;
-
-	&:hover {
-		border-color: vars.$grayColor-4;
-	}
+.content-card-grid__card[aria-current='true'] {
+	border: 1px solid transparent;
+	background-color: vars.$grayColor-1;
 }
 
 .content-card-grid__title {
@@ -39,4 +33,5 @@ button.content-card-grid__card {
 .content-card-grid__description {
 	font-size: 1.5rem;
 	line-height: 2.2rem;
+	overflow-wrap: anywhere;
 }

@@ -15,7 +15,9 @@
     "trainedSkills": "What it trains",
     "mode": "Mode",
     "practice": "Practice",
+    "practiceDescription": "Have a conversation with translations and explanations of your mistakes. Your answers are corrected automatically. You can change the difficulty.",
     "exam": "Exam",
+    "examDescription": "Test yourself in this situation: the dialogue is audio-only, and your answers won’t be corrected. You can’t change the level you choose.",
     "initialTextLevel": "Starting difficulty",
     "initialTextLevelDescription": "Choose the difficulty at the start of the conversation"
   },

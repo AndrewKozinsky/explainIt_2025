@@ -15,7 +15,9 @@
     "trainedSkills": "Ce que vous travaillez",
     "mode": "Mode",
     "practice": "Pratique",
+    "practiceDescription": "Conversez avec des traductions et des explications sur vos erreurs. Vos réponses sont corrigées automatiquement. Vous pouvez modifier la difficulté.",
     "exam": "Examen",
+    "examDescription": "Testez-vous dans cette situation : les répliques sont uniquement disponibles à l’oral et vos réponses ne sont pas corrigées. Le niveau choisi ne peut pas être modifié.",
     "initialTextLevel": "Difficulté initiale",
     "initialTextLevelDescription": "Choisissez la difficulté au début de la conversation"
   },

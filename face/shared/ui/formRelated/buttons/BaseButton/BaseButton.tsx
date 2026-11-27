@@ -16,6 +16,8 @@ type BaseButtonProps = {
 	style?: CSSProperties
 	title?: string
 	'aria-label'?: string
+	'aria-labelledby'?: React.AriaAttributes['aria-labelledby']
+	'aria-describedby'?: React.AriaAttributes['aria-describedby']
 	'aria-pressed'?: React.AriaAttributes['aria-pressed']
 	children?: React.ReactNode
 }
@@ -34,6 +36,8 @@ function BaseButton(props: BaseButtonProps) {
 		style,
 		title,
 		'aria-label': ariaLabel,
+		'aria-labelledby': ariaLabelledBy,
+		'aria-describedby': ariaDescribedBy,
 		'aria-pressed': ariaPressed,
 		children,
 	} = props
@@ -61,6 +65,8 @@ function BaseButton(props: BaseButtonProps) {
 				type={type ?? 'button'}
 				title={title}
 				aria-label={ariaLabel}
+				aria-labelledby={ariaLabelledBy}
+				aria-describedby={ariaDescribedBy}
 				aria-pressed={ariaPressed}
 			>
 				{children}
@@ -76,6 +82,8 @@ function BaseButton(props: BaseButtonProps) {
 			onClick={onClick as unknown as React.MouseEventHandler<HTMLAnchorElement>}
 			title={title}
 			aria-label={ariaLabel}
+			aria-labelledby={ariaLabelledBy}
+			aria-describedby={ariaDescribedBy}
 		>
 			{children}
 		</Link>

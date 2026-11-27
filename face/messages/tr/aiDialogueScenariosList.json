@@ -15,7 +15,9 @@
     "trainedSkills": "Neleri geliştirir",
     "mode": "Mod",
     "practice": "Pratik",
+    "practiceDescription": "Çeviriler ve hatalarınızla ilgili açıklamalar eşliğinde sohbet edin. Yanıtlarınız otomatik olarak düzeltilir. Zorluk düzeyini değiştirebilirsiniz.",
     "exam": "Sınav",
+    "examDescription": "Bu durumda kendinizi sınayın: Konuşmadaki replikleri yalnızca dinleyebilirsiniz ve yanıtlarınız düzeltilmez. Seçtiğiniz düzeyi değiştiremezsiniz.",
     "initialTextLevel": "Başlangıç zorluğu",
     "initialTextLevelDescription": "Konuşmanın başlangıç zorluğunu seçin"
   },

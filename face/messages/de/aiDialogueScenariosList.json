@@ -15,7 +15,9 @@
     "trainedSkills": "Was trainiert wird",
     "mode": "Modus",
     "practice": "Übung",
+    "practiceDescription": "Führe Gespräche mit Übersetzungen und Erklärungen zu deinen Fehlern. Deine Antworten werden automatisch korrigiert. Du kannst die Schwierigkeit ändern.",
     "exam": "Prüfung",
+    "examDescription": "Teste dich in dieser Situation: Die Gesprächsbeiträge gibt es nur zum Anhören, und deine Antworten werden nicht korrigiert. Die gewählte Stufe lässt sich nicht ändern.",
     "initialTextLevel": "Anfangsschwierigkeit",
     "initialTextLevelDescription": "Wähle die Schwierigkeit zu Beginn des Gesprächs"
   },

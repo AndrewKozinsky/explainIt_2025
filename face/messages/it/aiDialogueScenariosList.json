@@ -15,7 +15,9 @@
     "trainedSkills": "Cosa allena",
     "mode": "Modalità",
     "practice": "Pratica",
+    "practiceDescription": "Conversa con traduzioni e spiegazioni dei tuoi errori. Le tue risposte vengono corrette automaticamente. Puoi cambiare la difficoltà.",
     "exam": "Esame",
+    "examDescription": "Mettiti alla prova in questa situazione: puoi solo ascoltare le battute del dialogo e le tue risposte non vengono corrette. Il livello scelto non si può cambiare.",
     "initialTextLevel": "Difficoltà iniziale",
     "initialTextLevelDescription": "Scegli la difficoltà all’inizio della conversazione"
   },

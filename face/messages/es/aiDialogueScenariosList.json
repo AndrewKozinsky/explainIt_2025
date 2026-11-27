@@ -15,7 +15,9 @@
     "trainedSkills": "Qué entrena",
     "mode": "Modo",
     "practice": "Práctica",
+    "practiceDescription": "Conversa con traducciones y explicaciones de tus errores. Tus respuestas se corrigen automáticamente. Puedes cambiar la dificultad.",
     "exam": "Examen",
+    "examDescription": "Ponte a prueba en esta situación: solo podrás escuchar las intervenciones del diálogo y tus respuestas no se corregirán. No puedes cambiar el nivel elegido.",
     "initialTextLevel": "Dificultad inicial",
     "initialTextLevelDescription": "Elige la dificultad al comenzar la conversación"
   },

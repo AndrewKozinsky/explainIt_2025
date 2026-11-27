@@ -4,13 +4,13 @@ import TextLevelSwitcher from '@/entities/aiDialogue/ui/TextLevelSwitcher'
 import { aiDialogueScenarioConfig } from '@/entities/aiDialogueScenario/lib/aiDialogueScenarioConfig'
 import { useIsBalanceExhausted } from '@/entities/user/fn/useIsBalanceExhausted'
 import BalanceExhaustedNotice from '@/entities/user/ui/BalanceExhaustedNotice/BalanceExhaustedNotice'
+import ContentCardGrid from '@/shared/ui/content/ContentCardGrid/ContentCardGrid'
 import Button from '@/shared/ui/formRelated/buttons/Button/Button'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import TextInput from '@/shared/ui/formRelated/TextInput/TextInput'
 import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/ArrowRightPureButtonIcon'
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
-import Switcher from '@/shared/ui/Switcher/Switcher'
 import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
 import ScenarioDescription from './ScenarioDescription'
 import ScenarioPracticeHints from './ScenarioPracticeHints'
@@ -37,14 +37,12 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
 				<ScenarioPracticeHints scenario={scenario} />
 				<LabelWithField label={t('mode')}>
-					<Switcher
-						type='fit'
-						orientation='horizontal'
-						size='medium'
-						disabled={loading}
+					<ContentCardGrid
 						items={(['practice', 'exam'] as const).map((mode) => ({
-							content: t(mode),
-							isCurrent: settings.mode === mode,
+							id: mode,
+							title: t(mode),
+							description: t(`${mode}Description`),
+							selected: settings.mode === mode,
 							onClick: () => settings.changeMode(mode),
 						}))}
 					/>
