@@ -11,12 +11,12 @@ export function MainMenu() {
 						linkData={{ nameKey: pageUrls.aiDialogues.nameKey, path: pageUrls.aiDialogues.path }}
 					/>
 				</li>
-				{/*<li>
+				<li>
 					<MainMenuLink linkData={{ nameKey: pageUrls.videos.nameKey, path: pageUrls.videos.path }} />
-				</li>*/}
-				{/*<li>
+				</li>
+				<li>
 					<MainMenuLink linkData={{ nameKey: pageUrls.books.nameKey, path: pageUrls.books.path }} />
-				</li>*/}
+				</li>
 				<li>
 					<MainMenuLink linkData={{ nameKey: pageUrls.contacts.nameKey, path: pageUrls.contacts.path }} />
 				</li>
