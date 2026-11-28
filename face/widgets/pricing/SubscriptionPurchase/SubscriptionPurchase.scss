@@ -25,15 +25,3 @@
 	line-height: 2rem;
 	color: vars.$grayColor-5;
 }
-
-.subscription-purchase__button {
-	box-sizing: border-box;
-	min-width: 13rem;
-	padding: 1rem 3rem;
-	font-size: 1.8rem;
-	line-height: 2.2rem;
-
-	&:not(:disabled) {
-		border-color: vars.$accentColor-3;
-	}
-}

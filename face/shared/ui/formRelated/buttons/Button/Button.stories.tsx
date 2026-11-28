@@ -37,7 +37,7 @@ const meta = {
 		children: { control: 'text' },
 		theme: { control: 'select', options: ['regular', 'danger', 'accent', 'plain', 'outline'] },
 		colorScheme: { control: 'inline-radio', options: ['dark', 'light'] },
-		size: { control: 'select', options: ['small', 'medium', 'big', 'custom'] },
+		size: { control: 'select', options: ['small', 'medium', 'big'] },
 		icon: { control: false },
 		href: { control: 'text' },
 	},
