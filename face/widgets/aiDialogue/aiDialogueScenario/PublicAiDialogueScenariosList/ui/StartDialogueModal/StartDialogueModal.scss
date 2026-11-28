@@ -17,6 +17,12 @@
 	padding: 2rem;
 }
 
+.start-dialogue-modal__overview {
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+}
+
 .start-dialogue-modal__description {
 	display: flex;
 	flex-direction: column;

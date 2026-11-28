@@ -12,8 +12,9 @@ import ArrowRightPureButtonIcon from '@/shared/ui/icons/buttonIcons/standard/Arr
 import LanguageSwitch from '@/shared/ui/LanguageSwitch/LanguageSwitch'
 import Modal from '@/shared/ui/Modal/Modal'
 import { type StartDialogueOptions, useStartDialogueOptions } from '../../fn/useStartDialogueOptions'
+import ScenarioConversationIdeas from './ScenarioConversationIdeas'
 import ScenarioDescription from './ScenarioDescription'
-import ScenarioPracticeHints from './ScenarioPracticeHints'
+import ScenarioTrainedSkills from './ScenarioTrainedSkills'
 import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
 import './StartDialogueModal.scss'
 
@@ -34,8 +35,11 @@ export default function StartDialogueModal({ scenario, groupTitle, loading, onCl
 		<Modal isOpen close={onClose} extraClass='start-dialogue-modal'>
 			<img src={scenario.coverUrl} alt='' className='start-dialogue-modal__cover' />
 			<div className='start-dialogue-modal__content'>
-				<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
-				<ScenarioPracticeHints scenario={scenario} />
+				<div className='start-dialogue-modal__overview'>
+					<ScenarioDescription scenario={scenario} groupTitle={groupTitle} />
+					<ScenarioConversationIdeas conversationIdeas={scenario.conversationIdeas} />
+					<ScenarioTrainedSkills trainedSkills={scenario.trainedSkills} />
+				</div>
 				<LabelWithField label={t('mode')}>
 					<ContentCardGrid
 						items={(['practice', 'exam'] as const).map((mode) => ({
