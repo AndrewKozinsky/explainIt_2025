@@ -127,23 +127,67 @@ describe('user profile changes', () => {
 		})
 	})
 
-	it('sets gender from the preset even if a different gender is supplied', async () => {
+	it.each([
+		['MALE', 'female-2', 'FEMALE'],
+		['FEMALE', 'male-2', 'MALE'],
+	] as const)('sets the gender of %s to match the selected %s preset', async (gender, presetId, presetGender) => {
 		const h = harness()
 		h.user.avatar_s3_key = 'old-photo'
-		await h.update.execute(new UpdateUserProfileCommand(1, { gender: 'MALE', avatarPresetId: 'female-2' }))
+		await h.update.execute(new UpdateUserProfileCommand(1, { gender, avatarPresetId: presetId }))
 		expect(h.repository.updateProfile).toHaveBeenCalledWith(1, {
-			gender: 'FEMALE',
-			avatar_preset_id: 'female-2',
+			gender: presetGender,
+			avatar_preset_id: presetId,
 		})
 		expect(h.cleanup.cleanupReplacedPhoto).not.toHaveBeenCalled()
 	})
 
 	it('changes only gender without replacing or cleaning the current photo', async () => {
 		const h = harness()
-		await h.update.execute(new UpdateUserProfileCommand(1, { gender: 'FEMALE' }))
+		h.user.avatar_s3_key = 'own-photo'
+		h.user.avatar_preset_id = null
+		const updated = await h.update.execute(new UpdateUserProfileCommand(1, { gender: 'FEMALE' }))
 		expect(h.repository.updateProfile).toHaveBeenCalledWith(1, { gender: 'FEMALE' })
+		expect(updated).toMatchObject({ avatar_preset_id: null, avatar_s3_key: 'own-photo', gender: 'FEMALE' })
 		expect(h.cleanup.cleanupReplacedPhoto).not.toHaveBeenCalled()
 	})
+
+	it.each([
+		['FEMALE', 'male-2', 'female-1'],
+		['MALE', 'female-2', 'male-1'],
+		['FEMALE', 'female-2', undefined],
+		['FEMALE', null, undefined],
+		['MALE', null, undefined],
+	] as const)(
+		'updates the locked portrait on a gender change to %s (previous preset: %s)',
+		async (gender, presetId, nextPresetId) => {
+			const previous = {
+				gender: gender === 'FEMALE' ? 'MALE' : 'FEMALE',
+				avatar_preset_id: presetId,
+				avatar_s3_key: 'own-photo',
+			}
+			const tx = {
+				$queryRaw: jest.fn().mockResolvedValue([{ id: 1 }]),
+				user: {
+					findUniqueOrThrow: jest.fn().mockResolvedValue(previous),
+					update: jest.fn(({ data }) => ({ ...previous, ...data })),
+				},
+			}
+			const prisma = { $transaction: (operation: (transaction: typeof tx) => unknown) => operation(tx) }
+			const repository = new UserRepository(prisma as unknown as PrismaService, {} as HashAdapterService)
+
+			const updated = await repository.updateProfile(1, { gender })
+
+			expect(tx.user.update).toHaveBeenCalledWith({
+				where: { id: 1 },
+				data: nextPresetId ? { gender, avatar_preset_id: nextPresetId } : { gender },
+			})
+			expect(updated?.user).toMatchObject({
+				gender,
+				avatar_preset_id: nextPresetId ?? presetId,
+				avatar_s3_key: 'own-photo',
+			})
+		},
+	)
 
 	it.each([{}, { gender: null }, { avatarPresetId: 3 }, { gender: 'OTHER' }, { avatarPresetId: 'unknown' }])(
 		'rejects invalid or empty input %j before touching the database',

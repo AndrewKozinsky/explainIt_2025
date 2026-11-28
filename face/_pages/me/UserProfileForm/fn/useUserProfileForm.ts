@@ -60,7 +60,11 @@ export function useUserProfileForm(user: UserModel) {
 	function changeGender(gender: UserGender) {
 		if (gender === user.gender) return
 
-		return save({ gender }, gender)
+		const currentPreset = presets.data?.find((preset) => preset.id === user.avatarPresetId)
+		const defaultPreset = presets.data?.find((preset) => preset.gender === gender)
+		const pendingPresetId = currentPreset && currentPreset.gender !== gender ? defaultPreset?.id : undefined
+
+		return save({ gender }, gender, pendingPresetId)
 	}
 
 	function selectPreset(id: AvatarPresetId) {

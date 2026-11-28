@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { add } from 'date-fns'
 import { createUniqString } from 'utils/stringUtils'
 import { PrismaService } from 'db/prisma.service'
-import { getDefaultAvatarPresetId } from 'features/user/avatarPresets'
+import { getAvatarPreset, getDefaultAvatarPresetId } from 'features/user/avatarPresets'
 import CatchDbError from 'infrastructure/exceptions/CatchDBErrors'
 import { CustomError } from 'infrastructure/exceptions/customErrors'
 import { errorMessage } from 'infrastructure/exceptions/errorMessage'
@@ -185,7 +185,7 @@ export class UserRepository {
 		`
 	}
 
-	/** Lock the row when changing a photo or merging preferences with the latest profile. */
+	/** Resolve avatar selection and merge preferences against the locked profile. */
 	@CatchDbError()
 	async updateProfile(userId: number, data: UserProfileUpdate) {
 		return this.prisma.$transaction(async (tx) => {
@@ -207,6 +207,13 @@ export class UserRepository {
 
 			if (profile.avatar_s3_key === null && (profile.avatar_preset_id ?? previous.avatar_preset_id) === null) {
 				update.avatar_preset_id = getDefaultAvatarPresetId(profile.gender ?? previous.gender)
+			} else if (
+				profile.gender !== undefined &&
+				profile.avatar_preset_id === undefined &&
+				previous.avatar_preset_id !== null &&
+				getAvatarPreset(previous.avatar_preset_id)?.gender !== profile.gender
+			) {
+				update.avatar_preset_id = getDefaultAvatarPresetId(profile.gender)
 			}
 
 			if (preferences) {
