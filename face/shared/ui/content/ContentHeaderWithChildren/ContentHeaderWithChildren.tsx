@@ -4,12 +4,12 @@ import './ContentHeaderWithChildren.scss'
 
 type Props = {
 	title: ReactNode
-	hTag?: 3 | 4
+	hTag?: 3 | 4 | 5
 	children: ReactNode
 }
 
 export default function ContentHeaderWithChildren({ title, hTag = 3, children }: Props) {
-	const Tag = hTag === 3 ? 'h3' : 'h4'
+	const Tag = `h${hTag}` as const
 
 	return (
 		<section className={cn('content-section', `content-section--h${hTag}`)}>

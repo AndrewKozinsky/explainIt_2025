@@ -1,4 +1,7 @@
 import { useTranslations } from 'next-intl'
+import ContentHeaderWithChildren from '@/shared/ui/content/ContentHeaderWithChildren/ContentHeaderWithChildren'
+import ContentList from '@/shared/ui/content/ContentList/ContentList'
+import ContentText from '@/shared/ui/content/ContentText/ContentText'
 import type { ScenarioCardConfig } from '../../fn/getScenarioGroupsConfig'
 
 type Props = {
@@ -14,25 +17,21 @@ export default function ScenarioPracticeHints({ scenario }: Props) {
 	if (!hasTrainedSkills && !hasConversationIdeas) return null
 
 	return (
-		<div className='start-dialogue-modal__hints'>
+		<>
 			{hasConversationIdeas && (
-				<section className='start-dialogue-modal__hint'>
-					<h3 className='start-dialogue-modal__hint-title'>{t('conversationIdeas')}</h3>
-					<ul className='start-dialogue-modal__ideas'>
+				<ContentHeaderWithChildren title={t('conversationIdeas')} hTag={5}>
+					<ContentList size='small'>
 						{scenario.conversationIdeas.map((idea) => (
-							<li key={idea} className='start-dialogue-modal__idea'>
-								{idea}
-							</li>
+							<li key={idea}>{idea}</li>
 						))}
-					</ul>
-				</section>
+					</ContentList>
+				</ContentHeaderWithChildren>
 			)}
 			{hasTrainedSkills && (
-				<section className='start-dialogue-modal__hint'>
-					<h3 className='start-dialogue-modal__hint-title'>{t('trainedSkills')}</h3>
-					<p className='start-dialogue-modal__hint-text'>{scenario.trainedSkills}</p>
-				</section>
+				<ContentHeaderWithChildren title={t('trainedSkills')} hTag={5}>
+					<ContentText size='small'>{scenario.trainedSkills}</ContentText>
+				</ContentHeaderWithChildren>
 			)}
-		</div>
+		</>
 	)
 }
