@@ -29,8 +29,6 @@ export const filesUrls = {
 		common: {
 			camera: 'Camera.svg',
 			logo: 'logo.svg',
-			filesGray: '/images/common/filesGray.svg',
-			filesBlue: '/images/common/filesBlue.svg',
 		},
 		// Круглые флаги языков для ретины: показываются вдвое меньше своего размера
 		flags: {

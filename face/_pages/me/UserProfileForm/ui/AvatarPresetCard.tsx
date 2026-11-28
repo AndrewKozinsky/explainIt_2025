@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl'
+import AvatarImage from '@/entities/user/ui/AvatarImage'
 import type { AvatarPresetModel, UserGender } from '@/entities/user/UserService'
-import AvatarImage from './AvatarImage'
+import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 
 type AvatarPresetCardProps = {
 	preset: AvatarPresetModel
@@ -15,9 +16,10 @@ function AvatarPresetCard({ preset, selected, disabled, gender, onSelect }: Avat
 	const label = t('presetLabel', { gender: preset.gender, number: preset.id.endsWith('1') ? '1' : '2' })
 
 	return (
-		<button
+		<BaseButton
 			type='button'
-			className={`user-profile-form__preset${selected ? ' user-profile-form__preset--selected' : ''}`}
+			theme='unstyled'
+			extraClass='avatar-preset-picker__preset'
 			aria-pressed={selected}
 			aria-label={label}
 			disabled={disabled}
@@ -25,11 +27,11 @@ function AvatarPresetCard({ preset, selected, disabled, gender, onSelect }: Avat
 				if (!selected || gender !== preset.gender) onSelect()
 			}}
 		>
-			<span className='user-profile-form__preset-image'>
-				<AvatarImage url={preset.avatarUrl} alt={label} />
+			<span className='avatar-preset-picker__image'>
+				<AvatarImage url={preset.avatarUrl} alt='' />
 			</span>
-			<span>{label}</span>
-		</button>
+			<span className='avatar-preset-picker__caption'>{label}</span>
+		</BaseButton>
 	)
 }
 

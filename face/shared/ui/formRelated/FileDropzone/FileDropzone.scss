@@ -1,90 +1,132 @@
 @use '@/styles/variables' as vars;
 
 .file-dropzone__wrapper {
+	position: relative;
 	width: 100%;
+	min-width: 0;
 }
 
 .file-dropzone {
+	position: relative;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
-	gap: 2rem;
-	min-height: 9rem;
+	justify-content: center;
+	gap: 0.6rem;
+	width: 100%;
+	min-height: 10rem;
 	box-sizing: border-box;
-	padding: 1.2rem 2rem;
+	padding: 1.1rem 1.2rem;
 	overflow: hidden;
-	border: 1px solid transparent;
+	border: 1px solid vars.$grayColor-3;
 	border-radius: vars.$radius-1;
-	transition: all 0.2s ease-in-out;
-}
+	background-color: #fff;
+	color: vars.$textColor;
+	text-align: center;
+	transition: border-color 0.2s ease-in-out,
+	background-color 0.2s ease-in-out;
 
-.file-dropzone--idle {
-	cursor: pointer;
-	border-color: vars.$grayColor-2;
+	> input[type='file'] {
+		position: absolute;
+		inset: 0 auto auto 0;
+	}
 
-	&:hover {
-		border-color: vars.$grayColor-3;
+	&:not([aria-disabled='true']) {
+		cursor: pointer;
+	}
+
+	&:not([aria-disabled='true']):hover {
+		border-color: vars.$grayColor-5;
+	}
+
+	&:focus-visible {
+		outline: 2px solid vars.$linkColor-2;
+		outline-offset: 2px;
 	}
 }
 
-.file-dropzone--file-dragging {
-	justify-content: center;
-	background-color: vars.$linkColor-1;
-	border-color: vars.$linkColor-2;
-}
-
-.file-dropzone--file-uploading {
-	position: relative;
-	border-color: vars.$linkColor-2;
-}
-
-.file-dropzone--file-uploading-content {
-	position: relative;
-	z-index: 2;
-	display: flex;
-	align-items: center;
-	gap: 2rem;
-}
-
-.file-dropzone__content {
-	display: flex;
-	flex-direction: column;
-	gap: 0.4rem;
-}
-
-.file-dropzone__text {
-	font-size: 1.6rem;
-	line-height: 2rem;
-}
-.file-dropzone__text--idle {
-	color: vars.$grayColor-5;
-}
-.file-dropzone__text--dragging {
-	font-size: 2.2rem;
-	line-height: 2.6rem;
+.file-dropzone--dragging,
+.file-dropzone--uploading {
 	color: vars.$linkColor-2;
+
+	&,
+	&:not([aria-disabled='true']):hover {
+		border-color: currentColor;
+	}
 }
-.file-dropzone__sub-text {
+
+.file-dropzone--dragging {
+	background-color: vars.$linkColor-1;
+}
+
+.file-dropzone--error {
+	color: vars.$dangerColor-1;
+
+	&,
+	&:not([aria-disabled='true']):hover {
+		border-color: currentColor;
+	}
+}
+
+.file-dropzone__icon {
+	position: relative;
+	flex: none;
+	width: 4rem;
+	height: 5.1rem;
+	color: vars.$grayColor-5;
+
+	.file-dropzone--dragging &,
+	.file-dropzone--uploading &,
+	.file-dropzone--error & {
+		color: inherit;
+	}
+}
+
+.file-dropzone__message,
+.file-dropzone__caption {
+	margin: 0;
+	overflow-wrap: anywhere;
+}
+
+.file-dropzone__message {
+	position: relative;
+	max-width: 100%;
 	font-size: 1.4rem;
 	line-height: 1.8rem;
 }
-.file-dropzone__sub-text--idle {
+
+.file-dropzone__caption {
+	margin-top: 0.5rem;
 	color: vars.$grayColor-4;
-}
-.file-dropzone__sub-text--uploading {
-	color: vars.$linkColor-2;
+	font-size: 1.3rem;
+	line-height: 1.7rem;
+	text-align: center;
 }
 
-.file-dropzone__file-uploading-progress {
+.file-dropzone__caption--filename {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.file-dropzone__progress {
 	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
+	inset: 0 auto 0 0;
 	background-color: vars.$linkColor-1;
 }
 
-.file-dropzone__file-uploading-progress--indeterminate {
+.file-dropzone__progress--indeterminate {
 	width: 35%;
 	animation: file-dropzone-upload 1.4s ease-in-out infinite alternate;
+}
+
+.file-dropzone__announcement {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip-path: inset(50%);
+	white-space: nowrap;
 }
 
 @keyframes file-dropzone-upload {
@@ -97,7 +139,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.file-dropzone__file-uploading-progress--indeterminate {
+	.file-dropzone {
+		transition: none;
+	}
+
+	.file-dropzone__progress--indeterminate {
 		animation: none;
 	}
 }

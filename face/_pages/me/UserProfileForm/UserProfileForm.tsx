@@ -1,12 +1,12 @@
 'use client'
 
 import { useTranslations } from 'next-intl'
+import UserAvatarField from '@/entities/user/ui/UserAvatarField/UserAvatarField'
 import type { UserModel } from '@/entities/user/UserService'
 import { useUser } from '@/shared/api/auth/UserProvider'
 import { getProfileErrorText } from './fn/profileFormState'
 import { useUserProfileForm } from './fn/useUserProfileForm'
 import AvatarPresetPicker from './ui/AvatarPresetPicker'
-import UserAvatarField from './ui/UserAvatarField'
 import UserGenderField from './ui/UserGenderField'
 import './UserProfileForm.scss'
 
@@ -19,14 +19,15 @@ function UserProfileForm() {
 
 function ProfileFields({ user }: { user: UserModel }) {
 	const t = useTranslations('mePage.profile')
-	const { state, isSaving, presets, changeGender, selectPreset, selectPhoto, uploadPhoto } = useUserProfileForm(user)
+	const { state, isSaving, presets, changeGender, selectPreset } = useUserProfileForm(user)
+	const selectedId = state.pendingPresetId ?? user.avatarPresetId
 
 	return (
 		<section className='user-profile-form' aria-label={t('ariaLabel')} aria-busy={isSaving}>
 			<UserGenderField gender={state.pendingGender ?? user.gender} disabled={isSaving} onChange={changeGender} />
 			<AvatarPresetPicker
 				user={user}
-				selectedId={state.pendingPresetId !== undefined ? state.pendingPresetId : user.avatarPresetId}
+				selectedId={selectedId}
 				presets={presets.data ?? []}
 				disabled={isSaving}
 				loading={presets.isPending}
@@ -35,22 +36,14 @@ function ProfileFields({ user }: { user: UserModel }) {
 				onRetry={() => void presets.refetch()}
 				onSelect={selectPreset}
 			>
-				<UserAvatarField
-					avatarUrl={user.uploadedAvatarUrl}
-					selected={
-						(state.pendingPresetId !== undefined ? state.pendingPresetId : user.avatarPresetId) === null
-					}
-					disabled={isSaving}
-					onSelect={selectPhoto}
-					onUploadFile={uploadPhoto}
-				/>
+				<UserAvatarField selected={selectedId === null} disabled={isSaving} />
 			</AvatarPresetPicker>
 			<p
 				className={`user-profile-form__status${state.status === 'error' ? ' user-profile-form__status--error' : ''}`}
 				role='status'
 				aria-live='polite'
 			>
-				{getProfileErrorText(state) ?? t(`status.${state.status}`)}
+				{isSaving ? t('status.saving') : (getProfileErrorText(state) ?? t(`status.${state.status}`))}
 			</p>
 		</section>
 	)

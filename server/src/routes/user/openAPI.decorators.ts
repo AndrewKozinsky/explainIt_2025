@@ -53,11 +53,22 @@ export function ApiUploadAvatar() {
 	return applyDecorators(
 		ApiOperation({
 			summary: 'Upload current user avatar',
-			description: 'Photo is resized without cropping. Gender is preserved.',
+			description: 'Photo is resized without cropping. The active avatar selection is preserved.',
 		}),
 		ApiCookieAuth(),
 		ApiConsumes('multipart/form-data'),
 		ApiBody({ schema: avatarUploadSchema }),
+		ApiResponse({ status: 200, description: 'OK', type: UserOutModel }),
+	)
+}
+
+export function ApiDeleteAvatar() {
+	return applyDecorators(
+		ApiOperation({
+			summary: 'Delete current user avatar photo',
+			description: 'Deleting the active photo selects the default preset for the current gender.',
+		}),
+		ApiCookieAuth(),
 		ApiResponse({ status: 200, description: 'OK', type: UserOutModel }),
 	)
 }

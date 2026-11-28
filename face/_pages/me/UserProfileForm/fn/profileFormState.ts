@@ -1,19 +1,16 @@
 import type { AvatarPresetId, UserGender } from '@/entities/user/UserService'
 
-export type ProfileOperation = 'gender' | 'preset' | 'photo' | 'upload'
 export type ProfileFormState = {
 	status: 'idle' | 'saving' | 'saved' | 'error'
-	operation?: ProfileOperation
 	pendingGender?: UserGender
-	pendingPresetId?: AvatarPresetId | null
+	pendingPresetId?: AvatarPresetId
 	error?: string
 }
 export type ProfileFormEvent =
 	| {
 			type: 'start'
-			operation: ProfileOperation
 			pendingGender?: UserGender
-			pendingPresetId?: AvatarPresetId | null
+			pendingPresetId?: AvatarPresetId
 	  }
 	| { type: 'success' }
 	| { type: 'failure'; error: string }
@@ -25,7 +22,6 @@ export function profileFormReducer(state: ProfileFormState, event: ProfileFormEv
 
 		return {
 			status: 'saving',
-			operation: event.operation,
 			pendingGender: event.pendingGender,
 			pendingPresetId: event.pendingPresetId,
 		}

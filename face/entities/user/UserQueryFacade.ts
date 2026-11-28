@@ -35,6 +35,10 @@ export class UserQueryFacade {
 	uploadAvatar() {
 		return { mutationFn: (file: File) => this.service.uploadAvatar(file) }
 	}
+
+	deleteAvatar() {
+		return { mutationFn: () => this.service.deleteAvatar() }
+	}
 }
 
 export const userQueries = new UserQueryFacade(userService)

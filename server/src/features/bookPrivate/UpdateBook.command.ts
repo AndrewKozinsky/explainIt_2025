@@ -136,7 +136,7 @@ export class UpdateBookHandler implements ICommandHandler<UpdateBookCommand> {
 	}
 
 	private createCoverFileUrl(coverFileName: string): string {
-		const prefix = getR2EnvironmentPrefix('privateBooks', this.mainConfig.get().mode)
+		const prefix = getR2EnvironmentPrefix('private-books-covers', this.mainConfig.get().mode)
 		return `${prefix}${crypto.randomUUID()}-${coverFileName}`
 	}
 }

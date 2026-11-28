@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Delete,
 	Get,
 	Header,
 	HttpCode,
@@ -18,6 +19,7 @@ import { CommandBus } from '@nestjs/cqrs'
 import { FileInterceptor } from '@nestjs/platform-express'
 import { ApiTags } from '@nestjs/swagger'
 import { Observable } from 'rxjs'
+import { DeleteUserAvatarCommand } from 'features/user/DeleteUserAvatar.command'
 import { OpenUserEventsStreamCommand } from 'features/user/events/OpenUserEventsStream.command'
 import { GetAvatarPresetsCommand } from 'features/user/GetAvatarPresets.command'
 import { GetUserByIdCommand } from 'features/user/GetUserById.command'
@@ -28,7 +30,7 @@ import { CheckSessionCookieGuard } from 'infrastructure/guards/checkSessionCooki
 import { AvatarPresetOutModel } from 'models/user/avatarPreset.out.model'
 import { UserOutModel } from 'models/user/user.out.model'
 import { UpdateUserProfileDto } from './dto/updateUserProfile.dto'
-import { ApiGetAvatarPresets, ApiGetMe, ApiUpdateMe, ApiUploadAvatar } from './openAPI.decorators'
+import { ApiDeleteAvatar, ApiGetAvatarPresets, ApiGetMe, ApiUpdateMe, ApiUploadAvatar } from './openAPI.decorators'
 import type { Request } from 'express'
 
 @ApiTags('User')
@@ -75,5 +77,13 @@ export class UserController {
 	)
 	uploadAvatar(@UploadedFile() photo: AvatarPhotoUpload | undefined, @Req() request: Request): Promise<UserOutModel> {
 		return this.commandBus.execute(new UploadUserAvatarCommand(request.session.userId!, photo))
+	}
+
+	@ApiDeleteAvatar()
+	@Header('Cache-Control', 'private, no-store')
+	@HttpCode(HttpStatus.OK)
+	@Delete('me/avatar')
+	deleteAvatar(@Req() request: Request): Promise<UserOutModel> {
+		return this.commandBus.execute(new DeleteUserAvatarCommand(request.session.userId!))
 	}
 }

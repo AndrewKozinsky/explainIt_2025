@@ -173,7 +173,7 @@ export const bdConfig = {
 			coverUrl: {
 				type: 'string',
 				description: 'URL to the book cover image',
-				example: 'https://s3.example.com/privateBooksDev/cover.jpg',
+				example: 'https://s3.example.com/private-books-covers/localdev/cover.jpg',
 				required: false,
 			},
 			uploadCoverUrl: {
@@ -247,7 +247,7 @@ export const bdConfig = {
 				description: 'S3 key of the book cover',
 				required: false,
 				maxLength: 1000,
-				example: 'privateBooksDev/cover.jpg',
+				example: 'private-books-covers/localdev/cover.jpg',
 			},
 			cover_file_s3_provider_name: {
 				type: 'enum',

@@ -31,6 +31,10 @@ export class UserService {
 	uploadAvatar(file: File) {
 		return this.repository.uploadAvatar(file)
 	}
+
+	deleteAvatar() {
+		return this.repository.deleteAvatar()
+	}
 }
 
 export const userService = new UserService(new UserApi())

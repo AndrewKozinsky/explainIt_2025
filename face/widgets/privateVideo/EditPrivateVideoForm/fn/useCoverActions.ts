@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import type { VideoLiteModel } from '@/entities/video/repository/VideosRepository'
 import { videosService } from '@/entities/video/VideosService'
 
@@ -7,6 +8,8 @@ import { videosService } from '@/entities/video/VideosService'
  * Сводит API видео к колбэкам общего компонента MediaCoverField.
  */
 export function useCoverActions(videoId: number, onCoverUpdated: (video: VideoLiteModel) => void) {
+	const t = useTranslations('fileDropzone')
+
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
 			const result = await videosService.updateVideo(videoId, {
@@ -31,11 +34,13 @@ export function useCoverActions(videoId: number, onCoverUpdated: (video: VideoLi
 				isCoverFileUploaded: true,
 			})
 
-			if (result.data) {
-				onCoverUpdated(result.data)
+			if (result.error || result.errors || !result.data) {
+				throw new Error(t('uploadError'))
 			}
+
+			onCoverUpdated(result.data)
 		},
-		[videoId, onCoverUpdated],
+		[videoId, onCoverUpdated, t],
 	)
 
 	const onDeleteCover = useCallback(

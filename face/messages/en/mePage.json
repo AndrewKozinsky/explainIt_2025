@@ -16,16 +16,17 @@
     "female": "Female"
   },
   "avatar": {
-    "label": "Avatar",
+    "label": "Portrait",
     "loading": "Loading ready-made avatars…",
     "loadError": "Could not load ready-made avatars.",
     "retry": "Retry",
-    "photoHint": "Your own photo: JPEG, PNG, WebP · up to 30 MB. To replace the selected photo, click it again.",
-    "presetLabel": "{gender, select, MALE {Male avatar {number}} other {Female avatar {number}}}",
+    "photoHint": "Your photo: JPEG, PNG, WebP · up to 30 MB.",
+    "presetLabel": "{gender, select, MALE {Male portrait {number}} other {Female portrait {number}}}",
     "imageUnavailable": "Image unavailable",
     "ownPhoto": "Your photo",
     "uploadOwnPhoto": "Upload your photo",
-    "selectOwnPhoto": "Select your photo",
-    "uploading": "Uploading…"
+    "uploading": "Uploading…",
+    "deleteOwnPhoto": "Delete your photo",
+    "deleting": "Deleting photo…"
   }
 }

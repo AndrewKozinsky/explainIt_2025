@@ -31,6 +31,7 @@ import { UserOutModel } from 'models/user/user.out.model'
 import { GENERATE_SCENE_IMAGE } from 'models/user/userPreferences'
 import { User } from 'prisma/generated/client'
 import { CleanupUserAvatars } from './CleanupUserAvatars.service'
+import { DeleteUserAvatarCommand, DeleteUserAvatarHandler } from './DeleteUserAvatar.command'
 import { GetAvatarPresetsHandler } from './GetAvatarPresets.command'
 import { UpdateUserProfileCommand, UpdateUserProfileHandler } from './UpdateUserProfile.command'
 import { UploadUserAvatarCommand, UploadUserAvatarHandler } from './UploadUserAvatar.command'
@@ -68,6 +69,11 @@ function harness() {
 			images,
 			cleanup as unknown as CleanupUserAvatars,
 			config as unknown as MainConfigService,
+		),
+		deleteAvatar: new DeleteUserAvatarHandler(
+			repository as unknown as UserRepository,
+			queryRepository as unknown as UserQueryRepository,
+			cleanup as unknown as CleanupUserAvatars,
 		),
 	}
 }
@@ -200,9 +206,16 @@ describe('avatar photo processing and upload', () => {
 			expect(metadata.format).toBe('webp')
 			expect([mime, timeout]).toEqual(['image/webp', 60_000])
 			expect(key).toMatch(/^user-avatars\/uploads\/ru\/localtest\/1\/[0-9a-f-]+\.webp$/)
-			expect(h.repository.updateProfile).toHaveBeenCalledWith(1, { avatar_preset_id: null, avatar_s3_key: key })
+			expect(h.repository.updateProfile).toHaveBeenCalledWith(1, { avatar_s3_key: key })
 		},
 	)
+
+	it.each(['female-2', null])('preserves the active selection %s when saving a photo', async (presetId) => {
+		const h = harness()
+		h.user.avatar_preset_id = presetId
+		const result = await h.upload.execute(new UploadUserAvatarCommand(1, { buffer: await photo(600, 800) }))
+		expect(result).toMatchObject({ avatar_preset_id: presetId, avatar_s3_key: expect.any(String) })
+	})
 
 	it('orients EXIF photos before resizing and strips EXIF metadata', async () => {
 		const h = harness()
@@ -290,5 +303,39 @@ describe('avatar photo processing and upload', () => {
 		const result = await h.upload.execute(new UploadUserAvatarCommand(1, { buffer }))
 		expect(result.gender).toBe('FEMALE')
 		expect(h.cleanup.cleanupReplacedPhoto).toHaveBeenCalledWith('previous-photo')
+	})
+})
+
+describe('deleting a user photo', () => {
+	it.each([
+		['MALE', null, 'male-1'],
+		['FEMALE', null, 'female-1'],
+		['FEMALE', 'female-2', undefined],
+	])('uses the locked profile to select a preset for %s and previous selection %s', async (gender, preset, next) => {
+		const previous = { gender, avatar_preset_id: preset, avatar_s3_key: 'old-photo' }
+		const tx = {
+			$queryRaw: jest.fn().mockResolvedValue([{ id: 1 }]),
+			user: { findUniqueOrThrow: jest.fn().mockResolvedValue(previous), update: jest.fn() },
+		}
+		const prisma = { $transaction: (operation: (transaction: typeof tx) => unknown) => operation(tx) }
+		const repository = new UserRepository(prisma as unknown as PrismaService, {} as HashAdapterService)
+		const result = await repository.updateProfile(1, { avatar_s3_key: null })
+		expect(tx.$queryRaw).toHaveBeenCalledTimes(1)
+		expect(tx.user.update).toHaveBeenCalledWith({
+			where: { id: 1 },
+			data: next ? { avatar_s3_key: null, avatar_preset_id: next } : { avatar_s3_key: null },
+		})
+		expect(result?.previousAvatarKey).toBe('old-photo')
+	})
+
+	it('cleans the removed object only after the profile update succeeds', async () => {
+		const h = harness()
+		h.user.avatar_s3_key = 'old-photo'
+		h.repository.updateProfile.mockRejectedValueOnce(new Error('lost commit confirmation'))
+		await expect(h.deleteAvatar.execute(new DeleteUserAvatarCommand(1))).rejects.toThrow()
+		expect(h.cleanup.cleanupReplacedPhoto).not.toHaveBeenCalled()
+
+		await h.deleteAvatar.execute(new DeleteUserAvatarCommand(1))
+		expect(h.cleanup.cleanupReplacedPhoto).toHaveBeenCalledWith('old-photo')
 	})
 })

@@ -4,7 +4,7 @@ import { Link } from '@/i18n/routing'
 import './BaseButton.scss'
 
 type BaseButtonProps = {
-	theme?: 'plain' | 'outline' | 'regular' | 'accent' | 'danger'
+	theme?: 'plain' | 'outline' | 'regular' | 'accent' | 'danger' | 'unstyled'
 	colorScheme?: 'dark' | 'light'
 	onClick?: React.MouseEventHandler<HTMLButtonElement>
 	onPointerDown?: React.PointerEventHandler<HTMLButtonElement>
@@ -47,9 +47,7 @@ function BaseButton(props: BaseButtonProps) {
 		? `base-button--color-${colorScheme}-current`
 		: `base-button--color-${colorScheme}-${theme}`
 	const className = cn(
-		'base-button',
-		'base-button--' + theme,
-		colorModifier,
+		theme !== 'unstyled' && ['base-button', 'base-button--' + theme, colorModifier],
 		extraClass,
 		current && 'base-button--current',
 	)

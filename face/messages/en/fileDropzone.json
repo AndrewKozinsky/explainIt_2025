@@ -1,4 +1,10 @@
 {
+  "chooseFile": "Choose file",
+  "dropFile": "Drop the file here",
+  "uploading": "Uploading and processing the file…",
+  "uploadProgress": "{uploadedMb} MB of {totalMb} MB",
+  "tryAgain": "Try again.",
+  "videoDurationError": "Could not determine the video duration",
   "uploadError": "Could not upload the file",
   "uploadUrlError": "Could not get the upload link",
   "fileTooLarge": "The file is too large. Maximum size is {maxSizeMb} MB.",

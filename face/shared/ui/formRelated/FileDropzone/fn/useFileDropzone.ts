@@ -28,7 +28,7 @@ export type UseFileDropzoneParams = FileUploadHandlers & {
 	noKeyboard?: boolean
 }
 
-export function useFileDropzone(params: UseFileDropzoneParams) {
+export function useFileDropzone(params: UseFileDropzoneParams, { notifyOnError = true } = {}) {
 	const { accept, supportedFormatsStr, disabled, maxSize } = params
 	const t = useTranslations('fileDropzone')
 	const { notify } = useContext(NotificationContext)
@@ -37,6 +37,8 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 	const [uploadedBytes, setUploadedBytes] = useState(0)
 	const [totalBytes, setTotalBytes] = useState(0)
 	const [fileName, setFileName] = useState('')
+	const [errorMessage, setErrorMessage] = useState<string | null>(null)
+
 	const isUploading =
 		inputStatus === FileDropzoneStatus.FILE_SELECTED || inputStatus === FileDropzoneStatus.FILE_UPLOADING
 
@@ -51,9 +53,19 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 		await uploadBySignedUrl(uploadUrl, file, function (loaded, total) {
 			setUploadedBytes(loaded)
 			setTotalBytes(total)
+		}).catch(function (cause) {
+			throw new Error(t('uploadError'), { cause })
 		})
 
 		await params.onUploadComplete()
+	}
+
+	function reportError(message: string) {
+		setErrorMessage(message)
+
+		if (notifyOnError) {
+			notify({ type: 'error', message })
+		}
 	}
 
 	const { getRootProps, getInputProps, open } = useDropzone({
@@ -72,6 +84,7 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 		async onDropAccepted(files) {
 			if (uploading.current || disabled || !files[0]) return
 			uploading.current = true
+			setErrorMessage(null)
 			setFileName(files[0].name)
 			setUploadedBytes(0)
 			setTotalBytes(files[0].size)
@@ -80,13 +93,14 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 			try {
 				await uploadFile(files[0])
 			} catch (error) {
-				notify({ type: 'error', message: error instanceof Error ? error.message : t('uploadError') })
+				reportError(error instanceof Error && error.message ? error.message : t('uploadError'))
 			} finally {
 				uploading.current = false
 				setInputStatus(FileDropzoneStatus.IDLE)
 			}
 		},
 		onDropRejected(files) {
+			if (uploading.current || disabled) return
 			setInputStatus(FileDropzoneStatus.IDLE)
 			const tooLarge = files.some((file) => file.errors.some((error) => error.code === 'file-too-large'))
 			const message =
@@ -94,9 +108,9 @@ export function useFileDropzone(params: UseFileDropzoneParams) {
 					? t('fileTooLarge', { maxSizeMb: Math.round(maxSize / 1024 / 1024) })
 					: t('wrongFile', { formats: supportedFormatsStr })
 
-			notify({ type: 'error', message })
+			reportError(message)
 		},
 	})
 
-	return { getRootProps, getInputProps, open, inputStatus, uploadedBytes, totalBytes, fileName }
+	return { getRootProps, getInputProps, open, inputStatus, uploadedBytes, totalBytes, fileName, errorMessage }
 }

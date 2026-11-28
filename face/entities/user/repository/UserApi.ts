@@ -1,6 +1,7 @@
 import {
-	userControllerGetMe,
+	userControllerDeleteAvatar,
 	userControllerGetAvatarPresets,
+	userControllerGetMe,
 	userControllerUpdateMe,
 	userControllerUploadAvatar,
 } from '@/shared/api/generated/user/user'
@@ -28,5 +29,9 @@ export class UserApi implements UserRepository {
 
 	uploadAvatar(file: File): Promise<ApiResult<UserModel>> {
 		return executeApiCall(() => userControllerUploadAvatar({ file }), mapToUser)
+	}
+
+	deleteAvatar(): Promise<ApiResult<UserModel>> {
+		return executeApiCall(() => userControllerDeleteAvatar(), mapToUser)
 	}
 }

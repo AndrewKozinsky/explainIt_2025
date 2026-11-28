@@ -4,6 +4,7 @@ import type { AvatarPresetId, AvatarPresetModel, UserModel } from '@/entities/us
 import BaseButton from '@/shared/ui/formRelated/buttons/BaseButton/BaseButton'
 import LabelWithField from '@/shared/ui/formRelated/LabelWithField/LabelWithField'
 import AvatarPresetCard from './AvatarPresetCard'
+import './AvatarPresetPicker.scss'
 
 type AvatarPresetPickerProps = {
 	children: ReactNode
@@ -39,11 +40,11 @@ function AvatarPresetPicker(props: AvatarPresetPickerProps) {
 		<LabelWithField label={t('label')} block>
 			{loading && <p role='status'>{t('loading')}</p>}
 			{error && <CatalogError refreshing={refreshing} onRetry={onRetry} />}
-			<div className='user-profile-form__presets'>
-				{children}
+			<div className='avatar-preset-picker__cards'>
+				<div className='avatar-preset-picker__own-photo'>{children}</div>
 				{presets.map(renderPreset)}
 			</div>
-			<p className='user-profile-form__photo-hint'>{t('photoHint')}</p>
+			<p className='avatar-preset-picker__photo-hint'>{t('photoHint')}</p>
 		</LabelWithField>
 	)
 }
@@ -52,7 +53,7 @@ function CatalogError({ refreshing, onRetry }: { refreshing: boolean; onRetry: (
 	const t = useTranslations('mePage.avatar')
 
 	return (
-		<div className='user-profile-form__catalog-error'>
+		<div className='avatar-preset-picker__catalog-error'>
 			<p>{t('loadError')}</p>
 			<BaseButton theme='outline' disabled={refreshing} onClick={onRetry}>
 				{t('retry')}

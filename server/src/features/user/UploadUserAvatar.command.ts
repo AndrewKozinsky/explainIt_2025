@@ -50,10 +50,11 @@ export class UploadUserAvatarHandler implements ICommandHandler<UploadUserAvatar
 		// Never delete the new key on DB/PUT errors: commit confirmation may be lost.
 		// The orphan scanner removes it later only if no user references it.
 		const result = await this.repository.updateProfile(command.userId, {
-			avatar_preset_id: null,
 			avatar_s3_key: key,
 		})
-		if (!result) throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.NotFound_404)
+		if (!result) {
+			throw new CustomError(errorMessage.user.notFound, ErrorStatusCode.NotFound_404)
+		}
 
 		await this.cleanup.cleanupReplacedPhoto(result.previousAvatarKey)
 
@@ -64,8 +65,9 @@ export class UploadUserAvatarHandler implements ICommandHandler<UploadUserAvatar
 		try {
 			const metadata = await this.images.inspect(input, USER_AVATAR_MAX_INPUT_PIXELS)
 
-			if (!['jpeg', 'png', 'webp'].includes(metadata.format) || (metadata.pages ?? 1) !== 1)
+			if (!['jpeg', 'png', 'webp'].includes(metadata.format) || (metadata.pages ?? 1) !== 1) {
 				throw this.invalidPhoto()
+			}
 
 			const result = await this.images.transform(input, {
 				limitInputPixels: USER_AVATAR_MAX_INPUT_PIXELS,

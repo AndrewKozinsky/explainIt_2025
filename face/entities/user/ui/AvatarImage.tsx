@@ -5,8 +5,11 @@ type AvatarImageProps = { url: string; alt: string }
 
 function AvatarImage({ url, alt }: AvatarImageProps) {
 	const t = useTranslations('mePage.avatar')
+
 	const [failedUrl, setFailedUrl] = useState<string | null>(null)
-	if (failedUrl === url) return <span className='user-profile-form__image-error'>{t('imageUnavailable')}</span>
+	if (failedUrl === url) {
+		return <span>{t('imageUnavailable')}</span>
+	}
 
 	return (
 		<img

@@ -1,4 +1,10 @@
 {
+  "chooseFile": "Choisir un fichier",
+  "dropFile": "Déposez le fichier ici",
+  "uploading": "Importation et traitement du fichier…",
+  "uploadProgress": "{uploadedMb} Mo sur {totalMb} Mo",
+  "tryAgain": "Réessayez.",
+  "videoDurationError": "Impossible de déterminer la durée de la vidéo",
   "uploadError": "Impossible d’importer le fichier",
   "uploadUrlError": "Impossible d’obtenir le lien d’importation",
   "fileTooLarge": "Le fichier est trop volumineux. Taille maximale : {maxSizeMb} Mo.",

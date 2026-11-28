@@ -16,16 +16,17 @@
     "female": "Kadın"
   },
   "avatar": {
-    "label": "Avatar",
+    "label": "Portre",
     "loading": "Hazır avatarlar yükleniyor…",
     "loadError": "Hazır avatarlar yüklenemedi.",
     "retry": "Tekrar dene",
-    "photoHint": "Kendi fotoğrafınız: JPEG, PNG, WebP · en fazla 30 MB. Seçili fotoğrafı değiştirmek için ona tekrar tıklayın.",
-    "presetLabel": "{gender, select, MALE {Erkek avatarı {number}} other {Kadın avatarı {number}}}",
+    "photoHint": "Kendi fotoğrafınız: JPEG, PNG, WebP · en fazla 30 MB.",
+    "presetLabel": "{gender, select, MALE {Erkek portresi {number}} other {Kadın portresi {number}}}",
     "imageUnavailable": "Görsel kullanılamıyor",
     "ownPhoto": "Kendi fotoğrafınız",
     "uploadOwnPhoto": "Kendi fotoğrafınızı yükleyin",
-    "selectOwnPhoto": "Kendi fotoğrafınızı seçin",
-    "uploading": "Yükleniyor…"
+    "uploading": "Yükleniyor…",
+    "deleteOwnPhoto": "Kendi fotoğrafınızı silin",
+    "deleting": "Fotoğraf siliniyor…"
   }
 }

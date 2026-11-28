@@ -1,4 +1,5 @@
 import { useCallback } from 'react'
+import { useTranslations } from 'next-intl'
 import { booksService } from '@/entities/book/BooksService'
 import type { BookModel } from '@/entities/book/repository/BooksRepository'
 
@@ -11,6 +12,8 @@ export function useCoverActions(
 	languageCode: string | null,
 	onCoverUpdated: (book: BookModel) => void,
 ) {
+	const t = useTranslations('fileDropzone')
+
 	const onGetUploadUrl = useCallback(
 		async function (file: File): Promise<string | null> {
 			const result = await booksService.requestCoverUploadUrl(bookId, file.name, file.type, languageCode)
@@ -30,11 +33,13 @@ export function useCoverActions(
 		async function (): Promise<void> {
 			const result = await booksService.confirmCoverUpload(bookId, languageCode)
 
-			if (result.data) {
-				onCoverUpdated(result.data)
+			if (result.error || result.errors || !result.data) {
+				throw new Error(t('uploadError'))
 			}
+
+			onCoverUpdated(result.data)
 		},
-		[bookId, languageCode, onCoverUpdated],
+		[bookId, languageCode, onCoverUpdated, t],
 	)
 
 	const onDeleteCover = useCallback(

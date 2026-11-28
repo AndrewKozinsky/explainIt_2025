@@ -4,6 +4,7 @@ import { UserQueryRepository } from 'repo/user.queryRepository'
 import { UserRepository } from 'repo/user.repository'
 import { PrismaService } from 'db/prisma.service'
 import { CleanupUserAvatars } from 'features/user/CleanupUserAvatars.service'
+import { DeleteUserAvatarHandler } from 'features/user/DeleteUserAvatar.command'
 import { OpenUserEventsStreamHandler } from 'features/user/events/OpenUserEventsStream.command'
 import { UserBalanceEvents } from 'features/user/events/UserBalanceEvents.service'
 import { UserEventsSseHub } from 'features/user/events/UserEventsSseHub.service'
@@ -29,6 +30,7 @@ import { UserController } from './user.controller'
 		GetAvatarPresetsHandler,
 		UpdateUserProfileHandler,
 		UploadUserAvatarHandler,
+		DeleteUserAvatarHandler,
 		CleanupUserAvatars,
 		UserEventsSseHub,
 		UserBalanceEvents,

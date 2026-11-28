@@ -1,4 +1,10 @@
 {
+  "chooseFile": "Elegir archivo",
+  "dropFile": "Suelta el archivo aquí",
+  "uploading": "Subiendo y procesando el archivo…",
+  "uploadProgress": "{uploadedMb} MB de {totalMb} MB",
+  "tryAgain": "Inténtalo de nuevo.",
+  "videoDurationError": "No se pudo determinar la duración del vídeo",
   "uploadError": "No se pudo subir el archivo",
   "uploadUrlError": "No se pudo obtener el enlace de subida",
   "fileTooLarge": "El archivo es demasiado grande. El tamaño máximo es {maxSizeMb} MB.",

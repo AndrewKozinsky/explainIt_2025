@@ -13,6 +13,10 @@ export function getAvatarPreset(id: string) {
 	return avatarPresets.find((preset) => preset.id === id)
 }
 
+export function getDefaultAvatarPresetId(gender: UserGender): (typeof avatarPresets)[number]['id'] {
+	return gender === 'FEMALE' ? 'female-1' : 'male-1'
+}
+
 export function getAvatarPresetS3Key(preset: (typeof avatarPresets)[number], mode: string | undefined): string {
 	return `${getR2EnvironmentPrefix('user-avatars-shared', mode)}${preset.file}`
 }

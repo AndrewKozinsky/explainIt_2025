@@ -412,7 +412,7 @@ export const getUserControllerUploadAvatarUrl = () => {
 }
 
 /**
- * Photo is resized without cropping. Gender is preserved.
+ * Photo is resized without cropping. The active avatar selection is preserved.
  * @summary Upload current user avatar
  */
 export const userControllerUploadAvatar = async (userControllerUploadAvatarBody: UserControllerUploadAvatarBody, options?: Parameters<typeof customMutator>[1]): Promise<userControllerUploadAvatarResponse> => {
@@ -467,7 +467,7 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
     export type UserControllerUploadAvatarMutationVariables = {data: UserControllerUploadAvatarBody}
 
     /**
- * Photo is resized without cropping. Gender is preserved.
+ * Photo is resized without cropping. The active avatar selection is preserved.
  * @summary Upload current user avatar
  */
 export const useUserControllerUploadAvatar = <TError = unknown,
@@ -479,4 +479,91 @@ export const useUserControllerUploadAvatar = <TError = unknown,
         TContext
       > => {
       return useMutation(getUserControllerUploadAvatarMutationOptions(options), queryClient);
+    }
+    export type userControllerDeleteAvatarResponse200 = {
+  data: UserOutModel
+  status: 200
+}
+
+export type userControllerDeleteAvatarResponseSuccess = (userControllerDeleteAvatarResponse200) & {
+  headers: Headers;
+};
+;
+
+export type userControllerDeleteAvatarResponse = (userControllerDeleteAvatarResponseSuccess)
+
+export const getUserControllerDeleteAvatarUrl = () => {
+
+
+
+
+  return `/api/user/me/avatar`
+}
+
+/**
+ * Deleting the active photo selects the default preset for the current gender.
+ * @summary Delete current user avatar photo
+ */
+export const userControllerDeleteAvatar = async ( options?: Parameters<typeof customMutator>[1]): Promise<userControllerDeleteAvatarResponse> => {
+
+  return customMutator<userControllerDeleteAvatarResponse>(getUserControllerDeleteAvatarUrl(),
+  {
+    ...options,
+    method: 'DELETE'
+
+
+  }
+);}
+
+
+
+
+
+export const getUserControllerDeleteAvatarMutationKey = () => ['userControllerDeleteAvatar'] as const;
+
+export const getUserControllerDeleteAvatarMutationOptions = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof userControllerDeleteAvatar>>, TError,void, TContext>, request?: SecondParameter<typeof customMutator>}
+): UseMutationOptions<Awaited<ReturnType<typeof userControllerDeleteAvatar>>, TError,void, TContext> => {
+
+const mutationKey = getUserControllerDeleteAvatarMutationKey();
+const {mutation: mutationOptions, request: requestOptions} = options ?
+      options.mutation && 'mutationKey' in options.mutation && options.mutation.mutationKey ?
+      options
+      : {...options, mutation: {...options.mutation, mutationKey}}
+      : {mutation: { mutationKey, }, request: undefined};
+
+
+
+
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof userControllerDeleteAvatar>>, void> = () => {
+
+
+          return  userControllerDeleteAvatar(requestOptions)
+        }
+
+
+
+
+
+
+  return  { mutationFn, ...mutationOptions }}
+
+    export type UserControllerDeleteAvatarMutationResult = NonNullable<Awaited<ReturnType<typeof userControllerDeleteAvatar>>>
+
+    export type UserControllerDeleteAvatarMutationError = unknown
+
+
+    /**
+ * Deleting the active photo selects the default preset for the current gender.
+ * @summary Delete current user avatar photo
+ */
+export const useUserControllerDeleteAvatar = <TError = unknown,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof userControllerDeleteAvatar>>, TError,void, TContext>, request?: SecondParameter<typeof customMutator>}
+ , queryClient?: QueryClient): UseMutationResult<
+        Awaited<ReturnType<typeof userControllerDeleteAvatar>>,
+        TError,
+        void,
+        TContext
+      > => {
+      return useMutation(getUserControllerDeleteAvatarMutationOptions(options), queryClient);
     }

@@ -16,16 +16,17 @@
     "female": "Женский"
   },
   "avatar": {
-    "label": "Аватар",
+    "label": "Портрет",
     "loading": "Загружаем готовые аватары…",
     "loadError": "Не удалось загрузить готовые аватары.",
     "retry": "Повторить",
-    "photoHint": "Своя фотография: JPEG, PNG, WebP · до 30 МБ. Чтобы заменить выбранную фотографию, нажмите на неё ещё раз.",
-    "presetLabel": "{gender, select, MALE {Мужской аватар {number}} other {Женский аватар {number}}}",
+    "photoHint": "Своё фото — JPEG, PNG, WebP до 30 МБ.",
+    "presetLabel": "{gender, select, MALE {Мужской портрет {number}} other {Женский портрет {number}}}",
     "imageUnavailable": "Изображение недоступно",
-    "ownPhoto": "Своя фотография",
+    "ownPhoto": "Своё фото",
     "uploadOwnPhoto": "Загрузить свою фотографию",
-    "selectOwnPhoto": "Выбрать свою фотографию",
-    "uploading": "Загружаем…"
+    "uploading": "Загружаем…",
+    "deleteOwnPhoto": "Удалить своё фото",
+    "deleting": "Удаляем фото…"
   }
 }

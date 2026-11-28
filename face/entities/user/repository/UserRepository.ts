@@ -40,4 +40,5 @@ export type UserRepository = {
 	getAvatarPresets(signal?: AbortSignal): Promise<ApiResult<AvatarPresetModel[]>>
 	updateMe(input: UpdateUserProfileInput): Promise<ApiResult<UserModel>>
 	uploadAvatar(file: File): Promise<ApiResult<UserModel>>
+	deleteAvatar(): Promise<ApiResult<UserModel>>
 }
