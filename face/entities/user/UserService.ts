@@ -1,3 +1,4 @@
+import type { UploadProgressCallbacks } from '@/shared/api/uploadWithProgress'
 import { UserApi } from './repository/UserApi'
 import type { UpdateUserProfileInput, UserRepository } from './repository/UserRepository'
 
@@ -28,8 +29,8 @@ export class UserService {
 		return this.repository.updateMe(input)
 	}
 
-	uploadAvatar(file: File) {
-		return this.repository.uploadAvatar(file)
+	uploadAvatar(file: File, uploadProgress?: UploadProgressCallbacks) {
+		return this.repository.uploadAvatar(file, uploadProgress)
 	}
 
 	deleteAvatar() {

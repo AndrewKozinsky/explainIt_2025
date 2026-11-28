@@ -18,26 +18,10 @@
 	flex-direction: column;
 	min-width: 0;
 	box-sizing: border-box;
-	border: 1px solid vars.$grayColor-2;
 	border-radius: vars.$radius-1;
-	background: white;
-	cursor: pointer;
 	font-size: 1.4rem;
 	line-height: 1.8rem;
 	text-align: center;
-
-	&:hover {
-		border-color: vars.$grayColor-3;
-	}
-
-	&:focus-visible {
-		outline: 2px solid vars.$linkColor-2;
-		outline-offset: 2px;
-	}
-
-	&:disabled {
-		cursor: wait;
-	}
 
 	&[aria-pressed='true'] {
 		border-color: vars.$linkColor-2;
@@ -76,11 +60,6 @@
 	padding: 0.4rem;
 	border-radius: 0 0 0.5rem 0.5rem;
 	overflow-wrap: anywhere;
-}
-
-.avatar-preset-picker__photo-hint {
-	font-size: 1.4rem;
-	color: vars.$grayColor-5;
 }
 
 .avatar-preset-picker__catalog-error {

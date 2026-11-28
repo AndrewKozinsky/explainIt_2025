@@ -1,6 +1,7 @@
 import { useContext, useRef, useState } from 'react'
 import { useTranslations } from 'next-intl'
 import { useDropzone } from 'react-dropzone'
+import type { UploadProgressCallbacks } from '@/shared/api/uploadWithProgress'
 import { NotificationContext } from '@/shared/ui/Notification/fn/context'
 import { uploadBySignedUrl } from './uploadBySignedUrl'
 
@@ -9,10 +10,15 @@ export enum FileDropzoneStatus {
 	FILE_DRAGGING,
 	FILE_SELECTED,
 	FILE_UPLOADING,
+	FILE_PROCESSING,
 }
 
 type FileUploadHandlers =
-	| { onUploadFile: (file: File) => Promise<void>; onGetUploadUrl?: never; onUploadComplete?: never }
+	| {
+			onUploadFile: (file: File, uploadProgress: UploadProgressCallbacks) => Promise<void>
+			onGetUploadUrl?: never
+			onUploadComplete?: never
+	  }
 	| {
 			onUploadFile?: never
 			onGetUploadUrl: (file: File) => Promise<string | null>
@@ -21,11 +27,9 @@ type FileUploadHandlers =
 
 export type UseFileDropzoneParams = FileUploadHandlers & {
 	accept: Record<string, string[]>
-	supportedFormatsStr: string
+	supportedFormatsStr?: string
 	disabled?: boolean
 	maxSize?: number
-	noClick?: boolean
-	noKeyboard?: boolean
 }
 
 export function useFileDropzone(params: UseFileDropzoneParams, { notifyOnError = true } = {}) {
@@ -40,20 +44,27 @@ export function useFileDropzone(params: UseFileDropzoneParams, { notifyOnError =
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
 	const isUploading =
-		inputStatus === FileDropzoneStatus.FILE_SELECTED || inputStatus === FileDropzoneStatus.FILE_UPLOADING
+		inputStatus === FileDropzoneStatus.FILE_SELECTED ||
+		inputStatus === FileDropzoneStatus.FILE_UPLOADING ||
+		inputStatus === FileDropzoneStatus.FILE_PROCESSING
+
+	function updateProgress(loaded: number, total: number) {
+		setUploadedBytes(loaded)
+		setTotalBytes(total)
+	}
 
 	async function uploadFile(file: File) {
 		if (params.onUploadFile) {
-			return params.onUploadFile(file)
+			return params.onUploadFile(file, {
+				onProgress: updateProgress,
+				onTransferComplete: () => setInputStatus(FileDropzoneStatus.FILE_PROCESSING),
+			})
 		}
 
 		const uploadUrl = await params.onGetUploadUrl(file)
 		if (!uploadUrl) throw new Error(t('uploadUrlError'))
 
-		await uploadBySignedUrl(uploadUrl, file, function (loaded, total) {
-			setUploadedBytes(loaded)
-			setTotalBytes(total)
-		}).catch(function (cause) {
+		await uploadBySignedUrl(uploadUrl, file, updateProgress).catch(function (cause) {
 			throw new Error(t('uploadError'), { cause })
 		})
 
@@ -73,8 +84,8 @@ export function useFileDropzone(params: UseFileDropzoneParams, { notifyOnError =
 		multiple: false,
 		disabled: disabled || isUploading,
 		maxSize,
-		noClick: params.noClick,
-		noKeyboard: params.noKeyboard,
+		noClick: true,
+		noKeyboard: true,
 		onDragEnter() {
 			if (!uploading.current) setInputStatus(FileDropzoneStatus.FILE_DRAGGING)
 		},
@@ -103,12 +114,12 @@ export function useFileDropzone(params: UseFileDropzoneParams, { notifyOnError =
 			if (uploading.current || disabled) return
 			setInputStatus(FileDropzoneStatus.IDLE)
 			const tooLarge = files.some((file) => file.errors.some((error) => error.code === 'file-too-large'))
-			const message =
-				tooLarge && maxSize
-					? t('fileTooLarge', { maxSizeMb: Math.round(maxSize / 1024 / 1024) })
-					: t('wrongFile', { formats: supportedFormatsStr })
+			if (tooLarge && maxSize) {
+				reportError(t('fileTooLarge', { maxSizeMb: Math.round(maxSize / 1024 / 1024) }))
+				return
+			}
 
-			reportError(message)
+			reportError(supportedFormatsStr ? t('wrongFile', { formats: supportedFormatsStr }) : t('unsupportedFile'))
 		},
 	})
 

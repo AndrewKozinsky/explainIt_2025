@@ -20,13 +20,11 @@
     "loading": "Загружаем готовые аватары…",
     "loadError": "Не удалось загрузить готовые аватары.",
     "retry": "Повторить",
-    "photoHint": "Своё фото — JPEG, PNG, WebP до 30 МБ.",
     "presetLabel": "{gender, select, MALE {Мужской портрет {number}} other {Женский портрет {number}}}",
     "imageUnavailable": "Изображение недоступно",
     "ownPhoto": "Своё фото",
-    "uploadOwnPhoto": "Загрузить свою фотографию",
-    "uploading": "Загружаем…",
     "deleteOwnPhoto": "Удалить своё фото",
+    "processingPhoto": "Обрабатываем фото…",
     "deleting": "Удаляем фото…"
   }
 }

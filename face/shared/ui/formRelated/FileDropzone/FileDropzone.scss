@@ -18,54 +18,35 @@
 	box-sizing: border-box;
 	padding: 1.1rem 1.2rem;
 	overflow: hidden;
-	border: 1px solid vars.$grayColor-3;
 	border-radius: vars.$radius-1;
 	background-color: #fff;
-	color: vars.$textColor;
 	text-align: center;
-	transition: border-color 0.2s ease-in-out,
-	background-color 0.2s ease-in-out;
-
-	> input[type='file'] {
-		position: absolute;
-		inset: 0 auto auto 0;
-	}
-
-	&:not([aria-disabled='true']) {
-		cursor: pointer;
-	}
-
-	&:not([aria-disabled='true']):hover {
-		border-color: vars.$grayColor-5;
-	}
-
-	&:focus-visible {
-		outline: 2px solid vars.$linkColor-2;
-		outline-offset: 2px;
-	}
 }
 
 .file-dropzone--dragging,
-.file-dropzone--uploading {
+.file-dropzone--uploading:disabled {
 	color: vars.$linkColor-2;
-
-	&,
-	&:not([aria-disabled='true']):hover {
-		border-color: currentColor;
-	}
 }
 
 .file-dropzone--dragging {
 	background-color: vars.$linkColor-1;
 }
 
+.file-dropzone.file-dropzone--uploading:disabled {
+	&,
+	&:hover {
+		background-color: #fff;
+	}
+}
+
 .file-dropzone--error {
 	color: vars.$dangerColor-1;
+}
 
-	&,
-	&:not([aria-disabled='true']):hover {
-		border-color: currentColor;
-	}
+.file-dropzone--dragging:not(:focus, :hover),
+.file-dropzone--uploading:not(:focus),
+.file-dropzone--error:not(:focus, :hover) {
+	border-color: currentColor;
 }
 
 .file-dropzone__icon {

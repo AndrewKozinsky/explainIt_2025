@@ -20,13 +20,11 @@
     "loading": "Hazır avatarlar yükleniyor…",
     "loadError": "Hazır avatarlar yüklenemedi.",
     "retry": "Tekrar dene",
-    "photoHint": "Kendi fotoğrafınız: JPEG, PNG, WebP · en fazla 30 MB.",
     "presetLabel": "{gender, select, MALE {Erkek portresi {number}} other {Kadın portresi {number}}}",
     "imageUnavailable": "Görsel kullanılamıyor",
     "ownPhoto": "Kendi fotoğrafınız",
-    "uploadOwnPhoto": "Kendi fotoğrafınızı yükleyin",
-    "uploading": "Yükleniyor…",
     "deleteOwnPhoto": "Kendi fotoğrafınızı silin",
+    "processingPhoto": "Fotoğraf işleniyor…",
     "deleting": "Fotoğraf siliniyor…"
   }
 }

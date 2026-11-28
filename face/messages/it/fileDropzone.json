@@ -2,11 +2,12 @@
   "chooseFile": "Scegli file",
   "dropFile": "Rilascia il file qui",
   "uploading": "Caricamento ed elaborazione del file…",
-  "uploadProgress": "{uploadedMb} MB di {totalMb} MB",
+  "uploadProgress": "{uploaded} di {total}",
   "tryAgain": "Riprova.",
   "videoDurationError": "Impossibile determinare la durata del video",
   "uploadError": "Impossibile caricare il file",
   "uploadUrlError": "Impossibile ottenere il link di caricamento",
   "fileTooLarge": "Il file è troppo grande. La dimensione massima è {maxSizeMb} MB.",
-  "wrongFile": "Scegli un file: {formats}."
+  "wrongFile": "Scegli un file: {formats}.",
+  "unsupportedFile": "Scegli un solo file in un formato supportato."
 }

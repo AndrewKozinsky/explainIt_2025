@@ -2,11 +2,12 @@
   "chooseFile": "Dosya seç",
   "dropFile": "Dosyayı buraya bırakın",
   "uploading": "Dosya yükleniyor ve işleniyor…",
-  "uploadProgress": "{uploadedMb} MB / {totalMb} MB",
+  "uploadProgress": "{uploaded} / {total}",
   "tryAgain": "Tekrar deneyin.",
   "videoDurationError": "Video süresi belirlenemedi",
   "uploadError": "Dosya yüklenemedi",
   "uploadUrlError": "Yükleme bağlantısı alınamadı",
   "fileTooLarge": "Dosya çok büyük. En fazla {maxSizeMb} MB olabilir.",
-  "wrongFile": "Bir dosya seçin: {formats}."
+  "wrongFile": "Bir dosya seçin: {formats}.",
+  "unsupportedFile": "Desteklenen bir biçimde tek bir dosya seçin."
 }

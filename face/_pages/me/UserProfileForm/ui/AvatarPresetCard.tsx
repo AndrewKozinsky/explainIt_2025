@@ -18,7 +18,7 @@ function AvatarPresetCard({ preset, selected, disabled, gender, onSelect }: Avat
 	return (
 		<BaseButton
 			type='button'
-			theme='unstyled'
+			theme='outline'
 			extraClass='avatar-preset-picker__preset'
 			aria-pressed={selected}
 			aria-label={label}

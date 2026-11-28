@@ -20,13 +20,11 @@
     "loading": "Chargement des avatars prêts à l’emploi…",
     "loadError": "Impossible de charger les avatars prêts à l’emploi.",
     "retry": "Réessayer",
-    "photoHint": "Votre photo : JPEG, PNG, WebP · jusqu’à 30 Mo.",
     "presetLabel": "{gender, select, MALE {Portrait masculin {number}} other {Portrait féminin {number}}}",
     "imageUnavailable": "Image indisponible",
     "ownPhoto": "Votre photo",
-    "uploadOwnPhoto": "Importer votre photo",
-    "uploading": "Importation…",
     "deleteOwnPhoto": "Supprimer votre photo",
+    "processingPhoto": "Traitement de la photo…",
     "deleting": "Suppression de la photo…"
   }
 }

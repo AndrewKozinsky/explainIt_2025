@@ -20,13 +20,11 @@
     "loading": "Fertige Avatare werden geladen…",
     "loadError": "Fertige Avatare konnten nicht geladen werden.",
     "retry": "Erneut versuchen",
-    "photoHint": "Eigene Fotos: JPEG, PNG, WebP · bis 30 MB.",
     "presetLabel": "{gender, select, MALE {Männliches Porträt {number}} other {Weibliches Porträt {number}}}",
     "imageUnavailable": "Bild nicht verfügbar",
     "ownPhoto": "Eigenes Foto",
-    "uploadOwnPhoto": "Eigenes Foto hochladen",
-    "uploading": "Wird hochgeladen…",
     "deleteOwnPhoto": "Eigenes Foto löschen",
+    "processingPhoto": "Foto wird verarbeitet…",
     "deleting": "Foto wird gelöscht…"
   }
 }

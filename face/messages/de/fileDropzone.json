@@ -2,11 +2,12 @@
   "chooseFile": "Datei auswählen",
   "dropFile": "Datei hier ablegen",
   "uploading": "Die Datei wird hochgeladen und verarbeitet…",
-  "uploadProgress": "{uploadedMb} MB von {totalMb} MB",
+  "uploadProgress": "{uploaded} von {total}",
   "tryAgain": "Versuchen Sie es erneut.",
   "videoDurationError": "Die Dauer des Videos konnte nicht ermittelt werden",
   "uploadError": "Die Datei konnte nicht hochgeladen werden",
   "uploadUrlError": "Der Upload-Link konnte nicht abgerufen werden",
   "fileTooLarge": "Die Datei ist zu groß. Maximale Größe: {maxSizeMb} MB.",
-  "wrongFile": "Wählen Sie eine Datei: {formats}."
+  "wrongFile": "Wählen Sie eine Datei: {formats}.",
+  "unsupportedFile": "Wählen Sie eine einzelne Datei in einem unterstützten Format."
 }

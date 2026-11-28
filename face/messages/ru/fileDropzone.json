@@ -2,11 +2,12 @@
   "chooseFile": "Выбрать файл",
   "dropFile": "Бросьте файл",
   "uploading": "Загрузка и обработка файла…",
-  "uploadProgress": "{uploadedMb} МБ из {totalMb} МБ",
+  "uploadProgress": "{uploaded} из {total}",
   "tryAgain": "Попробуйте ещё раз.",
   "videoDurationError": "Не удалось определить длительность видео",
   "uploadError": "Не удалось загрузить файл",
   "uploadUrlError": "Не удалось получить ссылку для загрузки",
   "fileTooLarge": "Файл слишком большой. Максимальный размер — {maxSizeMb} МБ.",
-  "wrongFile": "Выберите один файл: {formats}."
+  "wrongFile": "Выберите один файл: {formats}.",
+  "unsupportedFile": "Выберите один файл поддерживаемого формата."
 }

@@ -1,6 +1,7 @@
 import { notifyBalanceExhausted } from '@/shared/api/balanceExhaustedSignal'
 import { getApiInternalUrl } from '@/shared/api/getApiInternalUrl'
 import { getRequestLocale } from '@/shared/api/getRequestLocale'
+import { uploadWithProgress, type UploadProgressCallbacks } from '@/shared/api/uploadWithProgress'
 
 /**
  * Custom mutator for Orval-generated API calls.
@@ -26,7 +27,9 @@ export class ApiError extends Error {
 	}
 }
 
-export async function customMutator<TResponse = unknown>(url: string, options?: RequestInit): Promise<TResponse> {
+type ApiRequestOptions = RequestInit & { uploadProgress?: UploadProgressCallbacks }
+
+export async function customMutator<TResponse = unknown>(url: string, options?: ApiRequestOptions): Promise<TResponse> {
 	// When running on the server (Server Components), relative URLs need an absolute base.
 	// In Docker, the Next.js server cannot reach nginx via localhost — use the internal
 	// Docker hostname of the server container directly.
@@ -63,11 +66,11 @@ export async function customMutator<TResponse = unknown>(url: string, options?: 
 	const locale = await getRequestLocale()
 	if (locale && !headers.has('Accept-Language')) headers.set('Accept-Language', locale)
 
-	const res = await fetch(url, {
-		...options,
-		headers,
-		credentials: 'include', // Send session cookie (client-side)
-	})
+	const { uploadProgress, ...requestOptions } = options ?? {}
+	const res =
+		uploadProgress && typeof XMLHttpRequest !== 'undefined' && requestOptions.body instanceof FormData
+			? await uploadWithProgress(url, requestOptions.body, { ...requestOptions, headers }, uploadProgress)
+			: await fetch(url, { ...requestOptions, headers, credentials: 'include' })
 
 	if (!res.ok) {
 		let body: unknown

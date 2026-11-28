@@ -1,4 +1,5 @@
 import { queryOptions } from '@tanstack/react-query'
+import type { UploadProgressCallbacks } from '@/shared/api/uploadWithProgress'
 import { unwrapApiResult } from '@/shared/utils/fetchData/unwrapApiResult'
 import { userService } from './UserService'
 import type { UserService } from './UserService'
@@ -32,8 +33,8 @@ export class UserQueryFacade {
 		return { mutationFn: (input: UpdateUserProfileInput) => this.service.updateMe(input) }
 	}
 
-	uploadAvatar() {
-		return { mutationFn: (file: File) => this.service.uploadAvatar(file) }
+	uploadAvatar(uploadProgress?: UploadProgressCallbacks) {
+		return { mutationFn: (file: File) => this.service.uploadAvatar(file, uploadProgress) }
 	}
 
 	deleteAvatar() {

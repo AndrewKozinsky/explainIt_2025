@@ -20,13 +20,11 @@
     "loading": "Loading ready-made avatars…",
     "loadError": "Could not load ready-made avatars.",
     "retry": "Retry",
-    "photoHint": "Your photo: JPEG, PNG, WebP · up to 30 MB.",
     "presetLabel": "{gender, select, MALE {Male portrait {number}} other {Female portrait {number}}}",
     "imageUnavailable": "Image unavailable",
     "ownPhoto": "Your photo",
-    "uploadOwnPhoto": "Upload your photo",
-    "uploading": "Uploading…",
     "deleteOwnPhoto": "Delete your photo",
+    "processingPhoto": "Processing photo…",
     "deleting": "Deleting photo…"
   }
 }

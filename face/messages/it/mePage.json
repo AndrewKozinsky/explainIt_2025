@@ -20,13 +20,11 @@
     "loading": "Caricamento degli avatar predefiniti…",
     "loadError": "Impossibile caricare gli avatar predefiniti.",
     "retry": "Riprova",
-    "photoHint": "La tua foto: JPEG, PNG, WebP · fino a 30 MB.",
     "presetLabel": "{gender, select, MALE {Ritratto maschile {number}} other {Ritratto femminile {number}}}",
     "imageUnavailable": "Immagine non disponibile",
     "ownPhoto": "La tua foto",
-    "uploadOwnPhoto": "Carica la tua foto",
-    "uploading": "Caricamento…",
     "deleteOwnPhoto": "Elimina la tua foto",
+    "processingPhoto": "Elaborazione della foto…",
     "deleting": "Eliminazione della foto…"
   }
 }

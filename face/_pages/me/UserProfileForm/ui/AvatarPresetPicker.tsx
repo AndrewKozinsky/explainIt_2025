@@ -44,7 +44,6 @@ function AvatarPresetPicker(props: AvatarPresetPickerProps) {
 				<div className='avatar-preset-picker__own-photo'>{children}</div>
 				{presets.map(renderPreset)}
 			</div>
-			<p className='avatar-preset-picker__photo-hint'>{t('photoHint')}</p>
 		</LabelWithField>
 	)
 }

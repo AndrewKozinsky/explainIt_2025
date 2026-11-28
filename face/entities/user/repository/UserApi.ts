@@ -5,6 +5,7 @@ import {
 	userControllerUpdateMe,
 	userControllerUploadAvatar,
 } from '@/shared/api/generated/user/user'
+import type { UploadProgressCallbacks } from '@/shared/api/uploadWithProgress'
 import { executeApiCall } from '@/shared/utils/fetchData/executeApiCall'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 import { mapToAvatarPreset, mapToUser } from './UserMappers'
@@ -27,8 +28,8 @@ export class UserApi implements UserRepository {
 		return executeApiCall(() => userControllerUpdateMe(input), mapToUser)
 	}
 
-	uploadAvatar(file: File): Promise<ApiResult<UserModel>> {
-		return executeApiCall(() => userControllerUploadAvatar({ file }), mapToUser)
+	uploadAvatar(file: File, uploadProgress?: UploadProgressCallbacks): Promise<ApiResult<UserModel>> {
+		return executeApiCall(() => userControllerUploadAvatar({ file }, { uploadProgress }), mapToUser)
 	}
 
 	deleteAvatar(): Promise<ApiResult<UserModel>> {

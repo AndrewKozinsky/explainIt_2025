@@ -1,3 +1,4 @@
+import type { UploadProgressCallbacks } from '@/shared/api/uploadWithProgress'
 import type { ApiResult } from '@/shared/utils/fetchData/executeApiCall'
 
 export type UserGender = 'MALE' | 'FEMALE'
@@ -39,6 +40,6 @@ export type UserRepository = {
 	getMe(signal?: AbortSignal): Promise<ApiResult<UserModel>>
 	getAvatarPresets(signal?: AbortSignal): Promise<ApiResult<AvatarPresetModel[]>>
 	updateMe(input: UpdateUserProfileInput): Promise<ApiResult<UserModel>>
-	uploadAvatar(file: File): Promise<ApiResult<UserModel>>
+	uploadAvatar(file: File, uploadProgress?: UploadProgressCallbacks): Promise<ApiResult<UserModel>>
 	deleteAvatar(): Promise<ApiResult<UserModel>>
 }
